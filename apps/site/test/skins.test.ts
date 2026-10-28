@@ -31,3 +31,12 @@ test('preview script honours ?skin= before first paint', () => {
   const head = html.slice(0, html.indexOf('</head>'))
   expect(head).toMatch(/data-skin-preview/)
 })
+
+test('A/B beacon is on every page, small, and tracks sponsored clicks', () => {
+  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const js = dom.querySelector('script[data-beacon]')?.text ?? ''
+  expect(js.length).toBeLessThan(1500)
+  expect(js).toContain("a[rel~=sponsored]")
+  expect(js).toContain("'/_e'")
+  expect(dom.querySelector('a[rel~="sponsored"]')).not.toBeNull()
+})
