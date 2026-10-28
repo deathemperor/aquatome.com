@@ -1,0 +1,32 @@
+import type { SourceId } from '@aq/schema'
+
+export type SourceConfig = {
+  id: SourceId
+  discover: { kind: 'sitemap'; urls: string[] } | { kind: 'crawl'; start: string[] }
+  include: RegExp
+  exclude?: RegExp
+  contentSelector?: string
+  delayMs: number
+}
+
+const POLITE = 5000
+
+/** Recon 2026-10-28; include patterns are tuned against live sitemaps (see plan 2 ledger). */
+export const SOURCES: SourceConfig[] = [
+  { id: 'seriouslyfish', discover: { kind: 'sitemap', urls: ['https://www.seriouslyfish.com/sitemap.xml'] }, include: /seriouslyfish\.com\/species\/[a-z0-9-]+$/, contentSelector: 'main', delayMs: POLITE },
+  { id: 'planetcatfish', discover: { kind: 'crawl', start: ['https://www.planetcatfish.com/'] }, include: /planetcatfish\.com\/.*species/, delayMs: POLITE },
+  { id: 'loachesonline', discover: { kind: 'crawl', start: ['https://www.loaches.com/'] }, include: /loaches\.com\/species-index\/[a-z0-9-]+/, delayMs: POLITE },
+  { id: 'glaser', discover: { kind: 'sitemap', urls: ['https://www.aquariumglaser.de/sitemap_index.xml'] }, include: /aquariumglaser\.de\/en\/[a-z0-9-]+\/[a-z0-9-]+/, exclude: /\/(category|tag|page|author)\//, delayMs: POLITE },
+  { id: 'bwaquatics', discover: { kind: 'sitemap', urls: ['https://bwaquatics.com/sitemap.xml'] }, include: /bwaquatics\.com\/products\/[a-z0-9-]+$/, delayMs: POLITE },
+  { id: '2hraquarist', discover: { kind: 'sitemap', urls: ['https://www.2hraquarist.com/sitemap.xml'] }, include: /2hraquarist\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+$/, delayMs: POLITE },
+  { id: 'aquariumcoop', discover: { kind: 'sitemap', urls: ['https://www.aquariumcoop.com/sitemap.xml'] }, include: /aquariumcoop\.com\/blogs\/aquarium\/[a-z0-9-]+$/, delayMs: POLITE },
+  { id: 'sprucepets', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'] }, include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /4162057$/, delayMs: POLITE },
+  { id: 'aquariumbreeder', discover: { kind: 'sitemap', urls: ['https://aquariumbreeder.com/sitemap_index.xml'] }, include: /aquariumbreeder\.com\/[a-z0-9-]+\/?$/, exclude: /\/(category|tag|page|author|shop|cart|contact|about)/, delayMs: POLITE },
+  { id: 'tropica', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, delayMs: POLITE },
+]
+
+export const sourceById = (id: SourceId): SourceConfig => {
+  const s = SOURCES.find(x => x.id === id)
+  if (!s) throw new Error(`unknown source ${id}`)
+  return s
+}
