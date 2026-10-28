@@ -1,0 +1,73 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+.lbl{font:600 12px/1.4 var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 8px;padding-top:4px}
+.m{border-radius:var(--radius);overflow:hidden;background:#f3eee3;color:#1d2a22;font-family:'Be Vietnam Pro',sans-serif}
+nav{display:flex;align-items:center;gap:18px;padding:14px 24px;font-size:13px;background:#06141a;color:#cfe3df}
+.logo{font:600 20px 'Fraunces',serif;color:#fff;margin-right:auto}.logo i{color:#5fe0c6;font-style:normal}
+.crumb{padding:12px 24px 0;font-size:11.5px;color:#6b776f}
+.head{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;padding:14px 24px 22px}
+.ph{aspect-ratio:4/3;background:#fff url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg) center/cover;border:8px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.thumbs{display:flex;gap:6px;margin-top:8px}.thumbs div{width:56px;height:42px;background:center/cover;border:3px solid #fff}
+.credit{font-size:10px;color:#8a948d;margin-top:6px}
+.kick{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a0522d}
+h1{font:400 36px/1.05 'Fraunces',serif;letter-spacing:-.015em;margin:6px 0 2px}
+.lat{font:italic 17px 'Fraunces',serif;color:#4d5a52}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid #d9d0bd;margin-top:14px;background:#fbf8f1}
+.stats div{padding:9px 11px;border-right:1px solid #d9d0bd;border-bottom:1px solid #d9d0bd;font-size:10.5px;color:#6b776f;text-transform:uppercase;letter-spacing:.05em}
+.stats div:nth-child(3n){border-right:0}.stats div:nth-child(n+4){border-bottom:0}
+.stats b{display:block;font:400 18px 'Fraunces',serif;color:#1d2a22;text-transform:none;letter-spacing:0}
+.dots{display:flex;gap:3px;margin-top:5px}.dots i{width:16px;height:5px;border-radius:2px;background:#d9d0bd}.dots i.y{background:#2f6b4f}
+.srcline{margin-top:12px;font-size:11.5px;color:#4d5a52;background:#e8e1d1;padding:8px 10px;border-left:3px solid #2f6b4f}
+.vid{background:#06141a;color:#e6f1ef;padding:20px 24px}
+.vh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}.vh h2{font:400 21px 'Fraunces',serif}.vh span{font-size:11.5px;color:#7f9e98}
+.vg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px}
+.v{position:relative;border-radius:12px;overflow:hidden;height:170px;background:center/cover;display:flex;align-items:flex-end}
+.v:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.75))}
+.v .play{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-60%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:#06141a;font-size:15px}
+.v p{position:relative;z-index:2;padding:9px 10px;font-size:11.5px;line-height:1.3}.v p small{display:block;color:#9fb9b4;font-size:10px;margin-top:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.col{padding:20px 24px}.col+.col{border-left:1px solid #d9d0bd}
+h3{font:400 19px 'Fraunces',serif;border-bottom:2px solid #1d2a22;padding-bottom:6px;margin-bottom:12px}
+.p{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dotted #c9bfa9}
+.p .pi{width:46px;height:46px;border-radius:8px;background:#fff center/cover;flex:none}
+.p b{display:block;font-size:12.5px;font-weight:600}.p small{font-size:11px;color:#6b776f}
+.p .pr{margin-left:auto;text-align:right;font-size:12.5px;font-weight:700;color:#a0522d;white-space:nowrap}.p .pr small{display:block;font-weight:400;color:#2f6b4f;font-size:10px}
+.cm{padding:9px 0;border-bottom:1px dotted #c9bfa9;font-size:12.5px;line-height:1.45}
+.cm b{font-size:12px}.cm .badge{font-size:10px;background:#d6ff5c;color:#0d2b2a;padding:1px 6px;border-radius:99px;margin-left:6px;font-weight:600}.cm small{color:#8a948d;font-size:10.5px;margin-left:6px}
+.box{margin-top:10px;border:1px solid #d9d0bd;background:#fbf8f1;padding:9px 11px;font-size:12px;color:#8a948d}
+</style></head><body>
+<p class="lbl">Bản Mix · Trang hồ sơ loài — giấy B + dải video tối A + affiliate + bình luận</p>
+<div class="m">
+ <nav><span class="logo">thủy<i>·</i>sinh</span><span>Loài cá</span><span>Cây</span><span>Hướng dẫn</span><span>Thiết bị</span><span>⌕</span></nav>
+ <div class="crumb">Loài cá › Characidae › Paracheirodon</div>
+ <div class="head">
+  <div><div class="ph"></div>
+   <div class="thumbs"><div style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/960px-Neonsalmler_Paracheirodon_innesi.jpg)"></div><div style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg/1280px-Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg)"></div><div style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg);background-position:30% 40%"></div><div style="background:#e8e1d1;display:grid;place-items:center;font-size:11px;color:#4d5a52">+9</div></div>
+   <p class="credit">Ảnh: Wikimedia Commons, CC BY-SA</p></div>
+  <div><div class="kick">Characidae · Nam Mỹ · Rio Negro</div>
+   <h1>Cá neon vua</h1><div class="lat">Paracheirodon axelrodi</div>
+   <div class="stats">
+    <div>Nhiệt độ<b>24–30°C</b></div><div>pH<b>4.0–6.0</b></div><div>Độ cứng<b>1–6 dGH</b></div>
+    <div>Kích thước<b>5 cm</b></div><div>Bể tối thiểu<b>60 cm</b></div><div>Độ khó<span class="dots"><i class="y"></i><i class="y"></i><i></i></span></div>
+   </div>
+   <div class="srcline">Dịch từ <b>Seriously Fish</b> · bản gốc sửa 3 ngày trước, đã cập nhật · <u>Xem bản gốc ↗</u></div></div>
+ </div>
+ <div class="vid"><div class="vh"><h2>Video</h2><span>Chọn lọc tự động từ YouTube · 3 / 7</span></div>
+  <div class="vg">
+   <div class="v" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg/1280px-Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg)"><span class="play">▶</span><p>Đàn neon vua 40 con trong bể 120L<small>12:04 · tiếng Việt</small></p></div>
+   <div class="v" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg)"><span class="play">▶</span><p>Cho đẻ neon vua<small>8:42 · EN, phụ đề</small></p></div>
+   <div class="v" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/960px-Neonsalmler_Paracheirodon_innesi.jpg)"><span class="play">▶</span><p>Neon vua vs neon xanh<small>5:10 · EN</small></p></div>
+  </div></div>
+ <div class="two">
+  <div class="col"><h3>Thiết bị phù hợp</h3>
+   <div class="p"><div class="pi" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Planted_Nano_Aquarium.JPG/960px-Planted_Nano_Aquarium.JPG)"></div><div><b>Bể kính siêu trong 60×30×36</b><small>Shopee · Mall</small></div><div class="pr">890.000₫<small>✓ kiểm tra hôm nay</small></div></div>
+   <div class="p"><div class="pi" style="background:#dfe8e4;display:grid;place-items:center;font-size:18px">◎</div><div><b>Lọc thùng 600L/h</b><small>Lazada</small></div><div class="pr">1.150.000₫<small>✓ kiểm tra hôm nay</small></div></div>
+   <div class="p"><div class="pi" style="background:#dfe8e4;display:grid;place-items:center;font-size:18px">☼</div><div><b>Phân nền thủy sinh 9L</b><small>Shopee</small></div><div class="pr">320.000₫<small>✓ kiểm tra hôm nay</small></div></div></div>
+  <div class="col"><h3>Thảo luận · 24</h3>
+   <div class="cm"><b>Minh Tuấn</b><span class="badge">Trả lời hay</span><small>2 ngày</small><br>Nước máy HN pH 7.5 vẫn nuôi được, mình dùng lá bàng + lọc RO pha 50/50, đàn 30 con sống 2 năm rồi.</div>
+   <div class="cm"><b>Hà Linh</b><small>5 giờ</small><br>Neon vua có ăn tép con không ạ? Bể mình đang có tép cherry.</div>
+   <div class="box">Viết bình luận…</div></div>
+ </div>
+</div></body></html>

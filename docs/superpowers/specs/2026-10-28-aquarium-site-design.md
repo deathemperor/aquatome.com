@@ -124,17 +124,18 @@ Slugs from VN common name; scientific-name URLs 301 to them. `hreflang` + canoni
 2. **Fetch (home):** real Chrome (automation library of builder's choice), one page every few seconds per source, normal headers, no stealth tooling. Store raw HTML + extracted clean content + images + metadata in the repo (`sources/{source}/…`) so each source edit is a git diff. If a source blocks even this, mark it failing and alert — do not escalate evasion.
 3. **Translate (home, Claude Code):** paragraph-level diff → translate only changed paragraphs. Glossary enforced (VN common names, Latin names kept, metric units). Extract structured facts (temp, pH, GH, size, tank size, difficulty) into the data card.
 4. **Enrich (home):** resolve species via GBIF; attach licensed photos (§4.2) with per-image credit; find YouTube videos by scientific + common name, Claude vets that the video actually shows the species and is decent, keep top 2–4, prefer Vietnamese-language; auto-link glossary terms and entity mentions.
-5. **Quality gate (home, Claude Code):** second pass reviews each translated page against source + glossary and scores it. Below threshold → page published as `noindex` and flagged for review. A random ~2% sample per week goes to a human spot-check list in the dashboard. A page becomes indexable only after passing.
+5. **Quality gate (home, Claude Code):** second pass reviews each translated page against source + glossary and scores it. Below threshold → automatic re-translation with the reviewer's notes (up to 2 retries); still failing → published `noindex` and listed in the dashboard. Human review is **optional**: a weekly ~2% sample + persistent failures, reviewed by the owner (or a hired VN reviewer) when convenient. A page is indexable once it passes the automatic gate.
 6. **Publish:** commit → Cloudflare build/deploy. Daily summary: new/updated pages, failed sources, quality flags.
 
-**Backfill:** all sources together. Queue is **resumable and idempotent** (safe to stop/restart, never double-translates). Launch when backfill + quality gate complete. Real duration is measured, not promised.
+**Backfill:** all sources together. Fetch + translate may start **before** a source's permission is recorded; nothing from that source is published until it is. Queue is **resumable and idempotent** (safe to stop/restart, never double-translates). Launch when backfill + quality gate complete. Real duration is measured, not promised.
 
 **When the home machine is offline:** site, comments intake, affiliate checks and A/B test keep running. Paused: fetching, translation, video vetting, comment moderation.
 
 ## 7. Affiliate system
 
 - Network-agnostic product catalog in D1: product, category/species/plant links, `network` adapter (Shopee Affiliate, Lazada, Tiki, AccessTrade, Involve Asia — added when accounts exist).
-- **Daily checker (cloud):** via the networks' **official APIs** (not scraping — Shopee/Lazada are bot-protected too): live? in stock? price? Dead/out-of-stock → swap to the closest matching active product. Before accounts exist: links are plain, checker verifies liveness only.
+- **Daily checker (cloud):** via the networks' **official APIs** (not scraping — Shopee/Lazada are bot-protected too): live? in stock? price? Dead/out-of-stock → swap to the closest matching active product. (Pre-account behaviour below.)
+- **Before accounts exist:** catalog is hand-seeded by Claude (product type + search keywords per species/plant/category). Blocks render as Shopee/Lazada **search-result links** for those keywords (never go dead, no liveness scraping needed). When an account is added, the network API fills concrete products and the daily checker takes over.
 - Placement: species pages (equipment, food, plants), plant pages, equipment guides, setup guides. Show price + "checked today".
 - Click tracking feeds the A/B dashboard.
 
@@ -152,11 +153,11 @@ Four skins built on one site (same pages, data, components, URLs):
 - **C "Khám phá"** — bright bento, mobile-first, playful.
 - **Mix (default)** — A's hero + C's tank-match tool and colour filters + B's specimen cards and species profile; dark video band.
 
-Mockups shown in conversation (2026-10-28) are the reference for look and feel. Typography must support Vietnamese diacritics (mockups used Fraunces / Newsreader / Bricolage Grotesque + Be Vietnam Pro).
+Reference mockups (real Commons photos, VN copy): `docs/superpowers/specs/mockups/` — `skin-a-day-sau.html`, `skin-b-so-tay.html`, `skin-c-kham-pha.html`, `mix-home.html`, `mix-species-profile.html`. They define look and feel, not exact layout. Typography must support Vietnamese diacritics (mockups used Fraunces / Newsreader / Bricolage Grotesque + Be Vietnam Pro).
 
 Rule: **skins change presentation only**. Googlebot always gets the default skin.
 
-**A/B test:** a Worker assigns a skin per visitor (cookie, sticky); events (pages/visit, time, scroll depth, affiliate clicks, ad RPM) go to Workers Analytics Engine; dashboard shows per-skin results; traffic shifts toward the winner once significant. Note: skins mainly move engagement/affiliate/ad metrics, not inbound search traffic.
+**A/B test:** a Worker assigns a skin per visitor (cookie, sticky); events (pages/visit, time, scroll depth, affiliate clicks, ad RPM) go to Workers Analytics Engine; dashboard shows per-skin results; **winning metric = estimated revenue per 1,000 visits** (ad RPM + affiliate clicks × est. value), guard-railed by pages/visit not dropping. Allocation is automatic (multi-armed bandit, min. 10% per skin until significance). When a skin wins, it also becomes the default/Googlebot skin. Note: skins mainly move engagement/affiliate/ad metrics, not inbound search traffic.
 
 Ads: Google AdSense, placed per skin without breaking layout.
 
