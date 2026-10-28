@@ -4,8 +4,10 @@
   --c-paper: #06141a; --c-plate: #0c222a; --c-ink: #e6f1ef; --c-ink-soft: #b4cbc7; --c-ink-faint: #8fb0aa; --c-rule: #18404a;
   --c-moss: #5fe0c6; --c-cardinal: #ff8f80; --c-neon: #5fe0c6; --c-blackwater: #06141a; --c-blackwater-2: #0c222a;
   --radius-plate: 12px; --radius-media: 16px;
+  --c-focus: #5fe0c6;
   color-scheme: dark;
 }
+:root[data-skin="a"]:not(#_) .search:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 :root[data-skin="a"]:not(#_) body { background: radial-gradient(120% 60% at 50% 0, #0b2a33 0, #06141a 60%) fixed; }
 :root[data-skin="a"]:not(#_) a:hover { color: #fff; }
 :root[data-skin="a"]:not(#_) h1, :root[data-skin="a"]:not(#_) h2 { letter-spacing: -0.02em; }

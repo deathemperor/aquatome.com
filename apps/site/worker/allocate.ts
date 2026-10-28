@@ -29,24 +29,25 @@ const beta = (a: number, b: number, rand: () => number) => { const x = gamma(a, 
  */
 export function allocate(stats: Record<Skin, SkinStats>, rand: () => number, draws = 2000): Weights {
   if (SKINS.every(s => !stats[s]?.visits)) return { ...EQUAL }
+  const mix = stats.mix
+  const mixPpv = mix && mix.visits ? mix.pages / mix.visits : 0
+  const guarded = (s: Skin) => {
+    const st = stats[s]
+    return s !== 'mix' && !!st && !!mix && st.visits >= GUARD_MIN_VISITS && mix.visits >= GUARD_MIN_VISITS && st.pages / st.visits < 0.8 * mixPpv
+  }
+  const contenders = SKINS.filter(s => !guarded(s)) // always includes mix, so wins add up to draws
   const wins: Record<Skin, number> = { mix: 0, a: 0, b: 0, c: 0 }
   for (let i = 0; i < draws; i++) {
     let best: Skin = 'mix'
     let bestV = -1
-    for (const s of SKINS) {
+    for (const s of contenders) {
       const st = stats[s] ?? { visits: 0, converted: 0 }
       const v = beta(st.converted + 1, Math.max(0, st.visits - st.converted) + 1, rand)
       if (v > bestV) { bestV = v; best = s }
     }
     wins[best]++
   }
-  const mix = stats.mix
-  const mixPpv = mix && mix.visits ? mix.pages / mix.visits : 0
-  for (const s of SKINS) {
-    const st = stats[s]
-    if (s !== 'mix' && st && mix && st.visits >= GUARD_MIN_VISITS && mix.visits >= GUARD_MIN_VISITS && st.pages / st.visits < 0.8 * mixPpv) wins[s] = 0
-  }
-  const total = SKINS.reduce((t, s) => t + wins[s], 0) || 1
+  const total = draws
   const free = 1 - FLOOR * SKINS.length
   return Object.fromEntries(SKINS.map(s => [s, FLOOR + (free * wins[s]) / total])) as Weights
 }

@@ -22,8 +22,8 @@ export function summarise(rows: Row[]): Record<Skin, SkinStats> {
 }
 
 export const STATS_SQL = (days: number) => `SELECT blob1 AS skin, blob4 AS sid,
-  SUM(IF(blob2 = 'view', 1, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0)) AS t,
-  MAX(IF(blob2 = 'scroll', double1, 0)) AS scroll, SUM(IF(blob2 = 'aff', 1, 0)) AS clicks
+  SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0)) AS t,
+  MAX(IF(blob2 = 'scroll', double1, 0)) AS scroll, SUM(IF(blob2 = 'aff', _sample_interval, 0)) AS clicks
 FROM thuysinh_events WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY
 GROUP BY skin, sid FORMAT JSON`
 

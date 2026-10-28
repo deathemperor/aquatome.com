@@ -5,7 +5,10 @@
   --c-moss: #0f7a5c; --c-cardinal: #d9461b; --c-neon: #d6ff5c; --c-blackwater: #0d2b2a; --c-blackwater-2: #143d3b;
   --f-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
   --radius-plate: 18px; --radius-media: 22px;
+  --c-focus: #16936f;
 }
+:root[data-skin="c"]:not(#_) .search:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+:root[data-skin="c"]:not(#_) .conflict { color: #c2410c; }
 :root[data-skin="c"]:not(#_) h1, :root[data-skin="c"]:not(#_) h2, :root[data-skin="c"]:not(#_) h3 { font-weight: 750; letter-spacing: -0.025em; font-variation-settings: normal; }
 :root[data-skin="c"]:not(#_) .sci { font-family: var(--f-body); font-style: italic; }
 :root[data-skin="c"]:not(#_) .nav { background: var(--c-paper); color: var(--c-ink); }
@@ -17,12 +20,12 @@
 :root[data-skin="c"]:not(#_) .nav ul a, :root[data-skin="c"]:not(#_) .nav .find { color: var(--c-ink); background: #fff; border-radius: 999px; padding: 0.4rem 0.8rem; line-height: 1.2; display: inline-block; }
 :root[data-skin="c"]:not(#_) .nav ul a:hover, :root[data-skin="c"]:not(#_) .nav ul a[aria-current] { background: var(--c-ink); color: var(--c-neon); box-shadow: none; }
 :root[data-skin="c"]:not(#_) .hero { margin: var(--space-3) var(--space-4) 0; border-radius: var(--radius-media); overflow: hidden; min-height: min(62vh, 520px); }
-:root[data-skin="c"]:not(#_) .hero::after { background: linear-gradient(180deg, transparent 25%, rgb(13 43 42 / 0.85)); }
+:root[data-skin="c"]:not(#_) .hero::after { background: linear-gradient(90deg, rgb(13 43 42 / 0.7) 0, transparent 65%), linear-gradient(180deg, rgb(13 43 42 / 0.45) 0, transparent 25%, transparent 45%, rgb(13 43 42 / 0.85)); }
 :root[data-skin="c"]:not(#_) .hero h1 { font-size: clamp(2.2rem, 1.4rem + 3.4vw, 4rem); }
 :root[data-skin="c"]:not(#_) .search { background: #fff; border: 0; }
 :root[data-skin="c"]:not(#_) .search input { color: var(--c-ink); }
 :root[data-skin="c"]:not(#_) .search input::placeholder { color: var(--c-ink-faint); }
-:root[data-skin="c"]:not(#_) .search button { background: #ff6b3d; color: #fff; }
+:root[data-skin="c"]:not(#_) .search button { background: #ff6b3d; color: var(--c-ink); }
 :root[data-skin="c"]:not(#_) .quick a { background: rgb(255 255 255 / 0.18); border-color: transparent; border-radius: 999px; }
 :root[data-skin="c"]:not(#_) .match { background: var(--c-neon); color: var(--c-ink); margin: var(--space-3) var(--space-4) 0; border-radius: var(--radius-media); }
 :root[data-skin="c"]:not(#_) .match h2, :root[data-skin="c"]:not(#_) .match label span { color: var(--c-ink); }
@@ -42,7 +45,7 @@
 :root[data-skin="c"]:not(#_) .card > div { border-color: var(--c-rule); }
 :root[data-skin="c"]:not(#_) .card dd { font-family: var(--f-display); font-weight: 750; }
 :root[data-skin="c"]:not(#_) .gallery .plate { border-radius: var(--radius-media); }
-:root[data-skin="c"]:not(#_) .filters button { background: #ff6b3d; }
+:root[data-skin="c"]:not(#_) .filters button { background: #ff6b3d; color: var(--c-ink); }
 :root[data-skin="c"]:not(#_) .filters input, :root[data-skin="c"]:not(#_) .filters select { border-radius: 999px; border-color: var(--c-rule); background: #fff; }
 :root[data-skin="c"]:not(#_) .body section { background: #fff; border-radius: var(--radius-plate); padding: var(--space-5); margin-bottom: var(--space-4); }
 :root[data-skin="c"]:not(#_) .foot { background: var(--c-ink); }

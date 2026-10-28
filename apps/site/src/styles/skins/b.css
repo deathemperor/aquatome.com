@@ -5,7 +5,10 @@
   --c-moss: #2f6b4f; --c-cardinal: #a0522d; --c-neon: #a0522d;
   --f-display: 'Newsreader Variable', Georgia, serif;
   --radius-plate: 0; --radius-media: 0;
+  --c-focus: #c46a36;
 }
+:root[data-skin="b"]:not(#_) .search:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+:root[data-skin="b"]:not(#_) .g .kind { color: #f0c9a8; }
 :root[data-skin="b"]:not(#_) body { font-size: 1.0625rem; }
 :root[data-skin="b"]:not(#_) .prose, :root[data-skin="b"]:not(#_) .intro { font-family: 'Newsreader Variable', Georgia, serif; font-size: 1.125rem; line-height: 1.65; }
 :root[data-skin="b"]:not(#_) h1, :root[data-skin="b"]:not(#_) h2, :root[data-skin="b"]:not(#_) h3 { font-variation-settings: normal; font-weight: 450; }
@@ -20,7 +23,6 @@
 :root[data-skin="b"]:not(#_) .hero-copy::after { content: ''; grid-column: 2; grid-row: 1 / span 5; min-height: 320px; background: #fff var(--hero) center / cover; border: 10px solid #fff; box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
 :root[data-skin="b"]:not(#_) .hero-copy > * { grid-column: 1; }
 :root[data-skin="b"]:not(#_) .hero h1 { color: var(--c-ink); font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.4rem); }
-:root[data-skin="b"]:not(#_) .hero h1::before { content: 'Sổ tay thủy sinh'; display: block; font: 600 0.75rem var(--f-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-cardinal); margin-bottom: var(--space-3); }
 :root[data-skin="b"]:not(#_) .hero-copy > p { color: var(--c-ink-soft); }
 :root[data-skin="b"]:not(#_) .units { color: var(--c-ink-soft); border-color: var(--c-rule); }
 :root[data-skin="b"]:not(#_) .match label { color: var(--c-ink-soft); }

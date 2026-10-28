@@ -25,6 +25,15 @@ test('a clearly better skin gets most traffic, others keep the floor', () => {
 test('guardrail: a converting skin with too few pages/visit only keeps the floor', () => {
   const w = allocate(all(s => (s === 'c' ? st(2000, 600, 2000) : st(2000, 200, 5000))), rng(4))
   expect(w.c).toBeCloseTo(FLOOR, 9)
+  expect(sum(w)).toBeCloseTo(1, 9)
+})
+test('weights always sum to 1 with every skin ≥ floor, for arbitrary stats', () => {
+  const r = rng(9)
+  for (let i = 0; i < 200; i++) {
+    const w = allocate(all(() => { const v = Math.floor(r() * 3000); return st(v, Math.floor(r() * v), Math.floor(r() * v * 4)) }), rng(i), 300)
+    expect(sum(w)).toBeCloseTo(1, 9)
+    for (const s of SKINS) expect(w[s]).toBeGreaterThanOrEqual(FLOOR - 1e-9)
+  }
 })
 test('summarise turns session rows into per-skin stats', () => {
   const s = summarise([
