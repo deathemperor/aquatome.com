@@ -13,7 +13,25 @@ test('/go/ only accepts a known network and a keyword — never a URL', () => {
   expect(go('shopee/?k=cá neon&c=thuc-an&e=species:paracheirodon-axelrodi')).toEqual({ network: 'shopee', keyword: 'cá neon', category: 'thuc-an', entityRef: 'species:paracheirodon-axelrodi' })
   expect(parseGo(new URL('https://x.test/go/ebay/?k=x'))).toBeNull()
   expect(parseGo(new URL('https://x.test/go/shopee/'))).toBeNull()
-  expect(parseGo(new URL('https://x.test/go/shopee/?k=x&e=javascript:alert(1)'))).toBeNull()
+  expect(parseGo(new URL('https://x.test/go/shopee/?u=https://evil.test'))).toBeNull()
+  // malformed labels are dropped, the link still works
+  expect(go('shopee/?k=x&c=Bad Cat&e=javascript:alert(1)')).toEqual({ network: 'shopee', keyword: 'x', category: '', entityRef: '' })
+})
+
+test('the keyword can never steer the redirect off the marketplace', async () => {
+  for (const k of ['https://evil.test', '//evil.test', '@evil.test', '%2F%2Fevil.test']) {
+    const r = await resolveGo(go(`shopee/?k=${encodeURIComponent(k)}`), testD1(), {}, now)
+    expect(new URL(r.location).host, k).toBe('shopee.vn')
+  }
+})
+
+test('re-posting a product revives it; the id "search" is reserved', async () => {
+  const db = testD1()
+  await upsertProducts(db, [product], now)
+  await db.prepare(`UPDATE products SET status = 'inactive', fail_count = 2`).run()
+  await upsertProducts(db, [product], now)
+  expect(await db.prepare('SELECT status, fail_count FROM products').first()).toEqual({ status: 'active', fail_count: 0 })
+  expect((await upsertProducts(db, [{ ...product, id: 'search' }, { ...product, id: 'x-img', image: 'javascript:1' }], now)).errors.map(e => e.error)).toEqual(['bad id', 'bad image'])
 })
 
 test('no products, no templates → plain marketplace search', async () => {
@@ -64,6 +82,11 @@ test('checker: two strikes deactivate, a pass revives, unknown never deactivates
     await runChecks(db, {}, day(3))
     expect(await db.prepare('SELECT status, fail_count, price_vnd FROM products').first()).toEqual({ status: 'active', fail_count: 0, price_vnd: 39000 })
     expect(await db.prepare('SELECT COUNT(*) AS n FROM checks').first()).toEqual({ n: 4 })
+    expect(await runChecks(db, {}, day(3))).toEqual({ checked: 0, deactivated: 0 }) // checked < 20 h ago
+    NETWORKS.shopee.check = async () => { throw new Error('api down') }
+    await runChecks(db, {}, day(4))
+    expect(await db.prepare(`SELECT result, detail FROM checks ORDER BY id DESC`).first()).toEqual({ result: 'unknown', detail: 'api down' })
+    expect(await db.prepare('SELECT status FROM products').first()).toEqual({ status: 'active' })
   } finally {
     NETWORKS.shopee.check = orig
   }

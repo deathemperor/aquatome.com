@@ -6,13 +6,15 @@ type Input = { id: string; network: string; title: string; url: string; category
 export function validateProduct(p: unknown): Input | string {
   const x = p as Partial<Input>
   if (!x || typeof x !== 'object') return 'not an object'
-  if (typeof x.id !== 'string' || !/^[a-z0-9-]{3,80}$/.test(x.id)) return 'bad id'
+  if (typeof x.id !== 'string' || !/^[a-z0-9-]{3,80}$/.test(x.id) || x.id === 'search') return 'bad id'
   if (!isNetwork(x.network)) return 'unknown network'
   if (typeof x.title !== 'string' || !x.title.trim() || x.title.length > 200) return 'bad title'
   if (typeof x.url !== 'string' || !allowedTarget(x.network, x.url, {}) || !NETWORKS[x.network].hosts.includes(new URL(x.url).host)) return 'url not on network host'
   if (typeof x.category !== 'string' || !/^[a-z0-9-]{2,40}$/.test(x.category)) return 'bad category'
   if (x.entity_ref !== undefined && !/^[a-z]+:[a-z0-9-]+$/.test(x.entity_ref)) return 'bad entity_ref'
   if (x.price_vnd !== undefined && (!Number.isInteger(x.price_vnd) || x.price_vnd < 0)) return 'bad price'
+  for (const k of ['keyword', 'image', 'external_id'] as const) if (x[k] !== undefined && (typeof x[k] !== 'string' || x[k]!.length > 300)) return `bad ${k}`
+  if (x.image !== undefined && !/^https:\/\//.test(x.image)) return 'bad image'
   return x as Input
 }
 
@@ -26,7 +28,8 @@ export async function upsertProducts(db: D1Database, items: unknown[], now: Date
       `INSERT INTO products (id, network, external_id, title, url, price_vnd, image, category, entity_ref, keyword, status, fail_count, checked_at, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', 0, ?, ?)
        ON CONFLICT (id) DO UPDATE SET network = excluded.network, external_id = excluded.external_id, title = excluded.title, url = excluded.url,
-         price_vnd = excluded.price_vnd, image = excluded.image, category = excluded.category, entity_ref = excluded.entity_ref, keyword = excluded.keyword`,
+         price_vnd = excluded.price_vnd, image = excluded.image, category = excluded.category, entity_ref = excluded.entity_ref, keyword = excluded.keyword,
+         status = 'active', fail_count = 0, checked_at = excluded.checked_at`, // re-posting = the owner re-verified the listing
     ).bind(p.id, p.network, p.external_id ?? null, p.title, p.url, p.price_vnd ?? null, p.image ?? null, p.category, p.entity_ref ?? null, p.keyword ?? null, now.toISOString(), now.toISOString()).run()
     saved++
   }

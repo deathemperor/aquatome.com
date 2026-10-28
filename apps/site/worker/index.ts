@@ -1,7 +1,7 @@
 import { upsertProducts } from './affiliate/admin'
 import { runChecks } from './affiliate/check'
 import { parseGo, recordClick, resolveGo } from './affiliate/go'
-import { NETWORKS, type AffEnv } from './affiliate/networks'
+import { searchTarget, type AffEnv } from './affiliate/networks'
 import { allocate } from './allocate'
 import { isBot, resolveSkin, skinCookie } from './assign'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
@@ -50,12 +50,16 @@ async function events(req: Request, env: Env): Promise<Response> {
 }
 
 /** /go/:network/?k=&c=&e= → 302 to the best affiliate target; click counted after the response. */
-async function goRoute(url: URL, env: FullEnv, wait: (p: Promise<unknown>) => void): Promise<Response> {
+async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<unknown>) => void): Promise<Response> {
   const p = parseGo(url)
   if (!p) return finish(new Response('Not found', { status: 404 }), env)
   const now = new Date()
-  const { location, productId } = env.DB ? await resolveGo(p, env.DB, env, now) : { location: NETWORKS[p.network].searchUrl(p.keyword), productId: 'search' }
-  if (env.DB) wait(recordClick(env.DB, p, productId, now))
+  let target = { location: searchTarget(p.network, p.keyword, env), productId: 'search' }
+  // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
+  if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
+  const { location, productId } = target
+  const human = req.method === 'GET' && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  if (env.DB && human) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
@@ -72,7 +76,7 @@ async function affAdmin(req: Request, env: FullEnv): Promise<Response> {
 export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = htmlRewrite, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
   if (url.pathname === '/_e') return events(req, env)
-  if (url.pathname.startsWith('/go/')) return goRoute(url, env, wait)
+  if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
   if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
     const auth = authorise(req, env.AB_DASH_TOKEN)
@@ -107,12 +111,18 @@ export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, htmlRewrite, p => ctx.waitUntil(p)),
 
   /** Daily: recompute traffic allocation from the last 14 days of events. */
+  /** Daily: A/B allocation, then the affiliate checker — independent, so one failing never blocks the other. */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
-    if (env.DB) await runChecks(env.DB, env, new Date())
-    if (!env.AE_API_TOKEN || !env.CF_ACCOUNT_ID) return
-    const stats = await queryStats(env.CF_ACCOUNT_ID, env.AE_API_TOKEN)
-    const weights = allocate(stats, Math.random)
-    await env.AB.put('ab:weights', JSON.stringify(weights))
-    await env.AB.put('ab:stats', JSON.stringify({ updatedAt: new Date().toISOString(), weights, stats } satisfies Snapshot))
+    const results = await Promise.allSettled([
+      (async () => {
+        if (!env.AE_API_TOKEN || !env.CF_ACCOUNT_ID) return
+        const stats = await queryStats(env.CF_ACCOUNT_ID, env.AE_API_TOKEN)
+        const weights = allocate(stats, Math.random)
+        await env.AB.put('ab:weights', JSON.stringify(weights))
+        await env.AB.put('ab:stats', JSON.stringify({ updatedAt: new Date().toISOString(), weights, stats } satisfies Snapshot))
+      })(),
+      env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
+    ])
+    for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)
   },
 } satisfies ExportedHandler<FullEnv>

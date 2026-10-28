@@ -83,6 +83,10 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     for (const t of ['Ánh sáng', 'CO₂', 'Tốc độ mọc']) expect(html).toContain(t)
     const shop = dom.querySelector('a[href^="/go/shopee/?k="]')?.getAttribute('href') ?? ''
     expect(new URLSearchParams(shop.split('?')[1]).get('c')).toBe('cay-thuy-sinh') // plants are always an affiliate item
+    // a plant whose slots lack the plant category still gets one, first
+    const mc = page('/vi/cay/monte-carlo/').dom.querySelectorAll('a[href^="/go/shopee/?k="]').map(a => new URLSearchParams(a.getAttribute('href')!.split('?')[1]).get('c'))
+    expect(mc[0]).toBe('cay-thuy-sinh')
+    expect(mc).toContain('den')
     expect(page('/vi/cay/').dom.querySelectorAll('a[href^="/vi/cay/"]').length).toBeGreaterThanOrEqual(3)
   })
   test('guide page credits its source and links glossary terms', () => {

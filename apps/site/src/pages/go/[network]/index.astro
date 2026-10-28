@@ -17,5 +17,5 @@ const { base, name } = Astro.props
     <title>Đang chuyển tới {name}…</title>
     <script is:inline define:vars={{ base }}>location.replace(base + encodeURIComponent(new URLSearchParams(location.search).get('k') || ''))</script>
   </head>
-  <body><p>Đang chuyển tới {name}…</p></body>
+  <body><p>Đang chuyển tới {name}… <a href={base}>Mở {name}</a></p></body>
 </html>

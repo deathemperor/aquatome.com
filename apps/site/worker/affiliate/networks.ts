@@ -30,11 +30,22 @@ export function wrap(n: NetworkId, url: string, env: AffEnv): string {
   return t && t.startsWith('https://') && t.includes('{url}') ? t.replace('{url}', encodeURIComponent(url)) : url
 }
 
+/** Marketplace search for the keyword, wrapped when allowed; the link that never dies. */
+export function searchTarget(n: NetworkId, keyword: string, env: AffEnv): string {
+  const plain = NETWORKS[n].searchUrl(keyword)
+  const wrapped = wrap(n, plain, env)
+  return allowedTarget(n, wrapped, env) ? wrapped : plain
+}
+
 /** Redirect targets are limited to the network's hosts and the host of its configured template: never an open redirect. */
 export function allowedTarget(n: NetworkId, location: string, env: AffEnv): boolean {
-  let host: string
-  try { const u = new URL(location); if (u.protocol !== 'https:') return false; host = u.host } catch { return false }
-  const t = templateOf(n, env)
-  const tHost = t?.startsWith('https://') ? new URL(t.replace('{url}', 'x')).host : undefined
-  return NETWORKS[n].hosts.includes(host) || host === tHost
+  try {
+    const u = new URL(location)
+    if (u.protocol !== 'https:') return false
+    const t = templateOf(n, env)
+    const tHost = t?.startsWith('https://') ? new URL(t.replace('{url}', 'x')).host : undefined
+    return NETWORKS[n].hosts.includes(u.host) || u.host === tHost
+  } catch {
+    return false
+  }
 }
