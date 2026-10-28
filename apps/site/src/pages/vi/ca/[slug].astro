@@ -53,7 +53,7 @@ const firstSource = s.sections[0]
   <VideoFacade videos={s.videos} />
 
   <div class="wrap two">
-    <ProductSlots slots={s.productSlots} />
+    <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
     <CommentsPlaceholder />
   </div>
 </Base>

@@ -21,7 +21,23 @@ export function authorise(req: Request, secret: string | undefined): { ok: boole
 
 const fmt = (n: number, d = 0) => n.toLocaleString('vi-VN', { maximumFractionDigits: d, minimumFractionDigits: d })
 
-export function renderDashboard(snap: Snapshot | null, clickValueVnd: number): string {
+export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
+
+/** Last 14 days of affiliate clicks + catalog health, straight from D1. */
+export async function affSummary(db: D1Database, now: Date): Promise<AffSummary> {
+  const since = new Date(now.getTime() - 14 * 86_400_000).toISOString().slice(0, 10)
+  const [byNetwork, top, status, last] = await Promise.all([
+    db.prepare('SELECT network, category, SUM(n) AS n FROM clicks_daily WHERE date >= ? GROUP BY network, category ORDER BY n DESC LIMIT 30').bind(since).all<AffSummary['byNetwork'][number]>(),
+    db.prepare("SELECT entity_ref, SUM(n) AS n FROM clicks_daily WHERE date >= ? AND entity_ref != '' GROUP BY entity_ref ORDER BY n DESC LIMIT 10").bind(since).all<AffSummary['top'][number]>(),
+    db.prepare('SELECT status, COUNT(*) AS n FROM products GROUP BY status').all<AffSummary['status'][number]>(),
+    db.prepare('SELECT MAX(at) AS at FROM checks').first<{ at: string | null }>(),
+  ])
+  return { byNetwork: byNetwork.results, top: top.results, status: status.results, lastCheck: last?.at ?? null }
+}
+
+const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
+
+export function renderDashboard(snap: Snapshot | null, clickValueVnd: number, aff?: AffSummary): string {
   const rows = SKINS.map(s => {
     const st = snap?.stats[s] ?? { visits: 0, pages: 0, converted: 0, clicks: 0, timeSum: 0, scrolled: 0 }
     const v = st.visits || 1
@@ -31,5 +47,13 @@ export function renderDashboard(snap: Snapshot | null, clickValueVnd: number): s
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A/B · thủy·sinh</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
 <h1>A/B giao diện</h1><p>14 ngày gần nhất · cập nhật ${snap?.updatedAt ?? 'chưa có dữ liệu'} · doanh thu ước tính = lượt bấm affiliate × ${fmt(clickValueVnd)} ₫ (chưa có quảng cáo)</p>
-<table><thead><tr><th>Giao diện</th><th>Lượt</th><th>Trang/lượt</th><th>Thời gian TB</th><th>Cuộn 90%</th><th>Bấm affiliate</th><th>Chuyển đổi</th><th>Doanh thu/1.000 lượt</th><th>Tỉ lệ phân bổ</th></tr></thead><tbody>${rows}</tbody></table></body></html>`
+<table><thead><tr><th>Giao diện</th><th>Lượt</th><th>Trang/lượt</th><th>Thời gian TB</th><th>Cuộn 90%</th><th>Bấm affiliate</th><th>Chuyển đổi</th><th>Doanh thu/1.000 lượt</th><th>Tỉ lệ phân bổ</th></tr></thead><tbody>${rows}</tbody></table>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}</body></html>`
+}
+
+function affHtml(a: AffSummary): string {
+  const rows = (xs: string[][]) => xs.map(r => `<tr>${r.map((c, i) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('') || '<tr><td colspan="3">—</td></tr>'
+  return `<h2>Affiliate · 14 ngày</h2>
+<table><thead><tr><th>Sàn</th><th>Nhóm</th><th>Lượt bấm</th></tr></thead><tbody>${rows(a.byNetwork.map(r => [r.network, r.category, fmt(r.n)]))}</tbody></table>
+<h3>Trang dẫn nhiều nhất</h3><table><tbody>${rows(a.top.map(r => [r.entity_ref, fmt(r.n)]))}</tbody></table>
+<p>Sản phẩm: ${a.status.map(s => `${esc(s.status)} ${fmt(s.n)}`).join(' · ') || 'chưa có (đang dùng liên kết tìm kiếm)'} · kiểm tra gần nhất: ${a.lastCheck ?? 'chưa chạy'}</p>`
 }

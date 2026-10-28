@@ -57,3 +57,15 @@ huuloc.com is in a different Cloudflare account (loc.truongh@gmail.com); moving 
 - Photos: the best few photos on each source page are copied to R2 `thuysinh-media` (≤1200 px WebP, `https://media.thuysinh.infinitus.run`) and credited to the source page. They follow the source's publish flag. Wikimedia Commons (open licences) is the fallback.
 - Credentials (never committed): `~/.config/thuysinh/cf-token` and `~/.config/thuysinh/cf-account`, or `CLOUDFLARE_API_TOKEN` / `CF_ACCOUNT_ID`. Optional: `YOUTUBE_API_KEY` for videos.
 - Schedule: `scripts/install-engine-schedule.sh` installs the launchd agent `run.thuysinh.engine`, which runs every 6 h from a dedicated clone. It calls `scripts/engine-cycle.sh` (pull → run → test → commit + push → deploy staging). Log: `~/Library/Logs/thuysinh-engine.log`.
+
+## Affiliate
+
+Every product link on the site is a `/go/{shopee|lazada|tiki}/?k=keyword&c=category&e=kind:id` link. The Worker redirects it:
+1. to the best active product for that placement in the D1 `products` catalog, if one was checked in the last 48 h;
+2. otherwise to the marketplace search for the keyword.
+
+Either target is wrapped in the network's deeplink template when the secret `AFF_TEMPLATE_SHOPEE` (and the `_LAZADA` / `_TIKI` equivalents) is set, e.g. `wrangler secret put AFF_TEMPLATE_SHOPEE` with `https://go.isclix.com/deep_link/<id>?url={url}`. Search links never go dead.
+
+Clicks are counted per day and placement in D1. The daily cron checks products through each network's API: two failed checks in a row set a product `inactive` and the redirect falls through automatically, while `unknown` (no API credentials yet) never deactivates.
+
+To add listings once an account exists, run `scripts/aff-add.sh products.json`. Results show on the `/_ab/` dashboard.

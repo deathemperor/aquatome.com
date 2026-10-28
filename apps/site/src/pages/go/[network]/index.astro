@@ -1,0 +1,21 @@
+---
+// Fallback when the site is served without the Worker (local preview): send the visitor to the marketplace search.
+export function getStaticPaths() {
+  return [
+    { params: { network: 'shopee' }, props: { base: 'https://shopee.vn/search?keyword=', name: 'Shopee' } },
+    { params: { network: 'lazada' }, props: { base: 'https://www.lazada.vn/catalog/?q=', name: 'Lazada' } },
+    { params: { network: 'tiki' }, props: { base: 'https://tiki.vn/search?q=', name: 'Tiki' } },
+  ]
+}
+const { base, name } = Astro.props
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Đang chuyển tới {name}…</title>
+    <script is:inline define:vars={{ base }}>location.replace(base + encodeURIComponent(new URLSearchParams(location.search).get('k') || ''))</script>
+  </head>
+  <body><p>Đang chuyển tới {name}…</p></body>
+</html>

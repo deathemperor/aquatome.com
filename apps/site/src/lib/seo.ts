@@ -4,5 +4,5 @@ export const isStaging = () => process.env.STAGING === '1'
 export function robotsTxt(staging: boolean, site: string): string {
   return staging
     ? 'User-agent: *\nDisallow: /\n'
-    : `User-agent: *\nAllow: /\n\nSitemap: ${new URL('/sitemap.xml', site).href}\n`
+    : `User-agent: *\nAllow: /\nDisallow: /go/\n\nSitemap: ${new URL('/sitemap.xml', site).href}\n`
 }
