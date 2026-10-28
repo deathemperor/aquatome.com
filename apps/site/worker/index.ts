@@ -3,6 +3,7 @@ import { runChecks } from './affiliate/check'
 import { parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
 import { allocate } from './allocate'
+import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot, resolveSkin, skinCookie } from './assign'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
@@ -19,10 +20,10 @@ export interface Env {
   AB_DASH_TOKEN?: string
   AE_API_TOKEN?: string
   CF_ACCOUNT_ID?: string
-  /** Affiliate catalog + click counts; optional until D1 is provisioned (links then go to marketplace search). */
+  /** Affiliate catalog, click counts and comments; optional until D1 is provisioned (links go to search, comments stay off). */
   DB?: D1Database
 }
-type FullEnv = Env & AffEnv
+type FullEnv = Env & AffEnv & CommentsEnv
 type Rewrite = (res: Response, skin: string) => Response | Promise<Response>
 
 const htmlRewrite: Rewrite = (res, skin) => new HTMLRewriter().on('html', { element: el => { el.setAttribute('data-skin', skin) } }).transform(res)
@@ -63,14 +64,29 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
+const bearerOk = (req: Request, env: Env) => {
+  const token = req.headers.get('authorization')?.replace(/^Bearer\s+/i, '') ?? ''
+  return Boolean(env.AB_DASH_TOKEN) && safeEqual(token, env.AB_DASH_TOKEN!)
+}
+
 /** POST /_aff/products (Bearer dashboard token): upsert concrete listings once network accounts exist. */
 async function affAdmin(req: Request, env: FullEnv): Promise<Response> {
-  const token = req.headers.get('authorization')?.replace(/^Bearer\s+/i, '') ?? ''
-  if (req.method !== 'POST' || !env.AB_DASH_TOKEN || !safeEqual(token, env.AB_DASH_TOKEN)) return new Response('Not found', { status: 404 })
+  if (req.method !== 'POST' || !bearerOk(req, env)) return new Response('Not found', { status: 404 })
   if (!env.DB) return new Response('D1 not configured', { status: 503 })
   const body = await req.json().catch(() => null)
   if (!Array.isArray(body) || body.length > 500) return new Response('expected a JSON array (≤500)', { status: 400 })
   return Response.json(await upsertProducts(env.DB, body, new Date()))
+}
+
+/** /_c/admin/{queue,decisions} (Bearer dashboard token): the daily Claude moderation pass on the home machine. */
+async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Response> {
+  const route = url.pathname === '/_c/admin/queue' && req.method === 'GET' ? 'queue' : url.pathname === '/_c/admin/decisions' && req.method === 'POST' ? 'decisions' : null
+  if (!route || !bearerOk(req, env)) return new Response('Not found', { status: 404 })
+  if (!env.DB) return Response.json({ error: 'comments_off' }, { status: 503 })
+  if (route === 'queue') return Response.json(await moderationQueue(env.DB, new Date()), { headers: { 'cache-control': 'no-store' } })
+  const body = await req.json().catch(() => null)
+  if (!Array.isArray(body) || body.length > 500) return new Response('expected a JSON array (≤500)', { status: 400 })
+  return Response.json(await applyDecisions(env.DB, body, new Date()))
 }
 
 export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = htmlRewrite, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
@@ -78,6 +94,8 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
+  if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
+  if (url.pathname.startsWith('/_c/admin/')) return commentsAdmin(req, url, env)
   if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
     const auth = authorise(req, env.AB_DASH_TOKEN)
     if (!auth.ok) return finish(new Response('Not found', { status: 404 }), env)
@@ -110,7 +128,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, htmlRewrite, p => ctx.waitUntil(p)),
 
-  /** Daily: A/B allocation and the affiliate checker — independent, so one failing never blocks the other. */
+  /** Daily: A/B allocation, the affiliate checker and the removed-comment purge — independent, so one failing never blocks the other. */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
       (async () => {
@@ -121,6 +139,7 @@ export default {
         await env.AB.put('ab:stats', JSON.stringify({ updatedAt: new Date().toISOString(), weights, stats } satisfies Snapshot))
       })(),
       env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
+      env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
     ])
     for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)
   },

@@ -1,0 +1,42 @@
+---
+// Name-only discussion. Loaded client-side from the Worker (not part of the indexed HTML); stays hidden until the API answers.
+interface Props { entity: string }
+const { entity } = Astro.props
+---
+<section class="comments" data-comments data-entity={entity} aria-labelledby="comments-h" hidden>
+  <h2 id="comments-h">Thảo luận</h2>
+  <ol class="list" data-list></ol>
+  <p class="empty" data-empty>Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.</p>
+  <p class="notice" data-ts-fail hidden>Không tải được kiểm tra chống spam nên chưa gửi được bình luận. Hãy thử tải lại trang.</p>
+  <p class="notice" data-verify hidden>Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.</p>
+  <form data-form hidden>
+    <label>Tên<input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
+    <label>Bình luận<textarea name="body" required minlength="2" maxlength="2000" rows="4"></textarea></label>
+    <div data-turnstile></div>
+    <button type="submit">Gửi bình luận</button>
+    <p class="msg" data-msg role="status" aria-live="polite"></p>
+    <p class="rules">Chỉ cần tên. Bình luận được kiểm duyệt; quảng cáo và thông tin cá nhân sẽ bị gỡ.</p>
+  </form>
+</section>
+<script>
+  import { mountComments } from '../scripts/comments'
+  document.querySelectorAll<HTMLElement>('[data-comments]').forEach(s => void mountComments(s))
+</script>
+<style>
+  h2 { font-size: var(--step-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--c-ink); margin-bottom: var(--space-3); }
+  .list { list-style: none; margin: 0 0 var(--space-5); padding: 0; display: grid; gap: var(--space-4); }
+  .list :global(.comment) { border-bottom: 1px solid var(--c-rule); padding-bottom: var(--space-3); max-width: var(--measure); }
+  .list :global(.comment header) { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: baseline; margin-bottom: var(--space-1); }
+  .list :global(time) { color: var(--c-ink-faint); font-size: var(--step--1); }
+  .list :global(.helpful) { background: var(--c-moss); color: #fff; border-radius: 999px; font-size: var(--step--1); padding: 0 var(--space-2); }
+  .list :global(.comment p) { margin: 0 0 var(--space-2); overflow-wrap: anywhere; }
+  .empty, .notice, .rules { color: var(--c-ink-soft); }
+  form { display: grid; gap: var(--space-3); max-width: var(--measure); }
+  label { display: grid; gap: var(--space-1); font-weight: 600; }
+  input, textarea { font: inherit; padding: var(--space-2); border: 1px solid var(--c-rule); border-radius: var(--radius-plate); background: var(--c-plate); color: var(--c-ink); }
+  input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+  button { justify-self: start; font: 600 var(--step-0) var(--f-body); padding: var(--space-2) var(--space-4); border: 0; border-radius: 999px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: wait; }
+  .msg:empty { display: none; }
+  .rules { font-size: var(--step--1); }
+</style>

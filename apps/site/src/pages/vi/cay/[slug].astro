@@ -5,7 +5,7 @@ import Nav from '../../../components/Nav.astro'
 import PhotoGallery from '../../../components/PhotoGallery.astro'
 import Sections from '../../../components/Sections.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
-import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
+import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
 import { slugify } from '@aq/schema/slug'
 import { PLANT_LABELS } from '../../../lib/format'
@@ -40,7 +40,7 @@ const facts: [string, string][] = [
   <Sections sections={p.sections} t={p.t} />
   <div class="wrap two">
     <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />
-    <CommentsPlaceholder />
+    <Comments entity={`plant:${p.id}`} />
   </div>
 </Base>
 <style>

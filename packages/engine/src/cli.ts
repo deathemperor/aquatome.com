@@ -8,6 +8,7 @@ import { SOURCE_IDS, type SourceId } from '@aq/schema'
 import { claudeCli } from './claude'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
+import { httpAdmin, moderate } from './moderate'
 import { runEngine } from './run'
 import { loadState } from './state'
 
@@ -51,6 +52,11 @@ if (cmd === 'run') {
   } finally {
     await fetcher.close()
   }
+} else if (cmd === 'moderate') {
+  const base = process.env.SITE_URL ?? 'https://thuysinh.infinitus.run'
+  const r = await moderate(httpAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), claudeCli)
+  console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored, ${r.failedBatches} failed batches`)
+  if (!r.off && r.failedBatches) process.exitCode = 1
 } else if (cmd === 'status') {
   const rows: Record<string, Record<string, number>> = {}
   for (const id of SOURCE_IDS) {
@@ -60,6 +66,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine status')
   process.exitCode = 1
 }
