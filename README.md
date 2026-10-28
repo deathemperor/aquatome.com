@@ -49,7 +49,7 @@ huuloc.com is in a different Cloudflare account (loc.truongh@gmail.com); moving 
 
 | Command | Does |
 |---|---|
-| `pnpm engine run [--sources a,b] [--limit N] [--max-minutes M]` | discover → fetch (real Chrome, ≥5 s per source) → snapshot to `sources/` → Claude classify + translate + review → merge into `content/` → photos → changelog |
+| `pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>]` | discover → fetch (real Chrome, ≥5 s per source) → snapshot to `sources/` → Claude classify + translate + review → merge into `content/` → photos → changelog |
 | `pnpm engine status` | URL counts per source and status from `engine-state/` |
 
 - Fetching uses headed Chrome (`~/.cache/thuysinh/chrome-profile`). A challenge page marks the source `needs-human`: open that profile, pass the check by hand, and the next run continues. No stealth or solvers.

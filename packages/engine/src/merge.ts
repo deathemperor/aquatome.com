@@ -12,8 +12,14 @@ const DEFAULT_QUALITY = { score: 1, indexable: true }
 const uniq = <T>(xs: T[]) => [...new Set(xs)]
 const order = (k: string) => SECTION_ORDER.indexOf(k as (typeof SECTION_ORDER)[number])
 
+/** Slug from the name, cut at a word boundary to ≤ 60 chars. */
+const shortSlug = (name: string) => {
+  const s = slugify(name)
+  return s.length <= 60 ? s : s.slice(0, 61).replace(/-[^-]*$/, '')
+}
+
 function pickSlug(name: string, suffix: string, taken: Set<string>): string {
-  const base = slugify(name)
+  const base = shortSlug(name)
   for (const s of [base, `${base}-${slugify(suffix)}`]) if (!taken.has(s)) return s
   let i = 2
   while (taken.has(`${base}-${slugify(suffix)}-${i}`)) i++

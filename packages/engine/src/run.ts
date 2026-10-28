@@ -89,7 +89,7 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
   return { score: min, indexable: min >= QUALITY_THRESHOLD, bySource }
 }
 
-export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number } = {}): Promise<RunReport> {
+export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number; only?: RegExp } = {}): Promise<RunReport> {
   const { llm, http, root } = deps
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
@@ -185,7 +185,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     }
     counts.discovered = found.length
     const state = await loadState(root, id)
-    const todo = found.filter(f => needsFetch(state[f.url], f.lastmod, deps.now())).slice(0, opts.limit ?? Infinity)
+    const todo = found.filter(f => (!opts.only || opts.only.test(f.url)) && needsFetch(state[f.url], f.lastmod, deps.now())).slice(0, opts.limit ?? Infinity)
 
     for (const { url, lastmod } of todo) {
       if (deps.now().getTime() > deadline) break

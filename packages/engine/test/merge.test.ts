@@ -31,6 +31,11 @@ test('two sources merge; re-processing one source replaces only its parts', () =
   expect(c.vi.altNames).toEqual(expect.arrayContaining(['Neon đỏ', 'Cardinal Tetra']))
 })
 
+test('long names give slugs of at most 60 chars cut at a word boundary', () => {
+  const r = mergeSpecies({}, page({ viName: 'HMF là gì? Hướng dẫn cơ bản về lọc vách xốp Hamburger (Hamburger Matten Filter)' }), ctx('seriouslyfish'))
+  expect(r.vi.slug).toBe('hmf-la-gi-huong-dan-co-ban-ve-loc-vach-xop-hamburger')
+})
+
 test('slug collision gets the genus suffix', () => {
   const taken = new Set(['ca-neon-vua'])
   const r = mergeSpecies({}, page(), { ...ctx('seriouslyfish'), takenSlugs: taken })
