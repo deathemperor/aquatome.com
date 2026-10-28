@@ -1,0 +1,56 @@
+---
+import { linkGlossary, type GuideEntity, type Localized } from '@aq/schema'
+import Base from '../../../layouts/Base.astro'
+import Nav from '../../../components/Nav.astro'
+import SpeciesCard from '../../../components/SpeciesCard.astro'
+import PlantCard from '../../../components/PlantCard.astro'
+import SourceCredit from '../../../components/SourceCredit.astro'
+import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
+import { getContent } from '../../../lib/content'
+import { glossaryTerms } from '../../../lib/glossary'
+import { GUIDE_KIND_LABELS } from '../../../lib/format'
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  return c.guides.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
+}
+const { g } = Astro.props as { g: Localized<GuideEntity> }
+const c = await getContent()
+const body = linkGlossary(g.t.body ?? '', glossaryTerms(c))
+const species = c.species.filter(s => g.mentions.includes(s.id))
+const plants = c.plants.filter(p => g.mentions.includes(p.id))
+const ph = g.photos[0]
+const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
+---
+<Base title={`${g.t.name} — thủy·sinh`} noindex={!g.t.quality.indexable} credits={ph ? [{ ...ph, what: 'Ảnh' }] : []}>
+  <Nav slot="header" />
+  <article class="wrap art">
+    <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>
+    <p class="kind">{GUIDE_KIND_LABELS[g.kind]}</p>
+    <h1>{g.t.name}</h1>
+    <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} />
+    {ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+    <div class="prose" set:html={body} />
+  </article>
+  {(species.length > 0 || plants.length > 0) && (
+    <section class="wrap related" aria-labelledby="rel-h">
+      <h2 id="rel-h">Loài và cây trong bài</h2>
+      <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
+    </section>
+  )}
+  <div class="wrap"><CommentsPlaceholder /></div>
+</Base>
+<style>
+  .art { max-width: calc(var(--measure) + 2 * var(--space-5)); padding-block: var(--space-4) var(--space-6); }
+  .crumb { font-size: 0.85rem; }
+  .crumb a { color: var(--c-ink-soft); }
+  .kind { color: var(--c-moss); font-size: 0.9rem; margin: var(--space-4) 0 var(--space-1); }
+  h1 { font-size: var(--step-4); letter-spacing: -0.015em; margin-bottom: var(--space-2); }
+  .lead { width: 100%; border-radius: var(--radius-media); margin: var(--space-5) 0; }
+  .prose :global(p) { font-size: 1.0625rem; line-height: 1.75; }
+  .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
+  .related { padding-bottom: var(--space-6); }
+  .related h2, .wrap :global(.comments h2) { font-size: var(--step-2); }
+  .related h2 { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+</style>

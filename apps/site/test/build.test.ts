@@ -74,3 +74,38 @@ describe('browse pages', () => {
     expect(html).toContain('data-units-toggle')
   })
 })
+
+describe('plants, guides, glossary, equipment, discovery', () => {
+  test('plant page shows growing needs and shop links', () => {
+    const { html, dom } = page('/vi/cay/ray-nana/')
+    for (const t of ['Ánh sáng', 'CO₂', 'Tốc độ mọc']) expect(html).toContain(t)
+    expect(dom.querySelector('a[href^="https://shopee.vn/search?keyword="]')).not.toBeNull()
+    expect(page('/vi/cay/').dom.querySelectorAll('a[href^="/vi/cay/"]').length).toBeGreaterThanOrEqual(3)
+  })
+  test('guide page credits its source and links glossary terms', () => {
+    const { html, dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+    expect(html).toContain('2Hr Aquarist')
+    expect(dom.querySelector('main .gl')).not.toBeNull()
+  })
+  test('glossary index lists every term and term pages exist', () => {
+    const { dom } = page('/vi/thuat-ngu/')
+    expect(dom.querySelectorAll('a[href^="/vi/thuat-ngu/"]').length).toBeGreaterThanOrEqual(4)
+    expect(page('/vi/thuat-ngu/chu-trinh-nito/').html).toContain('Nitrogen cycle')
+  })
+  test('species body links a glossary term', () => {
+    expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] .gl')).not.toBeNull()
+  })
+  test('equipment index and a page per product category', () => {
+    for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/vi/thiet-bi/${cat}/`).html, cat).toContain('shopee.vn/search')
+    expect(page('/vi/thiet-bi/').dom.querySelectorAll('a[href^="/vi/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
+  })
+  test('discovery lists discovery guides', () => {
+    expect(page('/vi/kham-pha/').dom.querySelector('a[href="/vi/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]')).not.toBeNull()
+  })
+  test('Vietnam hub exists', () => {
+    expect(page('/vi/nguon-goc/asia/vietnam/').html).toContain('Cá Việt Nam')
+  })
+  test('every nav link resolves', () => {
+    for (const p of ['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thiet-bi/', '/vi/kham-pha/']) expect(() => page(p), p).not.toThrow()
+  })
+})

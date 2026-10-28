@@ -1,0 +1,10 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import PlantCard from '../../../components/PlantCard.astro'
+import { getContent } from '../../../lib/content'
+const c = await getContent()
+---
+<Browse title="Cây thủy sinh" heading="Cây thủy sinh" intro={`${c.plants.length} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.`}>
+  {c.plants.length === 0 ? <p>Chưa có cây nào được xuất bản.</p> : <div class="grid">{c.plants.map(p => <PlantCard p={p} />)}</div>}
+</Browse>
+<style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }</style>

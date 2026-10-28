@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "node-html-parser": "^9.0.5",
     "zod": "^4.6.7"
   },
   "devDependencies": {

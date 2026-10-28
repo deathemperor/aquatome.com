@@ -22,3 +22,14 @@ export const GROUP_LABELS: Record<string, string> = {
   tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
 }
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
+
+export const PLANT_LABELS = {
+  difficulty: { 1: 'Dễ', 2: 'Trung bình', 3: 'Khó' } as Record<number, string>,
+  light: { low: 'Yếu', medium: 'Trung bình', high: 'Mạnh' } as Record<string, string>,
+  co2: { none: 'Không cần', optional: 'Tùy chọn', required: 'Bắt buộc' } as Record<string, string>,
+  growth: { slow: 'Chậm', medium: 'Vừa', fast: 'Nhanh' } as Record<string, string>,
+  placement: { foreground: 'Tiền cảnh', midground: 'Trung cảnh', background: 'Hậu cảnh', epiphyte: 'Bám đá, lũa', floating: 'Thả nổi' } as Record<string, string>,
+}
+export const GUIDE_KIND_LABELS: Record<string, string> = {
+  setup: 'Setup bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
+}

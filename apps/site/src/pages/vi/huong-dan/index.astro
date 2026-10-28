@@ -1,0 +1,11 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import GuideCard from '../../../components/GuideCard.astro'
+import { getContent } from '../../../lib/content'
+const c = await getContent()
+const guides = c.guides.filter(g => g.kind !== 'discovery')
+---
+<Browse title="Hướng dẫn" heading="Hướng dẫn" intro="Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.">
+  {guides.length === 0 ? <p>Chưa có hướng dẫn nào được xuất bản.</p> : <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>}
+</Browse>
+<style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }</style>
