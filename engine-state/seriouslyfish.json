@@ -45,5 +45,13 @@
     "status": "error",
     "attempts": 1,
     "error": "R2 upload 500: {\"success\":false,\"errors\":[{\"code\":10500,\"message\":\"Internal authentication error: internal server error\"}],\"messages\":[],\"result\":null}\n"
+  },
+  "https://www.seriouslyfish.com/species/aborichthys-sp-ar01": {
+    "entityIds": [],
+    "updatedAt": "2026-10-28T16:31:05.431Z",
+    "hash": "49206b9bd7de47f899f691dcd87f697d8fefbec0a1069b704ff8c423d7bb7957",
+    "processedHash": "49206b9bd7de47f899f691dcd87f697d8fefbec0a1069b704ff8c423d7bb7957",
+    "status": "skipped",
+    "attempts": 0
   }
 }
