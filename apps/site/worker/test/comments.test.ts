@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { applyDecisions, ipDayKey, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from '../comments/api'
+import { applyDecisions, ipDayKey, ipUnit, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from '../comments/api'
 import { checkRules, parseComment } from '../comments/rules'
 import { handle, type Env } from '../index'
 import { testD1 } from './d1'
@@ -39,6 +39,9 @@ test('rules truth table', () => {
   expect(checkRules(c('Nhà cái uy tín'), ok)).toMatchObject({ held: expect.stringMatching(/blocked/) })
   expect(checkRules(c('hello'), { duplicate: true, postsToday: 1 })).toEqual({ held: 'duplicate within 24 h' })
   expect(checkRules(c('hello'), { duplicate: false, postsToday: 6 })).toEqual({ held: 'more than 5 posts today' })
+  expect(checkRules(c('Cách sexing cá betta? Unisex?'), ok)).toEqual({ ok: true })
+  expect(checkRules(c('xem sex free'), ok)).toMatchObject({ held: 'blocked term: sex' })
+  expect(checkRules(c('Nha\u0300 ca\u0301i'), ok)).toMatchObject({ held: expect.stringMatching(/blocked/) }) // decomposed Vietnamese
 })
 
 test('clean comment appears at once; held comment is never public', async () => {
@@ -75,10 +78,37 @@ test('rate limit keys on an HMAC of IP + day; the IP is never stored', async () 
   expect(keys[0]).not.toContain('203.0.113')
 })
 
-test('duplicate body within 24 h is held', async () => {
+test('duplicate body on the same page within 24 h is held; other pages are fine', async () => {
   const e = env()
-  await send(e, 'Cùng một nội dung')
-  expect(await (await send(e, 'Cùng một nội dung')).json()).toEqual({ status: 'held' })
+  await send(e, 'Cảm ơn bạn')
+  expect(await (await send(e, 'Cảm ơn bạn')).json()).toEqual({ status: 'held' })
+  expect(await (await send(e, 'Cảm ơn bạn', { e: 'plant:x' })).json()).toMatchObject({ status: 'approved' })
+})
+
+test('IPv6 addresses are limited per /64', async () => {
+  expect(ipUnit('2001:db8:1:2:aaaa::1')).toBe('2001:db8:1:2')
+  expect(ipUnit('203.0.113.9')).toBe('203.0.113.9')
+  expect(await ipDayKey('k', '2001:db8:1:2::1', now)).toBe(await ipDayKey('k', '2001:db8:1:2:ffff::9', now))
+})
+
+test('oversized body is refused even without content-length (chunked)', async () => {
+  const big = new TextEncoder().encode(JSON.stringify({ e: 'species:x', name: 'A', body: 'x'.repeat(9000), token: 't' }))
+  const stream = new ReadableStream({ start(ctl) { ctl.enqueue(big.slice(0, 5000)); ctl.enqueue(big.slice(5000)); ctl.close() } })
+  const req = new Request('https://x.test/_c', { method: 'POST', body: stream, headers: { origin: 'https://x.test' }, duplex: 'half' } as RequestInit)
+  expect((await postComment(req, env(), now, pass)).status).toBe(413)
+})
+
+test('keep_held never unpublishes; deferred held comments come back after a week; unseen approved never age out', async () => {
+  const e = env()
+  await send(e, 'Đã đăng từ lâu')
+  await send(e, '<i>giữ lại</i>')
+  const later = new Date('2026-11-15T00:00:00Z') // home machine was off for 2+ weeks
+  const q = await moderationQueue(e.DB, later)
+  expect(q).toHaveLength(2)
+  await applyDecisions(e.DB, q.map(x => ({ id: x.id, action: 'keep_held', helpful: false, reason: 'unsure' })), later)
+  expect((await list(e)).comments.map(x => x.body)).toEqual(['Đã đăng từ lâu'])
+  expect(await moderationQueue(e.DB, new Date('2026-11-20T00:00:00Z'))).toEqual([])
+  expect((await moderationQueue(e.DB, new Date('2026-11-23T00:00:00Z'))).map(x => x.body)).toEqual(['<i>giữ lại</i>'])
 })
 
 test('Decree 147 hook: phone mode → 403 verification_required', async () => {

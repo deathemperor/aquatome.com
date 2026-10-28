@@ -18,6 +18,7 @@ const SCHEMA = (() => {
 /** Site admin API; `queue` returns null when comments are off (no D1 yet). */
 export type CommentsAdmin = { queue: () => Promise<QueueItem[] | null>; decide: (d: Decision[]) => Promise<{ applied: number; ignored: number }> }
 
+/** Empty when the model gave no usable decision twice; the batch waits for the next run. */
 async function decideBatch(llm: Llm, items: QueueItem[]): Promise<Decision[]> {
   const ids = new Set(items.map(i => i.id))
   const prompt = `${TEMPLATE}\n\n${JSON.stringify(items.map(i => ({ id: i.id, page: i.entity_ref, name: i.name, body: i.body, status: i.status, rule: i.reason })), null, 1)}`
@@ -29,19 +30,20 @@ async function decideBatch(llm: Llm, items: QueueItem[]): Promise<Decision[]> {
   return []
 }
 
-export async function moderate(api: CommentsAdmin, llm: Llm): Promise<{ off: true } | { off: false; queued: number; applied: number; ignored: number }> {
+export async function moderate(api: CommentsAdmin, llm: Llm): Promise<{ off: true } | { off: false; queued: number; applied: number; ignored: number; failedBatches: number }> {
   const queue = await api.queue()
   if (!queue) return { off: true }
   let applied = 0
   let ignored = 0
+  let failedBatches = 0
   for (let i = 0; i < queue.length; i += BATCH) {
     const decisions = await decideBatch(llm, queue.slice(i, i + BATCH))
-    if (!decisions.length) continue
+    if (!decisions.length) { failedBatches++; continue }
     const r = await api.decide(decisions)
     applied += r.applied
     ignored += r.ignored
   }
-  return { off: false, queued: queue.length, applied, ignored }
+  return { off: false, queued: queue.length, applied, ignored, failedBatches }
 }
 
 /** The Worker's /_c/admin routes, authorised with the dashboard token. */

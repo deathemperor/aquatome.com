@@ -45,10 +45,11 @@ export async function mountComments(section: HTMLElement) {
     section.querySelector<HTMLElement>('[data-verify]')!.hidden = false
     return
   }
-  form.hidden = false
   let token = ''
   const ts = await loadTurnstile().catch(() => null)
-  const widget = ts?.render(section.querySelector<HTMLElement>('[data-turnstile]')!, { sitekey: data.sitekey, language: 'vi', callback: t => (token = t), 'expired-callback': () => (token = '') })
+  if (!ts) { section.querySelector<HTMLElement>('[data-ts-fail]')!.hidden = false; return }
+  form.hidden = false
+  const widget = ts.render(section.querySelector<HTMLElement>('[data-turnstile]')!, { sitekey: data.sitekey, language: 'vi', callback: t => (token = t), 'expired-callback': () => (token = '') })
 
   form.addEventListener('submit', async e => {
     e.preventDefault()
@@ -61,7 +62,7 @@ export async function mountComments(section: HTMLElement) {
     const out = (await r?.json().catch(() => null)) as { status?: 'approved' | 'held'; comment?: ShownComment; error?: string } | null
     button.disabled = false
     token = ''
-    if (ts && widget) ts.reset(widget)
+    if (widget) ts.reset(widget)
     if (r?.status === 201 && out?.status === 'approved' && out.comment) {
       show([out.comment])
       form.reset()

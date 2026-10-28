@@ -55,7 +55,8 @@ if (cmd === 'run') {
 } else if (cmd === 'moderate') {
   const base = process.env.SITE_URL ?? 'https://thuysinh.infinitus.run'
   const r = await moderate(httpAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), claudeCli)
-  console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored`)
+  console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored, ${r.failedBatches} failed batches`)
+  if (!r.off && r.failedBatches) process.exitCode = 1
 } else if (cmd === 'status') {
   const rows: Record<string, Record<string, number>> = {}
   for (const id of SOURCE_IDS) {

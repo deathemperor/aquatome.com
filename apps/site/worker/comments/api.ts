@@ -10,20 +10,21 @@ export type CommentsEnv = {
   COMMENT_VERIFICATION?: string
 }
 export type PublicComment = { id: string; name: string; body: string; helpful: boolean; createdAt: string }
-type Siteverify = (secret: string, token: string, ip: string | null) => Promise<boolean>
+type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 
 const DAY_MS = 86_400_000
 const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =>
   Response.json(data, { status, headers: { 'cache-control': 'no-store', ...extra } })
 const off = () => json({ error: 'comments_off' }, 503)
 
-export const siteverify: Siteverify = async (secret, token, ip) => {
+export const siteverify: Siteverify = async (secret, token, ip, host) => {
   const form = new FormData()
   form.set('secret', secret)
   form.set('response', token)
   if (ip) form.set('remoteip', ip)
   const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: form })
-  return r.ok && ((await r.json()) as { success?: boolean }).success === true
+  const out = (await r.json().catch(() => ({}))) as { success?: boolean; hostname?: string }
+  return r.ok && out.success === true && out.hostname === host
 }
 
 /** Pluggable Decree 147 check; 'ok' unless a verification mode is switched on. */
@@ -31,10 +32,13 @@ export async function verifyCommenter(_req: Request, env: CommentsEnv): Promise<
   return env.COMMENT_VERIFICATION === 'phone' ? 'verification_required' : 'ok'
 }
 
-/** Per-day rate-limit key: HMAC(ip + day) — the raw IP is never written anywhere. */
+/** IPv6 users control a whole /64, so that is the unit we limit. */
+export const ipUnit = (ip: string) => (ip.includes(':') ? ip.split(':').concat(['0', '0', '0', '0']).slice(0, 4).join(':') : ip)
+
+/** Per-day rate-limit key: HMAC(ip unit + day) — the raw IP is never written anywhere. */
 export async function ipDayKey(secret: string, ip: string, now: Date): Promise<string> {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
-  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${ip}|${now.toISOString().slice(0, 10)}`))
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${ipUnit(ip)}|${now.toISOString().slice(0, 10)}`))
   return `rl:${[...new Uint8Array(sig).slice(0, 16)].map(b => b.toString(16).padStart(2, '0')).join('')}`
 }
 
@@ -53,25 +57,46 @@ export async function listComments(url: URL, env: CommentsEnv): Promise<Response
   return json({ comments, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
+/** Body as text, or null past `max` bytes — without trusting content-length (chunked bodies have none). */
+async function readCapped(req: Request, max: number): Promise<string | null> {
+  if (Number(req.headers.get('content-length') ?? 0) > max) return null
+  if (!req.body) return ''
+  const reader = req.body.getReader()
+  const chunks: Uint8Array[] = []
+  let size = 0
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    size += value.byteLength
+    if (size > max) { await reader.cancel(); return null }
+    chunks.push(value)
+  }
+  const all = new Uint8Array(size)
+  let o = 0
+  for (const c of chunks) { all.set(c, o); o += c.byteLength }
+  return new TextDecoder().decode(all)
+}
+
 /** POST /_c: shape → static rules → Turnstile → rate limit → duplicate → insert. Cheapest checks first. */
 export async function postComment(req: Request, env: CommentsEnv, now: Date, verify: Siteverify = siteverify): Promise<Response> {
   if (!live(env)) return off()
   const origin = req.headers.get('origin')
   if (origin !== new URL(req.url).origin) return json({ error: 'cross-origin' }, 403)
-  if (Number(req.headers.get('content-length') ?? 0) > 8192) return json({ error: 'too large' }, 413)
   if ((await verifyCommenter(req, env)) === 'verification_required') return json({ error: 'verification_required' }, 403)
-  const raw = await req.json().catch(() => null) as Record<string, unknown> | null
+  const text = await readCapped(req, 8192)
+  if (text === null) return json({ error: 'too large' }, 413)
+  const raw = (() => { try { return JSON.parse(text) as Record<string, unknown> } catch { return null } })()
   const c = parseComment(raw)
   if (typeof c === 'string') return json({ error: c }, 400)
   const ip = req.headers.get('cf-connecting-ip')
   const token = typeof raw?.token === 'string' ? raw.token : ''
-  if (!token || !(await verify(env.TURNSTILE_SECRET, token, ip))) return json({ error: 'turnstile' }, 403)
+  if (!token || !(await verify(env.TURNSTILE_SECRET, token, ip, new URL(req.url).hostname))) return json({ error: 'turnstile' }, 403)
 
   const rl = await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)
   const postsToday = Number((await env.AB.get(rl)) ?? 0) + 1
   await env.AB.put(rl, String(postsToday), { expirationTtl: 86_400 })
-  const duplicate = Boolean(await env.DB.prepare(`SELECT 1 FROM comments WHERE body = ? AND created_at > ? LIMIT 1`)
-    .bind(c.body, new Date(now.getTime() - DAY_MS).toISOString()).first())
+  const duplicate = Boolean(await env.DB.prepare(`SELECT 1 FROM comments WHERE entity_ref = ? AND body = ? AND created_at > ? LIMIT 1`)
+    .bind(c.entityRef, c.body, new Date(now.getTime() - DAY_MS).toISOString()).first())
 
   const v = checkRules(c, { duplicate, postsToday })
   if ('reject' in v) return json({ error: v.reject }, 400)
@@ -88,12 +113,13 @@ export type QueueItem = { id: string; entity_ref: string; name: string; body: st
 export type Decision = { id: string; action: 'approve' | 'remove' | 'keep_held'; helpful: boolean; reason: string }
 const ACTIONS = ['approve', 'remove', 'keep_held']
 
-/** Held comments, plus approved ones the moderator hasn't seen yet (last 48 h). */
+/** Everything the moderator hasn't seen, plus held comments it deferred over a week ago; unseen first. */
 export async function moderationQueue(db: D1Database, now: Date): Promise<QueueItem[]> {
   const { results } = await db.prepare(
     `SELECT id, entity_ref, name, body, status, reason, created_at FROM comments
-     WHERE status = 'held' OR (status = 'approved' AND decided_at IS NULL AND created_at > ?) ORDER BY created_at LIMIT 500`,
-  ).bind(new Date(now.getTime() - 2 * DAY_MS).toISOString()).all<QueueItem>()
+     WHERE (status != 'removed' AND decided_at IS NULL) OR (status = 'held' AND decided_at < ?)
+     ORDER BY decided_at IS NOT NULL, created_at LIMIT 500`,
+  ).bind(new Date(now.getTime() - 7 * DAY_MS).toISOString()).all<QueueItem>()
   return results
 }
 
@@ -104,9 +130,12 @@ export async function applyDecisions(db: D1Database, items: unknown[], now: Date
   for (const raw of items) {
     const d = raw as Partial<Decision>
     if (typeof d?.id !== 'string' || !ACTIONS.includes(d.action as string) || typeof d.helpful !== 'boolean' || typeof d.reason !== 'string') continue
-    const status = d.action === 'approve' ? 'approved' : d.action === 'remove' ? 'removed' : 'held'
-    const r = await db.prepare(`UPDATE comments SET status = ?, helpful = ?, reason = ?, decided_at = ? WHERE id = ? AND status != 'removed'`)
-      .bind(status, d.helpful && status === 'approved' ? 1 : 0, d.reason.slice(0, 300), at, d.id).run()
+    // keep_held = "no change": a held comment stays held, an approved one stays public.
+    const status = d.action === 'approve' ? 'approved' : d.action === 'remove' ? 'removed' : null
+    const r = await db.prepare(
+      `UPDATE comments SET status = COALESCE(?, status), helpful = CASE WHEN COALESCE(?, status) = 'approved' THEN ? ELSE 0 END, reason = ?, decided_at = ?
+       WHERE id = ? AND status != 'removed'`,
+    ).bind(status, status, d.helpful ? 1 : 0, d.reason.slice(0, 300), at, d.id).run()
     applied += r.meta.changes ?? 0
   }
   return { applied, ignored: items.length - applied }

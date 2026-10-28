@@ -27,7 +27,7 @@ test('decisions are posted; unknown ids from the model are dropped', async () =>
     { id: 'b', action: 'approve', helpful: true, reason: 'good answer' },
     { id: 'zzz', action: 'approve', helpful: false, reason: 'invented' },
   ] })
-  expect(await moderate(api, llm)).toEqual({ off: false, queued: 2, applied: 2, ignored: 0 })
+  expect(await moderate(api, llm)).toEqual({ off: false, queued: 2, applied: 2, ignored: 0, failedBatches: 0 })
   expect(sent[0]!.map(d => d.id)).toEqual(['a', 'b'])
 })
 
@@ -40,7 +40,7 @@ test('invalid output is retried once, then the batch waits for the next run', as
   expect(one.sent).toHaveLength(1)
   const never = fixed('nonsense')
   const two = admin([item('a')])
-  expect(await moderate(two.api, never)).toEqual({ off: false, queued: 1, applied: 0, ignored: 0 })
+  expect(await moderate(two.api, never)).toEqual({ off: false, queued: 1, applied: 0, ignored: 0, failedBatches: 1 })
   expect(never.calls).toBe(2)
   expect(two.sent).toHaveLength(0)
 })

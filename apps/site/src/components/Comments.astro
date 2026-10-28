@@ -7,6 +7,7 @@ const { entity } = Astro.props
   <h2 id="comments-h">Thảo luận</h2>
   <ol class="list" data-list></ol>
   <p class="empty" data-empty>Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.</p>
+  <p class="notice" data-ts-fail hidden>Không tải được kiểm tra chống spam nên chưa gửi được bình luận. Hãy thử tải lại trang.</p>
   <p class="notice" data-verify hidden>Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.</p>
   <form data-form hidden>
     <label>Tên<input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
