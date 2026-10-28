@@ -7,7 +7,7 @@ import PhotoGallery from '../../../components/PhotoGallery.astro'
 import Sections from '../../../components/Sections.astro'
 import VideoFacade from '../../../components/VideoFacade.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
-import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
+import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { slugify } from '@aq/schema/slug'
@@ -54,7 +54,7 @@ const firstSource = s.sections[0]
 
   <div class="wrap two">
     <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
-    <CommentsPlaceholder />
+    <Comments entity={`species:${s.id}`} />
   </div>
 </Base>
 <style>

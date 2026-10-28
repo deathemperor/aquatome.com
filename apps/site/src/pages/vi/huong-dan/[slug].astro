@@ -5,7 +5,7 @@ import Nav from '../../../components/Nav.astro'
 import SpeciesCard from '../../../components/SpeciesCard.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import SourceCredit from '../../../components/SourceCredit.astro'
-import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
+import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
 import { glossaryTerms } from '../../../lib/glossary'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
@@ -39,7 +39,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
-  <div class="wrap end"><CommentsPlaceholder /></div>
+  <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
 </Base>
 <style>
   .art { max-width: calc(var(--measure) + 2 * var(--space-5)); padding-block: var(--space-4) var(--space-6); }
