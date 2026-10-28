@@ -59,5 +59,5 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
   return { title, outline: out.join('\n'), images }
 }
 
-const CHALLENGE = /just a moment|robot challenge|attention required|verify you are human|checking your browser/i
+const CHALLENGE = /just a moment|robot challenge|attention required|verify you are human|checking your browser|sgcaptcha/i
 export const isChallenge = (title: string, text: string): boolean => CHALLENGE.test(title) || CHALLENGE.test(text.slice(0, 600))

@@ -25,7 +25,7 @@ const canonical = (u: string) => {
 export async function discover(
   src: SourceConfig,
   getText: (url: string) => Promise<string>,
-  getLinks: (url: string) => Promise<string[]>,
+  getLinks: (url: string, scope?: string) => Promise<string[]>,
 ): Promise<Discovered[]> {
   const found = new Map<string, Discovered>()
   const keep = (url: string, lastmod?: string) => {
@@ -43,7 +43,7 @@ export async function discover(
     }
     for (const u of src.discover.urls) await walk(u, 0)
   } else {
-    for (const start of src.discover.start) for (const l of await getLinks(start)) keep(l)
+    for (const start of src.discover.start) for (const l of await getLinks(start, src.discover.scope)) keep(l)
   }
   return [...found.values()]
 }

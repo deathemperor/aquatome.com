@@ -3,6 +3,7 @@ import { copyFile, mkdir, mkdtemp, readdir, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { ChallengeError } from '../src/fetch'
 import { runEngine } from '../src/run'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
@@ -18,7 +19,7 @@ const species = {
 function deps(root: string, opts: { urls?: string[]; score?: number } = {}) {
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
-    text: async () => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
+    text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
     links: async () => [],
     get: async (url: string) => {
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
@@ -95,6 +96,16 @@ test('second identical run makes no llm calls and changes no file', async () => 
   expect(calls.llm).toBe(0)
   expect(r.perSource.seriouslyfish?.fetched).toBe(0)
   expect(await tree(root)).toEqual(before)
+})
+
+test('a browser check during discovery marks the source needs-human', async () => {
+  const root = await fresh()
+  const { d, calls } = deps(root)
+  d.fetcher.text = async (u: string) => { throw new ChallengeError(u) }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(r.needsHuman).toEqual(['seriouslyfish'])
+  expect(r.perSource.seriouslyfish).toMatchObject({ discovered: 0, blocked: 1, errors: 0 })
+  expect(calls.llm).toBe(0)
 })
 
 test('limit is respected per source', async () => {

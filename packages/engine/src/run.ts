@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { appendChangelog } from './changelog'
 import type { Llm } from './claude'
 import { discover } from './discover'
-import type { ChromeFetcher } from './fetch'
+import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, type Taxon } from './gbif'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -172,11 +172,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try { return await f(...a) } finally { last = deps.now().getTime() }
     }
     const get = polite((u: string) => deps.fetcher.get(u))
+    const links = polite((u: string, scope?: string) => deps.fetcher.links(u, scope))
     const bytes = polite((u: string, referer: string) => deps.fetcher.bytes(u, referer))
     let found
     try {
-      found = await discover(src, polite((u: string) => deps.fetcher.text(u)), polite((u: string) => deps.fetcher.links(u)))
+      found = await discover(src, polite((u: string) => deps.fetcher.text(u)), links)
     } catch (e) {
+      if (e instanceof ChallengeError) { counts.blocked++; report.needsHuman.push(id); continue }
       counts.errors++
       report.errors.push(`${id}: discovery failed: ${(e as Error).message}`)
       continue
