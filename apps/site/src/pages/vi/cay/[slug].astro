@@ -16,6 +16,8 @@ export async function getStaticPaths() {
   return c.plants.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
 }
 const { p } = Astro.props as { p: Localized<PlantEntity> }
+// The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
+const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
   ['Độ khó', PLANT_LABELS.difficulty[p.difficulty]!],
   ['Ánh sáng', PLANT_LABELS.light[p.light]!],
@@ -37,7 +39,7 @@ const facts: [string, string][] = [
   </header>
   <Sections sections={p.sections} t={p.t} />
   <div class="wrap two">
-    <ProductSlots slots={p.productSlots} heading="Mua cây này" />
+    <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />
     <CommentsPlaceholder />
   </div>
 </Base>

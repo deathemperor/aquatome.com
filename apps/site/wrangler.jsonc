@@ -7,8 +7,11 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*"]
+    "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*"]
   },
+  // Affiliate catalog + click counts. Needs a token with D1 Edit: `wrangler d1 create thuysinh`, paste the id, then
+  // `wrangler d1 migrations apply thuysinh --remote`. Until then /go/ links fall back to marketplace search.
+  // "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "…", "migrations_dir": "migrations" }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   // Analytics Engine must be enabled once in the dashboard (Workers → Analytics Engine) before this binding deploys:
   // "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],

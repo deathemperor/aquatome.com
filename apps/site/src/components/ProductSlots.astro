@@ -1,8 +1,8 @@
 ---
 import type { ProductSlot } from '@aq/schema'
-import { categoryLabel, lazadaSearch, shopeeSearch } from '../lib/format'
-interface Props { slots: ProductSlot[]; heading?: string }
-const { slots, heading = 'Thiết bị phù hợp' } = Astro.props
+import { categoryLabel, goLink } from '../lib/format'
+interface Props { slots: ProductSlot[]; heading?: string; entity?: string }
+const { slots, heading = 'Thiết bị phù hợp', entity } = Astro.props
 ---
 {slots.length > 0 && (
   <section class="products" aria-labelledby="products-h">
@@ -13,13 +13,13 @@ const { slots, heading = 'Thiết bị phù hợp' } = Astro.props
           <span class="cat">{categoryLabel(s.category)}</span>
           <span class="kw">{k}</span>
           <span class="shops">
-            <a href={shopeeSearch(k)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
-            <a href={lazadaSearch(k)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
+            <a href={goLink('shopee', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
+            <a href={goLink('lazada', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
           </span>
         </li>
       )))}
     </ul>
-    <p class="note">Liên kết tìm kiếm trên sàn; trang có thể nhận hoa hồng.</p>
+    <p class="note">Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.</p>
   </section>
 )}
 <style>

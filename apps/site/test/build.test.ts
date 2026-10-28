@@ -19,9 +19,11 @@ describe('species page', () => {
     expect(heads.indexOf('Môi trường sống')).toBeLessThan(heads.indexOf('Sinh sản'))
     expect(dom.querySelectorAll('section[data-section="reproduction"] [data-source]').length).toBe(2)
   })
-  test('product slots are sponsored search links', () => {
-    const a = dom.querySelector('a[href^="https://shopee.vn/search?keyword="]')
+  test('product slots are sponsored /go/ links carrying the placement', () => {
+    const a = dom.querySelector('a[href^="/go/shopee/?k="]')
     expect(a?.getAttribute('rel')).toContain('sponsored')
+    expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
+    expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn)/)
   })
   test('has no broken values', () => {
     expect(html).not.toMatch(/undefined|NaN|\[object Object\]/)
@@ -79,7 +81,12 @@ describe('plants, guides, glossary, equipment, discovery', () => {
   test('plant page shows growing needs and shop links', () => {
     const { html, dom } = page('/vi/cay/ray-nana/')
     for (const t of ['Ánh sáng', 'CO₂', 'Tốc độ mọc']) expect(html).toContain(t)
-    expect(dom.querySelector('a[href^="https://shopee.vn/search?keyword="]')).not.toBeNull()
+    const shop = dom.querySelector('a[href^="/go/shopee/?k="]')?.getAttribute('href') ?? ''
+    expect(new URLSearchParams(shop.split('?')[1]).get('c')).toBe('cay-thuy-sinh') // plants are always an affiliate item
+    // a plant whose slots lack the plant category still gets one, first
+    const mc = page('/vi/cay/monte-carlo/').dom.querySelectorAll('a[href^="/go/shopee/?k="]').map(a => new URLSearchParams(a.getAttribute('href')!.split('?')[1]).get('c'))
+    expect(mc[0]).toBe('cay-thuy-sinh')
+    expect(mc).toContain('den')
     expect(page('/vi/cay/').dom.querySelectorAll('a[href^="/vi/cay/"]').length).toBeGreaterThanOrEqual(3)
   })
   test('guide page credits its source and links glossary terms', () => {
@@ -96,7 +103,7 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] .gl')).not.toBeNull()
   })
   test('equipment index and a page per product category', () => {
-    for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/vi/thiet-bi/${cat}/`).html, cat).toContain('shopee.vn/search')
+    for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/vi/thiet-bi/${cat}/`).html, cat).toContain(`/go/shopee/?k=`)
     expect(page('/vi/thiet-bi/').dom.querySelectorAll('a[href^="/vi/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
   })
   test('discovery lists discovery guides', () => {
@@ -132,4 +139,12 @@ test("what's new lists changelog entries that exist, with links", () => {
   const { dom } = page('/vi/moi-cap-nhat/')
   const hrefs = dom.querySelectorAll('[data-changelog] a').map(a => a.getAttribute('href'))
   expect(hrefs).toEqual(['/vi/ca/ca-neon-vua/', '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'])
+})
+
+test('static /go/ fallback pages exist for hosting without the Worker, and are noindex', () => {
+  for (const n of ['shopee', 'lazada', 'tiki']) {
+    const { html } = page(`/go/${n}/`)
+    expect(html).toContain('noindex')
+    expect(html).toMatch(/location\.replace/)
+  }
 })

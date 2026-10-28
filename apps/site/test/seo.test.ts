@@ -20,7 +20,7 @@ test('sitemap lists indexable pages and omits noindex ones', () => {
   expect(xml).not.toContain('/vi/ca/ca-boraras-do/')
 })
 test('robots: production points to the sitemap, staging blocks everything', () => {
-  expect(robotsTxt(false, 'https://example.com')).toBe('User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n')
+  expect(robotsTxt(false, 'https://example.com')).toBe('User-agent: *\nAllow: /\nDisallow: /go/\n\nSitemap: https://example.com/sitemap.xml\n')
   expect(robotsTxt(true, 'https://x.huuloc.com')).toBe('User-agent: *\nDisallow: /\n')
   expect(readFileSync(join(DIST, 'robots.txt'), 'utf8')).toContain('Sitemap:')
 })

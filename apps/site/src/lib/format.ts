@@ -15,8 +15,9 @@ export const CATEGORY_LABELS: Record<string, string> = {
 }
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
 
-export const shopeeSearch = (k: string) => `https://shopee.vn/search?keyword=${encodeURIComponent(k)}`
-export const lazadaSearch = (k: string) => `https://www.lazada.vn/catalog/?q=${encodeURIComponent(k)}`
+/** Tracked affiliate link; the Worker resolves it to a checked product or a marketplace search (see worker/affiliate). */
+export const goLink = (network: 'shopee' | 'lazada' | 'tiki', keyword: string, category: string, entity?: string) =>
+  `/go/${network}/?${new URLSearchParams({ k: keyword, c: category, ...(entity ? { e: entity } : {}) })}`
 
 export const GROUP_LABELS: Record<string, string> = {
   tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
