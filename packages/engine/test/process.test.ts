@@ -1,0 +1,44 @@
+import { expect, test } from 'vitest'
+import { processPage } from '../src/process'
+import type { Llm } from '../src/claude'
+
+const species = {
+  kind: 'species', scientificName: 'Paracheirodon axelrodi', enCommonNames: ['Cardinal Tetra'], viName: 'Cá neon vua', viAltNames: [],
+  group: 'tetras', places: [{ continent: 'South America', country: 'Brazil', region: 'Rio Negro' }],
+  dataCard: { tempC: { min: 23, max: 29 }, ph: { min: 3.5, max: 7.5 }, difficulty: 3 },
+  sections: [
+    { key: 'habitat', en: '<p>Blackwater streams.</p>', vi: '<p>Suối nước đen.</p>' },
+    { key: 'history', en: '<p>x</p>', vi: '<p>y</p>' },
+    { key: 'diet', en: '<p>Small foods.</p>', vi: '<script>alert(1)</script><p onclick="x">Thức ăn nhỏ.</p>' },
+  ],
+  productSlots: [{ category: 'thuc-an', keywords: ['thức ăn cá tetra'] }],
+}
+const input = { source: 'seriouslyfish' as const, url: 'https://x', title: 'T', outline: 'O', glossary: [] }
+const fake = (...replies: unknown[]): Llm & { calls: number } => {
+  const f = (async () => { f.calls++; const r = replies.shift(); if (r instanceof Error) throw r; return r }) as unknown as Llm & { calls: number }
+  f.calls = 0
+  return f
+}
+
+test('valid species passes, unknown section keys are dropped, html is sanitised', async () => {
+  const p = await processPage(fake(structuredClone(species)), input)
+  expect(p.kind).toBe('species')
+  expect(p.sections.map(s => s.key)).toEqual(['habitat', 'diet'])
+  expect(p.sections[1]!.vi).toBe('<p>Thức ăn nhỏ.</p>')
+})
+test('species without a scientific name becomes skip', async () => {
+  const { scientificName: _, ...noName } = structuredClone(species)
+  expect((await processPage(fake(noName), input)).kind).toBe('skip')
+})
+test('invalid output is retried once', async () => {
+  const llm = fake({ kind: 'banana' }, structuredClone(species))
+  expect((await processPage(llm, input)).kind).toBe('species')
+  expect(llm.calls).toBe(2)
+})
+test('invalid output twice throws', async () => {
+  await expect(processPage(fake({ kind: 'banana' }, { kind: 'banana' }), input)).rejects.toThrow()
+})
+test('guide body is sanitised', async () => {
+  const g = { kind: 'guide', enCommonNames: [], viName: 'Setup', viAltNames: [], places: [], dataCard: {}, sections: [], productSlots: [], guide: { kind: 'setup', viTitle: 'Setup bể', viBody: '<p>Ok</p><iframe src=x></iframe>' } }
+  expect((await processPage(fake(g), input)).guide?.viBody).toBe('<p>Ok</p>')
+})
