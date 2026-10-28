@@ -2,7 +2,7 @@
 # One content-engine cycle on the home machine: sync → run engine → build + test → commit + push → deploy staging.
 # Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
 set -euo pipefail
-export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+export PATH="$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
 log() { echo "$(date -u +%FT%TZ) $*"; }
