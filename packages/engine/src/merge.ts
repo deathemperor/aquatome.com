@@ -7,6 +7,9 @@ type Item<E> = { entity: E; vi: Translation }
 type PagePlace = ProcessedPage['places'][number]
 
 export const placeId = (name: string) => slugify(name)
+/** A region must be one proper name (river, lake, province), not a phrase like "mainly western" or "Kentucky (introduced)". */
+const VAGUE = /\b(north|south|east|west|northern|southern|eastern|western|central|mainly|except|introduced|around|and|parts?|possibly|probably)\b|[()]/i
+export const usableRegion = (r?: string): r is string => !!r && !VAGUE.test(r) && r.trim().split(/\s+/).length <= 4
 export const guideId = (source: SourceId, url: string) => `${source}-${slugify(new URL(url).pathname)}`
 const DEFAULT_QUALITY = { score: 1, indexable: true }
 const uniq = <T>(xs: T[]) => [...new Set(xs)]
@@ -57,7 +60,7 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const entity: SpeciesEntity = {
     id: slugify(taxon.canonicalName), scientificName: taxon.canonicalName, order: taxon.order ?? '', family: taxon.family ?? '', genus,
     group: prev?.group ?? page.group ?? 'other', ...(lNumber ? { lNumber } : {}),
-    places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, p.region].filter((x): x is string => !!x).map(placeId))]),
+    places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }
@@ -101,7 +104,7 @@ export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<Plac
   for (const p of places) {
     let parent = add(p.continent, 'continent')
     if (p.country) parent = add(p.country, 'country', parent)
-    if (p.region) add(p.region, /\b(rio|river|río)\b/i.test(p.region) ? 'river' : 'region', parent)
+    if (usableRegion(p.region)) add(p.region, /\b(rio|river|río)\b/i.test(p.region) ? 'river' : 'region', parent)
   }
   return out
 }

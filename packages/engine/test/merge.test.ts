@@ -58,3 +58,14 @@ test('plants and guides', () => {
   expect(g?.entity).toMatchObject({ id: 'aquariumcoop-blogs-aquarium-first-tank', kind: 'setup', source: 'aquariumcoop' })
   expect(g?.vi).toMatchObject({ name: 'Dựng bể đầu tiên', body: '<p>Bước 1.</p>', slug: 'dung-be-dau-tien' })
 })
+
+test('vague or phrase-like regions are dropped', () => {
+  const r = mergeSpecies({}, page({ places: [
+    { continent: 'Europe', country: 'Germany', region: 'mainly western' },
+    { continent: 'North America', country: 'United States', region: 'Kentucky (introduced)' },
+    { continent: 'Asia', country: 'Thailand', region: 'Samut Sakhon and Samut Songkhram provinces around Mahachai' },
+    { continent: 'Asia', country: 'China', region: 'Yangtze' },
+  ] }), ctx('seriouslyfish'))
+  expect(r.entity.places).toEqual(['europe', 'germany', 'north-america', 'united-states', 'asia', 'thailand', 'china', 'yangtze'])
+  expect(ensurePlaces([{ continent: 'Europe', country: 'Italy', region: 'north' }], new Set()).map(p => p.entity.id)).toEqual(['europe', 'italy'])
+})
