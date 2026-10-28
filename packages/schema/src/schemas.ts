@@ -47,6 +47,6 @@ export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.boolean(),
   permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),
 })
-export const SourcesSchema = z.record(SourceId, SourceInfoSchema)
+export const SourcesSchema = z.partialRecord(SourceId, SourceInfoSchema)
 
 export const schemas = { Range, SourcedValue, Section, Photo, Video, ProductSlot }

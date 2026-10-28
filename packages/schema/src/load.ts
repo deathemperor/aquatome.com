@@ -1,0 +1,68 @@
+import { readdir, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import type { z } from 'zod'
+import { filterPhotos } from './licence'
+import { GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+
+export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
+export type Localized<E> = E & { t: Translation }
+export type Content = {
+  species: Localized<SpeciesEntity>[]
+  plants: Localized<PlantEntity>[]
+  guides: Localized<GuideEntity>[]
+  glossary: Localized<GlossaryEntity>[]
+  places: Localized<PlaceEntity>[]
+  sources: Partial<Record<SourceId, SourceInfo>>
+}
+
+async function readJson<S extends z.ZodType>(path: string, schema: S): Promise<z.infer<S>> {
+  try {
+    return schema.parse(JSON.parse(await readFile(path, 'utf8')))
+  } catch (e) {
+    throw new Error(`Invalid content file ${path}: ${(e as Error).message}`)
+  }
+}
+
+async function exists(path: string): Promise<boolean> {
+  return readFile(path).then(() => true, () => false)
+}
+
+async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang): Promise<Localized<z.infer<S>>[]> {
+  const base = join(root, dir)
+  const ids = await readdir(base).catch(() => [] as string[])
+  const out: Localized<z.infer<S>>[] = []
+  for (const id of ids.sort()) {
+    const tPath = join(base, id, `${lang}.json`)
+    if (!(await exists(tPath))) continue
+    const entity = await readJson(join(base, id, 'entity.json'), schema)
+    const t = await readJson(tPath, TranslationSchema)
+    out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
+  }
+  return out
+}
+
+export async function loadAll(opts: LoadOptions): Promise<Content> {
+  const { root, lang, publicBuild } = opts
+  const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
+  const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
+  const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
+  const cleanPhotos = (xs: Photo[]) => filterPhotos(xs)
+
+  const species = (await loadKind(root, 'species', SpeciesSchema, lang))
+    .map(s => ({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos) }))
+    .filter(s => s.sections.length > 0)
+  const plants = (await loadKind(root, 'plants', PlantSchema, lang))
+    .map(p => ({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
+    .filter(p => p.sections.length > 0)
+  const guides = (await loadKind(root, 'guides', GuideSchema, lang))
+    .filter(g => allowed(g.source))
+    .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
+
+  return {
+    species, plants, guides,
+    glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
+    places: await loadKind(root, 'places', PlaceSchema, lang),
+    sources,
+  }
+}
