@@ -1,0 +1,76 @@
+{
+  "id": "vallisneria",
+  "scientificName": "Vallisneria",
+  "difficulty": 1,
+  "light": "medium",
+  "co2": "none",
+  "growth": "fast",
+  "placement": [
+    "background"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+      "html": "<p>Vallisneria is an undemanding plant that can transform an aquarium into a lush jungle. It grows quickly and takes up a lot of nitrates. It is cheap and frequently found at fish stores for less than $10.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+      "html": "<p>There are only two requirements to grow vallisneria:</p><ul><li>Feed it. Easy Green all-in-one fertilizer is recommended, but other fertilizers or heavy fish loads can work as well.</li><li>Provide it with light using a high quality LED light designed for planted aquariums.</li></ul><p>Simply plant one bunch in the back corner of the tank. It will continue to spread throughout the gravel. After a few months, the tank will become a lush jungle with fish weaving in and out of the long leaves. It is easy to remove if it spreads somewhere you don't want it: just pull it out of the gravel and replant it where you want it.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+      "html": "<p>Vallisneria also does well in African cichlid setups, and it can even be used to create a Lake Tanganyika biotope. It grows so fast that it often goes to compost. If you have multiple high-tech planted aquariums, a vallisneria jungle is a nice reprieve from the maintenance.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/aquariumcoop/a75d8fc049733236.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+      "caption": "Vallisneria – The One Plant Wonder - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/aquariumcoop/54f9be32667924b7.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+      "caption": "Vallisneria - Aquarium Co - Op",
+      "source": "aquariumcoop"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây vallisneria",
+        "cỏ lươn thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nước thủy sinh tổng hợp",
+        "phân bón cây thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

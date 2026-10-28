@@ -1,0 +1,187 @@
+{
+  "id": "abbottina-rivularis",
+  "scientificName": "Abbottina rivularis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Abbottina",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "yangtze",
+    "japan",
+    "tone",
+    "south-korea",
+    "mongolia",
+    "amur"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>The Chinese false gudgeon, Abbottina rivularis, is a small bottom-dwelling cyprinid native to China, the Korean peninsula and southern Japan. It has been widely introduced elsewhere, including the Mekong and Salween basins, Taiwan, Turkmenistan and Kyrgyzstan, and is considered invasive. It has started to appear in the aquarium trade and should never be released into natural waters outside its native range.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 16–24°C (61–75°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Native to continental China, the Korean peninsula, and southern Japan. Type locality is given only as 'Lakes and rivers, northern China', with the type series possibly originating from the Pai-ho River near Beijing.</p><p>It has been widely introduced and is considered invasive elsewhere, including the Mekong river basin (records from Laos and Thailand), Salween river (Myanmar), northern Japan, Taiwan, Turkmenistan, and Kyrgyzstan, due to contamination of translocated populations of species which are cultured for food, such as the genera Ctenopharyngodon, Hypophthalmichthys, or Parabramis.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Primarily a benthic riverine species but has displayed ecological plasticity where it has been introduced and is now established in a number of lakes, irrigation channels, and suchlike. Apparently displays a preference for shallow, slow-to-moderately flowing, turbid conditions.</p><p>At one habitat in the Beiqiaohe River, Luozhahe River subbasin, Mekong basin, Yunxian County, Yunnan the water was turbid, had a temperature of 22 ºC at 20 cm (8 in) depth, a pH of 7.6, and conductivity 70 µS/cm in January 2010. Syntopic species included Opsarius caudiocellatus, Schistura latifasciata, Garra mirofrontis, and Pseudorasbora parva.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Standard length: 150 mm SL (6 in SL).</p><p>Aquarium base: 150 × 45 cm (60 × 18 in). Volume: ~304 litres (~80 US gal).</p><p>Minimum base dimensions of 150 × 45 cm (60 × 18 in) are likely to be required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>An aquarium arranged to resemble a slowly-flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders should suit it best.</p><p>This can be further furnished with driftwood roots or branches, and hardy plants such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<ul><li>Temperature: 16–24°C (61–75°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Although it will graze algae and biofilm this species mostly feeds on invertebrates in the wild. Offer meaty foods such as live or frozen bloodworm, Tubifex, Artemia, chopped prawn, etc., along with good quality, sinking dried products, at least some of which should contain vegetable matter such as Spirulina.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Unsuitable for the general community due to its environmental requirements and likely to outcompete or intimidate slow-moving and less bold species at meal times since it’s a vigorous feeder.</p><p>Recommended tankmates include similarly-sized, robust cyprinids such as Dawkinsia, Barilius, Opsarius or larger Devario and Rasbora spp. while bottom-dwellers could consist of Garra, Crossocheilus, Botia and Schistura spp., for example.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>Adult males possess a larger dorsal-fin than females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<p>This species has started to appear in the aquarium trade with relative regularity which is somewhat concerning given its invasive potential. Under no circumstances should it ever be released into natural waters outside of its native range.</p><p>Within the family Cyprinidae, Abbottina has been included in the tribe Gobionini Bleeker, 1863 alongside the genera Biwia, Gobio, Gobiobotia, Huigobio, Mesogobio, Microphysogobio, Platysmacheilus, Pseudogobio, Romanogobio, Saurogobio, and Xenophysogobio. This hypothesis has been supported by recent molecular data.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "html": "<ul><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Neely, D. A., M. H. Sabaj Perez, and B. Mendsaikhan (2005). First Records of Rhinogobius lindbergi (Teleostei: Gobiidae) and Abbottina rivularis (Teleostei: Cyprinidae) in the Lake Buyr Drainage, Mongolia. ournal of Great Lakes Research 34(2), 334-341</li><li>Vidthayanon, C. and M. Kottelat (1995). First record of Abbottina rivularis (Cyprinidae: Gobioninae) from the Mekong basin. Japanese Journal of Ichthyology 41(4), 463-465</li><li>Basilewsky, S. (1855). Ichthyographia Chinae borealis. Nouveaux mémoires de la Société impériale des naturalistes de Moscou v. 10, 215-263</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Tang, K. L., M. K. Agnew, W-J. Chen, M. V. Hirt, M. E. Raley, T. Sado, L. M. Schneider, L. Yang, H. L. Bart, S. He, H. Liu, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood, and R. L. Mayden (2011). Phylogeny of the gudgeons (Teleostei: Cyprinidae: Gobioninae). Molecular Phylogenetics and Evolution 61(1), 103-124</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/24ed49d58b93fbdc.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "caption": "Male individual from the U.S. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/dd82744c9683e9dc.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/abbottina-rivularis",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150 cm",
+        "bể cá dài 150x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

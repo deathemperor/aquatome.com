@@ -1,0 +1,146 @@
+{
+  "id": "betta-mahachaiensis",
+  "scientificName": "Betta mahachaiensis",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<ul><li><strong>Max size:</strong> about 2 inches (5 cm), up to 2.3 inches</li><li><strong>Temperament:</strong> males are very aggressive and should be kept alone or in tanks with non-male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</li><li><strong>Diet:</strong> carnivorous</li><li><strong>Breeding:</strong> bubblenester</li></ul><p>Betta mahachaiensis is a relatively new species of betta fish discovered in 2012 in the Samut Sakhon Province of Thailand. It is a member of the Betta splendens group but exhibits distinct characteristics that set it apart.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Native to brackish coastal waters of Thailand’s Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai. Inhabits mangrove swamps, tidal pools, and canals with nipa palms and dense vegetation. Tolerates slightly brackish, warm (24-30°C), and acidic to neutral (pH 6-7.5) water, relying on its labyrinth organ for breathing in low-oxygen environments.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions). Mahachais can be found in brackish water.</li><li>pH: 6.0</li><li>Temperature: 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Carnivorous. The seller feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Body shape: slender and elongated, typical of the Betta splendens complex, with a slightly compressed body. Reaches a maximum standard length of about 2 inches (5 cm), robust yet streamlined for navigating dense habitats.</p><p>Tail shape: rounded caudal fin, short and less elaborate than Betta splendens, often with a red crescent-shaped distal band and faint black edging, resembling Betta imbellis but more robust.</p><p>Coloration: dark brown to black body with iridescent green or blue scales forming a metallic sheen. Males show vibrant red accents on caudal, anal, and pelvic fins, with intense coloration during display. Females are duller, brownish with muted red or green hints and less iridescence.</p><p>Operculum: males feature striking iridescent green or blue scales with two parallel red vertical bars (sometimes silvery or green-tinted). Females have fainter, less distinct opercular markings.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/bcc1088b655adf74.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/1215b602deaf1c2e.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/ce8b310f050f3baf.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/4aa3c06bfd71a23b.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá betta thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi cá cảnh mini",
+        "máy sưởi bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

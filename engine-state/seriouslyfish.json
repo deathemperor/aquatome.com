@@ -1,0 +1,49 @@
+{
+  "https://www.seriouslyfish.com/articles/a-basic-guide-to-the-hamburger-mattenfilter": {
+    "entityIds": [
+      "guides/seriouslyfish-articles-a-basic-guide-to-the-hamburger-mattenfilter"
+    ],
+    "updatedAt": "2026-10-28T15:46:47.443Z",
+    "hash": "c84695b53d2136e3818e3596f4f05fbe59b725fa6233c66753533c523f57e7d0",
+    "processedHash": "c84695b53d2136e3818e3596f4f05fbe59b725fa6233c66753533c523f57e7d0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/articles/a-passion-for-cichlids": {
+    "entityIds": [
+      "guides/seriouslyfish-articles-a-passion-for-cichlids"
+    ],
+    "updatedAt": "2026-10-28T15:47:53.152Z",
+    "hash": "51eee4549fe31cb6790810bea5cd4757308edd719caa7307e3da2d0be6c528cc",
+    "processedHash": "51eee4549fe31cb6790810bea5cd4757308edd719caa7307e3da2d0be6c528cc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/articles/africhthy-the-interview": {
+    "entityIds": [
+      "guides/seriouslyfish-articles-africhthy-the-interview"
+    ],
+    "updatedAt": "2026-10-28T15:50:08.312Z",
+    "hash": "e358728d30e89a24f655de315e60f53e26064a28b79b7268b4eeb079bbc6511f",
+    "processedHash": "e358728d30e89a24f655de315e60f53e26064a28b79b7268b4eeb079bbc6511f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/abbottina-rivularis": {
+    "entityIds": [
+      "species/abbottina-rivularis"
+    ],
+    "updatedAt": "2026-10-28T16:19:08.506Z",
+    "hash": "40e9460eea2982e698857be4d95d2034a4e69cec8c2803a99e518919e9407cfe",
+    "processedHash": "40e9460eea2982e698857be4d95d2034a4e69cec8c2803a99e518919e9407cfe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/aborichthys-elongatus": {
+    "entityIds": [],
+    "updatedAt": "2026-10-28T16:20:47.055Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "R2 upload 500: {\"success\":false,\"errors\":[{\"code\":10500,\"message\":\"Internal authentication error: internal server error\"}],\"messages\":[],\"result\":null}\n"
+  }
+}
