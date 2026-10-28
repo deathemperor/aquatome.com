@@ -5,7 +5,7 @@ body { margin: 0; background: var(--c-paper); color: var(--c-ink); font: 400 var
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--c-moss); text-underline-offset: 0.18em; }
 a:hover { color: var(--c-ink); }
-:focus-visible { outline: 2px solid var(--c-neon); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15; margin: 0; font-variation-settings: 'SOFT' 50; text-wrap: balance; }
 p { text-wrap: pretty; }
 ::selection { background: var(--c-neon); color: var(--c-blackwater); }

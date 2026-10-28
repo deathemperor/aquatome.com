@@ -1,8 +1,17 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  // Staging: static assets only, served from a staging subdomain (infinitus.run; huuloc.com lives in another CF account) until the real domain is chosen.
+  // Staging on infinitus.run (huuloc.com lives in another CF account) until the real domain is chosen.
+  // The Worker assigns an A/B skin to HTML pages, collects beacon events and serves the /_ab dashboard; everything else is plain static assets.
   "name": "thuysinh-staging",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-28",
-  "assets": { "directory": "./dist", "not_found_handling": "404-page", "html_handling": "force-trailing-slash" },
+  "assets": {
+    "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
+    "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*"]
+  },
+  "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
+  "triggers": { "crons": ["17 20 * * *"] },
+  "vars": { "STAGING": "1", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df" },
   "routes": [{ "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }]
 }

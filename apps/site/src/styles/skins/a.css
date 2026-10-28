@@ -1,0 +1,32 @@
+/* Skin A "Đáy sâu": the whole site underwater. Dark blackwater ground, mint-neon accents, image-led cards. */
+/* Rules use :not(#_) (always true, ID-weight) so they win over Astro's attribute-scoped component styles. */
+:root[data-skin="a"] {
+  --c-paper: #06141a; --c-plate: #0c222a; --c-ink: #e6f1ef; --c-ink-soft: #b4cbc7; --c-ink-faint: #8fb0aa; --c-rule: #18404a;
+  --c-moss: #5fe0c6; --c-cardinal: #ff8f80; --c-neon: #5fe0c6; --c-blackwater: #06141a; --c-blackwater-2: #0c222a;
+  --radius-plate: 12px; --radius-media: 16px;
+  --c-focus: #5fe0c6;
+  color-scheme: dark;
+}
+:root[data-skin="a"]:not(#_) .search:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+:root[data-skin="a"]:not(#_) body { background: radial-gradient(120% 60% at 50% 0, #0b2a33 0, #06141a 60%) fixed; }
+:root[data-skin="a"]:not(#_) a:hover { color: #fff; }
+:root[data-skin="a"]:not(#_) h1, :root[data-skin="a"]:not(#_) h2 { letter-spacing: -0.02em; }
+:root[data-skin="a"]:not(#_) .hero { min-height: min(92vh, 760px); }
+:root[data-skin="a"]:not(#_) .hero h1 { font-size: clamp(2.6rem, 1.6rem + 4.2vw, 5rem); max-width: 11em; }
+:root[data-skin="a"]:not(#_) .search { backdrop-filter: blur(12px); background: rgb(255 255 255 / 0.08); }
+:root[data-skin="a"]:not(#_) .match { background: linear-gradient(90deg, #0b2a33, #06141a); border-block: 1px solid var(--c-rule); }
+:root[data-skin="a"]:not(#_) .head h2, :root[data-skin="a"]:not(#_) .page h1 { font-size: var(--step-3); }
+:root[data-skin="a"]:not(#_) .head h2::before, :root[data-skin="a"]:not(#_) .body h2::before { content: ''; display: inline-block; width: 0.5em; height: 2px; margin-right: 0.45em; vertical-align: middle; background: var(--c-neon); }
+:root[data-skin="a"]:not(#_) .plate { padding: 0; overflow: hidden; background: var(--c-plate); box-shadow: 0 0 0 1px var(--c-rule); }
+:root[data-skin="a"]:not(#_) .plate img { transition: transform 0.5s ease; }
+:root[data-skin="a"]:not(#_) .sc a:hover .plate img, :root[data-skin="a"]:not(#_) .pc a:hover .plate img { transform: scale(1.04); }
+:root[data-skin="a"]:not(#_) .sc a:hover h3, :root[data-skin="a"]:not(#_) .pc a:hover h3, :root[data-skin="a"]:not(#_) .gc:hover h3 { color: var(--c-neon); }
+:root[data-skin="a"]:not(#_) .meta { border-top-color: var(--c-rule); }
+:root[data-skin="a"]:not(#_) .g { min-height: 300px; }
+:root[data-skin="a"]:not(#_) .card { background: rgb(12 34 42 / 0.7); border-color: var(--c-rule); border-radius: var(--radius-plate); overflow: hidden; }
+:root[data-skin="a"]:not(#_) .card dd { color: #fff; }
+:root[data-skin="a"]:not(#_) .gallery .plate { border-radius: var(--radius-media); }
+:root[data-skin="a"]:not(#_) .filters button { background: var(--c-neon); color: #06141a; }
+:root[data-skin="a"]:not(#_) .filters input, :root[data-skin="a"]:not(#_) .filters select { background: var(--c-plate); color: var(--c-ink); border-color: var(--c-rule); }
+:root[data-skin="a"]:not(#_) .foot { border-top-color: var(--c-rule); }
+:root[data-skin="a"]:not(#_) ::selection { background: var(--c-neon); color: #06141a; }
