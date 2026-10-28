@@ -36,9 +36,10 @@ export default {
     if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
       const auth = authorise(req, env.AB_DASH_TOKEN)
       if (!auth.ok) return finish(new Response('Not found', { status: 404 }), env)
+      // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar/history.
+      if (auth.setCookie) return new Response(null, { status: 303, headers: { location: '/_ab/', 'set-cookie': auth.setCookie, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } })
       const snap = await env.AB.get<Snapshot>('ab:stats', 'json')
-      const headers: Record<string, string> = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' }
-      if (auth.setCookie) headers['set-cookie'] = auth.setCookie
+      const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
       return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000)), { headers })
     }
 
