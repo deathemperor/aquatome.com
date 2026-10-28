@@ -10,7 +10,8 @@
     "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*"]
   },
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
-  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
+  // Analytics Engine must be enabled once in the dashboard (Workers → Analytics Engine) before this binding deploys:
+  // "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },
   "vars": { "STAGING": "1", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df" },
   "routes": [{ "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }]
