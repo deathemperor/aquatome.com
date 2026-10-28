@@ -1,6 +1,6 @@
 import json, os, sys, unicodedata, re
 ROOT = sys.argv[1]
-M = json.load(open('/tmp/aqimg/meta_all.json'))
+M = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'commons-photos.json')))
 def photo(key, caption=None):
     m = dict(M[key]); 
     if caption: m['caption'] = caption

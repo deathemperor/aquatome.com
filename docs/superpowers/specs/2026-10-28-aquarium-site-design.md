@@ -181,6 +181,10 @@ Ads: Google AdSense, placed per skin without breaking layout.
 - Measuring subscription throughput during backfill; if insufficient, propose an API budget as fallback (owner approves spend).
 - Vietnamese common-name sourcing for species lacking one (glossary + Claude proposal, flagged as "tên đề xuất").
 
+### Content-engine contract (from Plan 1 review)
+- Every record that carries a `source` (sections, data-card values, guides, and — from Plan 2 — photos) must pass through the loader's per-source `allowed()` gate. `Photo` gains a `source` field in Plan 2 so source photos can be gated like text.
+- Translated HTML must be sanitised before it is stored (the site renders it with `set:html`).
+
 ## 12. Open questions for the owner
 
 1. **Permissions** — owner (2026-10-28): "start development for local". Development + local backfill proceed now. **Public deploy is gated** on a complete permission record per source (§4.1); the build must make an un-cleared source impossible to publish (per-source `publish: false` default).
