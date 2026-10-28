@@ -1,0 +1,138 @@
+{
+  "id": "boraras-urophthalmoides",
+  "scientificName": "Boraras urophthalmoides",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Boraras",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "thailand",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<ul><li>Origin: Vietnam</li><li>Available size: 1-2 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<p>Today the scientific name for the Least rasbora is Boraras urophthalmoides. It is known from Thailand, Cambodia, and Vietnam. For the aquarium hobby, it is imported mainly from the latter country.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<p>Like all dwarf rasboras this species is best kept in small aquaria in a one-species tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<p>The water should be soft and acidic. Due to its origin, for regular keeping temperatures of 20-22°C are enough.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<p>For breeding the temperature should be raised to 26-28°C.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
+      "html": "<p>As early as 1914 the then very prominent German aquarist J. P. Arnold illustrated a new species of Rasbora in a German aquarium magazine, imported by the company Scholze &amp; Pötzsche and said to be imported from Sumatra. In 1922 E. Ahl from Berlin Museum described this species scientifically as Rasbora urophthalma and since then this charming dwarf rasbora is known as R. urophthalma (common name: Least rasbora) in the aquarium hobby. In 1991 M. Kottelat found when re-examining Ahl's specimens in Berlin Museum that they were not identical with what is well known in the hobby. Thus the name Rasbora urophthalma was not available anymore for the Least rasbora and Kottelat gave a new name to them: Rasbora urophthalmoides. He also stated that the Least rasbora is not known from Indonesia.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%99%E0%B8%B9.jpg/960px-LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%99%E0%B8%B9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%99%E0%B8%B9.jpg",
+      "caption": "Boraras urophthalmoides"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Boraras_uraphthalmoides_Thai.jpg/960px-Boraras_uraphthalmoides_Thai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_uraphthalmoides_Thai.jpg",
+      "caption": "Boraras uraphthalmoides"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%873.jpg/960px-LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%873.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%873.jpg",
+      "caption": "Boraras urophthalmoides"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Boraras_uraphthalmoides_Thai_%28cropped%29.jpg/960px-Boraras_uraphthalmoides_Thai_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 400,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_uraphthalmoides_Thai_(cropped).jpg",
+      "caption": "Boraras uraphthalmoides"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh cho bể cá nhỏ",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "thức ăn vi mô cho cá cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

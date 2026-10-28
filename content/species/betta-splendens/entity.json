@@ -1,0 +1,149 @@
+{
+  "id": "betta-splendens",
+  "scientificName": "Betta splendens",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 23.9,
+          "max": 29.4
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<p>Green Alien hybrid betta from a breeder in Vietnam, from the Betta splendens complex. Sometimes referred to as Teal, it has a beautiful green/teal coloration throughout the body.</p><ul><li><strong>IUCN Red List:</strong> N/A (this type is a hybrid of sorts and does not naturally occur in the wild)</li><li><strong>Max size:</strong> 2.3 inches</li><li><strong>Breeding:</strong> Bubblenester</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<p>Only healthy, high quality fish are selected to ship out; old fish or fish with any signs of disease or weakness are not sold. All fish go through 2 or more weeks of quarantine before being sold. The quarantine period includes medication to remove parasites such as velvet and ich. All males come from the same lineage and are generally similar.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<ul><li><strong>TDS:</strong> 60 - 200 (they are kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions)</li><li><strong>pH:</strong> 5.0-7.0</li><li><strong>Temperature:</strong> 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<p>Carnivorous. Currently fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<p>Temperament: Males are VERY aggressive and should be kept alone or in tanks with tank mates that are not male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "html": "<p>Aliens are a hybridization of different types of wild bettas and are considered a type of wild hybrid. Traits of \"Alien\" include a full facial mask, spread iridescence that covers the fins and the body, as well as webbing on the caudal fins.</p><p>Green is the result of a homozygous metallic gene over homozygous iridescence (turquoise). \"Grass green\", however, is the result of the homozygous metallic gene over heterozygous iridescence (royal blue). Both types are considered \"green\". A way to differentiate \"green\" from \"teal\" is that green always has metallics, which change color depending on the angle of the light.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/c6f63c7a4b14f514.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/b6c331a7b2d1c940.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/d6e7da73cca97145.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/bwaquatics/6166d10cc4405bb7.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá betta",
+        "bể cá mini 20cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá betta",
+        "giun huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi cá mini",
+        "máy sưởi bể betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

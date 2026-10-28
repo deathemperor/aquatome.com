@@ -1,3 +1,6 @@
+import { copyFile, mkdtemp } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll } from '../src/index'
@@ -16,9 +19,11 @@ test('public build strips un-cleared sources and drops empty species', async () 
   expect(c.species.map(s => s.id)).toEqual(['alpha'])
   expect(c.species[0]!.sections.map(s => s.source)).toEqual(['seriouslyfish'])
 })
-test('NC-licensed photos are never loaded', async () => {
-  const c = await loadAll({ root, lang: 'vi', publicBuild: false })
-  expect(c.species.find(s => s.id === 'alpha')!.photos.map(p => p.licence)).toEqual(['CC BY-SA 4.0'])
+test('NC-licensed photos are never loaded; source photos follow the source publish gate', async () => {
+  const local = await loadAll({ root, lang: 'vi', publicBuild: false })
+  expect(local.species.find(s => s.id === 'alpha')!.photos.map(p => p.source ?? p.licence)).toEqual(['CC BY-SA 4.0', 'seriouslyfish', 'glaser'])
+  const pub = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(pub.species.find(s => s.id === 'alpha')!.photos.map(p => p.source ?? p.licence)).toEqual(['CC BY-SA 4.0', 'seriouslyfish'])
 })
 test('species without a translation is skipped', async () => {
   const c = await loadAll({ root, lang: 'vi', publicBuild: false })
@@ -36,4 +41,18 @@ test('public build strips data-card values from un-cleared sources', async () =>
   const alpha = c.species[0]!
   expect(alpha.dataCard.tempC?.map(v => v.source)).toEqual(['seriouslyfish'])
   expect(alpha.dataCard.gh).toBeUndefined()
+})
+test('changelog is gated by source in public builds and defaults to []', async () => {
+  expect((await loadAll({ root, lang: 'vi', publicBuild: false })).changelog.map(e => e.id)).toEqual(['alpha', 'beta'])
+  expect((await loadAll({ root, lang: 'vi', publicBuild: true })).changelog.map(e => e.id)).toEqual(['alpha'])
+  const empty = await mkdtemp(join(tmpdir(), 'store-'))
+  await copyFile(join(root, 'sources.json'), join(empty, 'sources.json'))
+  expect((await loadAll({ root: empty, lang: 'vi', publicBuild: false })).changelog).toEqual([])
+})
+
+test('indexability counts only sources the build may show', async () => {
+  const local = await loadAll({ root, lang: 'vi', publicBuild: false })
+  expect(local.species.find(s => s.id === 'alpha')!.t.quality).toMatchObject({ score: 0.5, indexable: false })
+  const pub = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(pub.species.find(s => s.id === 'alpha')!.t.quality).toMatchObject({ score: 0.9, indexable: true })
 })

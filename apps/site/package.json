@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
-    "test": "pnpm build && vitest run",
+    "test": "CONTENT_ROOT=$PWD/test/fixture-content pnpm build && CONTENT_ROOT=$PWD/test/fixture-content vitest run",
     "typecheck": "astro check"
   },
   "dependencies": {

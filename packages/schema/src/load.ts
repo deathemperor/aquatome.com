@@ -1,9 +1,11 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
-import { filterPhotos } from './licence'
-import { GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { isAllowedLicence } from './licence'
+import { ChangelogSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { ChangelogEntry, DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+
+export const QUALITY_THRESHOLD = 0.75
 
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }
@@ -14,6 +16,7 @@ export type Content = {
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
   sources: Partial<Record<SourceId, SourceInfo>>
+  changelog: ChangelogEntry[]
 }
 
 async function readJson<S extends z.ZodType>(path: string, schema: S): Promise<z.infer<S>> {
@@ -47,7 +50,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
   const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
-  const cleanPhotos = (xs: Photo[]) => filterPhotos(xs)
+  /** Photos copied from a source follow that source's publish gate; others need an open licence. */
+  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence)))
   const cleanCard = (card: SpeciesEntity['dataCard']): SpeciesEntity['dataCard'] =>
     Object.fromEntries(
       Object.entries(card)
@@ -55,18 +59,29 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         .filter(([, values]) => values.length > 0),
     ) as Partial<Record<DataCardField, SpeciesEntity['dataCard'][DataCardField]>>
 
+  /** Page quality counts only the sources this build may show. */
+  const cleanQuality = <E extends { t: Translation }>(x: E): E => {
+    const by = Object.entries(x.t.quality.bySource ?? {}).filter(([s]) => allowed(s as SourceId)).map(([, v]) => v as number)
+    if (!by.length) return x
+    const score = Math.min(...by)
+    return { ...x, t: { ...x.t, quality: { ...x.t.quality, score, indexable: score >= QUALITY_THRESHOLD } } }
+  }
+
   const species = (await loadKind(root, 'species', SpeciesSchema, lang))
-    .map(s => ({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
+    .map(s => cleanQuality({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang))
-    .map(p => ({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
+    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang))
     .filter(g => allowed(g.source))
     .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
 
+  const changelogPath = join(root, 'changelog.json')
+  const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
+
   return {
-    species, plants, guides,
+    species, plants, guides, changelog,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

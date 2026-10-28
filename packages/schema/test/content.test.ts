@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { isAllowedLicence, loadAll, resolveDataCard, slugify } from '../src/index'
 
-const root = fileURLToPath(new URL('../../../content', import.meta.url))
+const root = fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url))
 const load = () => loadAll({ root, lang: 'vi', publicBuild: false })
 
 test('sample store loads with minimum counts', async () => {

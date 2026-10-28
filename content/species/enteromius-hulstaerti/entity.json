@@ -1,0 +1,103 @@
+{
+  "id": "enteromius-hulstaerti",
+  "scientificName": "Enteromius hulstaerti",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "congo",
+    "congo-basin"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
+      "html": "<p>The Butterfly Barb Barbus hulstaerti reaches 4 cm in length and fascinates by its wonderful colors. It had been lost to the hobby for more than 30 years.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
+      "html": "<p>Origin: Congo basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
+      "html": "<p>In their area of origin they live in flat, shady and relatively cool jungle waters. The discovery site data indicate water values of pH around 6 and a total hardness under 5 dGH, so no excessive problems for their maintenance are expected.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
+      "html": "<p>The more delicate males can be differentiated from the larger, chubbier females by the narrower anterior side spot.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
+      "html": "<p>In August 2006 a somewhat larger number of this fish could be imported for the first time. Due to the complicated political situation in the Congo the availability of wild-caught fish is not secured, therefore ambitious breeders should take care of this swimming gem to secure its existence in our aquaria.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá cảnh dạng vảy"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

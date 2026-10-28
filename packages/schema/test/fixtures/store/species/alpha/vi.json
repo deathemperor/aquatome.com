@@ -1,1 +1,14 @@
-{"slug":"ca-alpha","name":"Cá alpha","altNames":[],"sections":{},"quality":{"score":0.9,"indexable":true}}
+{
+ "slug": "ca-alpha",
+ "name": "Cá alpha",
+ "altNames": [],
+ "sections": {},
+ "quality": {
+  "score": 0.5,
+  "indexable": false,
+  "bySource": {
+   "seriouslyfish": 0.9,
+   "glaser": 0.5
+  }
+ }
+}

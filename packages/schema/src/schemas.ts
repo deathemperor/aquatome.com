@@ -11,7 +11,7 @@ const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.numbe
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty'])
 
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
-const Photo = z.object({ url: z.string(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional() })
+const Photo = z.object({ url: z.string(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
@@ -40,8 +40,13 @@ export const PlaceSchema = z.object({ id: z.string(), kind: z.enum(['continent',
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
-  quality: z.object({ score: z.number(), indexable: z.boolean() }),
+  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional() }),
 })
+
+export const ChangelogEntrySchema = z.object({
+  date: z.string(), kind: z.enum(['species', 'plant', 'guide']), id: z.string(), source: SourceId, action: z.enum(['new', 'updated']),
+})
+export const ChangelogSchema = z.array(ChangelogEntrySchema)
 
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.boolean(),
