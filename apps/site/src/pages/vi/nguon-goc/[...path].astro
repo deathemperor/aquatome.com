@@ -1,0 +1,38 @@
+---
+import type { Localized, PlaceEntity, SpeciesEntity } from '@aq/schema'
+import Browse from '../../../layouts/Browse.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../lib/content'
+
+const INTROS: Record<string, string> = {
+  vietnam: 'Những loài cá có nguồn gốc từ sông suối Việt Nam, từ đồng bằng Mekong đến suối núi phía Bắc.',
+}
+const TITLES: Record<string, string> = { vietnam: 'Cá Việt Nam' }
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  const tops = c.places.filter(p => p.kind === 'continent')
+  const of = (id: string) => c.species.filter(s => s.places.includes(id))
+  const index = { params: { path: undefined }, props: { place: undefined, species: [] as Localized<SpeciesEntity>[], kids: tops } }
+  const continents = tops.map(p => ({ params: { path: p.id }, props: { place: p, species: of(p.id), kids: c.places.filter(x => x.parent === p.id && x.kind === 'country'), parent: undefined } }))
+  const countries = c.places.filter(p => p.kind === 'country' && p.parent).map(p => ({
+    params: { path: `${p.parent}/${p.id}` }, props: { place: p, species: of(p.id), kids: c.places.filter(x => x.parent === p.id), parent: c.places.find(x => x.id === p.parent) },
+  }))
+  return [index, ...continents, ...countries]
+}
+const { place, species, kids, parent } = Astro.props as { place?: Localized<PlaceEntity>; species: Localized<SpeciesEntity>[]; kids: Localized<PlaceEntity>[]; parent?: Localized<PlaceEntity> }
+const name = place ? TITLES[place.id] ?? place.t.name : 'Nguồn gốc'
+const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', 'Nguồn gốc'], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, parent.t.name] as [string, string]] : [])] : []
+const intro = place ? INTROS[place.id] ?? `${species.length} loài có nguồn gốc từ ${place.t.name}.` : 'Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.'
+const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
+---
+<Browse title={name} heading={name} crumbs={crumbs} intro={intro}>
+  {kids.length > 0 && (
+    <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
+  )}
+  {place && <SpeciesGrid species={species} />}
+</Browse>
+<style>
+  .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .kids a, .kids span { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
+</style>

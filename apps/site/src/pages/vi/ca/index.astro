@@ -1,0 +1,55 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../lib/content'
+import { toIndexItem } from '../../../lib/species-index'
+import { groupLabel } from '../../../lib/format'
+
+const c = await getContent()
+const index = c.species.map(toIndexItem)
+const groups = [...new Set(c.species.map(s => s.group))].sort()
+---
+<Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`}>
+  <form class="filters" id="species-filter" role="search">
+    <label>Tên <input name="q" type="search" placeholder="neon, Corydoras…" /></label>
+    <label>Nhóm
+      <select name="group"><option value="">Tất cả</option>{groups.map(g => <option value={g}>{groupLabel(g)}</option>)}</select>
+    </label>
+    <label>Bể dài (cm) <input name="tankCm" type="number" inputmode="numeric" min="10" max="400" /></label>
+    <label>Nhiệt độ (°C) <input name="tempC" type="number" inputmode="numeric" min="5" max="40" /></label>
+    <label>pH <input name="ph" type="number" inputmode="decimal" step="0.1" min="3" max="10" /></label>
+    <label>Độ khó tối đa
+      <select name="difficultyMax"><option value="">Bất kỳ</option>{[1, 2, 3, 4, 5, 6, 7, 8].map(n => <option value={n}>{n}/8</option>)}</select>
+    </label>
+    <button type="submit">Lọc</button>
+  </form>
+  <p class="count" id="species-count" aria-live="polite"></p>
+  <SpeciesGrid species={c.species} />
+  <script type="application/json" id="species-index" set:html={JSON.stringify(index)} />
+</Browse>
+<script>
+  import { filterSpecies, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
+  const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
+  const form = document.getElementById('species-filter') as HTMLFormElement
+  const count = document.getElementById('species-count')!
+  function run(params: URLSearchParams) {
+    for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el && 'value' in el) (el as HTMLInputElement).value = v }
+    const keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
+    document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { el.hidden = !keep.has(el.dataset.slug!) })
+    count.textContent = keep.size === items.length ? '' : keep.size === 0 ? 'Không có loài nào khớp. Thử nới điều kiện lọc.' : `${keep.size} loài phù hợp`
+  }
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    const p = new URLSearchParams([...new FormData(form)].filter(([, v]) => v !== '') as [string, string][])
+    history.replaceState(null, '', p.size ? `?${p}` : location.pathname)
+    run(p)
+  })
+  run(new URLSearchParams(location.search))
+</script>
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: flex-end; margin-bottom: var(--space-4); }
+  .filters label { display: grid; gap: 2px; font-size: 0.8rem; color: var(--c-ink-soft); }
+  .filters input, .filters select { font: inherit; font-size: 0.95rem; padding: 0.4rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); min-width: 0; width: 8.5rem; }
+  .filters button { font: 600 0.95rem var(--f-body); background: var(--c-ink); color: #fff; border: 0; border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; }
+  .count { min-height: 1.5em; color: var(--c-ink-soft); font-size: 0.9rem; }
+</style>

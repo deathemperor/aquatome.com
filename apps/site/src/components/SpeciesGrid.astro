@@ -1,0 +1,13 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import SpeciesCard from './SpeciesCard.astro'
+interface Props { species: Localized<SpeciesEntity>[] }
+const { species } = Astro.props
+---
+{species.length === 0
+  ? <p class="empty">Chưa có loài nào ở đây.</p>
+  : <div class="grid">{species.map(s => <div data-slug={s.t.slug}><SpeciesCard s={s} /></div>)}</div>}
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .empty { color: var(--c-ink-soft); }
+</style>

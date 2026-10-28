@@ -1,0 +1,18 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import Browse from '../../../layouts/Browse.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../lib/content'
+import { groupLabel } from '../../../lib/format'
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  const groups = [...new Set(c.species.map(s => s.group))]
+  return groups.map(group => ({ params: { group }, props: { species: c.species.filter(s => s.group === group) } }))
+}
+const { group } = Astro.params
+const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
+---
+<Browse title={groupLabel(group!)} heading={groupLabel(group!)} crumbs={[['/vi/ca/', 'Loài cá']]} intro={`${species.length} loài trong nhóm ${groupLabel(group!).toLowerCase()}.`}>
+  <SpeciesGrid species={species} />
+</Browse>

@@ -17,3 +17,8 @@ export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
 
 export const shopeeSearch = (k: string) => `https://shopee.vn/search?keyword=${encodeURIComponent(k)}`
 export const lazadaSearch = (k: string) => `https://www.lazada.vn/catalog/?q=${encodeURIComponent(k)}`
+
+export const GROUP_LABELS: Record<string, string> = {
+  tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
+}
+export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
