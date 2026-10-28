@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 import type { Llm } from './claude'
 
-export const QUALITY_THRESHOLD = 0.75
+import { QUALITY_THRESHOLD } from '@aq/schema'
+
+export { QUALITY_THRESHOLD }
 const TEMPLATE = readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8')
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 

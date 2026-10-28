@@ -5,6 +5,8 @@ import { isAllowedLicence } from './licence'
 import { ChangelogSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { ChangelogEntry, DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
+export const QUALITY_THRESHOLD = 0.75
+
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -57,11 +59,19 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         .filter(([, values]) => values.length > 0),
     ) as Partial<Record<DataCardField, SpeciesEntity['dataCard'][DataCardField]>>
 
+  /** Page quality counts only the sources this build may show. */
+  const cleanQuality = <E extends { t: Translation }>(x: E): E => {
+    const by = Object.entries(x.t.quality.bySource ?? {}).filter(([s]) => allowed(s as SourceId)).map(([, v]) => v as number)
+    if (!by.length) return x
+    const score = Math.min(...by)
+    return { ...x, t: { ...x.t, quality: { ...x.t.quality, score, indexable: score >= QUALITY_THRESHOLD } } }
+  }
+
   const species = (await loadKind(root, 'species', SpeciesSchema, lang))
-    .map(s => ({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
+    .map(s => cleanQuality({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang))
-    .map(p => ({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
+    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang))
     .filter(g => allowed(g.source))

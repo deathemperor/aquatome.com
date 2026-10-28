@@ -56,7 +56,21 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
   const images = scope.querySelectorAll('img').flatMap(i => pageImage(i) ?? [])
   const out: string[] = []
   walk(scope, out)
-  return { title, outline: out.join('\n'), images }
+  return { title, outline: denoise(out.join('\n')), images }
+}
+
+/** Page furniture that changes without the article changing (prices, newsletter, related/featured lists). */
+const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?)\b/i
+const PRICE = /\b(regular|sale|unit) price\b|\$\s?\d[\d.,]*(\s?USD)?|€\s?\d[\d.,]*|\b\d[\d.,]*\s?(USD|EUR|€)\b|\b(sold out|variant sold out or unavailable|shipping calculated at checkout\.?|add to cart|in stock|out of stock)(?!\w)/gi
+
+/** Keep the article: cut at the first furniture heading, strip prices and stock words, collapse blank runs. */
+export function denoise(outline: string): string {
+  const lines = outline.split('\n')
+  const cut = lines.findIndex((l, i) => i > 0 && TAIL.test(l))
+  return (cut > 0 ? lines.slice(0, cut) : lines)
+    .map(l => l.replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
+    .filter((l, i, a) => l.trim() !== '' || (i > 0 && a[i - 1]!.trim() !== ''))
+    .join('\n').trim()
 }
 
 const CHALLENGE = /just a moment|robot challenge|attention required|verify you are human|checking your browser|sgcaptcha/i

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { htmlToOutline, isChallenge } from '../src/outline'
+import { denoise, htmlToOutline, isChallenge } from '../src/outline'
 
 const fx = (n: string) => readFileSync(new URL(`./fixtures/pages/${n}`, import.meta.url), 'utf8')
 
@@ -29,4 +29,11 @@ test('challenge pages are detected', () => {
   expect(isChallenge(o.title, o.outline)).toBe(true)
   expect(isChallenge('Paracheirodon axelrodi', 'Habitat ...')).toBe(false)
   expect(isChallenge('Robot Challenge Screen', '')).toBe(true)
+})
+
+test('denoise drops prices, stock words and trailing page furniture', () => {
+  const o = denoise('Alien Betta Regular price $27.94 USD Sale price $27.94 USD Sold out Shipping calculated at checkout.\nCare text.\n### Subscribe\nGet weekly…\n### Featured Products\n$7.99')
+  expect(o).toBe('Alien Betta\nCare text.')
+  expect(denoise('# Title\nBody\n## Related Articles\n- a\n- b')).toBe('# Title\nBody')
+  expect(denoise('Price changed $9.99\nBody')).toBe(denoise('Price changed $12.49\nBody'))
 })

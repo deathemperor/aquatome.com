@@ -35,7 +35,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   return ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).slice(0, max).map(r => r.img)
 }
 
-/** Copy picked photos to our media bucket (once per image) and credit the source page. Unreachable images are skipped. */
+/** Copy picked photos to our media bucket (once per image) and credit the source page. */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
   deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media }, existing: Photo[],
@@ -45,12 +45,15 @@ export async function storeSourcePhotos(
     const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
     const known = existing.find(p => p.url === deps.media.urlFor(key))
     if (known) { out.push(known); continue }
+    let bytes: Uint8Array
     try {
-      const stored = await deps.media.put(key, await deps.bytes(img.src, pageUrl))
-      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source })
+      bytes = await deps.bytes(img.src, pageUrl)
     } catch (e) {
-      console.warn(`photo skipped ${img.src}: ${(e as Error).message}`)
+      console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
+      continue
     }
+    const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
+    out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source })
   }
   return out
 }

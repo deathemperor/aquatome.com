@@ -30,6 +30,19 @@ export type ProcessedPage = Omit<z.infer<typeof ProcessedPageSchema>, 'sections'
 const { $schema: _draft, ...llmSchema } = z.toJSONSchema(z.object({ ...base, sections: z.array(z.object({ key: z.enum(SECTION_ORDER), en: z.string(), vi: z.string() })) }), { io: 'input', target: 'draft-07' })
 export const LLM_SCHEMA = llmSchema
 
+/** Plausible bounds per field; anything outside (e.g. °F given as °C) is dropped rather than published. */
+const BOUNDS = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000], difficulty: [1, 8] } as const
+function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard']) {
+  const out: typeof card = {}
+  for (const [k, v] of Object.entries(card) as [keyof typeof BOUNDS, number | { min: number; max: number }][]) {
+    const [lo, hi] = BOUNDS[k]
+    const value = typeof v === 'number' ? v : { min: Math.min(v.min, v.max), max: Math.max(v.min, v.max) }
+    const ok = typeof value === 'number' ? value >= lo && value <= hi : value.min >= lo && value.max <= hi
+    if (ok) (out as Record<string, unknown>)[k] = value
+  }
+  return out
+}
+
 const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietnamese translator. Reply only with the requested JSON.'
 const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
 const KEYS = new Set<string>(SECTION_ORDER)
@@ -48,6 +61,7 @@ export async function processPage(llm: Llm, input: { source: SourceId; url: stri
   if (parsed.kind === 'species' && !parsed.scientificName) return { ...parsed, kind: 'skip', sections: [] }
   return {
     ...parsed,
+    dataCard: saneCard(parsed.dataCard),
     sections: parsed.sections.filter((s): s is ProcessedPage['sections'][number] => KEYS.has(s.key)).map(s => ({ ...s, en: sanitizeHtml(s.en), vi: sanitizeHtml(s.vi) })),
     guide: parsed.guide && { ...parsed.guide, viBody: sanitizeHtml(parsed.guide.viBody) },
   }

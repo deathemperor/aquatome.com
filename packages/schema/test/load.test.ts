@@ -49,3 +49,10 @@ test('changelog is gated by source in public builds and defaults to []', async (
   await copyFile(join(root, 'sources.json'), join(empty, 'sources.json'))
   expect((await loadAll({ root: empty, lang: 'vi', publicBuild: false })).changelog).toEqual([])
 })
+
+test('indexability counts only sources the build may show', async () => {
+  const local = await loadAll({ root, lang: 'vi', publicBuild: false })
+  expect(local.species.find(s => s.id === 'alpha')!.t.quality).toMatchObject({ score: 0.5, indexable: false })
+  const pub = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(pub.species.find(s => s.id === 'alpha')!.t.quality).toMatchObject({ score: 0.9, indexable: true })
+})

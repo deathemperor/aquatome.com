@@ -29,11 +29,14 @@ export class ChromeFetcher {
     const p = this.need()
     let r = await p.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
     await p.waitForTimeout(this.opts.settleMs ?? 2500)
+    let interstitial = false
     for (let i = 0; i < 25 && isChallenge(await p.title().catch(() => ''), p.url()); i++) {
+      interstitial = true
       const next = await p.waitForNavigation({ timeout: 1000 }).catch(() => null)
       if (next) r = next
     }
-    if (r && new URL(p.url()).pathname !== new URL(url).pathname && !isChallenge(await p.title(), p.url())) r = await p.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
+    // Some checks land on the homepage once cleared: go back to the page we wanted (only then; ordinary redirects are followed as-is).
+    if (interstitial && new URL(p.url()).pathname !== new URL(url).pathname && !isChallenge(await p.title(), p.url())) r = await p.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
     return { p, r }
   }
 

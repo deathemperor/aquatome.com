@@ -42,3 +42,10 @@ test('guide body is sanitised', async () => {
   const g = { kind: 'guide', enCommonNames: [], viName: 'Setup', viAltNames: [], places: [], dataCard: {}, sections: [], productSlots: [], guide: { kind: 'setup', viTitle: 'Setup bể', viBody: '<p>Ok</p><iframe src=x></iframe>' } }
   expect((await processPage(fake(g), input)).guide?.viBody).toBe('<p>Ok</p>')
 })
+
+test('implausible data-card numbers are dropped, swapped ranges fixed', async () => {
+  const bad = structuredClone(species) as Record<string, unknown>
+  bad.dataCard = { tempC: { min: 75, max: 82 }, ph: { min: 7.5, max: 6 }, gh: { min: 2, max: 400 }, sizeCm: 4, tankCm: 0 }
+  const p = await processPage(fake(bad), input)
+  expect(p.dataCard).toEqual({ ph: { min: 6, max: 7.5 }, sizeCm: 4 })
+})

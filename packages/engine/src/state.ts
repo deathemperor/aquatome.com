@@ -13,7 +13,8 @@ export type UrlState = {
   error?: string
 }
 
-const DAY = 86_400_000
+const HOUR = 3_600_000
+const DAY = 24 * HOUR
 const file = (root: string, source: SourceId) => join(root, 'engine-state', `${source}.json`)
 
 export async function loadState(root: string, source: SourceId): Promise<Record<string, UrlState>> {
@@ -31,13 +32,30 @@ export async function saveState(root: string, source: SourceId, state: Record<st
   await writeFile(file(root, source), `${JSON.stringify(sorted, null, 2)}\n`)
 }
 
-/** New URL, newer lastmod, stale without lastmod, blocked retry after 7 days, errors retried up to 3 attempts. */
+/** New URL, newer lastmod, stale without lastmod, blocked retry after 7 days, errors retried with 6 h × attempts backoff (max 3; a newer lastmod resets). */
 export function needsFetch(prev: UrlState | undefined, lastmod: string | undefined, now: Date, refreshDays = 30): boolean {
   if (!prev) return true
   const age = now.getTime() - new Date(prev.updatedAt).getTime()
   if (prev.status === 'blocked') return age > 7 * DAY
-  if (prev.status === 'error') return prev.attempts < 3
+  if (prev.status === 'error') return (!!lastmod && (!prev.lastmod || lastmod > prev.lastmod)) || (prev.attempts < 3 && age > prev.attempts * 6 * HOUR)
   if (lastmod && (!prev.lastmod || lastmod > prev.lastmod)) return true
   if (!lastmod) return age > refreshDays * DAY
   return false
+}
+
+/** Sources that hit a browser check a person must pass: skipped by scheduled runs until cleared (or a day passes). */
+const blocksFile = (root: string) => join(root, 'engine-state', '_sources.json')
+async function readBlocks(root: string): Promise<Partial<Record<SourceId, { blockedAt: string }>>> {
+  return JSON.parse(await readFile(blocksFile(root), 'utf8').catch(() => '{}'))
+}
+export async function sourceBlockedSince(root: string, source: SourceId): Promise<string | undefined> {
+  return (await readBlocks(root))[source]?.blockedAt
+}
+export async function setSourceBlock(root: string, source: SourceId, blockedAt: string | undefined): Promise<void> {
+  const all = await readBlocks(root)
+  if ((all[source]?.blockedAt) === blockedAt) return
+  if (blockedAt) all[source] = { blockedAt }
+  else delete all[source]
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(blocksFile(root), `${JSON.stringify(Object.fromEntries(Object.entries(all).sort()), null, 2)}\n`)
 }
