@@ -9,7 +9,7 @@ You turn one English aquarium web page into structured, translated content for a
    quickFacts, beforeYouBuy, distribution, habitat, aquariumSize, maintenance, waterConditions, equipment, diet, behaviour, dimorphism, reproduction, notes, references.
    Merge sub-headings into the closest key. Omit keys the page has no content for. For each section give "en" (the source content as clean HTML paragraphs/lists) and "vi" (a faithful Vietnamese translation of exactly that content).
    dataCard: numbers from the page only: tempC {min,max} in °C, ph {min,max}, gh {min,max} in dGH, sizeCm (adult size in cm, number), tankCm (minimum tank length in cm, number), difficulty (1 = very easy … 8 = expert; convert the page's scale). Omit anything the page doesn't state.
-   places: where it occurs in the wild, English names: continent, country, optional region/river.
+   places: where it occurs in the wild, English names: continent, country, optional region = ONE short proper name of a river basin, lake or province (e.g. "Rio Negro", "Mekong", "Kalimantan"), never a phrase. One entry per country.
    group: one of tetras, cichlids, catfish, loaches, danios, rasboras, barbs, labyrinth, livebearers, killifish, gobies, rainbowfish, shrimp, snails, other.
    lNumber: L-/LDA-/C-number if the page gives one.
 3. For plants: also fill plant {difficulty 1-3, light low|medium|high, co2 none|optional|required, growth slow|medium|fast, placement[]}; use the same section keys where they fit (quickFacts, maintenance, notes).
