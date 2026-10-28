@@ -7,6 +7,7 @@ import Sections from '../../../components/Sections.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
 import { getContent } from '../../../lib/content'
+import { slugify } from '@aq/schema/slug'
 import { PLANT_LABELS } from '../../../lib/format'
 
 export async function getStaticPaths() {
@@ -28,7 +29,7 @@ const facts: [string, string][] = [
   <header class="wrap top">
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
-      <h1>{p.t.name}</h1>
+      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${p.t.name} ${p.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{p.t.name}</h1>
       <p class="sci binomial">{p.scientificName}</p>
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>

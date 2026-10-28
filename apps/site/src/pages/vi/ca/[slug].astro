@@ -9,6 +9,7 @@ import VideoFacade from '../../../components/VideoFacade.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
 import { getContent } from '../../../lib/content'
+import { slugify } from '@aq/schema/slug'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -38,7 +39,7 @@ const firstSource = s.sections[0]
     <PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} />
     <div>
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
-      <h1>{s.t.name}</h1>
+      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
       <p class="sci binomial">{s.scientificName}</p>
       {s.t.altNames.length > 0 && <p class="alt">Tên khác: {s.t.altNames.join(', ')}</p>}
       <DataCard card={s.dataCard} sources={c.sources} />
