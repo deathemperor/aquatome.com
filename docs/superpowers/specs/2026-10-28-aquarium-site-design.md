@@ -1,6 +1,6 @@
 # Vietnamese Aquarium Knowledge Site — Design
 
-Date: 2026-10-28 · Status: draft for approval · Brand/domain: **TBD** (placeholder `thủy·sinh` used below)
+Date: 2026-10-28 · Status: approved for local development (2026-10-28) · Brand/domain: **TBD** (placeholder `thủy·sinh` used below)
 
 ## 1. Intent
 
@@ -183,8 +183,9 @@ Ads: Google AdSense, placed per skin without breaking layout.
 
 ## 12. Open questions for the owner
 
-1. **Permissions for the 5 newer sources** (Glaser, PlanetCatfish, Loaches Online, Aquarium Breeder, Tropica): written? And does each permission (all 10) cover translation, automated copying, restating facts in our data card, and commercial use with ads + affiliate?
-2. Brand + domain (deferred by owner).
+1. **Permissions** — owner (2026-10-28): "start development for local". Development + local backfill proceed now. **Public deploy is gated** on a complete permission record per source (§4.1); the build must make an un-cleared source impossible to publish (per-source `publish: false` default).
+2. **Operator** — an individual (in Vietnam, assumed). Vietnam's Decree 147/2024 may require phone-number verification for commenters if comments count as a social platform; unconfirmed. Build comments with name-only now, behind a pluggable verification step that can be switched on later.
+3. Brand + domain (deferred by owner).
 
 ## Appendix A — Calls made by Claude (flag if wrong)
 - One combined page per species with SF-preferred data card values.
