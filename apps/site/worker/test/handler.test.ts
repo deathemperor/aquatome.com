@@ -59,3 +59,9 @@ test('dashboard: 404 without token, 303 strips token from URL', async () => {
   expect(r.status).toBe(303)
   expect(r.headers.get('location')).toBe('/_ab/')
 })
+
+test('events are accepted (and dropped) when Analytics Engine is not bound yet', async () => {
+  const { e } = env({ EVENTS: undefined })
+  const r = await handle(new Request('https://x.test/_e', { method: 'POST', body: JSON.stringify({ s: 'mix', p: '/vi/', t: 'view', v: 1, sid: 'abc123def456' }), headers: { ...browser, origin: 'https://x.test' } }), e, stringRewrite)
+  expect(r.status).toBe(204)
+})

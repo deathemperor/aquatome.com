@@ -8,7 +8,8 @@ import { queryStats } from './stats'
 export interface Env {
   ASSETS: Fetcher
   AB: KVNamespace
-  EVENTS: AnalyticsEngineDataset
+  /** Optional until Analytics Engine is enabled on the account; events are accepted and dropped without it. */
+  EVENTS?: AnalyticsEngineDataset
   STAGING?: string
   AFFILIATE_CLICK_VALUE_VND?: string
   AB_DASH_TOKEN?: string
@@ -37,7 +38,7 @@ async function events(req: Request, env: Env): Promise<Response> {
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e || e.s !== (skinCookie(req) ?? 'mix')) return new Response(null, { status: 400 })
-  env.EVENTS.writeDataPoint(toDataPoint(e))
+  env.EVENTS?.writeDataPoint(toDataPoint(e))
   return new Response(null, { status: 204 })
 }
 
