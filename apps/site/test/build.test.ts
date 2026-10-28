@@ -123,3 +123,7 @@ describe('review fixes', () => {
     expect(page('/vi/thuat-ngu/gh/').html).toMatch(/noindex/)
   })
 })
+
+test('a styled 404 page exists for the static host', () => {
+  expect(page('/404').html).toContain('Không tìm thấy trang')
+})
