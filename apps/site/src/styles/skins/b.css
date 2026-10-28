@@ -1,0 +1,52 @@
+/* Skin B "Sổ tay tự nhiên": a field guide. Warm paper, Newsreader serif, specimen plates with thin rules, sienna kickers. */
+/* Rules use :not(#_) (always true, ID-weight) so they win over Astro's attribute-scoped component styles. */
+:root[data-skin="b"] {
+  --c-paper: #f3eee3; --c-plate: #fbf8f1; --c-ink: #1d2a22; --c-ink-soft: #4d5a52; --c-ink-faint: #5f6b63; --c-rule: #d9d0bd;
+  --c-moss: #2f6b4f; --c-cardinal: #a0522d; --c-neon: #a0522d;
+  --f-display: 'Newsreader Variable', Georgia, serif;
+  --radius-plate: 0; --radius-media: 0;
+}
+:root[data-skin="b"]:not(#_) body { font-size: 1.0625rem; }
+:root[data-skin="b"]:not(#_) .prose, :root[data-skin="b"]:not(#_) .intro { font-family: 'Newsreader Variable', Georgia, serif; font-size: 1.125rem; line-height: 1.65; }
+:root[data-skin="b"]:not(#_) h1, :root[data-skin="b"]:not(#_) h2, :root[data-skin="b"]:not(#_) h3 { font-variation-settings: normal; font-weight: 450; }
+:root[data-skin="b"]:not(#_) .nav, :root[data-skin="b"]:not(#_) .nav.overlay { position: static; background: var(--c-paper); color: var(--c-ink); border-bottom: 1px solid var(--c-rule); }
+:root[data-skin="b"]:not(#_) .nav .logo { color: var(--c-ink); font-family: var(--f-display); }
+:root[data-skin="b"]:not(#_) .nav .logo span { color: var(--c-moss); font-style: italic; }
+:root[data-skin="b"]:not(#_) .nav ul a, :root[data-skin="b"]:not(#_) .nav .find { color: var(--c-ink-soft); }
+:root[data-skin="b"]:not(#_) .nav ul a:hover, :root[data-skin="b"]:not(#_) .nav ul a[aria-current] { color: var(--c-ink); box-shadow: inset 0 -1px var(--c-ink); }
+:root[data-skin="b"]:not(#_) .hero { background: var(--c-paper); color: var(--c-ink); min-height: 0; display: block; border-bottom: 1px solid var(--c-rule); }
+:root[data-skin="b"]:not(#_) .hero::after { content: none; }
+:root[data-skin="b"]:not(#_) .hero-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 0 var(--space-7); padding-block: var(--space-7); }
+:root[data-skin="b"]:not(#_) .hero-copy::after { content: ''; grid-column: 2; grid-row: 1 / span 5; min-height: 320px; background: #fff var(--hero) center / cover; border: 10px solid #fff; box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
+:root[data-skin="b"]:not(#_) .hero-copy > * { grid-column: 1; }
+:root[data-skin="b"]:not(#_) .hero h1 { color: var(--c-ink); font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.4rem); }
+:root[data-skin="b"]:not(#_) .hero h1::before { content: 'Sổ tay thủy sinh'; display: block; font: 600 0.75rem var(--f-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-cardinal); margin-bottom: var(--space-3); }
+:root[data-skin="b"]:not(#_) .hero-copy > p { color: var(--c-ink-soft); }
+:root[data-skin="b"]:not(#_) .units { color: var(--c-ink-soft); border-color: var(--c-rule); }
+:root[data-skin="b"]:not(#_) .match label { color: var(--c-ink-soft); }
+:root[data-skin="b"]:not(#_) .search { background: var(--c-plate); border: 1px solid var(--c-ink); border-radius: 0; }
+:root[data-skin="b"]:not(#_) .search input { color: var(--c-ink); }
+:root[data-skin="b"]:not(#_) .search input::placeholder { color: var(--c-ink-faint); }
+:root[data-skin="b"]:not(#_) .search button { background: var(--c-ink); color: var(--c-paper); border-radius: 0; }
+:root[data-skin="b"]:not(#_) .quick a { color: var(--c-ink-soft); border-color: var(--c-rule); border-radius: 0; }
+:root[data-skin="b"]:not(#_) .quick a:hover { color: var(--c-ink); border-color: var(--c-ink); }
+:root[data-skin="b"]:not(#_) .match { background: var(--c-plate); border-bottom: 1px solid var(--c-rule); color: var(--c-ink); }
+:root[data-skin="b"]:not(#_) .match h2, :root[data-skin="b"]:not(#_) .match label span { color: var(--c-ink); }
+:root[data-skin="b"]:not(#_) .match input { background: #fff; color: var(--c-ink); border-color: var(--c-ink-soft); border-radius: 0; }
+:root[data-skin="b"]:not(#_) .match button { background: var(--c-ink); color: var(--c-paper); border-radius: 0; }
+:root[data-skin="b"]:not(#_) .head { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); }
+:root[data-skin="b"]:not(#_) .body h2 { border-bottom: 1px solid var(--c-rule); padding-bottom: var(--space-2); }
+:root[data-skin="b"]:not(#_) .plate { padding: 6px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.1); }
+:root[data-skin="b"]:not(#_) .sc h3, :root[data-skin="b"]:not(#_) .pc h3 { font-weight: 500; }
+:root[data-skin="b"]:not(#_) .fam { font: 600 0.7rem var(--f-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-cardinal); }
+:root[data-skin="b"]:not(#_) .guides { background: var(--c-paper); border-top: 1px solid var(--c-rule); }
+:root[data-skin="b"]:not(#_) .g { border: 8px solid #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); }
+:root[data-skin="b"]:not(#_) .card { background: var(--c-plate); border-color: var(--c-ink); }
+:root[data-skin="b"]:not(#_) .card dd { font-family: var(--f-display); font-size: var(--step-2); }
+:root[data-skin="b"]:not(#_) .videos { background: #24302a; }
+:root[data-skin="b"]:not(#_) .foot { background: #24302a; }
+:root[data-skin="b"]:not(#_) ::selection { background: #e8d5b5; color: var(--c-ink); }
+@media (max-width: 760px) {
+  :root[data-skin="b"]:not(#_) .hero-copy { grid-template-columns: 1fr; }
+  :root[data-skin="b"]:not(#_) .hero-copy::after { grid-column: 1; grid-row: auto; min-height: 220px; margin-top: var(--space-5); }
+}

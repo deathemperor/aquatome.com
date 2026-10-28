@@ -4,7 +4,13 @@ import '@fontsource-variable/fraunces/full-italic.css'
 import '@fontsource/be-vietnam-pro/400.css'
 import '@fontsource/be-vietnam-pro/500.css'
 import '@fontsource/be-vietnam-pro/600.css'
+import '@fontsource-variable/newsreader/index.css'
+import '@fontsource-variable/newsreader/opsz-italic.css'
+import '@fontsource-variable/bricolage-grotesque/index.css'
 import '../styles/global.css'
+import '../styles/skins/a.css'
+import '../styles/skins/b.css'
+import '../styles/skins/c.css'
 import Footer from '../components/Footer.astro'
 import { isStaging } from '../lib/seo'
 import { jsonForScript } from '../lib/json'
@@ -25,6 +31,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* Skin preview without the A/B Worker: ?skin=a|b|c|mix (sticky via cookie), ?skin=reset. The Worker sets data-skin server-side. */}
+    <script is:inline data-skin-preview>(()=>{try{var d=document.documentElement,q=new URLSearchParams(location.search).get('skin'),ok=/^(mix|a|b|c)$/;if(q==='reset')document.cookie='skin=;path=/;max-age=0';else if(q&&ok.test(q))document.cookie='skin='+q+';path=/;max-age=7776000;samesite=lax';var c=(document.cookie.match(/(?:^|; )skin=([a-z]+)/)||[])[1],s=q&&ok.test(q)?q:c;if(!d.dataset.skin&&s&&s!=='mix'&&ok.test(s))d.dataset.skin=s}catch(e){}})()</script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
