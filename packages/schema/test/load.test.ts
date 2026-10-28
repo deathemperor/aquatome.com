@@ -1,3 +1,6 @@
+import { copyFile, mkdtemp } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll } from '../src/index'
@@ -36,4 +39,11 @@ test('public build strips data-card values from un-cleared sources', async () =>
   const alpha = c.species[0]!
   expect(alpha.dataCard.tempC?.map(v => v.source)).toEqual(['seriouslyfish'])
   expect(alpha.dataCard.gh).toBeUndefined()
+})
+test('changelog is gated by source in public builds and defaults to []', async () => {
+  expect((await loadAll({ root, lang: 'vi', publicBuild: false })).changelog.map(e => e.id)).toEqual(['alpha', 'beta'])
+  expect((await loadAll({ root, lang: 'vi', publicBuild: true })).changelog.map(e => e.id)).toEqual(['alpha'])
+  const empty = await mkdtemp(join(tmpdir(), 'store-'))
+  await copyFile(join(root, 'sources.json'), join(empty, 'sources.json'))
+  expect((await loadAll({ root: empty, lang: 'vi', publicBuild: false })).changelog).toEqual([])
 })

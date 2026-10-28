@@ -1,0 +1,33 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { getContent } from '../../../lib/content'
+const c = await getContent()
+const KIND = { species: ['ca', 'Loài'], plant: ['cay', 'Cây'], guide: ['huong-dan', 'Hướng dẫn'] } as const
+const pools = { species: c.species, plant: c.plants, guide: c.guides }
+const entries = c.changelog.flatMap(e => {
+  const item = (pools[e.kind] as { id: string; t: { slug: string; name: string } }[]).find(x => x.id === e.id)
+  return item ? [{ ...e, href: `/vi/${KIND[e.kind][0]}/${item.t.slug}/`, name: item.t.name }] : []
+})
+const fmt = (d: string) => d.split('-').reverse().join('/')
+---
+<Browse title="Mới cập nhật" heading="Mới cập nhật" intro="Các trang vừa được thêm hoặc cập nhật theo nguồn gốc.">
+  {entries.length === 0 ? <p>Chưa có cập nhật nào.</p> : (
+    <ol class="log" data-changelog>
+      {entries.map(e => (
+        <li>
+          <time datetime={e.date}>{fmt(e.date)}</time>
+          <span class="kind">{KIND[e.kind][1]}</span>
+          <a href={e.href}>{e.name}</a>
+          <span class="act">{e.action === 'new' ? 'Mới' : 'Cập nhật'} · {c.sources[e.source]?.name ?? e.source}</span>
+        </li>
+      ))}
+    </ol>
+  )}
+</Browse>
+<style>
+  .log { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
+  .log li { display: grid; grid-template-columns: 6.5rem 6rem 1fr; gap: var(--space-1) var(--space-4); padding-block: var(--space-3); border-bottom: 1px solid var(--c-rule); align-items: baseline; }
+  time, .kind, .act { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .act { grid-column: 3; }
+  @media (max-width: 560px) { .log li { grid-template-columns: 1fr; } .act { grid-column: 1; } }
+</style>

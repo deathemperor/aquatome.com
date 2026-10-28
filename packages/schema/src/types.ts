@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { GlossarySchema, GuideSchema, LANGS, PlaceSchema, PlantSchema, SECTION_ORDER, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, TranslationSchema, schemas } from './schemas'
+import type { ChangelogEntrySchema, GlossarySchema, GuideSchema, LANGS, PlaceSchema, PlantSchema, SECTION_ORDER, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, TranslationSchema, schemas } from './schemas'
 
 export type Lang = (typeof LANGS)[number]
 export type SourceId = (typeof SOURCE_IDS)[number]
@@ -18,3 +18,4 @@ export type GlossaryEntity = z.infer<typeof GlossarySchema>
 export type PlaceEntity = z.infer<typeof PlaceSchema>
 export type Translation = z.infer<typeof TranslationSchema>
 export type SourceInfo = z.infer<typeof SourceInfoSchema>
+export type ChangelogEntry = z.infer<typeof ChangelogEntrySchema>

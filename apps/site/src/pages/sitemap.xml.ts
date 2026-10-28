@@ -5,7 +5,7 @@ import { categories } from '../lib/equipment'
 export const GET: APIRoute = async ({ site }) => {
   const c = await getContent()
   const paths = [
-    '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/phan-loai/', '/vi/nguon-goc/',
+    '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/moi-cap-nhat/', '/vi/phan-loai/', '/vi/nguon-goc/',
     ...c.species.filter(s => s.t.quality.indexable).map(s => `/vi/ca/${s.t.slug}/`),
     ...c.plants.filter(p => p.t.quality.indexable).map(p => `/vi/cay/${p.t.slug}/`),
     ...c.guides.filter(g => g.t.quality.indexable).map(g => `/vi/huong-dan/${g.t.slug}/`),

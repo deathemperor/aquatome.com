@@ -43,6 +43,11 @@ export const TranslationSchema = z.object({
   quality: z.object({ score: z.number(), indexable: z.boolean() }),
 })
 
+export const ChangelogEntrySchema = z.object({
+  date: z.string(), kind: z.enum(['species', 'plant', 'guide']), id: z.string(), source: SourceId, action: z.enum(['new', 'updated']),
+})
+export const ChangelogSchema = z.array(ChangelogEntrySchema)
+
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.boolean(),
   permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),

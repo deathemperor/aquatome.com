@@ -2,8 +2,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { filterPhotos } from './licence'
-import { GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { ChangelogSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { ChangelogEntry, DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }
@@ -14,6 +14,7 @@ export type Content = {
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
   sources: Partial<Record<SourceId, SourceInfo>>
+  changelog: ChangelogEntry[]
 }
 
 async function readJson<S extends z.ZodType>(path: string, schema: S): Promise<z.infer<S>> {
@@ -65,8 +66,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     .filter(g => allowed(g.source))
     .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
 
+  const changelogPath = join(root, 'changelog.json')
+  const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
+
   return {
-    species, plants, guides,
+    species, plants, guides, changelog,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

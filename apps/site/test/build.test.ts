@@ -127,3 +127,9 @@ describe('review fixes', () => {
 test('a styled 404 page exists for the static host', () => {
   expect(page('/404').html).toContain('Không tìm thấy trang')
 })
+
+test("what's new lists changelog entries that exist, with links", () => {
+  const { dom } = page('/vi/moi-cap-nhat/')
+  const hrefs = dom.querySelectorAll('[data-changelog] a').map(a => a.getAttribute('href'))
+  expect(hrefs).toEqual(['/vi/ca/ca-neon-vua/', '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'])
+})
