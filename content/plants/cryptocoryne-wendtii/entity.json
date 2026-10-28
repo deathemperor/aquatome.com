@@ -1,0 +1,44 @@
+{
+  "id": "cryptocoryne-wendtii",
+  "scientificName": "Cryptocoryne wendtii",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "optional",
+  "growth": "slow",
+  "placement": [
+    "midground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://example.invalid/tropica/cryptocoryne-wendtii",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "2hraquarist",
+      "sourceUrl": "https://example.invalid/2hraquarist/cryptocoryne-wendtii",
+      "html": "<p>[EN source text placeholder for maintenance]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/960px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG",
+      "width": 960,
+      "height": 720,
+      "licence": "Public domain",
+      "author": "photo: S. Tanaka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:-Cryptocoryne_wendtii-_from_Tropica_farm.JPG"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cryptocoryne wendtii"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

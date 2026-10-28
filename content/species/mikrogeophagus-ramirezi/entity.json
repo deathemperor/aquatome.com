@@ -1,0 +1,97 @@
+{
+  "id": "mikrogeophagus-ramirezi",
+  "scientificName": "Mikrogeophagus ramirezi",
+  "order": "Cichliformes",
+  "family": "Cichlidae",
+  "genus": "Mikrogeophagus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
+      "html": "<p>[EN source text placeholder for maintenance]</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
+      "html": "<p>[EN source text placeholder for reproduction]</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://example.invalid/aquariumbreeder/mikrogeophagus-ramirezi",
+      "html": "<p>[EN source text placeholder for reproduction]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Mikrogeophagus_ramirezi_male.jpg/960px-Mikrogeophagus_ramirezi_male.jpg",
+      "width": 960,
+      "height": 695,
+      "licence": "CC BY-SA 4.0",
+      "author": "Sven Kullander",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikrogeophagus_ramirezi_male.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

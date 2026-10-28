@@ -1,0 +1,12 @@
+---
+interface Props { value: number }
+const { value } = Astro.props
+---
+<span class="diff" role="img" aria-label={`Độ khó ${value}/8`} title={`Độ khó ${value}/8`}>
+  {Array.from({ length: 8 }, (_, i) => <i class:list={{ on: i < value }} />)}
+</span>
+<style>
+  .diff { display: inline-flex; gap: 2px; vertical-align: middle; }
+  i { width: 7px; height: 7px; border-radius: 50%; background: var(--c-rule); }
+  i.on { background: var(--c-moss); }
+</style>

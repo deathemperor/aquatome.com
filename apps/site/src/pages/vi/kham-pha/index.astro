@@ -1,0 +1,19 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import GuideCard from '../../../components/GuideCard.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+const c = await getContent()
+const discovery = c.guides.filter(g => g.kind === 'discovery')
+const recent = [...c.species].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).slice(0, 8)
+---
+<Browse title="Khám phá" heading="Khám phá" intro="Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước." credits={creditsFor([...discovery.map(g => g.photos[0]), ...recent.map(s => s.photos[0])])}>
+  {discovery.length > 0 && <div class="grid">{discovery.map(g => <GuideCard g={g} />)}</div>}
+  <h2 class="h">Mới cập nhật</h2>
+  <SpeciesGrid species={recent} />
+</Browse>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); margin-bottom: var(--space-6); }
+  .h { font-size: var(--step-2); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
+</style>

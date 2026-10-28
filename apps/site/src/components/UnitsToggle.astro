@@ -1,0 +1,16 @@
+<button type="button" class="units" data-units-toggle aria-label="Đổi sang inch và °F">cm · °C</button>
+<script>
+  import { applyUnits } from '../scripts/units'
+  const get = () => (localStorage.getItem('units') === 'imperial' ? 'imperial' : 'metric')
+  if (get() === 'imperial') applyUnits('imperial')
+  document.addEventListener('click', e => {
+    if (!(e.target as Element).closest('[data-units-toggle]')) return
+    const next = get() === 'metric' ? 'imperial' : 'metric'
+    localStorage.setItem('units', next)
+    applyUnits(next)
+  })
+</script>
+<style>
+  .units { background: none; border: 1px solid rgb(255 255 255 / 0.3); color: var(--c-on-dark); border-radius: 999px; font: 500 0.8rem var(--f-body); padding: 0.25rem 0.7rem; cursor: pointer; }
+  .units:hover { border-color: var(--c-neon); }
+</style>

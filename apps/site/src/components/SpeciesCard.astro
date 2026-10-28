@@ -1,0 +1,31 @@
+---
+import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
+import Difficulty from './Difficulty.astro'
+import { range } from '../lib/format'
+interface Props { s: Localized<SpeciesEntity> }
+const { s } = Astro.props
+const p = s.photos[0]
+const temp = resolveDataCard(s.dataCard.tempC ?? [])
+const ph = resolveDataCard(s.dataCard.ph ?? [])
+const diff = resolveDataCard(s.dataCard.difficulty ?? [])
+const meta = [temp && `${range(temp.value)}°C`, ph && `pH ${range(ph.value)}`].filter(Boolean).join(', ')
+---
+<article class="sc">
+  <a href={`/vi/ca/${s.t.slug}/`}>
+    <div class="plate">{p && <img src={p.url} width={p.width} height={p.height} alt="" loading="lazy" />}</div>
+    <p class="fam">{s.family}</p>
+    <h3>{s.t.name}</h3>
+    <p class="sci">{s.scientificName}</p>
+  </a>
+  <p class="meta"><span>{meta}</span>{diff && typeof diff.value === 'number' && <Difficulty value={diff.value} />}</p>
+</article>
+<style>
+  .sc a { text-decoration: none; color: inherit; display: block; }
+  .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
+  .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+  .sc a:hover h3 { color: var(--c-moss); }
+  .fam { font-size: 0.75rem; color: var(--c-ink-faint); margin: var(--space-3) 0 0; }
+  h3 { font-size: var(--step-1); }
+  .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }
+  .meta { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); margin: var(--space-2) 0 0; padding-top: var(--space-2); border-top: 1px dotted var(--c-rule); font-size: 0.8rem; color: var(--c-ink-soft); }
+</style>

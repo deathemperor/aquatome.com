@@ -1,0 +1,44 @@
+---
+import { linkGlossary, SECTION_LABELS, SECTION_ORDER, type Section, type Translation } from '@aq/schema'
+import SourceCredit from './SourceCredit.astro'
+import { getContent } from '../lib/content'
+import { glossaryTerms } from '../lib/glossary'
+interface Props { sections: Section[]; t: Translation }
+const { sections, t } = Astro.props
+const c = await getContent()
+const terms = glossaryTerms(c)
+const seen = new Set<string>()
+const groups = SECTION_ORDER.map(key => ({
+  key,
+  blocks: sections.filter(x => x.key === key).flatMap(x => {
+    const html = t.sections[`${key}:${x.source}`]
+    return html ? [{ ...x, vi: linkGlossary(html, terms, seen) }] : []
+  }),
+})).filter(x => x.blocks.length > 0)
+---
+<div class="wrap body">
+  {groups.map(sec => (
+    <section data-section={sec.key}>
+      <h2>{SECTION_LABELS.vi[sec.key]}</h2>
+      {sec.blocks.map(b => (
+        <div class="block" data-source={b.source}>
+          <div class="prose" set:html={b.vi} />
+          <SourceCredit source={b.source} url={b.sourceUrl} sources={c.sources} />
+        </div>
+      ))}
+    </section>
+  ))}
+</div>
+<style>
+  .body section { display: grid; grid-template-columns: minmax(0, var(--measure)) 1fr; column-gap: var(--space-6); padding-block: var(--space-5); border-top: 1px solid var(--c-rule); }
+  .body h2 { font-size: var(--step-2); grid-column: 1; margin-bottom: var(--space-3); }
+  .block { display: contents; }
+  .prose { grid-column: 1; }
+  .prose :global(p) { margin: 0 0 var(--space-3); line-height: 1.7; }
+  .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
+  .block :global(.credit) { grid-column: 2; align-self: start; padding-top: 0.3rem; }
+  @media (max-width: 860px) {
+    .body section { grid-template-columns: 1fr; }
+    .block :global(.credit) { grid-column: 1; padding: 0 0 var(--space-4); }
+  }
+</style>

@@ -1,0 +1,104 @@
+{
+  "id": "paracheirodon-innesi",
+  "scientificName": "Paracheirodon innesi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Paracheirodon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "colombia",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>[EN source text placeholder for habitat]</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>[EN source text placeholder for behaviour]</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>[EN source text placeholder for dimorphism]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/960px-Neonsalmler_Paracheirodon_innesi.jpg",
+      "width": 960,
+      "height": 636,
+      "licence": "CC BY 3.0",
+      "author": "Holger Krisp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá neon"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

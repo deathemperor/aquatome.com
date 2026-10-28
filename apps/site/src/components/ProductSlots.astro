@@ -1,0 +1,34 @@
+---
+import type { ProductSlot } from '@aq/schema'
+import { categoryLabel, lazadaSearch, shopeeSearch } from '../lib/format'
+interface Props { slots: ProductSlot[]; heading?: string }
+const { slots, heading = 'Thiết bị phù hợp' } = Astro.props
+---
+{slots.length > 0 && (
+  <section class="products" aria-labelledby="products-h">
+    <h2 id="products-h">{heading}</h2>
+    <ul>
+      {slots.flatMap(s => s.keywords.map(k => (
+        <li>
+          <span class="cat">{categoryLabel(s.category)}</span>
+          <span class="kw">{k}</span>
+          <span class="shops">
+            <a href={shopeeSearch(k)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
+            <a href={lazadaSearch(k)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
+          </span>
+        </li>
+      )))}
+    </ul>
+    <p class="note">Liên kết tìm kiếm trên sàn; trang có thể nhận hoa hồng.</p>
+  </section>
+)}
+<style>
+  h2 { font-size: var(--step-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--c-ink); margin-bottom: var(--space-2); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: var(--space-3); align-items: baseline; padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); }
+  .cat { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .kw { font-weight: 500; }
+  .shops { display: flex; gap: var(--space-3); font-size: 0.9rem; }
+  .note { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-2); }
+  @media (max-width: 480px) { li { grid-template-columns: 1fr; gap: var(--space-1); } }
+</style>

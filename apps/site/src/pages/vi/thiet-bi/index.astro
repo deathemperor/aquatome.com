@@ -1,0 +1,16 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { getContent } from '../../../lib/content'
+import { categories } from '../../../lib/equipment'
+import { categoryLabel } from '../../../lib/format'
+const cats = categories(await getContent())
+---
+<Browse title="Thiết bị" heading="Thiết bị" intro="Bể, lọc, đèn, phân nền, thức ăn và cây, gợi ý theo từng loài.">
+  <ul class="cats">{cats.map(c => <li><a href={`/vi/thiet-bi/${c.category}/`}>{categoryLabel(c.category)}</a><span>{c.keywords.length} gợi ý</span></li>)}</ul>
+</Browse>
+<style>
+  .cats { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
+  .cats li { background: var(--c-plate); border: 1px solid var(--c-rule); border-radius: var(--radius-media); padding: var(--space-4); }
+  .cats a { display: block; font: 400 var(--step-1) var(--f-display); }
+  .cats span { font-size: 0.8rem; color: var(--c-ink-faint); }
+</style>

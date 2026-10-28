@@ -1,0 +1,50 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import Browse from '../../../layouts/Browse.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+
+type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
+export async function getStaticPaths() {
+  const c = await getContent()
+  const nodes = new Map<string, Node>()
+  const add = (path: string[], name: string, s: Localized<SpeciesEntity>) => {
+    const k = path.join('/')
+    const n = nodes.get(k) ?? { path, name, species: [] }
+    n.species.push(s)
+    nodes.set(k, n)
+  }
+  for (const s of c.species) {
+    const [o, f, g] = [s.order, s.family, s.genus].map(x => x.toLowerCase()) as [string, string, string]
+    add([], 'Phân loại', s)
+    add([o], s.order, s)
+    add([o, f], s.family, s)
+    add([o, f, g], s.genus, s)
+  }
+  const children = (n: Node) => [...nodes.values()].filter(m => m.path.length === n.path.length + 1 && m.path.slice(0, -1).join('/') === n.path.join('/'))
+  return [...nodes.values()].map(n => ({ params: { path: n.path.join('/') || undefined }, props: { node: n, kids: children(n) } }))
+}
+const { node, kids } = Astro.props as { node: Node; kids: Node[] }
+const level = ['Phân loại', 'Bộ', 'Họ', 'Chi'][node.path.length]!
+const first = node.species[0]!
+const crumbNames = [first.order, first.family]
+const crumbs: [string, string][] = node.path.length
+  ? [['/vi/phan-loai/', 'Phân loại'], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
+  : []
+---
+<Browse title={node.path.length ? `${level} ${node.name}` : 'Phân loại'} heading={node.name} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? `${level} ${node.name}: ${node.species.length} loài.` : 'Duyệt loài theo bộ, họ và chi.'}>
+  {node.path.length === 3 && <span slot="heading" class="sci">{node.name}</span>}
+  {kids.length > 0 && (
+    <ul class="kids">
+      {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{k.species.length} loài</span></li>)}
+    </ul>
+  )}
+  {node.path.length > 0 && <SpeciesGrid species={node.species} />}
+</Browse>
+<style>
+  .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); columns: 3 14rem; }
+  .kids li { padding-block: var(--space-2); border-bottom: 1px dotted var(--c-rule); break-inside: avoid; }
+  .kids a { font: 400 var(--step-1) var(--f-display); }
+  .kids span { font-size: 0.8rem; color: var(--c-ink-faint); }
+</style>

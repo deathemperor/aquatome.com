@@ -1,0 +1,41 @@
+---
+import '@fontsource-variable/fraunces/full.css'
+import '@fontsource-variable/fraunces/full-italic.css'
+import '@fontsource/be-vietnam-pro/400.css'
+import '@fontsource/be-vietnam-pro/500.css'
+import '@fontsource/be-vietnam-pro/600.css'
+import '../styles/global.css'
+import Footer from '../components/Footer.astro'
+import { isStaging } from '../lib/seo'
+import { jsonForScript } from '../lib/json'
+import type { Credit } from '../lib/credits'
+
+interface Props {
+  title: string
+  description?: string
+  noindex?: boolean
+  jsonld?: object[]
+  credits?: Credit[]
+}
+const { title, description, noindex = false, jsonld = [], credits } = Astro.props
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="vi" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {jsonld.map(j => <script type="application/ld+json" set:html={jsonForScript(j)} />)}
+  </head>
+  <body>
+    <slot name="header" />
+    <main data-pagefind-body><slot /></main>
+    <Footer credits={credits} />
+  </body>
+</html>

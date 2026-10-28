@@ -1,0 +1,77 @@
+{
+  "id": "boraras-brigittae",
+  "scientificName": "Boraras brigittae",
+  "order": "Cypriniformes",
+  "family": "Danionidae",
+  "genus": "Boraras",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
+      "html": "<p>[EN source text placeholder for habitat]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Boraras-brigittae-3191524164.jpg",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0",
+      "author": "Fantomeno 14",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras-brigittae-3191524164.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-28"
+}

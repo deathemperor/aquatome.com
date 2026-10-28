@@ -1,0 +1,73 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import Base from '../../../layouts/Base.astro'
+import Nav from '../../../components/Nav.astro'
+import DataCard from '../../../components/DataCard.astro'
+import PhotoGallery from '../../../components/PhotoGallery.astro'
+import Sections from '../../../components/Sections.astro'
+import VideoFacade from '../../../components/VideoFacade.astro'
+import ProductSlots from '../../../components/ProductSlots.astro'
+import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+import { slugify } from '@aq/schema/slug'
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  return c.species.map(s => ({ params: { slug: s.t.slug }, props: { s } }))
+}
+const { s } = Astro.props as { s: Localized<SpeciesEntity> }
+const c = await getContent()
+const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
+const country = places.find(p => p.kind === 'country')
+const url = new URL(Astro.url.pathname, Astro.site).href
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: 'vi', dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
+    about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species' } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Loài cá', item: new URL('/vi/ca/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: s.t.name, item: url } ] },
+]
+const firstSource = s.sections[0]
+---
+<Base title={`${s.t.name} (${s.scientificName}) — thủy·sinh`} description={`Hồ sơ ${s.t.name} (${s.scientificName}): thông số nước, chăm sóc, sinh sản.`} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(s.photos.slice(1))}>
+  <Nav slot="header" />
+  <nav class="wrap crumb" aria-label="Đường dẫn">
+    <a href="/vi/ca/">Loài cá</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
+  </nav>
+  <header class="wrap top">
+    <PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} />
+    <div>
+      <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
+      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
+      <p class="sci binomial">{s.scientificName}</p>
+      {s.t.altNames.length > 0 && <p class="alt">Tên khác: {s.t.altNames.join(', ')}</p>}
+      <DataCard card={s.dataCard} sources={c.sources} />
+      {firstSource && <p class="srcline">Dịch và tổng hợp từ {[...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')}. Cập nhật {s.updatedAt}.</p>}
+    </div>
+  </header>
+
+  <Sections sections={s.sections} t={s.t} />
+
+  <VideoFacade videos={s.videos} />
+
+  <div class="wrap two">
+    <ProductSlots slots={s.productSlots} />
+    <CommentsPlaceholder />
+  </div>
+</Base>
+<style>
+  .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
+  .crumb a { color: var(--c-ink-soft); }
+  .top { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
+  .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
+  h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
+  .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-2); }
+  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: 0 0 var(--space-4); }
+  .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
+  @media (max-width: 860px) {
+    .top, .two { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import type { Video } from '@aq/schema'
+interface Props { videos: Video[] }
+const { videos } = Astro.props
+const mins = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
+const langLabel = (l: string) => (l === 'vi' ? 'tiếng Việt' : l.toUpperCase())
+---
+{videos.length > 0 && (
+  <section class="videos" aria-labelledby="videos-h">
+    <div class="wrap">
+      <h2 id="videos-h">Video</h2>
+      <ul>
+        {videos.map(v => (
+          <li>
+            <button type="button" class="facade" data-youtube-id={v.youtubeId} aria-label={`Phát video: ${v.title}`}
+              style={`background-image:url(https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg)`}>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+            </button>
+            <p>{v.title}<small>{mins(v.durationSec)}, {langLabel(v.lang)}</small></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+<script>
+  document.addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('button[data-youtube-id]')
+    if (!b) return
+    const f = document.createElement('iframe')
+    f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.youtubeId}?autoplay=1`
+    f.allow = 'autoplay; encrypted-media; picture-in-picture'
+    f.allowFullscreen = true
+    f.title = b.getAttribute('aria-label') ?? 'Video'
+    b.replaceWith(f)
+  })
+</script>
+<style>
+  .videos { background: var(--c-blackwater); color: var(--c-on-dark); padding-block: var(--space-6); }
+  h2 { font-size: var(--step-2); margin-bottom: var(--space-4); }
+  ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-4); list-style: none; margin: 0; padding: 0; }
+  .facade, :global(.videos iframe) { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius-media); background: var(--c-blackwater-2) center / cover; cursor: pointer; display: grid; place-items: center; }
+  .play { width: 52px; height: 52px; border-radius: 50%; background: rgb(255 255 255 / 0.92); color: var(--c-blackwater); display: grid; place-items: center; font-size: 1.1rem; }
+  p { margin: var(--space-2) 0 0; font-size: 0.9rem; }
+  small { display: block; color: var(--c-on-dark-soft); }
+</style>

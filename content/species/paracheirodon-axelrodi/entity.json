@@ -1,0 +1,156 @@
+{
+  "id": "paracheirodon-axelrodi",
+  "scientificName": "Paracheirodon axelrodi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Paracheirodon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for habitat]</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for waterConditions]</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for diet]</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for behaviour]</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for dimorphism]</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for reproduction]</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://example.invalid/glaser/paracheirodon-axelrodi",
+      "html": "<p>[EN source text placeholder for reproduction]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
+      "width": 960,
+      "height": 758,
+      "licence": "CC BY-SA 3.0",
+      "author": "CHUCAO",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "aaaaaaaaaaa",
+      "title": "Video mẫu: đàn neon vua trong bể thủy sinh",
+      "durationSec": 724,
+      "lang": "vi"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng 600L/h"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

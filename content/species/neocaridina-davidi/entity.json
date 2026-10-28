@@ -1,0 +1,90 @@
+{
+  "id": "neocaridina-davidi",
+  "scientificName": "Neocaridina davidi",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Neocaridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "bwaquatics",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://example.invalid/bwaquatics/neocaridina-davidi",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://example.invalid/bwaquatics/neocaridina-davidi",
+      "html": "<p>[EN source text placeholder for dimorphism]</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://example.invalid/sprucepets/neocaridina-davidi",
+      "html": "<p>[EN source text placeholder for maintenance]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Red_Cherry_Shrimp_1.jpg/960px-Red_Cherry_Shrimp_1.jpg",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "TheJammingYam (talk)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Cherry_Shrimp_1.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

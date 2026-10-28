@@ -1,0 +1,84 @@
+{
+  "id": "danio-margaritatus",
+  "scientificName": "Danio margaritatus",
+  "order": "Cypriniformes",
+  "family": "Danionidae",
+  "genus": "Danio",
+  "group": "danios",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>[EN source text placeholder for habitat]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Danio_Margaritatus_malle_%28zoom%29.jpg/960px-Danio_Margaritatus_malle_%28zoom%29.jpg",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Cisamarc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_Margaritatus_malle_(zoom).jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano 45cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

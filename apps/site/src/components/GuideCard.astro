@@ -1,0 +1,23 @@
+---
+import type { GuideEntity, Localized } from '@aq/schema'
+import { GUIDE_KIND_LABELS } from '../lib/format'
+import { getContent } from '../lib/content'
+interface Props { g: Localized<GuideEntity> }
+const { g } = Astro.props
+const c = await getContent()
+const ph = g.photos[0]
+---
+<a class="gc" href={`/vi/huong-dan/${g.t.slug}/`}>
+  <div class="img">{ph && <img src={ph.url} width={ph.width} height={ph.height} alt="" loading="lazy" />}</div>
+  <p class="kind">{GUIDE_KIND_LABELS[g.kind]}</p>
+  <h3>{g.t.name}</h3>
+  <p class="src">Dịch từ {c.sources[g.source]?.name ?? g.source}</p>
+</a>
+<style>
+  .gc { display: block; text-decoration: none; color: inherit; }
+  .img img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; border-radius: var(--radius-media); }
+  .kind { font-size: 0.8rem; color: var(--c-moss); margin: var(--space-3) 0 0; }
+  h3 { font-size: var(--step-1); }
+  .gc:hover h3 { color: var(--c-moss); }
+  .src { font-size: 0.8rem; color: var(--c-ink-faint); margin: var(--space-1) 0 0; }
+</style>

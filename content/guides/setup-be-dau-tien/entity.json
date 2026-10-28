@@ -1,0 +1,22 @@
+{
+  "id": "setup-be-dau-tien",
+  "kind": "setup",
+  "source": "2hraquarist",
+  "sourceUrl": "https://example.invalid/2hraquarist/setup-be-dau-tien",
+  "html": "<p>[EN source text placeholder]</p>",
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg/960px-Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg",
+      "width": 960,
+      "height": 616,
+      "licence": "CC BY 2.0",
+      "author": "The Wandering Angel from Makati City, Philippines",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Tank_03_-_Flickr_-_The_Wandering_Angel.jpg"
+    }
+  ],
+  "mentions": [
+    "paracheirodon-innesi",
+    "anubias-barteri-nana"
+  ],
+  "updatedAt": "2026-10-28"
+}
