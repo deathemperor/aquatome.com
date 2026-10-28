@@ -13,8 +13,7 @@ Design: `docs/superpowers/specs/2026-10-28-aquarium-site-design.md` · Plans: `d
 | `pnpm i` | install |
 | `pnpm dev` | local site at http://localhost:4321/vi/ |
 | `pnpm build` | static build to `apps/site/dist` (+ Pagefind search index) |
-| `pnpm test` | schema unit tests |
-| `pnpm --filter site test` | site tests (run after `pnpm build`) |
+| `pnpm test` | all tests (schema unit tests; site builds, then tests its output) |
 
 Build-time environment:
 - `PUBLIC_BUILD=1`: only sources with `"publish": true` in `content/sources.json` are built.

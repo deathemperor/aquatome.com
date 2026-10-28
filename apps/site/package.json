@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
-    "test": "vitest run",
+    "test": "pnpm build && vitest run",
     "typecheck": "astro check"
   },
   "dependencies": {
