@@ -6,6 +6,8 @@ export type SourceConfig = {
   include: RegExp
   exclude?: RegExp
   contentSelector?: string
+  /** Part of the URL that varies between copies of one item (e.g. product formats); stripped to form the dedupe key. */
+  dedupe?: RegExp
   delayMs: number
 }
 
@@ -23,7 +25,7 @@ export const SOURCES: SourceConfig[] = [
   // Spruce: 416xxxx ids are category hubs (dogs, cats, …), not articles.
   { id: 'sprucepets', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'], scope: 'main' }, include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /-416\d{4}$/, delayMs: POLITE },
   { id: 'aquariumbreeder', discover: { kind: 'sitemap', urls: ['https://aquariumbreeder.com/sitemap_index.xml'] }, include: /aquariumbreeder\.com\/[a-z0-9-]+\/?$/, exclude: /\/(category|tag|page|author|shop|cart|contact|about|blog)/, delayMs: POLITE },
-  { id: 'tropica', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, delayMs: POLITE },
+  { id: 'tropica', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, dedupe: /\([^)]*\)\/\d+$/, contentSelector: '.content', delayMs: POLITE },
 ]
 
 export const sourceById = (id: SourceId): SourceConfig => {

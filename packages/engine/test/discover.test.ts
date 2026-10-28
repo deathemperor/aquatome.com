@@ -28,3 +28,10 @@ test('crawl mode filters page links', async () => {
   const links = ['https://tropica.com/en/plants/plantdetails/anubias-nana/1/', 'https://tropica.com/en/plants/plantdetails/anubias-nana/1/#top', 'https://tropica.com/en/plants/plantdetails/x/print/', 'https://tropica.com/en/inspiration/']
   expect((await discover(src, async () => '', async () => links)).map(x => x.url)).toEqual(['https://tropica.com/en/plants/plantdetails/anubias-nana/1/'])
 })
+
+test('dedupe collapses URL variants of one item (first wins)', async () => {
+  const src: SourceConfig = { id: 'tropica', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /plantdetails/, dedupe: /\([^)]*\)\/\d+$/, delayMs: 0 }
+  const links = ['https://tropica.com/en/plants/plantdetails/Aegagropilalinnaei(000CST)/4385', 'https://tropica.com/en/plants/plantdetails/Aegagropilalinnaei(000DMP)/19534', 'https://tropica.com/en/plants/plantdetails/Anubiasnana(101)/5']
+  const found = await discover(src, async () => '', async () => links)
+  expect(found.map(f => f.url)).toEqual([links[0], links[2]])
+})

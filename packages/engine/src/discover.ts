@@ -32,8 +32,10 @@ export async function discover(
     let u: string
     try { u = canonical(url) } catch { return }
     if (!src.include.test(u) || src.exclude?.test(u)) return
-    const prev = found.get(u)
-    if (!prev || (lastmod && (!prev.lastmod || lastmod > prev.lastmod))) found.set(u, lastmod ? { url: u, lastmod } : { url: u })
+    const key = src.dedupe ? u.replace(src.dedupe, '') : u
+    const prev = found.get(key)
+    if (prev && prev.url !== u) return // another variant of the same item was found first
+    if (!prev || (lastmod && (!prev.lastmod || lastmod > prev.lastmod))) found.set(key, lastmod ? { url: u, lastmod } : { url: u })
   }
   if (src.discover.kind === 'sitemap') {
     const walk = async (url: string, depth: number): Promise<void> => {
