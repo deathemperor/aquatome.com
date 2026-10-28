@@ -35,7 +35,7 @@ Every source starts with `"publish": false`. Set it to `true` only after its wri
 restating facts, commercial use with ads and affiliate links) is recorded in its `permission` field. Public builds drop content
 from sources that aren't cleared. Photos load only with CC0, CC BY, CC BY-SA or public-domain licences.
 
-Sample content in `content/` is placeholder Vietnamese text with Wikimedia Commons photos (`scripts/gen-sample-content.py`).
+`content/` holds engine output (Plan 2). Site tests use the sample store in `apps/site/test/fixture-content/` (placeholder Vietnamese text, Wikimedia Commons photos; generator `scripts/gen-sample-content.py`).
 
 ## Staging deploy
 `CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy-staging.sh` builds with `STAGING=1` and deploys to
