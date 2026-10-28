@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  // Staging: static assets only, served from a staging subdomain (infinitus.run; huuloc.com lives in another CF account) until the real domain is chosen.
+  "name": "thuysinh-staging",
+  "compatibility_date": "2026-10-28",
+  "assets": { "directory": "./dist", "not_found_handling": "404-page", "html_handling": "force-trailing-slash" },
+  "routes": [{ "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }]
+}

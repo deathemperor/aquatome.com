@@ -36,3 +36,9 @@ restating facts, commercial use with ads and affiliate links) is recorded in its
 from sources that aren't cleared. Photos load only with CC0, CC BY, CC BY-SA or public-domain licences.
 
 Sample content in `content/` is placeholder Vietnamese text with Wikimedia Commons photos (`scripts/gen-sample-content.py`).
+
+## Staging deploy
+`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy-staging.sh` builds with `STAGING=1` and deploys to
+https://thuysinh.infinitus.run (Cloudflare Workers static assets, `apps/site/wrangler.jsonc`). Every response carries
+`X-Robots-Tag: noindex, nofollow` and robots.txt disallows everything. Content is the local (ungated) build.
+huuloc.com is in a different Cloudflare account (loc.truongh@gmail.com); moving staging there needs a token from that account.
