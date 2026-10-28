@@ -38,7 +38,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
-  <div class="wrap"><CommentsPlaceholder /></div>
+  <div class="wrap end"><CommentsPlaceholder /></div>
 </Base>
 <style>
   .art { max-width: calc(var(--measure) + 2 * var(--space-5)); padding-block: var(--space-4) var(--space-6); }
@@ -52,5 +52,6 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   .related { padding-bottom: var(--space-6); }
   .related h2, .wrap :global(.comments h2) { font-size: var(--step-2); }
   .related h2 { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
+  .end { padding-bottom: var(--space-8); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
 </style>

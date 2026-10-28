@@ -14,7 +14,7 @@ const langLabel = (l: string) => (l === 'vi' ? 'tiếng Việt' : l.toUpperCase(
           <li>
             <button type="button" class="facade" data-youtube-id={v.youtubeId} aria-label={`Phát video: ${v.title}`}
               style={`background-image:url(https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg)`}>
-              <span class="play" aria-hidden="true">▶</span>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
             </button>
             <p>{v.title}<small>{mins(v.durationSec)}, {langLabel(v.lang)}</small></p>
           </li>

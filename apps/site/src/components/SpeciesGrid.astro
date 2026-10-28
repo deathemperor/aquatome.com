@@ -9,5 +9,6 @@ const { species } = Astro.props
   : <div class="grid">{species.map(s => <div data-slug={s.t.slug}><SpeciesCard s={s} /></div>)}</div>}
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }
   .empty { color: var(--c-ink-soft); }
 </style>
