@@ -13,3 +13,6 @@ test('filterPhotos drops disallowed photos', () => {
   const p = (licence: string): Photo => ({ url: 'u', width: 1, height: 1, licence, author: 'a', sourceUrl: 's' })
   expect(filterPhotos([p('CC BY 4.0'), p('CC BY-NC 4.0')]).map(x => x.licence)).toEqual(['CC BY 4.0'])
 })
+test('public domain is allowed (freer than CC0)', () => {
+  for (const ok of ['Public domain', 'PD', 'PD-self', 'public-domain']) expect(isAllowedLicence(ok), ok).toBe(true)
+})

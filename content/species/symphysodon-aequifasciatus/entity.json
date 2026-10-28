@@ -1,0 +1,104 @@
+{
+  "id": "symphysodon-aequifasciatus",
+  "scientificName": "Symphysodon aequifasciatus",
+  "order": "Cichliformes",
+  "family": "Cichlidae",
+  "genus": "Symphysodon",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 28,
+          "max": 31
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 28,
+          "max": 31
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>[EN source text placeholder for aquariumSize]</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://example.invalid/sprucepets/symphysodon-aequifasciatus",
+      "html": "<p>[EN source text placeholder for maintenance]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Blue_Discus.jpg/960px-Blue_Discus.jpg",
+      "width": 960,
+      "height": 802,
+      "licence": "Public domain",
+      "author": "Patrick Farrelly",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng 1200L/h"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

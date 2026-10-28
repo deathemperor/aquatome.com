@@ -1,0 +1,38 @@
+{
+  "id": "micranthemum-monte-carlo",
+  "scientificName": "Micranthemum tweediei",
+  "difficulty": 2,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "foreground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://example.invalid/tropica/micranthemum-monte-carlo",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg/960px-Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "monte carlo thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

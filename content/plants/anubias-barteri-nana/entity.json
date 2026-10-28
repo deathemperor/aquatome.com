@@ -1,0 +1,39 @@
+{
+  "id": "anubias-barteri-nana",
+  "scientificName": "Anubias barteri var. nana",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "none",
+  "growth": "slow",
+  "placement": [
+    "foreground",
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://example.invalid/tropica/anubias-barteri-nana",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Anubias_barteri_var._nana.jpg/960px-Anubias_barteri_var._nana.jpg",
+      "width": 960,
+      "height": 616,
+      "licence": "CC BY 4.0",
+      "author": "Abhik.Mazumdar.73",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "anubias nana"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

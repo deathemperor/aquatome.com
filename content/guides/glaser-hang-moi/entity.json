@@ -1,0 +1,22 @@
+{
+  "id": "glaser-hang-moi",
+  "kind": "discovery",
+  "source": "glaser",
+  "sourceUrl": "https://example.invalid/glaser/glaser-hang-moi",
+  "html": "<p>[EN source text placeholder]</p>",
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Nature_Aquarium_Aquascape.jpg/960px-Nature_Aquarium_Aquascape.jpg",
+      "width": 960,
+      "height": 549,
+      "licence": "CC0",
+      "author": "Dileepkumardr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg"
+    }
+  ],
+  "mentions": [
+    "boraras-brigittae",
+    "apistogramma-cacatuoides"
+  ],
+  "updatedAt": "2026-10-28"
+}
