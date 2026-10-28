@@ -1,0 +1,24 @@
+---
+import type { Photo } from '@aq/schema'
+interface Props { photos: Photo[]; alt: string }
+const { photos, alt } = Astro.props
+const [main, ...rest] = photos
+---
+{main && (
+  <figure class="gallery">
+    <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" /></div>
+    {rest.length > 0 && (
+      <ul class="thumbs">{rest.slice(0, 4).map(p => <li><img src={p.url} width={p.width} height={p.height} alt="" loading="lazy" /></li>)}</ul>
+    )}
+    <figcaption>Ảnh: <a href={main.sourceUrl} rel="noopener">{main.author}</a>, {main.licence}</figcaption>
+  </figure>
+)}
+<style>
+  .gallery { margin: 0; }
+  .plate { background: var(--c-plate); padding: 8px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
+  .plate img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .thumbs { display: flex; gap: var(--space-2); list-style: none; padding: 0; margin: var(--space-2) 0 0; }
+  .thumbs img { width: 64px; height: 48px; object-fit: cover; border: 3px solid var(--c-plate); }
+  figcaption { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-2); }
+  figcaption a { color: inherit; }
+</style>

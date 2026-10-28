@@ -1,0 +1,34 @@
+/* Mix skin tokens. Later skins override only these custom properties. */
+:root {
+  --c-blackwater: #0a1a1d;
+  --c-blackwater-2: #10282c;
+  --c-paper: #eef1ec;
+  --c-plate: #ffffff;
+  --c-ink: #10241f;
+  --c-ink-soft: #4a5c55;
+  --c-ink-faint: #7b8a84;
+  --c-rule: #d3dad3;
+  --c-moss: #2f6b4f;
+  --c-cardinal: #c8283f;
+  --c-neon: #5fd4e0;
+  --c-on-dark: #e4efed;
+  --c-on-dark-soft: #9db7b3;
+
+  --f-display: 'Fraunces Variable', Georgia, serif;
+  --f-body: 'Be Vietnam Pro', system-ui, sans-serif;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
+
+  --radius-plate: 2px;
+  --radius-media: 12px;
+  --measure: 68ch;
+  --page: 1200px;
+}
