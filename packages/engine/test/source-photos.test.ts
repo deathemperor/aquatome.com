@@ -46,3 +46,16 @@ test('stores picked photos once, credited to the source', async () => {
   expect(again).toEqual(photos)
   expect(uploads).toHaveLength(1)
 })
+
+test('species/plant picks skip product packshots; duplicate captions collapse', () => {
+  const imgs = [
+    { src: '/shrimp.jpg', alt: 'Red Cherry Shrimp "Neocaridina davidi" - Breeding', width: 1000, height: 667 },
+    { src: '/cuisine.jpg', alt: 'Hikari Shrimp Cuisine - Aquarium Co - Op', width: 1024, height: 1024 },
+    { src: '/cave.jpg', alt: 'Aquarium Co - Op Shrimp Cave', width: 1024, height: 1024 },
+    { src: '/fert.jpg', alt: 'Easy Green All-in-One Fertilizer', width: 1024, height: 1024 },
+    { src: '/a1.jpg', alt: 'Two red cherry shrimp on moss', width: 1200, height: 800 },
+    { src: '/a2.jpg', alt: 'Two red cherry shrimp on moss', width: 1200, height: 800 },
+  ]
+  expect(pickSourcePhotos(imgs, 'https://x.test/p', ['Neocaridina davidi', 'Red Cherry Shrimp']).map(p => p.src)).toEqual(['https://x.test/shrimp.jpg', 'https://x.test/a1.jpg'])
+  expect(pickSourcePhotos([{ src: '/sponge.jpg', alt: 'Filter sponge of grade 30 ppi', width: 800, height: 600 }], 'https://x.test/p', [], 3, 'guide')).toHaveLength(1)
+})

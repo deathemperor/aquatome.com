@@ -134,7 +134,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   async function apply(source: SourceId, url: string, page: ProcessedPage, score: number, images: PageImage[], bytes: Deps['fetcher']['bytes']): Promise<string[] | null> {
     const now = today()
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max), { bytes, media: deps.media }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject'), { bytes, media: deps.media }, existing)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)

@@ -7,6 +7,8 @@ type Picked = PageImage & { width: number }
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
+/** Shop packshots (food, fertiliser, hardware) — fine in a guide, wrong as a species or plant photo. */
+export const PRODUCT = /fertili[sz]er|cuisine|\bfoods?\b|pellets?|wafers?|flakes?|\btabs?\b|\bcaves?\b|\bshells?\b|bottle|\bpack\b|\bkit\b|filter|heater|substrate|\b\d+(\.\d+)?\s?(ml|oz|g|kg|lb|gal)\b/i
 const MIN_WIDTH = 600
 export const SOURCE_PHOTO_LICENCE = 'dùng với sự cho phép'
 
@@ -15,9 +17,10 @@ const dedupeKey = (src: string) => file(src).toLowerCase().replace(/\.[a-z0-9]+$
 const words = (s: string) => s.toLowerCase().replace(/[-_.]+/g, ' ')
 
 /** Best photos from a source page: real photos (not chrome), big enough, about the subject; the subject itself before scenery. */
-export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4): Picked[] {
+export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4, kind: 'subject' | 'guide' = 'subject'): Picked[] {
   const terms = [...new Set(names.flatMap(n => [n.toLowerCase(), ...n.toLowerCase().split(/\s+/).filter(w => w.length >= 4)]))]
   const seen = new Set<string>()
+  const seenAlt = new Set<string>()
   const ranked: { img: Picked; score: number }[] = []
   for (const img of images) {
     let src: string
@@ -25,9 +28,12 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`)) continue
     if (!img.width || img.width < MIN_WIDTH) continue
     if (img.height && (img.height / img.width < 0.4 || img.height / img.width > 1.6)) continue
+    if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
     const key = dedupeKey(src)
-    if (seen.has(key)) continue
+    const altKey = img.alt.toLowerCase().trim()
+    if (seen.has(key) || (altKey && seenAlt.has(altKey))) continue
     seen.add(key)
+    if (altKey) seenAlt.add(altKey)
     const text = words(`${file(src)} ${img.alt}`)
     const score = (terms.some(t => text.includes(t)) ? 2 : 0) + (img.width >= 1000 ? 0.5 : 0) - (SCENERY.test(img.alt) ? 1.5 : 0)
     ranked.push({ img: { ...img, src, width: img.width }, score })
