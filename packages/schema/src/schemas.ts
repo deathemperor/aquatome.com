@@ -40,7 +40,7 @@ export const PlaceSchema = z.object({ id: z.string(), kind: z.enum(['continent',
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
-  quality: z.object({ score: z.number(), indexable: z.boolean() }),
+  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional() }),
 })
 
 export const ChangelogEntrySchema = z.object({

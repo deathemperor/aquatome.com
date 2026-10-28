@@ -1,0 +1,56 @@
+import { mkdir, writeFile } from 'node:fs/promises'
+import { homedir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { parseArgs } from 'node:util'
+import { SOURCE_IDS, type SourceId } from '@aq/schema'
+import { claudeCli } from './claude'
+import { ChromeFetcher } from './fetch'
+import { runEngine } from './run'
+import { loadState } from './state'
+
+const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
+const UA = 'thuysinh-engine/0.1 (https://thuysinh.infinitus.run)'
+const http = async (url: string) => {
+  const r = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } })
+  if (!r.ok) throw new Error(`HTTP ${r.status} for ${new URL(url).host}`)
+  return r.json()
+}
+
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' } } })
+const cmd = positionals[0]
+
+if (cmd === 'run') {
+  const sources = values.sources?.split(',').map(s => s.trim()) as SourceId[] | undefined
+  const bad = sources?.filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
+  if (bad?.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
+  const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
+  const fetcher = new ChromeFetcher({ profileDir })
+  const startedAt = new Date().toISOString()
+  await fetcher.open()
+  try {
+    const report = await runEngine(
+      { fetcher, llm: claudeCli, http, root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
+      { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined },
+    )
+    await mkdir(join(ROOT, 'engine-state'), { recursive: true })
+    await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
+    console.table(report.perSource)
+    if (report.needsHuman.length) console.log(`needs-human (pass the challenge in the engine Chrome profile): ${report.needsHuman.join(', ')}`)
+    for (const e of report.errors) console.log(`error: ${e}`)
+    console.log(`changed: ${report.changed.length}`)
+  } finally {
+    await fetcher.close()
+  }
+} else if (cmd === 'status') {
+  const rows: Record<string, Record<string, number>> = {}
+  for (const id of SOURCE_IDS) {
+    const counts: Record<string, number> = {}
+    for (const s of Object.values(await loadState(ROOT, id))) counts[s.status] = (counts[s.status] ?? 0) + 1
+    rows[id] = counts
+  }
+  console.table(rows)
+} else {
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] | pnpm engine status')
+  process.exitCode = 1
+}

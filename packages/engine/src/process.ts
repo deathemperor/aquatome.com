@@ -34,8 +34,9 @@ const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietn
 const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
 const KEYS = new Set<string>(SECTION_ORDER)
 
-export async function processPage(llm: Llm, input: { source: SourceId; url: string; title: string; outline: string; glossary: string[] }): Promise<ProcessedPage> {
-  const prompt = `${TEMPLATE.replace('{{GLOSSARY}}', input.glossary.join(', ') || '(none yet)')}\n\nSource: ${input.source}\nURL: ${input.url}\nTitle: ${input.title}\n\n--- PAGE ---\n${input.outline.slice(0, 60_000)}`
+export async function processPage(llm: Llm, input: { source: SourceId; url: string; title: string; outline: string; glossary: string[]; notes?: string[] }): Promise<ProcessedPage> {
+  const notes = input.notes?.length ? `\n\nA reviewer found problems in your previous translation of this page. Fix them:\n${input.notes.map(n => `- ${n}`).join('\n')}` : ''
+  const prompt = `${TEMPLATE.replace('{{GLOSSARY}}', input.glossary.join(', ') || '(none yet)')}${notes}\n\nSource: ${input.source}\nURL: ${input.url}\nTitle: ${input.title}\n\n--- PAGE ---\n${input.outline.slice(0, 60_000)}`
   let parsed: z.infer<typeof ProcessedPageSchema> | undefined
   let lastError: unknown
   for (let attempt = 0; attempt < 2 && !parsed; attempt++) {

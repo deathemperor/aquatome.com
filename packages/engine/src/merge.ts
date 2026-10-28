@@ -7,6 +7,7 @@ type Item<E> = { entity: E; vi: Translation }
 type PagePlace = ProcessedPage['places'][number]
 
 export const placeId = (name: string) => slugify(name)
+export const guideId = (source: SourceId, url: string) => `${source}-${slugify(new URL(url).pathname)}`
 const DEFAULT_QUALITY = { score: 1, indexable: true }
 const uniq = <T>(xs: T[]) => [...new Set(xs)]
 const order = (k: string) => SECTION_ORDER.indexOf(k as (typeof SECTION_ORDER)[number])
@@ -74,7 +75,7 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
   const u = new URL(ctx.url)
   const prev = ctx.existing
   const entity: GuideEntity = {
-    id: `${ctx.source}-${slugify(u.pathname)}`, kind: page.guide.kind, source: ctx.source, sourceUrl: `${u.origin}${u.pathname}`, html: '',
+    id: guideId(ctx.source, ctx.url), kind: page.guide.kind, source: ctx.source, sourceUrl: `${u.origin}${u.pathname}`, html: '',
     photos: prev?.entity?.photos ?? [], mentions: prev?.entity?.mentions ?? [], updatedAt: ctx.now,
   }
   const name = page.guide.viTitle
