@@ -110,8 +110,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, htmlRewrite, p => ctx.waitUntil(p)),
 
-  /** Daily: recompute traffic allocation from the last 14 days of events. */
-  /** Daily: A/B allocation, then the affiliate checker — independent, so one failing never blocks the other. */
+  /** Daily: A/B allocation and the affiliate checker — independent, so one failing never blocks the other. */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
       (async () => {
