@@ -46,7 +46,7 @@ export const TranslationSchema = z.object({
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.boolean(),
   permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),
-})
+}).refine(s => !s.publish || s.permission !== undefined, { message: 'publish: true requires a permission record', path: ['permission'] })
 export const SourcesSchema = z.partialRecord(SourceId, SourceInfoSchema)
 
 export const schemas = { Range, SourcedValue, Section, Photo, Video, ProductSlot }

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { SECTION_LABELS, SECTION_ORDER, SpeciesSchema, TranslationSchema } from '../src/index'
+import { SECTION_LABELS, SECTION_ORDER, SourcesSchema, SpeciesSchema, TranslationSchema } from '../src/index'
 
 const minimal = {
   id: 'paracheirodon-axelrodi', scientificName: 'Paracheirodon axelrodi', order: 'Characiformes', family: 'Characidae',
@@ -21,4 +21,8 @@ test('section order follows Seriously Fish and every key has a vi label', () => 
   expect(SECTION_ORDER).toEqual(['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'])
   for (const k of SECTION_ORDER) expect(SECTION_LABELS.vi[k]).toBeTruthy()
   expect(SECTION_LABELS.vi.dimorphism).toBe('Phân biệt đực cái')
+})
+test('a source cannot be published without a permission record', () => {
+  expect(() => SourcesSchema.parse({ glaser: { name: 'G', homepage: 'h', publish: true } })).toThrow(/permission/)
+  expect(SourcesSchema.parse({ glaser: { name: 'G', homepage: 'h', publish: false } }).glaser?.publish).toBe(false)
 })

@@ -31,3 +31,9 @@ test('localized entity carries its translation', async () => {
 test('malformed entity.json rejects with its path', async () => {
   await expect(loadAll({ root: bad, lang: 'vi', publicBuild: false })).rejects.toThrow(/broken[\\/]entity\.json/)
 })
+test('public build strips data-card values from un-cleared sources', async () => {
+  const c = await loadAll({ root, lang: 'vi', publicBuild: true })
+  const alpha = c.species[0]!
+  expect(alpha.dataCard.tempC?.map(v => v.source)).toEqual(['seriouslyfish'])
+  expect(alpha.dataCard.gh).toBeUndefined()
+})

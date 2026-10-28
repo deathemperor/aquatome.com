@@ -31,3 +31,6 @@ test('search index is built and pages carry an accent-free search alias', () => 
   expect(dom.querySelector('[data-pagefind-index-attrs="data-ascii"]')?.getAttribute('data-ascii')).toContain('ca dia')
   expect(() => page('/vi/tim-kiem/')).not.toThrow()
 })
+test('sitemap omits noindex glossary terms', () => {
+  expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/vi/thuat-ngu/gh/')
+})

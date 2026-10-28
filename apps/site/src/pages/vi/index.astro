@@ -4,11 +4,13 @@ import Nav from '../../components/Nav.astro'
 import SpeciesCard from '../../components/SpeciesCard.astro'
 import { getContent } from '../../lib/content'
 import { HERO } from '../../lib/hero'
+import { creditsFor } from '../../lib/credits'
 
 const c = await getContent()
 const guides = c.guides.filter(g => g.kind !== 'discovery').slice(0, 2)
+const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...guides.map(g => g.photos[0])])]
 ---
-<Base title="thủy·sinh — kiến thức thủy sinh bằng tiếng Việt" description="Hồ sơ loài cá, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={[HERO]}>
+<Base title="thủy·sinh — kiến thức thủy sinh bằng tiếng Việt" description="Hồ sơ loài cá, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
   <Fragment slot="header">
     <div class="hero" style={`--hero:url(${HERO.url})`}>
       <Nav overlay />

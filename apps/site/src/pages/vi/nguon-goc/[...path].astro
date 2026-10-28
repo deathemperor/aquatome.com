@@ -3,6 +3,7 @@ import type { Localized, PlaceEntity, SpeciesEntity } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
 
 const INTROS: Record<string, string> = {
   vietnam: 'Những loài cá có nguồn gốc từ sông suối Việt Nam, từ đồng bằng Mekong đến suối núi phía Bắc.',
@@ -26,7 +27,7 @@ const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', 'Nguồn gốc'],
 const intro = place ? INTROS[place.id] ?? `${species.length} loài có nguồn gốc từ ${place.t.name}.` : 'Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.'
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={name} heading={name} crumbs={crumbs} intro={intro}>
+<Browse title={name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.map(s => s.photos[0]))}>
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
   )}

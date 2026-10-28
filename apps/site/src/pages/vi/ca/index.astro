@@ -4,12 +4,14 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { toIndexItem } from '../../../lib/species-index'
 import { groupLabel } from '../../../lib/format'
+import { creditsFor } from '../../../lib/credits'
+import { jsonForScript } from '../../../lib/json'
 
 const c = await getContent()
 const index = c.species.map(toIndexItem)
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
-<Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`}>
+<Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`} credits={creditsFor(c.species.map(s => s.photos[0]))}>
   <form class="filters" id="species-filter" role="search">
     <label>Tên <input name="q" type="search" placeholder="neon, Corydoras…" /></label>
     <label>Nhóm
@@ -25,7 +27,7 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   </form>
   <p class="count" id="species-count" aria-live="polite"></p>
   <SpeciesGrid species={c.species} />
-  <script type="application/json" id="species-index" set:html={JSON.stringify(index)} />
+  <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
   import { filterSpecies, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
@@ -33,7 +35,7 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   const form = document.getElementById('species-filter') as HTMLFormElement
   const count = document.getElementById('species-count')!
   function run(params: URLSearchParams) {
-    for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el && 'value' in el) (el as HTMLInputElement).value = v }
+    for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
     const keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
     document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { el.hidden = !keep.has(el.dataset.slug!) })
     count.textContent = keep.size === items.length ? '' : keep.size === 0 ? 'Không có loài nào khớp. Thử nới điều kiện lọc.' : `${keep.size} loài phù hợp`

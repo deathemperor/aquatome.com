@@ -9,6 +9,7 @@ import CommentsPlaceholder from '../../../components/CommentsPlaceholder.astro'
 import { getContent } from '../../../lib/content'
 import { glossaryTerms } from '../../../lib/glossary'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
+import { creditsFor } from '../../../lib/credits'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -22,7 +23,7 @@ const plants = c.plants.filter(p => g.mentions.includes(p.id))
 const ph = g.photos[0]
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
-<Base title={`${g.t.name} — thủy·sinh`} noindex={!g.t.quality.indexable} credits={ph ? [{ ...ph, what: 'Ảnh' }] : []}>
+<Base title={`${g.t.name} — thủy·sinh`} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   <Nav slot="header" />
   <article class="wrap art">
     <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>

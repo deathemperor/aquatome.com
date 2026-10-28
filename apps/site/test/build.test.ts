@@ -109,3 +109,17 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     for (const p of ['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thiet-bi/', '/vi/kham-pha/']) expect(() => page(p), p).not.toThrow()
   })
 })
+
+describe('review fixes', () => {
+  test('pages with photo cards credit every photo', () => {
+    for (const p of ['/vi/', '/vi/ca/', '/vi/nhom/tetras/']) {
+      const { html } = page(p)
+      expect(html, p).toContain('CHUCAO')
+      expect(html, p).toContain('Holger Krisp')
+    }
+    expect(page('/vi/cay/').html).toContain('Abhik.Mazumdar.73')
+  })
+  test('glossary pages honour quality.indexable', () => {
+    expect(page('/vi/thuat-ngu/gh/').html).toMatch(/noindex/)
+  })
+})

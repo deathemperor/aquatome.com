@@ -6,6 +6,7 @@
   "scripts": {
     "test": "pnpm -r --if-present test",
     "dev": "pnpm --filter site dev",
-    "build": "pnpm --filter site build"
+    "build": "pnpm --filter site build",
+    "typecheck": "pnpm -r typecheck"
   }
 }

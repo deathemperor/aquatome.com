@@ -4,6 +4,7 @@ import Browse from '../../../layouts/Browse.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { groupLabel } from '../../../lib/format'
+import { creditsFor } from '../../../lib/credits'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -13,6 +14,6 @@ export async function getStaticPaths() {
 const { group } = Astro.params
 const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
 ---
-<Browse title={groupLabel(group!)} heading={groupLabel(group!)} crumbs={[['/vi/ca/', 'Loài cá']]} intro={`${species.length} loài trong nhóm ${groupLabel(group!).toLowerCase()}.`}>
+<Browse title={groupLabel(group!)} heading={groupLabel(group!)} crumbs={[['/vi/ca/', 'Loài cá']]} intro={`${species.length} loài trong nhóm ${groupLabel(group!).toLowerCase()}.`} credits={creditsFor(species.map(s => s.photos[0]))}>
   <SpeciesGrid species={species} />
 </Browse>

@@ -1,5 +1,6 @@
 ---
-interface Props { credits?: { author: string; licence: string; sourceUrl: string; what: string }[] }
+import type { Credit } from '../lib/credits'
+interface Props { credits?: Credit[] }
 const { credits = [] } = Astro.props
 ---
 <footer class="foot">

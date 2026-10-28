@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import type { z } from 'zod'
 import { filterPhotos } from './licence'
 import { GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }
@@ -48,9 +48,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   const cleanPhotos = (xs: Photo[]) => filterPhotos(xs)
+  const cleanCard = (card: SpeciesEntity['dataCard']): SpeciesEntity['dataCard'] =>
+    Object.fromEntries(
+      Object.entries(card)
+        .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source))] as const)
+        .filter(([, values]) => values.length > 0),
+    ) as Partial<Record<DataCardField, SpeciesEntity['dataCard'][DataCardField]>>
 
   const species = (await loadKind(root, 'species', SpeciesSchema, lang))
-    .map(s => ({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos) }))
+    .map(s => ({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang))
     .map(p => ({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
