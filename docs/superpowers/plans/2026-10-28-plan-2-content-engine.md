@@ -14,7 +14,7 @@
 
 - Fetch only with real Chrome (`channel: 'chrome'`, `headless: false`, persistent profile `~/.cache/thuysinh/chrome-profile`), ≥4 s between requests to the same source, no stealth plugins, proxies or CAPTCHA solvers. A challenge page ("Just a moment…", "Robot Challenge") marks the URL `blocked` and the source `needs-human`; never retry around it.
 - Claude calls: `claude -p --model sonnet --output-format json --tools "" --setting-sources "" --strict-mcp-config --system-prompt <ours> --json-schema <schema>`; parse `structured_output`; validate with zod; one retry on invalid output.
-- Photos: only `isAllowedLicence` licences; source-site photos are not copied in this plan (per-photographer rights).
+- Photos (owner decision 2026-10-28): the best source-page photos (≤4, ≥600px, no logos/banners, subject before scenery) are copied to R2 `thuysinh-media` (≤1200px WebP, served at `media.thuysinh.infinitus.run`), credited to the source + page URL, `Photo.source` set so the loader's publish gate covers them. Commons (`isAllowedLicence`) only when a page yields none.
 - Every written section/guide keeps `source` + `sourceUrl`; every data-card value keeps its `source`.
 - Translated HTML is sanitised to the tag allow-list `p, ul, ol, li, strong, em, h3, table, thead, tbody, tr, th, td, br` with no attributes before it is written (spec content-engine contract).
 - Quality gate: score < 0.75 → one re-translation with reviewer notes; still < 0.75 → `quality.indexable = false`.

@@ -11,7 +11,7 @@ const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.numbe
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty'])
 
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
-const Photo = z.object({ url: z.string(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional() })
+const Photo = z.object({ url: z.string(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 

@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { mkdtemp, readdir, readFile } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readdir, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -16,7 +16,7 @@ const species = {
 }
 
 function deps(root: string, opts: { urls?: string[]; score?: number } = {}) {
-  const calls = { llm: 0, review: 0, process: 0, sleeps: 0, prompts: [] as string[] }
+  const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async () => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
     links: async () => [],
@@ -24,7 +24,9 @@ function deps(root: string, opts: { urls?: string[]; score?: number } = {}) {
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
       return { status: 200, html: fx(url.endsWith('blocked-fish') ? 'pages/challenge.html' : 'pages/seriouslyfish-cardinal.html'), finalUrl: url }
     },
+    bytes: async (url: string) => { calls.images++; return new TextEncoder().encode(url) },
   }
+  const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async (k: string) => ({ url: `https://media.test/${k}`, width: 800, height: 600 }) }
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {
     calls.llm++
     calls.prompts.push(a.prompt)
@@ -32,9 +34,21 @@ function deps(root: string, opts: { urls?: string[]; score?: number } = {}) {
     calls.process++
     return structuredClone(species) as T
   }
-  const http = async (url: string) => (url.includes('gbif') ? JSON.parse(fx('gbif/paracheirodon-axelrodi.json')) : JSON.parse(fx('commons/paracheirodon-axelrodi.json')))
-  const d = { fetcher, llm, http, root, now: () => new Date('2026-10-28T10:00:00Z'), sleep: async () => { calls.sleeps++ } }
+  const http = async (url: string) => {
+    if (url.includes('gbif')) return JSON.parse(fx('gbif/paracheirodon-axelrodi.json'))
+    calls.commons++
+    return JSON.parse(fx('commons/paracheirodon-axelrodi.json'))
+  }
+  const d = { fetcher, llm, http, media, root, now: () => new Date('2026-10-28T10:00:00Z'), sleep: async () => { calls.sleeps++ } }
   return { d, calls }
+}
+
+/** Empty repo root with the real source registry (names for photo credits). */
+async function fresh() {
+  const root = await mkdtemp(join(tmpdir(), 'eng-'))
+  await mkdir(join(root, 'content'))
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(root, 'content/sources.json'))
+  return root
 }
 
 async function tree(dir: string, base = dir): Promise<Record<string, string>> {
@@ -48,7 +62,7 @@ async function tree(dir: string, base = dir): Promise<Record<string, string>> {
 }
 
 test('full run writes entity, translation, places, snapshot, state, changelog; blocked and errors recorded', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'eng-'))
+  const root = await fresh()
   const { d, calls } = deps(root)
   const r = await runEngine(d, { sources: ['seriouslyfish'] })
   expect(r.perSource.seriouslyfish).toEqual({ discovered: 3, fetched: 3, processed: 1, skipped: 0, blocked: 1, errors: 1 })
@@ -58,7 +72,9 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
   const t = await tree(root)
   const entity = JSON.parse(t['/content/species/paracheirodon-axelrodi/entity.json']!)
   expect(entity).toMatchObject({ family: 'Characidae', places: ['south-america', 'brazil', 'rio-negro'] })
-  expect(entity.photos.length).toBeGreaterThan(0)
+  expect(entity.photos).toHaveLength(4) // best source photos, copied once, credited to the source
+  expect(entity.photos[0]).toMatchObject({ source: 'seriouslyfish', author: 'Seriously Fish', sourceUrl: `${SF}paracheirodon-axelrodi`, caption: 'Adult male individual.' })
+  expect(calls).toMatchObject({ images: 4, commons: 0 })
   expect(JSON.parse(t['/content/species/paracheirodon-axelrodi/vi.json']!)).toMatchObject({ slug: 'ca-neon-vua', quality: { indexable: true } })
   expect(t['/content/places/rio-negro/entity.json']).toContain('"river"')
   expect(Object.keys(t).filter(k => k.startsWith('/sources/seriouslyfish/'))).toEqual(['/sources/seriouslyfish/species-paracheirodon-axelrodi.md'])
@@ -71,7 +87,7 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
 })
 
 test('second identical run makes no llm calls and changes no file', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'eng-'))
+  const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
   const before = await tree(root)
   const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
@@ -82,13 +98,13 @@ test('second identical run makes no llm calls and changes no file', async () => 
 })
 
 test('limit is respected per source', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'eng-'))
+  const root = await fresh()
   const r = await runEngine(deps(root).d, { sources: ['seriouslyfish'], limit: 1 })
   expect(r.perSource.seriouslyfish).toMatchObject({ discovered: 3, fetched: 1, processed: 1 })
 })
 
 test('low quality: one re-translation with reviewer notes, then noindex', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'eng-'))
+  const root = await fresh()
   const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], score: 0.5 })
   await runEngine(d, { sources: ['seriouslyfish'] })
   expect(calls).toMatchObject({ process: 2, review: 2 })

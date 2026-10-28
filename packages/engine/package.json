@@ -10,6 +10,7 @@
     "@aq/schema": "workspace:*",
     "node-html-parser": "^9.0.5",
     "playwright-core": "~1.56.1",
+    "sharp": "^0.34.5",
     "zod": "^4.6.7"
   },
   "devDependencies": {

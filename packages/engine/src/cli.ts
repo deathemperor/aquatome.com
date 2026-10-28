@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
@@ -6,6 +7,7 @@ import { parseArgs } from 'node:util'
 import { SOURCE_IDS, type SourceId } from '@aq/schema'
 import { claudeCli } from './claude'
 import { ChromeFetcher } from './fetch'
+import { r2Media } from './media'
 import { runEngine } from './run'
 import { loadState } from './state'
 
@@ -16,6 +18,13 @@ const http = async (url: string) => {
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${new URL(url).host}`)
   return r.json()
 }
+
+/** Media bucket credentials: env, else the owner's ~/.config/thuysinh files (never printed). */
+const conf = (env: string, file: string) => process.env[env] ?? readFileSync(join(homedir(), '.config/thuysinh', file), 'utf8').trim()
+const media = () => r2Media({
+  accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
+  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.thuysinh.infinitus.run',
+})
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' } } })
 const cmd = positionals[0]
@@ -30,7 +39,7 @@ if (cmd === 'run') {
   await fetcher.open()
   try {
     const report = await runEngine(
-      { fetcher, llm: claudeCli, http, root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
+      { fetcher, llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
       { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined },
     )
     await mkdir(join(ROOT, 'engine-state'), { recursive: true })

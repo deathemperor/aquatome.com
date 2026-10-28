@@ -19,9 +19,11 @@ test('public build strips un-cleared sources and drops empty species', async () 
   expect(c.species.map(s => s.id)).toEqual(['alpha'])
   expect(c.species[0]!.sections.map(s => s.source)).toEqual(['seriouslyfish'])
 })
-test('NC-licensed photos are never loaded', async () => {
-  const c = await loadAll({ root, lang: 'vi', publicBuild: false })
-  expect(c.species.find(s => s.id === 'alpha')!.photos.map(p => p.licence)).toEqual(['CC BY-SA 4.0'])
+test('NC-licensed photos are never loaded; source photos follow the source publish gate', async () => {
+  const local = await loadAll({ root, lang: 'vi', publicBuild: false })
+  expect(local.species.find(s => s.id === 'alpha')!.photos.map(p => p.source ?? p.licence)).toEqual(['CC BY-SA 4.0', 'seriouslyfish', 'glaser'])
+  const pub = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(pub.species.find(s => s.id === 'alpha')!.photos.map(p => p.source ?? p.licence)).toEqual(['CC BY-SA 4.0', 'seriouslyfish'])
 })
 test('species without a translation is skipped', async () => {
   const c = await loadAll({ root, lang: 'vi', publicBuild: false })

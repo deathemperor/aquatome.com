@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
-import { filterPhotos } from './licence'
+import { isAllowedLicence } from './licence'
 import { ChangelogSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { ChangelogEntry, DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
@@ -48,7 +48,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
   const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
-  const cleanPhotos = (xs: Photo[]) => filterPhotos(xs)
+  /** Photos copied from a source follow that source's publish gate; others need an open licence. */
+  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence)))
   const cleanCard = (card: SpeciesEntity['dataCard']): SpeciesEntity['dataCard'] =>
     Object.fromEntries(
       Object.entries(card)

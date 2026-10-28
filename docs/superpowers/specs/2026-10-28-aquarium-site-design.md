@@ -66,7 +66,7 @@ Success, in order: **traffic → ad revenue → affiliate revenue → community*
 
 **Permission status per source must be recorded before launch** (see §12, open question). For each source the record holds: written permission (y/n, date, file), scope — text · structured facts restated in our format · translation · automated copying · commercial use with ads + affiliate · photos — and attribution terms. A source without a complete record is not published.
 
-Known licence detail: Seriously Fish's reuse policy says **photos belong to individual photographers** and SF cannot license them; commercial reuse of facts needs SF's written permission/data licence. Assume the same photo rule for every source unless their permission says otherwise.
+Known licence detail: Seriously Fish's reuse policy says **photos belong to individual photographers** and SF cannot license them; commercial reuse of facts needs SF's written permission/data licence. Assume the same photo rule for every source unless their permission says otherwise. **Owner decision 2026-10-28:** the owner states they hold permission and asked to take the sources' own photos and cite them — so source photos are copied (best few per page, ≤1200px WebP in our R2 bucket), each credited to the source and linked to the page it came from, and gated by that source's publish flag like its text. Commons photos remain the fallback when a source page has none.
 
 ### 4.2 Open media (no permission needed, attribution required)
 - **Photos:** Wikimedia Commons, iNaturalist, Flickr, Openverse. Accept only **CC0, CC BY, CC BY-SA**. Reject any NC/ND licence (site is commercial).
@@ -196,7 +196,7 @@ Ads: Google AdSense, placed per skin without breaking layout.
 - Quality gate with `noindex` until passed + 2% human sample.
 - Turnstile + instant rules on comments in addition to daily moderation.
 - GBIF as taxonomic backbone.
-- Only CC0/BY/BY-SA open photos; source photos only with visible open licence or explicit photographer permission.
+- Open photos only CC0/BY/BY-SA; source photos are credited to their source and published only when that source's permission record allows (owner decision 2026-10-28).
 - Affiliate checks via official network APIs only.
 - Default skin = Mix; Googlebot sees default.
 - Astro + D1 + R2 + Workers stack.

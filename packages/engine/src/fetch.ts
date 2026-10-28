@@ -31,6 +31,13 @@ export class ChromeFetcher {
     return r.text()
   }
 
+  /** Image bytes with the page as referer (some sites refuse hotlinks without it). */
+  async bytes(url: string, referer: string): Promise<Uint8Array> {
+    const r = await this.ctx!.request.get(url, { headers: { referer }, timeout: 45_000 })
+    if (!r.ok()) throw new Error(`HTTP ${r.status()}`)
+    return r.body()
+  }
+
   async links(url: string): Promise<string[]> {
     const p = this.need()
     await p.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })

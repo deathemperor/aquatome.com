@@ -36,14 +36,24 @@ function walk(node: Node, out: string[]): void {
   for (const c of node.childNodes) walk(c, out)
 }
 
-export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: { src: string; alt: string }[] } {
+export type PageImage = { src: string; alt: string; width?: number; height?: number }
+
+/** Largest candidate: srcset entry with the biggest `w`, else the plain src with its width/height attributes. */
+function pageImage(i: HTMLElement): PageImage | null {
+  const src = i.getAttribute('src') ?? i.getAttribute('data-src')
+  const w = Number(i.getAttribute('width')) || undefined
+  const h = Number(i.getAttribute('height')) || undefined
+  const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
+  const alt = clean(i.getAttribute('alt') ?? '')
+  if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w && h ? { height: Math.round((h * set.w) / w) } : {}) }
+  return src ? { src, alt, ...(w ? { width: w } : {}), ...(h ? { height: h } : {}) } : null
+}
+
+export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
-  const images = scope.querySelectorAll('img').flatMap(i => {
-    const src = i.getAttribute('src') ?? i.getAttribute('data-src')
-    return src ? [{ src, alt: clean(i.getAttribute('alt') ?? '') }] : []
-  })
+  const images = scope.querySelectorAll('img').flatMap(i => pageImage(i) ?? [])
   const out: string[] = []
   walk(scope, out)
   return { title, outline: out.join('\n'), images }
