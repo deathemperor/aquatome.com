@@ -39,6 +39,8 @@ export const VideoRef = z.object({
   series: z.object({ id: z.string(), position: z.number() }).optional(),
   /** Largest thumbnail that exists (maxres 1280×720, else mq 320×180: both 16:9, no letterbox bars). */
   thumb: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(),
+  /** YouTube has no captions for it: we wrote from our own transcript of the audio, and the player can't show Vietnamese captions. */
+  transcribed: z.boolean().optional(),
   /**
    * Pictures per guide section (matched by its h3 text): stills from the video (YouTube storyboard frames, a click plays
    * the video from there) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.

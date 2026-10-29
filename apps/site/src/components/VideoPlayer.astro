@@ -9,11 +9,11 @@ const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length
 ---
 <figure class="vp" data-vp={v.youtubeId}>
   <div class="frame">
-    <button type="button" class="facade" data-t="0" aria-label={`Phát video “${v.title}”, phụ đề tiếng Việt`}>
+    <button type="button" class="facade" data-t="0" aria-label={`Phát video “${v.title}”${v.transcribed ? '' : ', phụ đề tiếng Việt'}`}>
       <img src={thumb.url} width={thumb.width} height={thumb.height} alt="" fetchpriority="high" />
       <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
       {cover && <span class="cover" aria-hidden="true">{cover}</span>}
-      <span class="cc" aria-hidden="true">Phụ đề tiếng Việt</span>
+      {!v.transcribed && <span class="cc" aria-hidden="true">Phụ đề tiếng Việt</span>}
     </button>
   </div>
   <figcaption>

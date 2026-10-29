@@ -158,7 +158,7 @@ if (cmd === 'run') {
   // Pictures per section: video stills (storyboard frames) + an open-licence Commons photo, picked by Claude, no faces.
   const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, storyboard: ytStoryboard, transcript: id => ytDlp.transcript(id), commons: q => searchCommons(q, http, 6), get, media: media(),
+    llm: claudeCli, faces: visionFaces, storyboard: ytStoryboard, transcript: async id => (await ytDlp.transcript(id)) ?? (await ytDlp.transcribe!(id)), commons: q => searchCommons(q, http, 6), get, media: media(),
     look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
   }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
   console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
