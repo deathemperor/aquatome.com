@@ -31,7 +31,7 @@ const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-g
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
   )}
-  {place && <SpeciesGrid species={species} />}
+  {place && <SpeciesGrid species={species} heading="Danh sách loài" />}
 </Browse>
 <style>
   .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-2); }

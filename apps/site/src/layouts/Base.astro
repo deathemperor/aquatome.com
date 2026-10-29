@@ -51,6 +51,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <link rel="alternate" hreflang="vi" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
     {jsonld.map(j => <script type="application/ld+json" set:html={jsonForScript(j)} />)}
+    <slot name="head" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     {/* AdSense (and Google's consent message for EEA/UK/CH visitors) — production only. */}

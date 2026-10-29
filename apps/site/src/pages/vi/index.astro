@@ -11,8 +11,9 @@ const guides = c.guides.filter(g => g.kind !== 'discovery').slice(0, 2)
 const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...guides.map(g => g.photos[0])])]
 ---
 <Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
+  <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="100vw" fetchpriority="high" />
   <Fragment slot="header">
-    <div class="hero" style={`--hero:url(${HERO.url})`}>
+    <div class="hero" style={`--hero:url(${HERO.url});--hero-l:url(${HERO.large})`}>
       <Nav overlay />
       <div class="wrap hero-copy">
         <h1>Hiểu cá trước khi thả cá.</h1>
@@ -68,6 +69,7 @@ const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...gui
 </Base>
 <style>
   .hero { position: relative; min-height: min(78vh, 640px); background: var(--c-blackwater) var(--hero) center 55% / cover; color: var(--c-on-dark); display: flex; align-items: flex-end; }
+  @media (min-width: 900px) { .hero { background-image: var(--hero-l); } }
   .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 26 29 / 0.9) 0, rgb(10 26 29 / 0.4) 55%, transparent 85%), linear-gradient(180deg, rgb(10 26 29 / 0.55) 0, transparent 25%, transparent 60%, var(--c-blackwater) 100%); }
   .hero-copy { position: relative; z-index: 2; padding-block: var(--space-8) var(--space-7); width: 100%; }
   h1 { font-size: var(--step-4); max-width: 13em; letter-spacing: -0.02em; color: #fff; }
