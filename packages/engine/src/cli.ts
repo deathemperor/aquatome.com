@@ -18,6 +18,7 @@ import { loadState } from './state'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { extractTraits } from './traits'
+import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { discoverPlaylists } from './video-discovery'
 import { videoGuides, ytDlp, ytFinder } from './youtube'
 
@@ -141,6 +142,13 @@ if (cmd === 'run') {
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
+  // Vietnamese label for each new guide's thumbnail (Claude reads the words on it).
+  const cv = await videoCovers(join(ROOT, 'content'), {
+    get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision<{ cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file }),
+  })
+  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
+  for (const f of cv.failed) console.log(`cover failed: ${f}`)
 } else if (cmd === 'discover-videos') {
   // More teaching playlists: YouTube playlist searches + known channels → overlap filter → model vets → engine-state/youtube-playlists.json.
   const r = await discoverPlaylists({ find: ytFinder, llm: claudeCli, root: ROOT, now: () => new Date() }, { maxNew: values.limit ? Number(values.limit) : undefined })
