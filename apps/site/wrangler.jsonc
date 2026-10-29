@@ -1,17 +1,19 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
   // Production: https://aquatome.com. www and the old staging host 301 to it (CANONICAL_HOST).
-  // The Worker assigns an A/B skin to HTML pages, collects beacon events and serves the /_ab dashboard; everything else is plain static assets.
+  // The Worker collects beacon events, comments and reader photos, and serves the /_ab dashboard; everything else is plain static assets.
   "name": "aquatome",
   "main": "worker/index.ts",
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/.well-known/api-catalog", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*"]
+    "run_worker_first": ["/", "/.well-known/api-catalog", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*"]
   },
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
   "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
+  // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
+  "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },

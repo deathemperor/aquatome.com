@@ -8,6 +8,7 @@ import Sections from '../../../components/Sections.astro'
 import VideoFacade from '../../../components/VideoFacade.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
+import ReaderPhotos from '../../../components/ReaderPhotos.astro'
 import VnClimate from '../../../components/VnClimate.astro'
 import QuickSummary from '../../../components/QuickSummary.astro'
 import GuideLinks from '../../../components/GuideLinks.astro'
@@ -64,6 +65,7 @@ const summary = await approvedSummary(s.id)
   <GuideLinks guides={guidesMentioning(c, `species:${s.id}`)} heading="Bài viết nhắc đến loài này" />
 
   <VideoFacade videos={s.videos} />
+  <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
 
   <div class="wrap two">
     <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />

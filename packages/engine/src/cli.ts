@@ -4,14 +4,15 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { SOURCE_IDS, type SourceId } from '@aq/schema'
-import { claudeCli } from './claude'
+import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
+import { claudeCli, claudeVision } from './claude'
 import { auditPictures } from './audit'
 import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
 import { httpAdmin, moderate } from './moderate'
+import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
 import { loadState } from './state'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
@@ -63,6 +64,16 @@ if (cmd === 'run') {
   const r = await moderate(httpAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), claudeCli)
   console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored, ${r.failedBatches} failed batches`)
   if (!r.off && r.failedBatches) process.exitCode = 1
+  // Reader photos in the same nightly run: faces (macOS Vision), then Claude looks at each photo.
+  const c = await loadAll({ root: join(ROOT, 'content'), lang: 'vi', publicBuild: true })
+  const species = new Map(c.species.map(s => [s.id, { name: s.t.name, scientificName: s.scientificName }]))
+  const p = await moderatePhotos(httpPhotoAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), {
+    faces: visionFaces,
+    judge: (file, prompt) => claudeVision<Verdict>({ system: 'You are a careful photo moderator for an aquarium site. Reply only with JSON.', prompt, schema: VERDICT_SCHEMA, file }),
+    species: id => species.get(id),
+  })
+  console.log(p.off ? 'reader photos are off — nothing to screen' : `photos: ${p.queued} queued, ${p.approved} approved, ${p.removed} removed, ${p.failed} left pending`)
+  if (!p.off && p.failed) process.exitCode = 1
 } else if (cmd === 'summaries') {
   // pnpm engine summaries [--top N] → drafts + docs/review/summaries.md; pnpm engine summaries approve <id,id|all>
   const contentRoot = join(ROOT, 'content')

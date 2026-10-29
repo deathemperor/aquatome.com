@@ -12,6 +12,7 @@ import { redirectFor } from './redirects'
 import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
+import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
 
 export interface Env {
   ASSETS: Fetcher
@@ -26,6 +27,9 @@ export interface Env {
   CF_ACCOUNT_ID?: string
   /** Affiliate catalog, click counts and comments; optional until D1 is provisioned (links go to search, comments stay off). */
   DB?: D1Database
+  /** Reader photos: raw uploads (private) and the public media bucket (media.aquatome.com) the screened copies go to. */
+  UPLOADS?: R2Bucket
+  MEDIA?: R2Bucket
 }
 type FullEnv = Env & AffEnv & CommentsEnv
 const MAX_EVENT_BYTES = 4096
@@ -123,6 +127,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
   if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname.startsWith('/_c/admin/')) return commentsAdmin(req, url, env)
+  if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
+  if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
+  if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
+  if (url.pathname === '/_ab/photos' && req.method === 'POST') {
+    if (!authorise(req, env.AB_DASH_TOKEN).ok || !photosLive(env)) return new Response('Not found', { status: 404 })
+    await removePhoto(env, String((await req.formData()).get('id') ?? ''), 'removed by owner', new Date())
+    return new Response(null, { status: 303, headers: { location: '/_ab/#anh-ban-doc', 'cache-control': 'no-store' } })
+  }
   if (url.pathname === '/_ab/hidden' && req.method === 'POST') {
     if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
     const err = await updateHidden(env.AB, await req.formData(), new Date())
@@ -156,7 +168,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(aff, await loadHidden(env.AB, true)), { headers })
+    return new Response(renderDashboard(aff, await loadHidden(env.AB, true), await recentPhotos(env).catch(() => undefined)), { headers })
   }
   if (url.pathname === '/_ab/doc-gia' || url.pathname === '/_ab/doc-gia/') {
     if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response(null, { status: 303, headers: { location: '/_ab/', 'cache-control': 'no-store' } })
