@@ -1,0 +1,140 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { getContent } from '../../../lib/content'
+import { toIndexItem } from '../../../lib/species-index'
+import { jsonForScript } from '../../../lib/json'
+import { VN_WATER } from '../../../lib/climate'
+
+const c = await getContent()
+const index = c.species.map(toIndexItem).sort((a, b) => a.name.localeCompare(b.name, 'vi'))
+---
+<Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, tính thể tích bể và công suất sưởi.">
+  <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
+    <h2 id="tm-h">Nuôi chung được không?</h2>
+    <p class="lead">Chọn 2–6 loài để so khoảng nhiệt độ, pH, độ cứng và kích thước. Tập tính (hiền, dữ, cắn vây) chưa có trong phép so: hãy đọc mục “Nuôi chung với con gì?” trong từng hồ sơ.</p>
+    <form id="tm-form" class="row">
+      <label class="grow">Thêm loài
+        <input id="tm-input" list="tm-list" placeholder="Gõ tên Việt hoặc tên khoa học" autocomplete="off" />
+      </label>
+      <button type="submit">Thêm</button>
+    </form>
+    <datalist id="tm-list">{index.map(i => <option value={i.name}>{i.scientificName}</option>)}</datalist>
+    <ul id="tm-chosen" class="chips" aria-live="polite"></ul>
+    <div id="tm-out" aria-live="polite"></div>
+  </section>
+
+  <section class="tool" id="the-tich" aria-labelledby="vol-h">
+    <h2 id="vol-h">Bể bao nhiêu lít?</h2>
+    <form id="vol-form" class="row">
+      <label>Dài (cm) <input name="l" type="number" inputmode="numeric" min="10" max="400" value="60" /></label>
+      <label>Rộng (cm) <input name="w" type="number" inputmode="numeric" min="10" max="200" value="30" /></label>
+      <label>Cao (cm) <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
+    </form>
+    <p id="vol-out" class="out" aria-live="polite"></p>
+  </section>
+
+  <section class="tool" id="suoi" aria-labelledby="heat-h">
+    <h2 id="heat-h">Cần sưởi bao nhiêu W?</h2>
+    <p class="lead">Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {VN_WATER.northWinter}°C).</p>
+    <form id="heat-form" class="row">
+      <label>Nhiệt độ cần (°C) <input name="target" type="number" inputmode="numeric" min="15" max="35" value="26" /></label>
+      <label>Nhiệt độ phòng (°C) <input name="room" type="number" inputmode="numeric" min="0" max="40" value={VN_WATER.northWinter} /></label>
+    </form>
+    <p id="heat-out" class="out" aria-live="polite"></p>
+    <p class="note">Ước tính cho bể kính có nắp. Bể không nắp, đặt gần cửa sổ hoặc trong phòng có gió cần sưởi lớn hơn; bể dài trên 120 cm nên chia hai sưởi ở hai đầu.</p>
+  </section>
+
+  <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
+</Browse>
+<script>
+  import type { SpeciesIndexItem } from '../../../scripts/filter'
+  import { checkTankmates } from '../../../scripts/tankmates'
+  import { heaterWatts, tankVolume } from '../../../scripts/calc'
+
+  const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const fmt = (n: number, d = 1) => new Intl.NumberFormat('vi-VN', { maximumFractionDigits: d }).format(n)
+  const esc = (s: string) => s.replace(/[&<>"']/g, ch => `&#${ch.charCodeAt(0)};`)
+  const LABEL = { tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)' } as const
+  const unit = (f: keyof typeof LABEL) => (f === 'tempC' ? '°C' : '')
+  const rng = (r: { min: number; max: number }) => (r.min === r.max ? fmt(r.min) : `${fmt(r.min)}–${fmt(r.max)}`)
+
+  // Tank-mates: chosen species live in the URL (?ca=slug,slug) so a result can be shared.
+  const params = new URLSearchParams(location.search)
+  let chosen: SpeciesIndexItem[] = (params.get('ca') ?? '').split(',').map(s => items.find(i => i.slug === s)).filter((i): i is SpeciesIndexItem => !!i).slice(0, 6)
+  function renderTankmates() {
+    const url = new URL(location.href)
+    if (chosen.length) url.searchParams.set('ca', chosen.map(c => c.slug).join(',')); else url.searchParams.delete('ca')
+    history.replaceState(null, '', url)
+    $('tm-chosen').innerHTML = chosen.map((c, i) => `<li><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a> <button type="button" data-rm="${i}" aria-label="Bỏ ${esc(c.name)}">×</button></li>`).join('')
+    if (chosen.length < 2) { $('tm-out').innerHTML = '<p class="hint">Thêm ít nhất 2 loài.</p>'; return }
+    const r = checkTankmates(chosen)
+    const cell = (c: SpeciesIndexItem, f: keyof typeof LABEL) => (c[f] ? `${rng(c[f]!)}${unit(f)}` : '—')
+    const rows = chosen.map(c => `<tr><th scope="row"><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a></th>${r.params.map(p => `<td>${cell(c, p.field)}</td>`).join('')}<td>${c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—'}</td></tr>`)
+    const verdict = r.params.map(p => `<td>${p.shared ? `<span class="ok">${rng(p.shared)}${unit(p.field)}</span>` : chosen.length - p.missing.length >= 2 ? '<span class="bad">Không có</span>' : '<span class="na">Thiếu dữ liệu</span>'}</td>`).join('')
+      + `<td>${r.eats.length ? '<span class="bad">Chênh lệch lớn</span>' : '<span class="ok">Ổn</span>'}</td>`
+    const head = `<tr><th scope="col">Loài</th>${r.params.map(p => `<th scope="col">${LABEL[p.field]}</th>`).join('')}<th scope="col">Kích thước</th></tr>`
+    const warn = r.eats.map(e => `<li>${esc(e.big)} (${fmt(e.bigCm)} cm) có thể ăn ${esc(e.small)} (${fmt(e.smallCm)} cm).</li>`).join('')
+    $('tm-out').innerHTML = `<div class="scroll"><table><thead>${head}</thead><tbody>${rows.join('')}</tbody><tfoot><tr><th scope="row">Khoảng chung</th>${verdict}</tr></tfoot></table></div>`
+      + (warn ? `<ul class="warn">${warn}</ul>` : '')
+      + (r.minTankCm ? `<p>Bể dài tối thiểu cho cả nhóm: <strong>${fmt(r.minTankCm)} cm</strong>.</p>` : '')
+  }
+  $('tm-form').addEventListener('submit', e => {
+    e.preventDefault()
+    const input = $<HTMLInputElement>('tm-input')
+    const q = input.value.trim().toLowerCase()
+    const hit = items.find(i => i.name.toLowerCase() === q || i.scientificName.toLowerCase() === q) ?? items.find(i => `${i.name} ${i.scientificName}`.toLowerCase().includes(q))
+    if (hit && !chosen.some(c => c.slug === hit.slug) && chosen.length < 6) chosen.push(hit)
+    input.value = ''
+    renderTankmates()
+  })
+  $('tm-chosen').addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('[data-rm]')
+    if (b) { chosen.splice(Number(b.dataset.rm), 1); renderTankmates() }
+  })
+  renderTankmates()
+
+  // Calculators: recompute on every input.
+  const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
+  function renderCalc() {
+    const v = $<HTMLFormElement>('vol-form'), h = $<HTMLFormElement>('heat-form')
+    const [l, w, ht] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
+    if (!(l > 0 && w > 0 && ht > 0)) { $('vol-out').textContent = 'Nhập đủ dài, rộng, cao.'; $('heat-out').textContent = ''; return }
+    const vol = tankVolume(l, w, ht)
+    $('vol-out').innerHTML = `<strong>${fmt(vol.litres, 0)} lít</strong> theo kích thước, thực tế khoảng <strong>${fmt(vol.water, 0)} lít nước</strong> (≈ ${fmt(vol.water, 0)} kg, chưa tính kính, nền và đá).`
+    const heat = heaterWatts(l, w, ht, num(h, 'target'), num(h, 'room'))
+    $('heat-out').innerHTML = heat.heater === 0 ? 'Phòng đã đủ ấm, không cần sưởi.'
+      : heat.heater === null ? `Cần khoảng ${fmt(heat.watts, 0)} W: dùng nhiều sưởi cộng lại.`
+      : `Cần khoảng ${fmt(heat.watts, 0)} W → chọn sưởi <strong>${heat.heater} W</strong>.`
+  }
+  for (const id of ['vol-form', 'heat-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
+  renderCalc()
+</script>
+<style>
+  .tool { max-width: 52rem; padding-block: var(--space-5) var(--space-6); border-top: 1px solid var(--c-rule); }
+  .tool h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  .lead, .note { color: var(--c-ink-soft); max-width: var(--measure); }
+  .note { font-size: var(--step--1); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
+  .row label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .row .grow { flex: 1 1 18rem; }
+  .row input { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
+  .row button { font: 500 1rem var(--f-body); padding: 0.5rem 1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  .out { font-size: 1.05rem; }
+  :global(.chips) { list-style: none; padding: 0; margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  :global(.chips li) { padding: 0.25rem 0.4rem 0.25rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); }
+  :global(.chips button) { border: 0; background: none; cursor: pointer; font-size: 1.1rem; line-height: 1; color: var(--c-ink-soft); }
+  :global(#tm-out .scroll) { overflow-x: auto; }
+  :global(#tm-out table) { border-collapse: collapse; font-size: 0.9rem; min-width: 100%; }
+  :global(#tm-out th), :global(#tm-out td) { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--c-rule); white-space: nowrap; }
+  :global(#tm-out tbody th) { white-space: normal; font-weight: 500; min-width: 9rem; }
+  :global(#tm-out tfoot th), :global(#tm-out tfoot td) { border-top: 2px solid var(--c-ink); border-bottom: 0; }
+  :global(#tm-out .ok) { color: var(--c-moss); font-weight: 600; }
+  :global(#tm-out .bad) { color: var(--c-cardinal); font-weight: 600; }
+  :global(#tm-out .na), :global(#tm-out .hint) { color: var(--c-ink-faint); }
+  :global(#tm-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
+  @media (max-width: 640px) {
+    :global(#tm-out th), :global(#tm-out td) { padding: var(--space-2); }
+    :global(#tm-out tbody th) { min-width: 7rem; }
+  }
+</style>

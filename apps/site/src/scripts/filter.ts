@@ -3,7 +3,7 @@ import { slugify } from '@aq/schema/slug'
 
 export type SpeciesIndexItem = {
   slug: string; name: string; scientificName: string; group: string
-  difficulty?: number; tempC?: Range; ph?: Range; tankCm?: number
+  difficulty?: number; tempC?: Range; ph?: Range; tankCm?: number; gh?: Range; sizeCm?: number
 }
 export type SpeciesQuery = { difficultyMax?: number; tempC?: number; ph?: number; tankCm?: number; group?: string; text?: string }
 
