@@ -1,4 +1,5 @@
 ---
+import { guideImage } from '../../lib/mentions'
 import Base from '../../layouts/Base.astro'
 import Nav from '../../components/Nav.astro'
 import SpeciesCard from '../../components/SpeciesCard.astro'
@@ -8,7 +9,7 @@ import { creditsFor } from '../../lib/credits'
 
 const c = await getContent()
 const guides = c.guides.filter(g => g.kind !== 'discovery').slice(0, 2)
-const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...guides.map(g => g.photos[0])])]
+const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...guides.map(g => guideImage(c, g))])]
 ---
 <Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="100vw" fetchpriority="high" />
@@ -56,7 +57,7 @@ const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...gui
         <h2 id="guides-h" class="visually-hidden">Hướng dẫn</h2>
         <div class="gg">
           {guides.map(g => (
-            <a class="g" href={`/vi/huong-dan/${g.t.slug}/`} style={g.photos[0] ? `--img:url(${g.photos[0].url})` : undefined}>
+            <a class="g" href={`/vi/huong-dan/${g.t.slug}/`} style={guideImage(c, g) ? `--img:url(${guideImage(c, g)!.url})` : undefined}>
               <span class="kind">Hướng dẫn</span>
               <h3>{g.t.name}</h3>
               <span class="src">Dịch từ {c.sources[g.source]?.name ?? g.source}</span>

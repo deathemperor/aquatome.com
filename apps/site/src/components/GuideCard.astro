@@ -3,10 +3,11 @@ import type { GuideEntity, Localized } from '@aq/schema'
 import { GUIDE_KIND_LABELS } from '../lib/format'
 import { getContent } from '../lib/content'
 import { smallSrc } from '../lib/img'
+import { guideImage } from '../lib/mentions'
 interface Props { g: Localized<GuideEntity> }
 const { g } = Astro.props
 const c = await getContent()
-const ph = g.photos[0]
+const ph = guideImage(c, g)
 ---
 <a class="gc" href={`/vi/huong-dan/${g.t.slug}/`}>
   <div class="img">{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}</div>

@@ -4,6 +4,8 @@ import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import PhotoGallery from '../../../components/PhotoGallery.astro'
 import Sections from '../../../components/Sections.astro'
+import GuideLinks from '../../../components/GuideLinks.astro'
+import { guidesMentioning } from '../../../lib/mentions'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
 import { plantTitle } from '../../../lib/meta'
@@ -17,6 +19,7 @@ export async function getStaticPaths() {
   return c.plants.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
 }
 const { p } = Astro.props as { p: Localized<PlantEntity> }
+const c = await getContent()
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -38,7 +41,8 @@ const facts: [string, string][] = [
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  <Sections sections={p.sections} t={p.t} />
+  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} />
+  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`)} heading="Bài viết nhắc đến cây này" />
   <div class="wrap two">
     <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />
     <Comments entity={`plant:${p.id}`} />

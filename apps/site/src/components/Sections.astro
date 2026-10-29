@@ -1,19 +1,22 @@
 ---
-import { linkGlossary, type Section, type Translation } from '@aq/schema'
+import { linkGlossary, linkTerms, type Section, type Translation } from '@aq/schema'
 import SourceCredit from './SourceCredit.astro'
 import { getContent } from '../lib/content'
 import { glossaryTerms } from '../lib/glossary'
+import { mentionIndex } from '../lib/mentions'
 import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
-interface Props { sections: Section[]; t: Translation }
-const { sections, t } = Astro.props
+interface Props { sections: Section[]; t: Translation; self?: string }
+const { sections, t, self } = Astro.props
 const c = await getContent()
 const terms = glossaryTerms(c)
 const seen = new Set<string>()
+const targets = mentionIndex(c).targets
+const linked = new Set<string>(self ? [self] : []) // other species, plants, taxa and equipment: first mention on the page
 const groups = DISPLAY_ORDER.map(key => ({
   key,
   blocks: sections.filter(x => x.key === key).flatMap(x => {
     const html = t.sections[`${key}:${x.source}`]
-    return html ? [{ ...x, vi: linkGlossary(html, terms, seen) }] : []
+    return html ? [{ ...x, vi: linkGlossary(linkTerms(html, targets, 'ml', linked).html, terms, seen) }] : []
   }),
 })).filter(x => x.blocks.length > 0)
 ---
@@ -36,6 +39,7 @@ const groups = DISPLAY_ORDER.map(key => ({
   .block { display: contents; }
   .prose { grid-column: 1; }
   .prose :global(p) { margin: 0 0 var(--space-3); line-height: 1.7; }
+  .prose :global(.ml) { color: inherit; text-decoration-color: var(--c-moss); text-decoration-thickness: 1.5px; }
   .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
   .block :global(.credit) { grid-column: 2; align-self: start; padding-top: 0.3rem; }
   @media (max-width: 860px) {
