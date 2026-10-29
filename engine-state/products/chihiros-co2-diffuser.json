@@ -1,0 +1,313 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "In-tank nano CO2 diffuser with a ceramic membrane, attached to the glass with a suction cup",
+      "source": 4
+    },
+    {
+      "key": "Body material",
+      "value": "Acrylic (Aquasabi calls it robust acrylic, but its cleaning section mentions PETG)",
+      "source": 4
+    },
+    {
+      "key": "CO2 tubing connection",
+      "value": "4 mm",
+      "source": 2
+    },
+    {
+      "key": "Sizes",
+      "value": "Tiny, S, M, L",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "Tiny under 50 L; S under 100 L; M 100–200 L; L over 200 L",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Greendeal VN, Diffuser Mate listing)",
+      "value": "None stated (Bảo hành: Không)",
+      "source": 5
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tiny",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "11 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "100 x 22 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Under 50 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "S",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "13 mm (Chihiros); 14 mm (Aquasabi); 13.7 mm (Thủy Sinh Tím)",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "82 x 22 mm, body height 20 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Under 100 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "M",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "17 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "78 x 29 mm, body height 22 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "100–200 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "L",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "23 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "81 x 30 mm, body height 25 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Over 200 L",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/coc-sui-co2-chihiros-nano",
+      "variant": "Tiny / S (marked sold out; call to check branch stock)",
+      "vnd": 140000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/coc-sui-co2-chihiros-nano",
+      "variant": "M (marked sold out)",
+      "vnd": 165000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/coc-sui-co2-chihiros-nano",
+      "variant": "L (marked sold out)",
+      "vnd": 185000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/san-pham/coc-sui-co2-chihiros-diffuser-sieu-min",
+      "variant": "Tiny / S (out of stock)",
+      "vnd": 117300,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/san-pham/coc-sui-co2-chihiros-diffuser-sieu-min",
+      "variant": "M (out of stock; previously 180,000₫)",
+      "vnd": 125800,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/san-pham/coc-sui-co2-chihiros-diffuser-sieu-min",
+      "variant": "L (out of stock)",
+      "vnd": 142800,
+      "source": 1
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/chihiros-co2-diffuser-mate",
+      "variant": "Diffuser Mate Tiny (out of stock)",
+      "vnd": 160000,
+      "source": 5
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/chihiros-co2-diffuser-mate",
+      "variant": "Diffuser Mate L (out of stock)",
+      "vnd": 210000,
+      "source": 5
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Choose the size by tank volume: Tiny for nano tanks under 50 L, up to L for tanks over 200 L",
+      "source": 0
+    },
+    {
+      "fact": "Sits inside the tank on a suction cup, so it suits planted tanks that run pressurised CO2 through 4 mm tubing",
+      "source": 2
+    },
+    {
+      "fact": "On every size except Tiny, the acrylic body can be filled with water and used as a bubble counter",
+      "source": 4
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Before first use, soak the diffuser in water for about 10 minutes to push out trapped air. Air left inside can cause large bubbles at the membrane's lower edge",
+      "source": 4
+    },
+    {
+      "fact": "Push the 4 mm CO2 line onto the fitting, stick the diffuser to the glass, then set the flow with the regulator",
+      "source": 2
+    },
+    {
+      "fact": "Clean it when algae builds up or the bubbles get noticeably bigger",
+      "source": 4
+    },
+    {
+      "fact": "To clean, soak it in unscented household bleach mixed 1:1 with water for about 30–60 minutes, then rinse well. Never mix bleach with vinegar",
+      "source": 4
+    },
+    {
+      "fact": "Thủy Sinh Tím gives a longer soak of 1–4 hours, or overnight, in 1:1 bleach, followed by several rinses",
+      "source": 2
+    },
+    {
+      "fact": "A retailer says some larger bubbles are normal at first, shrinking after about 24 hours of continuous use and gone within about 3 days",
+      "source": 6
+    }
+  ],
+  "issues": [
+    {
+      "fact": "The ceramic gets clogged by algae and slowly starts making bigger bubbles, so it needs regular bleach cleaning",
+      "source": 4
+    },
+    {
+      "fact": "Large bubbles in the first days usually mean trapped air or a membrane that is still breaking in, not a fault",
+      "source": 6
+    },
+    {
+      "fact": "Membrane diameters differ slightly between listings (S is given as 13, 13.7 or 14 mm), and one page names the body material as both acrylic and PETG",
+      "source": 4
+    },
+    {
+      "fact": "Reviews are positive about the fine bubbles. Because the body is plastic, not glass, it is less likely to snap when you pull the tubing off for cleaning",
+      "source": 4
+    },
+    {
+      "fact": "Many Vietnamese shops list the product as out of stock or running low, so check stock before ordering",
+      "source": 2
+    },
+    {
+      "fact": "Greendeal also sells a 'Diffuser Mate' version at slightly higher prices, but its page gives no specs",
+      "source": 5
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "External CO2 Diffuser (inline, M 12/16 mm / L 16/22 mm)",
+      "why": "Fits on the canister filter outlet hose, so nothing sits inside the tank and CO2 is dissolved more evenly in larger tanks. Thủy Sinh Bích Phương lists it at about 360,000₫. It needs a minimum working pressure of 1.5 bar",
+      "source": 7
+    },
+    {
+      "brand": "Chihiros",
+      "model": "Stainless Steel CO2 Diffuser (20–35 cm)",
+      "why": "A sturdier stainless steel diffuser on a tall stand. Shaquarium lists it at about 295,000₫, and its ceramic membrane can be replaced",
+      "source": 8
+    },
+    {
+      "brand": "Mufan",
+      "model": "Sủi CO2 Mufan nhỏ",
+      "why": "A cheaper generic acrylic or glass nano diffuser sold by Vietnamese shops such as Ylang Aquarium",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.chihiros.com/products/chihiros-nano-co2-diffuser?variant=45754374979775",
+      "title": "Chihiros Nano CO2 Diffuser – Chihiros official",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://thuysinh4u.com/san-pham/coc-sui-co2-chihiros-diffuser-sieu-min",
+      "title": "Cốc sủi CO2 Chihiros Diffuser siêu mịn – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/coc-sui-co2-chihiros-nano",
+      "title": "Cốc Sủi CO2 Chihiros Nano – Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.chihiros.com/collections/co-system",
+      "title": "CO₂ System collection – Chihiros",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.aquasabi.de/Chihiros-CO2-Diffuser",
+      "title": "Chihiros CO2 Diffuser – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/chihiros-co2-diffuser-mate",
+      "title": "CHIHIROS - CO2 Diffuser Mate – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shop.app/products/7967384633562/chihiros-nano-co2-diffuser",
+      "title": "Chihiros Nano CO2 Diffuser – Shop listing with reviews",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/chihiros-external-co2-diffuser-tron-co2-cao-cap",
+      "title": "Chihiros External CO2 Diffuser – Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.shaquarium.com/san-pham/s%E1%BB%A7i-co2-inox-chihiros-20cm.html",
+      "title": "Sủi CO2 inox Chihiros – Shaquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cuahangthuysinh.vn/san-pham/sui-co2-mufan-nho/",
+      "title": "Sủi CO2 Mufan nhỏ – Ylang Aquarium",
+      "kind": "shop"
+    }
+  ]
+}

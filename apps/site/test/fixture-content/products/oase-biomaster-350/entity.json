@@ -1,0 +1,14 @@
+{
+  "id": "oase-biomaster-350",
+  "brand": "Oase",
+  "model": "BioMaster 350",
+  "category": "loc",
+  "type": "thung",
+  "specs": [{ "key": "Flow rate", "value": "1100 L/h", "source": 0 }, { "key": "Power", "value": "12 W", "source": 0 }],
+  "variants": [
+    { "name": "BioMaster 250", "specs": [{ "key": "Flow rate", "value": "750 L/h" }, { "key": "Tank size", "value": "≤ 250 L" }] },
+    { "name": "BioMaster 350", "specs": [{ "key": "Flow rate", "value": "1100 L/h" }, { "key": "Tank size", "value": "≤ 350 L" }] }
+  ],
+  "sources": [{ "url": "https://www.oase.com/en/biomaster-350", "title": "OASE BioMaster 350", "kind": "manufacturer", "at": "2026-10-30" }],
+  "updatedAt": "2026-10-30"
+}

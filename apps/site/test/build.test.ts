@@ -411,7 +411,36 @@ describe('what a video shows', () => {
     const { dom } = page('/vi/thiet-bi/loc/')
     const li = dom.querySelector('.creators li')!
     expect(li.querySelector('strong')?.text).toBe('Oase BioMaster 350')
-    expect(li.querySelector('a')?.getAttribute('href')).toBe('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    expect(li.querySelector(':scope > a')?.getAttribute('href')).toBe('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+  })
+})
+
+describe('product page', () => {
+  const { html, dom } = page('/vi/san-pham/oase-biomaster-350/')
+  test('verdict, dated shop prices, specs and variants with Vietnamese labels, sources; Product + FAQ structured data', () => {
+    expect(dom.querySelector('h1')?.text).toBe('Lọc thùng Oase BioMaster 350')
+    expect(dom.querySelector('.verdict')?.text).toContain('Hợp với bể 150–350 lít')
+    expect(dom.querySelector('.range')?.text).toBe('4.200.000 ₫ – 4.550.000 ₫')
+    expect(dom.querySelector('.prices a[href="https://shop-a.example/oase-350"]')?.getAttribute('rel')).toBe('nofollow noopener')
+    expect(dom.querySelector('.prices .note')?.text).toContain('30/10/2026')
+    expect(dom.querySelectorAll('.specs th').map(t => t.text)).toEqual(['Lưu lượng', 'Công suất'])
+    expect(dom.querySelectorAll('.variants thead th').map(t => t.text)).toEqual(['Phiên bản', 'Lưu lượng', 'Cỡ bể'])
+    expect(dom.querySelector('.sources a[href="https://www.oase.com/en/biomaster-350"]')).not.toBeNull()
+    expect(dom.querySelector('.gear a[href^="/go/shopee/"]')?.getAttribute('href')).toContain('k=Oase+BioMaster+350')
+    expect(html).toContain('"@type":"AggregateOffer"')
+    expect(html).toContain('"lowPrice":4200000')
+    expect(html).toContain('"@type":"FAQPage"')
+  })
+  test('the video that uses it is listed; its kit row, the equipment type and the creators list link to the page', () => {
+    expect(dom.querySelector('.vg a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
+    const guide = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/').dom
+    expect(guide.querySelector('.gear .name a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
+    const eq = page('/vi/thiet-bi/loc/').dom
+    expect(eq.querySelector('#thung .picks a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
+    expect(eq.querySelector('.creators strong a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
+  })
+  test('indexable products are in the sitemap', () => {
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/san-pham/oase-biomaster-350/</loc>')
   })
 })
 
