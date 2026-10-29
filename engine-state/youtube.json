@@ -33,7 +33,7 @@
   "Ejng2T-a2Gk": {
     "status": "error",
     "entityIds": [],
-    "error": "yt-dlp: ERROR: [youtube] Ejng2T-a2Gk: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  htt",
+    "error": "yt-dlp: ERROR: [youtube] Ejng2T-a2Gk: Sign in to confirm you\u2019re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  htt",
     "attempts": 1,
     "updatedAt": "2026-10-29T16:46:41.274Z"
   },
@@ -59,13 +59,6 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-29T16:46:34.327Z"
-  },
-  "Nh_24hIm4sA": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: yt-dlp: error: no such option: --no-skip-download",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T17:03:39.638Z"
   },
   "YXhZnSTaUW0": {
     "status": "error",
