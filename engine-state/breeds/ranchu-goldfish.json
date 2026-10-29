@@ -1,0 +1,315 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Ranchu",
+    "Ranchu goldfish",
+    "Maruko",
+    "Buffalo Head Goldfish",
+    "King of goldfish"
+  ],
+  "viNames": [
+    {
+      "name": "Cá vàng Lan thọ",
+      "source": 1
+    },
+    {
+      "name": "Cá vàng Ranchu",
+      "source": 3
+    },
+    {
+      "name": "Cá Ranchu",
+      "source": 2
+    },
+    {
+      "name": "Vua cá vàng",
+      "source": 2
+    }
+  ],
+  "basedOn": "Carassius auratus",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "A Japanese goldfish breed developed from dorsal-finless lionhead-type goldfish from China. Lionhead-type fish were kept in China and Japan before the 17th century, and the breed was also known as Maruko.",
+      "source": 0
+    },
+    {
+      "fact": "Japanese breeders developed it from Chinese lionheads during the Meiji era, about 1870 to 1885.",
+      "source": 2
+    },
+    {
+      "fact": "Japanese breeders crossed Chinese lionhead fish to create it. In Japan it is valued alongside koi, and Vietnamese hobbyists have kept it for over 20 years.",
+      "source": 3
+    },
+    {
+      "fact": "Japanese hobbyists call it the 'king of goldfish'.",
+      "source": 1
+    },
+    {
+      "fact": "A UK hobbyist says early Ranchu were bred to a sumo-wrestler ideal: a big head and a heavy body. Modern show fish are longer-bodied and swim better.",
+      "source": 4
+    },
+    {
+      "fact": "The calico form, Edonishiki, was developed in Japan by Yoshigoro Akiyama between 1951 and 1957.",
+      "source": 6
+    }
+  ],
+  "looks": [
+    {
+      "fact": "It has no dorsal fin. The body is egg-shaped and deep, the back is rounded, and the short twin tail is held at about 45 degrees. The head grows a hood (wen), which can take a year or more to develop.",
+      "source": 0
+    },
+    {
+      "fact": "In Japan, fish are judged from above in shallow bowls. The top view should be rectangular with a large head.",
+      "source": 0
+    },
+    {
+      "fact": "The Goldfish Council's top-view standard scores out of 100: balance and swimming 25, head 20, tail 20, back 15, peduncle 10, eyes 5, scales 5. Any dorsal spine, dorsal fin or adipose fin disqualifies the fish, as do telescope or upturned eyes and pearlscale scales.",
+      "source": 5
+    },
+    {
+      "fact": "The ideal tail lobes are split 30 to 50 percent and sit at about 45 degrees to the peduncle. The fish should swim strongly, without listing or a twisted spine.",
+      "source": 5
+    },
+    {
+      "fact": "Judges look for a long, wide head, a long body, and a tail shaped like swallow wings. The scale band at the tail base (the 'bracelet') should be wide and shiny. Judges also handle each fish and watch how it swims off.",
+      "source": 4
+    },
+    {
+      "fact": "Colours include red, red-and-white, white and spotted. Scales can be metallic or semi-metallic. Tails may have 3 or 4 lobes or be a cherry-blossom tail.",
+      "source": 1
+    },
+    {
+      "fact": "Colours include orange, red, white, grey, brown and mixes. Scale types are metallic, nacreous (calico) and matte. A pale yellow fish with a red head is rare.",
+      "source": 0
+    },
+    {
+      "fact": "Many fish turn whiter as they age. Yellow heads were in fashion at the time of writing.",
+      "source": 4
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Top-view Ranchu is the traditional Japanese form. It comes only in metallic red, orange or yellow, red-and-white, or white.",
+      "source": 5
+    },
+    {
+      "fact": "Side-view Ranchu was bred for viewing in glass tanks, with a shorter, deeper body. The Goldfish Council treats it as a separate breed that allows more colours and a bigger wen.",
+      "source": 6
+    },
+    {
+      "fact": "Edonishiki is the calico Ranchu. Japanese Edo lines carry less wen, while calico Ranchu from elsewhere in Asia can have very large wens.",
+      "source": 6
+    },
+    {
+      "fact": "Thai side-view lines include the 'Buffalo', 'Dragon' and 'Boxer' head types. Chinese lines often have a round wen.",
+      "source": 6
+    },
+    {
+      "fact": "Known Japanese show bloodlines include Kashino and Takao. In Europe, Belgian breeder Geert Coppens built the Ranchu Brotherhood bloodline using his Japanese contacts.",
+      "source": 4
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 23,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 18.3,
+      "max": 22.2,
+      "source": 7
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 20,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 20,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 13,
+      "max": 20,
+      "source": 7
+    },
+    {
+      "field": "sizeCm",
+      "min": 12,
+      "max": 15,
+      "source": 1
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Give each fish about 110 litres. It is a heavy waste producer, so small tanks foul quickly even with a strong filter.",
+      "source": 1
+    },
+    {
+      "fact": "Use a tank of at least 50 to 75 litres, with about 40 litres per goldfish. Avoid strong filter or air-pump currents because Ranchu swim poorly. Sudden temperature changes can shock them.",
+      "source": 7
+    },
+    {
+      "fact": "Good tankmates are other slow fancy goldfish, such as pearlscale, lionhead, bubble-eye and telescope. Fast fish will outcompete them for food.",
+      "source": 7
+    },
+    {
+      "fact": "Not advised for ponds, because temperature swings are risky and the slow fish are easy prey for predators.",
+      "source": 7
+    },
+    {
+      "fact": "Feed pellets or flakes, frozen or fresh foods, and vegetables such as cucumber, lettuce and zucchini.",
+      "source": 1
+    },
+    {
+      "fact": "Feed twice a day, morning and afternoon, with nothing after 5 p.m. Change water at least twice a week. Disinfect live foods first.",
+      "source": 2
+    },
+    {
+      "fact": "UK breeders keep Ranchu in shallow vats about 25 cm deep with natural daylight to develop colour. Feeding is twice a day, up to six times for growing or show fish.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "It breeds like any goldfish. The male chases the female and pushes her against the tank wall, and one spawn can give 900 to 1,000 eggs.",
+      "source": 2
+    },
+    {
+      "fact": "Breeding starts at about 20°C. UK breeders pair their best male and female first, then cross the female with other males in later spawns.",
+      "source": 4
+    },
+    {
+      "fact": "Spawns do not breed true to show standard, so heavy culling is normal. At about two weeks (around 13 mm), fry with bent bodies or tails open less than 160° are removed, leaving about 40%. Further culls follow.",
+      "source": 8
+    },
+    {
+      "fact": "Japan has no fixed written breed standard, and the traits in favour shift over time.",
+      "source": 4
+    }
+  ],
+  "health": [
+    {
+      "fact": "Without a dorsal fin it swims slowly and tends to roll onto one side. It is prone to dropsy and swim-bladder problems, and an oversized wen can cover the eyes and gills.",
+      "source": 0
+    },
+    {
+      "fact": "A vet case report describes a 1.5-year-old Ranchu whose overgrown wen blocked its sight and gill covers and upset its balance and buoyancy. Treatment needed a vet.",
+      "source": 9
+    },
+    {
+      "fact": "Fin and scale fungus are listed as common problems. Clean water and regular changes help prevent them.",
+      "source": 2
+    },
+    {
+      "fact": "Experienced keepers lift Ranchu with wet hands rather than nets, because nets strip more of the protective slime.",
+      "source": 4
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Check the fish from above. Look for a straight spine, no trace of a dorsal fin, an even back, a wide, well-spread twin tail at about 45 degrees, even eyes, regular scales, and strong swimming without listing.",
+      "source": 5
+    },
+    {
+      "fact": "A Vietnamese farm prices ordinary fish at about 50,000 to 800,000 VND. Fish with rare colours, good shape and no faults can sell for millions or tens of millions of VND.",
+      "source": 3
+    },
+    {
+      "fact": "Lineage matters for calico fish: Japanese Edo lines carry less wen than other Asian calico Ranchu. Top-view calico fish are not yet well established.",
+      "source": 6
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "A veterinary case report says wen overgrowth bred into the fish often limits its physical abilities and needs veterinary treatment.",
+      "source": 9
+    },
+    {
+      "fact": "Wikipedia links the breed's shape to poor swimming, rolling to one side, and a large wen that can cover the gills and eyes.",
+      "source": 0
+    },
+    {
+      "fact": "Breeding for show standard means killing most fry: one breeder keeps only about 40% after the first cull and expects to cut more later.",
+      "source": 8
+    }
+  ],
+  "commons": "Category:Ranchū",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ranchu",
+      "title": "Ranchu - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/C%C3%A1_v%C3%A0ng_Lan_th%E1%BB%8D",
+      "title": "Cá vàng Lan thọ - Wikipedia tiếng Việt",
+      "kind": "article"
+    },
+    {
+      "url": "https://cacanhmini.com/cach-nuoi-ca-vang-ranchu-vua-cua-cac-loai-ca-vang/",
+      "title": "Cách nuôi cá vàng Ranchu vua của các loài cá vàng - Cá cảnh mini",
+      "kind": "article"
+    },
+    {
+      "url": "https://dongngu.com/danh-muc/ca-vang-ranchu/",
+      "title": "Cá Vàng Ranchu - Ranchu Goldfish (Đông Ngư)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/ranchu-king-of-goldfish/",
+      "title": "Ranchu: King of goldfish - Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/top-view-ranchu",
+      "title": "Top View Ranchu - The Goldfish Council",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/edonishiki",
+      "title": "Edonishiki - The Goldfish Council",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.allpondsolutions.co.uk/fishkeeping-advice/fish-file-ranchu.html",
+      "title": "Fish Files: Ranchu Goldfish - All Pond Solutions",
+      "kind": "shop"
+    },
+    {
+      "url": "https://highranchu.blogspot.com/2014/05/culling-first-round.html",
+      "title": "High Ranchu Mon - Culling first round",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://www.wavma.org/media/Documents-for-download/0323-Model-Case-Report.pdf",
+      "title": "WAVMA Model Case Report (Ranchu wen overgrowth)",
+      "kind": "paper"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Ranch%C5%AB",
+      "title": "Category:Ranchū - Wikimedia Commons",
+      "kind": "other"
+    }
+  ]
+}

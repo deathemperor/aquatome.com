@@ -39,13 +39,19 @@ const multiWord = (n: string) => n.trim().split(/\s+/).length >= 2 // single wor
 /** Group names ("cá neon", "cá chạch suối") begin several other species' names: linking them would point a group at one species. */
 const specific = (all: string[]) => {
   const lower = [...new Set(all.map(n => n.toLowerCase()))]
-  return (n: string) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `)).length < 2
+  // `own`: the page's own names ("Cá hồng két King Kong" is a line on the Cá hồng két page, not another fish).
+  return (n: string, own: string[] = []) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `) && !own.some(x => x.toLowerCase() === o)).length < 2
 }
 const taxonHref = (...parts: string[]) => `/vi/phan-loai/${parts.map(p => p.toLowerCase()).join('/')}/`
 
 export function linkTargets(c: Content): LinkTarget[] {
   const out: LinkTarget[] = []
-  const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]))
+  const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]).concat(c.breeds.flatMap(b => [b.t.name, ...b.t.altNames])))
+  // A man-made fish before the species: "cá vàng Ranchu" is the Ranchu page, not the goldfish one.
+  for (const b of c.breeds) {
+    const names = [b.t.name, b.t.name.replace(/\s*\(.*\)\s*$/, ''), ...b.t.altNames]
+    out.push({ key: `breed:${b.id}`, href: `/vi/ca/${b.t.slug}/`, names: names.filter(n => multiWord(n) && ok(n, names)) })
+  }
   // A name shared by several pages (a species and its shop colour varieties) goes to the fullest page: richest first.
   const size = (x: { t: { sections: Record<string, string> } }) => Object.values(x.t.sections).join('').length
   for (const s of [...c.species].sort((a, b) => size(b) - size(a))) out.push({ key: `species:${s.id}`, href: `/vi/ca/${s.t.slug}/`, names: [s.scientificName, s.t.name, ...s.t.altNames].filter(n => multiWord(n) && ok(n)) })

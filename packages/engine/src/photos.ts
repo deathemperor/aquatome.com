@@ -3,7 +3,7 @@ import { isAllowedLicence, type Photo } from '@aq/schema'
 type Info = { width: number; thumburl: string; thumbwidth: number; thumbheight: number; descriptionurl: string; extmetadata?: Record<string, { value: string }> }
 type Result = { query?: { pages?: Record<string, { index: number; title: string; imageinfo?: Info[] }> } }
 
-const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\[\[(?:[^|\]]*\|)?([^\]]+)\]\]/g, '$1').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
 
 /** Open-licence photos from Wikimedia Commons, in search-rank order. */
 export const findPhotos = (scientificName: string, http: (url: string) => Promise<unknown>, max = 4) => searchCommons(`"${scientificName}"`, http, max)

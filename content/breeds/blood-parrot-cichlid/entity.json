@@ -1,0 +1,150 @@
+{
+  "id": "blood-parrot-cichlid",
+  "kind": "hybrid",
+  "parents": [
+    {
+      "name": "Midas cichlid (Amphilophus citrinellus)",
+      "species": "amphilophus-citrinellus",
+      "certain": false
+    },
+    {
+      "name": "Redhead cichlid (Vieja melanurus)",
+      "certain": false
+    },
+    {
+      "name": "Red devil cichlid (Amphilophus labiatus)",
+      "species": "amphilophus-labiatus",
+      "certain": false
+    },
+    {
+      "name": "Severum (Heros severus)",
+      "certain": false
+    }
+  ],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      },
+      {
+        "source": 3,
+        "value": 26
+      }
+    ],
+    "ph": [
+      {
+        "source": 3,
+        "value": 7
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 2,
+        "value": {
+          "min": 18,
+          "max": 21
+        }
+      },
+      {
+        "source": 0,
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 1,
+        "value": 60
+      },
+      {
+        "source": 3,
+        "value": 183
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/BAHU_FORT_JAMMU_%26_KASHMIR_4.jpg/1280px-BAHU_FORT_JAMMU_%26_KASHMIR_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/BAHU_FORT_JAMMU_%26_KASHMIR_4.jpg/500px-BAHU_FORT_JAMMU_%26_KASHMIR_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tejan gupta",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BAHU_FORT_JAMMU_%26_KASHMIR_4.jpg",
+      "caption": "Hai cá hồng két vàng tươi trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Fish_%2812775491%29.jpeg/1280px-Fish_%2812775491%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Fish_%2812775491%29.jpeg/500px-Fish_%2812775491%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 719,
+      "licence": "CC BY 3.0",
+      "author": "Grant Gould",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_(12775491).jpeg",
+      "caption": "Cá hồng két màu đỏ tươi nhìn thẳng trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_030.jpg/1280px-2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_030.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_030.jpg/500px-2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_030.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 848,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_030.jpg",
+      "caption": "Cá hồng két màu cam bơi trên nền sỏi đen"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Blood_Red_Parrot_fish.jpg/1280px-Blood_Red_Parrot_fish.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Blood_Red_Parrot_fish.jpg/500px-Blood_Red_Parrot_fish.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 850,
+      "licence": "CC BY 4.0",
+      "author": "Retro Lenses",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blood_Red_Parrot_fish.jpg",
+      "caption": "Hai cá hồng két màu cam trong bể có lũa"
+    }
+  ],
+  "commons": "Category:Blood parrot cichlid",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Blood_parrot_cichlid",
+      "title": "Blood parrot cichlid – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-hong-ket.html",
+      "title": "Cá hồng két – Mytour",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18543",
+      "title": "Cá Hồng Két – Chợ Tốt kinh nghiệm",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.webmd.com/pets/what-to-know-blood-parrot-cichlid",
+      "title": "What to Know About Blood Parrot Cichlids – WebMD",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Painted_fish",
+      "title": "Painted fish – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/dont-say-i-love-you-with-hearts-or-flowers-this-valentines-day/",
+      "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
+      "kind": "article",
+      "at": "2026-10-29"
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

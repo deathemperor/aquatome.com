@@ -2,8 +2,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { BreedSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
@@ -22,6 +22,8 @@ export type Content = {
   galleries: Record<string, Photo[]>
   /** Products with a page in this language, with their prices in the language's market when known. */
   products: (Localized<ProductEntity> & { market?: Market })[]
+  /** Man-made fish (hybrids, lines, colour forms): pages beside the species, at /<lang>/ca/<slug>/. */
+  breeds: Localized<BreedEntity>[]
   /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
@@ -110,6 +112,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (photos.length) galleries[g.id] = photos
   }
 
+  // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang)).map(b => ({ ...b, photos: cleanPhotos(b.photos) }))
+  const speciesSlugs = new Set(species.map(s => s.t.slug))
+  const breedSlugs = new Set<string>()
+  for (const b of breeds) {
+    if (speciesSlugs.has(b.t.slug) || breedSlugs.has(b.t.slug)) throw new Error(`breed ${b.id}: slug "${b.t.slug}" is already a ${speciesSlugs.has(b.t.slug) ? 'species' : 'breed'} page`)
+    breedSlugs.add(b.t.slug)
+  }
+
   const products: Content['products'] = []
   for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
     const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
@@ -117,7 +128,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   return {
-    species, plants, guides, changelog, equipment, series, galleries, products,
+    species, plants, guides, changelog, equipment, series, galleries, products, breeds,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

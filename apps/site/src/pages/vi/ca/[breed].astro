@@ -1,0 +1,116 @@
+---
+import { linkTerms } from '@aq/schema'
+import { slugify } from '@aq/schema/slug'
+import Base from '../../../layouts/Base.astro'
+import Nav from '../../../components/Nav.astro'
+import DataCard from '../../../components/DataCard.astro'
+import PhotoGallery from '../../../components/PhotoGallery.astro'
+import GalleryStrip from '../../../components/GalleryStrip.astro'
+import GuideLinks from '../../../components/GuideLinks.astro'
+import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
+import ReaderPhotos from '../../../components/ReaderPhotos.astro'
+import Comments from '../../../components/Comments.astro'
+import RedirectNote from '../../../components/RedirectNote.astro'
+import BreedList from '../../../components/BreedList.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
+import { guidesMentioning, linkTargets } from '../../../lib/mentions'
+import { BREED_KIND, basedOn, breedGallery, breedsOf, careCard, type Breed } from '../../../lib/breeds'
+import { dmy } from '../../../lib/products'
+export async function getStaticPaths() {
+  const c = await getContent()
+  return c.breeds.map(b => ({ params: { breed: b.t.slug }, props: { b } }))
+}
+const { b } = Astro.props as { b: Breed }
+const c = await getContent()
+const key = `breed:${b.id}`
+const parent = basedOn(c, b)
+const species = new Map(c.species.map(s => [s.id, s]))
+const { card, sources } = careCard(b)
+const gallery = breedGallery(c, b)
+const strip = gallery.slice(0, GALLERY_STRIP)
+const lines = breedsOf(c, b.id)
+// Its own text links the species, glossary terms and other pages it names, never itself.
+const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
+const mentioning = guidesMentioning(c, key)
+const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: 'vi', dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Loài cá', item: new URL('/vi/ca/', Astro.site).href },
+    ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: new URL(parent.href, Astro.site).href }] : []),
+    { '@type': 'ListItem', position: parent ? 3 : 2, name: b.t.name, item: url },
+  ] },
+  ...(b.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: b.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+]
+const title = `${b.t.name}: nguồn gốc, cách nuôi, chọn mua`
+---
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
+  <Nav slot="header" />
+  <nav class="wrap crumb" aria-label="Đường dẫn">
+    <a href="/vi/ca/">Loài cá</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
+  </nav>
+  <header class="wrap top">
+    {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} /> : <div />}
+    <div>
+      <p class="where">{BREED_KIND[b.kind]}{parent && b.kind === 'variety' && <>, dòng của <a href={parent.href}>{parent.name}</a></>}</p>
+      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${b.t.name} ${b.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{b.t.name}</h1>
+      <RedirectNote from={b.t.redirectFrom} />
+      {b.parents.length > 0 && (
+        <p class="parents">Lai từ: {b.parents.map((p, i) => {
+          const s = p.species ? species.get(p.species) : undefined
+          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : p.name}{!p.certain && <span class="unsure"> (chưa chắc chắn)</span>}</>
+        })}</p>
+      )}
+      {b.t.altNames.length > 0 && <p class="alt">Tên khác: {b.t.altNames.join(', ')}</p>}
+      <DataCard card={card} sources={sources} />
+      <p class="srcline">AquaTome tổng hợp từ {b.sources.length} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {dmy(b.updatedAt)}.</p>
+    </div>
+  </header>
+
+  {strip.length > 0 && <GalleryStrip photos={gallery} href={gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined} name={b.t.name} />}
+  {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>Tóm tắt</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
+  {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
+
+  <BreedList breeds={lines} heading="Các dòng" />
+
+  {b.t.faq?.length ? (
+    <section class="wrap faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Hỏi đáp</h2>
+      {b.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </section>
+  ) : null}
+
+  <GuideLinks guides={mentioning.filter(g => !g.video)} heading="Bài viết nhắc đến" />
+  <VideoGuideGrid guides={mentioning.filter(g => g.video)} heading="Có trong video hướng dẫn" />
+  <ReaderPhotos entity={key} name={b.t.name} />
+
+  <section class="wrap sources" aria-labelledby="src-h">
+    <h2 id="src-h">Nguồn</h2>
+    <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
+  </section>
+  <div class="wrap"><Comments entity={key} /></div>
+</Base>
+<style>
+  .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
+  .crumb a { color: var(--c-ink-soft); }
+  .top { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
+  .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
+  h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
+  .parents { font-size: var(--step-0); color: var(--c-ink-soft); margin: var(--space-2) 0; }
+  .unsure { color: var(--c-ink-faint); font-size: 0.85em; }
+  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: 0 0 var(--space-4); }
+  .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
+  h2 { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
+  .verdict { max-width: var(--measure); padding: var(--space-4) var(--space-5); background: var(--c-plate); border-left: 3px solid var(--c-moss); }
+  .verdict h2 { font-size: var(--step-0); margin: 0 0 var(--space-2); color: var(--c-ink-soft); }
+  .verdict p { margin: 0 0 var(--space-2); }
+  .body { max-width: var(--measure); padding-block: var(--space-4); }
+  .faq { max-width: var(--measure); }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-3) 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .sources { font-size: 0.9rem; color: var(--c-ink-soft); }
+  .sources ol { padding-left: 1.4em; }
+  @media (max-width: 860px) { .top { grid-template-columns: 1fr; } }
+</style>

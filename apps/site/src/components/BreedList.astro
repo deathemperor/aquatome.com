@@ -1,0 +1,29 @@
+---
+import { BREED_KIND, type Breed } from '../lib/breeds'
+/** Its pictures must be in the page's credits (each breed's first photo). `bare`: inside a container that already has margins. */
+interface Props { breeds: Breed[]; heading: string; bare?: boolean }
+const { breeds, heading, bare } = Astro.props
+---
+{breeds.length > 0 && (
+  <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
+    <h2 id="breeds-h">{heading}</h2>
+    <ul>
+      {breeds.map(x => (
+        <li><a href={`/vi/ca/${x.t.slug}/`}>
+          {x.photos[0] ? <img src={x.photos[0].thumb ?? x.photos[0].url} alt="" width={x.photos[0].width} height={x.photos[0].height} loading="lazy" decoding="async" /> : <span class="ph" />}
+          <span class="n">{x.t.name}</span><span class="k">{BREED_KIND[x.kind]}</span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+)}
+<style>
+  .breeds { padding-block: var(--space-5); }
+  h2 { font-size: var(--step-2); margin: 0 0 var(--space-3); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--space-3); }
+  a { display: block; text-decoration: none; color: inherit; }
+  img, .ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; height: auto; display: block; background: var(--c-plate); }
+  .n { display: block; padding-top: var(--space-2); font-weight: 600; }
+  .k { display: block; font-size: 0.8rem; color: var(--c-ink-faint); }
+  a:hover .n { text-decoration: underline; }
+</style>

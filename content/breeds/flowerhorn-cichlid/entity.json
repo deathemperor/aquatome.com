@@ -1,0 +1,185 @@
+{
+  "id": "flowerhorn-cichlid",
+  "kind": "hybrid",
+  "parents": [
+    {
+      "name": "Cá Red devil (Amphilophus labiatus)",
+      "species": "amphilophus-labiatus",
+      "certain": false
+    },
+    {
+      "name": "Cá Trimac (Amphilophus trimaculatus)",
+      "certain": true
+    },
+    {
+      "name": "Cá Hồng Két (Blood parrot)",
+      "certain": false
+    },
+    {
+      "name": "Cá Midas (Amphilophus citrinellus)",
+      "species": "amphilophus-citrinellus",
+      "certain": false
+    },
+    {
+      "name": "Cá Redhead (Vieja melanurus)",
+      "certain": false
+    },
+    {
+      "name": "Cá Hồng Két và các dòng cichlid Mỹ thuần",
+      "certain": false
+    }
+  ],
+  "care": {
+    "tempC": [
+      {
+        "source": 4,
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 4,
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 4,
+        "value": 60
+      },
+      {
+        "source": 5,
+        "value": 80
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Can_flowerhorn_live_with_african_cichlids.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Can_flowerhorn_live_with_african_cichlids.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "width": 1280,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Themagpierobinbird",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Can_flowerhorn_live_with_african_cichlids.png",
+      "caption": "Cá La Hán u đầu đỏ vân lớn trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Flowerhorn_%2848821775218%29.jpg/1280px-Flowerhorn_%2848821775218%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Flowerhorn_%2848821775218%29.jpg/500px-Flowerhorn_%2848821775218%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.0",
+      "author": "Garry Knight from London, England",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowerhorn_(48821775218).jpg",
+      "caption": "Cá La Hán đỏ vân hoa u đầu to trong bể xanh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Flowerhorn_cichlid.jpg/1280px-Flowerhorn_cichlid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Flowerhorn_cichlid.jpg/500px-Flowerhorn_cichlid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Psiĥedelisto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowerhorn_cichlid.jpg",
+      "caption": "Cá La Hán trắng hồng u đầu tròn trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/250823_Flowerhorn_cichlid.jpg/1280px-250823_Flowerhorn_cichlid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/250823_Flowerhorn_cichlid.jpg/500px-250823_Flowerhorn_cichlid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 4.0",
+      "author": "Arclink",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:250823_Flowerhorn_cichlid.jpg",
+      "caption": "Cá La Hán có u đầu hồng trong bể có đèn lồng trang trí"
+    }
+  ],
+  "commons": "Category:Flowerhorn cichlid",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Flowerhorn_cichlid",
+      "title": "Flowerhorn cichlid – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Flowerhorn_cichlid",
+      "title": "Category:Flowerhorn cichlid – Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://doaj.org/article/11eb834cf6c343c5be83422fa5c90e7e",
+      "title": "Sari et al. 2023, COI barcoding of flowerhorn morphotypes, J. Tropical Biodiversity and Biotechnology",
+      "kind": "paper",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.fws.gov/sites/default/files/documents/Ecological-Risk-Screening-Summary-Redhead-Cichlid.pdf",
+      "title": "USFWS Ecological Risk Screening Summary – Redhead Cichlid",
+      "kind": "paper",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://eva.vn/nha-dep/ca-la-han-nguon-goc-dac-diem-cac-loai-dep-va-cach-nuoi-c169a422449.html",
+      "title": "Cá La Hán: Nguồn gốc, đặc điểm, các loại đẹp và cách nuôi – Eva.vn",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-cach-nuoi-la-han-cho-newbie-tu-a-z.32898/",
+      "title": "Hướng dẫn cách nuôi La Hán cho newbie từ A->Z – Diễn đàn cá cảnh",
+      "kind": "forum",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://cacanhthaihoa.com/kien-thuc/ky-thuat-cho-ca-la-han-sinh-san.html",
+      "title": "Kinh nghiệm và kỹ thuật cho cá La Hán sinh sản – Thái Hoà Aquarium",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://vnexpress.net/ca-canh-bac-trieu-2717037.html",
+      "title": "Cá cảnh bạc triệu – VnExpress",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.fishforums.net/threads/the-most-technical-standard-with-how-to-raise-king-kamfa-fish.465881",
+      "title": "The most technical standard with how to raise King Kamfa fish – Fishforums",
+      "kind": "forum",
+      "at": "2026-10-29"
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

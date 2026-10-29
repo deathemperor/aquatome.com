@@ -1,0 +1,304 @@
+{
+  "found": true,
+  "kind": "hybrid",
+  "enNames": [
+    "Blood parrot cichlid",
+    "Blood parrot",
+    "Parrot cichlid",
+    "Bloody parrot",
+    "King Kong parrot (large form)"
+  ],
+  "viNames": [
+    {
+      "name": "Cá hồng két",
+      "source": 1
+    },
+    {
+      "name": "Cá két đỏ",
+      "source": 1
+    },
+    {
+      "name": "Cá huyết anh vũ",
+      "source": 1
+    },
+    {
+      "name": "Cá hồng két King Kong",
+      "source": 2
+    },
+    {
+      "name": "Cá hồng két đuôi tim",
+      "source": 2
+    },
+    {
+      "name": "Cá huyết anh vũ xăm mình",
+      "source": 2
+    }
+  ],
+  "parents": [
+    {
+      "name": "Midas cichlid",
+      "scientificName": "Amphilophus citrinellus",
+      "certain": false,
+      "source": 0
+    },
+    {
+      "name": "Redhead cichlid",
+      "scientificName": "Vieja melanurus (syn. Vieja synspila / Cichlasoma synspilum)",
+      "certain": false,
+      "source": 0
+    },
+    {
+      "name": "Red devil cichlid (alternative theory)",
+      "scientificName": "Amphilophus labiatus",
+      "certain": false,
+      "source": 1
+    },
+    {
+      "name": "Severum (alternative theory)",
+      "scientificName": "Heros severus",
+      "certain": false,
+      "source": 1
+    }
+  ],
+  "origin": [
+    {
+      "fact": "First bred in Taiwan, around 1986.",
+      "source": 0
+    },
+    {
+      "fact": "Vietnamese sources also say it was developed in Taiwan in 1986. They give two possible crosses: A. labiatus × H. severus, or A. citrinellum × C. synspilum.",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Small beak-like mouth that cannot close fully, a rounded body with a nuchal hump, and large eyes.",
+      "source": 0
+    },
+    {
+      "fact": "Natural colours are red, yellow and grey. Other colours on sale are produced by injection.",
+      "source": 0
+    },
+    {
+      "fact": "Oval body. Juveniles are deep orange and turn red as they mature. The mouth looks like a crow's beak and cannot close, and the eyes are big, round and black.",
+      "source": 2
+    },
+    {
+      "fact": "Natural colour forms include calico (red, brown and black), light red-orange and grey.",
+      "source": 3
+    },
+    {
+      "fact": "Hobbyists value a big body and strong colour. King Kong fish are usually the most expensive.",
+      "source": 2
+    }
+  ],
+  "lines": [
+    {
+      "fact": "King Kong parrot: usually red to yellow, bigger, with a more functional mouth. Considered more valuable.",
+      "source": 0
+    },
+    {
+      "fact": "King Kong: bright pink and often kept alongside arowana.",
+      "source": 1
+    },
+    {
+      "fact": "Heart parrot (đuôi tim): the tail is cut off while the fish is young, so the body grows into a heart shape. Genetically it is an ordinary blood parrot.",
+      "source": 2
+    },
+    {
+      "fact": "Tattooed fish (xăm chữ / xăm mình): carry characters such as Phúc, Lộc, Thọ or Tài and sell for about 1.5–2 times the price of plain fish.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 27,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 26,
+      "max": 26,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 18,
+      "max": 21,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 20,
+      "max": 20,
+      "source": 0
+    },
+    {
+      "field": "tankCm",
+      "min": 60,
+      "max": 60,
+      "source": 1
+    },
+    {
+      "field": "tankCm",
+      "min": 183,
+      "max": 183,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Produces a lot of waste, so it needs strong filtration and frequent cleaning of the substrate.",
+      "source": 0
+    },
+    {
+      "fact": "Wikipedia suggests about 208 L (55 US gal) for one fish, plus about 76 L (20 gal) for each extra fish.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese guide suggests a tank at least about 60 cm long holding 300–400 L, with rocks, driftwood and plants for cover, plus good aeration and filtration.",
+      "source": 1
+    },
+    {
+      "fact": "Change water twice a week. Because the mouth cannot open wide, the fish easily runs short of oxygen, and dirty water can lead to fungus or gill inflammation.",
+      "source": 2
+    },
+    {
+      "fact": "Copes poorly with cold. Cool water fades the red colour, and a large temperature difference at water changes can cause shock and black spots.",
+      "source": 2
+    },
+    {
+      "fact": "Eats most foods: sinking pellets, bloodworms, brine shrimp, krill and Mysis. Foods rich in beta-carotene and canthaxanthin help keep the red-orange colour.",
+      "source": 3
+    },
+    {
+      "fact": "Good tankmates are peaceful fish of similar or larger size, such as gouramis, large rainbowfish, catfish, severums, firemouths, acaras and some Geophagus. Avoid bettas and other combative fish.",
+      "source": 3
+    },
+    {
+      "fact": "Semi-aggressive and will eat small fish.",
+      "source": 0
+    },
+    {
+      "fact": "Use artificial plants, because it may eat or dig up live ones. It likes fine gravel to dig in.",
+      "source": 3
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Males are generally infertile, but there are records of successful spawns. Most females are fertile. Eggs are laid on hard surfaces and both parents guard them.",
+      "source": 0
+    },
+    {
+      "fact": "Some fish farms inject males with hormones to make them more fertile.",
+      "source": 0
+    },
+    {
+      "fact": "Pairs often lay eggs, for example in clay pots, but the eggs usually turn white and do not hatch.",
+      "source": 3
+    },
+    {
+      "fact": "A Vietnamese source says the hybrid usually cannot reproduce because the male cannot fertilise the eggs.",
+      "source": 1
+    }
+  ],
+  "health": [
+    {
+      "fact": "The deformed mouth makes eating hard and raises the risk of malnutrition. The fish crushes food with its throat muscles.",
+      "source": 0
+    },
+    {
+      "fact": "Other deformities include a misshapen nuchal hump, compressed vertebrae, possibly faulty swim bladders that make swimming awkward, and large, often deformed irises.",
+      "source": 0
+    },
+    {
+      "fact": "Dyed or injected fish have worse health and may die sooner.",
+      "source": 0
+    },
+    {
+      "fact": "Injected fish often die later, probably from kidney damage.",
+      "source": 4
+    },
+    {
+      "fact": "Lives about 10–15 years with good care.",
+      "source": 3
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Newly bought fish often lose colour, which usually returns within about 90 days once they settle in.",
+      "source": 2
+    },
+    {
+      "fact": "In Vietnam the price is about 45–110k VND depending on size, line and seller. Tattooed fish cost about twice as much.",
+      "source": 2
+    },
+    {
+      "fact": "Males and females are hard to tell apart. Watch fish for aggression before buying, since aggressive traits may be inherited.",
+      "source": 3
+    },
+    {
+      "fact": "Avoid dyed and tattooed fish. Many blood parrots on sale are artificially coloured.",
+      "source": 3
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Wikipedia notes that breeding it raises ethical concerns because of its deformities, dyeing and tail-cutting, and that press coverage led many stores to stop selling modified fish.",
+      "source": 0
+    },
+    {
+      "fact": "Practical Fishkeeping magazine says parrot cichlids are dyed with a needle or colour baths and tattooed with symbols or text. It calls cutting off tails to make 'heart' fish even worse, and cruel.",
+      "source": 5
+    },
+    {
+      "fact": "Practical Fishkeeping's campaign against dyed fish began in 1996. Dyed parrot cichlids were among the most widely sold dyed fish in the UK, and about 75% of UK retailers pledged not to stock mutilated fish.",
+      "source": 4
+    },
+    {
+      "fact": "WebMD calls dyeing and tattooing inhumane.",
+      "source": 3
+    }
+  ],
+  "commons": "Category:Blood parrot cichlid",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Blood_parrot_cichlid",
+      "title": "Blood parrot cichlid – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-hong-ket.html",
+      "title": "Cá hồng két – Mytour",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18543",
+      "title": "Cá Hồng Két – Chợ Tốt kinh nghiệm",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.webmd.com/pets/what-to-know-blood-parrot-cichlid",
+      "title": "What to Know About Blood Parrot Cichlids – WebMD",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Painted_fish",
+      "title": "Painted fish – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/dont-say-i-love-you-with-hearts-or-flowers-this-valentines-day/",
+      "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
+      "kind": "article"
+    }
+  ]
+}

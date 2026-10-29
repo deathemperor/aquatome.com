@@ -23,7 +23,7 @@ export type PublicPhoto = { id: string; name: string; url: string; thumb: string
 export const MAX_BYTES = 8 * 1024 * 1024
 const MAX_PER_DAY = 5
 export const MEDIA_BASE = 'https://media.aquatome.com'
-export const SPECIES_RE = /^species:[a-z0-9-]{1,140}$/
+export const SPECIES_RE = /^(species|breed):[a-z0-9-]{1,140}$/
 const fullKey = (id: string) => `readers/${id}.webp`
 const thumbKey = (id: string) => `readers/${id}-480.webp`
 
