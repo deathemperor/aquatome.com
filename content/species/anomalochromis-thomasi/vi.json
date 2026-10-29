@@ -1,8 +1,7 @@
 {
-  "slug": "ca-buom-chau-phi",
-  "name": "Cá bướm châu Phi",
+  "slug": "ca-cichlid-buom-chau-phi",
+  "name": "Cá cichlid bướm châu Phi",
   "altNames": [
-    "Cá cichlid bướm châu Phi",
     "African Butterfly Cichlid"
   ],
   "sections": {
@@ -24,5 +23,6 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true
 }

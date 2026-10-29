@@ -21,6 +21,7 @@ export const goLink = (network: 'shopee' | 'lazada' | 'tiki', keyword: string, c
 
 export const GROUP_LABELS: Record<string, string> = {
   tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
+  barbs: 'Cá barb', killifish: 'Cá killi', gobies: 'Cá bống', livebearers: 'Cá đẻ con', rainbowfish: 'Cá cầu vồng', snails: 'Ốc', other: 'Loài khác',
 }
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
 

@@ -38,7 +38,7 @@ export function groupTiles(c: Content): { group: string; label: string; count: n
       const best = ranked.find(s => s.photos.some(p => p.source !== 'glaser')) ?? ranked.find(s => s.photos.length)
       return { group, label, count: members.length, photo: best && cleanPhoto(best.photos) }
     })
-    .filter(g => g.count > 0)
+    .filter(g => g.count > 0 && g.group !== 'other')
     .sort((a, b) => b.count - a.count)
 }
 
