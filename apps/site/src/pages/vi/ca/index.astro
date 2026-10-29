@@ -8,7 +8,7 @@ import { creditsFor } from '../../../lib/credits'
 import { jsonForScript } from '../../../lib/json'
 
 const c = await getContent()
-const index = c.species.map(toIndexItem)
+const index = c.species.map(s => toIndexItem(s))
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`} credits={creditsFor(c.species.map(s => s.photos[0]))}>

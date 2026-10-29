@@ -25,7 +25,7 @@ const save = async (contentRoot: string, s: Summary) => {
   await writeFile(join(dir(contentRoot), `${s.id}.json`), `${JSON.stringify(s, null, 2)}\n`)
 }
 
-function profile(s: Localized<SpeciesEntity>): string {
+export function profile(s: Localized<SpeciesEntity>): string {
   const sections = Object.entries(s.t.sections).map(([k, html]) => `## ${k.split(':')[0]}\n${text(html)}`).join('\n\n')
   return `# ${s.t.name} (${s.scientificName})\n\n${sections}`.slice(0, 24_000)
 }

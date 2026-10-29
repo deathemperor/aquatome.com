@@ -62,3 +62,11 @@ export const SummarySchema = z.object({
   summary: z.string(), mistakes: z.array(z.string()).max(3),
   speciesUpdatedAt: z.string(), generatedAt: z.string(),
 })
+
+/** Behaviour facts read from a species page's own text, for the tank-mates checker. Re-read when the page changes. */
+export const TraitsSchema = z.object({
+  id: z.string(),
+  temperament: z.enum(['peaceful', 'semi-aggressive', 'aggressive', 'predator']).nullable(),
+  finNipper: z.boolean(), schoolMin: z.number().int().min(2).max(50).nullable(),
+  speciesUpdatedAt: z.string(), generatedAt: z.string(),
+})

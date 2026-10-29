@@ -36,8 +36,20 @@ test('tools page: nav link, sitemap, species index carries size and hardness; sp
   const { readFileSync } = await import('node:fs')
   const { dom } = page('/vi/cong-cu/')
   expect(dom.querySelector('nav a[href="/vi/cong-cu/"]')).not.toBeNull()
-  const idx = JSON.parse(dom.querySelector('#species-index')!.text) as { slug: string; sizeCm?: number }[]
+  const idx = JSON.parse(dom.querySelector('#species-index')!.text) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number }[]
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
+  expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8 })
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/cong-cu/')
   expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('a[href="/vi/cong-cu/?ca=ca-neon-vua#nuoi-chung"]')).not.toBeNull()
+})
+
+test('tankmates: behaviour notes from traits', () => {
+  const r = checkTankmates([
+    f('neon', { temperament: 'peaceful', schoolMin: 8 }),
+    f('barb', { temperament: 'semi-aggressive', finNipper: true }),
+    f('oscar', { temperament: 'predator' }),
+  ])
+  expect(r.notes.map(n => n.level)).toEqual(['warn', 'warn', 'bad', 'info'])
+  expect(r.notes[0]!.text).toContain('barb hơi dữ, có thể rượt đuổi neon')
+  expect(r.notes[3]!.text).toBe('Nuôi neon theo đàn từ 8 con.')
 })
