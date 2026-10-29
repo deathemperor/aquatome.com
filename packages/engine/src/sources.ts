@@ -12,10 +12,15 @@ export type SourceConfig = {
   contentSelector?: string
   /** Part of the URL that varies between copies of one item (e.g. product formats); stripped to form the dedupe key. */
   dedupe?: RegExp
+  /** Photos kept on pages of their own, linked from thumbnails on the species page (URLs matching this). */
+  photoPages?: RegExp
+  /** Narrowest photo taken from this source (default 600 px). */
+  minPhotoWidth?: number
   delayMs: number
 }
 
 const POLITE = 5000
+const SCOTCAT_FAMILIES = ['ailiidae', 'akysid', 'amblycip', 'amphill', 'anchar', 'andinich', 'arid', 'aspred', 'astroblep', 'auchenog', 'auch', 'austroglan', 'bagrid', 'callich', 'cetop', 'chaca', 'clariidae', 'clarot', 'cranoglan', 'diplomy', 'dorad', 'heptapt', 'heterop', 'horabag', 'ictal', 'krypto', 'lacant', 'loricar', 'malapt', 'moch', 'nematogen', 'pangas', 'phreat', 'pim', 'plotos', 'pseudopim', 'ritidae', 'schilb', 'scolop', 'silur', 'sisorid', 'trichomy']
 
 /** Recon 2026-10-28; include patterns are tuned against live sitemaps (see plan 2 ledger). */
 export const SOURCES: SourceConfig[] = [
@@ -30,6 +35,9 @@ export const SOURCES: SourceConfig[] = [
   // Spruce: 416xxxx ids are category hubs (dogs, cats, …), not articles.
   { id: 'sprucepets', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'], scope: 'main' }, include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /-416\d{4}$/, delayMs: POLITE },
   { id: 'aquariumbreeder', discover: { kind: 'sitemap', urls: ['https://aquariumbreeder.com/sitemap_index.xml'] }, include: /aquariumbreeder\.com\/[a-z0-9-]+\/?$/, exclude: /\/(category|tag|page|author|shop|cart|contact|about|blog)/, delayMs: POLITE },
+  // Old static site, ~4,000 catfish factsheets listed on one page per family; robots.txt asks 10 s between requests.
+  // Each photo (500 px) has its own page with the photographer's credit.
+  { id: 'scotcat', discover: { kind: 'crawl', start: SCOTCAT_FAMILIES.map(f => `https://www.scotcat.com/${f}family.htm`) }, include: /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\.htm$/, contentSelector: '.top-padding-10', photoPages: /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\d\.htm$/, minPhotoWidth: 500, delayMs: 10_000 },
   { id: 'tropica', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, dedupe: /\([^)]*\)\/\d+$/, contentSelector: '.content', delayMs: POLITE },
 ]
 

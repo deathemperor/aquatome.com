@@ -4,7 +4,7 @@ import type { ProcessedPage } from '../src/process'
 
 const taxon = { canonicalName: 'Paracheirodon axelrodi', order: 'Characiformes', family: 'Characidae', genus: 'Paracheirodon', matchType: 'EXACT' }
 const page = (over: Partial<ProcessedPage> = {}): ProcessedPage => ({
-  kind: 'species', scientificName: 'Paracheirodon axelrodi', enCommonNames: ['Cardinal Tetra'], viName: 'Cá neon vua', viAltNames: ['Neon đỏ'],
+  kind: 'species', scientificName: 'Paracheirodon axelrodi', synonyms: [], enCommonNames: ['Cardinal Tetra'], viName: 'Cá neon vua', viAltNames: ['Neon đỏ'],
   group: 'tetras', places: [{ continent: 'South America', country: 'Brazil', region: 'Rio Negro' }],
   dataCard: { tempC: { min: 23, max: 29 }, sizeCm: 3.5 },
   sections: [{ key: 'habitat', en: '<p>Streams.</p>', vi: '<p>Suối.</p>' }, { key: 'diet', en: '<p>Small.</p>', vi: '<p>Nhỏ.</p>' }],

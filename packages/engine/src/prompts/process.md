@@ -12,6 +12,7 @@ You turn one English aquarium web page into structured, translated content for a
    places: where it occurs in the wild, English names: continent, country, optional region = ONE short proper name of a river basin, lake or province (e.g. "Rio Negro", "Mekong", "Kalimantan"), never a phrase. One entry per country.
    group: one of tetras, cichlids, catfish, loaches, danios, rasboras, barbs, labyrinth, livebearers, killifish, gobies, rainbowfish, shrimp, snails, other.
    lNumber: L-/LDA-/C-number if the page gives one.
+   synonyms: other scientific names the page gives for this species (older or newer genus, e.g. "Corydoras sterbai" on a Hoplisoma sterbai page); empty if none.
 3. For plants: also fill plant {difficulty 1-3, light low|medium|high, co2 none|optional|required, growth slow|medium|fast, placement[]}; use the same section keys where they fit (quickFacts, maintenance, notes).
 4. For guides: guide {kind setup|care|breeding|disease|aquascaping|plantCare|discovery, viTitle, viBody (full Vietnamese translation as HTML)}; sections empty.
 5. productSlots: 1–4 things a Vietnamese hobbyist could buy for this (tank size, filter, heater, food, substrate, the plant itself), as {category, keywords[]} where category is one of be-ca, loc, suoi, den, thuc-an, phan-nen, cay-thuy-sinh, co2, test-nuoc and keywords are short Vietnamese shopping search phrases.

@@ -37,7 +37,8 @@ function walk(node: Node, out: string[]): void {
 }
 
 /** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
-export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true }
+/** `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo. */
+export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
