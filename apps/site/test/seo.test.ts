@@ -46,6 +46,18 @@ test('security.txt: contact, a future Expires and its canonical URL', () => {
   expect(txt).toMatch(/\nCanonical: https?:\/\/[^/]+\/\.well-known\/security\.txt\n/)
   expect(Date.parse(txt.match(/Expires: (\S+)/)![1]) - Date.now()).toBeGreaterThan(300 * 864e5)
 })
+test('markdown for agents: every page has index.md — front matter, headings, fact lines, no HTML or page chrome', () => {
+  const md = readFileSync(join(DIST, 'vi', 'ca', 'ca-dia', 'index.md'), 'utf8')
+  expect(md).toMatch(/^---\ntitle: ".+"\ndescription: ".+"/)
+  expect(md).toMatch(/^# .+/m)
+  expect(md).toMatch(/^## .+/m)
+  expect(md).toMatch(/^-\s+\*\*Nhiệt độ:\*\* \d/m)
+  expect(md).not.toMatch(/<[a-z][^>]*>/)
+  expect(md).not.toContain('Gửi bình luận')
+  expect(md).not.toContain('/go/')
+  expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
+  expect(htmlFiles(join(DIST, 'vi')).every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
+})
 test('about, privacy and contact pages exist, are linked from the footer and listed in the sitemap', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
   for (const p of ['/vi/gioi-thieu/', '/vi/chinh-sach-bao-mat/', '/vi/lien-he/']) {
