@@ -33,12 +33,16 @@ export class ArchiveFetcher {
 
   /** Plain text from the archive itself (the capture index). */
   async text(url: string): Promise<string> {
-    const r = await this.call(url)
-    if (!r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
-    const body = await r.text()
-    // While the index is down the archive answers with a "Temporarily Offline" page, not an error.
-    if (/^\s*</.test(body)) throw new Error(`the archive index is offline (${new URL(url).host})`)
-    return body
+    // While the index is down the archive answers with a "Temporarily Offline" page, not an error; it often
+    // comes back within seconds, so one retry after a pause.
+    for (let attempt = 0; ; attempt++) {
+      const r = await this.call(url)
+      if (!r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
+      const body = await r.text()
+      if (!/^\s*</.test(body)) return body
+      if (attempt > 0) throw new Error(`the archive index is offline (${new URL(url).host})`)
+      await this.d.sleep(30_000)
+    }
   }
 
   async bytes(url: string): Promise<Uint8Array> {

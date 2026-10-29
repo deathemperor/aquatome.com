@@ -45,3 +45,11 @@ test('an archived image that is really a page is no image', async () => {
   await expect(f.bytes('https://www.planetcatfish.com/images/mid/1.jpg')).rejects.toThrow(/no archived image/)
   expect((await f.bytes('https://www.planetcatfish.com/images/mid/2.jpg')).length).toBe(4)
 })
+
+test('an index that is offline for a moment is asked once more', async () => {
+  let n = 0
+  const waits: number[] = []
+  const f = new ArchiveFetcher({ fetch: async () => (n++ === 0 ? res(200, '<html>offline') : res(200, 'https://www.planetcatfish.com/common/species.php?species_id=7\n', 'text/plain')), now: () => new Date(), sleep: async ms => { waits.push(ms) }, ua: 'test' })
+  expect(await f.text('https://web.archive.org/cdx/search/cdx?url=x')).toContain('species_id=7')
+  expect(waits).toEqual([30_000])
+})
