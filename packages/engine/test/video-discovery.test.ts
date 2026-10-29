@@ -14,6 +14,7 @@ const lists: Record<string, { title: string; videos: { id: string; title: string
 const find: Finder = {
   search: async () => [{ id: 'PLgood', title: '', channel: 'A' }, { id: 'PLvlog', title: '', channel: 'B' }, { id: 'UCnotaplaylist', title: '', channel: 'C' }],
   channel: async () => [{ id: 'PLdup', title: '', channel: 'A' }, { id: 'PLtiny', title: '', channel: 'A' }, { id: 'PLknown', title: '', channel: 'A' }],
+  searchVideos: async () => [{ id: 'v1', title: 'Hướng dẫn setup bể thủy sinh cho người mới', channel: 'B' }],
   uploads: async () => [{ id: 'u1', title: 'How to set up a planted tank', channel: 'A' }, { id: 'u2', title: 'Fish room tour 2026', channel: 'A' }, { id: 'seen0', title: 'Already processed', channel: 'A' }],
   playlist: async id => ({ id, title: lists[id]!.title, channel: 'A', channelUrl: '', videos: lists[id]!.videos }),
 }
@@ -56,7 +57,7 @@ test('single videos from upload pages: unknown ones vetted by title, both verdic
   const root = await setup()
   let prompt = ''
   const llm = async <T,>(a: { prompt: string }) => { prompt = a.prompt; return { verdicts: [{ id: 'u1', ok: true, reason: 'how-to' }, { id: 'u2', ok: false, reason: 'tour' }] } as T }
-  const r = await discoverSingles({ find, llm, root, now: () => new Date('2026-10-30T00:00:00Z') }, { channels: ['A'] })
+  const r = await discoverSingles({ find, llm, root, now: () => new Date('2026-10-30T00:00:00Z') }, { channels: ['A'], queries: [] })
   expect(r).toMatchObject({ candidates: 2, added: ['u1 How to set up a planted tank (A)'], rejected: 1 })
   expect(prompt).not.toContain('seen0')
   const saved = JSON.parse(await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8'))
@@ -72,4 +73,11 @@ test("the owner's picks go to the front of the queues, un-rejecting a rejected o
   expect(lists.map((e: { id: string; by: string }) => [e.id, e.by])).toEqual([['PLgood', 'owner'], ['PLknown', 'seed']])
   const vids = JSON.parse(await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8'))
   expect(vids.map((e: { id: string; skip?: boolean }) => [e.id, !!e.skip])).toEqual([['r53ZQW0m8VM', false], ['xxxxxxxxxx1', false]])
+})
+
+test('Vietnamese video searches feed the single-video queue', async () => {
+  const root = await setup()
+  const llm = async <T,>(a: { prompt: string }) => ({ verdicts: [{ id: 'v1', ok: true, reason: 'how-to' }] }) as T
+  const r = await discoverSingles({ find, llm, root, now: () => new Date('2026-10-30T00:00:00Z') }, { channels: [], queries: ['hướng dẫn thủy sinh'] })
+  expect(r.added).toEqual(['v1 Hướng dẫn setup bể thủy sinh cho người mới (B)'])
 })

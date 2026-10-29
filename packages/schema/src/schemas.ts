@@ -41,6 +41,8 @@ export const VideoRef = z.object({
   thumb: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(),
   /** YouTube has no captions for it: we wrote from our own transcript of the audio, and the player can't show Vietnamese captions. */
   transcribed: z.boolean().optional(),
+  /** Spoken language of the video (ISO base code); absent means English. */
+  lang: z.string().optional(),
   /**
    * Pictures per guide section (matched by its h3 text): stills from the video (YouTube storyboard frames, a click plays
    * the video from there) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.

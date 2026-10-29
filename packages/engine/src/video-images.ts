@@ -17,7 +17,7 @@ export type ImageDeps = {
   /** Faces per image file (macOS Vision). */
   faces: (files: string[]) => Promise<number[]>
   storyboard: (youtubeId: string) => Promise<Storyboard | null>
-  transcript: (youtubeId: string) => Promise<string | null>
+  transcript: (youtubeId: string, lang?: string) => Promise<string | null>
   commons: (search: string) => Promise<Photo[]>
   get: (url: string) => Promise<Uint8Array>
   media: Media
@@ -103,7 +103,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   const v = e.video!
   const secs = sections(vi.body ?? '')
   if (!secs.length) return []
-  const transcript = await d.transcript(v.youtubeId)
+  const transcript = await d.transcript(v.youtubeId, v.lang ?? 'en')
   if (!transcript) throw new Error('no transcript')
   const plan = (await d.llm<{ sections: { times: number[]; query: string }[] }>({ system: 'You plan pictures for a guide. Reply only with JSON.', prompt: planPrompt(v.title, secs, transcript), schema: PLAN_SCHEMA })).sections
   const sb = await d.storyboard(v.youtubeId)

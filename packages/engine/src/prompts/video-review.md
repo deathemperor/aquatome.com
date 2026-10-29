@@ -1,4 +1,4 @@
-Review a Vietnamese guide that AquaTome wrote from a YouTube video, against the video's transcript (English auto captions, which mis-hear words: judge by what the creator clearly meant).
+Review a Vietnamese guide that AquaTome wrote from a YouTube video, against the video's transcript (automatic captions or transcription, which mis-hear words: judge by what the creator clearly meant).
 
 The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, attributing opinions to the creator, and dropping sponsor or channel promotion are all correct.
 
