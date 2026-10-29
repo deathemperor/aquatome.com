@@ -1,11 +1,16 @@
 {
+  "slug": "ca-dan",
   "name": "Cá đàn",
-  "definition": "Loài cá sống và bơi theo nhóm, cần nuôi số lượng lớn.",
-  "altNames": [],
+  "altNames": [
+    "cá bầy đàn",
+    "sống theo đàn",
+    "bầy đàn",
+    "theo đàn"
+  ],
   "sections": {},
+  "definition": "Loài cá sống và bơi thành nhóm ngoài tự nhiên, như cá tetra, rasbora, danio hay cá chuột. Nuôi lẻ vài con khiến chúng căng thẳng, nhợt màu và dễ bệnh; nên nuôi tối thiểu 6–10 con cùng loài để thấy hành vi tự nhiên.",
   "quality": {
-    "score": 0.92,
+    "score": 0.9,
     "indexable": true
-  },
-  "slug": "ca-dan"
+  }
 }

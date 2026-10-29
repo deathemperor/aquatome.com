@@ -197,3 +197,11 @@ test('pictures inside the text: extra species photos between sections, a mention
     expect(sp.querySelector('.gallery .thumbs'), slug).toBeNull()
   }
 })
+
+test('species text never links to the page itself; glossary and genus links come from one pass', () => {
+  for (const slug of ['ca-neon-vua', 'ca-neon-xanh', 'ca-dia', 'ca-galaxy', 'tep-red-cherry']) {
+    const { dom } = page(`/vi/ca/${slug}/`)
+    expect(dom.querySelectorAll(`section[data-section] a[href="/vi/ca/${slug}/"]`), slug).toHaveLength(0)
+  }
+  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] a.gl[href^="/vi/thuat-ngu/"]')).not.toBeNull()
+})

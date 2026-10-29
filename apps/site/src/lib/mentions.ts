@@ -1,5 +1,6 @@
 import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { categories } from './equipment'
+import { GROUP_LABELS } from './format'
 
 /** Words in guide text that mean an equipment category (only categories that have a page are linked). */
 const EQUIPMENT_TERMS: Record<string, string[]> = {
@@ -11,6 +12,27 @@ const EQUIPMENT_TERMS: Record<string, string[]> = {
   co2: ['CO2', 'CO₂'],
   'test-nuoc': ['bộ test', 'test nước', 'bộ kiểm tra nước'],
 }
+
+/** How Vietnamese text names a species group (only groups with a page are linked). */
+const GROUP_TERMS: Record<string, string[]> = {
+  tetras: ['cá tetra'], cichlids: ['cichlid', 'cá cichlid'], danios: ['cá danio'], rasboras: ['cá rasbora'], shrimp: ['tép cảnh'],
+  loaches: ['cá chạch'], catfish: ['cá da trơn'], labyrinth: ['cá mê cung'],
+}
+/** Vietnamese names for places stored under their English name. */
+const PLACE_VI: Record<string, string[]> = {
+  vietnam: ['Việt Nam'], thailand: ['Thái Lan'], china: ['Trung Quốc'], laos: ['Lào'], cambodia: ['Campuchia'], myanmar: ['Myanmar', 'Miến Điện'],
+  india: ['Ấn Độ'], 'sri-lanka': ['Sri Lanka'], malaysia: ['Malaysia', 'Mã Lai'], indonesia: ['Indonesia'], philippines: ['Philippines'],
+  japan: ['Nhật Bản'], 'south-korea': ['Hàn Quốc'], taiwan: ['Đài Loan'], singapore: ['Singapore'], nepal: ['Nepal'], bangladesh: ['Bangladesh'],
+  pakistan: ['Pakistan'], brazil: ['Brazil', 'Braxin'], peru: ['Peru'], colombia: ['Colombia'], venezuela: ['Venezuela'], ecuador: ['Ecuador'],
+  bolivia: ['Bolivia'], paraguay: ['Paraguay'], argentina: ['Argentina'], guyana: ['Guyana'], suriname: ['Suriname'], mexico: ['Mexico'],
+  'united-states': ['Hoa Kỳ', 'nước Mỹ'], australia: ['Úc', 'Australia'], 'papua-new-guinea': ['Papua New Guinea'], cameroon: ['Cameroon'],
+  'democratic-republic-of-the-congo': ['Cộng hòa Dân chủ Congo', 'CHDC Congo'], nigeria: ['Nigeria'], tanzania: ['Tanzania'], malawi: ['Malawi'],
+  germany: ['Đức'], russia: ['Nga'], borneo: ['Borneo'], sumatra: ['Sumatra'], java: ['đảo Java'], sulawesi: ['Sulawesi'],
+  asia: ['châu Á', 'Đông Nam Á'], africa: ['châu Phi'], 'south-america': ['Nam Mỹ'], 'north-america': ['Bắc Mỹ'], europe: ['châu Âu'],
+  oceania: ['châu Đại Dương'], 'central-america': ['Trung Mỹ'], mekong: ['sông Mê Kông', 'Mê Kông', 'Mekong'], 'red-river': ['sông Hồng'],
+}
+/** English place names that are also ordinary words or too short to link safely. */
+const PLACE_STOP = new Set(['Kong', 'Tone', 'Meta', 'Negro', 'Nan', 'Han', 'Chad', 'Java', 'Jordan', 'Guinea', 'Turkey', 'Tak', 'Yom'])
 
 const multiWord = (n: string) => n.trim().split(/\s+/).length >= 2 // single words ("cá", "betta") are too generic to link
 /** Group names ("cá neon", "cá chạch suối") begin several other species' names: linking them would point a group at one species. */
@@ -33,6 +55,21 @@ export function linkTargets(c: Content): LinkTarget[] {
     taxa.set(`family:${s.family}`, { key: `family:${s.family}`, href: taxonHref(s.order, s.family), names: [s.family], exact: true })
   }
   out.push(...taxa.values())
+  // Glossary before equipment: "CO2" explains the term rather than selling the kit.
+  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames], cls: 'gl' })
+  const groups = new Set(c.species.map(s => s.group))
+  for (const [g, names] of Object.entries(GROUP_TERMS)) if (groups.has(g) && GROUP_LABELS[g]) out.push({ key: `group:${g}`, href: `/vi/nhom/${g}/`, names })
+  // Continents and countries have pages; a region or river links to the country it lies in.
+  const placeById = new Map(c.places.map(p => [p.id, p]))
+  const pageOf = (p: (typeof c.places)[number] | undefined): string | undefined =>
+    !p ? undefined : p.kind === 'continent' ? `/vi/nguon-goc/${p.id}/` : p.kind === 'country' && p.parent ? `/vi/nguon-goc/${p.parent}/${p.id}/` : pageOf(p.parent ? placeById.get(p.parent) : undefined)
+  for (const p of c.places) {
+    const href = pageOf(p)
+    if (!href) continue
+    const own = p.t.name.length >= 4 && !PLACE_STOP.has(p.t.name) ? [p.t.name] : []
+    const names = [...own, ...(PLACE_VI[p.id] ?? [])]
+    if (names.length) out.push({ key: `place:${p.id}`, href, names, exact: true })
+  }
   for (const u of categories(c)) if (EQUIPMENT_TERMS[u.category]) out.push({ key: `equipment:${u.category}`, href: `/vi/thiet-bi/${u.category}/`, names: EQUIPMENT_TERMS[u.category]! })
   return out
 }

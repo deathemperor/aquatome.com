@@ -1,5 +1,5 @@
 ---
-import { linkGlossary, type GuideEntity, type Localized } from '@aq/schema'
+import type { GuideEntity, Localized } from '@aq/schema'
 import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import SpeciesCard from '../../../components/SpeciesCard.astro'
@@ -7,7 +7,6 @@ import PlantCard from '../../../components/PlantCard.astro'
 import SourceCredit from '../../../components/SourceCredit.astro'
 import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
-import { glossaryTerms } from '../../../lib/glossary'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { excerpt } from '../../../lib/meta'
@@ -22,7 +21,7 @@ export async function getStaticPaths() {
 const { g } = Astro.props as { g: Localized<GuideEntity> }
 const c = await getContent()
 const m = mentionIndex(c).guides.get(g.id)!
-const body = linkGlossary(m.html, glossaryTerms(c))
+const body = m.html
 const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
 const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
 const ph = guideImage(c, g)

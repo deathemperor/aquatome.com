@@ -1,11 +1,11 @@
 {
+  "slug": "ph",
   "name": "pH",
-  "definition": "Thang đo độ chua – kiềm của nước, 7 là trung tính.",
   "altNames": [],
   "sections": {},
+  "definition": "Thang đo độ chua – kiềm của nước, từ 0 đến 14; 7 là trung tính, dưới 7 là chua (axit), trên 7 là kiềm. Phần lớn cá cảnh sống tốt ở pH 6–8, nhưng cá nước đen như cá neon hay cá đĩa ưa nước chua hơn, còn cichlid hồ Malawi và Tanganyika cần nước kiềm. Quan trọng hơn con số chính xác là giữ pH ổn định, tránh thay đổi đột ngột.",
   "quality": {
-    "score": 0.92,
+    "score": 0.9,
     "indexable": true
-  },
-  "slug": "ph"
+  }
 }
