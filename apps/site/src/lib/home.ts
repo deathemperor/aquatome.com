@@ -68,3 +68,18 @@ export function leadGuides(c: Content): Localized<GuideEntity>[] {
 
 /** Guides for the homepage's three first steps: cycle the tank, choose fish, change water. Missing ones are skipped. */
 export const STEP_GUIDES = { cycle: 'aquariumcoop-blogs-aquarium-fish-tank-cycling', water: 'aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly' }
+
+/** What to read after a guide: the next beginner staple if it is one, then guides sharing the most species and plants, same kind first. */
+export function nextGuides(c: Content, g: Localized<GuideEntity>, n = 3): Localized<GuideEntity>[] {
+  const lead = leadGuides(c)
+  const keys = (x: Localized<GuideEntity>) => (mentionIndex(c).guides.get(x.id)?.keys ?? []).filter(k => k.startsWith('species:') || k.startsWith('plant:'))
+  const mine = new Set(keys(g))
+  const i = lead.indexOf(g)
+  const after = i >= 0 && i + 1 < lead.length ? [lead[i + 1]!] : []
+  const rest = lead
+    .filter(x => x !== g && !after.includes(x))
+    .map((x, j) => ({ x, score: keys(x).filter(k => mine.has(k)).length * 10 + (x.kind === g.kind ? 5 : 0) - j * 0.001 }))
+    .sort((a, b) => b.score - a.score)
+    .map(r => r.x)
+  return [...after, ...rest].slice(0, n)
+}

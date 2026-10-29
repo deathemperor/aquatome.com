@@ -258,3 +258,10 @@ test('species list: every card in the HTML, a "show more" pager, collapsible fil
   expect(dom.querySelectorAll('select[name="difficultyMax"] option').map(o => o.text)).toEqual(['Bất kỳ', 'Dễ', 'Dễ và vừa'])
   expect(dom.querySelectorAll('[data-slug]').length).toBeGreaterThan(0)
 })
+
+test('guide pages show reading time and suggest what to read next', () => {
+  const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  expect(dom.querySelector('.kind')?.text).toMatch(/đọc khoảng \d+ phút/)
+  const next = dom.querySelectorAll('#next-h ~ .grid a').map(a => a.getAttribute('href'))
+  expect(next).not.toContain('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+})
