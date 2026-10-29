@@ -1,0 +1,21 @@
+---
+import Browse from './Browse.astro'
+interface Props { title: string; intro?: string; updated?: string }
+const { title, intro, updated } = Astro.props
+---
+<Browse title={title} heading={title} intro={intro}>
+  <div class="doc">
+    {updated && <p class="updated">Cập nhật: {updated}</p>}
+    <slot />
+  </div>
+</Browse>
+<style>
+  .doc { max-width: var(--measure); }
+  .doc :global(h2) { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
+  .doc :global(h3) { font-size: var(--step-1); margin: var(--space-5) 0 var(--space-2); }
+  .doc :global(p), .doc :global(li) { color: var(--c-ink); }
+  .doc :global(ul) { padding-left: 1.2em; }
+  .doc :global(li) { margin-bottom: var(--space-2); }
+  .doc :global(hr) { border: 0; border-top: 1px solid var(--c-rule); margin: var(--space-7) 0; }
+  .updated { font-size: var(--step--1); color: var(--c-ink-faint); }
+</style>

@@ -1,0 +1,87 @@
+---
+import Doc from '../../../layouts/Doc.astro'
+import { CONTACT_EMAIL } from '../../../lib/site'
+const mail = `mailto:${CONTACT_EMAIL}`
+---
+<Doc title="Chính sách bảo mật" updated="29/10/2026" intro="AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.">
+  <p><a href="#english" lang="en">English version below.</a></p>
+
+  <h2>1. Chúng tôi là ai</h2>
+  <p>AquaTome (aquatome.com) là trang cẩm nang cá cảnh và thủy sinh. Liên hệ về dữ liệu cá nhân: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+
+  <h2>2. Dữ liệu chúng tôi xử lý</h2>
+  <h3>Bình luận</h3>
+  <p>Khi bình luận, bạn nhập tên hiển thị và nội dung. Hai thông tin này được lưu và hiển thị công khai sau khi duyệt. Chúng tôi không yêu cầu email hay tài khoản và không lưu địa chỉ IP của bạn. Để chống spam, chúng tôi lưu một mã băm một chiều của địa chỉ IP kèm ngày (không thể đảo ngược ra IP) trong 24 giờ để giới hạn số bình luận mỗi ngày.</p>
+  <h3>Kiểm tra chống spam (Cloudflare Turnstile)</h3>
+  <p>Ô bình luận dùng Cloudflare Turnstile để phân biệt người thật với bot. Turnstile tải trên các trang có phần bình luận và xử lý một số tín hiệu từ trình duyệt theo <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">chính sách bảo mật của Cloudflare</a>.</p>
+  <h3>Thống kê ẩn danh</h3>
+  <p>Để biết trang nào hữu ích và phiên bản giao diện nào dễ đọc hơn, trang gửi các sự kiện ẩn danh: đường dẫn trang, phiên bản giao diện, mức cuộn trang, thời gian đọc, lượt bấm liên kết mua hàng và một mã phiên ngẫu nhiên. Mã phiên nằm trong bộ nhớ phiên của trình duyệt và tự xóa khi bạn đóng tab. Sự kiện không chứa IP, tên hay thông tin nhận dạng và được lưu tối đa 3 tháng.</p>
+  <h3>Liên kết mua hàng</h3>
+  <p>Khi bạn bấm liên kết tới Shopee, Lazada hoặc Tiki, chúng tôi chỉ đếm số lượt bấm theo ngày, trang và sản phẩm. Sau khi chuyển sang trang bán hàng, dữ liệu của bạn do sàn đó xử lý theo chính sách của họ.</p>
+  <h3>Máy chủ</h3>
+  <p>Trang chạy trên Cloudflare. Như mọi máy chủ web, Cloudflare nhận địa chỉ IP và thông tin trình duyệt để phân phối trang và chống tấn công, theo <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">chính sách của Cloudflare</a>.</p>
+
+  <h2>3. Cookie và bộ nhớ trình duyệt</h2>
+  <ul>
+    <li><strong>skin</strong> (cookie của AquaTome, 90 ngày): ghi nhớ phiên bản giao diện bạn được xem, để trang không đổi kiểu mỗi lần bạn quay lại.</li>
+    <li><strong>units</strong> (bộ nhớ trình duyệt): ghi nhớ bạn chọn đơn vị °C/cm hay °F/inch.</li>
+    <li><strong>ts_sid</strong> (bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê ẩn danh, xóa khi đóng tab.</li>
+    <li><strong>Cookie quảng cáo của Google</strong>: xem mục 4.</li>
+  </ul>
+
+  <h2>4. Quảng cáo Google AdSense</h2>
+  <p>AquaTome hiển thị quảng cáo của Google. Các nhà cung cấp bên thứ ba, trong đó có Google, dùng cookie để hiển thị quảng cáo dựa trên những lần bạn truy cập trước đây vào trang này hoặc các trang khác. Cookie quảng cáo của Google cho phép Google và đối tác hiển thị quảng cáo phù hợp với bạn.</p>
+  <ul>
+    <li>Bạn có thể tắt quảng cáo được cá nhân hóa tại <a href="https://adssettings.google.com/" rel="noopener">Cài đặt quảng cáo của Google</a>.</li>
+    <li>Bạn có thể từ chối cookie của các nhà cung cấp bên thứ ba khác tại <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>.</li>
+    <li>Tìm hiểu thêm: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Cách Google sử dụng dữ liệu khi bạn dùng trang web của đối tác</a>.</li>
+  </ul>
+  <p>Nếu bạn ở Khu vực Kinh tế Châu Âu, Vương quốc Anh hoặc Thụy Sĩ, Google sẽ hỏi bạn đồng ý trước khi dùng cookie quảng cáo. Bạn có thể đổi lựa chọn bất cứ lúc nào qua nút “Cài đặt quyền riêng tư và cookie” ở cuối trang.</p>
+
+  <h2>5. Video YouTube</h2>
+  <p>Video chỉ tải từ youtube-nocookie.com khi bạn bấm phát. Trước đó trang chỉ hiển thị ảnh xem trước lấy từ máy chủ ảnh của YouTube.</p>
+
+  <h2>6. Thời gian lưu</h2>
+  <ul>
+    <li>Bình luận đã duyệt: lưu trong thời gian hiển thị trên trang.</li>
+    <li>Bình luận bị gỡ: xóa vĩnh viễn sau 30 ngày.</li>
+    <li>Mã băm chống spam: 24 giờ.</li>
+    <li>Thống kê ẩn danh: tối đa 3 tháng.</li>
+  </ul>
+
+  <h2>7. Quyền của bạn</h2>
+  <p>Theo Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân, bạn có quyền được biết, xem, sửa, xóa dữ liệu của mình và rút lại sự đồng ý. Vì chúng tôi không lưu email hay tài khoản, hãy gửi tới <a href={mail}>{CONTACT_EMAIL}</a> đường dẫn trang, tên hiển thị và nội dung bình luận để chúng tôi tìm và xử lý.</p>
+
+  <h2>8. Thay đổi</h2>
+  <p>Khi chính sách thay đổi, chúng tôi cập nhật trang này và ngày ở đầu trang.</p>
+
+  <hr />
+
+  <section id="english" lang="en">
+    <h2>Privacy policy (English)</h2>
+    <p>Last updated: 29 October 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+    <h3>What we process</h3>
+    <ul>
+      <li><strong>Comments:</strong> the display name and text you enter, shown publicly after moderation. No email, account or IP address is stored. To limit spam, a one-way hash of your IP address plus the date is kept for 24 hours.</li>
+      <li><strong>Spam check:</strong> the comment form uses Cloudflare Turnstile, which loads on pages with comments and processes browser signals under <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">Cloudflare's Turnstile privacy policy</a>.</li>
+      <li><strong>Anonymous statistics:</strong> page path, design variant, scroll depth, reading time, shop-link clicks and a random session ID held in session storage (cleared when you close the tab). No IP or identifying data; kept up to 3 months.</li>
+      <li><strong>Shop links:</strong> clicks to Shopee, Lazada or Tiki are counted per day, page and product. The shop's own policy applies once you leave AquaTome.</li>
+      <li><strong>Hosting:</strong> Cloudflare receives IP addresses and browser data to deliver and protect the site (<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare privacy policy</a>).</li>
+    </ul>
+    <h3>Cookies and storage</h3>
+    <ul>
+      <li><strong>skin</strong> (first-party cookie, 90 days): keeps the design variant you see consistent between visits.</li>
+      <li><strong>units</strong> (local storage): your °C/cm or °F/inch choice.</li>
+      <li><strong>ts_sid</strong> (session storage): random session ID for anonymous statistics.</li>
+      <li>Google advertising cookies: see below.</li>
+    </ul>
+    <h3>Advertising (Google AdSense)</h3>
+    <p>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visits. You can opt out of personalised advertising in <a href="https://adssettings.google.com/" rel="noopener">Google Ads Settings</a>, and opt out of other vendors' cookies at <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>. See <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses data from partner sites</a>. Visitors in the EEA, the UK and Switzerland are asked for consent first and can change their choice at any time with the “Privacy and cookie settings” button at the bottom of the page.</p>
+    <h3>Videos</h3>
+    <p>YouTube videos load from youtube-nocookie.com only after you press play; before that only a preview image from YouTube's image server is shown.</p>
+    <h3>Retention</h3>
+    <p>Approved comments: while they are shown. Removed comments: deleted after 30 days. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months.</p>
+    <h3>Your rights</h3>
+    <p>You can ask to access, correct or delete your comments, or withdraw consent, under Vietnam's Decree 13/2023/ND-CP and, where it applies, the GDPR. Because we store no email or account, include the page URL, display name and comment text in your request to <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+  </section>
+</Doc>
