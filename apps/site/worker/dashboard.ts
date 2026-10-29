@@ -21,6 +21,15 @@ export function authorise(req: Request, secret: string | undefined): { ok: boole
   return { ok: !!c && safeEqual(c, secret) }
 }
 
+/** /_ab/ without a valid token: ask for it (POST /_ab/login). */
+export function renderLogin(failed = false): string {
+  return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản trị · AquaTome</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}input{font:inherit;padding:.4rem .6rem}button{font:inherit;padding:.4rem .9rem}.err{color:#b3261e}</style></head><body>
+<h1>Quản trị AquaTome</h1>${failed ? '<p class="err">Mã quản trị không đúng.</p>' : ''}
+<form method="post" action="/_ab/login"><label>Mã quản trị <input type="password" name="token" required autocomplete="current-password" autofocus></label> <button>Vào</button></form>
+<p><a href="/vi/">← Về trang chủ</a></p></body></html>`
+}
+
 const fmt = (n: number, d = 0) => n.toLocaleString('vi-VN', { maximumFractionDigits: d, minimumFractionDigits: d })
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
