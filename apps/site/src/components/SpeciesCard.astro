@@ -29,13 +29,15 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
   )}
 </article>
 <style>
-  .sc a { text-decoration: none; color: inherit; display: block; }
+  /* Labels sit at the card's foot so neighbouring cards' rows line up whatever the name's length. */
+  .sc { display: flex; flex-direction: column; height: 100%; }
+  .sc a { text-decoration: none; color: inherit; display: block; margin-bottom: var(--space-3); }
   .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
   .sc a:hover h3 { color: var(--c-moss); }
   h3 { font-size: 1.3rem; margin-top: var(--space-3); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); font-style: italic; font-family: var(--f-display); }
-  .label { margin: var(--space-3) 0 0; padding-top: var(--space-2); border-top: 1px solid var(--c-ink); display: grid; gap: var(--space-2); font-size: 0.8rem; }
+  .label { margin: auto 0 0; padding-top: var(--space-2); border-top: 1px solid var(--c-ink); display: grid; gap: var(--space-2); font-size: 0.8rem; }
   .label > div { display: grid; grid-template-columns: 1fr auto; align-items: baseline; row-gap: 3px; }
   .label > div > :global(.rb) { grid-column: 1 / -1; }
   dt { color: var(--c-ink-faint); }
