@@ -37,11 +37,10 @@ from sources that aren't cleared. Photos load only with CC0, CC BY, CC BY-SA or 
 
 `content/` holds engine output (Plan 2). Site tests use the sample store in `apps/site/test/fixture-content/` (placeholder Vietnamese text, Wikimedia Commons photos; generator `scripts/gen-sample-content.py`).
 
-## Staging deploy
-`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy-staging.sh` builds with `STAGING=1` and deploys to
-https://thuysinh.infinitus.run (Cloudflare Workers static assets, `apps/site/wrangler.jsonc`). Every response carries
-`X-Robots-Tag: noindex, nofollow` and robots.txt disallows everything. Content is the local (ungated) build.
-huuloc.com is in a different Cloudflare account (loc.truongh@gmail.com); moving staging there needs a token from that account.
+## Deploy
+`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy.sh` builds the publish-gated site (`PUBLIC_BUILD=1`)
+and deploys it to https://aquatome.com (Worker `aquatome`, `apps/site/wrangler.jsonc`). www.aquatome.com and the old staging
+host thuysinh.infinitus.run 301 to it. The engine cycle runs this after each content run.
 
 ## Content engine
 
@@ -54,7 +53,7 @@ huuloc.com is in a different Cloudflare account (loc.truongh@gmail.com); moving 
 
 - Fetching uses headed Chrome (`~/.cache/thuysinh/chrome-profile`). A challenge page marks the source `needs-human`: open that profile, pass the check by hand, and the next run continues. No stealth or solvers.
 - Translation: `claude -p --model sonnet` on the owner's subscription with a lean prompt; a second pass scores it. Scores under 0.75 get one re-translation with the reviewer's notes, and are noindexed if still low.
-- Photos: the best few photos on each source page are copied to R2 `thuysinh-media` (≤1200 px WebP, `https://media.thuysinh.infinitus.run`) and credited to the source page. They follow the source's publish flag. Wikimedia Commons (open licences) is the fallback.
+- Photos: the best few photos on each source page are copied to R2 `thuysinh-media` (≤1200 px WebP, `https://media.aquatome.com`) and credited to the source page. They follow the source's publish flag. Wikimedia Commons (open licences) is the fallback.
 - Credentials (never committed): `~/.config/thuysinh/cf-token` and `~/.config/thuysinh/cf-account`, or `CLOUDFLARE_API_TOKEN` / `CF_ACCOUNT_ID`. Optional: `YOUTUBE_API_KEY` for videos.
 - Schedule: `scripts/install-engine-schedule.sh` installs the launchd agent `run.thuysinh.engine`, which runs every 6 h from a dedicated clone. It calls `scripts/engine-cycle.sh` (pull → run → test → commit + push → deploy staging). Log: `~/Library/Logs/thuysinh-engine.log`.
 

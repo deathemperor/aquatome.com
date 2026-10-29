@@ -16,6 +16,8 @@ export interface Env {
   /** Optional until Analytics Engine is enabled on the account; events are accepted and dropped without it. */
   EVENTS?: AnalyticsEngineDataset
   STAGING?: string
+  /** Production host; any other host (www, the old staging domain) 301s here. */
+  CANONICAL_HOST?: string
   AFFILIATE_CLICK_VALUE_VND?: string
   AB_DASH_TOKEN?: string
   AE_API_TOKEN?: string
@@ -91,6 +93,9 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 
 export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = htmlRewrite, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
+  if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
+    return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
+  }
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)

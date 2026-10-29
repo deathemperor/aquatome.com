@@ -187,9 +187,9 @@ Ads: Google AdSense, placed per skin without breaking layout.
 
 ## 12. Open questions for the owner
 
-1. **Permissions** — owner (2026-10-28): "start development for local". Development + local backfill proceed now. **Public deploy is gated** on a complete permission record per source (§4.1); the build must make an un-cleared source impossible to publish (per-source `publish: false` default).
+1. **Permissions** — **Owner decision 2026-10-29:** launch publicly on aquatome.com now with every source published; the owner states permission is held for all sources and will provide the documents later. All `publish` flags set to `true` on that basis; the per-source record (§4.1) is still to be filled in. Earlier — owner (2026-10-28): "start development for local". Development + local backfill proceed now. **Public deploy is gated** on a complete permission record per source (§4.1); the build must make an un-cleared source impossible to publish (per-source `publish: false` default).
 2. **Operator** — an individual (in Vietnam, assumed). Vietnam's Decree 147/2024 may require phone-number verification for commenters if comments count as a social platform; unconfirmed. Build comments with name-only now, behind a pluggable verification step that can be switched on later.
-3. Brand + domain (deferred by owner).
+3. Brand + domain — **AquaTome**, https://aquatome.com, tagline "Cẩm nang cá cảnh & thủy sinh" (owner, 2026-10-29).
 
 ## Appendix A — Calls made by Claude (flag if wrong)
 - One combined page per species with SF-preferred data card values.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One content-engine cycle on the home machine: sync → run engine → build + test → commit + push → deploy staging.
+# One content-engine cycle on the home machine: sync → run engine → build + test → commit + push → deploy.
 # Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
 set -euo pipefail
 export PATH="$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
@@ -34,5 +34,5 @@ fi
 git add content sources engine-state
 git commit -q -m "content: engine run $(date -u +%F)"
 git push -q
-CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy-staging.sh
+CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh
 log "cycle done"
