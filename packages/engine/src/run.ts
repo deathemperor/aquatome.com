@@ -100,6 +100,8 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
 const outranked = (sections: Section[] | undefined, source: SourceId, url: string, incoming: number) =>
   (sections ?? []).filter(x => x.source === source && x.sourceUrl !== url).length > incoming
 
+const BROWSER_GONE = /Target page, context or browser has been closed|Browser has been closed|Target closed/i
+
 /** Optional enrichment never fails a page. */
 async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
   try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
@@ -251,6 +253,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       } catch (e) {
         counts.errors++
         report.errors.push(`${url}: ${(e as Error).message}`)
+        // The browser itself is gone (crash, closed window): every later page would fail the same way, and this one isn't at fault.
+        if (BROWSER_GONE.test((e as Error).message)) {
+          report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')
+          break sources
+        }
         await save({ ...base, ...keep(prev), status: 'error', attempts: (prev?.status === 'error' ? prev.attempts : 0) + 1, error: (e as Error).message.slice(0, 300) })
         if (e instanceof LlmError && ++llmFailures >= MAX_LLM_FAILURES) {
           report.errors.push(`stopping: ${MAX_LLM_FAILURES} consecutive Claude failures (${(e as Error).message.slice(0, 120)})`)

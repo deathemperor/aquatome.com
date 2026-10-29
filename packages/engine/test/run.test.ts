@@ -198,3 +198,14 @@ test('least-covered source runs first and gets only a fair share of the time', a
   // 30 min over 2 sources → 15 min for Seriously Fish: fetches at t=0 and t=10, stops before the third.
   expect(r.perSource.seriouslyfish?.fetched).toBe(2)
 })
+
+test('a closed browser stops the run without marking the page as an error', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi', 'broken-fish'] })
+  let gets = 0
+  d.fetcher.get = async () => { gets++; throw new Error('page.goto: Target page, context or browser has been closed') }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(gets).toBe(1)
+  expect(r.errors.at(-1)).toContain('stopping: the browser closed')
+  expect(JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8').catch(() => '{}'))['https://www.seriouslyfish.com/species/paracheirodon-axelrodi']?.status).not.toBe('error')
+})
