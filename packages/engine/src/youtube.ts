@@ -2,7 +2,9 @@ import { execFile } from 'node:child_process'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
+import { homedir } from 'node:os'
+import { fileURLToPath } from 'node:url'
 import { GuideSchema, QUALITY_THRESHOLD, SeriesSchema, TranslationSchema, type GuideEntity, type Series, type Translation } from '@aq/schema'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
@@ -21,10 +23,15 @@ export type VideoMeta = {
   chapters: { start: number; title: string }[]; embeddable: boolean; description: string; thumb: { url: string; width: number; height: number }
   /** YouTube lists an English caption track (manual or automatic). */
   captions: boolean
+  /** Spoken language is English (or unknown). */
+  english?: boolean
 }
 export type Playlist = { id: string; title: string; channel: string; channelUrl: string; videos: { id: string; title: string }[] }
-/** YouTube access: metadata and caption text only (never video or audio). */
-export type YouTube = { playlist(id: string): Promise<Playlist>; video(id: string): Promise<VideoMeta>; transcript(id: string): Promise<string | null> }
+/**
+ * YouTube access: metadata and caption text; for a video with no captions at all, `transcribe` downloads only its audio to a
+ * temp folder, transcribes it on this Mac (Whisper) and deletes it. Never video.
+ */
+export type YouTube = { playlist(id: string): Promise<Playlist>; video(id: string): Promise<VideoMeta>; transcript(id: string): Promise<string | null>; transcribe?(id: string): Promise<string | null> }
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
@@ -51,13 +58,18 @@ const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60))
 /** YouTube json3 captions → "[m:ss] text" lines, one per ~30 s, so the writer can place ideas in the video. */
 export function parseTranscript(json3: string): string {
   const events = (JSON.parse(json3).events ?? []) as { tStartMs?: number; segs?: { utf8?: string }[] }[]
+  return toLines(events.map(e => ({ start: (e.tStartMs ?? 0) / 1000, text: (e.segs ?? []).map(s => s.utf8 ?? '').join('') })))
+}
+
+/** Timed text → "[m:ss] text" lines, one per ~30 s. */
+export function toLines(segments: { start: number; text: string }[]): string {
   const lines: string[] = []
   let start = -1
   let buf = ''
-  for (const e of events) {
-    const text = (e.segs ?? []).map(s => s.utf8 ?? '').join('').replace(/\s+/g, ' ').trim()
+  for (const e of segments) {
+    const text = e.text.replace(/\s+/g, ' ').trim()
     if (!text) continue
-    const t = (e.tStartMs ?? 0) / 1000
+    const t = e.start
     if (start < 0) start = t
     if (t - start >= 30 && buf) { lines.push(`[${clock(start)}] ${buf.trim()}`); start = t; buf = '' }
     buf += ` ${text}`
@@ -78,6 +90,17 @@ const thumbOf = async (id: string) => {
   return ok ? { url: maxres, width: 1280, height: 720 } : { url: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`, width: 320, height: 180 }
 }
 
+/** Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again. */
+const CACHE = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/thuysinh/transcripts')
+async function cached(file: string, make: () => Promise<string | null>): Promise<string | null> {
+  const path = join(CACHE, file)
+  const hit = await readFile(path, 'utf8').catch(() => null)
+  if (hit) return hit
+  const v = await make()
+  if (v) { await mkdir(CACHE, { recursive: true }); await writeFile(path, v) }
+  return v
+}
+
 /** yt-dlp on the owner's machine: metadata (-J) and English captions (manual first, else automatic) as json3. */
 export const ytDlp: YouTube = {
   async playlist(id) {
@@ -93,10 +116,11 @@ export const ytDlp: YouTube = {
       chapters: ((d.chapters ?? []) as { start_time: number; title: string }[]).map(c => ({ start: Math.round(c.start_time), title: c.title })),
       embeddable: d.playable_in_embed !== false && (d.availability === 'public' || d.availability === 'unlisted'),
       captions: [...Object.keys(d.subtitles ?? {}), ...Object.keys(d.automatic_captions ?? {})].some(l => /^en(-|$)/.test(l)),
+      english: !d.language || /^en(-|$)/.test(d.language),
       thumb: await thumbOf(id),
     }
   },
-  async transcript(id) {
+  transcript: id => cached(`${id}.txt`, async () => {
     const dir = await mkdtemp(join(tmpdir(), 'aq-yt-'))
     try {
       await run(['--write-subs', '--write-auto-subs', '--sub-langs', 'en,en-orig,en-US,en-GB', '--sub-format', 'json3', '-o', '%(id)s.%(ext)s', watch(id)], dir)
@@ -105,7 +129,21 @@ export const ytDlp: YouTube = {
     } finally {
       await rm(dir, { recursive: true, force: true })
     }
-  },
+  }),
+  transcribe: id => cached(`${id}.whisper.txt`, async () => {
+    const python = process.env.WHISPER_PYTHON ?? join(homedir(), '.local/share/thuysinh/whisper-venv/bin/python')
+    if (!existsSync(python)) return null // Whisper not installed on this machine: the video stays skipped
+    const dir = await mkdtemp(join(tmpdir(), 'aq-audio-'))
+    try {
+      await run(['--no-skip-download', '-f', 'bestaudio', '-o', 'audio.%(ext)s', watch(id)], dir)
+      const audio = (await readdir(dir)).find(f => f.startsWith('audio.'))
+      if (!audio) return null
+      const out = await new Promise<string>((resolve, reject) => execFile(python, [fileURLToPath(new URL('../scripts/transcribe.py', import.meta.url)), join(dir, audio), 'en'], { maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60_000 }, (e, o, err) => (e ? reject(new Error(`whisper: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(o))))
+      return toLines(JSON.parse(out) as { start: number; text: string }[])
+    } finally {
+      await rm(dir, { recursive: true, force: true }) // the audio never outlives the transcript
+    }
+  }),
 }
 
 /** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
@@ -242,8 +280,11 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
       try {
         const m = await yt.video(vid)
-        const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !m.captions ? 'no English captions' : null
-        const transcript = skip ? null : await yt.transcript(vid)
+        // No captions at all: our own transcript of the audio (English videos, when Whisper is installed).
+        const ownTranscript = !m.captions && m.english !== false && !!yt.transcribe
+        const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !m.captions && !ownTranscript ? 'no English captions' : null
+        const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid) : await yt.transcript(vid)
+        if (!skip && !transcript && ownTranscript) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; continue }
         // Listed but not downloaded (rate limit, network): an error, retried later — not a skip.
         if (!skip && !transcript) throw new Error('English captions listed but not downloaded')
         const why = skip ?? (transcript!.length < 1500 ? 'captions too short' : null)
@@ -266,7 +307,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         const now = deps.now().toISOString().slice(0, 10)
         const entity = GuideSchema.parse({
           id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], mentions: prev.entity?.mentions ?? [], updatedAt: now,
-          video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, series: { id: series.id, position: i }, thumb: m.thumb },
+          video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, series: { id: series.id, position: i }, thumb: m.thumb, ...(ownTranscript ? { transcribed: true } : {}) },
         })
         const name = d.viTitle.trim()
         const vi = TranslationSchema.parse({

@@ -130,3 +130,18 @@ test('YouTube throttling stops the run without marking any video failed', async 
   expect(r).toMatchObject({ stoppedEarly: true, errors: ['YouTube is throttling (a1): stopped, nothing marked failed'] })
   expect(await readFile(join(root, 'engine-state/youtube.json'), 'utf8').catch(() => 'none')).toBe('none')
 })
+
+test('a video without any captions is written from our own transcript of its audio, and marked so', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { a1: { captions: false } } })
+  let asked = ''
+  d.yt.transcribe = async id => { asked = id; return `[0:00] ${'cyanobacteria grows in low flow. '.repeat(60)}` }
+  const r = await videoGuides(d, { playlists: ['PL1'] })
+  expect(asked).toBe('a1')
+  expect(r.written).toEqual(['youtube-a1 (0.90)'])
+  expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.transcribed).toBe(true)
+  const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
+  const two = deps(root2, { videos: { a1: { captions: false, english: false } } })
+  two.d.yt.transcribe = async () => { throw new Error('not for non-English videos') }
+  expect((await videoGuides(two.d, { playlists: ['PL1'] })).skipped).toEqual(['a1: no English captions'])
+})
