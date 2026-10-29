@@ -9,6 +9,7 @@ import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
 import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
+import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { EQUAL, type Weights } from './skins'
 import { queryStats } from './stats'
@@ -139,9 +140,15 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     const auth = authorise(req, env.AB_DASH_TOKEN)
     if (!auth.ok) return finish(new Response('Not found', { status: 404 }), env)
     // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar/history.
-    if (auth.setCookie) return new Response(null, { status: 303, headers: { location: '/_ab/', 'set-cookie': auth.setCookie, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } })
+    if (auth.setCookie) {
+      const h = new Headers({ location: '/_ab/', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
+      h.append('set-cookie', auth.setCookie)
+      h.append('set-cookie', OWNER_COOKIE)
+      return new Response(null, { status: 303, headers: h })
+    }
     const snap = await env.AB.get<Snapshot>('ab:stats', 'json')
-    const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
+    // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
+    const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
     return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true)), { headers })
   }
