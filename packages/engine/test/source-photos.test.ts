@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { htmlToOutline } from '../src/outline'
-import { pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const SF = 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi'
 const html = readFileSync(new URL('./fixtures/pages/seriouslyfish-cardinal.html', import.meta.url), 'utf8')
@@ -89,4 +89,32 @@ test('articles skip images in a shop product tile; species pages from shops keep
   expect(pickSourcePhotos(imgs, 'https://shop.test/blogs/a', [], 6, 'guide').map(p => p.src)).toEqual(['https://shop.test/blog/hero.jpg'])
   const fish = htmlToOutline('<main><div class="product__media"><img src="/betta-koi.jpg" alt="Betta splendens koi" width="1200" height="900"></div></main>').images
   expect(pickSourcePhotos(fish, 'https://shop.test/products/betta', ['Betta splendens'])).toHaveLength(1)
+})
+
+test('photos on pages of their own (ScotCat): each thumbnail\'s page gives the full image and its photographer', async () => {
+  const SC = 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai.htm'
+  const page = `<body><div class="top-padding-10">Hoplisoma sterbai</div>
+    <a href="../callichfamily.htm"><img src="../familylink.gif"></a><a href="https://www.fishbase.se/x"><img src="../fishbase.jpg"></a>
+    ${[1, 2, 3, 4, 5].map(n => `<a href="hoplisoma_sterbai${n}.htm"><img src="../Thumbnails/c_sterbai${n}.jpg" alt="Click for full image" width="100" height="63"></a>`).join('')}</body>`
+  const photoPage = (n: number, alt: string, by: string) => `<img src="../familylink.gif"><img src="../images/c_sterbai${n}.jpg" alt="${alt}" width="500" height="316" class="TKi"><br>${by ? `&nbsp;<font color="#666666">&copy;&nbsp;<strong>${by}</strong></font>` : ''}<img src="../Thumbnails/c_sterbai${n}.jpg" width="100">${'<p>…</p>'.repeat(200)}<p>©2026 SCOTCAT.COM</p>`
+  const asked: string[] = []
+  const get = async (u: string) => {
+    asked.push(u)
+    if (u.endsWith('3.htm')) throw new Error('HTTP 404')
+    const n = Number(u.match(/(\d)\.htm$/)![1])
+    return { html: photoPage(n, n === 1 ? 'Hoplisoma sterbai = spawning embrace' : 'Hoplisoma sterbai', n === 1 ? 'Helen\n   Burns' : n === 2 ? 'Mark Duffill' : '') }
+  }
+  const images = await linkedPhotos(page, SC, /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\d\.htm$/, get)
+  // Four photo pages at most; the one that fails is skipped.
+  expect(asked).toHaveLength(4)
+  expect(images[0]).toEqual({ src: 'https://www.scotcat.com/images/c_sterbai1.jpg', alt: 'Hoplisoma sterbai: spawning embrace', width: 500, height: 316, page: 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm', author: 'Helen Burns' })
+  // No credit under a photo: no author (never the site's footer).
+  expect(images.map(i => i.author)).toEqual(['Helen Burns', 'Mark Duffill', undefined])
+  // 500 px photos only where the source allows them; shared captions are not duplicates here.
+  expect(pickSourcePhotos(images, SC, ['Hoplisoma sterbai'])).toEqual([])
+  const picked = pickSourcePhotos(images, SC, ['Hoplisoma sterbai'], 4, 'subject', 500)
+  expect(picked).toHaveLength(3)
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 500, height: 316 }) }
+  const [stored] = await storeSourcePhotos('scotcat', 'ScotCat', SC, picked.slice(0, 1), { bytes: async () => new Uint8Array(1), media }, [])
+  expect(stored).toMatchObject({ author: 'Helen Burns / ScotCat', sourceUrl: SC, caption: 'Hoplisoma sterbai: spawning embrace', source: 'scotcat' })
 })

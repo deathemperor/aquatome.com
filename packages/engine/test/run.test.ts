@@ -135,6 +135,16 @@ test('an archived source falls back on its last good index while the archive ind
   expect(down.errors.join('\n')).toMatch(/using the last index \(1 pages\)/)
 })
 
+test('a name newer than GBIF is found under a synonym the page gives', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'], page: { ...species, scientificName: 'Novum axelrodi', synonyms: ['Paracheirodon axelrodi'] } })
+  const http = d.http
+  d.http = async (url: string) => (url.includes('gbif') && url.includes('Novum') ? { matchType: 'HIGHERRANK', canonicalName: 'Novum' } : http(url))
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).scientificName).toBe('Paracheirodon axelrodi')
+})
+
 test('limit is respected per source', async () => {
   const root = await fresh()
   const r = await runEngine(deps(root).d, { sources: ['seriouslyfish'], limit: 1 })

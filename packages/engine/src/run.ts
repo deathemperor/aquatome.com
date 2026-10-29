@@ -13,7 +13,7 @@ import { findPhotos } from './photos'
 import { processPage, type ProcessedPage } from './process'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
-import { pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
+import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
 import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
@@ -172,15 +172,18 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   /** Write the processed page; returns entity ids (`kind/id`) or null when it isn't usable content. */
   async function apply(source: SourceId, url: string, page: ProcessedPage, score: number, images: PageImage[], bytes: Deps['fetcher']['bytes']): Promise<string[] | null> {
     const now = today()
+    const minWidth = sourceById(source).minPhotoWidth
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject'), { bytes, media: deps.media }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media }, existing)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
       return e
     }
     if (page.kind === 'species') {
-      const taxon = await gbifMatch(page.scientificName!, http, gbifCache)
+      // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
+      let taxon = await gbifMatch(page.scientificName!, http, gbifCache)
+      for (const syn of page.synonyms) if (!taxon) taxon = await gbifMatch(syn, http, gbifCache)
       if (!taxon) return null
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
@@ -297,7 +300,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           continue
         }
         const { page, score } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
-        const entityIds = await apply(id, url, page, score, o.images, bytes)
+        const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
+        const entityIds = await apply(id, url, page, score, images, bytes)
         if (entityIds) counts.processed++
         else counts.skipped++
         await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })

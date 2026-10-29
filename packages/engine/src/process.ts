@@ -11,6 +11,7 @@ const GUIDE_KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'pla
 const base = {
   kind: z.enum(['species', 'plant', 'guide', 'skip']),
   scientificName: z.string().min(3).optional(),
+  synonyms: z.array(z.string()).default([]),
   enCommonNames: z.array(z.string()).default([]),
   viName: z.string().default(''),
   viAltNames: z.array(z.string()).default([]),
