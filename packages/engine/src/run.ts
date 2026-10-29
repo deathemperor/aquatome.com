@@ -11,6 +11,7 @@ import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './m
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
 import { findPhotos } from './photos'
 import { processPage, type ProcessedPage } from './process'
+import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
@@ -135,15 +136,30 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
 
-  /** Translate, review, and re-translate once with the reviewer's notes if it scores low. */
+  /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if that fails. */
+  async function polish(p: ProcessedPage, outline: string): Promise<ProcessedPage> {
+    try {
+      if (p.kind === 'guide' && p.guide) return { ...p, guide: { ...p.guide, viBody: (await rewriteVi(llm, [{ id: 'body', en: outline, vi: p.guide.viBody }], VI_WRITE)).get('body')! } }
+      const parts = p.sections.filter(x => x.key !== 'references').map(x => ({ id: x.key, en: x.en, vi: x.vi }))
+      if (!parts.length) return p
+      const m = await rewriteVi(llm, parts, VI_WRITE)
+      return { ...p, sections: p.sections.map(x => (m.has(x.key) ? { ...x, vi: m.get(x.key)! } : x)) }
+    } catch {
+      return p
+    }
+  }
+
+  /** Translate, polish, review, and re-translate once with the reviewer's notes if it scores low. */
   async function translate(input: Parameters<typeof processPage>[1]) {
     let page = await processPage(llm, input)
     if (page.kind === 'skip') return { page, score: 1 }
+    page = await polish(page, input.outline)
     const pairs = (p: ProcessedPage) => (p.kind === 'guide' ? [{ en: input.outline, vi: p.guide?.viBody ?? '' }] : p.sections)
     let { score, notes } = await reviewTranslation(llm, pairs(page))
     if (gate(score, false) === 'retry') {
       page = await processPage(llm, { ...input, notes })
       if (page.kind === 'skip') return { page, score: 1 }
+      page = await polish(page, input.outline)
       score = (await reviewTranslation(llm, pairs(page))).score
     }
     return { page, score }

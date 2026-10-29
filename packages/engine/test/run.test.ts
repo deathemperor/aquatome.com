@@ -18,7 +18,7 @@ const species = {
 }
 
 function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean } = {}) {
-  const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, sleeps: 0, prompts: [] as string[] }
+  const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
     links: async () => [],
@@ -34,6 +34,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
     calls.prompts.push(a.prompt)
     if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { calls.review++; return { score: opts.score ?? 0.9, notes: ['fix "Nước đen"'] } as T }
     if (opts.llmFails) throw new LlmError('claude failed (1): usage limit')
+    if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: `<p>Viết lại ${m[1]}</p>` })) } as T }
     calls.process++
     return structuredClone(opts.page ?? species) as T
   }
@@ -70,7 +71,9 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
   const r = await runEngine(d, { sources: ['seriouslyfish'] })
   expect(r.perSource.seriouslyfish).toEqual({ discovered: 3, fetched: 3, processed: 1, skipped: 0, blocked: 1, errors: 1 })
   expect(r.needsHuman).toEqual(['seriouslyfish'])
-  expect(calls).toMatchObject({ process: 1, review: 1 })
+  expect(calls).toMatchObject({ process: 1, rewrite: 1, review: 1 }) // the style pass runs on every new translation
+  const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect(Object.values(vi.sections)).toContain('<p>Viết lại habitat</p>')
   expect(calls.sleeps).toBeGreaterThanOrEqual(4) // discovery + 3 page fetches are throttled
   const t = await tree(root)
   const entity = JSON.parse(t['/content/species/paracheirodon-axelrodi/entity.json']!)
@@ -130,8 +133,8 @@ test('low quality: one re-translation with reviewer notes, then noindex', async 
   const root = await fresh()
   const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], score: 0.5 })
   await runEngine(d, { sources: ['seriouslyfish'] })
-  expect(calls).toMatchObject({ process: 2, review: 2 })
-  expect(calls.prompts[2]).toContain('fix "Nước đen"')
+  expect(calls).toMatchObject({ process: 2, rewrite: 2, review: 2 })
+  expect(calls.prompts[3]).toContain('fix "Nước đen"') // process, style pass, review, then process again with the notes
   const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
   expect(vi.quality).toMatchObject({ score: 0.5, indexable: false, bySource: { seriouslyfish: 0.5 } })
 })

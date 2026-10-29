@@ -39,6 +39,8 @@ pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 pnpm engine audit || log "audit: failed"
 # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
 pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
+# Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
+pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
 
 if [ -z "$(git status --porcelain -- content sources)" ]; then
   # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.

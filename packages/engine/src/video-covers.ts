@@ -3,17 +3,26 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 
-export type CoverDeps = { get: (url: string) => Promise<Uint8Array>; look: (file: string, prompt: string) => Promise<{ cover: string }> }
-export const COVER_SCHEMA = { type: 'object', properties: { cover: { type: 'string' } }, required: ['cover'] }
+export type CoverDeps = { get: (url: string) => Promise<Uint8Array>; look: (file: string, prompt: string) => Promise<{ candidates?: string[]; cover: string }> }
+export const COVER_SCHEMA = { type: 'object', properties: { candidates: { type: 'array', items: { type: 'string' } }, cover: { type: 'string' } }, required: ['candidates', 'cover'] }
 
-const prompt = (title: string, viTitle: string) => `This is the thumbnail of a YouTube aquarium video titled "${title}". Our Vietnamese guide about it is titled "${viTitle}".
-We show a short Vietnamese headline (cover) over the thumbnail, like the big words a Vietnamese creator would put on it.
-- When the words on the thumbnail carry the message, say the same in Vietnamese ("ALL MY ALGAE SECRETS" → "Bí quyết trị rêu hại", "THIS GIVES YOU ALGAE" → "Lỗi này gây rêu hại").
-- When the words are only labels (Before/After, Ep #3, a channel name) or there are none, write a headline for what the video teaches instead.
-- Natural, punchy spoken Vietnamese. Algae is "rêu hại". 2–6 words, at most 30 characters. No colons, commas, quotes or ending punctuation (a question mark inside is fine: "Vẫn còn rêu hại? Đây là lý do"). Sentence case.`
+// No translation pairs as examples: they anchored every label to a word-for-word gloss ("Lỗi này gây rêu hại").
+export const coverPrompt = (title: string, viTitle: string, channel = '') => `Đây là thumbnail của video YouTube "${title}"${channel ? ` (kênh ${channel})` : ''}. Bài hướng dẫn tiếng Việt của chúng tôi về video này có tiêu đề "${viTitle}".
+Chúng tôi đặt một dòng chữ tiếng Việt lớn đè lên thumbnail: chữ mà một YouTuber thủy sinh người Việt sẽ đặt lên video của chính họ cùng chủ đề.
+
+- Đừng dịch chữ trên thumbnail. Hiểu video hứa gì với người xem, rồi nói lại theo cách người Việt nói, không theo cấu trúc câu tiếng Anh.
+- Văn nói, gọn, gây tò mò hoặc hứa một kết quả cụ thể. Được dùng câu hỏi, "bạn", con số, so sánh, từ dân chơi (set bể, rêu bám, châm phân).
+- Tránh giọng tiêu đề báo hay máy dịch: "Lỗi này gây…", "Cách để…", "Những điều cần biết", "Hướng dẫn…" khô khan, "Việc…", từ Hán Việt cứng khi có từ nói thường.
+- Rêu gây hại gọi là "rêu hại", hoặc tên dân chơi dùng (rêu tóc, BBA, rêu chấm xanh).
+- 2–7 chữ, tối đa 30 ký tự. Không dấu hai chấm, dấu phẩy, ngoặc kép hay dấu chấm câu ở cuối (dấu hỏi ở giữa thì được). Chỉ viết hoa chữ đầu câu và tên riêng.
+
+candidates: 5 phương án thật khác nhau. cover: phương án tự nhiên và hút mắt nhất mà vẫn đúng nội dung video.`
+
+const clean = (s: string) => s.replace(/^["“”']+|["“”'.!?]+$/g, '').trim()
+const usableCover = (s: string) => !!s && s.length <= 36 && !/[:;,]/.test(s)
 
 /** Gives each video guide without one a Vietnamese cover label, from a look at its thumbnail. */
-export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { limit?: number } = {}): Promise<{ done: string[]; failed: string[] }> {
+export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { limit?: number; redo?: boolean } = {}): Promise<{ done: string[]; failed: string[] }> {
   const done: string[] = []
   const failed: string[] = []
   const dir = await mkdtemp(join(tmpdir(), 'aq-cover-'))
@@ -23,12 +32,14 @@ export async function videoCovers(contentRoot: string, d: CoverDeps, opts: { lim
       const viFile = join(contentRoot, 'guides', id, 'vi.json')
       const vi = JSON.parse(await readFile(viFile, 'utf8')) as Translation
       const e = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'entity.json'), 'utf8')) as GuideEntity
-      if (vi.cover || !e.video) continue
+      if ((vi.cover && !opts.redo) || !e.video) continue
       try {
         const file = join(dir, `${e.video.youtubeId}.jpg`)
         await writeFile(file, await d.get(e.video.thumb?.url ?? `https://i.ytimg.com/vi/${e.video.youtubeId}/hqdefault.jpg`))
-        const cover = (await d.look(file, prompt(e.video.title, vi.name))).cover.replace(/^["“”']+|["“”'.!?]+$/g, '').trim()
-        if (!cover || cover.length > 36 || /[:;,]/.test(cover)) throw new Error(`unusable cover "${cover}"`)
+        const r = await d.look(file, coverPrompt(e.video.title, vi.name, e.video.channel))
+        // The pick, or the first usable candidate when the pick breaks the length/punctuation rules.
+        const cover = [r.cover, ...(r.candidates ?? [])].map(clean).find(usableCover)
+        if (!cover) throw new Error(`unusable cover "${r.cover}"`)
         await writeFile(viFile, `${JSON.stringify(TranslationSchema.parse({ ...vi, cover }), null, 2)}\n`)
         done.push(`${id}: ${cover}`)
       } catch (err) {

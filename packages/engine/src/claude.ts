@@ -36,5 +36,5 @@ function run<T>(system: string, prompt: string, schema: object, opts: { tools: s
 export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: '/tmp', model })
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
-export const claudeVision = <T>({ system, prompt, schema, file }: { system: string; prompt: string; schema: object; file: string }) =>
-  run<T>(system, `${prompt}\n\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file) })
+export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
+  run<T>(system, `${prompt}\n\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model })

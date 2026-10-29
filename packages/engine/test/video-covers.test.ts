@@ -24,3 +24,25 @@ test('labels video guides without a cover from their thumbnail; keeps existing o
   expect(prompts[0]).toContain('ALL MY ALGAE SECRETS')
   expect(JSON.parse(await readFile(join(root, 'guides/youtube-a1/vi.json'), 'utf8')).cover).toBe('Bí quyết trị rêu hại')
 })
+
+async function setup() {
+  const root = await mkdtemp(join(tmpdir(), 'aq-cv-'))
+  await mkdir(join(root, 'guides/youtube-a'), { recursive: true })
+  await writeFile(join(root, 'guides/youtube-a/entity.json'), JSON.stringify({ id: 'youtube-a', video: { youtubeId: 'a', title: '7 Reasons Why You Have Black Beard Algae', channel: 'MJ' } }))
+  await writeFile(join(root, 'guides/youtube-a/vi.json'), JSON.stringify({ slug: 'a', name: '7 lý do bể bị BBA', altNames: [], sections: {}, body: '<p>x</p>', cover: 'Lỗi này gây rêu hại', quality: { score: 0.9, indexable: true } }))
+  return root
+}
+const get = async () => new Uint8Array([1])
+
+test('labels stay unless --redo; the pick falls back to the first usable candidate', async () => {
+  const root = await setup()
+  const prompts: string[] = []
+  const look = async (_f: string, p: string) => { prompts.push(p); return { candidates: ['Vì sao bể bạn dính BBA', 'BBA từ đâu ra'], cover: 'BBA, vì sao' } }
+  expect((await videoCovers(root, { get, look })).done).toEqual([])
+  const r = await videoCovers(root, { get, look }, { redo: true })
+  expect(r.failed).toEqual([])
+  expect(r.done).toEqual(['youtube-a: Vì sao bể bạn dính BBA'])
+  expect(JSON.parse(await readFile(join(root, 'guides/youtube-a/vi.json'), 'utf8')).cover).toBe('Vì sao bể bạn dính BBA')
+  expect(prompts[0]).toContain('Đừng dịch chữ trên thumbnail')
+  expect(prompts[0]).not.toContain('Lỗi này gây rêu hại"') // no translation pairs to copy
+})
