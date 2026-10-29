@@ -61,11 +61,11 @@
     "updatedAt": "2026-10-29T16:46:34.327Z"
   },
   "Nh_24hIm4sA": {
-    "status": "skipped",
+    "status": "error",
     "entityIds": [],
-    "error": "no English captions",
-    "attempts": 0,
-    "updatedAt": "2026-10-29T15:45:51.822Z"
+    "error": "yt-dlp: yt-dlp: error: no such option: --no-skip-download",
+    "attempts": 1,
+    "updatedAt": "2026-10-29T17:03:39.638Z"
   },
   "YXhZnSTaUW0": {
     "status": "error",
