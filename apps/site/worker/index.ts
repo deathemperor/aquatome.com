@@ -7,6 +7,7 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot, resolveSkin, skinCookie } from './assign'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
+import { prefersMarkdown } from './markdown'
 import { EQUAL, type Weights } from './skins'
 import { queryStats } from './stats'
 
@@ -96,6 +97,18 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
+  // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no skin, no cookie.
+  const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
+  if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
+    const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
+    if (md.ok) {
+      const text = await md.text()
+      return finish(new Response(text, { headers: {
+        'content-type': 'text/markdown; charset=utf-8', vary: 'Accept', 'cache-control': 'public, max-age=3600',
+        'x-markdown-tokens': String(Math.ceil(text.length / 4)), // rough estimate: ~4 characters per token
+      } }), env)
+    }
+  }
   // Vietnamese is the only language for now: the root is a permanent redirect, not a meta-refresh page.
   if (url.pathname === '/') return finish(new Response(null, { status: 301, headers: { location: `/vi/${url.search}` } }), env)
   if (url.pathname === '/_e') return events(req, env)
@@ -123,7 +136,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   const weights = async () => (await env.AB.get<Weights>('ab:weights', { type: 'json', cacheTtl: 300 })) ?? EQUAL
   const { skin, setCookie } = await resolveSkin(req, weights, Math.random())
   const body = skin === 'mix' ? res : await rewrite(res, skin)
-  const extra: Record<string, string> = { Vary: 'Cookie' }
+  const extra: Record<string, string> = { Vary: 'Cookie, Accept' }
   if (setCookie) extra['Set-Cookie'] = setCookie
   const out = finish(body, env, extra)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')

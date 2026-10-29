@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
+import { prefersMarkdown } from '../markdown'
 import { testD1 } from './d1'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
@@ -118,4 +119,38 @@ test('the root 301s to /vi/', async () => {
   const r = await handle(new Request('https://aquatome.com/?utm_source=x', { headers: browser }), env().e, stringRewrite)
   expect(r.status).toBe(301)
   expect(r.headers.get('location')).toBe('/vi/?utm_source=x')
+})
+
+test('Accept negotiation: text/markdown only when asked for and not outranked by HTML', () => {
+  expect(prefersMarkdown('text/markdown')).toBe(true)
+  expect(prefersMarkdown('text/markdown, text/html;q=0.9')).toBe(true)
+  expect(prefersMarkdown('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')).toBe(false)
+  expect(prefersMarkdown('*/*')).toBe(false)
+  expect(prefersMarkdown(null)).toBe(false)
+  expect(prefersMarkdown('text/markdown;q=0.5, text/html')).toBe(false)
+  expect(prefersMarkdown('text/markdown;q=0')).toBe(false)
+})
+
+test('markdown: same URL, Accept: text/markdown → index.md, no skin cookie; root answers with /vi/; HTML varies on Accept', async () => {
+  const MD = '---\ntitle: "t"\n---\n\n# Cá\n'
+  const { e, seen } = env({ ASSETS: { fetch: async (r: Request) => { seen.push(r); return new URL(r.url).pathname.endsWith('.md') ? new Response(MD, { headers: { 'content-type': 'text/markdown' } }) : new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) } } as unknown as Fetcher })
+  const r = await handle(get('/vi/ca/', { ...browser, accept: 'text/markdown' }), e, stringRewrite)
+  expect(await r.text()).toBe(MD)
+  expect(r.headers.get('content-type')).toBe('text/markdown; charset=utf-8')
+  expect(r.headers.get('vary')).toBe('Accept')
+  expect(r.headers.get('x-markdown-tokens')).toBe(String(Math.ceil(MD.length / 4)))
+  expect(r.headers.get('set-cookie')).toBeNull()
+  expect(new URL(seen.at(-1)!.url).pathname).toBe('/vi/ca/index.md')
+  await handle(get('/', { accept: 'text/markdown' }), e, stringRewrite)
+  expect(new URL(seen.at(-1)!.url).pathname).toBe('/vi/index.md')
+  const html = await handle(get('/vi/ca/', browser), e, stringRewrite)
+  expect(html.headers.get('content-type')).toContain('text/html')
+  expect(html.headers.get('vary')).toBe('Cookie, Accept')
+})
+
+test('markdown: a page without index.md falls back to HTML', async () => {
+  const { e } = env({ ASSETS: { fetch: async (r: Request) => new URL(r.url).pathname.endsWith('.md') ? new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) : new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) } as unknown as Fetcher })
+  const r = await handle(get('/vi/x/', { accept: 'text/markdown' }), e, stringRewrite)
+  expect(r.status).toBe(200)
+  expect(await r.text()).toBe(PAGE)
 })
