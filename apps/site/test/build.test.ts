@@ -250,3 +250,11 @@ test('home leads with the tank form (to the species filter) and three first step
   expect(html).toContain("localStorage.setItem(k")
   expect(dom.querySelector('#fresh-h')).toBeNull() // "Mới trên AquaTome" moved off the home page
 })
+
+test('species list: every card in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
+  const { dom } = page('/vi/ca/')
+  expect(dom.querySelector('#species-more')).toBeTruthy()
+  expect(dom.querySelector('details#filter-box[open] form#species-filter')).toBeTruthy()
+  expect(dom.querySelectorAll('select[name="difficultyMax"] option').map(o => o.text)).toEqual(['Bất kỳ', 'Dễ', 'Dễ và vừa'])
+  expect(dom.querySelectorAll('[data-slug]').length).toBeGreaterThan(0)
+})

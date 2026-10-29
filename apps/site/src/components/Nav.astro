@@ -25,16 +25,17 @@ const path = Astro.url.pathname
   .nav.overlay { position: absolute; inset: 0 0 auto; background: none; z-index: 3; }
   .row { display: flex; align-items: center; gap: var(--space-5); min-height: 64px; flex-wrap: wrap; }
   .logo { font: 600 1.35rem var(--f-display); color: #fff; text-decoration: none; margin-right: auto; letter-spacing: -0.01em; }
-  .find { color: var(--c-on-dark); font-size: 0.9rem; text-decoration: none; }
+  .find { color: var(--c-on-dark); font-size: 0.9rem; text-decoration: none; padding-block: 10px; }
   .find:hover { color: #fff; }
   .logo span { color: var(--c-neon); }
   .logo small { display: block; font: 500 0.7rem var(--f-body); color: var(--c-on-dark-soft); letter-spacing: 0.02em; margin-top: 1px; }
   ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-  ul a { color: var(--c-on-dark); text-decoration: none; font-size: 0.9rem; padding-block: var(--space-2); white-space: nowrap; }
+  ul a { display: inline-block; color: var(--c-on-dark); text-decoration: none; font-size: 0.9rem; padding-block: 10px; white-space: nowrap; }
   ul a:hover, ul a[aria-current] { color: #fff; box-shadow: inset 0 -2px var(--c-neon); }
   @media (max-width: 640px) {
     .row { gap: var(--space-2) var(--space-4); padding-block: var(--space-2); }
     nav { order: 3; width: 100%; }
-    ul { gap: var(--space-4); overflow-x: auto; flex-wrap: nowrap; padding-bottom: var(--space-1); }
+    ul { gap: 0 var(--space-4); } /* wraps to two rows: every section visible, nothing scrolled out of sight */
+    ul a { font-size: 0.95rem; }
   }
 </style>

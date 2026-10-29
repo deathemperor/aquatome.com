@@ -29,6 +29,12 @@ export function featuredSpecies(c: Content, n = 8): Localized<SpeciesEntity>[] {
   return [...staples, ...rest].slice(0, n)
 }
 
+/** The full species list in reading order: the featured species first, then the best-documented. */
+export function listOrder(c: Content): Localized<SpeciesEntity>[] {
+  const first = featuredSpecies(c, Infinity)
+  return [...first, ...c.species.filter(s => !first.includes(s)).sort(richest)]
+}
+
 /** Each species group with a page: its size and a picture of its best-documented member. */
 export function groupTiles(c: Content): { group: string; label: string; count: number; photo?: Photo }[] {
   return Object.entries(GROUP_LABELS)

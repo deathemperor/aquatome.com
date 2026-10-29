@@ -6,12 +6,16 @@ import { toIndexItem } from '../../../lib/species-index'
 import { groupLabel } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { jsonForScript } from '../../../lib/json'
+import { listOrder } from '../../../lib/home'
 
 const c = await getContent()
 const index = c.species.map(s => toIndexItem(s))
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`} credits={creditsFor(c.species.map(s => s.photos[0]))}>
+  {/* Open on wide screens; on phones it starts closed unless a filter is in the address (see the inline script). */}
+  <details class="fbox" id="filter-box" open>
+  <summary>Lọc theo bể và nước</summary>
   <form class="filters" id="species-filter" role="search">
     <label>Tên <input name="q" type="search" placeholder="neon, Corydoras…" /></label>
     <label>Nhóm
@@ -21,25 +25,42 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
     <label>Nhiệt độ (°C) <input name="tempC" type="number" inputmode="numeric" min="5" max="40" /></label>
     <label>pH <input name="ph" type="number" inputmode="decimal" step="0.1" min="3" max="10" /></label>
     <label>Độ khó tối đa
-      <select name="difficultyMax"><option value="">Bất kỳ</option>{[1, 2, 3, 4, 5, 6, 7, 8].map(n => <option value={n}>{n}/8</option>)}</select>
+      <select name="difficultyMax"><option value="">Bất kỳ</option><option value="3">Dễ</option><option value="5">Dễ và vừa</option></select>
     </label>
     <button type="submit">Lọc</button>
   </form>
+  </details>
+  <script is:inline>(()=>{var d=document.getElementById('filter-box');if(matchMedia('(max-width: 640px)').matches&&!location.search)d.open=false})()</script>
   <p class="count" id="species-count" aria-live="polite"></p>
-  <SpeciesGrid species={c.species} heading="Danh sách loài" />
+  <SpeciesGrid species={listOrder(c)} heading="Danh sách loài" />
+  <p class="more"><button type="button" id="species-more" hidden></button></p>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
   import { filterSpecies, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
+  const PAGE = 24
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
   const form = document.getElementById('species-filter') as HTMLFormElement
   const count = document.getElementById('species-count')!
+  const more = document.getElementById('species-more') as HTMLButtonElement
+  let keep = new Set<string>()
+  let shown = PAGE
+  // All cards stay in the HTML (crawlers follow every link); readers see them a page of 24 at a time.
+  function render() {
+    let n = 0
+    document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { const ok = keep.has(el.dataset.slug!); el.hidden = !ok || n >= shown; if (ok) n++ })
+    const left = keep.size - Math.min(shown, keep.size)
+    more.hidden = left <= 0
+    more.textContent = `Xem thêm ${Math.min(left, PAGE)} loài (còn ${left})`
+  }
   function run(params: URLSearchParams) {
     for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
-    const keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
-    document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { el.hidden = !keep.has(el.dataset.slug!) })
+    keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
+    shown = PAGE
     count.textContent = keep.size === items.length ? '' : keep.size === 0 ? 'Không có loài nào khớp. Thử nới điều kiện lọc.' : `${keep.size} loài phù hợp`
+    render()
   }
+  more.addEventListener('click', () => { shown += PAGE; render() })
   form.addEventListener('submit', e => {
     e.preventDefault()
     const p = new URLSearchParams([...new FormData(form)].filter(([, v]) => v !== '') as [string, string][])
@@ -49,9 +70,21 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   run(new URLSearchParams(location.search))
 </script>
 <style>
-  .filters { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: flex-end; margin-bottom: var(--space-4); }
-  .filters label { display: grid; gap: 2px; font-size: 0.8rem; color: var(--c-ink-soft); }
+  .filters { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: flex-end; }
+  .filters label { display: grid; gap: 2px; min-width: 0; font-size: 0.8rem; color: var(--c-ink-soft); }
   .filters input, .filters select { font: inherit; font-size: 0.95rem; padding: 0.4rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); min-width: 0; width: 8.5rem; }
   .filters button { font: 600 0.95rem var(--f-body); background: var(--c-ink); color: #fff; border: 0; border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; }
   .count { min-height: 1.5em; color: var(--c-ink-soft); font-size: 0.9rem; }
+  .fbox { margin-bottom: var(--space-4); }
+  .fbox summary { display: none; }
+  .more { text-align: center; margin-top: var(--space-6); }
+  .more button { min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
+  .more button:hover { background: var(--c-ink); color: var(--c-paper); }
+  @media (max-width: 640px) {
+    .fbox summary { display: block; cursor: pointer; min-height: 44px; line-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--c-ink); background: var(--c-plate); font-weight: 600; }
+    .fbox[open] summary { margin-bottom: var(--space-3); }
+    .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .filters input, .filters select { width: 100%; min-height: 44px; }
+    .filters button { grid-column: 1 / -1; min-height: 44px; }
+  }
 </style>
