@@ -33,6 +33,8 @@ if ! { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
 fi
 git add content sources engine-state
 git commit -q -m "content: engine run $(date -u +%F)"
+# Code may have merged during the run (it can take hours): replay the content commit on top, then publish.
+git pull -q --rebase
 git push -q
 CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh
 log "cycle done"
