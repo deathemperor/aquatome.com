@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { copyFile, mkdir, mkdtemp, readdir, readFile } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -181,4 +181,20 @@ test('repeated LLM failures stop the run instead of burning every URL', async ()
   const r = await runEngine(d, { sources: ['seriouslyfish'] })
   expect(r.perSource.seriouslyfish?.fetched).toBe(3)
   expect(r.errors.at(-1)).toMatch(/stopping/)
+})
+
+test('least-covered source runs first and gets only a fair share of the time', async () => {
+  const root = await fresh()
+  await mkdir(join(root, 'engine-state'))
+  const seen = Object.fromEntries(['a', 'b', 'c', 'd'].map(k => [`https://tropica.com/${k}`, { status: 'processed', entityIds: [], updatedAt: '2026-10-01T00:00:00Z' }]))
+  await writeFile(join(root, 'engine-state', 'tropica.json'), JSON.stringify(seen))
+  const { d } = deps(root)
+  let t = new Date('2026-10-28T10:00:00Z').getTime()
+  d.now = () => new Date(t)
+  const get = d.fetcher.get
+  d.fetcher.get = async (u: string) => { t += 10 * 60_000; return get(u) }
+  const r = await runEngine(d, { sources: ['tropica', 'seriouslyfish'], maxMinutes: 30 })
+  expect(Object.keys(r.perSource)).toEqual(['seriouslyfish', 'tropica'])
+  // 30 min over 2 sources → 15 min for Seriously Fish: fetches at t=0 and t=10, stops before the third.
+  expect(r.perSource.seriouslyfish?.fetched).toBe(2)
 })
