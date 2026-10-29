@@ -2,7 +2,7 @@ import type { Range } from '@aq/schema'
 
 /**
  * Typical water temperature of an indoor tank with no heater or chiller (°C). Rules of thumb, shown on the page
- * as assumptions — owner to confirm: Hà Nội Dec–Feb, TP.HCM's cool nights Dec–Jan, hot season Apr–May (both regions in summer).
+ * as assumptions (confirmed by the owner 2026-10-29): Hà Nội Dec–Feb, TP.HCM's cool nights Dec–Jan, hot season Apr–May (both regions in summer).
  */
 export const VN_WATER = { northWinter: 16, southCool: 25, summer: 31 } as const
 
