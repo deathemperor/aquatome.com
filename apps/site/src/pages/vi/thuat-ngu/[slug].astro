@@ -2,13 +2,14 @@
 import type { GlossaryEntity, Localized } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
+import { glossaryTitle } from '../../../lib/meta'
 export async function getStaticPaths() {
   const c = await getContent()
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
 }
 const { g } = Astro.props as { g: Localized<GlossaryEntity> }
 ---
-<Browse title={g.t.name} heading={g.t.name} crumbs={[['/vi/thuat-ngu/', 'Thuật ngữ']]} noindex={!g.t.quality.indexable}>
+<Browse title={glossaryTitle(g.t.name)} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', 'Thuật ngữ']]} noindex={!g.t.quality.indexable}>
   <p class="en">Tiếng Anh: <span lang="en">{g.en}</span>{g.latin && <>, <span class="sci">{g.latin}</span></>}</p>
   <p class="def">{g.t.definition}</p>
 </Browse>
