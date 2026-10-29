@@ -1,0 +1,8 @@
+/**
+ * Owner controls on every page: a "hide this page" button (or "bring it back" on a taken-down page).
+ * The button shows only with the aq_owner=1 flag cookie, set when the owner opens /_ab/; the flag grants nothing —
+ * the POST to /_ab/hidden is authorised by the HttpOnly ab_token cookie (Path=/_ab, SameSite=Strict).
+ */
+export const OWNER_COOKIE = 'aq_owner=1; Path=/; Max-Age=2592000; Secure; SameSite=Strict'
+
+export const OWNER_SCRIPT = `(()=>{try{if(!/(?:^|; )aq_owner=1/.test(document.cookie))return;var p=location.pathname;if(p.indexOf('/vi/')!==0||p==='/vi/')return;var gone=document.documentElement.dataset.gone==='1',b=document.createElement('button');b.type='button';b.textContent=gone?'Hiện lại trang này':'Ẩn trang này';b.style.cssText='position:fixed;right:16px;bottom:16px;z-index:2147483647;padding:10px 14px;border:0;border-radius:8px;background:'+(gone?'#1b6b4a':'#b3261e')+';color:#fff;font:600 14px system-ui,sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.35);cursor:pointer';b.onclick=function(){var note='';if(!gone){note=prompt('Ẩn trang này khỏi AquaTome? Lý do (tuỳ chọn):','');if(note===null)return}b.disabled=true;fetch('/_ab/hidden',{method:'POST',body:new URLSearchParams({url:p,action:gone?'unhide':'hide',note:note}),redirect:'manual'}).then(function(r){if(r.type==='opaqueredirect'||r.ok){b.textContent=gone?'Đã hiện lại':'Đã ẩn, có hiệu lực trong khoảng 1 phút';setTimeout(function(){location.reload()},1500)}else if(r.status===404){alert('Phiên quản trị đã hết hạn: mở /_ab/ bằng link có token rồi thử lại.');b.disabled=false}else r.text().then(function(t){alert(t);b.disabled=false})})};document.body.appendChild(b)}catch(e){}})()`

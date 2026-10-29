@@ -169,3 +169,8 @@ test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async
   expect(smallSrc({ ...base, url: 'https://media.aquatome.com/s/a.webp' })).toBe('https://media.aquatome.com/s/a.webp')
   expect(smallSrc({ ...base, url: 'https://upload.wikimedia.org/w/thumb/a/F.jpg/960px-F.jpg' })).toBe('https://upload.wikimedia.org/w/thumb/a/F.jpg/500px-F.jpg')
 })
+
+test('owner hide button script is on content pages but not the 404 page', () => {
+  expect(page('/vi/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
+  expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
+})

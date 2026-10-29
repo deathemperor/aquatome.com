@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { prefersMarkdown } from '../markdown'
+import { gonePage } from '../hidden'
 import { testD1 } from './d1'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
@@ -195,4 +196,15 @@ test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide
 
   await handle(form({ url: '/vi/ca/x/', action: 'unhide' }), e)
   expect((await handle(get('/vi/ca/x/'), e, stringRewrite)).status).toBe(200)
+})
+
+test('owner: opening /_ab/ sets the owner flag cookie; the taken-down page offers "bring back"', async () => {
+  const { e } = env({ AB: { get: async () => null, put: async () => {} } as unknown as KVNamespace })
+  const login = await handle(new Request('https://x.test/_ab/?token=tok'), e)
+  expect(login.headers.getSetCookie()).toEqual([expect.stringMatching(/^ab_token=tok; Path=\/_ab;/), expect.stringMatching(/^aq_owner=1; Path=\/;.*SameSite=Strict/)])
+  const dash = await handle(new Request('https://x.test/_ab/', { headers: { cookie: 'ab_token=tok' } }), e)
+  expect(dash.headers.get('set-cookie')).toMatch(/^aq_owner=1;/)
+  const gone = await gonePage().text()
+  expect(gone).toContain('data-gone="1"')
+  expect(gone).toContain('Hiện lại trang này')
 })

@@ -1,3 +1,4 @@
+import { OWNER_SCRIPT } from './owner'
 /** Pages the owner has taken down from the /_ab/ dashboard: path → when and why. Stored in KV under one key. */
 export type Hidden = Record<string, { at: string; note?: string }>
 const KEY = 'hidden'
@@ -33,6 +34,6 @@ export async function updateHidden(kv: KVNamespace, form: FormData, now: Date): 
 }
 
 export const gonePage = () => new Response(
-  '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang đã gỡ — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem"><h1>Trang này đã được gỡ</h1><p><a href="/vi/">Về trang chủ AquaTome</a></p></body></html>',
+  `<!doctype html><html lang="vi" data-gone="1"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang đã gỡ — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem"><h1>Trang này đã được gỡ</h1><p><a href="/vi/">Về trang chủ AquaTome</a></p><script>${OWNER_SCRIPT}</script></body></html>`,
   { status: 410, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } },
 )
