@@ -66,7 +66,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   for (const p of c.places) {
     const href = pageOf(p)
     if (!href) continue
-    const own = p.t.name.length >= 4 && !PLACE_STOP.has(p.t.name) ? [p.t.name] : []
+    // Its Vietnamese name and the English one it was stored under (short ones like "Anh", "Áo" are ordinary words).
+    const own = [p.t.name, ...p.t.altNames].filter(n => n.length >= 4 && !PLACE_STOP.has(n))
     const names = [...own, ...(PLACE_VI[p.id] ?? [])]
     if (names.length) out.push({ key: `place:${p.id}`, href, names, exact: true })
   }

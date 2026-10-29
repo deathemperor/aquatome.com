@@ -3,9 +3,10 @@ import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import { range } from '../lib/format'
 import { smallSrc } from '../lib/img'
+import { cleanPhoto } from '../lib/home'
 interface Props { s: Localized<SpeciesEntity>; eager?: boolean }
 const { s, eager = false } = Astro.props
-const p = s.photos[0]
+const p = cleanPhoto(s.photos)
 const temp = resolveDataCard(s.dataCard.tempC ?? [])
 const ph = resolveDataCard(s.dataCard.ph ?? [])
 const diff = resolveDataCard(s.dataCard.difficulty ?? [])

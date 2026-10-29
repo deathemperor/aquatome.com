@@ -49,11 +49,12 @@ test('low-quality page is noindex', () => {
   expect(page('/vi/ca/ca-neon-vua/').html).not.toMatch(/noindex/)
 })
 
-test('home links every species card', () => {
+test('home features well-known species and links the full list instead of every card', () => {
   const { dom } = page('/vi/')
-  const links = new Set(dom.querySelectorAll('a[href^="/vi/ca/"]').map(a => a.getAttribute('href')))
-  for (const slug of ['ca-neon-vua', 'ca-neon-xanh', 'ca-phuong-hoang', 'ca-dia', 'ca-galaxy', 'tep-red-cherry', 'ca-boraras-do', 'ca-apisto-cacatuoides'])
-    expect(links.has(`/vi/ca/${slug}/`), slug).toBe(true)
+  const cards = dom.querySelectorAll('article.sc a[href^="/vi/ca/"]').map(a => a.getAttribute('href'))
+  for (const slug of ['ca-neon-xanh', 'tep-red-cherry']) expect(cards, slug).toContain(`/vi/ca/${slug}/`)
+  expect(cards.length).toBeLessThanOrEqual(8)
+  expect(dom.querySelector('a[href="/vi/ca/"]')).toBeTruthy()
 })
 
 test('species page has JSON-LD', () => {
