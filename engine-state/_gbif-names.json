@@ -361,7 +361,21 @@
     "genus": "Aguarunichthys",
     "matchType": "EXACT"
   },
+  "Ailia occidentalis": {
+    "canonicalName": "Parailia occidentalis",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Parailia",
+    "matchType": "EXACT"
+  },
   "Akademie der": null,
+  "Akysis armatus": {
+    "canonicalName": "Nanobagrus armatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Nanobagrus",
+    "matchType": "EXACT"
+  },
   "Akysis clavulus": {
     "canonicalName": "Akysis clavulus",
     "order": "Siluriformes",
@@ -1994,6 +2008,13 @@
   },
   "Branco has": null,
   "Brasiliam annos": null,
+  "Breitensteinia cessator": {
+    "canonicalName": "Breitensteinia cessator",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Breitensteinia",
+    "matchType": "EXACT"
+  },
   "Brevibora dorsiocellata": {
     "canonicalName": "Brevibora dorsiocellata",
     "order": "Cypriniformes",
@@ -3095,6 +3116,13 @@
     "genus": "Hemiodus",
     "matchType": "EXACT"
   },
+  "Hemisilurus moolenburghi": {
+    "canonicalName": "Hemisilurus moolenburghi",
+    "order": "Siluriformes",
+    "family": "Siluridae",
+    "genus": "Hemisilurus",
+    "matchType": "EXACT"
+  },
   "Hemitaeniochromis brachyrhynchus": {
     "canonicalName": "Hemitaeniochromis brachyrhynchus",
     "order": "Perciformes",
@@ -3494,6 +3522,13 @@
     "order": "Siluriformes",
     "family": "Pimelodidae",
     "genus": "Leiarius",
+    "matchType": "EXACT"
+  },
+  "Leiocassis armatus": {
+    "canonicalName": "Nanobagrus armatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Nanobagrus",
     "matchType": "EXACT"
   },
   "Leiocassis micropogon": {
@@ -3951,6 +3986,13 @@
     "genus": "Myxocyprinus",
     "matchType": "EXACT"
   },
+  "Nannobagrus armatus": {
+    "canonicalName": "Nanobagrus armatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Nanobagrus",
+    "matchType": "EXACT"
+  },
   "Nannopetersius ansorgii": {
     "canonicalName": "Nannopetersius ansorgii",
     "order": "Characiformes",
@@ -3984,6 +4026,13 @@
     "order": "Characiformes",
     "family": "Lebiasinidae",
     "genus": "Nannostomus",
+    "matchType": "EXACT"
+  },
+  "Nanobagrus armatus": {
+    "canonicalName": "Nanobagrus armatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Nanobagrus",
     "matchType": "EXACT"
   },
   "Nanobagrus fuscus": {
@@ -4392,6 +4441,13 @@
     "genus": "Paracrossochilus",
     "matchType": "EXACT"
   },
+  "Parailia occidentalis": {
+    "canonicalName": "Parailia occidentalis",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Parailia",
+    "matchType": "EXACT"
+  },
   "Parambassis ranga": {
     "canonicalName": "Parambassis ranga",
     "order": "Perciformes",
@@ -4550,6 +4606,27 @@
     "matchType": "EXACT"
   },
   "Phraya drainages": null,
+  "Physailia ansorgii": {
+    "canonicalName": "Parailia occidentalis",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Parailia",
+    "matchType": "FUZZY"
+  },
+  "Physailia occidentalis": {
+    "canonicalName": "Parailia occidentalis",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Parailia",
+    "matchType": "EXACT"
+  },
+  "Physailia villiersi": {
+    "canonicalName": "Parailia occidentalis",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Parailia",
+    "matchType": "EXACT"
+  },
   "Pimelodus pictus": {
     "canonicalName": "Pimelodus pictus",
     "order": "Siluriformes",

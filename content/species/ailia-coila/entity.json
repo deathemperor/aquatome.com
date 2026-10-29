@@ -1,0 +1,144 @@
+{
+  "id": "ailia-coila",
+  "scientificName": "Ailia coila",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Ailia",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "pakistan",
+    "india",
+    "bangladesh",
+    "nepal"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 28
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Common name: Gangetic ailia</li><li>Size: 28.0 cm</li><li>Temperature: 22–24°C (71–75°F)</li><li>pH: 6.5–7.2</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<p>Asia: Pakistan, India, Bangladesh and Nepal. Ailia coila was originally described as Malapterurus coila by Hamilton (1822) from freshwater rivers of West Bengal.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<p>Handling Ailiid catfishes is no joke as they are extremely sensitive when taken out of water and must be provided certain parameters and environment to keep them alive. After multiple failed attempts, Abhisek Mishra managed to procure live specimens of all 4 genera present in his locality and kept them in home aquaria (Mishra, Abhisek 2023).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<p>Feeds on insects, shrimps, other crustaceans and small fish. In captivity, being predatory in nature, they will need meaty foods such as shrimps, earthworms, mealworms etc.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<p>Ailia coila is heavily utilised as a food fish (Talwar and Jhingran 1991, Patra et al. 2005, Mishra et al. 2009). Heavy harvesting could be a threat to its population. Gray's (1830) Acanthonotus hardwickii, Silurus (Acanthonotus) cuvieri and Malapterus (Ailia) bengalensis, and Günther's (1864) Ailia affinis are all currently synonymised to Ailia coila (Ferraris 2007).</p><p>Etymology: The genus name Ailia is a local name for A. coila (and Ailiichthys punctata) in India. The specific name coila is not explained, possibly a latinisation of Kajoli (pronounced \"kway-la\"), the Assamese name for this catfish in Rangpur, Bangladesh.</p><p>IUCN Red List: Ailia coila is a widespread species that has undergone significant population decline due to overexploitation as a food fish in parts, if not throughout, its range. However, taxonomic problems and difficulties extrapolating localised studies to the whole subcontinent make accurate assessment impossible. Given the limited evidence of significant declines from overfishing, the species is assessed as Near Threatened (a possible decline of close to 30% over its entire range over ten years), with urgent need to study threats, harvest levels and population changes (IUCN 2011).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</li><li>Mishra, Abhisek. pers comm 2023.</li><li>Ng, H.H. &amp; Dahanukar, N. 2011. Ailia coila. The IUCN Red List of Threatened Species 2011.</li><li>Sampod, Rhaman Mabubur., pers comm, FB. 2023.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/9743c760704959d6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9743c760704959d6-480.webp",
+      "width": 500,
+      "height": 274,
+      "licence": "dùng với sự cho phép",
+      "author": "Mostafa Hossain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "caption": "Ailia coila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cfefb6a0e27533d9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cfefb6a0e27533d9-480.webp",
+      "width": 500,
+      "height": 273,
+      "licence": "dùng với sự cho phép",
+      "author": "Mostafa Hossain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "caption": "Ailia coila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6eac5d554c8f1006.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6eac5d554c8f1006-480.webp",
+      "width": 500,
+      "height": 346,
+      "licence": "dùng với sự cho phép",
+      "author": "Arnob Bora / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "caption": "Ailia coila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/759ff0f1940b5d31.webp",
+      "thumb": "https://media.aquatome.com/scotcat/759ff0f1940b5d31-480.webp",
+      "width": 500,
+      "height": 222,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
+      "caption": "Ailia coila: From Mahanadi river, Odisha, India",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm tươi cho cá",
+        "giun đất cho cá",
+        "sâu bột"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

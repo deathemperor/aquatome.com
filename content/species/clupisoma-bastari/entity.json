@@ -1,0 +1,161 @@
+{
+  "id": "clupisoma-bastari",
+  "scientificName": "Clupisoma bastari",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Clupisoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "godavari"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<ul><li>Family: Ailiidae (formerly placed in Schilbeidae)</li><li>Common name: Bastar garua</li><li>Size: 18 cm (7¼ in) TL</li><li>Temperature: 22-24°C (71-75°F)</li><li>pH: 6.5-7.2</li><li>IUCN Red List: Data Deficient</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Asia: Godavari River basin, India. Type locality: Indravati River (a tributary of the Godavari River) at Lohandigura, 33 km west of Jagdalpur, Bastar District, Madhya Pradesh, India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Inhabits rivers in upland areas.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Handling Ailiid catfishes is no joke, as they are extremely sensitive when taken out of water and must be provided with certain parameters and environment to keep them alive. After multiple failed attempts, Abhisek Mishra managed to procure live specimens of all 4 genera present in his locality and kept them in his home aquaria (Mishra, Abhisek 2023).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Feeds on insects, shrimps, other crustaceans and small fish. In captivity, being predatory in nature, they need meaty foods such as shrimps, earthworms, mealworms etc.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Oviparous; eggs are unguarded. Monsoon is the breeding time for many fish species in India and the south-east Asia region in general. With the onset of monsoon, fishes prepare for spawning, and elevated water levels with dissolved silt induce breeding hormones in the fish. Ailiid catfishes like Clupisoma and other genera breed once a year during the monsoon months. Fishes have evolved to sync their breeding cycles with the onset of monsoon because higher water levels also trigger breeding activity of invertebrates, which become a great food source for the young fry (Mishra, Abhisek 2024).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Etymology: the genus name Clupisoma comes from clupea, herring, and soma, body, referring to the herring-shaped body. The specific name bastari refers to Bastar District, Madhya Pradesh, India, the type locality.</p><p>Formerly placed in the Schilbeidae family.</p><p>IUCN Red List: Clupisoma bastari is Data Deficient, as little is known about the species' distribution or threats, but it needs updating (IUCN 2011).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "html": "<p>Dahanukar, N. 2011. Clupisoma bastari. The IUCN Red List of Threatened Species 2011.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (09/2023).</p><p>Mishra, Abhisek. pers comm. 2023-2024.</p><p>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/dd5d641a6526138a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/dd5d641a6526138a-480.webp",
+      "width": 500,
+      "height": 256,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "caption": "Clupisoma bastari",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ae404764c2c23251.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ae404764c2c23251-480.webp",
+      "width": 500,
+      "height": 219,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "caption": "Clupisoma bastari: From Mahanadi river, Odisha, India",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f57fdc25e7f9d2b7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f57fdc25e7f9d2b7-480.webp",
+      "width": 500,
+      "height": 301,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "caption": "Clupisoma bastari: Gravid female-Mahanadi river, Odisha, India",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/96c211a0a30ee92f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/96c211a0a30ee92f-480.webp",
+      "width": 500,
+      "height": 241,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm",
+      "caption": "Clupisoma bastari: Gravid female-Mahanadi river, Odisha, India",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm tươi cho cá",
+        "giun đất cho cá",
+        "thức ăn đông lạnh cho cá săn mồi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá",
+        "máy làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,40 @@
+{
+  "https://www.scotcat.com/ailiidae/ailia_coila.htm": {
+    "entityIds": [
+      "species/ailia-coila"
+    ],
+    "updatedAt": "2026-10-29T20:42:20.350Z",
+    "hash": "dbfdcccc2eea2890ce34aa7e3766e5d9fc6b798514009cadfcb22b10642ad1ca",
+    "processedHash": "dbfdcccc2eea2890ce34aa7e3766e5d9fc6b798514009cadfcb22b10642ad1ca",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm": {
+    "entityIds": [
+      "species/ailiichthys-punctata"
+    ],
+    "updatedAt": "2026-10-29T20:44:53.832Z",
+    "hash": "d36635be99647f1aee10a352210e7b7eaf71a80b288e9e653f0ac541912201e3",
+    "processedHash": "d36635be99647f1aee10a352210e7b7eaf71a80b288e9e653f0ac541912201e3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/clupisoma_bastari.htm": {
+    "entityIds": [
+      "species/clupisoma-bastari"
+    ],
+    "updatedAt": "2026-10-29T20:46:20.728Z",
+    "hash": "ca9501f4269caf066d5f9283a4c6ec90baf621e2f4af2a00cdbe532dbbaf4c5c",
+    "processedHash": "ca9501f4269caf066d5f9283a4c6ec90baf621e2f4af2a00cdbe532dbbaf4c5c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-29T20:40:34.297Z",
+    "hash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
+    "processedHash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
+    "status": "skipped",
+    "attempts": 0
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "ailiichthys-punctata",
+  "scientificName": "Ailiichthys punctata",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Ailiichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "ganges",
+    "pakistan",
+    "indus",
+    "bangladesh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Common name: Jamuna ailia</li><li>Synonym: Ailia punctata</li><li>Size: 10 cm (4 in)</li><li>Temperature: 22–24°C (71–75°F)</li><li>pH: 6.5–7.2</li></ul><p>This species resembles Ailia coila but differs from it by lacking the pelvic fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "html": "<p>Asia: Pakistan and India. Reported from Bangladesh. Type locality: Jumna at and below Delhi, also in the lower Punjaub rivers.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "html": "<p>This species is known from the Ganges-Brahmaputra and Indus river drainages in the northern part of the Indian subcontinent. It was described as present (as Ailiichthys punctata) from \"Jumna at and below Delhi, also in the lower Punjaub rivers\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "html": "<p>Etymology: The genus name Ailiichthys: Ailia, similar to that genus but differing in the lack of ventral fins; ichthys, fish. The specific name punctata: from the Latin punctatus = 'spotted'.</p><p>IUCN Red List: The species is widespread across northern India, Bangladesh, Nepal and Pakistan, however it is likely that overexploitation is a major threat to the species, but due to lack of data the level of population decline cannot be estimated. As this species is potentially threatened, it is thought that assigning it as Least Concern based solely on its wide distribution would be incorrect. As the level of population decline is unknown (but may be sufficiently high to warrant concern to the long-term viability of the global population) the correct Red List category cannot be assigned. Therefore the species is listed as Data Deficient. It is a key recommendation that population and harvest level data is collected on this species to ascertain its true level of threat (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "html": "<ul><li>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Encyclopedia of Flora and Fauna of Bangladesh. Vol.23. Freshwater Fishes. Asiatic Society of Bangladesh. 300p.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2019).</li><li>Ng, H.H. 2010. Ailia punctata. The IUCN Red List of Threatened Species 2010.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ac306b49641859c5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ac306b49641859c5-480.webp",
+      "width": 500,
+      "height": 174,
+      "licence": "dùng với sự cho phép",
+      "author": "Hamid Badar Osmany / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "caption": "Ailiichthys punctata: From Karachi, Pakistan",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ece10baf4b7425d8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ece10baf4b7425d8-480.webp",
+      "width": 500,
+      "height": 148,
+      "licence": "dùng với sự cho phép",
+      "author": "Hamid Badar Osmany / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/ailiichthys_punctata.htm",
+      "caption": "Ailiichthys punctata: From Karachi harbour",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

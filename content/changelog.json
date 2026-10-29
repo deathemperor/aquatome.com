@@ -2,6 +2,27 @@
   {
     "date": "2026-10-29",
     "kind": "species",
+    "id": "clupisoma-bastari",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ailiichthys-punctata",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ailia-coila",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
     "id": "nanobagrus-armatus",
     "source": "planetcatfish",
     "action": "new"
@@ -3476,27 +3497,6 @@
     "kind": "species",
     "id": "enteromius-hulstaerti",
     "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-28",
-    "kind": "species",
-    "id": "boraras-urophthalmoides",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-28",
-    "kind": "guide",
-    "id": "seriouslyfish-articles-africhthy-the-interview",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-28",
-    "kind": "guide",
-    "id": "seriouslyfish-articles-a-passion-for-cichlids",
-    "source": "seriouslyfish",
     "action": "new"
   }
 ]
