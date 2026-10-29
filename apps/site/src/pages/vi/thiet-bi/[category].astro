@@ -12,6 +12,7 @@ import { creditsFor } from '../../../lib/credits'
 import { smallSrc } from '../../../lib/img'
 import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
 import { creatorsUse } from '../../../lib/gear'
+import { productHref } from '../../../lib/products'
 export async function getStaticPaths() {
   return categories(await getContent()).map(u => ({ params: { category: u.category }, props: { u } }))
 }
@@ -23,6 +24,8 @@ const entity = `equipment:${u.category}`
 const guides = guidesMentioning(c, entity).slice(0, 6)
 // Brands and models the video guides use for this kind of kit (engine video-items).
 const used = creatorsUse(c, u.category)
+// Products with their own page (engine product), per type of this kit.
+const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
 const types = g ? typeUses(c, g) : []
 const users = speciesUsing(c, u.category)
 const TOP = 12
@@ -62,6 +65,7 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
             <h3>{t.name}</h3>
             <p set:html={link(t.desc)} />
             <p class="pick"><strong>Chọn thế nào:</strong> {t.pick}</p>
+            {picks(t.id).length > 0 && <p class="picks">Đã tìm hiểu kỹ: {picks(t.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
             <p class="buy">Mua <em>{t.buy}</em>: {shops.map(s => <a href={goLink(s, t.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>
             {t.keywords.length > 1 && <p class="more">Hay tìm: {t.keywords.filter(k => k !== t.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
             {t.species.length > 0 && (
@@ -87,7 +91,7 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
     <section class="creators">
       <h2 class="h">Dân chơi dùng gì trong video</h2>
       <ul>{used.slice(0, 10).map(x => (
-        <li><strong>{x.name}</strong> <span class="n">{x.guides.length} video</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
+        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{x.guides.length} video</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
       ))}</ul>
     </section>
   )}
@@ -161,4 +165,5 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
   .creators li { padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; }
   .creators .n { font-size: var(--step--1); color: var(--c-ink-faint); }
   .creators a { font-size: 0.9rem; }
+  .picks a { margin-left: var(--space-2); font-weight: 500; }
 </style>

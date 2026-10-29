@@ -88,6 +88,25 @@ export const EquipmentSchema = z.object({
  */
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string() })
 
+/** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
+const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
+const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
+/**
+ * One product (brand + model), the same in every language and market: its specs and variants, each fact pointing at the
+ * source it came from (manufacturer, shops, reviews). Written from facts only, never from a shop's text.
+ */
+export const ProductSchema = z.object({
+  id: z.string(), brand: z.string(), model: z.string(), category: z.string(), type: z.string().optional(),
+  specs: z.array(ProductSpec), variants: z.array(z.object({ name: z.string(), specs: z.array(ProductSpec) })),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['manufacturer', 'shop', 'review', 'video', 'forum', 'other']), at: z.string() })),
+  updatedAt: z.string(),
+})
+/** A product's prices in one market (content/products/<id>/<market>.json): shops' own listings, each dated. */
+export const MarketSchema = z.object({
+  currency: z.string(), checkedAt: z.string(),
+  prices: z.array(z.object({ shop: z.string(), url: WebUrl, variant: z.string().optional(), price: z.number(), at: z.string() })),
+})
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
@@ -95,6 +114,8 @@ export const TranslationSchema = z.object({
   summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),
   /** Video guides: the words on the video's thumbnail in Vietnamese (≤ 5 words), shown as our label over it (the image itself is never altered). */
   cover: z.string().optional(),
+  /** Products: names for the spec keys in this language. */
+  labels: z.record(z.string(), z.string()).optional(),
   /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */

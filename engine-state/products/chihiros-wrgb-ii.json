@@ -1,0 +1,452 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Power (by size 30/45/60/90/120)",
+      "value": "33 W / 49 W / 67 W / 100 W / 130 W",
+      "source": 0
+    },
+    {
+      "key": "Luminous flux (lab figures)",
+      "value": "2,700 / 4,000 / 5,300 / 8,000 / 10,000 lm",
+      "source": 0
+    },
+    {
+      "key": "Luminous flux (alternative figures)",
+      "value": "2,300 / 3,600 / 4,500 / 6,200 / 7,200 lm",
+      "source": 1
+    },
+    {
+      "key": "Colour temperature",
+      "value": "12,000–15,000 K depending on size",
+      "source": 0
+    },
+    {
+      "key": "Fixture dimensions",
+      "value": "Length (30–120 cm) × 14 cm wide × 1.8 cm high; about 14 cm tall with the mounts",
+      "source": 0
+    },
+    {
+      "key": "Max glass thickness for brackets",
+      "value": "10 mm (30/45/60), 12 mm (90/120)",
+      "source": 0
+    },
+    {
+      "key": "LED count",
+      "value": "30 / 50 / 60 / 90 / 120 LEDs",
+      "source": 1
+    },
+    {
+      "key": "LED type",
+      "value": "RGB 3-in-1 LEDs",
+      "source": 4
+    },
+    {
+      "key": "Water resistance",
+      "value": "IP43",
+      "source": 1
+    },
+    {
+      "key": "LED lifespan",
+      "value": "50,000 hours",
+      "source": 1
+    },
+    {
+      "key": "Input voltage",
+      "value": "AC 100–240 V, 50–60 Hz",
+      "source": 4
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium body with grooves to dissipate heat",
+      "source": 2
+    },
+    {
+      "key": "Control",
+      "value": "Built-in Bluetooth, controlled with the My Chihiros app; no separate Commander needed; R, G and B channels dim separately; sunrise and sunset simulation",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnam shop)",
+      "value": "6 months (Greendeal); the Chihiros Slim at Thủy Sinh Tím has 1 month",
+      "source": 4
+    },
+    {
+      "key": "Origin",
+      "value": "China",
+      "source": 4
+    }
+  ],
+  "variants": [
+    {
+      "name": "WRGB II 30",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "33 W",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "30–45 cm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "30 × 14 × 1.8 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II 45",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "49 W",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "45–60 cm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "45 × 14 × 1.8 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II 60",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "67 W",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "60–80 cm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "60 × 14 × 1.8 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II 90",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "100 W",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "90–110 cm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "90 × 14 × 1.8 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II 120",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "130 W",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "120–140 cm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "120 × 14 × 1.8 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Slim 30 (thinner, lower-output version)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "23 W",
+          "source": 5
+        },
+        {
+          "key": "Brightness",
+          "value": "1,200 lm",
+          "source": 5
+        },
+        {
+          "key": "Dimensions",
+          "value": "284 × 128 × 15 mm",
+          "source": 5
+        },
+        {
+          "key": "Tank length",
+          "value": "30–45 cm",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh 365",
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "vnd": 2100000,
+      "variant": "WRGB 2 30 cm (in stock)",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 365",
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "vnd": 2600000,
+      "variant": "WRGB 2 45 cm",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 365",
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "vnd": 3200000,
+      "variant": "WRGB 2 60 cm",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 365",
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "vnd": 4500000,
+      "variant": "WRGB 2 90 cm",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 365",
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "vnd": 5800000,
+      "variant": "WRGB 2 120 cm",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2",
+      "vnd": 1643050,
+      "variant": "WRGB 2 30 cm (sale price, out of stock)",
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2",
+      "vnd": 2600000,
+      "variant": "WRGB 2 45 cm (out of stock)",
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2",
+      "vnd": 3000000,
+      "variant": "WRGB 2 60 cm (out of stock)",
+      "source": 3
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/chihiros-led-light-wrgb-2",
+      "vnd": 1750000,
+      "variant": "WRGB 2 30 cm (sold out)",
+      "source": 4
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/chihiros-led-light-wrgb-2",
+      "vnd": 3300000,
+      "variant": "WRGB 2 90 cm (sold out)",
+      "source": 4
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/chihiros-led-light-wrgb-2",
+      "vnd": 3800000,
+      "variant": "WRGB 2 120 cm (sold out)",
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb-2-slim30",
+      "vnd": 1530000,
+      "variant": "WRGB 2 Slim 30 (low stock)",
+      "source": 5
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made for densely planted tanks and plants that need strong light.",
+      "source": 0
+    },
+    {
+      "fact": "Must not be used under an aquarium cover or lid. It is meant for open-top tanks.",
+      "source": 0
+    },
+    {
+      "fact": "The brackets clamp onto glass up to 10 mm thick (12 mm on the 90/120). Check your glass thickness before buying.",
+      "source": 0
+    },
+    {
+      "fact": "The brackets are made to sit on rimless tanks. On rimmed tanks the base can be flipped so it rests flat on the rim.",
+      "source": 1
+    },
+    {
+      "fact": "Pick the size by tank length. Each model covers a set range, from 30–45 cm up to 120–140 cm.",
+      "source": 1
+    },
+    {
+      "fact": "A Vietnamese seller says its colour range brings out red and purple plants.",
+      "source": 3
+    }
+  ],
+  "usage": [
+    {
+      "fact": "The box has the light bar, a power supply and stainless steel brackets. A hanging cable kit and a glare shade are sold separately.",
+      "source": 0
+    },
+    {
+      "fact": "There is no printed manual. A PDF manual and Chihiros' YouTube videos cover setup and the app.",
+      "source": 0
+    },
+    {
+      "fact": "Pair the light with the My Chihiros app over Bluetooth to set colour channels and the daily schedule. No external timer is needed.",
+      "source": 0
+    },
+    {
+      "fact": "The app can mix colours by setting the brightness of each channel.",
+      "source": 4
+    },
+    {
+      "fact": "Thủy Sinh 4U says to open the box when it arrives. Defective units can be returned within 3 days.",
+      "source": 3
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Some owners report the light stops showing up in the app. One WRGB II Slim stopped turning on altogether.",
+      "source": 7
+    },
+    {
+      "fact": "On Android, the first connection after a few hours can fail until the app is force-stopped. Forum replies blame the phone's background or permission settings.",
+      "source": 8
+    },
+    {
+      "fact": "App Store reviews say automatic schedules may not resume after a power cut, and the Bluetooth link is unreliable.",
+      "source": 10
+    },
+    {
+      "fact": "Lumen figures differ between sources (lab values vs. manual values). Aquasabi says the manual's lower figures are more realistic.",
+      "source": 0
+    },
+    {
+      "fact": "The WRGB II is now made only as the 10th Anniversary Edition. Older stock won't be restocked once it sells out.",
+      "source": 1
+    },
+    {
+      "fact": "The Slim version is about 40–50% less bright than the standard WRGB II.",
+      "source": 9
+    },
+    {
+      "fact": "Many Vietnamese shops list the light as out of stock. Some shop pages have typos (e.g. 60 cm shown as 33 W or 55 W instead of 67 W).",
+      "source": 2
+    },
+    {
+      "fact": "Aquasabi buyers rate it 4.3/5 overall, with a few 1–2 star ratings.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II Slim",
+      "why": "A cheaper, thinner version with the same app control. It is sold in Vietnam (Slim 30 about 1.53M VND) but gives about half the light, so it suits easier plants.",
+      "source": 5
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "P Series (P600)",
+      "why": "Cheaper than Chihiros at every size. A review measured PAR within about 10% of a WRGB II on a 60 cm tank, but the app is less polished and the brackets feel less solid. Vietnamese availability was not confirmed.",
+      "source": 6
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II Pro",
+      "why": "A separate line with more output per size (Pro 30 is 37 W) for demanding high-tech tanks.",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-Series-WRGB-II",
+      "title": "Chihiros LED System Series WRGB II – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.plantedaquaria.ca/products/chihiros-wrgb-ii-led-light",
+      "title": "Chihiros WRGB-II LED Light – Planted Aquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "title": "Đèn Chihiros WRGB 2 cho hồ cá và hồ thủy sinh – Thủy Sinh 365",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2",
+      "title": "Đèn Chihiros WRGB 2 – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/chihiros-led-light-wrgb-2",
+      "title": "CHIHIROS - LED WRGB 2 – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb-2-slim30",
+      "title": "Đèn LED Cao Cấp Chihiros WRGB 2 Slim30 – Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/week-aqua-p-series-led-review/",
+      "title": "Week Aqua P Series LED Review: Budget Full-Spectrum – Gensou",
+      "kind": "review"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/chihiros-wrgb-ii-slim-problem.7090/",
+      "title": "Chihiros WRGB II Slim problem – Chihiros forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Bluetooth connectivity issues with the app – Chihiros forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://natureaquariums.com.au/products/chihiros-wrgb-ii-slim",
+      "title": "Chihiros WRGB II Slim With Bluetooth – Nature Aquariums",
+      "kind": "shop"
+    },
+    {
+      "url": "https://apps.apple.com/in/app/my-chihiros/id1478240739",
+      "title": "My Chihiros – App Store",
+      "kind": "other"
+    }
+  ]
+}

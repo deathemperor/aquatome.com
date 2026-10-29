@@ -2,10 +2,12 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
+/** The market (prices, shops) each site language serves. */
+export const MARKET: Record<Lang, string> = { vi: 'vn' }
 
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }
@@ -18,6 +20,8 @@ export type Content = {
   equipment: EquipmentGuide[]
   /** Photo galleries by species id (content/gallery), open licences only. */
   galleries: Record<string, Photo[]>
+  /** Products with a page in this language, with their prices in the language's market when known. */
+  products: (Localized<ProductEntity> & { market?: Market })[]
   /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
@@ -106,8 +110,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (photos.length) galleries[g.id] = photos
   }
 
+  const products: Content['products'] = []
+  for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
+    const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
+    products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
+  }
+
   return {
-    species, plants, guides, changelog, equipment, series, galleries,
+    species, plants, guides, changelog, equipment, series, galleries, products,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

@@ -12,7 +12,7 @@ const { rows, youtubeId, heading, entity } = Astro.props
       {rows.map(r => (
         <li>
           <span class="cat">{r.page ? <a href={r.page}>{r.label}</a> : r.label}</span>
-          <span class="name">{r.name}</span>
+          <span class="name">{r.product ? <a href={r.product}>{r.name}</a> : r.name}</span>
           {r.t !== undefined && youtubeId ? <button type="button" class="seek" data-t={r.t} data-vp-for={youtubeId} aria-label={`Xem đoạn ${clock(r.t)} trong video`}>{clock(r.t)}</button> : <span />}
           <span class="shops">
             <a href={goLink('shopee', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>

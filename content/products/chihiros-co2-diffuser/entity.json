@@ -1,0 +1,184 @@
+{
+  "id": "chihiros-co2-diffuser",
+  "brand": "Chihiros",
+  "model": "CO2 Diffuser",
+  "category": "co2",
+  "type": "binh",
+  "specs": [
+    {
+      "key": "Type",
+      "value": "In-tank nano CO2 diffuser with a ceramic membrane, attached to the glass with a suction cup",
+      "source": 4
+    },
+    {
+      "key": "Body material",
+      "value": "Acrylic (Aquasabi calls it robust acrylic, but its cleaning section mentions PETG)",
+      "source": 4
+    },
+    {
+      "key": "CO2 tubing connection",
+      "value": "4 mm",
+      "source": 2
+    },
+    {
+      "key": "Sizes",
+      "value": "Tiny, S, M, L",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "Tiny under 50 L; S under 100 L; M 100–200 L; L over 200 L",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Greendeal VN, Diffuser Mate listing)",
+      "value": "None stated (Bảo hành: Không)",
+      "source": 5
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tiny",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "11 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "100 x 22 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Under 50 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "S",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "13 mm (Chihiros); 14 mm (Aquasabi); 13.7 mm (Thủy Sinh Tím)",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "82 x 22 mm, body height 20 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Under 100 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "M",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "17 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "78 x 29 mm, body height 22 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "100–200 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "L",
+      "specs": [
+        {
+          "key": "Membrane diameter",
+          "value": "23 mm",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "81 x 30 mm, body height 25 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "Over 200 L",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.chihiros.com/products/chihiros-nano-co2-diffuser?variant=45754374979775",
+      "title": "Chihiros Nano CO2 Diffuser – Chihiros official",
+      "kind": "manufacturer",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://thuysinh4u.com/san-pham/coc-sui-co2-chihiros-diffuser-sieu-min",
+      "title": "Cốc sủi CO2 Chihiros Diffuser siêu mịn – Thủy Sinh 4U",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://thuysinhtim.vn/coc-sui-co2-chihiros-nano",
+      "title": "Cốc Sủi CO2 Chihiros Nano – Thủy Sinh Tím",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.chihiros.com/collections/co-system",
+      "title": "CO₂ System collection – Chihiros",
+      "kind": "manufacturer",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.aquasabi.de/Chihiros-CO2-Diffuser",
+      "title": "Chihiros CO2 Diffuser – Aquasabi",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://greendeal.vn/chihiros-co2-diffuser-mate",
+      "title": "CHIHIROS - CO2 Diffuser Mate – Greendeal",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://shop.app/products/7967384633562/chihiros-nano-co2-diffuser",
+      "title": "Chihiros Nano CO2 Diffuser – Shop listing with reviews",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/chihiros-external-co2-diffuser-tron-co2-cao-cap",
+      "title": "Chihiros External CO2 Diffuser – Thủy Sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.shaquarium.com/san-pham/s%E1%BB%A7i-co2-inox-chihiros-20cm.html",
+      "title": "Sủi CO2 inox Chihiros – Shaquarium",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://cuahangthuysinh.vn/san-pham/sui-co2-mufan-nho/",
+      "title": "Sủi CO2 Mufan nhỏ – Ylang Aquarium",
+      "kind": "shop",
+      "at": "2026-10-29"
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}
