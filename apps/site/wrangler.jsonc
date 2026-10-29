@@ -9,14 +9,12 @@
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
     "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*"]
   },
-  // Affiliate catalog, click counts and comments. Needs a token with D1 Edit: `wrangler d1 create thuysinh`, paste the id, then
-  // `wrangler d1 migrations apply thuysinh --remote`. Until then /go/ links fall back to marketplace search and comments stay hidden.
-  // Comments also need var TURNSTILE_SITEKEY plus secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY.
-  // "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "…", "migrations_dir": "migrations" }],
+  // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
+  // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
+  "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
-  // Analytics Engine must be enabled once in the dashboard (Workers → Analytics Engine) before this binding deploys:
-  // "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "vars": { "STAGING": "1", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df" },
+  "vars": { "STAGING": "1", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df", "TURNSTILE_SITEKEY": "0x4AAAAAAFqXNU0UVJNdZhcJ" },
   "routes": [{ "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }]
 }
