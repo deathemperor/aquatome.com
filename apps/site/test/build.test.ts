@@ -280,6 +280,7 @@ describe('video guide', () => {
   test('click-to-load player with Vietnamese captions, credited to the channel', () => {
     expect(html).not.toContain('<iframe')
     expect(dom.querySelector('figure[data-vp="vl1Lx9iWDYU"] button.facade')).not.toBeNull()
+    expect(dom.querySelector('.facade .cover')?.text).toBe('Bí quyết trị rêu hại')
     expect(dom.querySelector('.credit')?.text).toContain('Bài viết của AquaTome, dựa trên video của MJ Aquascaping')
     expect(dom.querySelector('figcaption a[href="https://www.youtube.com/watch?v=vl1Lx9iWDYU"]')).not.toBeNull()
   })
@@ -309,6 +310,7 @@ describe('video pages', () => {
     expect(dom.querySelector('h2 a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
     expect(dom.querySelector('a[href="/vi/video/trong/"]')).toBeNull()
     expect(dom.querySelector('.gc .dur')?.text).toContain('29:15')
+    expect(dom.querySelector('.gc .cover')?.text).toBe('Bí quyết trị rêu hại')
   })
   test('series page lists parts in order with an ItemList', () => {
     const { dom } = page('/vi/video/reu-hai-tu-a-den-z/')

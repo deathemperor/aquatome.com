@@ -65,7 +65,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · {v && <>video {clock(v.durationSec)} · </>}đọc khoảng {minutes} phút{series && pos >= 0 && <> · phần {pos + 1}/{inSeries.length}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} />
-      {v ? <VideoPlayer video={v} chapters={g.t.chapters} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+      {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
           <h2 id="sum-h">Tóm tắt nhanh</h2>
