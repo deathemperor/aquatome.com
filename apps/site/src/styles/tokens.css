@@ -30,6 +30,6 @@
 
   --radius-plate: 0;
   --radius-media: 0;
-  --measure: 68ch;
+  --measure: 60ch; /* ~75 characters of Vietnamese in Newsreader (68ch ran ~90) */
   --page: 1200px;
 }

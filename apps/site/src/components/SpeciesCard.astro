@@ -1,7 +1,8 @@
 ---
 import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
-import { range } from '../lib/format'
+import RangeBar from './RangeBar.astro'
+import { isRange, range } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 interface Props { s: Localized<SpeciesEntity>; eager?: boolean }
@@ -10,24 +11,33 @@ const p = cleanPhoto(s.photos)
 const temp = resolveDataCard(s.dataCard.tempC ?? [])
 const ph = resolveDataCard(s.dataCard.ph ?? [])
 const diff = resolveDataCard(s.dataCard.difficulty ?? [])
-const meta = [temp && `${range(temp.value)}°C`, ph && `pH ${range(ph.value)}`].filter(Boolean).join(', ')
+const t = temp && isRange(temp.value) ? temp.value : undefined
+const h = ph && isRange(ph.value) ? ph.value : undefined
 ---
 <article class="sc">
   <a href={`/vi/ca/${s.t.slug}/`}>
     <div class="plate">{p && <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
-    <p class="fam">{s.family}</p>
     <h3>{s.t.name}</h3>
     <p class="sci">{s.scientificName}</p>
   </a>
-  <p class="meta"><span>{meta}</span>{diff && typeof diff.value === 'number' && <Difficulty value={diff.value} />}</p>
+  {(t || h || diff) && (
+    <dl class="label">
+      {t && <div><dt>Nhiệt độ</dt><dd data-c={`${t.min},${t.max}`}>{range(t)}°C</dd><RangeBar kind="temp" min={t.min} max={t.max} /></div>}
+      {h && <div><dt>pH</dt><dd>{range(h)}</dd><RangeBar kind="ph" min={h.min} max={h.max} /></div>}
+      {diff && typeof diff.value === 'number' && <div class="lvl"><dt>Độ khó</dt><dd><Difficulty value={diff.value} /></dd></div>}
+    </dl>
+  )}
 </article>
 <style>
   .sc a { text-decoration: none; color: inherit; display: block; }
   .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
   .sc a:hover h3 { color: var(--c-moss); }
-  .fam { font-size: 0.75rem; color: var(--c-ink-faint); margin: var(--space-3) 0 0; }
-  h3 { font-size: var(--step-1); }
-  .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }
-  .meta { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); margin: var(--space-2) 0 0; padding-top: var(--space-2); border-top: 1px dotted var(--c-rule); font-size: 0.8rem; color: var(--c-ink-soft); }
+  h3 { font-size: 1.3rem; margin-top: var(--space-3); }
+  .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); font-style: italic; font-family: var(--f-display); }
+  .label { margin: var(--space-3) 0 0; padding-top: var(--space-2); border-top: 1px solid var(--c-ink); display: grid; gap: var(--space-2); font-size: 0.8rem; }
+  .label > div { display: grid; grid-template-columns: 1fr auto; align-items: baseline; row-gap: 3px; }
+  .label > div > :global(.rb) { grid-column: 1 / -1; }
+  dt { color: var(--c-ink-faint); }
+  dd { margin: 0; color: var(--c-ink); font-variant-numeric: tabular-nums; }
 </style>
