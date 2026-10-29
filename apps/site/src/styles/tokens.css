@@ -1,21 +1,21 @@
-/* Mix skin tokens. Later skins override only these custom properties. */
+/* Design tokens: the field-handbook look (warm paper, Newsreader display, sienna kickers). */
 :root {
   --c-blackwater: #0a1a1d;
   --c-blackwater-2: #10282c;
-  --c-paper: #eef1ec;
-  --c-plate: #ffffff;
-  --c-ink: #10241f;
-  --c-ink-soft: #4a5c55;
-  --c-ink-faint: #5d6d67;
-  --c-rule: #d3dad3;
+  --c-paper: #f3eee3;
+  --c-plate: #fbf8f1;
+  --c-ink: #1d2a22;
+  --c-ink-soft: #4d5a52;
+  --c-ink-faint: #5f6b63;
+  --c-rule: #d9d0bd;
   --c-moss: #2f6b4f;
-  --c-cardinal: #c8283f;
-  --c-neon: #5fd4e0;
+  --c-cardinal: #a0522d;
+  --c-neon: #a0522d;
   --c-on-dark: #e4efed;
   --c-on-dark-soft: #9db7b3;
-  --c-focus: #1c8597; /* ≥3:1 on paper, plate and blackwater */
+  --c-focus: #c46a36;
 
-  --f-display: 'Fraunces Variable', Georgia, serif;
+  --f-display: 'Newsreader Variable', Georgia, serif;
   --f-body: 'Be Vietnam Pro', system-ui, sans-serif;
 
   --step--1: 0.8125rem;
@@ -28,8 +28,8 @@
   --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
   --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
 
-  --radius-plate: 2px;
-  --radius-media: 12px;
+  --radius-plate: 0;
+  --radius-media: 0;
   --measure: 68ch;
   --page: 1200px;
 }

@@ -34,7 +34,7 @@ const credits = [HERO, ...creditsFor([
 <Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="100vw" fetchpriority="high" />
   <Fragment slot="header">
-    <div class="hero" style={`--hero:url(${HERO.url});--hero-l:url(${HERO.large})`}>
+    <div class="hero home-hero" style={`--hero:url(${HERO.url});--hero-l:url(${HERO.large})`}>
       <Nav overlay />
       <div class="wrap hero-copy">
         <h1>Hiểu cá trước khi thả cá.</h1>
