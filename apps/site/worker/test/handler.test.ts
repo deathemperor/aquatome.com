@@ -104,3 +104,12 @@ test('/_aff/products needs the bearer token', async () => {
   expect((await handle(post('Bearer wrong'), { ...e, DB: testD1() }, stringRewrite)).status).toBe(404)
   expect(await (await handle(post('Bearer tok'), { ...e, DB: testD1() }, stringRewrite)).json()).toEqual({ saved: 0, errors: [] })
 })
+
+test('non-canonical hosts 301 to the production host, path and query kept', async () => {
+  const { e } = env({ CANONICAL_HOST: 'aquatome.com' } as Partial<Env>)
+  const r = await handle(new Request('https://www.aquatome.com/vi/ca/?skin=a', { headers: browser }), e, stringRewrite)
+  expect(r.status).toBe(301)
+  expect(r.headers.get('location')).toBe('https://aquatome.com/vi/ca/?skin=a')
+  expect((await handle(new Request('https://thuysinh.infinitus.run/', { headers: browser }), e, stringRewrite)).headers.get('location')).toBe('https://aquatome.com/')
+  expect((await handle(new Request('https://aquatome.com/vi/', { headers: browser }), e, stringRewrite)).status).toBe(200)
+})

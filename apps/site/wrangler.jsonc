@@ -1,8 +1,8 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  // Staging on infinitus.run (huuloc.com lives in another CF account) until the real domain is chosen.
+  // Production: https://aquatome.com. www and the old staging host 301 to it (CANONICAL_HOST).
   // The Worker assigns an A/B skin to HTML pages, collects beacon events and serves the /_ab dashboard; everything else is plain static assets.
-  "name": "thuysinh-staging",
+  "name": "aquatome",
   "main": "worker/index.ts",
   "compatibility_date": "2026-10-28",
   "assets": {
@@ -15,6 +15,10 @@
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "vars": { "STAGING": "1", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df", "TURNSTILE_SITEKEY": "0x4AAAAAAFqXNU0UVJNdZhcJ" },
-  "routes": [{ "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }]
+  "vars": { "CANONICAL_HOST": "aquatome.com", "AFFILIATE_CLICK_VALUE_VND": "2000", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df", "TURNSTILE_SITEKEY": "0x4AAAAAAFqXNU0UVJNdZhcJ" },
+  "routes": [
+    { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
+    { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
+    { "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }
+  ]
 }

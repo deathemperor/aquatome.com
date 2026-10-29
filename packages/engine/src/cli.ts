@@ -13,7 +13,7 @@ import { runEngine } from './run'
 import { loadState } from './state'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
-const UA = 'thuysinh-engine/0.1 (https://thuysinh.infinitus.run)'
+const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
 const http = async (url: string) => {
   const r = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } })
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${new URL(url).host}`)
@@ -24,7 +24,7 @@ const http = async (url: string) => {
 const conf = (env: string, file: string) => process.env[env] ?? readFileSync(join(homedir(), '.config/thuysinh', file), 'utf8').trim()
 const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
-  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.thuysinh.infinitus.run',
+  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' } } })
@@ -53,7 +53,7 @@ if (cmd === 'run') {
     await fetcher.close()
   }
 } else if (cmd === 'moderate') {
-  const base = process.env.SITE_URL ?? 'https://thuysinh.infinitus.run'
+  const base = process.env.SITE_URL ?? 'https://aquatome.com'
   const r = await moderate(httpAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), claudeCli)
   console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored, ${r.failedBatches} failed batches`)
   if (!r.off && r.failedBatches) process.exitCode = 1
