@@ -109,7 +109,7 @@ if (cmd === 'run') {
   }
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md (a report only; nothing is hidden).
-  const { rows, markdown } = await auditPictures(join(ROOT, 'content'))
+  const { rows, markdown } = await auditPictures(join(ROOT, 'content'), join(ROOT, 'engine-state/_wanted.json'))
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/content-audit.md'), markdown)
   console.log(`audit: ${rows.length} pages, ${rows.filter(r => !r.photos).length} without a photo, ${rows.filter(r => r.missingThumbs).length} missing thumbs, ${rows.filter(r => r.photos === 1).length} with one photo`)
