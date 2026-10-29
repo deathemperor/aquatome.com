@@ -11,6 +11,7 @@ import { categoryLabel, goLink } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { smallSrc } from '../../../lib/img'
 import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
+import { creatorsUse } from '../../../lib/gear'
 export async function getStaticPaths() {
   return categories(await getContent()).map(u => ({ params: { category: u.category }, props: { u } }))
 }
@@ -20,6 +21,8 @@ const g = c.equipment.find(x => x.category === u.category)
 const label = g?.name ?? categoryLabel(u.category)
 const entity = `equipment:${u.category}`
 const guides = guidesMentioning(c, entity).slice(0, 6)
+// Brands and models the video guides use for this kind of kit (engine video-items).
+const used = creatorsUse(c, u.category)
 const types = g ? typeUses(c, g) : []
 const users = speciesUsing(c, u.category)
 const TOP = 12
@@ -78,6 +81,15 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
       <section><h2 class="h">Cách chọn</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
       <section><h2 class="h">Sai lầm thường gặp</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
     </div>
+  )}
+
+  {used.length > 0 && (
+    <section class="creators">
+      <h2 class="h">Dân chơi dùng gì trong video</h2>
+      <ul>{used.slice(0, 10).map(x => (
+        <li><strong>{x.name}</strong> <span class="n">{x.guides.length} video</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
+      ))}</ul>
+    </section>
   )}
 
   {plants.length > 0 && <>
@@ -145,4 +157,8 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
     .type { grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-4); }
     .type.bare { grid-template-columns: minmax(0, 1fr); }
   }
+  .creators ul { list-style: none; padding: 0; margin: 0; }
+  .creators li { padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; }
+  .creators .n { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .creators a { font-size: 0.9rem; }
 </style>

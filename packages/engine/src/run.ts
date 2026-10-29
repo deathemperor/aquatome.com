@@ -136,7 +136,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
 
-  /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if that fails. */
+  /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if the output is
+   * unusable. A model failure (usage limit) stops the run like any other: no page publishes unpolished without a trace. */
   async function polish(p: ProcessedPage, outline: string): Promise<ProcessedPage> {
     try {
       if (p.kind === 'guide' && p.guide) return { ...p, guide: { ...p.guide, viBody: (await rewriteVi(llm, [{ id: 'body', en: outline, vi: p.guide.viBody }], VI_WRITE)).get('body')! } }
@@ -144,7 +145,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!parts.length) return p
       const m = await rewriteVi(llm, parts, VI_WRITE)
       return { ...p, sections: p.sections.map(x => (m.has(x.key) ? { ...x, vi: m.get(x.key)! } : x)) }
-    } catch {
+    } catch (e) {
+      if (e instanceof LlmError) throw e
       return p
     }
   }

@@ -2,6 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { slugify } from '@aq/schema'
 import type { Taxon } from './gbif'
+import { matchTaxon, pageIds } from './video-items'
 
 /**
  * Species our pages name by scientific name but that have no page yet, keyed by the accepted name's slug.
@@ -30,9 +31,14 @@ export function binomials(html: string, isWord: (w: string) => boolean): string[
 export async function candidates(contentRoot: string, isWord: (w: string) => boolean): Promise<Map<string, string[]>> {
   const out = new Map<string, string[]>()
   const add = (html: string, page: string) => { for (const n of binomials(html, isWord)) out.set(n, [...(out.get(n) ?? []), page]) }
+  const ids = await pageIds(contentRoot)
   for (const id of (await readdir(join(contentRoot, 'guides')).catch(() => [] as string[])).sort()) {
     const vi = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'vi.json'), 'utf8').catch(() => '{}')) as { body?: string }
     add(vi.body ?? '', `guides/${id}`)
+    // Species a video shows, named by the extraction step (already scientific names, no dictionary filter needed).
+    const e = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'entity.json'), 'utf8').catch(() => '{}')) as { video?: { taxa?: string[] } }
+    // A name that matches one of our pages loosely (a variety page) is not wanted: that would chase a duplicate page.
+    for (const n of e.video?.taxa ?? []) if (!n.endsWith(' sp.') && !matchTaxon(n, ids) && !(out.get(n) ?? []).includes(`guides/${id}`)) out.set(n, [...(out.get(n) ?? []), `guides/${id}`])
   }
   for (const id of (await readdir(join(contentRoot, 'species')).catch(() => [] as string[])).sort()) {
     const e = JSON.parse(await readFile(join(contentRoot, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { html: string }[] }

@@ -6,6 +6,7 @@ import PhotoGallery from '../../../components/PhotoGallery.astro'
 import Sections from '../../../components/Sections.astro'
 import GuideLinks from '../../../components/GuideLinks.astro'
 import { guidesMentioning } from '../../../lib/mentions'
+import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
 import { plantTitle } from '../../../lib/meta'
@@ -44,7 +45,8 @@ import RedirectNote from '../../../components/RedirectNote.astro'
     </div>
   </header>
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
-  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`)} heading="Bài viết nhắc đến cây này" />
+  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading="Bài viết nhắc đến cây này" />
+  <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading="Có trong video hướng dẫn" />
   <div class="wrap two">
     <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />
     <Comments entity={`plant:${p.id}`} />

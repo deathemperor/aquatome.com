@@ -383,3 +383,29 @@ describe('instant navigation', () => {
     expect(html).not.toContain('<script type="module" src="https://static.cloudflareinsights.com')
   })
 })
+
+describe('what a video shows', () => {
+  test('kit in the video: brand and model or the type, a seek button, exact-model shop links; species it shows are linked', () => {
+    const { dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    const rows = dom.querySelectorAll('.gear li')
+    expect(rows.map(r => r.querySelector('.name')?.text)).toEqual(['Oase BioMaster 350', 'Seachem Flourish', 'Lọc bọt biển (lọc sủi)'])
+    expect(rows[0]!.querySelector('.cat a')?.getAttribute('href')).toBe('/vi/thiet-bi/loc/')
+    expect(rows[1]!.querySelector('.cat')?.text).toBe('Khác')
+    expect(rows[0]!.querySelector('button.seek')?.getAttribute('data-t')).toBe('95')
+    expect(rows[0]!.querySelector('button.seek')?.getAttribute('data-vp-for')).toBe('vl1Lx9iWDYU')
+    expect(rows[0]!.querySelector('a[href^="/go/shopee/"]')?.getAttribute('href')).toContain('k=Oase+BioMaster+350')
+    expect(rows[2]!.querySelector('button.seek')).toBeNull()
+    expect(dom.querySelector('.related a[href="/vi/ca/tep-red-cherry/"]')).not.toBeNull()
+  })
+  test('the species page lists the video guide that shows it, apart from text guides', () => {
+    const { dom } = page('/vi/ca/tep-red-cherry/')
+    expect(dom.querySelector('.vg a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
+    expect(dom.querySelector('.guides a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
+  })
+  test('the equipment page lists what creators use, with their videos', () => {
+    const { dom } = page('/vi/thiet-bi/loc/')
+    const li = dom.querySelector('.creators li')!
+    expect(li.querySelector('strong')?.text).toBe('Oase BioMaster 350')
+    expect(li.querySelector('a')?.getAttribute('href')).toBe('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+  })
+})

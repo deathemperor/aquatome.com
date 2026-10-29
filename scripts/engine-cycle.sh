@@ -25,10 +25,13 @@ fi
 git checkout -q main && git pull -q --ff-only
 pnpm install --frozen-lockfile --silent
 pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
-# YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists first (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
-[ -n "${ENGINE_ARGS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
 # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
+# Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
 [ -n "${ENGINE_ARGS:-}" ] || pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
+# Species and kit in guides written before that step existed (one transcript fetch each, stops when YouTube throttles).
+[ -n "${ENGINE_ARGS:-}" ] || pnpm engine video-items --limit 20 || log "video-items: failed"
+# YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
+[ -n "${ENGINE_ARGS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
 # Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
 pnpm engine photos --limit 60 || log "photos: backfill failed"
 # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).

@@ -222,3 +222,15 @@ test('a closed browser stops the run without marking the page as an error', asyn
   expect(r.errors.at(-1)).toContain('stopping: the browser closed')
   expect(JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8').catch(() => '{}'))['https://www.seriouslyfish.com/species/paracheirodon-axelrodi']?.status).not.toBe('error')
 })
+
+test('a usage limit during the style pass stops the run; nothing publishes unpolished', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  const llm = d.llm
+  d.llm = (async (a: { prompt: string; schema: object }) => {
+    if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) throw new LlmError('claude failed (1): usage limit')
+    return llm(a as never)
+  }) as typeof d.llm
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8')).rejects.toThrow()
+})

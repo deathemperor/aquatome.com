@@ -5,7 +5,9 @@
   "sourceUrl": "https://www.youtube.com/watch?v=vl1Lx9iWDYU",
   "html": "",
   "photos": [],
-  "mentions": [],
+  "mentions": [
+    "neocaridina-davidi"
+  ],
   "updatedAt": "2026-10-29",
   "video": {
     "youtubeId": "vl1Lx9iWDYU",
@@ -58,6 +60,28 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oto.jpg",
           "caption": "Cá Otocinclus dọn rêu."
         }
+      }
+    ],
+    "taxa": [
+      "Neocaridina davidi",
+      "Rotala rotundifolia"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "brand": "Oase",
+        "model": "BioMaster 350",
+        "t": 95
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Flourish",
+        "t": 200
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien"
       }
     ]
   }

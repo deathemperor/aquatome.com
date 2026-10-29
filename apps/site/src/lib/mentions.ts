@@ -89,7 +89,10 @@ export function mentionIndex(c: Content): Index {
   const plants = new Map(c.plants.map(p => [`plant:${p.id}`, p]))
   const guides = new Map<string, GuideLinks>()
   for (const g of c.guides) {
-    const { html, keys } = linkTerms(g.t.body ?? '', targets, 'ml')
+    const { html, keys: named } = linkTerms(g.t.body ?? '', targets, 'ml')
+    // Plus what a video shows (engine video-items), even when the text never names it.
+    const shown = g.mentions.flatMap(id => (species.has(`species:${id}`) ? [`species:${id}`] : plants.has(`plant:${id}`) ? [`plant:${id}`] : []))
+    const keys = [...new Set([...named, ...shown])]
     guides.set(g.id, {
       html, keys,
       species: keys.flatMap(k => species.get(k) ?? []),
