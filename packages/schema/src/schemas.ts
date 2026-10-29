@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'youtube'] as const
 export const LANGS = ['vi'] as const
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -29,9 +29,26 @@ export const PlantSchema = z.object({
   sections: z.array(Section), photos: z.array(Photo), productSlots: z.array(ProductSlot), updatedAt: z.string(),
 })
 
+/**
+ * The YouTube video an AquaTome guide is written from (source 'youtube'): the guide is our own writing on the video's core
+ * ideas; the video is embedded with YouTube's player. `chapters`: the creator's chapter marks (seconds).
+ */
+export const VideoRef = z.object({
+  youtubeId: z.string(), title: z.string(), channel: z.string(), channelUrl: z.string(), durationSec: z.number(),
+  publishedAt: z.string().optional(), chapters: z.array(z.object({ start: z.number(), title: z.string() })),
+  series: z.object({ id: z.string(), position: z.number() }).optional(),
+  /** Largest thumbnail that exists (maxres 1280×720, else mq 320×180: both 16:9, no letterbox bars). */
+  thumb: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(),
+})
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
   source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(Photo), mentions: z.array(z.string()), updatedAt: z.string(),
+  video: VideoRef.optional(),
+})
+/** A YouTube playlist whose videos became guides, in the creator's order (content/series/<id>.json). */
+export const SeriesSchema = z.object({
+  id: z.string(), playlistId: z.string(), title: z.string(), channel: z.string(), channelUrl: z.string(), videoIds: z.array(z.string()),
+  vi: z.object({ slug: z.string(), name: z.string(), intro: z.string() }),
 })
 
 export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
@@ -48,6 +65,8 @@ export const EquipmentSchema = z.object({
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
+  /** Video guides: key takeaways, questions readers ask, and the video's chapter titles in Vietnamese (same order). */
+  summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),
   /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */

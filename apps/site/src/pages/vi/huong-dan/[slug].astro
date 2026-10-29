@@ -16,6 +16,8 @@ import { placeFigures } from '../../../lib/figures'
 import { categoryLabel } from '../../../lib/format'
 import { readingMinutes, withToc } from '../../../lib/toc'
 import { nextGuides } from '../../../lib/home'
+import VideoPlayer from '../../../components/VideoPlayer.astro'
+import { clock, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -36,18 +38,40 @@ const placed = placeFigures(body,
   g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
 const { html: prose, toc } = withToc(placed)
 const minutes = readingMinutes(body)
-const next = nextGuides(c, g)
+const series = seriesOf(c, g)
+const inSeries = series ? seriesGuides(c, series) : []
+const pos = inSeries.findIndex(x => x.id === g.id)
+// A series reads in the creator's order: the next parts first, then related guides.
+const next = series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g)
+const v = g.video
+const description = excerpt(g.t.body ?? '')
+const jsonld: object[] = []
+if (v) {
+  jsonld.push({
+    '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
+    duration: isoDuration(v.durationSec), embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`, url: watchUrl(v.youtubeId), inLanguage: 'en',
+    author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
+    ...(v.chapters.length > 1 ? { hasPart: v.chapters.map((ch, i) => ({ '@type': 'Clip', name: g.t.chapters?.[i] ?? ch.title, startOffset: ch.start, endOffset: v.chapters[i + 1]?.start ?? v.durationSec, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
+  })
+}
+if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
-<Base title={`${g.t.name} — AquaTome`} description={excerpt(g.t.body ?? '')} image={ph?.url} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
-  <Nav slot="header" />
+<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
+  <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
-      <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>
-      <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · đọc khoảng {minutes} phút</p>
+      <nav class="crumb" aria-label="Đường dẫn">{v ? <><a href="/vi/video/">Video</a>{series && <> / <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a></>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
+      <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · {v && <>video {clock(v.durationSec)} · </>}đọc khoảng {minutes} phút{series && pos >= 0 && <> · phần {pos + 1}/{inSeries.length}</>}</p>
       <h1>{g.t.name}</h1>
-      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} />
-      {ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} />
+      {v ? <VideoPlayer video={v} chapters={g.t.chapters} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+      {g.t.summary && g.t.summary.length > 0 && (
+        <section class="takeaways" aria-labelledby="sum-h">
+          <h2 id="sum-h">Tóm tắt nhanh</h2>
+          <ul>{g.t.summary.map(x => <li>{x}</li>)}</ul>
+        </section>
+      )}
     </header>
     {toc.length >= 3 && (
       <nav class="toc" aria-labelledby="toc-h">
@@ -56,10 +80,16 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       </nav>
     )}
     <div class="prose" set:html={prose} />
+    {g.t.faq && g.t.faq.length > 0 && (
+      <section class="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">Câu hỏi thường gặp</h2>
+        {g.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </section>
+    )}
   </article>
   {next.length > 0 && (
     <section class="wrap related" aria-labelledby="next-h">
-      <h2 id="next-h">Bài tiếp theo</h2>
+      <h2 id="next-h">{series && pos + 1 < inSeries.length ? 'Phần tiếp theo' : 'Bài tiếp theo'}</h2>
       <div class="grid">{next.map(x => <GuideCard g={x} />)}</div>
     </section>
   )}
@@ -81,7 +111,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }
   @media (min-width: 1100px) {
     .art { grid-template-columns: minmax(0, var(--measure)) 15rem; column-gap: var(--space-8); }
-    .ahead, .prose { grid-column: 1; }
+    .ahead, .prose, .faq { grid-column: 1; }
     .toc { grid-column: 2; grid-row: 1 / span 2; align-self: start; position: sticky; top: var(--space-5); margin-top: var(--space-8); }
   }
   .toc { margin: 0 0 var(--space-5); padding: var(--space-4); background: var(--c-plate); border: 1px solid var(--c-rule); border-top: 2px solid var(--c-ink); }
@@ -91,6 +121,14 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   .toc a { color: var(--c-ink); text-decoration-color: var(--c-rule); }
   .toc a:hover { text-decoration-color: var(--c-ink); }
   .prose :global(h3) { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-3); scroll-margin-top: var(--space-5); }
+  .takeaways { background: var(--c-plate); border: 1px solid var(--c-rule); border-top: 2px solid var(--c-ink); padding: var(--space-4) var(--space-5); margin: var(--space-4) 0 var(--space-2); }
+  .takeaways h2, .faq h2 { font: 600 0.8rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); margin-bottom: var(--space-2); }
+  .takeaways ul { margin: 0; padding-left: 1.2em; }
+  .takeaways li { padding-block: 3px; line-height: 1.6; }
+  .faq { margin-top: var(--space-7); border-top: 2px solid var(--c-ink); padding-top: var(--space-3); }
+  .faq details { border-bottom: 1px solid var(--c-rule); }
+  .faq summary { cursor: pointer; padding: var(--space-3) 0; font-weight: 600; min-height: 44px; box-sizing: border-box; }
+  .faq details p { margin: 0 0 var(--space-3); line-height: 1.7; }
   .crumb { font-size: 0.85rem; }
   .crumb a { color: var(--c-ink-soft); }
   .kind { color: var(--c-moss); font-size: 0.9rem; margin: var(--space-4) 0 var(--space-1); }

@@ -25,6 +25,10 @@ fi
 git checkout -q main && git pull -q --ff-only
 pnpm install --frozen-lockfile --silent
 pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
+# YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists first (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
+[ -n "${ENGINE_ARGS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
+# Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
+[ -n "${ENGINE_ARGS:-}" ] || pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 # Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
 pnpm engine photos --limit 60 || log "photos: backfill failed"
 # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
@@ -49,7 +53,7 @@ fi
 if ! { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
   log "build/tests failed, not publishing (see /tmp/thuysinh-engine-test.log)"; exit 1
 fi
-git add content sources engine-state
+git add content sources engine-state docs/review
 git commit -q -m "content: engine run $(date -u +%F)"
 # Code may have merged during the run (it can take hours): replay the content commit on top, then publish.
 git pull -q --rebase

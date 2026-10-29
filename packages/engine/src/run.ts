@@ -14,7 +14,7 @@ import { processPage, type ProcessedPage } from './process'
 import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { sourceById } from './sources'
+import { SOURCES, sourceById } from './sources'
 import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
 import { candidates, resolveWanted, wantedFirst, wantedIn, type Wanted } from './wanted'
@@ -202,7 +202,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // Least-covered sources first, each capped at a fair share of the time left (unused time rolls forward),
   // so one large backlog (Seriously Fish) can't starve the others; the most-covered source runs last and gets the rest.
   const covered = new Map<SourceId, number>()
-  for (const id of opts.sources ?? SOURCE_IDS) covered.set(id, Object.keys(await loadState(root, id)).length)
+  for (const id of opts.sources ?? SOURCES.map(x => x.id)) covered.set(id, Object.keys(await loadState(root, id)).length)
   const order = [...covered.keys()].sort((a, b) => covered.get(a)! - covered.get(b)!)
   sources: for (const [i, id] of order.entries()) {
     const src = sourceById(id)

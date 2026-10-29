@@ -1,11 +1,12 @@
 ---
 import UnitsToggle from './UnitsToggle.astro'
-interface Props { overlay?: boolean }
-const { overlay = false } = Astro.props
+/** current: the section to mark when the URL doesn't say (video guides live under /vi/huong-dan/). */
+interface Props { overlay?: boolean; current?: string }
+const { overlay = false, current } = Astro.props
 const links = [
-  ['/vi/ca/', 'Loài cá'], ['/vi/cay/', 'Cây'], ['/vi/huong-dan/', 'Hướng dẫn'], ['/vi/thiet-bi/', 'Thiết bị'], ['/vi/kham-pha/', 'Khám phá'], ['/vi/cong-cu/', 'Công cụ'],
+  ['/vi/ca/', 'Loài cá'], ['/vi/cay/', 'Cây'], ['/vi/huong-dan/', 'Hướng dẫn'], ['/vi/video/', 'Video'], ['/vi/thiet-bi/', 'Thiết bị'], ['/vi/kham-pha/', 'Khám phá'], ['/vi/cong-cu/', 'Công cụ'],
 ]
-const path = Astro.url.pathname
+const path = current ?? Astro.url.pathname
 ---
 <header class:list={['nav', { overlay }]}>
   <div class="wrap row">

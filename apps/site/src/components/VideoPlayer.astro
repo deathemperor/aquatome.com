@@ -1,0 +1,124 @@
+---
+import type { GuideEntity } from '@aq/schema'
+import { clock, videoPhoto, watchUrl } from '../lib/video'
+interface Props { video: NonNullable<GuideEntity['video']>; chapters?: string[] }
+const { video: v, chapters = [] } = Astro.props
+const thumb = videoPhoto(v)
+// Vietnamese chapter titles when the writer gave one per chapter, else the creator's own.
+const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length === v.chapters.length ? chapters[i]! : c.title }))
+---
+<figure class="vp" data-vp={v.youtubeId}>
+  <div class="frame">
+    <button type="button" class="facade" data-t="0" aria-label={`Phát video “${v.title}”, phụ đề tiếng Việt`}>
+      <img src={thumb.url} width={thumb.width} height={thumb.height} alt="" fetchpriority="high" />
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+      <span class="cc" aria-hidden="true">Phụ đề tiếng Việt</span>
+    </button>
+  </div>
+  <figcaption>
+    Video gốc: <a href={watchUrl(v.youtubeId)} rel="noopener">{v.title}</a>, kênh <a href={v.channelUrl} rel="noopener">{v.channel}</a> · {clock(v.durationSec)}
+  </figcaption>
+</figure>
+{marks.length > 1 && (
+  <details class="chapters" open={marks.length <= 12}>
+    <summary>Các đoạn trong video ({marks.length})</summary>
+    <ol>
+      {marks.map(m => <li><button type="button" data-t={m.start} data-vp-for={v.youtubeId}><span class="t">{clock(m.start)}</span> {m.title}</button></li>)}
+    </ol>
+  </details>
+)}
+<script>
+  type Player = {
+    seekTo(s: number, allow: boolean): void; playVideo(): void
+    getOption(m: string, k: string): unknown; setOption(m: string, k: string, v: unknown): void
+  }
+  type YTApi = { Player: new (el: HTMLElement, o: object) => Player; PlayerState: { PLAYING: number } }
+  const w = window as unknown as { YT?: YTApi; onYouTubeIframeAPIReady?: () => void }
+
+  let api: Promise<YTApi> | undefined
+  const loadApi = () => (api ??= new Promise<YTApi>((resolve, reject) => {
+    if (w.YT?.Player) return resolve(w.YT)
+    const prev = w.onYouTubeIframeAPIReady
+    w.onYouTubeIframeAPIReady = () => { prev?.(); resolve(w.YT!) }
+    const s = document.createElement('script')
+    s.src = 'https://www.youtube.com/iframe_api'
+    s.onerror = () => { api = undefined; s.remove(); reject(new Error('iframe_api')) }
+    document.head.append(s)
+  }))
+
+  /** Vietnamese captions: the creator's Vietnamese track if there is one, else YouTube's translation of the original track. */
+  function vietnamese(p: Player) {
+    const list = (p.getOption('captions', 'tracklist') as { languageCode?: string }[] | undefined) ?? []
+    if (list.some(t => t.languageCode === 'vi')) return p.setOption('captions', 'track', { languageCode: 'vi' })
+    const base = list.find(t => t.languageCode?.startsWith('en')) ?? list[0] ?? (p.getOption('captions', 'track') as { languageCode?: string } | undefined)
+    p.setOption('captions', 'track', { languageCode: base?.languageCode || 'en', translationLanguage: { languageCode: 'vi', languageName: 'Tiếng Việt' } })
+  }
+
+  /** One player per video, stored as soon as it is being made, so a second click waits for it instead of making another. */
+  const players = new Map<string, Promise<Player | null>>()
+  function create(fig: HTMLElement, id: string, t: number): Promise<Player | null> {
+    const slot = document.createElement('div')
+    const frame = fig.querySelector('.frame')!
+    return loadApi().then(YT => new Promise<Player>(resolve => {
+      frame.replaceChildren(slot)
+      let captioned = false
+      new YT.Player(slot, {
+        host: 'https://www.youtube-nocookie.com', videoId: id,
+        playerVars: { autoplay: 1, start: t, rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: 'vi', hl: 'vi' },
+        events: {
+          onReady: (e: { target: Player }) => { e.target.playVideo(); resolve(e.target) },
+          onStateChange: (e: { target: Player; data: number }) => {
+            if (e.data !== YT.PlayerState.PLAYING || captioned) return
+            captioned = true
+            try { vietnamese(e.target) } catch { /* captions stay as YouTube chose */ }
+          },
+        },
+      })
+    }), () => {
+      // The control script was blocked (ad blocker, offline): a plain embed still plays, with captions on.
+      const f = document.createElement('iframe')
+      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&start=${t}&rel=0&cc_load_policy=1&cc_lang_pref=vi&hl=vi`
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
+      f.title = fig.querySelector('.facade')?.getAttribute('aria-label') ?? 'Video'
+      frame.replaceChildren(f)
+      return null
+    })
+  }
+  async function play(fig: HTMLElement, t: number) {
+    const id = fig.dataset.vp!
+    const made = players.get(id)
+    if (!made) { players.set(id, create(fig, id, t)); return }
+    const p = await made
+    if (p) { p.seekTo(t, true); p.playVideo(); return }
+    const f = fig.querySelector('iframe') // plain embed: reload at the chapter
+    if (f) f.src = f.src.replace(/start=\d+/, `start=${t}`)
+  }
+
+  document.addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('button[data-t]')
+    if (!b) return
+    const fig = b.closest<HTMLElement>('[data-vp]') ?? document.querySelector<HTMLElement>(`[data-vp="${b.dataset.vpFor}"]`)
+    if (!fig) return
+    if (!b.closest('[data-vp]')) fig.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    void play(fig, Number(b.dataset.t) || 0)
+  })
+</script>
+<style>
+  .vp { margin: var(--space-5) 0 var(--space-3); }
+  .frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
+  .frame :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .facade { position: absolute; inset: 0; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+  .facade img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .play { position: relative; width: 68px; height: 68px; border-radius: 50%; background: var(--c-cardinal); color: #fff; display: grid; place-items: center; box-shadow: 0 2px 12px rgb(0 0 0 / 0.35); transition: transform 0.15s ease-out; }
+  .facade:hover .play, .facade:focus-visible .play { transform: scale(1.06); }
+  .cc { position: absolute; left: var(--space-3); bottom: var(--space-3); background: rgb(0 0 0 / 0.75); color: #fff; font-size: 0.8rem; font-weight: 600; padding: 4px 8px; }
+  figcaption { font-size: var(--step--1); color: var(--c-ink-faint); margin-top: var(--space-2); }
+  figcaption a { color: var(--c-ink-soft); }
+  .chapters { margin: 0 0 var(--space-5); border-top: 1px solid var(--c-rule); border-bottom: 1px solid var(--c-rule); }
+  .chapters summary { cursor: pointer; padding: var(--space-3) 0; font-weight: 600; font-size: 0.95rem; min-height: 44px; box-sizing: border-box; }
+  .chapters ol { list-style: none; margin: 0 0 var(--space-3); padding: 0; columns: 2 16rem; column-gap: var(--space-5); }
+  .chapters li { break-inside: avoid; }
+  .chapters button { display: flex; gap: var(--space-3); width: 100%; text-align: left; background: none; border: 0; padding: 8px 0; font: inherit; font-size: 0.95rem; color: var(--c-ink); cursor: pointer; min-height: 44px; align-items: baseline; }
+  .chapters button:hover { color: var(--c-cardinal); }
+  .t { font-variant-numeric: tabular-nums; color: var(--c-ink-soft); min-width: 3.2em; }
+</style>
