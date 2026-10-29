@@ -5,7 +5,7 @@ import { CONTACT_EMAIL } from '../../../lib/site'
 const c = await getContent()
 const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BUILD !== '1' || s.publish))
 ---
-<Doc title="Giới thiệu" intro="AquaTome là cẩm nang cá cảnh và thủy sinh bằng tiếng Việt: hồ sơ loài cá, cây thủy sinh, hướng dẫn chăm sóc và thuật ngữ.">
+<Doc title="Giới thiệu" intro="AquaTome là cẩm nang cá cảnh và thủy sinh: hồ sơ loài cá, cây thủy sinh, hướng dẫn chăm sóc và thuật ngữ.">
   <h2>Nội dung được làm thế nào</h2>
   <p>Mỗi hồ sơ và bài hướng dẫn được dịch, biên soạn sang tiếng Việt từ các nguồn chuyên ngành uy tín đã cho phép AquaTome sử dụng. Bản dịch do AI (Claude của Anthropic) thực hiện, sau đó được chấm điểm chất lượng tự động. Trang chưa đạt ngưỡng chất lượng vẫn xem được nhưng không được đưa lên công cụ tìm kiếm cho đến khi được cải thiện.</p>
   <p>Mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Khi các nguồn đưa ra thông số khác nhau (nhiệt độ, pH, độ cứng…), trang đánh dấu chỗ khác biệt thay vì chọn bừa một con số.</p>
