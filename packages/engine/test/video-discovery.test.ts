@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, type Finder } from '../src/video-discovery'
+import { readSingles } from '../src/youtube'
 
 const vids = (prefix: string, n: number) => Array.from({ length: n }, (_, i) => ({ id: `${prefix}${i}`, title: `${prefix} video ${i}` }))
 const lists: Record<string, { title: string; videos: { id: string; title: string }[] }> = {
@@ -77,7 +78,12 @@ test("the owner's picks go to the front of the queues, un-rejecting a rejected o
 
 test('Vietnamese video searches feed the single-video queue', async () => {
   const root = await setup()
-  const llm = async <T,>(a: { prompt: string }) => ({ verdicts: [{ id: 'v1', ok: true, reason: 'how-to' }] }) as T
+  const llm = async <T,>(a: { prompt: string }) => ({ verdicts: [{ id: 'v1', ok: true, reason: 'how-to', lang: 'vi' }] }) as T
   const r = await discoverSingles({ find, llm, root, now: () => new Date('2026-10-30T00:00:00Z') }, { channels: [], queries: ['hướng dẫn thủy sinh'] })
   expect(r.added).toEqual(['v1 Hướng dẫn setup bể thủy sinh cho người mới (B)'])
+  // Written before older English entries, after the owner's picks.
+  const file = join(root, 'engine-state/youtube-videos.json')
+  const vids = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify([{ id: 'en1', by: 'search', lang: 'en' }, { id: 'own', by: 'owner' }, ...vids]))
+  expect(await readSingles(root)).toEqual(['own', 'v1', 'en1'])
 })
