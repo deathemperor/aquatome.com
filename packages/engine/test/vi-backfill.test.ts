@@ -98,3 +98,32 @@ test('a guide translated from a plain-text outline keeps its HTML', async () => 
   const m = await rewriteVi(llm, [{ id: 'body', en: '## Title\nParagraph one.\n- Point', vi: '<h3>Tiêu đề</h3><p>Đoạn 1.</p>' }], { mode: 'fix' })
   expect(m.get('body')).toBe('<h3>Tiêu đề</h3><p>Đoạn một.</p><ul><li>Ý</li></ul>')
 })
+
+test('the source is named for attribution; a page rejected under an older version is tried again, once', async () => {
+  const root = await setup()
+  await writeFile(join(root, 'sources.json'), JSON.stringify({ aquariumcoop: { name: 'Aquarium Co-op' } }))
+  const state = join(root, 's.json')
+  await writeFile(state, JSON.stringify({ 'guides/g': { at: '2026-10-29', rewritten: 0, of: 1, scores: [0.6] }, 'species/x': { at: '2026-10-29', rewritten: 2, of: 2, scores: [0.9, 0.9] } }))
+  const calls: string[] = []
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { system: string; prompt: string }) => { prompts.push(a.prompt); return fake({ en: 0.9, vi: 0.9 }, calls)(a as never) as Promise<T> }
+  const r = await rewriteExisting(root, state, { llm, opts: { mode: 'fix' }, now }, { limit: 10, kinds: ['guides', 'species'] })
+  expect(r.done.map(x => x.split(' ')[0])).toEqual(['guides/g']) // species/x was fully rewritten before: left alone
+  expect(prompts[0]).toContain('Theo Aquarium Co-op…')
+  expect((await rewriteExisting(root, state, { llm, opts: { mode: 'fix' }, now }, { limit: 10 })).done.map(x => x.split(' ')[0])).toEqual(['glossary/t'])
+})
+
+test('a rewrite below the bar gets one more try with the reviewer notes; the better one counts', async () => {
+  const root = await setup()
+  const prompts: string[] = []
+  const scores = [0.6, 0.85]
+  const llm: Llm = async <T,>(a: { system: string; prompt: string }) => {
+    if (a.system.includes('checking a rewrite')) return { score: scores.shift(), notes: ['"có thể giảm" became a certainty'] } as T
+    prompts.push(a.prompt)
+    return { parts: [{ id: 'body', vi: `<p>lần ${prompts.length}</p>` }] } as T
+  }
+  const r = await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
+  expect(r.done).toEqual(['guides/g (1/1, 0.85)'])
+  expect(prompts[1]).toContain('"có thể giảm" became a certainty')
+  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>lần 2</p>')
+})

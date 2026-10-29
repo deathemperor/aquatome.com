@@ -10,18 +10,19 @@ const SCHEMA = {
 }
 const TASK = {
   fresh: 'Dịch phần EN sang tiếng Việt, như một người chơi thủy sinh lâu năm viết cho người Việt đọc. Phần chỉ có VI (không có EN) thì viết lại câu chữ cho tự nhiên, giữ nguyên mọi thông tin.',
-  fix: 'Bản VI hiện tại đọc như văn dịch máy. Viết lại cho tự nhiên, đối chiếu từng ý với EN để không sai, không sót. Phần không có EN thì chỉ sửa câu chữ, giữ nguyên mọi thông tin.',
+  fix: 'Bản VI hiện tại đọc như văn dịch máy. Viết lại cho tự nhiên, đối chiếu từng ý với EN để không sai, không sót. Phần không có EN thì bản VI là nguồn duy nhất: chỉ đổi cách diễn đạt, giữ từng chi tiết (con số, đơn vị, tên cây và vật liệu, ví dụ, mức khen chê, lời khuyên), không gộp hay rút gọn ý.',
 }
 
 /** One piece of a page: the English source (when there is one) and the Vietnamese on the site now. */
 export type Part = { id: string; en?: string; vi: string }
-export type RewriteOpts = { mode: keyof typeof TASK; model?: string; glossary?: string[]; notes?: string[] }
+export type RewriteOpts = { mode: keyof typeof TASK; model?: string; glossary?: string[]; notes?: string[]; /** The source site's name, for "Theo …" attribution. */ source?: string }
 
 /** New Vietnamese for each part, in the site's style guide. Never names, slugs or numbers outside the text. */
 export async function rewriteVi(llm: Llm, parts: Part[], o: RewriteOpts): Promise<Map<string, string>> {
   const body = parts.map(p => [`### ${p.id}`, ...(p.en ? [`EN:\n${p.en}`] : []), ...(o.mode === 'fix' || !p.en ? [`VI:\n${p.vi}`] : [])].join('\n')).join('\n\n')
   const prompt = [
     RULES.replace('{{TASK}}', TASK[o.mode]), STYLE,
+    ...(o.source ? [`Nguồn của nội dung: ${o.source}. Chỗ bài gốc xưng "tôi"/"chúng tôi" thì viết "Theo ${o.source}…" hoặc viết trung tính, không viết "tác giả bài gốc".`] : []),
     ...(o.glossary?.length ? [`Bảng thuật ngữ trên site: ${o.glossary.join(', ')}`] : []),
     ...(o.notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${o.notes.map(n => `- ${n}`).join('\n')}`] : []),
     `--- NỘI DUNG ---\n${body}`,
