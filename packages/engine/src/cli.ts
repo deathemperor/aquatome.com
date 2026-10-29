@@ -8,6 +8,7 @@ import { SOURCE_IDS, type SourceId } from '@aq/schema'
 import { claudeCli } from './claude'
 import { auditPictures } from './audit'
 import { dropFacePhotos, visionFaces } from './faces'
+import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
 import { httpAdmin, moderate } from './moderate'
@@ -91,10 +92,21 @@ if (cmd === 'run') {
   const r = await dropFacePhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     detect: visionFaces,
-  })
+  }, join(ROOT, 'engine-state/_photo-rejected.json'))
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.failed.length} failed`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
+} else if (cmd === 'photos') {
+  // Pages with fewer than 3 photos: re-read their source pages for photos the picker used to miss (monthly per page).
+  const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile') })
+  await fetcher.open()
+  try {
+    const r = await backfillPhotos(ROOT, { get: u => fetcher.get(u), bytes: (u, ref) => fetcher.bytes(u, ref), media: media(), now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined })
+    console.log(`photos: ${r.pages} pages re-read, ${r.added} photos added, ${r.errors.length} errors`)
+    for (const e of r.errors) console.log(`error: ${e}`)
+  } finally {
+    await fetcher.close()
+  }
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md (a report only; nothing is hidden).
   const { rows, markdown } = await auditPictures(join(ROOT, 'content'))
@@ -114,6 +126,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine faces | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }
