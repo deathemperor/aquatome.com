@@ -16,3 +16,8 @@ html { scrollbar-color: var(--c-ink-soft) var(--c-paper); }
 .wrap { max-width: var(--page); margin-inline: auto; padding-inline: var(--space-5); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Photos placed inside article text (guides, species and plant sections): see lib/figures.ts. */
+figure.inl { margin: var(--space-6) 0; max-width: var(--measure, 70ch); }
+figure.inl img { display: block; width: 100%; height: auto; border-radius: var(--radius-media); background: var(--c-plate); }
+figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-2); }

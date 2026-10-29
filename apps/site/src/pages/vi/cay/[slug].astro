@@ -41,7 +41,7 @@ const facts: [string, string][] = [
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} />
+  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} figures={p.photos.slice(1).map(photo => ({ photo }))} />
   <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`)} heading="Bài viết nhắc đến cây này" />
   <div class="wrap two">
     <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />

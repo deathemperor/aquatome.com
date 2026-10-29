@@ -29,6 +29,8 @@ pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
 pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
 pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
+# Pictures report (docs/review/content-audit.md): pages without a photo, a card thumb, or pictures inside the text.
+pnpm engine audit || log "audit: failed"
 # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
 pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
 
