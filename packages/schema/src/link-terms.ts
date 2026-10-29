@@ -8,12 +8,21 @@ export type LinkTarget = { key: string; href: string; names: string[]; exact?: b
  * Links the first occurrence of each target in the text (outside links, headings and code), longest name first at any
  * position, in one pass. `seen` carries across calls so a page links each target once; returns the keys linked, in order.
  */
-export function linkTerms(html: string, targets: LinkTarget[], cls: string, seen: Set<string> = new Set()): { html: string; keys: string[] } {
+const matchers = new WeakMap<LinkTarget[], { byName: Map<string, LinkTarget>; re: RegExp } | null>()
+function matcher(targets: LinkTarget[]) {
+  if (matchers.has(targets)) return matchers.get(targets)!
   const byName = new Map<string, LinkTarget>()
   for (const t of targets) for (const n of t.names) if (n.trim() && !byName.has(n.toLowerCase())) byName.set(n.toLowerCase(), t)
-  if (!byName.size) return { html, keys: [] }
   const names = [...byName.keys()].sort((a, b) => b.length - a.length).map(escapeRe)
-  const re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.join('|')})(?![\\p{L}\\p{N}])`, 'giu')
+  const m = byName.size ? { byName, re: new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.join('|')})(?![\\p{L}\\p{N}])`, 'giu') } : null
+  matchers.set(targets, m) // one compiled matcher per targets array (a build reuses the same one for every page)
+  return m
+}
+
+export function linkTerms(html: string, targets: LinkTarget[], cls: string, seen: Set<string> = new Set()): { html: string; keys: string[] } {
+  const m = matcher(targets)
+  if (!m) return { html, keys: [] }
+  const { byName, re } = m
   const root = parse(html)
   const keys: string[] = []
   for (const node of textNodes(root)) {
