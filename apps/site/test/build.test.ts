@@ -8,8 +8,13 @@ describe('species page', () => {
     expect(html).toContain('Paracheirodon axelrodi')
     expect(dom.querySelector('a[href="https://www.seriouslyfish.com/species/paracheirodon-axelrodi"]')).not.toBeNull()
   })
-  test('marks conflicting temperature', () => {
-    expect(dom.querySelector('[data-field="tempC"][data-conflict="true"]')).not.toBeNull()
+  test('sources disagree on temperature: the range they all accept, each source one tap away', () => {
+    const t = dom.querySelector('[data-field="tempC"][data-conflict="true"]')!
+    expect(t.querySelector('.v')?.text).toBe('24–27°C') // Seriously Fish 24–30, Glaser 23–27
+    expect(t.querySelector('.srcs summary')?.text).toBe('Mức mọi nguồn cùng khuyên')
+    expect(t.querySelectorAll('.srcs li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
+    expect(t.querySelectorAll('.srcs li span').map(s => s.getAttribute('data-c'))).toEqual(['24,30', '23,27']) // °F toggle too
+    expect(html).not.toContain('nguồn khác nhau')
   })
   test('videos are click-to-load facades', () => {
     expect(html).not.toContain('<iframe')
@@ -81,7 +86,7 @@ describe('browse pages', () => {
   test('species list embeds a filter index and unit-tagged values', () => {
     const { dom, html } = page('/vi/ca/')
     expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(8)
-    expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,30"/)
+    expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })
 })
