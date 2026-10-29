@@ -1,14 +1,15 @@
 ---
-import { linkGlossary, SECTION_LABELS, SECTION_ORDER, type Section, type Translation } from '@aq/schema'
+import { linkGlossary, type Section, type Translation } from '@aq/schema'
 import SourceCredit from './SourceCredit.astro'
 import { getContent } from '../lib/content'
 import { glossaryTerms } from '../lib/glossary'
+import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
 interface Props { sections: Section[]; t: Translation }
 const { sections, t } = Astro.props
 const c = await getContent()
 const terms = glossaryTerms(c)
 const seen = new Set<string>()
-const groups = SECTION_ORDER.map(key => ({
+const groups = DISPLAY_ORDER.map(key => ({
   key,
   blocks: sections.filter(x => x.key === key).flatMap(x => {
     const html = t.sections[`${key}:${x.source}`]
@@ -19,7 +20,7 @@ const groups = SECTION_ORDER.map(key => ({
 <div class="wrap body">
   {groups.map(sec => (
     <section data-section={sec.key}>
-      <h2>{SECTION_LABELS.vi[sec.key]}</h2>
+      <h2>{QUESTION_LABELS[sec.key]}</h2>
       {sec.blocks.map(b => (
         <div class="block" data-source={b.source}>
           <div class="prose" set:html={b.vi} />
