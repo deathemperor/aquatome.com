@@ -30,6 +30,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    {/* The reader's light/dark choice (ThemeToggle) before first paint, so a chosen theme never flashes the other. */}
+    <script is:inline>try{var t=localStorage.getItem('aq_theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}

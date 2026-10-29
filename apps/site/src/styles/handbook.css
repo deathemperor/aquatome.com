@@ -11,10 +11,10 @@
 :root:not(#_) .units { color: var(--c-ink-soft); border-color: var(--c-rule); }
 :root:not(#_) main .head { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); }
 :root:not(#_) .body h2 { border-bottom: 1px solid var(--c-rule); padding-bottom: var(--space-2); }
-:root:not(#_) .plate { padding: 6px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.1); }
+:root:not(#_) .plate { padding: 6px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.1); }
 :root:not(#_) .sc h3, :root:not(#_) .pc h3 { font-weight: 500; }
 :root:not(#_) .card { background: var(--c-plate); border-color: var(--c-ink); }
 :root:not(#_) .card dd { font-family: var(--f-display); font-size: var(--step-2); }
-:root:not(#_) .videos { background: #24302a; }
-:root:not(#_) .foot { background: #24302a; }
-:root:not(#_) ::selection { background: #e8d5b5; color: var(--c-ink); }
+:root:not(#_) .videos { background: var(--c-band); }
+:root:not(#_) .foot { background: var(--c-band); }
+:root:not(#_) ::selection { background: var(--c-select); color: var(--c-ink); }
