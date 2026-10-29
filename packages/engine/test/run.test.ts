@@ -100,6 +100,16 @@ test('second identical run makes no llm calls and changes no file', async () => 
   expect(await tree(root)).toEqual(before)
 })
 
+test('force re-translates only the pages matched by `only`, even when unchanged', async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi', 'symphysodon-discus'] }).d, { sources: ['seriouslyfish'] })
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi', 'symphysodon-discus'] })
+  const r = await runEngine(d, { sources: ['seriouslyfish'], only: /axelrodi/, force: true })
+  expect(r.perSource.seriouslyfish?.fetched).toBe(1)
+  expect(r.perSource.seriouslyfish?.processed).toBe(1)
+  expect(calls.process).toBeGreaterThan(0)
+})
+
 test('a browser check during discovery marks the source needs-human', async () => {
   const root = await fresh()
   const { d, calls } = deps(root)

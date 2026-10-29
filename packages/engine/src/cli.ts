@@ -34,13 +34,14 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, top: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' } } })
 const cmd = positionals[0]
 
 if (cmd === 'run') {
   const sources = values.sources?.split(',').map(s => s.trim()) as SourceId[] | undefined
   const bad = sources?.filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
   if (bad?.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
+  if (values.force && !values.only) throw new Error('--force re-translates only the pages matched by --only')
   const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
   const fetcher = new ChromeFetcher({ profileDir })
   const startedAt = new Date().toISOString()
@@ -48,7 +49,7 @@ if (cmd === 'run') {
   try {
     const report = await runEngine(
       { fetcher, llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
-      { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'] },
+      { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force },
     )
     await mkdir(join(ROOT, 'engine-state'), { recursive: true })
     await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
@@ -137,6 +138,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }

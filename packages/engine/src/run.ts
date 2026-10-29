@@ -108,7 +108,7 @@ async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<
   try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
-export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number; only?: RegExp; retryBlocked?: boolean } = {}): Promise<RunReport> {
+export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number; only?: RegExp; retryBlocked?: boolean; force?: boolean } = {}): Promise<RunReport> {
   const { llm, http, root } = deps
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
@@ -238,7 +238,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     for (const f of found) { const w = wantedIn(f.url, wanted); if (w && !onSource[w]) onSource[w] = f.url }
     await setSourceBlock(root, id, undefined)
     const state = await loadState(root, id)
-    const todo = found.filter(f => (!opts.only || opts.only.test(f.url)) && needsFetch(state[f.url], f.lastmod, deps.now())).slice(0, opts.limit ?? Infinity)
+    // `force` (with `only`): re-translate the matching pages now, even if unchanged since the last run (e.g. after a prompt fix).
+    const forced = (url: string) => !!opts.force && !!opts.only?.test(url)
+    const todo = found.filter(f => (!opts.only || opts.only.test(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now()))).slice(0, opts.limit ?? Infinity)
 
     for (const { url, lastmod } of todo) {
       if (deps.now().getTime() > until) break
@@ -257,7 +259,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
         const hash = snapshotHash(o)
         if (hash !== prev?.hash) await writeSnapshot(root, id, url, o, deps.now())
-        if (prev?.processedHash === hash) {
+        if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
           await save({ ...rest, ...base, hash, status: prev.entityIds.length ? 'processed' : 'skipped', attempts: 0 })
