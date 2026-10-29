@@ -11,6 +11,7 @@ import { r2Media } from './media'
 import { httpAdmin, moderate } from './moderate'
 import { runEngine } from './run'
 import { loadState } from './state'
+import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -27,7 +28,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, top: { type: 'string' } } })
 const cmd = positionals[0]
 
 if (cmd === 'run') {
@@ -57,6 +58,19 @@ if (cmd === 'run') {
   const r = await moderate(httpAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), claudeCli)
   console.log(r.off ? 'comments are off (no D1 yet) — nothing to moderate' : `moderated: ${r.queued} queued, ${r.applied} applied, ${r.ignored} ignored, ${r.failedBatches} failed batches`)
   if (!r.off && r.failedBatches) process.exitCode = 1
+} else if (cmd === 'summaries') {
+  // pnpm engine summaries [--top N] → drafts + docs/review/summaries.md; pnpm engine summaries approve <id,id|all>
+  const contentRoot = join(ROOT, 'content')
+  if (positionals[1] === 'approve') {
+    const arg = positionals[2] ?? ''
+    const done = await approveSummaries(contentRoot, arg === 'all' ? 'all' : arg.split(',').filter(Boolean))
+    console.log(`approved: ${done.length}${done.length ? ` (${done.join(', ')})` : ''}`)
+  } else {
+    const drafted = await draftSummaries(contentRoot, claudeCli, { top: Number(values.top ?? 30), now: () => new Date() })
+    console.log(`drafted: ${drafted.length}`)
+  }
+  await mkdir(join(ROOT, 'docs/review'), { recursive: true })
+  await writeFile(join(ROOT, 'docs/review/summaries.md'), await reviewDoc(contentRoot))
 } else if (cmd === 'status') {
   const rows: Record<string, Record<string, number>> = {}
   for (const id of SOURCE_IDS) {
@@ -66,6 +80,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine status')
   process.exitCode = 1
 }

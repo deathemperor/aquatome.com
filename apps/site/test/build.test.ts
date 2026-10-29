@@ -154,3 +154,9 @@ test('static /go/ fallback pages exist for hosting without the Worker, and are n
     expect(html).toMatch(/location\.replace/)
   }
 })
+
+test('approved summary shows above the sections; pending drafts stay hidden', () => {
+  const { dom } = page('/vi/ca/ca-neon-vua/')
+  expect(dom.querySelector('section.qs')?.text).toContain('nuôi đàn từ 8 con')
+  expect(page('/vi/ca/ca-dia/').html).not.toContain('Bản nháp chưa duyệt')
+})
