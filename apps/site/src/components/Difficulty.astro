@@ -1,12 +1,13 @@
 ---
+/** Difficulty in words (1–3 Dễ, 4–5 Vừa, 6–8 Khó); the 1–8 number stays in the label for screen readers and tooltips. */
 interface Props { value: number }
 const { value } = Astro.props
+const [word, cls] = value <= 3 ? ['Dễ', 'easy'] : value <= 5 ? ['Vừa', 'mid'] : ['Khó', 'hard']
 ---
-<span class="diff" role="img" aria-label={`Độ khó ${value}/8`} title={`Độ khó ${value}/8`}>
-  {Array.from({ length: 8 }, (_, i) => <i class:list={{ on: i < value }} />)}
-</span>
+<span class:list={['diff', cls]} aria-label={`Độ khó ${value}/8: ${word.toLowerCase()}`} title={`Độ khó ${value}/8`}>{word}</span>
 <style>
-  .diff { display: inline-flex; gap: 2px; vertical-align: middle; }
-  i { width: 7px; height: 7px; border-radius: 50%; background: var(--c-rule); }
-  i.on { background: var(--c-moss); }
+  .diff { display: inline-block; padding: 0 0.45em; border: 1px solid currentColor; font: 600 0.75rem var(--f-body); line-height: 1.5; letter-spacing: 0.02em; }
+  .easy { color: var(--c-moss); }
+  .mid { color: var(--c-ink-soft); }
+  .hard { color: var(--c-cardinal); }
 </style>

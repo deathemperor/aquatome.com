@@ -1,6 +1,7 @@
 ---
 import { resolveDataCard, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
+import RangeBar from './RangeBar.astro'
 import { FIELD_LABELS, FIELD_ORDER, isRange, range } from '../lib/format'
 interface Props { card: SpeciesEntity['dataCard']; sources: Partial<Record<SourceId, SourceInfo>> }
 const { card, sources } = Astro.props
@@ -25,6 +26,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
         {r.field === 'difficulty' && typeof r.value === 'number'
           ? <><Difficulty value={r.value} /> <span class="n">{r.value}/8</span></>
           : <span class="v" {...unitAttrs(r.field, r.value)}>{range(r.value)}{unit(r.field)}</span>}
+        {(r.field === 'tempC' || r.field === 'ph') && isRange(r.value) && <span class="bar"><RangeBar kind={r.field === 'ph' ? 'ph' : 'temp'} min={r.value.min} max={r.value.max} /></span>}
         {r.conflict && <span class="conflict" title={`Nguồn: ${names(r.sources)}`}>nguồn khác nhau</span>}
       </dd>
     </div>
@@ -36,6 +38,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
   .card > div:nth-child(3n) { border-right: 0; }
   dt { font-size: 0.75rem; color: var(--c-ink-faint); }
   dd { margin: 0; font: 400 var(--step-1)/1.3 var(--f-display); }
+  .bar { display: block; margin-top: var(--space-2); }
   .n { font: 500 var(--step--1) var(--f-body); color: var(--c-ink-soft); }
   .conflict { display: block; font: 500 0.7rem var(--f-body); color: var(--c-cardinal); margin-top: 2px; }
   @media (max-width: 480px) { .card { grid-template-columns: repeat(2, 1fr); } .card > div:nth-child(3n) { border-right: 1px solid var(--c-rule); } .card > div:nth-child(2n) { border-right: 0; } }

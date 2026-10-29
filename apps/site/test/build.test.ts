@@ -230,3 +230,13 @@ test('species text never links to the page itself; glossary and genus links come
   }
   expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] a.gl[href^="/vi/thuat-ngu/"]')).not.toBeNull()
 })
+
+test('species cards are specimen labels: temperature and pH bars, difficulty in words, no family line', () => {
+  const { dom } = page('/vi/')
+  const card = dom.querySelector('article.sc')!
+  expect(card.querySelectorAll('.rb').length).toBeGreaterThan(0)
+  expect(card.querySelector('.diff')?.text).toMatch(/^(Dễ|Vừa|Khó)$/)
+  expect(card.querySelector('.fam')).toBeNull()
+  const bar = card.querySelector('.rb i')!.getAttribute('style')!
+  expect(bar).toMatch(/left:[\d.]+%;width:[\d.]+%/)
+})
