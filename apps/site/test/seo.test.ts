@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
+import { createHash } from 'node:crypto'
 import { DIST, page } from './dist'
 
 const htmlFiles = (dir: string): string[] =>
@@ -57,6 +58,17 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
   expect(htmlFiles(join(DIST, 'vi')).every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
+})
+test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matches the SKILL.md bytes', () => {
+  expect(readFileSync(join(DIST, 'llms.txt'), 'utf8')).toMatch(/^# AquaTome\n\n> /)
+  expect(JSON.parse(readFileSync(join(DIST, 'openapi.json'), 'utf8')).openapi).toBe('3.1.0')
+  const index = JSON.parse(readFileSync(join(DIST, '.well-known', 'agent-skills', 'index.json'), 'utf8'))
+  expect(index.$schema).toBe('https://schemas.agentskills.io/discovery/0.2.0/schema.json')
+  const [skill] = index.skills
+  expect(skill).toMatchObject({ name: 'aquatome-species', type: 'skill-md' })
+  const md = readFileSync(join(DIST, '.well-known', 'agent-skills', 'aquatome-species', 'SKILL.md'))
+  expect(skill.digest).toBe(`sha256:${createHash('sha256').update(md).digest('hex')}`)
+  expect(skill.url).toMatch(/\/\.well-known\/agent-skills\/aquatome-species\/SKILL\.md$/)
 })
 test('about, privacy and contact pages exist, are linked from the footer and listed in the sitemap', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')

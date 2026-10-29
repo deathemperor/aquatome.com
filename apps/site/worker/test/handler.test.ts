@@ -154,3 +154,16 @@ test('markdown: a page without index.md falls back to HTML', async () => {
   expect(r.status).toBe(200)
   expect(await r.text()).toBe(PAGE)
 })
+
+test('agent discovery: API catalog as linkset+json; homepage redirect and /vi/ carry the Link header', async () => {
+  const { e } = env()
+  const cat = await handle(get('/.well-known/api-catalog'), e, stringRewrite)
+  expect(cat.headers.get('content-type')).toBe('application/linkset+json')
+  const body = await cat.json() as { linkset: { anchor: string; 'service-desc': { href: string }[] }[] }
+  expect(body.linkset[0]).toMatchObject({ anchor: 'https://x.test/', 'service-desc': [{ href: 'https://x.test/openapi.json' }] })
+  const root = await handle(get('/'), e, stringRewrite)
+  expect(root.status).toBe(301)
+  expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
+  expect((await handle(get('/vi/'), e, stringRewrite)).headers.get('link')).toContain('rel="api-catalog"')
+  expect((await handle(get('/vi/ca/'), e, stringRewrite)).headers.get('link')).toBeNull()
+})

@@ -7,7 +7,7 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*"]
+    "run_worker_first": ["/", "/.well-known/api-catalog", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*"]
   },
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.

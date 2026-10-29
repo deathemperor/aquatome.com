@@ -5,6 +5,7 @@ import { searchTarget, type AffEnv } from './affiliate/networks'
 import { allocate } from './allocate'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot, resolveSkin, skinCookie } from './assign'
+import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
 import { prefersMarkdown } from './markdown'
@@ -109,8 +110,9 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
       } }), env)
     }
   }
+  if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
   // Vietnamese is the only language for now: the root is a permanent redirect, not a meta-refresh page.
-  if (url.pathname === '/') return finish(new Response(null, { status: 301, headers: { location: `/vi/${url.search}` } }), env)
+  if (url.pathname === '/') return finish(new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK } }), env)
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
@@ -138,6 +140,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   const body = skin === 'mix' ? res : await rewrite(res, skin)
   const extra: Record<string, string> = { Vary: 'Cookie, Accept' }
   if (setCookie) extra['Set-Cookie'] = setCookie
+  if (url.pathname === '/vi/') extra.Link = DISCOVERY_LINK
   const out = finish(body, env, extra)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')
   out.headers.delete('etag')
