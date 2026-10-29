@@ -173,7 +173,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const existing = await s.read<z.infer<typeof GuideSchema>>('guides', guideId(source, url))
       const item = writeGuide(page, { source, url, now, existing, takenSlugs: await s.taken('guides', existing.vi?.slug), quality: combineQuality(undefined, source, score) })
       if (!item) return null
-      item.entity.photos = await sourcePhotos([], item.entity.photos, 3)
+      item.entity.photos = await sourcePhotos([], item.entity.photos, 6) // more pictures to place through the text
       await s.write('guides', GuideSchema, item)
       await appendChangelog(contentRoot, [log('guide', item.entity.id, !!existing.entity)])
       return [`guides/${item.entity.id}`]

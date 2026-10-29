@@ -4,9 +4,10 @@ import SourceCredit from './SourceCredit.astro'
 import { getContent } from '../lib/content'
 import { glossaryTerms } from '../lib/glossary'
 import { mentionIndex } from '../lib/mentions'
+import { figureHtml, type Figure } from '../lib/figures'
 import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
-interface Props { sections: Section[]; t: Translation; self?: string }
-const { sections, t, self } = Astro.props
+interface Props { sections: Section[]; t: Translation; self?: string; figures?: Figure[] }
+const { sections, t, self, figures = [] } = Astro.props
 const c = await getContent()
 const terms = glossaryTerms(c)
 const seen = new Set<string>()
@@ -19,9 +20,11 @@ const groups = DISPLAY_ORDER.map(key => ({
     return html ? [{ ...x, vi: linkGlossary(linkTerms(html, targets, 'ml', linked).html, terms, seen) }] : []
   }),
 })).filter(x => x.blocks.length > 0)
+// Extra photos go between sections, spread evenly (never after the last one).
+const figAfter = new Map(figures.slice(0, Math.max(0, groups.length - 1)).map((f, k, all) => [Math.floor(((k + 1) * groups.length) / (all.length + 1)) - 1, f] as const))
 ---
 <div class="wrap body">
-  {groups.map(sec => (
+  {groups.map((sec, i) => (<>
     <section data-section={sec.key}>
       <h2>{QUESTION_LABELS[sec.key]}</h2>
       {sec.blocks.map(b => (
@@ -31,6 +34,8 @@ const groups = DISPLAY_ORDER.map(key => ({
         </div>
       ))}
     </section>
+    {figAfter.has(i) && <Fragment set:html={figureHtml(figAfter.get(i)!)} />}
+  </>
   ))}
 </div>
 <style>

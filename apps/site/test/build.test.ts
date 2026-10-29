@@ -186,3 +186,14 @@ test('owner hide button script is on content pages but not the 404 page', () => 
   expect(page('/vi/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
   expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
 })
+
+test('pictures inside the text: extra species photos between sections, a mentioned species pictured in the guide', () => {
+  const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  expect(dom.querySelectorAll('article .prose figure.inl a[href="/vi/ca/ca-neon-xanh/"]').length).toBeGreaterThan(0)
+  for (const slug of ['ca-neon-vua', 'ca-dia', 'ca-galaxy']) {
+    const sp = page(`/vi/ca/${slug}/`).dom
+    const sections = sp.querySelectorAll('section[data-section]').length
+    expect(sp.querySelectorAll('.body > figure.inl').length, slug).toBeLessThan(sections)
+    expect(sp.querySelector('.gallery .thumbs'), slug).toBeNull()
+  }
+})

@@ -12,6 +12,7 @@ import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { excerpt } from '../../../lib/meta'
 import { guideImage, mentionIndex } from '../../../lib/mentions'
+import { placeFigures } from '../../../lib/figures'
 import { categoryLabel } from '../../../lib/format'
 
 export async function getStaticPaths() {
@@ -25,9 +26,15 @@ const body = linkGlossary(m.html, glossaryTerms(c))
 const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
 const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
 const ph = guideImage(c, g)
+// Pictures inside the text: each species/plant photo after the paragraph that first names it, the guide's other photos spread out.
+const shown = (url?: string) => url !== undefined && url !== ph?.url
+const prose = placeFigures(body,
+  [...species.map(s => ({ photo: s.photos[0], label: s.t.name, href: `/vi/ca/${s.t.slug}/` })), ...plants.map(p => ({ photo: p.photos[0], label: p.t.name, href: `/vi/cay/${p.t.slug}/` }))]
+    .filter((f): f is typeof f & { photo: NonNullable<typeof f.photo> } => shown(f.photo?.url)).slice(0, 6),
+  g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
-<Base title={`${g.t.name} — AquaTome`} description={excerpt(g.t.body ?? '')} image={ph?.url} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
+<Base title={`${g.t.name} — AquaTome`} description={excerpt(g.t.body ?? '')} image={ph?.url} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   <Nav slot="header" />
   <article class="wrap art">
     <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>
@@ -35,7 +42,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
     <h1>{g.t.name}</h1>
     <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} />
     {ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
-    <div class="prose" set:html={body} />
+    <div class="prose" set:html={prose} />
   </article>
   {(species.length > 0 || plants.length > 0) && (
     <section class="wrap related" aria-labelledby="rel-h">
