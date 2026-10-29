@@ -1,9 +1,7 @@
-import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
+import { STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
 
-/** Species Vietnamese hobbyists know by name: shown first when we have a page with a photo. */
-const STAPLES = ['betta-splendens', 'poecilia-reticulata', 'paracheirodon-innesi', 'paracheirodon-axelrodi', 'trigonostigma-heteromorpha', 'symphysodon-aequifasciatus', 'pterophyllum-scalare', 'neocaridina-davidi', 'astronotus-ocellatus', 'puntius-titteya', 'danio-rerio', 'mikrogeophagus-ramirezi']
 
 /** Plants every beginner can grow: shown first. */
 const PLANT_STAPLES = ['taxiphyllum-barbieri', 'microsorum-pteropus', 'vallisneria', 'bucephalandra-sp', 'aegagropila-linnaei', 'bolbitis-heudelotii']
@@ -24,7 +22,7 @@ export function featuredSpecies(c: Content, n = 8): Localized<SpeciesEntity>[] {
   const ok = (s: Localized<SpeciesEntity>) => clean(s) && s.t.quality.indexable
   const byId = new Map(c.species.map(s => [s.id, s]))
   // Staples need only a clean photo: readers look for them first, even while a translation is below the indexing bar.
-  const staples = STAPLES.flatMap(id => { const s = byId.get(id); return s && clean(s) ? [s] : [] })
+  const staples = STAPLE_SPECIES.flatMap(id => { const s = byId.get(id); return s && clean(s) ? [s] : [] })
   const rest = c.species.filter(s => ok(s) && !staples.includes(s)).sort(richest)
   return [...staples, ...rest].slice(0, n)
 }

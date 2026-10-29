@@ -1,7 +1,7 @@
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, isAllowedLicence, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, isAllowedLicence, STAPLE_SPECIES, thumbOf, type Photo } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { contactSheet } from './video-images'
 
@@ -135,16 +135,21 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
 }
 
 /**
- * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (those with a reader
- * summary): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
+ * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (the staples, then the
+ * species most sources write about): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
  * Stops on a model failure (usage limit). content/gallery/<id>.json.
  */
 export async function galleries(root: string, d: GalleryDeps, o: { limit: number; max?: number; only?: string; maxAgeDays?: number }) {
   const content = join(root, 'content')
   const report = { done: [] as string[], failed: [] as string[], stopped: '' }
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  const popular = new Set((await readdir(join(content, 'summaries')).catch(() => [] as string[])).map(f => f.replace(/\.json$/, '')))
-  const ids = (await readdir(join(content, 'species')).catch(() => [] as string[])).filter(id => !o.only || id === o.only).sort((a, b) => Number(popular.has(b)) - Number(popular.has(a)) || a.localeCompare(b))
+  const all = (await readdir(join(content, 'species')).catch(() => [] as string[])).filter(id => !o.only || id === o.only)
+  const sources = new Map(await Promise.all(all.map(async id => {
+    const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { source: string }[] }
+    return [id, new Set((e.sections ?? []).map(s => s.source)).size] as const
+  })))
+  const rank = (id: string) => { const i = STAPLE_SPECIES.indexOf(id); return i < 0 ? STAPLE_SPECIES.length : i }
+  const ids = all.sort((a, b) => rank(a) - rank(b) || sources.get(b)! - sources.get(a)! || a.localeCompare(b))
   const today = d.now().toISOString().slice(0, 10)
   for (const id of ids) {
     if (report.done.length + report.failed.length >= o.limit) break

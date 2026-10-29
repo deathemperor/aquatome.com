@@ -1,0 +1,2 @@
+/** Species Vietnamese readers look for first: they lead the home page, the species list and every batch job. */
+export const STAPLE_SPECIES = ['betta-splendens', 'poecilia-reticulata', 'paracheirodon-innesi', 'paracheirodon-axelrodi', 'trigonostigma-heteromorpha', 'symphysodon-aequifasciatus', 'pterophyllum-scalare', 'neocaridina-davidi', 'astronotus-ocellatus', 'puntius-titteya', 'danio-rerio', 'mikrogeophagus-ramirezi']

@@ -97,3 +97,15 @@ test('gallery: a recent gallery is left alone; rejected photos never come back; 
   const stopped = await galleries(r, deps({ look: async () => { throw new LlmError('usage limit') } }), { limit: 5, only: 'betta-splendens' })
   expect(stopped.stopped).toMatch(/usage limit/)
 })
+
+test('gallery order: the staples first, then the species most sources write about', async () => {
+  const r = await root()
+  const add = async (id: string, sources: string[]) => {
+    await mkdir(join(r, 'content/species', id), { recursive: true })
+    await writeFile(join(r, 'content/species', id, 'entity.json'), JSON.stringify({ scientificName: 'Betta splendens', photos: [], sections: sources.map(source => ({ source })) }))
+  }
+  await add('aaa-one-source', ['seriouslyfish'])
+  await add('zzz-three-sources', ['seriouslyfish', 'glaser', 'sprucepets'])
+  const report = await galleries(r, deps(), { limit: 2 })
+  expect(report.done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'zzz-three-sources'])
+})
