@@ -1,5 +1,5 @@
 {
-  "slug": "ca-neon-xanh-paracheirodon",
+  "slug": "ca-neon-xanh",
   "name": "Cá neon xanh",
   "altNames": [
     "Cá neon",
@@ -25,5 +25,12 @@
     "bySource": {
       "sprucepets": 0.72
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-neon-xanh-paracheirodon",
+      "name": "Cá neon xanh"
+    }
+  ]
 }

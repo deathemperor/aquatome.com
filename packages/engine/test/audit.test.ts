@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { auditPictures } from '../src/audit'
+import { auditPictures, sameName } from '../src/audit'
 
 test('lists pages with no photo, photos without thumbs, and a single photo', async () => {
   const root = await mkdtemp(join(tmpdir(), 'au-'))
@@ -30,4 +30,10 @@ test('lists species our pages name without a page: queued on a source first, the
   const { markdown } = await auditPictures(root, join(root, 'wanted.json'))
   expect(markdown).toContain('queued on a source (1)\n\n- Synodontis lucipinnis — named on 2 pages (guides/a, guides/b) — queued first: https://www.seriouslyfish.com/species/synodontis-lucipinnis/')
   expect(markdown).toContain('no source has it (1)\n\n- Garra rara — named on 1 page (species/x)')
+})
+
+test('flags species sharing a Vietnamese name, not guides', () => {
+  const row = (page: string, name: string) => ({ page, name, photos: 1, missingThumbs: 0 })
+  const rows = [row('species/a', 'Cá neon xanh'), row('species/b', 'cá neon xanh'), row('species/c', 'Cá đĩa'), row('plants/a', 'Cá neon xanh'), row('guides/x', 'Cá đĩa'), row('guides/y', 'Cá đĩa')]
+  expect(sameName(rows).map(r => r.page)).toEqual(['species/a', 'species/b'])
 })

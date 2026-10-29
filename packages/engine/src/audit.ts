@@ -24,8 +24,19 @@ borrow one from a species or plant they mention on the site.
 
 ${list('No photo', rows.filter(r => !r.photos))}
 ${list('Photos without a card thumbnail', rows.filter(r => r.missingThumbs))}
-${list('Only one photo (no pictures inside the text)', rows.filter(r => r.photos === 1))}${await wantedSection(wantedFile)}`
+${list('Only one photo (no pictures inside the text)', rows.filter(r => r.photos === 1))}
+${list('Same Vietnamese name as another page (rename one, set nameFixed)', sameName(rows))}${await wantedSection(wantedFile)}`
   return { rows, markdown }
+}
+
+/** Species or plants sharing a Vietnamese name: readers can't tell them apart in lists and search. */
+export function sameName(rows: AuditRow[]): AuditRow[] {
+  const by = new Map<string, AuditRow[]>()
+  for (const r of rows.filter(r => !r.page.startsWith('guides/'))) {
+    const k = `${r.page.split('/')[0]}:${r.name.toLowerCase()}`
+    by.set(k, [...(by.get(k) ?? []), r])
+  }
+  return [...by.values()].filter(xs => xs.length > 1).flat()
 }
 
 type WantedRow = { name: string; mentions: number; mentionedIn: string[]; onSource?: string }
