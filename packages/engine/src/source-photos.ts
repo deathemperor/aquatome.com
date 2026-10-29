@@ -8,6 +8,8 @@ export type Media = { urlFor: (key: string) => string; put: (key: string, bytes:
 type Picked = PageImage & { probe?: boolean }
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
+/** QR codes for the page's own address (PlanetCatfish: quickchart.io/qr?…, /cache/qr/…). */
+const QR = /\/qr(\/|\?|$)/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
 /** Shop packshots (food, fertiliser, hardware): wrong as a species or plant photo. Articles drop shop product tiles instead (PageImage.product). */
 export const PRODUCT = /fertili[sz]er|cuisine|\bfoods?\b|pellets?|wafers?|flakes?|\btabs?\b|\bcaves?\b|\bshells?\b|bottle|\bpack\b|\bkit\b|filter|heater|substrate|\b\d+(\.\d+)?\s?(ml|oz|g|kg|lb|gal)\b/i
@@ -29,7 +31,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   for (const img of images) {
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
-    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`)) continue
+    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
     if (img.width && img.width < MIN_WIDTH) continue
     if (img.width && img.height && !okShape(img.width, img.height)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
