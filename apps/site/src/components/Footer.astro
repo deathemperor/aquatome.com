@@ -1,20 +1,50 @@
 ---
-import type { Credit } from '../lib/credits'
+import { groupCredits, type Credit } from '../lib/credits'
 interface Props { credits?: Credit[] }
 const { credits = [] } = Astro.props
+const groups = groupCredits(credits)
 ---
 <footer class="foot">
   <div class="wrap">
     <p>Nội dung dịch từ các nguồn được cấp phép; mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Ảnh thuộc về tác giả, dùng theo giấy phép ghi kèm.</p>
-    <nav class="links" aria-label="Thông tin"><a href="/vi/gioi-thieu/">Giới thiệu</a> · <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/vi/lien-he/">Liên hệ</a> · <a href="/vi/moi-cap-nhat/">Mới cập nhật</a></nav>
-    {credits.length > 0 && (
-      <p class="credits">{credits.map(c => <span>{c.what}: <a href={c.sourceUrl}>{c.author}</a>, {c.licence}. </span>)}</p>
-    )}
+    <nav class="links" aria-label="Thông tin">
+      <a href="/vi/gioi-thieu/">Giới thiệu</a> · <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/vi/lien-he/">Liên hệ</a> · <a href="/vi/moi-cap-nhat/">Mới cập nhật</a>
+      {credits.length > 0 && <> · <button type="button" class="credits-btn" popovertarget="photo-credits">Nguồn ảnh ({credits.length})</button></>}
+    </nav>
   </div>
+  {credits.length > 0 && (
+    <div id="photo-credits" class="credits" popover aria-labelledby="photo-credits-h">
+      <div class="head">
+        <h2 id="photo-credits-h">Nguồn ảnh trên trang này</h2>
+        <button type="button" popovertarget="photo-credits" popovertargetaction="hide" aria-label="Đóng">×</button>
+      </div>
+      <ul>
+        {groups.map(g => (
+          <li>
+            {g.urls.length === 1 ? <a href={g.urls[0]} rel="noopener">{g.author}</a> : <strong>{g.author}</strong>}
+            <span class="lic"> · {g.licence}{g.urls.length > 1 && ` · ${g.urls.length} ảnh`}</span>
+            {g.urls.length > 1 && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={`${g.author}, ảnh ${i + 1}`}>{i + 1}</a>)}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
 </footer>
 <style>
   .foot { background: var(--c-blackwater); color: var(--c-on-dark-soft); font-size: var(--step--1); padding-block: var(--space-6); border-top: 1px solid rgb(255 255 255 / 0.08); }
   .foot p { max-width: var(--measure); margin: 0 0 var(--space-2); }
   .foot a { color: var(--c-on-dark); }
   .links { margin-bottom: var(--space-2); }
+  .credits-btn { font: inherit; color: var(--c-on-dark); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+  .credits { width: min(36rem, calc(100vw - 2rem)); max-height: min(70vh, 40rem); overflow: auto; padding: var(--space-5); border: 1px solid var(--c-rule); border-radius: 12px; background: var(--c-plate); color: var(--c-ink); font-size: var(--step--1); }
+  .credits::backdrop { background: rgb(10 26 29 / 0.5); }
+  .credits .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); margin-bottom: var(--space-3); }
+  .credits h2 { font-size: var(--step-1); }
+  .credits .head button { font-size: 1.5rem; line-height: 1; background: none; border: 0; color: var(--c-ink-soft); cursor: pointer; padding: 0 var(--space-1); }
+  .credits ul { list-style: none; margin: 0; padding: 0; }
+  .credits li { padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
+  .credits a { color: var(--c-ink); }
+  .lic { color: var(--c-ink-soft); }
+  .nums { display: flex; flex-wrap: wrap; gap: 0.15rem 0.6rem; margin-top: var(--space-1); }
+  .nums a { color: var(--c-ink-soft); }
 </style>
