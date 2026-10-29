@@ -1,0 +1,154 @@
+{
+  "id": "astyanax-kennedyi",
+  "scientificName": "Astyanax kennedyi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Astyanax",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Kennedy's tetra, Astyanax kennedyi, is a small characid endemic to the upper Amazon basin in Peru, around the city of Iquitos. Like most Astyanax it is rarely offered for sale, and the occasional specimen turns up mixed among shipments of wild fishes from Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Endemic to the upper Amazon basin in Peru, around the city of Iquitos.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>A tank with base dimensions measuring 80 × 30 cm (31 × 12 in) or similar should prove sufficient. Volume: approximately 72 litres (19 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Thrives in a typical Amazon-themed set-up, with a sandy substrate, driftwood branches, twisted roots, and tannin-stained water. A few handfuls of dried beech or oak leaves completes the effect. It should also do well in a planted aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<ul><li>Temperature: 26–29°C (79–84°F)</li><li>pH: 5.5–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Apparently preys on invertebrates and smaller fishes in nature. Its captive diet should contain plenty of small live and frozen morsels alongside good quality dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Shouldn't be kept with very tiny fish as it might predate on them but suitable for most communities of similarly-sized, peaceful species. Ideal tankmates include characins, non-piscivorous South American cichlids plus catfishes from the families Callichthyidae and Loricariidae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>The female is rounder in the body than the male, especially when full of eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Unreported in the hobby as far as we know.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-kennedyi",
+      "html": "<p>Most Astyanax spp. are not popular in the aquarium hobby, though the genus is among the most speciose within the family Characidae. A. kennedyi is no exception; you'll rarely see it offered for sale but may find the occasional specimen mixed among other species in shipments of wild fishes from Peru.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể thủy sinh 80x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

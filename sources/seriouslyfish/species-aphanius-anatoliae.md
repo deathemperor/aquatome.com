@@ -1,0 +1,157 @@
+---
+url: https://www.seriouslyfish.com/species/aphanius-anatoliae
+title: Anatolichthys anatoliae (Anatolian Toothcarp) · Seriously Fish
+fetchedAt: 2026-10-29T01:49:23.062Z
+hash: a739a49b0546546ef31af734218fe4218d19a021ce1d0d480fd485349865a62b
+---
+
+On this page
+13 sections
+- Etymology
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 9
+Adult male specimen from Kovada Çayı, Isparta province, Turkey in breeding colouration, aggressive mood.Barbara Nicca
+## Quick factsEdit
+Max size
+55mm SL2.2in SL
+Aquarium size
+120 × 30cm48 × 12in
+Temp
+2–30°C36–86°F
+pH
+7.0–8.5
+Hardness
+10–30dGH
+## Difficulty4 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+flexible
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+The Anatolian toothcarp, Anatolichthys anatoliae, is a small killifish from central and western Anatolia in Turkey. The most widely distributed of the Anatolian species, it lives in fresh and mildly saline waters, and around Lake Tuz several populations have disappeared through pollution and water extraction. It needs a cold winter period, and given its conservation status it is best kept on its own, in a group with two or three females to each male.
+## Etymology
+Edit
+Anatolichthys: named for Anatolia, also referred to as Asia Minor, a geographical region comprising the majority of the Republic of Türkiye to which genus members are endemic, in combination with the Greek noun ichthys (Gr. ἰχθύς), meaning 'fish'.
+anatoliae: named for Anatolia, as described above.
+## Distribution
+Edit
+Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada. It has also been recorded from various rivers, pools and swamps between the cities of Konya and Niğde, and further west from springs of the Büyük Menderes river system and its lower reaches in the Selçuk Plain.
+Unfortunately the species is not as widespread as it once was. Around Lake Tuz several populations have disappeared or are considered at risk due to pollution or removal of water for agriculture and it has already been extirpated from Lakes Ak, Yarışlı, Gölhisar and Söğüt. In 1996 one relict population was discovered inhabiting irrigation canals at the northern end of the Söğüt plain. The introduction of predatory species to Lakes Eğirdir and Beyşehir has resulted in a serious decline of the numbers recorded. In the north and northeast of the Konya steppe it now occurs sympatrically with Paraphanius mento due to the construction of a number of agricultural canals in the area, but potential effects of this overlap such as hybridisation have not yet been studied.
+It is quite variable across its range with body and fin colouration often being indicative of locality. The different forms are often labelled with the collection details by aquarists and scientists in order to preserve bloodlines and maintain accuracy e.g. 'Eğirdir', 'Beyşehir', 'Işıklı' etc.
+## Habitat
+Write a note
+Edit
+This species is found living in various habitat-types depending on the locality with some populations existing in slightly brackish conditions and others in pure freshwater. For example Lake Tuz is a shallow, seasonal, hyper-saline lake located to the southeast of Ankara and in hotter months becomes almost completely dry exposing a residual salt layer up to 30 cm12 in thick. The fish are unable to survive in the main body of the lake and are restricted to surrounding, mildly saline waters.
+Lakes Eğirdir and and Beyşehir are freshwater systems and while A. anatoliae does enter the lakes themselves it tends to be restricted to reedy marginal zones due to the presence of predatory species both native and introduced. In other areas it has been observed in swamps, pools, smaller rivers and streams, usually where filamentous algae or submerged/marginal vegetation grows thickly.
+## Aquarium size
+Write a note
+Edit
+Standard length
+55mm SL2.2in SL
+Aquarium base
+120 × 30cm48 × 12in
+Volume
+~108litres~29US gal
+A pair or trio can be kept in a container with base dimensions of 60 cm x 30 cm or so but as a general rule members of this genus do better when maintained as a larger group in a space measuring upwards of 120 ∗ 30 cm48 ∗ 12 in.
+## Maintenance
+Write a note
+Edit
+Even for long-term maintenance a simple set-up will suffice. The most important factors are the provision of many broken lines of sight and a suitable medium in which the fish can deposit eggs. Female and subdominant male individuals must be offered the opportunity of respite from the aggressive alpha males during the spawning season so much of the available space can be filled with acrylic wool mops (use a fine grade if available), clumps of java moss/other fine-leaved plant and ideally filamentous algae.
+There's no need to add a substrate although inert sand or gravel can be added if you prefer. Filtration need not be too strong and this species certainly does not require running water as suggested by some sources. It is possible, and preferable, to maintain it outdoors all year round in many countries and it will show better colours and overall condition if exposed to at least a few hours of natural sunlight each day.
+## Water conditions
+Edit
+Temperature
+2–30°C36–86°F
+pH
+7.0–8.5
+Hardness
+10–30dGH
+Temperature: Active over a wide temperature range of 2 – 30 °C36 – 86 °F. Artificial heating is not required in all but the coldest climates and it should be provided with a 'winter' period of several months during which it is maintained at low temperatures or it is likely to suffer both reduced fecundity and a shortened lifespan.
+pH: 7.0 – 8.5. It will probably not survive under acidic conditions.
+Hardness: 10 – 30 dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Anatolichthys species are basically micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is also taken at times. In the aquarium they will learn to accept dried foods in most cases but should also be offered regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm. This is particularly important during the months of spring and summer due to their high reproductive effort throughout this period. If the aquarium or container does not contain filamentous algae try to introduce a good quality dried product with added Spirulina content to the diet.
+## Behaviour and compatibility
+Write a note
+Edit
+Its particular water requirements and aggressive spawning behaviour make A. anatoliae a poor choice for the community aquarium. Given its precarious conservation status the emphasis should also be on captive reproduction and we strongly recommend maintaining it alone. It should be kept in a group with a ratio of two or three females to each male being the ideal.
+## Sexual dimorphism
+Write a note
+Edit
+As with all members of the genus sexual dimorphism is pronounced. Males exhibit a series of 6-10 greyish vertical bars in the rear portion of the body with usually one or more darker bars in the caudal fin. The anal fin is yellow with a thin black edge and when in spawning condition the dorsal fin turns black with a lighter band at its base. Females are larger and much plainer possessing only a series of variable dark blotches on the flanks along with a roughly circular black marking on the caudal peduncle and completely hyaline finnage.
+Depending on the population the number and width of the vertical bars in males can vary and there may or may not be small spots or stripes or a terminal band in the anal fin.
+## Reproduction
+Write a note
+Edit
+Captive reproduction is not difficult if the tank or container is properly arranged and maintained (see 'tank set-up'). It is a fractional spawner with females depositing eggs on a more-or-less continuous basis between the months of April and September. Males form temporary territories which they defend against rivals while attempting to entice females to spawn. Dominant individuals will show more intense colouration. Eggs are released singly or in small batches and are attached to algae or other surfaces by means of small filaments. Anatolichthys typically eat their eggs/fry and the medium should therefore be checked on a daily basis during the spawning period.
+The eggs are very small and must be treated carefully. Use a fine pair of forceps to gently remove pieces of medium with eggs attached whilst avoiding contact with the eggs themselves. Alternatively the entire medium can be removed and replaced every couple of days. The medium/eggs should be transferred to a container with water of the same chemistry and temperature as that of the adults. The incubation period can vary a little with the temperature but is usually between 7 -14 days with the fry being large enough to accept Artemia nauplii, microworm etc. immediately after they become free-swimming.
+## Notes
+Edit
+A. anatoliae is the most widely-distributed Anatolian toothcarp, although like most of its congeners is not easy to come by in the hobby. You are unlikely to find it on sale in aquatic stores although it may be available via specialist breeders or associations from time-to-time. While Anatolichthys spp. are certainly not as colourful as some of their relatives their interesting behaviour and continuous activity make them fascinating aquarium subjects and well worth a try if you possess the dedication to take on a long-term maintenance project since conservation is key with all members of the genus.
+The Anatolia region represents a centre of diversity with ten endemic species described to date. These are thought to have diverged as a result of the splitting of what was originally a vast lake covering much of modern Anatolia. Two separate divergence events occured, the first resulting in the western separation of A. asquamatus, A. danfordii and A. villwocki around 12-15 million years ago (possibly earlier in the case of A. asquamatus).
+Lakes Tuz, Eğirdir and Beyşehir are remnants of the central part of the lake where A. anatoliae now occurs and there exist three other locally endemic species in the Turkish Lakes region that became isolated when the eastern end of the lake became disconnected around 11-12 mya. They were further separated from one another 7-8 mya and have evolved independantly to survive in bitter lake environments containing high levels of alkaline carbonates and sulfates. Due to an historic lack of competition, predators and aquatic vegetation in their habitats they've developed distinctive limnetic (open water) characteristics including an elongated, relatively slim body shape and unique jaw morphology.
+A. anatoliae is most easily distinguished from the other members of this A. anatoliae species complex as it's the only fully-scaled member of the group - A. splendens, A. sureyanus and A. transgrediens all show differences in the extent of scalation on the body which is now known not to be a fixed characteristic and results from an unpredictable variation in their genes. It's been hypothesised that this occured due to a lack of selective pressures allowing individuals with less scalation to survive and breed, thus facilitating an overall increase in scale variation.
+This may represent a case of regressive evolution as neither the stream/river dwelling populations of A. anatoliae and other Anatolian Aphanius (fully-scaled) nor the very isolated A. asquamatus (completely scaleless) exhibit such variations. The relatively wide genetic variation among the isolated populations when compared with the riverine ones suggests that genetic flow is an important factor in the structure of Aphanius populations (Hrnek et al., 2002).
+Further the lake district species can interbreed freely in aquaria and appear to form a distinct clade whereas the forms found in western and central Anatolia have been shown to exhibit differing degrees of sterility to the lake fishes. When this is considered problems with nomenclature arise and Villwock (2004) theorised that all subpopulations should be regarded as "species in statu nascendi" i.e. in the process of creation and referred to as A. anatoliae ssp. pending further study. Hrnek et al. (2002) alternatively suggested that the different clades may represent new species but agreed that further study is required. We've chosen to list them separately in order to avoid using sub-specific names.
+The genus currently contains 22 species and subspecies which are thought to have derived from a common ancestor originally distributed around the periphery of the former Tethys Sea. None are particularly well-documented in aquarium literature although some are very beautiful and the majority are not too difficult to maintain and breed. Sadly most are on the verge of extinction for one reason or another with several existing only in remnant, highly-localised populations.
+In practically all cases the root cause for this decline is the activity of humans and although some species are now protected by conservation law the mismanagement and degradation of their habitats continues at an alarming rate. A few species are still sometimes listed as members of Lebias although that name has long been considered a synonym of Cyprinodon by most authorities and an ICZN committee voted to suppress the name in favour of Aphanius as recently as 2003.
+## References
+- Hrbek, T. and A. Meyer (2003). Closing of the Tethys Sea and the phylogeny of Eurasian killifishes (Cyprinodontiformes: Cyprinodontidae). Journal of Evolutionary Biology 16(1), 17-36
+- Wildekamp, R.H., F. Küçük, M. Ünlüsayin, and W. V. Neer (1999). Species and Subspecies of the Genus Aphanius Nardo 1897 (Pisces: Cyprinodontidae) in Turkey. Turkish Journal of Zoology 23, 23-44
+- Bardakci, F., N. Tatar and T. Hrbek (2004). Genetic relationships between Anatolian species and subspecies of Aphanius Nardo, 1827 (Pisces, Cyprinodontiformes) based on RAPD markers. Biologia, Bratislava 59(5), 559—566
+- Schulz-Mirbach, T. and B. Reichenbacher (2008). Fossil Aphanius (Teleostei, Cyprinodontiformes) from southwestern Anatolia (Turkey): a contribution to the evolutionary history of a hotspot of freshwater biodiversity. Geodiversitas 30(3), 577-592
+- Balik, I., H. Cubuk, B. Karasahin, R. Ozkok, R. Uysal and A. Alp (2006). Food and Feeding Habits of the Pikeperch, Sander Iucioperca (Linnaeus, 1758), Population from Lake Eğirdir (Turkey). Turk. J. Zool. 30(1), 19-26.
+- Hrbek, T., F. Küçük, T. Frickey,K. N. Stölting, R. H. Wildekamp and A. Meyer (2002). Molecular phylogeny and historical biogeography of the Aphanius (Pisces, Cyprinodontiformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 25(1), 125-137
+- Hrbek, T., K. N. Stölting, F. Bardakci, F. Küçük, R. H. Wildekamp, and A. Meyer (2004). Plate tectonics and biogeographical patterns of the Pseudophoxinus (Pisces: Cypriniformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 32, 297–308.
+## Species images · 9
+Adult male specimen from Kovada Çayı, Isparta province, Turkey in breeding colouration, aggressive mood.Barbara Nicca
+Adult female from Kovada Çayı.Barbara Nicca
+Habitat close to the town of Işıklı, Denizli province, Turkey.Sociedad de Estudios Ictiológicos
+Adult male from Işıklı in winter colouration.Matt Ford
+Adult male from Kovada Çayı inbreeding colouration, neutral mood.Barbara Nicca
+Adult female from Yeşilova, Burdur province, Turkey.Sociedad de Estudios Ictiológicos
+Adult male from Yeşilova.Sociedad de Estudios Ictiológicos
+Habitat at Yenice village, close to Lake Tuz, Anatolia, Turkey.Sociedad de Estudios Ictiológicos
+Adult male from Yenice in neutral colouration.Sociedad de Estudios Ictiológicos
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Turkey
+- Kovada Canal
+## Profile completeness22 of 24
+92% complete
+- Add temperament
+- Add community suitability
+Report a mistake
+## Community
+Questions about Anatolichthys anatoliae?
+Ask on Discord
+→

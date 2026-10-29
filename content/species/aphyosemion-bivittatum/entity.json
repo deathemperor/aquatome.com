@@ -1,0 +1,73 @@
+{
+  "id": "aphyosemion-bivittatum",
+  "scientificName": "Aphyosemion bivittatum",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "ndian",
+    "nigeria",
+    "cross-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
+      "html": "<p>The two-banded lyretail, Aphyosemion bivittatum, is a killifish that appears restricted to coastal plains along the Cameroon and Nigeria border. Its range includes the Korup and Cross River National Parks, and the type locality is close to a waterfall on the Ndian River in southwestern Cameroon.</p><ul><li>Max size: 50 mm SL (2.0 in SL)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
+      "html": "<p>Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
+      "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe (ἀφύη), meaning 'a small fish', and semeion (σημεῖον), meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>bivittatum: from the Latin bi-, a prefix meaning 'having two parts', and vittatus, meaning 'banded', in reference to this species' typical colour pattern featuring two dark longitudinal bands on the body.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/22da50249f8b343c.webp",
+      "width": 786,
+      "height": 583,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bivittatum",
+      "caption": "Adult male of A. bivittatum 'Fungé'.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,174 @@
+{
+  "id": "astyanax-leopoldi",
+  "scientificName": "Astyanax leopoldi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Astyanax",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "approuague",
+    "brazil",
+    "oyapock"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 6 of 8 (moderate), rated moderate because it needs strong current</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil. It is most common in fast-flowing waters, where it swims in large shoals in marginal or calmer areas. Like most Astyanax, it is rarely offered for sale.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>It is most common in fast flowing waters, where it can be found swimming in large shoals in marginal or otherwise calmer areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Standard length: 60 mm SL (2.4 in). Aquarium base: 60 × 30 cm (24 × 12 in). Volume: ~54 litres (~14 US gal).</p><p>A tank with base dimensions measuring 60 × 30 cm (24 × 12 in) or similar should prove sufficient.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Quite adaptable. It will thrive in a stream-type setup with a gravel substrate, smooth stones and a good amount of water flow. It is equally happy in an Amazon-style arrangement or heavily-planted tank, though. Given its natural habitat, assume good oxygenation to be key for its long term survival.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<ul><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Apparently preys on invertebrates and smaller fishes in nature. Its captive diet should contain plenty of small live and frozen morsels alongside good quality dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, dwarf cichlids and peaceful catfishes from the families Callichthyidae and Loricariidae. It's a schooling species by nature, so buy a group of at least 8-10.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Sexually mature females are heavier-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Has apparently been bred in captivity but we've been unable to obtain any specifics thus far.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "html": "<p>Most Astyanax spp. are not popular in the aquarium hobby, though the genus is among the most speciose within the family Characidae. A. leopoldi is no exception in that you'll rarely see it offered for sale.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/494d1e9861daf51a.webp",
+      "width": 639,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
+      "caption": "Astyanax leopoldi",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể cá thủy sinh 54 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội mịn trang trí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

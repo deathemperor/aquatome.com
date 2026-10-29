@@ -1,0 +1,139 @@
+{
+  "id": "aphyosemion-herzogi",
+  "scientificName": "Aphyosemion herzogi",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "gabon",
+    "ivindo",
+    "ogooue",
+    "equatorial-guinea",
+    "benito",
+    "cameroon",
+    "ntem"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-herzogi",
+      "html": "<p>Herzog's lyretail, Aphyosemion herzogi, is a killifish described from northern Gabon and also found in Equatorial Guinea and southern Cameroon. In Gabon it occurs in the Ivindo and Okano drainages, both tributaries of the Ogooué system. It is also known from the upper parts of some Benito River tributaries in Equatorial Guinea and from the Ntem River in Cameroon.</p><ul><li>Max size: 45 mm SL (1.8 in)</li><li>Temperature: 15–20°C (59–68°F)</li><li>pH: 5.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-herzogi",
+      "html": "<p>Described from northern Gabon, close to 'Zoumoukou', which is seen on modern maps as 'Zomoko', but has a much wider distribution extending into Equatorial Guinea (upper parts of some Benito River tributaries), and southern Cameroon (Ntem River), as well as the Ivindo and Okano drainages in Gabon, the latter pair both tributaries of the much larger Ogooué system.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-herzogi",
+      "html": "<ul><li>Temperature: 15–20°C (59–68°F)</li><li>pH: 5.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-herzogi",
+      "html": "<p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>herzogi: named for Wolfgang Herzog, member of the Deutsche Killifisch Gemeinschaft (German Killifish Association), who \"kindly provided the results of his successful fish collections in Gabon\", which included the paratypes of this species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/404235aae609699d.webp",
+      "width": 708,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-herzogi",
+      "caption": "Adult male specimen; no collection details supplied.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ac1747b6a5d72e94.webp",
+      "width": 670,
+      "height": 372,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bochtleri",
+      "caption": "Adult male specimen; collection details not supplied.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

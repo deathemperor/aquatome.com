@@ -1,0 +1,173 @@
+{
+  "id": "atractosteus-tropicus",
+  "scientificName": "Atractosteus tropicus",
+  "order": "Lepisosteiformes",
+  "family": "Lepisosteidae",
+  "genus": "Atractosteus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "mexico",
+    "central-america",
+    "belize",
+    "guatemala",
+    "honduras",
+    "nicaragua",
+    "costa-rica"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 125
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>The tropical gar, Atractosteus tropicus, is a gar from Caribbean and Pacific-slope drainages of Central America, from southern Mexico to Costa Rica. It grows to 1250 mm SL (49 in SL) and can live for several decades, so it should not be considered a home aquarium subject, though juveniles are occasionally offered in the trade. Like other gars it can breathe atmospheric air to a certain extent through a modified, vascularised swim bladder.</p><p>Difficulty: 5 of 8 (difficult). Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Found in both Caribbean and Pacific-slope drainage basins in Central America, from southern Mexico through Belize, Guatemala, Honduras and Nicaragua, and into Costa Rica.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Found in various habitats from large lakes and rivers to sluggish tributaries, backwaters and pools, and can surive in both fresh and brackish waters, but shows a preference for large rivers and swamps with extensive associated floodplains. Does not tend to inhabit swiftly-flowing environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Suitable only for very large public installations.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Relatively unfussy provided water flow is not too strong and lighting not bright.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.5</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature.</p><p>It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats.</p><p>Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live \"feeder\" fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly receommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>Not bred in aquaria.</p><p>In nature it tends to move into temporarily-inundated wetlands or floodplains to spawn during spring months where it may congregate in considerable numbers.</p><p>A female may spawn with multiple males simultaneously with the eggs deposited among submerged vegetation close to the surface or in deeper water.</p><p>Incubation is 48-72 hours and post-hatching the larvae remain attached to submerged surfaces for 5-10 days, until the yolk sac is completely absorbed.</p><p>Growth rate is initially rapid and juveniles may measure 250 – 300 mm (10 – 12 in) after the first year.</p><p>The eggs of this species are toxic to crustaceans and vertebrates other than fishes, including humans.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "html": "<p>This species clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for several decades.</p><p>We include it here only because some public aquaria are able to maintain it long-term and juveniles are occasionally offered in the aquarium trade.</p><p>Gars are among the most primitive fish species still alive today.</p><p>They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/329965939ad380d7.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "caption": "Juvenile specimen...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9c78a995d480e3d9.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá kính dài 2m"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

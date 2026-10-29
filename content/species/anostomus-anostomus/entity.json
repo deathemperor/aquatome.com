@@ -1,0 +1,192 @@
+{
+  "id": "anostomus-anostomus",
+  "scientificName": "Anostomus anostomus",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Anostomus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana. It lives along rocky shores of fast-flowing rivers, grazing algae and small invertebrates from the rocks. Although it shoals in nature, it is very quarrelsome with conspecifics when only a few are kept, so it is best kept singly or in a group of 6 or more in a larger tank.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–18 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Type locality is given simply as 'South America', and this species is widespread throughout the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Its typical habitat is along rocky shores of fast-flowing rivers, where it grazes algae and small invertebrates from the rock surfaces.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>An aquarium with base dimensions of 120 × 30 cm (48 × 12 in) or equivalent should be the smallest considered. Volume: ~108 litres (~29 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>A biotope-style set-up could consist of a sandy substrate, piles of smooth rocks and driftwood roots and branches, some of which should penetrate the water surface.</p><p>Aquatic vegetation can be included if you wish but is likely to be eaten.</p><p>Provide well-oxygenated water with a decent amount of movement and use bright lighting to encourage the growth of algae which will be grazed on by the fish.</p><p>A well-fitting cover is essential as Anostomus spp. are excellent jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>This species is an omnivorous grazer browsing solid surfaces for algae, insect larvae and other small items in nature.</p><p>In the aquarium it should be offered small live and frozen foods as well as plenty of vegetable matter in the form of blanched spinach, lettuce, cucumber, courgette, algae wafers, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Although it occurs in large shoals in nature, it tends to be very quarrelsome with conspecifics if only a few individuals are kept.</p><p>It can be maintained in groups of 6 or more in larger tanks, but otherwise keep just a single specimen in a community of peaceful medium to large fishes.</p><p>Possibilities include larger characids, loricariids, doradids and peaceful cichlids, with reophilic species particularly suitable.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Mature females grow slightly larger and tend to be rounder-bellied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Information is very scarce. It's apparently bred on a commercial basis in both South America and Asia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<p>Anostomus currently contains five valid species though only A. anostomus and A. ternetzi are well-known in the aquarium hobby.</p><p>A phylogentic study by Sidlauskas and Vari (2008)[2] demonstrated the genus as recognised at the time to represent a polyphyletic lineage.</p><p>Three species, A. intermedius, A. plicatus and A. spiloclistron, were found to be more closely-related to the genera Gnathodolus, Sartor and Synaptolaemus than to other congeners and therefore placed into the new genus Petulanos, with P. plicatus as type species.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately-elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e2cbcf4dfc530c4b.webp",
+      "width": 797,
+      "height": 392,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "caption": "Young adult individual from the Danish aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8cedaa1e343782c0.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
+      "caption": "Wild-collected adult specimen witha degree of fin damage.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 120cm",
+        "máy tạo dòng chảy bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên tảo",
+        "rong biển khô cho cá"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led bể cá 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

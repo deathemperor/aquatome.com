@@ -1,0 +1,208 @@
+{
+  "id": "asterophysus-batrachus",
+  "scientificName": "Asterophysus batrachus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Asterophysus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela. Also called the 'ogre catfish', it hunts in shallow blackwater tributaries, mostly at night. It can consume fishes almost twice its own size and is not recommended for the community aquarium.</p><ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li><li>Difficulty: 7 of 8 – moderate; needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.</p><p>Type locality is given simply as 'Marabitanos, Brazil', presumably in reference to Forte de São José de Marabitanas in the upper rio Negro basin, Amazonas state, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Inhabits blackwater tributaries where it tends to hunt in shallow water and is typically active at night.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Standard length: 250 mm SL (10 in). Aquarium base: 150 × 60 cm (60 × 24 in). Volume: approximately 540 litres (143 US gal).</p><p>An aquarium with minimum base dimensions of 150 × 60 cm (60 × 24 in) is recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Ideally a soft, sandy substrate should be used though it is not essential. Additional furnishings are as much a case of personal taste as anything else but the most favourable set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered tree roots/branches arranged to form potential refuges.</p><p>Efficient filtration is a must when keeping predatory species due to the amount of waste produced so install one or more external canister filters and/or a sump system, organising the return in such a way that some surface movement and a degree of flow is created.</p><p>Weekly water changes of 30-50% should be considered mandatory as this species can be sensitive to organic pollutants, and therefore must never be introduced to biologically immature set-ups.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>An obligate predator by nature, but captive specimens readily accept strips of white fish, whole shrimp, earthworms, and similar once they are recognised as food.</p><p>Adult individuals are unlikely to require feeding on a daily basis with 1-2 meals per week sufficient.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian/avian meat such as beef heart or chicken, and similarly there is little benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Capable of consuming fishes almost twice as large as itself and thus not recommended for the community aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>In sexually-active males the unbranched and first few branched anal-fin rays become thickened, elongate and fused together, forming a structural support for the intromittent organ which itself becomes displaced in such a way that the genital pore is situated at the tip of the modified rays.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<p>This species is also referred to as 'ogre catfish'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "html": "<ul><li>Kner, R. (1858). Ichthyologische Beiträge. II. Abtheilung. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 26 (s. 373), 373-448</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/30bb26cf908aaa56.webp",
+      "width": 800,
+      "height": 581,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "caption": "Specimen from the German aquarium trade measuring approximately 200 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/390bff9e7bcf29a7.webp",
+      "width": 800,
+      "height": 516,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "caption": "Specimen imported to Germany from Venezuela.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8153cfcfa238aa79.webp",
+      "width": 800,
+      "height": 562,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "caption": "View of the capacious mouth.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e06f39796ef3e533.webp",
+      "width": 800,
+      "height": 523,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
+      "caption": "Once settled this species is typically active during the day and surprisingly tame.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150x60",
+        "bể cá lớn 540 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led ánh sáng dịu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

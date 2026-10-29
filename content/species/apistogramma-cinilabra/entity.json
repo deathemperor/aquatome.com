@@ -1,0 +1,190 @@
+{
+  "id": "apistogramma-cinilabra",
+  "scientificName": "Apistogramma cinilabra",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "loreto"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<ul><li><strong>Max size:</strong> male 70 mm SL (2.8 in), female 40 mm SL (1.6 in)</li><li><strong>Aquarium size:</strong> 60 × 30 cm (24 × 12 in)</li><li><strong>Temperature:</strong> 21–27°C (70–81°F)</li><li><strong>pH:</strong> 4.5–7.0</li><li><strong>Hardness:</strong> 0–4 dGH</li><li><strong>Difficulty:</strong> moderate. Needs a well-established tank and stable water.</li></ul><p>The ash lipped apisto, Apistogramma cinilabra, is a cichlid from shallow blackwater backwaters between Iquitos and Nauta in Loreto, Peru. Males carry the namesake ash-grey lips, red pectoral bases and red spots on the chest, and the body is disproportionately high. The description suggests it may be threatened in its native range, though not enough data exist to confirm this, and the emphasis should be on forming a captive population.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Known from backwaters between Iquitos and Nauta, Loreto, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Collection reports state A. cinilabra is found in shallow, blackwater pools, often no more than 30 cm (12 in) deep, especially through the dry season. Leaf litter features heavily, above a substrate of fine white sand. Fallen branches and woody matter can also be found, as the biotope is situated in heavily forested areas.</p><p>Electrical conductivity was measured at below 50 μS/cm and temperatures above 27 °C (81 °F).</p><p>The pH measured was as low as 3.8 and never exceeded 5.0. The temperature was above 27 °C (81 °F), though this can probably be attributed to seasonal factors and will usually be lower.</p><p>Sympatric fishes included Apistogramma atahualpa, Apistogramma eremnopyge, Pyrrhulina cf. spilota and an unidentified Rivulus sp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Standard length: male 70 mm, female 40 mm SL (2.8 / 1.6 in). Aquarium base: 60 × 30 cm (24 × 12 in). Volume: about 54 litres (~14 US gal).</p><p>A 60 cm aquarium will suffice for a breeding pair, though it would be advisable to go bigger if you aim to maintain a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter provides additional cover and spawning sites, and brings with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves help simulate natural conditions. Alder cones may also be used for the latter purpose.</p><p>Fairly dim lighting is recommended and aquatic plants that can survive under such conditions, such as Microsorum, Taxiphyllum or Cryptocoryne spp., may be added, while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>There is no need to use peat, the collection of which is both unsustainable and environmentally destructive.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar being adequate.</p><p>Obviously, these fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<ul><li>Temperature: 21–27°C (70–81°F)</li><li>pH: 4.5–7.0</li><li>Hardness: 0–4 dGH</li><li>Conductivity: 10–100 μS/cm</li></ul><p>Despite being found in such specialised, highly acidic conditions in nature, A. cinilabra acclimatises well to aquarium conditions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Apistogramma spp. are chiefly carnivorous and feed mostly on benthic invertebrates in nature. A fine, sandy substrate will allow Apistogramma to perform natural sand-sifting behaviours which are vital for good health.</p><p>In the aquarium, live and frozen foods such as Artemia, Daphnia, Moina and chironomid larvae (bloodworm) should be offered regularly, although most species will also learn to accept dried alternatives, with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Generally a peaceful fish, Apistogramma cinilabra settles well into a calm community aquarium with small characins, rasboras and Otocinclus spp. making ideal tankmates, however in confined quarters they may become bullyish towards conspecifics.</p><p>Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females. In spawning conditions and during broodcare the female will adopt a bright yellow livery with black markings through the body and face and more typically on the anterior edge of the ventral fins.</p><p>In this species, only the male may develop the ash-grey lips.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor.</p><p>Sexually mature males establish territories and react aggressively to other males in the vicinity, though the presence of several females is normally tolerated. If breeding is your aim, it is advised to start with a group and allow natural pairs to form, as Apistogramma cinilabra can be quite picky with regards to potential mates. In a large enough aquarium (200 l+), a single male may be housed with multiple females, though one must take care to ensure that all females are getting food and not suffering excess bullying.</p><p>Post-spawning the male usually returns to protecting his larger territory and courting other females, leaving the female to guard and tend the eggs and fry, although when maintained as a single pair he may help guard the fry once mobile.</p><p>Depending on temperature the eggs hatch in 36–72 hours with the fry free-swimming after a further few days.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<p>A. cinilabra can be distinguished from congeners by its disproportionately high body and short caudal peduncle. In males, the namesake ash-grey lips are unique to this species, as are the red pectoral bases and red spots on the chest.</p><p>According to the description, Apistogramma cinilabra may indeed be threatened or even endangered in the native range, though not enough data has been recorded to confirm this. Regardless, emphasis should be on reproducing and forming a captive population, where possible.</p><p>Apistogramma is among the most speciose of South American cichlid genera with over 70 species valid at present but many more awaiting description.</p><p>In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future.</p><p>Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential for hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them.</p><p>Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux.</p><p>At present, Apistogramma cinilabra belongs to the A. eonotus complex within the A. regani lineage.</p><p>Apistogramma and a number of related genera are often included in the putative subfamily Geophaginae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "html": "<ul><li>Apistogramma cinilabra 2011 https://www.fishbase.se/search.php, FishBase</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/963700effe4d2eaf.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "caption": "Apistogramma cinilabra male",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/57be4f3cd54b45b7.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cinilabra",
+      "caption": "Apistogramma cinilabra female showing typical post-spawning colouration",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển",
+        "lọc sủi khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho cá cichlid nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát trắng mịn",
+        "lá bàng khô",
+        "nón tống quán sủi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

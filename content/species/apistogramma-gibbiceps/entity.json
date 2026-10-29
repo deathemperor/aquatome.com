@@ -1,0 +1,166 @@
+{
+  "id": "apistogramma-gibbiceps",
+  "scientificName": "Apistogramma gibbiceps",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 3
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<ul><li>Max size: 45 mm SL (1.8 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 27–29°C (81–84°F)</li><li>pH: 5.0–6.5</li><li>Hardness: up to 3 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul><p>The blackline apisto, Apistogramma gibbiceps, is a dwarf cichlid from the Rio Branco and middle Rio Negro basins in Brazil. It is identified by a row of short dark marks low on the flank below the lateral band, which show most clearly on a settled fish. Meinken's type series held three species, and A. roraimae from the Rio Branco has been treated as a synonym since 2003.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Known from the Rio Branco and middle Rio Negro basins in the Brazilian states of Roraima and Amazonas.</p><p>Type locality is 'Brasilien, wahrscheinlich Gebiet des Rio Negro' (Brazil, probably the Rio Negro region). The type specimens were aquarium imports donated in 1967 by Willi Schwartz, an exporter in Manaus, and no collecting site was recorded.</p><p>The Rio Branco records come from fish collected near Boa Vista and described as Apistogramma roraimae. That name is now treated as a synonym of this species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Few habitat details have been published. The fish described as A. roraimae were collected in late November from small forest streams (igarapés) and a small temporary pool near Boa Vista. The middle Rio Negro is a soft, acidic blackwater river.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Standard length: 45 mm SL (1.8 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: about 41 litres (11 US gal).</p><p>A pair needs a tank with base dimensions of at least 45 × 30 cm. A male kept with several females needs more floor space, with a cave for each female.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Give it a soft, sandy substrate, wood roots and plenty of caves, including some too small for the male to enter so a female has somewhere to retreat when he is aggressive.</p><p>Dried leaf litter adds cover and spawning sites, and the tannins it releases help keep the water soft and acidic. Replace the leaves as they break down and keep up with water changes, as decaying leaves add to the organic load.</p><p>Keep the lighting dim and the water movement gentle. Floating plants help to shade the tank. Add it only to a mature, established aquarium, as it does not cope well with rising organic waste.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<ul><li>Temperature: 27–29°C (81–84°F)</li><li>pH: 5.0–6.5</li><li>Hardness: up to 3 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Like other Apistogramma, it feeds mainly on small invertebrates in the wild. Offer small live and frozen foods such as Artemia, Daphnia and bloodworm, alongside a good-quality small pellet or granule.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Peaceful towards other fish but territorial when breeding, and a male can harass a female that is not ready to spawn. It can be kept with small, peaceful fish that swim in the upper water, such as pencilfish or small tetras, and their presence helps it settle. Avoid keeping other Apistogramma or other bottom-dwelling cichlids with it.</p><p>It can also be kept as one male with three or more females in a species tank, so the male's attention is spread across them. Space the caves out so each female can hold a territory of her own.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>Males grow larger, are more colourful and have longer dorsal and anal fins. The male caudal fin has a streamer near the middle of each lobe. Females are smaller and plainer.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>A cave spawner. The eggs are laid on the roof of a cave, and the female guards them and the fry, driving off other fish including the male. FishBase gives about 250 eggs every six weeks from a good pair.</p><p>The eggs hatch in around three days and the fry swim freely four or five days after that. Some pairs share the brood, with each parent guarding part of it in a different area of the tank.</p><p>Start the fry on newly hatched brine shrimp and move them onto larger foods as they grow. They are sensitive to changes in water chemistry, so make small, regular water changes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<p>This species is A209 in the DATZ A-number list used in the aquarium trade.</p><p>Hermann Meinken described A. gibbiceps in 1969 from aquarium specimens, and his type series held three species. When Sven Kullander re-examined it in 1980, two of the fish Meinken had described as females, including the one he illustrated, were male A. agassizii, and a third was an undescribed species. Kullander kept the name for the holotype, a male of 44.5 mm SL, and six male paratypes, and redescribed the species from them.</p><p>In the same work Kullander described A. roraimae from five small specimens collected near Boa Vista in the Rio Branco drainage. It has been treated as a synonym of A. gibbiceps since 2003 (Kullander in Reis et al. 2003, Staeck 2003). Some aquarium literature still keeps the Rio Branco fish apart as a separate form.</p><p>The features Kullander used to separate A. gibbiceps from every other Apistogramma then known are a row of short dark marks low on the flank below the lateral band, formed by the lower ends of otherwise faint vertical bars, together with a lateral spot and, in preserved males, dark fins without spots or bars. Look for the flank marks before buying. They show most clearly on a settled fish. Kullander considered its closest relative to be A. personata from the rio Uaupés.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
+      "html": "<ul><li>Kullander, S. O. (1980). A taxonomical study of the genus Apistogramma Regan, with a revision of Brazilian and Peruvian species (Teleostei: Percoidei: Cichlidae). Bonner Zoologische Monographien No. 14, 1-152</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Baensch, H. A. and R. Riehl (1985). Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany, 1-1216</li><li>Meinken, H. (1969). Apistogramma gibbiceps n. sp. aus Brasilien (Pisces, Teleostei, Cichlidae) Senckenbergiana Biologica 50(1-2), 91-96</li><li>Staeck, W. (2003). Cichliden-Lexikon, Teil 3: Südamerikanische Zwergbuntbarsche Dähne Verlag, Ettlingen, 1-219</li><li>Apistogramma gibbiceps summary page FishBase fishbase.se/summary/Apistogramma-gibbiceps.html</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45x30",
+        "bể cá mini thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "cám viên nhỏ cho cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

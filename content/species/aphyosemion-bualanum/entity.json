@@ -1,0 +1,82 @@
+{
+  "id": "aphyosemion-bualanum",
+  "scientificName": "Aphyosemion bualanum",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "benue",
+    "central-african-republic",
+    "chad",
+    "mayo-kebbi",
+    "nigeria"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "html": "<p>The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad. It is listed as endangered by the IUCN. Before 1990 the name was misused for various populations of A. elberti.</p><ul><li>Max size: 50 mm SL (2.0 in SL)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "html": "<p>Described from 'Buala, Cameroon', which corresponds to modern-day Bouala in Central African Republic. Its known distribution includes parts of northern Cameroon, western Central African Republic, southeastern Chad and possibly eastern Nigeria in the upper Benue and Mayo Kébbi river systems.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "html": "<p>The specific name was mis-used to refer to various populations of the congener A. elberti prior to 1990, and we've been unable to confirm if the specimen pictured here is correctly identified or not. It is listed as 'endangered' by the IUCN.</p><p>Etymology: Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members. bualanum: named for its type locality of \"Buala, Cameroon\" (now corresponds to a location in Central African Republic), in combination with the Latin suffix -anum, meaning 'of, pertaining to'.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/080d3266f7ca0af1.webp",
+      "width": 787,
+      "height": 585,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "caption": "Adult male specimen; collection details unspecified.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá killifish"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh artemia",
+        "trùn chỉ cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

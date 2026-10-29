@@ -1,0 +1,209 @@
+{
+  "id": "ancistrus-claro",
+  "scientificName": "Ancistrus claro",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "lNumber": "LDA 008",
+  "places": [
+    "south-america",
+    "brazil",
+    "cuiaba"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil. It inhabits flowing streams over boulders and bedrock. Sometimes confused with unidentified fishes such as A. sp. 'L352', it has long maxillary barbels and small spots on the head, with vermiform lines on the body in males and spots all over in females. A peaceful cave-spawner, it has been bred in aquaria on numerous occasions.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.</p><p>The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.</p><p>Type locality is 'Rio Claro, above the bridge, in the direction of Chappada dos Guimaraes, Mato Grosso State, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Inhabits flowing streams with substrates of boulders and bedrock.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) or equivalent, about 54 litres, should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Wild specimens are probably omnivorous foragers but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>A peaceful, diurnally-active species which can be maintained in a well-chosen community.</p><p>It is a little territorial towards conspecifics and similarly-shaped species but in most cases several can be maintained together provided the aquarium is well-structured (see 'Maintenance').</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Adult males possess well-developed odontodes on the pectoral fins and opercle and tentacles on the head while females do not.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>Cave-spawner with the male responsible for brood care.</p><p>It's been bred in aquaria on numerous occasions and in well-maintained, mature set-ups juveniles may begin to appear without intervention.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<p>This species is sometimes confused with unidentified fishes such as A. sp. 'L352'.</p><p>It can be told apart from closely-related congeners by possession of relatively long maxillary barbels which are free from the lower lip, and a colour pattern consisting of small spots on the head and vermiform lines on the body in males, and small spots all over the head and body in females.</p><p>Ancistrus is a diverse genus currently containing in excess of 60 valid species, distributed between Panama in Central America and the Río de la Plata drainage, Argentina.</p><p>Members are diagnosed from other loricariids by possessing well-developed interopercular spines and lacking plates and odontodes on the anterior margin of the snout, which is instead covered in fleshy tentacles.</p><p>Thanks to L-Welse.com.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b9eb81d80b069347.webp",
+      "width": 850,
+      "height": 560,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0acb2b3bee3fe801.webp",
+      "width": 850,
+      "height": 560,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "caption": "Ventral view of head and mouthparts.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/da92eb2be0c8ebd6.webp",
+      "width": 850,
+      "height": 561,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "caption": "Head detail of male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/afed5b2846697e18.webp",
+      "width": 850,
+      "height": 561,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-claro",
+      "caption": "This species has been assigned the LDA-number LDA008.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 60x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính dạng chìm",
+        "viên rau củ spirulina cho cá dọn bể"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sỏi mịn thủy sinh",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

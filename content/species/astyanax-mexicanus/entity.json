@@ -1,0 +1,183 @@
+{
+  "id": "astyanax-mexicanus",
+  "scientificName": "Astyanax mexicanus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Astyanax",
+  "group": "tetras",
+  "places": [
+    "north-america",
+    "united-states",
+    "mexico",
+    "guatemala"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<ul><li>Max size: 95 mm SL (3.7 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul><p>The blind cave tetra, Astyanax mexicanus, is a characid found from Texas and New Mexico in the southern United States through Mexico into Guatemala. The eyeless, troglomorphic form lives only in underground caves in Mexico and is produced in huge numbers on Far Eastern farms, while the surface form is rarely seen in the hobby. The two may have diverged within the last 10,000 years, and the blind form finds its way with its lateral line.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>The eyeless, troglomorphic form is found only in Mexico but this species is in fact widely-distributed from the southern United States of Texas and New Mexico, through Mexico itself and into Guatemala.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>The surface-dwelling form is something of a generalist and can be found in all kinds of habitat from flowing streams and rivers to ponds and lakes. The blind form occurs only in underground caves and caverns.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Standard length: 95 mm SL (3.7 in). Aquarium base: 80 × 30 cm (31 × 12 in). Volume: ~72 litres (~19 US gal).</p><p>A tank with base dimensions measuring 80 × 30 cm (31 × 12 in) or similar should prove sufficient.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Being blind, the fish does not require any specific decor or form of cover, and can be kept in most types of setup. Plants are not harmed, as obviously they don't feature in its natural waters. Alternatively, you could choose to organise a cave-style tank for it, with tall rocks or slate pieces placed along the back and sides of the tank, smaller rocks in the centre and a dark substrate. Lit with a dim, perhaps red or blue light tube this kind of set-up can look very effective.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<ul><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Its captive diet should comprise quality dried products alongside plenty of small live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Hardy and peaceful, it's actually an excellent choice for the beginner and suitable for most community aquaria, though very shy or sluggish tankmates are best-avoided. It sometimes nips at tankmates when feeding, but this is more attributable to its searching technique than aggression. Although it can't be described as gregarious it does seem to fare better when maintained in a group and we suggest the purchase of at least four individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Females tend to be larger and fuller-bodied than males, especially when full of eggs. The anal fin of the male has a slightly curved edge, while that of the female is straight.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>Quite easily-bred provided a few simple requirements are met. A layer of mesh or similar should be suspended around 1/2\" (about 1 cm) above the tank base in order to prevent predation of the eggs by the adults, and a simple air-powered sponge filter can also be installed. It's best to condition the sexes in separate tanks so as to avoid any unwanted spawning events. The most well-conditioned male and female can then be removed and placed in the spawning tank in the evening. They should have spawned by the following morning. If eggs are visible, remove the adults immediately. If you still can't see any eggs after 24 hours or so, remove them and try a different pair.</p><p>This is a prolific species and up to 1000 eggs may be laid per female. These are white and initially may appear infertile but hatch quickly, in around 24 hours, with the fry requiring a further 5-7 days to absorb the yolk sac and become free swimming. Infusoria or other microscopic food should then be offered for the first week or so, after which Artemia nauplii or suitably-sized dried products can be introduced to the diet. Some predation may occur within the brood, but with the amount of fry produced this should not present a problem.</p><p>Interestingly, the fry appear to have normal eyes in the early stages of life but these never develop fully and eventually recede completely, becoming covered with flesh.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "html": "<p>While the surface-dwelling form of this species is fairly unremarkable and rarely-seen in the hobby, the blind form is very popular indeed. The two may have diverged as recently as within the last 10,000 years, with the blind form losing its eyes and much of its pigment. This probably happened because the fish needed better development in other sensory areas. Losing unnecessary and energy-consuming aspects of its physiology allowed it to devote more energy to developments such as increased numbers of taste receptors on the head.</p><p>It uses its lateral line to detect small changes in the water pressure around it, allowing it to navigate and find food. Interestingly, if it is placed in a new environment containing objects it does not recognise, it will increase its swimming speed. This is thought to increase stimulation of the lateral line, allowing it to absorb information more quickly. It is now known that the fish actually produces a detailed spatial map of its surroundings which it memorises quite quickly.</p><p>More recently, tests have been conducted regarding the impact of eye lens transplants from the surface form to the blind form. Although the fish did not regain sight, they did grow eyes complete with pupil, cornea and iris. These studies may prove important in the future as we seek to discover the secret of successful eye transplants in humans.</p><p>It is produced in huge numbers on Far Eastern fish farms for the trade. What is interesting about this, is that these fish are now starting to develop a silvery sheen on their flanks in what may represent the beginning of an artificially-induced adaptation to being bred outside of a subterranean environment.</p><p>The species is often referred to incorrectly as Astyanax jordani. This congener is a distinct species in its own right and should not be confused with A. mexicanus. The blind form is sometimes referred to as A. fasciatus mexicanus, as A. mexicanus is sometimes still considered a subspecies of A. fasciatus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c1b23376e5f65558.webp",
+      "width": 617,
+      "height": 410,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "caption": "The blind form of A. mexicanus retains the ability to interbreed freely with...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b141288d999acfae.webp",
+      "width": 600,
+      "height": 402,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
+      "caption": "Astyanax mexicanus; blind form.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 72 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút",
+        "lọc mút cho cá đẻ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED ánh sáng mờ",
+        "đèn LED xanh đỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

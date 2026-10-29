@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/amblydoras-nauticus
 title: Amblydoras nauticus (Marbled Talking Catfish) · Seriously Fish
-fetchedAt: 2026-10-29T01:06:49.710Z
+fetchedAt: 2026-10-29T01:11:26.408Z
 hash: 2f03a4fba82326927085ac2958cf273a49fa1e632674635f0c109081c4581773
 ---
 

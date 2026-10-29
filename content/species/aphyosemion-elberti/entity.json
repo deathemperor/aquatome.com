@@ -1,0 +1,130 @@
+{
+  "id": "aphyosemion-elberti",
+  "scientificName": "Aphyosemion elberti",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "sanaga",
+    "central-african-republic",
+    "mambere",
+    "nigeria"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "html": "<p>The red-barred lyretail, Aphyosemion elberti, is a killifish from central Cameroon and the upper Mambéré basin in the Central African Republic. Its range follows the Sanaga River system across Cameroon. It was described from 'Jade Plateau, Cameroon', which apparently corresponds to the Lebo River in what is now the Central African Republic.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Temperature: 18–22°C (64–72°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 3 of 8 (moderate): small tank, needs soft water kept steady, needs cool water held steady</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "html": "<p>This species' range is currently understood to extend from eastern Nigeria across central Cameroon (via the Sanaga River system of which the Mbam is a tributary) and across the border into Central African Republic (upper Mambéré basin).</p><p>It was described from 'Jade Plateau, Cameroon', this apparently corresponding to the Lebo River which lies in what is now the Central African Republic and presumably forms part of the Mambéré headwaters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "html": "<ul><li>Temperature: 18–22°C (64–72°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "html": "<p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>elberti: named for \"Elbert\" (forename not provided), who collected the holotype. Possibly refers to Danish geographer and naturalist Johannes Elbert (1878-1915), who explored Cameroon in 1914.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b92c535f2fac691f.webp",
+      "width": 707,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "caption": "Adult male ofA. elberti 'Bafoussam'.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/266bcd7279232b35.webp",
+      "width": 800,
+      "height": 377,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-elberti",
+      "caption": "Adult male of A. elberti 'Bafole'.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc treo nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

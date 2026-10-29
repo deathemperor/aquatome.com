@@ -1,0 +1,200 @@
+{
+  "id": "cichlasoma-trimaculatum",
+  "scientificName": "Cichlasoma trimaculatum",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Cichlasoma",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "mexico",
+    "guatemala",
+    "el-salvador",
+    "asia",
+    "singapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 122
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>The three spot cichlid or trimac, Amphilophus trimaculatus, is a large cichlid from western Mexico, Guatemala and El Salvador. It lives mainly in sluggish waters of the Pacific coastal plains, among roots, branches and vegetation over mud and sand. A fairly aggressive fish that grows to around 40 cm, it is believed to be one of the species used to create the flowerhorn hybrid, and both parents guard the eggs and fry. It is still often sold as Cichlasoma trimaculatum.</p><ul><li>Max size: 40 cm SL (16 in)</li><li>Aquarium size: 122 × 38 cm (48 × 15 in)</li><li>Temperature: 23–30°C</li><li>pH: 7.0</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Western parts of Mexico, Guatemala and El Salvador. There are also feral populations in Singapore.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Found mainly in sluggish waters of the Pacific coastal plains and surrounding lowlands. It tends to be associated with soft substrates of mud and sand, where it lives among submerged roots, branches and vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Standard length: 400 mm SL (16 in). Aquarium base: 122 × 38 cm (48 × 15 in). Volume: ~176 litres (~46 US gal). 48\" x 15\" x 15\".</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Rocks and bogwood to form territories. Lives in lakes and slower moving water in the wild, so avoid strong current in the aquarium. Plants are best avoided as they will be uprooted. Trimacs will rearrange the tank as they see fit!</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<ul><li>Temperature: 23–30°C (73–86°F)</li><li>pH: 7.0</li><li>Hardness: moderate hardness of around 15 gH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>A predatory species that feeds on other fish and both aquatic and terrestrial invertebrates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>A fairly aggressive cichlid, the trimac will not tolerate other tankmates easily. It may be possible to keep this fish as part of a large robust cichlid community if enough tank space is provided.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Males are larger and may be more colourful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Breeding is fairly easy. The pair usually select a flat stone and spawn on that. Up to 1000 eggs may be laid. Trimacs make excellent parents and will guard the eggs fiercely. Both parents will also tend the fry when hatched.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amphilophus-trimaculatus",
+      "html": "<p>Amphilophus trimaculatus is a large colourful cichlid, if a little aggressive. It is believed to be one of the fish that was used to create the hybrid Flowerhorn cichlid. We prefer it in its natural state. As with most large cichlids they can be fairly messy eaters so ensure decent filtration is provided. It is recommended to use a spraybar to disperse the water returning to the tank as trimacs will not appreciate strong flow.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Cichlidae_fish_2008_G1.jpg/960px-Cichlidae_fish_2008_G1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 648,
+      "licence": "Public domain",
+      "author": "George Chernilevsky",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_fish_2008_G1.jpg",
+      "caption": "Trimac cichlid Cichlasoma trimaculatum"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Cichlidae_fish_2008_G3.jpg/960px-Cichlidae_fish_2008_G3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 549,
+      "licence": "Public domain",
+      "author": "George Chernilevsky",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_fish_2008_G3.jpg",
+      "caption": "Amphilophus trimaculatus Cichlid"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Cichlasoma_trimaculatum.JPG/960px-Cichlasoma_trimaculatum.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 3.0",
+      "author": "Kevin Paniagua",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlasoma_trimaculatum.JPG",
+      "caption": "Cichlasoma trimaculatum"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Cichlidae_fish_2008_G2.jpg/960px-Cichlidae_fish_2008_G2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 456,
+      "licence": "Public domain",
+      "author": "George Chernilevsky",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_fish_2008_G2.jpg",
+      "caption": "Amphilophus trimaculatus"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cichlid lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lớn",
+        "thức ăn viên cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

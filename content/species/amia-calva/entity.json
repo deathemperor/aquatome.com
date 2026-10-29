@@ -1,0 +1,172 @@
+{
+  "id": "amia-calva",
+  "scientificName": "Amia calva",
+  "order": "Amiiformes",
+  "family": "Amiidae",
+  "genus": "Amia",
+  "group": "other",
+  "places": [
+    "north-america",
+    "canada",
+    "united-states"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>The bowfin, Amia calva, is the sole remaining member of the family Amiidae, from south-eastern Canada and the north-eastern USA. It breathes atmospheric air through a highly vascularised organ and can aestivate in wet ground during drought. A temperate predator growing to around 900 mm, it needs a very large tank of its own, and its sharp teeth and readiness to bite make it a dangerous species to own. Captive specimens over 30 years old are known.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>South-eastern Canada and north-eastern U.S.A.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Usually occurs in heavily vegetated, clearwater swamps, lakes, rivers and backwaters. It also inhabits poorly oxygenated habitats, including stagnant waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Base dimensions of at least 180 × 60 cm (72 × 24 in) for an adult male, although the bigger the tank the better. A female would require a correspondingly bigger tank.</p><p>Standard length: 900 mm (35 in). Volume: ~648 litres (~171 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Decor isn't critical, although the fish will appreciate plenty of cover. Large stones and pieces of bogwood, twisted roots, and live plants all look good. Use plenty of floating plants to mimic its natural environment. It will also prefer the dimmer conditions that any surface cover provides. Ensure that the fish always have access to the surface to take in their regular gulps of air. Also, make absolutely sure that the tank cover is tightly fitting and secure (preferably weighted down), as this species is an excellent jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Temperature: 15–24 °C (59–75 °F). This is strictly a temperate species, and you'll probably have to employ the use of a chiller on its tank during the summer months. Unfortunately, this can prove somewhat expensive for the average hobbyist.</p><p>pH: 6.0–7.5</p><p>Hardness: 3–15 dGH</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Carnivorous, but is easily weaned onto dead food. Large earthworms, whitebait, trout and beefheart (in moderation) can all be offered. Young fish will take prawn, mussel etc. In nature they feed on anything from fish to invertebrates and even amphibians.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Given its highly piscivorous nature, potential size and need for cool water this fish should be given (and deserves) a tank of its own. Keep as a single specimen, as it is a solitary hunter in the wild.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Adult males are smaller and more colourful than females. In young fish, males can be distinguished by the presence of a clear black spot at the top of the caudal peduncle. This is much fainter, or absent altogether in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Not thought to have been bred in aquaria.</p><p>In nature this species is an annual spawner, with the fish congregating in large numbers in shallow waters amongst aquatic plants to breed. Here, the male builds a simple nest, formed by clearing away a small area of vegetation and excavating a shallow depression in the substrate. Spawning occurs within this nest, with a courtship display of circling by the male being followed by both fish lying together and releasing eggs and sperm simultaneously.</p><p>Females play no further part in broodcare, and may in fact visit the nests of several males. It's therefore not uncommon to see eggs at different stages of development in a single nest. Males defend their nests so vigorously that they will attack anything entering the vicinity no matter what its size. Bearing in mind that many males may choose to nest in the same area and that often they outnumber females by as many as three to one, it comes as no surprise to learn that bowfin mating season can be a somewhat violent occurence! The male tends to the eggs, fanning them constantly with his fins until they hatch. After hatching, the male continues to guard his offspring until they reach a length of around 4\", at which point parental care ceases.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "html": "<p>Rare in the hobby, the bowfin is a stunning specimen fish for the aquarist with the means to house it properly. It is the sole remaining species in the family Amiidae, an ancient and primitive group that is related to the garfish. It possesses the ability to breathe atmospheric air, via an enormous, highly vascularised accessory breathing organ that extends throughout the entire body cavity. The gills are stiffened in order to prevent them collapsing outside the water and, provided it's kept moist, the fish can survive without access to water for some time. Under drought conditions the fish can burrow into wet ground in a similar fashion to the more well-known lungfish species, where they can remain, completely motionless, until the rains return. This state is known as aestivation.</p><p>Although the bowfin is considered at risk of becoming endangered, it is not a popular species in its native waters. This is due to its voracious predation of both game and food species. Apparently, it puts up a great fight when hooked by rod and line.</p><p>In captivity it can be exceptionally long-lived when cared for properly and specimens over 30 years old are known. One final point to note is that this quite a dangerous species to own. The mouth is filled with razor sharp teeth and it will often bite aggressively when being fed or handled. Larger individuals could easily sever a finger, or worse and, as such, the bowfin is recommended only to experienced fishkeepers.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b009f8093abc3ba1.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
+      "caption": "Amia calva juvenile",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180x60",
+        "bể cá lớn 600 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "lọc ngoài cho bể 600 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "chiller bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "giun đất cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

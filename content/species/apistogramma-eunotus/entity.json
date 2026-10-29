@@ -1,0 +1,187 @@
+{
+  "id": "apistogramma-eunotus",
+  "scientificName": "Apistogramma eunotus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali",
+    "colombia",
+    "solimoes",
+    "brazil",
+    "japura"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Apistogramma eunotus is a dwarf cichlid from the Río Ucayali in Peru and the Solimões/Amazon in Colombia and Brazil, as far east as the Japurá. Coded A73 under the DATZ system, it has similar-looking, possibly conspecific populations referred to as A74 to A77 depending on locality. It inhabits slow-moving streams, creeks and tributaries, and captive-raised fish are the recommended choice for the community aquarium.</p><ul><li>Max size: male 55 mm SL, female 40 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 23–29°C</li><li>pH: 5.5–7.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Described from the Río Ucayali close to the city of Pucallpa, central Peru but is widely-distributed in tributaries of that system, as well as the Solimões/Amazon as far east as the Japurá drainage. Records exist from the Itaya, Samiria, Ampiyacu, and Yavarí basins, among others.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Like most Apistogramma, it inhabits slow-moving streams, creeks and tributaries, as well as smaller rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Base dimensions of 45 × 30 cm or more are acceptable for a single pair, with a group requiring larger quarters. Volume is approximately 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>The tank should be well planted. Bogwood is also recommended, as the tannins it releases will be beneficial to the water chemistry this species prefers. Small caves should be provided and care should be taken to ensure that some of these caves are too small for the male to enter as he can sometimes be aggressive towards the female and this will allow her a safe retreat. The fish can be shy so moderate to low lighting levels should be used. Strong water flow should be avoided. This species will also benefit from the use of dead leaves on the substrate, mimicking its natural habitat. These leach organic compounds into the water, helping to maintain soft, acid conditions. Water parameters should be carefully monitored if attempting this, as the decaying leaves are also likely to pollute the water.</p><p>Provided adequate cover and structure is available this species is unfussy with regards to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed. The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst most populations will appreciate the tannins and other chemicals released by the decaying leaves. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. If maintaining a blackwater population a net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are arguably best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided, with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<ul><li>Temperature: 23–29°C</li><li>pH: 5.5–7.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Primarily carnivorous and apparently feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Captive-raised fish are the recommended choice for the community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry, and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "html": "<p>This species is assigned the code A73 under the DATZ 'A-number' system, with similar-looking, possibly conspecific populations referred to as A74, A75, A76 or A77 depending on collection locality. The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation. Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. The A. eunotus subcomplex, for example, is ordered in the A. eunotus complex within the larger A. regani group of the A. regani lineage.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a68f6cf65aa5bfac.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "caption": "Adult male specimen; origin not supplied.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/91cf0f1e7610ff49.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-eunotus",
+      "caption": "Adult female displaying broodcare colour pattern, fry below.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá ranh lùn",
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "lá bàng khô cho cá cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini dòng chảy nhẹ",
+        "lọc bọt khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

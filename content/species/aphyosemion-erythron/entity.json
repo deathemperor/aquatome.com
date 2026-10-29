@@ -1,0 +1,81 @@
+{
+  "id": "aphyosemion-erythron",
+  "scientificName": "Aphyosemion erythron",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "equatorial-guinea",
+    "rio-muni"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-erythron",
+      "html": "<p>The reddish lyretail, Aphyosemion erythron, is a small killifish that appears endemic to southwestern Equatorial Guinea. Described from Río Muni, it has also been collected in the Río Aye, Río Ecucu and lower Río Benito drainages. It was referred to as A. sp. Ecurya before its description.</p><p>Max size: 25 mm SL (1.0 in SL).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-erythron",
+      "html": "<p>Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-erythron",
+      "html": "<p>This species was referred to as A. sp. Ecurya prior to description.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cf57f4cc37525131.webp",
+      "width": 679,
+      "height": 371,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-erythron",
+      "caption": "Adult male specimen; collection details unspecified...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0432fa8dcab10b70.webp",
+      "width": 685,
+      "height": 372,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-erythron",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

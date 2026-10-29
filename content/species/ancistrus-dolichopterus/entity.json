@@ -1,0 +1,189 @@
+{
+  "id": "ancistrus-dolichopterus",
+  "scientificName": "Ancistrus dolichopterus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "lNumber": "L183",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Ancistrus dolichopterus, the starlight ancistrus (L183), is a bristlenose catfish most likely endemic to the middle and lower rio Negro, Brazil. It inhabits blackwater streams. The name has been used for the common bristlenose and other similar species, while this fish has been called A. hoplogenys, and much of the literature confuses them. It differs from all congeners in having 9 soft dorsal-fin rays, and is territorial with conspecifics and similarly-shaped species.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 26–30°C (79–86°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Reports are inconsistent. Some state it to be endemic to the middle and lower rio Negro, Amazonas state, Brazil while others claim it can also be found in Guyana or has a wider distribution within the Amazon basin.</p><p>The former appears most likely and a large degree of this confusion can be attributed to it being misidentified for several decades (see 'Notes').</p><p>Type locality is given simply as 'Manaus, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Inhabits flowing streams and tributaries containing acidic black water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm (48 × 18 in) or equivalent should be the smallest considered. Volume is approximately 243 litres (64 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a jungle stream with a substrate of sand and tangles of driftwood roots and branches.</p><p>Lighting can be quite dim unless you intend to grow plants, which should ideally be of species able to grow attached to items of décor, while a few handfuls of dried leaf litter would complete the natural effect and provide additional cover.</p><p>Like many fishes that hail from pristine natural habitats it's intolerant to accumulation of organic wastes and requires spotless water in order to thrive.</p><p>For this reason it should never be introduced to biologically immature set-ups and adapts most easily to stable, mature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<ul><li>Temperature: 26–30°C (79–86°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Wild specimens are probably omnivorous foragers but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for, example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Relatively peaceful but territorial with conspecifics and similarly-shaped species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Adult males possess well-developed odontodes on the pectoral fins and opercle and tentacles on the head while females do not.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>Cave-spawner with the male responsible for brood care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<p>This species is not always identified correctly with its name used for the unidentified common bristlenose and other similar species, while the fish itself has been referred to as A. hoplogenys and assigned the L-number L183.</p><p>Images and information describing it it in much of the available literature confirm this confusion.</p><p>It differs from all other members of the genus by possession of 9 soft dorsal-fin rays.</p><p>Ancistrus is a diverse genus currently containing in excess of 60 valid species, distributed between Panama in Central America and the Río de la Plata drainage, Argentina.</p><p>Members are diagnosed from other loricariids by possessing well-developed interopercular spines and lacking plates and odontodes on the anterior margin of the snout, which is instead covered in fleshy tentacles.</p><p>Thanks to L-Welse.com.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/743a77c6c2c9ad4d.webp",
+      "width": 800,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "caption": "Female individual from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e6949b2e02c6c0eb.webp",
+      "width": 800,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
+      "caption": "Detail of dorsal-fin and central portion of body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 120cm",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kiếng",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

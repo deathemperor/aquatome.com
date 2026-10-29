@@ -1,0 +1,206 @@
+{
+  "id": "apistogramma-borellii",
+  "scientificName": "Apistogramma borellii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraguay",
+    "argentina",
+    "parana",
+    "uruguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay. Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems. Captive-raised fish are the recommended choice for the community aquarium, while wild examples are best kept alone or with small dither fishes.</p><ul><li>Max size: male 65 mm SL, female 50 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 20–26°C</li><li>pH: 5.0–8.0</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Native to southern Brazil, Paraguay and northern Argentina. It occurs in creeks and tributaries of both the Rio Paraguay and lower Rio Paraná basins.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Described from 'Carandasiñho', nowadays spelled Carand`zinho in the rio Paraguay basin, Mato Grosso state, Brazil. Currently accepted to have a wider distribution throughout much of the rio Paraguay, lower rio Paraná and Uruguay systems in southern Brazil, Paraguay, Argentina and Uruguay.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Base dimensions around 45 × 30 cm (18 × 12 in) are acceptable for a single pair, with a group requiring significantly larger quarters. Volume approximately 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves aid in simulation of naturalistic conditions. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. A net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: Commercially-produced fish are relatively unfussy but wild populations have been collected from habitats with recorded values over the range 5.0–8.0 depending on locality and may have more specific requirements.</li><li>Hardness: 1–15 dGH, again somewhat dependent on origin.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Primarily carnivorous and apparently feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Captive-raised fish are the recommended choice for the general community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "html": "<p>Numerous ornamental forms of this species have been selectively-bred for the aquarium trade. It has also been assigned the 'A' number A234 under the DATZ system with possibly conspecific, related forms similarly numbered A103, A104, and A105 depending on locality.</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. The A. borelli group, for example, is ordered within the larger A. regani lineage.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/442bab3e2bff66ce.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "caption": "Adult male; origin not supplied.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3e5d22b71a151590.webp",
+      "width": 1024,
+      "height": 727,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "caption": "Another adult male; origin not supplied.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/337f96305d4da286.webp",
+      "width": 1024,
+      "height": 685,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "caption": "Adult male of A. cf. borelli 'Opal'/A105.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e4c0e930cea43145.webp",
+      "width": 966,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
+      "caption": "Adult male of a form traded as A. sp. 'Opal'. It 's been assigned the 'A' number A105 and may or may not be conspecific with A. borelli.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bông nhỏ cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

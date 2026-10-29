@@ -1,0 +1,192 @@
+{
+  "id": "aspidoras-pauciradiatus",
+  "scientificName": "Aspidoras pauciradiatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Aspidoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "araguaia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Aspidoras pauciradiatus is a small armoured catfish that appears restricted to the upper Araguaia basin in Goiás state, Brazil. Sometimes called the 'false corydoras' or 'sixray corydoras', it has 6 soft dorsal-fin rays against 7 in other Aspidoras, plus a distinctive colour pattern. Aspidoras are told from the very similar Corydoras mainly by having two cranial fontanels.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 20–27°C (68–81°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Standard length: 35 mm SL (1.4 in). Aquarium base: 60 × 30 cm (24 × 12 in). Volume: ~54 litres (~14 US gal).</p><p>An aquarium with minimum base dimensions of 60 × 30 cm (24 × 12 in) or more is recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p><p>This species requires stable, clean water conditions and should never be added to a biologically immature set-up.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<ul><li>Temperature: 20–27°C (68–81°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Aspidoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>Spawning occurs in a similar fashion to Corydoras, and can often be initiated by undertaking a large water change with much cooler water, especially during a drop in barometric pressure.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<p>This species is sometimes referred to as 'false corydoras' or 'sixray corydoras'.</p><p>A. pauciradiatus can be distinguished from congeners by possession of 6 soft dorsal-fin rays, as opposed to 7 in other Aspidoras species, plus its distinctive colour pattern.</p><p>Aspidoras species are distinguished from the very similar Corydoras spp. mainly by possession of two cranial fontanels, versus a single fontanel in Corydoras.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Britto, M. R., F. C. T. Lima, and C. R. Moreira (2002). Aspidoras velites, a new catfish from the upper rio Araguaia basin, Brazil (Teleostei: Siluriformes: Callichthyidae). Proceedings of the Biological Society of Washington 115(4), 727-736</li><li>Weitzman, S. H. and M. H. Balph (1979). Some phylogenetic implications of a discovery of Aspidoras pauciradiatus (Pisces: Siluriformes: Callichthyidae) from the rio Negro in Brazil. Proceedings of the Biological Society of Washington 92, 10-22</li><li>Weitzman, S. H. and H. Nijssen (1970). Four new species and one new subspecies of the catfish genus Corydoras from Ecuador, Colombia and Brazil (Pisces, Siluriformes, Callichthyidae). Beaufortia 18(233), 119-132</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c44e63d27eefed19.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f9f5f35fab4f13ff.webp",
+      "width": 800,
+      "height": 570,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9bae560351d8677c.webp",
+      "width": 768,
+      "height": 576,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
+      "caption": "Adult pair, female top.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini 54 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "lọc vi sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

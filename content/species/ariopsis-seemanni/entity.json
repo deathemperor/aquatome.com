@@ -1,0 +1,206 @@
+{
+  "id": "ariopsis-seemanni",
+  "scientificName": "Ariopsis seemanni",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Ariopsis",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "guatemala",
+    "el-salvador",
+    "nicaragua",
+    "costa-rica",
+    "panama",
+    "south-america",
+    "colombia",
+    "ecuador",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.8,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 35
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>The Colombian shark catfish, Ariopsis seemanni, is an ariid catfish from river mouths along the Pacific coast of the Americas, from Mexico to Peru. Usually sold as a silvery 2 to 3 inch juvenile, it grows to 350 mm SL and lives mostly in brackish water, so it is not recommended to those lacking the facilities to house it for life. Venom glands at the base of the first dorsal spine can cause a painful swelling.</p><ul><li>Max size: 350 mm SL (14 in)</li><li>Aquarium size: 240 × 60 cm (96 × 24 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.8–8.5</li><li>Hardness: 10–30 dGH</li><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>Widespread down the Pacific coastline of Central America and north-western South America. Populations exist in Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>Mainly inhabits the mouths of rivers emptying into the Pacific Ocean, sometimes travelling many miles inland. It's usually found in brackish conditions, but can also withstand full marine and to a lesser extent, freshwater.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>Standard length: 350 mm SL (14 in). Aquarium base: 240 × 60 cm (96 × 24 in). Volume: approx. 864 litres (228 US gal).</p><p>Minimum base dimensions of 240 × 60 cm (96 × 24 in) should be considered mandatory.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>It needs plenty of open swimming space to allow it to cruise around. A simple, but effective setup would consist of a river sand substrate decorated with some driftwood branches (you can use common beech if it's first dried and stripped of bark), or better still, mangrove roots. Aquatic plants aren't recommended, as most of the commonly available species will not do well in the brackish conditions needed for this species' long term health. As it's a riverine species, decent oxygenation and water flow is appreciated. While younger specimens will do ok in hard freshwater, the species does require the addition of marine salt to its water as it grows. Adult fish can be kept in brackish or even full marine conditions. An sg of around 1.005 should be fine in a brackish setup, although this could be raised as the fish get older. If maintained solely in freshwater, you'll find the fish fail to thrive once they are more than a few inches long.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.8–8.5</li><li>Hardness: 10–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>Young specimens will take bloodworm and other small meaty foods, while larger fish appreciate earthworms, mussel, prawn and sinking tablets. It can sometimes be reluctant to take dried foods, but will usually learn to accept them over time.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>It won't attack anything too large to be considered food, making it a good choice for the larger brackish tank. It's peaceful with conspecifics, and actually does best when kept in a small group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>Difficult to sex when young, but mature females are thicker-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>It's a paternal mouthbrooder, but has probably not bred in the hobby due to difficulties replicating its natural reproductive behaviour. The fish spawn in the ocean, with the male collecting the eggs in his mouth. Following incubation, the males swim upstream to deposit their fry in freshwater rivers. There they remain during the early stages of life, before migrating back to coastal areas.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
+      "html": "<p>This species is not recommended to those lacking the facilities to house it for life. Sadly it's all too often seen for sale as an attractive, silvery 2-3\" juvenile, supposedly suitable for the general freshwater community tank. To make matters worse, it is also usually given an 'alluring' name such as 'black-finned' or 'silvertip' shark catfish. The fate of the majority of these specimens is in all likelihood a depressing one.</p><p>As the fish grow, they tend to go through several periods of restlessness, during which they're prone to mad dashes around the tank. It's thought that this behaviour may be related to natural migratory instincts. A fluctuation in salinity may help to settle things down.</p><p>Extreme caution should be exercised when performing tank maintenance or handling the fish for any reason. Like some others in the family, they have venom-producing glands at the base of the first dorsal spine. These can cause a nasty, painful swelling if you happen to be impaled. If stung, the wound should be immersed in water as hot as you can stand, as this will help to denature the proteins in the venom. Medical advice should also be sought.</p><p>Another interesting fact is that it can produce audible sounds by grinding the pectoral fins against their sockets. If you have a group of these, you'll often hear these through the tank glass. It's thought that they're used for communication with conspecifics and possibly echo-location.</p><p>It was only placed into the current genus a few years ago, and may still be seen labelled erroneous, previously valid names, usually Hexanematichthys or Arius seemanni, or A. jordani. Recent authors have also tended to refer it to the genus Sciades following Marceniuk and Menezez (2007) but this change apparently requires additional study so we have not followed it here.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/MA_Luisenpark_Sciades_seemanni.jpg/960px-MA_Luisenpark_Sciades_seemanni.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 587,
+      "licence": "CC BY-SA 3.0",
+      "author": "Xocolatl (talk) 18:01, 20 July 2013 (UTC)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MA_Luisenpark_Sciades_seemanni.jpg",
+      "caption": "Sciades seemanni"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/The_fishes_of_North_and_Middle_America_%28Pl._XXIV%29_%287983305634%29.jpg/960px-The_fishes_of_North_and_Middle_America_%28Pl._XXIV%29_%287983305634%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1682,
+      "licence": "Public domain",
+      "author": "Evermann, Barton Warren; Jordan, David Starr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_North_and_Middle_America_(Pl._XXIV)_(7983305634).jpg",
+      "caption": "U. S. NATIONAL MUSEUM BULLETIN NO. 47 PL. XXIV MH Z'---i0)S^i 54, Galeichthys gilberti (P. 2773.) 55. Galeichthys azureus. (P. 2775.)"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/FMIB_47937_Galeichthys_gilberti.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "width": 960,
+      "height": 637,
+      "licence": "Public domain",
+      "author": "David Starr Jordan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_47937_Galeichthys_gilberti.jpeg",
+      "caption": "Galeichthys gilberti Subject: Catfishes Tag: Fish"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/FMIB_50676_Galeichthys_eigenmanni_Gilbert_%26_Starks_Type_specimen%3B_Panama.jpeg/960px-FMIB_50676_Galeichthys_eigenmanni_Gilbert_%26_Starks_Type_specimen%3B_Panama.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 628,
+      "licence": "Public domain",
+      "author": "Charles Henry Gilbert",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_50676_Galeichthys_eigenmanni_Gilbert_%26_Starks_Type_specimen;_Panama.jpeg",
+      "caption": "Galeichthys eigenmanni Gilbert & Starks. Type specimen; Panama Subject: Catfishes, Galeichthys Tag: Fish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 240cm",
+        "bể cá lớn nước lợ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "giun huyết cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông cho bể cá",
+        "muối biển pha nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

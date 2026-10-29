@@ -1,0 +1,209 @@
+{
+  "id": "auchenipterichthys-coracoideus",
+  "scientificName": "Auchenipterichthys coracoideus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon",
+    "brazil",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>The midnight catfish, Auchenipterichthys coracoideus, is an auchenipterid catfish from the Peruvian and Brazilian Amazon and the Essequibo drainage. Also known as the 'Zamora woodcat', it has often been misidentified as A. thoracatus, and the two differ principally in anal-fin ray count. By day it shelters among submerged roots, tree stumps or vegetation in turbid rivers and flooded areas, emerging to feed in open water at night.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 22–25°C (72–77°F)</li><li>pH: 6.0–7.2</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Inhabits turbid rivers, tributaries and flooded areas where it shelters in tangles of submerged roots, hollow or rotten tree stumps or aquatic vegetation during daylight hours before emerging to feed in open water at night.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent should be the smallest considered. Volume is approximately 72 litres (19 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Provide lots of hiding places and keep water movement to a minimum. Tangles of driftwood are ideal, but areas of dense planting are also a good idea. The fish will be seen much more often if the lighting is subdued.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<ul><li>Temperature: 22–25°C (72–77°F)</li><li>pH: 6.0–7.2</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Feeds almost exclusively on insects and their larvae in nature. In aquaria it should be offered live and frozen foods such as bloodworm, small earthworms, etc., but most individuals will learn to accept sinking dried foods. Auchenipterichthys species are naturally nocturnal and though they may eventually become bold enough to emerge at feeding time, food should be added to the tank at lights out to allow them to browse naturally, at least during the initial period.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Peaceful and shy, but may eat very small fishes during the hours of darkness. Ideal tankmates include similarly-sized, non-aggressive characins, cichlids and other catfishes from families such as Callichthyidae and Loricariidae. It's totally non-aggressive with respect to conspecifics, and appears equally comfortable when maintained singly or as part of a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Sexually-mature males develop a hook-like extension at the tip of the anal fin which is used during copulation (see 'reproduction') and in nuptial males the dorsal spine becomes greatly elongated.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>Little information is available, but it has been bred in aquaria in Germany. Fertilisation is internal, with the male using his modified anal fin in a similar fashion to the gonopodium possessed by livebearers. Females then lay their eggs directly onto the substrate. No parental care has been observed. Apparently females can store sperm for later use as they've been observed laying fertile eggs in the absence of males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<p>This species is also known by the alternative vernacular name of 'Zamora woodcat', and has often been misidentified as A. thoracatus. The latter is a valid species and very similar to A. coracoideus in that the coracoid bone is exposed ventrally in both species, being covered only by a thin layer of integument. The two differ principally in the number of anal fin rays, with A. coracoideus normally having less than 26 anal fin rays (modally 23), and A. thoracatus typically more than 25 (modally 27). In addition, A. thoracatus is restricted to the upper rio Madeira basin in southwestern Brazil and eastern Bolivia whereas A. coracoideus is more widely-distributed throughout much of the Amazon region, and nuptial male individuals of A. thoracatus do not apparently develop an extended dorsal spine as in A. coracoideus. There may also be differences in live colour pattern that have not yet been documented. The other two members of the genus can be identified by colour pattern; A. longimanus has a somewhat uniform overall colouration whereas A. punctatus possesses numerous, randomly-arranged dark markings on the body.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "html": "<ul><li>Ferraris, C. J., Jr., R. P. Vari, and S. J. Raredon (2005). Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology 3(1), 81-98</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/057c961ef2ba5263.webp",
+      "width": 1000,
+      "height": 425,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "caption": "Male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b10e4c570ccdf603.webp",
+      "width": 1000,
+      "height": 644,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "caption": "Young specimen collected from the Río Nanay, Peru.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/663997a4490eab94.webp",
+      "width": 1000,
+      "height": 497,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "caption": "Modified anal fin of male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d90c9e48cef5a775.webp",
+      "width": 1000,
+      "height": 413,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/auchenipterichthys-coracoideus",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 72 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng chỉ đông lạnh",
+        "thức ăn chìm cho cá trê"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led ánh sáng dịu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

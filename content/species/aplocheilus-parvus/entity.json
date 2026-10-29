@@ -1,0 +1,170 @@
+{
+  "id": "aplocheilus-parvus",
+  "scientificName": "Aplocheilus parvus",
+  "order": "Cyprinodontiformes",
+  "family": "Aplocheilidae",
+  "genus": "Aplocheilus",
+  "group": "killifish",
+  "places": [
+    "asia",
+    "india",
+    "tamil-nadu",
+    "sri-lanka"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>The dwarf panchax, Aplocheilus parvus, is a small killifish from Sri Lanka and Tamil Nadu state, southeastern India, growing to around 40 mm SL. Euryhaline, it mostly inhabits lowland, often coastal, still or slow-moving brackish or fresh water, and is commonly found in mangrove swamps and rice paddies.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>Native to Sri Lanka and Tamil Nadu state, southeastern India.</p><p>Type locality is given simply as 'Madras, India', corresponding to modern day Chennai.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>This species is euryhaline and mostly inhabits lowland, often coastal, habitats containing still or slow-moving brackish or freshwater.</p><p>It displays a preference for habitats with surface vegetation or overhanging cover and is commonly found in mangrove swamps and rice paddies.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>Minimum base dimensions of 45 × 30 cm (18 × 12 in) or equivalent are recommended. Volume: ~41 litres (~11 US gal).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–8.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>Aplocheilus spp. are surface-dwelling predators preying on both aquatic and terrestrial invertebrates.</p><p>In the aquarium they will learn to accept dried foods in most cases but should also be offered regular meals of small live or frozen fare such as Artemia, Daphnia, chironomid larvae (bloodworm), etc.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "html": "<p>Not difficult. This species will deposit eggs in woollen mops, fine-leaved plants or mosses, or filamentous algae depending on what is available.</p><p>Incubation is 10-15 days and the fry will initially require infusoria-grade food until large enough to accept Artemia nauplii, microworm, etc.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ce1b4a6151b5f98a.webp",
+      "width": 675,
+      "height": 506,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "caption": "Wild specimen from the vicinity of Chennai, Tamil Nadu state, southeastern India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3386d0ec2064e9b1.webp",
+      "width": 650,
+      "height": 488,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "caption": "Specimen from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c70ea21b8dea0b00.webp",
+      "width": 600,
+      "height": 288,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-parvus",
+      "caption": "Male from Chennai.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "thức ăn cá killifish"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

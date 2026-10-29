@@ -1,0 +1,206 @@
+{
+  "id": "apteronotus-albifrons",
+  "scientificName": "Apteronotus albifrons",
+  "order": "Gymnotiformes",
+  "family": "Apteronotidae",
+  "genus": "Apteronotus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "ecuador",
+    "colombia",
+    "guyana",
+    "suriname",
+    "french-guiana",
+    "venezuela",
+    "peru",
+    "bolivia",
+    "brazil",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 50
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>The black ghost knifefish, Apteronotus albifrons, is a weakly electric knifefish from the upper half of South America, from Colombia to Paraguay. Usually sold at around 4 inches, it grows to 50 cm and needs a long-term housing plan. Its eyesight is very poor, and it navigates, finds prey and communicates using a weak electric field. In the wild it lives in swiftly flowing streams and rivers over sand.</p><ul><li>Max size: 500 mm TL (20 in)</li><li>Aquarium size: 180 × 60 cm (72 × 24 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–10 dGH</li><li>Difficulty: 6 of 8 (moderate), rated moderate because it needs a very large tank.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>It has a widespread distribution throughout the upper half of South America, having been recorded in Ecuador, Colombia, Guyana, Suriname, French Guiana, Venezuela, Peru, Bolivia, Brazil and Paraguay.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>Swiftly flowing streams and rivers, most often over a substrate of sand. It's also found in flooded forests during the wet season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>Total length: 500 mm TL (20 in TL). Aquarium base: 180 × 60 cm (72 × 24 in). Volume: ~648 litres (~171 US gal).</p><p>Something in the region of 180 × 60 × 60 cm (72 × 24 × 24 in), about 648 litres (~171 US gal), is the minimum required for an adult fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>The choice of decor itself isn't critical, although the fish does appreciate plenty of cover. Large stones and pieces of bogwood, twisted roots, and live plants can all look good. It's much more active under dim conditions, so either use a low wattage bulb or add a layer of floating plants to diffuse the light entering the tank. A soft, sandy substrate is also recommended, as it generally feeds from the bottom of the tank. As it inhabits quite fast-moving waters in nature, some current in the tank is preferable, although as long as the water is well-oxygenated this isn't essential. What is essential, is an efficient filter and stringent maintenance regime, as the species is sensitive to deteriorations in water quality.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>A predator that feeds mainly on insects and worms in nature. Live and frozen foods should thus form a large part of the diet. It is particularly fond of meaty foods such as prawn or earthworms. Most specimens also learn to accept dried foods over time.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>Generally peaceful to the point of timidity, although larger specimens are likely to eat small fish. It will not do well with very active or aggressive tankmates and is best kept with other peaceful species that it cannot fit into its mouth. Considering its potential size, species attaining less than 6\" should therefore be discounted. South American cichlids such as Geophagus or Satanoperca sp., angelfish and even discus are good choices. Other possibilities include larger characins and peaceful catfish.</p><p>It can be somewhat belligerent towards conspecifics and is best maintained either as a single specimen or as a group in a very big tank. If only a couple are kept together, the dominant fish tends to bully the weaker to the extent that it will often not feed and simply wastes away.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>Not bred in home aquaria. It is bred commercially in Indonesia, in large outdoor ponds.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
+      "html": "<p>A strikingly marked fish and an interesting addition to a South American community tank. Many fishkeepers buy this fish as a cute 4\" specimen, completely unaware of the large size that this fish can attain. If you want to own one of these a long term housing plan is a must! It is an amazing fish to watch with its undulating fins and weird movements (it can swim in virtually any direction without bending its body and can even swim backwards!), and fascinatingly will learn to recognise you quite quickly. Once this is achieved, it will hand feed willingly.</p><p>The Black Ghost Knife uses a form of electric organ in the wild to navigate and find prey, as the waters it inhabits are often dark to the point of being black. This organ produces a weak electric field around the fish. Disturbances in the field allow it to sense objects and movements around it. Its eyesight is very poor, so this electrosensory ability is by far its primary sense. It has been proven that the fish also use it to communicate with each other and find mates.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg/960px-Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 623,
+      "licence": "CC0",
+      "author": "Vassil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg",
+      "caption": "Black ghost ( Apteronotus albifrons ). Aquarium tropical du Palais de la Porte Dorée, in Paris."
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Apteronotus_albifrons.jpg/960px-Apteronotus_albifrons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 338,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons.jpg",
+      "caption": "Weißstirn-Messerfisch (Apteronotus albifrons)"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Stream_fish_from_Araguaia_and_Rio_da_Mortes_basin.png/960px-Stream_fish_from_Araguaia_and_Rio_da_Mortes_basin.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1800,
+      "licence": "CC BY 4.0",
+      "author": "Luciano B. Lima et. al.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_fish_from_Araguaia_and_Rio_da_Mortes_basin.png",
+      "caption": "The eight most abundant sampled species in the Upper Araguaia and the Middle Rio das Mortes basin and representative species of each family. Some families can have more than one more species represent"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_%28Plate_94%29_%286006036808%29.jpg/960px-M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_%28Plate_94%29_%286006036808%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 544,
+      "licence": "Public domain",
+      "author": "Bloch, Marcus Elieser; Hennig, J. F.; Schneider, Johann Gottlob",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_(Plate_94)_(6006036808).jpg",
+      "caption": "■ ^ ^ I"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180x60x60",
+        "bể cá lớn 600 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "giun huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

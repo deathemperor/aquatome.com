@@ -1,0 +1,114 @@
+{
+  "id": "aphyosemion-loennbergii",
+  "scientificName": "Aphyosemion loennbergii",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "kienke"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-loennbergii",
+      "html": "<p>Lönnberg's lyretail, Aphyosemion loennbergii, is a killifish from southwestern Cameroon, described from the Kienké river (formerly the 'Kribi'). It has a wider distribution in the region and also occurs in the Lokundje and Nyong drainages.</p><ul><li>Max size: 50 mm SL (2.0 in SL)</li><li>Temperature: 20–24°C (68–75°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-loennbergii",
+      "html": "<p>Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-loennbergii",
+      "html": "<ul><li>Temperature: 20–24°C (68–75°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-loennbergii",
+      "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe (Gr. ἀφύη), meaning 'a small fish', and semeion (Gr. σημεῖον), meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>loennbergii: named for Swedish zoologist Einar Lönnberg (1865-1942), “author of several contributions to the fish-fauna of Cameroon”.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút",
+        "lọc mút cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "apistogramma-paulmuelleri",
+  "scientificName": "Apistogramma paulmuelleri",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "lNumber": "A52",
+  "places": [
+    "south-america",
+    "peru",
+    "loreto"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 31
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 3
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p><em>Apistogramma paulmuelleri</em> (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road. It has been traded as A. sp. 'Apache', a name also applied to other, non-conspecific Apistogramma. Since 2009 parts of the type locality stream have been degraded by removal of riparian vegetation.</p><ul><li>Max size: male 42 mm SL, female 33 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–31°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–3 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>The type locality is given as 'small quebrada (stream) close to the carretera (road) from Iquitos to Nauta, Departamento Loreto, Peru; [field-station F8-P-2011-R: position 04°24′S/73°34′W].</p><p>The authors also state that the species is 'apparently endemic to the Loreto' and that all localities are 'east of the rio Itaya and west of the Amazon River north of Nauta'.</p><p>It's sometimes traded as A. sp. 'Apache', a name which has also been applied to some non-conspecific Apistogramma populations.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>The type locality is a stretch of a forest stream measuring just a few hundred metres in length and on August 2011 it measured 3 to 8 metres wide, up to 80 cm (31 in) deep and contained clear, light-brown water.</p><p>Sympatric species included Laetacara flavilabris, Crenuchus spilurus, several Aequidens spp., two Rivulus spp. and an unidentified Hyphessobrycon sp.</p><p>Since 2009 some parts of the stream have been degraded via removal of riparian vegetation (Römer et al., 2013).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Standard length: male 42 mm, female 33 mm.</p><p>Aquarium base: 45 × 30 cm. Volume: ~41 litres.</p><p>Base dimensions of 45 × 30 cm (18 × 12 in) or more are acceptable for a single pair with a group requiring larger quarters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter provides additional cover and spawning sites, and brings with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves aid in simulation of blackwater conditions. Alder cones may also be used for the latter purpose.</p><p>Fairly dim lighting is recommended and aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp. may be added, while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate.</p><p>It goes without saying that these are fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<ul><li>Temperature: 22–31°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–3 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Apistogramma spp. are chiefly carnivorous and feed mostly on benthic invertebrates in nature.</p><p>In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most species will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor.</p><p>The female is mostly responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<p>This species is assigned the code A52 under the DATZ 'A' number system and is also known by the trade names A. sp. 'Apache' (this name has also been applied to certain other Apistogramma populations which are considered to represent unidentified species at time of writing), A. sp. 'Peru (II)', A. sp. 'Peru-regani', A. sp. cf. regani (Belém) and A. sp. 'carapintada'.</p><p>It can be distinguished from congeners by a combination of characters following Römer et al. (2013): caudal-fin rounded, but in most males upper lobe longer than lower, producing slightly asymmetric shape; larger males with six to (rarely) eight vertical lines of faint dusky spots covering central half of caudal-fin, rest of fin transparent with light metallic green to bluish sheen; dorsal-fin about half to two thirds as high as body and lacking significant extensions; a vertically-orientated black blotch at the caudal-fin base and covering the full height of the caudal peduncle; a narrow mid-ventral stripe in both sexes; up to four abdominal stripes; adult males with bright red markings and metallic bluish lines on cheeks and gill covers; in large males lower part of abdomen often yellow to orange, often with an orange to reddish blotch in the centre of the scales between the head and anal-fin base, these forming a series of up to 7 horizontal stripes in the ventro-anterior portion of the body; occasionally up to 5 irregularly-shaped lateral spots on the dark lateral band, most clearly visible in the interspaces between the vertical bars when the latter is faded; lateral stripe about two thirds of a scale wide becoming slightly wider above the anal-fin, extending to vertical band 7 and terminating before the caudal peduncle spot; distinct pattern of vertical bars and/or dorsal spots; in adult females the lateral band may be reduced to a row of up to six oval lateral spots, depending on mood; head pores not reduced in number.</p><p>Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description.</p><p>In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them.</p><p>Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux.</p><p>For example the A. regani complex, of which A. sp. 'masken' is a putative member, is contained in the A. regani group, itself a subdivision of the larger A. regani lineage.</p><p>Apistogramma and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "html": "<ul><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Römer, U. (2006). Cichlid Atlas: v. 2 Mergus Verlag GmbH, 1-1320</li><li>Wise, M. (2011). Apistogramma Species List By Species-Groups/Complexes. World Wide Web electronic publication, http://apisto.sites.no, Accessed on 13.02.17</li><li>Römer, U., J. Beninde, F. Duponchelle, C. R. García Dávila, A. Vela Díaz and J-F. Renno (2013). Description of Apistogramma paulmuelleri sp. n., a new geophagine cichlid species (Teleostei: Perciformes) from the Amazon river basin in Loreto, Peru. Vertebrate Zoology 63(1), 15-34</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b430888765baaac4.webp",
+      "width": 639,
+      "height": 479,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "caption": "Male engaged in courtship display. Origin unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/394d9bc296716673.webp",
+      "width": 639,
+      "height": 479,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "caption": "Young adult pair, female front.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1bc079711165145c.webp",
+      "width": 639,
+      "height": 479,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "caption": "Male (back) and female engaged in courtship behaviour.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
+      "caption": "Female guarding her brood of eggs...",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45x30",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt khí",
+        "lọc mút xốp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho cichlid lùn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

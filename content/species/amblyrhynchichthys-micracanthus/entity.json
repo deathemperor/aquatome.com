@@ -1,0 +1,107 @@
+{
+  "id": "amblyrhynchichthys-micracanthus",
+  "scientificName": "Amblyrhynchichthys micracanthus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Amblyrhynchichthys",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "tonle-sap",
+    "vietnam"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<p>Amblyrhynchichthys micracanthus is a riverine cyprinid from the Mekong catchment in Laos, Thailand, Cambodia and Vietnam, and the Chao Phraya system. It moves into inundated forest during the wet season, and wild fish feed on periphyton, plankton and benthic algae. Older records of A. truncatus from mainland Indochina all refer to this species, which has a straighter snout profile, a shorter dorsal-fin spine and fewer gill rakers.</p><p>Maximum size: 200 mm SL (8 in SL). Needs a large tank and should be kept in a group.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<p>Native to the Mekong River catchment in Laos (where Vientiane province represents the upper limit of its range), Thailand, Cambodia, and Vietnam, and the Tapi, Chao Phraya, and Mae Klong river systems in Thailand.</p><p>Type locality is '22 kilometers upstream from Phnom Penh, Tonle Sap River, Kandal Province, Cambodia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<p>A riverine species which also moves into areas of inundated forest during the wet season (June to September), while juveniles have been observed in swamps and flooded fields.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<p>Wild fish feed on periphyton, phytoplankton, zooplankton, and benthic algae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<p>Prior to this species' description, the genus comprised only a single species meaning older records of A. truncatus in mainland Indochina all refer to A. micracanthus.</p><p>A. micracanthus can be told apart from A. truncatus by the following combination of characters: snout more truncate with a straight (vs. gently rounded in A. truncatus) lateral profile; dorsal-fin spine shorter, measuring 15.5-25.7% SL (vs. 26.7-29.9%); a smaller eye when individuals of a similar size and larger than ca. 70 mm (2.8 in) SL are compared, with a diameter measuring 28.7-34.9% HL (vs. 32.7-36.3%); 34-37 (vs. 39-40) gill rakers.</p><p>The genus Amblyrhynchichthys is distinguished from all other cyprinids by the following character combination: snout extremely blunt; nostrils located anteriorly; last simple dorsal-fin ray stout with serrations on the posterior edge; presence of a well-developed, hyaline eyelid.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "html": "<ul><li>Ng, H. H. and M. Kottelat (2004). Amblyrhynchichthys micracanthus, a new species of cyprinid fish from Indochina (Cypriniformes: Cyprinidae). Revue Suisse de Zoologie 111(2), 425-432</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/36272c86df0068ad.webp",
+      "width": 700,
+      "height": 430,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "caption": "Specimen from Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chép viên chìm",
+        "thức ăn tảo spirulina cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

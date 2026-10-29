@@ -1,0 +1,94 @@
+{
+  "id": "aphyosemion-rectogoense",
+  "scientificName": "Aphyosemion rectogoense",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogooue"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-rectogoense",
+      "html": "<p>Aphyosemion rectogoense is a killifish known only from the Batéké plateau region and surrounding area in southeastern Gabon. It has been recorded from the Léconi-Djouya and upper Mpassa rivers, part of the much larger Ogooué basin, and the type locality is 6 km west of Léconi township.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-rectogoense",
+      "html": "<p>Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin. Type locality is 6 km west of Léconi township.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-rectogoense",
+      "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 5.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-rectogoense",
+      "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>rectogoense: etymology not explained, but appears to be a combination of the Latin participle rectus, meaning 'correct, proper' and the specific epithet ogoense (presumably taken from the congeneric species A. ogoense). Apparently, the first author Radda may have initially misidentified A. rectogoense as A. ogoense.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30 lít",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền than bùn cho cá",
+        "phân nền hạ pH"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

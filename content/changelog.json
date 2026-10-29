@@ -2,6 +2,776 @@
   {
     "date": "2026-10-29",
     "kind": "species",
+    "id": "aulonocara-baenschi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "auchenipterichthys-coracoideus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "atractosteus-tropicus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "atractosteus-tristoechus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "atractosteus-spatula",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "astyanax-mexicanus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "astyanax-leopoldi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "astyanax-kennedyi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "astyanax-bimaculatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "astronotus-ocellatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "asterophysus-batrachus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aspidoras-taurus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aspidoras-raimundi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aspidoras-pauciradiatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "arnoldichthys-spilopterus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aristochromis-christyi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ariopsis-seemanni",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apteronotus-albifrons",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aplocheilus-parvus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aplocheilus-lineatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aplocheilus-blockii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-viejita",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-trifasciata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-steindachneri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-paulmuelleri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-pantalone",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-panduro",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-norberti",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-nijsseni",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-mendezi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-macmasteri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-hongsloi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-hoignei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-gibbiceps",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-eunotus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-eremnopyge",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-elizabethae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-commbrae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-cinilabra",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-cacatuoides",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-brevis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-borellii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-bitaeniata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-barlowi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-baenschi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-alacrina",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apistogramma-agassizii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-striatum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-splendopleure",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-rectogoense",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-ogoense",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-mimbon",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-loennbergii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-herzogi",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-hanneloreae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-gabunense",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-erythron",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-elberti",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-decorsei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-congicum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-cognatum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-celiae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-bualanum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-herzogi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-bivittatum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-bitaeniatum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyosemion-australe",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyocharax-rathbuni",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyocharax-nattereri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphyocharax-anisitsi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "squaliforma-emarginata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "esmaeilius-vladykovi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-villwocki",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-transgrediens",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-sureyanus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphanius-sirhani",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apricaphanius-saourensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "paraphanius-mento",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apricaphanius-iberus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphanius-fasciatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "esmaeilius-persicus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphanius-dispar",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-danfordii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "apricaphanius-baeticus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphanius-asquamatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "aphanius-apodus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-anatoliae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anostomus-ternetzi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anostomus-anostomus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anomalochromis-thomasi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "annamia-thuathienensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "annamia-normani",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "andinoacara-rivulatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "andinoacara-pulcher",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ancistrus-triradiatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ancistrus-ranunculus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ancistrus-dolichopterus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ancistrus-claro",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anatolichthys-saldae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anableps-anableps",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "anabas-testudineus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "cichlasoma-trimaculatum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amphilophus-labiatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amphilophus-citrinellus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "darienheros-calobrensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amia-calva",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "ameca-splendens",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amblyrhynchichthys-micracanthus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amblypharyngodon-chulabhornae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "amblydoras-nauticus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
     "id": "ambastaia-sidthimunki",
     "source": "seriouslyfish",
     "action": "new"

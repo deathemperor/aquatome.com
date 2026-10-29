@@ -1,0 +1,183 @@
+{
+  "id": "apistogramma-nijsseni",
+  "scientificName": "Apistogramma nijsseni",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru. Coded A180 under the DATZ system, it inhabits slow-moving blackwater streams and creeks where the pH can drop as low as 4.0 or 5.0 and the substrate is littered with branches and a deep layer of rotting leaves.</p><ul><li>Max size: male 85 mm SL, female 70 mm SL</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 24–28°C</li><li>pH: 5.0–6.5</li><li>Hardness: 0–4 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Inhabits slow-moving blackwater streams, creeks and tributaries, as well as smaller rivers. The water these contain is typically stained dark brown with humic acids and other chemicals released by decaying organic material. This results in a negligible dissolved mineral content, and the pH can drop as low as 4.0 or 5.0. The dense rainforest canopy above means that very little light penetrates the water surface, and the substrate is normally littered with fallen tree branches and a deep layer of rotting leaves.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Standard length: male 85 mm, female 70 mm. Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>Base dimensions of 60 × 30 cm or more are acceptable for a single pair with a group requiring larger quarters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed. The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst most populations will appreciate the tannins and other chemicals released by the decaying leaves. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. If maintaining a blackwater population a net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.0–6.5</li><li>Hardness: 0–4 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Primarily carnivorous and apparently feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Captive-raised fish are the recommended choice for the community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "html": "<p>This species is assigned the code A180 under the DATZ system and has been available under a handful of trade names including 'panda dwarf cichlid' and 'Nijssen's dwarf cichlid'.</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. For example the A. nijsseni group is contained within the A. trifasciata sublineage of the larger A. trifasciata lineage alongside A. arua plus the A. brevis, A. cacatuoides, A. atahualpa and A. trifasciata groups.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/380c70c466d7e866.webp",
+      "width": 1200,
+      "height": 840,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "caption": "Adult male specimen; neutral mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/27a201a2e68f9bbd.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini 54 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "lá bàng khô",
+        "lá ketapang"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho cá rô phi lùn"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led ánh sáng dịu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

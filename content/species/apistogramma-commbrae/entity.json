@@ -1,0 +1,193 @@
+{
+  "id": "apistogramma-commbrae",
+  "scientificName": "Apistogramma commbrae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "lNumber": "A93",
+  "places": [
+    "south-america",
+    "argentina",
+    "paraguay",
+    "bolivia",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay. One of the smallest members of the genus, it is told apart from the rest of the A. commbrae complex by a conspicuous double caudal peduncle spot. Its habitats cool seasonally to as low as 16 °C, and it should be kept cooler over winter.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River. There is also a population from the upper Guaporé River in western Brazil, a tributary of the upper Madeira River and thus part of the Amazon River system.</p><p>The type specimens were collected at \"Carandasiñho, Mato Grosso\" and \"Colonia Risso\", in the upper Paraguay River watershed.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>In the wild, Apistogramma commbrae habitats range from large rivers to small streams and even floodplains, but it is always found in the shallow zones, particularly where there is plentiful aquatic and riparian vegetation. Floating plants often feature heavily too. Unusually for Apistogramma, A. commbrae has frequently been found in water with a pH neutral to slightly alkaline, though typically it is found in slightly acidic water. Because of its distribution through the south of South America, A. commbrae is subject to seasonal temperature fluctuations, with cool periods dropping water temperatures as low as 16 °C (61 °F).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>A relatively peaceful species, a 60 cm (24 in) x 30 cm (12 in) x 30 cm (12 in) aquarium (about 54 litres) will suffice for a breeding pair or a small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Despite most imports of Apistogramma commbrae being wild stock, the species proves to be an excellent captive subject. Unlike many congeners, this species is unspecialised and settles in to a wide range of water parameters. Due to the seasonal nature of its natural habitat, aim to keep A. commbrae at a cooler temperature over winter to increase longevity and vitality.</p><p>Provided adequate cover and structure is available this species is unfussy with regards to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter provides additional cover and spawning sites, and brings with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves aid in simulation of natural conditions. Alder cones may also be used for the latter purpose.</p><p>Fairly dim lighting is recommended and aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp. may be added, while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>There is no need to use peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate.</p><p>It goes without saying that these fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<ul><li>Temperature: 15–27 °C (59–81 °F)</li><li>pH: 6.0–7.4</li><li>Hardness: 1–6 dGH</li><li>Conductivity: 20–150 μS/cm</li></ul><p>Relatively unfussy. Blackwater is not necessary but will be tolerated without issues. Despite handling more alkaline water much better than other Apistogramma, take care not to allow conductivity, KH and GH to rise too high.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Apistogramma spp. are chiefly carnivorous and feed mostly on benthic invertebrates in nature.</p><p>In the aquarium live and frozen foods such as Artemia, Daphnia, Moina and chironomid larvae (bloodworm) should be offered regularly although most species will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Generally a peaceful fish, Apistogramma commbrae settles well into a calm community aquarium. Because Apistogramma commbrae prefers lower temperatures to congeners, this should be considered when selecting tankmates. Hyphessobrycon elachys, Gastrodermus hastatus, Otothyropsis piribebuy and Pyrrhulina australis will all work excellently.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females. In spawning conditions and during broodcare the female will adopt a bright yellow livery with black markings through the body and face and more typically on the anterior edge of the ventral fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor.</p><p>Apistogramma commbrae appears to be a monogamous species, with male seldom breeding with more than one female at a time. However, because the family structure is \"patriarch-maternal\", the task is usually left to the female whilst the male patrols territory boundaries.</p><p>Depending on temperature the eggs hatch in 36-72 hours with the fry free-swimming after a further few days. At a temperature above 25 °C (77 °F), newly hatched fry are too small to consume Artemia nauplii. This can be overcome by reducing the temperature.</p><p>Although slightly acidic water is beneficial for breeding purposes, this should not be allowed to drop too low in order to avoid the loss of juvenile fish. pH 6.5 will be ideal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<p>Apistogramma commbrae and other members of the so-called A. commbrae species complex (see below) can be distinguished from congeners by the conspicuous double caudal peduncle spot. This species may also be polymorphic, with some males exhibiting red and blue markings on the cheeks and a yellow gular region.</p><p>Apistogramma is among the most speciose of South American cichlid genera with over 70 species valid at present but many more awaiting description.</p><p>In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future.</p><p>Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them.</p><p>Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux.</p><p>At present, A. commbrae belongs to the A. commbrae complex within the A. regani lineage.</p><p>Apistogramma and a number of related genera are often included in the putative cichlid subfamily Geophaginae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "html": "<ul><li>Apistogramma commbrae 2003 https://www.fishbase.se/search.php, Fishbase</li><li>346-353 2001 Cichlid Atlas, Mergus</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1ad62c9c8ab47ffc.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "caption": "Apistogramma commbrae male, from Paraguay",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/146018dfcb3951af.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
+      "caption": "Apistogramma commbrae female",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể cá mini 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp chạy khí",
+        "lọc sponge cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "thức ăn viên cho cichlid lùn",
+        "daphnia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "lá bàng khô",
+        "nón alder"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

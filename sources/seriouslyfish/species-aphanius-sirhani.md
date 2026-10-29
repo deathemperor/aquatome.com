@@ -1,0 +1,146 @@
+---
+url: https://www.seriouslyfish.com/species/aphanius-sirhani
+title: Aphaniops sirhani (Azraq Toothcarp) · Seriously Fish
+fetchedAt: 2026-10-29T02:12:54.730Z
+hash: 59fbdeaf6f7a98d362876546128ec460d30d92fb7abf9e99c6aa16d35a14de1d
+---
+
+On this page
+13 sections
+- Etymology
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 4
+Adult male specimen displaying courtship colour pattern.Barbara Nicca
+## Quick factsEdit
+Max size
+50mm SL2.0in SL
+Aquarium size
+120 × 30cm48 × 12in
+Temp
+10–35°C50–95°F
+pH
+7.0–8.5
+Hardness
+10–25dGH
+## Difficulty4 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+flexible
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+The Azraq toothcarp, Aphaniops sirhani, is endemic to what remains of Azraq Oasis in the Wadi Sirhan valley of the Syrian Desert, Jordan. From the 1960s the aquifers feeding the oasis were pumped to supply Amman, and the IUCN considers it critically endangered. Vigorous spawning behaviour makes it a poor choice for the community aquarium, and the emphasis is on captive reproduction.
+## Etymology
+Edit
+Aphaniops: named for the related genus Aphanius, within which members were formerly placed, in combination with the taxonomic suffix -ops, meaning 'resembling'.
+sirhani: named for the Wadi Sirhan Valley in Jordan, to which this species is endemic.
+## Distribution
+Edit
+A. sirhani is endemic to what remains of Azraq Oasis in the Wadi Sirhan valley of the Syrian Desert. It is considered to be critically endangered by the IUCN.
+## Habitat
+Write a note
+Edit
+The recent history of the oasis arguably ranks among the most tragic cases of habitat degradation by humans yet seen. It is the only permanent water body in 12,000 km² and until the 1980s was considered one of the most well-preserved areas of wetland in the world.
+It was fed by two underground springs which resulted in the creation of a large, flat area of lush marshland supporting an abundance of diverse plant and animal life. The remains of lion, cheetah, rhinoceros, hippopotamus, elephant and ostrich and other large mammals have been found there and the site was home to hundreds of thousands of migrating birds each year.
+During the 1960s the underground aquifiers that fed the springs began to be pumped to provide drinking water to the city of Amman resulting in a drop in the water level. The site was added to the Ramsar List of Wetlands of International Importance in 1977 when the 12 km² Azraq Wetland Reserve was also established but exploitation of groundwater resources escalated in the following years.
+The feeder springs dried out completely in 1992 and most remaining habitats are supplied with water artificially although there are a few pools fed by a borehole drilled in 1963. A shallow, temporary lake sometimes forms outside the boundaries of the reserve after periods of high winter rainfall. Other pools have been excavated in low ground around the perimeter of the basin but are used for commercial production of Tilapia.
+The water pumped into the site by the Jordanian government was supposed to restore it to around 10% of its original size but hundreds of illegal wells are in daily use and drinking water is still being provided for a quarter of Amman so only around 5.5% has actually been rehabilitated. On February 2, 1967 almost 350,000 individual birds were recorded at Azraq in a single day whereas on the same date in 2000 the figure was just 1200.
+Throughour much of the 1990s A. sirhani was presumed extinct as a result of habitat loss and the presence of introduced, predatory Tilapia, Oreochromis and Clarias in the parts of the oasis that still contained water. However in 2000, after artificial pumping of water had begun, a pair of Austrian scientists collected 45 specimens and a captive breeding programme was started in Jordan, the United Arab Emirates and the Vienna Zoo.
+Subsequent reintroductions were made into several man-made lagoons in which it is the only fish species and as far as we know these small populations remain relatively stable. Plant species in the heavily-vegetated, nutrient-rich marshes and pools in which this species used to be found included Juncus, Carex, Typha, Scirpus, Cyperus and Arundo species but now Phragmites reed species predominate.
+## Aquarium size
+Write a note
+Edit
+Standard length
+50mm SL2.0in SL
+Aquarium base
+120 × 30cm48 × 12in
+Volume
+~108litres~29US gal
+A pair or small group can be kept in a container with base dimensions of 60cm x 30cm or equivalent but as a general rule members of this genus do better when maintained in larger numbers in something with measurements upwards of 120 ∗ 30 cm48 ∗ 12 in.
+## Maintenance
+Write a note
+Edit
+Even for long-term maintenance a simple set-up will suffice. The most important factors are the provision of many broken lines of sight and a suitable medium in which the fish can deposit eggs. Female and subdominant male individuals must be offered the opportunity of respite from the aggressive alpha males during the spawning season so much of the available space can be filled with acrylic wool mops (use a fine grade if available), clumps of java moss or Ceratophyllum and ideally filamentous algae.
+There's no need to add a substrate although inert sand or gravel can be added if you preferand filtration need not be too strong either. It is possible, and preferable, to maintain it outdoors all year round in many countries and it will show better colours and overall condition if exposed to at least a few hours of natural sunlight each day.
+## Water conditions
+Edit
+Temperature
+10–35°C50–95°F
+pH
+7.0–8.5
+Hardness
+10–25dGH
+Temperature: Active over a wide temperature range of 10 – 35 °C50 – 95 °F. Artificial heating is not required in all but the coldest climates and it should be provided with a 'winter' period of several months during which it is maintained at low temperatures or it is likely to suffer both reduced fecundity and a shortened lifespan.
+pH: 7.0 – 8.5. It will probably not survive under acidic conditions.
+Hardness: 10 – 25 dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Aphaniops species are basically micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is also taken at times. In the aquarium they will learn to accept dried foods in most cases but should also be offered regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm.
+This is particularly important during the months of spring and summer due to their high reproductive effort throughout this period. If the aquarium or container does not contain filamentous algae try to introduce a good quality dried product with added Spirulina content to the diet.
+## Behaviour and compatibility
+Write a note
+Edit
+Its particular water requirements and vigorous spawning behaviour make A. sirhani a poor choice for the community aquarium. Given its precarious conservation status the emphasis should be on captive reproduction and we strongly recommend maintaining it alone. It should be kept in a group with a ratio of two or three females to each male being the ideal.
+## Sexual dimorphism
+Write a note
+Edit
+As with all members of the genus sexual dimorphism is pronounced. Males exhibit a series of dark vertical bars on the flanks with usually two bars in the caudal fin. The fins are yellowish with some dark markings, especially in the dorsal and caudal fins. Females are larger and much plainer possessing only a series of irregular dark spots on the body and completely hyaline finnage.
+## Reproduction
+Write a note
+Edit
+Captive reproduction is not difficult if the tank or container is properly arranged and maintained (see 'tank set-up'). It is a fractional spawner with females depositing eggs on a more-or-less continuous basis between the months of May and November with peaks in May/June/July and October/November.
+Males form temporary territories which they defend against rivals while attempting to entice females to spawn. Dominant individuals will show more intense colouration. Eggs are released singly or in small batches and are attached to algae or other surfaces by means of small filaments. Aphaniops typically eat their eggs/fry and the medium should therefore be checked on a daily basis during the spawning period.
+The eggs are very small and must be treated carefully. Use a fine pair of forceps to gently remove pieces of medium with eggs attached whilst avoiding contact with the eggs themselves. Alternatively the entire medium can be removed and replaced every couple of days.
+The medium/eggs should be transferred to a container with water of the same chemistry and temperature as that of the adults. The incubation period can vary a little with the temperature but is usually between 6-14 days with the fry being large enough to accept Artemia nauplii, microworm etc. immediately after they become free-swimming.
+## Notes
+Edit
+Phylogenetic studies have shown this species to be most closely related to A. dispar, A. richardsoni and A. ginaonis within the genus. It probably became isolated when the Red Sea flooded the Wadi Sirhan around 13 million years ago. You 're unlikely to find it on sale in aquatic stores although it may be available via specialist breeders or associations from time-to-time.
+While Aphanius are certainly not as colourful as some of their relatives their interesting behaviour and continuous activity make them fascinating aquarium subjects and well worth a try if you possess the dedication to take on a long-term maintenance project since conservation is key with all members of the genus.
+The genus currently contains 22 species and subspecies which are thought to have derived from a common ancestor originally distributed around the periphery of the former Tethys Sea. None are particularly well-documented in aquarium literature although some are very beautiful and the majority are not too difficult to maintain and breed. Sadly most are on the verge of extinction for one reason or another with several existing only in remnant, highly-localised populations.
+In practically all cases the root cause for this decline is the activity of humans and although some species are now protected by conservation law the mismanagement and degradation of their habitats continues at an alarming rate. A few species are still, inexplicably, listed as a species of Lebias by some sources although that name has long been considered a synonym of Cyprinodon by most authorities and an ICZN committee voted to suppress the name in favour of Aphanius as recently as 2003.
+## References
+- Hrbek, T. and A. Meyer (2003). Closing of the Tethys Sea and the phylogeny of Eurasian killifishes (Cyprinodontiformes: Cyprinodontidae). Journal of Evolutionary Biology 16(1), 17-36
+## Species images · 4
+Adult male specimen displaying courtship colour pattern.Barbara Nicca
+Adult female specimen.Barbara Nicca
+Adult male; neutral colour pattern.Diane Brown
+Young adult male displaying stress colour pattern.Matt Ford
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Jordan
+## Profile completeness22 of 24
+92% complete
+- Add temperament
+- Add community suitability
+Report a mistake
+## Community
+Questions about Aphaniops sirhani?
+Ask on Discord
+→

@@ -1,0 +1,211 @@
+{
+  "id": "apistogramma-agassizii",
+  "scientificName": "Apistogramma agassizii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<ul><li><strong>Max size:</strong> ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li><strong>Aquarium size:</strong> 60 × 30 cm (24 × 12 in)</li><li><strong>Temperature:</strong> 22–29°C (72–84°F)</li><li><strong>pH:</strong> 3.0–4.0</li><li><strong>Hardness:</strong> 0–10 dGH</li><li><strong>Difficulty:</strong> 5 of 8 (moderate) – needs a well-established tank and stable water.</li></ul><p>Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil. Colour and pattern vary considerably with locality, and numerous ornamental forms have been selectively bred for the trade. It inhabits slower-moving tributaries and creeks where leaf litter collects. Captive-raised fish suit the community aquarium, while wild fish are best kept alone or with small dither fishes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel. The remainder of the type series was collected variously from the municipality of Codajás (Amazonas state), Curupira, near Barcelos municipality (Amazonas), Lake Maximo near Parintins city (Amazonas) and the rio Poti, a tributary of the rio Parnaíba (Piauí state).</p><p>It's currently-accepted to range throughout much of the Amazon/Solimões basin from its upper section in the Río Ucayali, Peru and into Brazil with the Capim River, a tributary of the rio Guamá which flows into the rio Pará at the city of Belém in the Amazon delta region, representing its eastern limit. Body colouration and patterning can vary considerably with locality.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Tends to inhabit slower-moving tributaries, backwaters and creeks in areas where fallen leaf litter collects and these may contain black, white or clear water depending on locality or in some cases, time of year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<ul><li>Standard length: ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li>Aquarium base: 60 × 30 cm (24 × 12 in)</li><li>Volume: ~54 litres (~14 US gal)</li></ul><p>Base dimensions of 60 × 30 cm (24 × 12 in) or more are acceptable for a single pair with a group requiring larger quarters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst most populations will appreciate the tannins and other chemicals released by the decaying leaves. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. If maintaining a blackwater population a net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are arguably best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<ul><li><strong>Temperature:</strong> 22–29°C (72–84°F)</li><li><strong>pH:</strong> Commercially-produced fish are relatively unfussy but some wild populations may require a value as low as 3.0–4.0 in order to breed.</li><li><strong>Hardness:</strong> 0–10 dGH, again somewhat dependent on origin, with wild fishes more likely to require negligible to low values.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Primarily carnivorous and apparently feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Captive-raised fish are the recommended choice for the general community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<p>Numerous ornamental forms of this species have been selectively-bred for the aquarium trade. It has also been assigned the 'A' number A234 under the DATZ system with possibly conspecific, related forms similarly numbered A103, A104, and A105, A238, A239, A240, A241 and A242 depending on locality.</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. The A. agassizii sublineage, for example, is ordered within the larger A. trifasciata lineage and comprises the A. agassizii, A. bitaeniata, A. elizabethae and A. gibbiceps species groups, within which the A. agassizii group contains the A. agassizii and A. pulchra \"complexes\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Römer, U. (2006). Cichlid Atlas Volume 2. Mergus Verlag GmBH, Melle, Germany. 1320 p.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8f5b4ff488c76724.webp",
+      "width": 800,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "caption": "Wild-collected male specimen in the aquarium exhibiting threat/aggressive mood - precise origin unknown.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0.webp",
+      "width": 800,
+      "height": 543,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "caption": "The same specimen as in the previous image - neutral mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8783543ddb79a0ad.webp",
+      "width": 1200,
+      "height": 798,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "caption": "Adult male specimen; origin unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8287338095814717.webp",
+      "width": 969,
+      "height": 618,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-agassizii",
+      "caption": "Adult male of A. agassizi 'Alenquer'; aggressive mood.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lùn",
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "lá bàng biển Ketapang"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sủi bọt bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

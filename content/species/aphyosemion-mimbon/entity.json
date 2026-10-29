@@ -1,0 +1,117 @@
+{
+  "id": "aphyosemion-mimbon",
+  "scientificName": "Aphyosemion mimbon",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "gabon",
+    "mve"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-mimbon",
+      "html": "<p>Aphyosemion mimbon is a small killifish from headwater drainages in northwestern Gabon, described from a tributary of the Mvé River. It has also been recorded from the Abanga, Mbei, Komo and Nkam, and may occur across the border in southeastern Equatorial Guinea.</p><ul><li>Max size: 45 mm SL (1.8 in SL)</li><li>Temperature: 18–22°C (64–72°F)</li><li>pH: 5.5–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-mimbon",
+      "html": "<p>Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam. May occur across the border in southeastern Equatorial Guinea.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-mimbon",
+      "html": "<ul><li>Temperature: 18–22°C (64–72°F)</li><li>pH: 5.5–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-mimbon",
+      "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe (ἀφύη), meaning 'a small fish', and semeion (σημεῖον), meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>mimbon: from \"M'bon\", the local vernacular name for Aphyosemion species among the Fang people of northern Gabon.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e2561e5ccbdecf0f.webp",
+      "width": 789,
+      "height": 586,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-mimbon",
+      "caption": "Adult male of A. mimbon GEMLC 04",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá killifish"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

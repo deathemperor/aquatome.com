@@ -1,0 +1,203 @@
+{
+  "id": "apistogramma-norberti",
+  "scientificName": "Apistogramma norberti",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "tahuayo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 3
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru. Known before its description as A. sp. 'großmaul' or 'bigmouth', and coded A190, its position within the genus is unresolved and it is only tentatively placed in the A. cacatuoides group. It lives in minor jungle streams whose volume changes significantly with the season.</p><ul><li>Max size: male 60 mm SL, female 40 mm SL (2.4 / 1.6 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 4.5–6.5</li><li>Hardness: 0–3 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Described from a brook in the Río Tahuayo basin but also occurs in the nearby Río Tamshiyacu drainage, both minor tributaries draining into the Amazon mainstream south of the city of Iquitos, Loreto Region, northeastern Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Minor jungle streams which undergo significant changes in water volume depending on time of year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Base dimensions around 45 × 30 cm (18 × 12 in), a volume of about 41 litres (11 US gal), are acceptable for a single pair, with a group requiring larger quarters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed. The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves aid in simulation of naturalistic conditions. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. A net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided, with 10–15% weekly adequate provided the tank is lightly stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<ul><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 4.5–6.5</li><li>Hardness: 0–3 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Primarily carnivorous and feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives, with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Captive-raised fish are the recommended choice for the community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus or Micropoecilia spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "html": "<p>Prior to description this species was known as A. sp. 'großmaul' or 'bigmouth', and it has also been assigned the code A190 under the DATZ system. The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>The precise position of A. norberti within this system remains unresolved, with it only tentatively placed in the A. cacatuoides group as it exhibits some characters typical of A. nijsseni group species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7407d55c9fe981ad.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/86be055b16eb1054.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fbe36f2abdb216dc.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "caption": "Adult female with fry displaying broodcare colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e71fade3b04958b7.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-norberti",
+      "caption": "Adult female with fry.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lùn",
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "lá bàng khô cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bể nhỏ",
+        "lọc bọt biển"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,165 @@
+{
+  "id": "apistogramma-brevis",
+  "scientificName": "Apistogramma brevis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "lNumber": "A168",
+  "places": [
+    "south-america",
+    "brazil",
+    "uaupes",
+    "colombia",
+    "tiquie"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Apistogramma brevis is a dwarf cichlid from the Rio Uaupés basin in far northwestern Brazil and the Rio Tiquié in southern Colombia. It has also been recorded in the upper Rio Negro and Rio Orinoco, and inhabits slow-moving blackwater streams where the pH can drop as low as 4.0 or 5.0. Coded A168, it is the type species of the A. brevis group, and breeding is not too difficult if very soft, acidic water can be provided.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 45 × 38 cm (18 × 15 in)</li><li>Temperature: 26–28°C (79–82°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Known from parts of the Rio Uaupés basin in far northwestern Brazil and the Rio Tiquié in southern Colombia. It's also been recorded in the upper reaches of both the Rio Negro and Rio Orinoco.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Inhabits slow-moving blackwater streams, creeks and tributaries, as well as smaller rivers. The water these contain is typically stained dark brown with humic acids and other chemicals released by decaying organic material. This results in a negligible dissolved mineral content, and the pH can drop as low as 4.0 or 5.0. The dense rainforest canopy above means that very little light penetrates the water surface, and the substrate is normally littered with fallen tree branches and rotting leaves.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Standard length: 60 mm SL (2.4 in). Aquarium base: 45 × 38 cm (18 × 15 in). Volume: ~51 litres (~13 US gal), based on 45 × 38 × 30 cm (18 × 15 × 12 in).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>The tank should be well planted. Bogwood is also recommended, as the tannins it releases will be beneficial to the water chemistry this species prefers. Small caves should be provided and care should be taken to ensure that some of these caves are too small for the male to enter as he can sometimes be aggressive towards the female and this will allow her a safe retreat. The fish can be shy so moderate to low lighting levels should be used. Strong water flow should be avoided. This species will also benefit from the use of dead leaves on the substrate, mimicking its natural habitat. These leach organic compounds into the water, helping to maintain soft, acid conditions. Water parameters should be carefully monitored if attempting this, as the decaying leaves are also likely to pollute the water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<ul><li>Temperature: 26–28°C (79–82°F)</li><li>pH: 6.0–7.0</li><li>Hardness: as soft as possible, less than 5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Feed a varied diet including a good quality cichlid pellet or flake, live or frozen foods, such as bloodworm or brineshrimp and vegetable matter in the form of spirulina or algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Peaceful dwarf cichlid although can be territorial when in breeding condition. Male may also harass the female at this time. Can be maintained as part of a community setup with tetras, rasboras, small catfish (such as corydoras) and most other small peaceful fish.</p><p>Another means of keeping apistos is as a species only tank, where the fish would be kept with a ratio of one male to three or more females. This harem arrangement avoids any one female being overly picked on by the male. In this scenario, it is important that enough caves are provided for each female to establish a territory and that they are spread out across the tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Male is the larger fish and has extensions to the dorsal, anal and caudal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Not too difficult if very soft, acidic water parameters can be provided.</p><p>Spawning takes place in a cave. The female assumes guard duty at this point and will fearlessly drive away any fish that encroach on her territory, including the male! Eggs hatch in around three days and the fry are free swimming four or five days after that.</p><p>In general the pair make good parents, although occasionally the female may not tolerate the presence of the male.</p><p>Fry can be fed on newly-hatched brineshrimp and progressed onto adult foods as they grow.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-brevis",
+      "html": "<p>Apistogrammas are identified by the use of \"A numbers\" in a similar fashion to the \"L number\" system used to identify loricariids. Apistogramma brevis is identified as A168. Additionally, apistos are also grouped into type families and this species is the species type of the brevis group.</p><p>Unlike some Apistogramma species, A. brevis occurs only in a relatively small range and has not been found outside this.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá 50 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt xốp cho bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W",
+        "sưởi chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid dạng viên",
+        "trùn chỉ đông lạnh",
+        "thức ăn spirulina"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

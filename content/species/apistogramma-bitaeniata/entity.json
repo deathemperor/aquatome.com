@@ -1,0 +1,193 @@
+{
+  "id": "apistogramma-bitaeniata",
+  "scientificName": "Apistogramma bitaeniata",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "maranon",
+    "colombia",
+    "amazon",
+    "brazil",
+    "tapajos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós. Also known as the banded dwarf cichlid, it occurs in several colour forms depending on locality, loosely grouped as 'red', 'blue', 'orange' and 'yellow' in the hobby. Many locality names are in use for these forms, and several are regularly applied incorrectly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.</p><p>The existence of A. bitaeniata in the rio Madeira drainage is a relatively recent discovery and actually calls into question its identity since the original type locality of \"rio Madeira\" given by Pellegrin was amended to \"Colombia (Amazonas), environments of Leticia\" by Kullander (1980) because the species wasn't known to occur in the Madeira at that time.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Tends to inhabit slower-moving tributaries, backwaters and creeks in areas where fallen leaf litter collects.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Base dimensions around 60 × 30 cm (24 × 12 in) are acceptable for a single pair with a group requiring significantly larger quarters. Volume: about 54 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it bring the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while the tannins and other chemicals released by the decaying leaves aid in simulation of naturalistic conditions. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. A net bag filled with aquarium-safe peat can also be added to the filter or suspended over the edge of the tank.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<ul><li>Temperature: 22–29 °C (72–84 °F)</li><li>pH: 4.5–7.0, though wild specimens are likely to be most comfortable towards the lower end of this range.</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Primarily carnivorous and feeds mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most specimens will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Captive-raised fish are the recommended choice for the general community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus or Micropoecilia spp., and ideally should not be mixed with other Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor. The female is responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<p>This species is also known by the vernacular name 'banded dwarf cichlid' and occurs in several colour forms depending on collection locality which are often loosely grouped as 'red', 'blue', 'orange' and 'yellow' in the aquarium hobby.</p><p>Generally-speaking, male individuals of the Brazilian forms tend to have more yellow markings on the head and Peruvian forms more blue, though there exists an intermediate variant which is apparently collected close to Tefé in Amazonas state, Brazil and a particularly dark form (referred to by the 'A' number A216) exported from Porto Velho, Rondônia state (rio Madeira system). Brazilian fish also tend to possess a more elongate-looking body and better-defined lower lateral stripe in comparison with Peruvian ones.</p><p>Localities known in the hobby include 'Pastaza', 'Putumayo', 'Requena', 'Río Nanay', 'Rio Napo', 'Maniti', 'Momón', 'Río Tigre', 'Río Ampiyacu', 'Shishita', 'Shushupi', 'Yavari', 'Tefé', 'Manaquiri', 'Lago do Januari', 'Mamori' (often misspelled 'Mamuri'), 'Careiro', 'Manacapuru', 'Juruá', 'Curuaí', and 'Purutu' though we've been unable to find anywhere matching the latter name within the species' known distribution, and in fact several of these names are applied incorrectly on a regular basis.</p><p>Some of the populations have also been assigned the 'A' numbers under the DATZ system as follows: A211 (Nanay); A212 (Yavari); A213 (Tefé); A214 (Manacapuru, Lago do Januari); A215 (Brazilian form occurring between the Tefé and Tapajós rivers); A216 (Porto Velho).</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Römer, U. (2006). Cichlid Atlas Volume 2. Mergus Verlag GmBH, Melle, Germany. 1320 p.</li><li>Römer, U. and I. Hahn (2008). Apistogramma barlowi sp. n.: description of a new facultative mouth-breeding cichlid species (Teleostei: Perciformes: Geophaginae) from northern Peru. Vertebrate Zoology 58(1), 49-66</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/101c200138215ef1.webp",
+      "width": 800,
+      "height": 497,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "caption": "Adult female of Peruvian form; locality unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bd606e0eb654e183.webp",
+      "width": 800,
+      "height": 563,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-bitaeniata",
+      "caption": "Adult male of Peruvian form; locality unspecified. Aggressive mood.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini 54 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng nhẹ",
+        "lọc sủi bọt xốp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá cichlid lùn",
+        "trùn chỉ đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

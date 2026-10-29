@@ -1,0 +1,186 @@
+{
+  "id": "aplocheilus-lineatus",
+  "scientificName": "Aplocheilus lineatus",
+  "order": "Cyprinodontiformes",
+  "family": "Aplocheilidae",
+  "genus": "Aplocheilus",
+  "group": "killifish",
+  "places": [
+    "asia",
+    "india",
+    "sri-lanka",
+    "singapore",
+    "hong-kong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<ul><li>Max size: 10 cm TL</li><li>Aquarium size: 75 × 30 cm</li><li>Temperature: 24–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The tank should have a tightly fitting cover as it is an excellent jumper.</p><p>The striped panchax, Aplocheilus lineatus, is a predatory killifish from peninsular India and northern Sri Lanka, growing to 10 cm TL. It lives in permanent water from mountain streams and lakes to swamps and rice paddies, and is not an annual species. The golden wonder panchax sold in the trade is a golden form selectively bred in the hobby that does not occur in the wild.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Widely distributed in peninsular India and also found in northern Sri Lanka.</p><p>Type locality is Mumbai, India.</p><p>It has been introduced to Singapore and Hong Kong.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>It is found in numerous habitats, including mountain streams and lakes, lowland wells, swamps and rice paddies. On occasion it's seen in estuarine conditions. It's most common in areas of overhanging or surface vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Total length: 10 cm TL. Aquarium base: 75 × 30 cm. Volume: ~68 litres.</p><p>75 × 30 × 30 cm (30 × 12 × 12 in) - ~68 litres (~18 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>A dimly lit tank with areas of dense planting and pieces of driftwood and rocks arranged to form hiding places suits this species. Floating plants are also recommended. The tank should have a tightly fitting cover as it is an excellent jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Relatively unfussy. Although it is naturally a predator, it will usually accept live, frozen or dried foods in aquaria.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Despite its predatory nature A. lineatus can be kept with peaceful species too large to be considered food. Good tankmates include peaceful cichlids, larger characins, Corydoras and loricariids. It can be aggressive towards conspecifics but a group can be kept in a big enough tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Males are more brightly coloured and grow larger than females. The dark bars on the flanks are thinner in males than in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>Quite easy. The eggs are adhesive and are deposited among fine-leaved plants or spawning mops. There exist several methods of spawning it and much is down to personal preference. Here is described the most popular of these, using a single pair of fish. It can also be spawned in a group situation.</p><p>A spawning tank should be set up containing soft, slightly acidic water of pH 6.5, temperature 25.5 °C. Some reports state that A. lineatus is better bred in harder water. This is probably due to the wide ranging habitats and localities in which this fish occurs in nature, with different populations requiring different conditions. If your fish don't spawn in soft water try raising the pH and hardness incrementally until you achieve a result.</p><p>The spawning tank should be brightly lit with floating plants for cover and large amounts of spawning medium in the form of fine-leaved plants such as java moss or nylon spawning mops. No substrate is necessary and gentle filtration via a small air-driven sponge filter is sufficient. The fish themselves are best conditioned in groups of males and females in separate tanks. This serves to prevent any unwanted spawnings. Condition them with copious amounts of live food. When the females are looking visibly fat with eggs, the best pair should be selected and placed together in the spawning tank. Spawning normally occurs the following morning.</p><p>The pair will spawn daily, depositing 10-30 eggs every 24 hours for around 2 weeks and these should be removed gently as they are noticed. Each pair should only be allowed to spawn for a week or so before being returned to the conditioning tank, as the spawning process is hard on the fish (particularly the female) and they can become fatigued and weak if left for too long.</p><p>The eggs should be transferred daily to a small aquarium containing water from the spawning tank to a depth of 2.5–5 cm to which has been added 1-3 drops of methylene blue, depending on volume. This container should be checked daily for fungussed eggs, which should be removed with a pipette. The eggs will hatch in 11-14 days depending on temperature.</p><p>The fry are large enough to take newly hatched brine shrimp as soon as their yolk sacs have been used up. They will also accept microworm from around the third day. They should be watched closely and separated as they grow as larger fry will prey on their smaller siblings.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<p>The popular golden form of this fish is the one commonly sold as \"golden wonder panchax\". It was selectively bred in the hobby and does not occur in the wild. There is also a red strain and a couple of type locality forms available. Some of these are sold as striped panchax or sparkling panchax.</p><p>Unlike many other killifish species, it's usually found in bodies of permanent water and is not an annual species. It's used in its native countries as a form of biological mosquito control.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "html": "<ul><li>Huber, J. H. (1996). Killi-Data 1996. Updated checklist of taxonomic names, collecting localities and bibliographic references of oviparous Cyprinodont fishes (Atherinomorpha, Pisces) Société Française d'Ichtyologie, Muséum National d'Histoire Naturelle, Paris, 1-399</li><li>Borisov, Vasily; Shkil, Fedor; Smirnov, Sergei (2026). Seawater incubated embryos of a freshwater Aplocheilus lineatus (Aplocheilidae; Cyprinodontiformes) support the dispersal hypothesis of killifish intercontinental distribution Developmental Dynamics doi.org/10.1002/dvdy.70176</li><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4aeedc291efc4860.webp",
+      "width": 603,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
+      "caption": "Aplocheilus lineatus \"golden wonder\" male",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 75cm",
+        "bể cá 80x30 có nắp"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java moss",
+        "cây thủy sinh nổi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùn chỉ",
+        "artemia"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc xốp sủi khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

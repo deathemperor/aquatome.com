@@ -1,0 +1,177 @@
+{
+  "id": "astyanax-bimaculatus",
+  "scientificName": "Astyanax bimaculatus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Astyanax",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "panama",
+    "brazil",
+    "amazon",
+    "colombia",
+    "orinoco",
+    "venezuela",
+    "peru",
+    "ecuador",
+    "napo",
+    "guyana",
+    "suriname",
+    "french-guiana",
+    "argentina",
+    "trinidad-and-tobago"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>The two spot astyanax, Astyanax bimaculatus, is a characid ranging from Panama through most of the Amazon and Orinoco basins. It lives in a wide variety of biotopes, from swiftly-flowing rivers and streams to ponds, ditches and reservoirs. The name is currently applied to what is considered a species complex of at least four taxa, and aquarium fish most often arrive as contaminants among shipments of other species.</p><ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 60 cm (48 × 24 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Type locality is unclear but this species is ubiquitous over a wide range with its distribution extending from Panama throughout the majority of the vast Amazon and Orinoco river basins.</p><p>It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Found in a wide variety of biotopes, from swiftly-flowing rivers and streams to ponds, ditches and reservoirs. Many of these display significant seasonal differences in water volume and depth.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Standard length: 150 mm SL (6 in). Aquarium base: 120 × 60 cm (48 × 24 in). Volume: ~432 litres (~114 US gal).</p><p>Given its potential size and active nature a tank with base dimensions of no less than 120 × 60 cm (48 × 24 in) or equivalent should be used.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Not critical. As suggested above, it needs plenty of swimming space, so this should be the main priority. Décor can consist of driftwood branches and twisted roots with some rounded stones.</p><p>Plants would most likely be eaten, although you might get away with some of the tougher-leaved genera such as Anubias or Microsorum. Position the filter outlet so that there is a degree of current flowing through the tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Unfussy and omnivorous in nature, existing chiefly on invertebrates and plant material. Live and frozen foods should be offered regularly in captivity, but good quality dried products should suffice for much of the staple diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Not especially aggressive but its adult size and vigorous it's unsuitable for communities containing smaller or very sluggish species. In larger aquaria it could make an interesting alternative to the more commonly seen disc characins of the genera Metynnis and Myleus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>Females are noticeably round in the belly when full of eggs and a little less colourful than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>The most success is reported by using a 2:1 ratio of males to females. Little or no lighting is required but add some bunches of fine-leaved plants such as Cabomba or Java moss to act as spawning medium.</p><p>An air-driven sponge filter can also be installed. The fish themselves are best conditioned in a separate tank with lots of live foods.</p><p>Once the females are plump with eggs, add one female and a couple of males to the spawning tank. Spawning usually occurs the following morning with a single female capable of producing several thousand eggs.</p><p>These hatch in around 24 hours and the fry may become free swimming as little as 12 hours later.</p><p>Begin feeding with newly hatched Artemia from this point, introducing powdered dried foods later if you wish. Growth is fairly rapid provided regular water changes are carried out.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "html": "<p>A. bimaculatus is not a popular aquarium fish but is available on occasion, most often as a contaminant among shipments of other species.</p><p>Its identity is also in question to an extent, with the name currently applied to what is considered to represent a species complex comprising at least four taxa.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/71eda0c3d709c534.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-bimaculatus",
+      "caption": "Subadult specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120x60",
+        "bể cá lớn 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

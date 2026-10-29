@@ -1,0 +1,149 @@
+---
+url: https://www.seriouslyfish.com/species/aphanius-sureyanus
+title: Anatolichthys sureyanus (Burdur Toothcarp) · Seriously Fish
+fetchedAt: 2026-10-29T02:15:23.149Z
+hash: eec310c1564bc340dfc59c8ab7b4b88616bd0486480eb68cf87330959b2feb11
+---
+
+On this page
+13 sections
+- Etymology
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 1
+This species is endemic to Lake Burdur, Anatolia, Turkey.Sociedad de Estudios Ictiológicos
+## Quick factsEdit
+Max size
+50mm SL2.0in SL
+Aquarium size
+120 × 30cm48 × 12in
+Temp
+5–22°C41–72°F
+pH
+8.0–10.0
+Hardness
+15–35dGH
+## Difficulty4 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+needs alkaline water
+Temp
+needs cool water
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+The Burdur toothcarp, Anatolichthys sureyanus, is endemic to Lake Burdur in the Turkish Lakes region of southwestern Anatolia, Turkey. The only fish in this extremely alkaline, saline lake, it has a slender body, an angular lower jaw and variable scalation. It has also gone by A. transgrediens, A. burdurensis and A. burduricus, and appears twice on the IUCN Red List as a result.
+## Etymology
+Edit
+Anatolichthys: named for Anatolia, also referred to as Asia Minor, a geographical region comprising the majority of the Republic of Türkiye to which genus members are endemic, in combination with the Greek noun ichthys (Gr. ἰχθύς), meaning 'fish'.
+sureyanus: named for Mr. Süreyya (forename not provided), an administrator or official in the Provincial Council of Ankara who appears to have aided zoological exploration in the Republic of Türkiye, in combination with the Latin suffix -anus, meaning 'of or pertaining to'.
+## Distribution
+Edit
+Endemic to Lake Burdur in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey. This lake is in a fragile ecological state as a result of pollution and an ever-decreasing water level which are threatening both endemic aquatic species as well as decreasing the lake's importance as a wintering ground for over 100 species of bird. Despite its elevation to a Ramsar Wetland of International Importance in 1994 degradation of the habitat continues because the agreement only covers around half the surface area. A particularly sad case is that of the globally-threatened white-headed duck (Oxyura leucocephala), the numbers of which observed overwintering at the site have fallen from a high of 10,927 in 1991 to only 655 in 2008. A. sureyanus should therefore be considered critically endangered but problems with identification and correct nomenclature have thus far prevented it being elevated to the necessary level by the IUCN.
+## Habitat
+Write a note
+Edit
+Lake Burdur is an extremely alkaline, saline lake containing high levels of dissolved minerals particularly sodium sulfate and chlorides. As a result it never freezes which is why it has become so important to waterfowl and other birds during the winter months. A. sureyanus is the only fish species inhabiting its waters along with various lower life-forms including an endemic copepod, Arctodiaptomus burduricus. Introductions of Tilapia sp., eel and Alburnus tarichi have thus far proved unsuccessful.
+The lake is mostly fed by groundwater of which some discharges are saline but there are also several freshwater rivers and seasonal streams above ground. The water level fluctuates naturally on an annual basis via evaporation and the relationship of the lake with underground aquifiers, but has diminished significantly over the last few decades due to damming of some inflowing rivers, exploitation of groundwaters for agriculture and extended periods of drought. According to one study the level dropped by 6 metres in the ten years between 1988-1998 and another reports that eutrophic algal blooms in 2000 and 2007 resulted in "severe fish deaths".
+Several species of aquatic plant are present in the lake including Carex sp. and Eleocharis palustris as well as diatoms, cyanobacteria and other algae. These tend to grow most abundantly in shallower, littoral zones particularly around the northeast section and it is in these areas that the fish are found in the greatest numbers, although they also range into a few freshwater, brackish and sulfurous springs around the shoreline. Males form their breeding territories around algae-encrusted rocks.
+## Aquarium size
+Write a note
+Edit
+Standard length
+50mm SL2.0in SL
+Aquarium base
+120 × 30cm48 × 12in
+Volume
+~108litres~29US gal
+Should be maintained as a larger group in a tank with base dimensions measuring upwards of 120 ∗ 30 cm48 ∗ 12 in.
+## Maintenance
+Write a note
+Edit
+Even for long-term maintenance a simple set-up will suffice. The most important factors are the provision of cover and a suitable medium in which the fish can deposit eggs. Much of the available space can therefore be filled with acrylic wool mops (use a fine grade if available) and ideally filamentous algae. There is little point in trying to introduce fine-leaved plants such as Java moss as the addition of marine salt to the water in the ratio of 3-5 g/L is necessary. Similarly there is no need to add a substrate although inert sand or gravel can be added if you prefer and filtration need not be too strong either. It is possible, and preferable, to maintain it outdoors all year round in many countries and it will show better colours and overall condition if exposed to at least a few hours of natural sunlight each day.
+## Water conditions
+Edit
+Temperature
+5–22°C41–72°F
+pH
+8.0–10.0
+Hardness
+15–35dGH
+Temperature: Active over a wide temperature range of 5 – 22 °C41 – 72 °F. Artificial heating is not required in all but the coldest climates and it should be provided with a 'winter' period of several months during which it is maintained at low temperatures or it is likely to suffer both reduced fecundity and a shortened lifespan.
+pH: The approximate pH value in the lake ranges between 8.0 – 10.0 (averaging around 9.0) and we suggest aiming for similar values in aquaria. It will probably not survive under acidic conditions.
+Hardness: 15 – 35 dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Anatolichthys species are basically micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is also taken at times. In the aquarium they will learn to accept dried foods in most cases but should also be offered regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm. This is particularly important during the months of spring and summer due to their high reproductive effort throughout this period. If the aquarium or container does not contain filamentous algae try to introduce a good quality dried product with added Spirulina content to the diet.
+## Behaviour and compatibility
+Write a note
+Edit
+Given its particular water requirements and precarious conservation status we strongly recommend maintaining it alone, the emphasis being on captive reproduction. Ideally it should be kept in a group with a ratio of two or three females to each male. Males are not as aggressive as those of most congenerics and several can usually be maintained together without problems.
+## Sexual dimorphism
+Write a note
+Edit
+As with all members of the genus sexual dimorphism is pronounced. Males exhibit a body pattern consisting of dark grey to black vertical bars with usually one or more dark bars in the otherwise colourless caudal fin. The number of bars on the body is not a fixed attribute and varies between individuals. The anal fin and dorsal fins have a grey base but are mostly dark-coloured. Females are larger and much plainer possessing only a series of variable dark blotches on the flanks and completely hyaline finnage.
+## Reproduction
+Write a note
+Edit
+Captive reproduction is not difficult if the tank or container is properly arranged and maintained (see 'tank set-up'). It is a fractional spawner with females depositing eggs on a more-or-less continuous basis between the months of April and September. Males form temporary territories which they defend against rivals while attempting to entice females to spawn. Dominant individuals will show more intense colouration while the body of receptive females turns yellowish. Eggs are released singly or in small batches and are attached to algae or other surfaces by means of small filaments. Anatolichthys typically eat their eggs/fry and the medium should therefore be checked on a daily basis during the spawning period.
+The eggs of this subspecies are the smallest among the genus and must be treated very carefully. Use a fine pair of forceps to gently remove pieces of medium with eggs attached whilst avoiding contact with the eggs themselves. Alternatively the entire medium can be removed and replaced every couple of days. The medium/eggs should be transferred to a container with water of the same chemistry and temperature as that of the adults. The incubation period can vary a little with the temperature but is usually between 15-17 days and the tiny fry will require an infusoria-type food for several days until large enough to accept Artemia nauplii, microworm etc.
+## Notes
+Edit
+The elongated, slender body profile, angular lower jaw and reduced scalation exhibited by this little-known subspecies have seen it placed in the disused genera Anatolichthys and Kosswigichthys in the past. It has also been referred to, and still is in some cases, as A. transgrediens or more often A. burdurensis/burduricus.
+Some of these names were erected due to the differences in scalation that can be observed among the population in Lake Burdur but studies by Villwock and others revealed that the fish are genetically identical to one another and represent a single subspecies. As a result of the confusion A. sureyanus is listed twice, with different names, on the IUCN Red List and by some other sources.
+You're unlikely to find it on sale in aquatic stores although it may be available via specialist breeders or associations from time-to-time. While Aphanius are certainly not as colourful as some of their relatives their interesting behaviour and continuous activity make them fascinating aquarium subjects and well worth a try if you possess the dedication to take on a long-term maintenance project since conservation is key with all members of the genus.
+The Anatolia region represents a centre of diversity with ten endemic species described to date. These are thought to have diverged as a result of the splitting of what was originally a vast lake covering much of modern Anatolia. Two separate divergence events occured, the first resulting in the western separation of A. asquamatus, A. danfordii and A. villwocki around 12-15 million years ago (possibly earlier in the case of A. asquamatus).
+Lakes Tuz, Eğirdir and Beyşehir are remnants of the central part of the lake where A. a. anatoliae now occurs and there also exist three subspecies in the Turkish Lakes region that were isolated when the eastern end of the lake became disconnected around 11-12 mya. They were further separated from one another 7-8 mya and have evolved independantly to survive in bitter lake environments containing high levels of alkaline carbonates and sulfates. Due to an historic lack of competition, predators and aquatic vegetation in their habitats they have developed distinctive limnetic (open water) characteristics including an elongated, relatively slim body shape and unique jaw morphology.
+A. anatoliae is the most easily distinguished of this A. anatoliae species complex as it's the only fully-scaled member of the group - A. splendens, A. sureyanus and A. transgrediens all show differences in the extent of scalation on the body which is now known not to be a fixed characteristic and results from an unpredictable variation in their genes. It's been hypothesised that this occured due to a lack of selective pressures allowing individuals with less scalation to survive and breed, thus facilitating an overall increase in scale variation.
+This may represent a case of regressive evolution as neither the stream/river dwelling populations of A. anatoliae or other Anatolian Aphanius (fully-scaled) nor the very isolated A. asquamatus (completely scaleless) exhibit such variations. The relatively wide genetic variation among the isolated populations when compared with the riverine ones suggests that genetic flow is an important factor in the structure of Aphanius populations (Hrnek et al., 2002).
+Further the lake district species can interbreed freely in aquaria and appear to form a distinct clade whereas the forms found in western and central Anatolia have been shown to exhibit differing degrees of sterility to the lake fishes. When this is considered problems with nomenclature arise and Villwock (2004) theorised that all subpopulations should be regarded as "species in statu nascendi" i.e. in the process of creation and referred to as A. anatoliae ssp. pending further study. Hrnek et al. (2002) alternatively suggested that the different clades may represent new species but agreed that further study is required. We've chosen to list them separately in order to avoid using sub-specific names.
+The genus currently contains 22 species and subspecies which are thought to have derived from a common ancestor originally distributed around the periphery of the former Tethys Sea. None are particularly well-documented in aquarium literature although some are very beautiful and the majority are not too difficult to maintain and breed. Sadly most are on the verge of extinction for one reason or another with several existing only in remnant, highly-localised populations.
+In practically all cases the root cause for this decline is the activity of humans and although some species are now protected by conservation law the mismanagement and degradation of their habitats continues at an alarming rate. A few species are still, inexplicably, listed as a species of Lebias by some sources although that name has long been considered a synonym of Cyprinodon by most authorities and an ICZN committee voted to suppress the name in favour of Aphanius as recently as 2003.
+## References
+- Hrbek, T. and A. Meyer (2003). Closing of the Tethys Sea and the phylogeny of Eurasian killifishes (Cyprinodontiformes: Cyprinodontidae). Journal of Evolutionary Biology 16(1), 17-36
+- Wildekamp, R.H., F. Küçük, M. Ünlüsayin, and W. V. Neer (1999). Species and Subspecies of the Genus Aphanius Nardo 1897 (Pisces: Cyprinodontidae) in Turkey. Turkish Journal of Zoology 23, 23-44
+- Bardakci, F., N. Tatar and T. Hrbek (2004). Genetic relationships between Anatolian species and subspecies of Aphanius Nardo, 1827 (Pisces, Cyprinodontiformes) based on RAPD markers. Biologia, Bratislava 59(5), 559—566
+- Schulz-Mirbach, T. and B. Reichenbacher (2008). Fossil Aphanius (Teleostei, Cyprinodontiformes) from southwestern Anatolia (Turkey): a contribution to the evolutionary history of a hotspot of freshwater biodiversity. Geodiversitas 30(3), 577-592
+- Hrbek, T., F. Küçük, T. Frickey,K. N. Stölting, R. H. Wildekamp and A. Meyer (2002). Molecular phylogeny and historical biogeography of the Aphanius (Pisces, Cyprinodontiformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 25(1), 125-137
+- Hrbek, T., K. N. Stölting, F. Bardakci, F. Küçük, R. H. Wildekamp, and A. Meyer (2004). Plate tectonics and biogeographical patterns of the Pseudophoxinus (Pisces: Cypriniformes) species complex of central Anatolia, Turkey. Molecular Phylogenetics and Evolution 32, 297–308.
+- Campo, J. P. (2006). Aphanius anatoliae sureyanus (Neu, 1937). SEI/GEVA Ficha
+- Yildirim, M. Z., I Gülle, Ü. Kebapçi and F. Küçük (2008). Faunal Diversity of Lake Burdur, and its Vulnerability. Natura Montenegrina, Podgorica 7(2), 393-400
+- Girgin, S., N. Kazanc and M. Dügel (2004). On the Limnology of Deep and Saline Lake Burdur in Turkey. Acta Hydrochimica Hydrobiologia 32(3), 189-200
+## Species images · 1
+This species is endemic to Lake Burdur, Anatolia, Turkey.Sociedad de Estudios Ictiológicos
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Turkey
+## Profile completeness22 of 24
+92% complete
+- Add temperament
+- Add community suitability
+Report a mistake
+## Community
+Questions about Anatolichthys sureyanus?
+Ask on Discord
+→

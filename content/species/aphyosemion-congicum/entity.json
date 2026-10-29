@@ -1,0 +1,78 @@
+{
+  "id": "aphyosemion-congicum",
+  "scientificName": "Aphyosemion congicum",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "democratic-republic-of-congo",
+    "kwango"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-congicum",
+      "html": "<p>The Congo lyretail, Aphyosemion congicum, is a killifish from western Democratic Republic of Congo. It may be restricted to the area between the Kwango and Gamba rivers, but the type series came from a commercial shipment and its natural range remains unconfirmed. The Kwango drains to the Congo through the Kasai.</p><p>Max size: 45 mm SL (1.8 in SL).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-congicum",
+      "html": "<p>The type series was derived from a commercial shipment and this species' natural range remains unconfirmed. It may be restricted to the area between the Kwango and Gamba rivers, the latter a tributary of the former, in western Democratic Republic of Congo. The Kwango is itself a tributary of the Kasai, an affluent of the Congo.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-congicum",
+      "html": "<p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>congicum: named for the Congo River in combination with the Latin suffix -icum, meaning 'belonging to'.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/162afd94a160bdec.webp",
+      "width": 1005,
+      "height": 670,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-congicum",
+      "caption": "Adult male specimen; no collection details supplied.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

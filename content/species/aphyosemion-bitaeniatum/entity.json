@@ -1,0 +1,156 @@
+{
+  "id": "aphyosemion-bitaeniatum",
+  "scientificName": "Aphyosemion bitaeniatum",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "togo",
+    "benin",
+    "nigeria",
+    "cross-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "html": "<ul><li><strong>Max size:</strong> 45 mm SL (1.8 in)</li><li><strong>Temperature:</strong> 24–30°C (75–86°F)</li><li><strong>pH:</strong> 5.0–6.5</li><li><strong>Hardness:</strong> 0–10 dGH</li><li><strong>Difficulty:</strong> 3 of 8 (beginner); small tank, needs acidic water</li></ul><p>The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria. Its range reaches the Cross River delta and some inland localities along the lower Niger River. Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "html": "<p>This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River. Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.0–6.5</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>bitaeniatum: from the Latin bi-, a prefix meaning 'having two parts', and taeniatus, meaning 'beribboned', in reference to the colour pattern of the preserved holotype, which comprised two dark longitudinal stripes on the body. In life, individuals from different subpopulations exhibit various colour patterns.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c57081362ad2d145.webp",
+      "width": 1004,
+      "height": 668,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "caption": "Adult male of A. bitaeniatum 'Lagos red'.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2e481738102e9dc4.webp",
+      "width": 1002,
+      "height": 668,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "caption": "Adult female of A. bitaeniatum 'Lagos red'.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5e705f25a95dd7b6.webp",
+      "width": 1003,
+      "height": 752,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "caption": "Head and body detail of A. bitaeniatum 'Lagos red', male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e3d64a68b01bef9d.webp",
+      "width": 704,
+      "height": 530,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
+      "caption": "Adult male of A. bitaeniatum 'Afangnagan'.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi nhỏ",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

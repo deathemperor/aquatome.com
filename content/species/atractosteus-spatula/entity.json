@@ -1,0 +1,171 @@
+{
+  "id": "atractosteus-spatula",
+  "scientificName": "Atractosteus spatula",
+  "order": "Lepisosteiformes",
+  "family": "Lepisosteidae",
+  "genus": "Atractosteus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi",
+    "mexico",
+    "veracruz"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 11,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>The alligator gar, Atractosteus spatula, is a gar from the lower Mississippi basin and Gulf Coast states of the south-eastern USA and Mexico. One of the largest freshwater fishes in the world, it reaches a recorded 3050 mm and can live well over 50 years, so it should not be considered a home aquarium subject. Juveniles are seen for sale quite regularly, and a hybrid with Lepisosteus platostomus is known as the 'crocodile gar'.</p><ul><li>Max size: 3050 mm SL (120 in)</li><li>Temperature: 11–23°C (52–73°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li><li>Difficulty: 5 of 8, rated difficult because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Native to central and south-eastern states of the USA plus northern and central Mexico. No specific type locality was provided in the original description, and it has already disappeared from much of its northern range, with modern distribution comprising the lower Mississippi River basin plus Gulf Coast states of the southeastern U.S. and Mexico, as far south as the state of Veracruz.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Found in various habitats from large lakes and rivers to sluggish tributaries, backwaters and pools, and can survive in both fresh and brackish waters, but shows a preference for large rivers with extensive associated floodplains. Does not tend to inhabit swiftly-flowing environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Suitable only for very large public installations.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Relatively unfussy provided water flow is not too strong and lighting not bright.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<ul><li>Temperature: 11–23°C (52–73°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature. It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats. Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live \"feeder\" fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly recommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Unconfirmed, but females are thought to grow larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>Not bred in aquaria. In nature it tends to move into temporarily-inundated wetlands or floodplains to spawn during spring months where it may congregate in considerable numbers.</p><p>A female may spawn with multiple males simultaneously with the eggs deposited among submerged vegetation close to the surface or in deeper water. Incubation is 48-72 hours and post-hatching the larvae remain attached to submerged surfaces for 5-10 days, until the yolk sac is completely absorbed.</p><p>Growth rate is initially rapid and juveniles may measure 250–300 mm (10–12 in) after the first year.</p><p>The eggs of this species are toxic to crustaceans and vertebrates other than fishes, including humans.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "html": "<p>This is one of the largest freshwater fish species in the world, and clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for well in excess of 50 years.</p><p>Unfortunately, juveniles are seen for sale quite regularly in the aquarium trade, normally without adequate information provided regarding their long-term care.</p><p>There also exist several hybridised gars, of which a cross between A. spatula and Lepisosteus platostomus, commonly referred to as 'crocodile gar', is among the most common.</p><p>Gars are among the most primitive fish species still alive today. They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1ba147e87a531f58.webp",
+      "width": 640,
+      "height": 385,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "caption": "A two metre adult specimen caught as part of a research project in the Brazos River, Texas, United States.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e.webp",
+      "width": 800,
+      "height": 540,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-spatula",
+      "caption": "Juvenile specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 2m",
+        "hồ cá khổng lồ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho hồ lớn",
+        "lọc ngoài công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm đông lạnh cho cá săn mồi",
+        "cá đông lạnh cho cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}
