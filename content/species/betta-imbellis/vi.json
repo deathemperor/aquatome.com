@@ -1,7 +1,8 @@
 {
-  "slug": "ca-betta-imbellis-royal-blue",
-  "name": "Cá betta imbellis Royal Blue",
+  "slug": "ca-betta-imbellis",
+  "name": "Cá betta imbellis",
   "altNames": [
+    "Cá betta imbellis Royal Blue",
     "Cá lia thia imbellis xanh hoàng gia",
     "Betta imbellis Royal Blue",
     "Royal Blue Betta",
@@ -28,5 +29,12 @@
     "bySource": {
       "bwaquatics": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-betta-imbellis-royal-blue",
+      "name": "Cá betta imbellis Royal Blue"
+    }
+  ]
 }

@@ -1,7 +1,8 @@
 {
-  "slug": "ca-cherry-barb-super-red",
-  "name": "Cá Cherry barb Super Red",
+  "slug": "ca-anh-dao",
+  "name": "Cá anh đào (Cherry barb)",
   "altNames": [
+    "Cá Cherry barb Super Red",
     "Cá thơm anh đào",
     "Cá Cherry barb",
     "Cherry barb",
@@ -19,5 +20,12 @@
     "bySource": {
       "glaser": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-cherry-barb-super-red",
+      "name": "Cá Cherry barb Super Red"
+    }
+  ]
 }

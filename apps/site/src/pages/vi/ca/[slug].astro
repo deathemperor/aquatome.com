@@ -11,6 +11,7 @@ import Comments from '../../../components/Comments.astro'
 import VnClimate from '../../../components/VnClimate.astro'
 import QuickSummary from '../../../components/QuickSummary.astro'
 import GuideLinks from '../../../components/GuideLinks.astro'
+import RedirectNote from '../../../components/RedirectNote.astro'
 import { guidesMentioning } from '../../../lib/mentions'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
@@ -29,7 +30,7 @@ const country = places.find(p => p.kind === 'country')
 const url = new URL(Astro.url.pathname, Astro.site).href
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: 'vi', dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
-    about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species' } },
+    about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Loài cá', item: new URL('/vi/ca/', Astro.site).href },
     { '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href },
@@ -48,6 +49,7 @@ const summary = await approvedSummary(s.id)
     <div>
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
       <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
+      <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
       {s.t.altNames.length > 0 && <p class="alt">Tên khác: {s.t.altNames.join(', ')}</p>}
       <DataCard card={s.dataCard} sources={c.sources} />

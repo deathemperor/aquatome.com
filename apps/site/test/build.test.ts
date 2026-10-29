@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { page } from './dist'
+import { readFileSync } from 'node:fs'
+import { DIST, page } from './dist'
 
 describe('species page', () => {
   const { html, dom } = page('/vi/ca/ca-neon-vua/')
@@ -136,6 +137,15 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(visible.length).toBeLessThanOrEqual(dom.querySelectorAll('article.type').length * 7)
     expect(page('/vi/thiet-bi/').dom.querySelector('a[href="/vi/thiet-bi/loc/"] img')).not.toBeNull()
     expect(page('/vi/thiet-bi/suoi/').html).toContain('/go/shopee/?k=') // no written guide yet: still a page
+  })
+  test('renamed page: old address in /redirects.json, hidden "Chuyển hướng từ" note, aliases in structured data', () => {
+    const table = JSON.parse(readFileSync(`${DIST}/redirects.json`, 'utf8'))
+    expect(table['/vi/ca/ca-neon-vua-super-red/']).toBe('/vi/ca/ca-neon-vua/?tu=ca-neon-vua-super-red')
+    const { html, dom } = page('/vi/ca/ca-neon-vua/')
+    const note = dom.querySelector('p.redirected[data-from="ca-neon-vua-super-red"]')!
+    expect(note.hasAttribute('hidden')).toBe(true)
+    expect(note.text).toContain('Cá neon vua Super Red')
+    expect(html).toContain('"alternateName":[')
   })
   test('discovery lists discovery guides', () => {
     expect(page('/vi/kham-pha/').dom.querySelector('a[href="/vi/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]')).not.toBeNull()

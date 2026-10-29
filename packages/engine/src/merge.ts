@@ -40,9 +40,14 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
 }
 
 function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>): Translation {
-  const name = (prev && ctx.source !== 'seriouslyfish' ? prev.name : page.viName) || prev?.name || fallbackName
-  const altNames = uniq([...(prev?.altNames ?? []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
-  return { slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY }
+  // Seriously Fish names the species itself, so it may replace a name an earlier source gave; an owner-fixed name stays.
+  const name = (prev && (prev.nameFixed || ctx.source !== 'seriouslyfish') ? prev.name : page.viName) || prev?.name || fallbackName
+  // A replaced name stays findable as an alternative name.
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
+  return {
+    slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
+    ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
+  }
 }
 
 export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx & { taxon: Taxon }): Item<SpeciesEntity> {

@@ -69,3 +69,13 @@ test('vague or phrase-like regions are dropped', () => {
   expect(r.entity.places).toEqual(['europe', 'germany', 'north-america', 'united-states', 'asia', 'thailand', 'china', 'yangtze'])
   expect(ensurePlaces([{ continent: 'Europe', country: 'Italy', region: 'north' }], new Set()).map(p => p.entity.id)).toEqual(['europe', 'italy'])
 })
+
+test('an owner-fixed name and its redirects survive every source; a name Seriously Fish replaces stays an alternative name', () => {
+  const a = mergeSpecies({}, page({ viName: 'Cá neon vua Super Red' }), ctx('glaser'))
+  const sf = mergeSpecies(a, page(), ctx('seriouslyfish'))
+  expect(sf.vi.name).toBe('Cá neon vua')
+  expect(sf.vi.altNames).toContain('Cá neon vua Super Red')
+  const fixed = { ...a, vi: { ...a.vi!, name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: a.vi!.slug, name: 'Cá neon vua Super Red' }] } }
+  const b = mergeSpecies(fixed, page(), ctx('seriouslyfish'))
+  expect(b.vi).toMatchObject({ name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: 'ca-neon-vua-super-red', name: 'Cá neon vua Super Red' }] })
+})
