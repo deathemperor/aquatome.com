@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import type { Photo, SourceId } from '@aq/schema'
 import type { PageImage } from './outline'
 
-export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; width: number; height: number }> }
+export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
 type Picked = PageImage & { width: number }
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i

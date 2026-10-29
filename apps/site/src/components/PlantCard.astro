@@ -1,13 +1,14 @@
 ---
 import type { Localized, PlantEntity } from '@aq/schema'
 import { PLANT_LABELS } from '../lib/format'
+import { smallSrc } from '../lib/img'
 interface Props { p: Localized<PlantEntity> }
 const { p } = Astro.props
 const ph = p.photos[0]
 ---
 <article class="pc">
   <a href={`/vi/cay/${p.t.slug}/`}>
-    <div class="plate">{ph && <img src={ph.url} width={ph.width} height={ph.height} alt="" loading="lazy" />}</div>
+    <div class="plate">{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}</div>
     <h3>{p.t.name}</h3>
     <p class="sci">{p.scientificName}</p>
   </a>

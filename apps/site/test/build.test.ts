@@ -160,3 +160,11 @@ test('approved summary shows above the sections; pending drafts stay hidden', ()
   expect(dom.querySelector('section.qs')?.text).toContain('nuôi đàn từ 8 con')
   expect(page('/vi/ca/ca-dia/').html).not.toContain('Bản nháp chưa duyệt')
 })
+
+test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async () => {
+  const { smallSrc } = await import('../src/lib/img')
+  const base = { width: 800, height: 600, licence: 'x', author: 'x', sourceUrl: 'x' }
+  expect(smallSrc({ ...base, url: 'https://media.aquatome.com/s/a.webp', thumb: 'https://media.aquatome.com/s/a-480.webp' })).toBe('https://media.aquatome.com/s/a-480.webp')
+  expect(smallSrc({ ...base, url: 'https://media.aquatome.com/s/a.webp' })).toBe('https://media.aquatome.com/s/a.webp')
+  expect(smallSrc({ ...base, url: 'https://upload.wikimedia.org/w/thumb/a/F.jpg/960px-F.jpg' })).toBe('https://upload.wikimedia.org/w/thumb/a/F.jpg/500px-F.jpg')
+})

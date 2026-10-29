@@ -2,6 +2,7 @@
 import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import { range } from '../lib/format'
+import { smallSrc } from '../lib/img'
 interface Props { s: Localized<SpeciesEntity>; eager?: boolean }
 const { s, eager = false } = Astro.props
 const p = s.photos[0]
@@ -12,7 +13,7 @@ const meta = [temp && `${range(temp.value)}°C`, ph && `pH ${range(ph.value)}`].
 ---
 <article class="sc">
   <a href={`/vi/ca/${s.t.slug}/`}>
-    <div class="plate">{p && <img src={p.url} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
+    <div class="plate">{p && <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
     <p class="fam">{s.family}</p>
     <h3>{s.t.name}</h3>
     <p class="sci">{s.scientificName}</p>

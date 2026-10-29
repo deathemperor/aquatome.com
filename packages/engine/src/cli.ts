@@ -12,6 +12,7 @@ import { httpAdmin, moderate } from './moderate'
 import { runEngine } from './run'
 import { loadState } from './state'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
+import { backfillThumbs } from './thumbs'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -71,6 +72,17 @@ if (cmd === 'run') {
   }
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/summaries.md'), await reviewDoc(contentRoot))
+} else if (cmd === 'thumbs') {
+  // One-off backfill of 480px card thumbs for photos stored before thumbs existed (new uploads make their own).
+  const m = media()
+  const r = await backfillThumbs(join(ROOT, 'content'), {
+    exists: async u => (await fetch(u, { method: 'HEAD' })).ok,
+    get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    putThumb: m.putThumb,
+  })
+  console.log(`thumbs: ${r.checked} photos, ${r.made} made, ${r.failed.length} failed`)
+  for (const f of r.failed) console.log(`failed: ${f}`)
+  if (r.failed.length) process.exitCode = 1
 } else if (cmd === 'status') {
   const rows: Record<string, Record<string, number>> = {}
   for (const id of SOURCE_IDS) {
@@ -80,6 +92,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine thumbs | pnpm engine status')
   process.exitCode = 1
 }
