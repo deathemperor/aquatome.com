@@ -36,8 +36,16 @@ test('too many requests: one long wait, then one more try', async () => {
 })
 
 test('an offline archive index fails the discovery loudly instead of finding nothing', async () => {
-  const f = new ArchiveFetcher({ fetch: async () => res(200, '<html><head><title>Internet Archive: Temporarily Offline</title>'), now: () => new Date(), sleep: async () => {}, ua: 'test' })
+  const waits: number[] = []
+  const f = new ArchiveFetcher({ fetch: async () => res(200, '<html><head><title>Internet Archive: Temporarily Offline</title>'), now: () => new Date(), sleep: async ms => { waits.push(ms) }, ua: 'test' })
   await expect(discover(sourceById('planetcatfish'), u => f.text(u), async () => [])).rejects.toThrow(/offline/)
+  expect(waits).toEqual([30_000, 60_000, 120_000])
+})
+
+test('a 503 from the index is retried like an offline page', async () => {
+  let n = 0
+  const f = new ArchiveFetcher({ fetch: async () => (n++ < 2 ? res(503, '') : res(200, 'https://www.planetcatfish.com/common/species.php?species_id=9\n', 'text/plain')), now: () => new Date(), sleep: async () => {}, ua: 'test' })
+  expect(await f.text('https://web.archive.org/cdx/search/cdx?url=x')).toContain('species_id=9')
 })
 
 test('an archived image that is really a page is no image', async () => {

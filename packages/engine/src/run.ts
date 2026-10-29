@@ -247,14 +247,22 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const get = polite((u: string) => fetcher.get(u))
     const links = polite((u: string, scope?: string) => fetcher.links(u, scope))
     const bytes = polite((u: string, referer: string) => fetcher.bytes(u, referer))
-    let found
+    let found: Awaited<ReturnType<typeof discover>>
+    // An archived source keeps its last good index: the archive's index is often down, the species list barely changes.
+    const indexFile = join(root, 'engine-state', `_index-${id}.json`)
     try {
       found = await discover(src, polite((u: string) => fetcher.text(u)), links)
+      if (src.via === 'archive' && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
-      counts.errors++
-      report.errors.push(`${id}: discovery failed: ${(e as Error).message}`)
-      continue
+      const kept = src.via === 'archive' ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
+      if (!kept) {
+        counts.errors++
+        report.errors.push(`${id}: discovery failed: ${(e as Error).message}`)
+        continue
+      }
+      report.errors.push(`${id}: discovery failed (${(e as Error).message}); using the last index (${kept.length} pages)`)
+      found = kept
     }
     counts.discovered = found.length
     found = wantedFirst(found, wanted)

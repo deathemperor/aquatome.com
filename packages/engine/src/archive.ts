@@ -33,15 +33,14 @@ export class ArchiveFetcher {
 
   /** Plain text from the archive itself (the capture index). */
   async text(url: string): Promise<string> {
-    // While the index is down the archive answers with a "Temporarily Offline" page, not an error; it often
-    // comes back within seconds, so one retry after a pause.
+    // The index is often briefly down: a 5xx, or a "Temporarily Offline" page served as 200. Three more tries, waiting longer each time.
     for (let attempt = 0; ; attempt++) {
       const r = await this.call(url)
-      if (!r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
-      const body = await r.text()
-      if (!/^\s*</.test(body)) return body
-      if (attempt > 0) throw new Error(`the archive index is offline (${new URL(url).host})`)
-      await this.d.sleep(30_000)
+      const body = r.ok ? await r.text() : ''
+      if (r.ok && !/^\s*</.test(body)) return body
+      if (r.status < 500 && !r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
+      if (attempt >= 3) throw new Error(r.ok ? `the archive index is offline (${new URL(url).host})` : `HTTP ${r.status} from ${new URL(url).host}`)
+      await this.d.sleep(30_000 * 2 ** attempt)
     }
   }
 
