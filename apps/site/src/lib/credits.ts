@@ -11,3 +11,16 @@ export function creditsFor(photos: (Photo | undefined)[], what = 'Ảnh'): Credi
     return [{ author: p.author, licence: p.licence, sourceUrl: p.sourceUrl, what }]
   })
 }
+
+export type CreditGroup = { author: string; licence: string; urls: string[] }
+
+/** Same author + licence → one row, keeping every photo's source link (first-seen order). */
+export function groupCredits(credits: Credit[]): CreditGroup[] {
+  const groups = new Map<string, CreditGroup>()
+  for (const c of credits) {
+    const key = `${c.author}\u0000${c.licence}`
+    const g = groups.get(key) ?? groups.set(key, { author: c.author, licence: c.licence, urls: [] }).get(key)!
+    g.urls.push(c.sourceUrl)
+  }
+  return [...groups.values()]
+}
