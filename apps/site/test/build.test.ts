@@ -206,6 +206,7 @@ test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async
 
 test('owner hide button script is on content pages but not the 404 page', () => {
   expect(page('/vi/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
+  expect(page('/vi/').dom.querySelector('script[data-owner]')?.text).toContain("['Quản trị','/_ab/']") // admin link on every page, home included
   expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
 })
 

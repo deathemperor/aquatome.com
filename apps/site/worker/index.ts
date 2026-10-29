@@ -6,7 +6,7 @@ import { allocate } from './allocate'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot, resolveSkin, skinCookie } from './assign'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
-import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
+import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
 import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
@@ -98,6 +98,8 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   return Response.json(await applyDecisions(env.DB, body, new Date()))
 }
 
+const ADMIN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
+
 export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = htmlRewrite, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
@@ -139,9 +141,18 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     if (!bearerOk(req, env) && !authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
   }
+  if (url.pathname === '/_ab/login' && req.method === 'POST') {
+    // The sign-in form: same as opening /_ab/?token=…, without the token in the address bar or history.
+    const token = String((await req.formData()).get('token') ?? '')
+    if (!env.AB_DASH_TOKEN || !safeEqual(token, env.AB_DASH_TOKEN)) return new Response(renderLogin(true), { status: 403, headers: ADMIN_HEADERS })
+    const h = new Headers({ location: '/_ab/', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
+    h.append('set-cookie', `ab_token=${token}; Path=/_ab; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict`)
+    h.append('set-cookie', OWNER_COOKIE)
+    return new Response(null, { status: 303, headers: h })
+  }
   if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
     const auth = authorise(req, env.AB_DASH_TOKEN)
-    if (!auth.ok) return finish(new Response('Not found', { status: 404 }), env)
+    if (!auth.ok) return new Response(renderLogin(), { headers: ADMIN_HEADERS })
     // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar/history.
     if (auth.setCookie) {
       const h = new Headers({ location: '/_ab/', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
@@ -153,8 +164,12 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
+    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true)), { headers })
+  }
+  if (url.pathname === '/_ab/doc-gia' || url.pathname === '/_ab/doc-gia/') {
+    if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response(null, { status: 303, headers: { location: '/_ab/', 'cache-control': 'no-store' } })
     const readers = env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? await queryReaders(env.CF_ACCOUNT_ID, env.AE_API_TOKEN).catch(e => (console.error('readers:', e), undefined)) : undefined
-    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true), readers), { headers })
+    return new Response(renderReaders(readers), { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' } })
   }
 
   // HTML is personalised: never let the browser revalidate it against the shared static ETag.

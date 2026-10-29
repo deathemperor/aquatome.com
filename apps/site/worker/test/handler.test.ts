@@ -56,12 +56,20 @@ test('events: same-origin, matching skin cookie, not a bot, small body', async (
   expect(points).toHaveLength(1)
 })
 
-test('dashboard: 404 without token, 303 strips token from URL', async () => {
+test('dashboard: sign-in form without token, 303 strips token from URL', async () => {
   const { e } = env()
-  expect((await handle(get('/_ab/'), e, stringRewrite)).status).toBe(404)
+  const login = await handle(get('/_ab/'), e, stringRewrite)
+  expect(login.status).toBe(200)
+  expect(await login.text()).toContain('action="/_ab/login"')
+  const form = (token: string) => new Request('https://x.test/_ab/login', { method: 'POST', body: new URLSearchParams({ token }) })
+  expect((await handle(form('wrong'), e, stringRewrite)).status).toBe(403)
+  const ok = await handle(form('tok'), e, stringRewrite)
+  expect(ok.status).toBe(303)
+  expect(ok.headers.getSetCookie()).toEqual([expect.stringMatching(/^ab_token=tok; Path=\/_ab;.*HttpOnly/), expect.stringMatching(/^aq_owner=1;/)])
   const r = await handle(get('/_ab/?token=tok'), e, stringRewrite)
   expect(r.status).toBe(303)
   expect(r.headers.get('location')).toBe('/_ab/')
+  expect((await handle(get('/_ab/doc-gia/'), e, stringRewrite)).status).toBe(303) // the readers page needs the token cookie too
 })
 
 test('events are accepted (and dropped) when Analytics Engine is not bound yet', async () => {
