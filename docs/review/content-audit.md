@@ -50,12 +50,12 @@ borrow one from a species or plant they mention on the site.
 - species/acanthodoras-cataphractus — Cá trê nói chuyện nâu sô-cô-la
 - species/ancistrus-ranunculus — Cá lau kính medusa
 - species/ariopsis-seemanni — Cá da trơn cá mập Colombia
-- species/barbodes-semifasciolatus — Cá ngựa vằn vàng Koi
+- species/barbodes-semifasciolatus — Cá barb vàng (Gold barb)
 - species/camposcia-retusa — Cua trang trí
 - species/periclimenes-yucatanicus — Tép hải quỳ đốm
 - plants/limnophila-sessiliflora — Cây rau om nước (Limnophila sessiliflora)
 
-## Only one photo (no pictures inside the text) (99)
+## Only one photo (no pictures inside the text) (119)
 
 - species/acanthopsoides-robertsi — Cá chạch mặt ngựa lùn
 - species/acnodon-normani — Cá pacu cừu
@@ -116,12 +116,12 @@ borrow one from a species or plant they mention on the site.
 - species/potamotrygon-scobina — Cá đuối nước ngọt Potamotrygon scobina
 - species/pseudohomaloptera-leonardi — Cá chạch suối Homaloptera leonardi Việt Nam
 - species/pseudomugil-luminatus — Cá cầu vồng neon đỏ mắt xanh
-- species/puntius-titteya — Cá Cherry barb Super Red
+- species/puntius-titteya — Cá anh đào (Cherry barb)
 - species/rasbora-sarawakensis — Cá thái hổ Sarawak
 - species/rasbora-vulcanus — Cá cầu vồng núi lửa
 - species/rasbosoma-spilocerca — Cá rasbora đuôi kéo lùn
 - species/rhodeus-ocellatus — Cá bitterling Rhodeus ocellatus
-- species/sahyadria-denisonii — Cá ngư lôi sọc đỏ Ấn Độ (bản vàng Gold)
+- species/sahyadria-denisonii — Cá ngư lôi sọc đỏ Ấn Độ
 - species/squaliforma-emarginata — Cá lau kiếng vây đỏ đuôi dài
 - species/stiphodon-ornatus — Cá bống Stiphodon ornatus
 - species/stiphodon-pelewensis — Cá bống suối Stiphodon pelewensis
@@ -131,13 +131,33 @@ borrow one from a species or plant they mention on the site.
 - plants/bucephalandra-sp — Bucephalandra lá đậm
 - plants/bucephalandra-sp-dark-skeleton-king — Bucephalandra Dark Skeleton King
 - plants/bucephalandra-sp-degori — Bucephalandra Degori
+- plants/microsorum-pteropus — Dương xỉ Java
+- plants/nymphoides-aquatica — Cây chuối thủy sinh
 - plants/taxiphyllum-alternans — Rêu Đài Loan
+- plants/taxiphyllum-barbieri — Rêu java
 - guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress — 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng
 - guides/aquariumbreeder-hibernation-and-land-snails — Ngủ đông và ốc cạn
 - guides/aquariumbreeder-infusoria-profile-and-how-to-culture-as-live-food — Giới thiệu trùng cỏ (Infusoria) và cách nuôi làm thức ăn sống
 - guides/aquariumbreeder-lava-rocks-in-aquariums-pros-and-cons — Đá dung nham trong bể thủy sinh: Ưu và nhược điểm
+- guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners — 10 loài cá cảnh tốt nhất cho người mới chơi | Cá dễ nuôi cho hồ nước ngọt
+- guides/aquariumcoop-blogs-aquarium-5-high-quality-fish-foods — 5 loại thức ăn cá chất lượng cao bạn nên thử
+- guides/aquariumcoop-blogs-aquarium-air-stones-the-secret-weapon-every-aquarium-needs — Đá sủi khí: “vũ khí bí mật” mà bể cá nào cũng cần
+- guides/aquariumcoop-blogs-aquarium-aquarium-salt-for-sick-fish — Muối hồ cá: Cách dùng đúng để điều trị cá bệnh
+- guides/aquariumcoop-blogs-aquarium-betta-fish-foods — 5 loại thức ăn tốt nhất cho cá betta bạn nên thử | Cho cá betta ăn gì
+- guides/aquariumcoop-blogs-aquarium-betta-tank-setup — Cách thiết lập bể cá betta đẹp
+- guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches — Hướng dẫn nuôi cá chạch suối Kuhli – loài cá lạ mắt tuyệt vời cho người mới chơi
 - guides/aquariumcoop-blogs-aquarium-caring-african-dwarf-frogs — Hướng dẫn chăm sóc ếch lùn châu Phi – lưỡng cư thủy sinh nước ngọt
+- guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide — Hướng dẫn nuôi cá chuột Corydoras – loài cá đáy hoàn hảo cho bể cộng đồng
+- guides/aquariumcoop-blogs-aquarium-fin-rot — 5 bước nhanh và dễ để điều trị bệnh thối vây ở cá cảnh
+- guides/aquariumcoop-blogs-aquarium-fish-tank — 5 mẹo nâng cấp bể cá 10 gallon (khoảng 38 lít)
+- guides/aquariumcoop-blogs-aquarium-fish-tank-cycling — Khởi động chu trình nitơ cho bể cá nước ngọt: cách chuẩn bị trước khi thả cá mới
+- guides/aquariumcoop-blogs-aquarium-fish-tank-filters-which-one-should-you-get — Lọc hồ cá: Bạn nên chọn loại nào? Tổng quan về lọc hồ cá
+- guides/aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly — Bao lâu phải vệ sinh hoặc thay nước hồ cá một lần?
+- guides/aquariumcoop-blogs-aquarium-how-to-get-started-with-aquarium-plants — Hướng dẫn cho người mới chơi hồ thủy sinh: Cách bắt đầu với cây thủy sinh sống
 - guides/aquariumcoop-blogs-aquarium-livebearers-are-becoming-weaker — Vì sao cá đẻ con ngày càng yếu đi? | Câu chuyện đằng sau bệnh ở cá đẻ con
+- guides/aquariumcoop-blogs-aquarium-sponge-filters-the-easiest-fish-tank-filter-ever — Lọc bọt biển (sponge filter): loại lọc bể cá dễ dùng nhất
+- guides/aquariumcoop-blogs-aquarium-top-5-easy-aquarium-plants — 5 loại cây thủy sinh dễ trồng cho người mới chơi bể thủy sinh
+- guides/aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you — Nên chọn loại phân nước nào cho bể thủy sinh? | Cây thủy sinh cơ bản
 - guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en — Scleropages jardinii và S. leichardti – cá rồng Úc
 - guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en — Labeo parvus và L. barbatus – cá ăn tảo đến từ châu Phi
 - guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-small-goldfish-ranchu-mixed-colours — Cá vàng Ranchu nhỏ, nhiều màu

@@ -78,3 +78,13 @@ test('slim fish are photos, not banners; images without a pixel size are measure
   expect(out).toHaveLength(1)
   expect(uploads).toHaveLength(1)
 })
+
+test('articles skip images in a shop product tile; species pages from shops keep their product photos', () => {
+  const html = `<main><img src="/blog/hero.jpg" alt="How to set up a betta tank" width="1000" height="667">
+    <div class="mini-product"><a><img src="/cdn/shop/files/green-easy-flow-sponge-filter.jpg" alt="Green Easy Flow Sponge Filter (coarse) - Aquarium Co - Op" width="1024" height="1024" class="mini-product__image-element"></a></div></main>`
+  const imgs = htmlToOutline(html).images
+  expect(imgs.map(i => !!i.product)).toEqual([false, true])
+  expect(pickSourcePhotos(imgs, 'https://shop.test/blogs/a', [], 6, 'guide').map(p => p.src)).toEqual(['https://shop.test/blog/hero.jpg'])
+  const fish = htmlToOutline('<main><div class="product__media"><img src="/betta-koi.jpg" alt="Betta splendens koi" width="1200" height="900"></div></main>').images
+  expect(pickSourcePhotos(fish, 'https://shop.test/products/betta', ['Betta splendens'])).toHaveLength(1)
+})

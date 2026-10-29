@@ -9,7 +9,7 @@ type Picked = PageImage & { probe?: boolean }
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
-/** Shop packshots (food, fertiliser, hardware) — fine in a guide, wrong as a species or plant photo. */
+/** Shop packshots (food, fertiliser, hardware): wrong as a species or plant photo. Articles drop shop product tiles instead (PageImage.product). */
 export const PRODUCT = /fertili[sz]er|cuisine|\bfoods?\b|pellets?|wafers?|flakes?|\btabs?\b|\bcaves?\b|\bshells?\b|bottle|\bpack\b|\bkit\b|filter|heater|substrate|\b\d+(\.\d+)?\s?(ml|oz|g|kg|lb|gal)\b/i
 const MIN_WIDTH = 600
 /** Long slim fish (loaches, gar) photograph at ~2.6:1; banners are wider still. */
@@ -33,6 +33,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     if (img.width && img.width < MIN_WIDTH) continue
     if (img.width && img.height && !okShape(img.width, img.height)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
+    if (kind === 'guide' && img.product) continue // a shop's product tile is an ad, not a picture of what the article says
     const key = dedupeKey(src)
     const altKey = img.alt.toLowerCase().trim()
     if (seen.has(key) || (altKey && seenAlt.has(altKey))) continue
