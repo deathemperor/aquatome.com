@@ -121,3 +121,12 @@ test('redo rewrites a written guide with the same slug and cover; the reviewer i
   expect(again.calls.prompts.find(p => p.includes('TRANSCRIPT:'))).toContain('by MJ Aquascaping')
   expect(again.calls.prompts.some(p => p.includes('Giọng văn'))).toBe(true) // style guide in the writer's prompt
 })
+
+test('YouTube throttling stops the run without marking any video failed', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { a1: {}, a2: {} } })
+  d.yt.transcript = async () => { throw new Error("yt-dlp: ERROR: [youtube] a1: Sign in to confirm you’re not a bot.") }
+  const r = await videoGuides(d, { playlists: ['PL1'] })
+  expect(r).toMatchObject({ stoppedEarly: true, errors: ['YouTube is throttling (a1): stopped, nothing marked failed'] })
+  expect(await readFile(join(root, 'engine-state/youtube.json'), 'utf8').catch(() => 'none')).toBe('none')
+})

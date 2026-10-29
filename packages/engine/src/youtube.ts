@@ -13,6 +13,9 @@ import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard } from './video-images'
 
+/** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
+export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
+
 export type VideoMeta = {
   id: string; title: string; channel: string; channelUrl: string; durationSec: number; publishedAt?: string
   chapters: { start: number; title: string }[]; embeddable: boolean; description: string; thumb: { url: string; width: number; height: number }
@@ -196,6 +199,9 @@ async function ensureSeries(contentRoot: string, llm: Llm, p: Playlist): Promise
   return series
 }
 
+/** Pause between videos: each costs YouTube 2–3 requests, and bursts got this machine rate-limited (429, bot check). */
+const VIDEO_GAP_MS = 20_000
+
 export type VideoDeps = { yt: YouTube; llm: Llm; root: string; now: () => Date; sleep: (ms: number) => Promise<void> }
 export type VideoReport = { written: string[]; skipped: string[]; errors: string[]; stoppedEarly: boolean }
 
@@ -279,12 +285,13 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         failedInARow = 0
       } catch (e) {
         if (e instanceof LlmError) { report.errors.push(`${vid}: ${e.message}`); report.stoppedEarly = true; return report } // usage limit or CLI down: stop, retry next run
+        if (throttled(e)) { report.errors.push(`YouTube is throttling (${vid}): stopped, nothing marked failed`); report.stoppedEarly = true; return report }
         await set(vid, { status: 'error', entityIds: [], error: (e as Error).message.slice(0, 300) })
         report.errors.push(`${vid}: ${(e as Error).message}`)
         // Three in a row looks like yt-dlp or the network, not these videos: stop rather than mark the whole queue failed.
         if (++failedInARow >= 3) { report.stoppedEarly = true; return report }
       }
-      await deps.sleep(2000)
+      await deps.sleep(VIDEO_GAP_MS)
     }
   }
   return report
