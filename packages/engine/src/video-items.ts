@@ -69,10 +69,26 @@ export async function extractVideoItems(llm: Llm, v: Parameters<typeof prompt>[0
   return { taxa, gear }
 }
 
+/**
+ * The page for a taxon name among our species and plant ids: the exact name; for "Genus sp.", a genus-only page; else the one
+ * page that is a variety of it ("Alternanthera reineckii" → alternanthera-reineckii-mini). Several varieties: no guess.
+ */
+export function matchTaxon(name: string, ids: Iterable<string>): string | undefined {
+  const all = [...ids]
+  const slug = slugify(name)
+  if (all.includes(slug)) return slug
+  const genus = slug.replace(/-sp$/, '')
+  if (genus !== slug && all.includes(genus)) return genus
+  const varieties = all.filter(id => id.startsWith(`${slug}-`))
+  return varieties.length === 1 ? varieties[0] : undefined
+}
+
+export const pageIds = async (contentRoot: string) => [...(await readdir(join(contentRoot, 'species')).catch(() => [] as string[])), ...(await readdir(join(contentRoot, 'plants')).catch(() => [] as string[]))]
+
 /** Entity ids (species and plants) for the taxa we have pages for. */
 export async function resolveTaxa(contentRoot: string, taxa: string[]): Promise<string[]> {
-  const have = new Set([...(await readdir(join(contentRoot, 'species')).catch(() => [] as string[])), ...(await readdir(join(contentRoot, 'plants')).catch(() => [] as string[]))])
-  return [...new Set(taxa.map(n => slugify(n)).filter(id => have.has(id)))]
+  const ids = await pageIds(contentRoot)
+  return [...new Set(taxa.flatMap(n => matchTaxon(n, ids) ?? []))]
 }
 
 /**

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { backfillVideoItems } from '../src/video-items'
+import { backfillVideoItems, matchTaxon } from '../src/video-items'
 import { candidates } from '../src/wanted'
 
 async function setup() {
@@ -43,4 +43,14 @@ test('backfill stops on throttling, leaving the rest for next time', async () =>
   const r = await backfillVideoItems(root, { llm, kit, transcript, stop: e => /429/.test((e as Error).message), sleep: async () => {}, gapMs: 0 }, { limit: 10 })
   expect(r.stopped).toContain('youtube-v1')
   expect(JSON.parse(await readFile(join(root, 'guides/youtube-v1/entity.json'), 'utf8')).video.gear).toBeUndefined()
+})
+
+test('matchTaxon: exact name, a genus page for "sp.", the single variety page; several varieties are not guessed', () => {
+  const ids = ['vallisneria', 'alternanthera-reineckii-mini', 'bucephalandra-sp', 'bucephalandra-sp-mini-melawi', 'cryptocoryne-wendtii-green', 'cryptocoryne-wendtii-brown', 'neocaridina-davidi']
+  expect(matchTaxon('Neocaridina davidi', ids)).toBe('neocaridina-davidi')
+  expect(matchTaxon('Vallisneria sp.', ids)).toBe('vallisneria')
+  expect(matchTaxon('Alternanthera reineckii', ids)).toBe('alternanthera-reineckii-mini')
+  expect(matchTaxon('Bucephalandra sp.', ids)).toBe('bucephalandra-sp')
+  expect(matchTaxon('Cryptocoryne wendtii', ids)).toBeUndefined()
+  expect(matchTaxon('Betta splendens', ids)).toBeUndefined()
 })
