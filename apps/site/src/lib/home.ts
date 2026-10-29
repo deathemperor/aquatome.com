@@ -60,7 +60,8 @@ export function easyPlants(c: Content, n = 4): Localized<PlantEntity>[] {
 export function leadGuides(c: Content): Localized<GuideEntity>[] {
   const mentions = (g: Localized<GuideEntity>) => mentionIndex(c).guides.get(g.id)?.keys.length ?? 0
   const practical = ['setup', 'care', 'aquascaping', 'plantCare', 'breeding', 'disease']
-  const ok = c.guides.filter(g => practical.includes(g.kind) && guideImage(c, g))
+  // Video guides have their own section and reading order (their series).
+  const ok = c.guides.filter(g => !g.video && practical.includes(g.kind) && guideImage(c, g))
   const staples = LEAD_GUIDES.flatMap(id => ok.filter(g => g.id === id))
   const rest = ok.filter(g => !staples.includes(g)).sort((a, b) => mentions(b) - mentions(a) || practical.indexOf(a.kind) - practical.indexOf(b.kind) || a.id.localeCompare(b.id))
   return [...staples, ...rest]

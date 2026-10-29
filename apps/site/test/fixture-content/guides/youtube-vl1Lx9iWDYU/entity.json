@@ -1,0 +1,41 @@
+{
+  "id": "youtube-vl1Lx9iWDYU",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=vl1Lx9iWDYU",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-29",
+  "video": {
+    "youtubeId": "vl1Lx9iWDYU",
+    "title": "NO MORE ALGAE With These SIMPLE Tricks",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "durationSec": 1755,
+    "publishedAt": "2023-02-11",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Intro"
+      },
+      {
+        "start": 31,
+        "title": "Water changes"
+      },
+      {
+        "start": 91,
+        "title": "Best time for WC"
+      }
+    ],
+    "series": {
+      "id": "PLtest",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/vl1Lx9iWDYU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

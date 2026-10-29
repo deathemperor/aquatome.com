@@ -1,0 +1,49 @@
+{
+  "id": "youtube-5uUPuLt0j2s",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=5uUPuLt0j2s",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-29",
+  "video": {
+    "youtubeId": "5uUPuLt0j2s",
+    "title": "Hair Algae in Aquarium! THE ALGAE GUIDE EPISODE #6",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "durationSec": 579,
+    "publishedAt": "2021-02-19",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Introduction to hair algae"
+      },
+      {
+        "start": 63,
+        "title": "Causes of algae outbreaks"
+      },
+      {
+        "start": 211,
+        "title": "Removing algae manually"
+      },
+      {
+        "start": 311,
+        "title": "Preventing algae recurrence"
+      },
+      {
+        "start": 425,
+        "title": "Case studies and conclusion"
+      }
+    ],
+    "series": {
+      "id": "PLrlvf56gZy-howinG2d8o7Bbxn0P6awUj",
+      "position": 8
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/5uUPuLt0j2s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

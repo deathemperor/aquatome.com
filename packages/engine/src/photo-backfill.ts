@@ -36,7 +36,8 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       const file = join(root, 'content', kind, id, 'entity.json')
       const e = JSON.parse(await readFile(file, 'utf8')) as Entity
       if (e.photos.length >= WANT) continue
-      const refs = kind === 'guides' ? (e.source && e.sourceUrl ? [{ source: e.source, sourceUrl: e.sourceUrl }] : []) : (e.sections ?? [])
+      // Video guides (source 'youtube') have no web page to read photos from.
+      const refs = kind === 'guides' ? (e.source && e.sourceUrl && e.source !== 'youtube' ? [{ source: e.source, sourceUrl: e.sourceUrl }] : []) : (e.sections ?? [])
       const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u]) => !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS)
       if (!urls.length) continue
       pages++

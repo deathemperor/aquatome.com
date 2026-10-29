@@ -21,7 +21,7 @@ const shortSlug = (name: string) => {
   return s.length <= 60 ? s : s.slice(0, 61).replace(/-[^-]*$/, '')
 }
 
-function pickSlug(name: string, suffix: string, taken: Set<string>): string {
+export function pickSlug(name: string, suffix: string, taken: Set<string>): string {
   const base = shortSlug(name)
   for (const s of [base, `${base}-${slugify(suffix)}`]) if (!taken.has(s)) return s
   let i = 2

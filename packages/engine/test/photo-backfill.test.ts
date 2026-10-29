@@ -15,6 +15,9 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Acanthopsoides robertsi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: URL_ }, { source: 'seriouslyfish', sourceUrl: URL_ }] }))
+  // A video guide has no web page with photos: skipped, not a crash on the unknown source.
+  await mkdir(join(root, 'content', 'guides', 'youtube-abc'), { recursive: true })
+  await writeFile(join(root, 'content', 'guides', 'youtube-abc', 'entity.json'), JSON.stringify({ source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=abc', photos: [] }))
   const gets: string[] = []
   const deps = {
     get: async (u: string) => { gets.push(u); return { status: 200, html: page } },

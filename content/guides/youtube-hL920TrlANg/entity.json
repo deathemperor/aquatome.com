@@ -1,0 +1,41 @@
+{
+  "id": "youtube-hL920TrlANg",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=hL920TrlANg",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-29",
+  "video": {
+    "youtubeId": "hL920TrlANg",
+    "title": "AQUARIUM ALGAE GUIDE Ep #5 Green Spot Algae - GSA",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "durationSec": 429,
+    "publishedAt": "2021-02-12",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Understanding green spot algae"
+      },
+      {
+        "start": 156,
+        "title": "Removing green spot algae"
+      },
+      {
+        "start": 280,
+        "title": "Preventing algae recurrence"
+      }
+    ],
+    "series": {
+      "id": "PLrlvf56gZy-howinG2d8o7Bbxn0P6awUj",
+      "position": 9
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/hL920TrlANg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

@@ -274,3 +274,58 @@ test('species pages carry a hidden reader-photo section (gallery + upload form) 
   expect(s.querySelector('input[type="file"][accept="image/jpeg,image/png,image/webp"]')).toBeTruthy()
   expect(s.querySelector('input[name="consent"][required]')).toBeTruthy()
 })
+
+describe('video guide', () => {
+  const { html, dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+  test('click-to-load player with Vietnamese captions, credited to the channel', () => {
+    expect(html).not.toContain('<iframe')
+    expect(dom.querySelector('figure[data-vp="vl1Lx9iWDYU"] button.facade')).not.toBeNull()
+    expect(dom.querySelector('.credit')?.text).toContain('Bài viết của AquaTome, dựa trên video của MJ Aquascaping')
+    expect(dom.querySelector('figcaption a[href="https://www.youtube.com/watch?v=vl1Lx9iWDYU"]')).not.toBeNull()
+  })
+  test('chapters in Vietnamese seek the video; summary and FAQ shown', () => {
+    const marks = dom.querySelectorAll('.chapters button[data-t]')
+    expect(marks.map(b => b.getAttribute('data-t'))).toEqual(['0', '31', '91'])
+    expect(marks[1]?.text).toContain('Thay nước đều đặn')
+    expect(dom.querySelectorAll('.takeaways li')).toHaveLength(2)
+    expect(dom.querySelector('.faq summary')?.text).toBe('Nên thay nước lúc nào?')
+    expect(dom.querySelector('.crumb a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+  })
+  test('VideoObject with chapter clips and FAQPage JSON-LD', () => {
+    const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.text))
+    const v = ld.find(j => j['@type'] === 'VideoObject')
+    expect(v).toMatchObject({ duration: 'PT29M15S', uploadDate: '2023-02-11', embedUrl: 'https://www.youtube-nocookie.com/embed/vl1Lx9iWDYU' })
+    expect(v.hasPart[2]).toMatchObject({ name: 'Giờ thay nước hợp lý', startOffset: 91, endOffset: 1755 })
+    expect(ld.some(j => j['@type'] === 'FAQPage')).toBe(true)
+  })
+  test('has no broken values', () => {
+    expect(html).not.toMatch(/undefined|NaN|\[object Object\]/)
+  })
+})
+
+describe('video pages', () => {
+  test('/vi/video/ lists series with a published guide only', () => {
+    const { dom } = page('/vi/video/')
+    expect(dom.querySelector('h2 a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+    expect(dom.querySelector('a[href="/vi/video/trong/"]')).toBeNull()
+    expect(dom.querySelector('.gc .dur')?.text).toContain('29:15')
+  })
+  test('series page lists parts in order with an ItemList', () => {
+    const { dom } = page('/vi/video/reu-hai-tu-a-den-z/')
+    expect(dom.querySelectorAll('.parts li')).toHaveLength(1)
+    const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.text))
+    expect(ld.find(j => j['@type'] === 'ItemList').itemListElement[0].url).toContain('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+  })
+  test('video guides: Video marked in the nav, kept off the text-guide index (which links to /vi/video/)', () => {
+    expect(page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/').dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/video/')
+    const idx = page('/vi/huong-dan/').dom
+    expect(idx.querySelector('a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
+    expect(idx.querySelector('.vid a[href="/vi/video/"]')).not.toBeNull()
+  })
+  test('nav links to Video; sitemap has the video pages', () => {
+    expect(page('/vi/').dom.querySelector('.nav a[href="/vi/video/"]')).not.toBeNull()
+    const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+    expect(sm).toContain('/vi/video/</loc>')
+    expect(sm).toContain('/vi/video/reu-hai-tu-a-den-z/</loc>')
+  })
+})

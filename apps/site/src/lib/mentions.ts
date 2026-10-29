@@ -1,4 +1,5 @@
 import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { videoPhoto } from './video'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
 
@@ -105,8 +106,8 @@ export function mentionIndex(c: Content): Index {
 export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity>[] =>
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
-/** A guide's picture: its own photo, else the first species or plant it talks about (so every guide card has one). */
+/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
 export function guideImage(c: Content, g: Localized<GuideEntity>) {
   const m = mentionIndex(c).guides.get(g.id)
-  return g.photos[0] ?? m?.species.find(s => s.photos[0])?.photos[0] ?? m?.plants.find(p => p.photos[0])?.photos[0]
+  return g.photos[0] ?? (g.video && videoPhoto(g.video)) ?? m?.species.find(s => s.photos[0])?.photos[0] ?? m?.plants.find(p => p.photos[0])?.photos[0]
 }

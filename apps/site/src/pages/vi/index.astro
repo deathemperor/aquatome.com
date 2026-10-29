@@ -9,6 +9,7 @@ import { getContent } from '../../lib/content'
 import { HERO } from '../../lib/hero'
 import { creditsFor } from '../../lib/credits'
 import { smallSrc } from '../../lib/img'
+import { homeVideos } from '../../lib/video'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, STEP_GUIDES } from '../../lib/home'
 
 const c = await getContent()
@@ -22,12 +23,13 @@ const steps = [
   water && { n: 3, title: 'Thay nước định kỳ', text: 'Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.', href: `/vi/huong-dan/${water.t.slug}/` },
 ].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
 const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
+const videos = homeVideos(c)
 const featured = featuredSpecies(c)
 const groups = groupTiles(c)
 const plants = easyPlants(c)
 const equipment = c.equipment
 const credits = [HERO, ...creditsFor([
-  ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
+  ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...videos.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
 ])]
 ---
 <Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt." credits={credits}>
@@ -90,6 +92,13 @@ const credits = [HERO, ...creditsFor([
     <section class="wrap block" aria-labelledby="guides-h">
       <div class="head"><h2 id="guides-h" class="h">Hướng dẫn cơ bản</h2><a href="/vi/huong-dan/">Tất cả hướng dẫn →</a></div>
       <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>
+    </section>
+  )}
+
+  {videos.length > 0 && (
+    <section class="wrap block" aria-labelledby="videos-h">
+      <div class="head"><h2 id="videos-h" class="h">Video hướng dẫn</h2><a href="/vi/video/">Tất cả video →</a></div>
+      <div class="grid">{videos.map(g => <GuideCard g={g} />)}</div>
     </section>
   )}
 

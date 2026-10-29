@@ -2,8 +2,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { ChangelogSchema, EquipmentSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { ChangelogSchema, EquipmentSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 
@@ -16,6 +16,8 @@ export type Content = {
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
   equipment: EquipmentGuide[]
+  /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
+  series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
   changelog: ChangelogEntry[]
 }
@@ -89,8 +91,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
   }
 
+  const series: Series[] = []
+  for (const f of (await readdir(join(root, 'series')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const x = await readJson(join(root, 'series', f), SeriesSchema)
+    if (guides.some(g => g.video?.series?.id === x.id)) series.push(x)
+  }
+
   return {
-    species, plants, guides, changelog, equipment,
+    species, plants, guides, changelog, equipment, series,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

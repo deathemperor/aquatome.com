@@ -1,0 +1,46 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import GuideCard from '../../../components/GuideCard.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+import { guideImage } from '../../../lib/mentions'
+import { hours, isVideo, seriesGuides, seriesSeconds } from '../../../lib/video'
+const c = await getContent()
+const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length).sort((a, b) => b.guides.length - a.guides.length)
+const single = c.guides.filter(isVideo).filter(g => !g.video.series || !c.series.some(s => s.id === g.video.series!.id))
+const all = c.guides.filter(isVideo)
+---
+<Browse title="Video hướng dẫn" heading="Video hướng dẫn"
+  intro="Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem."
+  credits={creditsFor(all.map(g => guideImage(c, g)))}>
+  {all.length === 0 && <p>Chưa có video hướng dẫn nào.</p>}
+  {series.map(({ s, guides }) => (
+    <section class="series" aria-labelledby={`s-${s.vi.slug}`}>
+      <header>
+        <h2 id={`s-${s.vi.slug}`}><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a></h2>
+        <p class="meta">{guides.length} video · {hours(seriesSeconds(c, s))} · kênh {s.channel}</p>
+        <p class="intro">{s.vi.intro}</p>
+      </header>
+      <div class="grid">{guides.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
+      {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>Xem cả {guides.length} bài trong loạt</a></p>}
+    </section>
+  ))}
+  {single.length > 0 && (
+    <section class="series" aria-labelledby="single-h">
+      <header><h2 id="single-h">Video lẻ</h2></header>
+      <div class="grid">{single.map(g => <GuideCard g={g} />)}</div>
+    </section>
+  )}
+</Browse>
+<style>
+  .series { margin-bottom: var(--space-8); }
+  .series header { max-width: var(--measure); margin-bottom: var(--space-4); }
+  h2 { font-size: var(--step-2); }
+  h2 a { color: inherit; text-decoration: none; }
+  h2 a:hover { color: var(--c-moss); }
+  .meta { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-1) 0 var(--space-2); }
+  .intro { color: var(--c-ink-soft); margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .more { margin-top: var(--space-4); }
+  .more a { display: inline-block; padding-block: 10px; font-weight: 600; }
+</style>

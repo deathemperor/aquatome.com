@@ -1,0 +1,68 @@
+---
+import type { Series } from '@aq/schema'
+import Browse from '../../../layouts/Browse.astro'
+import { getContent } from '../../../lib/content'
+import { creditsFor } from '../../../lib/credits'
+import { guideImage } from '../../../lib/mentions'
+import { smallSrc } from '../../../lib/img'
+import { GUIDE_KIND_LABELS } from '../../../lib/format'
+import { clock, hours, seriesGuides, seriesSeconds } from '../../../lib/video'
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  return c.series.map(s => ({ params: { slug: s.vi.slug }, props: { s } }))
+}
+const { s } = Astro.props as { s: Series }
+const c = await getContent()
+const guides = seriesGuides(c, s)
+const site = Astro.site!
+const jsonld = [{
+  '@context': 'https://schema.org', '@type': 'ItemList', name: s.vi.name,
+  itemListElement: guides.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/vi/huong-dan/${g.t.slug}/`, site).href, name: g.t.name })),
+}]
+const indexable = guides.some(g => g.t.quality.indexable)
+---
+<Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', 'Video']]} noindex={!indexable} jsonld={jsonld}
+  image={guides[0] && guideImage(c, guides[0])?.url} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
+  <p class="meta">{guides.length} bài · {hours(seriesSeconds(c, s))} video · theo playlist “<a href={`https://www.youtube.com/playlist?list=${s.playlistId}`} rel="noopener">{s.title}</a>” của kênh <a href={s.channelUrl} rel="noopener">{s.channel}</a></p>
+  <ol class="parts">
+    {guides.map((g, i) => {
+      const ph = guideImage(c, g)
+      return (
+        <li>
+          <a href={`/vi/huong-dan/${g.t.slug}/`}>
+            <span class="n">{i + 1}</span>
+            <span class="img">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading={i < 4 ? 'eager' : 'lazy'} />}<span class="dur">{clock(g.video.durationSec)}</span></span>
+            <span class="txt">
+              <strong>{g.t.name}</strong>
+              <small>{GUIDE_KIND_LABELS[g.kind]}{g.video.chapters.length > 1 && ` · ${g.video.chapters.length} đoạn`}</small>
+              {g.t.summary?.[0] && <span class="first">{g.t.summary[0]}</span>}
+            </span>
+          </a>
+        </li>
+      )
+    })}
+  </ol>
+</Browse>
+<style>
+  .meta { font-size: 0.9rem; color: var(--c-ink-faint); max-width: var(--measure); margin: 0 0 var(--space-5); }
+  .meta a { color: var(--c-ink-soft); }
+  .parts { list-style: none; margin: 0; padding: 0; max-width: 60rem; border-top: 2px solid var(--c-ink); }
+  .parts li { border-bottom: 1px solid var(--c-rule); }
+  .parts a { display: grid; grid-template-columns: 2.2rem 13rem minmax(0, 1fr); gap: var(--space-4); align-items: start; padding: var(--space-4) 0; color: inherit; text-decoration: none; }
+  .parts a:hover strong { color: var(--c-moss); }
+  .n { font: 600 var(--step-2) var(--f-display); color: var(--c-ink-faint); line-height: 1; padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .img { position: relative; display: block; }
+  .img img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .dur { position: absolute; right: 6px; bottom: 6px; background: rgb(0 0 0 / 0.78); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 2px 6px; font-variant-numeric: tabular-nums; }
+  .txt { display: grid; gap: var(--space-1); }
+  strong { font: 600 var(--step-1) var(--f-display); line-height: 1.25; }
+  small { font-size: 0.8rem; color: var(--c-moss); }
+  .first { font-size: 0.95rem; color: var(--c-ink-soft); line-height: 1.55; }
+  @media (max-width: 640px) {
+    .parts a { grid-template-columns: 1.6rem minmax(0, 1fr); }
+    .img { grid-column: 2; }
+    .txt { grid-column: 2; }
+    .first { display: none; }
+  }
+</style>
