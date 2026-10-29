@@ -12,6 +12,8 @@ import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { excerpt } from '../../../lib/meta'
 import { guideImage, mentionIndex } from '../../../lib/mentions'
+import { gearRows } from '../../../lib/gear'
+import GearList from '../../../components/GearList.astro'
 import { placeFigures } from '../../../lib/figures'
 import { categoryLabel } from '../../../lib/format'
 import { readingMinutes, withToc } from '../../../lib/toc'
@@ -31,6 +33,7 @@ const body = m.html
 const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
 const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
 const ph = guideImage(c, g)
+const gear = g.video ? gearRows(c, g.video) : []
 // Pictures inside the text: each species/plant photo after the paragraph that first names it, the guide's other photos spread out.
 const shown = (url?: string) => url !== undefined && url !== ph?.url
 const placed = placeFigures(body,
@@ -101,7 +104,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
-  {m.equipment.length > 0 && (
+  {gear.length > 0 ? <GearList rows={gear} youtubeId={g.video?.youtubeId} heading="Thiết bị trong video" entity={`guide:${g.t.slug}`} /> : m.equipment.length > 0 && (
     <section class="wrap related" aria-labelledby="eq-h">
       <h2 id="eq-h">Thiết bị nhắc đến</h2>
       <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{categoryLabel(cat)}</a></li>)}</ul>

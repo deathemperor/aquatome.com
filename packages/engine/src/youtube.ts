@@ -14,6 +14,7 @@ import { sanitizeHtml } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard } from './video-images'
+import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -264,7 +265,7 @@ async function ensureSeries(contentRoot: string, llm: Llm, p: Playlist): Promise
 }
 
 /** Pause between videos: each costs YouTube 2–3 requests, and bursts got this machine rate-limited (429, bot check). */
-const VIDEO_GAP_MS = 20_000
+export const VIDEO_GAP_MS = 20_000
 
 export type VideoDeps = { yt: YouTube; llm: Llm; root: string; now: () => Date; sleep: (ms: number) => Promise<void> }
 export type VideoReport = { written: string[]; skipped: string[]; errors: string[]; stoppedEarly: boolean }
@@ -292,6 +293,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   let failedInARow = 0
 
   /** One video → guide. true: stop the whole run (model down, YouTube throttling, repeated failures). */
+  let kit: Kit[] | undefined
   async function one(vid: string, series?: Series, position = 0): Promise<boolean> {
     try {
       const m = await yt.video(vid)
@@ -317,13 +319,20 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
       }
 
+      // What the video shows and uses (species we have pages for get linked); a bad answer only means no list.
+      kit ??= await readKit(contentRoot)
+      const items = await extractVideoItems(llm, m, transcript!, kit).catch(e => { if (e instanceof LlmError) throw e; return undefined })
+
       const id = `youtube-${vid}`
       const dir = join(contentRoot, 'guides', id)
       const prev = { entity: await readJson<GuideEntity>(join(dir, 'entity.json')), vi: await readJson<Translation>(join(dir, 'vi.json')) }
+      const taxa = items?.taxa ?? prev.entity?.video?.taxa
+      const gear = items?.gear ?? prev.entity?.video?.gear
       const now = deps.now().toISOString().slice(0, 10)
       const entity = GuideSchema.parse({
-        id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], mentions: prev.entity?.mentions ?? [], updatedAt: now,
-        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript ? { transcribed: true } : {}) },
+        id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], updatedAt: now,
+        mentions: [...new Set([...(prev.entity?.mentions ?? []), ...await resolveTaxa(contentRoot, taxa ?? [])])],
+        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
       const name = d.viTitle.trim()
       const vi = TranslationSchema.parse({

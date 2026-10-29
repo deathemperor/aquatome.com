@@ -43,6 +43,13 @@ export const VideoRef = z.object({
   transcribed: z.boolean().optional(),
   /** Spoken language of the video (ISO base code); absent means English. */
   lang: z.string().optional(),
+  /** Fish, shrimp, snails and plants the video shows or recommends, by scientific name (read from the transcript). */
+  taxa: z.array(z.string()).optional(),
+  /**
+   * Kit the video uses or recommends: equipment category (content/equipment ids, "khac" for anything else), the type within
+   * it, brand and model only as the video names them, and when it first comes up (seconds). Absent until extracted.
+   */
+  gear: z.array(z.object({ category: z.string(), type: z.string().optional(), brand: z.string().optional(), model: z.string().optional(), t: z.number().optional() })).optional(),
   /**
    * Pictures per guide section (matched by its h3 text): stills from the video (YouTube storyboard frames, a click plays
    * the video from there) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.

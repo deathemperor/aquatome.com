@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -19,7 +19,7 @@ const meta = (id: string, over: Partial<VideoMeta> = {}): VideoMeta => ({
 const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
 const draft = (title: string) => ({ relevant: true, kind: 'plantCare', viTitle: title, summary: ['Thay nước đều.'], body: `<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p onclick="x">Ánh sáng.</p><script>x</script><p>${LONG}</p>`, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }], chapters: ['Mở đầu', 'Thay nước'] })
 
-function deps(root: string, opts: { scores?: number[]; videos?: Record<string, Partial<VideoMeta>>; relevant?: boolean; llmFails?: boolean; transcript?: string | null; drafts?: object[] } = {}) {
+function deps(root: string, opts: { items?: object; scores?: number[]; videos?: Record<string, Partial<VideoMeta>>; relevant?: boolean; llmFails?: boolean; transcript?: string | null; drafts?: object[] } = {}) {
   const calls = { prompts: [] as string[], transcripts: 0 }
   const scores = [...(opts.scores ?? [0.9])]
   const yt: YouTube = {
@@ -33,6 +33,7 @@ function deps(root: string, opts: { scores?: number[]; videos?: Record<string, P
     const props = Object.keys((a.schema as { properties: object }).properties)
     if (props.includes('viName')) return { viName: 'Rêu hại: biết để trị', intro: 'Mười bốn video về rêu hại.' } as T
     if (props.includes('score')) return { score: scores.shift() ?? 0.9, notes: ['"Ánh sáng" is vague'] } as T
+    if (props.includes('gear')) return (opts.items ?? { taxa: [], gear: [] }) as T
     if (opts.drafts?.length) return opts.drafts.shift() as T
     return (opts.relevant === false ? { ...draft(''), relevant: false } : draft('Cách hạn chế rêu hại trong bể thủy sinh')) as T
   }
@@ -165,4 +166,28 @@ test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer 
   expect(calls.prompts.some(p => p.includes('Ngôn ngữ video: tiếng Việt') && p.includes('không chép lại câu nói'))).toBe(true)
   expect(calls.prompts.some(p => p.includes('spoken in vi') && p.includes('copied from it'))).toBe(true)
   expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.lang).toBe('vi')
+})
+
+test("the video's species and kit are listed, cleaned up; species we have pages for are linked", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await mkdir(join(root, 'content/species/neocaridina-davidi'), { recursive: true })
+  await mkdir(join(root, 'content/equipment'), { recursive: true })
+  await writeFile(join(root, 'content/equipment/co2.json'), JSON.stringify({ category: 'co2', name: 'CO2', types: [{ id: 'binh', name: 'Bộ CO2 bình nạp' }] }))
+  const items = {
+    taxa: ['Neocaridina davidi', 'Monte Carlo', 'Rotala rotundifolia', 'Neocaridina davidi'],
+    gear: [
+      { category: 'co2', type: 'binh', brand: 'Chihiros', model: 'Diffuser S', t: 95.4 },
+      { category: 'co2', type: 'binh', brand: 'chihiros', model: 'diffuser s', t: 300 }, // the same product again
+      { category: 'phan-nuoc', type: 'x', brand: 'Seachem', model: 'Flourish' }, // unknown category: "khac", type dropped
+      { category: 'khac' }, // nothing to show
+      { category: 'co2', type: 'nope' }, // generic kit of an unknown type: kept as the category
+    ],
+  }
+  const { d, calls } = deps(root, { items })
+  await videoGuides(d, { playlists: ['PL1'] })
+  const e = await read(root, 'content/guides/youtube-a1/entity.json')
+  expect(e.mentions).toEqual(['neocaridina-davidi'])
+  expect(e.video.taxa).toEqual(['Neocaridina davidi', 'Rotala rotundifolia'])
+  expect(e.video.gear).toEqual([{ category: 'co2', type: 'binh', brand: 'Chihiros', model: 'Diffuser S', t: 95 }, { category: 'khac', brand: 'Seachem', model: 'Flourish' }, { category: 'co2' }])
+  expect(calls.prompts.some(p => p.includes('- co2: CO2; binh=Bộ CO2 bình nạp'))).toBe(true)
 })

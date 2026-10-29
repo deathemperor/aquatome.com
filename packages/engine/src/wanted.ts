@@ -33,6 +33,9 @@ export async function candidates(contentRoot: string, isWord: (w: string) => boo
   for (const id of (await readdir(join(contentRoot, 'guides')).catch(() => [] as string[])).sort()) {
     const vi = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'vi.json'), 'utf8').catch(() => '{}')) as { body?: string }
     add(vi.body ?? '', `guides/${id}`)
+    // Species a video shows, named by the extraction step (already scientific names, no dictionary filter needed).
+    const e = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'entity.json'), 'utf8').catch(() => '{}')) as { video?: { taxa?: string[] } }
+    for (const n of e.video?.taxa ?? []) if (!n.endsWith(' sp.') && !(out.get(n) ?? []).includes(`guides/${id}`)) out.set(n, [...(out.get(n) ?? []), `guides/${id}`])
   }
   for (const id of (await readdir(join(contentRoot, 'species')).catch(() => [] as string[])).sort()) {
     const e = JSON.parse(await readFile(join(contentRoot, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { html: string }[] }
