@@ -1,0 +1,28 @@
+---
+import type { Summary } from '@aq/schema'
+interface Props { summary: Summary }
+const { summary } = Astro.props
+---
+<section class="wrap qs" aria-labelledby="qs-h">
+  <div class="box">
+    <h2 id="qs-h">Tóm tắt nhanh</h2>
+    <p>{summary.summary}</p>
+    {summary.mistakes.length > 0 && (
+      <>
+        <h3>Lỗi hay gặp</h3>
+        <ul>{summary.mistakes.map(m => <li>{m}</li>)}</ul>
+      </>
+    )}
+    <p class="by">AquaTome tóm tắt từ các nguồn bên dưới.</p>
+  </div>
+</section>
+<style>
+  .qs { padding-bottom: var(--space-5); }
+  .box { max-width: var(--measure); padding: var(--space-5); background: var(--c-plate); border-left: 4px solid var(--c-moss); border-radius: 0 10px 10px 0; }
+  h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  h3 { font-size: var(--step-0); font-family: var(--f-body); font-weight: 600; margin: var(--space-4) 0 var(--space-2); }
+  p { margin: 0; line-height: 1.7; }
+  ul { margin: 0; padding-left: 1.2em; }
+  li { margin-bottom: var(--space-2); line-height: 1.6; }
+  .by { margin-top: var(--space-3); font-size: var(--step--1); color: var(--c-ink-faint); }
+</style>
