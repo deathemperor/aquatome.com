@@ -1,6 +1,7 @@
 export * from './schemas'
 export type * from './types'
 export { slugify } from './slug'
+export { STAPLE_SPECIES } from './staples'
 export { resolveDataCard } from './datacard'
 export { isAllowedLicence, filterPhotos } from './licence'
 export { cToF, cmToIn } from './units'
