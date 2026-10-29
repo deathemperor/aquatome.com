@@ -62,6 +62,7 @@ test('dashboard: 404 without token, 303 strips token from URL', async () => {
   const r = await handle(get('/_ab/?token=tok'), e, stringRewrite)
   expect(r.status).toBe(303)
   expect(r.headers.get('location')).toBe('/_ab/')
+  expect((await handle(get('/_ab/doc-gia/'), e, stringRewrite)).status).toBe(404) // the readers page needs the token cookie too
 })
 
 test('events are accepted (and dropped) when Analytics Engine is not bound yet', async () => {
