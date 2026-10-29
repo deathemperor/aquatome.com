@@ -123,6 +123,18 @@ test('a browser check during discovery marks the source needs-human', async () =
   expect(calls.llm).toBe(0)
 })
 
+test('an archived source falls back on its last good index while the archive index is down', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const page = 'https://www.planetcatfish.com/common/species.php?species_id=9'
+  const archive = { ...d.fetcher, text: async () => `${page}\n`, get: async () => { throw new Error('no archived copy (HTTP 404)') } }
+  const first = await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  expect(first.perSource.planetcatfish).toMatchObject({ discovered: 1 })
+  const down = await runEngine({ ...d, archive: { ...archive, text: async () => { throw new Error('HTTP 503 from web.archive.org') } } }, { sources: ['planetcatfish'] })
+  expect(down.perSource.planetcatfish).toMatchObject({ discovered: 1 })
+  expect(down.errors.join('\n')).toMatch(/using the last index \(1 pages\)/)
+})
+
 test('limit is respected per source', async () => {
   const root = await fresh()
   const r = await runEngine(deps(root).d, { sources: ['seriouslyfish'], limit: 1 })
