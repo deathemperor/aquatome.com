@@ -1,0 +1,58 @@
+{
+  "https://www.planetcatfish.com/common/species.php?species_id=1": {
+    "entityIds": [],
+    "updatedAt": "2026-10-29T20:03:04.944Z",
+    "hash": "e62bccb91662522c05579d441b07f2e93774d375f8c5edc1a41e7ac6529b41c1",
+    "processedHash": "e62bccb91662522c05579d441b07f2e93774d375f8c5edc1a41e7ac6529b41c1",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=10": {
+    "entityIds": [],
+    "updatedAt": "2026-10-29T20:04:04.552Z",
+    "hash": "17ed59c49eec9a0092bd3db3d72ebfecc58adb090fa8e07699b1e4a79ad3e203",
+    "processedHash": "17ed59c49eec9a0092bd3db3d72ebfecc58adb090fa8e07699b1e4a79ad3e203",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=100": {
+    "entityIds": [
+      "species/parailia-occidentalis"
+    ],
+    "updatedAt": "2026-10-29T20:05:01.250Z",
+    "hash": "8b0a446a622e478973561e4940664dc9c8f969fc02f3ec9dfbeca9c3a88d51be",
+    "processedHash": "8b0a446a622e478973561e4940664dc9c8f969fc02f3ec9dfbeca9c3a88d51be",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1000": {
+    "entityIds": [
+      "species/breitensteinia-cessator"
+    ],
+    "updatedAt": "2026-10-29T20:05:51.349Z",
+    "hash": "1ab6dadf9d11e1ed7ce8c12c6fdb845e25e3bb12a607b2cd6b02b8aea2040d60",
+    "processedHash": "1ab6dadf9d11e1ed7ce8c12c6fdb845e25e3bb12a607b2cd6b02b8aea2040d60",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1002": {
+    "entityIds": [
+      "species/hemisilurus-moolenburghi"
+    ],
+    "updatedAt": "2026-10-29T20:06:52.457Z",
+    "hash": "05b5dd92a101b36aeca5c14df4b2998918836d52d06c59c67bf549455db1de36",
+    "processedHash": "05b5dd92a101b36aeca5c14df4b2998918836d52d06c59c67bf549455db1de36",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1003": {
+    "entityIds": [
+      "species/nanobagrus-armatus"
+    ],
+    "updatedAt": "2026-10-29T20:08:01.094Z",
+    "hash": "a89a5d49db4e8ae4e4ae59aa252beb23d5f86357cdf3680525c88446b136e866",
+    "processedHash": "a89a5d49db4e8ae4e4ae59aa252beb23d5f86357cdf3680525c88446b136e866",
+    "status": "processed",
+    "attempts": 0
+  }
+}

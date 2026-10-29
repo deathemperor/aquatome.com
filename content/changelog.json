@@ -1,6 +1,34 @@
 [
   {
     "date": "2026-10-29",
+    "kind": "species",
+    "id": "nanobagrus-armatus",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "hemisilurus-moolenburghi",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "breitensteinia-cessator",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
+    "kind": "species",
+    "id": "parailia-occidentalis",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-29",
     "kind": "guide",
     "id": "youtube-0sRRk-LEl9E",
     "source": "youtube",
@@ -3468,13 +3496,6 @@
     "date": "2026-10-28",
     "kind": "guide",
     "id": "seriouslyfish-articles-a-passion-for-cichlids",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-28",
-    "kind": "guide",
-    "id": "seriouslyfish-articles-a-basic-guide-to-the-hamburger-mattenfilter",
     "source": "seriouslyfish",
     "action": "new"
   }

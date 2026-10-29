@@ -1,0 +1,77 @@
+{
+  "id": "parailia-occidentalis",
+  "scientificName": "Parailia occidentalis",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Parailia",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogowe",
+    "democratic-republic-of-the-congo",
+    "congo",
+    "angola",
+    "cuanza"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
+      "html": "<ul><li><strong>Scientific name:</strong> Parailia occidentalis (Pellegrin, 1901)</li><li><strong>Common name:</strong> Dusky Glass Catfish</li><li><strong>Type locality:</strong> Cape Lopez, Gabon.</li><li><strong>Synonyms:</strong> Ailia occidentalis, Physailia ansorgii, Physailia occidentalis, Physailia villiersi</li><li><strong>Etymology:</strong> The generic name comes from the Latin prefix par-, meaning equal, and Ailia, a genus of schilbeid catfishes, in reference to the similarity between this genus and Ailia.</li><li><strong>Size:</strong> 85 mm (3.3 in) SL.</li><li><strong>Identification:</strong> All species of this genus have no dorsal fin and are small, being no larger than 150 mm SL.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2009).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
+      "html": "<p>Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
+      "html": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 7 (no. 7), pp 331.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

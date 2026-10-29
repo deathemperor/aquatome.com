@@ -1,0 +1,127 @@
+{
+  "id": "breitensteinia-cessator",
+  "scientificName": "Breitensteinia cessator",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Breitensteinia",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Breitensteinia cessator Ng &amp; Siebert, 1998 (Akysidae). Size: 75 mm (3 in) SL. Etymology: the genus is named after H Breitenstein, who first collected the fish; cessator is Latin for an idle fellow, alluding to the sluggish nature of the fish.</p><p>IUCN Red List: Data Deficient (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Asia: Indonesia (Sumatra and Borneo, Greater Sunda Island rivers). Type locality: Kapuas River near Sebruang, Borneo, Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>pH 6.0–7.0. Temperature 20–25°C (68–77°F). Best kept in a well-oxygenated tank, preferably with a slight current.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Plenty of driftwood for the fish to hide in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Readily feeds on most foods, but live or frozen food is preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Ideal tankmates include mid-sized cyprinids (e.g. larger Puntius, Labiobarbus) and Asian catfishes (e.g. Ompok).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Male Breitensteinia possess a short genital papilla immediately behind the anus. The pelvic fins of the female are also more closely set.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Breitensteinia is a genus of akysid catfish lacking an adipose fin but having a long low adipose ridge, a very long and slender caudal peduncle, with gill openings not extending above the base of the pectoral spine, 11–12 principal caudal-fin rays and 42–45 vertebrae.</p><p>Like other akysids and unusually among catfish, they have a low principal caudal fin ray count and more rays in the upper caudal fin lobe than the lower. They have an elongate body, reflected by their high number of vertebrae, which is eight to twelve more than in other akysid species.</p><p>The evenly-spotted paired fins and the slightly larger eye distinguish this species from B. insignis.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1000",
+      "html": "<p>Journal of Fish Biology v. 53 (no. 3), pp 647, Figs. 1, 4b, 5b.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác tạo dòng chảy nhẹ",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "lũa trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

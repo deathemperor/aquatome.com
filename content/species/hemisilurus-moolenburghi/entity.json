@@ -1,0 +1,98 @@
+{
+  "id": "hemisilurus-moolenburghi",
+  "scientificName": "Hemisilurus moolenburghi",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Hemisilurus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "batang-hari",
+    "malaysia",
+    "borneo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<ul><li>Scientific name: Hemisilurus moolenburghi Weber &amp; de Beaufort, 1913</li><li>Family: Siluridae</li><li>Maximum size: 500 mm (19.7 in) SL</li><li>IUCN Red List: Data Deficient (last assessed 2019)</li><li>Etymology: from the Greek hemi- meaning half and Silurus, the word for catfish. Named after P. H. Moolenburgh, who collected the fish.</li><li>Identification: diagnosed by its distinctive barbel morphology, especially in the females.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<p>Asia: Sumatra and western Borneo. Type locality: Batang Hari River, Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<ul><li>pH: 6.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<p>Females are deeper bodied and have longer maxillary barbels (reaching just to the opercle) with feathery extensions at the tip. Males are more slender, have shorter, simple maxillary barbels (not reaching the opercle), and prominent serrations on the posterior edge of the pectoral spine.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
+      "html": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 500 lít",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}
