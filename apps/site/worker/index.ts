@@ -8,6 +8,7 @@ import { isBot, resolveSkin, skinCookie } from './assign'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
+import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
 import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
@@ -51,9 +52,10 @@ async function events(req: Request, env: Env): Promise<Response> {
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
+  if (/(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')) return new Response(null, { status: 204 }) // the owner's own visits
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e || e.s !== (skinCookie(req) ?? 'mix')) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(e))
+  env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
   return new Response(null, { status: 204 })
 }
 
@@ -151,7 +153,8 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true)), { headers })
+    const readers = env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? await queryReaders(env.CF_ACCOUNT_ID, env.AE_API_TOKEN).catch(e => (console.error('readers:', e), undefined)) : undefined
+    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true), readers), { headers })
   }
 
   // HTML is personalised: never let the browser revalidate it against the shared static ETag.
