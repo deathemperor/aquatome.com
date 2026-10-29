@@ -32,7 +32,15 @@ pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
 pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
 
-if [ -z "$(git status --porcelain -- content sources)" ]; then log "no content changes"; exit 0; fi
+if [ -z "$(git status --porcelain -- content sources)" ]; then
+  # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.
+  HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/thuysinh/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
+  HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
+  if [ -n "$HIDDEN_JSON" ] && [ "$HIDDEN_NOW" != "$(cat "$HOME/.config/thuysinh/hidden-deployed" 2>/dev/null)" ]; then
+    log "hidden pages changed — redeploying"; CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; exit 0
+  fi
+  log "no content changes"; exit 0
+fi
 # Real content must build (the test suite builds fixtures), then the suite must pass.
 if ! { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
   log "build/tests failed, not publishing (see /tmp/thuysinh-engine-test.log)"; exit 1

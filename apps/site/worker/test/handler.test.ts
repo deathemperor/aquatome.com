@@ -167,3 +167,32 @@ test('agent discovery: API catalog as linkset+json; homepage redirect and /vi/ c
   expect((await handle(get('/vi/'), e, stringRewrite)).headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/vi/ca/'), e, stringRewrite)).headers.get('link')).toBeNull()
 })
+
+test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide brings it back', async () => {
+  const store = new Map<string, string>()
+  const AB = { get: async (k: string, o?: { type?: string } | string) => { const v = store.get(k); return v === undefined ? (k === 'hidden' ? null : { mix: 0, a: 0, b: 1, c: 0 }) : (o === 'json' || (typeof o === 'object' && o?.type === 'json')) ? JSON.parse(v) : v }, put: async (k: string, v: string) => { store.set(k, v) } }
+  const { e } = env({ AB: AB as unknown as KVNamespace })
+  const form = (fields: Record<string, string>, cookie = 'ab_token=tok') =>
+    new Request('https://x.test/_ab/hidden', { method: 'POST', body: new URLSearchParams(fields), headers: { cookie, 'content-type': 'application/x-www-form-urlencoded' } })
+
+  expect((await handle(form({ url: '/vi/ca/x/', action: 'hide' }, ''), e)).status).toBe(404) // no cookie
+  expect((await handle(form({ url: 'https://x.test/go/shopee/', action: 'hide' }), e)).status).toBe(400)
+  expect((await handle(form({ url: 'https://x.test/vi/', action: 'hide' }), e)).status).toBe(400)
+  const ok = await handle(form({ url: 'https://aquatome.com/vi/ca/x/', note: 'sai ảnh', action: 'hide' }), e)
+  expect(ok.status).toBe(303)
+  expect(JSON.parse(store.get('hidden')!)['/vi/ca/x/']).toMatchObject({ note: 'sai ảnh' })
+
+  for (const [path, headers] of [['/vi/ca/x/', browser], ['/vi/ca/x/', { accept: 'text/markdown' }], ['/vi/ca/x/index.md', browser], ['/vi/ca/x', browser]] as const) {
+    const r = await handle(get(path, headers), e, stringRewrite)
+    expect(r.status, path).toBe(410)
+    expect(r.headers.get('x-robots-tag')).toContain('noindex')
+  }
+  expect((await handle(get('/vi/ca/y/'), e, stringRewrite)).status).toBe(200)
+
+  const list = await handle(new Request('https://x.test/_ab/hidden.json', { headers: { authorization: 'Bearer tok' } }), e)
+  expect(Object.keys(await list.json() as object)).toEqual(['/vi/ca/x/'])
+  expect((await handle(new Request('https://x.test/_ab/hidden.json'), e)).status).toBe(404)
+
+  await handle(form({ url: '/vi/ca/x/', action: 'unhide' }), e)
+  expect((await handle(get('/vi/ca/x/'), e, stringRewrite)).status).toBe(200)
+})

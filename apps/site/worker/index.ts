@@ -8,6 +8,7 @@ import { isBot, resolveSkin, skinCookie } from './assign'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
+import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
 import { prefersMarkdown } from './markdown'
 import { EQUAL, type Weights } from './skins'
 import { queryStats } from './stats'
@@ -98,6 +99,11 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
+  // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike, within a minute of hiding.
+  if (url.pathname.startsWith('/vi/')) {
+    const p = pagePath(url.pathname)
+    if (p && (await loadHidden(env.AB).catch(() => ({})) as Record<string, unknown>)[p]) return finish(gonePage(), env) // KV down: serve the page
+  }
   // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no skin, no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
   if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
@@ -118,6 +124,17 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
   if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname.startsWith('/_c/admin/')) return commentsAdmin(req, url, env)
+  if (url.pathname === '/_ab/hidden' && req.method === 'POST') {
+    if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
+    const err = await updateHidden(env.AB, await req.formData(), new Date())
+    if (err) return new Response(err, { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8' } })
+    return new Response(null, { status: 303, headers: { location: '/_ab/#an-trang', 'cache-control': 'no-store' } })
+  }
+  if (url.pathname === '/_ab/hidden.json' && req.method === 'GET') {
+    // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
+    if (!bearerOk(req, env) && !authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
+    return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
+  }
   if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
     const auth = authorise(req, env.AB_DASH_TOKEN)
     if (!auth.ok) return finish(new Response('Not found', { status: 404 }), env)
@@ -126,7 +143,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     const snap = await env.AB.get<Snapshot>('ab:stats', 'json')
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff), { headers })
+    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true)), { headers })
   }
 
   // HTML is personalised: never let the browser revalidate it against the shared static ETag.
