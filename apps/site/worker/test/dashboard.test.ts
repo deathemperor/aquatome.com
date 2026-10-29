@@ -30,3 +30,12 @@ test('dashboard affiliate section summarises clicks and catalog health', async (
   expect(html).toContain('Affiliate · 14 ngày')
   expect(html).toContain('species:x')
 })
+
+test('dashboard: hide form and the hidden list with an unhide button per page', () => {
+  const html = renderDashboard(null, 2000, undefined, { '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
+  expect(html).toContain('action="/_ab/hidden"')
+  expect(html).toContain('value="hide"')
+  expect(html).toContain('<a href="/vi/ca/x/">/vi/ca/x/</a>')
+  expect(html).toContain('&lt;b&gt;sai&lt;/b&gt;')
+  expect(html).toContain('value="unhide"')
+})
