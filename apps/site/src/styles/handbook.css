@@ -1,6 +1,4 @@
 /* Field-handbook overrides on top of component styles (formerly skin B). :not(#_) (always true, ID-weight) beats Astro's scoped styles. */
-:root:not(#_) .search:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
-:root:not(#_) .g .kind { color: #f0c9a8; }
 :root:not(#_) body { font-size: 1.0625rem; }
 :root:not(#_) .prose, :root:not(#_) .intro { font-family: 'Newsreader Variable', Georgia, serif; font-size: 1.125rem; line-height: 1.65; }
 :root:not(#_) h1, :root:not(#_) h2, :root:not(#_) h3 { font-variation-settings: normal; font-weight: 450; }
@@ -10,37 +8,13 @@
 :root:not(#_) .nav .logo small { color: var(--c-ink-soft); font-style: normal; }
 :root:not(#_) .nav ul a, :root:not(#_) .nav .find { color: var(--c-ink-soft); }
 :root:not(#_) .nav ul a:hover, :root:not(#_) .nav ul a[aria-current] { color: var(--c-ink); box-shadow: inset 0 -1px var(--c-ink); }
-:root:not(#_) .home-hero { background: var(--c-paper); color: var(--c-ink); min-height: 0; display: block; border-bottom: 1px solid var(--c-rule); }
-:root:not(#_) .home-hero::after { content: none; }
-:root:not(#_) .hero-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 0 var(--space-7); padding-block: var(--space-7); }
-:root:not(#_) .hero-copy::after { content: ''; grid-column: 2; grid-row: 1 / span 5; min-height: 320px; background: #fff var(--hero) center / cover; border: 10px solid #fff; box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
-:root:not(#_) .hero-copy > * { grid-column: 1; }
-:root:not(#_) .home-hero h1 { color: var(--c-ink); font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.4rem); }
-:root:not(#_) .hero-copy > p { color: var(--c-ink-soft); }
 :root:not(#_) .units { color: var(--c-ink-soft); border-color: var(--c-rule); }
-:root:not(#_) .match label { color: var(--c-ink-soft); }
-:root:not(#_) .search { background: var(--c-plate); border: 1px solid var(--c-ink); border-radius: 0; }
-:root:not(#_) .search input { color: var(--c-ink); }
-:root:not(#_) .search input::placeholder { color: var(--c-ink-faint); }
-:root:not(#_) .search button { background: var(--c-ink); color: var(--c-paper); border-radius: 0; }
-:root:not(#_) .quick a { color: var(--c-ink-soft); border-color: var(--c-rule); border-radius: 0; }
-:root:not(#_) .quick a:hover { color: var(--c-ink); border-color: var(--c-ink); }
-:root:not(#_) .match { background: var(--c-plate); border-bottom: 1px solid var(--c-rule); color: var(--c-ink); }
-:root:not(#_) .match h2, :root:not(#_) .match label span { color: var(--c-ink); }
-:root:not(#_) .match input { background: #fff; color: var(--c-ink); border-color: var(--c-ink-soft); border-radius: 0; }
-:root:not(#_) .match button { background: var(--c-ink); color: var(--c-paper); border-radius: 0; }
 :root:not(#_) main .head { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); }
 :root:not(#_) .body h2 { border-bottom: 1px solid var(--c-rule); padding-bottom: var(--space-2); }
 :root:not(#_) .plate { padding: 6px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.1); }
 :root:not(#_) .sc h3, :root:not(#_) .pc h3 { font-weight: 500; }
-:root:not(#_) .guides { background: var(--c-paper); border-top: 1px solid var(--c-rule); }
-:root:not(#_) .g { border: 8px solid #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); }
 :root:not(#_) .card { background: var(--c-plate); border-color: var(--c-ink); }
 :root:not(#_) .card dd { font-family: var(--f-display); font-size: var(--step-2); }
 :root:not(#_) .videos { background: #24302a; }
 :root:not(#_) .foot { background: #24302a; }
 :root:not(#_) ::selection { background: #e8d5b5; color: var(--c-ink); }
-@media (max-width: 760px) {
-  :root:not(#_) .hero-copy { grid-template-columns: 1fr; }
-  :root:not(#_) .hero-copy::after { grid-column: 1; grid-row: auto; min-height: 220px; margin-top: var(--space-5); }
-}

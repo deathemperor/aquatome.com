@@ -240,3 +240,13 @@ test('species cards are specimen labels: temperature and pH bars, difficulty in 
   const bar = card.querySelector('.rb i')!.getAttribute('style')!
   expect(bar).toMatch(/left:[\d.]+%;width:[\d.]+%/)
 })
+
+test('home leads with the tank form (to the species filter) and three first steps', () => {
+  const { dom, html } = page('/vi/')
+  const form = dom.querySelector('form#tank')!
+  expect(form.getAttribute('action')).toBe('/vi/ca/')
+  for (const n of ['tankCm', 'tempC', 'ph']) expect(form.querySelector(`input[name="${n}"]`)).toBeTruthy()
+  expect(html.indexOf('id="tank"')).toBeLessThan(html.indexOf('featured-h'))
+  expect(html).toContain("localStorage.setItem(k")
+  expect(dom.querySelector('#fresh-h')).toBeNull() // "Mới trên AquaTome" moved off the home page
+})
