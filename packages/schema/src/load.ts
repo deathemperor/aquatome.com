@@ -2,8 +2,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { ChangelogSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
-import type { ChangelogEntry, DataCardField, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import { ChangelogSchema, EquipmentSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 
@@ -15,6 +15,7 @@ export type Content = {
   guides: Localized<GuideEntity>[]
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
+  equipment: EquipmentGuide[]
   sources: Partial<Record<SourceId, SourceInfo>>
   changelog: ChangelogEntry[]
 }
@@ -80,8 +81,16 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
 
+  const equipDir = join(root, 'equipment')
+  const equipment: EquipmentGuide[] = []
+  for (const f of (await readdir(equipDir).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const e = await readJson(join(equipDir, f), EquipmentSchema)
+    const ok = (p: Photo) => cleanPhotos([p]).length > 0
+    equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
+  }
+
   return {
-    species, plants, guides, changelog,
+    species, plants, guides, changelog, equipment,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

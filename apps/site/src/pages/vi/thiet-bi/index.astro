@@ -1,16 +1,35 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
-import { categories } from '../../../lib/equipment'
+import { categories, speciesUsing } from '../../../lib/equipment'
 import { categoryLabel } from '../../../lib/format'
-const cats = categories(await getContent())
+import { smallSrc } from '../../../lib/img'
+const c = await getContent()
+/** Guides with the most species first; categories without a written guide last. */
+const cats = categories(c)
+  .map(u => ({ u, g: c.equipment.find(x => x.category === u.category), n: speciesUsing(c, u.category).length }))
+  .sort((a, b) => Number(!!b.g) - Number(!!a.g) || b.n - a.n)
 ---
-<Browse title="Thiết bị" heading="Thiết bị" intro="Bể, lọc, đèn, phân nền, thức ăn và cây, gợi ý theo từng loài.">
-  <ul class="cats">{cats.map(c => <li><a href={`/vi/thiet-bi/${c.category}/`}>{categoryLabel(c.category)}</a><span>{c.keywords.length} gợi ý</span></li>)}</ul>
+<Browse title="Thiết bị bể cá: chọn lọc, đèn, sưởi, nền, thức ăn" heading="Thiết bị" intro="Mỗi loại thiết bị: các kiểu nên mua, cách chọn theo cỡ bể và loài cá, lỗi người mới hay mắc, và những loài cần đến nó.">
+  <div class="cats">
+    {cats.map(({ u, g, n }) => (
+      <a class="cat" href={`/vi/thiet-bi/${u.category}/`}>
+        <div class="img">{g && <img src={smallSrc(g.hero)} width={g.hero.width} height={g.hero.height} alt="" loading="lazy" />}</div>
+        <h2>{g?.name ?? categoryLabel(u.category)}</h2>
+        {g && <p class="lead">{g.lead}</p>}
+        {g && <p class="types">{g.types.map(t => t.name).join(' · ')}</p>}
+        <p class="n">{u.category === 'cay-thuy-sinh' ? `${c.plants.length} loài cây` : u.category === 'co2' ? `${c.plants.filter(p => p.co2 !== 'none').length} loài cây cần` : `${n} loài cá cần`}</p>
+      </a>
+    ))}
+  </div>
 </Browse>
 <style>
-  .cats { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
-  .cats li { background: var(--c-plate); border: 1px solid var(--c-rule); border-radius: var(--radius-media); padding: var(--space-4); }
-  .cats a { display: block; font: 400 var(--step-1) var(--f-display); }
-  .cats span { font-size: 0.8rem; color: var(--c-ink-faint); }
+  .cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-7) var(--space-5); }
+  .cat { display: block; text-decoration: none; color: inherit; }
+  .img img, .img:empty { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-media); background: var(--c-plate); }
+  h2 { font: 400 var(--step-2) var(--f-display); margin: var(--space-3) 0 var(--space-2); }
+  .cat:hover h2 { color: var(--c-moss); }
+  .lead { margin: 0 0 var(--space-2); color: var(--c-ink-soft); }
+  .types { font-size: 0.85rem; margin: 0 0 var(--space-1); }
+  .n { font-size: 0.8rem; color: var(--c-ink-faint); margin: 0; }
 </style>

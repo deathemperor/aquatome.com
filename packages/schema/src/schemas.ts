@@ -37,6 +37,14 @@ export const GuideSchema = z.object({
 export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
 export const PlaceSchema = z.object({ id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional() })
 
+/** AquaTome's own buying guide for one equipment category (content/equipment/<category>.json, Vietnamese). */
+export const EquipmentSchema = z.object({
+  category: z.string(), name: z.string(), lead: z.string(), intro: z.string(), hero: Photo,
+  /** `match`: a regex over the shop keywords species pages suggest; the first type that matches a keyword owns it. `buy`: the search to send shoppers to. */
+  types: z.array(z.object({ id: z.string(), name: z.string(), match: z.string(), desc: z.string(), pick: z.string(), buy: z.string(), photo: Photo.optional() })),
+  choose: z.array(z.string()), mistakes: z.array(z.string()), faq: z.array(z.object({ q: z.string(), a: z.string() })),
+})
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),

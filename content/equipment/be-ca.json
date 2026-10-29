@@ -1,0 +1,83 @@
+{
+ "category": "be-ca",
+ "name": "Bể cá",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/9c17b7436f13c8db.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/9c17b7436f13c8db-480.webp",
+  "width": 1024,
+  "height": 683,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank",
+  "caption": "5 Steps to a Better 10 Gallon Fish Tank - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Bể càng lớn nước càng ổn định. Chọn bể theo kích thước cá trưởng thành, không theo cỡ cá lúc mua.",
+ "intro": "<p>Nước trong bể nhỏ thay đổi nhanh: nhiệt độ, amoniac, pH đều dao động mạnh khi cho ăn dư hoặc mất điện. Vì vậy người mới thường dễ nuôi bể 60 cm hơn bể mini 20 lít.</p><p>Mỗi trang loài trên AquaTome ghi kích thước bể tối thiểu. Chiều dài bể quan trọng với cá bơi nhanh (cá danio, cá tetra), chiều cao với cá thân cao (cá thần tiên), diện tích đáy với cá đáy (cá chạch, cá chuột).</p>",
+ "types": [
+  {
+   "id": "nano",
+   "name": "Bể mini, bể nano (dưới 40 lít)",
+   "match": "mini|nano|nhỏ|30cm|40 lít|betta|20|25|lùn",
+   "buy": "bể cá mini",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+    "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Bể 20–40 lít để bàn làm việc. Hợp betta, tép, cá rasbora lùn và các đàn cá rất nhỏ.",
+   "pick": "Tối thiểu 20 lít cho betta. Bể nhỏ cần sưởi có chỉnh nhiệt và thay nước đều hơn."
+  },
+  {
+   "id": "lon",
+   "name": "Bể lớn (90 cm trở lên)",
+   "match": "lớn|80|90|100|120|150|180|200|240|300|hồ",
+   "buy": "bể cá 120cm",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Aquarium3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "width": 960,
+    "height": 581,
+    "licence": "CC BY-SA 3.0",
+    "author": "Neale_Monks (talk) (Uploads)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium3.jpg",
+    "caption": "A freshwater aquarium."
+   },
+   "desc": "Bể 200 lít trở lên cho cá lớn, đàn cá đông, cichlid, cá suối cần chiều dài để bơi.",
+   "pick": "Kiểm tra sàn và tủ: bể 120 cm nặng trên 300 kg khi đầy. Kính từ 10 mm, nên có viền hoặc giằng."
+  },
+  {
+   "id": "chuan",
+   "name": "Bể 45–60 cm (40–100 lít)",
+   "match": "45|50|60|70",
+   "buy": "bể cá 60cm",
+   "desc": "Cỡ phổ biến nhất cho người mới: đủ ổn định, đủ chỗ cho một đàn cá nhỏ và vài cá đáy.",
+   "pick": "Bể 60 × 30 × 36 cm khoảng 54–65 lít. Đủ cho một đàn 10–12 cá nhỏ cỡ cá neon."
+  }
+ ],
+ "choose": [
+  "Xem \"Bể tối thiểu\" trên trang từng loài và chọn theo loài lớn nhất bạn định nuôi.",
+  "Cá bơi nhanh và đàn đông: ưu tiên chiều dài. Cá đáy: ưu tiên diện tích đáy.",
+  "Tính thêm chỗ cho lọc, sưởi và tủ chắc chắn, đặt bể tránh nắng trực tiếp."
+ ],
+ "mistakes": [
+  "Mua bể nhỏ cho cá con \"để lớn rồi đổi\": nhiều loài lớn rất nhanh.",
+  "Đặt bể lên tủ không chịu lực hoặc mặt sàn không phẳng.",
+  "Thả cá ngay ngày đầu: bể mới cần chạy lọc 3–6 tuần."
+ ],
+ "faq": [
+  {
+   "q": "Người mới nên mua bể bao nhiêu?",
+   "a": "Bể 60 cm (khoảng 60 lít) là cỡ dễ nuôi nhất: đủ ổn định, giá thiết bị vừa phải."
+  },
+  {
+   "q": "Bể 60 cm nuôi được bao nhiêu cá?",
+   "a": "Khoảng 10–15 cá nhỏ (dưới 4 cm) cộng vài cá đáy, tùy loài và lọc. Xem kích thước bể tối thiểu trên trang từng loài."
+  }
+ ]
+}

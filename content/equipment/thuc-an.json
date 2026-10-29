@@ -1,0 +1,111 @@
+{
+ "category": "thuc-an",
+ "name": "Thức ăn",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/b39b5775d006a155.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/b39b5775d006a155-480.webp",
+  "width": 1024,
+  "height": 1024,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/5-high-quality-fish-foods",
+  "caption": "Xtreme Nano Pellets - Aquarium Co - Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Thức ăn đa dạng cho cá màu đẹp và khỏe. Kết hợp thức ăn khô với đồ đông lạnh hoặc sống vài lần mỗi tuần.",
+ "intro": "<p>Không loài cá nào nên ăn một loại thức ăn duy nhất. Cám viên chất lượng là nền; artemia, trùn chỉ, bo bo đông lạnh hoặc sống bổ sung đạm và kích thích cá ăn mồi, sinh sản.</p><p>Chọn cỡ thức ăn vừa miệng cá và đúng tầng: cám nổi cho cá tầng mặt, viên chìm cho cá tầng đáy như cá chuột, cá chạch, cá lau kính. Cá ăn tảo cần thêm thức ăn thực vật.</p>",
+ "types": [
+  {
+   "id": "dong-lanh",
+   "name": "Thức ăn đông lạnh",
+   "match": "đông lạnh",
+   "buy": "artemia đông lạnh",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Tubifex01.jpg/960px-Tubifex01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 639,
+    "licence": "CC BY 3.0",
+    "author": "Matthias Tilly",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tubifex01.jpg",
+    "caption": "Tubifex in fishtank-ground"
+   },
+   "desc": "Trùn chỉ, artemia, bo bo, lăng quăng cấp đông. Giàu đạm, sạch mầm bệnh hơn đồ sống, để được lâu.",
+   "pick": "Rã đông trong một ít nước bể, chắt nước trước khi cho ăn. Cho 2–3 lần mỗi tuần."
+  },
+  {
+   "id": "gel",
+   "name": "Thức ăn gel, rau củ",
+   "match": "gel|repashy|rau|dưa|bí|tảo|spirulina",
+   "buy": "thức ăn spirulina cho cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/0b5103884470c793.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/0b5103884470c793-480.webp",
+    "width": 1024,
+    "height": 1024,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/10-best-aquarium-fish-for-beginners",
+    "caption": "Repashy Super Gold - Aquarium Co - Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Bột gel tự pha, viên tảo spirulina, rau luộc như dưa leo, bí. Cho cá lau kính, cá ăn tảo, tép và cá ăn tạp.",
+   "pick": "Rau thả buổi tối, vớt sau 12–24 giờ để không làm bẩn nước."
+  },
+  {
+   "id": "song",
+   "name": "Thức ăn sống",
+   "match": "sống|artemia|trùn|daphnia|bo bo|giun|lăng quăng",
+   "buy": "trứng artemia",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Live_brine_shrimp.jpg/960px-Live_brine_shrimp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "CC BY 2.0",
+    "author": "Saul Dolgin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_brine_shrimp.jpg",
+    "caption": "Original description: live brine shrimp which will be fed to my tropical fish"
+   },
+   "desc": "Artemia nở từ trứng, bo bo, trùn chỉ, giun. Kích thích cá kén ăn và cá chuẩn bị sinh sản.",
+   "pick": "Tự nở artemia là nguồn sống sạch nhất cho cá bột. Mua trùn chỉ sống thì xả nước sạch nhiều lần trước khi cho ăn."
+  },
+  {
+   "id": "kho",
+   "name": "Thức ăn khô (cám, mảnh, viên chìm)",
+   "match": "viên|mảnh|khô|cám|chìm|thức ăn",
+   "buy": "cám cá cảnh",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/6dab6bb1833c215f.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/6dab6bb1833c215f-480.webp",
+    "width": 1024,
+    "height": 1024,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/10-best-aquarium-fish-for-beginners",
+    "caption": "Hikari Sinking Wafers - Aquarium Co - Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Cám viên nổi, viên chậm chìm, thức ăn mảnh và viên chìm cho cá đáy. Tiện, đủ chất, để lâu.",
+   "pick": "Chọn cỡ hạt nhỏ hơn mắt cá. Cá đáy cần viên chìm cho ăn sau khi tắt đèn."
+  }
+ ],
+ "choose": [
+  "Cho ăn lượng cá ăn hết trong 2 phút, 1–2 lần mỗi ngày. Bỏ đói một ngày mỗi tuần không sao.",
+  "Cá đáy, cá ăn đêm: thả viên chìm sau khi tắt đèn để cá tầng giữa không tranh mất.",
+  "Cá bột: artemia mới nở, bột lòng đỏ hoặc thức ăn bột chuyên dụng, cho ăn ít nhưng nhiều lần."
+ ],
+ "mistakes": [
+  "Cho ăn quá nhiều: thức ăn thừa thối rữa, amoniac tăng, nước đục.",
+  "Chỉ cho ăn một loại cám suốt nhiều năm.",
+  "Cho ăn trùn chỉ sống chưa xử lý: dễ mang mầm bệnh vào bể."
+ ],
+ "faq": [
+  {
+   "q": "Cá cảnh một ngày cho ăn mấy lần?",
+   "a": "Cá trưởng thành 1–2 lần; cá con 3–4 lần, mỗi lần ít. Đi vắng 2–3 ngày thì cá khỏe mạnh nhịn được."
+  },
+  {
+   "q": "Thức ăn đông lạnh có tốt hơn đồ sống?",
+   "a": "An toàn hơn về mầm bệnh và tiện hơn. Đồ sống kích thích bản năng săn mồi, tốt cho cá kén ăn và cá sắp đẻ."
+  }
+ ]
+}

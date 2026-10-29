@@ -1,0 +1,107 @@
+{
+ "category": "phan-nen",
+ "name": "Nền và lá",
+ "hero": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aquarium_gravel.jpg/960px-Aquarium_gravel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 960,
+  "height": 574,
+  "licence": "CC BY 3.0",
+  "author": "Green Yoshi",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+  "caption": "Gravel at the bottom of an aquarium."
+ },
+ "lead": "Nền đáy là nơi cá đáy kiếm ăn, cây cắm rễ và vi sinh sinh sống. Chọn theo loài cá và loại cây.",
+ "intro": "<p>Cá chạch, cá chuột (corydoras) và nhiều cá đáy dùng râu, miệng sục tìm thức ăn trong nền; sỏi sắc làm chúng trầy râu và nhiễm trùng. Những loài này cần cát mịn, hạt tròn.</p><p>Bể thủy sinh cần nền dinh dưỡng (phân nền) hoặc nền trơ kèm phân viên nhét gốc. Lá bàng khô thả đáy làm nước ngả màu trà, hơi chua, giống suối rừng nơi cá betta, cá rasbora sinh sống.</p>",
+ "types": [
+  {
+   "id": "la",
+   "name": "Lá bàng khô và lá rụng",
+   "match": "lá",
+   "buy": "lá bàng khô",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Starr-080607-7241-Terminalia_catappa-leaves-Medical_clinic_Sand_Island-Midway_Atoll_%2824287654284%29.jpg/960px-Starr-080607-7241-Terminalia_catappa-leaves-Medical_clinic_Sand_Island-Midway_Atoll_%2824287654284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "CC BY 3.0 us",
+    "author": "Forest and Kim Starr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-080607-7241-Terminalia_catappa-leaves-Medical_clinic_Sand_Island-Midway_Atoll_(24287654284).jpg",
+    "caption": "Terminalia catappa (False kamani, tropical almond) Leaves at Medical clinic Sand Island, Midway Atoll, Hawaii. June 07, 2008 #080607-7241 Image Use Policy"
+   },
+   "desc": "Lá bàng (Terminalia catappa) tiết tannin làm nước màu trà, hơi chua và có tính kháng khuẩn nhẹ. Lá mục còn là nơi trú và thức ăn vi sinh cho tép, cá con.",
+   "pick": "1–2 lá cho mỗi 40 lít. Ngâm hoặc trụng nước sôi trước để lá chìm và sạch."
+  },
+  {
+   "id": "cat",
+   "name": "Cát mịn",
+   "match": "cát",
+   "buy": "cát mịn bể cá",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Horseface_loach_under_aquarium_gravel.jpg/960px-Horseface_loach_under_aquarium_gravel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "CC BY-SA 3.0",
+    "author": "Ahmed1251985",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horseface_loach_under_aquarium_gravel.jpg",
+    "caption": "this image shows a horseface loach under aquarium gravel"
+   },
+   "desc": "Cát sông hoặc cát thạch anh hạt tròn 0,5–1 mm. An toàn cho cá đáy đào bới và cá chạch vùi mình.",
+   "pick": "Rửa đến khi nước trong. Lớp 3–5 cm; dày hơn dễ tạo túi yếm khí."
+  },
+  {
+   "id": "phan",
+   "name": "Phân nền thủy sinh",
+   "match": "phân|đất|soil|nền thủy sinh|nền dinh dưỡng",
+   "buy": "phân nền thủy sinh",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/ef2977259b0ade68.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/ef2977259b0ade68-480.webp",
+    "width": 1024,
+    "height": 1024,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-get-started-with-aquarium-plants",
+    "caption": "Easy Root Tabs - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Đất nung (aqua soil) giàu dinh dưỡng, giữ pH hơi chua, cho cây thủy sinh có rễ phát triển. Hoặc phân viên nhét gốc cho nền trơ.",
+   "pick": "Lớp 5–8 cm ở hậu cảnh, mỏng dần ra tiền cảnh. Thay sau 1–2 năm khi cạn dinh dưỡng."
+  },
+  {
+   "id": "soi",
+   "name": "Sỏi và đá",
+   "match": "sỏi|đá|nền",
+   "buy": "sỏi nền bể cá",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aquarium_gravel.jpg/960px-Aquarium_gravel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 574,
+    "licence": "CC BY 3.0",
+    "author": "Green Yoshi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+    "caption": "Gravel at the bottom of an aquarium."
+   },
+   "desc": "Sỏi tròn, đá cuội cho bể suối, bể cichlid và cá không đào bới. Dễ hút cặn, không bị hút vào lọc.",
+   "pick": "Tránh sỏi cạnh sắc cho cá đáy. Đá vôi, san hô vụn làm nước cứng và kiềm: chỉ hợp cichlid hồ châu Phi."
+  }
+ ],
+ "choose": [
+  "Có cá chạch, cá chuột, cá đáy đào bới: chọn cát mịn hạt tròn.",
+  "Bể thủy sinh trồng cây rễ (ráy, cây kiếm, cỏ): phân nền hoặc nền trơ kèm phân viên.",
+  "Cá thích nước mềm, chua: thêm lá bàng và tránh đá vôi."
+ ],
+ "mistakes": [
+  "Không rửa cát: bể đục trắng nhiều ngày.",
+  "Dùng sỏi sắc cho cá chuột, cá chạch: trầy râu, nhiễm trùng.",
+  "Hút cặn quá sâu vào phân nền: làm vỡ hạt và đục bể."
+ ],
+ "faq": [
+  {
+   "q": "Lá bàng có làm hại cá không?",
+   "a": "Không, nếu dùng vừa phải. Nước màu trà là bình thường; thay nước hoặc thêm than hoạt tính nếu muốn trong hơn."
+  },
+  {
+   "q": "Cát hay sỏi tốt hơn?",
+   "a": "Cát cho cá đáy đào bới, sỏi tròn cho bể suối và cá lớn. Bể thủy sinh dùng phân nền."
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "category": "cay-thuy-sinh",
+ "name": "Cây thủy sinh",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+  "width": 1000,
+  "height": 667,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+  "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Cây sống hút bớt nitrat, che chắn cho cá nhát và cá con. Nhiều loài dễ trồng không cần đèn mạnh hay CO2.",
+ "intro": "<p>Cây thủy sinh cạnh tranh dinh dưỡng với rêu hại, cho tép và cá con chỗ trốn và bề mặt để kiếm ăn. Với bể cá không chuyên trồng cây, nhóm cây gắn lũa (rêu, dương xỉ, anubias, bucephalandra) và cây nổi là dễ nhất: không cần nền dinh dưỡng, sống với đèn dịu.</p><p>Xem từng loài cây trong mục <a href=\"/vi/cay/\">Cây thủy sinh</a> để biết ánh sáng, CO2 và cách trồng.</p>",
+ "types": [
+  {
+   "id": "reu",
+   "name": "Rêu",
+   "match": "rêu|marimo|moss",
+   "buy": "rêu java",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+    "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Rêu java, rêu Đài Loan, tảo cầu marimo. Buộc lên đá, lũa; là nơi tép kiếm ăn và cá đẻ trứng.",
+   "pick": "Đèn dịu, không cần CO2. Tỉa định kỳ để phần dưới không bị thối."
+  },
+  {
+   "id": "gan-lua",
+   "name": "Cây gắn lũa",
+   "match": "buce|anubias|dương xỉ|bolbitis|gắn|lũa|keo",
+   "buy": "cây thủy sinh gắn lũa",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
+    "caption": "Java Fern (Microsorum pteropus) an Easy Aquatic Plant. - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Dương xỉ java, anubias, bucephalandra, bolbitis. Thân rễ bám lên đá, lũa; không chôn xuống nền.",
+   "pick": "Buộc chỉ hoặc dán keo gel thủy sinh. Mọc chậm, sống lâu, hợp cả với cá hay đào bới."
+  },
+  {
+   "id": "noi",
+   "name": "Cây nổi",
+   "match": "nổi",
+   "buy": "cây thủy sinh nổi",
+   "desc": "Bèo, rau má nước, rong đuôi chó thả nổi. Hút nitrat nhanh, làm dịu ánh sáng cho cá thích râm.",
+   "pick": "Giữ phủ khoảng một nửa mặt nước để cây dưới vẫn có ánh sáng."
+  },
+  {
+   "id": "trong-nen",
+   "name": "Cây trồng nền",
+   "match": "cây|rong|cỏ|vallisneria|cabomba|ceratophyllum|limnophila|sen|kiếm|xương bồ|alternanthera",
+   "buy": "cây thủy sinh dễ trồng",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+    "caption": "Vallisneria – The One Plant Wonder - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Cỏ lươn (vallisneria), cây kiếm, rong đuôi chó, cây thân đứng. Cần nền có dinh dưỡng hoặc phân viên nhét gốc.",
+   "pick": "Bắt đầu với cỏ lươn và rong đuôi chó: mọc nhanh, chịu đèn yếu."
+  }
+ ],
+ "choose": [
+  "Bể không chuyên cây: rêu, dương xỉ, anubias và cây nổi, không cần CO2.",
+  "Cá ăn cây (cá vàng, cá rô phi, nhiều cichlid): chọn anubias và dương xỉ vì lá dai, đắng.",
+  "Muốn cây đỏ, thảm tiền cảnh: chuẩn bị đèn mạnh, phân nền và CO2."
+ ],
+ "mistakes": [
+  "Chôn thân rễ anubias, bucephalandra xuống nền: thân thối.",
+  "Thả cây mới không rửa và cách ly: mang ốc và rêu hại vào bể."
+ ],
+ "faq": [
+  {
+   "q": "Cây thủy sinh nào dễ trồng nhất?",
+   "a": "Rêu java, dương xỉ java, anubias, cỏ lươn và rong đuôi chó."
+  },
+  {
+   "q": "Cây thủy sinh có cần CO2 không?",
+   "a": "Nhóm cây dễ thì không. CO2 cần cho bể đèn mạnh, cây đỏ và cây trải thảm."
+  }
+ ]
+}
