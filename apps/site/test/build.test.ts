@@ -14,9 +14,10 @@ describe('species page', () => {
     expect(html).not.toContain('<iframe')
     expect(dom.querySelector('[data-youtube-id]')).not.toBeNull()
   })
-  test('renders sections in Seriously Fish order with credited sub-blocks', () => {
-    const heads = dom.querySelectorAll('section[data-section] > h2').map(h => h.text.trim())
-    expect(heads.indexOf('Môi trường sống')).toBeLessThan(heads.indexOf('Sinh sản'))
+  test('renders sections in reader order with question headings and credited sub-blocks', () => {
+    const keys = dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))
+    expect(keys.indexOf('reproduction')).toBeLessThan(keys.indexOf('habitat'))
+    expect(dom.querySelector('section[data-section="reproduction"] > h2')?.text.trim()).toBe('Sinh sản ra sao?')
     expect(dom.querySelectorAll('section[data-section="reproduction"] [data-source]').length).toBe(2)
   })
   test('product slots are sponsored /go/ links carrying the placement', () => {
@@ -24,6 +25,11 @@ describe('species page', () => {
     expect(a?.getAttribute('rel')).toContain('sponsored')
     expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
     expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn)/)
+  })
+  test('"Nuôi ở Việt Nam" box: heater for the northern winter, convertible temperatures', () => {
+    const box = dom.querySelector('aside.vn')
+    expect(box?.querySelector('li[data-ok="false"]')?.text).toContain('Mùa đông miền Bắc')
+    expect(box?.querySelector('[data-c="16,16"]')).not.toBeNull()
   })
   test('has no broken values', () => {
     expect(html).not.toMatch(/undefined|NaN|\[object Object\]/)

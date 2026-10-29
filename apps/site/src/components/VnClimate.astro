@@ -1,0 +1,34 @@
+---
+import { resolveDataCard, type SpeciesEntity } from '@aq/schema'
+import { vnClimate, VN_WATER } from '../lib/climate'
+interface Props { card: SpeciesEntity['dataCard'] }
+const temp = resolveDataCard(Astro.props.card.tempC ?? [])
+const notes = temp ? vnClimate(temp.value) : []
+const c = (n: number) => `${n}`.replace('.', ',')
+---
+{notes.length > 0 && (
+  <aside class="vn" aria-labelledby="vn-h">
+    <h2 id="vn-h">Nuôi ở Việt Nam</h2>
+    <ul>
+      {notes.map(n => {
+        const parts = n.text.split('{t}')
+        return (
+          <li data-ok={String(n.ok)}>
+            <strong>{n.label}:</strong> {parts.map((p, i) => <>{p}{i < n.temps.length && <span data-c={`${n.temps[i]},${n.temps[i]}`}>{c(n.temps[i]!)}°C</span>}</>)}
+          </li>
+        )
+      })}
+    </ul>
+    <p class="assume">Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng <span data-c={`${VN_WATER.northWinter},${VN_WATER.northWinter}`}>{VN_WATER.northWinter}°C</span>, miền Nam đêm mát tháng 12–1 khoảng <span data-c={`${VN_WATER.southCool},${VN_WATER.southCool}`}>{VN_WATER.southCool}°C</span>, mùa hè tới <span data-c={`${VN_WATER.summer},${VN_WATER.summer}`}>{VN_WATER.summer}°C</span>. Đo nhiệt độ bể của bạn để chắc chắn.</p>
+  </aside>
+)}
+<style>
+  .vn { margin-top: var(--space-5); padding: var(--space-4); border: 1px solid var(--c-rule); border-radius: 10px; background: var(--c-plate); }
+  .vn h2 { font-size: var(--step-1); margin-bottom: var(--space-2); }
+  .vn ul { list-style: none; margin: 0; padding: 0; }
+  .vn li { padding: var(--space-1) 0 var(--space-1) 1.4rem; position: relative; font-size: 0.95rem; }
+  .vn li::before { position: absolute; left: 0; font-weight: 600; }
+  .vn li[data-ok='true']::before { content: '✓'; color: var(--c-moss); }
+  .vn li[data-ok='false']::before { content: '!'; color: var(--c-cardinal); left: 0.3rem; }
+  .assume { font-size: var(--step--1); color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
+</style>
