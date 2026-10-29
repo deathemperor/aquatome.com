@@ -2,19 +2,16 @@ import { upsertProducts } from './affiliate/admin'
 import { runChecks } from './affiliate/check'
 import { parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
-import { allocate } from './allocate'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
-import { isBot, resolveSkin, skinCookie } from './assign'
+import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
-import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, safeEqual, type Snapshot } from './dashboard'
+import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, safeEqual } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
 import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
 import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
-import { EQUAL, type Weights } from './skins'
-import { queryStats } from './stats'
 
 export interface Env {
   ASSETS: Fetcher
@@ -24,7 +21,6 @@ export interface Env {
   STAGING?: string
   /** Production host; any other host (www, the old staging domain) 301s here. */
   CANONICAL_HOST?: string
-  AFFILIATE_CLICK_VALUE_VND?: string
   AB_DASH_TOKEN?: string
   AE_API_TOKEN?: string
   CF_ACCOUNT_ID?: string
@@ -32,9 +28,6 @@ export interface Env {
   DB?: D1Database
 }
 type FullEnv = Env & AffEnv & CommentsEnv
-type Rewrite = (res: Response, skin: string) => Response | Promise<Response>
-
-const htmlRewrite: Rewrite = (res, skin) => new HTMLRewriter().on('html', { element: el => { el.setAttribute('data-skin', skin) } }).transform(res)
 const MAX_EVENT_BYTES = 4096
 
 function finish(res: Response, env: Env, extra: Record<string, string> = {}): Response {
@@ -44,7 +37,7 @@ function finish(res: Response, env: Env, extra: Record<string, string> = {}): Re
   return out
 }
 
-/** Beacon intake: same-origin only, skin must match the visitor's cookie, bots dropped, small bodies only. */
+/** Beacon intake: same-origin only, bots and the owner dropped, small bodies only. */
 async function events(req: Request, env: Env): Promise<Response> {
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   if (Number(req.headers.get('content-length') ?? 0) > MAX_EVENT_BYTES) return new Response(null, { status: 413 })
@@ -54,7 +47,7 @@ async function events(req: Request, env: Env): Promise<Response> {
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
   if (/(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')) return new Response(null, { status: 204 }) // the owner's own visits
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
-  if (!e || e.s !== (skinCookie(req) ?? 'mix')) return new Response(null, { status: 400 })
+  if (!e) return new Response(null, { status: 400 })
   env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
   return new Response(null, { status: 204 })
 }
@@ -100,7 +93,7 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 
 const ADMIN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
 
-export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = htmlRewrite, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
+export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
@@ -110,7 +103,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     const p = pagePath(url.pathname)
     if (p && (await loadHidden(env.AB).catch(() => ({})) as Record<string, unknown>)[p]) return finish(gonePage(), env) // KV down: serve the page
   }
-  // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no skin, no cookie.
+  // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
   if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
     const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
@@ -160,11 +153,10 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
       h.append('set-cookie', OWNER_COOKIE)
       return new Response(null, { status: 303, headers: h })
     }
-    const snap = await env.AB.get<Snapshot>('ab:stats', 'json')
     // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(snap, Number(env.AFFILIATE_CLICK_VALUE_VND ?? 2000), aff, await loadHidden(env.AB, true)), { headers })
+    return new Response(renderDashboard(aff, await loadHidden(env.AB, true)), { headers })
   }
   if (url.pathname === '/_ab/doc-gia' || url.pathname === '/_ab/doc-gia/') {
     if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response(null, { status: 303, headers: { location: '/_ab/', 'cache-control': 'no-store' } })
@@ -172,7 +164,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     return new Response(renderReaders(readers), { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' } })
   }
 
-  // HTML is personalised: never let the browser revalidate it against the shared static ETag.
+  // HTML is never cached by the browser (a hidden page must turn 410 within a minute): no revalidation against the static ETag.
   const plain = new Request(req)
   plain.headers.delete('if-none-match')
   plain.headers.delete('if-modified-since')
@@ -182,13 +174,11 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
-  const weights = async () => (await env.AB.get<Weights>('ab:weights', { type: 'json', cacheTtl: 300 })) ?? EQUAL
-  const { skin, setCookie } = await resolveSkin(req, weights, Math.random())
-  const body = skin === 'mix' ? res : await rewrite(res, skin)
-  const extra: Record<string, string> = { Vary: 'Cookie, Accept' }
-  if (setCookie) extra['Set-Cookie'] = setCookie
+  const extra: Record<string, string> = { Vary: 'Accept' }
+  // The design A/B test is over: clear its cookie from returning visitors.
+  if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
   if (url.pathname === '/vi/') extra.Link = DISCOVERY_LINK
-  const out = finish(body, env, extra)
+  const out = finish(res, env, extra)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')
   out.headers.delete('etag')
   out.headers.delete('last-modified')
@@ -196,18 +186,11 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
 }
 
 export default {
-  fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, htmlRewrite, p => ctx.waitUntil(p)),
+  fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
 
-  /** Daily: A/B allocation, the affiliate checker and the removed-comment purge — independent, so one failing never blocks the other. */
+  /** Daily: the affiliate checker and the removed-comment purge — independent, so one failing never blocks the other. */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
-      (async () => {
-        if (!env.AE_API_TOKEN || !env.CF_ACCOUNT_ID) return
-        const stats = await queryStats(env.CF_ACCOUNT_ID, env.AE_API_TOKEN)
-        const weights = allocate(stats, Math.random)
-        await env.AB.put('ab:weights', JSON.stringify(weights))
-        await env.AB.put('ab:stats', JSON.stringify({ updatedAt: new Date().toISOString(), weights, stats } satisfies Snapshot))
-      })(),
       env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
     ])

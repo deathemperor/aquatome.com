@@ -13,9 +13,9 @@ test('dashboard needs the token', () => {
   expect(safeEqual('abc', 'abd')).toBe(false)
   expect(safeEqual('abc', 'abc')).toBe(true)
 })
-test('dashboard lists all four skins, noindex', () => {
-  const html = renderDashboard(null, 2000)
-  for (const n of ['Mix', 'Đáy sâu', 'Sổ tay', 'Khám phá']) expect(html).toContain(n)
+test('dashboard: no A/B table any more, noindex', () => {
+  const html = renderDashboard()
+  expect(html).not.toContain('Đáy sâu')
   expect(html).toContain('noindex')
 })
 
@@ -26,13 +26,13 @@ test('dashboard affiliate section summarises clicks and catalog health', async (
   await db.prepare("INSERT INTO clicks_daily VALUES ('2026-10-27','shopee','thuc-an','species:x','search',3)").run()
   const a = await affSummary(db, new Date('2026-10-28T00:00:00Z'))
   expect(a.byNetwork).toEqual([{ network: 'shopee', category: 'thuc-an', n: 3 }])
-  const html = renderDashboard(null, 2000, a)
+  const html = renderDashboard(a)
   expect(html).toContain('Affiliate · 14 ngày')
   expect(html).toContain('species:x')
 })
 
 test('dashboard: hide form and the hidden list with an unhide button per page', () => {
-  const html = renderDashboard(null, 2000, undefined, { '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
+  const html = renderDashboard(undefined, { '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
   expect(html).toContain('action="/_ab/hidden"')
   expect(html).toContain('value="hide"')
   expect(html).toContain('<a href="/vi/ca/x/">/vi/ca/x/</a>')
