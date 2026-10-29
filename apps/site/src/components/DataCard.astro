@@ -5,9 +5,20 @@ import RangeBar from './RangeBar.astro'
 import { FIELD_LABELS, FIELD_ORDER, isRange, range } from '../lib/format'
 interface Props { card: SpeciesEntity['dataCard']; sources: Partial<Record<SourceId, SourceInfo>> }
 const { card, sources } = Astro.props
+// Sources disagree: show the range they all accept (the safe target for a beginner), each source's own figure one tap away.
+const agreed = (vals: { value: number | { min: number; max: number } }[]) => {
+  if (vals.length < 2 || !vals.every(v => isRange(v.value))) return null
+  const rs = vals.map(v => v.value as { min: number; max: number })
+  const min = Math.max(...rs.map(r => r.min))
+  const max = Math.min(...rs.map(r => r.max))
+  return min <= max ? { min, max } : null
+}
 const rows = FIELD_ORDER.flatMap(field => {
-  const r = resolveDataCard(card[field] ?? [])
-  return r ? [{ field, ...r }] : []
+  const vals = card[field] ?? []
+  const r = resolveDataCard(vals)
+  if (!r) return []
+  const both = r.conflict ? agreed(vals) : null
+  return [{ field, ...r, value: both ?? r.value, agreed: !!both, bySource: r.conflict ? vals : [] }]
 })
 const names = (ids: SourceId[]) => ids.map(id => sources[id]?.name ?? id).join(', ')
 const unitAttrs = (field: string, v: number | { min: number; max: number }) => {
@@ -27,7 +38,12 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
           ? <><Difficulty value={r.value} /> <span class="n">{r.value}/8</span></>
           : <span class="v" {...unitAttrs(r.field, r.value)}>{range(r.value)}{unit(r.field)}</span>}
         {(r.field === 'tempC' || r.field === 'ph') && isRange(r.value) && <span class="bar"><RangeBar kind={r.field === 'ph' ? 'ph' : 'temp'} min={r.value.min} max={r.value.max} /></span>}
-        {r.conflict && <span class="conflict" title={`Nguồn: ${names(r.sources)}`}>nguồn khác nhau</span>}
+        {r.conflict && (
+          <details class="srcs">
+            <summary>{r.agreed ? 'Mức mọi nguồn cùng khuyên' : 'Mỗi nguồn ghi một mức'}</summary>
+            <ul>{r.bySource.map(v => <li>{names([v.source])}: <span {...unitAttrs(r.field, v.value)}>{range(v.value)}{unit(r.field)}</span></li>)}</ul>
+          </details>
+        )}
       </dd>
     </div>
   ))}
@@ -40,6 +56,12 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
   dd { margin: 0; font: 400 var(--step-1)/1.3 var(--f-display); }
   .bar { display: block; margin-top: var(--space-2); }
   .n { font: 500 var(--step--1) var(--f-body); color: var(--c-ink-soft); }
-  .conflict { display: block; font: 500 0.7rem var(--f-body); color: var(--c-cardinal); margin-top: 2px; }
+  .srcs { font: 400 0.75rem/1.4 var(--f-body); color: var(--c-ink-faint); margin-top: var(--space-1); }
+  .srcs summary { cursor: pointer; list-style: none; text-decoration: underline dotted; text-underline-offset: 3px; }
+  .srcs summary::-webkit-details-marker { display: none; }
+  .srcs summary::after { content: ' ▾'; }
+  .srcs[open] summary::after { content: ' ▴'; }
+  .srcs ul { list-style: none; margin: var(--space-1) 0 0; padding: 0; color: var(--c-ink-soft); }
+  .srcs li span { white-space: nowrap; }
   @media (max-width: 480px) { .card { grid-template-columns: repeat(2, 1fr); } .card > div:nth-child(3n) { border-right: 1px solid var(--c-rule); } .card > div:nth-child(2n) { border-right: 0; } }
 </style>
