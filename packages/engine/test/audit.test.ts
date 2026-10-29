@@ -20,3 +20,14 @@ test('lists pages with no photo, photos without thumbs, and a single photo', asy
   expect(markdown).toContain('## Photos without a card thumbnail (1)\n\n- species/b — Tên b')
   expect(markdown).toContain('## Only one photo (no pictures inside the text) (1)\n\n- guides/g — Tên g')
 })
+
+test('lists species our pages name without a page: queued on a source first, then those no source has', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aw-'))
+  await writeFile(join(root, 'wanted.json'), JSON.stringify({
+    'synodontis-lucipinnis': { name: 'Synodontis lucipinnis', mentions: 2, mentionedIn: ['guides/a', 'guides/b'], onSource: 'https://www.seriouslyfish.com/species/synodontis-lucipinnis/' },
+    'garra-rara': { name: 'Garra rara', mentions: 1, mentionedIn: ['species/x'] },
+  }))
+  const { markdown } = await auditPictures(root, join(root, 'wanted.json'))
+  expect(markdown).toContain('queued on a source (1)\n\n- Synodontis lucipinnis — named on 2 pages (guides/a, guides/b) — queued first: https://www.seriouslyfish.com/species/synodontis-lucipinnis/')
+  expect(markdown).toContain('no source has it (1)\n\n- Garra rara — named on 1 page (species/x)')
+})

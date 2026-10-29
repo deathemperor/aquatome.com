@@ -5,7 +5,7 @@ type Photo = { url: string; thumb?: string }
 export type AuditRow = { page: string; name: string; photos: number; missingThumbs: number }
 
 /** Every species, plant and guide by picture count: none, photos without a card thumb, or one photo (nothing inside the text). */
-export async function auditPictures(contentRoot: string): Promise<{ rows: AuditRow[]; markdown: string }> {
+export async function auditPictures(contentRoot: string, wantedFile?: string): Promise<{ rows: AuditRow[]; markdown: string }> {
   const rows: AuditRow[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
@@ -24,6 +24,27 @@ borrow one from a species or plant they mention on the site.
 
 ${list('No photo', rows.filter(r => !r.photos))}
 ${list('Photos without a card thumbnail', rows.filter(r => r.missingThumbs))}
-${list('Only one photo (no pictures inside the text)', rows.filter(r => r.photos === 1))}`
+${list('Only one photo (no pictures inside the text)', rows.filter(r => r.photos === 1))}${await wantedSection(wantedFile)}`
   return { rows, markdown }
+}
+
+type WantedRow = { name: string; mentions: number; mentionedIn: string[]; onSource?: string }
+
+/** Species our pages name without having a page (written by each engine run, see wanted.ts). */
+async function wantedSection(file?: string): Promise<string> {
+  const raw = file ? await readFile(file, 'utf8').catch(() => null) : null
+  if (!raw) return ''
+  const rows = Object.values(JSON.parse(raw) as Record<string, WantedRow>).sort((a, b) => b.mentions - a.mentions || a.name.localeCompare(b.name))
+  const line = (w: WantedRow) => `- ${w.name} — named on ${w.mentions} page${w.mentions === 1 ? '' : 's'} (${w.mentionedIn.join(', ')}${w.mentions > w.mentionedIn.length ? ', …' : ''})${w.onSource ? ` — queued first: ${w.onSource}` : ''}`
+  const queued = rows.filter(w => w.onSource)
+  const none = rows.filter(w => !w.onSource)
+  return `
+## Named on our pages, no page yet: queued on a source (${queued.length})
+
+${queued.map(line).join('\n') || '- none'}
+
+## Named on our pages, no page yet: no source has it (${none.length})
+
+${none.map(line).join('\n') || '- none'}
+`
 }
