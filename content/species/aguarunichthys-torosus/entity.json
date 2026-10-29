@@ -1,0 +1,112 @@
+{
+  "id": "aguarunichthys-torosus",
+  "scientificName": "Aguarunichthys torosus",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Aguarunichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "maranon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 34.6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<p>The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru. It probably also occurs in some tributaries draining into Peru from Ecuador. Also traded as 'Jello Band' or 'Yellow Band' catfish, it eats fishes small enough to fit in its mouth and is aggressively territorial towards conspecifics, so is best kept singly among larger, ideally fluvial, species.</p><ul><li>Max size: 346 mm SL (14 in SL)</li><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<p>This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.</p><p>Type locality is 'Río Cenepa, Departo. Amazonas, Peru, about 4°28'S, 78°10'W, elevation about 210 meters'.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<p>An obligate predator feeding on other fishes in nature, but quality dried foods are normally accepted in captivity.</p><p>It should also be offered meaty fare such as strips of white fish, live earthworms, shrimp, etc., for optimal health.</p><p>Adult individuals are unlikely to require feeding on a daily basis with 2-3 meals per week sufficient.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<p>This species will eat fishes small enough to fit in its capacious mouth and is aggressively territorial towards conspecifics so is best-maintained as a single specimen in a community of larger, ideally fluvial, species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<p>This species is also traded as 'Jello Band' or 'Yellow Band' catfish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/8ebf6792ae0cd918.webp",
+      "width": 800,
+      "height": 508,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "caption": "Subadult specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/a67f8e2236cdf0ca.webp",
+      "width": 800,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
+      "caption": "Detail of head and anterior portion of body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

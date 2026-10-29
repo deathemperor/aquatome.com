@@ -1,0 +1,107 @@
+{
+  "id": "acrossocheilus-beijiangensis",
+  "scientificName": "Acrossocheilus beijiangensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Acrossocheilus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "bei-jiang",
+    "hong-kong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13.1
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "html": "<p><strong>Acrossocheilus beijiangensis</strong> is a barred cyprinid from Fujian, Guangdong and Guangxi in southern China, plus the islands of Hainan and Hong Kong. With A. clivosius it is one of only two species in the genus always to have five dark vertical bars on each flank. Wild fish feed on small benthic invertebrates and graze biofilm from rocks and other solid surfaces.</p><p>Max size: 131 mm SL (5 in SL). Social: needs to be in a group. Compatibility: fine with others.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "html": "<p>Recorded from Fujian, Guangdong, and Guangxi provinces in southern China, plus the islands of Hainan and Hong Kong.</p><p>Type locality is 'Lian-Xian and Yang-Shan, Guangdong, China', corresponding to the Bei River drainage.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "html": "<p>Wild fish are known to feed on small, benthic invertebrates and graze biofilm from rocks and other solid surfaces.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "html": "<p>The genus Acrossocheilus is restricted to southern China, northern Vietnam and northern Laos. It can be distinguished from related genera by the following combination of characters: rostral fold present; lips fleshy and continuous around corners of mouth; lower lip with a median interruption; mouth inferior; horny sheath on lower jaw; two pairs of barbels; last simple ray of dorsal fin osseous with a serrated or smooth posterior margin.</p><p>Members of the genus are characterised by possessing a particular number of dark vertical bar on each flank, and A. beijiangensis is one of only two species, the other being A. clivosius, to always possess 5 such bars.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "html": "<ul><li>Wu, H-W. and R-D. Lin in: Wu, H.-W., R.-D. Lin, Q.-X. Chen, X.-L. Chen and M.-Q. He (1977). Zhongguo like yulei zhi. [The cyprinid fishes of China] Volume 2. People's Press, Shanghai, i-ii + 229-598</li><li>Lan, Z.-J., B.-P. Chan and J. Zhao (2014). Acrossocheilus multistriatus, a new species of barbine fish (Teleostei: Cyprinidae) from the Zhujiang River basin, south China. Zoological Systematics 39(3), 433-441</li><li>Yuan, L.-Y., Z.-Q. Wu and E. Zhang (2006). Acrossocheilus spinifer, a new species of barred cyprinid from south China (Pisces: Teleostei). Journal of Fish Biology 68 (Supplement B), 163-173</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/f1a019d40204ec39.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "caption": "Subadult individual in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/34c52ba7f1fcf825.webp",
+      "width": 600,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-beijiangensis",
+      "caption": "This species always possesses 5 dark flank bars",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 120cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn",
+        "lọc tràn bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng chìm",
+        "thức ăn cá ăn đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

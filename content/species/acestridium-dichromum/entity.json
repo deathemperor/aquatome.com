@@ -1,0 +1,101 @@
+{
+  "id": "acestridium-dichromum",
+  "scientificName": "Acestridium dichromum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Acestridium",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
+      "html": "<p>The green whiptail, Acestridium dichromum, is a small loricariid catfish from the upper rio Negro in Brazil and the upper Orinoco in Venezuela. It is known only from those two basins and the drainages between them, including the Casiquiare Canal.</p><p>This species is capable of taking on a greenish or brownish colour pattern depending on its surroundings.</p><ul><li>Max size: 65 mm SL (2.6 in SL)</li><li>Difficulty: 3 of 8 (moderate)</li><li>Social: needs to be in a group</li><li>Compatibility: choose tankmates carefully</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
+      "html": "<p>Known only from the upper rio Negro basin in Brazil, upper Orinoco in Venezuela and drainages between them, including the Casiquiare Canal.</p><p>Type locality is 'Pozo Lucas, tributary of Río Orinoco, 7 kilometers south of San Fernando de Atabapo, 4°02'N, 67°42'W, Orinoco Basin, Amazonas State, Venezuela'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
+      "html": "<ul><li>Haseman, J. D. (1911). Descriptions of some new species of fishes and miscellaneous notes on others obtained during the expedition of the Carnegie Museum to central South America. Annals of the Carnegie Museum 7 (3-4; 17), 315-328</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/b06bcbc0a8269a7a.webp",
+      "width": 806,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
+      "caption": "This species is capable of taking on a greenish or brownish (as here) colour pattern depending on its surroundings.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/4335c61f457a7bc8.webp",
+      "width": 800,
+      "height": 413,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
+      "caption": "Detail of head and anterior portion of body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể nhỏ",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn dạng viên chìm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

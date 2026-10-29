@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/aborichthys-elongatus
 title: Aborichthys elongatus (Red-Tailed Squirrel Loach) · Seriously Fish
-fetchedAt: 2026-10-28T16:20:54.015Z
+fetchedAt: 2026-10-28T23:05:38.568Z
 hash: c4d41b0b3ac5b85fd1eba2332169556fcf5d90be4cea1e8c5569ac8009bccd7f
 ---
 

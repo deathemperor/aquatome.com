@@ -1,0 +1,193 @@
+{
+  "id": "channa-orientalis",
+  "scientificName": "Channa orientalis",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "other",
+  "places": [
+    "asia",
+    "sri-lanka",
+    "kottawa-forest"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>Channa orientalis is a dwarf snakehead with an average size of about 10 cm, from south-western Sri Lanka and the Kottawa Forest. Several variants exist, including \"Kottawa Forest A\" and \"Kottawa Forest B\", which are best kept separately.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>They are occasionally available for sale but tend to command prices of £50+.</p><p>Snakeheads are listed as one of the species to be banned from import under European legislation to help stop the spread of Epizootic Ulcerative Syndrome (EUS). If this happens, snakeheads will become very rare in the hobby because most seen for sale in shops are wild caught and only a few people actively breed them. There is no time scale available for the ban at present. In Scotland, all species of snakeheads require a licence to be kept.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The natural habitat of C. orientalis is the slow moving streams and blackwaters of the rainforest. They have been known to survive in quite harsh conditions and, like other members of the genus, are famous for being able to cross areas of damp land in search of new water. They can breathe atmospheric air just like gouramis and Bettas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The author's group was kept in a 60 x 30 x 30 cm tank. The aquarium must be covered; all Channa species can jump out of any gaps.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The tank was decorated with clay pipes, plastic plants and coconut-shell caves, with filtration from an air-operated sponge filter. The local tap water is so soft that the pH can drop quite rapidly. Many Channa species do not like regular partial water changes or water kept too clean. The best method seems to be a heavily planted tank with little or no filtration, which goes against the grain for \"normal\" fishkeeping.</p><p>A filter is not needed if only C. orientalis are kept in a large enough tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The pH could range from 5 to 7. The fish were kept at a tropical temperature of about 24-25°C: unlike some other members of the genus, C. orientalis is a true tropical species and not subtropical like Channa bleheri.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The snakeheads were fed a good variety of food, including a staple of granule fish food supplemented with frozen bloodworms, grindalworms and earthworms. They grew quickly under this regime and, with regular water changes, were near breeding size within only a few months.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>Until the largest reached about 8 cm the fish were very peaceful, then showed a slight increase in aggression towards each other. They can be kept in a community tank as long as the tank is large enough and the other fish are too large to be eaten. However, a pair that forms to breed may be more aggressive.</p><p>On two occasions a fish that was perfectly healthy one day was found dead and tattered the next. This apparently meant a pair had started to form; the couple could be seen embracing around each other's bodies in an \"S\" shape.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The author could not see any sexual dimorphism between the fish to split them into pairs. At about 8 cm the fish showed some nice blue colours across the fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>The pair was moved to their own 60 x 30 x 30 cm tank with pipes, caves and a thin layer of fine sand, but nothing happened. On advice from an experienced Channa breeder, the author stopped the frequent water changes, added four handfuls of garden soil (free of herbicides and pesticides) and removed the filter, leaving the temperature unchanged. There was barely any ammonia reading despite the sudden addition of organic material. The author would not recommend this procedure for any other genus.</p><p>Within days the fish were embracing again and after a week the male appeared from a cave with a bulging throat, meaning he was brooding eggs. He ate the first four batches, as some mouthbrooders do on early attempts, but eventually held a brood to full term. The incubation period varies between individuals and conditions; fry may be ejected after as little as three or four days or held for as long as ten.</p><p>The fry initially have a distinctive orange dorsal surface. The female feeds the fry by circling over them and laying eggs as a meal. These eggs are small compared to those released during spawning, and the fry gorge on them until their bellies bulge. With the first brood the fry were removed from the parents' tank once they looked for food themselves, yielding eleven young fish; parents seem to produce more as they gain experience. The fry were fed the same food as their parents from about 15 mm.</p><p>When the male brooded again, he released small fry that appeared to leave via his gills. Over fifty fry were counted, but three days later his throat was bulging again; he had collected many of the fry in his mouth and kept them a few days longer.</p><p>Fry removed from the tank early, though fed very well, were at least 25% smaller than siblings left with the adults, probably because the latter were fed by the female with her infertile eggs. The author plans to leave fry with the parents until they are about 3 to 4 cm long.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "html": "<p>Other, less small snakeheads include gachua, pulchra, ornatipinnis and bleheri, but these are sub-tropical species and should not be kept long term in tropical aquariums.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/0ce369febb7029f2.webp",
+      "width": 894,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "caption": "Channa orientalis Kottawa A with fry 1",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/9519010ac0f65212.webp",
+      "width": 882,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "caption": "Adult male specimen",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/9d6e936cad724a24.webp",
+      "width": 882,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "caption": "Adult female",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/496a93009e9ec010.webp",
+      "width": 882,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
+      "caption": "Adult female; aggressive mood",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30x30",
+        "bể cá có nắp đậy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển",
+        "lọc sủi khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giòi máu đông lạnh",
+        "giun đất cho cá",
+        "thức ăn hạt cho cá"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

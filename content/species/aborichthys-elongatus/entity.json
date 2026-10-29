@@ -1,0 +1,189 @@
+{
+  "id": "aborichthys-elongatus",
+  "scientificName": "Aborichthys elongatus",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Aborichthys",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "india",
+    "teesta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 21
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>The red-tailed squirrel loach, Aborichthys elongatus, is a nemacheilid loach from Darjeeling District, West Bengal, in north-east India. It lives among rocks and cobbles in shallow, swift streams running down from the Sivalik Hills into the Teesta and Brahmaputra drainage. The species is quite rare in the trade, and most fish sold under the name are collected at lower altitudes in Jalpaiguri District and probably represent different species.</p><ul><li>Max size: 75 mm SL (3.0 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 15–21°C (59–70°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 5–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Andrew Arunava Rao of Malabar Tropicals told us it can be collected only in Darjeeling District, West Bengal State, north-east India from streams and small rivers running down from the Sivalik Hills including the Relli, Chel and Ghish. These are all tributaries of the Teesta River and thus part of the Brahmaputra River drainage.</p><p>The type series was collected from \"the Riang River at an altitude of 2000ft. in the Darjiling District\" (Hora, 1921) but we've been unable to locate a river of this name on modern maps. Due to the remote nature of its natural waters this species is quite rare in the trade - most of the fishes seen on sale under the name are collected at lower altitudes and probably represent different species (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Mostly inhabits shallow, swiftly-flowing stretches of streams and minor rivers, often with a noticeable gradient. Substrates are typically of rocks and cobbles with gravel/sand between and this species lives in the network of cavities and caves formed by these.</p><p>Aquatic plants are not a feature although submerged surfaces may be coated in a rich biofilm composed of algae, diatoms and other microorganisms. Species that have been collected sympatrically include Pseudecheneis sulcata, Nemacheilus devdevi, N. inglisi and Schistura scaturigina.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>A group will need a tank with base dimensions measuring upwards of 60 × 30 cm (24 × 12 in). Volume: approximately 54 litres (14 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Not difficult to maintain under the correct conditions - we strongly recommend keeping it in a tank designed to resemble a flowing stream/river with a substrate of variably-sized rocks, sand, fine gravel and some large water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies and shaded spots for this inquisitive species to explore. Since Aborichthys species like to dig decorative items are best placed directly onto the tank base before the substrate is added.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. It also does best if there is a high proportion of dissolved oxygen and decent water movement in the tank so a powerful external filter/powerhead or two should be added.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Java fern, Bolbitis or Anubias spp. can be grown attached to the décor.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<ul><li>Temperature: prefers slightly cooler conditions than many nemacheilids so 15–21°C (59–70°F) is ideal.</li><li>pH: 6.5–7.5 is normally recommended although values in its natural waters have been recorded as high as 8.2.</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>The bulk of its natural diet probably consists of insect larvae, worms, crustaceans and other zooplankton. In the aquarium it will accept dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc.</p><p>Like many nemacheilids it's an aggressive feeder with a highly-developed sense of taste and the addition of food to the tank often results in a frenzy of activity which can stress slower-moving fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Not especially aggressive but remains largely unsuitable for the 'general' community aquarium due to its specialised requirements. Certainly slow-moving/long-finned species should be omitted because they're likely to struggle with the necessary level of water movement and may end up with nipped fins or be outcompeted at feeding times.</p><p>Placid bottom-dwellers such as Corydoras or Pangio species are also best avoided. More suitable are many Danio, Devario, Rasbora and Garra species, as well as gobies from genera such as Rhinogobius, Sicyopterus and Stiphodon or catfishes like Glyptothorax, Akysis and Oreoglanis species.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable although squabbles may occur with the former group in particular. Research your choices before purchase in order to be sure.</p><p>As far as conspecifics are concerned its perhaps most accurately described as 'loosely sociable' so best kept in groups upwards of six specimens. This will allow you to observe some amusing interactions, and though aggressive behaviour isn't uncommon it shouldn't become problematic in a well-structured set-up.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Adult females should be noticeably fuller-bodied than males but should possess the same basic patterning. A fish with additional body bars and dark blotch-like markings in the caudal fin which has sometimes been identified as female A. elongatus appears to be an undescribed species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>Unreported in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<p>This species may be seen listed as a member of Nemacheilus or the nomen nudum Noemacheilus in older literature and is sometimes sold as 'red tailed, striped sand loach' or 'red tailed squirrel loach'.</p><p>Five Aborichthys have been described to date although there are undoubtedly more with several similar-looking fishes traded as A. elongatus but collected at lower altitudes in Jalpaiguri District, West Bengal.</p><p>Though geographically quite close (Jalpaiguri borders Darjeeling) to the localities where the real A. elongatus can be found the rivers and streams in this area flow out of Bhutan rather than the Sivaliks meaning these could turn out to be new species in the future.</p><p>Following Kottelat (1990) the genus is characterised by the following features: \"elongate body with uniform depth from nape to caudal fin base; anus situated close behind pelvic girdle; pectoral fin rays not produced and not reaching half the way to base of pelvic fin; pelvic fin origin in front of dorsal fin; rounded caudal fin; 7½ branched dorsal rays; colour pattern consisting of oblique narrow stripes directed downwards backwards; a black spot at upper extremity of base of caudal fin; tail marked with concentric rings\".</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity. It was first proposed as a genetically distinct grouping in 2006, and according to current thinking contains over 30 genera of which the most well-known in the aquarium trade are Aborichthys, Acanthocobitis, Barbatula, Mesonoemacheilus, Nemacheilus, Physoschistura, Schistura and Yunnanilus.</p><p>These were previously considered members of the family Balitoridae, subfamily Nemacheilinae, but phylogenetic studies have revealed that though closely related Balitorid and Nemacheilid loaches did not evolve from the same common ancestor and represent separate genetic lineages. The revised Balitoridae numbers over 30 genera including some popular aquarium subjects such as Annamia, Beaufortia, Gastromyzon, Homaloptera, Liniparhomaloptera, Pseudogastromyzon, Sewellia, Sinogastromyzon and Vanmanenia species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "html": "<ul><li>Hora, S. L. (1921). On some new or rare species of fish from the eastern Himalayas. Records of the Indian Museum (Calcutta) v. 22 (pt 5, no. 33), 731-744</li><li>Kottelat, M. (1990). Indochinese nemacheilines. A revision of nemacheiline loaches (Pisces: Cypriniformes) of Thailand, Burma, Laos, Cambodia and southern Viet Nam. Verlag Dr. Friedrich Pfeil, München, Germany, 1-262</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/ea7b19a0919991c4.webp",
+      "width": 650,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "caption": "Aborichthys elongatus.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/2c234198d878b169.webp",
+      "width": 675,
+      "height": 506,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aborichthys-elongatus",
+      "caption": "...and can be violent affairs as this wounded specimen exemplifies.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài hồ cá",
+        "máy tạo dòng chảy powerhead"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh",
+        "daphnia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội trang trí hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

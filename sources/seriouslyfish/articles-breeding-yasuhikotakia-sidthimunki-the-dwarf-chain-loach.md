@@ -1,0 +1,46 @@
+---
+url: https://www.seriouslyfish.com/articles/breeding-yasuhikotakia-sidthimunki-the-dwarf-chain-loach
+title: Breeding Yasuhikotakia sidthimunki - the dwarf chain loach · Seriously Fish
+fetchedAt: 2026-10-28T22:33:51.895Z
+hash: 84fe57e820eb0ee4af0ed99b68d20878956ea73f12d2a5bf668f7d2176684f24
+---
+
+© Mark Duffill
+The Dwarf Loach has probably always been my favourite loach; with Clowns and Emperors coming a very close second. For me, there is just something about the outgoing character of Yasuhikotakia sidthimunki that sets them apart from other loaches. I have kept Y. sidthimunki on and off continually throughout my 30 years of fish keeping, but had only ever kept them singly or in very small groups of 6 or so fish. A few years ago, after buying 4 Sun loaches (Y. eos), I stumbled across the website and forum 'Loaches Online'. To cut a long story short, I have been a fully fledged 'loachaholic' ever since! I started building my collection of loaches in 2005, but felt that there was always something missing. I was visiting a couple of local tropical fish shops during April of 2006, when I noticed that one particular store had just received a shipment of “Chipmunk loaches”. These turned out to be Y. sidthimunki and were on sale at only £3.50 each. This was a fantastic bargain, as they were less than half the price that other local shops were selling them at, so I made an immediate decision to get 10 as the price was so good!
+Some time after buying my first 10 specimens, I was in another local shop and got the chance to purchase another 10 at the same price as the first batch. Naturally, I jumped at this opportunity! Then, a few weeks later, the shop where I had bought the second batch from announced that they were closing, so I managed to purchase their remaining stock of 16 Y. sidthimunki, for the price of 10. This brought my group up to 36 in total.
+© Mark Duffill
+All 36 Y. sidthimunki were around 1” TL and were initially housed in a 114 litre quarantine tank. After 3 weeks, I started a 5 course treatment of 'Levamisole' de-wormer, because a few of the loaches looked a little on the 'skinny' side. After the 5 treatments had been completed, there was a dramatic improvement; all the fish had gained a reasonable amount of weight. In the spring of 2007, all 36 Y. sidthimunki were moved into their permanent home - a 284 litre aquarium - along with shoals of Rasbora heteromorpha, Rasbora espei, Danio choprai, Puntius gelius and Puntius pentazona. A week or so later, I also added a small group of Kuhli loaches (Pangio sp.) and 2 weeks after that, 8 Mesonoemacheilus guentheri.
+The tank was well planted with Java fern, Java moss, Indian fern, Vallisneria, and Anubias barteri var. nana, with Lemna gibba floating on the surface. The aquarium is furnished with a mix of slate caves, cobble piles, upturned plant pots of various sizes and 4 pieces of bogwood. Substrate consists of 70% fine and 30% medium grade gravel. The pH is normally around 7.2, with nitrites and ammonia both at 0, and nitrates sitting between 5 and 10 ppm. I live in an area with quite hard tap water, which I initially thought might be detrimental to my chances of spawning any loach species.
+The one thing I have changed quite considerably in the last few years is the foods I feed my fish. They get a mix of frozen and dried foods with something different on offer nearly every day. The selection of foods I use for my Y. sidthimunki are as follows:- Dried:
+- Flakes - Spirulina, tropical, garlic, earthworm, brine shrimp and beef heart
+- Dried ground brine shrimp
+- Sera discus granules
+- JMC catfish pellets and promin
+- Algae wafers
+- Bloodworm and green lipped mussel pellet
+- Sera vipagram
+- Tetra wafers
+- Red astax crumb
+- Nishi-aquaria floating pellets
+Frozen:
+- Bloodworm
+- White and black midge larvae
+- Lobster eggs
+- Artemia
+- Daphnia
+- Cyclops
+- Tubifex
+- Garlic mix
+- Tropical quintet
+© Mark Duffill
+The Y. sidthimunki aquarium is filtered by 2 internal power filters; both rated at 1400 litres per hour and the tank usually receives 1 x 30-40% water change per week. A week or so before spawning took place; I had added 7 shredded dried Indian almond leaves (Terminalia catappa) and also carried out cooler water changes. The cooler water changes were only carried out because of late summer temperatures which had taken the tank temperatures from their usual 79°F up to and over 90°F.
+The spawning must have taken place in early October; very soon after the Indian almond leaves were added. The pH of the tank did drop from 7.6 down to around 6.8, and maybe even a little lower. A week or so after the Indian almond leaves were added, the vast majority of the Y. sidthimunki (possibly all 36 of them) were observed swimming around in a large, tight shoal. They would repeatedly dart in and out of the bogwood and plants. Unfortunately, none of this behaviour was caught on camera.
+I never thought any more about this activity, until late December when I noticed a very small Y. sidthimunki swimming very close to the rocks at the front of the tank. On closer inspection there were at least 2 more about the same size! These small Y. sidthimunki were under ¾" when first spotted, which is much smaller than any of the 36 adults which were originally put in.
+A head count has since been carried out, and there are now 42 Y. sidthimunki in the tank - an increase of 6 from the original total. Given the number of adult Y. sidthimunki in the tank and given the other inhabitants, it is amazing to think that these juveniles have survived.
+Going by the size and age of these young, I would estimate that my adults are between 18 months and 2 years of age. One thing I am a little bemused about is that at no point over the last couple of months have any other fish in the tank looked like they have feasted on large quantities of eggs or young fish, so I am unsure as to whether a low quantity of eggs were laid, or if they were very tiny eggs and this hasn't shown.
+© Mark Duffill
+I am planning on adding more Indian almond leaves to the tank again soon, and will carry out some cooler water changes at the same time. With any luck, these actions will be the key to triggering a repeat of the spawning activity.
+I am eager to capture such an event on video, should it happen again, and am hopeful that this time I will be able to see some eggs, or at least gain more in-depth information as to how these wonderful loaches spawn. It would be great to actually see the eggs being laid, and possibly even rescue some of them. Egg and fry development photographs would be amazing to obtain too!
+The basic layout of the tank will not change at all, because I think the amount of bogwood, plants and piles of cobbles are enough to ensure that some fry will survive - at least until they feel brave enough to venture out into the open and run the gauntlet of the adults and other tank mates! I have been asked if I would be tempted to remove the other fish from the tank, but to be honest, I would be very reluctant to take out the Rasbora species because in my opinion, these make the best 'dither fish' to live alongside Y. sidthimunki.
+Before the Rasbora were added, the loaches were very shy and hid 90% of the time. However, since the addition of the Rasbora, the Y. sidthimunki are out and about 90% of the time. Indeed, it could well be that the loaches felt so relaxed and secure in their surroundings, that were happy enough to spawn.
+All articles →

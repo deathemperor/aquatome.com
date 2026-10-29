@@ -1,0 +1,216 @@
+{
+  "id": "acarichthys-heckelii",
+  "scientificName": "Acarichthys heckelii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Acarichthys",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "putumayo",
+    "peru",
+    "amazon",
+    "brazil",
+    "negro",
+    "guyana",
+    "essequibo",
+    "asia",
+    "singapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>The threadfin acara, Acarichthys heckelii, is a cichlid from the northern Amazon basin in Colombia, Peru and Brazil and the Essequibo in Guyana. The only member of its genus, it grows to around 200 mm and digs incessantly, and it is susceptible to deteriorating water quality. Some adults show sudden, extreme aggression towards conspecifics that can kill weaker fish, and the problem decreases as tank and group size increase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>Native to northern parts of the Amazon basin in Colombia, Peru and Brazil including lower parts of the ríos Putumayo, Trombetas, Negro, Xingu, Tocantins, Capim and Branco River plus the Essequibo drainage in Guyana. It has also been introduced to Singapore and is apparently thriving there.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>Inhabits lowland parts of river basins and often enters flooded savannah or forest during the wet season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>A tank with a base footprint of 150 cm x 45 cm is just about acceptable for a pair but a significantly larger tank would be needed for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>A sandy substrate is recommended although gravel can be used if you wish, the main disadvantage being that this species is an incessant digger so if the latter is used any aquascaping will quickly be rearranged. Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots/branches.</p><p>Water quality is of the utmost importance since it can be susceptible to deteriorating water quality/swings in chemical parameters and should never be introduced to a biologically immature aquarium. The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%. If the maintenance regime and/or diet is insufficient it may develop health problems such as head and lateral line erosion or exhibit stunted growth. Mechanical filtration should be tailored to trap small particles stirred up by the fish as sand can cause blockages/wearing issues with filter mechanisms if allowed to continually run through the system. High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<ul><li>Temperature: 24–30°C (75–86°F), preferably towards the upper end of this range.</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>This species does not sift sand like some related species, rather spending much its time in midwater. Most foods are accepted but a varied diet is essential for it to develop the best condition and colour. Offer a mixture of live, frozen and dried foods and ensure some vegetable matter, such as blanched spinach or a proprietary Spirulina product, is included.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>Relatively peaceful in the main and will not prey on anything larger than a couple of centimetres in size. Suitable tankmates are too numerous to list but include most peaceful species enjoying similar environmental conditions. For those wishing to attempt a biotope-style community a list of some naturally co-occurrent species can be found in the 'habitat' section above.</p><p>Best avoided are particularly aggressive/territorial species or those known to nip at trailing fins. Some aquarists keep this species alongside freshwater stingrays of the genus Potamotrygon which in many cases has proven successful but in others has resulted in the stingrays preying on them at night.</p><p>Unfortunately some adults appear prone to exhibit unpredictable and extreme events of intraspecific aggression which can easily result in the death of weaker individuals. This appears related to both tank and group size with problems decreasing as both those factors increase.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>Sexually mature females should be noticeably thicker-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>This species requires 2-3 years to reach sexual maturity and in nature exhibits an intriguing spawning strategy whereby females compete for territories and excavate complex, burrow-like substructures from the substrate. These can have several entrances, some of which may be false, and generally consist of a more-or-less vertical main entrance leading to a horizontal tunnel at the end of which is a larger chamber where the eggs are deposited.</p><p>The female will then attempt to attract a partner and once successful and spawning complete the pair share duties with the female responsible for the majority of brood care and the male territorial defence. Once free swimming the fry remain in the vicinity, darting into the burrow when threatened, and are abandoned by the parents when they measure around 10 mm (0.4 in) TL on average. Some continue to use the burrow beyond this point, and it may also be taken over by a different pair.</p><p>A cycle of this complexity is clearly impossible to replicate in the aquarium, and further complications arise due to the often extreme intra-specific aggression displayed by adults. A single pair will require a large tank (see 'minimum tank size'), rigorous observation and ideally an absence of competition. The most proven substitute in terms of a spawning cave is a large, upturned flowerpot with an entrance hole chipped into the base, with simulation of natural weather conditions via raising and lowering of the temperature every few days couple with large (up to 50%) water changes known to help trigger courtship. Provided you can get a pair to spawn without one fish murdering the other the fry are apparently quite simple to raise.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<p>The genus Acarichthys remains monotypic and was resdescribed by Kullander (1986) who characterised it by the following: lack of epibranchial lobe; comparatively few (12-14) dorsal fin rays; pelvic fins with relatively broad tips (branches of the first ray are equal in length or the inner is slightly longer); possession of a single supraneural plus 14-15 vertebrae (these characters taken as a combination); no caudal extensions to swim bladder; no caudal ribs.</p><p>Its current taxonomic position is based largely on Kullander (1998), who conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies, of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Leibel, W. (1984). Heckel's Thread-Finned Acara Acarichthys heckelii (Mueller and Troschel 1848). reshwater and Marine Aquarium Magazine, Jan 1984; pp. 15-19, 78-86</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Tan, H. H. and K. K. P. Lim (2008). Acarichthys heckelii (Müller &amp; Troschel), an Introduced Cichlid Fish in Singapore. Nature in Singapore 2008 1, 129-133</li><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytrochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>López-Fernández, H. and D. C. Taphorn (2004). Geophagus abalios, G. dicrozoster and G. winemilleri (Perciformes: Cichlidae), three new species from Venezuela. Zootaxa 439, 1-27</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/a4366c37af9eb4a7.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/afff15554446ffd8.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/95c2334ead90f329.webp",
+      "width": 1024,
+      "height": 685,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "caption": "Another subadult...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/a07c770406c78d59.webp",
+      "width": 1024,
+      "height": 729,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "hệ thống lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát mịn cho cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn spirulina cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

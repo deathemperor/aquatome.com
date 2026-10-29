@@ -1,0 +1,211 @@
+{
+  "id": "akysis-vespa",
+  "scientificName": "Akysis vespa",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "salween",
+    "thailand",
+    "tak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16.5,
+          "max": 23.5
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.1
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<ul><li>Max size: 31 mm SL (1.2 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–23.5°C (62–74°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.</p><p>Type locality is 'Stream \"Chon Son\" between Kyondaw and Phadaw, about 20 kilometers northwest of Payathouzu (at border with Thailand), 15°25'N, 98°15'E, Kayin State, Myanmar'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Members of this genus are near-exclusive inhabitants of swiftly-flowing streams and rivers with substrates generally consisting of any combination of sand, gravel and rocks.</p><p>The water is normally transparent to slightly turbid, though overall volume, flow, and thus the amount of suspended material tend to increase significantly during rainy periods.</p><p>Aquatic plants are not normally present though there may be patches of leaf litter or underwater structures such as fallen branches or roots protruding from banks.</p><p>In the Hanthayaw aquatic plants include Pogostemon helferi and a Cryptocoryne species while sympatric fishes comprise Acanthocobitis pictilis, Botia kubotai, Syncrossus berdmorei, Pangio fusca, Crossocheilus burmanicus, Chanda pulcinella, Systomus orphoides, Pethia stoliczkana, Microdevario kubotai, Hampala salweenensis, Poropuntius scapanognathus, Glyptothorax dorsalis, Batasio dayi, B. feruminatus, Amblyceps caecutiens and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Standard length: 31 mm SL (1.2 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: ~41 litres (~11 US gal).</p><p>An aquarium with base dimensions of 45 × 30 cm (18 × 12 in) is more than sufficient, even for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding.</p><p>It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter may also be used.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive.</p><p>It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank, and weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<ul><li>Temperature: 16.5–23.5°C (62–74°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times.</p><p>If the fish are very small you may need to chop the food accordingly.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Not especially competitive and should not be kept with much larger or more aggressive fishes.</p><p>Miniature schooling cyprinids such as Boraras, Microdevario, Danio margaritatus or smaller rasborins make good tankmates and if geography isn't an issue many similarly-sized characins and livebearers should also work.</p><p>Other similarly-sized akysid catfishes plus smaller sisorids such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, many balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are also suitable, and it's also proven to co-exist peacefully with freshwater shrimp.</p><p>It is not aggressive towards conspecifics and can be kept singly or in a group as preferred.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>Unreported, but sexual dimorphism has been reported in A. alfredi (Ng and Kottelat, 1998)[9], A. fuscus (Ng, 1996)[3] and A. microps (Ng and Tan, 1999)[4].</p><p>In the former pair the anus is located anterior to a genital papilla in males, this structure having a genital opening covered by a fleshy flap at its tip and situated immediately posterior to the base of the pelvic fins.</p><p>In females the anus is located more posteriorly and the genital papilla is formed by a short appendage with an opening at the tip, this structure being situated approximately level with the poterior end of the inner pelvic-fin ray.</p><p>In A. alfredi the distance between the origin of the first pelvic-fin ray and the first anal-fin ray is less than in females (13.8-17.5% of standard length (SL) vs. 17.7-18.4%) but in A. fuscus the opposite is true.</p><p>The pelvic fins in males are also shorter than in females (12.9-14.2% SL vs. 14.1-15.5%), closer together (distance between pelvic fins 4.0-4.9% SL vs. 4.8-5.5%), usually overlapping posteriorly (vs. spread laterally) nand often curved to forma bowl-like shape (vs. straight).</p><p>In A. microps the genital papilla in males has a bulbous base with the genital opening at the tip not covered by a fleshy flap, while in females the genital opening is only partially covered by an appendage and there are no obvious differences in pelvic-fin morphology between the two genders.</p><p>According to Vishwanath et al. (2007) male specimens of A. prashadi possess a short, conical genital papilla immediately posterior to the anus while females have a flattened papilla with radial grooves at the pore.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>A short report with images was published in the description paper (Ng and Kottelat, 2004), in which a successful spawning event in that species was apparently triggered by a significant decrease in temperature of around 7 °C (45 °F).</p><p>Several males were observed in pursuit of a gravid female, and the successful individual was allowed to wrap its body around that of the female at which point eggs and milt were released.</p><p>The eggs hatched 4 days post-spawn with the yolk sac fully-absorbed after 10 days.</p><p>Adult patterning was fully-developed after just 23 days.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "html": "<p>This species is among the few members of the family to be exported for the aquarium hobby and we've also seen it on sale under various names such as 'orange-banded stone catfish', 'orange micro bumblebee catfish', 'Burmese orange mini bee catfish' or more simply 'wasp catfish'.</p><p>Though the majority of forms are yellowish to orange in colouration there appears to exist a bright red variant which to date we've only seen in photos.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/cb03be7f76fe4bb7.webp",
+      "width": 700,
+      "height": 415,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "caption": "Specimen collected in Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/5a111e852ecf169f.webp",
+      "width": 800,
+      "height": 557,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/f7656ebd5854b616.webp",
+      "width": 870,
+      "height": 580,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "caption": "Specimen from Myanmar in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/c3f5a84df3511b1b.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
+      "caption": "The Hanthayaw/Suriya river as it flows through Tak province, Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá nhỏ 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc dòng mạnh",
+        "bơm tạo sóng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "cát sông thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "artemia đông lạnh",
+        "bobo đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,171 @@
+{
+  "id": "alfaro-cultratus",
+  "scientificName": "Alfaro cultratus",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Alfaro",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "costa-rica",
+    "nicaragua",
+    "san-juan",
+    "panama"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>The knife livebearer, Alfaro cultratus, is a poeciliid from rivers, streams, ditches and backwaters in Costa Rica, Nicaragua and Panama. The common name comes from a keel of modified, paired scales running from the base of the anal fin to the caudal fin. Exceptionally hardy and adaptable, it can be aggressive, especially towards conspecifics, and breeds readily in the aquarium.</p><ul><li>Max size: 75 mm SL (3.0 in)</li><li>Temperature: 24–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>Costa Rica, Nicaragua and Panama. Type locality is \"Río Iroquois, Costa Rica\".</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>Is found in rivers, streams, ditches and backwaters in areas of both slow and moderate flow.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>It's most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Other decor can consist of twisted roots and smooth rocks. Some floating vegetation will also be appreciated by this surface dweller.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<ul><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>Unfussy. Offer a varied mix of dried, frozen and live foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>Can be aggressive, especially towards conspecifics. Best kept in a species tank or with robust fish of a similar size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>The male possesses a gonopodium and extended ventral fins, while the female is larger and plumper.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>An easily-bred live bearer. If conditions are to their liking young will be produced regularly. Fry should be removed to a separate tank as you notice them and fed on microworm or powdered flake. Between 20-100 fry may be produced in a single brood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "html": "<p>This is an exceptionally hardy and adaptable species. It's not an especially common fish in stores, but is quite widely available in hobbyist circles. The common name arises from the row of modified, paired scales that form a keel running from the base of the anal fin to the caudal fin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/7297978edd8e9a59.webp",
+      "width": 600,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.thuysinh.infinitus.run/seriouslyfish/b2e3bc315b66303c.webp",
+      "width": 640,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/alfaro-cultratus",
+      "caption": "Adult pair, female above.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w",
+        "máy sưởi có điều chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}
