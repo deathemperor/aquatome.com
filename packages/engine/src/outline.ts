@@ -36,7 +36,14 @@ function walk(node: Node, out: string[]): void {
   for (const c of node.childNodes) walk(c, out)
 }
 
-export type PageImage = { src: string; alt: string; width?: number; height?: number }
+/** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
+export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true }
+
+const PRODUCT_BOX = /product/i
+const inProduct = (i: HTMLElement) => {
+  for (let n: HTMLElement | null = i; n && n.tagName; n = n.parentNode as HTMLElement | null) if (PRODUCT_BOX.test(`${n.getAttribute?.('class') ?? ''} ${n.getAttribute?.('id') ?? ''}`)) return true
+  return false
+}
 
 /** Largest candidate: srcset entry with the biggest `w`, else the plain src with its width/height attributes. */
 function pageImage(i: HTMLElement): PageImage | null {
@@ -53,7 +60,7 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
-  const images = scope.querySelectorAll('img').flatMap(i => pageImage(i) ?? [])
+  const images = scope.querySelectorAll('img').flatMap(i => { const p = pageImage(i); return p ? [inProduct(i) ? { ...p, product: true as const } : p] : [] })
   const out: string[] = []
   walk(scope, out)
   return { title, outline: denoise(out.join('\n')), images }
