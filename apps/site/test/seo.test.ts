@@ -40,6 +40,12 @@ test('AdSense: ads.txt, account meta and loader on every page', () => {
   expect(dom.querySelector('meta[name="google-adsense-account"]')?.getAttribute('content')).toBe('ca-pub-3032018142512489')
   expect(dom.querySelector('script[src*="adsbygoogle.js?client=ca-pub-3032018142512489"]')).not.toBeNull()
 })
+test('security.txt: contact, a future Expires and its canonical URL', () => {
+  const txt = readFileSync(join(DIST, '.well-known', 'security.txt'), 'utf8')
+  expect(txt).toContain('Contact: mailto:contact@aquatome.com\n')
+  expect(txt).toMatch(/\nCanonical: https?:\/\/[^/]+\/\.well-known\/security\.txt\n/)
+  expect(Date.parse(txt.match(/Expires: (\S+)/)![1]) - Date.now()).toBeGreaterThan(300 * 864e5)
+})
 test('about, privacy and contact pages exist, are linked from the footer and listed in the sitemap', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
   for (const p of ['/vi/gioi-thieu/', '/vi/chinh-sach-bao-mat/', '/vi/lien-he/']) {
