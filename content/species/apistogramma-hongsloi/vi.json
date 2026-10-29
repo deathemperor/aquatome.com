@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ep-apistogramma-hongsloi",
-  "name": "Cá ép Apistogramma hongsloi",
+  "slug": "ca-apisto-hongsloi",
+  "name": "Cá Apisto hongsloi",
   "altNames": [
     "Cá cichlid lùn Apistogramma hongsloi"
   ],
@@ -23,5 +23,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ep-apistogramma-hongsloi",
+      "name": "Cá ép Apistogramma hongsloi"
+    }
+  ]
 }

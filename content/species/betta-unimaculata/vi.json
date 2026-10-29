@@ -1,6 +1,6 @@
 {
-  "slug": "ca-betta-unimaculata-mahakam",
-  "name": "Cá betta unimaculata Mahakam",
+  "slug": "ca-betta-unimaculata",
+  "name": "Cá betta unimaculata",
   "altNames": [
     "Cá betta hoang dã unimaculata",
     "Betta Unimaculata Mahakam",
@@ -24,5 +24,12 @@
     "bySource": {
       "bwaquatics": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-betta-unimaculata-mahakam",
+      "name": "Cá betta unimaculata Mahakam"
+    }
+  ]
 }

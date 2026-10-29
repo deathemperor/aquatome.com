@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chach-suoi-homaloptera-leonardi-viet-nam",
-  "name": "Cá chạch suối Homaloptera leonardi Việt Nam",
+  "slug": "ca-bam-da-leonardi",
+  "name": "Cá bám đá leonardi",
   "altNames": [
     "Cá chạch suối",
     "Hillstream loach"
@@ -18,5 +18,12 @@
     "bySource": {
       "glaser": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chach-suoi-homaloptera-leonardi-viet-nam",
+      "name": "Cá chạch suối Homaloptera leonardi Việt Nam"
+    }
+  ]
 }

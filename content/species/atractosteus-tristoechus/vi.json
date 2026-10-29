@@ -1,6 +1,6 @@
 {
-  "slug": "ca-gar-cuba",
-  "name": "Cá gar Cuba",
+  "slug": "ca-sau-hoa-tien-cuba",
+  "name": "Cá sấu hỏa tiễn Cuba",
   "altNames": [
     "Cá mõm kiếm Cuba",
     "Manjuarí",
@@ -32,5 +32,12 @@
       "seriouslyfish": 0.78,
       "glaser": 0.6
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-gar-cuba",
+      "name": "Cá gar Cuba"
+    }
+  ]
 }

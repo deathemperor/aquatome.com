@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ranh-lun-apistogramma-eunotus",
-  "name": "Cá ranh lùn Apistogramma eunotus",
+  "slug": "ca-apisto-eunotus",
+  "name": "Cá Apisto eunotus",
   "altNames": [
     "Cá Apistogramma eunotus"
   ],
@@ -23,5 +23,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ranh-lun-apistogramma-eunotus",
+      "name": "Cá ranh lùn Apistogramma eunotus"
+    }
+  ]
 }

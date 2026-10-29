@@ -1,8 +1,7 @@
 {
-  "slug": "ca-killi-duoi-dan-lia",
-  "name": "Cá killi đuôi đàn lia",
+  "slug": "ca-killi-aphyosemion-splendopleure",
+  "name": "Cá killi Aphyosemion splendopleure",
   "altNames": [
-    "Cá killi Aphyosemion splendopleure",
     "Splendid Lyretail"
   ],
   "sections": {
@@ -24,5 +23,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-killi-duoi-dan-lia",
+      "name": "Cá killi đuôi đàn lia"
+    }
+  ]
 }

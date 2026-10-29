@@ -1,6 +1,6 @@
 {
-  "slug": "ca-thai-ho-chocolate-van-ngang",
-  "name": "Cá thái hổ chocolate vằn ngang",
+  "slug": "ca-so-co-la-van-ngang",
+  "name": "Cá sô-cô-la vằn ngang",
   "altNames": [
     "Cá chocolate gourami vằn ngang",
     "Crossband Chocolate Gourami"
@@ -22,5 +22,12 @@
     "bySource": {
       "bwaquatics": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-thai-ho-chocolate-van-ngang",
+      "name": "Cá thái hổ chocolate vằn ngang"
+    }
+  ]
 }

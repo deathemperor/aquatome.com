@@ -1,6 +1,6 @@
 {
-  "slug": "ca-hong-ket-cockatoo",
-  "name": "Cá hồng két cockatoo",
+  "slug": "ca-apisto-cacatuoides",
+  "name": "Cá Apisto cacatuoides (cockatoo)",
   "altNames": [
     "Cá cockatoo",
     "Cá rồng lùn cockatoo",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hong-ket-cockatoo",
+      "name": "Cá hồng két cockatoo"
+    }
+  ]
 }

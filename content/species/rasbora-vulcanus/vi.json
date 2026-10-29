@@ -1,6 +1,6 @@
 {
-  "slug": "ca-cau-vong-nui-lua",
-  "name": "Cá cầu vồng núi lửa",
+  "slug": "ca-rasbora-nui-lua",
+  "name": "Cá rasbora núi lửa",
   "altNames": [
     "Cá Rasbora vulcanus"
   ],
@@ -14,5 +14,12 @@
     "bySource": {
       "glaser": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-cau-vong-nui-lua",
+      "name": "Cá cầu vồng núi lửa"
+    }
+  ]
 }

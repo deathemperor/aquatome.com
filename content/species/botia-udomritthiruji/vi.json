@@ -1,8 +1,7 @@
 {
-  "slug": "ca-chuot-hoang-de",
-  "name": "Cá chuột hoàng đế",
+  "slug": "ca-heo-hoang-de",
+  "name": "Cá heo hoàng đế",
   "altNames": [
-    "Cá heo hoàng đế",
     "Emperor Botia"
   ],
   "sections": {
@@ -26,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chuot-hoang-de",
+      "name": "Cá chuột hoàng đế"
+    }
+  ]
 }

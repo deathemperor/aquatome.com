@@ -1,6 +1,6 @@
 {
-  "slug": "ca-rong-lun-apistogramma-eremnopyge",
-  "name": "Cá rồng lùn Apistogramma eremnopyge",
+  "slug": "ca-apisto-eremnopyge",
+  "name": "Cá Apisto eremnopyge",
   "altNames": [
     "Apistogramma strawberry",
     "Apistogramma red beard",
@@ -31,5 +31,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-lun-apistogramma-eremnopyge",
+      "name": "Cá rồng lùn Apistogramma eremnopyge"
+    }
+  ]
 }

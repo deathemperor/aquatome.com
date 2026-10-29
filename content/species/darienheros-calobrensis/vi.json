@@ -1,8 +1,7 @@
 {
-  "slug": "ca-ro-phi-dom-do",
-  "name": "Cá rô phi đốm đỏ",
+  "slug": "ca-cichlid-dom-do",
+  "name": "Cá cichlid đốm đỏ",
   "altNames": [
-    "Cá cichlid đốm đỏ",
     "Redspot Cichlid"
   ],
   "sections": {
@@ -24,5 +23,12 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ro-phi-dom-do",
+      "name": "Cá rô phi đốm đỏ"
+    }
+  ]
 }

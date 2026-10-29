@@ -1,8 +1,7 @@
 {
-  "slug": "ca-rong-xanh-blue-acara",
-  "name": "Cá rồng xanh Blue Acara",
+  "slug": "ca-blue-acara",
+  "name": "Cá Blue Acara",
   "altNames": [
-    "Cá Blue Acara",
     "Cá hoàng đế xanh",
     "Blue Acara"
   ],
@@ -25,5 +24,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-xanh-blue-acara",
+      "name": "Cá rồng xanh Blue Acara"
+    }
+  ]
 }

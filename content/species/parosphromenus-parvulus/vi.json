@@ -1,6 +1,6 @@
 {
-  "slug": "ca-thai-ho-lun-parosphromenus-parvulus",
-  "name": "Cá thái hổ lùn Parosphromenus parvulus",
+  "slug": "ca-sac-cam-thao-lun",
+  "name": "Cá sặc cam thảo lùn",
   "altNames": [
     "Cá Parosphromenus parvulus",
     "Tiny Licorice Gourami"
@@ -24,5 +24,12 @@
     "bySource": {
       "bwaquatics": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-thai-ho-lun-parosphromenus-parvulus",
+      "name": "Cá thái hổ lùn Parosphromenus parvulus"
+    }
+  ]
 }

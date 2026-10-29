@@ -1,9 +1,8 @@
 {
-  "slug": "ca-phuong-hoang-vang",
-  "name": "Cá phượng hoàng vàng",
+  "slug": "ca-hoang-de-vang",
+  "name": "Cá hoàng đế vàng",
   "altNames": [
     "Cá phượng hoàng vàng mới",
-    "Cá hoàng đế vàng",
     "Baensch's peacock",
     "Sunshine peacock",
     "Nkhomo-Benga peacock",
@@ -32,5 +31,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-phuong-hoang-vang",
+      "name": "Cá phượng hoàng vàng"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-hoang-de-det",
-  "name": "Cá hoàng đế dẹt",
+  "slug": "ca-compressiceps",
+  "name": "Cá Compressiceps",
   "altNames": [
     "Cá compressiceps",
     "Cá cichlid Tanganyika compressiceps",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hoang-de-det",
+      "name": "Cá hoàng đế dẹt"
+    }
+  ]
 }

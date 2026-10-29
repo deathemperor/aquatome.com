@@ -1,6 +1,6 @@
 {
-  "slug": "ca-betta-smaragdina-guitar",
-  "name": "Cá betta smaragdina Guitar",
+  "slug": "ca-betta-smaragdina",
+  "name": "Cá betta smaragdina",
   "altNames": [
     "Cá betta hoang dã Smaragdina Guitar",
     "Betta Smaragdina Guitar",
@@ -29,5 +29,12 @@
     "bySource": {
       "bwaquatics": 0.78
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-betta-smaragdina-guitar",
+      "name": "Cá betta smaragdina Guitar"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chan-vit-ba-soc-apistogramma-ba-soc",
-  "name": "Cá chân vịt ba sọc (Apistogramma ba sọc)",
+  "slug": "ca-apisto-trifasciata",
+  "name": "Cá Apisto trifasciata (ba sọc)",
   "altNames": [
     "Apistogramma ba sọc",
     "Apisto ba sọc",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chan-vit-ba-soc-apistogramma-ba-soc",
+      "name": "Cá chân vịt ba sọc (Apistogramma ba sọc)"
+    }
+  ]
 }

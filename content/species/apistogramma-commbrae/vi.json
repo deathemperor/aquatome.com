@@ -1,6 +1,6 @@
 {
-  "slug": "ca-rong-lun-corumba",
-  "name": "Cá rồng lùn Corumbá",
+  "slug": "ca-apisto-commbrae",
+  "name": "Cá Apisto commbrae",
   "altNames": [
     "Cá cichlid lùn Apistogramma commbrae",
     "Corumbá dwarf cichlid"
@@ -25,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.55
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-lun-corumba",
+      "name": "Cá rồng lùn Corumbá"
+    }
+  ]
 }

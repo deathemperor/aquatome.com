@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ong-tien-lun-apistogramma-brevis",
-  "name": "Cá ông tiên lùn Apistogramma brevis",
+  "slug": "ca-apisto-brevis",
+  "name": "Cá Apisto brevis",
   "altNames": [
     "Cá hoàng tử lùn brevis",
     "Brevis"
@@ -24,5 +24,12 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ong-tien-lun-apistogramma-brevis",
+      "name": "Cá ông tiên lùn Apistogramma brevis"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-labeo-variegatus",
-  "name": "Cá Labeo variegatus",
+  "slug": "ca-labeo-cyclorhynchus",
+  "name": "Cá Labeo cyclorhynchus",
   "altNames": [
     "Cá Labeo caro Congo",
     "Labeo variegatus",
@@ -19,5 +19,12 @@
     "bySource": {
       "glaser": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-labeo-variegatus",
+      "name": "Cá Labeo variegatus"
+    }
+  ]
 }

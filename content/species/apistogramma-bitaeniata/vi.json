@@ -1,6 +1,6 @@
 {
-  "slug": "ca-la-han-lun-hai-soc",
-  "name": "Cá la hán lùn hai sọc",
+  "slug": "ca-apisto-bitaeniata",
+  "name": "Cá Apisto bitaeniata",
   "altNames": [
     "Cá Apistogramma bitaeniata",
     "Cá ông tiên lùn hai sọc",
@@ -27,5 +27,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-la-han-lun-hai-soc",
+      "name": "Cá la hán lùn hai sọc"
+    }
+  ]
 }

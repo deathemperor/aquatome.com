@@ -1,6 +1,6 @@
 {
-  "slug": "ca-vang-comet-den",
-  "name": "Cá vàng Comet đen",
+  "slug": "ca-vang",
+  "name": "Cá vàng",
   "altNames": [
     "Cá vàng đen",
     "Cá chép vàng Comet đen",
@@ -33,5 +33,12 @@
       "glaser": 0.85,
       "sprucepets": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-vang-comet-den",
+      "name": "Cá vàng Comet đen"
+    }
+  ]
 }

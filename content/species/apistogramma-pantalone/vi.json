@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ngua-van-pantalone",
-  "name": "Cá ngựa vằn pantalone",
+  "slug": "ca-apisto-pantalone",
+  "name": "Cá Apisto pantalone",
   "altNames": [
     "Cá Apistogramma pantalone",
     "Cá ép pantaloon",
@@ -27,5 +27,12 @@
     "bySource": {
       "seriouslyfish": 0.72
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ngua-van-pantalone",
+      "name": "Cá ngựa vằn pantalone"
+    }
+  ]
 }
