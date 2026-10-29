@@ -19,8 +19,11 @@ export async function backfillThumbs(contentRoot: string, d: ThumbDeps): Promise
       const e = JSON.parse(raw) as { photos?: Photo[] }
       let changed = false
       for (const p of e.photos ?? []) {
-        const t = new URL(p.url).host === MEDIA_HOST && !p.thumb ? thumbOf(p.url) : undefined
+        if (p.thumb) continue
+        const t = thumbOf(p.url)
         if (!t) continue
+        // Wikimedia serves its own standard-width thumbs: just record it.
+        if (new URL(p.url).host !== MEDIA_HOST) { p.thumb = t; changed = true; continue }
         if (!done.has(p.url)) {
           checked++
           try {
