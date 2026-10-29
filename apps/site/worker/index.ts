@@ -96,6 +96,8 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
+  // Vietnamese is the only language for now: the root is a permanent redirect, not a meta-refresh page.
+  if (url.pathname === '/') return finish(new Response(null, { status: 301, headers: { location: `/vi/${url.search}` } }), env)
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
