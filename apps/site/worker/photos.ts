@@ -117,7 +117,7 @@ export async function deleteRoute(req: Request, url: URL, env: PhotosEnv, now: D
   const id = String(f?.get('id') ?? '')
   const t = String(f?.get('t') ?? '')
   const row = await env.DB.prepare(`SELECT delete_hash, status FROM photos WHERE id = ?`).bind(id).first<{ delete_hash: string; status: string }>()
-  if (!row || !t || row.delete_hash !== (await sha256(t))) return new Response(page('<h1>Link gỡ ảnh không đúng</h1><p>Kiểm tra lại link bạn đã lưu khi gửi ảnh.</p>').body, { status: 403, headers: { 'content-type': 'text/html; charset=utf-8' } })
+  if (!row || !t || row.delete_hash !== (await sha256(t))) { const r = page('<h1>Link gỡ ảnh không đúng</h1><p>Kiểm tra lại link bạn đã lưu khi gửi ảnh.</p>'); return new Response(r.body, { status: 403, headers: r.headers }) }
   await removePhoto(env, id, 'deleted by uploader', now)
   return page('<h1>Đã gỡ ảnh</h1><p>Ảnh của bạn đã bị xóa.</p>')
 }

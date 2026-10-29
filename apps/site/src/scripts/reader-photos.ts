@@ -11,9 +11,9 @@ export function photoHtml(p: ShownPhoto): string {
 
 /**
  * Re-encode on the phone before upload: at most 2000 px, JPEG. The photo uploads faster, and its EXIF (GPS position,
- * phone model) never leaves the device. Falls back to the original file if the browser can't decode it.
+ * phone model) never leaves the device. Null when the browser can't decode the file: it is then not sent at all.
  */
-export async function shrink(file: File): Promise<Blob> {
+export async function shrink(file: File): Promise<Blob | null> {
   try {
     const bmp = await createImageBitmap(file)
     const k = Math.min(1, MAX_SIDE / Math.max(bmp.width, bmp.height))
@@ -23,9 +23,9 @@ export async function shrink(file: File): Promise<Blob> {
     c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height)
     bmp.close()
     const out = await new Promise<Blob | null>(r => c.toBlob(r, 'image/jpeg', 0.88))
-    return out ?? file
+    return out
   } catch {
-    return file
+    return null
   }
 }
 
@@ -68,6 +68,7 @@ export async function mountReaderPhotos(section: HTMLElement) {
     button.disabled = true
     msg.textContent = 'Đang chuẩn bị ảnh…'
     const blob = await shrink(file)
+    if (!blob) { msg.textContent = 'Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.'; button.disabled = false; return }
     if (blob.size > MAX_BYTES) { msg.textContent = ERRORS['too large']!; button.disabled = false; return }
     const body = new FormData()
     body.set('e', entity)
