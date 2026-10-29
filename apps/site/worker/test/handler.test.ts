@@ -52,6 +52,7 @@ test('events: same-origin, matching skin cookie, not a bot, small body', async (
   expect((await handle(post({ cookie: 'skin=c' }), e, stringRewrite)).status).toBe(400)
   expect((await handle(post({ 'user-agent': 'Googlebot' }), e, stringRewrite)).status).toBe(204) // accepted silently, not recorded
   expect((await handle(post({ 'content-length': '9000' }), e, stringRewrite)).status).toBe(413)
+  expect((await handle(post({ cookie: 'skin=b; aq_owner=1' }), e, stringRewrite)).status).toBe(204) // the owner's own visit: not recorded
   expect(points).toHaveLength(1)
 })
 

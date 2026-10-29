@@ -1,5 +1,6 @@
 import type { SkinStats } from './allocate'
 import type { Hidden } from './hidden'
+import type { Readers } from './readers'
 import { SKINS, type Skin, type Weights } from './skins'
 
 export type Snapshot = { updatedAt: string; weights: Weights; stats: Record<Skin, SkinStats> }
@@ -38,7 +39,7 @@ export async function affSummary(db: D1Database, now: Date): Promise<AffSummary>
 
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 
-export function renderDashboard(snap: Snapshot | null, clickValueVnd: number, aff?: AffSummary, hidden: Hidden = {}): string {
+export function renderDashboard(snap: Snapshot | null, clickValueVnd: number, aff?: AffSummary, hidden: Hidden = {}, readers?: Readers): string {
   const rows = SKINS.map(s => {
     const st = snap?.stats[s] ?? { visits: 0, pages: 0, converted: 0, clicks: 0, timeSum: 0, scrolled: 0 }
     const v = st.visits || 1
@@ -47,7 +48,7 @@ export function renderDashboard(snap: Snapshot | null, clickValueVnd: number, af
   }).join('')
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A/B · thủy·sinh</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
-<h1>A/B giao diện</h1><p>14 ngày gần nhất · cập nhật ${snap?.updatedAt ?? 'chưa có dữ liệu'} · doanh thu ước tính = lượt bấm affiliate × ${fmt(clickValueVnd)} ₫ (chưa có quảng cáo)</p>
+${readers ? readersHtml(readers) : ''}<h1>A/B giao diện</h1><p>14 ngày gần nhất · cập nhật ${snap?.updatedAt ?? 'chưa có dữ liệu'} · doanh thu ước tính = lượt bấm affiliate × ${fmt(clickValueVnd)} ₫ (chưa có quảng cáo)</p>
 <table><thead><tr><th>Giao diện</th><th>Lượt</th><th>Trang/lượt</th><th>Thời gian TB</th><th>Cuộn 90%</th><th>Bấm affiliate</th><th>Chuyển đổi</th><th>Doanh thu/1.000 lượt</th><th>Tỉ lệ phân bổ</th></tr></thead><tbody>${rows}</tbody></table>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}</body></html>`
 }
 
@@ -66,4 +67,15 @@ function hiddenHtml(h: Hidden): string {
 <p>Trang bị ẩn trả về 410 (đã gỡ) trong khoảng 1 phút, kể cả bản Markdown; lần build sau (≤6 giờ) nó biến khỏi danh sách, sitemap và tìm kiếm. Hiện lại: nếu đã qua một lần build, trang quay lại ở lần build tiếp theo.</p>
 <form method="post" action="/_ab/hidden"><input name="url" required size="60" placeholder="https://aquatome.com/vi/ca/..."> <input name="note" size="30" placeholder="Lý do (tuỳ chọn)"> <button name="action" value="hide">Ẩn</button></form>
 <table><thead><tr><th>Trang</th><th>Lý do</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="4">Chưa ẩn trang nào.</td></tr>'}</tbody></table>`
+}
+
+function readersHtml(r: Readers): string {
+  const rows = (xs: string[][]) => xs.map(x => `<tr>${x.map((c, i) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('') || '<tr><td colspan="3">—</td></tr>'
+  return `<h1>Người đọc thật</h1>
+<p>${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây.</p>
+<table><thead><tr><th>Phiên</th><th>Người đọc</th><th>Tỉ lệ</th></tr></thead><tbody><tr><td>${fmt(r.sessions)}</td><td>${fmt(r.readers)}</td><td>${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}%</td></tr></tbody></table>
+<h3>Theo ngày</h3><table><thead><tr><th>Ngày</th><th>Phiên</th><th>Người đọc</th></tr></thead><tbody>${rows(r.daily.map(d => [d.day, fmt(d.sessions), fmt(d.readers)]))}</tbody></table>
+<h3>Nguồn truy cập</h3><table><thead><tr><th>Nguồn</th><th>Phiên</th><th>Người đọc</th></tr></thead><tbody>${rows(r.sources.map(x => [x.source, fmt(x.sessions), fmt(x.readers)]))}</tbody></table>
+<h3>Trang người đọc xem nhiều nhất</h3><table><tbody>${rows(r.pages.map(x => [x.path, fmt(x.views)]))}</tbody></table>
+<h3>Quốc gia (người đọc)</h3><table><tbody>${rows(r.countries.map(x => [x.cc, fmt(x.readers)]))}</tbody></table>`
 }
