@@ -1,0 +1,19 @@
+---
+import Doc from '../../../layouts/Doc.astro'
+import { CONTACT_EMAIL } from '../../../lib/site'
+const mail = `mailto:${CONTACT_EMAIL}`
+---
+<Doc title="Liên hệ" intro="Gửi email cho AquaTome, chúng tôi thường trả lời trong vài ngày.">
+  <p class="mail"><a href={mail}>{CONTACT_EMAIL}</a></p>
+  <h2>Bạn có thể viết cho chúng tôi về</h2>
+  <ul>
+    <li><strong>Lỗi nội dung:</strong> thông số sai, bản dịch khó hiểu, ảnh nhầm loài. Ghi kèm đường dẫn trang giúp chúng tôi sửa nhanh hơn.</li>
+    <li><strong>Bản quyền và ghi nguồn:</strong> nếu bạn là tác giả nội dung hoặc ảnh và muốn chỉnh cách ghi nguồn hoặc gỡ nội dung.</li>
+    <li><strong>Dữ liệu cá nhân:</strong> yêu cầu xem, sửa hoặc xóa bình luận của bạn (xem <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a>).</li>
+    <li><strong>Hợp tác:</strong> cửa hàng, trại cá, câu lạc bộ thủy sinh.</li>
+  </ul>
+  <p lang="en">English is welcome too: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+</Doc>
+<style>
+  .mail { font: 400 var(--step-2) var(--f-display); }
+</style>

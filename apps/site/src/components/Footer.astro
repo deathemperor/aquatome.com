@@ -5,7 +5,8 @@ const { credits = [] } = Astro.props
 ---
 <footer class="foot">
   <div class="wrap">
-    <p>Nội dung dịch từ các nguồn được cấp phép; mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Ảnh thuộc về tác giả, dùng theo giấy phép ghi kèm. <a href="/vi/moi-cap-nhat/">Mới cập nhật</a></p>
+    <p>Nội dung dịch từ các nguồn được cấp phép; mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Ảnh thuộc về tác giả, dùng theo giấy phép ghi kèm.</p>
+    <nav class="links" aria-label="Thông tin"><a href="/vi/gioi-thieu/">Giới thiệu</a> · <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/vi/lien-he/">Liên hệ</a> · <a href="/vi/moi-cap-nhat/">Mới cập nhật</a></nav>
     {credits.length > 0 && (
       <p class="credits">{credits.map(c => <span>{c.what}: <a href={c.sourceUrl}>{c.author}</a>, {c.licence}. </span>)}</p>
     )}
@@ -15,4 +16,5 @@ const { credits = [] } = Astro.props
   .foot { background: var(--c-blackwater); color: var(--c-on-dark-soft); font-size: var(--step--1); padding-block: var(--space-6); border-top: 1px solid rgb(255 255 255 / 0.08); }
   .foot p { max-width: var(--measure); margin: 0 0 var(--space-2); }
   .foot a { color: var(--c-on-dark); }
+  .links { margin-bottom: var(--space-2); }
 </style>

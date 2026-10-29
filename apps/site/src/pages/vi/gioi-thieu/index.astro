@@ -1,0 +1,27 @@
+---
+import Doc from '../../../layouts/Doc.astro'
+import { getContent } from '../../../lib/content'
+import { CONTACT_EMAIL } from '../../../lib/site'
+const c = await getContent()
+const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BUILD !== '1' || s.publish))
+---
+<Doc title="Giới thiệu" intro="AquaTome là cẩm nang cá cảnh và thủy sinh bằng tiếng Việt: hồ sơ loài cá, cây thủy sinh, hướng dẫn chăm sóc và thuật ngữ.">
+  <h2>Nội dung được làm thế nào</h2>
+  <p>Mỗi hồ sơ và bài hướng dẫn được dịch, biên soạn sang tiếng Việt từ các nguồn chuyên ngành uy tín đã cho phép AquaTome sử dụng. Bản dịch do AI (Claude của Anthropic) thực hiện, sau đó được chấm điểm chất lượng tự động. Trang chưa đạt ngưỡng chất lượng vẫn xem được nhưng không được đưa lên công cụ tìm kiếm cho đến khi được cải thiện.</p>
+  <p>Mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Khi các nguồn đưa ra thông số khác nhau (nhiệt độ, pH, độ cứng…), trang đánh dấu chỗ khác biệt thay vì chọn bừa một con số.</p>
+
+  <h2 id="nguon">Nguồn nội dung</h2>
+  <ul>
+    {sources.map(s => <li><a href={s!.homepage} rel="noopener">{s!.name}</a></li>)}
+  </ul>
+  <p>Ảnh thuộc về tác giả và được dùng theo giấy phép ghi ở cuối mỗi trang. Nếu bạn là tác giả và muốn chỉnh sửa cách ghi nguồn hoặc gỡ nội dung, hãy <a href="/vi/lien-he/">liên hệ</a>, chúng tôi xử lý trong vòng vài ngày.</p>
+
+  <h2>Bình luận</h2>
+  <p>Bạn chỉ cần nhập tên để bình luận, không cần tài khoản. Bình luận được kiểm duyệt hằng ngày; bình luận chứa liên kết quảng cáo, nội dung trùng lặp hoặc không liên quan sẽ bị gỡ.</p>
+
+  <h2>Quảng cáo và liên kết mua hàng</h2>
+  <p>AquaTome hiển thị quảng cáo của Google AdSense để duy trì trang. Một số liên kết tới Shopee, Lazada hoặc Tiki là liên kết tiếp thị: chúng tôi có thể nhận hoa hồng khi bạn mua hàng qua liên kết, giá bạn trả không đổi. Các liên kết này luôn có nhãn và không ảnh hưởng tới nội dung bài viết.</p>
+
+  <h2>Liên hệ</h2>
+  <p>Báo lỗi, góp ý hoặc hợp tác: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Xem thêm <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a>.</p>
+</Doc>
