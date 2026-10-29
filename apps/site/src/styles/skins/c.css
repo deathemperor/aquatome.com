@@ -17,6 +17,8 @@
 :root[data-skin="c"]:not(#_) .units { color: var(--c-ink); background: #fff; border-color: transparent; }
 :root[data-skin="c"]:not(#_) .nav .logo { color: var(--c-ink); font-weight: 800; letter-spacing: -0.03em; }
 :root[data-skin="c"]:not(#_) .nav .logo span { color: #ff6b3d; }
+:root[data-skin="c"]:not(#_) .nav .logo small { color: var(--c-ink-soft); font-weight: 500; letter-spacing: 0.02em; }
+:root[data-skin="c"]:not(#_) .nav.overlay .logo small { color: #fff; }
 :root[data-skin="c"]:not(#_) .nav ul a, :root[data-skin="c"]:not(#_) .nav .find { color: var(--c-ink); background: #fff; border-radius: 999px; padding: 0.4rem 0.8rem; line-height: 1.2; display: inline-block; }
 :root[data-skin="c"]:not(#_) .nav ul a:hover, :root[data-skin="c"]:not(#_) .nav ul a[aria-current] { background: var(--c-ink); color: var(--c-neon); box-shadow: none; }
 :root[data-skin="c"]:not(#_) .hero { margin: var(--space-3) var(--space-4) 0; border-radius: var(--radius-media); overflow: hidden; min-height: min(62vh, 520px); }

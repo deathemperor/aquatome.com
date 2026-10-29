@@ -5,7 +5,7 @@ import type { Credit } from '../lib/credits'
 interface Props { title: string; heading: string; intro?: string; crumbs?: [string, string][]; noindex?: boolean; credits?: Credit[] }
 const { title, heading, intro, crumbs = [], noindex, credits } = Astro.props
 ---
-<Base title={`${title} — thủy·sinh`} description={intro} noindex={noindex} credits={credits}>
+<Base title={`${title} — AquaTome`} description={intro} noindex={noindex} credits={credits}>
   <Nav slot="header" />
   <div class="wrap page">
     {crumbs.length > 0 && <nav class="crumb" aria-label="Đường dẫn">{crumbs.map(([href, label], i) => <>{i > 0 && ' / '}<a href={href}>{label}</a></>)}</nav>}

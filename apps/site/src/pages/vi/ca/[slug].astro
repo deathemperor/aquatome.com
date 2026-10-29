@@ -31,7 +31,7 @@ const jsonld = [
 ]
 const firstSource = s.sections[0]
 ---
-<Base title={`${s.t.name} (${s.scientificName}) — thủy·sinh`} description={`Hồ sơ ${s.t.name} (${s.scientificName}): thông số nước, chăm sóc, sinh sản.`} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(s.photos.slice(1))}>
+<Base title={`${s.t.name} (${s.scientificName}) — AquaTome`} description={`Hồ sơ ${s.t.name} (${s.scientificName}): thông số nước, chăm sóc, sinh sản.`} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(s.photos.slice(1))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label="Đường dẫn">
     <a href="/vi/ca/">Loài cá</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>

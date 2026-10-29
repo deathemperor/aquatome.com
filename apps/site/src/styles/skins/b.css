@@ -15,6 +15,7 @@
 :root[data-skin="b"]:not(#_) .nav, :root[data-skin="b"]:not(#_) .nav.overlay { position: static; background: var(--c-paper); color: var(--c-ink); border-bottom: 1px solid var(--c-rule); }
 :root[data-skin="b"]:not(#_) .nav .logo { color: var(--c-ink); font-family: var(--f-display); }
 :root[data-skin="b"]:not(#_) .nav .logo span { color: var(--c-moss); font-style: italic; }
+:root[data-skin="b"]:not(#_) .nav .logo small { color: var(--c-ink-soft); font-style: normal; }
 :root[data-skin="b"]:not(#_) .nav ul a, :root[data-skin="b"]:not(#_) .nav .find { color: var(--c-ink-soft); }
 :root[data-skin="b"]:not(#_) .nav ul a:hover, :root[data-skin="b"]:not(#_) .nav ul a[aria-current] { color: var(--c-ink); box-shadow: inset 0 -1px var(--c-ink); }
 :root[data-skin="b"]:not(#_) .hero { background: var(--c-paper); color: var(--c-ink); min-height: 0; display: block; border-bottom: 1px solid var(--c-rule); }
