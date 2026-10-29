@@ -367,3 +367,19 @@ describe('dark mode', () => {
     expect(dom.querySelector('.nav [data-theme-toggle]')).not.toBeNull()
   })
 })
+
+describe('instant navigation', () => {
+  const { html, dom } = page('/vi/')
+  test('hovered site links prerender; affiliate, outbound and admin links never', () => {
+    const rules = JSON.parse(dom.querySelector('script[type="speculationrules"]')!.textContent!)
+    const r = rules.prerender[0]
+    expect(r.eagerness).toBe('moderate')
+    expect(r.where.and[0]).toEqual({ href_matches: '/vi/*' })
+    expect(r.where.and[1].not.selector_matches).toContain('[rel~=sponsored]')
+  })
+  test('analytics wait until a preloaded page is shown', () => {
+    const beacon = dom.querySelector('script[data-beacon]')!.textContent!
+    expect(beacon).toMatch(/document\.prerendering\?document\.addEventListener\('prerenderingchange',go/)
+    expect(html).not.toContain('<script type="module" src="https://static.cloudflareinsights.com')
+  })
+})

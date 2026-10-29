@@ -32,7 +32,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     {/* The reader's light/dark choice (ThemeToggle) before first paint, so a chosen theme never flashes the other. */}
-    <script is:inline>try{var t=localStorage.getItem('aq_theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    {/* Again when a preloaded page is shown: the reader may have toggled since. */}
+    <script is:inline>(function(){var a=function(){try{var t=localStorage.getItem('aq_theme'),d=document.documentElement;t==='dark'||t==='light'?d.setAttribute('data-theme',t):d.removeAttribute('data-theme')}catch(e){}};a();document.prerendering&&document.addEventListener('prerenderingchange',a,{once:true})})()</script>
+    {/* Hovering (or touching) a link loads that page in the background (Chrome, Edge, Samsung Internet), so the click is instant. Site pages only; never affiliate, outbound or admin links. */}
+    <script is:inline type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/vi/*"},{"not":{"selector_matches":"[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]"}}]},"eagerness":"moderate"}]}</script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
@@ -59,10 +62,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <slot name="header" />
     <main data-pagefind-body><slot /></main>
     <Footer credits={credits} />
-    {/* Beacon: view (+ referring site), scroll 50/90%, time 30/60/180 s, affiliate clicks → /_e (Worker → Analytics Engine). No PII; the owner's visits are dropped. */}
-    <script is:inline data-beacon>(()=>{try{var d=document.documentElement,k='ts_sid',i=sessionStorage.getItem(k);if(!i){i=(Math.random().toString(36).slice(2)+'000000000000').slice(0,12);sessionStorage.setItem(k,i)}var p=location.pathname.slice(0,200),r='';try{var h=document.referrer&&new URL(document.referrer).hostname;if(h&&h!==location.hostname)r=h.slice(0,100)}catch(e){}var f=function(t,v){navigator.sendBeacon&&navigator.sendBeacon('/_e',JSON.stringify({p:p,t:t,v:v,sid:i,r:t==='view'?r:''}))},seen={};f('view',1);addEventListener('scroll',function(){var r=100*(scrollY+innerHeight)/d.scrollHeight;[50,90].forEach(function(m){if(r>=m&&!seen[m]){seen[m]=1;f('scroll',m)}})},{passive:true});[30,60,180].forEach(function(t){setTimeout(function(){document.visibilityState==='visible'&&f('time',t)},t*1e3)});document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[rel~=sponsored]');a&&f('aff',1)},true)}catch(e){}})()</script>
-    {/* Cloudflare Web Analytics (cookieless; the token is public). Added by hand: Cloudflare doesn't inject it into Worker-served pages. */}
-    {!isStaging() && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5560cb3fcc76468ebd02e068406ce6e0"}'></script>}
+    {/* Beacon (starts when the page is shown, not while it's only preloaded): view (+ referring site), scroll 50/90%, time 30/60/180 s, affiliate clicks → /_e (Worker → Analytics Engine). No PII; the owner's visits are dropped. */}
+    <script is:inline data-beacon>(()=>{var go=function(){try{var d=document.documentElement,k='ts_sid',i=sessionStorage.getItem(k);if(!i){i=(Math.random().toString(36).slice(2)+'000000000000').slice(0,12);sessionStorage.setItem(k,i)}var p=location.pathname.slice(0,200),r='';try{var h=document.referrer&&new URL(document.referrer).hostname;if(h&&h!==location.hostname)r=h.slice(0,100)}catch(e){}var f=function(t,v){navigator.sendBeacon&&navigator.sendBeacon('/_e',JSON.stringify({p:p,t:t,v:v,sid:i,r:t==='view'?r:''}))},seen={};f('view',1);addEventListener('scroll',function(){var r=100*(scrollY+innerHeight)/d.scrollHeight;[50,90].forEach(function(m){if(r>=m&&!seen[m]){seen[m]=1;f('scroll',m)}})},{passive:true});[30,60,180].forEach(function(t){setTimeout(function(){document.visibilityState==='visible'&&f('time',t)},t*1e3)});document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[rel~=sponsored]');a&&f('aff',1)},true)}catch(e){}};document.prerendering?document.addEventListener('prerenderingchange',go,{once:true}):go()})()</script>
+    {/* Cloudflare Web Analytics (cookieless; the token is public). Added by hand: Cloudflare doesn't inject it into Worker-served pages. Loaded once the page is shown. */}
+    {!isStaging() && <script is:inline>(function(){var a=function(){var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "5560cb3fcc76468ebd02e068406ce6e0"}');document.body.appendChild(s)};document.prerendering?document.addEventListener('prerenderingchange',a,{once:true}):a()})()</script>}
     {/* Owner only (flag cookie): hide this page — see worker/owner.ts. */}
     {!Astro.url.pathname.startsWith('/404') && <script is:inline data-owner set:html={OWNER_SCRIPT} />}
   </body>
