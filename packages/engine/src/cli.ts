@@ -24,6 +24,7 @@ import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
+import { galleries, VET_SCHEMA as GALLERY_VET } from './gallery'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytDlp, ytFinder, ytStoryboard } from './youtube'
 
@@ -180,6 +181,15 @@ if (cmd === 'run') {
   }, { limit: values.limit ? Number(values.limit) : 20 })
   console.log(`video-items: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'gallery') {
+  // Many photos per species (Commons + iNaturalist, open licences, screened): pnpm engine gallery [--limit N] [--only <species id>]
+  const r = await galleries(ROOT, {
+    http, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date(), faces: visionFaces,
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision<{ keep: { n: number; caption: string }[]; best: number[] }>({ system: 'You pick photos for a fish photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
+  }, { limit: values.limit ? Number(values.limit) : 8, ...(values.only ? { only: values.only } : {}) })
+  console.log(`gallery: ${r.done.length} species, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'covers') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).
   await covers({ redo: values.redo, limit: values.limit ? Number(values.limit) : undefined })
@@ -222,6 +232,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine video-items [--limit N] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }

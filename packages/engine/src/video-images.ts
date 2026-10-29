@@ -43,7 +43,7 @@ export function sections(body: string): { heading: string; text: string }[] {
 }
 
 /** Numbered contact sheet of equal tiles (the number in a corner), so the model can say which one. */
-async function contactSheet(tiles: Buffer[], w: number, h: number, cols: number): Promise<Buffer> {
+export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: number): Promise<Buffer> {
   const rows = Math.ceil(tiles.length / cols)
   const label = (n: number) => Buffer.from(`<svg width="44" height="30"><rect width="44" height="30" fill="#000" opacity="0.8"/><text x="22" y="22" font-size="20" font-family="Arial" font-weight="bold" fill="#fff" text-anchor="middle">${n}</text></svg>`)
   const parts = await Promise.all(tiles.map(async (t, i) => [

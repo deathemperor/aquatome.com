@@ -414,3 +414,43 @@ describe('what a video shows', () => {
     expect(li.querySelector('a')?.getAttribute('href')).toBe('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
   })
 })
+
+describe('photo gallery', () => {
+  test('species page: a strip of thumbs linking each photo on the gallery page; open licences only', () => {
+    const { dom } = page('/vi/ca/ca-neon-vua/')
+    const strip = dom.querySelector('section.strip')!
+    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/vi/ca/ca-neon-vua/anh/')
+    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh')
+    const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
+    expect(links[0]).toBe('/vi/ca/ca-neon-vua/anh/#a1')
+    expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
+    expect(strip.innerHTML).not.toContain('Neon3')
+    const credits = dom.querySelector('#photo-credits')!.innerHTML
+    for (const n of [1, 2, 4, 5, 6, 7]) expect(credits).toContain(`File:Neon${n}.jpg`)
+  })
+  test('a species with too few photos gets no strip and no gallery page', () => {
+    expect(page('/vi/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
+    expect(() => readFileSync(`${DIST}/vi/ca/ca-neon-xanh/anh/index.html`)).toThrow()
+  })
+  test('gallery page: every photo credited (author, licence, source), lightbox, ImageObject licence data, captions escaped', () => {
+    const { html, dom } = page('/vi/ca/ca-neon-vua/anh/')
+    const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
+    expect(items).toHaveLength(6)
+    expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
+    expect(items[0]!.getAttribute('data-lic')).toBe('CC BY 2.0')
+    expect(items[0]!.getAttribute('data-src')).toBe('https://commons.wikimedia.org/wiki/File:Neon1.jpg')
+    expect(dom.querySelector('dialog.lb')).toBeTruthy()
+    expect(dom.querySelector('[data-gallery] b')).toBeNull()
+    expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('</body>'))
+    expect(html.lastIndexOf('<script')).toBeLessThan(html.indexOf('</html>'))
+    const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
+    const g = ld.find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
+    expect(g.image).toHaveLength(6)
+    expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
+    expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
+    expect(dom.querySelector('a[href="/vi/ca/ca-neon-vua/"]')).toBeTruthy()
+  })
+  test('sitemap lists the gallery page', () => {
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/ca/ca-neon-vua/anh/')
+  })
+})
