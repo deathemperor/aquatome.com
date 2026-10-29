@@ -2,7 +2,11 @@ import type { SourceId } from '@aq/schema'
 
 export type SourceConfig = {
   id: SourceId
-  discover: { kind: 'sitemap'; urls: string[] } | { kind: 'crawl'; start: string[]; scope?: string }
+  discover: { kind: 'sitemap'; urls: string[] } | { kind: 'crawl'; start: string[]; scope?: string } | { kind: 'archive'; prefix: string }
+  /** 'archive': read through the Internet Archive's latest copies (the site's own pages sit behind a browser check). */
+  via?: 'archive'
+  /** The query string names the page (species.php?species_id=12), so it stays in the URL. */
+  keepQuery?: boolean
   include: RegExp
   exclude?: RegExp
   contentSelector?: string
@@ -16,7 +20,8 @@ const POLITE = 5000
 /** Recon 2026-10-28; include patterns are tuned against live sitemaps (see plan 2 ledger). */
 export const SOURCES: SourceConfig[] = [
   { id: 'seriouslyfish', discover: { kind: 'sitemap', urls: ['https://www.seriouslyfish.com/sitemap.xml'] }, include: /seriouslyfish\.com\/(species|articles)\/[a-z0-9-]+\/?$/, exclude: /\/articles\/all\/?$/, contentSelector: 'main', delayMs: POLITE },
-  { id: 'planetcatfish', discover: { kind: 'crawl', start: ['https://www.planetcatfish.com/'] }, include: /planetcatfish\.com\/.*species/, delayMs: POLITE },
+  // Cloudflare challenges every request (2026-10-29), so the Cat-eLog is read from the Internet Archive's copies.
+  { id: 'planetcatfish', discover: { kind: 'archive', prefix: 'planetcatfish.com/common/species.php' }, via: 'archive', keepQuery: true, contentSelector: '#main-page', include: /^https:\/\/www\.planetcatfish\.com\/common\/species\.php\?species_id=\d+$/, delayMs: POLITE },
   { id: 'loachesonline', discover: { kind: 'crawl', start: ['https://www.loaches.com/species-index', 'https://www.loaches.com/articles', 'https://www.loaches.com/care'] }, include: /loaches\.com\/(species-index|articles|care|disease-treatment)\/[a-z0-9-]+/, exclude: /\/species-index\/(photos|photo-search|pictorial-species-search-index|species-index|loach-species-index-front-page)(\/|$)|\/(images|sendto_form|@@[a-z-]+|login_form|search)(\/|$)/, contentSelector: '#content', delayMs: POLITE },
   { id: 'glaser', discover: { kind: 'sitemap', urls: ['https://www.aquariumglaser.de/sitemap_index.xml'] }, include: /aquariumglaser\.de\/en\/[a-z0-9-]+\/[a-z0-9-]+/, exclude: /\/(category|tag|page|author)\//, delayMs: POLITE },
   { id: 'bwaquatics', discover: { kind: 'sitemap', urls: ['https://bwaquatics.com/sitemap.xml'] }, include: /bwaquatics\.com\/products\/[a-z0-9-]+$/, exclude: /\/products\/test$/, delayMs: POLITE },

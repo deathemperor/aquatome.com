@@ -22,6 +22,8 @@ import { candidates, resolveWanted, wantedFirst, wantedIn, type Wanted } from '.
 
 export type Deps = {
   fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
+  /** Reads sources with `via: 'archive'` (the Internet Archive's copies). */
+  archive?: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
   llm: Llm
   http: (url: string) => Promise<unknown>
   media: Media
@@ -227,7 +229,10 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const until = deadline === Infinity ? Infinity : deps.now().getTime() + (deadline - deps.now().getTime()) / (order.length - i)
     const counts: Counts = { discovered: 0, fetched: 0, processed: 0, skipped: 0, blocked: 0, errors: 0 }
     report.perSource[id] = counts
-    const blockedAt = await sourceBlockedSince(root, id)
+    const fetcher = src.via === 'archive' ? deps.archive : deps.fetcher
+    if (!fetcher) { report.errors.push(`${id}: no archive reader`); continue }
+    // An archived source never meets the site's browser check, so an old block doesn't hold it back.
+    const blockedAt = src.via === 'archive' ? undefined : await sourceBlockedSince(root, id)
     if (blockedAt && !opts.retryBlocked && deps.now().getTime() - new Date(blockedAt).getTime() < BLOCK_MEMORY_MS) {
       report.needsHuman.push(id) // still waiting for the owner to pass the browser check in the engine's Chrome profile
       continue
@@ -239,12 +244,12 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       await deps.sleep(Math.max(0, last + src.delayMs - deps.now().getTime()))
       try { return await f(...a) } finally { last = deps.now().getTime() }
     }
-    const get = polite((u: string) => deps.fetcher.get(u))
-    const links = polite((u: string, scope?: string) => deps.fetcher.links(u, scope))
-    const bytes = polite((u: string, referer: string) => deps.fetcher.bytes(u, referer))
+    const get = polite((u: string) => fetcher.get(u))
+    const links = polite((u: string, scope?: string) => fetcher.links(u, scope))
+    const bytes = polite((u: string, referer: string) => fetcher.bytes(u, referer))
     let found
     try {
-      found = await discover(src, polite((u: string) => deps.fetcher.text(u)), links)
+      found = await discover(src, polite((u: string) => fetcher.text(u)), links)
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
       counts.errors++
