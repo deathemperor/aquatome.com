@@ -102,7 +102,7 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike, within a minute of hiding.
   if (url.pathname.startsWith('/vi/')) {
     const p = pagePath(url.pathname)
-    if (p && (await loadHidden(env.AB))[p]) return finish(gonePage(), env)
+    if (p && (await loadHidden(env.AB).catch(() => ({})) as Record<string, unknown>)[p]) return finish(gonePage(), env) // KV down: serve the page
   }
   // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no skin, no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
