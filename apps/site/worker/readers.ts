@@ -65,7 +65,7 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
 }
 
 const SESSIONS_SQL = (days: number) => `SELECT blob4 AS sid, min(timestamp) AS first,
-  SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0)) AS scroll
+  SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll
 FROM thuysinh_events WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid FORMAT JSON`
 const VIEWS_SQL = (days: number) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS ref, blob6 AS cc, SUM(_sample_interval) AS views
 FROM thuysinh_events WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p, ref, cc FORMAT JSON`
