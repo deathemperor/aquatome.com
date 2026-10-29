@@ -13,7 +13,7 @@ const facts: BreedFacts = {
   parents: [],
   origin: [{ fact: 'developed in Japan from lionhead stock', source: 0 }], looks: [{ fact: 'no dorsal fin, wen on the head', source: 2 }], lines: [],
   care: [
-    { field: 'tempC', min: 24, max: 18, source: 0 }, // reversed: stored as 18–24
+    { field: 'tempC', min: 24.4, max: 18.3, source: 0 }, // reversed, from °F: stored as 18–24
     { field: 'ph', min: 7, max: 8, source: 1 }, // its source is a javascript: link, so the value goes with it
     { field: 'sizeCm', min: 15, max: 15, source: 2 },
     { field: 'tankCm', min: 2, max: 2, source: 2 }, // out of bounds

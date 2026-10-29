@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { commonsCandidates, galleries, inatCandidates, type GalleryDeps } from '../src/gallery'
 
-const meta = (licence: string, artist = '<a href="x">Ann</a>') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
+const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
   title, imageinfo: [{ width, mime: 'image/jpeg', thumburl: `https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/${title.slice(5)}/1280px-${title.slice(5)}`, thumbwidth: 1280, thumbheight: 960, descriptionurl: `https://commons.wikimedia.org/wiki/${title}`, extmetadata: meta(licence) }],
 })
@@ -28,7 +28,7 @@ const commons = async (u: string) => {
 test('commons: category and subcategories (not "in art"), then search; open licences, ≥ 800 px, plain-text author', async () => {
   const c = await commonsCandidates('Betta splendens', commons)
   expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
-  expect(c[0]).toMatchObject({ licence: 'CC BY-SA 4.0', author: 'Ann', width: 1280, sourceUrl: 'https://commons.wikimedia.org/wiki/File:A.jpg' })
+  expect(c[0]).toMatchObject({ licence: 'CC BY-SA 4.0', author: 'Ann, Bo', width: 1280, sourceUrl: 'https://commons.wikimedia.org/wiki/File:A.jpg' })
   expect(c[0]!.thumb).toMatch(/\/500px-A\.jpg$/)
 })
 

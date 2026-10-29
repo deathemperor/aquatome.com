@@ -155,8 +155,10 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const care: BreedEntity['care'] = {}
   for (const c of facts.care) {
     const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]
-    const min = Math.min(c.min, c.max)
-    const max = Math.max(c.min, c.max)
+    // Temperatures converted from °F come as 18.3–22.2: whole degrees.
+    const round = (v: number) => (c.field === 'tempC' ? Math.round(v) : v)
+    const min = round(Math.min(c.min, c.max))
+    const max = round(Math.max(c.min, c.max))
     if (!(min >= lo && max <= hi) || at(c.source) < 0) continue
     ;(care[c.field] ??= []).push({ source: at(c.source), value: min === max ? min : { min, max } })
   }
