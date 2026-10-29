@@ -1,0 +1,184 @@
+{
+  "id": "ranchu-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 18.3,
+          "max": 22.2
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 4,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 13,
+          "max": 20
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Goldfish_Ranchu_2.jpg/1280px-Goldfish_Ranchu_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Goldfish_Ranchu_2.jpg/500px-Goldfish_Ranchu_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldfish_Ranchu_2.jpg",
+      "caption": "Cá vàng Ranchu màu cam đỏ, bướu đầu lớn, nền xanh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Black_Ranchu.jpg/1280px-Black_Ranchu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Black_Ranchu.jpg/500px-Black_Ranchu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Ranchu.jpg",
+      "caption": "Cá vàng Ranchu màu đen tím, bướu đầu phát triển, nền xanh"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Blue_Ranchu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Blue_Ranchu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lawrencekhoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Ranchu.jpg",
+      "caption": "Cá vàng Ranchu màu xám xanh trong bể thủy sinh có sỏi trắng"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/%E5%BC%A5%E5%AF%8C%E9%87%91%E9%AD%9A%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A6.jpg/1280px-%E5%BC%A5%E5%AF%8C%E9%87%91%E9%AD%9A%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/%E5%BC%A5%E5%AF%8C%E9%87%91%E9%AD%9A%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A6.jpg/500px-%E5%BC%A5%E5%AF%8C%E9%87%91%E9%AD%9A%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 1280,
+      "height": 851,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yatokin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%BC%A5%E5%AF%8C%E9%87%91%E9%AD%9A%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A6.jpg",
+      "caption": "Cá vàng Ranchu đỏ trắng bơi trên nền sỏi trong bể"
+    }
+  ],
+  "commons": "Category:Ranchū",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ranchu",
+      "title": "Ranchu - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/C%C3%A1_v%C3%A0ng_Lan_th%E1%BB%8D",
+      "title": "Cá vàng Lan thọ - Wikipedia tiếng Việt",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://cacanhmini.com/cach-nuoi-ca-vang-ranchu-vua-cua-cac-loai-ca-vang/",
+      "title": "Cách nuôi cá vàng Ranchu vua của các loài cá vàng - Cá cảnh mini",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://dongngu.com/danh-muc/ca-vang-ranchu/",
+      "title": "Cá Vàng Ranchu - Ranchu Goldfish (Đông Ngư)",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/ranchu-king-of-goldfish/",
+      "title": "Ranchu: King of goldfish - Practical Fishkeeping",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/top-view-ranchu",
+      "title": "Top View Ranchu - The Goldfish Council",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/edonishiki",
+      "title": "Edonishiki - The Goldfish Council",
+      "kind": "article",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.allpondsolutions.co.uk/fishkeeping-advice/fish-file-ranchu.html",
+      "title": "Fish Files: Ranchu Goldfish - All Pond Solutions",
+      "kind": "shop",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://highranchu.blogspot.com/2014/05/culling-first-round.html",
+      "title": "High Ranchu Mon - Culling first round",
+      "kind": "breeder",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.wavma.org/media/Documents-for-download/0323-Model-Case-Report.pdf",
+      "title": "WAVMA Model Case Report (Ranchu wen overgrowth)",
+      "kind": "paper",
+      "at": "2026-10-29"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Ranch%C5%AB",
+      "title": "Category:Ranchū - Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-29"
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

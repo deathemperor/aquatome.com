@@ -483,3 +483,51 @@ describe('photo gallery', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/ca/ca-neon-vua/anh/')
   })
 })
+
+describe('man-made fish (breeds)', () => {
+  test('a line of a species: kind, link to its species, care card citing its own sources, no Taxon', () => {
+    const { html, dom } = page('/vi/ca/ca-dia-pigeon-blood/')
+    expect(dom.querySelector('h1')!.textContent).toBe('Cá đĩa Pigeon Blood')
+    expect(dom.querySelector('.where')!.textContent).toContain('Dòng cá cảnh')
+    expect(dom.querySelector('.where a')!.getAttribute('href')).toBe('/vi/ca/ca-dia/')
+    expect(dom.querySelector('.crumb a[href="/vi/ca/ca-dia/"]')).toBeTruthy()
+    // Two sources disagree on temperature: the range both accept, each source named by its title.
+    expect(dom.querySelector('[data-field="tempC"] .v')!.textContent).toBe('28–30°C')
+    expect(dom.querySelector('[data-field="tempC"] .srcs')!.textContent).toContain('Trại cá đĩa A')
+    expect(dom.querySelector('.sources a[href="https://breeder.example/pigeon"]')!.getAttribute('rel')).toContain('nofollow')
+    const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
+    expect(ld.some((x: { '@type': string }) => x['@type'] === 'FAQPage')).toBe(true)
+    expect(html).not.toContain('"Taxon"')
+    // Its text links other pages it names, never itself.
+    expect(dom.querySelector('.body a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
+    expect(dom.querySelector('.body a[href="/vi/ca/ca-dia-pigeon-blood/"]')).toBeNull()
+    expect(dom.querySelector('[data-comments][data-entity="breed:pigeon-blood-discus"], [data-entity="breed:pigeon-blood-discus"]')).toBeTruthy()
+  })
+  test('a hybrid: its parents, linked when we have the species, doubtful ones marked; noindex below the bar', () => {
+    const { dom } = page('/vi/ca/ca-la-han/')
+    const p = dom.querySelector('.parents')!
+    expect(p.textContent).toContain('Amphilophus trimaculatus')
+    expect(p.querySelector('a')!.getAttribute('href')).toBe('/vi/ca/ca-dia/')
+    expect(p.querySelector('a')!.textContent).toMatch(/^Cá đĩa \(Symphysodon/)
+    expect(p.textContent).toContain('chưa chắc chắn')
+    expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
+    expect(dom.querySelector('section.strip .head a')!.getAttribute('href')).toBe('/vi/ca/ca-la-han/anh/')
+  })
+  test('a breed gallery page has no scientific name', () => {
+    const { dom } = page('/vi/ca/ca-la-han/anh/')
+    expect(dom.querySelector('.lead')!.textContent).toMatch(/^7 ảnh từ Wikimedia Commons/)
+    expect(dom.querySelector('.lead .sci')).toBeNull()
+  })
+  test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
+    const { dom } = page('/vi/ca/ca-dia/')
+    const names = [...dom.querySelectorAll('section.breeds .n')].map(x => x.textContent)
+    expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
+    expect(page('/vi/ca/').dom.querySelector('section.breeds a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
+  })
+  test('sitemap: indexable breed pages only', () => {
+    const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+    expect(sm).toContain('/vi/ca/ca-dia-pigeon-blood/')
+    expect(sm).not.toContain('/vi/ca/ca-la-han/')
+  })
+})

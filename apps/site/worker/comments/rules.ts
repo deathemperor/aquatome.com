@@ -2,7 +2,7 @@ export type CommentInput = { entityRef: string; name: string; body: string }
 export type RuleContext = { duplicate: boolean; postsToday: number }
 export type Verdict = { ok: true } | { held: string } | { reject: string }
 
-export const ENTITY_RE = /^(species|plant|guide):[a-z0-9-]{1,140}$/
+export const ENTITY_RE = /^(species|breed|plant|guide):[a-z0-9-]{1,140}$/
 const MAX_POSTS_PER_DAY = 5
 /** Obvious spam/abuse vocabulary only — Claude's daily pass handles the nuance. */
 const BLOCKED = ['casino', 'cá cược', 'nhà cái', 'cho vay', 'vay tiền', 'xổ số', 'lô đề', 'viagra', 'zalo:', 'telegram:']

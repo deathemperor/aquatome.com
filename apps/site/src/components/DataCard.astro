@@ -1,9 +1,10 @@
 ---
-import { resolveDataCard, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
+import { resolveDataCard, type DataCardField, type Range } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { FIELD_LABELS, FIELD_ORDER, isRange, range } from '../lib/format'
-interface Props { card: SpeciesEntity['dataCard']; sources: Partial<Record<SourceId, SourceInfo>> }
+/** Species cite source ids (sources.json); breeds cite their own sources by position. */
+interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>> }
 const { card, sources } = Astro.props
 // Sources disagree: show the range they all accept (the safe target for a beginner), each source's own figure one tap away.
 const agreed = (vals: { value: number | { min: number; max: number } }[]) => {
@@ -20,7 +21,7 @@ const rows = FIELD_ORDER.flatMap(field => {
   const both = r.conflict ? agreed(vals) : null
   return [{ field, ...r, value: both ?? r.value, agreed: !!both, bySource: r.conflict ? vals : [] }]
 })
-const names = (ids: SourceId[]) => ids.map(id => sources[id]?.name ?? id).join(', ')
+const names = (ids: string[]) => ids.map(id => sources[id]?.name ?? id).join(', ')
 const unitAttrs = (field: string, v: number | { min: number; max: number }) => {
   const [a, b] = isRange(v) ? [v.min, v.max] : [v, v]
   if (field === 'tempC') return { 'data-c': `${a},${b}` }

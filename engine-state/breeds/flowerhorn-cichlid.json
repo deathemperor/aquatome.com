@@ -1,0 +1,388 @@
+{
+  "found": true,
+  "kind": "hybrid",
+  "enNames": [
+    "Flowerhorn cichlid",
+    "Flowerhorn",
+    "Luohan",
+    "Louhan"
+  ],
+  "viNames": [
+    {
+      "name": "Cá La Hán",
+      "source": 4
+    },
+    {
+      "name": "La Hán",
+      "source": 7
+    },
+    {
+      "name": "Kim Hoa (dòng King Kamfa)",
+      "source": 8
+    },
+    {
+      "name": "Kim Cương Thái đỏ (King Kamfa)",
+      "source": 8
+    },
+    {
+      "name": "La Hán Thái đỏ",
+      "source": 4
+    },
+    {
+      "name": "La Hán trân châu",
+      "source": 4
+    },
+    {
+      "name": "La Hán kim cương / phúc lộc thọ",
+      "source": 4
+    },
+    {
+      "name": "La Hán Hoàng Kim (nền vàng)",
+      "source": 7
+    },
+    {
+      "name": "Tuyết Điêu – Bạch Ngọc (La Hán trắng)",
+      "source": 7
+    }
+  ],
+  "parents": [
+    {
+      "name": "Red devil cichlid",
+      "scientificName": "Amphilophus labiatus",
+      "certain": false,
+      "source": 0
+    },
+    {
+      "name": "Trimac cichlid",
+      "scientificName": "Amphilophus trimaculatus",
+      "certain": true,
+      "source": 0
+    },
+    {
+      "name": "Blood parrot cichlid (hybrid, from Taiwan)",
+      "certain": false,
+      "source": 0
+    },
+    {
+      "name": "Midas cichlid",
+      "scientificName": "Amphilophus citrinellus",
+      "certain": false,
+      "source": 2
+    },
+    {
+      "name": "Redhead cichlid",
+      "scientificName": "Vieja melanurus (syn. Vieja synspila)",
+      "certain": false,
+      "source": 2
+    },
+    {
+      "name": "Hồng két (red parrot) plus pure American cichlids",
+      "certain": false,
+      "source": 4
+    }
+  ],
+  "origin": [
+    {
+      "fact": "Red devil and trimac cichlids were brought from Central America to Malaysia, and blood parrots from Taiwan, by about 1994. Breeders crossed them there.",
+      "source": 0
+    },
+    {
+      "fact": "Breeding is said to date from 1993, but Wikipedia flags that claim as coming from an unreliable, self-published source.",
+      "source": 0
+    },
+    {
+      "fact": "Flowerhorns went on sale in Malaysia in the late 1990s and then spread across Asia. Fish with big humped heads were prized in Malaysia and Taiwan as lucky.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese article puts its debut on the Malaysian market between the mid-1990s and 2000. It says the craze grew from about 2004.",
+      "source": 4
+    },
+    {
+      "fact": "A 2023 COI barcoding study of six flowerhorn morphotypes found no divergence from Amphilophus trimaculatus. This points to a trimac maternal line, though one marker cannot rule out other parents.",
+      "source": 2
+    },
+    {
+      "fact": "Nico et al. (2007), quoted in a US risk screening, concluded that flowerhorn-type fish were probably hybrids of 'Cichlasoma' trimaculatum, or possibly of Vieja synspila.",
+      "source": 3
+    },
+    {
+      "fact": "In Vietnam, demand rose by around 2011. The name comes from body markings said to look like Chinese characters, and the fish is thought to bring wealth.",
+      "source": 7
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Males grow a nuchal hump (kok, Vietnamese 'đầu gù' or 'châu') and are brighter. Females often have black spots on the dorsal fin.",
+      "source": 0
+    },
+    {
+      "fact": "Hobbyists look for a large head hump, a fanned tail, long slim fins, eyes that are not too big or bulging, and short gill covers.",
+      "source": 4
+    },
+    {
+      "fact": "A Vietnamese forum keeper says the head hump is mainly inherited and cannot be fully created by care alone.",
+      "source": 5
+    },
+    {
+      "fact": "Pearl scales ('châu') and flower markings along the body are key traits. Pearls are graded as dot pearls (châu hột) or thread pearls (châu sợi).",
+      "source": 4
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Zhen Zhu (Pearl): rounded tail, big mouth, red bulging eyes and a strong head flower.",
+      "source": 0
+    },
+    {
+      "fact": "Kamfa: white or yellow eyes, fan tail, a 'water' hump and smaller lips than Zhen Zhu.",
+      "source": 8
+    },
+    {
+      "fact": "King Kamfa: known for very large kok and varied patterns. Kamfamalau is a Kamfa male crossed with a Malau female.",
+      "source": 0
+    },
+    {
+      "fact": "Kim Hoa / Kim Cương Thái đỏ (King Kamfa), bred mainly in Thailand: red head on a yellow-orange body and a deep body. Red Texas has an even orange colour and a narrower, longer body.",
+      "source": 8
+    },
+    {
+      "fact": "Golden base group: includes faders and the golden trimac. Golden Monkey is a costly line.",
+      "source": 0
+    },
+    {
+      "fact": "La Hán Thái đỏ: compact body, many shiny pearls (especially on the tail) and always-spread fins, but usually a small hump. Most males are reportedly sterile.",
+      "source": 4
+    },
+    {
+      "fact": "La Hán trân châu: the most common line in Vietnam today, with green, blue or silver shimmering scales. It is sorted by red or green base colour and by pearl type.",
+      "source": 4
+    },
+    {
+      "fact": "La Hán kim cương (phúc lộc thọ): round body with white pearls on a dark blue base.",
+      "source": 4
+    },
+    {
+      "fact": "La Hán Thái silk: silver-bluish scales and no pearl threads. It reached Vietnam around 2008.",
+      "source": 4
+    },
+    {
+      "fact": "La Hán phượng hoàng lửa (Red/Fire Phoenix): solid red colour.",
+      "source": 4
+    },
+    {
+      "fact": "Hoàng Kim (golden base) and the white Tuyết Điêu – Bạch Ngọc are premium lines in Vietnam.",
+      "source": 7
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 25,
+      "max": 30,
+      "source": 4
+    },
+    {
+      "field": "tempC",
+      "min": 28,
+      "max": 30,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.8,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 8,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 25,
+      "max": 30,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 60,
+      "max": 60,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 80,
+      "max": 80,
+      "source": 5
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Keep it in a bare or lightly decorated tank. Live plants and rock caves can injure the fish.",
+      "source": 4
+    },
+    {
+      "fact": "Change water once or twice a week. A little aquarium salt is often used against bacteria and parasites.",
+      "source": 4
+    },
+    {
+      "fact": "Forum advice: change about a third of the water every 4–7 days and siphon out waste. Avoid gravel, which traps leftover food. Ammonia is a major risk.",
+      "source": 5
+    },
+    {
+      "fact": "Below 28°C, experienced keepers stop feeding because the fish easily fall ill. Cold water causes digestive trouble.",
+      "source": 5
+    },
+    {
+      "fact": "It eats almost anything: pellets, frozen bloodworms, shrimp and other meaty food. Feed adults twice a day. Colour-enhancing foods contain astaxanthin or xanthophyll.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese keepers favour peeled, frozen-then-thawed shrimp. They avoid live feeder fish, which can bring disease, and avoid overfeeding, which causes bloat.",
+      "source": 5
+    },
+    {
+      "fact": "It is very aggressive and territorial, so it is usually kept alone. Keepers use mirrors or a divided neighbour fish ('cá kè') to make it display.",
+      "source": 5
+    },
+    {
+      "fact": "It can live more than 10 years with good care.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Most males are sterile. Keepers wait 8–10 months for a male to mature, then test him with a female.",
+      "source": 0
+    },
+    {
+      "fact": "Spawning starts at 7–8 months but is best after about 10 months. Pair one male with one female, avoid siblings, and let them see each other first across a divider.",
+      "source": 6
+    },
+    {
+      "fact": "A Vietnamese guide gives spawning water of 28–31°C and pH 7.0–7.5, laid on a flat tile in a tank of about 50×40×40 cm. A 0.3–0.4 kg female lays about 1,200–1,500 eggs.",
+      "source": 6
+    },
+    {
+      "fact": "Eggs hatch in about 48 hours. Fry eat moina or egg yolk after 3 days.",
+      "source": 6
+    },
+    {
+      "fact": "In King Kamfa lines, few offspring develop a hump, and inbreeding raises the deformity rate. Breeders therefore rotate different females.",
+      "source": 8
+    },
+    {
+      "fact": "Since it is a hybrid, offspring vary. Over 60 lines exist and the traits do not reliably breed true.",
+      "source": 4
+    }
+  ],
+  "health": [
+    {
+      "fact": "Common problems are hole-in-head disease, ich and digestive blockages.",
+      "source": 0
+    },
+    {
+      "fact": "Vietnamese sources list gut infections from leftover food and white fungus over the body.",
+      "source": 4
+    },
+    {
+      "fact": "Some inbred kim cương stock has degenerated, with drooping tails and stunted growth.",
+      "source": 4
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick males if you want a big hump. Females have little or none.",
+      "source": 4
+    },
+    {
+      "fact": "Buy from good parent stock, because the hump gene is inherited.",
+      "source": 5
+    },
+    {
+      "fact": "Avoid fish with drooping tails, stunted bodies or overly large bulging eyes. Look for spread fins and short gill covers.",
+      "source": 4
+    },
+    {
+      "fact": "In Vietnam around 2011, small fish sold for about 1 million to over 10 million VND, depending on age and markings.",
+      "source": 7
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Surplus and culled fish were dumped in the wild in Malaysia and Singapore. There they compete with and eat native fish (Wikipedia).",
+      "source": 0
+    },
+    {
+      "fact": "Critics compare its breeding for anatomical deformities to goldfish breeding (Wikipedia).",
+      "source": 0
+    },
+    {
+      "fact": "Some fish are sold tattooed, and hormones have been used to boost colour (Wikipedia).",
+      "source": 0
+    },
+    {
+      "fact": "As a man-made hybrid, it raises concerns about genetic dilution of pure cichlid species (Wikipedia).",
+      "source": 0
+    },
+    {
+      "fact": "Australia bans its import (Wikipedia).",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese article blames inbreeding for big heads for degeneration in the kim cương line.",
+      "source": 4
+    }
+  ],
+  "commons": "Category:Flowerhorn cichlid",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Flowerhorn_cichlid",
+      "title": "Flowerhorn cichlid – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Flowerhorn_cichlid",
+      "title": "Category:Flowerhorn cichlid – Wikimedia Commons",
+      "kind": "other"
+    },
+    {
+      "url": "https://doaj.org/article/11eb834cf6c343c5be83422fa5c90e7e",
+      "title": "Sari et al. 2023, COI barcoding of flowerhorn morphotypes, J. Tropical Biodiversity and Biotechnology",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.fws.gov/sites/default/files/documents/Ecological-Risk-Screening-Summary-Redhead-Cichlid.pdf",
+      "title": "USFWS Ecological Risk Screening Summary – Redhead Cichlid",
+      "kind": "paper"
+    },
+    {
+      "url": "https://eva.vn/nha-dep/ca-la-han-nguon-goc-dac-diem-cac-loai-dep-va-cach-nuoi-c169a422449.html",
+      "title": "Cá La Hán: Nguồn gốc, đặc điểm, các loại đẹp và cách nuôi – Eva.vn",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-cach-nuoi-la-han-cho-newbie-tu-a-z.32898/",
+      "title": "Hướng dẫn cách nuôi La Hán cho newbie từ A->Z – Diễn đàn cá cảnh",
+      "kind": "forum"
+    },
+    {
+      "url": "https://cacanhthaihoa.com/kien-thuc/ky-thuat-cho-ca-la-han-sinh-san.html",
+      "title": "Kinh nghiệm và kỹ thuật cho cá La Hán sinh sản – Thái Hoà Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vnexpress.net/ca-canh-bac-trieu-2717037.html",
+      "title": "Cá cảnh bạc triệu – VnExpress",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishforums.net/threads/the-most-technical-standard-with-how-to-raise-king-kamfa-fish.465881",
+      "title": "The most technical standard with how to raise King Kamfa fish – Fishforums",
+      "kind": "forum"
+    }
+  ]
+}

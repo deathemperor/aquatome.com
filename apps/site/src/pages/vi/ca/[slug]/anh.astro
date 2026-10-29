@@ -1,25 +1,28 @@
 ---
-import type { Localized, Photo, SpeciesEntity } from '@aq/schema'
+import type { BreedEntity, Localized, Photo, SpeciesEntity } from '@aq/schema'
 import Browse from '../../../../layouts/Browse.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
 import { GALLERY_MIN, licenceUrl } from '../../../../lib/gallery'
 export async function getStaticPaths() {
   const c = await getContent()
-  return c.species.filter(s => (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => ({ params: { slug: s.t.slug }, props: { s, photos: c.galleries[s.id]! } }))
+  // Species and man-made fish (breeds) alike; a breed has no scientific name.
+  return [...c.species, ...c.breeds].filter(s => (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => ({ params: { slug: s.t.slug }, props: { s, photos: c.galleries[s.id]! } }))
 }
-const { s, photos } = Astro.props as { s: Localized<SpeciesEntity>; photos: Photo[] }
+const { s, photos } = Astro.props as { s: Localized<SpeciesEntity> | Localized<BreedEntity>; photos: Photo[] }
+const sci = 'scientificName' in s ? s.scientificName : undefined
+const from = [...new Set(photos.map(p => (/inaturalist\.org/.test(p.sourceUrl) ? 'iNaturalist' : 'Wikimedia Commons')))].join(' và ')
 const page = `/vi/ca/${s.t.slug}/`
 const jsonld = [{
-  '@context': 'https://schema.org', '@type': 'ImageGallery', name: `Ảnh ${s.t.name} (${s.scientificName})`,
+  '@context': 'https://schema.org', '@type': 'ImageGallery', name: `Ảnh ${s.t.name}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
     '@type': 'ImageObject', contentUrl: p.url, thumbnailUrl: p.thumb ?? p.url, caption: p.caption, creditText: p.author, creator: { '@type': 'Person', name: p.author },
     copyrightNotice: `${p.author}, ${p.licence}`, acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
   })),
 }]
 ---
-<Browse title={`Ảnh ${s.t.name}: ${photos.length} ảnh đẹp`} heading={`Ảnh ${s.t.name}`} description={`${photos.length} ảnh ${s.t.name} (${s.scientificName}) trong bể và ngoài tự nhiên, ghi rõ tác giả và giấy phép.`} crumbs={[['/vi/ca/', 'Loài cá'], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(photos)}>
-  <p class="lead"><span class="sci">{s.scientificName}</span> · {photos.length} ảnh từ Wikimedia Commons và iNaturalist, giấy phép mở. <a href={page}>Cách nuôi {s.t.name} →</a></p>
+<Browse title={`Ảnh ${s.t.name}: ${photos.length} ảnh đẹp`} heading={`Ảnh ${s.t.name}`} description={`${photos.length} ảnh ${s.t.name}${sci ? ` (${sci})` : ''}, ghi rõ tác giả và giấy phép.`} crumbs={[['/vi/ca/', 'Loài cá'], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(photos)}>
+  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{photos.length} ảnh từ {from}, giấy phép mở. <a href={page}>Cách nuôi {s.t.name} →</a></p>
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>

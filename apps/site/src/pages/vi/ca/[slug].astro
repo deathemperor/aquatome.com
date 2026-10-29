@@ -16,6 +16,8 @@ import RedirectNote from '../../../components/RedirectNote.astro'
 import { guidesMentioning } from '../../../lib/mentions'
 import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
 import GalleryStrip from '../../../components/GalleryStrip.astro'
+import BreedList from '../../../components/BreedList.astro'
+import { breedsOf } from '../../../lib/breeds'
 import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
@@ -44,8 +46,9 @@ const firstSource = s.sections[0]
 const summary = await approvedSummary(s.id)
 const gallery = c.galleries[s.id] ?? []
 const strip = gallery.length >= GALLERY_MIN ? gallery.slice(0, GALLERY_STRIP) : []
+const breeds = breedsOf(c, s.id)
 ---
-<Base title={speciesTitle(s.t.name, s.scientificName)} description={speciesDescription(s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...s.photos.slice(1), ...strip])}>
+<Base title={speciesTitle(s.t.name, s.scientificName)} description={speciesDescription(s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label="Đường dẫn">
     <a href="/vi/ca/">Loài cá</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
@@ -68,6 +71,7 @@ const strip = gallery.length >= GALLERY_MIN ? gallery.slice(0, GALLERY_STRIP) : 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
   {summary && <QuickSummary summary={summary} />}
   <Sections sections={s.sections} t={s.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} />
+  <BreedList breeds={breeds} heading={`Các dòng và cá lai từ ${s.t.name}`} />
   <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading="Bài viết nhắc đến loài này" />
   <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading="Có trong video hướng dẫn" />
 

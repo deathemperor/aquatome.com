@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { GallerySchema, isAllowedLicence, STAPLE_SPECIES, thumbOf, type Photo } from '@aq/schema'
+import sharp from 'sharp'
 import { LlmError, type Llm } from './claude'
 import { contactSheet } from './video-images'
 
@@ -43,8 +44,9 @@ export async function commonsCandidates(name: string, http: Http, max = 450): Pr
       const ii = p.imageinfo?.[0]
       const licence = ii?.extmetadata?.LicenseShortName?.value ?? ''
       if (!ii || ii.width < 800 || !/jpeg|png|webp/.test(ii.mime) || !isAllowedLicence(licence)) continue
+      const url = ii.thumburl.replace(/\?.*$/, '') // without Commons' utm tracking query
       out.push({
-        key: p.title, url: ii.thumburl, thumb: thumbOf(ii.thumburl) ?? ii.thumburl, width: ii.thumbwidth, height: ii.thumbheight, licence,
+        key: p.title, url, thumb: thumbOf(url) ?? url, width: ii.thumbwidth, height: ii.thumbheight, licence,
         author: text(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
       })
     }
@@ -87,8 +89,8 @@ export const VET_SCHEMA = {
   type: 'object', required: ['keep', 'best'],
   properties: { keep: { type: 'array', items: { type: 'object', required: ['n', 'caption'], properties: { n: { type: 'number' }, caption: { type: 'string' } } } }, best: { type: 'array', items: { type: 'number' } } },
 }
-const vetPrompt = (name: string, viName: string) => `Numbered photos that may show ${name} (${viName}), for a photo gallery in an aquarium handbook.
-Keep a photo only if it clearly shows a living ${name}: in an aquarium or in the wild, the fish the main subject, sharp enough to enjoy.
+const vetPrompt = (name: string, viName: string, strict?: boolean) => `Numbered photos that may show ${name} (${viName}), for a photo gallery in an aquarium handbook.
+${strict ? `${name} is a man-made line or hybrid: keep only photos of it, not other varieties, colour forms or hybrids of the same fish.\n` : ''}Keep a photo only if it clearly shows a living ${name}: in an aquarium or in the wild, the fish the main subject, sharp enough to enjoy.
 Reject: dead, preserved or in a jar; held in a hand or with any person or body part; drawings, diagrams, maps, collages, screenshots, text overlays or banners; another species as the main subject; very blurry, or the fish tiny in the frame; a near-copy of a photo you keep (keep the better one).
 For each kept photo give n and a caption: Vietnamese, at most 12 words, saying what the photo shows (sex, colour form, where), e.g. "Cá betta đực đuôi dài màu đỏ trong bể thủy sinh".
 best: up to 3 numbers of the most beautiful, clearest photos on this sheet.`
@@ -96,7 +98,7 @@ best: up to 3 numbers of the most beautiful, clearest photos on this sheet.`
 export type GalleryDeps = { http: Http; get: (url: string) => Promise<Uint8Array>; faces: (files: string[]) => Promise<number[]>; look: (file: string, prompt: string) => Promise<{ keep: { n: number; caption: string }[]; best: number[] }>; sleep: (ms: number) => Promise<void>; now: () => Date }
 
 /** Screened photos, best first: faces dropped (macOS Vision), then contact sheets of 20 judged by Claude. */
-export async function screen(cands: Candidate[], name: string, viName: string, d: GalleryDeps): Promise<Photo[]> {
+export async function screen(cands: Candidate[], name: string, viName: string, d: GalleryDeps, strict?: boolean): Promise<Photo[]> {
   const dir = await mkdtemp(join(tmpdir(), 'aq-gal-'))
   try {
     const got: { c: Candidate; file: string; b: Buffer }[] = []
@@ -104,6 +106,7 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
       await Promise.all(cands.slice(i, i + 6).map(async (c, j) => {
         try {
           const b = Buffer.from(await d.get(c.thumb ?? c.url))
+          await sharp(b).resize(8).toBuffer() // a corrupt image would break the whole contact sheet: skip it
           const file = join(dir, `${i + j}.jpg`)
           await writeFile(file, b)
           got.push({ c, file, b })
@@ -119,7 +122,7 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
       const part = clean.slice(i, i + SHEET)
       const sheet = join(dir, `sheet-${i}.jpg`)
       await writeFile(sheet, await contactSheet(part.map(g => g.b), 240, 180, 5))
-      const v = await d.look(sheet, vetPrompt(name, viName))
+      const v = await d.look(sheet, vetPrompt(name, viName, strict))
       const top = new Set(v.best ?? [])
       for (const k of v.keep ?? []) {
         const g = part[k.n - 1]

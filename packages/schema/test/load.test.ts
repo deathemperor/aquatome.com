@@ -56,3 +56,14 @@ test('indexability counts only sources the build may show', async () => {
   const pub = await loadAll({ root, lang: 'vi', publicBuild: true })
   expect(pub.species.find(s => s.id === 'alpha')!.t.quality).toMatchObject({ score: 0.9, indexable: true })
 })
+
+test('a breed whose address is already a species page stops the build', async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-breed-'))
+  await cp(root, dir, { recursive: true })
+  const slug = JSON.parse(await readFile(join(dir, 'species/alpha/vi.json'), 'utf8')).slug
+  await mkdir(join(dir, 'breeds/clash'), { recursive: true })
+  await writeFile(join(dir, 'breeds/clash/entity.json'), JSON.stringify({ id: 'clash', kind: 'hybrid', parents: [], care: {}, photos: [], sources: [], updatedAt: '2026-10-30' }))
+  await writeFile(join(dir, 'breeds/clash/vi.json'), JSON.stringify({ slug, name: 'Cá lai', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  await expect(loadAll({ root: dir, lang: 'vi', publicBuild: false })).rejects.toThrow(/already a species page/)
+})

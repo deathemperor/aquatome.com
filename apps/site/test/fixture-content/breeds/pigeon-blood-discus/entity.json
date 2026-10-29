@@ -1,0 +1,57 @@
+{
+ "id": "pigeon-blood-discus",
+ "kind": "variety",
+ "basedOn": "symphysodon-aequifasciatus",
+ "parents": [],
+ "care": {
+  "tempC": [
+   {
+    "source": 0,
+    "value": {
+     "min": 28,
+     "max": 30
+    }
+   },
+   {
+    "source": 1,
+    "value": {
+     "min": 27,
+     "max": 31
+    }
+   }
+  ],
+  "sizeCm": [
+   {
+    "source": 0,
+    "value": 15
+   }
+  ]
+ },
+ "photos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed1.jpg/1280px-Breed1.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed1.jpg/500px-Breed1.jpg",
+   "width": 1280,
+   "height": 960,
+   "licence": "CC BY-SA 4.0",
+   "author": "Người chụp 1",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Breed1.jpg",
+   "caption": "Cá lai 1"
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://breeder.example/pigeon",
+   "title": "Trại cá đĩa A",
+   "kind": "breeder",
+   "at": "2026-10-30"
+  },
+  {
+   "url": "https://forum.example/t/1",
+   "title": "Diễn đàn B",
+   "kind": "forum",
+   "at": "2026-10-30"
+  }
+ ],
+ "updatedAt": "2026-10-30"
+}

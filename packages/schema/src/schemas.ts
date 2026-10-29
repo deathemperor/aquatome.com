@@ -102,6 +102,26 @@ export const ProductSchema = z.object({
   updatedAt: z.string(),
 })
 /** A product's prices in one market (content/products/<id>/<market>.json): shops' own listings, each dated. */
+/**
+ * A fish people made, with no scientific name of its own: a hybrid (La Hán, Hồng Két), a line or colour form of one
+ * species (goldfish Ranchu, koi, guppy and betta lines, arowana colour forms) or a transgenic fish (GloFish).
+ * Researched on the web and cited like a product; never given an invented binomial.
+ */
+export const BreedSchema = z.object({
+  id: z.string(), kind: z.enum(['hybrid', 'variety', 'transgenic']),
+  /** What it is a form of: a species id (carassius-auratus for Ranchu) or another breed (a La Hán line). */
+  basedOn: z.string().optional(),
+  /** Hybrids: the parent fish as the sources give them, with the species page when we have one. */
+  parents: z.array(z.object({ name: z.string(), species: z.string().optional(), certain: z.boolean() })),
+  /** Care values, each pointing at its source in `sources`. */
+  care: z.partialRecord(DataCardField, z.array(z.object({ source: z.number().int(), value: z.union([Range, z.number()]) }))),
+  photos: z.array(Photo),
+  /** Wikimedia Commons category for its photos, when there is one. */
+  commons: z.string().optional(),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other']), at: z.string() })),
+  updatedAt: z.string(),
+})
+
 export const MarketSchema = z.object({
   currency: z.string(), checkedAt: z.string(),
   prices: z.array(z.object({ shop: z.string(), url: WebUrl, variant: z.string().optional(), price: z.number(), at: z.string() })),

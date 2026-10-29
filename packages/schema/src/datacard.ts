@@ -1,8 +1,9 @@
-import type { Range, SourceId, SourcedValue } from './types'
+import type { Range } from './types'
 
 const isRange = (v: Range | number): v is Range => typeof v === 'object'
 
-export function resolveDataCard(values: SourcedValue[]): { value: Range | number; sources: SourceId[]; conflict: boolean } | null {
+/** One value for a field from what each source gives: Seriously Fish's when it has one, else the widest range. */
+export function resolveDataCard<S extends string>(values: { source: S; value: Range | number }[]): { value: Range | number; sources: S[]; conflict: boolean } | null {
   if (values.length === 0) return null
   const sf = values.find(v => v.source === 'seriouslyfish')
   const sources = [...(sf ? [sf.source] : []), ...values.filter(v => v !== sf).map(v => v.source)]

@@ -109,3 +109,10 @@ test('gallery order: the staples first, then the species most sources write abou
   const report = await galleries(r, deps(), { limit: 2 })
   expect(report.done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'zzz-three-sources'])
 })
+
+test('a photo that does not decode is skipped instead of breaking the contact sheet', async () => {
+  const r = await root()
+  let n = 0
+  const report = await galleries(r, deps({ get: async () => (n++ === 0 ? new Uint8Array([0xff, 0xd8, 0xff, 0x00, 0x01]) : new Uint8Array(await jpeg)), faces: async f => f.map(() => 0), look: async () => ({ keep: [{ n: 1, caption: 'x' }], best: [] }) }), { limit: 5 })
+  expect(report.done).toEqual(['betta-splendens: 1 of 2'])
+})

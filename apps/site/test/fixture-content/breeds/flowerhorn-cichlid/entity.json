@@ -1,0 +1,27 @@
+{
+ "id": "flowerhorn-cichlid",
+ "kind": "hybrid",
+ "parents": [
+  {
+   "name": "Amphilophus trimaculatus",
+   "certain": true
+  },
+  {
+   "name": "Cá đĩa",
+   "species": "symphysodon-aequifasciatus",
+   "certain": false
+  }
+ ],
+ "care": {},
+ "photos": [],
+ "commons": "Category:Flowerhorn cichlid",
+ "sources": [
+  {
+   "url": "https://article.example/flowerhorn",
+   "title": "Bài C",
+   "kind": "article",
+   "at": "2026-10-30"
+  }
+ ],
+ "updatedAt": "2026-10-30"
+}
