@@ -14,6 +14,10 @@
   --c-on-dark: #e4efed;
   --c-on-dark-soft: #9db7b3;
   --c-focus: #c46a36;
+  --c-mat: #fff; /* photo mats, inputs */
+  --c-band: #24302a; /* footer and video bands */
+  --c-select: #e8d5b5;
+  color-scheme: light;
 
   --f-display: 'Newsreader Variable', Georgia, serif;
   --f-body: 'Be Vietnam Pro', system-ui, sans-serif;
@@ -32,4 +36,48 @@
   --radius-media: 0;
   --measure: 60ch; /* ~75 characters of Vietnamese in Newsreader (68ch ran ~90) */
   --page: 1200px;
+}
+
+/* Dark ("Đáy sâu": blackwater ground, mint links, coral kickers): chosen in the nav, or the system setting when none is chosen. */
+:root[data-theme="dark"] {
+  --c-blackwater: #071215;
+  --c-blackwater-2: #0d2025;
+  --c-paper: #0b1a1e;
+  --c-plate: #11262b;
+  --c-mat: #16302f;
+  --c-band: #061013;
+  --c-select: #2e5a52;
+  --c-ink: #e6efec;
+  --c-ink-soft: #b2c6c1;
+  --c-ink-faint: #8fa9a3;
+  --c-rule: #2a4a4a;
+  --c-moss: #6fd6be;
+  --c-cardinal: #ff9b7f;
+  --c-neon: #6fd6be;
+  --c-on-dark: #e6efec;
+  --c-on-dark-soft: #b2c6c1;
+  --c-focus: #6fd6be;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-blackwater: #071215;
+    --c-blackwater-2: #0d2025;
+    --c-paper: #0b1a1e;
+    --c-plate: #11262b;
+    --c-mat: #16302f;
+    --c-band: #061013;
+    --c-select: #2e5a52;
+    --c-ink: #e6efec;
+    --c-ink-soft: #b2c6c1;
+    --c-ink-faint: #8fa9a3;
+    --c-rule: #2a4a4a;
+    --c-moss: #6fd6be;
+    --c-cardinal: #ff9b7f;
+    --c-neon: #6fd6be;
+    --c-on-dark: #e6efec;
+    --c-on-dark-soft: #b2c6c1;
+    --c-focus: #6fd6be;
+    color-scheme: dark;
+  }
 }

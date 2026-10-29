@@ -1,0 +1,37 @@
+---
+/** Light / dark / follow the system: saved in localStorage aq_theme; Base applies it before first paint. */
+---
+<button type="button" class="theme" data-theme-toggle hidden aria-label="Giao diện: tự động theo máy. Bấm để đổi">
+  <svg class="i-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+  <svg class="i-dark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
+  <svg class="i-light" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+<script>
+  const ORDER = ['auto', 'dark', 'light'] as const
+  type Mode = (typeof ORDER)[number]
+  const LABEL: Record<Mode, string> = { auto: 'tự động theo máy', dark: 'tối', light: 'sáng' }
+  const read = (): Mode => { try { const t = localStorage.getItem('aq_theme'); return t === 'dark' || t === 'light' ? t : 'auto' } catch { return 'auto' } }
+  function show(mode: Mode) {
+    if (mode === 'auto') document.documentElement.removeAttribute('data-theme')
+    else document.documentElement.setAttribute('data-theme', mode)
+    for (const b of document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')) {
+      b.hidden = false
+      b.dataset.mode = mode
+      b.setAttribute('aria-label', `Giao diện: ${LABEL[mode]}. Bấm để đổi`)
+      b.title = `Giao diện: ${LABEL[mode]}`
+    }
+  }
+  show(read())
+  document.addEventListener('click', e => {
+    if (!(e.target as Element).closest('[data-theme-toggle]')) return
+    const next = ORDER[(ORDER.indexOf(read()) + 1) % ORDER.length]!
+    try { if (next === 'auto') localStorage.removeItem('aq_theme'); else localStorage.setItem('aq_theme', next) } catch { /* private mode: this page only */ }
+    show(next)
+  })
+</script>
+<style>
+  .theme { display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; background: none; border: 0; color: var(--c-ink-soft); cursor: pointer; }
+  .theme:hover { color: var(--c-ink); }
+  .theme svg { display: none; }
+  .theme[data-mode='auto'] .i-auto, .theme[data-mode='dark'] .i-dark, .theme[data-mode='light'] .i-light { display: block; }
+</style>

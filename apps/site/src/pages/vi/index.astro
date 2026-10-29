@@ -127,7 +127,7 @@ const credits = [HERO, ...creditsFor([
   .form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); background: var(--c-plate); border: 1px solid var(--c-ink); }
   .form label { display: grid; gap: 4px; font-size: 0.8rem; color: var(--c-ink-soft); }
   .form label span { display: flex; align-items: center; gap: 6px; color: var(--c-ink); }
-  .form input { width: 100%; min-width: 0; font: 600 1.25rem var(--f-body); color: var(--c-ink); background: #fff; border: 1px solid var(--c-ink-soft); padding: 0.45rem 0.5rem; }
+  .form input { width: 100%; min-width: 0; font: 600 1.25rem var(--f-body); color: var(--c-ink); background: var(--c-mat); border: 1px solid var(--c-ink-soft); padding: 0.45rem 0.5rem; }
   .form button { grid-column: 1 / -1; min-height: 48px; border: 0; background: var(--c-ink); color: var(--c-paper); font: 600 1rem var(--f-body); cursor: pointer; }
   .form button:hover { background: var(--c-moss); }
   .search { margin-top: var(--space-4); display: grid; gap: 4px; font-size: 0.8rem; color: var(--c-ink-soft); }
@@ -136,7 +136,7 @@ const credits = [HERO, ...creditsFor([
   .search input:focus-visible { outline: none; }
   .search span:focus-within { border-color: var(--c-ink); box-shadow: 0 1px 0 var(--c-ink); }
   .search button { min-height: 44px; min-width: 44px; border: 0; background: none; font: 600 0.95rem var(--f-body); color: var(--c-moss); cursor: pointer; }
-  .photo { margin: 0; padding: 10px; background: #fff; box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
+  .photo { margin: 0; padding: 10px; background: var(--c-mat); box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
   .photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
   .block { padding-block: var(--space-7) 0; }
@@ -158,7 +158,7 @@ const credits = [HERO, ...creditsFor([
 
   .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: var(--space-4) var(--space-3); }
   .groups a { display: block; text-decoration: none; color: inherit; font-size: 0.95rem; }
-  .gp { display: block; padding: 4px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
+  .gp { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
   .gp img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
   .groups b { font: 500 1.05rem var(--f-display); }
   .cnt { display: block; color: var(--c-ink-faint); font-size: 0.8rem; }

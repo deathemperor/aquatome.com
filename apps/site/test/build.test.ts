@@ -341,3 +341,18 @@ describe('video pages', () => {
     expect(sm).toContain('/vi/video/reu-hai-tu-a-den-z/</loc>')
   })
 })
+
+describe('dark mode', () => {
+  const { html, dom } = page('/vi/')
+  test('the saved theme is applied in <head> before the styles; both schemes declared', () => {
+    const head = html.slice(0, html.indexOf('</head>'))
+    expect(head).toContain('<meta name="color-scheme" content="light dark">')
+    expect(head.indexOf("localStorage.getItem('aq_theme')")).toBeGreaterThan(-1)
+    expect(head.indexOf("localStorage.getItem('aq_theme')")).toBeLessThan(head.search(/<style|<link rel="stylesheet"/))
+  })
+  test('dark tokens for the system setting and the explicit choice; a toggle in the nav', () => {
+    expect(html).toMatch(/:root\[data-theme=["']?dark["']?\]\s*\{[^}]*--c-paper:\s*#0b1a1e/)
+    expect(html).toMatch(/prefers-color-scheme:\s*dark\)\s*\{\s*:root:not\(\[data-theme=["']?light["']?\]\)/)
+    expect(dom.querySelector('.nav [data-theme-toggle]')).not.toBeNull()
+  })
+})
