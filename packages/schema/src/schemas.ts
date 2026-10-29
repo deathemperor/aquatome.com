@@ -67,6 +67,8 @@ export const TranslationSchema = z.object({
   body: z.string().optional(), definition: z.string().optional(),
   /** Video guides: key takeaways, questions readers ask, and the video's chapter titles in Vietnamese (same order). */
   summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),
+  /** Video guides: the words on the video's thumbnail in Vietnamese (≤ 5 words), shown as our label over it (the image itself is never altered). */
+  cover: z.string().optional(),
   /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
