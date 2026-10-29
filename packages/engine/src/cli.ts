@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { SOURCE_IDS, type SourceId } from '@aq/schema'
 import { claudeCli } from './claude'
+import { dropFacePhotos, visionFaces } from './faces'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
 import { httpAdmin, moderate } from './moderate'
@@ -84,6 +85,15 @@ if (cmd === 'run') {
   console.log(`thumbs: ${r.checked} photos, ${r.made} made, ${r.failed.length} failed`)
   for (const f of r.failed) console.log(`failed: ${f}`)
   if (r.failed.length) process.exitCode = 1
+} else if (cmd === 'faces') {
+  // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state.
+  const r = await dropFacePhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
+    get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    detect: visionFaces,
+  })
+  console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.failed.length} failed`)
+  for (const x of r.removed) console.log(`removed: ${x}`)
+  for (const f of r.failed) console.log(`failed: ${f}`)
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker (new or changed pages only).
   const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date() })
@@ -97,6 +107,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine thumbs | pnpm engine faces | pnpm engine status')
   process.exitCode = 1
 }
