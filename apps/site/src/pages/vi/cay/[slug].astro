@@ -26,7 +26,7 @@ const facts: [string, string][] = [
   ['Vị trí', p.placement.map(x => PLANT_LABELS.placement[x]).join(', ')],
 ]
 ---
-<Base title={`${p.t.name} (${p.scientificName}) — thủy·sinh`} description={`Cách trồng ${p.t.name}: ánh sáng, CO₂, vị trí.`} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
+<Base title={`${p.t.name} (${p.scientificName}) — AquaTome`} description={`Cách trồng ${p.t.name}: ánh sáng, CO₂, vị trí.`} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label="Đường dẫn"><a href="/vi/cay/">Cây thủy sinh</a></nav>
   <header class="wrap top">
