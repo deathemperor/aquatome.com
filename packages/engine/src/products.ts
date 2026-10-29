@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { MarketSchema, ProductSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type Market, type ProductEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
+import { isMarketplace } from './marketplaces'
 import { sanitizeHtml } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/product.md', import.meta.url), 'utf8')
@@ -55,14 +56,24 @@ const digits = (n: number) => String(Math.round(n))
 /** "280000" as shops write it: 280.000, 280,000, 280 000, 280k. */
 const shown = (n: number) => { const d = digits(n); const g = d.replace(/\B(?=(\d{3})+(?!\d))/g, 'X'); return [d, g.replace(/X/g, '.'), g.replace(/X/g, ','), g.replace(/X/g, ' '), ...(n % 1000 === 0 ? [`${n / 1000}k`] : [])] }
 
+/** A money amount in a note ("previously 180,000₫"): never published unless it went through the price check. */
+const MONEY = /\d[\d.,\s]*\s*(?:₫|đ|vnd\b|k\b)/i
+/** A price's variant note without money amounts: "M (out of stock; previously 180,000₫)" → "M (out of stock)". */
+export function cleanVariant(v?: string): string | undefined {
+  if (!v || !MONEY.test(v)) return v
+  const out = v.replace(/\(([^)]*)\)/g, (_, inner: string) => { const keep = inner.split(/;\s*/).filter(x => !MONEY.test(x)); return keep.length ? `(${keep.join('; ')})` : '' }).replace(/\s+/g, ' ').trim()
+  return out && !MONEY.test(out) ? out : undefined
+}
+
 /** Only prices the shop's page actually shows (fetched by us), so a mistaken number never publishes. */
 export async function checkPrices(prices: Facts['prices'], get: (url: string) => Promise<string>): Promise<Facts['prices']> {
   const ok: Facts['prices'] = []
   for (const p of prices) {
-    if (!/^https:\/\//.test(p.url) || /shopee|lazada|tiki\.vn/.test(p.url) || !(p.vnd >= 1000)) continue
+    if (!/^https:\/\//.test(p.url) || isMarketplace(p.url) || !(p.vnd >= 1000)) continue
     const html = await get(p.url).catch(() => '')
     const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ')
-    if (shown(p.vnd).some(s => text.includes(s))) ok.push(p)
+    // The whole number, not part of a bigger one (450.000 inside 1.450.000).
+    if (shown(p.vnd).some(s => new RegExp(`(?<![\\d.,]|\\d )${s.replace(/[.]/g, '\\.')}(?![\\d]|[.,]\\d)`, 'i').test(text))) { const { variant: _v, ...rest } = p; const variant = cleanVariant(p.variant); ok.push(variant ? { ...rest, variant } : rest) }
   }
   return ok
 }
@@ -117,9 +128,15 @@ export async function makeProduct(contentRoot: string, d: { research: Llm; llm: 
   const dir = join(contentRoot, 'products', id)
   const today = d.now().toISOString().slice(0, 10)
   const prev = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
+  // Only web links are kept as sources; each spec's source number follows its source to the new position.
+  const web = facts.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
+  const cite = (s: Spec): Spec => {
+    const { source, ...rest } = s
+    return source !== undefined && web[source] ? { ...rest, source: web.slice(0, source).filter(Boolean).length } : rest
+  }
   const entity: ProductEntity = ProductSchema.parse({
     id, brand: a.brand, model: a.model, category: a.category, ...(a.type ? { type: a.type } : {}),
-    specs: facts.specs, variants: facts.variants, sources: facts.sources.filter(s => /^https?:\/\/\S+$/i.test(s.url)).map(s => ({ ...s, at: today })), updatedAt: today,
+    specs: facts.specs.map(cite), variants: facts.variants.map(v => ({ ...v, specs: v.specs.map(cite) })), sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
   const vi: Translation = TranslationSchema.parse({
     slug: prev?.slug ?? id, name: w.name.trim(), altNames: [`${a.brand} ${a.model}`], sections: {}, body,

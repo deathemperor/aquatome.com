@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process'
 import { dirname } from 'node:path'
+import { MARKETPLACE_DOMAINS } from './marketplaces'
 
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
 export class LlmError extends Error {}
@@ -7,9 +8,9 @@ export class LlmError extends Error {}
 /** model: per-call override of ENGINE_MODEL (default sonnet). */
 export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
-function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; cwd: string; model?: string; timeoutMs?: number }): Promise<T> {
+function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }): Promise<T> {
   return new Promise<T>((resolve, reject) => {
-    const args = ['-p', '--model', opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []),
+    const args = ['-p', '--model', opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
       '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'] })
     let out = ''
@@ -39,6 +40,6 @@ export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: s
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
   run<T>(system, `${prompt}\n\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model })
 
-/** Same, able to search and read the web (WebSearch, WebFetch): product research. Slower, so a longer timeout. */
+/** Same, able to search and read the web (WebSearch, WebFetch; never marketplace pages): product research. Slower, so a longer timeout. */
 export const claudeResearch: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
-  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', cwd: '/tmp', model, timeoutMs: 25 * 60_000 })
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: MARKETPLACE_DOMAINS.map(d => `WebFetch(domain:${d})`), cwd: '/tmp', model, timeoutMs: 25 * 60_000 })

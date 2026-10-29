@@ -29,6 +29,7 @@ import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } fr
 import { galleries, VET_SCHEMA as GALLERY_VET } from './gallery'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytDlp, ytFinder, ytStoryboard } from './youtube'
+import { isMarketplace } from './marketplaces'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -182,7 +183,18 @@ if (cmd === 'run') {
   const kit = (await readKit(join(ROOT, 'content'))).find(k => k.category === values.category)
   if (!brand || !model || !kit) throw new Error('usage: pnpm engine product <brand> <model> --category <equipment id> [--type <type id>]')
   const type = kit.types.find(t => t.id === values.type)
-  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
+  // Redirects are followed one hop at a time, never to a marketplace.
+  const get = async (u: string) => {
+    for (let hop = 0, url = u; hop < 4; hop++) {
+      if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
+      const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
+      const next = res.headers.get('location')
+      if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      return res.text()
+    }
+    throw new Error('too many redirects')
+  }
   const r = await makeProduct(join(ROOT, 'content'), { research: claudeResearch, llm: claudeCli, get, now: () => new Date() }, { brand, model, category: kit.category, ...(type ? { type: type.id } : {}), kind: type?.name ?? kit.name }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', factsDir: join(ROOT, 'engine-state/products'), reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'video-items') {
