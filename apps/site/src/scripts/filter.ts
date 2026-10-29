@@ -4,6 +4,7 @@ import { slugify } from '@aq/schema/slug'
 export type SpeciesIndexItem = {
   slug: string; name: string; scientificName: string; group: string
   difficulty?: number; tempC?: Range; ph?: Range; tankCm?: number; gh?: Range; sizeCm?: number
+  temperament?: 'peaceful' | 'semi-aggressive' | 'aggressive' | 'predator'; finNipper?: boolean; schoolMin?: number
 }
 export type SpeciesQuery = { difficultyMax?: number; tempC?: number; ph?: number; tankCm?: number; group?: string; text?: string }
 

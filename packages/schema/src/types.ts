@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { ChangelogEntrySchema, GlossarySchema, GuideSchema, LANGS, PlaceSchema, PlantSchema, SECTION_ORDER, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, SummarySchema, TranslationSchema, schemas } from './schemas'
+import type { ChangelogEntrySchema, GlossarySchema, GuideSchema, LANGS, PlaceSchema, PlantSchema, SECTION_ORDER, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, SummarySchema, TraitsSchema, TranslationSchema, schemas } from './schemas'
 
 export type Lang = (typeof LANGS)[number]
 export type SourceId = (typeof SOURCE_IDS)[number]
@@ -12,6 +12,7 @@ export type Photo = z.infer<typeof schemas.Photo>
 export type Video = z.infer<typeof schemas.Video>
 export type ProductSlot = z.infer<typeof schemas.ProductSlot>
 export type Summary = z.infer<typeof SummarySchema>
+export type Traits = z.infer<typeof TraitsSchema>
 export type SpeciesEntity = z.infer<typeof SpeciesSchema>
 export type PlantEntity = z.infer<typeof PlantSchema>
 export type GuideEntity = z.infer<typeof GuideSchema>

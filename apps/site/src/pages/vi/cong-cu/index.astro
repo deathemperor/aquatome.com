@@ -4,14 +4,16 @@ import { getContent } from '../../../lib/content'
 import { toIndexItem } from '../../../lib/species-index'
 import { jsonForScript } from '../../../lib/json'
 import { VN_WATER } from '../../../lib/climate'
+import { getTraits } from '../../../lib/traits'
 
 const c = await getContent()
-const index = c.species.map(toIndexItem).sort((a, b) => a.name.localeCompare(b.name, 'vi'))
+const traits = await getTraits()
+const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, 'vi'))
 ---
 <Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, tính thể tích bể và công suất sưởi.">
   <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
     <h2 id="tm-h">Nuôi chung được không?</h2>
-    <p class="lead">Chọn 2–6 loài để so khoảng nhiệt độ, pH, độ cứng và kích thước. Tập tính (hiền, dữ, cắn vây) chưa có trong phép so: hãy đọc mục “Nuôi chung với con gì?” trong từng hồ sơ.</p>
+    <p class="lead">Chọn 2–6 loài để so nhiệt độ, pH, độ cứng, kích thước và tính cách. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.</p>
     <form id="tm-form" class="row">
       <label class="grow">Thêm loài
         <input id="tm-input" list="tm-list" placeholder="Gõ tên Việt hoặc tên khoa học" autocomplete="off" />
@@ -48,7 +50,7 @@ const index = c.species.map(toIndexItem).sort((a, b) => a.name.localeCompare(b.n
 </Browse>
 <script>
   import type { SpeciesIndexItem } from '../../../scripts/filter'
-  import { checkTankmates } from '../../../scripts/tankmates'
+  import { checkTankmates, TEMPERAMENT_LABELS } from '../../../scripts/tankmates'
   import { heaterWatts, tankVolume } from '../../../scripts/calc'
 
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
@@ -70,13 +72,17 @@ const index = c.species.map(toIndexItem).sort((a, b) => a.name.localeCompare(b.n
     if (chosen.length < 2) { $('tm-out').innerHTML = '<p class="hint">Thêm ít nhất 2 loài.</p>'; return }
     const r = checkTankmates(chosen)
     const cell = (c: SpeciesIndexItem, f: keyof typeof LABEL) => (c[f] ? `${rng(c[f]!)}${unit(f)}` : '—')
-    const rows = chosen.map(c => `<tr><th scope="row"><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a></th>${r.params.map(p => `<td>${cell(c, p.field)}</td>`).join('')}<td>${c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—'}</td></tr>`)
+    const rows = chosen.map(c => `<tr><th scope="row"><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a></th>${r.params.map(p => `<td>${cell(c, p.field)}</td>`).join('')}<td>${c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—'}</td><td>${c.temperament ? TEMPERAMENT_LABELS[c.temperament] : '—'}</td></tr>`)
     const verdict = r.params.map(p => `<td>${p.shared ? `<span class="ok">${rng(p.shared)}${unit(p.field)}</span>` : chosen.length - p.missing.length >= 2 ? '<span class="bad">Không có</span>' : '<span class="na">Thiếu dữ liệu</span>'}</td>`).join('')
       + `<td>${r.eats.length ? '<span class="bad">Chênh lệch lớn</span>' : '<span class="ok">Ổn</span>'}</td>`
-    const head = `<tr><th scope="col">Loài</th>${r.params.map(p => `<th scope="col">${LABEL[p.field]}</th>`).join('')}<th scope="col">Kích thước</th></tr>`
-    const warn = r.eats.map(e => `<li>${esc(e.big)} (${fmt(e.bigCm)} cm) có thể ăn ${esc(e.small)} (${fmt(e.smallCm)} cm).</li>`).join('')
+      + `<td>${r.notes.some(n => n.level === 'bad') ? '<span class="bad">Xung đột</span>' : r.notes.some(n => n.level === 'warn') ? '<span class="bad">Cần lưu ý</span>' : chosen.every(c => c.temperament) ? '<span class="ok">Ổn</span>' : '<span class="na">Thiếu dữ liệu</span>'}</td>`
+    const head = `<tr><th scope="col">Loài</th>${r.params.map(p => `<th scope="col">${LABEL[p.field]}</th>`).join('')}<th scope="col">Kích thước</th><th scope="col">Tính cách</th></tr>`
+    const warn = [...r.eats.map(e => `<li>${esc(e.big)} (${fmt(e.bigCm)} cm) có thể ăn ${esc(e.small)} (${fmt(e.smallCm)} cm).</li>`),
+      ...r.notes.filter(n => n.level !== 'info').map(n => `<li>${esc(n.text)}</li>`)].join('')
+    const info = r.notes.filter(n => n.level === 'info').map(n => `<li>${esc(n.text)}</li>`).join('')
     $('tm-out').innerHTML = `<div class="scroll"><table><thead>${head}</thead><tbody>${rows.join('')}</tbody><tfoot><tr><th scope="row">Khoảng chung</th>${verdict}</tr></tfoot></table></div>`
       + (warn ? `<ul class="warn">${warn}</ul>` : '')
+      + (info ? `<ul class="info">${info}</ul>` : '')
       + (r.minTankCm ? `<p>Bể dài tối thiểu cho cả nhóm: <strong>${fmt(r.minTankCm)} cm</strong>.</p>` : '')
   }
   $('tm-form').addEventListener('submit', e => {
@@ -133,6 +139,7 @@ const index = c.species.map(toIndexItem).sort((a, b) => a.name.localeCompare(b.n
   :global(#tm-out .bad) { color: var(--c-cardinal); font-weight: 600; }
   :global(#tm-out .na), :global(#tm-out .hint) { color: var(--c-ink-faint); }
   :global(#tm-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
+  :global(#tm-out .info) { padding-left: 1.2em; }
   @media (max-width: 640px) {
     :global(#tm-out th), :global(#tm-out td) { padding: var(--space-2); }
     :global(#tm-out tbody th) { min-width: 7rem; }

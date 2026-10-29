@@ -51,6 +51,8 @@ host thuysinh.infinitus.run 301 to it. The engine cycle runs this after each con
 | `pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>]` | discover → fetch (real Chrome, ≥5 s per source) → snapshot to `sources/` → Claude classify + translate + review → merge into `content/` → photos → changelog |
 | `pnpm engine summaries [--top N]` | draft "Tóm tắt nhanh" + common mistakes for the best indexable species, from their translated text only → `content/summaries/` (pending) + `docs/review/summaries.md` |
 | `pnpm engine summaries approve <id,id\|all>` | publish reviewed summaries (the site shows approved ones only) |
+| `pnpm engine traits [--limit N]` | temperament, fin-nipping, minimum school size from each species page's text → `content/traits/` (tank-mates checker); run by the cycle |
+| `pnpm engine thumbs` | 480px card thumbs for photos stored before thumbs existed; run by the cycle |
 | `pnpm engine status` | URL counts per source and status from `engine-state/` |
 
 - Fetching uses headed Chrome (`~/.cache/thuysinh/chrome-profile`). A challenge page marks the source `needs-human`: open that profile, pass the check by hand, and the next run continues. No stealth or solvers.
