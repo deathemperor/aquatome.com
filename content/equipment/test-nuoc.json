@@ -2,15 +2,13 @@
  "category": "test-nuoc",
  "name": "Bộ test nước",
  "hero": {
-  "url": "https://media.aquatome.com/aquariumcoop/dda496a8d3afb604.webp",
-  "thumb": "https://media.aquatome.com/aquariumcoop/dda496a8d3afb604-480.webp",
-  "width": 1024,
-  "height": 1024,
-  "licence": "dùng với sự cho phép",
-  "author": "Aquarium Co-op",
-  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fin-rot",
-  "caption": "Aquarium Co-Op Multi-Test Strips - Aquarium Co-Op",
-  "source": "aquariumcoop"
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Aquarium-NitrogenCycle.png/960px-Aquarium-NitrogenCycle.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 960,
+  "height": 619,
+  "licence": "CC BY 2.5",
+  "author": "w:pl:Wikipedysta:Lukas3",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+  "caption": "Aquarium-NitrogenCycle.png"
  },
  "lead": "Nước trong chưa chắc là nước sạch. Bộ test cho biết amoniac, nitrit, pH và độ cứng trước khi cá kịp ốm.",
  "intro": "<p>Amoniac và nitrit không màu, không mùi, nhưng chỉ cần một lượng nhỏ đã làm cá bỏng mang và chết. Bể mới, bể vừa thả thêm cá và bể có cá chết là lúc cần test nhất.</p><p>pH, GH (độ cứng chung) và KH (độ cứng cacbonat) quyết định loài nào hợp với nước máy nhà bạn. Cá rừng Amazon thích nước mềm, hơi chua; cichlid hồ Malawi cần nước cứng, kiềm.</p>",
@@ -37,15 +35,13 @@
    "match": "ph|gh|kh|nitrat|no2|nh3|test|dung dịch|đồng|kit",
    "buy": "bộ test nước bể cá",
    "photo": {
-    "url": "https://media.aquatome.com/aquariumcoop/587c9136d646421d.webp",
-    "thumb": "https://media.aquatome.com/aquariumcoop/587c9136d646421d-480.webp",
-    "width": 1000,
-    "height": 1001,
-    "licence": "dùng với sự cho phép",
-    "author": "Aquarium Co-op",
-    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-cycling",
-    "caption": "Aquarium Co - Op Ammonia Test Strips - Aquarium Co - Op",
-    "source": "aquariumcoop"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/2022_single_6_in_1_water_testing_strip_by_Tetra_GmbH_Germany.jpg/960px-2022_single_6_in_1_water_testing_strip_by_Tetra_GmbH_Germany.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 136,
+    "licence": "CC BY 4.0",
+    "author": "R. Henrik Nilsson",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_single_6_in_1_water_testing_strip_by_Tetra_GmbH_Germany.jpg",
+    "caption": "2022 single 6 in 1 water testing strip by Tetra GmbH Germany.jpg"
    },
    "desc": "Que thử nhúng nhanh hoặc bộ dung dịch nhỏ giọt so màu. Dung dịch chính xác hơn, que thử tiện hơn.",
    "pick": "Tối thiểu cần amoniac, nitrit và pH. Nuôi tép hoặc cá nước mềm thì thêm GH, KH."
