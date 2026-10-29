@@ -21,7 +21,7 @@ test('makes missing thumbs for R2 photos, records them on every page, leaves fai
   expect(put).toEqual(['seriouslyfish/1.webp'])
   expect(r.failed[0]).toContain('3.webp')
   const a = JSON.parse(await readFile(join(root, 'species', 'a', 'entity.json'), 'utf8'))
-  expect(a.photos.map((p: { thumb?: string }) => p.thumb)).toEqual([`${M}1-480.webp`, `${M}2-480.webp`, undefined])
+  expect(a.photos.map((p: { thumb?: string }) => p.thumb)).toEqual([`${M}1-480.webp`, `${M}2-480.webp`, 'https://thumb.wikimedia.org/x/500px-F.jpg'])
   const g = JSON.parse(await readFile(join(root, 'guides', 'g', 'entity.json'), 'utf8'))
   expect(g.photos.map((p: { thumb?: string }) => p.thumb)).toEqual([`${M}1-480.webp`, undefined])
 })
