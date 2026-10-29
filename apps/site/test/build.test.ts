@@ -24,7 +24,8 @@ describe('species page', () => {
     const a = dom.querySelector('a[href^="/go/shopee/?k="]')
     expect(a?.getAttribute('rel')).toContain('sponsored')
     expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
-    expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn)/)
+    expect(dom.querySelector('a[href^="/go/tiki/?k="]')).not.toBeNull()
+    expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn|tiki\.vn)/)
   })
   test('"Nuôi ở Việt Nam" box: heater for the northern winter, convertible temperatures', () => {
     const box = dom.querySelector('aside.vn')
