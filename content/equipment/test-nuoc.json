@@ -1,0 +1,74 @@
+{
+ "category": "test-nuoc",
+ "name": "Bộ test nước",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/dda496a8d3afb604.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/dda496a8d3afb604-480.webp",
+  "width": 1024,
+  "height": 1024,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fin-rot",
+  "caption": "Aquarium Co-Op Multi-Test Strips - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Nước trong chưa chắc là nước sạch. Bộ test cho biết amoniac, nitrit, pH và độ cứng trước khi cá kịp ốm.",
+ "intro": "<p>Amoniac và nitrit không màu, không mùi, nhưng chỉ cần một lượng nhỏ đã làm cá bỏng mang và chết. Bể mới, bể vừa thả thêm cá và bể có cá chết là lúc cần test nhất.</p><p>pH, GH (độ cứng chung) và KH (độ cứng cacbonat) quyết định loài nào hợp với nước máy nhà bạn. Cá rừng Amazon thích nước mềm, hơi chua; cichlid hồ Malawi cần nước cứng, kiềm.</p>",
+ "types": [
+  {
+   "id": "man",
+   "name": "Khúc xạ kế đo độ mặn",
+   "match": "mặn|tỷ trọng|nước biển",
+   "buy": "khúc xạ kế đo độ mặn",
+   "desc": "Đo độ mặn bằng một giọt nước. Cần cho bể cá nước lợ (cá nóc, cá bống) và bể biển.",
+   "pick": "Hiệu chuẩn bằng nước cất trước mỗi lần dùng."
+  },
+  {
+   "id": "tds",
+   "name": "Bút đo TDS",
+   "match": "tds|ro",
+   "buy": "bút đo tds",
+   "desc": "Đo tổng chất rắn hòa tan, cho biết nước \"nặng\" hay \"nhẹ\". Hữu ích cho người nuôi tép và cá nước mềm.",
+   "pick": "Không thay được test GH/KH, nhưng rẻ và nhanh để theo dõi nước thay hằng tuần."
+  },
+  {
+   "id": "test",
+   "name": "Bộ test pH, GH, KH, amoniac, nitrit, nitrat",
+   "match": "ph|gh|kh|nitrat|no2|nh3|test|dung dịch|đồng|kit",
+   "buy": "bộ test nước bể cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/587c9136d646421d.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/587c9136d646421d-480.webp",
+    "width": 1000,
+    "height": 1001,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-cycling",
+    "caption": "Aquarium Co - Op Ammonia Test Strips - Aquarium Co - Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Que thử nhúng nhanh hoặc bộ dung dịch nhỏ giọt so màu. Dung dịch chính xác hơn, que thử tiện hơn.",
+   "pick": "Tối thiểu cần amoniac, nitrit và pH. Nuôi tép hoặc cá nước mềm thì thêm GH, KH."
+  }
+ ],
+ "choose": [
+  "Bể mới: test amoniac và nitrit 2–3 lần mỗi tuần cho đến khi cả hai về 0 trong ít nhất một tuần.",
+  "Bể ổn định: test mỗi tháng và mỗi khi cá có biểu hiện lạ.",
+  "Test nước máy một lần để biết nhà bạn hợp loài nào trước khi mua cá."
+ ],
+ "mistakes": [
+  "Dùng que thử đã hết hạn hoặc để ẩm: kết quả sai.",
+  "Chỉ test pH: pH ổn không nói gì về amoniac và nitrit.",
+  "Chỉnh pH bằng hóa chất liên tục: cá chịu pH ổn định tốt hơn pH \"đúng\" nhưng dao động."
+ ],
+ "faq": [
+  {
+   "q": "Bể mới thả cá bao lâu thì test?",
+   "a": "Test ngay từ ngày đầu và thả cá khi amoniac và nitrit về 0, thường sau 3–6 tuần chạy lọc."
+  },
+  {
+   "q": "Que thử hay dung dịch tốt hơn?",
+   "a": "Dung dịch chính xác hơn và rẻ hơn tính theo lần test. Que thử nhanh, hợp người mới và kiểm tra nhanh."
+  }
+ ]
+}

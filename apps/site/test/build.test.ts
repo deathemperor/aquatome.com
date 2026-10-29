@@ -125,6 +125,18 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/vi/thiet-bi/${cat}/`).html, cat).toContain(`/go/shopee/?k=`)
     expect(page('/vi/thiet-bi/').dom.querySelectorAll('a[href^="/vi/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
   })
+  test('equipment guide: hero, types with the species that need them, FAQ data; shop links collapsed', () => {
+    const { html, dom } = page('/vi/thiet-bi/loc/')
+    expect(dom.querySelector('.hero img')).not.toBeNull()
+    const thung = dom.querySelector('article.type#thung')!
+    expect(thung.querySelector('img')).not.toBeNull()
+    expect(thung.querySelectorAll('.who a[href^="/vi/ca/"]').length).toBeGreaterThan(0) // fixture species suggest "lọc thùng …"
+    expect(html).toContain('"@type":"FAQPage"')
+    const visible = dom.querySelectorAll('a[href^="/go/"]').filter(a => !a.closest('details'))
+    expect(visible.length).toBeLessThanOrEqual(dom.querySelectorAll('article.type').length * 7)
+    expect(page('/vi/thiet-bi/').dom.querySelector('a[href="/vi/thiet-bi/loc/"] img')).not.toBeNull()
+    expect(page('/vi/thiet-bi/suoi/').html).toContain('/go/shopee/?k=') // no written guide yet: still a page
+  })
   test('discovery lists discovery guides', () => {
     expect(page('/vi/kham-pha/').dom.querySelector('a[href="/vi/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]')).not.toBeNull()
   })

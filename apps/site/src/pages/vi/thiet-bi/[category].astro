@@ -1,31 +1,148 @@
 ---
+import { linkTerms } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
+import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import PlantCard from '../../../components/PlantCard.astro'
+import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
-import { categories, type CategoryUse } from '../../../lib/equipment'
-import { categoryLabel } from '../../../lib/format'
-import { guidesMentioning } from '../../../lib/mentions'
-import { GUIDE_KIND_LABELS } from '../../../lib/format'
+import { categories, normKeyword, speciesUsing, typeUses, type CategoryUse } from '../../../lib/equipment'
+import { categoryLabel, goLink } from '../../../lib/format'
+import { creditsFor } from '../../../lib/credits'
+import { smallSrc } from '../../../lib/img'
+import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
 export async function getStaticPaths() {
   return categories(await getContent()).map(u => ({ params: { category: u.category }, props: { u } }))
 }
 const { u } = Astro.props as { u: CategoryUse }
-const label = categoryLabel(u.category)
-const guides = guidesMentioning(await getContent(), `equipment:${u.category}`).slice(0, 12)
+const c = await getContent()
+const g = c.equipment.find(x => x.category === u.category)
+const label = g?.name ?? categoryLabel(u.category)
+const entity = `equipment:${u.category}`
+const guides = guidesMentioning(c, entity).slice(0, 6)
+const types = g ? typeUses(c, g) : []
+const users = speciesUsing(c, u.category)
+const TOP = 12
+const plantsPage = u.category === 'cay-thuy-sinh'
+// The CO2 page lists the plants that use it, required first.
+const plants = plantsPage ? c.plants : u.category === 'co2' ? c.plants.filter(p => p.co2 !== 'none').sort((a, b) => Number(b.co2 === 'required') - Number(a.co2 === 'required')) : []
+// Editorial text links glossary terms, species and other equipment once each, never this page.
+const targets = mentionIndex(c).targets
+const seen = new Set([entity])
+const link = (html: string) => linkTerms(html, targets, 'ml', seen).html
+const intro = g ? link(g.intro) : ''
+const keywords = [...new Set(u.keywords.map(normKeyword))]
+const shops = ['shopee', 'lazada', 'tiki'] as const
+const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
+const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
 ---
-<Browse title={label} heading={label} crumbs={[['/vi/thiet-bi/', 'Thiết bị']]}>
-  <ProductSlots slots={[{ category: u.category, keywords: u.keywords }]} heading="Gợi ý mua" entity={`equipment:${u.category}`} />
-  <h2 class="h">Dùng cho</h2>
-  <ul class="used">{u.usedBy.map(x => <li><a href={x.href}>{x.name}</a></li>)}</ul>
+<Browse title={g ? `${label}: chọn loại nào, dùng cho loài nào` : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', 'Thiết bị']]} jsonld={faq} image={g?.hero.url} credits={credits}>
+  {g && (
+    <header class="hero">
+      <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
+      <div>
+        <p class="lead">{g.lead}</p>
+        <ul class="chips">{users.length > 0 && <li>{users.length} loài cá cần</li>}{plants.length > 0 && <li>{plants.length} loài cây</li>}<li>{g.types.length} loại</li>{guides.length > 0 && <li>{guides.length} bài viết</li>}</ul>
+        <div class="intro" set:html={intro} />
+      </div>
+    </header>
+  )}
+
+  {types.length > 0 && <>
+    <h2 class="h">Các loại {label.toLowerCase()}</h2>
+    <div class="types">
+      {types.map(t => (
+        <article class:list={['type', { bare: !t.photo }]} id={t.id}>
+          {t.photo && <div class="ph"><img src={smallSrc(t.photo)} width={t.photo.width} height={t.photo.height} alt={t.name} loading="lazy" /></div>}
+          <div class="body">
+            <h3>{t.name}</h3>
+            <p set:html={link(t.desc)} />
+            <p class="pick"><strong>Chọn thế nào:</strong> {t.pick}</p>
+            <p class="buy">Mua <em>{t.buy}</em>: {shops.map(s => <a href={goLink(s, t.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>
+            {t.keywords.length > 1 && <p class="more">Hay tìm: {t.keywords.filter(k => k !== t.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
+            {t.species.length > 0 && (
+              <ul class="who" aria-label={`Loài dùng ${t.name.toLowerCase()}`}>
+                {t.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
+                {t.species.length > 6 && <li class="n">+{t.species.length - 6} loài</li>}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </>}
+
+  {g && (
+    <div class="two">
+      <section><h2 class="h">Cách chọn</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
+      <section><h2 class="h">Sai lầm thường gặp</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
+    </div>
+  )}
+
+  {plants.length > 0 && <>
+    <h2 class="h">{plantsPage ? 'Cây thủy sinh trên AquaTome' : 'Cây cần CO2'}</h2>
+    <div class="plants">{plants.map(p => <PlantCard p={p} />)}</div>
+  </>}
+  {!plantsPage && users.length > 0 && <>
+    <h2 class="h">Loài cá cần {label.toLowerCase()}</h2>
+    <SpeciesGrid species={users.slice(0, TOP)} />
+    {users.length > TOP && (
+      <details class="all"><summary>Xem tất cả {users.length} loài</summary>
+        <ul class="used">{users.slice(TOP).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.t.name}</a></li>)}</ul>
+      </details>
+    )}
+  </>}
+
+  {g && g.faq.length > 0 && <>
+    <h2 class="h">Hỏi đáp</h2>
+    <div class="faq">{g.faq.map(f => <details><summary>{f.q}</summary><p set:html={link(f.a)} /></details>)}</div>
+  </>}
+
   {guides.length > 0 && <>
     <h2 class="h">Bài viết liên quan</h2>
-    <ul class="guides">{guides.map(g => <li><a href={`/vi/huong-dan/${g.t.slug}/`}>{g.t.name}</a> <span>{GUIDE_KIND_LABELS[g.kind]}</span></li>)}</ul>
+    <div class="guides">{guides.map(x => <GuideCard g={x} />)}</div>
   </>}
+
+  <details class="all"><summary>Tất cả gợi ý mua ({keywords.length})</summary>
+    <ProductSlots slots={[{ category: u.category, keywords }]} heading="Gợi ý mua" entity={entity} />
+  </details>
 </Browse>
 <style>
-  .h { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
-  .used { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; }
+  .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-6); align-items: start; margin-bottom: var(--space-6); }
+  .hero img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-media); }
+  .lead { font: 400 var(--step-1) / 1.4 var(--f-display); margin: 0 0 var(--space-3); }
+  .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+  .chips li { font-size: 0.8rem; padding: 0.2rem 0.7rem; border-radius: 999px; background: var(--c-plate); border: 1px solid var(--c-rule); }
+  .intro :global(p) { max-width: var(--measure); color: var(--c-ink-soft); }
+  .h { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-4); }
+  .types { display: grid; gap: var(--space-5); }
+  .type { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--c-rule); }
+  .type.bare { grid-template-columns: minmax(0, 1fr); }
+  .type .ph img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-media); background: var(--c-plate); }
+  .type h3 { font-size: var(--step-1); margin: 0 0 var(--space-2); }
+  .type p { margin: 0 0 var(--space-2); max-width: var(--measure); }
+  .pick { color: var(--c-ink-soft); }
+  .buy a, .more a { margin-left: var(--space-2); }
+  .more { font-size: 0.85rem; color: var(--c-ink-faint); }
+  .who { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .who a { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.15rem 0.7rem 0.15rem 0.15rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; font-size: 0.85rem; }
+  .who img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+  .who .n { font-size: 0.85rem; color: var(--c-ink-faint); align-self: center; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .tips { padding-left: 1.2rem; display: grid; gap: var(--space-2); }
+  .warn li::marker { content: '✕  '; color: var(--c-coral, #b5482f); }
+  .plants, .guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-3) 0; }
+  .faq summary { cursor: pointer; font-weight: 500; }
+  .faq p { margin: var(--space-2) 0 0; max-width: var(--measure); color: var(--c-ink-soft); }
+  .all { margin-top: var(--space-6); }
+  .all summary { cursor: pointer; color: var(--c-moss); }
+  .used { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin-top: var(--space-3); }
   .used a { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
-  .guides { list-style: none; padding: 0; display: grid; gap: var(--space-2); }
-  .guides span { color: var(--c-ink-faint); font-size: 0.85rem; margin-left: var(--space-2); }
+  @media (max-width: 720px) {
+    .hero, .two { grid-template-columns: minmax(0, 1fr); }
+    .type { grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-4); }
+    .type.bare { grid-template-columns: minmax(0, 1fr); }
+  }
 </style>

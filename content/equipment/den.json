@@ -1,0 +1,80 @@
+{
+ "category": "den",
+ "name": "Đèn",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+  "width": 1000,
+  "height": 667,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+  "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Đèn cho bạn ngắm cá và nuôi cây. Cá chỉ cần ánh sáng dịu; cây thủy sinh cần đèn đủ phổ và đủ mạnh.",
+ "intro": "<p>Bể chỉ nuôi cá cần đèn để xem và giữ nhịp ngày đêm cho cá, không cần mạnh. Nhiều loài rừng rậm như cá chạch, cá betta, cá rasbora thích ánh sáng dịu và chỗ râm dưới cây nổi.</p><p>Bể thủy sinh thì khác: cây cần đủ ánh sáng để quang hợp. Đèn yếu đủ cho rêu, dương xỉ, ráy (anubias); cây thân đứng đỏ và cây tiền cảnh trải thảm cần đèn mạnh và thường cả CO2.</p>",
+ "types": [
+  {
+   "id": "diu",
+   "name": "Đèn LED ánh sáng dịu",
+   "match": "dịu|yếu|mờ|thấp|betta|ban đêm|nano|nhỏ|mini",
+   "buy": "đèn led bể cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060-480.webp",
+    "width": 900,
+    "height": 600,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
+    "caption": "Our Favorite Easy & Low Light Plants: Cryptocoryne Lutea and Vallisneria - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Đèn LED gọn, ánh sáng trắng ấm hoặc trắng trung tính. Đủ cho bể cá, rêu, dương xỉ, anubias và cây dễ.",
+   "pick": "Chọn dài bằng khoảng 80–100% chiều dài bể. Có nút chỉnh độ sáng là điểm cộng lớn."
+  },
+  {
+   "id": "thuy-sinh",
+   "name": "Đèn LED thủy sinh toàn phổ",
+   "match": "thủy sinh|full spectrum|toàn phổ|6700k|mạnh|xanh đỏ|120cm|hồ",
+   "buy": "đèn led thủy sinh",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Led_Aquarium_Light.jpg/960px-Led_Aquarium_Light.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 666,
+    "licence": "CC BY-SA 3.0",
+    "author": "Lime Huang",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+    "caption": "water plant aquarium led light"
+   },
+   "desc": "Đèn nhiều kênh màu (trắng, đỏ, xanh), sáng mạnh, thường có hẹn giờ và hiệu ứng bình minh. Cho cây thân đứng, cây đỏ và cây trải thảm.",
+   "pick": "Nhiệt độ màu 6500–7000 K. Bể cao trên 45 cm cần đèn mạnh hơn vì ánh sáng yếu đi nhanh khi xuống sâu."
+  }
+ ],
+ "choose": [
+  "Bật 6–8 giờ mỗi ngày, cố định giờ bằng ổ hẹn giờ. Nhiều hơn 10 giờ là mời rêu hại.",
+  "Bể chỉ có cá hoặc cây dễ: đèn dịu là đủ; tiền để dành cho lọc tốt.",
+  "Bể thủy sinh: tăng đèn thì phải tăng phân nước và CO2 theo, nếu không rêu hại sẽ bùng.",
+  "Cá thích bóng râm: thả thêm cây nổi để làm dịu ánh sáng thay vì giảm đèn."
+ ],
+ "mistakes": [
+  "Đặt bể cạnh cửa sổ nắng trực tiếp: rêu xanh phủ kính sau vài tuần.",
+  "Bật đèn mạnh ngay từ ngày đầu bể thủy sinh mới; nên bắt đầu 6 giờ rồi tăng dần.",
+  "Bật đèn 24/24 cho cá \"khỏi buồn\": cá cũng cần bóng tối để nghỉ."
+ ],
+ "faq": [
+  {
+   "q": "Đèn bể cá bật bao nhiêu tiếng một ngày?",
+   "a": "Khoảng 6–8 tiếng. Bể có rêu hại thì giảm xuống 6 tiếng và kiểm tra lượng phân bón."
+  },
+  {
+   "q": "Cây thủy sinh nào sống được với đèn yếu?",
+   "a": "Rêu java, dương xỉ java, anubias, bucephalandra, cỏ lươn (vallisneria) và cây nổi."
+  },
+  {
+   "q": "Đèn đỏ ban đêm có tác dụng gì?",
+   "a": "Để ngắm cá hoạt động ban đêm như cá da trơn, cá chạch mà ít làm chúng hoảng. Không cần cho sức khỏe cá."
+  }
+ ]
+}

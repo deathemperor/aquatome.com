@@ -1,0 +1,77 @@
+{
+ "category": "suoi",
+ "name": "Sưởi",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac-480.webp",
+  "width": 1000,
+  "height": 667,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-choose-the-right-aquarium-heater",
+  "caption": "How to Choose the Right Aquarium Heater - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Cá nhiệt đới cần nước ấm ổn định. Ở miền Bắc, mùa đông là lúc bể không có sưởi dễ chết cá nhất.",
+ "intro": "<p>Phần lớn cá cảnh sống ở 24–28 °C. Ở miền Nam nước trong nhà thường đủ ấm quanh năm, nhưng ở miền Bắc và vùng cao, nước bể có thể xuống dưới 18 °C vào mùa đông. Cá nhiệt đới bị lạnh sẽ bỏ ăn, nhiễm đốm trắng và chết dần.</p><p>Sưởi có chỉnh nhiệt tự ngắt khi đủ nhiệt độ cài đặt, giữ nước ổn định ngày đêm. Nhiệt kế đi kèm là bắt buộc: đừng tin hoàn toàn vạch số trên núm sưởi.</p>",
+ "types": [
+  {
+   "id": "lam-lanh",
+   "name": "Máy làm lạnh (chiller)",
+   "match": "lạnh|chiller",
+   "buy": "máy làm lạnh bể cá",
+   "desc": "Ngược với sưởi: hạ nhiệt cho cá nước lạnh, cá suối núi cao và bể thủy sinh mùa hè.",
+   "pick": "Chỉ cần khi nuôi loài chịu tối đa 24 °C; quạt thổi mặt nước là cách rẻ hơn để hạ 1–3 °C."
+  },
+  {
+   "id": "mini",
+   "name": "Sưởi mini (25–50 W)",
+   "match": "mini|50w|nhỏ|betta",
+   "buy": "sưởi bể cá mini",
+   "desc": "Sưởi ngắn, công suất nhỏ cho bể dưới 40 lít, bể betta và bể tép. Nhiều loại cài sẵn khoảng 26 °C.",
+   "pick": "Khoảng 1–1,5 W cho mỗi lít nước. Chọn loại có vỏ nhựa chống vỡ cho bể nhỏ."
+  },
+  {
+   "id": "chinh-nhiet",
+   "name": "Sưởi có chỉnh nhiệt (100–300 W)",
+   "match": "chỉnh nhiệt|điều chỉnh|ổn nhiệt|100w|200w|300w|công suất|lớn|chống vỡ|bảo vệ|sưởi",
+   "buy": "sưởi bể cá có chỉnh nhiệt",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Grza%C5%82ka_do_akwarium.jpg/960px-Grza%C5%82ka_do_akwarium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "CC BY-SA 3.0",
+    "author": "Ewkaa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+    "caption": "Grzałka do akwarium"
+   },
+   "desc": "Thanh sưởi thả chìm có núm hoặc màn hình cài nhiệt độ. Loại phổ biến nhất cho bể 40–300 lít.",
+   "pick": "Khoảng 1 W mỗi lít (bể 100 lít: 100 W). Bể trên 200 lít nên dùng hai sưởi nhỏ ở hai đầu: một cái hỏng, cái còn lại vẫn giữ nhiệt."
+  }
+ ],
+ "choose": [
+  "Công suất: khoảng 1 W cho mỗi lít nước; phòng lạnh hoặc bể không nắp thì cộng thêm 30–50%.",
+  "Đặt sưởi gần đầu ra của lọc để nước ấm được đẩy khắp bể.",
+  "Mua kèm nhiệt kế và kiểm tra sau 24 giờ; chỉnh dần từng 0,5 °C.",
+  "Cá hay đào bới hoặc cá lớn: chọn loại có lồng bảo vệ để cá không bị bỏng và sưởi không bị vỡ."
+ ],
+ "mistakes": [
+  "Rút sưởi ra khỏi nước khi đang nóng hoặc bật sưởi khi chưa ngâm: thủy tinh có thể nứt.",
+  "Để sưởi ló phần thân trên mặt nước khi thay nước.",
+  "Cài 30 °C \"cho cá khỏe\": nước nóng giữ ít oxy hơn; chỉ tăng nhiệt khi trị bệnh và có sủi."
+ ],
+ "faq": [
+  {
+   "q": "Miền Nam có cần sưởi không?",
+   "a": "Thường không, trừ bể đặt phòng máy lạnh hoặc nuôi loài cần trên 28 °C như cá đĩa. Miền Bắc thì nên có từ tháng 11 đến tháng 3."
+  },
+  {
+   "q": "Bể 60 cm dùng sưởi bao nhiêu W?",
+   "a": "Bể 60 cm khoảng 54–60 lít: sưởi 50–75 W, phòng lạnh thì 100 W."
+  },
+  {
+   "q": "Sưởi có tốn điện không?",
+   "a": "Sưởi chỉ chạy khi nước dưới nhiệt độ cài. Một sưởi 100 W thường chạy vài giờ mỗi ngày vào mùa đông."
+  }
+ ]
+}

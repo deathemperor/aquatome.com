@@ -1,0 +1,73 @@
+{
+ "category": "co2",
+ "name": "CO2",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/5982720117a7f264.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/5982720117a7f264-480.webp",
+  "width": 1000,
+  "height": 667,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/which-aquatic-fertilizer-is-right-for-you",
+  "caption": "Which Planted Tank Fertilizer Is Right for You? - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "CO2 là \"thức ăn\" của cây thủy sinh. Không bắt buộc, nhưng là khác biệt giữa bể cây sống và bể cây rậm, màu đẹp.",
+ "intro": "<p>Cây thủy sinh lấy cacbon từ CO2 hòa tan. Nước bể tự nhiên có rất ít CO2, nên cây mọc chậm. Bơm thêm CO2 giúp cây thân đứng mọc nhanh, cây đỏ lên màu và cây tiền cảnh trải thảm.</p><p>Bể cây dễ (rêu, dương xỉ, anubias) với đèn dịu không cần CO2. Khi đã có đèn mạnh, thiếu CO2 là nguyên nhân hàng đầu khiến rêu hại phát triển.</p>",
+ "types": [
+  {
+   "id": "mini",
+   "name": "CO2 mini, CO2 tự chế",
+   "match": "mini",
+   "buy": "bình co2 mini thủy sinh",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/BioCo2_Flaschen.jpg/960px-BioCo2_Flaschen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "Public domain",
+    "author": "Harry3",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BioCo2_Flaschen.jpg",
+    "caption": "BioCo2 Flaschen.jpg"
+   },
+   "desc": "Bình nhỏ dùng men hoặc axit citric và baking soda, hoặc bình CO2 dùng một lần. Rẻ để thử.",
+   "pick": "Hợp bể dưới 60 lít. Lượng khí không ổn định, phải thay hoặc nạp lại thường xuyên."
+  },
+  {
+   "id": "binh",
+   "name": "Bộ CO2 bình nạp",
+   "match": "bình|bộ|co2",
+   "buy": "bộ co2 thủy sinh",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Reactor_co2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "width": 960,
+    "height": 1280,
+    "licence": "CC BY-SA 4.0",
+    "author": "Pmerino",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reactor_co2.JPG",
+    "caption": "Reactor co2.JPG"
+   },
+   "desc": "Bình áp suất nạp lại được, van giảm áp, van điện từ (tắt theo giờ đèn), đếm giọt và cốc khuếch tán. Ổn định và rẻ nhất về lâu dài.",
+   "pick": "Bình 2–4 kg dùng vài tháng cho bể 60–120 cm. Nối van điện từ vào hẹn giờ: bật CO2 trước khi đèn bật 1 giờ, tắt cùng lúc với đèn."
+  }
+ ],
+ "choose": [
+  "Bắt đầu 1 giọt/giây cho bể 60 lít, tăng dần trong vài ngày và quan sát cá.",
+  "Dùng bút thử drop checker: xanh lá là vừa, xanh dương là thiếu, vàng là thừa.",
+  "Mặt nước gợn nhẹ để giữ oxy cho cá, nhưng đừng khuấy mạnh làm thất thoát CO2."
+ ],
+ "mistakes": [
+  "Bơm CO2 cả đêm: cây không dùng, cá có thể ngạt vào sáng sớm.",
+  "Tăng CO2 quá nhanh: cá thở gấp trên mặt nước là dấu hiệu phải giảm ngay.",
+  "Thêm CO2 mà không tăng đèn và phân: cây không dùng hết, không có lợi."
+ ],
+ "faq": [
+  {
+   "q": "Bể thủy sinh có bắt buộc CO2 không?",
+   "a": "Không. Bể đèn dịu trồng rêu, dương xỉ, anubias, bucephalandra sống tốt không cần CO2."
+  },
+  {
+   "q": "CO2 có hại cho cá và tép không?",
+   "a": "Ở liều đúng (drop checker xanh lá) thì không. Quá liều làm cá ngạt, nên tắt CO2 khi đèn tắt."
+  }
+ ]
+}

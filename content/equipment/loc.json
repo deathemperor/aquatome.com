@@ -1,0 +1,149 @@
+{
+ "category": "loc",
+ "name": "Lọc",
+ "hero": {
+  "url": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe.webp",
+  "thumb": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe-480.webp",
+  "width": 1000,
+  "height": 667,
+  "licence": "dùng với sự cho phép",
+  "author": "Aquarium Co-op",
+  "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-filters-which-one-should-you-get",
+  "caption": "Fish Tank Filters: Which One Should You Get? - Aquarium Co-Op",
+  "source": "aquariumcoop"
+ },
+ "lead": "Bộ lọc giữ nước trong và nuôi vi sinh xử lý chất thải của cá. Chọn đúng loại theo cỡ bể và tính cá.",
+ "intro": "<p>Lọc làm ba việc: giữ lại cặn bẩn (lọc cơ học), nuôi vi sinh chuyển amoniac thành nitrit rồi nitrat (lọc sinh học), và tạo dòng chảy cho nước trao đổi oxy. Trong ba việc đó, lọc sinh học quan trọng nhất: bể có thể trong vắt mà vẫn độc nếu vi sinh chưa đủ.</p><p>Không có loại lọc \"tốt nhất\". Lọc bọt biển rẻ, êm, an toàn cho cá bột và tép. Lọc treo dễ lắp cho bể 40–100 lít. Lọc thùng mạnh và gọn cho bể lớn hoặc bể thủy sinh. Cá suối như cá chạch bám đá cần thêm máy tạo dòng.</p>",
+ "types": [
+  {
+   "id": "suc-khi",
+   "name": "Máy sủi khí",
+   "match": "^(máy sục|máy sủi|sủi oxy)",
+   "buy": "máy sủi oxy bể cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/187653d04275f178.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/187653d04275f178-480.webp",
+    "width": 1000,
+    "height": 1000,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/air-stones-the-secret-weapon-every-aquarium-needs",
+    "caption": "Aquarium Co - Op Air Pump with Battery Backup - Aquarium Co - Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Máy bơm không khí qua dây và quả sủi. Bản thân nó không lọc, nhưng chạy lọc bọt biển và tăng oxy khi trời nóng hoặc khi cá bệnh.",
+   "pick": "Một máy 2 vòi đủ cho 2 lọc bọt biển. Lắp van một chiều để nước không chảy ngược khi mất điện."
+  },
+  {
+   "id": "tao-dong",
+   "name": "Máy tạo dòng",
+   "match": "tạo dòng|tạo sóng|powerhead",
+   "buy": "máy tạo dòng bể cá",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Echinotitti.JPG/960px-Echinotitti.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "licence": "CC BY-SA 3.0",
+    "author": "Brianza2008",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinotitti.JPG",
+    "caption": "60 lit. aquarium Anubias and Echinodorus"
+   },
+   "desc": "Bơm nhỏ đặt trong bể, đẩy nước thành dòng mạnh mà không lọc. Dùng cho cá suối, cá chạch bám đá, cá bống sông cần nước chảy và nhiều oxy.",
+   "pick": "Tổng lưu lượng (lọc + tạo dòng) khoảng 10–20 lần thể tích bể mỗi giờ cho bể suối; chừa chỗ nước lặng cho cá nghỉ."
+  },
+  {
+   "id": "sump",
+   "name": "Lọc tràn (sump)",
+   "match": "sump|tràn",
+   "buy": "lọc tràn bể cá",
+   "desc": "Bể phụ đặt dưới tủ, nước tràn xuống qua các ngăn vật liệu lọc rồi được bơm ngược lên. Chứa được rất nhiều vật liệu và giấu sưởi, thiết bị.",
+   "pick": "Hợp bể từ 300 lít, hồ cá lớn và cá dữ. Cần bể khoan lỗ hoặc hộp tràn; tính chỗ chứa nước khi mất điện."
+  },
+  {
+   "id": "thung",
+   "name": "Lọc thùng (lọc ngoài)",
+   "match": "thùng|ngoài|ngoại|canister|lớn|công suất",
+   "buy": "lọc thùng bể cá",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Eheim_type_2011%2C_pump_101101993-4232.jpg/960px-Eheim_type_2011%2C_pump_101101993-4232.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "licence": "CC BY-SA 4.0",
+    "author": "Raimond Spekking",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
+    "caption": "Eheim type 2011, pump 101101993 - Aquarium filter"
+   },
+   "desc": "Thùng kín đặt dưới tủ, ống hút và ống xả nối vào bể. Chứa nhiều vật liệu lọc, chạy êm, không chiếm chỗ trong bể nên được ưa cho bể thủy sinh và bể từ 60 cm.",
+   "pick": "Chọn lưu lượng ghi trên hộp khoảng 4–6 lần thể tích bể mỗi giờ (bể 120 lít: lọc 500–700 L/h). Vệ sinh 1–2 tháng một lần."
+  },
+  {
+   "id": "treo",
+   "name": "Lọc treo, lọc thác",
+   "match": "treo|thác|hông",
+   "buy": "lọc treo bể cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/866fe9ec63b5b395.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/866fe9ec63b5b395-480.webp",
+    "width": 1024,
+    "height": 1024,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/betta-tank-setup",
+    "caption": "Nano Tank Hang on Back Filter - Aquarium Co - Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Hộp lọc móc lên thành bể, nước được hút lên rồi chảy tràn trở lại như thác nhỏ. Rẻ, dễ lắp, dễ thay bông.",
+   "pick": "Hợp bể 20–100 lít. Bọc đầu hút bằng mút nếu nuôi tép hoặc cá nhỏ để chúng không bị hút vào."
+  },
+  {
+   "id": "bot-bien",
+   "name": "Lọc bọt biển (lọc sủi)",
+   "match": "bọt biển|sủi|bọt khí|sponge|mút|xốp|bông|lọc khí|vi sinh|mini|nhỏ|nano|betta",
+   "buy": "lọc bọt biển bể cá",
+   "photo": {
+    "url": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/sponge-filters-the-easiest-fish-tank-filter-ever",
+    "caption": "Sponge Filters: The Easiest Fish Tank Filter Ever - Aquarium Co-Op",
+    "source": "aquariumcoop"
+   },
+   "desc": "Khối mút xốp chạy bằng máy sủi khí: bọt khí kéo nước qua mút, vi sinh sống trong lỗ mút. Dòng nhẹ, không hút cá bột, gần như không hỏng.",
+   "pick": "Hợp bể dưới 60 lít, bể betta, bể tép, bể đẻ và cá con. Bóp mút trong nước bể cũ khi vệ sinh, đừng rửa vòi để giữ vi sinh."
+  }
+ ],
+ "choose": [
+  "Tính thể tích bể (dài × rộng × cao cm ÷ 1000 = lít), rồi chọn lọc có lưu lượng 4–6 lần thể tích đó mỗi giờ.",
+  "Cá bột, tép, betta, cá vây dài: dòng nhẹ, ưu tiên lọc bọt biển hoặc lọc treo có van chỉnh.",
+  "Cá suối, cá chạch bám đá, cá bống sông: lọc mạnh cộng máy tạo dòng, nhiều oxy.",
+  "Cá lớn và cá ăn nhiều (cichlid, cá vàng, cá da trơn): chọn dư một cỡ so với thể tích bể.",
+  "Bể thủy sinh có CO2: lọc thùng giữ CO2 tốt hơn lọc thác vì mặt nước ít bị khuấy."
+ ],
+ "mistakes": [
+  "Rửa vật liệu lọc bằng nước máy có clo: chết vi sinh, bể \"chu kỳ lại\" và cá chết hàng loạt.",
+  "Thay toàn bộ bông và sứ lọc cùng lúc. Thay lần lượt, mỗi lần một phần.",
+  "Thả cá ngay khi vừa lắp lọc. Bể mới cần 3–6 tuần cho vi sinh phát triển.",
+  "Tắt lọc qua đêm cho êm: vi sinh thiếu oxy sẽ chết sau vài giờ."
+ ],
+ "faq": [
+  {
+   "q": "Bể 60 cm nên dùng lọc gì?",
+   "a": "Bể 60 cm (khoảng 54–60 lít) dùng tốt một lọc treo 300–400 L/h, một lọc thùng nhỏ, hoặc hai lọc bọt biển nếu nuôi tép và cá nhỏ."
+  },
+  {
+   "q": "Bao lâu thì vệ sinh lọc?",
+   "a": "Khi dòng chảy yếu rõ rệt, thường 2–4 tuần với lọc bọt biển và lọc treo, 1–2 tháng với lọc thùng. Luôn rửa vật liệu trong nước bể vừa thay ra."
+  },
+  {
+   "q": "Lọc chạy cả ngày lẫn đêm à?",
+   "a": "Có. Vi sinh trong lọc cần dòng nước có oxy liên tục; tắt vài giờ là chúng bắt đầu chết."
+  },
+  {
+   "q": "Có cần máy sủi nếu đã có lọc?",
+   "a": "Không bắt buộc nếu lọc khuấy mặt nước tốt. Nên có khi nước trên 28 °C, khi bể đông cá hoặc khi dùng thuốc trị bệnh."
+  }
+ ]
+}
