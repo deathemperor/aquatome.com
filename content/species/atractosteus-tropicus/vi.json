@@ -1,6 +1,6 @@
 {
-  "slug": "ca-gar-nhiet-doi",
-  "name": "Cá gar nhiệt đới",
+  "slug": "ca-sau-hoa-tien-nhiet-doi",
+  "name": "Cá sấu hỏa tiễn nhiệt đới",
   "altNames": [
     "Cá lóc mõm sấu nhiệt đới",
     "Tropical Gar"
@@ -23,5 +23,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-gar-nhiet-doi",
+      "name": "Cá gar nhiệt đới"
+    }
+  ]
 }

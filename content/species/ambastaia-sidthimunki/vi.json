@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chuot-lun-soc-xich",
-  "name": "Cá chuột lùn sọc xích",
+  "slug": "ca-heo-lun",
+  "name": "Cá heo lùn",
   "altNames": [
     "Cá chuột lùn",
     "Cá chuột chipmunk",
@@ -30,5 +30,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chuot-lun-soc-xich",
+      "name": "Cá chuột lùn sọc xích"
+    }
+  ]
 }

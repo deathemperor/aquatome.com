@@ -1,10 +1,9 @@
 {
-  "slug": "ca-chuot-soc-den",
-  "name": "Cá chuột sọc đen",
+  "slug": "ca-heo-soc-den",
+  "name": "Cá heo sọc đen",
   "altNames": [
     "Cá chuột vằn đen",
     "Black-Lined Loach",
-    "Cá heo sọc đen",
     "Black-lined loach"
   ],
   "sections": {
@@ -33,5 +32,12 @@
       "seriouslyfish": 0.6,
       "glaser": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chuot-soc-den",
+      "name": "Cá chuột sọc đen"
+    }
+  ]
 }

@@ -1,8 +1,7 @@
 {
-  "slug": "ca-rong-ba-tu-soi-threadfin-acara",
-  "name": "Cá rồng ba tư sợi (Threadfin Acara)",
+  "slug": "ca-acara-vay-soi",
+  "name": "Cá acara vây sợi",
   "altNames": [
-    "Cá acara vây sợi",
     "Threadfin Acara",
     "Heckel's Thread-Finned Acara"
   ],
@@ -26,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-ba-tu-soi-threadfin-acara",
+      "name": "Cá rồng ba tư sợi (Threadfin Acara)"
+    }
+  ]
 }

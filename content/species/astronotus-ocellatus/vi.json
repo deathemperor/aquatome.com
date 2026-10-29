@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ho-bao-ca-la-han-oscar",
-  "name": "Cá hổ báo (cá la hán Oscar)",
+  "slug": "ca-oscar",
+  "name": "Cá Oscar (cá tai tượng Phi châu)",
   "altNames": [
     "Cá Oscar",
     "Cá hồng két Oscar",
@@ -31,5 +31,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ho-bao-ca-la-han-oscar",
+      "name": "Cá hổ báo (cá la hán Oscar)"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chuot-van-vang",
-  "name": "Cá chuột vằn vàng",
+  "slug": "ca-heo-mien-dien",
+  "name": "Cá heo Miến Điện",
   "altNames": [
     "Cá chuột Miến Điện",
     "Golden Zebra Loach",
@@ -19,5 +19,12 @@
     "bySource": {
       "loachesonline": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chuot-van-vang",
+      "name": "Cá chuột vằn vàng"
+    }
+  ]
 }

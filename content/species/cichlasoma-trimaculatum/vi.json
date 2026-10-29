@@ -1,8 +1,7 @@
 {
-  "slug": "ca-rong-ba-cham",
-  "name": "Cá rồng ba chấm",
+  "slug": "ca-trimac",
+  "name": "Cá trimac",
   "altNames": [
-    "Cá trimac",
     "Cá ba chấm",
     "Three Spot Cichlid",
     "Trimac",
@@ -27,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.88
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-ba-cham",
+      "name": "Cá rồng ba chấm"
+    }
+  ]
 }

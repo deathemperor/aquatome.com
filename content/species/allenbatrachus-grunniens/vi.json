@@ -1,6 +1,6 @@
 {
-  "slug": "ca-coc-nuoc-ngot",
-  "name": "Cá cóc nước ngọt",
+  "slug": "ca-mang-ech",
+  "name": "Cá mang ếch",
   "altNames": [
     "Cá mao tiên nước ngọt",
     "Cá cóc ục",
@@ -22,5 +22,12 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-coc-nuoc-ngot",
+      "name": "Cá cóc nước ngọt"
+    }
+  ]
 }

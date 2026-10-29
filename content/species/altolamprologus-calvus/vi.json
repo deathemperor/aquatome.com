@@ -1,6 +1,6 @@
 {
-  "slug": "ca-hoang-de-den-calvus",
-  "name": "Cá hoàng đế đen (Calvus)",
+  "slug": "ca-calvus",
+  "name": "Cá Calvus",
   "altNames": [
     "Cá calvus",
     "Cá cichlid calvus",
@@ -27,5 +27,12 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hoang-de-den-calvus",
+      "name": "Cá hoàng đế đen (Calvus)"
+    }
+  ]
 }

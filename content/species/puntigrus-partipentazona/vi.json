@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ho-van-puntigrus-partipentazona",
-  "name": "Cá hổ vằn Puntigrus partipentazona",
+  "slug": "ca-tu-van",
+  "name": "Cá tứ vân",
   "altNames": [
     "Cá barb hổ",
     "Cá hổ",
@@ -19,5 +19,12 @@
     "bySource": {
       "glaser": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ho-van-puntigrus-partipentazona",
+      "name": "Cá hổ vằn Puntigrus partipentazona"
+    }
+  ]
 }

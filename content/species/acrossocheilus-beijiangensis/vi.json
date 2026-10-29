@@ -1,6 +1,6 @@
 {
-  "slug": "ca-mang-soc-bac-giang",
-  "name": "Cá măng sọc Bắc Giang",
+  "slug": "ca-chat-soc-beijiang",
+  "name": "Cá chát sọc Beijiang",
   "altNames": [],
   "sections": {
     "quickFacts:seriouslyfish": "<p><strong>Acrossocheilus beijiangensis</strong> là một loài cá chép có sọc vằn đến từ Phúc Kiến, Quảng Đông và Quảng Tây ở miền nam Trung Quốc, cùng với đảo Hải Nam và Hồng Kông. Cùng với A. clivosius, đây là một trong hai loài duy nhất trong giống luôn có năm sọc đứng sẫm màu trên mỗi bên thân. Cá ngoài tự nhiên ăn các loài động vật không xương sống nhỏ sống ở đáy và gặm màng sinh học trên đá và các bề mặt cứng khác.</p><p>Kích thước tối đa: 131 mm SL (5 in SL). Tính xã hội: cần được nuôi theo nhóm. Khả năng sống chung: hòa hợp với các loài khác.</p>",
@@ -15,5 +15,12 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-mang-soc-bac-giang",
+      "name": "Cá măng sọc Bắc Giang"
+    }
+  ]
 }

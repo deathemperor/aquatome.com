@@ -1,6 +1,6 @@
 {
-  "slug": "ca-bitterling-cau-vong",
-  "name": "Cá bitterling cầu vồng",
+  "slug": "ca-the-be",
+  "name": "Cá thè be",
   "altNames": [
     "Cá bitterling Bắc Bộ",
     "Rainbow bitterling"
@@ -22,5 +22,12 @@
     "bySource": {
       "glaser": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bitterling-cau-vong",
+      "name": "Cá bitterling cầu vồng"
+    }
+  ]
 }

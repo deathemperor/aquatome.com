@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chach-van",
-  "name": "Cá chạch vằn",
+  "slug": "ca-heo-van",
+  "name": "Cá heo vằn",
   "altNames": [
     "Cá chạch zebra",
     "Zebra Loach"
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chach-van",
+      "name": "Cá chạch vằn"
+    }
+  ]
 }

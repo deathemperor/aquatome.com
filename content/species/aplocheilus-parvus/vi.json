@@ -1,8 +1,7 @@
 {
-  "slug": "ca-lan-dua-lun",
-  "name": "Cá lăn dừa lùn",
+  "slug": "ca-panchax-lun",
+  "name": "Cá panchax lùn",
   "altNames": [
-    "Cá panchax lùn",
     "Dwarf Panchax"
   ],
   "sections": {
@@ -20,5 +19,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-lan-dua-lun",
+      "name": "Cá lăn dừa lùn"
+    }
+  ]
 }

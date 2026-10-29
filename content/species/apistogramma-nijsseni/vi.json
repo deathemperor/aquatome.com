@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ranh-lun-panda",
-  "name": "Cá ranh lùn panda",
+  "slug": "ca-apisto-panda",
+  "name": "Cá Apisto panda (nijsseni)",
   "altNames": [
     "Cá rám lùn Nijssen",
     "Panda dwarf cichlid",
@@ -25,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.78
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ranh-lun-panda",
+      "name": "Cá ranh lùn panda"
+    }
+  ]
 }

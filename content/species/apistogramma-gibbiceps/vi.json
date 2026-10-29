@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ba-duoi-vach-den-blackline-apisto",
-  "name": "Cá ba đuôi vạch đen (Blackline Apisto)",
+  "slug": "ca-apisto-gibbiceps",
+  "name": "Cá Apisto gibbiceps",
   "altNames": [
     "Cá hoàng tử lùn Apistogramma gibbiceps",
     "Blackline Apisto"
@@ -25,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ba-duoi-vach-den-blackline-apisto",
+      "name": "Cá ba đuôi vạch đen (Blackline Apisto)"
+    }
+  ]
 }

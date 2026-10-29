@@ -1,6 +1,6 @@
 {
-  "slug": "ca-voi-voi-brienomyrus-niger",
-  "name": "Cá vòi voi Brienomyrus niger",
+  "slug": "ca-voi-voi-brevimyrus-niger",
+  "name": "Cá vòi voi Brevimyrus niger",
   "altNames": [
     "Cá mõm voi",
     "Elephantfish",
@@ -21,5 +21,12 @@
     "bySource": {
       "glaser": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-voi-voi-brienomyrus-niger",
+      "name": "Cá vòi voi Brienomyrus niger"
+    }
+  ]
 }

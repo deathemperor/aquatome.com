@@ -1,6 +1,6 @@
 {
-  "slug": "ca-mang-alligator",
-  "name": "Cá măng alligator",
+  "slug": "ca-sau-hoa-tien",
+  "name": "Cá sấu hỏa tiễn",
   "altNames": [
     "Cá sấu alligator gar",
     "Alligator Gar"
@@ -24,5 +24,12 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-mang-alligator",
+      "name": "Cá măng alligator"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-rong-ansorge",
-  "name": "Cá rồng Ansorge",
+  "slug": "ca-khung-long-ansorgii",
+  "name": "Cá khủng long Ansorgii",
   "altNames": [
     "Cá bichir Polypterus ansorgii",
     "Ansorge's bichir"
@@ -16,5 +16,12 @@
     "bySource": {
       "glaser": 0.93
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-ansorge",
+      "name": "Cá rồng Ansorge"
+    }
+  ]
 }

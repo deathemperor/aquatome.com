@@ -1,6 +1,6 @@
 {
-  "slug": "ca-rong-lun-panda-xanh",
-  "name": "Cá rồng lùn panda xanh",
+  "slug": "ca-apisto-panduro",
+  "name": "Cá Apisto panduro",
   "altNames": [
     "Cá panda xanh",
     "Apistogramma pandurini",
@@ -29,5 +29,12 @@
     "bySource": {
       "seriouslyfish": 0.68
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-lun-panda-xanh",
+      "name": "Cá rồng lùn panda xanh"
+    }
+  ]
 }

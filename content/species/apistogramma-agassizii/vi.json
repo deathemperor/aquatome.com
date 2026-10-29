@@ -1,6 +1,6 @@
 {
-  "slug": "ca-ong-tien-lun-agassiz",
-  "name": "Cá ông tiên lùn Agassiz",
+  "slug": "ca-apisto-agassizii",
+  "name": "Cá Apisto agassizii",
   "altNames": [
     "Cá Apistogramma agassizii",
     "Cá dwarf cichlid Agassiz",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.72
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ong-tien-lun-agassiz",
+      "name": "Cá ông tiên lùn Agassiz"
+    }
+  ]
 }

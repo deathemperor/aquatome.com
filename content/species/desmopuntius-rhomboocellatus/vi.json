@@ -1,8 +1,7 @@
 {
-  "slug": "ca-ngua-van-cam",
-  "name": "Cá ngựa vằn cam",
+  "slug": "ca-barb-cam",
+  "name": "Cá barb cam",
   "altNames": [
-    "Cá barb cam",
     "Orange barb"
   ],
   "sections": {
@@ -16,5 +15,12 @@
     "bySource": {
       "glaser": 0.85
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ngua-van-cam",
+      "name": "Cá ngựa vằn cam"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
-  "slug": "ca-hong-nhung-elizabethae",
-  "name": "Cá hồng nhung elizabethae",
+  "slug": "ca-apisto-elizabethae",
+  "name": "Cá Apisto elizabethae",
   "altNames": [
     "Cá Apistogramma elizabethae",
     "Apisto A208",
@@ -27,5 +27,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hong-nhung-elizabethae",
+      "name": "Cá hồng nhung elizabethae"
+    }
+  ]
 }

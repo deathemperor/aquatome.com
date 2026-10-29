@@ -1,6 +1,6 @@
 {
-  "slug": "ca-chuot-thang",
-  "name": "Cá chuột thang",
+  "slug": "ca-heo-rostrata",
+  "name": "Cá heo rostrata (cá heo bậc thang)",
   "altNames": [
     "Cá chuột sông Hằng",
     "Cá chuột hai vạch",
@@ -29,5 +29,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chuot-thang",
+      "name": "Cá chuột thang"
+    }
+  ]
 }

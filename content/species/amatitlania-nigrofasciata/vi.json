@@ -1,9 +1,8 @@
 {
-  "slug": "ca-rong-ngua-van",
-  "name": "Cá rồng ngựa vằn",
+  "slug": "ca-convict",
+  "name": "Cá Convict",
   "altNames": [
     "Cá hổ vằn",
-    "Cá Convict",
     "Convict Cichlid"
   ],
   "sections": {
@@ -25,5 +24,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-ngua-van",
+      "name": "Cá rồng ngựa vằn"
+    }
+  ]
 }

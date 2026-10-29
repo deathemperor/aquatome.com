@@ -1,9 +1,8 @@
 {
-  "slug": "ca-tran-chau-thien-ha",
-  "name": "Cá trân châu thiên hà",
+  "slug": "ca-thien-ha",
+  "name": "Cá thiên hà",
   "altNames": [
     "Cá CPD",
-    "Cá thiên hà",
     "Celestial pearl danio",
     "Galaxy rasbora",
     "CPD"
@@ -23,5 +22,12 @@
     "bySource": {
       "bwaquatics": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-tran-chau-thien-ha",
+      "name": "Cá trân châu thiên hà"
+    }
+  ]
 }

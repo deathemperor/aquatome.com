@@ -1,6 +1,6 @@
 {
-  "slug": "ca-rong-rang-danford",
-  "name": "Cá rồng răng Danford",
+  "slug": "ca-killifish-danford",
+  "name": "Cá killifish Danford",
   "altNames": [
     "Cá sóc Danford",
     "Cá Aphanius danfordii",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.6
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-rang-danford",
+      "name": "Cá rồng răng Danford"
+    }
+  ]
 }

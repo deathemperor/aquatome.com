@@ -1,6 +1,6 @@
 {
-  "slug": "ca-hong-ket-macmasteri",
-  "name": "Cá hồng két macmasteri",
+  "slug": "ca-apisto-macmasteri",
+  "name": "Cá Apisto macmasteri",
   "altNames": [
     "Cá ap macmasteri"
   ],
@@ -22,5 +22,12 @@
     "bySource": {
       "seriouslyfish": 0.72
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hong-ket-macmasteri",
+      "name": "Cá hồng két macmasteri"
+    }
+  ]
 }
