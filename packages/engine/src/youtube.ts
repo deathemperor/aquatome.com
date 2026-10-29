@@ -11,6 +11,7 @@ import { gate } from './quality'
 import { sanitizeHtml } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
+import type { Storyboard } from './video-images'
 
 export type VideoMeta = {
   id: string; title: string; channel: string; channelUrl: string; durationSec: number; publishedAt?: string
@@ -102,6 +103,13 @@ export const ytDlp: YouTube = {
       await rm(dir, { recursive: true, force: true })
     }
   },
+}
+
+/** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
+export async function ytStoryboard(id: string): Promise<Storyboard | null> {
+  const d = JSON.parse(await run(['-J', watch(id)]))
+  const sb = ((d.formats ?? []) as (Storyboard & { format_note?: string })[]).filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
+  return sb ? { fps: sb.fps, rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null
 }
 
 const flat = async (url: string) => {

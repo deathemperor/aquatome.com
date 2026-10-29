@@ -17,7 +17,7 @@ import { categoryLabel } from '../../../lib/format'
 import { readingMinutes, withToc } from '../../../lib/toc'
 import { nextGuides } from '../../../lib/home'
 import VideoPlayer from '../../../components/VideoPlayer.astro'
-import { clock, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
+import { clock, illustrate, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -36,7 +36,8 @@ const placed = placeFigures(body,
   [...species.map(s => ({ photo: s.photos[0], label: s.t.name, href: `/vi/ca/${s.t.slug}/` })), ...plants.map(p => ({ photo: p.photos[0], label: p.t.name, href: `/vi/cay/${p.t.slug}/` }))]
     .filter((f): f is typeof f & { photo: NonNullable<typeof f.photo> } => shown(f.photo?.url)).slice(0, 6),
   g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
-const { html: prose, toc } = withToc(placed)
+const { html: toc0, toc } = withToc(placed)
+const prose = g.video ? illustrate(toc0, g.video) : toc0
 const minutes = readingMinutes(body)
 const series = seriesOf(c, g)
 const inSeries = series ? seriesGuides(c, series) : []
@@ -57,7 +58,7 @@ if (v) {
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
-<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
+<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
@@ -129,6 +130,20 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   .faq details { border-bottom: 1px solid var(--c-rule); }
   .faq summary { cursor: pointer; padding: var(--space-3) 0; font-weight: 600; min-height: 44px; box-sizing: border-box; }
   .faq details p { margin: 0 0 var(--space-3); line-height: 1.7; }
+  /* Video guides: a section's open-licence photo, then stills that play the video from that moment. */
+  .prose :global(.vfigs) { margin: var(--space-5) 0; }
+  .prose :global(.vphoto) { margin: 0 0 var(--space-4); }
+  .prose :global(.vphoto img) { width: 100%; height: auto; display: block; }
+  .prose :global(.vphoto figcaption) { font-size: 0.9rem; color: var(--c-ink-soft); margin-top: var(--space-2); line-height: 1.5; }
+  .prose :global(.vphoto .by), .prose :global(.vphoto .by a) { color: var(--c-ink-faint); font-size: 0.8rem; }
+  .prose :global(.moments) { border-top: 1px solid var(--c-rule); padding-top: var(--space-2); }
+  .prose :global(.moments .mh) { font: 600 0.75rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
+  .prose :global(.moments ul) { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--space-3); }
+  .prose :global(.moment) { display: grid; gap: 4px; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: var(--c-ink); }
+  .prose :global(.moment img) { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .prose :global(.moment .mt) { font-size: 0.8rem; font-weight: 600; color: var(--c-cardinal); font-variant-numeric: tabular-nums; }
+  .prose :global(.moment .mc) { font-size: 0.85rem; line-height: 1.4; color: var(--c-ink-soft); }
+  .prose :global(.moment:hover .mc) { color: var(--c-ink); }
   .crumb { font-size: 0.85rem; }
   .crumb a { color: var(--c-ink-soft); }
   .kind { color: var(--c-moss); font-size: 0.9rem; margin: var(--space-4) 0 var(--space-1); }
