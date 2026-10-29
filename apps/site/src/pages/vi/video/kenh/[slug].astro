@@ -1,0 +1,39 @@
+---
+import Browse from '../../../../layouts/Browse.astro'
+import GuideCard from '../../../../components/GuideCard.astro'
+import { getContent } from '../../../../lib/content'
+import { creditsFor } from '../../../../lib/credits'
+import { guideImage } from '../../../../lib/mentions'
+import { seriesGuides, videoChannels, type Channel } from '../../../../lib/video'
+
+export async function getStaticPaths() {
+  const c = await getContent()
+  return videoChannels(c).map(ch => ({ params: { slug: ch.slug }, props: { ch } }))
+}
+const { ch } = Astro.props as { ch: Channel }
+const c = await getContent()
+---
+<Browse title={`Video của ${ch.name}`} heading={`Video của ${ch.name}`} crumbs={[['/vi/video/', 'Video']]}
+  intro={`Bài hướng dẫn AquaTome viết từ video của kênh ${ch.name}, kèm video gốc.`}
+  noindex={!ch.guides.some(g => g.t.quality.indexable)} credits={creditsFor(ch.guides.map(g => guideImage(c, g)))}>
+  <p class="meta"><a href={ch.url} rel="noopener">Kênh {ch.name} trên YouTube</a></p>
+  {ch.series.length > 0 && (
+    <section aria-labelledby="s-h">
+      <h2 id="s-h">Loạt bài</h2>
+      <ul class="series">{ch.series.map(s => <li><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a> <span>{seriesGuides(c, s).length} bài</span></li>)}</ul>
+    </section>
+  )}
+  <section aria-labelledby="all-h">
+    <h2 id="all-h">Tất cả bài ({ch.guides.length})</h2>
+    <div class="grid">{ch.guides.map(g => <GuideCard g={g} />)}</div>
+  </section>
+</Browse>
+<style>
+  .meta { margin: 0 0 var(--space-5); font-size: 0.9rem; }
+  section { margin-bottom: var(--space-7); }
+  h2 { font-size: var(--step-2); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
+  .series { list-style: none; margin: 0; padding: 0; }
+  .series li { padding-block: 6px; }
+  .series span { color: var(--c-ink-faint); font-size: 0.85rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-6) var(--space-5); }
+</style>

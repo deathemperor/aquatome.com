@@ -145,3 +145,11 @@ test('a video without any captions is written from our own transcript of its aud
   two.d.yt.transcribe = async () => { throw new Error('not for non-English videos') }
   expect((await videoGuides(two.d, { playlists: ['PL1'] })).skipped).toEqual(['a1: no English captions'])
 })
+
+test('single videos are written after playlists, without a series', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root)
+  const r = await videoGuides(d, { playlists: [], singles: ['s1'] })
+  expect(r.written).toEqual(['youtube-s1 (0.90)'])
+  expect((await read(root, 'content/guides/youtube-s1/entity.json')).video.series).toBeUndefined()
+})

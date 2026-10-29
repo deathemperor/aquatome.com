@@ -78,8 +78,9 @@ export function toLines(segments: { start: number; text: string }[]): string {
   return lines.join('\n')
 }
 
-const run = (args: string[], cwd?: string) => new Promise<string>((resolve, reject) =>
-  execFile('yt-dlp', ['--no-warnings', '--skip-download', ...args], { cwd, maxBuffer: 64 * 1024 * 1024, timeout: 120_000 }, (e, out, err) =>
+/** yt-dlp; metadata and captions only unless `download` (audio for transcription). */
+const run = (args: string[], cwd?: string, download = false) => new Promise<string>((resolve, reject) =>
+  execFile('yt-dlp', ['--no-warnings', ...(download ? [] : ['--skip-download']), ...args], { cwd, maxBuffer: 64 * 1024 * 1024, timeout: 120_000 }, (e, out, err) =>
     e ? reject(new Error(`yt-dlp: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(out)))
 
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`
@@ -135,7 +136,7 @@ export const ytDlp: YouTube = {
     if (!existsSync(python)) return null // Whisper not installed on this machine: the video stays skipped
     const dir = await mkdtemp(join(tmpdir(), 'aq-audio-'))
     try {
-      await run(['--no-skip-download', '-f', 'bestaudio', '-o', 'audio.%(ext)s', watch(id)], dir)
+      await run(['-f', 'bestaudio', '-o', 'audio.%(ext)s', watch(id)], dir, true)
       const audio = (await readdir(dir)).find(f => f.startsWith('audio.'))
       if (!audio) return null
       const out = await new Promise<string>((resolve, reject) => execFile(python, [fileURLToPath(new URL('../scripts/transcribe.py', import.meta.url)), join(dir, audio), 'en'], { maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60_000 }, (e, o, err) => (e ? reject(new Error(`whisper: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(o))))
@@ -153,8 +154,8 @@ export async function ytStoryboard(id: string): Promise<Storyboard | null> {
   return sb ? { fps: sb.fps, rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null
 }
 
-const flat = async (url: string) => {
-  const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', '30', '-J', url]))
+const flat = async (url: string, end = 30) => {
+  const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))
   return ((d.entries ?? []) as { id?: string; title?: string; channel?: string; uploader?: string }[])
     .flatMap(e => (e.id ? [{ id: e.id, title: e.title ?? '', channel: e.channel ?? e.uploader ?? d.channel ?? '' }] : []))
 }
@@ -162,14 +163,24 @@ const flat = async (url: string) => {
 /** Playlist search (YouTube's playlist filter) and a channel's playlists, via yt-dlp: no API key. */
 export const ytFinder: Finder = {
   search: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgIQAw%253D%253D`),
-  channel: h => flat(`https://www.youtube.com/@${h}/playlists`),
+  channel: h => flat(`https://www.youtube.com/@${h}/playlists`, 100),
+  uploads: h => flat(`https://www.youtube.com/@${h}/videos`, 100),
   playlist: id => ytDlp.playlist(id),
+}
+
+/** Single videos to turn into guides: engine-state/youtube-videos.json (owner's picks first, then discovery's). */
+export async function readSingles(root: string): Promise<string[]> {
+  const raw = await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8').catch(() => '[]')
+  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean }[]).filter(v => !v.skip)
+  return [...xs.filter(v => v.by === 'owner'), ...xs.filter(v => v.by !== 'owner')].map(v => v.id)
 }
 
 /** Playlists to turn into guides: engine-state/youtube-playlists.json (seeded by hand; discovery appends). */
 export async function readPlaylists(root: string): Promise<string[]> {
   const raw = await readFile(join(root, 'engine-state/youtube-playlists.json'), 'utf8').catch(() => '[]')
-  return (JSON.parse(raw) as { id: string; skip?: boolean }[]).filter(p => !p.skip).map(p => p.id)
+  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean }[]).filter(p => !p.skip)
+  const mine = (p: { by?: string }) => p.by === 'owner' || p.by === 'seed'
+  return [...xs.filter(mine), ...xs.filter(p => !mine(p))].map(p => p.id)
 }
 
 /** How a guide is written: the style guide in the writer's prompt, a separate editor pass for phrasing, the model. */
@@ -248,7 +259,7 @@ export type VideoReport = { written: string[]; skipped: string[]; errors: string
  * and rewritten once with the reviewer's notes if it scores low (then published unindexed, like translations).
  */
 /** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. */
-export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
+export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
   const { yt, llm, root } = deps
   const contentRoot = join(root, 'content')
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
@@ -265,6 +276,65 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   }
   let failedInARow = 0
 
+  /** One video → guide. true: stop the whole run (model down, YouTube throttling, repeated failures). */
+  async function one(vid: string, series?: Series, position = 0): Promise<boolean> {
+    try {
+      const m = await yt.video(vid)
+      // No captions at all: our own transcript of the audio (English videos, when Whisper is installed).
+      const ownTranscript = !m.captions && m.english !== false && !!yt.transcribe
+      const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !m.captions && !ownTranscript ? 'no English captions' : null
+      const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid) : await yt.transcript(vid)
+      if (!skip && !transcript && ownTranscript) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; return false }
+      // Listed but not downloaded (rate limit, network): an error, retried later — not a skip.
+      if (!skip && !transcript) throw new Error('English captions listed but not downloaded')
+      const why = skip ?? (transcript!.length < 1500 ? 'captions too short' : null)
+      if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; return false }
+
+      const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
+      let d = await write()
+      if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; return false }
+      if (!usable(d)) throw new Error('draft without a title or body')
+      let { score, notes } = await reviewDraft(llm, transcript!, d, m)
+      if (gate(score, false) === 'retry') {
+        const again = await write(notes)
+        // A broken rewrite keeps the first draft and its score.
+        if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
+      }
+
+      const id = `youtube-${vid}`
+      const dir = join(contentRoot, 'guides', id)
+      const prev = { entity: await readJson<GuideEntity>(join(dir, 'entity.json')), vi: await readJson<Translation>(join(dir, 'vi.json')) }
+      const now = deps.now().toISOString().slice(0, 10)
+      const entity = GuideSchema.parse({
+        id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], mentions: prev.entity?.mentions ?? [], updatedAt: now,
+        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(ownTranscript ? { transcribed: true } : {}) },
+      })
+      const name = d.viTitle.trim()
+      const vi = TranslationSchema.parse({
+        slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
+        body: sanitizeHtml(d.body), summary: d.summary.map(s => s.trim()).filter(Boolean), faq: d.faq.filter(f => f.q.trim() && f.a.trim()),
+        ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
+        quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
+        ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
+      })
+      await mkdir(dir, { recursive: true })
+      await writeJson(join(dir, 'entity.json'), entity)
+      await writeJson(join(dir, 'vi.json'), vi)
+      await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
+      await set(vid, { status: 'processed', entityIds: [id] })
+      report.written.push(`${id} (${score.toFixed(2)})`)
+      failedInARow = 0
+    } catch (e) {
+      if (e instanceof LlmError) { report.errors.push(`${vid}: ${e.message}`); report.stoppedEarly = true; return true } // usage limit or CLI down: stop, retry next run
+      if (throttled(e)) { report.errors.push(`YouTube is throttling (${vid}): stopped, nothing marked failed`); report.stoppedEarly = true; return true }
+      await set(vid, { status: 'error', entityIds: [], error: (e as Error).message.slice(0, 300) })
+      report.errors.push(`${vid}: ${(e as Error).message}`)
+      // Three in a row looks like yt-dlp or the network, not these videos: stop rather than mark the whole queue failed.
+      if (++failedInARow >= 3) { report.stoppedEarly = true; return true }
+    }
+    return false
+  }
+
   for (const pl of opts.playlists ?? await readPlaylists(root)) {
     let p: Playlist
     try { p = await yt.playlist(pl) } catch (e) { report.errors.push(`playlist ${pl}: ${(e as Error).message}`); continue }
@@ -278,62 +348,16 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     for (const [i, { id: vid }] of p.videos.entries()) {
       if (!due(vid)) continue
       if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
-      try {
-        const m = await yt.video(vid)
-        // No captions at all: our own transcript of the audio (English videos, when Whisper is installed).
-        const ownTranscript = !m.captions && m.english !== false && !!yt.transcribe
-        const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !m.captions && !ownTranscript ? 'no English captions' : null
-        const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid) : await yt.transcript(vid)
-        if (!skip && !transcript && ownTranscript) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; continue }
-        // Listed but not downloaded (rate limit, network): an error, retried later — not a skip.
-        if (!skip && !transcript) throw new Error('English captions listed but not downloaded')
-        const why = skip ?? (transcript!.length < 1500 ? 'captions too short' : null)
-        if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; continue }
-
-        const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
-        let d = await write()
-        if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; continue }
-        if (!usable(d)) throw new Error('draft without a title or body')
-        let { score, notes } = await reviewDraft(llm, transcript!, d, m)
-        if (gate(score, false) === 'retry') {
-          const again = await write(notes)
-          // A broken rewrite keeps the first draft and its score.
-          if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
-        }
-
-        const id = `youtube-${vid}`
-        const dir = join(contentRoot, 'guides', id)
-        const prev = { entity: await readJson<GuideEntity>(join(dir, 'entity.json')), vi: await readJson<Translation>(join(dir, 'vi.json')) }
-        const now = deps.now().toISOString().slice(0, 10)
-        const entity = GuideSchema.parse({
-          id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], mentions: prev.entity?.mentions ?? [], updatedAt: now,
-          video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, series: { id: series.id, position: i }, thumb: m.thumb, ...(ownTranscript ? { transcribed: true } : {}) },
-        })
-        const name = d.viTitle.trim()
-        const vi = TranslationSchema.parse({
-          slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
-          body: sanitizeHtml(d.body), summary: d.summary.map(s => s.trim()).filter(Boolean), faq: d.faq.filter(f => f.q.trim() && f.a.trim()),
-          ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
-          quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
-          ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
-        })
-        await mkdir(dir, { recursive: true })
-        await writeJson(join(dir, 'entity.json'), entity)
-        await writeJson(join(dir, 'vi.json'), vi)
-        await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
-        await set(vid, { status: 'processed', entityIds: [id] })
-        report.written.push(`${id} (${score.toFixed(2)})`)
-        failedInARow = 0
-      } catch (e) {
-        if (e instanceof LlmError) { report.errors.push(`${vid}: ${e.message}`); report.stoppedEarly = true; return report } // usage limit or CLI down: stop, retry next run
-        if (throttled(e)) { report.errors.push(`YouTube is throttling (${vid}): stopped, nothing marked failed`); report.stoppedEarly = true; return report }
-        await set(vid, { status: 'error', entityIds: [], error: (e as Error).message.slice(0, 300) })
-        report.errors.push(`${vid}: ${(e as Error).message}`)
-        // Three in a row looks like yt-dlp or the network, not these videos: stop rather than mark the whole queue failed.
-        if (++failedInARow >= 3) { report.stoppedEarly = true; return report }
-      }
+      if (await one(vid, series, i)) return report
       await deps.sleep(VIDEO_GAP_MS)
     }
+  }
+  // Single videos (engine-state/youtube-videos.json): no series.
+  for (const vid of opts.singles ?? await readSingles(root)) {
+    if (!due(vid)) continue
+    if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
+    if (await one(vid)) return report
+    await deps.sleep(VIDEO_GAP_MS)
   }
   return report
 }

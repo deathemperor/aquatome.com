@@ -18,6 +18,7 @@ import { readingMinutes, withToc } from '../../../lib/toc'
 import { nextGuides } from '../../../lib/home'
 import VideoPlayer from '../../../components/VideoPlayer.astro'
 import { clock, illustrate, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
+import { slugify } from '@aq/schema/slug'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -62,7 +63,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
-      <nav class="crumb" aria-label="Đường dẫn">{v ? <><a href="/vi/video/">Video</a>{series && <> / <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a></>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
+      <nav class="crumb" aria-label="Đường dẫn">{v ? <><a href="/vi/video/">Video</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
       <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · {v && <>video {clock(v.durationSec)} · </>}đọc khoảng {minutes} phút{series && pos >= 0 && <> · phần {pos + 1}/{inSeries.length}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} />

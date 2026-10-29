@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { discoverPlaylists, type Finder } from '../src/video-discovery'
+import { addOwnerPicks, discoverPlaylists, discoverSingles, type Finder } from '../src/video-discovery'
 
 const vids = (prefix: string, n: number) => Array.from({ length: n }, (_, i) => ({ id: `${prefix}${i}`, title: `${prefix} video ${i}` }))
 const lists: Record<string, { title: string; videos: { id: string; title: string }[] }> = {
@@ -14,6 +14,7 @@ const lists: Record<string, { title: string; videos: { id: string; title: string
 const find: Finder = {
   search: async () => [{ id: 'PLgood', title: '', channel: 'A' }, { id: 'PLvlog', title: '', channel: 'B' }, { id: 'UCnotaplaylist', title: '', channel: 'C' }],
   channel: async () => [{ id: 'PLdup', title: '', channel: 'A' }, { id: 'PLtiny', title: '', channel: 'A' }, { id: 'PLknown', title: '', channel: 'A' }],
+  uploads: async () => [{ id: 'u1', title: 'How to set up a planted tank', channel: 'A' }, { id: 'u2', title: 'Fish room tour 2026', channel: 'A' }, { id: 'seen0', title: 'Already processed', channel: 'A' }],
   playlist: async id => ({ id, title: lists[id]!.title, channel: 'A', channelUrl: '', videos: lists[id]!.videos }),
 }
 
@@ -49,4 +50,26 @@ test('does nothing while enough videos are queued', async () => {
   await writeFile(join(root, 'engine-state/youtube-playlists.json'), JSON.stringify([{ id: 'PLq', title: 'Q', channel: 'A', by: 'search', addedAt: '', videoIds: vids('q', 5).map(v => v.id) }]))
   const r = await discoverPlaylists({ find, llm: async () => { throw new Error('no') }, root, now: () => new Date() }, { queueCap: 5 })
   expect(r.skipped).toBe('5 videos already queued')
+})
+
+test('single videos from upload pages: unknown ones vetted by title, both verdicts kept', async () => {
+  const root = await setup()
+  let prompt = ''
+  const llm = async <T,>(a: { prompt: string }) => { prompt = a.prompt; return { verdicts: [{ id: 'u1', ok: true, reason: 'how-to' }, { id: 'u2', ok: false, reason: 'tour' }] } as T }
+  const r = await discoverSingles({ find, llm, root, now: () => new Date('2026-10-30T00:00:00Z') }, { channels: ['A'] })
+  expect(r).toMatchObject({ candidates: 2, added: ['u1 How to set up a planted tank (A)'], rejected: 1 })
+  expect(prompt).not.toContain('seen0')
+  const saved = JSON.parse(await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8'))
+  expect(saved.map((e: { id: string; skip?: boolean }) => [e.id, !!e.skip])).toEqual([['u1', false], ['u2', true]])
+})
+
+test("the owner's picks go to the front of the queues, un-rejecting a rejected one", async () => {
+  const root = await setup()
+  await writeFile(join(root, 'engine-state/youtube-videos.json'), JSON.stringify([{ id: 'xxxxxxxxxx1', title: 't', channel: 'c', by: 'search', addedAt: '' }, { id: 'r53ZQW0m8VM', title: 't', channel: 'c', by: 'search', addedAt: '', skip: true, reason: 'x' }]))
+  const out = await addOwnerPicks(root, ['https://www.youtube.com/playlist?list=PLgood', 'https://www.youtube.com/watch?v=r53ZQW0m8VM&t=3s'], find, new Date('2026-10-30T00:00:00Z'))
+  expect(out).toEqual(['playlist PLgood: Planted tank basics (5)', 'video r53ZQW0m8VM'])
+  const lists = JSON.parse(await readFile(join(root, 'engine-state/youtube-playlists.json'), 'utf8'))
+  expect(lists.map((e: { id: string; by: string }) => [e.id, e.by])).toEqual([['PLgood', 'owner'], ['PLknown', 'seed']])
+  const vids = JSON.parse(await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8'))
+  expect(vids.map((e: { id: string; skip?: boolean }) => [e.id, !!e.skip])).toEqual([['r53ZQW0m8VM', false], ['xxxxxxxxxx1', false]])
 })
