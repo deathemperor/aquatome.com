@@ -1,0 +1,126 @@
+{
+  "id": "danio-margaritatus",
+  "scientificName": "Danio margaritatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Danio",
+  "group": "danios",
+  "places": [
+    "asia",
+    "myanmar",
+    "shan-state"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 2.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>Danio margaritatus, also known as the celestial pearl danio or galaxy rasbora, is a freshwater fish species that belongs to the family Cyprinidae. It is a small, colorful fish, with a maximum size of around 1 inch (2.5 cm) in length.</p><ul><li>pH: 6.0-7.5</li><li>Temperature: 72-79°F (22-26°C)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>Danio margaritatus is found in slow-moving streams and pools, and prefers clear, shallow water with plenty of vegetation.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>They require a well-filtered aquarium with plenty of swimming space and hiding places, such as plants and caves.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>In the wild, the celestial pearl danio feeds on small invertebrates such as insect larvae, crustaceans, and worms. In captivity, they will readily accept a variety of foods, including high-quality flake foods, freeze-dried or frozen foods, and live foods such as brine shrimp or daphnia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>They are a peaceful species and are best kept in groups of at least 6 individuals. They are active swimmers and require plenty of open space to swim.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/9362797d19294955.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 30 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc bọt khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn mảnh cho cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh cho cá nhỏ",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

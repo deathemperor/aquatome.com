@@ -1,0 +1,127 @@
+{
+  "id": "pseudomugil-luminatus",
+  "scientificName": "Pseudomugil luminatus",
+  "order": "Atheriniformes",
+  "family": "Pseudomugilidae",
+  "genus": "Pseudomugil",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 2.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>The Red Neon Blue Eye Rainbowfish, also known as Pseudomugil luminatus, is a stunning nano fish native to freshwater rivers and streams in New Guinea and Indonesia. They are a captivating addition to planted aquariums due to their vibrant colors and peaceful nature.</p><p>Both males and females grow to about 1 inch (2.5 cm) long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>Native to freshwater rivers and streams in New Guinea and Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>In the wild, they are found in densely vegetated areas. Replicate this environment in your tank with plenty of live plants and floating plants for cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<ul><li>pH: They thrive in slightly acidic, soft water with a pH of 6.5 to 7.5.</li><li>TDS: Adaptable; they can be kept in tap water with a TDS in excess of 200.</li><li>Temperature: 18°C to 26°C (64.4°F to 78.8°F).</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>They are omnivores and enjoy a varied diet of high-quality flake food supplemented with small live or frozen foods like brine shrimp, daphnia, and bloodworms. Their mouths are tiny, so ensure the food is appropriately sized.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "html": "<p>Males boast vibrant red-orange bodies with electric blue accents, particularly on their fins. Females are a more subdued silver with a hint of blue.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa.webp",
+      "width": 1000,
+      "height": 734,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nano",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng mảnh",
+        "artemia đông lạnh",
+        "trùn huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh",
+        "cây nổi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí hồ nano"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

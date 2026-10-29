@@ -1,0 +1,201 @@
+{
+  "id": "dario-dario",
+  "scientificName": "Dario dario",
+  "order": "Perciformes",
+  "family": "Badidae",
+  "genus": "Dario",
+  "group": "other",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "sprucepets",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<ul><li>Common names: Scarlet badis, rainbow badis, scarlet gem badis, gem badis</li><li>Family: Badidae</li><li>Origin: India</li><li>Adult size: 1 inch (about 2.5 cm)</li><li>Life expectancy: 4 to 6 years</li><li>Social: Peaceful</li><li>Tank level: Mid-dweller</li><li>Minimum tank size: 10 gallons (about 40 litres)</li><li>Diet: Omnivore</li><li>Breeding: Egg layer</li><li>Care: Intermediate</li><li>pH: 6.5 to 7.5</li><li>Hardness: 10 to 15 dKH</li><li>Temperature: 73 to 79°F (23 to 26°C)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>The Scarlet Badis is highly valued in the freshwater aquarium hobby, though it can be hard to acquire due to its popularity. Due to their small size and shy nature, it's recommended to consider tankmates carefully, or ideally, keep them in a species-only tank.</p><p>They are not easily collected from the wild due to limited distribution. However, they are bred in captivity, making it unnecessary to purchase wild-caught specimens.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>The Scarlet Badis originates from India's freshwater regions, preferring dense vegetation in river tributaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>Due to their small size, Scarlet Badis require specific habitat considerations. They feel secure when they have ample hiding spaces. A heavily planted aquarium is ideal, providing cover and simulating their natural surroundings. If using artificial plants and décor, ensure there is adequate water flow for aeration, allowing all fish to have adequate cover and places to feel safe.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>Minimum tank size: 10 gallons (about 40 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>As with all aquariums, you must test the water chemistry regularly and stick to a regular maintenance routine. For planted tanks, you must regularly trim back any dead leaves and aerate the roots. Supplement live plants with a fish-safe aquatic fertilizer as necessary.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<ul><li>pH: 6.5 to 7.5</li><li>Hardness: 10 to 15 dKH</li><li>Temperature: 73 to 79°F (23 to 26°C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>Scarlet Badis are omnivores, enjoying crunchy, meaty treats. They may eat baby snails if present in the tank, helping to control potential snail overpopulation.</p><p>When feeding Scarlet Badis, consider the size of the food. Initially, a flake diet may be necessary due to their small mouths, but once they adjust, a pelleted diet is preferred because it dissolves slower and helps maintain water quality.</p><p>Offer Scarlet Badis a varied diet including pellets, flakes, small vegetable pieces, and frozen treats. Occasionally provide live or freeze-dried foods like bloodworms, microworms, daphnia, or cyclops, which are beneficial for inducing spawning. Monitor their eating habits as Scarlet Badis can be finicky about food.</p><p>Carefully observe your fish during feeding, as it's easy to overfeed small species. Provide food twice daily in small amounts to prevent waste, which could disrupt the nitrogen cycle. Ensure other fish do not consume all the food, allowing Scarlet Badis to eat comfortably.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>Social: Peaceful. As small fish, Scarlet Badis can be intimidated by larger species, making them unsuitable for most freshwater community aquariums, unless the other fish are similarly sized. Ideally, they thrive in a species-only tank rich with vegetation and hiding spots.</p><p>If you wish to add other fish species, compatible companions include Corydoras, Rasbora, and Neon or Cardinal Tetras.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>Males display bodies predominantly colored in red to orange with lighter bars along their sides, ranging from light yellow to silvery-blue. Females have more muted colors, appearing mostly gray. Juveniles look identical regardless of sex, but during spawning, males exhibit their brightest colors and \"dance\" to attract females.</p><p>During the juvenile stage, male and female Scarlet Badis appear identical. As they mature, males develop more vibrant colors and grow slightly larger, while females remain smaller with muted hues.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "html": "<p>When ready to breed, place a male and female Scarlet Badis in a breeding tank devoid of other fish but with ample décor and live or artificial plants. Feed them a diet higher in fat and protein to promote gonadal development. Maintain a stress-free environment by ensuring good water quality and avoiding loud noises or sudden movements.</p><p>You'll observe the male swimming energetically around the female to encourage egg-laying. The female Scarlet Badis lays her eggs on the underside of leaves, so having plants in the breeding tank is crucial. The male follows to fertilize the eggs.</p><p>After egg-laying, the adult fish can return to their original tank. The eggs hatch in a few days, showing larvae with a yolk sac. Once absorbed, feed the fry a high-fat, high-protein diet for proper development. Commercial starter fry food or newly hatched brine shrimp are suitable options. Only a few eggs generally survive to maturity, typical of fish reproduction.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/sprucepets/57c235007029f643.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "caption": "Scarlet badis dario dario",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/35ea6a6196e3bb84.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "caption": "Tank full of Boesemani rainbow fish and bala shark",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/c978d8fb5570198d.webp",
+      "width": 1200,
+      "height": 948,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "caption": "Panda and bronze Cory catfish",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/e54a1cc32f9c7137.webp",
+      "width": 1200,
+      "height": 778,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
+      "caption": "School of glowlight rasboras",
+      "source": "sprucepets"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40 lít",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên nhỏ cho cá",
+        "trùn huyết đông lạnh",
+        "artemia mới nở"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

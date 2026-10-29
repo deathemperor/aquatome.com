@@ -1,0 +1,158 @@
+{
+  "id": "betta-unimaculata",
+  "scientificName": "Betta unimaculata",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "mahakam",
+    "tarakan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 9
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: Data Deficient.</li><li>Maximum size: 3.5 inches (about 9 cm).</li><li>Breeding: mouthbrooder.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>Wild-caught Betta unimaculata from the island of Tarakan.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<ul><li>TDS: about 60–100</li><li>pH: 5.0–7.0</li><li>Temperature: 72–82°F (22–28°C). They prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviour.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>Carnivorous. Currently fed live, frozen and dried foods: blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>Fully grown adult males have longer ventral fins, a larger body and iridescent plating on the cheeks. Females can sometimes have iridescence on the cheeks.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "html": "<p>A large unimaculata-type betta found on the island of Tarakan, known for full-colour iridescent cheeks. Also known as Betta ocellata; it is unknown whether they are the same or different species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/816fd7be0723a76e.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a.webp",
+      "width": 1000,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-a8xlw",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/6b6ae77b0bf69ef8.webp",
+      "width": 1000,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-a8xlw",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đen",
+        "trùng chỉ đông lạnh",
+        "cám cá betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc treo nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

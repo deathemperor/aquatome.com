@@ -1,0 +1,101 @@
+{
+  "id": "rhodeus-ocellatus",
+  "scientificName": "Rhodeus ocellatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rhodeus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "hong-kong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 26
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "html": "<p>When the talk is about bitterlings one initially thinks of the European Bitterling, Rhodeus amarus, which is currently banned in the UK. In fact, there are more than 70 species of these fascinating brood parasites that deposit their eggs in live freshwater mussels. A species of bitterling imported from Hongkong most probably represents the species Rhodeus ocellatus.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "html": "<p>For our customers: the animals have code 802202 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "html": "<p>Bitterlings can be kept in garden ponds (please make sure that they cannot escape from there into the wild!) or in indoor aquaria. They do very well with water temperatures up to 26°C, but of course no heater is needed to keep these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "html": "<p>Bitterlings are omnivorous fish that thrive very well with flakes. In nature they feed mainly on algae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "html": "<p>The males are extremely colorful and have the typical pimples on the snout and above the eyes that are associated with the breeding season in so many species of cyprinid fish of temperate zones. The females have a dark spot in the dorsal fin and often show at least a small part of the ovipositor that looks a bit like a worm.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/d02f7cf9564b8297.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6b8b1c15a2db5778.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc treo hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn dạng mảnh cho cá",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,92 @@
+---
+url: https://www.thesprucepets.com/guppy-fish-species-profile-5078901
+title: Guppy: Easy-Care Fish Guide
+fetchedAt: 2026-10-29T06:48:10.802Z
+hash: acea144cf003293b342027006be299b5b761f6a68ab0ac3f0f2fe55880746c41
+---
+
+# Guppy Fish: Essential Care, Breeding, and Aquarium Setup
+Explore guppy origins, care tips, vibrant varieties, and tank mate options
+By
+Jessie Sanders
+Jessie Sanders
+Jessie Sanders, DVM, DABVP (Fish Practice), is an accomplished aquatic veterinary medicine expert with nearly two decades of experience working with private patients and aquaculture facilities. She owns Aquatic Veterinary Services and specilaizes in fish surgery. Dr. Sanders was one of the first Certified Aquatic Veterinarians through the World Aquatic Veterinary Medical Association.
+Editorial Process
+Updated on June 10, 2025
+Reviewed by
+Nick Saint-Erne
+Reviewed by Nick Saint-Erne
+Dr. Nick Saint-Erne, DVM, is a highly accomplished veterinarian and writer who has treated zoo animals and exotic pets for more than 35 years. He has worked with the Centers for Disease Control and Prevention to improve pet store animal care among other endeavors. Dr. Saint-Erne is part of The Spruce Pets' veterinary review board.
+Veterinary Review Board
+Add Us On
+In This Article
+View All
+In This Article
+- Characteristics
+- Origin
+- Colors and Markings
+- Tankmates
+- Care
+- Diet and Feeding
+- Gender Differences
+- Breeding
+- Further Research
+- Frequently Asked Questions
+Credit: The Spruce / Adrienne Legault
+- Guppies are beginner-friendly, low-maintenance fish that thrive in a 10-gallon tank, with a peaceful temperament and omnivorous diet.
+- Males are smaller with vibrant colors, while females are larger and can store sperm for multiple batches of fry.
+- Guppies are live-bearers and can quickly increase in population; it is recommended to separate males and females to control breeding.
+Guppies have been a staple of the aquarium hobby for generations. Originating in tropical pools in South America and the Caribbean Islands, these fish are now available in a wide variety of colors that have been produced by selective breeding at fish farms. Many guppy keepers may start out with only one or two fish, but being live-bearers with long-term sperm storage, you may be in for a full tank before long.
+Learn more about guppies, including their characteristics, care needs, history, and more.
+### Species Overview
+Common Name: Guppy
+Scientific Name: Poecilia reticulata
+Adult Size: 2 inches
+Life Expectancy: 2 to 3 years
+## Characteristics
+Family Poeciliidae Origin Native to South America, pet fish are captive-bred Social Peaceful Tank Level Top, mid-dweller Minimum Tank Size 10 gallon Diet Omnivore Breeding Live-bearer Care Beginner pH 6.5 to 8.0 Hardness 100 to 150 mg/L (6 to 8 dH) Temperature 68 to 78 F (20 to 26 C)
+## Origin and Distribution
+The guppy has been captive bred for over 100 years, but originally came from South America. They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866. They are native to freshwater streams in the north of South America, including Surinam, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago. Now, they have been introduced to every continent but Antarctica, and can be found in many warm waterways around the world
+## Colors and Markings
+Whatever color combination you can dream of, there is probably a perfect guppy for you. Males have more vibrant colors than females, such as white, red, yellow, orange, green, blue, purple, and black, and have longer caudal and dorsal fins. Tail fins may have a marbled or striped appearance, or the fish may be all one or two colors, such as various shades of blue, black, orange, green, yellow, red, purple, and white. Depending on the variety, some guppies have short, rounded tails, some "V"-shaped, and others can have an elongated tail half the length of their body.
+Many websites and some pet stores will offer "select" or "unique" varieties found nowhere else. Many times, these strains are the result of serious inbreeding that produces fish with compromised immune function and a shorter life span. Try to stick to the mainstream varieties with well-established lineages. If you end up breeding two different strains, you may be surprised by how the color variations mix.
+## Tankmates
+Guppies are peaceful, easygoing community fish that play well with a mix of other non-aggressive fish species. You may want to keep them with similar, live-bearing fish, such as platys or mollies. Other good tankmates include small fish, such as neon tetras or zebrafish. Keep in mind that any fry spawned from an active guppy female may be dinner for other fish in the tank, so having smaller tankmates will ensure more fry survive.
+Many guppy keepers often opt for a guppy-only aquarium. You are welcome to mix different varieties of guppy in the same tank. The number of guppies you can keep in one tank will depend on the size of the tank—a general guideline is 1 gallon of water for every 1 inch of fish. For example, because guppies average around 2 inches in length, a 10-gallon tank may only hold five guppies comfortably, while a 30-gallon tank may hold 15 guppies. Generally, it’s also best to have two or three females for every one male in the tank.
+## Guppy Habitat and Care
+Guppies are great beginner fish. They are low maintenance and can tolerate some beginner mistakes. A bigger tank size is recommended since guppies are very active fish. They thrive in an aquarium with plants and soft décor items.
+In order to keep your population from exploding, it is strongly recommended that you separate males and females in different tanks. Guppy females can store sperm for multiple spawns, even after separation from males, so once a female has been with a male, she may have multiple batches of babies. Tank dividers are okay as a temporary solution, but many of these flimsy, plastic dividers are usually not enough to keep fish separated. Two separate tanks will keep unwanted spawning to zero.
+### Heater
+As a general rule, you need a heater to keep your guppies healthy. They prefer water temperatures in the 70s, and few homes are warm enough to provide that without an immersible heater in the tank. Monitor water temperature daily and adjust the heater as needed to keep your fish comfortable and healthy.
+### Filtration
+Your aquarium definitely needs a filter to remove impurities and harmful chemicals from the tank water. Without a filter, aquarium water tends to quickly become filled with pollutants from uneaten food and fish waste, and your fish can become ill or even die from this harmful water. There are many types of aquarium filters available to suit any budget, so talk to the fish expert at your local aquarium shop or pet store if you are uncertain as to which filter is best for your tank.
+## Guppy Diet and Feeding
+Guppies are omnivores and do well on a variety of commercially available feeds. Even though guppies are small in size, pelleted diets called micro pellets are the best choice since they hold onto their nutrition longer than flakes. You are welcome to add supplements, such as frozen fish foods, but no more than once or twice a week. The complete pelleted diet is best for most pet fish species.
+Depending on your aquarium's temperature and the other tank inhabitants, you may feed your fish once or twice a day. Always start with a little bit of food, and when it has all been consumed, add a little more. Repeat for a few minutes and use this time to check all of your fish. Feeding time is a great time to see if any of your fish are acting odd or sick.
+## Gender Differences
+There are a few gender differences you will need to identify to keep your male and female populations separate. Males tend to be smaller and more vibrantly colored. Females tend to have a brown coloration and are larger and rounder. Also, as male guppies grow, their body will develop coloration that does not occur on the female's body.
+Three large female guppies and one male (bottom right). underworld/Getty Images
+On the underside of the fish, the anal fin of the male is long and thin and tapers to a point. The anal fin on the female guppy is larger and triangular or fan in shape.
+Guppies are sexually mature in about two to three months, and you should be able to identify the differences between genders by 1 month of age, if you wish to separate them. Female guppies first produce offspring at 10–20 weeks of age, and they continue to reproduce until 20–34 months of age.
+## Breeding the Guppy
+Many beginner hobbyists will start with only one female guppy and suddenly have a swarm. Since female guppies can store sperm, it only takes one insemination by a male for a few spawns to be born. In order to prevent your aquarium from maxing out its stocking capacity, it is always best to separate male and female guppies.
+Guppies are live-bearers, so the female will give birth to 10–50 wiggling fry per spawning. Many times, the newly born fry will be eaten by other fish in the aquarium, so if you want to save any fish, keep them in a separate tank or breeding box. Heavily planted aquariums will also give the babies places to hide and survive.
+After breeding together many generations of the same population, you may notice an increased number of fish with congenital abnormalities, such as crooked spines or shortened lifespans.
+Since inbreeding is a common occurrence in isolated fish populations, a simple solution is to add more diversity. Many hobbyists will elect to trade fish with fellow guppy keepers, or you can purchase new fish to add to your aquarium once they have cleared quarantine.
+## More Pet Fish Species and Further Research
+If you like guppies, and you are interested in suitable tankmates, check out these other species:
+- Red Wagtail Platy
+- Mickey Mouse Platy
+- Molly
+Here are more suggestions for low-maintenance freshwater fish for beginners.
+## Frequently Asked Questions
+- How many guppies should be kept together? To determine how many guppies you can safely and comfortably house in a tank, start with the tank size. Guppies are usually 1 to 2 inches long, and you’ll want to give a gallon of water for every inch of fish. So, if you have a 5-gallon tank, you should keep just two or three guppies in it. If you want a larger number of fish, be sure the tank is big enough to provide the space they need. Having more females than males is also best—typically, two or three females for each male.
+- What are the different guppy tail types? Guppies have been bred to have a variety of tail shapes, as well as many different color combinations. Some of the most common tail types you'll see at the pet store include:Fantail: This is a flowing tail in the shape of an open fan.Veiltail: The veiltail guppy has a longer, more flowing tail than the fantail guppy.Delta: This tail is similar to the fantail but a little larger and more rounded.Flagtail: The flagtail guppy has a slightly shorter, narrower tail than the fantail.Double Swordtail: This striking tail has two sword-shaped protrusions, one upper and one lower.Top Swordtail: These guppies have just one "sword," on top.Bottom Swordtail: These guppies have a "sword" on the lower part of their tail.Lyretail: These guppies have an upper and lower protrusion on their tail, but the lyretail is much more rounded and flowing than the swordtail.
+- What is the lifespan of guppy fish? As a general rule, guppies live between two and three years, with females generally living longer than the males. You can extend your guppy's life by feeding them a good diet, watching for disease, and maintaining balanced aquarium water.
+Read More:
+- Fish & Aquariums
+- Freshwater Fish & Aquariums
+- Freshwater Fish Breeds
+Was this page helpful?
+Thanks for your feedback!
+Tell us why!

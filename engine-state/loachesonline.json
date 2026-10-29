@@ -1,4 +1,94 @@
 {
+  "https://www.loaches.com/articles/a-river-runs-through-it": {
+    "entityIds": [
+      "guides/loachesonline-articles-a-river-runs-through-it"
+    ],
+    "updatedAt": "2026-10-29T08:20:27.637Z",
+    "hash": "735b9a3a9983e9f076c26f8ac2c1f70c87a1b33611644d56688e03d7de5a7de0",
+    "processedHash": "735b9a3a9983e9f076c26f8ac2c1f70c87a1b33611644d56688e03d7de5a7de0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/an-introduction-to-keeping-botia": {
+    "entityIds": [
+      "guides/loachesonline-articles-an-introduction-to-keeping-botia"
+    ],
+    "updatedAt": "2026-10-29T08:03:50.478Z",
+    "hash": "18cdf7dfcde344c71b49774a10bced7730e4375bf772bd7e11cae9423f331454",
+    "processedHash": "18cdf7dfcde344c71b49774a10bced7730e4375bf772bd7e11cae9423f331454",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth": {
+    "entityIds": [
+      "species/botia-histrionica"
+    ],
+    "updatedAt": "2026-10-29T08:12:24.788Z",
+    "hash": "2ff09070c0820fa234e321a728733084668f294e0c0bc9a9271a91bc94acfbc8",
+    "processedHash": "2ff09070c0820fa234e321a728733084668f294e0c0bc9a9271a91bc94acfbc8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/botia-kubotai-development-of-markings-during-growth": {
+    "entityIds": [
+      "guides/loachesonline-articles-botia-kubotai-development-of-markings-during-growth"
+    ],
+    "updatedAt": "2026-10-29T08:13:05.021Z",
+    "hash": "acc0616bc56b4d2ab6a457e0b419c05e48cc8ad654385e23a87446edfb8b5dfc",
+    "processedHash": "acc0616bc56b4d2ab6a457e0b419c05e48cc8ad654385e23a87446edfb8b5dfc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/botia-rostrata-development-of-markings-during-growth": {
+    "entityIds": [
+      "guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth"
+    ],
+    "updatedAt": "2026-10-29T08:13:44.778Z",
+    "hash": "0b5fbf7a10a005e9afef4a989f6eef9aa9a32b6687a06c49b724c7cdab9b48ba",
+    "processedHash": "0b5fbf7a10a005e9afef4a989f6eef9aa9a32b6687a06c49b724c7cdab9b48ba",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/botia-sp-aff-rostrata-a-discussion": {
+    "entityIds": [
+      "guides/loachesonline-articles-botia-sp-aff-rostrata-a-discussion"
+    ],
+    "updatedAt": "2026-10-29T08:14:42.120Z",
+    "hash": "ed923fd82b037b88fd914a298acc1a03642d1c7831881807303f91945c9d9438",
+    "processedHash": "ed923fd82b037b88fd914a298acc1a03642d1c7831881807303f91945c9d9438",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/breeding-sewellia": {
+    "entityIds": [
+      "guides/loachesonline-articles-breeding-sewellia"
+    ],
+    "updatedAt": "2026-10-29T08:26:30.197Z",
+    "hash": "0be46505e668de3ea73eb3cc2549e5ac85c43817f284b7ba0abc53c922ca57f2",
+    "processedHash": "0be46505e668de3ea73eb3cc2549e5ac85c43817f284b7ba0abc53c922ca57f2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/clown-loach-breeding-related-items": {
+    "entityIds": [
+      "guides/loachesonline-articles-clown-loach-breeding-related-items"
+    ],
+    "updatedAt": "2026-10-29T08:06:15.327Z",
+    "hash": "f51a94e59bfc87639ad4454202745d4dd27a22678f0b6fe4413ac670ae11856b",
+    "processedHash": "f51a94e59bfc87639ad4454202745d4dd27a22678f0b6fe4413ac670ae11856b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/clown-loach-coloration-marking-variations": {
+    "entityIds": [
+      "guides/loachesonline-articles-clown-loach-coloration-marking-variations"
+    ],
+    "updatedAt": "2026-10-29T08:07:51.583Z",
+    "hash": "18961f47e2061d1df6da4de40511d3ad0c864e9d1331d82e0b73019914d9b4ee",
+    "processedHash": "18961f47e2061d1df6da4de40511d3ad0c864e9d1331d82e0b73019914d9b4ee",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.loaches.com/articles/fishes-of-the-genus-botia-in-the-indian-region": {
     "entityIds": [
       "guides/loachesonline-articles-fishes-of-the-genus-botia-in-the-indian-region"
@@ -6,6 +96,46 @@
     "updatedAt": "2026-10-28T16:24:14.360Z",
     "hash": "7049cf58155e33565e4301bd85b5d3a8c9dce1ead318ea466189c010b71fd144",
     "processedHash": "7049cf58155e33565e4301bd85b5d3a8c9dce1ead318ea466189c010b71fd144",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/fishes-of-the-genus-botia-in-the-indian-region-part-2": {
+    "entityIds": [
+      "guides/loachesonline-articles-fishes-of-the-genus-botia-in-the-indian-region-part-2"
+    ],
+    "updatedAt": "2026-10-29T07:47:19.886Z",
+    "hash": "d1106bb7e59174ceab19ee982fa5ebc4c8715389afa95143a2aabe1c41666608",
+    "processedHash": "d1106bb7e59174ceab19ee982fa5ebc4c8715389afa95143a2aabe1c41666608",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/hillstream-loaches-the-specialists-at-life-in-the-fast-lane": {
+    "entityIds": [
+      "guides/loachesonline-articles-hillstream-loaches-the-specialists-at-life-in-the-fast-lane"
+    ],
+    "updatedAt": "2026-10-29T08:21:22.931Z",
+    "hash": "b3a5cf385f9c6bf3dd0c11d31aa832f6a1ee276f3dc7cf83a3c224e43452ae8b",
+    "processedHash": "b3a5cf385f9c6bf3dd0c11d31aa832f6a1ee276f3dc7cf83a3c224e43452ae8b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/homaloptera-orthogonia-complex-identification-by-scale-keels": {
+    "entityIds": [
+      "guides/loachesonline-articles-homaloptera-orthogonia-complex-identification-by-scale-keels"
+    ],
+    "updatedAt": "2026-10-29T08:25:06.929Z",
+    "hash": "de3299aa112523169f624e24279242e43e16c3609353e803fb1cdef7e7b7c29a",
+    "processedHash": "de3299aa112523169f624e24279242e43e16c3609353e803fb1cdef7e7b7c29a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/home-cooking-your-own-frozen-fishfood": {
+    "entityIds": [
+      "guides/loachesonline-articles-home-cooking-your-own-frozen-fishfood"
+    ],
+    "updatedAt": "2026-10-29T07:55:24.531Z",
+    "hash": "d0e8c759441bfaf2b6c487e0b8245238dd8ef767fcfda1339bd13c5a3d8d937c",
+    "processedHash": "d0e8c759441bfaf2b6c487e0b8245238dd8ef767fcfda1339bd13c5a3d8d937c",
     "status": "processed",
     "attempts": 0
   },
@@ -17,12 +147,182 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.loaches.com/articles/is-this-the-best-loach-shop-in-the-world": {
+    "entityIds": [
+      "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
+    ],
+    "updatedAt": "2026-10-29T07:50:44.240Z",
+    "hash": "c86d0e593aecc759b90e5217adc6b1fc3fa350a67fef3a015970805b6d0bf851",
+    "processedHash": "c86d0e593aecc759b90e5217adc6b1fc3fa350a67fef3a015970805b6d0bf851",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/my-clown-loach-aquarium": {
+    "entityIds": [
+      "guides/loachesonline-articles-my-clown-loach-aquarium"
+    ],
+    "updatedAt": "2026-10-29T08:09:18.777Z",
+    "hash": "164ba826704e4375b5ec2b59437aa57eb0b3d0e2935845aee4886c83afbe4534",
+    "processedHash": "164ba826704e4375b5ec2b59437aa57eb0b3d0e2935845aee4886c83afbe4534",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/oxygen-in-the-aquarium": {
+    "entityIds": [
+      "guides/loachesonline-articles-oxygen-in-the-aquarium"
+    ],
+    "updatedAt": "2026-10-29T07:52:39.138Z",
+    "hash": "6267e173fdf1f58be86a29ae6841acd797fb0ab47ac84489589d3569c34e5520",
+    "processedHash": "6267e173fdf1f58be86a29ae6841acd797fb0ab47ac84489589d3569c34e5520",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/river-tank-manifold-design": {
+    "entityIds": [
+      "guides/loachesonline-articles-river-tank-manifold-design"
+    ],
+    "updatedAt": "2026-10-29T08:24:34.277Z",
+    "hash": "372e8666088aba3f1cb1b34453a0da5bb473536e5a402a34bfff4c59bc495a85",
+    "processedHash": "372e8666088aba3f1cb1b34453a0da5bb473536e5a402a34bfff4c59bc495a85",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/sewellia-lineolata-natural-habitat-and-how-they-get-to-our-aquariums": {
+    "entityIds": [
+      "guides/loachesonline-articles-sewellia-lineolata-natural-habitat-and-how-they-get-to-our-aquariums"
+    ],
+    "updatedAt": "2026-10-29T08:25:59.712Z",
+    "hash": "dc4b2d7cab3087a91d3492b6189c682a7534f22014b46b14fc16e788dd45c21c",
+    "processedHash": "dc4b2d7cab3087a91d3492b6189c682a7534f22014b46b14fc16e788dd45c21c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/sewellia-lineolata-the-reticulated-hillstream-loach-easy-to-spawn-or-a-whole-lot-of-luck": {
+    "entityIds": [
+      "guides/loachesonline-articles-sewellia-lineolata-the-reticulated-hillstream-loach-easy-to-spawn-or-a-whole-lot-of-luck"
+    ],
+    "updatedAt": "2026-10-29T08:28:39.153Z",
+    "hash": "e103858ef50ae9947e1576b4ff47afe96143f63b58340917cfe8612c36dc6434",
+    "processedHash": "e103858ef50ae9947e1576b4ff47afe96143f63b58340917cfe8612c36dc6434",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/sexing-and-breeding-pseudogastromyzon-cheni": {
+    "entityIds": [
+      "guides/loachesonline-articles-sexing-and-breeding-pseudogastromyzon-cheni"
+    ],
+    "updatedAt": "2026-10-29T08:25:23.084Z",
+    "hash": "a6937d125ac7a2c3783ff813cf66d4d7b41176d1f4c8fc6135a2de9cc9e5d343",
+    "processedHash": "a6937d125ac7a2c3783ff813cf66d4d7b41176d1f4c8fc6135a2de9cc9e5d343",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/sexual-dimorphism-courtship-behaviour-in-botia-almorhae": {
+    "entityIds": [
+      "guides/loachesonline-articles-sexual-dimorphism-courtship-behaviour-in-botia-almorhae"
+    ],
+    "updatedAt": "2026-10-29T08:11:49.333Z",
+    "hash": "afc483d4f2723ac07f856c947cd168f60593822f9dc4e8c139df96f7bb520905",
+    "processedHash": "afc483d4f2723ac07f856c947cd168f60593822f9dc4e8c139df96f7bb520905",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/telling-tigers-apart-the-syncrossus-genus": {
+    "entityIds": [
+      "guides/loachesonline-articles-telling-tigers-apart-the-syncrossus-genus"
+    ],
+    "updatedAt": "2026-10-29T08:16:34.921Z",
+    "hash": "33c45a19be900a01d1707f691c331a3d5ce21bbf45db9819db4c0fa682d02f81",
+    "processedHash": "33c45a19be900a01d1707f691c331a3d5ce21bbf45db9819db4c0fa682d02f81",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/telling-yasuhikotakia-sidthimunki-apart-from-y-nigrolineatus": {
+    "entityIds": [
+      "guides/loachesonline-articles-telling-yasuhikotakia-sidthimunki-apart-from-y-nigrolineatus"
+    ],
+    "updatedAt": "2026-10-29T08:15:15.549Z",
+    "hash": "e555fbc25f59be9f51cef940add90b4e1625ddbe1da1161cd8d65d20940cd01f",
+    "processedHash": "e555fbc25f59be9f51cef940add90b4e1625ddbe1da1161cd8d65d20940cd01f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/the-art-of-catching-hillstreams": {
+    "entityIds": [
+      "guides/loachesonline-articles-the-art-of-catching-hillstreams"
+    ],
+    "updatedAt": "2026-10-29T08:23:23.461Z",
+    "hash": "783a702c2a55436896728381976b226bdddbbb862270009dda8d62f804668c26",
+    "processedHash": "783a702c2a55436896728381976b226bdddbbb862270009dda8d62f804668c26",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/the-spawning-of-sewellia-sp-spotted-fry-growth-development": {
+    "entityIds": [
+      "guides/loachesonline-articles-the-spawning-of-sewellia-sp-spotted-fry-growth-development"
+    ],
+    "updatedAt": "2026-10-29T08:27:55.786Z",
+    "hash": "45dec2a6809a0b8118a3cf966dd9ee7429f20662c47102f0376cf94013734bef",
+    "processedHash": "45dec2a6809a0b8118a3cf966dd9ee7429f20662c47102f0376cf94013734bef",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/tigers-of-terror-and-their-partners-in-crime": {
+    "entityIds": [
+      "guides/loachesonline-articles-tigers-of-terror-and-their-partners-in-crime"
+    ],
+    "updatedAt": "2026-10-29T08:18:03.691Z",
+    "hash": "0dd4f9f4d9f90700e34a5a9455253e0d6649d5a2bae7370f76df7218b6e6109c",
+    "processedHash": "0dd4f9f4d9f90700e34a5a9455253e0d6649d5a2bae7370f76df7218b6e6109c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.loaches.com/articles/video-clown-loaches-at-feeding-time": {
     "entityIds": [],
     "updatedAt": "2026-10-28T16:24:01.791Z",
     "hash": "2058b97e6b0c51a826885948876d22dcd7335d61f2b1170f30b8700d4512ccd2",
     "processedHash": "2058b97e6b0c51a826885948876d22dcd7335d61f2b1170f30b8700d4512ccd2",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/water-movement-in-the-loach-aquarium": {
+    "entityIds": [
+      "guides/loachesonline-articles-water-movement-in-the-loach-aquarium"
+    ],
+    "updatedAt": "2026-10-29T07:56:39.098Z",
+    "hash": "5b6c32f34c9137ab4b1608eb4bcf1655e5a0b470a5596aa7c32215b85888441b",
+    "processedHash": "5b6c32f34c9137ab4b1608eb4bcf1655e5a0b470a5596aa7c32215b85888441b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/why-loaches-should-not-be-kept-with-malawi-cichlids": {
+    "entityIds": [
+      "guides/loachesonline-articles-why-loaches-should-not-be-kept-with-malawi-cichlids"
+    ],
+    "updatedAt": "2026-10-29T08:05:15.328Z",
+    "hash": "f863097d5d58188a5183e77090546e87e979f7bb11cadae1013a8fc0f250f8f9",
+    "processedHash": "f863097d5d58188a5183e77090546e87e979f7bb11cadae1013a8fc0f250f8f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/articles/yasuhikotakia-sidthimunki-spawning-success": {
+    "entityIds": [
+      "guides/loachesonline-articles-yasuhikotakia-sidthimunki-spawning-success"
+    ],
+    "updatedAt": "2026-10-29T08:18:50.652Z",
+    "hash": "cc0bcfaae2457918c9a785351f9d76731c7dedb5cec6f0b8607644710b8831ca",
+    "processedHash": "cc0bcfaae2457918c9a785351f9d76731c7dedb5cec6f0b8607644710b8831ca",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.loaches.com/care/the-loach-almanac": {
+    "entityIds": [
+      "guides/loachesonline-care-the-loach-almanac"
+    ],
+    "updatedAt": "2026-10-29T07:48:46.473Z",
+    "hash": "9d07f43ba05a4d605b9e553764b8ba06c9ccef91347fe845382c7397d3be7db7",
+    "processedHash": "9d07f43ba05a4d605b9e553764b8ba06c9ccef91347fe845382c7397d3be7db7",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.loaches.com/species-index/loach-species-index-front-page/sendto_form": {

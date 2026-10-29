@@ -1,0 +1,63 @@
+{
+  "id": "zacco-platypus",
+  "scientificName": "Zacco platypus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Zacco",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "hong-kong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/zacco_platypus_large_males_arrived__en/",
+      "html": "<p>Large males, 12-15 cm long, of this spectacular species of barb are currently on offer, imported from Hong Kong. Smaller specimens (7-10 cm, both sexes) are also available.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/zacco_platypus_large_males_arrived__en/",
+      "html": "<p>Zacco are coldwater fish that can be kept either in unheated aquaria or in garden ponds. They love strong current!</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b43bc8e6932497aa.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/zacco_platypus_large_males_arrived__en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng cho cá nước lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 120cm",
+        "hồ cá ngoài trời"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

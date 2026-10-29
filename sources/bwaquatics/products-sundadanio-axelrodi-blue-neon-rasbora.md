@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora
+title: Sundadanio Axelrodi (Blue Neon Rasbora) – BWAquatics
+fetchedAt: 2026-10-29T05:25:10.018Z
+hash: 6448d6b169fa355dc669b9c04ba804105ecbb0d582022e3f13ba431eef6f395c
+---
+
+Skip to product information 1 / of 1 BWAquatics Sundadanio Axelrodi (Blue Neon Rasbora) Sundadanio Axelrodi (Blue Neon Rasbora) Sale Amount 6Variant or unavailable 12Variant or unavailable Quantity Quantity (0 in cart) Sundadanio Axelrodi, also known as the Blue Axelrodi Rasbora or Neon Blue Danio, is a stunning little freshwater fish that is a perfect addition to a nano tank. They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia. These fish thrive in dim, acidic water (pH around 4.0) stained brown with tannins from decomposing leaves and vegetation. Tank size: While a small tank as low as 12.5 liters (3 gallons) can house a group, a 29.5 liter (8 gallons) tank is recommended for easier water parameter maintenance. Water parameters: WARNING! these fish do not appreciate changes in water condition. Temperature: 22-28°C (72-82°F) pH: 4.0-6.0 Hardness: Soft, ideally below 5 dGH. We keep them in around 60 tds Filtration: A gentle sponge filter is ideal for these small fish. Avoid power filters that create a strong current. Tank Mates : Sundadanio Axelrodi are peaceful fish and can be good tank mates for other peaceful nano fish such as Celestial Danios, Harlequin Rasboras, or Corydoras catfish. Avoid housing them with large or aggressive fish that could prey on them. Diet: Sundadanio Axelrodi are omnivores with a carnivorous tendency. They primarily eat small insects and crustaceans in the wild. In the aquarium, they should be fed a variety of small live or frozen foods such as brine shrimp, daphnia, or bloodworms. They may also learn to accept high-quality flake foods. We feed our fish pellets. Breeding: Breeding Sundadanio Axelrodi in a home aquarium can be challenging. However, it can be done in a separate breeding tank with very soft, acidic water (pH around 5.0) and spawning mops. Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

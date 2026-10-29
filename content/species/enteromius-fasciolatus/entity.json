@@ -1,0 +1,109 @@
+{
+  "id": "enteromius-fasciolatus",
+  "scientificName": "Enteromius fasciolatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "angola",
+    "botswana",
+    "democratic-republic-of-the-congo",
+    "namibia",
+    "zambia",
+    "zimbabwe"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/",
+      "html": "<ul><li>Common name: African banded barb</li><li>Synonym: Barbus barilioides</li><li>Maximum length: about 6 cm</li><li>Origin of available fish: captive bred</li><li>Available size: 3-5 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/",
+      "html": "<p>Only very few species of barbs from Africa became established as ornamental fish, although a great number of small species occurs there. Only one single species is bred on a regular basis and can be found in the trade quite often: Barbus fasciolatus, the African banded barb. This fish is a real beauty!</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/",
+      "html": "<p>Initially this species originates from southeastern Africa (Angola, Botswana, D. R. Congo, Namibia, Zambia, and Zimbabwe), but in the hobby exclusively bred specimens are available.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/",
+      "html": "<p>It is a schooling fish and should always be kept in groups of at least 12 specimens. Otherwise the fish will be shy and dull colored. Against all possible tankmates these barbs are completely peaceful. Plants are also ignored usually.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/",
+      "html": "<p>The African banded barb attains a maximum length of about 6 cm. Properly kept fish are wonderful to look at. A dark bottom and plenty of plants make the fish look best.</p><p>Lexicon: Barbus: Latin, means \"the bearded one\", referring to the barbels. fasciolatus: Latin, means \"with tender stripes\". barilioides: means \"similar to a Barilius\"; Barilius is another genus of barb.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Barbus_fasciolatus.jpg/960px-Barbus_fasciolatus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Citron",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_fasciolatus.jpg",
+      "caption": "Enteromius fasciolatus (synonym Barbus fasciolatus)"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/African_Tiger_Barb%2C_Ngamiland_East%2C_North-West%2C_Botswana_imported_from_iNaturalist_photo_20989129.jpg/960px-African_Tiger_Barb%2C_Ngamiland_East%2C_North-West%2C_Botswana_imported_from_iNaturalist_photo_20989129.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 317,
+      "licence": "CC BY 4.0",
+      "author": "(c) Robert Taylor, some rights reserved (CC BY)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_Tiger_Barb,_Ngamiland_East,_North-West,_Botswana_imported_from_iNaturalist_photo_20989129.jpg",
+      "caption": "Photo of African Tiger Barb uploaded from iNaturalist."
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 60cm",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng hạt",
+        "thức ăn cá cảnh vụn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh màu tối",
+        "cát nền đen"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

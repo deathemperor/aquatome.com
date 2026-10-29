@@ -8,7 +8,8 @@
   "places": [
     "north-america",
     "canada",
-    "united-states"
+    "united-states",
+    "usa"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 15,
           "max": 24
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 30
         }
       }
     ],
@@ -42,6 +50,10 @@
       {
         "source": "seriouslyfish",
         "value": 90
+      },
+      {
+        "source": "glaser",
+        "value": 50
       }
     ],
     "tankCm": [
@@ -65,10 +77,22 @@
       "html": "<p>The bowfin, Amia calva, is the sole remaining member of the family Amiidae, from south-eastern Canada and the north-eastern USA. It breathes atmospheric air through a highly vascularised organ and can aestivate in wet ground during drought. A temperate predator growing to around 900 mm, it needs a very large tank of its own, and its sharp teeth and readiness to bite make it a dangerous species to own. Captive specimens over 30 years old are known.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>Amia calva, the bowfin, is a \"living fossil\". Relatives of this species once lived almost all over the world, including several species in Europe, and already existed when the dinosaurs walked the Earth. Today only one species is left. The fish offered were 15–20 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "html": "<p>South-eastern Canada and north-eastern U.S.A.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>Native to the eastern USA.</p>"
     },
     {
       "key": "habitat",
@@ -83,6 +107,12 @@
       "html": "<p>Base dimensions of at least 180 × 60 cm (72 × 24 in) for an adult male, although the bigger the tank the better. A female would require a correspondingly bigger tank.</p><p>Standard length: 900 mm (35 in). Volume: ~648 litres (~171 US gal).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>The bowfin can reach a maximum size of about one metre, but usually does not grow larger than 50 cm. Males generally stay smaller than females.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
@@ -95,16 +125,34 @@
       "html": "<p>Temperature: 15–24 °C (59–75 °F). This is strictly a temperate species, and you'll probably have to employ the use of a chiller on its tank during the summer months. Unfortunately, this can prove somewhat expensive for the average hobbyist.</p><p>pH: 6.0–7.5</p><p>Hardness: 3–15 dGH</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>The bowfin is a coldwater fish, but thanks to its lung breathing it can survive even in warm and muddy water. Temperatures over 30°C are tolerated.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "html": "<p>Carnivorous, but is easily weaned onto dead food. Large earthworms, whitebait, trout and beefheart (in moderation) can all be offered. Young fish will take prawn, mussel etc. In nature they feed on anything from fish to invertebrates and even amphibians.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>Bowfins are predators that feed on fish, crayfish and similar prey.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "html": "<p>Given its highly piscivorous nature, potential size and need for cool water this fish should be given (and deserves) a tank of its own. Keep as a single specimen, as it is a solitary hunter in the wild.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>Amia calva has very sharp teeth and uses them when it feels threatened, so keepers should be aware of this.</p>"
     },
     {
       "key": "dimorphism",
@@ -119,10 +167,22 @@
       "html": "<p>Not thought to have been bred in aquaria.</p><p>In nature this species is an annual spawner, with the fish congregating in large numbers in shallow waters amongst aquatic plants to breed. Here, the male builds a simple nest, formed by clearing away a small area of vegetation and excavating a shallow depression in the substrate. Spawning occurs within this nest, with a courtship display of circling by the male being followed by both fish lying together and releasing eggs and sperm simultaneously.</p><p>Females play no further part in broodcare, and may in fact visit the nests of several males. It's therefore not uncommon to see eggs at different stages of development in a single nest. Males defend their nests so vigorously that they will attack anything entering the vicinity no matter what its size. Bearing in mind that many males may choose to nest in the same area and that often they outnumber females by as many as three to one, it comes as no surprise to learn that bowfin mating season can be a somewhat violent occurence! The male tends to the eggs, fanning them constantly with his fins until they hatch. After hatching, the male continues to guard his offspring until they reach a length of around 4\", at which point parental care ceases.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>The fish show intensive brood care. Males build a kind of nest from plant material in which the adhesive eggs are spawned. The hatchlings are also guarded by the male for a while.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "html": "<p>Rare in the hobby, the bowfin is a stunning specimen fish for the aquarist with the means to house it properly. It is the sole remaining species in the family Amiidae, an ancient and primitive group that is related to the garfish. It possesses the ability to breathe atmospheric air, via an enormous, highly vascularised accessory breathing organ that extends throughout the entire body cavity. The gills are stiffened in order to prevent them collapsing outside the water and, provided it's kept moist, the fish can survive without access to water for some time. Under drought conditions the fish can burrow into wet ground in a similar fashion to the more well-known lungfish species, where they can remain, completely motionless, until the rains return. This state is known as aestivation.</p><p>Although the bowfin is considered at risk of becoming endangered, it is not a popular species in its native waters. This is due to its voracious predation of both game and food species. Apparently, it puts up a great fight when hooked by rod and line.</p><p>In captivity it can be exceptionally long-lived when cared for properly and specimens over 30 years old are known. One final point to note is that this quite a dangerous species to own. The mouth is filled with razor sharp teeth and it will often bite aggressively when being fed or handled. Larger individuals could easily sever a finger, or worse and, as such, the bowfin is recommended only to experienced fishkeepers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
+      "html": "<p>Lexicon: Amia was a name for a fish in ancient Greece, but nobody knows today which species was meant. calva is Latin and means \"smooth\".</p><p>Stock code 364006; supplied exclusively to the wholesale trade.</p>"
     }
   ],
   "photos": [
@@ -135,6 +195,33 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "caption": "Amia calva juvenile",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5ccedc86c4296d37.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7f4e452e91be631b.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8e6e908b301fd93a.webp",
+      "width": 850,
+      "height": 467,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],

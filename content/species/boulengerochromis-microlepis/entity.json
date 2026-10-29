@@ -1,0 +1,200 @@
+{
+  "id": "boulengerochromis-microlepis",
+  "scientificName": "Boulengerochromis microlepis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Boulengerochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "dr-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 55
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<ul><li>Max size: 550 mm SL (22 in SL)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li><li>Difficulty: 6 of 8 (difficult), rated difficult because it needs a tank at least 2 m long</li></ul><p>The emperor cichlid, Boulengerochromis microlepis, is the only member of its genus and the largest African cichlid, endemic to Lake Tanganyika. A prized food fish around the lake, it grows to 450 to 550 mm and adults are almost entirely piscivorous. Young farm-raised specimens have been readily available in the trade since the mid-2000s, but it is suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Endemic to Lake Tanganyika and has been recorded throughout the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Mostly inhabits littoral to sublittoral zones, habitats which comprise a mixture of rocky rubble and exposed sandy areas, but has been recorded to depths of around 100 m. When not breeding adults exhibit a more-or-less pelagic lifestyle and apparently tends to form small, foraging groups in open water, whereas juveniles inhabit shallower, sandy nursery zones with some rock cover. There exists some evidence to suggest that adults move inshore at night or during early morning in order to feed. Tanganyika is the most ancient of Africa's Great Rift Lakes and contains around 250 described species of endemic cichlid which exhibit great diversity in terms of morphology, behaviour, and ecology. This variability has evolved through a process of explosive speciation and is often referred to as a model example of adaptive radiation i.e. the rapid differentiation of a single ancestor into an array of species possessing different traits in order to exploit particular niches in environments and resources.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Standard length: 550 mm SL (22 in SL).</p><p>Suitable only for public installations or the very largest private aquaria. An adult pair would command a territory measuring at least 5 m² in nature.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>A simple set-up with a sandy substrate plus a few large rocks arranged to break up the space should suffice. Place the latter directly on the base of the tank before adding the substrate in order to prevent them being toppled by the digging activity of the fish. Water quality must be of the highest order meaning weekly changes of up to 50% aquarium volume should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<ul><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Juvenile specimens are omnivorous but become increasingly piscivorous as they grow. Most captive specimens will accept dried foods but are better offered live or frozen bloodworm, Tubifex, Artemia, chopped prawns, small earthworms and similar. There is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Not particularly aggressive with anything too large to fit in its mouth but due to its adult size the choices are fairly limited. In suitably-sized surroundings Cyphotilapia spp. or Aristochromis christyi may work. Juveniles are quite peaceful with one another but as they begin to mature display increasing aggression towards one another which in confined surroundings can lead to only a single individual surviving. If a pair forms they will not normally tolerate other fishes within their territory.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Males are larger and more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>Substrate-spawner. It has been bred in aquaria, albeit infrequently, and is produced for the aquarium trade on commercial farms in Florida and the Far East in large, artificial ponds or vats. Sexual maturity is attained at approximately 400 mm (16 in) in length and over two years of age. Courtship is apparently initiated by the female and up to 10,000 eggs deposited in a depression excavated from the substrate or on a rocky surface. These are laid in batches with the male moving in to fertilise them each time. In nature only a tiny percentage survive to attain maturity and observations suggest that some parents invest so much in protecting them that they may die once the juveniles have dispersed. Incubation is around 72 hours and both parents guard and tend the brood during this period. Once hatched the fry are moved to a pre-excavated second pit where they remain for several days until their yolk sacs have been completely absorbed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<p>This species is the only member of its genus, the largest African cichlid species and a prized food fish around Lake Tanganyika. As an adult it's almost entirely piscivorous with an elongate, streamlined body shape and large, almost lunate caudal-fin designed to provide power and speed. It's clearly unsuited to the home aquarium in all but the most extreme circumstances, but young, farm-raised specimens have nevertheless been readily-available in the trade since the mid-2000s.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "html": "<ul><li>Bayona, J. D. R. (1991). Some Aspects of the Biology of Kuhe, Boulengerochromis microlepis in the Kigoma Region, Eastern Coast of Lake Tanganyika. African Study Monographs 12(2), 63-74</li><li>Trewavas, E. (1935). A synopsis of the cichlid fishes of Lake Nyasa. Annals and Magazine of Natural History Series 10 v. 16(91), 65-118</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/acf9d99eb87bfccc.webp",
+      "width": 870,
+      "height": 582,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "caption": "Subadult in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/045b2f82d7de7d86.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "caption": "Nuptial pair in Lake Tanganyika.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "caption": "Non-breeding individuals form small, foraging groups in the lake.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 2 mét",
+        "bể kính cá cảnh cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát nền cho cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

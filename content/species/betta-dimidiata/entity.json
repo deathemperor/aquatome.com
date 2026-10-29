@@ -1,0 +1,139 @@
+{
+  "id": "betta-dimidiata",
+  "scientificName": "Betta dimidiata",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<ul><li>One of two species in the Betta dimidiata complex.</li><li>IUCN Red List: Vulnerable.</li><li>F1 (first generation from wild-caught bettas).</li><li>Max size: 2.3 inches.</li><li>Breeding: mouthbrooder.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<p>This betta is found in the West Kalimantan area of Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions.)</li><li>pH: 5.0 - 7.0</li><li>Temperature: 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<p>Carnivorous. We currently feed them live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<p>Fairly peaceful and can be kept in groups. Males will show off and flare at each other from time to time but no real harm is done. We recommend a pair per 5 gallon tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<p>Dark gray/brown body with long flowing fins. A translucent blue edge can be seen on the fins, more pronounced on the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/fae1003633f0d3c7.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/d19090e526be2eb2.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đen sống",
+        "trùn chỉ đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

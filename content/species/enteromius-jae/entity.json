@@ -1,0 +1,143 @@
+{
+  "id": "enteromius-jae",
+  "scientificName": "Enteromius jae",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "cameroon",
+    "dja"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>Barbus jae is one of the smallest species of barb from Africa. B. jae becomes only 2-3 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>Sadly nowadays imports from Cameroon are very rare, so one has to be really lucky to find this jewel in a local pet shop.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>It has been described from the river Dja in Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>This small fish is found in forest-streams.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>One should keep this fish at temperatures of about 20-22°C. Other water parameters are of minor interest.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>The males of B. jae are polychromatic. This means that each male has an individual coloration.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>Breeding B. jae is not complicated, but not economical, so the species is not bred by professional breeders.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/",
+      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Barbus_jae_male_%286857667212%29.jpg/960px-Barbus_jae_male_%286857667212%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 387,
+      "licence": "CC BY 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_jae_male_(6857667212).jpg",
+      "caption": "Barbus_jae_male"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Cameroon2011_10_%281%29_%286857664596%29.jpg/960px-Cameroon2011_10_%281%29_%286857664596%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 636,
+      "licence": "CC BY 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cameroon2011_10_(1)_(6857664596).jpg",
+      "caption": "Cameroon2011 10 (1)"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Barbus_jae_male_and_female.jpg/960px-Barbus_jae_male_and_female.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 719,
+      "licence": "CC BY-SA 3.0",
+      "author": "Barbus_jae_male_(6857667212).jpg: Jonathan (Jon) Armbruster Barbus_jae_female_(7003781231).jpg: Jonathan (Jon) Armbruster derivative work: Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_jae_male_and_female.jpg",
+      "caption": "Barbus jae, male and female"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Barbus_jae_female_%287003781231%29.jpg/960px-Barbus_jae_female_%287003781231%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 332,
+      "licence": "CC BY 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_jae_female_(7003781231).jpg",
+      "caption": "Barbus_jae_female"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc sponge cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "thức ăn dạng vảy mịn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

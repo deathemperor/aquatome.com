@@ -1,0 +1,147 @@
+{
+  "id": "betta-livida",
+  "scientificName": "Betta livida",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Wild caught Betta livida from Indonesia, from the Betta coccina complex. It has a dark red body with specks of metallic yellow/green. Some have a dark green spot in the center of the body. Like most coccinas, they have reflective blue eyes.</p><p>IUCN Red List: Endangered (a very high risk of extinction in the wild).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Maximum size: 1.2 - 1.5 inches (about 3 - 3.8 cm).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<ul><li>TDS: 60 - 100</li><li>pH: 5.0 - 6.5</li><li>Temperature: 24 - 28°C (75 - 82°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space and cover. Expect fin nipping.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Bubblenester.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/047d9aa6c478e0e9.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/c099ab4003e5cf50.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 20 lít",
+        "bể nano thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "trùn huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá nổi",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,132 @@
+{
+  "id": "betta-burdigala",
+  "scientificName": "Betta burdigala",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "bangka"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Wild caught Betta burdigala from Bangka, from the Betta coccina complex. They are red with a very nice blue and green iridescence on the body and fins. They resemble Betta uberis without the spot in the middle, and the finnage is longer than that of B. uberis.</p><p>IUCN Red List: Critically Endangered (an extremely high risk of extinction in the wild).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Max size: 1.2 - 1.5 inches (about 3-3.8 cm). Recommended 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<ul><li>TDS: 60 - 100</li><li>pH: 5.0-6.5</li><li>Temperature: 24-28°C (75-82°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Carnivorous. The seller currently feeds them live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "html": "<p>Bubblenester.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/fa98b8e7683fd666.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo TDS",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

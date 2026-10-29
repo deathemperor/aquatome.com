@@ -1,0 +1,134 @@
+{
+  "id": "oryzias-woworae",
+  "scientificName": "Oryzias woworae",
+  "order": "Beloniformes",
+  "family": "Adrianichthyidae",
+  "genus": "Oryzias",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<ul><li><strong>Size:</strong> up to 1 inch (about 2.5 cm)</li><li><strong>Temperament:</strong> Peaceful</li><li><strong>Lifespan:</strong> 2-3 years</li><li><strong>Diet:</strong> Omnivore</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Beautiful fish from Sulawesi that is perfect for those looking to add colors to a small aquarium. They have a nice blue metallic shine in the light with a red accent on the body edges.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Prefers slightly acidic to neutral water (pH 6.0-7.5). However, the seller keeps them in tap water with high TDS and pH. Temperatures between 73-80 °F (about 23-27 °C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Omnivore (eats flakes, brine shrimp, bloodworms, and mosquito larvae).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>They are schooling fish, so it is recommended to keep them in groups of at least 6 or more. They are also known to jump, so a secure lid is a must for your aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Males typically have a translucent bluish body, while females and juveniles are more yellow.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/7eaabf041aabed41.webp",
+      "width": 1000,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/49c4324fb3b7fc3c.webp",
+      "width": 1000,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ có nắp",
+        "bể thủy sinh mini 30cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng vảy",
+        "artemia đông lạnh",
+        "trùn chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mini cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

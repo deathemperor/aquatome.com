@@ -1,0 +1,177 @@
+{
+  "id": "brachygobius-mekongensis",
+  "scientificName": "Brachygobius mekongensis",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Brachygobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "cambodia",
+    "tonle-sap",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 1.8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<ul><li>Max size: 18 mm SL (0.7 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 6 of 8 measures (Moderate)</li></ul><p>The Mekong bumblebee goby, Brachygobius mekongensis, is a tiny goby from the central and lower Mekong, including the Tonlé Sap system. It is apparently restricted to slow-moving or standing fresh water such as marshes, seasonal swamps and floodplains with dense aquatic vegetation. Narrow, often broken dark bars on a pale background separate it from the most similar species, B. nunus. It is poorly known in the hobby, and other species are sold under its name.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Type locality is close to the settlement of Muang Kengkok in Savannakhet Province, central Laos, and given as 'Xe Banghiang basin: Xe Champhon, between bridge at between bridge at Muang Kengkok and about 4 kilometers upstream, 16°27'45\"N, 105°12'38\"E'.</p><p>'Xe' means 'river' in Lao, and the Xe Banghiang is a tributary of the much larger Mekong drainage, flowing into the main river channel near the city of Savannakhet.</p><p>B. mekongensis is known to occur throughout the central and lower Mekong from Vientiane province, Laos, and Nongkhai province, northeastern Thailand to southern Vietnam and Cambodia, where it also occurs in the Tonlé Sap lake and river system.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Apparently restricted to slow-moving or standing freshwater habitats such as marshes, temporal swamps and floodplains where aquatic vegetation and submerged grasses proliferate.</p><p>One locality consisted of undisturbed marshland with lightly tannin-stained water and dense growth of Vallisneria spp.</p><p>It showed a preference for shallow water with a depth of 30–50 cm (12–20 in) and was observed to feed chiefly on small aquatic insects and zooplankton.</p><p>Sympatric fish species included Boraras micros, Amblypharyngodon chulabhornae, Odontobutis aurarmus, Indostomus spinosus, Chaudhuria caudata, Chanda siamensis, and Nandus oxyrhynchus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Standard length: 18 mm SL (0.7 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: ~41 litres (~11 US gal).</p><p>Base dimensions of 45 × 30 cm (18 × 12 in) or equivalent should be the minimum considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>A densely-planted tank with floating vegetation and roots, twigs or branches would seem appropriate.</p><p>Filtration should not be strong with an air-powered sponge-type unit ideal, and given it naturally inhabits pristine environments it should never be introduced to a new aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Small live foods such as Artemia, Daphnia, etc., should be considered essential although some specimens will learn to accept frozen alternatives. Dried products are normally ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Unlikely to make an ideal community fish and best kept in a species-specific set-up, or perhaps alongside comparably-sized species with which it occurs in nature such as Boraras or Indostomus spp.</p><p>Although males in particular are territorial towards one another a group of 6 or more should be the minimum purchase since when such numbers are present aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>Has been spawned in aquaria but it's unclear if fry were raised. Around 30 eggs were deposited onto a hard surface and tended by the male.</p><p>The species appears to be progenetic; in a growth and maturation study of wild specimens in both dry and wet seasons the youngest sexually mature females were just 54 and 36 days old, respectively. It's thought to spawn year round with gravid females present in both seasons.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<p>This species is poorly-known in the aquarium hobby though we have seen other species labelled with its name.</p><p>It can be identified by the following combination of characters: head, opercle, predorsal, breast, belly and base of pectoral-fin naked; scales on body ctenoid; colour pattern consisting of narrow, often broken, dark bars on a pale background, including a short oblique bar across the side of the body, between the dorsal-fins; base of dorsal and caudal fins with reddish pigment.</p><p>Among known congeners it's most similar to B. nunus but can be told apart by possession of relatively narrow, often broken body bars (vs. relatively broad, sometimes short but never broken bars in B. nunus), a short, oblique body bar between the dorsal fins (vs. a short oblique bar at origin of second dorsal-fin), and a naked opercle and nape (vs. nape usually scaled, sometimes partly naked, and opercle with ctenoid scales, sometimes naked).</p><p>Brachygobius currently contains 9 described species, and although all are referred to collectively as 'bumblebee' gobies only B. doriae and B. sabanus are commonly-available in the ornamental trade.</p><p>The majority should only be considered nominal taxa for the time being since the genus appears to be considerably more diverse than currently-recognised. Therefore, although we've assigned images to profiles based on how well they match the key of Inger (1958) the identification of most can only be thought of as tentative pending publication of a forthcoming review.</p><p>The grouping is often included in the subfamily Gobionellinae alongside genera such as Chlamydogobius, Mugilogobius, Pseudogobiopsis, Rhinogobius, Schismatogobius, and Stigmatogobius.</p><p>It's considered most closely-related to the genus Pandaka with the two sharing numerous characters but differing in the morphology of the head lateral line system and number of epurals present.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "html": "<ul><li>Miller, P. J. (1989). The classification of bumble-bee gobies (Brachygobius and associated genera) (Teleostei: Gobiidae). Cybium 13(4), 375-383</li><li>Inger, R. F. (1958). Notes on the fishes of the genus Brachygobius. Fieldiana Zoology 39(14), 107-117</li><li>Larson, H. K. and C. Vidthayanon (2000). A new species of the bumble-bee goby genus Brachygobius (Teleostei: Gobiidae), from the Mekong River system. Ichthyological Exploration of Freshwaters 11(1), 1-6</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Morioka, S. and K. Sano (2009). Growth and maturation of the bumble-bee goby Brachygobius mekongensis (Perciformes: Gobiidae) occurring in the Mekong basin, in Vientiane Province, Central Laos. Ichthyological Exploration of Freshwaters 20(3), 267-275</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f9c51da10db18d47.webp",
+      "width": 825,
+      "height": 550,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
+      "caption": "Wild individual collected near Siam Reap, northwestern Cambodia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45 cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí mút xốp",
+        "máy sủi khí lọc mút"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia sống",
+        "trùn chỉ đông lạnh",
+        "daphnia"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "rong Vallisneria"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

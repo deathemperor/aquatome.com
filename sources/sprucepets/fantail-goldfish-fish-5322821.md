@@ -1,0 +1,68 @@
+---
+url: https://www.thesprucepets.com/fantail-goldfish-fish-5322821
+title: Fantail Goldfish: Fish Species Profile
+fetchedAt: 2026-10-29T06:29:42.614Z
+hash: 42c0d9611fcacffbffcbac57c520669945f6d205a4405c0c3dddf69641ed36be
+---
+
+# Fantail Goldfish: Fish Species Characteristics and Care
+By
+Jessie Sanders
+Jessie Sanders
+Jessie Sanders, DVM, DABVP (Fish Practice), is an accomplished aquatic veterinary medicine expert with nearly two decades of experience working with private patients and aquaculture facilities. She owns Aquatic Veterinary Services and specilaizes in fish surgery. Dr. Sanders was one of the first Certified Aquatic Veterinarians through the World Aquatic Veterinary Medical Association.
+Editorial Process
+Updated on September 5, 2025
+Reviewed by
+Nick Saint-Erne
+Reviewed by Nick Saint-Erne
+Dr. Nick Saint-Erne, DVM, is a highly accomplished veterinarian and writer who has treated zoo animals and exotic pets for more than 35 years. He has worked with the Centers for Disease Control and Prevention to improve pet store animal care among other endeavors. Dr. Saint-Erne is part of The Spruce Pets' veterinary review board.
+Veterinary Review Board
+Add Us On
+Credit: Robert Moore/Getty Images
+The fantail goldfish is a common variety of fancy goldfish, recognized for its striking double tail. Instead of one standard tail with a top and bottom caudal fin, these goldfish have been selectively bred to possess two top and bottom caudal fins, with the two upper fins fused. When keeping fantail goldfish, special consideration for their impaired swimming ability is necessary.
+### Species Overview
+Common Names: Fantail goldfish, double tail goldfish
+Scientific Name: Carassius auratus
+Adult Size: 7 inches
+Life Expectancy: 10 to 15 years
+## Characteristics
+Characteristics Family Cyprinidae Origin Asia Social Peaceful Tank Level Top, mid-dweller Minimum Tank Size 20 gallons Diet Omnivore Breeding Egg layer Care Easy pH 6.0 to 9.0 Hardness 6 to 12 dGH Temperature 55 to 80F (10 to 27 C)
+## Origin and Distribution
+Although the original comet goldfish originated from the Crucian carp in Asia, the fantail goldfish does not occur in the wild and has been developed through human-led selective breeding. Classified as a type of fancy goldfish, the fantail goldfish was bred by selecting fish with desired features over numerous generations.
+## Colors and Markings
+Fantail goldfish are distinguished by their double tails and typically short bodies, with the potential for elongated pectoral and anal fins. If your fantail has been bred with other fancy goldfish varieties like orandas, ryukins, or pearlscales, they may display features from these goldfish, such as a small wen (head swelling), a tall body, or an enlarged coelom. Typically, fantail goldfish range from orange to white in color, but they can also be red or multicolored if crossed with shubunkin or ryukin goldfish.
+## Tankmates
+When choosing tankmates for fantail goldfish, other goldfish species are the best options.
+### None
+Some goldfish may prefer solitude, and that's perfectly acceptable. You can keep goldfish individually, but they still require a large, filtered aquarium to ensure optimal health. Remember to spend quality time with a single-housed goldfish, treating it as the cherished companion it is.
+### Another Goldfish
+The ideal tankmate for a fantail goldfish is another fancy variety. Avoid pairing them with long-bodied goldfish, such as comets or shubunkins, as they can outpace your fancy goldfish and monopolize feeding. Select another fancy goldfish with similar slow swimming capabilities to ensure equitable access to food and space.
+Photography by ZhangXun/Getty Images
+### Zebrafish
+When adding fish to a goldfish tank, the key factor is the temperate nature of the aquatic environment. Goldfish require lower temperatures than most tropical species, so compatibility is limited. However, a school of zebrafish, also known as zebra danios, can be a great addition. They thrive in groups, so maintain at least five in the tank. Zebrafish offer a variety of fin types and colors for added visual interest.
+slowmotiongli/Getty Images
+## Fantail Goldfish Habitat and Care
+Like other goldfish types, the fantail goldfish is easy-going and requires minimal maintenance. However, they produce more waste than many other pet fish, so adhering to a regular maintenance routine is essential. Due to their tail shape, fantail goldfish are not efficient swimmers, so avoid a crowded tank environment. They may rest more often than other goldfish, so providing an open area on the substrate will allow them to rest comfortably.
+## Fantail Goldfish Diet and Feeding
+Many pelleted diets are available for feeding fantail goldfish. When choosing a pellet, be sure to choose the correct pellet size for your fish to easily swallow. Since they do not have an acidic stomach, goldfish rely on their grinding molars to crush up their food in order to digest it properly. Most goldfish will require about 32-35% protein, but given their swimming difficulties, fancy goldfish should be on a slightly higher protein level in the diet. Choose a diet with a fat content around 4-5% and replace your food container every 6 months to ensure adequate vitamin C levels. Sinking diets are recommended to help with any fish prone to buoyancy disorders, so they don't gulp air at the surface while eating a floating food.
+Feeding frequency depends on your tank's temperature. Below 70°F (21°C), feed goldfish once daily. At 70°F and above, increase to twice daily. Provide a modest amount, allowing them to eat leisurely for about five minutes. Uneaten food indicates overfeeding. Remove leftover food to prevent waste buildup in the aquarium.
+## Gender Differences
+Like comet goldfish, male fantail goldfish have identifiable features. During spawning, males develop breeding tubercles—raised, white bumps—on the operculum (gill cover) and leading edge of the pectoral fin. Females generally appear rounder, but this is less reliable in fantails due to their naturally enlarged bellies.
+## Breeding the Fantail Goldfish
+Goldfish are prolific breeders, making it feasible even for novice caretakers. Before breeding, enhance your goldfish's protein and fat intake for full gonad development. Fantail goldfish should be placed in a breeding tank with one male and one female. Raising water temperature and adding live plants usually triggers breeding. Extended daylight hours in spring can also stimulate spawning, adjustable via indoor lighting. After spawning, remove the parents to prevent egg consumption. Feed fry powdered food once they are free-swimming post-hatch.
+## More Pet Fish Species
+If you appreciate the fantail goldfish, consider exploring similar species:
+- Comet Goldfish
+- Shubunkin Goldfish
+- Zebrafish
+## Frequently Asked Questions
+- Can fantail goldfish live with other types of fish? Fantail goldfish are best kept with other fancy goldfish or species like zebrafish, as they prefer cooler temperatures and may be out-competed for food by faster, long-bodied fish like comet or shubunkin goldfish.
+- How often should I feed my fantail goldfish? Feed your fantail goldfish once a day if the tank’s temperature is below 70 degrees Fahrenheit and twice a day if it’s 70 degrees or above. Ensure that you sprinkle just enough food for them to eat leisurely within five minutes.
+- How can I tell if my fantail goldfish is male or female? Male fantail goldfish develop breeding tubercles, which are raised white bumps on the operculum and pectoral fin edges during spawning season, while females tend to appear more round-bodied.
+Read More:
+- Fish & Aquariums
+- Freshwater Fish & Aquariums
+- Freshwater Fish Breeds
+Was this page helpful?
+Thanks for your feedback!
+Tell us why!

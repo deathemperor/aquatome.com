@@ -1,0 +1,147 @@
+{
+  "id": "betta-uberis",
+  "scientificName": "Betta uberis",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Wild caught Betta uberis from Palangkaraya, part of the Betta coccina complex. IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</p><ul><li>Max size: 1.2-1.4 inches (about 3-3.5 cm)</li><li>Temperament: moderately aggressive</li><li>Diet: carnivorous</li><li>Breeding: bubblenester</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Colour is very similar to Burdigala, except male Uberis exhibit a green mid-lateral iridescence and generally a less robust body. Fins are shorter than those of the Burdigala. The spot on the Uberis varies from individual to individual, as some do not have the spot in the wild.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<ul><li>TDS: 60-100</li><li>pH: 5.0-6.5</li><li>Temperature: 75-82°F (24-28°C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "html": "<p>Bubblenester.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/08710ae987820f9b.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá betta",
+        "giun đỏ đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bể nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo pH",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

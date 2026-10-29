@@ -1,0 +1,113 @@
+{
+  "id": "sinibotia-robusta",
+  "scientificName": "Sinibotia robusta",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Sinibotia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "html": "<p>Sinibotia robusta is also known as the Kansu loach. This comparatively peaceful species is best kept at room temperature (18-24°C) without an additional heater. Maximum size reported for the species is about 18 cm, but in the wild most specimens become only 8-10 cm long.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "html": "<p>Every year in June is import season for Botia-like loaches from China. The genus Sinibotia currently contains six species. The genus Sinibotia differs from Botia by the presence of three pairs of barbels (two maxillary, one mandibulary), while in Botia a fourth pair of barbels is present on the lower lip.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/f0a777f65bd3c821.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/09098ade3c437e54.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4c3b94563b4d3b20.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9311f2d7ccb34459.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá chạch"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chạch",
+        "thức ăn viên cho cá đáy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi mịn cho cá đáy",
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

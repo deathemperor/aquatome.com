@@ -1,0 +1,246 @@
+{
+  "id": "trigonostigma-heteromorpha",
+  "scientificName": "Trigonostigma heteromorpha",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Trigonostigma",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "malaysia",
+    "singapore",
+    "indonesia",
+    "sumatra",
+    "thailand"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 0,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "sprucepets",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "html": "<p>The Harlequin barb (Trigonostigma heteromorpha) is one of the most popular ornamental fish worldwide. Its beautiful colours and peaceful temperament make it an ideal inhabitant of a community tank.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<ul><li><strong>Common name:</strong> Red rasbora</li><li><strong>Scientific name:</strong> Trigonostigma heteromorpha</li><li><strong>Adult size:</strong> 1.75 inches (4.5 cm)</li><li><strong>Life expectancy:</strong> 6 years</li><li><strong>Family:</strong> Cyprinidae</li><li><strong>Origin:</strong> Southeast Asia, Malaysia, Singapore, Sumatra, Thailand</li><li><strong>Social:</strong> Peaceful, suitable for community aquarium</li><li><strong>Tank level:</strong> Top to mid-dwelling</li><li><strong>Minimum tank size:</strong> 10 gallons (about 38 litres)</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Egglayer</li><li><strong>Care:</strong> Intermediate</li><li><strong>pH:</strong> 6.0 to 7.5</li><li><strong>Hardness:</strong> Up to 12 dGH</li><li><strong>Temperature:</strong> 73 to 82°F (23 to 28°C)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>It inhabits streams and waters that are characterized principally by their low mineral content and high concentrations of dissolved humic acids, which is typical of water that flows through swamped forests. The waterlogged soils of these forests inhibit the complete decay of leaf litter, resulting in the formation of peat, which leaches humic acids. These conditions resemble those found in the blackwater habitats of South America.</p><p>Rasboras are a true freshwater family of fish and are never seen in brackish waters. They prefer the lowland waters of southeastern Asia, where the water is soft and acidic.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Minimum tank size is 10 gallons (about 38 litres). You can generally keep up to 10 harlequin rasboras in a 20-gallon (about 76 litres) aquarium, depending on factors including adult size, swimming behavior, and the presence of other tank inhabitants. Provide enough space for each fish to swim freely and comfortably, and maintain good water quality.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>pH 6.0 to 7.5; hardness up to 12 dGH; temperature 73 to 82°F (23 to 28°C).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Harlequins prefer an environment with areas of dense vegetation, an open area for swimming, a dark substrate, and subdued lighting.</p><p>An aquarium intended to house harlequin rasboras should be planted with live plants. Create open areas for swimming between stands of plants such as Cryptocoryne species, these being among the plants that inhabit the harlequin rasbora's native waters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Harlequins readily accept all foods but prefer to eat live foods whenever possible. In nature, their diet consists primarily of insects. However, they will accept frozen foods and freeze-dried foods as well as flake foods. A varied diet will ensure that digestive problems or susceptibility to disease do not occur. Brine shrimp, daphnia, and any type of worm are excellent supplemental foods, particularly when conditioning before breeding.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "html": "<p>Despite the coloration, the blue and golden sports show no difference to the wild form: they are beautiful and peaceful community fish that should always be kept in small schools.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>The harlequin rasbora is a shoaling fish; it should be kept in schools of eight to 10 individuals. Schools of even larger numbers make for a beautiful display. You can keep harlequins with any fish as long it's not large and predatory. It will not nip at or quarrel with any other species. Some potentially good tankmates may include cardinal tetras, one betta, neon tetras, small barbs, dwarf gouramis, danios, other small rasboras, and cory catfish.</p><p>It is a smaller fish, so keep it with like-sized specimens; larger fish might be attracted by its shimmer and try to make a meal out of it.</p><p>Harlequin rasboras and bettas can generally coexist, but only one betta should be added to avoid fighting among the bettas. Harlequin rasboras are known for their peaceful, docile nature. Their behavior can be influenced by tank size, water parameters, and the presence of other fish. They are generally compatible with peaceful shrimp of similar size, but may eat shrimp fry or smaller shrimp species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Male harlequins are more slender and a bit smaller than females. Although they share similar colors and patterns, the males tend to be more brightly colored than the females. In addition, the distinctive black wedge covering the posterior of the fish may be more rounded in males and more angular in females.</p><p>Of the more than five dozen species of rasbora, the harlequin is arguably the most popular of them all. Often referred to as a red rasbora, the body is a reddish-copper color that is accented by a striking black wedge covering the rear half of the body. The distinguishing triangular patch begins near the dorsal fin and comes to a point near the base of the caudal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "html": "<p>It is hard to believe today that this species was once impossible to breed. In the 1930s breeders had to learn that water chemistry can be very important for the breeding of fish, and they learned it from the harlequin barb. Nowadays millions of these fish leave the breeding farms each year.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Harlequins are among the more difficult tropical freshwater species to breed, however, spawning may be achieved if you provide the proper conditions. Select young specimens and condition them with live foods such as daphnia and mosquito larvae before the spawning attempt. Harlequin rasbora differs from other popular rasboras in the aquarium when it comes to breeding. While other rasboras are egg-scattering spawners, harlequin rasboras are egg layers.</p><p>You can breed groups of young harlequins in a single aquarium. When spawned in groups, keep two males for every female. Hobbyists who are intent upon simulating natural conditions as closely as possible may choose to filter the aquarium water over peat, thus replicating the humic acid concentrations found in the fish's native waters, although this is not necessary if the basic water chemistry parameters (no higher than 4 dGH of hardness, pH around 6.4) are correctly maintained. The optimum water temperatures for spawning are between 76 and 80°F (about 24 and 27°C). Add Cryptocorynes or similar broad-leafed plants to the breeding tank.</p><p>Once you prepare the breeding tank, introduce the breeding stock late in the day. Spawning will usually begin in the morning and is initiated by the male dancing and trembling before the female. This spawning behavior is intended to direct the female beneath a suitable plant for depositing the eggs. You may see the male nudging the sides of the female and rubbing his belly against her back to move her to the spawning location.</p><p>When ready to spawn, the female will turn upside down and rub her belly against the underside of a leaf, signaling the male to join her. The male will approach her while continuing to tremble, then wrap himself around her body and fertilize the eggs as they are released. Six to 12 eggs are laid at a time. The fertilized eggs rise and adhere to the underside of the leaves. During one to two hours, as many as 300 eggs may be laid, although 80 to 100 is more typical.</p><p>When spawning is complete, remove the breeding stock from the aquarium, as they will consume the fry once they hatch. In water temperatures of about 80°F (about 27°C), the eggs will hatch in approximately 24 hours. The fry are translucent and remain attached to the leaf upon which the eggs were laid for another 12 to 24 hours, during which time the yolk sac is absorbed.</p><p>Once this process is completed, the fry become free-swimming, and at this stage, require very finely sized foods such as live infusoria for a period of seven to 14 days, after which the fry can feed upon newly hatched brine shrimp. If infusoria are unavailable, commercially prepared fry foods for an egglayer may also be used. Young harlequin rasboras then reach sexual maturity in approximately six to nine months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "html": "<p>Over the years mutants appeared and were bred from then on. The two best known are the blue and the golden sports.</p><p>For wholesale customers: \"Blue\" has code 452523, \"Gold\" code 452563 on the Aquarium Glaser stocklist. Aquarium Glaser supplies the wholesale trade exclusively.</p><p>Text &amp; photos: Frank Schäfer</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>This species looks similar to the Pork Chop or Lamb Chop Rasbora (T. espei), the Narrow Wedge Rasbora (T. hengeli), and Somphong's Rasbora (T. somphongsi), and these species can be differentiated primarily by the size of the dark \"wedge.\" These rasboras are listed from largest to smallest triangular patch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "html": "<p>Robert Woods. Harlequin rasbora care guide &amp; species profile. Fishkeeping World.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/0f120f07fb51a8ee.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6c57b70f5ab4a349.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/58663e83a1d25277.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "caption": "Harlequin rasbora fish with yellow and black scales swimming closeup",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/b9a08ab345f5d82e.webp",
+      "width": 1200,
+      "height": 803,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "caption": "Harlequin rasbora fish with orange and black scales swimming",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/a45961c3f2260608.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "caption": "harlequin rasboras, neon tetras, guppies in aquarium",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/836ea85f28a1a839.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
+      "caption": "Orange and white black-spotted fish swimming in aquarium",
+      "source": "sprucepets"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá cảnh dạng mảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc treo hông"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,134 @@
+{
+  "id": "betta-miniopinna",
+  "scientificName": "Betta miniopinna",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Critically Endangered (CR).</li><li>Maximum size: 1.2–1.5 inches (about 3–3.8 cm).</li><li>Breeding: bubblenester.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<p>Wild caught Betta miniopinna from Indonesia (no specific location at this time). They are quite similar to Persephone but show more red on the ventral fins. Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<p>Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<ul><li>TDS: 60–100</li><li>pH: 5.0–6.5</li><li>Temperature: 75–82°F (24–28°C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, multiple pairs can be kept as long as there is enough space. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "html": "<p>Bubblenester.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/6b9121ad6d0c8324.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/2d893aa5d22efb17.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đen sống",
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo TDS",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

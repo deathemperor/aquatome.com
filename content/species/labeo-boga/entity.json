@@ -1,0 +1,70 @@
+{
+  "id": "labeo-boga",
+  "scientificName": "Labeo boga",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Labeo",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_boga_en/",
+      "html": "<p>Labeo boga is a peaceful, schooling species that can attain a length of about 30 cm. It is a much sought-after food fish in its home country.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_boga_en/",
+      "html": "<p>Fresh fish can be most easily recognized by the red gills. Thus the Labeo boga, which we currently obtained from India, must be very fresh. Why the gill covers in this peaceful, schooling species are that translucent is unknown.</p><p>For our customers: the animals have code 422453 on our stocklist. Please note that we exclusively supply the wholesale trade.</p><p>Text &amp; Photos: Frank Schäfer</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/664f70d8ecc92f9c.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_boga_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200 lít",
+        "bể cá dài 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cỡ lớn",
+        "thức ăn viên cho cá ăn tạp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

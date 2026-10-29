@@ -1,0 +1,75 @@
+{
+  "id": "polypterus-ansorgii",
+  "scientificName": "Polypterus ansorgii",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Polypterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "guinea"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
+      "html": "<p>Impressive specimens, 50-60 cm long, of this rarest of all Polypterus species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
+      "html": "<p>For our customers: the animals have code 162409 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
+      "html": "<p>The fish originate from Guinea.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a17ec3379a0ed4bc.webp",
+      "width": 848,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cá rồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

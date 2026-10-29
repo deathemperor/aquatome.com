@@ -1,0 +1,129 @@
+{
+  "id": "betta-pallifina",
+  "scientificName": "Betta pallifina",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "muara-teweh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>From the Betta unimaculata complex. IUCN Red List: N/A. Wild caught Betta pallifina from Muara Teweh.</p><ul><li>Maximum size: 3.5 inches (about 9 cm)</li><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (about 22–28°C)</li><li>Breeding: mouthbrooder</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>TDS ~60–100, pH ~5.0–7.0. Temperature: 72–82°F (prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>Carnivorous. Currently fed on live, frozen and dried foods: blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. We recommend that they be kept in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>Brown base body with bronze/copper to blue iridescence on the opercular cheeks, body and tails; females are less iridescent. Fully grown adult males have longer ventral fins and a larger body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/cc48bcaf1021310a.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/6a151ec36bb9c2a8.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40 lít",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đen đông lạnh",
+        "trùn chỉ đông lạnh",
+        "cám betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo TDS",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "potamotrygon-scobina",
+  "scientificName": "Potamotrygon scobina",
+  "order": "Myliobatiformes",
+  "family": "Potamotrygonidae",
+  "genus": "Potamotrygon",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-tocantins"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/",
+      "html": "<p>A comparatively small freshwater stingray, about 35 cm disc width.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/",
+      "html": "<p>Aquarium Glaser received German bred specimens. The animals have code 282012 on the stocklist. The supplier exclusively supplies the wholesale trade. Available in very limited numbers only.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/",
+      "html": "<p>The species is restricted – as far as known – to the Rio Tocantins in Brazil.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/9cee2f53756f9ab3.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1d2b6597fdabf0c3.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn cho cá đuối",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá đuối",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá đuối"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

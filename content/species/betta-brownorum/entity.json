@@ -1,0 +1,132 @@
+{
+  "id": "betta-brownorum",
+  "scientificName": "Betta brownorum",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<ul><li>Wild-caught Betta brownorum from Sibu, part of the Betta coccina complex.</li><li>IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</li><li>Maximum size: 1.2-1.5 inches (about 3-3.8 cm).</li><li>Temperament: moderately aggressive.</li><li>Breeding: bubblenester.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<ul><li>TDS: 60-100</li><li>pH: 5.0-6.5</li><li>Temperature: 75-82°F (about 24-28°C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<p>Carnivorous. The seller feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space and cover. Expect fin nipping. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<p>The male has an intense red colour with a green iridescent spot on the body and longer anal fins, while females have shorter finnage and less intense coloration.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<p>Bubblenester.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "html": "<p>The seller noticed that, at this location, a few fish have a much larger spot than at other brownorum locations they have encountered. Spot size varies, but some larger-spotted fish may appear in their offspring. Be sure to have the habitat ready before purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/1a9a888378f70baf.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đỏ đông lạnh",
+        "thức ăn viên cho cá betta"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh làm nơi ẩn nấp",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo TDS",
+        "bộ test pH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

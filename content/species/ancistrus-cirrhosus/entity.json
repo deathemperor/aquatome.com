@@ -1,0 +1,183 @@
+{
+  "id": "ancistrus-cirrhosus",
+  "scientificName": "Ancistrus cirrhosus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "amazon",
+    "central-america",
+    "panama"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 5.8,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 2,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 13
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<ul><li>Family: Loricariidae</li><li>Adult size: about 5 inches (13 cm)</li><li>Life expectancy: 5-10 years</li><li>Social: peaceful, suitable for a large community tank</li><li>Tank level: bottom dweller</li><li>Diet: herbivore</li><li>Breeding: egglayer</li><li>Care: easy to intermediate</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>The Bristlenose Pleco (Ancistrus cirrhosus) originates in South America, mainly in the fast-flowing waters of the Amazon River Basin. Other species of Ancistrus catfishes can be found in other parts of South and Central America, including Panama.</p><p>It was first classified in 1836.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Bristlenose Plecos prefer water that is well aerated with some sort of current. Because they are bottom dwellers, provide plenty of driftwood, roots, plants, and caves for them to hide in during the day. Driftwood can provide a good surface on which algae will consistently grow, giving the Bristlenose Pleco a sufficient amount of food. Although they are herbivores, they will not harm live plants.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Bristlenose Plecos do well in a tank of 20 gallons (about 75 litres) or larger. The page also lists a minimum tank size of 40 gallons (about 150 litres); a 20-gallon tank can house two fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>They can handle a wide range of water conditions from soft and acidic to harder and alkaline. Temperature: 23-27 °C (73-81 °F); another figure given is 73-80 °F. pH 5.8-7.8 (also given as 6.5-7.5). Hardness: 2-30 dGH; water hardness should be less than 200 ppm.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>In nature, Bristlenose Plecos are herbivores, eating mainly algae, so feeding algae or spirulina wafers once or twice daily is best. Granules, flakes, or bloodworms are also good, while the occasional zucchini slices and blanched romaine lettuce or spinach are good treats. Never overfeed. Well-fed plecos have good coloration. Like all catfish, they spend some of their time foraging through the substrate for algae and other detritus.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Any peaceful fish are fine tankmates, and they can be kept with other algae eaters, like snails or grazing fish. They are great for community tanks with species like Neon Tetras, Platys, Guppys, and more. Some aquarists even pair them with known aggressors, such as bettas or African cichlids, and even with competitive fish like goldfish. However, when plecos reach maturity the males can be highly territorial around each other.</p><p>Some hobbyists have found success with them in cichlid tanks, but it is best not to keep them with larger Central and South American cichlids. They are nocturnal and prefer to eat mostly at night.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Both males and females have fleshy tentacles around the snout, but males have large bristles on their heads. Males are usually larger, and also have spikes on their fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Breeding conditions are fairly simple. To encourage mating, add caves or driftwood. Once males mature, they will claim a territory most suitable for spawning. A 75 percent water change can promote mating, as the natural mating season is during the Amazon's rainy season. The male defends his territory from other males until a mate arrives; fights often result in bristles getting tangled.</p><p>The female lays eggs in the male's territory, on hard surfaces such as driftwood, cave ceilings, PVC piping, or tank decorations. The male guards the spawning area for the 5 to 10 days it takes for the eggs to hatch. After hatching, the fry absorb their egg yolk for a few days and then move on to eating algae.</p><p>Do not breed them in a tank with substrate-spawning cichlids, which are likely to devour the eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "html": "<p>Bristlenose Plecos are one of the smallest plecos. They are brown, green, or gray with white or yellow spots; most have lighter abdomens and darker backs (the albino is mostly yellowish). They have bony plates, a flat, fat body, and a wide head with an underbite. Bristles start to appear around six months, at maturity. The page notes that they do not truly clean the tank: they eat algae off the glass but also produce a lot of waste.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/sprucepets/a57d6f946356f4af.webp",
+      "width": 1200,
+      "height": 798,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "caption": "Bristlenose Catfish",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/a9009a9a52c1b4cf.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "caption": "Cory catfish swimming in aquarium tank with white pebbles",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/dea0afddd03873fe.webp",
+      "width": 600,
+      "height": 397,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "caption": "Suckermouth catfish resting on gravel",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/836ea85f28a1a839.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/bristlenose-catfish-1380837",
+      "caption": "Orange and white black-spotted fish swimming in aquarium",
+      "source": "sprucepets"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80 lít",
+        "bể cá 150 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá lau kiếng",
+        "thức ăn spirulina cho cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 100 lít"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

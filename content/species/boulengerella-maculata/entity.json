@@ -1,0 +1,214 @@
+{
+  "id": "boulengerella-maculata",
+  "scientificName": "Boulengerella maculata",
+  "order": "Characiformes",
+  "family": "Ctenoluciidae",
+  "genus": "Boulengerella",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "colombia",
+    "orinoco",
+    "ecuador",
+    "napo",
+    "peru",
+    "maranon",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 32.9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<ul><li><strong>Max size:</strong> 329 mm SL (13 in SL)</li><li><strong>Aquarium size:</strong> 240 × 90 cm (96 × 36 in)</li><li><strong>Temperature:</strong> 22–28°C (72–82°F)</li><li><strong>pH:</strong> 5.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 7 of 8 (difficult). Rated difficult because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>Boulengerella maculata is a pelagic ctenoluciid found throughout much of the Amazon, Orinoco and Tocantins river systems. Colour pattern varies considerably, with some specimens much paler than others, and this may be correlated with water type. Random dark spots on the upper body, and a dark stripe only behind the eye when one is present, separate it from the similar B. lateristriga. It reaches 329 mm SL and needs an aquarium with base dimensions of 240 by 90 cm or more.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>Type locality is given simply as 'Amazon River, Brazil', but this species is currently understood to be distributed throughout much of the Amazon, Orinoco and Tocantins river systems with records existing from Ecuador, Colombia, Peru, Brazil and Venezuela.</p><p>Populations from Peru, the area around Leticia, Colombia, and the rio Javari basin in Brazil differ in the number of vertebrae and pored lateral line scales compared with those from the lower Amazon and Río Orinoco.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>This species is pelagic and adults tend to be associated with flowing stretches of main river channels and larger tributaries of both white and black water rivers as well as floodplain lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<ul><li>Standard length: 329 mm SL (13 in SL)</li><li>Aquarium base: 240 × 90 cm (96 × 36 in)</li><li>Volume: ~1944 litres (~514 US gal)</li></ul><p>An aquarium with base dimensions of 240 × 90 cm (96 × 36 in) or more is recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>Relatively unfussy although some surface cover in the form of floating or overhanging vegetation or branches is appreciated.</p><p>It does best if there is a high proportion of dissolved oxygen and moderate degree of water movement so external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria and weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is also essential as Boulengerella spp. are prodigious jumpers, and it may also prove beneficial to cover the back and sides of the aquarium in order to reduce the chances of it swimming into the glass since it can be skittish, especially in confined surroundings.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>An obligate predator feeding mostly on smaller fishes and insects in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Smaller specimens can be offered bloodworm, small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>Insects such as crickets are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat such as beef heart or chicken.</p><p>Some of the lipids contained in these cannot be properly metabolised by the fish and can cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>Peaceful with anything too large to swallow and can be maintained in a community provided tankmates are chosen with care.</p><p>Aggressively territorial or very competitive species should be avoided with the best choices being similarly-sized, placid fishes such as Geophagus or Acestrorhynchus spp. and many doradid or loricariid catfishes.</p><p>This species is not aggressive towards conspecifics with juveniles in particular exhibiting a marked schooling instinct.</p><p>Older individuals tend to be more solitary but still group together from time-to-time, and it's best maintained in numbers of four or more.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<p>This species is known by various vernacular names including 'Bicuda' or 'Uena' (Brazil), 'Picudo' (Ecuador), 'Picudo' or 'Garza-challua' (Peru) and 'Aguejeta' (Venezuela).</p><p>The dorsal-fin base is located mostly posterior to a vertical through the anal-fin origin and this character distinguishes it from all other congeners except B. lateristriga.</p><p>B. maculata differs from B. lateristriga in having a thin dark, horizontal stripe only on the postorbital surface of the head in some specimens (vs. a prominent thin, dark stripe always extending from the rear of the orbit to the caudal peduncle), absence (vs. presence) of distinct, dark crossbars on the lobes of the caudal-fin, presence (vs. absence) of randomly-distributed dark spots on the upper body, 73-84 (vs. 55-65) predorsal scales, 17-23 (vs. 14-17) scale rows between the dorsal-fin origin and ventral midline, and a relatively long (vs. relatively short) dorsal-fin.</p><p>Both species also possesses a broader dark midlateral stripe on the body which tends to be more well-defined in B. lateristriga than in B. maculata.</p><p>Colour pattern in B. maculata varies considerably with some specimens noticeably paler than others, for example, and the broad midlateral stripe usually less intense in such individuals.</p><p>This does not appear related to geographic distribution with no discrete pattern recorded across its range, but may be correlated with water type.</p><p>Boulengerella differs from Ctenolucia, the only other genus currently contained in the family Ctenoluciidae, by a series of derived features including possession of 87-124 (vs. 45-50) lateral line scales, presence of a strongly (vs. weakly) developed fleshy appendage at the tip of the snout and absence (vs. presence) of fleshy flaps on the lower jaw.</p><p>Within the order Characiformes the family Ctenoluciidae is also distinguished by a set of synapomorphic characters as follows: tapering body shape; elongate jaw shape; possession of many small teeth with curved tips arranged in a single series within each jaw.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical, and morphological, diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and research published by Calcagnotto et al. (2005) revealed some interesting hypotheses.</p><p>Their results suggest Ctenoluciidae to belong to a trans-atlantic, monophyletic clade alongside the families Lebiasinidae and Hepsetidae, this assemblage further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "html": "<ul><li>Vari, R. P. (1995). The Neotropical fish family Ctenoluciidae (Teleostei: Ostariophysi: Characiformes): supra and intrafamilial phylogenetic relationships, with a revisionary study. Smithsonian Contributions to Zoology 564, 1-97</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Cuvier, G. and A. Valenciennes (1850). Suite du livre vingt-deuxième. Suite de la famille des Salmonoïdes. Histoire Naturelle des Poissons v. 22, i-xx + 1 p. + 1-532 + 1-91</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/82be24aa43fdf8ce.webp",
+      "width": 799,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "caption": "Subadult individuals.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5243f95652d32bc7.webp",
+      "width": 799,
+      "height": 564,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "caption": "Adult specimens.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4f0252178d07cac1.webp",
+      "width": 799,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "caption": "This species appreciates woody structures around the surface of its aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bffb3c257a9ef582.webp",
+      "width": 718,
+      "height": 684,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
+      "caption": "Pigmentation varies somewhat and this may be related to distribution or different water types in nature.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 240cm",
+        "bể cá lớn 2000 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "tôm tươi cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -15,6 +15,10 @@
       {
         "source": "seriouslyfish",
         "value": 180
+      },
+      {
+        "source": "glaser",
+        "value": 200
       }
     ],
     "tankCm": [
@@ -36,6 +40,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tristoechus",
       "html": "<p>The Cuban gar, Atractosteus tristoechus, known locally as 'manjuari', is a gar endemic to western Cuba and Isla de la Juventud. Endangered across most of its range, it grows to 1800 mm SL and lives for several decades, so it should not be considered a home aquarium subject. Captive breeding efforts are well-established, and some public aquaria maintain it long-term.</p><ul><li>Max size: 1800 mm SL (71 in SL)</li><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>Common name: Cuban gar.</p><p>Lexicon: Atractosteus means \"arrow-bone\". tristoechus refers to the teeth, which are arranged in three groups. Lepisosteus means \"bone-scale\".</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>Our specimens are currently about 5 cm long and have been bred in Indonesia. We believe the breeders regarding the identity of the species, as we have no opportunity to verify or falsify this.</p><p>For our customers: the fish have code 848131 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
     },
     {
       "key": "distribution",
@@ -68,16 +84,40 @@
       "html": "<p>Gars are ambush predators feedimg on smaller fishes and aquatic crustaceans in nature. It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats.</p><p>Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live \"feeder\" fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly receommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>Gars feed exclusively on fish, but can be easily accustomed to feeding by forceps.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tristoechus",
       "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>Towards conspecifics and other species of fish, gars are absolutely peaceful as long as they are not regarded as food. They are gorgeous animals for large show aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tristoechus",
       "html": "<p>This species, known locally in Cuba as 'manjuari', clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for several decades, plus its endangered conservation status.</p><p>We include it here only because some public aquaria are able to maintain it long-term and juveniles are occasionally offered in the aquarium trade.</p><p>Gars are among the most primitive fish species still alive today. They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>The Alligator gars are so-called living fossils. They developed about 100 million years ago in the upper Cretaceous and haven't changed much since then. Currently two genera live in the New World, namely Atractosteus (containing three species) and Lepisosteus (four species).</p><p>The members of Atractosteus can reach about 2 m in length (formerly they are said to have reached even 3 m, but formerly everything was better ;-)) and are thus the largest recent members of the gars. The three species are very similar to each other and differ only in details which are not observable from outside.</p><p>Among the ancient features of the fish are the very strange bony scalation and the remains of a \"tail\" in the upper half of the caudal fin, which is clearly visible in our baby fish. Gars do not breathe only via gills, but also via the swim bladder, which serves as a lung. So they can survive even in very oxygen-poor water.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
+      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
     }
   ],
   "photos": [

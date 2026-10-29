@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -64,6 +68,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-paradoxus",
       "html": "<p>The Taiwan banded barb, Acrossocheilus paradoxus, is a cyprinid native to Taiwan, where it occurs throughout western and northeastern river drainages. It inhabits subtropical streams and small to medium rivers at medium to relatively high altitudes, and in the aquarium needs spotless, well-oxygenated water with moderate flow. Growing to around 200 mm SL, it needs a tank of at least 180 x 45 cm.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 180 × 45 cm (72 × 18 in)</li><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "html": "<p>We received this interesting fish from Taiwan. The species usually attains a length around 12 cm. This means that our specimens are adult already. Maximum size recorded is around 20 cm.</p>"
     },
     {
       "key": "distribution",
@@ -90,6 +100,12 @@
       "html": "<p>Likely to prefer a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel and some large water-worn boulders. This can be further furnished with driftwood roots and branches arranged to form some shaded spots.</p><p>While the vast majority of plant species will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias can be grown attached to the décor and bright lighting will promote the growth of aufwuchs upon which the fish will graze.</p><p>Like many fishes that naturally inhabit running water it is intolerant to the accumulation of organic wastes and requires spotless conditions in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine. Though torrent-like conditions are unnecessary it also does best if there is a high level of dissolved oxygen and moderate water movement.</p><p>Since it doesn't cope well with fluctuating water conditions try to acclimatise it to the aquarium over a couple of hours if possible, and it should never be introduced to a biologically immature system.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "html": "<p>It can be kept as well in unheated aquaria as in garden ponds.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-paradoxus",
@@ -100,6 +116,24 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-paradoxus",
       "html": "<p>Wild fish are known to feed on small, benthic invertebrates and graze biofilm from rocks and other solid surfaces.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "html": "<p>The species accepts readily any type of usual food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "html": "<p>The species is peaceful.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "html": "<p>Males have a by far larger anal fin than the females.</p>"
     },
     {
       "key": "notes",
@@ -144,6 +178,24 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-paradoxus",
       "caption": "Young specimen.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7c08e81f8648e434.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/272c30dcde155608.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
+      "source": "glaser"
     }
   ],
   "videos": [],

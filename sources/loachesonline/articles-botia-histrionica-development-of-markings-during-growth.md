@@ -1,0 +1,33 @@
+---
+url: https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth
+title: Botia histrionica - Development of Markings During Growth — Loaches Online
+fetchedAt: 2026-10-29T08:12:28.272Z
+hash: 2ff09070c0820fa234e321a728733084668f294e0c0bc9a9271a91bc94acfbc8
+---
+
+# Botia histrionica - Development of Markings During Growth
+by Martin Thoene — last modified Aug 25, 2007 12:04 PM
+Article reproduced as written by Bogdan Janiczak, with nomenclature changes made by Martin Thoene.
+From: Bogdan Janiczak (boj@eti.pg.gda.pl) Date: May 17th, 2002
+Below please find a set of photos dedicated to the Botia histrionica species. All portrayed fish come from my own collection. I do hope that this material will provide better insight into both fish specifics and diversity within the species. I also believe that some of the observation may be useful for other hobbyists as a guide to fish identification, especially, in their early stage of life.
+Botia histrionica (Blyth 1860), sold in the hobby under the trade name of "Golden (Gold) Zebra Loach" and collected in the Salween Basin of India, China and Myanmar (Burma) is also sometimes referred to as the Burmese Loach. In my personal opinion it is one of the most fearless and active Botia species met in the hobby. Not only are these fish active during the daytime but also can be quite frequently found swimming freely in central area of the tank competing, to some extent, with such a relentless swimmers like various species of Barbs. The maximum size of Botia histrionica may be anticipated slightly above 10cm. The general visual impression is mostly influenced by short nose, convex shape head and 5 wide (sometimes irregular and with tendency to split with age) black bands that disappear with time at the bottom part of the body. The bands extend into the caudal fin as distinctive vertical stripes (2 or 3) on both lobes. A very characteristic, thinner black line extends through the eye of the fish and a smaller line runs from the eye to the mouth. The latter features may be useful to distinguish this species in its juvenile stage of life from very similarly looking offspring of Botia rostrata and Botia almorhae species.
+The photos below present three different juvenile specimens of Botia histrionica: note characteristic markings made by single black blotches on the tips of dorsal and pectoral fins, subtle black dots at the base of pelvic and anal fins, as well as single triangular markers on caudal fin lobes. Already at this stage of life the difference in bands shape on fish body is clearly visible.
+Dorsal stripe incompleted. Regular pattern Regular pattern
+These young specimens when portrayed at the beginning of January 2002, were approximately 3 months old and 3 cm long. Today, their length ranges somewhere between 6-8 cm and one year old specimens are very likely to approach the size of 10 cm. Such an enormous rate of growth is not often seen in other Botia species; however, it is also dependent on environmental conditions. In smaller, less spacious tanks fish growth is significantly slower.
+Discover moreStudy Marine LifefishManage Fish Farms
+Botia histrionica is generally very peaceful and social species. Community tank with the company of other Loaches at the bottom and various Barbs in the middle area, well planted and with some shelters made of coconut shells, driftwood or bamboo pipe pieces to provide means of safety, plus a couple of freely distributed oval stones would well contribute to suitable living conditions. This species usually does not make frequent use of hideouts and rests, if undisturbed, in open areas. In my "Indian species tank" (200 litres of water) four big Botia histrionica specimens are kept in company of Botia dario (5x), Botia striata (5x), Botia rostrata (7x), Botia almorhae(2x), Syncrossus beauforti (1x), Syncrossus hymenophysa (2x) plus a nice shoal of Indian Barbs formed by Puntius arulius (10x), Puntius filamentosus (10x) and Puntius pentazona (13x) species. All fish are going well together for quite a long time without coexistence problems. This image maybe, however, deceptive to some extent as the hierarchy is usually set on the base of fish size and strength. It means, generally, that bigger specimens are higher rank officials in tank community :-). The opinion of Botia histrionica as totally peaceful and neutral species has been, however, one day abruptly broken by an event spot in one of the smaller tanks, in which two young (already not juvenile) specimens were involved. Two fish were fighting heavily with each other in the entire tank for some unknown reasons.
+Two Botia histrionica fighting. Note that front one is "grayed out". The loser of the battle shows damage due to repeatedly being struck. Damage is likely from suborbital spines of the other fish.
+The weaker fish continuously harassed by the stronger one had been repeatedly hit in the same area of the body. This fish being probably in deep stress had totally changed coloration.
+Discover moreShop AquariumsIdentify PlantsBook a Safari
+One can note the dark blackish dot in place the fish was hit (one day I saw a similar effect in Yasuhikotakia eos species). Fortunately, this has no long-lasting harmful effect on fish condition and, actually, is extremely rarely seen assuming proper tank and fish maintenance.
+The change with age in individual fish marking and coloration is evident and is illustrated by the subsequent set of portraits of various Botia histrionica specimens. These next four photos present approximately 7 month old specimens (their length varies from 6 to 8 cm).
+It should be pointed out that golden luster seen in juvenile specimens constantly disappears as fish mature. At this stage I would also express my disagreement with Mike's comment concerning the shape and width of black stripes on Botia histrionica body. It is quite evident from supplied material that it is almost unlikely to find two identically looking specimens. The shape and thickness (being far from thin) of black stripes differ from fish to fish forming specimen unique patterns. The last two photos show almost one year old, 10 cm long specimens.
+The lighter areas between black vertical stripes though still preserving remnants of golden luster are getting more and more grayish. The development of additional markings on pectoral and caudal fins is also noticeable. Early identification problems no longer exist. The fish is now without any doubts easily recognized in the company of other Botia.
+That's all for the moment. I hope you like what I've done.
+Best regards,
+Bogdan J. Janiczak
+< Back to Botia histrionica Profile < Back to Articles
+Related content
+Botia histrionica
+Document Actions
+- Send this

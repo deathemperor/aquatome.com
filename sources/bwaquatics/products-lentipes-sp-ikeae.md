@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/lentipes-sp-ikeae
+title: Lentipes sp. Ikeae – BWAquatics
+fetchedAt: 2026-10-29T05:27:56.781Z
+hash: 27814fd13d5d61ee1a24c3d5845f8bdb302079accdcd53253c3b2756f1a4cb52
+---
+
+Skip to product information 1 / of 2 BWAquatics Lentipes sp. Ikeae Lentipes sp. Ikeae Sale Amount 1Variant or unavailable 3Variant or unavailable 6Variant or unavailable Quantity Quantity (0 in cart) Imported on October 17, 2025 shipping begins on October 26, 2025 Lentipes ikeae is a small Sicydiinae goby native to clear, fast-flowing mountain streams of Java, Indonesia, described in 2014. Adults reach about 3–4 cm, with males displaying vivid colors — an iridescent blue-green belly, dark body, and sometimes a bright red band on the caudal peduncle. It inhabits cool, oxygen-rich, rocky streams between 300–500 m altitude and, like others in its genus, has an amphidromous life cycle (larvae drift to the sea before returning upstream as juveniles). Because of this migration requirement, captive breeding is extremely difficult. Water parameters: Soft to moderately soft water; pristine and fast-moving. pH 6.5 – 7.0 GH ≤ 4 °d KH ≤ 2 °d Temperature: 22 – 26 °C (72 – 79 °F); stable, well-oxygenated, moderate tropical range. Food: Carnivorous micro-predator — feeds on small invertebrates and biofilm. Offer live or frozen foods such as daphnia, brine shrimp, cyclops, and bloodworms; may accept fine-sized meaty pellets. Important note: Requires strong water flow, excellent aeration, and very clean conditions. Provide smooth stones, pebbles, and high current to replicate a stream environment. Needs a tight-fitting lid — excellent jumper. Cannot be bred in captivity due to its amphidromous lifecycle. Tankmates: Peaceful, similarly sized species from flowing waters. Good companions include small hill-stream loaches, Stiphodon or other Lentipes gobies, and small danionins or rasboras that tolerate current. Avoid large, aggressive, or still-water fish such as cichlids, bettas, or gouramis. Check out this video. Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

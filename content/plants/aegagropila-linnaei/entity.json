@@ -16,13 +16,53 @@
       "html": "<ul><li>Type: Moss</li><li>Origin: Cosmopolitan</li><li>Growth rate: Slow</li><li>Height: 3 - 10+ cm</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "html": "<p>The marimo moss ball is neither a moss nor a plant, but a species of green algae, Aegagropila linnaei, that gets its unique shape from tumbling about the bottom of freshwater lakes. The nickname \"marimo\" roughly translates from Japanese as \"water plant that's kind of like a bouncy ball.\"</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "html": "<p>In Japan, wild marimo balls can reach 8 to 12 inches in diameter. In nature, Aegagropila linnaei also grows as flat mats on rock surfaces, free-floating filaments, or shaggy sheets on the lake floor.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "html": "<p>When you first get your marimo ball, rinse it in aquarium water and place it in the tank. It may float at first but should eventually sink once it becomes waterlogged.</p><ul><li>Marimo appreciate low to medium light, so keep them out of direct sunlight.</li><li>Most articles recommend cooler temperatures because of their native habitats, but many hobbyists have kept them successfully in betta tanks with temperatures as high as 27°C (80°F).</li><li>Lightly roll the marimo ball in your hands every time you do a water change so that it won't lose its shape.</li><li>Flip it around occasionally so that all parts of the algae get access to light and won't start browning.</li><li>Clean-up crew like freshwater shrimp, snails, and invertebrates are good at picking off leftover food caught in the moss ball.</li><li>If it starts collecting detritus, take it out of the tank, remove any undesirable algae, and gently swish it in a bucket of aquarium water.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "html": "<p>Marimo balls are very easy to propagate. Simply squeeze the water out of your moss ball and cut it in half with a knife or scissors. Roll the new clumps in your hands to form little spheres, and tie some cotton sewing thread around them to maintain the shape.</p><p>They grow at a very slow rate of 0.2 inches (5 mm) per year. Most commercially available marimo are sold at 5 cm (2 inches) or smaller. Some sources recommend using fertilizers and CO2 injection to increase growth rate.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Aegagropilalinnaei(000CST)/4385",
       "html": "<p>Cladophora aegagropila is not really a plant, but a ball of algae from 3-10 cm wide. It is a decorative exception from the rule about avoiding algae at all costs. It is normally found in shallow lakes, where the movement of the waves forms it into a sphere. In an aquarium it must be turned regularly to keep it in shape. Cladophora aegagrophila can be divided into smaller pieces, which become spherical with time, or which form a carpet, if attached to roots and stones. Protected in parts of Japan.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "html": "<p>Marimo don't have to live only as spheres. Aquascapers have unrolled them into thick carpets, draped them on hardscape, or flattened them to make underwater bonsai trees. Some people place them in decorative jars as home decor instead of in fish tanks.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/57f2673d7472a8f2.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/marimo-moss-ball-care",
+      "caption": "Marimo Moss Balls – The World’s Easiest Aquarium “Plant” - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
     {
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Ga%C5%82%C4%99zatka_kulista_%28Cladophora_aegagropila%29.jpg/960px-Ga%C5%82%C4%99zatka_kulista_%28Cladophora_aegagropila%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "width": 960,
@@ -76,5 +116,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-29"
 }

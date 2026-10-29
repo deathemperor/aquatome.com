@@ -1,0 +1,87 @@
+{
+  "id": "leptobotia-elongata",
+  "scientificName": "Leptobotia elongata",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Leptobotia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "yangtze"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/",
+      "html": "<p>Emperor Loaches (Leptobotia elongata) of 14-18 cm were obtained for the first time. This is not the maximum length reported for the species: it is said to reach 50 cm and 3 kg in weight. The species is highly endangered in the wild.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/",
+      "html": "<p>The species is known only from the upper and middle Yangtse River.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/",
+      "html": "<p>The species is not endangered due to collecting for the ornamental fish trade, but due to destruction of the natural habitat. It is possible to breed this loach in captivity. The Emperor Loach should be winterhardy even in garden ponds in Central Europe.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/450646d54008223b.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/88847a2db3e00ebf.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít",
+        "bể cá dài 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chạch",
+        "thức ăn cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

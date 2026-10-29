@@ -1,4 +1,348 @@
 {
+  "https://www.aquariumglaser.de/en/01-rays/potamotrygon_leopoldi_black_diamond_german_bred_en/": {
+    "lastmod": "2016-11-21T15:55:55+00:00",
+    "entityIds": [
+      "species/potamotrygon-leopoldi"
+    ],
+    "updatedAt": "2026-10-29T04:15:37.548Z",
+    "hash": "3cb11b3d717eed7502b5bd0f5188bcba6655cf45c6305690d193490350db9f01",
+    "processedHash": "3cb11b3d717eed7502b5bd0f5188bcba6655cf45c6305690d193490350db9f01",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/01-rays/potamotrygon_scobina_en/": {
+    "lastmod": "2016-11-21T15:55:56+00:00",
+    "entityIds": [
+      "species/potamotrygon-scobina"
+    ],
+    "updatedAt": "2026-10-29T04:16:08.899Z",
+    "hash": "50f9d29546364660cc29769274e916c8ed8f470643a273f599233e84dfde49af",
+    "processedHash": "50f9d29546364660cc29769274e916c8ed8f470643a273f599233e84dfde49af",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en-2/": {
+    "lastmod": "2016-11-21T15:56:15+00:00",
+    "entityIds": [
+      "species/amia-calva"
+    ],
+    "updatedAt": "2026-10-29T04:17:36.558Z",
+    "hash": "895f2ae2e82a41175183a05c502ad24c9051b72cd12838bd2b11bf219489e437",
+    "processedHash": "895f2ae2e82a41175183a05c502ad24c9051b72cd12838bd2b11bf219489e437",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/": {
+    "lastmod": "2016-11-21T15:56:15+00:00",
+    "entityIds": [
+      "species/amia-calva"
+    ],
+    "updatedAt": "2026-10-29T04:18:14.839Z",
+    "hash": "2418d7c933333bcd06b6658976ca8e04e7962f357ec015571016886e819d5314",
+    "processedHash": "2418d7c933333bcd06b6658976ca8e04e7962f357ec015571016886e819d5314",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/": {
+    "lastmod": "2016-11-21T15:56:15+00:00",
+    "entityIds": [
+      "species/atractosteus-tristoechus"
+    ],
+    "updatedAt": "2026-10-29T04:16:40.092Z",
+    "hash": "65e92fb133e8b89eef8df7dbc0f5e06f91ccc3fbba5bc4e129d2b9c1472fa685",
+    "processedHash": "65e92fb133e8b89eef8df7dbc0f5e06f91ccc3fbba5bc4e129d2b9c1472fa685",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/baby_reedfish_arrived_en/": {
+    "lastmod": "2016-11-21T15:56:15+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:19:04.526Z",
+    "hash": "0504a2fe225706928f4013afc327a3e9a92bb9bed7485493d562f7f7166093f3",
+    "processedHash": "0504a2fe225706928f4013afc327a3e9a92bb9bed7485493d562f7f7166093f3",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/": {
+    "lastmod": "2016-11-21T15:56:15+00:00",
+    "entityIds": [
+      "species/polypterus-ansorgii"
+    ],
+    "updatedAt": "2026-10-29T04:18:42.806Z",
+    "hash": "c6c78b187e72ce27c7ed7d7cd7f28fadd2f3a16cf50056026d4c55c120492aa3",
+    "processedHash": "c6c78b187e72ce27c7ed7d7cd7f28fadd2f3a16cf50056026d4c55c120492aa3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/brienomyrus_niger_en-2/": {
+    "lastmod": "2016-11-21T15:56:30+00:00",
+    "entityIds": [
+      "species/brevimyrus-niger"
+    ],
+    "updatedAt": "2026-10-29T04:21:42.746Z",
+    "hash": "5c99ce46ce8c8dcfa998772692239842c5714525f8be588d08f9d10be8a6534f",
+    "processedHash": "5c99ce46ce8c8dcfa998772692239842c5714525f8be588d08f9d10be8a6534f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/campylomormyrus_compressirostris_en/": {
+    "lastmod": "2016-11-21T15:56:30+00:00",
+    "entityIds": [
+      "species/campylomormyrus-compressirostris"
+    ],
+    "updatedAt": "2026-10-29T04:20:06.034Z",
+    "hash": "275d08e744cc4ebbaecd28ce490ba4f4cedac7c7e2328e6678035dc462d552da",
+    "processedHash": "275d08e744cc4ebbaecd28ce490ba4f4cedac7c7e2328e6678035dc462d552da",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/": {
+    "lastmod": "2016-11-21T15:56:30+00:00",
+    "entityIds": [
+      "species/chitala-blanci"
+    ],
+    "updatedAt": "2026-10-29T04:20:52.103Z",
+    "hash": "4c113fe01d961b235485233fad8e51bdac8a744fb1f406709df9c746cc3db70b",
+    "processedHash": "4c113fe01d961b235485233fad8e51bdac8a744fb1f406709df9c746cc3db70b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/pantodon-buchholzi/": {
+    "lastmod": "2016-11-21T15:56:29+00:00",
+    "entityIds": [
+      "species/pantodon-buchholzi"
+    ],
+    "updatedAt": "2026-10-29T04:19:16.678Z",
+    "hash": "1c0102b4c0d9c17d7d5c1430106c5e1a70a49e91b966ed646b98893aaaf42aac",
+    "processedHash": "1c0102b4c0d9c17d7d5c1430106c5e1a70a49e91b966ed646b98893aaaf42aac",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/": {
+    "lastmod": "2016-11-21T15:56:30+00:00",
+    "entityIds": [
+      "guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en"
+    ],
+    "updatedAt": "2026-10-29T04:22:36.939Z",
+    "hash": "6e7b359addeeded07b8aef9189922932eeaccedd5d4ebe64f232695de0c9a9a6",
+    "processedHash": "6e7b359addeeded07b8aef9189922932eeaccedd5d4ebe64f232695de0c9a9a6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/a_new_ornate_hillstream_loach_en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [
+      "guides/glaser-en-07-carp-like-fishes-1-loaches-a-new-ornate-hillstream-loach-en"
+    ],
+    "updatedAt": "2026-10-29T04:28:28.801Z",
+    "hash": "d93ff8be246e8d629626d3c1791214b2711144b444075af75e5466292ece773a",
+    "processedHash": "d93ff8be246e8d629626d3c1791214b2711144b444075af75e5466292ece773a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/annamia_normani_en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [
+      "species/annamia-normani"
+    ],
+    "updatedAt": "2026-10-29T04:29:05.121Z",
+    "hash": "fe0687f043c6ee5709a20dcd6fdb1edd248e994731dd1a070b98d94ba1110d9f",
+    "processedHash": "fe0687f043c6ee5709a20dcd6fdb1edd248e994731dd1a070b98d94ba1110d9f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [
+      "species/cobitis-macrostigma"
+    ],
+    "updatedAt": "2026-10-29T04:26:47.992Z",
+    "hash": "50e7a08be377e7295037e4782ef8ae28e02f0c3c068507611249590799cb825f",
+    "processedHash": "50e7a08be377e7295037e4782ef8ae28e02f0c3c068507611249590799cb825f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/": {
+    "lastmod": "2016-11-21T15:57:35+00:00",
+    "entityIds": [
+      "species/pseudohomaloptera-leonardi"
+    ],
+    "updatedAt": "2026-10-29T04:23:03.490Z",
+    "hash": "2f8af012409cba2cc126a3939c138a59be3cb7181470df636da6195cac99081c",
+    "processedHash": "2f8af012409cba2cc126a3939c138a59be3cb7181470df636da6195cac99081c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/": {
+    "lastmod": "2016-11-21T15:57:35+00:00",
+    "entityIds": [
+      "species/homaloptera-parclitella"
+    ],
+    "updatedAt": "2026-10-29T04:25:46.153Z",
+    "hash": "d57b170007e49c74cebe16d6f5d0e7f45f0588d738a9ba8a818f67b251b03206",
+    "processedHash": "d57b170007e49c74cebe16d6f5d0e7f45f0588d738a9ba8a818f67b251b03206",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/it_doesn_t_have_to_be_always_sidthimunki__en/": {
+    "lastmod": "2016-11-21T15:57:35+00:00",
+    "entityIds": [
+      "species/ambastaia-nigrolineata"
+    ],
+    "updatedAt": "2026-10-29T04:24:25.330Z",
+    "hash": "5ddecf87a3e83192f46a18139085499c6fe2433678470c0ff8e7ca1c367596b7",
+    "processedHash": "5ddecf87a3e83192f46a18139085499c6fe2433678470c0ff8e7ca1c367596b7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/large_emperor_loaches_arrived__en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [
+      "species/leptobotia-elongata"
+    ],
+    "updatedAt": "2026-10-29T04:27:55.275Z",
+    "hash": "b65b9821dd1409ab66fd1659645c213aa30421c1f8ddce99f45bd80c9d822723",
+    "processedHash": "b65b9821dd1409ab66fd1659645c213aa30421c1f8ddce99f45bd80c9d822723",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/protomyzon_pachychilus_season_for_panda_loaches__en/": {
+    "lastmod": "2016-11-21T15:57:35+00:00",
+    "entityIds": [
+      "species/yaoshania-pachychilus"
+    ],
+    "updatedAt": "2026-10-29T04:25:01.533Z",
+    "hash": "658a1ef803aac3660083c62800139eeaa05168b02aa9159f7915d6c4e16014a5",
+    "processedHash": "658a1ef803aac3660083c62800139eeaa05168b02aa9159f7915d6c4e16014a5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/pseudogastromyzon_sp_red_fin_en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:26:22.396Z",
+    "hash": "dd941f424dba4931753952f9b031aca62b79483950e8e86db2ddd4b3beca37d3",
+    "processedHash": "dd941f424dba4931753952f9b031aca62b79483950e8e86db2ddd4b3beca37d3",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sewellia_speciosa_en/": {
+    "lastmod": "2016-11-21T15:57:37+00:00",
+    "entityIds": [
+      "species/sewellia-speciosa"
+    ],
+    "updatedAt": "2026-10-29T04:29:34.704Z",
+    "hash": "5fe310e82d9a3c54bc48981b3cda527d349ac974378a100d8948c4e18376202d",
+    "processedHash": "5fe310e82d9a3c54bc48981b3cda527d349ac974378a100d8948c4e18376202d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/": {
+    "lastmod": "2016-11-21T15:57:35+00:00",
+    "entityIds": [
+      "species/sinibotia-robusta"
+    ],
+    "updatedAt": "2026-10-29T04:23:40.066Z",
+    "hash": "edb29dddf742e1feec7e46f838062b8bee83346efd1711a484205063cd4860b8",
+    "processedHash": "edb29dddf742e1feec7e46f838062b8bee83346efd1711a484205063cd4860b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/traccatichthys_taeniatus_en/": {
+    "lastmod": "2016-11-21T15:57:36+00:00",
+    "entityIds": [
+      "species/traccatichthys-taeniatus"
+    ],
+    "updatedAt": "2026-10-29T04:27:17.290Z",
+    "hash": "ffee07d070901cf043f3048066b4b4afc69aa0a7fed8d117df20fe2653b79689",
+    "processedHash": "ffee07d070901cf043f3048066b4b4afc69aa0a7fed8d117df20fe2653b79689",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/3_new_varieties_of_barbus_tetrazona_en/": {
+    "lastmod": "2016-11-02T14:45:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:14:21.759Z",
+    "hash": "d0968e7cdca0a4b25c3f12dd7e3072bf712f3e52dd368eeca06ef8add1464764",
+    "processedHash": "d0968e7cdca0a4b25c3f12dd7e3072bf712f3e52dd368eeca06ef8add1464764",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/a-new-algae-eater-from-burma-garra-vittatula/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/garra-vittatula"
+    ],
+    "updatedAt": "2026-10-29T04:37:33.664Z",
+    "hash": "d291be1bde2660a4849e8f814b107a7c8c71f64a24fe560a8e6ca99e2cd6f008",
+    "processedHash": "d291be1bde2660a4849e8f814b107a7c8c71f64a24fe560a8e6ca99e2cd6f008",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acheilognathus_macropterus_giant_bitterling_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/acheilognathus-macropterus"
+    ],
+    "updatedAt": "2026-10-29T04:35:53.939Z",
+    "hash": "802a308e15b67e992464e5fd53b77baa3bd845eb314e20eafd6df8a50bb6019f",
+    "processedHash": "802a308e15b67e992464e5fd53b77baa3bd845eb314e20eafd6df8a50bb6019f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acheilognathus_tonkinensis_en-2/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:55:10.583Z",
+    "hash": "c3623bff06eb7b8ebdc01a32f7ab47612b942a276b98269f3216c6717608e1de",
+    "processedHash": "c3623bff06eb7b8ebdc01a32f7ab47612b942a276b98269f3216c6717608e1de",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acheilognathus_tonkinensis_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/acheilognathus-tonkinensis"
+    ],
+    "updatedAt": "2026-10-29T04:52:07.425Z",
+    "hash": "d84b0eb6b28f08bd4c14f33753b184ee20af06463e11ed901a1dbba68191d644",
+    "processedHash": "d84b0eb6b28f08bd4c14f33753b184ee20af06463e11ed901a1dbba68191d644",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/acrossocheilus-paradoxus"
+    ],
+    "updatedAt": "2026-10-29T04:31:16.059Z",
+    "hash": "88643f68395da9a97aa2d13bd22bef089e883dc82d3f6b163316ba604740a2a7",
+    "processedHash": "88643f68395da9a97aa2d13bd22bef089e883dc82d3f6b163316ba604740a2a7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/bangana_behri_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/bangana-behri"
+    ],
+    "updatedAt": "2026-10-29T04:38:23.247Z",
+    "hash": "42a7afec10af2931cfef9b72e889affd3415ff6dbd5ede0904b3ffa841cdd698",
+    "processedHash": "42a7afec10af2931cfef9b72e889affd3415ff6dbd5ede0904b3ffa841cdd698",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_fasciolatus_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/enteromius-fasciolatus"
+    ],
+    "updatedAt": "2026-10-29T04:51:09.350Z",
+    "hash": "7516dffb6cad7745ea8ba9ff33818269f3c9128283ad442ec75cc8cc22a71d63",
+    "processedHash": "7516dffb6cad7745ea8ba9ff33818269f3c9128283ad442ec75cc8cc22a71d63",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/": {
     "lastmod": "2016-11-01T11:18:19+00:00",
     "entityIds": [
@@ -10,6 +354,83 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/enteromius-hulstaerti"
+    ],
+    "updatedAt": "2026-10-29T04:47:39.331Z",
+    "hash": "75bac0e755302f11ccf6e33234d4f3ab9efdb81930204a2b6c81bf02d16ce7ea",
+    "processedHash": "75bac0e755302f11ccf6e33234d4f3ab9efdb81930204a2b6c81bf02d16ce7ea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_jae_en-2/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/enteromius-jae"
+    ],
+    "updatedAt": "2026-10-29T04:49:11.582Z",
+    "hash": "06b23d64b79b084ea5c1094f1ee31a2d61828971edfc832b4c2954991e1e8be8",
+    "processedHash": "06b23d64b79b084ea5c1094f1ee31a2d61828971edfc832b4c2954991e1e8be8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_partipentazona_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/puntigrus-partipentazona"
+    ],
+    "updatedAt": "2026-10-29T04:55:22.442Z",
+    "hash": "41611379c9ae58cb9e31d539251f8ed75ad7d5750159b0394a1c686416f182b5",
+    "processedHash": "41611379c9ae58cb9e31d539251f8ed75ad7d5750159b0394a1c686416f182b5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_rhomboocellatus_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/desmopuntius-rhomboocellatus"
+    ],
+    "updatedAt": "2026-10-29T04:53:38.811Z",
+    "hash": "c726385b9ff1cab6abb57245fe3cbfbb67d14a22be2cd3c219eef07f4bdb60c7",
+    "processedHash": "c726385b9ff1cab6abb57245fe3cbfbb67d14a22be2cd3c219eef07f4bdb60c7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_titteya_super_red_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/puntius-titteya"
+    ],
+    "updatedAt": "2026-10-29T04:43:55.863Z",
+    "hash": "34122ee9ffce09f46bce628d766ba9a9e677483c886ae699b9c591688c648b14",
+    "processedHash": "34122ee9ffce09f46bce628d766ba9a9e677483c886ae699b9c591688c648b14",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/barilius-bakeri"
+    ],
+    "updatedAt": "2026-10-29T04:54:46.289Z",
+    "hash": "6d459d72de1c9b609747db6d8b6cffd69325bc4d8fbad7afa77d6aea207effb8",
+    "processedHash": "6d459d72de1c9b609747db6d8b6cffd69325bc4d8fbad7afa77d6aea207effb8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_merah_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/boraras-merah"
+    ],
+    "updatedAt": "2026-10-29T04:44:43.420Z",
+    "hash": "c9f93f321e5341f4cfbfe53d11fd11b96bc7e7d50f0c01924e7309e0a7e360a8",
+    "processedHash": "c9f93f321e5341f4cfbfe53d11fd11b96bc7e7d50f0c01924e7309e0a7e360a8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/": {
     "lastmod": "2016-10-31T10:30:49+00:00",
     "entityIds": [
@@ -18,6 +439,339 @@
     "updatedAt": "2026-10-28T15:54:34.807Z",
     "hash": "e7197312268da91e9689f8a72ab11bc7e09deb2871fd70d2ac3e71a552ec3503",
     "processedHash": "e7197312268da91e9689f8a72ab11bc7e09deb2871fd70d2ac3e71a552ec3503",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/brevibora-dorsiocellata"
+    ],
+    "updatedAt": "2026-10-29T04:33:19.608Z",
+    "hash": "5348e5e3dc09da466aebe7095d5959dfda2e1b117e5e6aada0c72bd536921657",
+    "processedHash": "5348e5e3dc09da466aebe7095d5959dfda2e1b117e5e6aada0c72bd536921657",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/carassius_auratus_comet_black_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/carassius-auratus"
+    ],
+    "updatedAt": "2026-10-29T04:49:56.587Z",
+    "hash": "ccd2674f96a26785993f3f253f6b18b89509d0c8c1385581ca7b22a03049216f",
+    "processedHash": "ccd2674f96a26785993f3f253f6b18b89509d0c8c1385581ca7b22a03049216f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chrosomus_erythrogaster_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/chrosomus-erythrogaster"
+    ],
+    "updatedAt": "2026-10-29T04:42:38.068Z",
+    "hash": "f2d26508e3193906ba7c91ec4c3682bb41ca5adcb617c53d23aa4921d4b09ffb",
+    "processedHash": "f2d26508e3193906ba7c91ec4c3682bb41ca5adcb617c53d23aa4921d4b09ffb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/clypeobarbus_congicus_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/clypeobarbus-congicus"
+    ],
+    "updatedAt": "2026-10-29T04:46:26.645Z",
+    "hash": "6598fefbf69b675d4b9ddaeb2c87f6d2f22679515aeb349033118b2e57f27c23",
+    "processedHash": "6598fefbf69b675d4b9ddaeb2c87f6d2f22679515aeb349033118b2e57f27c23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/cyclocheilichthys-janthochir"
+    ],
+    "updatedAt": "2026-10-29T04:50:36.502Z",
+    "hash": "92194ff48553104b32f6b5571b2897f079f358e1676a6869e31a0a5dea08b14e",
+    "processedHash": "92194ff48553104b32f6b5571b2897f079f358e1676a6869e31a0a5dea08b14e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_dangila_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/danio-dangila"
+    ],
+    "updatedAt": "2026-10-29T04:54:15.854Z",
+    "hash": "8569c28cecc3f0b43157e6d75dfa497bf0a539c8ef43e5e8b0caeceeb83ff809",
+    "processedHash": "8569c28cecc3f0b43157e6d75dfa497bf0a539c8ef43e5e8b0caeceeb83ff809",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_rohani_formerly_barbus_or_puntius_rohani__en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/dawkinsia-rohani"
+    ],
+    "updatedAt": "2026-10-29T04:30:10.312Z",
+    "hash": "040ef0142061174dd6ead882d38de890843f5d34bb101e05c43d63481cd576a5",
+    "processedHash": "040ef0142061174dd6ead882d38de890843f5d34bb101e05c43d63481cd576a5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/dawkinsia_sp_aff_exclamatio_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:47:17.135Z",
+    "hash": "34a0505f81c25b8165eb97b0872701ce408493948d8627e5d422239724c6bf5c",
+    "processedHash": "34a0505f81c25b8165eb97b0872701ce408493948d8627e5d422239724c6bf5c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius_hexazona_wild_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/desmopuntius-hexazona"
+    ],
+    "updatedAt": "2026-10-29T04:34:07.585Z",
+    "hash": "1a3283d4987314cb509eca5083a18a195ef374ac9b904064aa841978fcc0dae5",
+    "processedHash": "1a3283d4987314cb509eca5083a18a195ef374ac9b904064aa841978fcc0dae5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius_rhomboocellatus_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/desmopuntius-rhomboocellatus"
+    ],
+    "updatedAt": "2026-10-29T04:48:29.438Z",
+    "hash": "d5aa86f44505efe90cb877dbeb3ae73b596c70f474482de1a3ae875aaba8944b",
+    "processedHash": "d5aa86f44505efe90cb877dbeb3ae73b596c70f474482de1a3ae875aaba8944b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_malabaricus_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/devario-malabaricus"
+    ],
+    "updatedAt": "2026-10-29T04:45:27.590Z",
+    "hash": "82be36450c40c954c0dcff44e17aa1dd407554d4dfc64b0b450fccc943d69609",
+    "processedHash": "82be36450c40c954c0dcff44e17aa1dd407554d4dfc64b0b450fccc943d69609",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/elopichthys_bambusa_en-2/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:53:04.031Z",
+    "hash": "d350fcca4134cf5ac46296e2dcbe730dd470b044e7c1bdafa44019710aa2c612",
+    "processedHash": "d350fcca4134cf5ac46296e2dcbe730dd470b044e7c1bdafa44019710aa2c612",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/esomus_caudiocellatus_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/esomus-caudiocellatus"
+    ],
+    "updatedAt": "2026-10-29T04:53:11.373Z",
+    "hash": "e97ec4edf0673ee4b230d3137a16a710cd90cd88fe001b30828415532a7d0dd5",
+    "processedHash": "e97ec4edf0673ee4b230d3137a16a710cd90cd88fe001b30828415532a7d0dd5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/": {
+    "lastmod": "2016-11-02T15:51:57+00:00",
+    "entityIds": [
+      "species/garra-flavatra"
+    ],
+    "updatedAt": "2026-10-29T04:14:36.980Z",
+    "hash": "b5f2adc27da970af6577158a805c67f013c333e9e8290472cb1b0b99626f4ca6",
+    "processedHash": "b5f2adc27da970af6577158a805c67f013c333e9e8290472cb1b0b99626f4ca6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/barbodes-semifasciolatus"
+    ],
+    "updatedAt": "2026-10-29T04:42:07.128Z",
+    "hash": "4850c1311f4f5efa9e4bfa972fefa849b0296132d5cac526741122d4e501c785",
+    "processedHash": "4850c1311f4f5efa9e4bfa972fefa849b0296132d5cac526741122d4e501c785",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_boga_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [
+      "species/labeo-boga"
+    ],
+    "updatedAt": "2026-10-29T04:45:59.542Z",
+    "hash": "06bfa27d19b90574c872f31bd1524d572cc86bedc2ac01ce99eea0cf3316963c",
+    "processedHash": "06bfa27d19b90574c872f31bd1524d572cc86bedc2ac01ce99eea0cf3316963c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_parvus_and_l_barbatus_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en"
+    ],
+    "updatedAt": "2026-10-29T04:35:16.904Z",
+    "hash": "c2f8792500aa95ad79248eb0df0be97b6633fbacd2071268a125b05107924456",
+    "processedHash": "c2f8792500aa95ad79248eb0df0be97b6633fbacd2071268a125b05107924456",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_variegatus_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/labeo-cyclorhynchus"
+    ],
+    "updatedAt": "2026-10-29T04:38:57.858Z",
+    "hash": "e9a8da9a653ab4eb3710a923317a0dc139d5195b8416a40e58620f9a9c72c698",
+    "processedHash": "e9a8da9a653ab4eb3710a923317a0dc139d5195b8416a40e58620f9a9c72c698",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/newly_arrived_notropis_chrosomus_en/": {
+    "lastmod": "2016-11-21T15:58:18+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:50:25.356Z",
+    "hash": "4b86656286a3eb74d42629f5bfdf68de762c531b6809f57177d2db0f86707508",
+    "processedHash": "4b86656286a3eb74d42629f5bfdf68de762c531b6809f57177d2db0f86707508",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en/": {
+    "lastmod": "2016-11-21T15:58:19+00:00",
+    "entityIds": [
+      "species/opsarius-pulchellus"
+    ],
+    "updatedAt": "2026-10-29T04:51:39.625Z",
+    "hash": "357218db1dd756ac6ec1781facb0b36e1b58cd74d9fd8e9b63a9f4fa1a7ecc49",
+    "processedHash": "357218db1dd756ac6ec1781facb0b36e1b58cd74d9fd8e9b63a9f4fa1a7ecc49",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/poropuntius-laoensis-2/": {
+    "lastmod": "2016-11-17T12:57:21+00:00",
+    "entityIds": [
+      "species/poropuntius-laoensis"
+    ],
+    "updatedAt": "2026-10-29T04:15:10.525Z",
+    "hash": "67997bb6095e7b6634a52a512ee4cd3db9c20fd6562ea67375d4afdc531ec029",
+    "processedHash": "67997bb6095e7b6634a52a512ee4cd3db9c20fd6562ea67375d4afdc531ec029",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntigrus-partipentazona/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/puntigrus-partipentazona"
+    ],
+    "updatedAt": "2026-10-29T04:31:47.871Z",
+    "hash": "58a13ccd36b63c4fafeca1b37a7588b00861ee7e5c767c8546df476cc7b1776d",
+    "processedHash": "58a13ccd36b63c4fafeca1b37a7588b00861ee7e5c767c8546df476cc7b1776d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/rasbora-sarawakensis"
+    ],
+    "updatedAt": "2026-10-29T04:41:39.364Z",
+    "hash": "cff84fecab3932adff7809fd4edbe0b146093e50c40f3fa19a824c274534ab2a",
+    "processedHash": "cff84fecab3932adff7809fd4edbe0b146093e50c40f3fa19a824c274534ab2a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sp_burmese_yellow_scissortail_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-29T04:40:41.988Z",
+    "hash": "95efc90d02cdd2e7ab2df88405c1adacf7874ddee57be8216f2863bdc4c26907",
+    "processedHash": "95efc90d02cdd2e7ab2df88405c1adacf7874ddee57be8216f2863bdc4c26907",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_vulcanus_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/rasbora-vulcanus"
+    ],
+    "updatedAt": "2026-10-29T04:30:47.662Z",
+    "hash": "38673f2f87f6f6a0b1832cccf60c4e2ecc9a6d4099429a1bb7d760d03e02f6db",
+    "processedHash": "38673f2f87f6f6a0b1832cccf60c4e2ecc9a6d4099429a1bb7d760d03e02f6db",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/rasbosoma-spilocerca"
+    ],
+    "updatedAt": "2026-10-29T04:41:07.174Z",
+    "hash": "9f5b742d235d93cb1deebc1bd3e7fd9284c43231b5264b81272207bb360fcde7",
+    "processedHash": "9f5b742d235d93cb1deebc1bd3e7fd9284c43231b5264b81272207bb360fcde7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rhodeus_ocellatus_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/rhodeus-ocellatus"
+    ],
+    "updatedAt": "2026-10-29T04:40:06.852Z",
+    "hash": "2a426588de57c3827ab4c6e6f301c8109d0d4f37633417b9a830d107616c4d7a",
+    "processedHash": "2a426588de57c3827ab4c6e6f301c8109d0d4f37633417b9a830d107616c4d7a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/sahyadria_denisonii_gold_en/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "species/sahyadria-denisonii"
+    ],
+    "updatedAt": "2026-10-29T04:36:42.096Z",
+    "hash": "0761f01de1378fae76fc8ab7b4dd09712a997f117fad77ca98ea482eb42ad1fb",
+    "processedHash": "0761f01de1378fae76fc8ab7b4dd09712a997f117fad77ca98ea482eb42ad1fb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/small-goldfish-ranchu-mixed-colours/": {
+    "lastmod": "2016-11-21T15:58:16+00:00",
+    "entityIds": [
+      "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-small-goldfish-ranchu-mixed-colours"
+    ],
+    "updatedAt": "2026-10-29T04:32:53.167Z",
+    "hash": "33744439fbd64e18be2b92017b93939441cde72ebcd65e3cebb6e7ce83fff98e",
+    "processedHash": "33744439fbd64e18be2b92017b93939441cde72ebcd65e3cebb6e7ce83fff98e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/trigonostigma-heteromorpha"
+    ],
+    "updatedAt": "2026-10-29T04:43:20.263Z",
+    "hash": "b6bba12fbf43a1562cf3b4bbf8a6c900e5fcb078f4b4f7171acde018266bb5a6",
+    "processedHash": "b6bba12fbf43a1562cf3b4bbf8a6c900e5fcb078f4b4f7171acde018266bb5a6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/zacco_platypus_large_males_arrived__en/": {
+    "lastmod": "2016-11-21T15:58:17+00:00",
+    "entityIds": [
+      "species/zacco-platypus"
+    ],
+    "updatedAt": "2026-10-29T04:39:41.079Z",
+    "hash": "b6f3c946103cb8e68e2a21697b2f5f61cc9f79a4819f3c87148677f14e1b17c7",
+    "processedHash": "b6f3c946103cb8e68e2a21697b2f5f61cc9f79a4819f3c87148677f14e1b17c7",
     "status": "processed",
     "attempts": 0
   },

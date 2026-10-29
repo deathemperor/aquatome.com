@@ -1,0 +1,71 @@
+{
+  "id": "rasbora-vulcanus",
+  "scientificName": "Rasbora vulcanus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_vulcanus_en/",
+      "html": "<p>This Rasbora originates from the west coast of Sumatra. It attains a maximum length of about 5 cm. The \"hot\" name of the species is not only a reminder of the volcanoes in the area where R. vulcanus occurs, but also refers to the bright red-orange colours the males develop during mating. The females are lighter coloured, but they also have an interesting breeding coloration: the anterior centers of the scales become black!</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_vulcanus_en/",
+      "html": "<p>Rasbora vulcanus is a close relative of Rasbora reticulata. The latter is found exclusively on the island of Nias and does not occur on Sumatra. R. reticulata can be distinguished best from R. vulcanus by the presence of dark stripes on the outer edges of the caudal fin, which are always lacking in R. vulcanus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/7f13e8166465ff61.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_vulcanus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ nuôi cá đàn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn vi cá cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

@@ -1,0 +1,130 @@
+{
+  "id": "betta-strohi",
+  "scientificName": "Betta strohi",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<ul><li>Belongs to the Betta foerschi complex.</li><li>IUCN Red List: N/A (no information available, but its status is suspected to be similar to that of B. foerschi, Endangered).</li><li>Wild caught.</li><li>Maximum size: 2.25 inches (about 5.7 cm).</li><li>Breeding: mouthbrooder.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>We recommend a pair per 5 gallons (about 19 litres) of water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<ul><li>TDS: ~60–100 (can tolerate high-TDS water but prefers low TDS).</li><li>pH: ~6.0–7.0 (prefers softer water).</li><li>Temperature: 75–83°F (about 24–28°C); does well at cooler temperatures, but higher temperatures bring out coloration and breeding behaviour.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>Carnivorous. Currently fed live foods, but can be trained to eat frozen and dried foods. We feed blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>Temperament: somewhat territorial, but can be kept in groups as long as there is enough space.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>Black-brown base body with red-gold bars on the opercular cheeks in both males and females. Adult males have longer anal and caudal fins than females. Very similar to B. foerschi, except that females have blue ventral fins. Like many species in the complex, females show vertical bars on the body when in breeding mode. B. mandor, B. foerschi and B. strohi are notoriously difficult to sex at a young age; older fish with longer finnage are much easier.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/af2b2191a4e033a3.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/4ab6a9824c874078.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể cá nhỏ nuôi betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo TDS",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

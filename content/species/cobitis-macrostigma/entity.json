@@ -1,0 +1,113 @@
+{
+  "id": "cobitis-macrostigma",
+  "scientificName": "Cobitis macrostigma",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Cobitis",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "html": "<p>A beautiful and absolutely peaceful loach from China. The species is an ideal bottom dweller for unheated community tanks. Females grow to around 10 cm, while males stay much smaller.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "html": "<p>The optimal temperatures for the fish are between 10 and 24°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "html": "<p>The fish feeds readily on any type of usual fishfood.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "html": "<p>Females become around 10 cm long, while males stay much smaller.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "html": "<p>The fish could be named \"Largespotted Spiny Loach\". Text &amp; photos: Frank Schäfer</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/5e5298defebc7ef7.webp",
+      "width": 850,
+      "height": 612,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/26dc6b6fac43dd94.webp",
+      "width": 850,
+      "height": 564,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/cobitis_macrostigma_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chạch",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chìm",
+        "thức ăn viên cho cá tầng đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

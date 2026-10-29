@@ -1,0 +1,114 @@
+{
+  "id": "pseudohomaloptera-leonardi",
+  "scientificName": "Pseudohomaloptera leonardi",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Pseudohomaloptera",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "html": "<p>Hillstream loach imported from Vietnam, tentatively identified as Homaloptera cf. leonardi. If identical with H. leonardi, it should reach a maximum length of about 6.5 cm.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "html": "<p>The water temperature should be between 22 and 24°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "html": "<p>Generally speaking, hillstream loaches should be kept in an aquarium that imitates a fast running brook. There should be a good current in the tank. One should offer several types of gravel, sand and stone (up to round river pebbles the size of a large man's fist) so that the fish can choose.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "html": "<p>Homaloptera are micropredators and feed on a wide variety of live and frozen food items. Well acclimatized specimens often also accept dried food (best: granulates), but one should not do any feeding experiments in the phase of settling, because uneaten food will pollute the water heavily.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "html": "<p>We were able to import once more hillstream loaches from Vietnam. Instead of the expected Annamia normani we received another species. The determination is a very tricky thing. The most coincidences are to the species Homaloptera leonardi. Especially the scale-less zone between pectoral and ventral fins is said to be very typical for H. leonardi. It looks, at least on our photos (we had no losses and refuse to preserve fish for determination), that this feature is present in our new fish.</p><p>One very special thing is observable in some of our new fish: they show a magnificent, bright green coloration. It is unknown to us whether this represents sexual differences or if these green colours are only a temporary phenomenon.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/81ab62a358415c18.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/70052cfb3ed5a969.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá suối"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc thùng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội tròn",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn hạt chìm",
+        "trùn chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

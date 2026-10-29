@@ -14,13 +14,19 @@
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 15–25°C (59–77°F)</li><li>pH: 6,0–8,0</li><li>Độ cứng (GH): 2–12 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Cá ngoài tự nhiên được biết là ăn các động vật không xương sống nhỏ ở đáy và gặm màng sinh học trên đá và các bề mặt cứng khác.</p>",
     "notes:seriouslyfish": "<p>Giống Acrossocheilus chỉ phân bố ở miền nam Trung Quốc, Đài Loan, miền bắc Việt Nam và miền bắc Lào. Có thể phân biệt với các giống có họ hàng nhờ tổ hợp đặc điểm sau: có nếp mõm; môi dày thịt và liền quanh khóe miệng; môi dưới có một chỗ ngắt ở giữa; miệng ở vị trí dưới (miệng dưới mõm); có bao sừng ở hàm dưới; hai đôi râu; tia đơn cuối cùng của vây lưng hóa xương, với mép sau có răng cưa hoặc nhẵn.</p><p>Các loài trong giống được đặc trưng bởi số lượng vạch đứng sẫm màu nhất định trên mỗi bên thân, và A. paradoxus thuộc nhóm loài có năm hoặc sáu vạch như vậy, mỗi vạch rộng hai vảy. Các loài cùng giống có kiểu hoa văn này gồm A. fasciatus, A. hemispinus (chỉ ở cá con), A. jishouensis, A. kreyenbergii, A. parallens, A. spinifer, A. wenchowensis và A. wuyiensis.</p><p>Loài danh nghĩa A. labiatus hiện được một số nguồn coi là đồng nghĩa với A. paradoxus, dù điều này dường như vẫn còn nghi vấn.</p>",
-    "references:seriouslyfish": "<ul><li>Ho, H.-C. and K.-T. Shao (2011). Annotated checklist and type catalog of fish genera and species described from Taiwan. Zootaxa 2957, 1-74</li><li>Günther, A. (1868). Catalogue of the Physostomi, containing the families Heteropygii, Cyprinidae, Gonorhynchidae, Hyodontidae, Osteoglossidae, Clupeidae,... [thru]... Halosauridae, in the collection of the British Museum. Catalogue of the fishes in the British Museum v. 7, i-xx + 1-512</li><li>Lan, Z.-J., B.-P. Chan and J. Zhao (2014). Acrossocheilus multistriatus, a new species of barbine fish (Teleostei: Cyprinidae) from the Zhujiang River basin, south China. Zoological Systematics 39(3), 433-441</li><li>Chen, I-S, and Y-C Chang (2005). A Photographic Guide to the Inland-water Fishes of Taiwan: Vol. 1 Cypriniformes. The Sueichan Press, i-xx + 1-284</li><li>Yuan, L.-Y., Z.-Q. Wu and E. Zhang (2006). Acrossocheilus spinifer, a new species of barred cyprinid from south China (Pisces: Teleostei). Journal of Fish Biology 68 (Supplement B), 163-173</li></ul>"
+    "references:seriouslyfish": "<ul><li>Ho, H.-C. and K.-T. Shao (2011). Annotated checklist and type catalog of fish genera and species described from Taiwan. Zootaxa 2957, 1-74</li><li>Günther, A. (1868). Catalogue of the Physostomi, containing the families Heteropygii, Cyprinidae, Gonorhynchidae, Hyodontidae, Osteoglossidae, Clupeidae,... [thru]... Halosauridae, in the collection of the British Museum. Catalogue of the fishes in the British Museum v. 7, i-xx + 1-512</li><li>Lan, Z.-J., B.-P. Chan and J. Zhao (2014). Acrossocheilus multistriatus, a new species of barbine fish (Teleostei: Cyprinidae) from the Zhujiang River basin, south China. Zoological Systematics 39(3), 433-441</li><li>Chen, I-S, and Y-C Chang (2005). A Photographic Guide to the Inland-water Fishes of Taiwan: Vol. 1 Cypriniformes. The Sueichan Press, i-xx + 1-284</li><li>Yuan, L.-Y., Z.-Q. Wu and E. Zhang (2006). Acrossocheilus spinifer, a new species of barred cyprinid from south China (Pisces: Teleostei). Journal of Fish Biology 68 (Supplement B), 163-173</li></ul>",
+    "quickFacts:glaser": "<p>Chúng tôi nhận được loài cá thú vị này từ Đài Loan. Loài này thường đạt chiều dài khoảng 12 cm, nghĩa là các cá thể của chúng tôi đã trưởng thành. Kích thước tối đa ghi nhận được là khoảng 20 cm.</p>",
+    "maintenance:glaser": "<p>Loài cá này có thể nuôi trong bể không dùng sưởi cũng như trong ao vườn.</p>",
+    "diet:glaser": "<p>Loài này sẵn sàng ăn mọi loại thức ăn thông thường.</p>",
+    "behaviour:glaser": "<p>Loài này hiền lành.</p>",
+    "dimorphism:glaser": "<p>Cá đực có vây hậu môn lớn hơn nhiều so với cá cái.</p>"
   },
   "quality": {
     "score": 0.6,
     "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.6,
+      "glaser": 0.95
     }
   }
 }

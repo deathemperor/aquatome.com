@@ -1,0 +1,77 @@
+{
+  "id": "rasbora-sarawakensis",
+  "scientificName": "Rasbora sarawakensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
+      "html": "<p>The genus Rasbora is very speciose and currently contains 82 described species. Nevertheless, only comparatively few species have ever been kept in aquaria. R. sarawakensis reaches about 5 cm in length. It is a pretty, completely undemanding schooling fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
+      "html": "<p>R. sarawakensis originates from the part of Borneo that belongs to Malaysia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
+      "html": "<p>A schooling fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/6793864f74eb2f5a.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "thức ăn cá thái hổ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

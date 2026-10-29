@@ -1,0 +1,196 @@
+{
+  "id": "brachygobius-xanthomelas",
+  "scientificName": "Brachygobius xanthomelas",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Brachygobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "malaysia",
+    "johor",
+    "thailand",
+    "indonesia",
+    "bangka-island"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p><em>Brachygobius xanthomelas</em> is a small bumblebee goby recorded throughout much of Peninsular Malaysia and southern Thailand. It lives in lowland freshwater swamps, streams and forest peat swamps and, unlike most congeners, does not appear to occur in brackish water. The name is widely misapplied to an unidentified member of the genus, the fish in most online images, which has a dark marking at the front of the first dorsal-fin base where B. xanthomelas is colourless.</p><ul><li>Max size: 20 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Type locality is '55 miles north of Singapore, freshwater ditches, Mawai District, Johore, Malaysia', and this species has been recorded throughout much of Peninsular Malaysia and southern Thailand.</p><p>It's also been recorded on Bangka Island, Indonesia, but we've been unable to confirm if it occurs on neighbouring Sumatra.</p><p>Records from the Kapuas River in Indonesia (Borneo), Cambodia, and Singapore appear to be in error, although it may have been extirpated from the latter, and as with most members of the genus a degree of confusion surrounds its identity (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Generally restricted to lowland environments including freshwater swamps, streams, minor tributaries, and forest peat swamps. Marginal vegetation tends to grow thickly with beds of aquatic plants from genera such as Cryptocoryne or Barcalaya and patches of submerged leaf litter found in some places.</p><p>Peat swamp habitats are characterised by tannin-stained, tea-coloured water, very low pH, minimal conductivity, and negligible hardness. Substrates are composed of mud and peat with overlying leaf litter and submerged woody structures such as tree roots.</p><p>Unlike most congeners this species does not appear to occur in tidal or otherwise brackish environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Base dimensions of 45 × 30 cm (18 × 12 in) or equivalent should be the minimum considered (volume about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Provide plenty of hiding places and cover, the idea being to create broken lines of sight to allow weaker individuals to escape continual attention from dominant fish.</p><p>Crushed coral or coral sand can be mixed into the substrate to act as a buffer if necessary, or marine salt added at a dose of around 2 grams per litre.</p><p>Filtration should not be strong with an air-powered sponge-type unit ideal.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Small live foods such as Artemia, Daphnia, etc., should be considered essential although some specimens will learn to accept frozen alternatives. Dried products are normally ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Does not make an ideal community fish and best kept in a species-specific set-up.</p><p>Although males in particular are territorial towards one another a group of 6 or more should be the minimum purchase since when such numbers are present aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>Sexually mature females often appear rounder-bodied than males, particularly when gravid.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<p>This species is occasionally available in the aquarium trade, though often misidentified, and its name has also been widely misapplied to an unidentified member of the genus which does not correspond to any of the described species.</p><p>The latter is the fish depicted in most online images and it possesses a dark marking on the anterior base of the first dorsal-fin, while the same area is colourless in B. xanthomelas.</p><p>According to current knowledge it can be diagnosed as follows: &lt;30 lateral scales; one black band reaching mid-ventral line posterior to anal-fin; first black trunk band ending at dorsal-fin origin; no predorsal or opercular scales; basal part of first dorsal-fin not black anteriorly.</p><p>Brachygobius currently contains 9 described species, and although all are referred to collectively as 'bumblebee' gobies only B. doriae and B. sabanus are commonly-available in the ornamental trade.</p><p>The majority should only be considered nominal taxa for the time being since the genus appears to be considerably more diverse than currently-recognised. Therefore, although we've assigned images to profiles based on how well they match the key of Inger (1958) the identification of most can only be thought of as tentative pending publication of a forthcoming review.</p><p>The grouping is often included in the subfamily Gobionellinae alongside genera such as Chlamydogobius, Mugilogobius, Pseudogobiopsis, Rhinogobius, Schismatogobius, and Stigmatogobius.</p><p>It's considered most closely-related to the genus Pandaka with the two sharing numerous characters but differing in the morphology of the head lateral line system and number of epurals present.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "html": "<ul><li>Larson, H. K., Z. Jaafar, and K. K. P. Lim (2008). An annotated checklist of the gobioid fishes of Singapore. Raffles Bulletin of Zoology 56(1), 135-155</li><li>Miller, P. J. (1989). The classification of bumble-bee gobies (Brachygobius and associated genera) (Teleostei: Gobiidae). Cybium 13(4), 375-383</li><li>Inger, R. F. (1958). Notes on the fishes of the genus Brachygobius. Fieldiana Zoology 39(14), 107-117</li><li>Herre, A. W. C. T. and G. S. Myers (1937). A contribution to the ichthyology of the Malay Peninsula. Bulletin of the Raffles Museum No. 13, 5-75</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1571543d480e8603.webp",
+      "width": 600,
+      "height": 397,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "caption": "Specimen photographed in the field, Bangka Island, Indonesia, again with the anterior dorsal-fin base unpigmented.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/53e1c01971c0787f.webp",
+      "width": 703,
+      "height": 447,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "caption": "Wild specimen collected close to the type locality in Johor state, southern Peninsular Malaysia. Note that the anterior base of the dorsal-fin is unpigmented (see 'Notes').",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/169d2a434997d18c.webp",
+      "width": 726,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "caption": "Habitat of B. xanthomelas in Johor state.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp sục khí",
+        "lọc bọt khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia sống",
+        "trùn chỉ",
+        "daphnia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát san hô",
+        "san hô nghiền làm nền"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

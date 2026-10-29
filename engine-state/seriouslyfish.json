@@ -3115,5 +3115,225 @@
     "status": "error",
     "attempts": 1,
     "error": "page.goto: Target page, context or browser has been closed"
+  },
+  "https://www.seriouslyfish.com/species/botia-rostrata": {
+    "entityIds": [
+      "species/botia-rostrata"
+    ],
+    "updatedAt": "2026-10-29T08:31:28.012Z",
+    "hash": "60c0724f365cc0d098dd0768640903e8a971f16362b79f4f3bf5ca044a5d4f9a",
+    "processedHash": "60c0724f365cc0d098dd0768640903e8a971f16362b79f4f3bf5ca044a5d4f9a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/botia-striata": {
+    "entityIds": [
+      "species/botia-striata"
+    ],
+    "updatedAt": "2026-10-29T08:35:35.069Z",
+    "hash": "1298e1daaf3577187dc4137d255b1aad31383889c1f492a0e529cfbfa23daa63",
+    "processedHash": "1298e1daaf3577187dc4137d255b1aad31383889c1f492a0e529cfbfa23daa63",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/botia-udomritthiruji": {
+    "entityIds": [
+      "species/botia-udomritthiruji"
+    ],
+    "updatedAt": "2026-10-29T08:38:18.491Z",
+    "hash": "ba0839429e3fcbb67fa79a33633724310aefc0eb8d355d19f04d142016fa6f8f",
+    "processedHash": "ba0839429e3fcbb67fa79a33633724310aefc0eb8d355d19f04d142016fa6f8f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/boulengerella-cuvieri": {
+    "entityIds": [
+      "species/boulengerella-cuvieri"
+    ],
+    "updatedAt": "2026-10-29T08:41:58.216Z",
+    "hash": "fd347fcde341c5535f2384713eacf52d56de9ae6eebc475b720701e19025076c",
+    "processedHash": "fd347fcde341c5535f2384713eacf52d56de9ae6eebc475b720701e19025076c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/boulengerella-lateristriga": {
+    "entityIds": [
+      "species/boulengerella-lateristriga"
+    ],
+    "updatedAt": "2026-10-29T08:44:24.546Z",
+    "hash": "1fbae07026b6efebe3cb19ff7ea1bd318f1d370137c747bf8036812e1466ebb6",
+    "processedHash": "1fbae07026b6efebe3cb19ff7ea1bd318f1d370137c747bf8036812e1466ebb6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/boulengerella-lucius": {
+    "entityIds": [
+      "species/boulengerella-lucius"
+    ],
+    "updatedAt": "2026-10-29T08:46:27.082Z",
+    "hash": "d726ccdaab2fae70dae848014681ad00a2cc402d3b5638bf6ba7c3e4840328ff",
+    "processedHash": "d726ccdaab2fae70dae848014681ad00a2cc402d3b5638bf6ba7c3e4840328ff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/boulengerella-maculata": {
+    "entityIds": [
+      "species/boulengerella-maculata"
+    ],
+    "updatedAt": "2026-10-29T08:48:47.312Z",
+    "hash": "7747b51435f91e785fcf6c8a29eed4bfea91ac86f660220a41d5d22b3fe10d93",
+    "processedHash": "7747b51435f91e785fcf6c8a29eed4bfea91ac86f660220a41d5d22b3fe10d93",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/boulengerochromis-microlepis": {
+    "entityIds": [
+      "species/boulengerochromis-microlepis"
+    ],
+    "updatedAt": "2026-10-29T08:51:21.666Z",
+    "hash": "96e9f91deb9812e7431d7068701724494700715e0adf610ceb08e2864d763dae",
+    "processedHash": "96e9f91deb9812e7431d7068701724494700715e0adf610ceb08e2864d763dae",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachychalcinus-orbicularis": {
+    "entityIds": [
+      "species/brachychalcinus-orbicularis"
+    ],
+    "updatedAt": "2026-10-29T08:53:09.149Z",
+    "hash": "e31920e2e2be9cab1c41a2f38524cd66d20e15105f21c6c71f81885e5831d75d",
+    "processedHash": "e31920e2e2be9cab1c41a2f38524cd66d20e15105f21c6c71f81885e5831d75d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-aggregatus": {
+    "entityIds": [
+      "species/brachygobius-aggregatus"
+    ],
+    "updatedAt": "2026-10-29T08:54:57.790Z",
+    "hash": "a66e959300523dd6398d45cce1d6fd5344c37f8c8cd3c85802a397441061461e",
+    "processedHash": "a66e959300523dd6398d45cce1d6fd5344c37f8c8cd3c85802a397441061461e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-doriae": {
+    "entityIds": [
+      "species/brachygobius-doriae"
+    ],
+    "updatedAt": "2026-10-29T08:55:40.991Z",
+    "hash": "862d5a17807fb540a2352e0c053f240983247183694a65b529e09675712601c3",
+    "processedHash": "862d5a17807fb540a2352e0c053f240983247183694a65b529e09675712601c3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-kabiliensis": {
+    "entityIds": [
+      "species/brachygobius-kabiliensis"
+    ],
+    "updatedAt": "2026-10-29T08:57:06.010Z",
+    "hash": "aee2d8ef6fe3a3eec58697b59a675196228c043202171e01218130fa0693c4e7",
+    "processedHash": "aee2d8ef6fe3a3eec58697b59a675196228c043202171e01218130fa0693c4e7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-mekongensis": {
+    "entityIds": [
+      "species/brachygobius-mekongensis"
+    ],
+    "updatedAt": "2026-10-29T08:58:16.280Z",
+    "hash": "6f53985232ed1a89849ebb59efc540958eaa1dc6d19a105483b0e83706b875b9",
+    "processedHash": "6f53985232ed1a89849ebb59efc540958eaa1dc6d19a105483b0e83706b875b9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-nunus": {
+    "entityIds": [
+      "species/brachygobius-nunus"
+    ],
+    "updatedAt": "2026-10-29T08:59:58.616Z",
+    "hash": "d8c3c623d9f792be52a8dc79292036eb32c80762796890891ffeea7dca5a1f29",
+    "processedHash": "d8c3c623d9f792be52a8dc79292036eb32c80762796890891ffeea7dca5a1f29",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-sabanus": {
+    "entityIds": [
+      "species/brachygobius-sabanus"
+    ],
+    "updatedAt": "2026-10-29T09:00:48.295Z",
+    "hash": "83dad97497d4c91b503b9c78beb179f32d75bf115d00bc162c8f31d9a5968cdc",
+    "processedHash": "83dad97497d4c91b503b9c78beb179f32d75bf115d00bc162c8f31d9a5968cdc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-xanthomelas": {
+    "entityIds": [
+      "species/brachygobius-xanthomelas"
+    ],
+    "updatedAt": "2026-10-29T09:02:08.626Z",
+    "hash": "699fcab08d843e59a90778e9be66510e3b9bdb19f4e2f8bf821ff819f6c4b2f0",
+    "processedHash": "699fcab08d843e59a90778e9be66510e3b9bdb19f4e2f8bf821ff819f6c4b2f0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachygobius-xanthozona": {
+    "entityIds": [
+      "species/brachygobius-xanthozonus"
+    ],
+    "updatedAt": "2026-10-29T09:03:15.901Z",
+    "hash": "1a461cff0e3c07f4595371d95f08f75dee871a5786e736896654b6592ec2c759",
+    "processedHash": "1a461cff0e3c07f4595371d95f08f75dee871a5786e736896654b6592ec2c759",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-capapretum": {
+    "entityIds": [
+      "species/brachyplatystoma-capapretum"
+    ],
+    "updatedAt": "2026-10-29T09:03:59.912Z",
+    "hash": "5c5510c183a86db5fd47c0a9bec4c2d234119a7c411a89177c68cb568eba1c0b",
+    "processedHash": "5c5510c183a86db5fd47c0a9bec4c2d234119a7c411a89177c68cb568eba1c0b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-filamentosum": {
+    "entityIds": [
+      "species/brachyplatystoma-filamentosum"
+    ],
+    "updatedAt": "2026-10-29T09:05:32.668Z",
+    "hash": "de8e14bcc95cf8563d0c2d8f258098518d436f812350b4fd8272113c197f0a10",
+    "processedHash": "de8e14bcc95cf8563d0c2d8f258098518d436f812350b4fd8272113c197f0a10",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-juruense": {
+    "entityIds": [
+      "species/brachyplatystoma-juruense"
+    ],
+    "updatedAt": "2026-10-29T09:07:01.930Z",
+    "hash": "87538d96a781587141b7e5619f6039e17bf51968f482d1636d6773971df74df4",
+    "processedHash": "87538d96a781587141b7e5619f6039e17bf51968f482d1636d6773971df74df4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-platynema": {
+    "entityIds": [
+      "species/brachyplatystoma-platynemum"
+    ],
+    "updatedAt": "2026-10-29T09:08:11.033Z",
+    "hash": "9ba2653eb1dc07bb7672df65f3315865299335810e9bd602e972b4dc225e12d3",
+    "processedHash": "9ba2653eb1dc07bb7672df65f3315865299335810e9bd602e972b4dc225e12d3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-rousseauxii": {
+    "entityIds": [
+      "species/brachyplatystoma-rousseauxii"
+    ],
+    "updatedAt": "2026-10-29T09:09:37.454Z",
+    "hash": "3d3764d6d91a434b1711df136143021ef1389dcf3a14cbc5c64982521f7076bb",
+    "processedHash": "3d3764d6d91a434b1711df136143021ef1389dcf3a14cbc5c64982521f7076bb",
+    "status": "processed",
+    "attempts": 0
   }
 }

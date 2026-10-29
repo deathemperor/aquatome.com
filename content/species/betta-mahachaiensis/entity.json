@@ -7,7 +7,8 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "samut-sakhon"
   ],
   "dataCard": {
     "tempC": [
@@ -31,13 +32,13 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 5
+        "value": 5.8
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -46,31 +47,55 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<ul><li><strong>Max size:</strong> about 2 inches (5 cm), up to 2.3 inches</li><li><strong>Temperament:</strong> males are very aggressive and should be kept alone or in tanks with non-male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</li><li><strong>Diet:</strong> carnivorous</li><li><strong>Breeding:</strong> bubblenester</li></ul><p>Betta mahachaiensis is a relatively new species of betta fish discovered in 2012 in the Samut Sakhon Province of Thailand. It is a member of the Betta splendens group but exhibits distinct characteristics that set it apart.</p>"
+      "html": "<ul><li>Member of the Betta splendens complex, discovered in 2012 in Samut Sakhon Province, Thailand.</li><li>Maximum size: 2.3 inches (about 5.8 cm).</li><li>Temperament: males are very aggressive.</li><li>Diet: carnivorous.</li><li>Breeding: bubblenester.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Betta mahachaiensis is a relatively new species of betta discovered in 2012 in Samut Sakhon Province of Thailand. It is native to brackish coastal waters of Thailand's Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai.</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Native to brackish coastal waters of Thailand’s Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai. Inhabits mangrove swamps, tidal pools, and canals with nipa palms and dense vegetation. Tolerates slightly brackish, warm (24-30°C), and acidic to neutral (pH 6-7.5) water, relying on its labyrinth organ for breathing in low-oxygen environments.</p>"
+      "html": "<p>Inhabits mangrove swamps, tidal pools, and canals with nipa palms and dense vegetation. Tolerates slightly brackish, warm (24-30°C), and acidic to neutral (pH 6-7.5) water, relying on its labyrinth organ for breathing in low-oxygen environments.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions). Mahachais can be found in brackish water.</li><li>pH: 6.0</li><li>Temperature: 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+      "html": "<ul><li>TDS: 60-200 (kept in soft water with low TDS, but they are more tolerant of water conditions).</li><li>Can be found in brackish water.</li><li>pH: 6.0</li><li>Temperature: 75-85°F (about 24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C).</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Carnivorous. The seller feeds live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Males are very aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
-      "html": "<p>Body shape: slender and elongated, typical of the Betta splendens complex, with a slightly compressed body. Reaches a maximum standard length of about 2 inches (5 cm), robust yet streamlined for navigating dense habitats.</p><p>Tail shape: rounded caudal fin, short and less elaborate than Betta splendens, often with a red crescent-shaped distal band and faint black edging, resembling Betta imbellis but more robust.</p><p>Coloration: dark brown to black body with iridescent green or blue scales forming a metallic sheen. Males show vibrant red accents on caudal, anal, and pelvic fins, with intense coloration during display. Females are duller, brownish with muted red or green hints and less iridescence.</p><p>Operculum: males feature striking iridescent green or blue scales with two parallel red vertical bars (sometimes silvery or green-tinted). Females have fainter, less distinct opercular markings.</p>"
+      "html": "<p>Males: dark brown to black body with iridescent green or blue scales forming a metallic sheen, vibrant red accents on caudal, anal and pelvic fins, intense coloration during display; operculum with iridescent green or blue scales and two parallel red vertical bars. Females are duller, brownish with muted red or green hints and less iridescence, with fainter opercular markings.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Bubblenester.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
+      "html": "<p>Body is slender and elongated, slightly compressed, reaching about 5 cm standard length. The caudal fin is rounded and short, often with a red crescent-shaped distal band and faint black edging, resembling Betta imbellis but more robust. Be sure to have the habitat ready before purchase.</p>"
     }
   ],
   "photos": [
@@ -142,5 +167,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-29"
 }

@@ -7,7 +7,12 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "bueng-kan",
+    "khorat-plateau",
+    "laos",
+    "mekong",
+    "cambodia"
   ],
   "dataCard": {
     "tempC": [
@@ -15,7 +20,7 @@
         "source": "bwaquatics",
         "value": {
           "min": 24,
-          "max": 29
+          "max": 30
         }
       }
     ],
@@ -37,7 +42,7 @@
     "difficulty": [
       {
         "source": "bwaquatics",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -45,59 +50,95 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<ul><li>From the Betta splendens complex. IUCN Red List: N/A.</li><li>Smaragdina are identified by the snake-like scales that cover their opercular membrane and body.</li><li>Noted to be hardy and able to withstand low temperature due to their high elevation habitat.</li><li>Body: slender and elongated, streamlined and slightly compressed. Maximum standard length about 2.8 inches (7 cm); the page also lists max size as 2.3 inches.</li><li>Tail: typically rounded or spadetail, with long fins featuring a distinctive spider web-like pattern of black transverse bars between caudal rays.</li><li>Coloration: dark brown to black body with iridescent green or blue scales. Males display vibrant green-blue hues and red fin accents, while females are duller with brownish tones and muted iridescence.</li><li>Operculum: black with a \"snake-scale\" pattern of iridescent green or blue scales in males, more pronounced during flaring. Females have less vivid, simpler markings.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<ul><li>IUCN Red List: Data Deficient.</li><li>Part of the Betta splendens complex.</li><li>Natural wildtype colouration: metallic green with blue iridescence.</li><li>Can be identified by the snakescale-like pattern on the face.</li><li>Hardy and good for beginners, as it can tolerate low temperatures.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<p>Only healthy, high quality fish are selected for shipping. All fish go through 2 or more weeks of quarantine before being sold, including medication to remove parasites such as velvet and ich. All males come from the same lineage and are generally similar. Be sure to have the habitat ready before purchase.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<p>Be sure to have the habitat ready before purchase. The fish offered are quality Betta smaragdina bred by a breeder in Vietnam.</p>"
     },
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<p>Native to northeastern Thailand, specifically around Bueng Khong Long Lake in Bueng Kan province.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<p>Native to northeastern Thailand, Laos, and parts of Cambodia in the Mekong Basin. These fish originate from the Khorat Plateau in Thailand, a harsher environment than that of other splendens.</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<p>Inhabits slow-moving, shallow waters like rice paddies, swamps, and streams with dense vegetation and low oxygen. Prefers warm (25-27°C), slightly acidic (pH 5-7) water, using its labyrinth organ for breathing.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<p>Inhabits slow-moving, shallow waters such as rice paddies, swamps, ponds, and streams with dense vegetation and leaf litter. Thrives in warm (24–30°C), slightly acidic to neutral (pH 5.5–7.5) water with low oxygen, relying on its labyrinth organ for air-breathing.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions).</li><li>pH: 5.0-7.0</li><li>Temperature: 75-85°F (much better coloration at warmer temperature above 78°F). Known to be able to withstand very low temperature (60°F).</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<ul><li>Temperature: 24–29°C (75–85°F); much better colouration at a warmer temperature above 26°C (78°F). Can tolerate 16°C (60°F) for a short period.</li><li>pH: 5.0–7.0</li><li>TDS: 60–200. Kept in soft water with low TDS to match other wild bettas, but more tolerant of water conditions.</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<p>Carnivorous. Currently fed live blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms, and pellets.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
       "html": "<p>Males are VERY aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
-      "html": "<p>Males display vibrant green-blue hues and red fin accents, while females are duller with brownish tones and muted iridescence. Females have less vivid, simpler operculum markings.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "html": "<p>Body: slender and elongated, slightly compressed, reaching a maximum standard length of about 7 cm. Tail: rounded or slightly crescent-shaped caudal fin, shorter and less ornate than Betta splendens, often with a red distal band with faint black edging or transverse bars.</p><p>Males: dark brown to black body with iridescent green or blue scales giving a metallic \"emerald\" sheen; vivid red accents on caudal, anal, and pelvic fins during courtship or aggression. The operculum has iridescent green or blue scales with two parallel red or silvery vertical bars, more vibrant when flaring.</p><p>Females: duller, brownish with muted green or red hints and reduced iridescence; simpler, less distinct opercular markings with faint iridescence.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-guitar",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
       "html": "<p>Bubblenester.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/822a35e018745433.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/d378aac9a6b9a436.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/47fc4fd0bec622c0.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/17512b85b5b5e3a7.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "source": "bwaquatics"
+    },
     {
       "url": "https://media.aquatome.com/bwaquatics/6b2c064b4f53e46e.webp",
       "width": 1200,
@@ -157,5 +198,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-29"
 }

@@ -1,0 +1,131 @@
+{
+  "id": "betta-edithae",
+  "scientificName": "Betta edithae",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<ul><li><strong>Temperament:</strong> Peaceful. Can be kept in pairs or a group.</li><li><strong>Max size:</strong> 2.3 inches (about 5.8 cm)</li><li><strong>TDS:</strong> 60–200</li><li><strong>pH:</strong> 6.5–7.5</li><li><strong>Temperature:</strong> 75–85°F (24–29°C); much better coloration at warmer temperatures above 78°F (about 26°C)</li><li><strong>Diet:</strong> Carnivorous</li><li><strong>Breeding:</strong> Mouthbrooder</li><li><strong>IUCN Red List:</strong> Least Concern</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>Another mouthbrooder type betta originating from South Kalimantan in Indonesia. The only one in its group, the Betta edithae complex.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>TDS: 60–200. They are kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions. pH: 6.5–7.5. Temperature: 75–85°F (24–29°C), with much better coloration at warmer temperatures above 78°F (about 26°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>Carnivorous. They are currently fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>This betta appears to be very peaceful and can be kept in groups. They can be maintained in a pair or a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>Males are generally larger with more iridescence on the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/04e0e35a602582e4.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "thức ăn viên cho cá betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

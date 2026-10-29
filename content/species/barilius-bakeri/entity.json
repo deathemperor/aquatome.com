@@ -1,0 +1,76 @@
+{
+  "id": "barilius-bakeri",
+  "scientificName": "Barilius bakeri",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Barilius",
+  "group": "danios",
+  "places": [
+    "asia",
+    "india",
+    "kerala"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/",
+      "html": "<p>This breathtakingly beautiful barb is an ideal ornamental fish for larger show aquaria. It attains a length of 12-15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/",
+      "html": "<p>Imported from the south of India (Kerala).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/",
+      "html": "<p>Barilius bakeri should always be kept in schools (from 5 specimens upwards), otherwise they are often very quarrelsome.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/24ec1921b6b00c2f.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius_bakeri_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá danio",
+        "thức ăn cá cảnh viên nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

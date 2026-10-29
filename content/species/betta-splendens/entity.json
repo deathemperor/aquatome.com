@@ -5,14 +5,29 @@
   "family": "Osphronemidae",
   "genus": "Betta",
   "group": "labyrinth",
-  "places": [],
+  "places": [
+    "asia",
+    "thailand",
+    "cambodia",
+    "indonesia",
+    "malaysia",
+    "vietnam",
+    "china"
+  ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
         "value": {
-          "min": 23.9,
-          "max": 29.4
+          "min": 24,
+          "max": 29
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 24,
+          "max": 30
         }
       }
     ],
@@ -23,17 +38,43 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6.8,
+          "max": 7.4
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 5.8
+      },
+      {
+        "source": "sprucepets",
+        "value": 7
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 30
       }
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
+        "source": "sprucepets",
         "value": 3
       }
     ]
@@ -42,75 +83,189 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<p>Green Alien hybrid betta from a breeder in Vietnam, from the Betta splendens complex. Sometimes referred to as Teal, it has a beautiful green/teal coloration throughout the body.</p><ul><li><strong>IUCN Red List:</strong> N/A (this type is a hybrid of sorts and does not naturally occur in the wild)</li><li><strong>Max size:</strong> 2.3 inches</li><li><strong>Breeding:</strong> Bubblenester</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Copper Alien Hybrid from breeders in Vietnam, from the Betta splendens complex.</p><ul><li>Max size: 2.3 inches (about 5.8 cm)</li><li>IUCN Red List: N/A (this type is a hybrid of sorts and does not naturally occur in the wild)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<ul><li>Common names: Betta, Siamese fighting fish</li><li>Scientific name: Betta splendens</li><li>Family: Belontiidae</li><li>Adult size: 3 inches (7 cm)</li><li>Life expectancy: 3 to 5 years</li><li>Origin: Cambodia, Thailand</li><li>Social: males cannot be kept together</li><li>Tank level: all</li><li>Minimum tank size: 2 gallons</li><li>Diet: live foods, pellets, flakes and frozen foods</li><li>Breeding: egglayer (male is a bubble nest builder)</li><li>Care: easy to intermediate</li><li>pH: 6.8 to 7.4</li><li>Water hardness: up to 20 dGH</li><li>Temperature: 75 to 86 °F (24 to 30 °C)</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<p>Only healthy, high quality fish are selected to ship out; old fish or fish with any signs of disease or weakness are not sold. All fish go through 2 or more weeks of quarantine before being sold. The quarantine period includes medication to remove parasites such as velvet and ich. All males come from the same lineage and are generally similar.</p><p>Be sure to have the habitat ready before purchase.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Please note that pairs that \"we pick\" aren't necessarily lower quality than the posted males; we don't always have time to take photos of them all, but we usually only sell customers the best of what we have. All males come from the same lineage and are generally similar. We always try to pick the healthiest and best fish for our customers.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China. They inhabit rice paddies, ponds, slow-moving streams, and swamps. Now, non-native populations exist in various countries due to their widespread introduction.</p><p>The name Siamese fighting fish comes from organized male fish fights, similar to cockfights. Such matches persist for betting income, and some males are bred for aggression. However, these fights are cruel and should be discouraged.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Bettas are one of the most recognized, most colorful, and often most controversial fish in the freshwater aquarium hobby. Debates rage about the appropriateness of keeping them in small bowls. To fully understand their needs, it is important to become familiar with their native habitat, where they live in large rice paddies, shallow ponds, and even in very slow-moving streams. Although many fish keepers are aware that bettas come from shallow waters, the warmer water temperature is often overlooked.</p><p>The home countries of the betta are tropical, which means the water temperature is quite warm, often into the 80s °F.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Minimum tank size is 2 gallons. Maintaining proper water temperature is perhaps the biggest argument against keeping a betta in a bowl, which cannot readily be heat-controlled. Really, the best option is to house them in a betta fish tank, with an aquarium heater and water filter.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Routine maintenance should include a partial water change at least once a week.</p><p>Betta fish are low-maintenance fish. Note, however, that they do need regular water changes and for their tank to be kept at a certain temperature.</p><p>Betta fish can live in tap water so long as it is properly treated and warm enough. You should get a water conditioner and water heater for your aquarium to make bettas feel at home.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<ul><li><strong>TDS:</strong> 60 - 200 (they are kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions)</li><li><strong>pH:</strong> 5.0-7.0</li><li><strong>Temperature:</strong> 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match the seller's other wild bettas, but they are more tolerant of water conditions)</li><li>pH: 5.0-7.0</li><li>Temperature: 75-85°F (about 24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Bettas thrive on heat and will become increasingly listless when the water temperature falls below 75 °F.</p><p>Optimally, the water for keeping bettas healthy should be soft and warm, with a neutral to slightly acidic pH.</p><p>Even though bettas do well in water that is low in dissolved oxygen, that does not mean they require less oxygen than other fish. Bettas have a special respiratory organ (called the labyrinth organ) that allows them to breathe air directly from the surface. In fact, they inherently must do so. In experiments where the labyrinth organ was removed, the fish died from suffocation even though the water was saturated with oxygen. For this reason, bettas must have access to the water surface to breathe air directly from the atmosphere.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Since bettas thrive in warm water, you'll want to invest in an aquarium water heater. Consider your tank size when selecting a heater; generally, the heater should provide 5 watts of power per gallon of water. Consider using a floating or digital thermometer that attaches to the aquarium glass, ensuring it is visible for easy temperature monitoring.</p><p>Water movement should be kept to a minimum, which means that power filters and powerheads are not suitable.</p>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<p>Carnivorous. Currently fed live blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Betta fish should be fed two to three times a day, as much food as they will eat in five minutes. In nature, bettas subsist almost exclusively on insects and insect larvae. They are built with an upturned mouth that is well suited to snatching any hapless insect that might fall into the water. Internally their digestive system is geared for meat, having a much shorter alimentary track than vegetarian fish. For this reason, live foods are the ideal diet for the betta, however, they will adapt to eating flake foods and frozen or freeze-dried foods, such as:</p><ul><li>Brine shrimp</li><li>Daphnia</li><li>Plankton</li><li>Tubifex</li><li>Glassworms</li><li>Beef heart</li></ul><p>These are all excellent options that may be found frozen or freeze-dried. If flake food is fed, it should be supplemented a few times a week with frozen and freeze-dried foods, and if possible, live foods.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<p>Temperament: Males are VERY aggressive and should be kept alone or in tanks with tank mates that are not male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Temperament: Males are VERY aggressive and should be kept alone or in tanks with tank mates that are not male bettas. They can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Males cannot be kept together unless there are separators in the tank. Multiple females can generally be kept together without problems. Several females, or one male, can be kept with other peaceful fish species, as long as they are small and are not fin-nipping types, such as tiger barbs.</p><p>Male bettas should not be kept with other fish that have similar body types and long fins, as they could mistake them for rivals and fight them.</p><p>Bettas may be kept in a community tank as long as the water conditions are met, and if no aggressive or fin-nipping fish are present. However, only one male may be kept in each aquarium, unless they are separated by a barrier. The use of plastic boxes that hang inside the aquarium is a suitable option for keeping more than one betta in a tank, or for keeping them in a tank with fish that might nip their fins. Females will generally not fight with each other and may be kept together in the same open space. Female bettas can also be kept with other non-aggressive fish species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Male bettas are known for their striking colors and long fins. Females are less colorful with shorter fins. In the wild, these fish are typically less vibrant.</p><p>Males typically are more brilliantly colored and have longer and flowing fins. They also have a more distinct \"beard\" (under the gill coverings) and are larger overall than the females. Females have short fins and will display vertical stripes and an egg spot when ready to mate.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Bubblenester.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Bettas have a fairly short lifespan and are most successful as breeders when they are about a year old; bettas in pet shops that are full size are usually at least six months old. They breed in bubble nests and do not require a large tank or special equipment—just a few nice-to-haves, including:</p><ul><li>Floating water plants for the male to attach the bubble nest to</li><li>A hiding place for the female to hang out in if the male becomes aggressive</li></ul><p>When they are ready to spawn, the pair will display intense coloration and begin circling each other under the bubble nest. The male will wrap himself around the female who has turned on her back. As she expels the eggs, they are fertilized and begin to sink. The male will scoop up the eggs in his mouth and spit them into the nest. This may be repeated several times, but finally, the male will chase the female away and she should be carefully removed from the breeding tank. From this point on, the male will tend the brood and care for the babies after the eggs hatch.</p><p>The male will continue to tend the bubble nest, spitting eggs that fall out back into the nest. In one to three days the eggs will hatch, and the fry will be visible hanging in the bubble nest with their tails pointing downward. They are provided nutrition by their yolk sack for another 36 hours, during which time the male will continue to pick up and return any fry that falls out of the nest. The male should be removed when the fry leave the bubble nest, as the male may eat the young once they are free-swimming.</p>"
     },
     {
       "key": "notes",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
-      "html": "<p>Aliens are a hybridization of different types of wild bettas and are considered a type of wild hybrid. Traits of \"Alien\" include a full facial mask, spread iridescence that covers the fins and the body, as well as webbing on the caudal fins.</p><p>Green is the result of a homozygous metallic gene over homozygous iridescence (turquoise). \"Grass green\", however, is the result of the homozygous metallic gene over heterozygous iridescence (royal blue). Both types are considered \"green\". A way to differentiate \"green\" from \"teal\" is that green always has metallics, which change color depending on the angle of the light.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "html": "<p>Beautiful coloration of copper throughout the body. Copper is one of the most unique colors for bettas, as you can see hints of various colors depending on the angle of the light.</p><p>First discovered and named \"alien\" due to the weird shape of their head. The result of having a homozygous metallic gene over a homozygous iridescence gene (steel blue). Copper aliens, like all copper bettas, breed true.</p><p>Aliens are a hybridization of different types of wild bettas and are considered a type of wild hybrid. Traits of \"Alien\" include a full facial mask, spread iridescence that covers the fins and the body, and webbing on the caudal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
+      "html": "<p>Captive breeding has produced bettas in a wide range of colors: white, yellow, orange, red, pink, blue, green, turquoise, brown, and black. You can find solid, multi-colored, and patterned varieties. Selective breeding has also led to diverse fin types, including veil, crown, delta, fan, half-moon, lyre, and split tails.</p><p>Betta fish have a torpedo-shaped body and an upturned mouth for surface feeding. Adults grow to two to three inches, with females slightly smaller. Uniquely, they have a labyrinth organ, enabling them to breathe atmospheric oxygen, which helps them thrive in low-oxygen environments.</p><p>Betta fish generally live anywhere from two to five years. Bettas recognize their owners and even take interest in them.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/bwaquatics/c6f63c7a4b14f514.webp",
+      "url": "https://media.aquatome.com/bwaquatics/def0081bd81ce04f.webp",
       "width": 1200,
-      "height": 960,
+      "height": 1553,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/bwaquatics/b6c331a7b2d1c940.webp",
+      "url": "https://media.aquatome.com/bwaquatics/58d08d311a51162d.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/bwaquatics/d6e7da73cca97145.webp",
+      "url": "https://media.aquatome.com/bwaquatics/146e0027e8c4f478.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/bwaquatics/6166d10cc4405bb7.webp",
+      "url": "https://media.aquatome.com/bwaquatics/cea42f3dbf4082db.webp",
+      "width": 1200,
+      "height": 1553,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/3dd25bb800efd24a.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/green-alien",
+      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-xyb59",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/74ac3ecf2fafb207.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-xyb59",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/8c09b5d3f2b72373.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/gray-alien",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/f1040c14478afe7d.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/gray-alien",
       "source": "bwaquatics"
     }
   ],
@@ -145,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-29"
 }

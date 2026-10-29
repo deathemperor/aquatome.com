@@ -1,0 +1,118 @@
+{
+  "id": "garra-flavatra",
+  "scientificName": "Garra flavatra",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Garra",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 9
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>The algae-eating suckermouth barb Garra flavatra from Burma is a quite beautiful fish. In contrast to all other species of algae-eaters this is a species which is kept due to its own attractivity.</p><p>In our show-room the fish now revealed a secret they kept so far: they develope deep red fins!</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>For our customers: we currently have bred ones (416460) and wild collected ones (416461). Please note that we exclusively supply the wholesale market.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>Keeping Garra flavatra is very easy.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>They like water temperatures between 18 and 26°C (better cooler than warmer). The remaining water parameters are of no meaning for them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>The up to 9 cm long fish are kept best in groups. They are completely peaceful against each other as well as against other species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "html": "<p>Lexicon: Garra: an indigenous name for those fishes in Bengal. flavatra: Latin, means “yellow-black”, referring to the coloration.</p><p>Text &amp; photos: Frank Schäfer</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/1936a6529d024524.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b0888804d0f4b3e1.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn rêu",
+        "thức ăn viên chìm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

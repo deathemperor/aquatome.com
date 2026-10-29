@@ -1,0 +1,132 @@
+{
+  "id": "betta-patoti",
+  "scientificName": "Betta patoti",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 9
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>From the Betta unimaculata complex. IUCN Red List: Endangered (a very high risk of extinction in the wild). Wild caught Betta patoti from Tanah Grogot.</p><ul><li>Maximum size: 3.5 inches (about 9 cm)</li><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (22–28°C)</li><li>Breeding: mouthbrooder</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>TDS ~60–100, pH ~5.0–7.0. Temperature: 72–82°F (22–28°C); they prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>Carnivorous. Currently fed live, frozen and dried foods: blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. We recommend that they be kept in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>They have a brown base body with blue iridescence on the opercular cheeks, body and tails; females have less iridescence. Both males and females can occasionally show tiger-like stripes on the sides of the body. Fully grown adult males have longer ventral fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/d8bb54c7027125d7.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-rdw8w",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi betta hoang dã"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi nhỏ",
+        "lọc mini cho bể betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùn chỉ đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

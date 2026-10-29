@@ -1,0 +1,124 @@
+{
+  "id": "rasbosoma-spilocerca",
+  "scientificName": "Rasbosoma spilocerca",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbosoma",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "html": "<p>This dwarf rasbora becomes only about 3 cm long. The species was originally described as Rasbora spilocerca, but is now placed in the monotypic genus Rasbosoma (the genus contains only one species). Rasbosoma spilocerca is an ideal fish for nano tanks. The suggested common name is dwarf scissortail rasbora.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "html": "<p>The natural distribution of the species is the lower Mekong basin of Laos, Thailand and Cambodia. Before its scientific description in 1987 it was always thought to represent juveniles of Rasbora trilineata, the scissortail rasbora.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "html": "<p>The species is completely undemanding regarding water chemistry (hardness, pH) and can be kept and even bred in any type of tap water. The water temperature can be between 22 and 28 °C.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "html": "<p>Ideal water for breeding has proved to be pH 7 and GH 4 °dH.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "html": "<p>For customers: the animals have code 452872 on the stocklist. Please note that the supplier exclusively supplies the wholesale trade.</p><p>Text &amp; photos: Frank Schäfer</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/761a3a50d358a323.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/10958ed748c644a8.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbosoma_spilocerca_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nano 30 cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mini cho bể nano",
+        "lọc treo bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng mảnh",
+        "thức ăn cho cá rasbora"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

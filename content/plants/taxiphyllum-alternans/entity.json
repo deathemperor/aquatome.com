@@ -1,0 +1,55 @@
+{
+  "id": "taxiphyllum-alternans",
+  "scientificName": "Taxiphyllum alternans",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "none",
+  "growth": "medium",
+  "placement": [
+    "foreground",
+    "midground",
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/taiwan-moss",
+      "html": "<p>Taiwan moss is similar to Java moss but has more branching nodes and grows in a thicker, bushier fashion.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/taiwan-moss",
+      "html": "<p>It is very good for low light tanks where you need hiding space for community tanks, as well as for raising fry.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/4a66ebc335f88fc1.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/taiwan-moss",
+      "source": "bwaquatics"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu Đài Loan",
+        "rêu thủy sinh",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng yếu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-29"
+}

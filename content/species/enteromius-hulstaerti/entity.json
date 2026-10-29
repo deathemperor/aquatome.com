@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "congo",
-    "congo-basin"
+    "congo-basin",
+    "democratic-republic-of-the-congo"
   ],
   "dataCard": {
     "ph": [
@@ -40,32 +41,44 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
-      "html": "<p>The Butterfly Barb Barbus hulstaerti reaches 4 cm in length and fascinates by its wonderful colors. It had been lost to the hobby for more than 30 years.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<ul><li>Common name: Butterfly barb</li><li>Origin: D. R. Congo</li><li>Available size: 2-3 cm</li><li>Adult size: 3-4 cm</li><li>Dorsal fin coloration differs between males and females</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>Due to the complicated political situation in the Congo the availability of wild collected specimens is not secured, therefore ambitious breeders should take care of this swimming gem to secure their existence in our aquaria.</p><p>For our customers: the fish have code 101862 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
-      "html": "<p>Origin: Congo basin.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>Once more we received a small jewel from the Congo basin. Again, a somewhat larger number of the Butterfly Barb Barbus hulstaerti could be imported, which was lost in the hobby for a long time. The colour variety with the large spot on the side is called “Lompole” after the collection site.</p><p>Origin: D. R. Congo.</p>"
     },
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
-      "html": "<p>In their area of origin they live in flat, shady and relatively cool jungle waters. The discovery site data indicate water values of pH around 6 and a total hardness under 5 dGH, so no excessive problems for their maintenance are expected.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>In their area of origin they live in flat, shady and comparatively cool jungle waters. The discovery site data indicate with water values of pH around 6; and a total hardness under 5° DGH no excessive problems for their maintenance.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>The lively fish reaches 3-4 cm in length and fascinates by its wonderful colours.</p>"
     },
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
-      "html": "<p>The more delicate males can be differentiated from the larger, chubbier females by the narrower anterior side spot.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>Males and females can be distinguished by the diffrent coloration of the dorsal fin.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_en/",
-      "html": "<p>In August 2006 a somewhat larger number of this fish could be imported for the first time. Due to the complicated political situation in the Congo the availability of wild-caught fish is not secured, therefore ambitious breeders should take care of this swimming gem to secure its existence in our aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_hulstaerti_lompole_en/",
+      "html": "<p>Lexicon: Barbus: means “the bearded”. hulstaerti: dedication name for the collector, R. P. Hulstaert.</p><p>Text: Klaus Diehl, photos: Frank Schäfer</p>"
     }
   ],
   "photos": [],
@@ -99,5 +112,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-29"
 }
