@@ -25,6 +25,8 @@ fi
 git checkout -q main && git pull -q --ff-only
 pnpm install --frozen-lockfile --silent
 pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
+# Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
+pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 
 if [ -z "$(git status --porcelain -- content sources)" ]; then log "no content changes"; exit 0; fi
 # Real content must build (the test suite builds fixtures), then the suite must pass.

@@ -1,5 +1,6 @@
 ---
 import type { Photo } from '@aq/schema'
+import { smallSrc } from '../lib/img'
 interface Props { photos: Photo[]; alt: string }
 const { photos, alt } = Astro.props
 const [main, ...rest] = photos
@@ -8,7 +9,7 @@ const [main, ...rest] = photos
   <figure class="gallery">
     <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" /></div>
     {rest.length > 0 && (
-      <ul class="thumbs">{rest.slice(0, 4).map(p => <li><img src={p.url} width={p.width} height={p.height} alt="" loading="lazy" /></li>)}</ul>
+      <ul class="thumbs">{rest.slice(0, 4).map(p => <li><img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading="lazy" /></li>)}</ul>
     )}
     <figcaption>Ảnh: <a href={main.sourceUrl} rel="noopener">{main.author}</a>, {main.licence}</figcaption>
   </figure>
