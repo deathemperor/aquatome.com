@@ -1,4 +1,4 @@
-import { mkdtemp, readFile } from 'node:fs/promises'
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -106,4 +106,18 @@ test('no English track is a skip; a broken rewrite keeps the first draft', async
   const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root2, { scores: [0.6], drafts: [draft('Bản đầu'), { ...draft(''), body: '' }] }).d, { playlists: ['PL1'] })
   expect((await read(root2, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
+})
+
+test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const first = deps(root)
+  await videoGuides(first.d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), cover: 'Bí quyết trị rêu hại' }))
+  const again = deps(root, { drafts: [draft('Tiêu đề mới')] })
+  const r = await videoGuides(again.d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
+  expect(r.written).toEqual(['youtube-a1 (0.90)'])
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', slug: 'cach-han-che-reu-hai-trong-be-thuy-sinh', cover: 'Bí quyết trị rêu hại' })
+  expect(again.calls.prompts.find(p => p.includes('TRANSCRIPT:'))).toContain('by MJ Aquascaping')
+  expect(again.calls.prompts.some(p => p.includes('Giọng văn'))).toBe(true) // style guide in the writer's prompt
 })

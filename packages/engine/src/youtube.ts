@@ -23,9 +23,11 @@ export type Playlist = { id: string; title: string; channel: string; channelUrl:
 export type YouTube = { playlist(id: string): Promise<Playlist>; video(id: string): Promise<VideoMeta>; transcript(id: string): Promise<string | null> }
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
-type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
+export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
 const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
 const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
+const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
+const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -38,7 +40,7 @@ const REVIEW_SCHEMA = { type: 'object', properties: { score: { type: 'number' },
 const SERIES_SCHEMA = { type: 'object', properties: { viName: str, intro: str }, required: ['viName', 'intro'] }
 
 /** A draft worth reviewing: a title and some body text. */
-const usable = (d: Draft) => !!d.viTitle?.trim() && sanitizeHtml(d.body ?? '').replace(/<[^>]+>/g, '').trim().length >= 200
+export const usable = (d: Draft) => !!d.viTitle?.trim() && sanitizeHtml(d.body ?? '').replace(/<[^>]+>/g, '').trim().length >= 200
 
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 
@@ -121,8 +123,12 @@ export async function readPlaylists(root: string): Promise<string[]> {
   return (JSON.parse(raw) as { id: string; skip?: boolean }[]).filter(p => !p.skip).map(p => p.id)
 }
 
-const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[]) => [
+/** How a guide is written: the style guide in the writer's prompt, a separate editor pass for phrasing, the model. */
+export type WriteOpts = { style?: boolean; edit?: boolean; model?: string }
+
+const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?: boolean) => [
   WRITE,
+  ...(style ? [STYLE] : []),
   `Tiêu đề video: ${m.title}`, `Kênh: ${m.channel}`,
   `Chương (${m.chapters.length}):\n${m.chapters.map(c => `- [${clock(c.start)}] ${c.title}`).join('\n') || '(không có)'}`,
   `Mô tả video:\n${m.description.slice(0, 1500)}`,
@@ -130,9 +136,23 @@ const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[]) => [
   ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
 ].join('\n\n')
 
-async function review(llm: Llm, transcript: string, d: Draft) {
+const SYSTEM = 'Bạn viết bài hướng dẫn thủy sinh bằng tiếng Việt. Chỉ trả lời bằng JSON.'
+
+/** A guide draft from the transcript; with `edit`, an editor pass then rewrites the phrasing only (kept if it breaks the shape). */
+export async function writeDraft(llm: Llm, m: VideoMeta, transcript: string, o: WriteOpts & { notes?: string[] } = {}): Promise<Draft> {
+  const d = await llm<Draft>({ system: SYSTEM, prompt: videoPrompt(m, transcript, o.notes, o.style), schema: DRAFT_SCHEMA, model: o.model })
+  return o.edit && d.relevant && usable(d) ? editDraft(llm, d, o.model) : d
+}
+
+export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Draft> {
+  const e = await llm<Draft>({ system: 'Bạn là biên tập viên tiếng Việt. Chỉ trả lời bằng JSON.', prompt: `${EDIT}\n\n${STYLE}\n\nBài cần biên tập (JSON):\n${JSON.stringify(d)}`, schema: DRAFT_SCHEMA, model })
+  const same = e.relevant && usable(e) && e.summary.length === d.summary.length && e.faq.length === d.faq.length && e.chapters.length === d.chapters.length
+  return same ? { ...e, kind: d.kind, relevant: d.relevant } : d
+}
+
+export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\nTRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide may name the channel)\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 
@@ -175,7 +195,8 @@ export type VideoReport = { written: string[]; skipped: string[]; errors: string
  * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
  * and rewritten once with the reviewer's notes if it scores low (then published unindexed, like translations).
  */
-export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; limit?: number; maxMinutes?: number } = {}): Promise<VideoReport> {
+/** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. */
+export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
   const { yt, llm, root } = deps
   const contentRoot = join(root, 'content')
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
@@ -188,7 +209,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string) => {
     const s = state[id]
-    return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
+    return !s || (opts.redo && s.status === 'processed') || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
   }
   let failedInARow = 0
 
@@ -214,15 +235,15 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         const why = skip ?? (transcript!.length < 1500 ? 'captions too short' : null)
         if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; continue }
 
-        const write = (notes?: string[]) => llm<Draft>({ system: 'Bạn viết bài hướng dẫn thủy sinh bằng tiếng Việt. Chỉ trả lời bằng JSON.', prompt: videoPrompt(m, transcript!, notes), schema: DRAFT_SCHEMA })
+        const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
         let d = await write()
         if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; continue }
         if (!usable(d)) throw new Error('draft without a title or body')
-        let { score, notes } = await review(llm, transcript!, d)
+        let { score, notes } = await reviewDraft(llm, transcript!, d, m)
         if (gate(score, false) === 'retry') {
           const again = await write(notes)
           // A broken rewrite keeps the first draft and its score.
-          if (again.relevant && usable(again)) { d = again; score = (await review(llm, transcript!, d)).score }
+          if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
         }
 
         const id = `youtube-${vid}`
@@ -239,6 +260,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
           body: sanitizeHtml(d.body), summary: d.summary.map(s => s.trim()).filter(Boolean), faq: d.faq.filter(f => f.q.trim() && f.a.trim()),
           ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
           quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
+          ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
         })
         await mkdir(dir, { recursive: true })
         await writeJson(join(dir, 'entity.json'), entity)

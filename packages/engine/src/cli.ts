@@ -37,7 +37,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' } } })
 const cmd = positionals[0]
 
 if (cmd === 'run') {
@@ -136,7 +136,11 @@ if (cmd === 'run') {
   // Original Vietnamese guides from educational YouTube playlists (engine-state/youtube-playlists.json, or --playlist ID,ID).
   const r = await videoGuides(
     { yt: ytDlp, llm: claudeCli, root: ROOT, now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) },
-    { playlists: values.playlist?.split(',').map(s => s.trim()).filter(Boolean), limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined },
+    {
+      playlists: values.playlist?.split(',').map(s => s.trim()).filter(Boolean), limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined,
+      // Writing eval (scripts/eval-writing.ts, 2026-10-29): the Vietnamese style guide, written by Opus, read most natural (18–0).
+      write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' }, redo: values.redo,
+    },
   )
   console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ' (stopped early)' : ''}`)
   for (const w of r.written) console.log(`written: ${w}`)
@@ -164,6 +168,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] | pnpm engine discover-videos [--limit N] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] | pnpm engine discover-videos [--limit N] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }

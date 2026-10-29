@@ -4,11 +4,12 @@ import { dirname } from 'node:path'
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
 export class LlmError extends Error {}
 
-export type Llm = <T>(args: { system: string; prompt: string; schema: object }) => Promise<T>
+/** model: per-call override of ENGINE_MODEL (default sonnet). */
+export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
-function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; cwd: string }): Promise<T> {
+function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; cwd: string; model?: string }): Promise<T> {
   return new Promise<T>((resolve, reject) => {
-    const args = ['-p', '--model', process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []),
+    const args = ['-p', '--model', opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []),
       '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'] })
     let out = ''
@@ -32,7 +33,7 @@ function run<T>(system: string, prompt: string, schema: object, opts: { tools: s
 }
 
 /** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
-export const claudeCli: Llm = <T>({ system, prompt, schema }: { system: string; prompt: string; schema: object }) => run<T>(system, prompt, schema, { tools: '', cwd: '/tmp' })
+export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: '/tmp', model })
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
 export const claudeVision = <T>({ system, prompt, schema, file }: { system: string; prompt: string; schema: object; file: string }) =>
