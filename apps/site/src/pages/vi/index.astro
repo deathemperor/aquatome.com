@@ -10,12 +10,12 @@ const c = await getContent()
 const guides = c.guides.filter(g => g.kind !== 'discovery').slice(0, 2)
 const credits = [HERO, ...creditsFor([...c.species.map(s => s.photos[0]), ...guides.map(g => g.photos[0])])]
 ---
-<Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể bằng tiếng Việt, dịch từ các nguồn uy tín." credits={credits}>
+<Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
   <Fragment slot="header">
     <div class="hero" style={`--hero:url(${HERO.url})`}>
       <Nav overlay />
       <div class="wrap hero-copy">
-        <h1>Thế giới dưới mặt nước, bằng tiếng Việt.</h1>
+        <h1>Hiểu cá trước khi thả cá.</h1>
         <p>Hồ sơ loài, cây thủy sinh và hướng dẫn setup bể, dịch từ những nguồn uy tín nhất thế giới.</p>
         <form class="search" action="/vi/ca/" role="search">
           <label class="visually-hidden" for="q">Tìm loài cá</label>
