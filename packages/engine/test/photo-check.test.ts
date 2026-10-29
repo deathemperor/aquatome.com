@@ -13,7 +13,7 @@ async function root() {
   const r = await mkdtemp(join(tmpdir(), 'aq-pc-'))
   await mkdir(join(r, 'content/species/trigonostigma-heteromorpha'), { recursive: true })
   await mkdir(join(r, 'engine-state'))
-  await writeFile(join(r, 'content/species/trigonostigma-heteromorpha/entity.json'), JSON.stringify({ scientificName: 'Trigonostigma heteromorpha', photos: ['pale', 'platy', 'typical', 'tank', 'rare'].map(photo) }))
+  await writeFile(join(r, 'content/species/trigonostigma-heteromorpha/entity.json'), JSON.stringify({ scientificName: 'Trigonostigma heteromorpha', photos: ['pale', 'platy', 'typical', 'river', 'tank', 'rare'].map(photo) }))
   await writeFile(join(r, 'content/species/trigonostigma-heteromorpha/vi.json'), JSON.stringify({ name: 'Cá tam giác', altNames: ['Harlequin rasbora', 'Cá rasbora hề'] }))
   return r
 }
@@ -30,8 +30,9 @@ test('photos of another species or of no single subject are rejected; a typical 
         { n: 1, ok: 'yes', typical: false, note: 'albino form' },
         { n: 2, ok: 'no', typical: false, note: 'a platy' },
         { n: 3, ok: 'yes', typical: true, note: 'adult' },
-        { n: 4, ok: 'no', typical: false, note: 'whole tank' },
-        { n: 5, ok: 'unsure', typical: false, note: 'too small to tell' },
+        { n: 4, ok: 'habitat', typical: false, note: 'forest stream' },
+        { n: 5, ok: 'no', typical: false, note: 'whole tank' },
+        { n: 6, ok: 'unsure', typical: false, note: 'too small to tell' },
       ] }
     },
   }
@@ -39,8 +40,8 @@ test('photos of another species or of no single subject are rejected; a typical 
   expect(prompts[0]).toContain('Trigonostigma heteromorpha (Cá tam giác, Harlequin rasbora)')
   expect(out.removed.map(x => x.split(' (')[1])).toEqual(['a platy)', 'whole tank)'])
   const e = JSON.parse(await readFile(join(r, 'content/species/trigonostigma-heteromorpha/entity.json'), 'utf8'))
-  // Unsure stays; the typical photo first, the rest in their order.
-  expect(e.photos.map((p: { url: string }) => p.url.split('/').pop())).toEqual(['typical.webp', 'pale.webp', 'rare.webp'])
+  // Unsure stays; the typical photo first, the rest in their order, the habitat last.
+  expect(e.photos.map((p: { url: string }) => p.url.split('/').pop())).toEqual(['typical.webp', 'pale.webp', 'rare.webp', 'river.webp'])
   const rejected = JSON.parse(await readFile(join(r, 'engine-state/_photo-rejected.json'), 'utf8'))
   expect(rejected['https://media.example/platy.webp']).toBe('not Trigonostigma heteromorpha: a platy')
 
@@ -54,5 +55,5 @@ test('a usage limit stops the run with nothing lost', async () => {
   const out = await checkPagePhotos(...files(r), { get: async () => new Uint8Array(await jpeg), look: async () => { throw new LlmError('usage limit') } }, { limit: 10 })
   expect(out.stopped).toMatch(/usage limit/)
   const e = JSON.parse(await readFile(join(r, 'content/species/trigonostigma-heteromorpha/entity.json'), 'utf8'))
-  expect(e.photos).toHaveLength(5)
+  expect(e.photos).toHaveLength(6)
 })
