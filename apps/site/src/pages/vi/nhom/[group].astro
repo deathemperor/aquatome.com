@@ -15,5 +15,5 @@ const { group } = Astro.params
 const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
 ---
 <Browse title={groupLabel(group!)} heading={groupLabel(group!)} crumbs={[['/vi/ca/', 'Loài cá']]} intro={`${species.length} loài trong nhóm ${groupLabel(group!).toLowerCase()}.`} credits={creditsFor(species.map(s => s.photos[0]))}>
-  <SpeciesGrid species={species} />
+  <SpeciesGrid species={species} heading="Danh sách loài" />
 </Browse>

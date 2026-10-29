@@ -40,7 +40,7 @@ const crumbs: [string, string][] = node.path.length
       {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{k.species.length} loài</span></li>)}
     </ul>
   )}
-  {node.path.length > 0 && <SpeciesGrid species={node.species} />}
+  {node.path.length > 0 && <SpeciesGrid species={node.species} heading="Danh sách loài" />}
 </Browse>
 <style>
   .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); columns: 3 14rem; }

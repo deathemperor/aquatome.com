@@ -26,7 +26,7 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
     <button type="submit">Lọc</button>
   </form>
   <p class="count" id="species-count" aria-live="polite"></p>
-  <SpeciesGrid species={c.species} />
+  <SpeciesGrid species={c.species} heading="Danh sách loài" />
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>

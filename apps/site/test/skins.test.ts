@@ -1,11 +1,12 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { DIST, page } from './dist'
+import { page } from './dist'
 
 const SKINS = ['a', 'b', 'c']
 const skinDir = fileURLToPath(new URL('../src/styles/skins/', import.meta.url))
-const bundledCss = () => readdirSync(`${DIST}/_astro`).filter(f => f.endsWith('.css')).map(f => readFileSync(`${DIST}/_astro/${f}`, 'utf8')).join('\n')
+/** CSS is inlined into every page (astro build.inlineStylesheets: 'always'). */
+const bundledCss = () => page('/vi/').dom.querySelectorAll('style').map(s => s.text).join('\n')
 
 test('default markup carries no skin; Mix is the unscoped default', () => {
   const { dom } = page('/vi/ca/ca-neon-vua/')
