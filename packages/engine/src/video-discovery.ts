@@ -5,11 +5,11 @@ import { loadState } from './state'
 import type { Playlist } from './youtube'
 
 /** A playlist the engine knows: queued for guides, or rejected (`skip`) so it is never vetted again. */
-export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string }
+export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string; /** The vet's guess of the spoken language: the site's own goes first in the queue. */ lang?: string }
 export type Found = { id: string; title: string; channel: string }
 export type Finder = { search(query: string): Promise<Found[]>; searchVideos(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; uploads(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
 /** A single video queued for a guide (engine-state/youtube-videos.json), or rejected (`skip`). */
-export type VideoEntry = { id: string; title: string; channel: string; by: 'owner' | 'search'; addedAt: string; skip?: boolean; reason?: string }
+export type VideoEntry = { id: string; title: string; channel: string; by: 'owner' | 'search'; addedAt: string; skip?: boolean; reason?: string; lang?: string }
 
 /** Searches per source language (see SOURCE_LANGS); a new site language adds its own list. */
 export const QUERIES_BY_LANG: Record<string, string[]> = {
@@ -42,14 +42,14 @@ const writeEntries = (root: string, xs: PlaylistEntry[]) => writeFile(FILE(root)
 
 const VET_SCHEMA = {
   type: 'object', required: ['verdicts'],
-  properties: { verdicts: { type: 'array', items: { type: 'object', required: ['id', 'ok', 'reason'], properties: { id: { type: 'string' }, ok: { type: 'boolean' }, reason: { type: 'string' } } } } },
+  properties: { verdicts: { type: 'array', items: { type: 'object', required: ['id', 'ok', 'reason'], properties: { id: { type: 'string' }, ok: { type: 'boolean' }, reason: { type: 'string' }, lang: { type: 'string' } } } } },
 }
 const VET = `You pick YouTube playlists for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds the video.
 
 ok = true only if most videos teach how to keep, set up, aquascape, breed, feed or treat aquarium or pond fish, shrimp, snails or aquatic plants (care guides, how-tos, species profiles, troubleshooting, explainers), in English or Vietnamese.
 ok = false for: vlogs, fish room or store tours, unboxings and product reviews, haul or "new fish" videos, livestreams (e.g. "livestream bán cá"), shop sales or price-list videos, contests, timelapses or relaxing footage without teaching, Shorts compilations, reef/saltwater-only playlists, kids' content, playlists mostly of other channels' videos, other languages.
 
-reason: a few words. Reply with a verdict for every playlist id given.`
+reason: a few words. lang: the language the videos are spoken in ("vi" or "en"; YouTube may show a Vietnamese video's title translated, so also go by the channel name). Reply with a verdict for every playlist id given.`
 
 export type DiscoveryReport = { candidates: number; added: string[]; rejected: number; skipped: string; errors: string[] }
 
@@ -69,7 +69,8 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
   const known = new Set(entries.map(e => e.id))
   const seen = new Map<string, Found>()
   const take = (xs: Found[]) => { for (const x of xs) if (x.id.startsWith('PL') && !known.has(x.id) && !seen.has(x.id)) seen.set(x.id, x) }
-  for (const q of opts.queries ?? [...QUERIES, ...Object.values(QUERIES_BY_LANG).flat()]) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
+  // The site's language first: its creators are the ones a reader can watch without subtitles.
+  for (const q of opts.queries ?? [...Object.values(QUERIES_BY_LANG).flat(), ...QUERIES]) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
   for (const h of opts.channels ?? CHANNELS) await find.channel(h).then(take, e => report.errors.push(`channel @${h}: ${(e as Error).message}`))
   report.candidates = seen.size
 
@@ -91,13 +92,13 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
   for (let i = 0; i < batch.length; i += 8) {
     const part = batch.slice(i, i + 8)
     const list = part.map(p => `## ${p.id}\nTitle: ${p.title}\nChannel: ${p.channel}\nVideos (${p.videos.length}):\n${p.videos.slice(0, 25).map(v => `- ${v.title}`).join('\n')}`).join('\n\n')
-    let verdicts: { id: string; ok: boolean; reason: string }[]
+    let verdicts: { id: string; ok: boolean; reason: string; lang?: string }[]
     try { verdicts = (await llm<{ verdicts: typeof verdicts }>({ system: 'You vet YouTube playlists. Reply only with JSON.', prompt: `${VET}\n\n${list}`, schema: VET_SCHEMA })).verdicts }
     catch (e) { report.errors.push(`vetting: ${(e as Error).message}`); break }
     for (const p of part) {
       const v = verdicts.find(x => x.id === p.id)
       if (!v || (v.ok && report.added.length >= maxNew)) continue // not judged, or over this run's limit: seen again next run
-      entries.push({ id: p.id, title: p.title, channel: p.channel, by: 'search', addedAt: today, videoIds: p.videos.map(x => x.id), ...(v.ok ? {} : { skip: true, reason: v.reason }) })
+      entries.push({ id: p.id, title: p.title, channel: p.channel, by: 'search', addedAt: today, videoIds: p.videos.map(x => x.id), ...(v.ok ? (v.lang ? { lang: v.lang } : {}) : { skip: true, reason: v.reason }) })
       if (v.ok) { report.added.push(`${p.id} ${p.title} (${p.channel}, ${p.videos.length})`); for (const x of p.videos) haveVideos.add(x.id) } else report.rejected++
     }
   }
@@ -110,7 +111,7 @@ const VET_VIDEOS = `You pick single YouTube videos for a Vietnamese aquarium han
 ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails or aquatic plants: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English or Vietnamese.
 ok = false for: vlogs, fish room or store tours, unboxings, product reviews or sponsored showcases, hauls, "new fish" or "I bought" videos, livestreams and Q&A streams ("livestream", "trực tiếp"), shop sales and price lists ("bán", "giá rẻ", "thanh lý", "săn hàng"), contests, timelapses or relaxing footage, Shorts, channel news, reef/saltwater-only topics, other languages.
 
-reason: a few words. Reply with a verdict for every id given.`
+reason: a few words. lang: the language the video is spoken in ("vi" or "en"; YouTube may show a Vietnamese video's title translated, so also go by the channel name). Reply with a verdict for every id given.`
 
 export type SinglesReport = { candidates: number; added: string[]; rejected: number; errors: string[] }
 
@@ -122,12 +123,12 @@ export async function discoverSingles(deps: { find: Finder; llm: Llm; root: stri
   const entries = await readVideoEntries(root)
   const known = new Set([...entries.map(e => e.id), ...(await readEntries(root)).flatMap(e => e.videoIds ?? []), ...Object.keys(await loadState(root, 'youtube'))])
   const fresh: Found[] = []
-  for (const h of opts.channels ?? CHANNELS) {
-    const xs = await find.uploads(h).catch(e => { report.errors.push(`uploads @${h}: ${(e as Error).message}`); return [] as Found[] })
-    for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
-  }
   for (const q of opts.queries ?? QUERIES_BY_LANG.vi!) {
     const xs = await find.searchVideos(q).catch(e => { report.errors.push(`video search "${q}": ${(e as Error).message}`); return [] as Found[] })
+    for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
+  }
+  for (const h of opts.channels ?? CHANNELS) {
+    const xs = await find.uploads(h).catch(e => { report.errors.push(`uploads @${h}: ${(e as Error).message}`); return [] as Found[] })
     for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
   }
   report.candidates = fresh.length
@@ -135,13 +136,13 @@ export async function discoverSingles(deps: { find: Finder; llm: Llm; root: stri
   const today = deps.now().toISOString().slice(0, 10)
   for (let i = 0; i < fresh.length && report.added.length < maxNew; i += 40) {
     const part = fresh.slice(i, i + 40)
-    let verdicts: { id: string; ok: boolean; reason: string }[]
+    let verdicts: { id: string; ok: boolean; reason: string; lang?: string }[]
     try { verdicts = (await llm<{ verdicts: typeof verdicts }>({ system: 'You vet YouTube videos. Reply only with JSON.', prompt: `${VET_VIDEOS}\n\n${part.map(v => `${v.id} | ${v.channel} | ${v.title}`).join('\n')}`, schema: VET_SCHEMA })).verdicts }
     catch (e) { report.errors.push(`vetting: ${(e as Error).message}`); break }
     for (const v of part) {
       const x = verdicts.find(y => y.id === v.id)
       if (!x || (x.ok && report.added.length >= maxNew)) continue // seen again next run
-      entries.push({ id: v.id, title: v.title, channel: v.channel, by: 'search', addedAt: today, ...(x.ok ? {} : { skip: true, reason: x.reason }) })
+      entries.push({ id: v.id, title: v.title, channel: v.channel, by: 'search', addedAt: today, ...(x.ok ? (x.lang ? { lang: x.lang } : {}) : { skip: true, reason: x.reason }) })
       if (x.ok) report.added.push(`${v.id} ${v.title} (${v.channel})`); else report.rejected++
     }
   }

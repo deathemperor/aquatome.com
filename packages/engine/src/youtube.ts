@@ -182,16 +182,19 @@ export const ytFinder: Finder = {
 /** Single videos to turn into guides: engine-state/youtube-videos.json (owner's picks first, then discovery's). */
 export async function readSingles(root: string): Promise<string[]> {
   const raw = await readFile(join(root, 'engine-state/youtube-videos.json'), 'utf8').catch(() => '[]')
-  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean }[]).filter(v => !v.skip)
-  return [...xs.filter(v => v.by === 'owner'), ...xs.filter(v => v.by !== 'owner')].map(v => v.id)
+  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean; lang?: string }[]).filter(v => !v.skip)
+  return queueOrder(xs, v => v.by === 'owner')
 }
+
+/** Writing order: the owner's picks, then videos in the site's language (SOURCE_LANGS[0]), then the rest, each in file order. */
+const queueOrder = <T extends { id: string; lang?: string }>(xs: T[], mine: (x: T) => boolean) =>
+  [...xs.filter(mine), ...xs.filter(x => !mine(x) && x.lang === SOURCE_LANGS[0]), ...xs.filter(x => !mine(x) && x.lang !== SOURCE_LANGS[0])].map(x => x.id)
 
 /** Playlists to turn into guides: engine-state/youtube-playlists.json (seeded by hand; discovery appends). */
 export async function readPlaylists(root: string): Promise<string[]> {
   const raw = await readFile(join(root, 'engine-state/youtube-playlists.json'), 'utf8').catch(() => '[]')
-  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean }[]).filter(p => !p.skip)
-  const mine = (p: { by?: string }) => p.by === 'owner' || p.by === 'seed'
-  return [...xs.filter(mine), ...xs.filter(p => !mine(p))].map(p => p.id)
+  const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean; lang?: string }[]).filter(p => !p.skip)
+  return queueOrder(xs, p => p.by === 'owner' || p.by === 'seed')
 }
 
 /** How a guide is written: the style guide in the writer's prompt, a separate editor pass for phrasing, the model. */
