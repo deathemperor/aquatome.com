@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro'
 import { getContent } from '../lib/content'
 import { categories } from '../lib/equipment'
+import { videoChannels } from '../lib/video'
 
 export const GET: APIRoute = async ({ site }) => {
   const c = await getContent()
@@ -12,6 +13,7 @@ export const GET: APIRoute = async ({ site }) => {
     ...c.guides.filter(g => g.t.quality.indexable).map(g => `/vi/huong-dan/${g.t.slug}/`),
     ...c.glossary.filter(g => g.t.quality.indexable).map(g => `/vi/thuat-ngu/${g.t.slug}/`),
     ...c.series.filter(s => c.guides.some(g => g.video?.series?.id === s.id && g.t.quality.indexable)).map(s => `/vi/video/${s.vi.slug}/`),
+    ...videoChannels(c).filter(ch => ch.guides.some(g => g.t.quality.indexable)).map(ch => `/vi/video/kenh/${ch.slug}/`),
     ...categories(c).map(u => `/vi/thiet-bi/${u.category}/`),
   ]
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map(p => `  <url><loc>${new URL(p, site).href}</loc></url>`).join('\n')}\n</urlset>\n`

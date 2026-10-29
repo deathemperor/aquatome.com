@@ -5,9 +5,11 @@ import { loadState } from './state'
 import type { Playlist } from './youtube'
 
 /** A playlist the engine knows: queued for guides, or rejected (`skip`) so it is never vetted again. */
-export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string }
+export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string }
 export type Found = { id: string; title: string; channel: string }
-export type Finder = { search(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
+export type Finder = { search(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; uploads(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
+/** A single video queued for a guide (engine-state/youtube-videos.json), or rejected (`skip`). */
+export type VideoEntry = { id: string; title: string; channel: string; by: 'owner' | 'search'; addedAt: string; skip?: boolean; reason?: string }
 
 /** English searches for teaching playlists (YouTube's own playlist filter). */
 export const QUERIES = [
@@ -18,9 +20,13 @@ export const QUERIES = [
   'catfish corydoras care', 'killifish keeping', 'blackwater aquarium', 'aquarium hardscape tutorial', 'iwagumi tutorial', 'carpeting plants guide',
 ]
 /** Channels known for teaching videos: their playlists are vetted like search results. */
-export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
+export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'KingofDIY', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
 
 const FILE = (root: string) => join(root, 'engine-state/youtube-playlists.json')
+const VFILE = (root: string) => join(root, 'engine-state/youtube-videos.json')
+export const readVideoEntries = async (root: string): Promise<VideoEntry[]> => JSON.parse(await readFile(VFILE(root), 'utf8').catch(() => '[]'))
+export const writeVideoEntries = (root: string, xs: VideoEntry[]) => writeFile(VFILE(root), `${JSON.stringify(xs, null, 2)}\n`)
+export const writeEntriesFile = (root: string, xs: PlaylistEntry[]) => writeEntries(root, xs)
 export const readEntries = async (root: string): Promise<PlaylistEntry[]> => JSON.parse(await readFile(FILE(root), 'utf8').catch(() => '[]'))
 const writeEntries = (root: string, xs: PlaylistEntry[]) => writeFile(FILE(root), `${JSON.stringify(xs, null, 2)}\n`)
 
@@ -42,13 +48,13 @@ export type DiscoveryReport = { candidates: number; added: string[]; rejected: n
  * asks the model to vet the rest, and appends both verdicts to engine-state/youtube-playlists.json.
  * Does nothing while ≥ `queueCap` queued videos still wait for guides.
  */
-export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { maxNew?: number; queueCap?: number; queries?: string[]; channels?: string[] } = {}): Promise<DiscoveryReport> {
+export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { maxNew?: number; queueCap?: number; queries?: string[]; channels?: string[]; force?: boolean } = {}): Promise<DiscoveryReport> {
   const { find, llm, root } = deps
   const report: DiscoveryReport = { candidates: 0, added: [], rejected: 0, skipped: '', errors: [] }
   const entries = await readEntries(root)
   const done = await loadState(root, 'youtube')
   const queued = new Set(entries.filter(e => !e.skip).flatMap(e => e.videoIds ?? []).filter(v => !done[v]))
-  if (queued.size >= (opts.queueCap ?? 150)) { report.skipped = `${queued.size} videos already queued`; return report }
+  if (!opts.force && queued.size >= (opts.queueCap ?? 150)) { report.skipped = `${queued.size} videos already queued`; return report }
 
   const known = new Set(entries.map(e => e.id))
   const seen = new Map<string, Found>()
@@ -87,4 +93,68 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
   }
   await writeEntries(root, entries)
   return report
+}
+
+const VET_VIDEOS = `You pick single YouTube videos for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds it.
+
+ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails or aquatic plants: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English.
+ok = false for: vlogs, fish room or store tours, unboxings, product reviews or sponsored showcases, hauls, "new fish" or "I bought" videos, livestreams and Q&A streams, contests, timelapses or relaxing footage, Shorts, channel news, reef/saltwater-only topics, non-English titles.
+
+reason: a few words. Reply with a verdict for every id given.`
+
+export type SinglesReport = { candidates: number; added: string[]; rejected: number; errors: string[] }
+
+/** Single teaching videos from channels' upload pages: unknown ones vetted by title (40 a call) until `maxNew` are queued. */
+export async function discoverSingles(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { channels?: string[]; maxNew?: number } = {}): Promise<SinglesReport> {
+  const { find, llm, root } = deps
+  const report: SinglesReport = { candidates: 0, added: [], rejected: 0, errors: [] }
+  const entries = await readVideoEntries(root)
+  const known = new Set([...entries.map(e => e.id), ...(await readEntries(root)).flatMap(e => e.videoIds ?? []), ...Object.keys(await loadState(root, 'youtube'))])
+  const fresh: Found[] = []
+  for (const h of opts.channels ?? CHANNELS) {
+    const xs = await find.uploads(h).catch(e => { report.errors.push(`uploads @${h}: ${(e as Error).message}`); return [] as Found[] })
+    for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
+  }
+  report.candidates = fresh.length
+  const maxNew = opts.maxNew ?? 30
+  const today = deps.now().toISOString().slice(0, 10)
+  for (let i = 0; i < fresh.length && report.added.length < maxNew; i += 40) {
+    const part = fresh.slice(i, i + 40)
+    let verdicts: { id: string; ok: boolean; reason: string }[]
+    try { verdicts = (await llm<{ verdicts: typeof verdicts }>({ system: 'You vet YouTube videos. Reply only with JSON.', prompt: `${VET_VIDEOS}\n\n${part.map(v => `${v.id} | ${v.channel} | ${v.title}`).join('\n')}`, schema: VET_SCHEMA })).verdicts }
+    catch (e) { report.errors.push(`vetting: ${(e as Error).message}`); break }
+    for (const v of part) {
+      const x = verdicts.find(y => y.id === v.id)
+      if (!x || (x.ok && report.added.length >= maxNew)) continue // seen again next run
+      entries.push({ id: v.id, title: v.title, channel: v.channel, by: 'search', addedAt: today, ...(x.ok ? {} : { skip: true, reason: x.reason }) })
+      if (x.ok) report.added.push(`${v.id} ${v.title} (${v.channel})`); else report.rejected++
+    }
+  }
+  await writeVideoEntries(root, entries)
+  return report
+}
+
+/** The owner's picks (playlist and video URLs) go to the front of the queues; a rejected one is un-rejected. */
+export async function addOwnerPicks(root: string, urls: string[], find: Finder, now: Date): Promise<string[]> {
+  const today = now.toISOString().slice(0, 10)
+  const lists = await readEntries(root)
+  const vids = await readVideoEntries(root)
+  const out: string[] = []
+  for (const u of urls) {
+    const list = /[?&]list=([\w-]+)/.exec(u)?.[1]
+    const video = /(?:[?&]v=|youtu\.be\/)([\w-]{11})/.exec(u)?.[1]
+    if (list && !video) {
+      const p = await find.playlist(list)
+      const rest = lists.filter(e => e.id !== list)
+      lists.splice(0, lists.length, { id: list, title: p.title, channel: p.channel, by: 'owner', addedAt: today, videoIds: p.videos.map(v => v.id) }, ...rest)
+      out.push(`playlist ${list}: ${p.title} (${p.videos.length})`)
+    } else if (video) {
+      const rest = vids.filter(e => e.id !== video)
+      vids.splice(0, vids.length, { id: video, title: '', channel: '', by: 'owner', addedAt: today }, ...rest)
+      out.push(`video ${video}`)
+    } else out.push(`not a playlist or video URL: ${u}`)
+  }
+  await writeEntries(root, lists)
+  await writeVideoEntries(root, vids)
+  return out
 }

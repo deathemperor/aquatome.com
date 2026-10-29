@@ -334,11 +334,22 @@ describe('video pages', () => {
     expect(idx.querySelector('a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
     expect(idx.querySelector('.vid a[href="/vi/video/"]')).not.toBeNull()
   })
+  test('single videos: grouped by channel on /vi/video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
+    const idx = page('/vi/video/').dom
+    expect(idx.querySelector('h2 a[href="/vi/video/kenh/green-aqua/"]')?.text).toBe('Video lẻ của Green Aqua')
+    const ch = page('/vi/video/kenh/green-aqua/').dom
+    expect(ch.querySelector('.grid a[href="/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
+    const g = page('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom
+    expect(g.querySelector('.crumb a[href="/vi/video/kenh/green-aqua/"]')).not.toBeNull()
+    expect(g.querySelector('.facade .cc')).toBeNull()
+    expect(page('/vi/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+  })
   test('nav links to Video; sitemap has the video pages', () => {
     expect(page('/vi/').dom.querySelector('.nav a[href="/vi/video/"]')).not.toBeNull()
     const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
     expect(sm).toContain('/vi/video/</loc>')
     expect(sm).toContain('/vi/video/reu-hai-tu-a-den-z/</loc>')
+    expect(sm).toContain('/vi/video/kenh/green-aqua/</loc>')
   })
 })
 

@@ -4,10 +4,11 @@ import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { guideImage } from '../../../lib/mentions'
-import { hours, isVideo, seriesGuides, seriesSeconds } from '../../../lib/video'
+import { hours, isVideo, seriesGuides, seriesSeconds, videoChannels } from '../../../lib/video'
 const c = await getContent()
 const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length).sort((a, b) => b.guides.length - a.guides.length)
-const single = c.guides.filter(isVideo).filter(g => !g.video.series || !c.series.some(s => s.id === g.video.series!.id))
+const channels = videoChannels(c)
+const withSingles = channels.filter(ch => ch.singles.length)
 const all = c.guides.filter(isVideo)
 ---
 <Browse title="Video hướng dẫn" heading="Video hướng dẫn"
@@ -25,10 +26,20 @@ const all = c.guides.filter(isVideo)
       {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>Xem cả {guides.length} bài trong loạt</a></p>}
     </section>
   ))}
-  {single.length > 0 && (
-    <section class="series" aria-labelledby="single-h">
-      <header><h2 id="single-h">Video lẻ</h2></header>
-      <div class="grid">{single.map(g => <GuideCard g={g} />)}</div>
+  {withSingles.map(ch => (
+    <section class="series" aria-labelledby={`c-${ch.slug}`}>
+      <header>
+        <h2 id={`c-${ch.slug}`}><a href={`/vi/video/kenh/${ch.slug}/`}>Video lẻ của {ch.name}</a></h2>
+        <p class="meta">{ch.singles.length} video</p>
+      </header>
+      <div class="grid">{ch.singles.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
+      {ch.singles.length > 4 && <p class="more"><a href={`/vi/video/kenh/${ch.slug}/`}>Xem cả {ch.guides.length} bài của kênh</a></p>}
+    </section>
+  ))}
+  {channels.length > 1 && (
+    <section class="series" aria-labelledby="ch-h">
+      <header><h2 id="ch-h">Theo kênh</h2></header>
+      <ul class="chans">{channels.map(ch => <li><a href={`/vi/video/kenh/${ch.slug}/`}>{ch.name}</a> <span>{ch.guides.length} bài</span></li>)}</ul>
     </section>
   )}
 </Browse>
@@ -43,4 +54,8 @@ const all = c.guides.filter(isVideo)
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-6) var(--space-5); }
   .more { margin-top: var(--space-4); }
   .more a { display: inline-block; padding-block: 10px; font-weight: 600; }
+  .chans { list-style: none; margin: 0; padding: 0; columns: 3 14rem; column-gap: var(--space-6); }
+  .chans li { padding-block: 6px; break-inside: avoid; }
+  .chans a { display: inline-block; padding-block: 4px; }
+  .chans span { color: var(--c-ink-faint); font-size: 0.85rem; }
 </style>

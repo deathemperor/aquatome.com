@@ -1,4 +1,5 @@
 import { parse } from 'node-html-parser'
+import { slugify } from '@aq/schema/slug'
 import type { Content, GuideEntity, Localized, Photo, Series } from '@aq/schema'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
@@ -73,4 +74,22 @@ export function illustrate(html: string, v: NonNullable<GuideEntity['video']>): 
     after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)
   }
   return root.toString()
+}
+
+export type Channel = { slug: string; name: string; url: string; guides: VideoGuide[]; singles: VideoGuide[]; series: Series[] }
+
+/** Video guides by YouTube channel (newest first), with the channel's series and its single videos. */
+export function videoChannels(c: Content): Channel[] {
+  const by = new Map<string, Channel>()
+  for (const g of c.guides.filter(isVideo)) {
+    const slug = slugify(g.video.channel) || 'kenh'
+    const ch = by.get(slug) ?? by.set(slug, { slug, name: g.video.channel, url: g.video.channelUrl, guides: [], singles: [], series: [] }).get(slug)!
+    ch.guides.push(g)
+    const s = seriesOf(c, g)
+    if (!s) ch.singles.push(g)
+    else if (!ch.series.includes(s)) ch.series.push(s)
+  }
+  const newest = (a: VideoGuide, b: VideoGuide) => (b.video.publishedAt ?? '').localeCompare(a.video.publishedAt ?? '')
+  for (const ch of by.values()) { ch.guides.sort(newest); ch.singles.sort(newest) }
+  return [...by.values()].sort((a, b) => b.guides.length - a.guides.length || a.name.localeCompare(b.name))
 }
