@@ -7,10 +7,20 @@ import type { Playlist } from './youtube'
 /** A playlist the engine knows: queued for guides, or rejected (`skip`) so it is never vetted again. */
 export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string }
 export type Found = { id: string; title: string; channel: string }
-export type Finder = { search(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; uploads(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
+export type Finder = { search(query: string): Promise<Found[]>; searchVideos(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; uploads(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
 /** A single video queued for a guide (engine-state/youtube-videos.json), or rejected (`skip`). */
 export type VideoEntry = { id: string; title: string; channel: string; by: 'owner' | 'search'; addedAt: string; skip?: boolean; reason?: string }
 
+/** Searches per source language (see SOURCE_LANGS); a new site language adds its own list. */
+export const QUERIES_BY_LANG: Record<string, string[]> = {
+  vi: [
+    'hướng dẫn thủy sinh', 'setup bể thủy sinh', 'làm bể thủy sinh cho người mới', 'trị rêu hại bể thủy sinh', 'cách nuôi cá betta', 'cách nuôi cá cảnh cho người mới',
+    'chu trình nitơ bể cá', 'cách thay nước bể cá', 'cây thủy sinh dễ trồng', 'bố cục thủy sinh', 'bể thủy sinh không CO2', 'cách nuôi tép cảnh',
+    'bệnh cá cảnh cách chữa', 'chọn lọc bể cá', 'đèn thủy sinh', 'phân nền thủy sinh', 'cách nuôi cá rồng', 'hồ cá koi', 'cách nuôi cá vàng',
+    'cách nuôi cá bảy màu', 'cách nuôi cá dĩa', 'bể thủy sinh mini', 'trồng rêu thủy sinh', 'cách nuôi cá neon', 'bể cá cho người mới',
+  ],
+  en: [] as string[],
+}
 /** English searches for teaching playlists (YouTube's own playlist filter). */
 export const QUERIES = [
   'aquascaping guide', 'planted tank for beginners', 'aquarium algae guide', 'aquarium fish care guide', 'aquarium beginner guide', 'nitrogen cycle aquarium',
@@ -36,8 +46,8 @@ const VET_SCHEMA = {
 }
 const VET = `You pick YouTube playlists for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds the video.
 
-ok = true only if most videos teach how to keep, set up, aquascape, breed, feed or treat aquarium or pond fish, shrimp, snails or aquatic plants (care guides, how-tos, species profiles, troubleshooting, explainers), in English.
-ok = false for: vlogs, fish room or store tours, unboxings and product reviews, haul or "new fish" videos, livestreams, contests, timelapses or relaxing footage without teaching, Shorts compilations, reef/saltwater-only playlists, kids' content, playlists mostly of other channels' videos, non-English.
+ok = true only if most videos teach how to keep, set up, aquascape, breed, feed or treat aquarium or pond fish, shrimp, snails or aquatic plants (care guides, how-tos, species profiles, troubleshooting, explainers), in English or Vietnamese.
+ok = false for: vlogs, fish room or store tours, unboxings and product reviews, haul or "new fish" videos, livestreams (e.g. "livestream bán cá"), shop sales or price-list videos, contests, timelapses or relaxing footage without teaching, Shorts compilations, reef/saltwater-only playlists, kids' content, playlists mostly of other channels' videos, other languages.
 
 reason: a few words. Reply with a verdict for every playlist id given.`
 
@@ -59,7 +69,7 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
   const known = new Set(entries.map(e => e.id))
   const seen = new Map<string, Found>()
   const take = (xs: Found[]) => { for (const x of xs) if (x.id.startsWith('PL') && !known.has(x.id) && !seen.has(x.id)) seen.set(x.id, x) }
-  for (const q of opts.queries ?? QUERIES) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
+  for (const q of opts.queries ?? [...QUERIES, ...Object.values(QUERIES_BY_LANG).flat()]) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
   for (const h of opts.channels ?? CHANNELS) await find.channel(h).then(take, e => report.errors.push(`channel @${h}: ${(e as Error).message}`))
   report.candidates = seen.size
 
@@ -97,15 +107,16 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
 
 const VET_VIDEOS = `You pick single YouTube videos for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds it.
 
-ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails or aquatic plants: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English.
-ok = false for: vlogs, fish room or store tours, unboxings, product reviews or sponsored showcases, hauls, "new fish" or "I bought" videos, livestreams and Q&A streams, contests, timelapses or relaxing footage, Shorts, channel news, reef/saltwater-only topics, non-English titles.
+ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails or aquatic plants: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English or Vietnamese.
+ok = false for: vlogs, fish room or store tours, unboxings, product reviews or sponsored showcases, hauls, "new fish" or "I bought" videos, livestreams and Q&A streams ("livestream", "trực tiếp"), shop sales and price lists ("bán", "giá rẻ", "thanh lý", "săn hàng"), contests, timelapses or relaxing footage, Shorts, channel news, reef/saltwater-only topics, other languages.
 
 reason: a few words. Reply with a verdict for every id given.`
 
 export type SinglesReport = { candidates: number; added: string[]; rejected: number; errors: string[] }
 
 /** Single teaching videos from channels' upload pages: unknown ones vetted by title (40 a call) until `maxNew` are queued. */
-export async function discoverSingles(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { channels?: string[]; maxNew?: number } = {}): Promise<SinglesReport> {
+/** Single videos come from channels' upload pages and from video searches (the site language's: creators there use playlists less). */
+export async function discoverSingles(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { channels?: string[]; queries?: string[]; maxNew?: number } = {}): Promise<SinglesReport> {
   const { find, llm, root } = deps
   const report: SinglesReport = { candidates: 0, added: [], rejected: 0, errors: [] }
   const entries = await readVideoEntries(root)
@@ -113,6 +124,10 @@ export async function discoverSingles(deps: { find: Finder; llm: Llm; root: stri
   const fresh: Found[] = []
   for (const h of opts.channels ?? CHANNELS) {
     const xs = await find.uploads(h).catch(e => { report.errors.push(`uploads @${h}: ${(e as Error).message}`); return [] as Found[] })
+    for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
+  }
+  for (const q of opts.queries ?? QUERIES_BY_LANG.vi!) {
+    const xs = await find.searchVideos(q).catch(e => { report.errors.push(`video search "${q}": ${(e as Error).message}`); return [] as Found[] })
     for (const x of xs) if (!known.has(x.id)) { known.add(x.id); fresh.push(x) }
   }
   report.candidates = fresh.length

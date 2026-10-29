@@ -51,7 +51,7 @@ const jsonld: object[] = []
 if (v) {
   jsonld.push({
     '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
-    duration: isoDuration(v.durationSec), embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`, url: watchUrl(v.youtubeId), inLanguage: 'en',
+    duration: isoDuration(v.durationSec), embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`, url: watchUrl(v.youtubeId), inLanguage: v.lang ?? 'en',
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
     ...(v.chapters.length > 1 ? { hasPart: v.chapters.map((ch, i) => ({ '@type': 'Clip', name: g.t.chapters?.[i] ?? ch.title, startOffset: ch.start, endOffset: v.chapters[i + 1]?.start ?? v.durationSec, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
   })

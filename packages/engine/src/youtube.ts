@@ -23,15 +23,23 @@ export type VideoMeta = {
   chapters: { start: number; title: string }[]; embeddable: boolean; description: string; thumb: { url: string; width: number; height: number }
   /** YouTube lists an English caption track (manual or automatic). */
   captions: boolean
-  /** Spoken language is English (or unknown). */
-  english?: boolean
+  /** Spoken language (ISO base code, e.g. 'en', 'vi'); YouTube's guess, 'en' when unknown. */
+  lang?: string
 }
 export type Playlist = { id: string; title: string; channel: string; channelUrl: string; videos: { id: string; title: string }[] }
 /**
  * YouTube access: metadata and caption text; for a video with no captions at all, `transcribe` downloads only its audio to a
  * temp folder, transcribes it on this Mac (Whisper) and deletes it. Never video.
  */
-export type YouTube = { playlist(id: string): Promise<Playlist>; video(id: string): Promise<VideoMeta>; transcript(id: string): Promise<string | null>; transcribe?(id: string): Promise<string | null> }
+export type YouTube = { playlist(id: string): Promise<Playlist>; video(id: string): Promise<VideoMeta>; transcript(id: string, lang?: string): Promise<string | null>; transcribe?(id: string, lang?: string): Promise<string | null> }
+
+/**
+ * Languages whose videos we write from: the site's language (natural captions for readers) and English (the largest
+ * pool, captions auto-translated by YouTube). A new site language adds its code here and its searches in discovery.
+ */
+export const SOURCE_LANGS = ['vi', 'en']
+const LANG_NAME: Record<string, string> = { vi: 'tiếng Việt', en: 'tiếng Anh' }
+const base = (l?: string | null) => (l ?? '').toLowerCase().split(/[-_]/)[0] || undefined
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
@@ -116,22 +124,23 @@ export const ytDlp: YouTube = {
       ...(date ? { publishedAt: date } : {}), description: d.description ?? '',
       chapters: ((d.chapters ?? []) as { start_time: number; title: string }[]).map(c => ({ start: Math.round(c.start_time), title: c.title })),
       embeddable: d.playable_in_embed !== false && (d.availability === 'public' || d.availability === 'unlisted'),
-      captions: [...Object.keys(d.subtitles ?? {}), ...Object.keys(d.automatic_captions ?? {})].some(l => /^en(-|$)/.test(l)),
-      english: !d.language || /^en(-|$)/.test(d.language),
+      lang: base(d.language) ?? 'en',
+      // A caption track in the spoken language (the creator's, or YouTube's own: auto-translations are tagged '<lang>-<from>').
+      captions: Object.keys(d.subtitles ?? {}).some(l => base(l) === (base(d.language) ?? 'en')) || Object.keys(d.automatic_captions ?? {}).some(l => l === (base(d.language) ?? 'en') || l === `${base(d.language) ?? 'en'}-orig`),
       thumb: await thumbOf(id),
     }
   },
-  transcript: id => cached(`${id}.txt`, async () => {
+  transcript: (id, lang = 'en') => cached(lang === 'en' ? `${id}.txt` : `${id}.${lang}.txt`, async () => {
     const dir = await mkdtemp(join(tmpdir(), 'aq-yt-'))
     try {
-      await run(['--write-subs', '--write-auto-subs', '--sub-langs', 'en,en-orig,en-US,en-GB', '--sub-format', 'json3', '-o', '%(id)s.%(ext)s', watch(id)], dir)
+      await run(['--write-subs', '--write-auto-subs', '--sub-langs', lang === 'en' ? 'en,en-orig,en-US,en-GB' : `${lang},${lang}-orig`, '--sub-format', 'json3', '-o', '%(id)s.%(ext)s', watch(id)], dir)
       const files = (await readdir(dir)).filter(f => f.endsWith('.json3')).sort((a, b) => a.length - b.length)
       return files[0] ? parseTranscript(await readFile(join(dir, files[0]), 'utf8')) : null
     } finally {
       await rm(dir, { recursive: true, force: true })
     }
   }),
-  transcribe: id => cached(`${id}.whisper.txt`, async () => {
+  transcribe: (id, lang = 'en') => cached(lang === 'en' ? `${id}.whisper.txt` : `${id}.${lang}.whisper.txt`, async () => {
     const python = process.env.WHISPER_PYTHON ?? join(homedir(), '.local/share/thuysinh/whisper-venv/bin/python')
     if (!existsSync(python)) return null // Whisper not installed on this machine: the video stays skipped
     const dir = await mkdtemp(join(tmpdir(), 'aq-audio-'))
@@ -139,7 +148,7 @@ export const ytDlp: YouTube = {
       await run(['-f', 'bestaudio', '-o', 'audio.%(ext)s', watch(id)], dir, true)
       const audio = (await readdir(dir)).find(f => f.startsWith('audio.'))
       if (!audio) return null
-      const out = await new Promise<string>((resolve, reject) => execFile(python, [fileURLToPath(new URL('../scripts/transcribe.py', import.meta.url)), join(dir, audio), 'en'], { maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60_000 }, (e, o, err) => (e ? reject(new Error(`whisper: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(o))))
+      const out = await new Promise<string>((resolve, reject) => execFile(python, [fileURLToPath(new URL('../scripts/transcribe.py', import.meta.url)), join(dir, audio), lang], { maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60_000 }, (e, o, err) => (e ? reject(new Error(`whisper: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(o))))
       return toLines(JSON.parse(out) as { start: number; text: string }[])
     } finally {
       await rm(dir, { recursive: true, force: true }) // the audio never outlives the transcript
@@ -163,6 +172,8 @@ const flat = async (url: string, end = 30) => {
 /** Playlist search (YouTube's playlist filter) and a channel's playlists, via yt-dlp: no API key. */
 export const ytFinder: Finder = {
   search: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgIQAw%253D%253D`),
+  // Videos filter, 4–20 minutes (skips Shorts and clips).
+  searchVideos: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgQQARgD`, 40),
   channel: h => flat(`https://www.youtube.com/@${h}/playlists`, 100),
   uploads: h => flat(`https://www.youtube.com/@${h}/videos`, 100),
   playlist: id => ytDlp.playlist(id),
@@ -192,6 +203,7 @@ const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?:
   `Tiêu đề video: ${m.title}`, `Kênh: ${m.channel}`,
   `Chương (${m.chapters.length}):\n${m.chapters.map(c => `- [${clock(c.start)}] ${c.title}`).join('\n') || '(không có)'}`,
   `Mô tả video:\n${m.description.slice(0, 1500)}`,
+  `Ngôn ngữ video: ${LANG_NAME[m.lang ?? 'en'] ?? m.lang}.${m.lang === 'vi' ? ' Video bằng tiếng Việt: tuyệt đối không chép lại câu nói trong bản ghi; viết lại hoàn toàn bằng lời của bạn, sắp xếp theo cấu trúc bài hướng dẫn.' : ''}`,
   `Bản ghi:\n${transcript.slice(0, 120_000)}`,
   ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
 ].join('\n\n')
@@ -212,7 +224,7 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
 
 export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide may name the channel)\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide may name the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 
@@ -280,10 +292,11 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   async function one(vid: string, series?: Series, position = 0): Promise<boolean> {
     try {
       const m = await yt.video(vid)
-      // No captions at all: our own transcript of the audio (English videos, when Whisper is installed).
-      const ownTranscript = !m.captions && m.english !== false && !!yt.transcribe
-      const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !m.captions && !ownTranscript ? 'no English captions' : null
-      const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid) : await yt.transcript(vid)
+      // No captions in the spoken language: our own transcript of the audio (when Whisper is installed).
+      const lang = m.lang ?? 'en'
+      const ownTranscript = !m.captions && SOURCE_LANGS.includes(lang) && !!yt.transcribe
+      const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !SOURCE_LANGS.includes(lang) ? `spoken in ${lang}` : !m.captions && !ownTranscript ? 'no captions' : null
+      const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid, lang) : await yt.transcript(vid, lang)
       if (!skip && !transcript && ownTranscript) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; return false }
       // Listed but not downloaded (rate limit, network): an error, retried later — not a skip.
       if (!skip && !transcript) throw new Error('English captions listed but not downloaded')
@@ -307,7 +320,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const now = deps.now().toISOString().slice(0, 10)
       const entity = GuideSchema.parse({
         id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], mentions: prev.entity?.mentions ?? [], updatedAt: now,
-        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(ownTranscript ? { transcribed: true } : {}) },
+        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript ? { transcribed: true } : {}) },
       })
       const name = d.viTitle.trim()
       const vi = TranslationSchema.parse({

@@ -102,7 +102,7 @@ test('captions listed but not downloaded: an error retried after a back-off, not
 
 test('no English track is a skip; a broken rewrite keeps the first draft', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  expect((await videoGuides(deps(root, { videos: { a1: { captions: false } } }).d, { playlists: ['PL1'] })).skipped).toEqual(['a1: no English captions'])
+  expect((await videoGuides(deps(root, { videos: { a1: { captions: false } } }).d, { playlists: ['PL1'] })).skipped).toEqual(['a1: no captions'])
   const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root2, { scores: [0.6], drafts: [draft('Bản đầu'), { ...draft(''), body: '' }] }).d, { playlists: ['PL1'] })
   expect((await read(root2, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
@@ -141,9 +141,9 @@ test('a video without any captions is written from our own transcript of its aud
   expect(r.written).toEqual(['youtube-a1 (0.90)'])
   expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.transcribed).toBe(true)
   const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
-  const two = deps(root2, { videos: { a1: { captions: false, english: false } } })
+  const two = deps(root2, { videos: { a1: { captions: false, lang: 'de' } } })
   two.d.yt.transcribe = async () => { throw new Error('not for non-English videos') }
-  expect((await videoGuides(two.d, { playlists: ['PL1'] })).skipped).toEqual(['a1: no English captions'])
+  expect((await videoGuides(two.d, { playlists: ['PL1'] })).skipped).toEqual(['a1: spoken in de'])
 })
 
 test('single videos are written after playlists, without a series', async () => {
@@ -152,4 +152,17 @@ test('single videos are written after playlists, without a series', async () => 
   const r = await videoGuides(d, { playlists: [], singles: ['s1'] })
   expect(r.written).toEqual(['youtube-s1 (0.90)'])
   expect((await read(root, 'content/guides/youtube-s1/entity.json')).video.series).toBeUndefined()
+})
+
+test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer and reviewer, lang kept', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d, calls } = deps(root, { videos: { a1: { lang: 'vi' } } })
+  const langs: (string | undefined)[] = []
+  const orig = d.yt.transcript
+  d.yt.transcript = async (id, lang) => { langs.push(lang); return orig(id) }
+  await videoGuides(d, { playlists: ['PL1'] })
+  expect(langs).toEqual(['vi'])
+  expect(calls.prompts.some(p => p.includes('Ngôn ngữ video: tiếng Việt') && p.includes('không chép lại câu nói'))).toBe(true)
+  expect(calls.prompts.some(p => p.includes('spoken in vi') && p.includes('copied from it'))).toBe(true)
+  expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.lang).toBe('vi')
 })
