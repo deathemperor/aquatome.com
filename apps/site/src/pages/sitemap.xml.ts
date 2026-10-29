@@ -6,7 +6,7 @@ export const GET: APIRoute = async ({ site }) => {
   const c = await getContent()
   const paths = [
     '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/moi-cap-nhat/', '/vi/phan-loai/', '/vi/nguon-goc/',
-    '/vi/gioi-thieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',
+    '/vi/cong-cu/', '/vi/gioi-thieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',
     ...c.species.filter(s => s.t.quality.indexable).map(s => `/vi/ca/${s.t.slug}/`),
     ...c.plants.filter(p => p.t.quality.indexable).map(p => `/vi/cay/${p.t.slug}/`),
     ...c.guides.filter(g => g.t.quality.indexable).map(g => `/vi/huong-dan/${g.t.slug}/`),

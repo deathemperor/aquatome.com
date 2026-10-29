@@ -47,6 +47,7 @@ const firstSource = s.sections[0]
       <DataCard card={s.dataCard} sources={c.sources} />
       {firstSource && <p class="srcline">Dịch và tổng hợp từ {[...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')}. Cập nhật {s.updatedAt}.</p>}
       <VnClimate card={s.dataCard} />
+      <p class="srcline"><a href={`/vi/cong-cu/?ca=${s.t.slug}#nuoi-chung`}>Kiểm tra nuôi chung với loài khác →</a></p>
     </div>
   </header>
 

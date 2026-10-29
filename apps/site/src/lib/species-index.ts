@@ -9,5 +9,6 @@ export function toIndexItem(s: Localized<SpeciesEntity>): SpeciesIndexItem {
   return {
     slug: s.t.slug, name: s.t.name, scientificName: s.scientificName, group: s.group,
     difficulty: asNum(r('difficulty')), tempC: asRange(r('tempC')), ph: asRange(r('ph')), tankCm: asNum(r('tankCm')),
+    gh: asRange(r('gh')), sizeCm: asNum(r('sizeCm')),
   }
 }
