@@ -11,6 +11,8 @@ import { glossaryTerms } from '../../../lib/glossary'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { excerpt } from '../../../lib/meta'
+import { guideImage, mentionIndex } from '../../../lib/mentions'
+import { categoryLabel } from '../../../lib/format'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -18,10 +20,11 @@ export async function getStaticPaths() {
 }
 const { g } = Astro.props as { g: Localized<GuideEntity> }
 const c = await getContent()
-const body = linkGlossary(g.t.body ?? '', glossaryTerms(c))
-const species = c.species.filter(s => g.mentions.includes(s.id))
-const plants = c.plants.filter(p => g.mentions.includes(p.id))
-const ph = g.photos[0]
+const m = mentionIndex(c).guides.get(g.id)!
+const body = linkGlossary(m.html, glossaryTerms(c))
+const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
+const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
+const ph = guideImage(c, g)
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
 <Base title={`${g.t.name} — AquaTome`} description={excerpt(g.t.body ?? '')} image={ph?.url} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
@@ -40,6 +43,12 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
+  {m.equipment.length > 0 && (
+    <section class="wrap related" aria-labelledby="eq-h">
+      <h2 id="eq-h">Thiết bị nhắc đến</h2>
+      <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{categoryLabel(cat)}</a></li>)}</ul>
+    </section>
+  )}
   <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
 </Base>
 <style>
@@ -50,10 +59,13 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; margin-bottom: var(--space-2); }
   .lead { width: 100%; border-radius: var(--radius-media); margin: var(--space-5) 0; }
   .prose :global(p) { font-size: 1.0625rem; line-height: 1.75; }
+  .prose :global(.ml) { color: inherit; text-decoration-color: var(--c-moss); text-decoration-thickness: 1.5px; }
   .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
   .related { padding-bottom: var(--space-6); }
   .related h2, .wrap :global(.comments h2) { font-size: var(--step-2); }
   .related h2 { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
   .end { padding-bottom: var(--space-8); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; }
+  .chips a { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
 </style>

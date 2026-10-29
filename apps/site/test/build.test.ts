@@ -101,6 +101,18 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(html).toContain('2Hr Aquarist')
     expect(dom.querySelector('main .gl')).not.toBeNull()
   })
+  test('guide links species, genus and equipment it names; those pages link back', () => {
+    const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+    const links = dom.querySelectorAll('article .prose a.ml').map(a => [a.text, a.getAttribute('href')])
+    expect(links).toContainEqual(['cá neon xanh', '/vi/ca/ca-neon-xanh/'])
+    expect(links).toContainEqual(['Paracheirodon', expect.stringMatching(/^\/vi\/phan-loai\/[a-z]+\/characidae\/paracheirodon\/$/)])
+    expect(links.find(([, h]) => h === '/vi/thiet-bi/loc/')).toBeDefined()
+    expect(links.filter(([, h]) => h === '/vi/ca/ca-neon-xanh/')).toHaveLength(1) // first mention only
+    expect(dom.querySelectorAll('.chips a').map(a => a.getAttribute('href'))).toContain('/vi/thiet-bi/loc/')
+    const back = (p: string) => page(p).dom.querySelectorAll('a[href="/vi/huong-dan/setup-be-thuy-sinh-dau-tien/"]').length
+    expect(back('/vi/ca/ca-neon-xanh/')).toBeGreaterThan(0)
+    expect(back('/vi/thiet-bi/loc/')).toBeGreaterThan(0)
+  })
   test('glossary index lists every term and term pages exist', () => {
     const { dom } = page('/vi/thuat-ngu/')
     expect(dom.querySelectorAll('a[href^="/vi/thuat-ngu/"]').length).toBeGreaterThanOrEqual(4)

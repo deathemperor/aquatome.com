@@ -10,6 +10,8 @@ import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
 import VnClimate from '../../../components/VnClimate.astro'
 import QuickSummary from '../../../components/QuickSummary.astro'
+import GuideLinks from '../../../components/GuideLinks.astro'
+import { guidesMentioning } from '../../../lib/mentions'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
@@ -56,7 +58,8 @@ const summary = await approvedSummary(s.id)
   </header>
 
   {summary && <QuickSummary summary={summary} />}
-  <Sections sections={s.sections} t={s.t} />
+  <Sections sections={s.sections} t={s.t} self={`species:${s.id}`} />
+  <GuideLinks guides={guidesMentioning(c, `species:${s.id}`)} heading="Bài viết nhắc đến loài này" />
 
   <VideoFacade videos={s.videos} />
 

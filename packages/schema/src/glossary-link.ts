@@ -3,10 +3,10 @@ import { HTMLElement, NodeType, parse, type Node, type TextNode } from 'node-htm
 export type GlossaryLinkTerm = { name: string; href: string }
 
 const SKIP = new Set(['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'script', 'style', 'code'])
-const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+export const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+export const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
-function textNodes(node: Node, out: TextNode[] = []): TextNode[] {
+export function textNodes(node: Node, out: TextNode[] = []): TextNode[] {
   for (const child of node.childNodes) {
     if (child.nodeType === NodeType.TEXT_NODE) out.push(child as TextNode)
     else if (child instanceof HTMLElement && !SKIP.has(child.rawTagName?.toLowerCase())) textNodes(child, out)

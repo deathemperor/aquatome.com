@@ -1,0 +1,27 @@
+import { expect, test } from 'vitest'
+import { linkTerms } from '../src/link-terms'
+
+const T = [
+  { key: 'species:a', href: '/vi/ca/neon-xanh/', names: ['Paracheirodon simulans', 'Cá neon xanh'] },
+  { key: 'species:b', href: '/vi/ca/neon/', names: ['Cá neon'] },
+  { key: 'genus:p', href: '/vi/phan-loai/p/', names: ['Paracheirodon'], exact: true },
+  { key: 'equipment:loc', href: '/vi/thiet-bi/loc/', names: ['bộ lọc', 'máy lọc'] },
+]
+
+test('first occurrence per target, longest name wins, case-insensitive Vietnamese, exact Latin', () => {
+  const html = '<p>Cá neon xanh và cá neon. Lại cá neon xanh (Paracheirodon simulans). Chi Paracheirodon, không phải paracheirodon. Cần Bộ lọc tốt.</p>'
+  const r = linkTerms(html, T, 'ml')
+  expect(r.keys).toEqual(['species:a', 'species:b', 'genus:p', 'equipment:loc'])
+  expect(r.html).toContain('<a href="/vi/ca/neon-xanh/" class="ml">Cá neon xanh</a> và <a href="/vi/ca/neon/" class="ml">cá neon</a>')
+  expect(r.html).toContain('Chi <a href="/vi/phan-loai/p/" class="ml">Paracheirodon</a>, không phải paracheirodon')
+  expect(r.html).toContain('<a href="/vi/thiet-bi/loc/" class="ml">Bộ lọc</a>')
+  expect(r.html.match(/neon-xanh/g)).toHaveLength(1)
+})
+
+test('never inside existing links or headings; seen carries across calls; no-hit html is unchanged', () => {
+  const r = linkTerms('<h2>Cá neon</h2><p><a href="/x">cá neon</a> rồi cá neon</p>', T, 'ml')
+  expect(r.html).toBe('<h2>Cá neon</h2><p><a href="/x">cá neon</a> rồi <a href="/vi/ca/neon/" class="ml">cá neon</a></p>')
+  const seen = new Set(['species:b'])
+  expect(linkTerms('<p>cá neon</p>', T, 'ml', seen)).toEqual({ html: '<p>cá neon</p>', keys: [] })
+  expect(linkTerms('<p>Cá neonxanh</p>', T, 'ml').keys).toEqual([]) // word boundaries
+})

@@ -4,19 +4,28 @@ import ProductSlots from '../../../components/ProductSlots.astro'
 import { getContent } from '../../../lib/content'
 import { categories, type CategoryUse } from '../../../lib/equipment'
 import { categoryLabel } from '../../../lib/format'
+import { guidesMentioning } from '../../../lib/mentions'
+import { GUIDE_KIND_LABELS } from '../../../lib/format'
 export async function getStaticPaths() {
   return categories(await getContent()).map(u => ({ params: { category: u.category }, props: { u } }))
 }
 const { u } = Astro.props as { u: CategoryUse }
 const label = categoryLabel(u.category)
+const guides = guidesMentioning(await getContent(), `equipment:${u.category}`).slice(0, 12)
 ---
 <Browse title={label} heading={label} crumbs={[['/vi/thiet-bi/', 'Thiết bị']]}>
   <ProductSlots slots={[{ category: u.category, keywords: u.keywords }]} heading="Gợi ý mua" entity={`equipment:${u.category}`} />
   <h2 class="h">Dùng cho</h2>
   <ul class="used">{u.usedBy.map(x => <li><a href={x.href}>{x.name}</a></li>)}</ul>
+  {guides.length > 0 && <>
+    <h2 class="h">Bài viết liên quan</h2>
+    <ul class="guides">{guides.map(g => <li><a href={`/vi/huong-dan/${g.t.slug}/`}>{g.t.name}</a> <span>{GUIDE_KIND_LABELS[g.kind]}</span></li>)}</ul>
+  </>}
 </Browse>
 <style>
   .h { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
   .used { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; }
   .used a { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
+  .guides { list-style: none; padding: 0; display: grid; gap: var(--space-2); }
+  .guides span { color: var(--c-ink-faint); font-size: 0.85rem; margin-left: var(--space-2); }
 </style>
