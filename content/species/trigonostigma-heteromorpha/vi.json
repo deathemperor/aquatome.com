@@ -1,9 +1,7 @@
 {
-  "slug": "ca-hong-nhung",
-  "name": "Cá hồng nhung",
+  "slug": "ca-tam-giac",
+  "name": "Cá tam giác",
   "altNames": [
-    "Cá hồng nhung xanh và vàng (Harlequin Blue and Gold)",
-    "Cá thài lài hồng nhung",
     "Harlequin barb",
     "Harlequin rasbora",
     "Blue and Gold Harlequin",
@@ -34,6 +32,10 @@
     {
       "slug": "ca-hong-nhung-xanh-va-vang-harlequin-blue-and-gold",
       "name": "Cá hồng nhung xanh và vàng (Harlequin Blue and Gold)"
+    },
+    {
+      "slug": "ca-hong-nhung",
+      "name": "Cá hồng nhung"
     }
   ],
   "quality": {

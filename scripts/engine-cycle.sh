@@ -36,6 +36,8 @@ pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
 pnpm engine photos --limit 60 || log "photos: backfill failed"
 # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
 pnpm engine faces || log "faces: failed (unscreened photos may publish)"
+# Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
+pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
 # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
 pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
 # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
