@@ -42,25 +42,6 @@ export function groupTiles(c: Content): { group: string; label: string; count: n
     .sort((a, b) => b.count - a.count)
 }
 
-export type Latest = { kind: 'species'; x: Localized<SpeciesEntity> } | { kind: 'plant'; x: Localized<PlantEntity> } | { kind: 'guide'; x: Localized<GuideEntity> }
-
-/** Newest additions (changelog "new"), most recent first; only pages that are on the site. */
-export function latest(c: Content, n = 6): Latest[] {
-  const out: Latest[] = []
-  const seen = new Set<string>()
-  for (const e of [...c.changelog].reverse().sort((a, b) => b.date.localeCompare(a.date))) {
-    if (e.action !== 'new' || seen.has(`${e.kind}:${e.id}`)) continue
-    seen.add(`${e.kind}:${e.id}`)
-    const item: Latest | undefined =
-      e.kind === 'species' ? (s => s && { kind: 'species' as const, x: s })(c.species.find(s => s.id === e.id && s.photos.length))
-      : e.kind === 'plant' ? (p => p && { kind: 'plant' as const, x: p })(c.plants.find(p => p.id === e.id && p.photos.length))
-      : (g => g && guideImage(c, g) && { kind: 'guide' as const, x: g })(c.guides.find(g => g.id === e.id && g.kind !== 'discovery'))
-    if (item) out.push(item)
-    if (out.length >= n) break
-  }
-  return out
-}
-
 /** Plants that need neither strong light nor CO2, easiest first. */
 export function easyPlants(c: Content, n = 4): Localized<PlantEntity>[] {
   const easy = c.plants.filter(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')
@@ -79,6 +60,5 @@ export function leadGuides(c: Content): Localized<GuideEntity>[] {
   return [...staples, ...rest]
 }
 
-/** Continents with how many species come from each. */
-export const continents = (c: Content) =>
-  c.places.filter(p => p.kind === 'continent').map(p => ({ p, count: c.species.filter(s => s.places.includes(p.id)).length })).filter(x => x.count > 0).sort((a, b) => b.count - a.count)
+/** Guides for the homepage's three first steps: cycle the tank, choose fish, change water. Missing ones are skipped. */
+export const STEP_GUIDES = { cycle: 'aquariumcoop-blogs-aquarium-fish-tank-cycling', water: 'aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly' }

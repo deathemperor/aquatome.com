@@ -9,213 +9,165 @@ import { getContent } from '../../lib/content'
 import { HERO } from '../../lib/hero'
 import { creditsFor } from '../../lib/credits'
 import { smallSrc } from '../../lib/img'
-import { GUIDE_KIND_LABELS } from '../../lib/format'
-import { continents, easyPlants, featuredSpecies, groupTiles, latest, leadGuides } from '../../lib/home'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, STEP_GUIDES } from '../../lib/home'
 
 const c = await getContent()
-// Practical guides naming the most of our species and plants: two large, four as cards.
-const withImage = leadGuides(c)
-const guides = withImage.slice(0, 2)
-const moreGuides = withImage.slice(2, 6)
+const guideById = (id: string) => c.guides.find(g => g.id === id)
+const cycle = guideById(STEP_GUIDES.cycle)
+const water = guideById(STEP_GUIDES.water)
+// Three first steps; a step whose guide isn't published links nowhere and is dropped.
+const steps = [
+  cycle && { n: 1, title: 'Chạy chu trình nitơ', text: 'Nuôi vi sinh trong bể vài tuần trước khi thả cá, để chất thải của cá không thành chất độc.', href: `/vi/huong-dan/${cycle.t.slug}/` },
+  { n: 2, title: 'Chọn cá hợp bể', text: 'Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.', href: '/vi/ca/?difficultyMax=3' },
+  water && { n: 3, title: 'Thay nước định kỳ', text: 'Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.', href: `/vi/huong-dan/${water.t.slug}/` },
+].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
+const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const featured = featuredSpecies(c)
 const groups = groupTiles(c)
-const fresh = latest(c)
 const plants = easyPlants(c)
-const origins = continents(c)
 const equipment = c.equipment
-const freshPhoto = (l: (typeof fresh)[number]) => (l.kind === 'guide' ? guideImage(c, l.x) : l.x.photos[0])
-const freshHref = (l: (typeof fresh)[number]) => `/vi/${l.kind === 'species' ? 'ca' : l.kind === 'plant' ? 'cay' : 'huong-dan'}/${l.x.t.slug}/`
-const freshKind = (l: (typeof fresh)[number]) => (l.kind === 'species' ? 'Loài mới' : l.kind === 'plant' ? 'Cây mới' : GUIDE_KIND_LABELS[l.x.kind])
 const credits = [HERO, ...creditsFor([
-  ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...moreGuides.map(g => guideImage(c, g)),
-  ...fresh.map(freshPhoto), ...plants.map(p => p.photos[0]), ...equipment.map(e => e.hero),
+  ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
 ])]
 ---
-<Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Hồ sơ cá cảnh, cây thủy sinh và hướng dẫn setup bể, dịch từ các nguồn uy tín." credits={credits}>
-  <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="100vw" fetchpriority="high" />
-  <Fragment slot="header">
-    <div class="hero home-hero" style={`--hero:url(${HERO.url});--hero-l:url(${HERO.large})`}>
-      <Nav overlay />
-      <div class="wrap hero-copy">
-        <h1>Hiểu cá trước khi thả cá.</h1>
-        <p>Hồ sơ loài, cây thủy sinh và hướng dẫn setup bể, dịch từ những nguồn uy tín nhất thế giới.</p>
-        <form class="search" action="/vi/ca/" role="search">
-          <label class="visually-hidden" for="q">Tìm loài cá</label>
-          <input id="q" name="q" type="search" placeholder="Tìm loài cá theo tên Việt hoặc tên khoa học" />
-          <button type="submit">Tìm</button>
-        </form>
-        <ul class="quick">
-          <li><a href="/vi/ca/?difficultyMax=2">Cá cho người mới</a></li>
-          <li><a href="/vi/ca/?tankCm=45">Bể nano</a></li>
-          <li><a href="/vi/cay/">Cây không cần CO₂</a></li>
-          <li><a href="/vi/nhom/shrimp/">Tép</a></li>
-        </ul>
-      </div>
-    </div>
-  </Fragment>
+<Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt." credits={credits}>
+  <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="(min-width: 900px) 40vw, 100vw" fetchpriority="high" />
+  <Nav slot="header" />
 
-  <section class="match" aria-labelledby="match-h">
-    <form class="wrap" action="/vi/ca/">
-      <h2 id="match-h">Bể của bạn hợp với loài nào?</h2>
-      <label>Chiều dài bể <span><input name="tankCm" type="number" inputmode="numeric" value="60" min="20" max="300" /> cm</span></label>
-      <label>Nhiệt độ <span><input name="tempC" type="number" inputmode="numeric" value="26" min="10" max="35" /> °C</span></label>
-      <label>pH <span><input name="ph" type="number" inputmode="decimal" step="0.1" value="7" min="3" max="9" /></span></label>
-      <button type="submit">Gợi ý loài</button>
-    </form>
+  <section class="tank" aria-labelledby="tank-h">
+    <div class="wrap tank-in">
+      <div class="lead">
+        <h1 id="tank-h">Hiểu cá trước khi thả cá.</h1>
+        <p class="sub">Cho biết bể của bạn, AquaTome chỉ ra loài nào sống khỏe trong đó.</p>
+        <form id="tank" class="form" action="/vi/ca/">
+          <label>Chiều dài bể <span><input name="tankCm" type="number" inputmode="numeric" value="60" min="20" max="300" required /> cm</span></label>
+          <label>Nhiệt độ nước <span><input name="tempC" type="number" inputmode="numeric" value="26" min="10" max="35" required /> °C</span></label>
+          <label>pH <span><input name="ph" type="number" inputmode="decimal" step="0.1" value="7" min="3" max="9" required /></span></label>
+          <button type="submit">Xem loài hợp bể</button>
+        </form>
+        <form class="search" action="/vi/ca/" role="search">
+          <label for="q">Hoặc tìm theo tên</label>
+          <span><input id="q" name="q" type="search" placeholder="cá neon, betta, Corydoras…" /><button type="submit">Tìm</button></span>
+        </form>
+      </div>
+      <figure class="photo">
+        <img src={HERO.url} srcset={`${HERO.url} 960w, ${HERO.large} 1600w`} sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="900" alt="Bể thủy sinh trồng cây, có lũa và đá" fetchpriority="high" />
+      </figure>
+    </div>
   </section>
 
+  {steps.length > 1 && (
+    <section class="wrap block" aria-labelledby="steps-h">
+      <h2 id="steps-h" class="h">Bể đầu tiên: ba việc cần làm</h2>
+      <ol class="steps">
+        {steps.map(s => <li><a href={s.href}><span class="n">{s.n}</span><b>{s.title}</b><span class="t">{s.text}</span></a></li>)}
+      </ol>
+    </section>
+  )}
+
   <section class="wrap block" aria-labelledby="featured-h">
-    <div class="head"><h2 id="featured-h">Loài nổi bật</h2><a href="/vi/ca/">Tất cả {c.species.length} loài →</a></div>
+    <div class="head"><h2 id="featured-h" class="h">Loài quen thuộc</h2><a href="/vi/ca/">Tất cả {c.species.length} loài →</a></div>
     {featured.length === 0
       ? <p class="empty">Chưa có hồ sơ loài nào được xuất bản.</p>
-      : <div class="grid four">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} />)}</div>}
+      : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} />)}</div>}
   </section>
 
   {groups.length > 0 && (
     <section class="wrap block" aria-labelledby="groups-h">
-      <div class="head"><h2 id="groups-h">Theo nhóm cá</h2></div>
-      <div class="tiles">
+      <h2 id="groups-h" class="h">Theo nhóm</h2>
+      <ul class="groups">
         {groups.map(g => (
-          <a class="tile" href={`/vi/nhom/${g.group}/`}>
-            {g.photo && <img src={smallSrc(g.photo)} width={g.photo.width} height={g.photo.height} alt="" loading="lazy" />}
-            <span><b>{g.label}</b> {g.count} loài</span>
-          </a>
+          <li><a href={`/vi/nhom/${g.group}/`}>
+            <span class="gp">{g.photo && <img src={smallSrc(g.photo)} width={g.photo.width} height={g.photo.height} alt="" loading="lazy" />}</span>
+            <b>{g.label}</b> <span class="cnt">{g.count} loài</span>
+          </a></li>
         ))}
-      </div>
+      </ul>
     </section>
   )}
 
   {guides.length > 0 && (
-    <section class="guides" aria-labelledby="guides-h">
-      <div class="wrap">
-        <h2 id="guides-h" class="visually-hidden">Hướng dẫn</h2>
-        <div class="gg">
-          {guides.map(g => (
-            <a class="g" href={`/vi/huong-dan/${g.t.slug}/`} style={guideImage(c, g) ? `--img:url(${guideImage(c, g)!.url})` : undefined}>
-              <span class="kind">{GUIDE_KIND_LABELS[g.kind]}</span>
-              <h3>{g.t.name}</h3>
-              <span class="src">Dịch từ {c.sources[g.source]?.name ?? g.source}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-  {moreGuides.length > 0 && (
-    <section class="wrap block" aria-labelledby="more-guides-h">
-      <div class="head"><h2 id="more-guides-h">Hướng dẫn khác</h2><a href="/vi/huong-dan/">Tất cả hướng dẫn →</a></div>
-      <div class="grid four">{moreGuides.map(g => <GuideCard g={g} />)}</div>
-    </section>
-  )}
-
-  {fresh.length > 0 && (
-    <section class="wrap block" aria-labelledby="fresh-h">
-      <div class="head"><h2 id="fresh-h">Mới trên AquaTome</h2><a href="/vi/moi-cap-nhat/">Xem tất cả →</a></div>
-      <ul class="fresh">
-        {fresh.map(l => { const ph = freshPhoto(l); return (
-          <li><a href={freshHref(l)}>
-            {ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}
-            <span class="k">{freshKind(l)}</span>
-            <span class="t">{l.x.t.name}</span>
-          </a></li>
-        ) })}
-      </ul>
+    <section class="wrap block" aria-labelledby="guides-h">
+      <div class="head"><h2 id="guides-h" class="h">Hướng dẫn cơ bản</h2><a href="/vi/huong-dan/">Tất cả hướng dẫn →</a></div>
+      <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>
     </section>
   )}
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <div class="head"><h2 id="plants-h">Cây thủy sinh dễ trồng</h2><a href="/vi/cay/">Tất cả {c.plants.length} loài cây →</a></div>
-      <div class="grid four">{plants.map(p => <PlantCard p={p} />)}</div>
+      <h2 id="plants-h" class="h">Cây dễ trồng, không cần CO₂</h2>
+      <div class="grid">{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
 
-  <section class="wrap block two" aria-label="Duyệt thêm">
-    {origins.length > 0 && (
-      <div>
-        <div class="head"><h2>Theo nguồn gốc</h2><a href="/vi/nguon-goc/">Bản đồ →</a></div>
-        <ul class="chips">{origins.map(o => <li><a href={`/vi/nguon-goc/${o.p.id}/`}>{o.p.t.name} <span>{o.count}</span></a></li>)}</ul>
-      </div>
-    )}
-    {equipment.length > 0 && (
-      <div>
-        <div class="head"><h2>Thiết bị</h2><a href="/vi/thiet-bi/">Tất cả →</a></div>
-        <ul class="equip">
-          {equipment.map(e => (
-            <li><a href={`/vi/thiet-bi/${e.category}/`}><img src={smallSrc(e.hero)} width={e.hero.width} height={e.hero.height} alt="" loading="lazy" /><span>{e.name}</span></a></li>
-          ))}
-        </ul>
-      </div>
-    )}
-  </section>
+  {equipment.length > 0 && (
+    <section class="wrap block" aria-labelledby="equip-h">
+      <h2 id="equip-h" class="h">Mua thiết bị: chọn thế nào</h2>
+      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}>{e.name}</a></li>)}</ul>
+    </section>
+  )}
+
+  {/* Remembers the reader's tank (browser storage only) so the form is filled next time. */}
+  <script is:inline>(()=>{try{var f=document.getElementById('tank'),k='aq_tank',v=JSON.parse(localStorage.getItem(k)||'null');if(v)['tankCm','tempC','ph'].forEach(function(n){if(v[n])f.elements[n].value=v[n]});f.addEventListener('submit',function(){var o={};['tankCm','tempC','ph'].forEach(function(n){o[n]=f.elements[n].value});localStorage.setItem(k,JSON.stringify(o))})}catch(e){}})()</script>
 </Base>
 <style>
-  .hero { position: relative; min-height: min(78vh, 640px); background: var(--c-blackwater) var(--hero) center 55% / cover; color: var(--c-on-dark); display: flex; align-items: flex-end; }
-  @media (min-width: 900px) { .hero { background-image: var(--hero-l); } }
-  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 26 29 / 0.9) 0, rgb(10 26 29 / 0.4) 55%, transparent 85%), linear-gradient(180deg, rgb(10 26 29 / 0.55) 0, transparent 25%, transparent 60%, var(--c-blackwater) 100%); }
-  .hero-copy { position: relative; z-index: 2; padding-block: var(--space-8) var(--space-7); width: 100%; }
-  h1 { font-size: var(--step-4); max-width: 13em; letter-spacing: -0.02em; color: #fff; }
-  .hero-copy > p { max-width: 34em; color: var(--c-on-dark); margin: var(--space-3) 0 var(--space-5); }
-  .search { display: flex; max-width: 34rem; background: rgb(10 26 29 / 0.6); border: 1px solid rgb(255 255 255 / 0.25); border-radius: 999px; padding: 4px; }
-  .search input { flex: 1; min-width: 0; background: none; border: 0; color: #fff; font: inherit; padding: 0.6rem 1rem; }
-  .search input::placeholder { color: var(--c-on-dark-soft); }
-  .search:focus-within { border-color: var(--c-neon); }
+  .tank { border-bottom: 1px solid var(--c-rule); }
+  .tank-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--space-7); align-items: center; padding-block: var(--space-7); }
+  h1 { font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.4rem); letter-spacing: -0.01em; }
+  .sub { color: var(--c-ink-soft); margin: var(--space-3) 0 var(--space-5); max-width: 32em; }
+  .form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); background: var(--c-plate); border: 1px solid var(--c-ink); }
+  .form label { display: grid; gap: 4px; font-size: 0.8rem; color: var(--c-ink-soft); }
+  .form label span { display: flex; align-items: center; gap: 6px; color: var(--c-ink); }
+  .form input { width: 100%; min-width: 0; font: 600 1.25rem var(--f-body); color: var(--c-ink); background: #fff; border: 1px solid var(--c-ink-soft); padding: 0.45rem 0.5rem; }
+  .form button { grid-column: 1 / -1; min-height: 48px; border: 0; background: var(--c-ink); color: var(--c-paper); font: 600 1rem var(--f-body); cursor: pointer; }
+  .form button:hover { background: var(--c-moss); }
+  .search { margin-top: var(--space-4); display: grid; gap: 4px; font-size: 0.8rem; color: var(--c-ink-soft); }
+  .search span { display: flex; border-bottom: 1px solid var(--c-ink-soft); }
+  .search input { flex: 1; min-width: 0; min-height: 44px; border: 0; background: none; font: inherit; font-size: 1rem; color: var(--c-ink); padding: 0 2px; }
   .search input:focus-visible { outline: none; }
-  .search button { border: 0; border-radius: 999px; background: var(--c-neon); color: var(--c-blackwater); font: 600 0.95rem var(--f-body); padding: 0 1.25rem; cursor: pointer; }
-  .quick { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: var(--space-4) 0 0; }
-  .quick a { display: inline-block; font-size: 0.85rem; color: var(--c-on-dark); border: 1px solid rgb(255 255 255 / 0.28); border-radius: 999px; padding: 0.3rem 0.8rem; text-decoration: none; }
-  .quick a:hover { border-color: var(--c-neon); color: #fff; }
+  .search span:focus-within { border-color: var(--c-ink); box-shadow: 0 1px 0 var(--c-ink); }
+  .search button { min-height: 44px; min-width: 44px; border: 0; background: none; font: 600 0.95rem var(--f-body); color: var(--c-moss); cursor: pointer; }
+  .photo { margin: 0; padding: 10px; background: #fff; box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
+  .photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
-  .match { background: var(--c-blackwater-2); color: var(--c-on-dark); }
-  .match form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-4); padding-block: var(--space-5); }
-  .match h2 { font-size: var(--step-2); margin-right: auto; color: #fff; max-width: 12em; }
-  .match label { display: grid; gap: 2px; font-size: 0.8rem; color: var(--c-on-dark-soft); }
-  .match label span { color: #fff; font-size: 1rem; }
-  .match input { width: 4.5rem; font: 600 1.05rem var(--f-body); background: var(--c-blackwater); color: #fff; border: 1px solid var(--c-on-dark-soft); border-radius: 8px; padding: 0.4rem 0.5rem; }
-  .match button { border: 0; border-radius: 999px; background: var(--c-neon); color: var(--c-blackwater); font: 600 1rem var(--f-body); padding: 0.65rem 1.3rem; cursor: pointer; }
-
-  .block { padding-block: var(--space-7) var(--space-6); }
-  .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
-  .head h2 { font-size: var(--step-3); }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
-  @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }
+  .block { padding-block: var(--space-7) 0; }
+  .block:last-of-type { padding-bottom: var(--space-7); }
+  .h { font-size: var(--step-3); }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+  .head a { white-space: nowrap; padding-block: 10px; }
+  .head, section > .h { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
   .empty { color: var(--c-ink-soft); }
-  .head a { white-space: nowrap; }
-  @media (min-width: 900px) { .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: var(--space-4); }
-  .tile { position: relative; display: block; border-radius: var(--radius-media); overflow: hidden; aspect-ratio: 4 / 3; background: var(--c-plate); color: #fff; text-decoration: none; isolation: isolate; }
-  .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 0.3s; }
-  .tile::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 40%, rgb(5 14 16 / 0.85)); }
-  .tile span { position: absolute; left: var(--space-3); bottom: var(--space-3); font-size: 0.85rem; }
-  .tile b { display: block; font: 400 var(--step-1) var(--f-display); }
-  .tile:hover img { transform: scale(1.04); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--c-rule); background: var(--c-plate); }
+  .steps li + li { border-left: 1px solid var(--c-rule); }
+  .steps a { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--space-3); padding: var(--space-5); height: 100%; text-decoration: none; color: inherit; }
+  .steps .n { grid-row: span 2; font: 400 2.6rem/1 var(--f-display); color: var(--c-cardinal); }
+  .steps b { font: 500 var(--step-1) var(--f-display); }
+  .steps .t { color: var(--c-ink-soft); font-size: 0.95rem; }
+  .steps a:hover b { color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.15em; }
 
+  .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: var(--space-4) var(--space-3); }
+  .groups a { display: block; text-decoration: none; color: inherit; font-size: 0.95rem; }
+  .gp { display: block; padding: 4px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
+  .gp img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .groups b { font: 500 1.05rem var(--f-display); }
+  .cnt { display: block; color: var(--c-ink-faint); font-size: 0.8rem; }
+  .groups a:hover b { color: var(--c-moss); }
 
-  .fresh { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
-  .fresh a { display: grid; grid-template-columns: 88px 1fr; grid-template-rows: auto 1fr; gap: 2px var(--space-3); text-decoration: none; color: inherit; }
-  .fresh img { grid-row: span 2; width: 88px; height: 66px; object-fit: cover; border-radius: 8px; }
-  .fresh .k { font-size: 0.75rem; color: var(--c-moss); }
-  .fresh .t { font-weight: 500; line-height: 1.3; }
-  .fresh a:hover .t { color: var(--c-moss); }
+  .equip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
+  .equip a { display: inline-block; padding-block: 10px; font: 400 var(--step-1) var(--f-display); }
 
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); }
-  .chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
-  .chips a { display: inline-block; padding: 0.35rem 0.9rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
-  .chips span { color: var(--c-ink-faint); font-size: 0.85rem; margin-left: 0.2rem; }
-  .equip { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
-  .equip a { display: block; text-decoration: none; color: inherit; font-size: 0.9rem; }
-  .equip img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 8px; display: block; margin-bottom: 4px; }
-  .equip a:hover span { color: var(--c-moss); }
-  @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
-
-  .guides { background: var(--c-blackwater); padding-block: var(--space-6); }
-  .gg { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-4); }
-  .g { position: relative; min-height: 220px; border-radius: var(--radius-media); overflow: hidden; background: var(--c-blackwater-2) var(--img) center / cover; display: flex; flex-direction: column; justify-content: flex-end; padding: var(--space-5); color: #fff; text-decoration: none; isolation: isolate; }
-  .g::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 25%, rgb(5 14 16 / 0.92)); }
-  .g .kind { font-size: 0.8rem; color: var(--c-neon); }
-  .g h3 { font-size: var(--step-2); margin: var(--space-1) 0; }
-  .g .src { font-size: 0.8rem; color: var(--c-on-dark-soft); }
-  .g:hover h3 { text-decoration: underline; text-underline-offset: 0.15em; }
-  @media (max-width: 720px) { .gg { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) {
+    .tank-in { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-5) var(--space-6); }
+    .photo { padding: 6px; }
+    .photo img { aspect-ratio: 16 / 9; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); }
+    .steps { grid-template-columns: 1fr; }
+    .steps li + li { border-left: 0; border-top: 1px solid var(--c-rule); }
+    .groups { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: var(--space-3); padding-bottom: var(--space-2); margin-inline: calc(-1 * var(--space-5)); padding-inline: var(--space-5); }
+    .groups li { flex: 0 0 116px; scroll-snap-align: start; }
+    .block { padding-top: var(--space-6); }
+    .h { font-size: var(--step-2); }
+  }
 </style>
