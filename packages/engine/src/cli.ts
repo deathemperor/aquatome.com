@@ -19,8 +19,10 @@ import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { extractTraits } from './traits'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
+import { videoImages } from './video-images'
+import { searchCommons } from './photos'
 import { discoverPlaylists } from './video-discovery'
-import { videoGuides, ytDlp, ytFinder } from './youtube'
+import { videoGuides, ytDlp, ytFinder, ytStoryboard } from './youtube'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -153,6 +155,15 @@ if (cmd === 'run') {
   })
   console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
+  // Pictures per section: video stills (storyboard frames) + an open-licence Commons photo, picked by Claude, no faces.
+  const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const im = await videoImages(join(ROOT, 'content'), {
+    llm: claudeCli, faces: visionFaces, storyboard: ytStoryboard, transcript: id => ytDlp.transcript(id), commons: q => searchCommons(q, http, 6), get, media: media(),
+    look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
+  }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
+  console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
+  for (const x of im.done) console.log(`images: ${x}`)
+  for (const f of im.failed) console.log(`images failed: ${f}`)
 } else if (cmd === 'discover-videos') {
   // More teaching playlists: YouTube playlist searches + known channels → overlap filter → model vets → engine-state/youtube-playlists.json.
   const r = await discoverPlaylists({ find: ytFinder, llm: claudeCli, root: ROOT, now: () => new Date() }, { maxNew: values.limit ? Number(values.limit) : undefined })

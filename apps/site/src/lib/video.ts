@@ -1,3 +1,4 @@
+import { parse } from 'node-html-parser'
 import type { Content, GuideEntity, Localized, Photo, Series } from '@aq/schema'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
@@ -47,4 +48,29 @@ export function homeVideos(c: Content, n = 4): VideoGuide[] {
   const out: VideoGuide[] = []
   for (let i = 0; out.length < n && lists.some(l => l[i]); i++) for (const l of lists) if (l[i] && out.length < n) out.push(l[i]!)
   return out
+}
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+/**
+ * Each section's pictures after its first paragraph (or list): the open-licence photo, then stills from the video
+ * whose buttons play the video from that moment (VideoPlayer's click handler).
+ */
+export function illustrate(html: string, v: NonNullable<GuideEntity['video']>): string {
+  if (!v.figures?.length) return html
+  const root = parse(html)
+  const byHeading = new Map(v.figures.map(f => [f.heading, f]))
+  for (const h of root.querySelectorAll('h3')) {
+    const f = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
+    if (!f) continue
+    const photo = f.photo
+      ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')} <span class="by">Ảnh: <a href="${esc(f.photo.sourceUrl)}" rel="noopener">${esc(f.photo.author)}</a>, ${esc(f.photo.licence)}</span></figcaption></figure>`
+      : ''
+    const moments = f.moments.length
+      ? `<div class="moments"><p class="mh">Trong video</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}" aria-label="Xem video từ ${clock(m.t)}: ${esc(m.caption)}"><img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"><span class="mt">▶ ${clock(m.t)}</span><span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
+      : ''
+    const after = h.nextElementSibling && ['P', 'UL', 'OL'].includes(h.nextElementSibling.tagName) ? h.nextElementSibling : h
+    after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)
+  }
+  return root.toString()
 }

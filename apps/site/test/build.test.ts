@@ -292,6 +292,16 @@ describe('video guide', () => {
     expect(dom.querySelector('.faq summary')?.text).toBe('Nên thay nước lúc nào?')
     expect(dom.querySelector('.crumb a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })
+  test('section pictures: licensed photo with credit, then video stills that play from their moment (captions escaped)', () => {
+    const figs = dom.querySelector('h3#khoi-dong-be-moi')?.nextElementSibling?.nextElementSibling
+    expect(figs?.classList.contains('vfigs')).toBe(true)
+    expect(figs?.querySelector('.vphoto .by a[href="https://commons.wikimedia.org/wiki/File:Oto.jpg"]')?.text).toBe('Fremen')
+    const m = figs?.querySelector('button.moment')
+    expect(m?.getAttribute('data-t')).toBe('95')
+    expect(m?.getAttribute('data-vp-for')).toBe('vl1Lx9iWDYU')
+    expect(m?.querySelector('.mc')?.text).toBe('Bể mới set với <đá> và cây.')
+    expect(html).not.toContain('<đá>')
+  })
   test('VideoObject with chapter clips and FAQPage JSON-LD', () => {
     const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.text))
     const v = ld.find(j => j['@type'] === 'VideoObject')

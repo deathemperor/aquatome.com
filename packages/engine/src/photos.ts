@@ -6,9 +6,12 @@ type Result = { query?: { pages?: Record<string, { index: number; title: string;
 const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
 
 /** Open-licence photos from Wikimedia Commons, in search-rank order. */
-export async function findPhotos(scientificName: string, http: (url: string) => Promise<unknown>, max = 4): Promise<Photo[]> {
+export const findPhotos = (scientificName: string, http: (url: string) => Promise<unknown>, max = 4) => searchCommons(`"${scientificName}"`, http, max)
+
+/** Commons bitmap search (≥ 800px, open licences only). */
+export async function searchCommons(search: string, http: (url: string) => Promise<unknown>, max = 4): Promise<Photo[]> {
   const q = new URLSearchParams({
-    action: 'query', format: 'json', generator: 'search', gsrsearch: `filetype:bitmap "${scientificName}"`, gsrnamespace: '6', gsrlimit: '20',
+    action: 'query', format: 'json', generator: 'search', gsrsearch: `filetype:bitmap ${search}`, gsrnamespace: '6', gsrlimit: '20',
     prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: '960', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription',
   })
   const r = (await http(`https://commons.wikimedia.org/w/api.php?${q.toString().replace(/\+/g, '%20')}`)) as Result
