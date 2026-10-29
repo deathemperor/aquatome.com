@@ -180,8 +180,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }
 
   let llmFailures = 0
-  sources: for (const id of opts.sources ?? [...SOURCE_IDS]) {
+  // Least-covered sources first, each capped at a fair share of the time left (unused time rolls forward),
+  // so one large backlog (Seriously Fish) can't starve the others; the most-covered source runs last and gets the rest.
+  const covered = new Map<SourceId, number>()
+  for (const id of opts.sources ?? SOURCE_IDS) covered.set(id, Object.keys(await loadState(root, id)).length)
+  const order = [...covered.keys()].sort((a, b) => covered.get(a)! - covered.get(b)!)
+  sources: for (const [i, id] of order.entries()) {
     const src = sourceById(id)
+    const until = deadline === Infinity ? Infinity : deps.now().getTime() + (deadline - deps.now().getTime()) / (order.length - i)
     const counts: Counts = { discovered: 0, fetched: 0, processed: 0, skipped: 0, blocked: 0, errors: 0 }
     report.perSource[id] = counts
     const blockedAt = await sourceBlockedSince(root, id)
@@ -214,7 +220,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const todo = found.filter(f => (!opts.only || opts.only.test(f.url)) && needsFetch(state[f.url], f.lastmod, deps.now())).slice(0, opts.limit ?? Infinity)
 
     for (const { url, lastmod } of todo) {
-      if (deps.now().getTime() > deadline) break
+      if (deps.now().getTime() > until) break
       const prev = state[url]
       const base = { ...(lastmod ? { lastmod } : {}), entityIds: prev?.entityIds ?? [], updatedAt: deps.now().toISOString() }
       const save = async (next: UrlState) => { state[url] = next; await saveState(root, id, state) }
