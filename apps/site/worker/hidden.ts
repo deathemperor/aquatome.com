@@ -5,8 +5,8 @@ const KEY = 'hidden'
 /** URL or path → the page path ("/vi/ca/x/"); null for anything that isn't a single page under /vi/. */
 export function pagePath(input: string): string | null {
   let p: string
-  try { p = new URL(input.trim(), 'https://x.invalid').pathname } catch { return null }
-  p = p.replace(/index\.(html|md)$/, '').replace(/\/?$/, '/')
+  try { p = decodeURIComponent(new URL(input.trim(), 'https://x.invalid').pathname) } catch { return null }
+  p = p.replace(/\/{2,}/g, '/').replace(/index\.(html|md)$/, '').replace(/\/?$/, '/')
   return /^\/vi\/[a-z0-9-]+(\/[a-z0-9-]+)*\/$/.test(p) ? p : null
 }
 

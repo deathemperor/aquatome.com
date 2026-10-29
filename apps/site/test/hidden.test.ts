@@ -12,6 +12,8 @@ test('page paths: URLs and paths normalise to "/vi/…/"; anything else is rejec
   expect(pagePath('/vi/ca/ca-dia')).toBe('/vi/ca/ca-dia/')
   expect(pagePath('/vi/ca/ca-dia/index.md')).toBe('/vi/ca/ca-dia/')
   expect(pagePath(' https://aquatome.com/vi/huong-dan/x/?utm=1#a ')).toBe('/vi/huong-dan/x/')
+  expect(pagePath('/vi/ca/%63a-dia//')).toBe('/vi/ca/ca-dia/') // encoded / doubled variants map to the same page
+  expect(pagePath('/vi//ca/ca-dia/')).toBe('/vi/ca/ca-dia/')
   expect(pagePath('/go/shopee/')).toBeNull()
   expect(pagePath('/vi/../_ab/')).toBeNull()
   expect(pagePath('')).toBeNull()
