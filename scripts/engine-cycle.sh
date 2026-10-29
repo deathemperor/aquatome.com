@@ -25,6 +25,8 @@ fi
 git checkout -q main && git pull -q --ff-only
 pnpm install --frozen-lockfile --silent
 pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
+# Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
+pnpm engine photos --limit 60 || log "photos: backfill failed"
 # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
 pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.

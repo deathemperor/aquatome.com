@@ -22,10 +22,12 @@ export async function visionFaces(files: string[]): Promise<number[]> {
 
 /**
  * Photos must show the animal or plant, not people: every photo not yet screened is checked once (result cached by URL)
- * and any photo with a human face is dropped from its page. Runs each cycle, so a re-picked face photo never publishes.
+ * and any photo with a human face is dropped from its page, as is any photo the owner rejected by hand (`rejectedFile`:
+ * URL → reason; hands, product packshots, English-text banners). Runs each cycle, so a re-picked photo never publishes.
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps): Promise<{ checked: number; removed: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string): Promise<{ checked: number; removed: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
+  const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[] } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -34,7 +36,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
       if (raw) pages.push({ file, e: JSON.parse(raw) })
     }
   }
-  const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).map(x => x.url)))].filter(u => !(u in cache))
+  const todo = [...new Set(pages.flatMap(p => (p.e.photos ?? []).map(x => x.url)))].filter(u => !(u in cache) && !(u in rejected))
   const failed: string[] = []
   const dir = await mkdtemp(join(tmpdir(), 'faces-'))
   try {
@@ -55,7 +57,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => !(cache[p.url]! > 0))
+    const keep = (e.photos ?? []).filter(p => !(cache[p.url]! > 0) && !(p.url in rejected))
     if (keep.length === (e.photos ?? []).length) continue
     removed.push(...e.photos!.filter(p => !keep.includes(p)).map(p => `${file.slice(contentRoot.length + 1)}: ${p.url}`))
     e.photos = keep

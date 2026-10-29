@@ -40,7 +40,7 @@ const MAX_LLM_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 
 /** This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. */
-const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) =>
+export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) =>
   [...fresh, ...prev.filter(p => !(p.source === source && p.sourceUrl === url))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p).slice(0, MAX_PHOTOS)
 
 /** content/ access for one run: existing items, taken slugs, validated writes. */

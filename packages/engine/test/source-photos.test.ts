@@ -59,3 +59,22 @@ test('species/plant picks skip product packshots; duplicate captions collapse', 
   expect(pickSourcePhotos(imgs, 'https://x.test/p', ['Neocaridina davidi', 'Red Cherry Shrimp']).map(p => p.src)).toEqual(['https://x.test/shrimp.jpg', 'https://x.test/a1.jpg'])
   expect(pickSourcePhotos([{ src: '/sponge.jpg', alt: 'Filter sponge of grade 30 ppi', width: 800, height: 600 }], 'https://x.test/p', [], 3, 'guide')).toHaveLength(1)
 })
+
+test('slim fish are photos, not banners; images without a pixel size are measured after download', async () => {
+  const picked = pickSourcePhotos([
+    { src: '/loach.jpg', alt: 'Acanthopsoides robertsi', width: 600, height: 233 },
+    { src: '/banner.jpg', alt: 'Sale', width: 1600, height: 300 },
+    { src: '/glaser.jpg', alt: '' }, // width="100%" on the page
+  ], 'https://x.test/p', ['Acanthopsoides robertsi'])
+  expect(picked.map(p => [p.src, !!p.probe])).toEqual([['https://x.test/loach.jpg', false], ['https://x.test/glaser.jpg', true]])
+  const uploads: string[] = []
+  const deps = {
+    bytes: async (url: string) => new TextEncoder().encode(url),
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => { uploads.push(k); return { url: `https://m/${k}`, width: 800, height: 533 } } },
+    size: async (b: Uint8Array) => (new TextDecoder().decode(b).includes('big') ? { width: 850, height: 567 } : { width: 200, height: 200 }),
+  }
+  const probe = (src: string) => ({ src, alt: '', probe: true })
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', [probe('https://x.test/big.jpg'), probe('https://x.test/tiny.jpg')], deps, [])
+  expect(out).toHaveLength(1)
+  expect(uploads).toHaveLength(1)
+})

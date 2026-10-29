@@ -30,3 +30,17 @@ test('drops photos with a face from every page, checks each URL once, retries do
   expect(fetched).toEqual(['down'])
   expect(r2.removed).toEqual(['guides/g/entity.json: person'])
 })
+
+test('photos the owner rejected are dropped every cycle without being screened', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'fr-'))
+  await mkdir(join(root, 'guides', 'g'), { recursive: true })
+  const page = join(root, 'guides', 'g', 'entity.json')
+  await writeFile(page, JSON.stringify({ id: 'g', photos: [{ url: 'fish' }, { url: 'packshot' }] }))
+  await writeFile(join(root, 'rejected.json'), JSON.stringify({ packshot: 'product packshot' }))
+  const fetched: string[] = []
+  const deps = { get: async (u: string) => { fetched.push(u); return new TextEncoder().encode(u) }, detect: async (fs: string[]) => fs.map(() => 0) }
+  const r = await dropFacePhotos(root, join(root, 'faces.json'), deps, join(root, 'rejected.json'))
+  expect(r.removed).toEqual(['guides/g/entity.json: packshot'])
+  expect(fetched).toEqual(['fish'])
+  expect(JSON.parse(await readFile(page, 'utf8')).photos).toEqual([{ url: 'fish' }])
+})
