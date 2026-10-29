@@ -1,0 +1,13 @@
+{
+  "slug": "tds",
+  "name": "TDS",
+  "altNames": [
+    "tổng chất rắn hòa tan"
+  ],
+  "sections": {},
+  "definition": "Tổng lượng chất rắn hòa tan trong nước, đo bằng ppm (phần triệu) bằng bút đo điện tử. TDS cho biết nhanh nước mềm hay cứng và giúp theo dõi việc pha nước RO; nước mưa hoặc nước RO có TDS gần 0, nước máy thường vài trăm ppm.",
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

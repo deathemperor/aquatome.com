@@ -25,3 +25,9 @@ test('never inside existing links or headings; seen carries across calls; no-hit
   expect(linkTerms('<p>cá neon</p>', T, 'ml', seen)).toEqual({ html: '<p>cá neon</p>', keys: [] })
   expect(linkTerms('<p>Cá neonxanh</p>', T, 'ml').keys).toEqual([]) // word boundaries
 })
+
+test('a page never links its own names, even when another page shares them; per-target class', () => {
+  const targets = [{ key: 'species:other', href: '/vi/ca/other/', names: ['Cá chạch mặt ngựa lùn'] }, { key: 'glossary:ph', href: '/vi/thuat-ngu/ph/', names: ['pH'], cls: 'gl' }]
+  const r = linkTerms('<p>Cá chạch mặt ngựa lùn ưa pH thấp.</p>', targets, 'ml', new Set(), new Set(['cá chạch mặt ngựa lùn']))
+  expect(r.html).toBe('<p>Cá chạch mặt ngựa lùn ưa <a href="/vi/thuat-ngu/ph/" class="gl">pH</a> thấp.</p>')
+})

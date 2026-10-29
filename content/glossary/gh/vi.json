@@ -1,11 +1,14 @@
 {
+  "slug": "gh",
   "name": "GH",
-  "definition": "Độ cứng tổng: lượng canxi và magie hòa tan trong nước.",
-  "altNames": [],
+  "altNames": [
+    "dGH",
+    "độ cứng tổng"
+  ],
   "sections": {},
+  "definition": "Độ cứng tổng: lượng khoáng canxi và magie hòa tan trong nước, thường đo bằng độ Đức (dGH). Nước mềm có khoảng 0–6 dGH, nước cứng từ 12 dGH trở lên. Cá ở suối rừng mưa nhiệt đới thường cần nước mềm, còn cá đẻ con và cichlid hồ châu Phi chịu được hoặc cần nước cứng.",
   "quality": {
-    "score": 0.6,
-    "indexable": false
-  },
-  "slug": "gh"
+    "score": 0.9,
+    "indexable": true
+  }
 }

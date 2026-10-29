@@ -1,11 +1,15 @@
 {
+  "slug": "chu-trinh-nito",
   "name": "Chu trình nitơ",
-  "definition": "Quá trình vi sinh chuyển amoniac thành nitrit rồi nitrat.",
-  "altNames": [],
+  "altNames": [
+    "chu trình nitrogen",
+    "chạy bể",
+    "cycle bể"
+  ],
   "sections": {},
+  "definition": "Quá trình vi khuẩn có lợi chuyển amoniac độc (từ phân cá và thức ăn thừa) thành nitrit, rồi thành nitrat ít độc hơn. Bể mới cần vài tuần để đàn vi khuẩn này phát triển trong lọc và nền trước khi thả cá; bỏ qua bước này là nguyên nhân phổ biến khiến cá chết hàng loạt ở bể mới.",
   "quality": {
-    "score": 0.92,
+    "score": 0.9,
     "indexable": true
-  },
-  "slug": "chu-trinh-nito"
+  }
 }
