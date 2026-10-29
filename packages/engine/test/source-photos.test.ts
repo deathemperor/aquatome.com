@@ -22,12 +22,14 @@ test('picks the best source photos from a real page', () => {
   expect(picked[0]!.alt).not.toMatch(/habitat/i) // the hero is the fish, not the biotope
 })
 
-test('logos, icons, svgs, tiny and banner images are never picked', () => {
+test('logos, icons, svgs, QR codes, tiny and banner images are never picked', () => {
   const picked = pickSourcePhotos([
     { src: '/logo.png', alt: 'Site logo', width: 900, height: 300 },
     { src: '/icons/fish.svg', alt: 'Cardinal', width: 900, height: 700 },
     { src: '/small.jpg', alt: 'Cardinal tetra', width: 300, height: 200 },
     { src: '/banner-sale.jpg', alt: 'Sale', width: 1600, height: 300 },
+    { src: 'https://quickchart.io/qr?text=https%3A%2F%2Fshop.example%2Fcardinal', alt: 'Cardinal tetra' },
+    { src: '/cache/qr/pa/paracheirodon_axelrodi_64x64.png', alt: '' },
     { src: '/cardinal.jpg', alt: 'Cardinal tetra', width: 1000, height: 700 },
   ], 'https://shop.example/p', ['Cardinal Tetra'])
   expect(picked.map(p => p.src)).toEqual(['https://shop.example/cardinal.jpg'])
