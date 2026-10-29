@@ -1,7 +1,8 @@
 {
-  "slug": "ca-cichlid-lun-apistogramma-viejita-vien-do",
-  "name": "Cá cichlid lùn Apistogramma viejita (viền đỏ)",
+  "slug": "ca-cichlid-lun-apistogramma-viejita",
+  "name": "Cá cichlid lùn Apistogramma viejita",
   "altNames": [
+    "Cá cichlid lùn Apistogramma viejita (viền đỏ)",
     "Cá cichlid lùn Apistogramma viền đỏ",
     "Red Edge Apisto"
   ],
@@ -25,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-cichlid-lun-apistogramma-viejita-vien-do",
+      "name": "Cá cichlid lùn Apistogramma viejita (viền đỏ)"
+    }
+  ]
 }

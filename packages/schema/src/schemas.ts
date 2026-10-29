@@ -48,6 +48,10 @@ export const EquipmentSchema = z.object({
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
+  /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
+  nameFixed: z.boolean().optional(),
+  /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
+  redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),
   quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional() }),
 })
 

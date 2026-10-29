@@ -1,0 +1,12 @@
+---
+/** "(Chuyển hướng từ X)" under the title when the visitor arrived through an old address (?tu=<old slug>, set by the Worker). */
+interface Props { from?: { slug: string; name: string }[] }
+const { from = [] } = Astro.props
+---
+{from.length > 0 && <>
+  {from.map(r => <p class="redirected" data-from={r.slug} hidden>(Chuyển hướng từ <b>{r.name}</b>)</p>)}
+  <script is:inline>(()=>{try{var u=new URL(location.href),t=u.searchParams.get('tu');if(!t)return;var n=[].find.call(document.querySelectorAll('p.redirected'),function(p){return p.dataset.from===t});if(n)n.hidden=false;u.searchParams.delete('tu');history.replaceState(null,'',u.pathname+u.search+u.hash)}catch(e){}})()</script>
+</>}
+<style>
+  .redirected { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-1) 0 var(--space-2); }
+</style>

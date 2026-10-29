@@ -1,7 +1,8 @@
 {
-  "slug": "ca-ngua-van-vang-koi",
-  "name": "Cá ngựa vằn vàng Koi",
+  "slug": "ca-barb-vang",
+  "name": "Cá barb vàng (Gold barb)",
   "altNames": [
+    "Cá ngựa vằn vàng Koi",
     "Cá chép vàng Koi",
     "Cá barb vàng",
     "Golden barb",
@@ -42,5 +43,12 @@
       "glaser": 0.85,
       "sprucepets": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ngua-van-vang-koi",
+      "name": "Cá ngựa vằn vàng Koi"
+    }
+  ]
 }

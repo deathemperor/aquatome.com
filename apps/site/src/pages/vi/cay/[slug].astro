@@ -29,6 +29,7 @@ const facts: [string, string][] = [
   ['Tốc độ mọc', PLANT_LABELS.growth[p.growth]!],
   ['Vị trí', p.placement.map(x => PLANT_LABELS.placement[x]).join(', ')],
 ]
+import RedirectNote from '../../../components/RedirectNote.astro'
 ---
 <Base title={plantTitle(p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. Cách trồng và chăm sóc.`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
   <Nav slot="header" />
@@ -37,6 +38,7 @@ const facts: [string, string][] = [
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
       <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${p.t.name} ${p.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{p.t.name}</h1>
+      <RedirectNote from={p.t.redirectFrom} />
       <p class="sci binomial">{p.scientificName}</p>
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>

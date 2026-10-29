@@ -1,7 +1,8 @@
 {
-  "slug": "ca-betta-green-alien",
-  "name": "Cá betta Green Alien",
+  "slug": "ca-betta",
+  "name": "Cá betta (cá xiêm)",
   "altNames": [
+    "Cá betta Green Alien",
     "Cá betta Alien xanh lục",
     "Cá betta Alien Green",
     "Alien Betta Green Hybrid",
@@ -60,5 +61,12 @@
       "bwaquatics": 0.8,
       "sprucepets": 0.7
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-betta-green-alien",
+      "name": "Cá betta Green Alien"
+    }
+  ]
 }

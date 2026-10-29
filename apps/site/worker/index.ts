@@ -8,6 +8,7 @@ import { isBot, resolveSkin, skinCookie } from './assign'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { affSummary, authorise, renderDashboard, safeEqual, type Snapshot } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
+import { redirectFor } from './redirects'
 import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
@@ -158,6 +159,10 @@ export async function handle(req: Request, env: FullEnv, rewrite: Rewrite = html
   plain.headers.delete('if-none-match')
   plain.headers.delete('if-modified-since')
   const res = await env.ASSETS.fetch(plain)
+  if (res.status === 404 && url.pathname.startsWith('/vi/')) {
+    const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
+    if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
+  }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
   const weights = async () => (await env.AB.get<Weights>('ab:weights', { type: 'json', cacheTtl: 300 })) ?? EQUAL
   const { skin, setCookie } = await resolveSkin(req, weights, Math.random())
