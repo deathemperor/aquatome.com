@@ -2,7 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { ChangelogSchema, EquipmentSchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, PlaceSchema, PlantSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Photo, PlaceEntity, PlantEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
@@ -16,6 +16,8 @@ export type Content = {
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
   equipment: EquipmentGuide[]
+  /** Photo galleries by species id (content/gallery), open licences only. */
+  galleries: Record<string, Photo[]>
   /** YouTube playlists turned into guide series (content/series/*.json); only those with a published guide. */
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
@@ -97,8 +99,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (guides.some(g => g.video?.series?.id === x.id)) series.push(x)
   }
 
+  const galleries: Record<string, Photo[]> = {}
+  for (const f of (await readdir(join(root, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
+    const g = await readJson(join(root, 'gallery', f), GallerySchema)
+    const photos = cleanPhotos(g.photos)
+    if (photos.length) galleries[g.id] = photos
+  }
+
   return {
-    species, plants, guides, changelog, equipment, series,
+    species, plants, guides, changelog, equipment, series, galleries,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     places: await loadKind(root, 'places', PlaceSchema, lang),
     sources,

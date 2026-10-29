@@ -82,6 +82,12 @@ export const EquipmentSchema = z.object({
   choose: z.array(z.string()), mistakes: z.array(z.string()), faq: z.array(z.object({ q: z.string(), a: z.string() })),
 })
 
+/**
+ * Many photos of one species (content/gallery/<species id>.json): open-licence photos from Wikimedia Commons and
+ * iNaturalist, screened (a living fish, clearly shown, no people), best first, each with a short Vietnamese caption.
+ */
+export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string() })
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
