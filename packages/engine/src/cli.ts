@@ -21,6 +21,8 @@ import { extractTraits } from './traits'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { videoImages } from './video-images'
 import { searchCommons } from './photos'
+import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
+import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
 import { videoGuides, ytDlp, ytFinder, ytStoryboard } from './youtube'
 
@@ -41,6 +43,17 @@ const media = () => r2Media({
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' } } })
 const cmd = positionals[0]
+
+/** Vietnamese label on each video guide's thumbnail. Opus with the creator-style prompt won scripts/eval-covers.ts (32–16). */
+async function covers(o: { redo?: boolean; limit?: number }) {
+  const cv = await videoCovers(join(ROOT, 'content'), {
+    get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision<{ candidates: string[]; cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file, model: process.env.COVER_MODEL ?? 'opus' }),
+  }, o)
+  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
+  for (const d of cv.done) console.log(`cover: ${d}`)
+  for (const f of cv.failed) console.log(`cover failed: ${f}`)
+}
 
 if (cmd === 'run') {
   const sources = values.sources?.split(',').map(s => s.trim()) as SourceId[] | undefined
@@ -148,13 +161,7 @@ if (cmd === 'run') {
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  // Vietnamese label for each new guide's thumbnail (Claude reads the words on it).
-  const cv = await videoCovers(join(ROOT, 'content'), {
-    get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    look: (file, prompt) => claudeVision<{ cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file }),
-  })
-  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
-  for (const f of cv.failed) console.log(`cover failed: ${f}`)
+  await covers({})
   // Pictures per section: video stills (storyboard frames) + an open-licence Commons photo, picked by Claude, no faces.
   const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const im = await videoImages(join(ROOT, 'content'), {
@@ -164,6 +171,18 @@ if (cmd === 'run') {
   console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
   for (const x of im.done) console.log(`images: ${x}`)
   for (const f of im.failed) console.log(`images failed: ${f}`)
+} else if (cmd === 'covers') {
+  // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).
+  await covers({ redo: values.redo, limit: values.limit ? Number(values.limit) : undefined })
+} else if (cmd === 'rewrite-vi') {
+  // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
+  // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary]
+  const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds })
+  console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.done) console.log(`rewritten: ${x}`)
+  for (const x of r.kept) console.log(`kept: ${x}`)
+  for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'discover-videos') {
   // More teaching playlists: YouTube playlist searches + known channels → overlap filter → model vets → engine-state/youtube-playlists.json.
   // --channels a,b: only those channels (no searches); --lang vi: only that language's searches (no channels; ignores the
@@ -194,6 +213,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine faces | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }
