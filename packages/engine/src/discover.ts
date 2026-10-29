@@ -1,3 +1,4 @@
+import { cdxQuery } from './archive'
 import type { SourceConfig } from './sources'
 
 export type Discovered = { url: string; lastmod?: string }
@@ -15,10 +16,12 @@ export function parseSitemap(xml: string): { urls: { loc: string; lastmod?: stri
   return { urls, sitemaps }
 }
 
-const canonical = (u: string) => {
+const canonical = (u: string, keepQuery?: boolean) => {
   const x = new URL(u.replace(/&amp;/g, '&'))
   x.hash = ''
-  x.search = ''
+  if (!keepQuery) x.search = ''
+  // One address per page: archived captures mix http, :80 and the bare domain.
+  if (keepQuery) { x.protocol = 'https:'; x.port = ''; if (!x.hostname.startsWith('www.')) x.hostname = `www.${x.hostname}` }
   return x.href
 }
 
@@ -30,7 +33,7 @@ export async function discover(
   const found = new Map<string, Discovered>()
   const keep = (url: string, lastmod?: string) => {
     let u: string
-    try { u = canonical(url) } catch { return }
+    try { u = canonical(url, src.keepQuery) } catch { return }
     if (!src.include.test(u) || src.exclude?.test(u)) return
     const key = src.dedupe ? u.replace(src.dedupe, '') : u
     const prev = found.get(key)
@@ -44,6 +47,8 @@ export async function discover(
       if (depth < 2) for (const s of sitemaps) await walk(s, depth + 1)
     }
     for (const u of src.discover.urls) await walk(u, 0)
+  } else if (src.discover.kind === 'archive') {
+    for (const line of (await getText(cdxQuery(src.discover.prefix))).split('\n')) if (line.trim()) keep(line.trim())
   } else {
     for (const start of src.discover.start) for (const l of await getLinks(start, src.discover.scope)) keep(l)
   }
