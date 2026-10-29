@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
+import { throttled } from './youtube'
 
 /** YouTube's scrub-preview frames: sheets of rows × columns tiles, one tile every 1/fps seconds. */
 export type Storyboard = { fps: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
@@ -178,7 +179,7 @@ export async function videoImages(contentRoot: string, d: ImageDeps, opts: { lim
         await writeFile(file, `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...e.video, figures } }), null, 2)}\n`)
         done.push(`${id}: ${figures.length} sections, ${figures.reduce((n, f) => n + f.moments.length, 0)} stills, ${figures.filter(f => f.photo).length} photos`)
       } catch (err) {
-        if (err instanceof LlmError) { failed.push(`${id}: ${err.message}`); return { done, failed, stoppedEarly: true } }
+        if (err instanceof LlmError || throttled(err)) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
         failed.push(`${id}: ${(err as Error).message}`)
       }
     }
