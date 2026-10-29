@@ -52,3 +52,24 @@ test('about, privacy and contact pages exist, are linked from the footer and lis
   expect(privacy.html).toContain('adssettings.google.com')
   expect(privacy.html).toContain('contact@aquatome.com')
 })
+test('titles and descriptions match search phrasing; pages carry share previews', () => {
+  const sp = page('/vi/ca/ca-neon-vua/').dom
+  expect(sp.querySelector('title')?.text).toBe('Cách nuôi cá neon vua (Paracheirodon axelrodi): bể, nước, nuôi chung')
+  expect(sp.querySelector('meta[name="description"]')?.getAttribute('content')).toMatch(/^Cá neon vua \(Paracheirodon axelrodi\): nhiệt độ .+°C, pH .+\. Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản\.$/)
+  expect(sp.querySelector('meta[property="og:image"]')?.getAttribute('content')).toMatch(/^https?:\/\//)
+  expect(sp.querySelector('meta[property="og:title"]')?.getAttribute('content')).toContain('Cách nuôi cá neon vua')
+  expect(page('/vi/thuat-ngu/').dom.querySelector('meta[property="og:image"]')?.getAttribute('content')).toContain('/logo.png')
+})
+test('glossary title asks the question; its description is the definition', () => {
+  const g = page('/vi/thuat-ngu/chu-trinh-nito/').dom
+  expect(g.querySelector('title')?.text).toMatch(/ là gì\? — AquaTome$/)
+  expect(g.querySelector('meta[name="description"]')?.getAttribute('content')?.length).toBeGreaterThan(20)
+})
+test('excerpt skips captions and credits, cuts at a word', async () => {
+  const { excerpt } = await import('../src/lib/meta')
+  const html = '<figure><figcaption>Ảnh © Ai đó</figcaption></figure><p>Ngắn.</p><p>Ảnh © Nonn Panitvong, dạng vây đỏ của loài cá chạch này rất hiếm gặp</p><p>Từng bị xem nhẹ như đội dọn dẹp của bể cộng đồng, nhóm cá này thật ra có tập tính xã hội phức tạp và thú vị hơn nhiều người nghĩ, đặc biệt khi nuôi theo đàn lớn.</p>'
+  const e = excerpt(html, 80)
+  expect(e.startsWith('Từng bị xem nhẹ')).toBe(true)
+  expect(e.endsWith('…')).toBe(true)
+  expect(e.length).toBeLessThanOrEqual(81)
+})

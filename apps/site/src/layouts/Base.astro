@@ -23,8 +23,10 @@ interface Props {
   noindex?: boolean
   jsonld?: object[]
   credits?: Credit[]
+  /** Share preview image (absolute URL). */
+  image?: string
 }
-const { title, description, noindex = false, jsonld = [], credits } = Astro.props
+const { title, description, noindex = false, jsonld = [], credits, image } = Astro.props
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 ---
 <!doctype html>
@@ -38,6 +40,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     {description && <meta name="description" content={description} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content="AquaTome" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={image ?? new URL('/logo.png', Astro.site).href} />
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     <link rel="alternate" hreflang="vi" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
     {jsonld.map(j => <script type="application/ld+json" set:html={jsonForScript(j)} />)}
