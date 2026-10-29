@@ -11,7 +11,9 @@ type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
 type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
 type Vi = { sections?: Record<string, string>; body?: string; definition?: string; quality?: { score: number; indexable: boolean; bySource?: Record<string, number> } }
-export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string }>
+export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
+/** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
+export const REWRITE_V = 2
 
 const CHUNK = 12_000 // English characters per model call
 const json = async <T>(f: string): Promise<T> => JSON.parse(await readFile(f, 'utf8'))
@@ -54,7 +56,9 @@ async function jobs(contentRoot: string, kinds: readonly Kind[]): Promise<Job[]>
 export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[] }) {
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS)).filter(j => !state[j.id])) {
+  const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
+  const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS)).filter(j => due(state[j.id]))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
     const vi = await json<Vi>(file)
@@ -65,11 +69,20 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
     const kept = new Map<string, { scores: number[]; all: boolean }>()
     try {
       for (const g of job.groups) {
-        const next = await rewriteVi(d.llm, g.parts, d.opts)
+        const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
         const hasEn = g.parts.every(p => p.en)
-        const { score } = hasEn
-          ? await reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: next.get(p.id)! })))
-          : await reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: next.get(p.id)! })))
+        const review = (m: Map<string, string>) => hasEn
+          ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
+          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! })))
+        let next = await rewriteVi(d.llm, g.parts, opts)
+        const first = await review(next)
+        let score = first.score
+        // Below the bar: one more try with the reviewer's notes (as for video guides); the better of the two counts.
+        if (score < QUALITY_THRESHOLD) {
+          const again = await rewriteVi(d.llm, g.parts, { ...opts, notes: first.notes })
+          const r = await review(again)
+          if (r.score > score) { next = again; score = r.score }
+        }
         scores.push(score)
         const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
         kept.set(g.source ?? '', k)
@@ -94,12 +107,12 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       }
     } catch (e) {
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
-      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200) }
+      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V }
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
     if (rewritten) await writeFile(file, `${JSON.stringify(vi, null, 2)}\n`)
-    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores }
+    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   }
