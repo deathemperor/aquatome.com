@@ -12,17 +12,19 @@ export function commentHtml(c: ShownComment): string {
   return `<li class="comment" data-comment-id="${escapeHtml(c.id)}"><header><strong>${escapeHtml(c.name)}</strong> <time datetime="${escapeHtml(c.createdAt)}">${date(c.createdAt)}</time>${badge}</header>${paras}</li>`
 }
 
-type Turnstile = { render: (el: HTMLElement, o: { sitekey: string; callback: (t: string) => void; 'expired-callback': () => void; language: string }) => string; reset: (id: string) => void }
+export type Turnstile = { render: (el: HTMLElement, o: { sitekey: string; callback: (t: string) => void; 'expired-callback': () => void; language: string }) => string; reset: (id: string) => void }
 
-function loadTurnstile(): Promise<Turnstile> {
-  return new Promise((resolve, reject) => {
+let turnstile: Promise<Turnstile> | undefined
+/** Turnstile's script, loaded once per page (comments and reader photos share it). */
+export function loadTurnstile(): Promise<Turnstile> {
+  return (turnstile ??= new Promise((resolve, reject) => {
     const s = document.createElement('script')
     s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
     s.async = true
     s.onload = () => resolve((window as unknown as { turnstile: Turnstile }).turnstile)
     s.onerror = reject
     document.head.append(s)
-  })
+  }))
 }
 
 /** Comments stay hidden unless the API answers: no D1 / no JS → no dead form. */

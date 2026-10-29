@@ -1,0 +1,49 @@
+---
+// Readers' own photos of this species. Loaded client-side from the Worker; stays hidden until the API answers.
+interface Props { entity: string; name: string }
+const { entity, name } = Astro.props
+---
+<section class="wrap rp" data-reader-photos data-entity={entity} aria-labelledby="rp-h" hidden>
+  <h2 id="rp-h">Ảnh bạn đọc</h2>
+  <ul class="list" data-list></ul>
+  <p class="empty" data-empty>Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.</p>
+  <details class="send">
+    <summary>Gửi ảnh {name} của bạn</summary>
+    <form data-form hidden>
+      <label>Ảnh <input name="file" type="file" accept="image/jpeg,image/png,image/webp" required /></label>
+      <label>Tên hiển thị <input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
+      <label class="check"><input name="consent" type="checkbox" required /> <span>Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.</span></label>
+      <div data-turnstile></div>
+      <button type="submit">Gửi ảnh</button>
+      <p class="msg" data-msg role="status" aria-live="polite"></p>
+      <p class="rules">Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.</p>
+    </form>
+  </details>
+</section>
+<script>
+  import { mountReaderPhotos } from '../scripts/reader-photos'
+  document.querySelectorAll<HTMLElement>('[data-reader-photos]').forEach(s => void mountReaderPhotos(s))
+</script>
+<style>
+  .rp { padding-block: var(--space-6); }
+  h2 { font-size: var(--step-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--c-ink); margin-bottom: var(--space-4); }
+  .list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-4) var(--space-3); }
+  .list:empty { display: none; }
+  .list :global(li) { font-size: 0.85rem; color: var(--c-ink-soft); }
+  .list :global(a) { display: block; padding: 4px; background: #fff; box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: 4px; }
+  .list :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  .empty, .rules { color: var(--c-ink-soft); }
+  .send { margin-top: var(--space-4); max-width: var(--measure); }
+  .send summary { display: inline-block; cursor: pointer; min-height: 44px; line-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); font-weight: 600; }
+  form { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+  label { display: grid; gap: var(--space-1); font-weight: 600; }
+  label.check { display: flex; gap: var(--space-2); align-items: flex-start; font-weight: 400; }
+  label.check input { margin-top: 0.3em; min-width: 20px; min-height: 20px; }
+  input[type='file'], input[name='name'] { font: inherit; padding: var(--space-2); border: 1px solid var(--c-rule); background: var(--c-plate); color: var(--c-ink); }
+  input:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+  button { justify-self: start; min-height: 44px; font: 600 var(--step-0) var(--f-body); padding: 0 var(--space-5); border: 0; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: wait; }
+  .msg:empty { display: none; }
+  .msg { overflow-wrap: anywhere; }
+  .rules { font-size: var(--step--1); }
+</style>

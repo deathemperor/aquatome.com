@@ -43,10 +43,12 @@ export async function affSummary(db: D1Database, now: Date): Promise<AffSummary>
 
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 
-export function renderDashboard(aff?: AffSummary, hidden: Hidden = {}): string {
+export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
+
+export function renderDashboard(aff?: AffSummary, hidden: Hidden = {}, photos?: RecentPhoto[]): string {
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản trị · AquaTome</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
-<h1>Quản trị AquaTome</h1><p><a href="/_ab/doc-gia/">Người đọc thật →</a></p>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}</body></html>`
+<h1>Quản trị AquaTome</h1><p><a href="/_ab/doc-gia/">Người đọc thật →</a></p>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}${photos ? photosHtml(photos) : ''}</body></html>`
 }
 
 function affHtml(a: AffSummary): string {
@@ -55,6 +57,13 @@ function affHtml(a: AffSummary): string {
 <table><thead><tr><th>Sàn</th><th>Nhóm</th><th>Lượt bấm</th></tr></thead><tbody>${rows(a.byNetwork.map(r => [r.network, r.category, fmt(r.n)]))}</tbody></table>
 <h3>Trang dẫn nhiều nhất</h3><table><tbody>${rows(a.top.map(r => [r.entity_ref, fmt(r.n)]))}</tbody></table>
 <p>Sản phẩm: ${a.status.map(s => `${esc(s.status)} ${fmt(s.n)}`).join(' · ') || 'chưa có (đang dùng liên kết tìm kiếm)'} · kiểm tra gần nhất: ${a.lastCheck ?? 'chưa chạy'}</p>`
+}
+
+function photosHtml(xs: RecentPhoto[]): string {
+  const rows = xs.map(p => `<tr><th><img src="${esc(p.thumb)}" alt="" width="96" loading="lazy"></th><td>${esc(p.entity_ref)}</td><td>${esc(p.name)}</td><td>${esc(p.created_at.slice(0, 16).replace('T', ' '))}</td><td><form method="post" action="/_ab/photos"><input type="hidden" name="id" value="${esc(p.id)}"><button>Gỡ</button></form></td></tr>`).join('')
+  return `<h2 id="anh-ban-doc">Ảnh bạn đọc</h2>
+<p>Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>
+<table><thead><tr><th></th><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="5">Chưa có ảnh nào.</td></tr>'}</tbody></table>`
 }
 
 function hiddenHtml(h: Hidden): string {

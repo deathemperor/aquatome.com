@@ -1,16 +1,16 @@
 import { spawn } from 'node:child_process'
+import { dirname } from 'node:path'
 
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
 export class LlmError extends Error {}
 
 export type Llm = <T>(args: { system: string; prompt: string; schema: object }) => Promise<T>
 
-/** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
-export const claudeCli: Llm = <T>({ system, prompt, schema }: { system: string; prompt: string; schema: object }) =>
-  new Promise<T>((resolve, reject) => {
-    const args = ['-p', '--model', process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', '', '--setting-sources', '',
-      '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
-    const child = spawn('claude', args, { cwd: '/tmp', stdio: ['pipe', 'pipe', 'pipe'] })
+function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; cwd: string }): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const args = ['-p', '--model', process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []),
+      '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
+    const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'] })
     let out = ''
     let err = ''
     const timer = setTimeout(() => child.kill('SIGTERM'), 10 * 60_000)
@@ -29,3 +29,11 @@ export const claudeCli: Llm = <T>({ system, prompt, schema }: { system: string; 
     })
     child.stdin.end(prompt)
   })
+}
+
+/** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
+export const claudeCli: Llm = <T>({ system, prompt, schema }: { system: string; prompt: string; schema: object }) => run<T>(system, prompt, schema, { tools: '', cwd: '/tmp' })
+
+/** Same, but able to look at one image: only the Read tool, run from the image's folder. */
+export const claudeVision = <T>({ system, prompt, schema, file }: { system: string; prompt: string; schema: object; file: string }) =>
+  run<T>(system, `${prompt}\n\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file) })

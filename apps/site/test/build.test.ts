@@ -265,3 +265,12 @@ test('guide pages show reading time and suggest what to read next', () => {
   const next = dom.querySelectorAll('#next-h ~ .grid a').map(a => a.getAttribute('href'))
   expect(next).not.toContain('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
 })
+
+test('species pages carry a hidden reader-photo section (gallery + upload form) for their entity', () => {
+  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const s = dom.querySelector('section[data-reader-photos]')!
+  expect(s.getAttribute('data-entity')).toMatch(/^species:/)
+  expect(s.hasAttribute('hidden')).toBe(true)
+  expect(s.querySelector('input[type="file"][accept="image/jpeg,image/png,image/webp"]')).toBeTruthy()
+  expect(s.querySelector('input[name="consent"][required]')).toBeTruthy()
+})
