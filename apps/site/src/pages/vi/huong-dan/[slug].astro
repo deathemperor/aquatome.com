@@ -5,6 +5,7 @@ import Nav from '../../../components/Nav.astro'
 import SpeciesCard from '../../../components/SpeciesCard.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import SourceCredit from '../../../components/SourceCredit.astro'
+import GuideCard from '../../../components/GuideCard.astro'
 import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
@@ -13,6 +14,8 @@ import { excerpt } from '../../../lib/meta'
 import { guideImage, mentionIndex } from '../../../lib/mentions'
 import { placeFigures } from '../../../lib/figures'
 import { categoryLabel } from '../../../lib/format'
+import { readingMinutes, withToc } from '../../../lib/toc'
+import { nextGuides } from '../../../lib/home'
 
 export async function getStaticPaths() {
   const c = await getContent()
@@ -27,22 +30,39 @@ const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.incl
 const ph = guideImage(c, g)
 // Pictures inside the text: each species/plant photo after the paragraph that first names it, the guide's other photos spread out.
 const shown = (url?: string) => url !== undefined && url !== ph?.url
-const prose = placeFigures(body,
+const placed = placeFigures(body,
   [...species.map(s => ({ photo: s.photos[0], label: s.t.name, href: `/vi/ca/${s.t.slug}/` })), ...plants.map(p => ({ photo: p.photos[0], label: p.t.name, href: `/vi/cay/${p.t.slug}/` }))]
     .filter((f): f is typeof f & { photo: NonNullable<typeof f.photo> } => shown(f.photo?.url)).slice(0, 6),
   g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
+const { html: prose, toc } = withToc(placed)
+const minutes = readingMinutes(body)
+const next = nextGuides(c, g)
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
 <Base title={`${g.t.name} — AquaTome`} description={excerpt(g.t.body ?? '')} image={ph?.url} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   <Nav slot="header" />
   <article class="wrap art">
-    <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>
-    <p class="kind">{GUIDE_KIND_LABELS[g.kind]}</p>
-    <h1>{g.t.name}</h1>
-    <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} />
-    {ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+    <header class="ahead">
+      <nav class="crumb" aria-label="Đường dẫn"><a href={back[0]}>{back[1]}</a></nav>
+      <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · đọc khoảng {minutes} phút</p>
+      <h1>{g.t.name}</h1>
+      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} />
+      {ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+    </header>
+    {toc.length >= 3 && (
+      <nav class="toc" aria-labelledby="toc-h">
+        <h2 id="toc-h">Trong bài này</h2>
+        <ol>{toc.map(t => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
+      </nav>
+    )}
     <div class="prose" set:html={prose} />
   </article>
+  {next.length > 0 && (
+    <section class="wrap related" aria-labelledby="next-h">
+      <h2 id="next-h">Bài tiếp theo</h2>
+      <div class="grid">{next.map(x => <GuideCard g={x} />)}</div>
+    </section>
+  )}
   {(species.length > 0 || plants.length > 0) && (
     <section class="wrap related" aria-labelledby="rel-h">
       <h2 id="rel-h">Loài và cây trong bài</h2>
@@ -58,7 +78,19 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
 </Base>
 <style>
-  .art { max-width: calc(var(--measure) + 2 * var(--space-5)); padding-block: var(--space-4) var(--space-6); }
+  .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }
+  @media (min-width: 1100px) {
+    .art { grid-template-columns: minmax(0, var(--measure)) 15rem; column-gap: var(--space-8); }
+    .ahead, .prose { grid-column: 1; }
+    .toc { grid-column: 2; grid-row: 1 / span 2; align-self: start; position: sticky; top: var(--space-5); margin-top: var(--space-8); }
+  }
+  .toc { margin: 0 0 var(--space-5); padding: var(--space-4); background: var(--c-plate); border: 1px solid var(--c-rule); border-top: 2px solid var(--c-ink); }
+  .toc h2 { font: 600 0.8rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); margin-bottom: var(--space-2); }
+  .toc ol { margin: 0; padding-left: 1.4em; font-size: 0.95rem; }
+  .toc li { padding-block: 4px; }
+  .toc a { color: var(--c-ink); text-decoration-color: var(--c-rule); }
+  .toc a:hover { text-decoration-color: var(--c-ink); }
+  .prose :global(h3) { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-3); scroll-margin-top: var(--space-5); }
   .crumb { font-size: 0.85rem; }
   .crumb a { color: var(--c-ink-soft); }
   .kind { color: var(--c-moss); font-size: 0.9rem; margin: var(--space-4) 0 var(--space-1); }
