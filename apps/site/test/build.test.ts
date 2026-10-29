@@ -502,6 +502,10 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('.body a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
     expect(dom.querySelector('.body a[href="/vi/ca/ca-dia-pigeon-blood/"]')).toBeNull()
     expect(dom.querySelector('[data-comments][data-entity="breed:pigeon-blood-discus"], [data-entity="breed:pigeon-blood-discus"]')).toBeTruthy()
+    // Too few photos for a gallery page: the second photo shows in the strip, opening itself, credited.
+    expect(dom.querySelector('section.strip .head a')).toBeNull()
+    expect(dom.querySelector('section.strip li a')!.getAttribute('href')).toMatch(/Breed2\.jpg$/)
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed2.jpg')
   })
   test('a hybrid: its parents, linked when we have the species, doubtful ones marked; noindex below the bar', () => {
     const { dom } = page('/vi/ca/ca-la-han/')

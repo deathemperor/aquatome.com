@@ -115,7 +115,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
   const breeds = (await loadKind(root, 'breeds', BreedSchema, lang)).map(b => ({ ...b, photos: cleanPhotos(b.photos) }))
   const speciesSlugs = new Set(species.map(s => s.t.slug))
-  for (const b of breeds) if (speciesSlugs.has(b.t.slug)) throw new Error(`breed ${b.id}: slug "${b.t.slug}" is already a species page`)
+  const breedSlugs = new Set<string>()
+  for (const b of breeds) {
+    if (speciesSlugs.has(b.t.slug) || breedSlugs.has(b.t.slug)) throw new Error(`breed ${b.id}: slug "${b.t.slug}" is already a ${speciesSlugs.has(b.t.slug) ? 'species' : 'breed'} page`)
+    breedSlugs.add(b.t.slug)
+  }
 
   const products: Content['products'] = []
   for (const p of await loadKind(root, 'products', ProductSchema, lang)) {

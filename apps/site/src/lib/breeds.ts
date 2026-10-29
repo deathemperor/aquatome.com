@@ -1,4 +1,4 @@
-import type { BreedEntity, Content, Localized } from '@aq/schema'
+import type { BreedEntity, Content, Localized, Photo } from '@aq/schema'
 
 export type Breed = Localized<BreedEntity>
 export const BREED_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Cá lai', variety: 'Dòng cá cảnh', transgenic: 'Cá biến đổi gen' }
@@ -8,6 +8,9 @@ export function basedOn(c: Content, b: Breed): { name: string; href: string } | 
   const s = c.species.find(x => x.id === b.basedOn) ?? c.breeds.find(x => x.id === b.basedOn)
   return s && { name: s.t.name, href: `/vi/ca/${s.t.slug}/` }
 }
+
+/** Every photo but the main one: the few kept on the page, then its gallery. */
+export const breedGallery = (c: Content, b: Breed): Photo[] => [...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]
 
 /** Lines, colour forms and hybrids made from a species (or from another breed), for its page. */
 export const breedsOf = (c: Content, id: string): Breed[] =>

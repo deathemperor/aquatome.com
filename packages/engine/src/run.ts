@@ -34,7 +34,7 @@ export type Deps = {
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
 export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[] }
 
-type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary'
+type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const writeJson = async (path: string, data: unknown) => writeFile(path, `${JSON.stringify(data, null, 2)}\n`)
 const MAX_PHOTOS = 8
@@ -184,7 +184,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!taxon) return null
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
-      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: await s.taken('species', existing.vi?.slug), quality: combineQuality(existing.vi?.quality, source, score) })
+      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])

@@ -16,7 +16,7 @@ import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { guidesMentioning, linkTargets } from '../../../lib/mentions'
-import { BREED_KIND, basedOn, breedsOf, careCard, type Breed } from '../../../lib/breeds'
+import { BREED_KIND, basedOn, breedGallery, breedsOf, careCard, type Breed } from '../../../lib/breeds'
 import { dmy } from '../../../lib/products'
 export async function getStaticPaths() {
   const c = await getContent()
@@ -28,8 +28,8 @@ const key = `breed:${b.id}`
 const parent = basedOn(c, b)
 const species = new Map(c.species.map(s => [s.id, s]))
 const { card, sources } = careCard(b)
-const gallery = c.galleries[b.id] ?? []
-const strip = gallery.length >= GALLERY_MIN ? gallery.slice(0, GALLERY_STRIP) : []
+const gallery = breedGallery(c, b)
+const strip = gallery.slice(0, GALLERY_STRIP)
 const lines = breedsOf(c, b.id)
 // Its own text links the species, glossary terms and other pages it names, never itself.
 const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
@@ -46,7 +46,7 @@ const jsonld = [
 ]
 const title = `${b.t.name}: nguồn gốc, cách nuôi, chọn mua`
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...b.photos.slice(1), ...strip, ...lines.map(x => x.photos[0])])}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label="Đường dẫn">
     <a href="/vi/ca/">Loài cá</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
@@ -69,7 +69,7 @@ const title = `${b.t.name}: nguồn gốc, cách nuôi, chọn mua`
     </div>
   </header>
 
-  {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${b.t.slug}/anh/`} name={b.t.name} />}
+  {strip.length > 0 && <GalleryStrip photos={gallery} href={gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined} name={b.t.name} />}
   {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>Tóm tắt</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 

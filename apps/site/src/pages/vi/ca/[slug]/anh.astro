@@ -4,10 +4,12 @@ import Browse from '../../../../layouts/Browse.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
 import { GALLERY_MIN, licenceUrl } from '../../../../lib/gallery'
+import { breedGallery } from '../../../../lib/breeds'
 export async function getStaticPaths() {
   const c = await getContent()
   // Species and man-made fish (breeds) alike; a breed has no scientific name.
-  return [...c.species, ...c.breeds].filter(s => (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => ({ params: { slug: s.t.slug }, props: { s, photos: c.galleries[s.id]! } }))
+  return [...c.species.map(s => ({ s, photos: c.galleries[s.id] ?? [] })), ...c.breeds.map(s => ({ s, photos: breedGallery(c, s) }))]
+    .filter(x => x.photos.length >= GALLERY_MIN).map(({ s, photos }) => ({ params: { slug: s.t.slug }, props: { s, photos } }))
 }
 const { s, photos } = Astro.props as { s: Localized<SpeciesEntity> | Localized<BreedEntity>; photos: Photo[] }
 const sci = 'scientificName' in s ? s.scientificName : undefined

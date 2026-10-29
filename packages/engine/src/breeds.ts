@@ -110,13 +110,17 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const id = slugify(a.name)
   const factsFile = join(root, 'engine-state/breeds', `${id}.json`)
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as BreedFacts | null : null
-  const facts = kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
-  if (!kept) { await mkdir(join(root, 'engine-state/breeds'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(facts, null, 2)}\n`) }
-  if (!facts.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
+  const researched = kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  if (!kept) { await mkdir(join(root, 'engine-state/breeds'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
+  if (!researched.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
 
   // Only web links are kept as sources; every fact's source number follows its source to the new position.
-  const web = facts.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
+  const web = researched.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
   const at = (i: number) => (web[i] ? web.slice(0, i).filter(Boolean).length : -1)
+  // A fact whose source was dropped goes with it: every claim on the page is cited.
+  const cited = <T extends { source: number }>(xs: T[]) => xs.filter(x => at(x.source) >= 0)
+  const r = researched
+  const facts: BreedFacts = { ...r, viNames: cited(r.viNames), parents: cited(r.parents), origin: cited(r.origin), looks: cited(r.looks), lines: cited(r.lines), care: cited(r.care), keeping: cited(r.keeping), breeding: cited(r.breeding), health: cited(r.health), buying: cited(r.buying), controversy: cited(r.controversy) }
   const ids = await speciesIds(content)
   // "Vieja melanurus (syn. Vieja synspila)": the name before any synonym note.
   const sci = (name?: string) => name?.replace(/\s*\(.*$/, '').trim() || undefined
@@ -171,13 +175,15 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     care, photos: photos.slice(0, 4), ...(facts.commons ? { commons: facts.commons } : {}),
     sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
-  const name = w.name.trim()
+  // A name the owner fixed, and the addresses it had before, survive a --redo.
+  const name = (prev?.nameFixed ? prev.name : w.name).trim()
   const vi: Translation = TranslationSchema.parse({
     slug: prev?.slug ?? pickSlug(name.replace(/\s*\(.*\)\s*$/, ''), facts.kind === 'hybrid' ? 'lai' : 'dong', await speciesSlugs(content)),
     // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)").
     name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => s.trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
     sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+    ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
   })
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)

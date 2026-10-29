@@ -11,7 +11,8 @@ const facts: BreedFacts = {
   found: true, kind: 'variety', enNames: ['Ranchu goldfish', 'Ranchu'], viNames: [{ name: 'Cá vàng Ranchu', source: 0 }],
   basedOn: 'Carassius auratus',
   parents: [],
-  origin: [{ fact: 'developed in Japan from lionhead stock', source: 0 }], looks: [{ fact: 'no dorsal fin, wen on the head', source: 2 }], lines: [],
+  // Source 1 is dropped, and with it the fact that cites it.
+  origin: [{ fact: 'developed in Japan from lionhead stock', source: 0 }, { fact: 'first bred in 1986', source: 1 }], looks: [{ fact: 'no dorsal fin, wen on the head', source: 2 }], lines: [],
   care: [
     { field: 'tempC', min: 24.4, max: 18.3, source: 0 }, // reversed, from °F: stored as 18–24
     { field: 'ph', min: 7, max: 8, source: 1 }, // its source is a javascript: link, so the value goes with it
@@ -63,6 +64,7 @@ test('makeBreed: researched facts → Vietnamese page checked against them; spec
   expect(out).toMatchObject({ id: 'ranchu-goldfish', slug: 'ca-vang-ranchu-dong', score: 0.9, photos: '6 of 6' })
   // The checker's notes went into one rewrite.
   expect(prompts.filter(p => p.includes('"from 1800s" is not in the facts'))).toHaveLength(1)
+  expect(prompts.filter(p => p.includes('first bred in 1986'))).toEqual([])
   expect(looks[0]).toContain('keep only photos of it, not other varieties')
 
   const read = async (f: string) => JSON.parse(await readFile(join(r, 'content', f), 'utf8'))
@@ -89,6 +91,18 @@ test('a hybrid: parents keep their doubt and link the species we have', async ()
   const e = JSON.parse(await readFile(join(r, 'content/breeds/x-hybrid/entity.json'), 'utf8'))
   expect(e.parents).toEqual([{ name: 'Cá vàng (Carassius auratus)', species: 'carassius-auratus', certain: true }, { name: 'Cá diếc', certain: false }])
   expect(e.basedOn).toBeUndefined()
+})
+
+test('--redo keeps a name the owner fixed and the addresses the page had', async () => {
+  const r = await root()
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], summary: [], body: '', faq: [] }) as T
+  const d = { research: (async () => facts) as Llm, llm, gallery: gallery([]) }
+  await makeBreed(r, d, { name: 'Ranchu goldfish' })
+  const file = join(r, 'content/breeds/ranchu-goldfish/vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...vi, slug: 'ca-vang-lan-tho', name: 'Cá vàng Lan thọ (Ranchu)', nameFixed: true, redirectFrom: [{ slug: vi.slug, name: vi.name }] }))
+  await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
+  expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ slug: 'ca-vang-lan-tho', name: 'Cá vàng Lan thọ (Ranchu)', nameFixed: true, redirectFrom: [{ slug: 'ca-vang-ranchu-dong' }] })
 })
 
 test('something research could not find (or a wild species) is skipped, nothing written', async () => {
