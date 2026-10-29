@@ -31,7 +31,8 @@ export async function rewriteVi(llm: Llm, parts: Part[], o: RewriteOpts): Promis
   for (const p of parts) {
     const vi = r.parts.find(x => x.id === p.id)?.vi.trim()
     if (!vi) throw new Error(`rewrite left out part ${p.id}`)
-    out.set(p.id, /<[a-z]/i.test(p.en ?? p.vi) ? sanitizeHtml(vi) : vi.replace(/<[^>]+>/g, '').trim()) // plain text stays plain
+    // The stored Vietnamese decides the format (a guide's English may be a plain outline): HTML stays HTML, plain stays plain.
+    out.set(p.id, /<[a-z]/i.test(p.vi) ? sanitizeHtml(vi) : vi.replace(/<[^>]+>/g, '').trim())
   }
   return out
 }

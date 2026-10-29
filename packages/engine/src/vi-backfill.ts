@@ -55,11 +55,14 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS)).filter(j => !state[j.id])) {
-    if (report.done.length + report.kept.length >= o.limit) break
+    if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
     const vi = await json<Vi>(file)
     const scores: number[] = []
     let rewritten = 0
+    // Per source: its score before this run, and the scores of the chunks kept (a long source is several chunks).
+    const orig = (src?: string) => (src ? vi.quality?.bySource?.[src] : undefined) ?? vi.quality?.score ?? 0
+    const kept = new Map<string, { scores: number[]; all: boolean }>()
     try {
       for (const g of job.groups) {
         const next = await rewriteVi(d.llm, g.parts, d.opts)
@@ -68,17 +71,23 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
           ? await reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: next.get(p.id)! })))
           : await reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: next.get(p.id)! })))
         scores.push(score)
-        const before = (g.source ? vi.quality?.bySource?.[g.source] : undefined) ?? vi.quality?.score ?? 0
-        if (!(score >= QUALITY_THRESHOLD || (hasEn && score > before))) continue
+        const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
+        kept.set(g.source ?? '', k)
+        if (!(score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source)))) { k.all = false; continue }
+        if (hasEn) k.scores.push(score)
         rewritten++
         for (const p of g.parts) {
           if (p.id === 'body') vi.body = next.get(p.id)!
           else if (p.id === 'definition') vi.definition = next.get(p.id)!
           else vi.sections![p.id] = next.get(p.id)!
         }
-        // A translation's score is per source; a Vietnamese-only rewrite leaves the page's score as it was.
-        if (hasEn && g.source && vi.quality) {
-          const bySource = { ...vi.quality.bySource, [g.source]: score }
+      }
+      // A translation's score is per source: the weakest of its chunks, counting the old text where a chunk wasn't kept.
+      // A Vietnamese-only rewrite (no English) leaves the page's score as it was.
+      if (vi.quality) {
+        const bySource = { ...vi.quality.bySource }
+        for (const [src, k] of kept) if (src && k.scores.length) bySource[src] = Math.min(...k.scores, ...(k.all ? [] : [orig(src)]))
+        if (Object.keys(bySource).length) {
           const min = Math.min(...Object.values(bySource))
           vi.quality = { score: min, indexable: min >= QUALITY_THRESHOLD, bySource }
         }

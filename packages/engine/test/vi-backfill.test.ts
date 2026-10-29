@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { rewriteExisting } from '../src/vi-backfill'
+import { rewriteVi } from '../src/vi-rewrite'
 
 const put = async (root: string, path: string, v: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(v)) }
 async function setup(before = 0.8) {
@@ -69,4 +70,31 @@ test('a model failure stops the run and leaves the page for next time; --limit b
   const one = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 1 })
   expect(one.done).toHaveLength(1)
   expect(Object.keys(await read(root, 's.json'))).toEqual(['guides/g'])
+})
+
+test('a long source split into chunks scores as its weakest kept chunk, or its old score where a chunk was not kept', async () => {
+  const big = 'x'.repeat(7000)
+  const make = async (scores: number[]) => {
+    const root = await mkdtemp(join(tmpdir(), 'aq-rw-'))
+    await put(root, 'species/x/entity.json', { id: 'x', sections: ['habitat', 'diet'].map(key => ({ key, source: 'seriouslyfish', sourceUrl: 'u', html: `<p>${big}</p>` })) })
+    await put(root, 'species/x/vi.json', { slug: 'x', name: 'X', sections: { 'habitat:seriouslyfish': '<p>cũ</p>', 'diet:seriouslyfish': '<p>cũ</p>' }, quality: { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 } } })
+    const queue = [...scores]
+    const llm: Llm = async <T,>(a: { system: string; prompt: string }) => (a.system.includes('English→Vietnamese')
+      ? { score: queue.shift(), notes: [] }
+      : { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: `<p>mới ${m[1]}</p>` })) }) as T
+    await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 5 })
+    return read(root, 'species/x/vi.json')
+  }
+  const both = await make([0.9, 0.7]) // both beat the old 0.6
+  expect(Object.values(both.sections)).toEqual(['<p>mới habitat:seriouslyfish</p>', '<p>mới diet:seriouslyfish</p>'])
+  expect(both.quality).toEqual({ score: 0.7, indexable: false, bySource: { seriouslyfish: 0.7 } })
+  const one = await make([0.9, 0.5]) // the second chunk keeps its old text, so the source can't rise above the old 0.6
+  expect(one.sections['diet:seriouslyfish']).toBe('<p>cũ</p>')
+  expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 } })
+})
+
+test('a guide translated from a plain-text outline keeps its HTML', async () => {
+  const llm: Llm = async <T,>() => ({ parts: [{ id: 'body', vi: '<h3>Tiêu đề</h3><p>Đoạn một.</p><ul><li>Ý</li></ul>' }] }) as T
+  const m = await rewriteVi(llm, [{ id: 'body', en: '## Title\nParagraph one.\n- Point', vi: '<h3>Tiêu đề</h3><p>Đoạn 1.</p>' }], { mode: 'fix' })
+  expect(m.get('body')).toBe('<h3>Tiêu đề</h3><p>Đoạn một.</p><ul><li>Ý</li></ul>')
 })
