@@ -26,3 +26,9 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(html).toContain('Người đọc thật')
   expect(html).toContain('/vi/ca/ca-betta/')
 })
+
+test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an integer 0 is a 422)', async () => {
+  const { STATS_SQL } = await import('../stats')
+  const src = (await import('node:fs')).readFileSync(new URL('../readers.ts', import.meta.url), 'utf8')
+  for (const q of [STATS_SQL(14), src]) expect(q).not.toMatch(/double1, 0\)/)
+})
