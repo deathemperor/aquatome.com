@@ -127,6 +127,20 @@ test('a guide that still names the creator or the video gets one editor pass; th
   expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
 })
 
+test('redo rewrites each written guide once, in the series it is in, even after a failed later attempt; other playlists get no series', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  // A later attempt failed (e.g. throttled): the guide is still on the site.
+  const state = join(root, 'engine-state/youtube.json')
+  await writeFile(state, JSON.stringify({ a1: { status: 'error', entityIds: [], attempts: 1, updatedAt: '2026-10-29T00:00:00Z' } }))
+  // a1 is in PL2 too.
+  const again = deps(root)
+  const r = await videoGuides(again.d, { playlists: ['PL2', 'PL1'], redo: true })
+  expect(r.written).toEqual(['youtube-a1 (0.90)'])
+  expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
+  expect(await readFile(join(root, 'content/series/PL2.json'), 'utf8').catch(() => 'none')).toBe('none')
+})
+
 test('redo rewrites only guides already written: a video not done yet waits for an ordinary run', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
