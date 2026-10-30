@@ -55,14 +55,15 @@ function find(o: unknown, hit: (x: Obj) => boolean, o2: { skip?: RegExp; inside?
 /** Parts of a post that aren't the post: the reshared original, comments and reactions, the people in it. */
 const NOT_POST = /^(attached_story|feedback|comments?|comment_list_renderer|actors|to)$/
 
-/** Posts in the data, each once (Facebook nests copies of a post in itself and repeats it on later pages). */
+/** Jim's posts in the data, each once (Facebook nests copies of a post in itself and repeats it on later pages). Posts others
+ * wrote on his timeline are left out: only his words and photos are covered by his permission. His reshares keep his text. */
 export function storiesIn(data: unknown[], ownerId: string): FbPost[] {
   const seen = new Map<string, FbPost>()
   for (const s of find(data, x => x.__typename === 'Story' && typeof x.post_id === 'string' && typeof x.creation_time === 'number')) {
     const id = s.post_id as string
     if (seen.has(id)) continue
-    const actor = (s.actors as Obj[] | undefined)?.[0]?.id
-    const reshare = !!s.attached_story || actor !== ownerId
+    if ((s.actors as Obj[] | undefined)?.[0]?.id !== ownerId) continue
+    const reshare = !!s.attached_story
     const photoIds = reshare ? [] : [...new Set(find(s, x => x.__typename === 'Photo' && typeof x.id === 'string', { skip: NOT_POST }).map(x => x.id as string))]
     const message = find(s, x => isObj(x.message) && typeof x.message.text === 'string', { skip: NOT_POST })[0]?.message as { text: string } | undefined
     const counts = find(s, x => isObj(x.all_subattachments) && typeof x.all_subattachments.count === 'number', { skip: NOT_POST }).map(x => (x.all_subattachments as { count: number }).count)
@@ -111,4 +112,10 @@ export function albumsIn(html: string): FbAlbum[] {
     seen.set(id, { id, url: `https://www.facebook.com/media/set/?set=a.${id}&type=3`, title })
   }
   return [...seen.values()]
+}
+
+/** Facebook says this list (posts: 'Story', an album grid: 'Photo') has no next page: the real end, not a slow load. */
+export function listEnd(data: unknown[], kind: 'Story' | 'Photo'): boolean {
+  return find(data, x => isObj(x.page_info) && x.page_info.has_next_page === false && Array.isArray(x.edges)
+    && (x.edges as unknown[]).some(e => isObj(e) && isObj(e.node) && e.node.__typename === kind)).length > 0
 }

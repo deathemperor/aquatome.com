@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { FB } from '../src/facebook/config'
-import { albumsIn, jsonIn, jsonLines, photoFull, photosIn, storiesIn, wall } from '../src/facebook/parse'
+import { albumsIn, jsonIn, jsonLines, listEnd, photoFull, photosIn, storiesIn, wall } from '../src/facebook/parse'
 
 const fx = (name: string) => readFileSync(new URL(`./fixtures/facebook/${name}`, import.meta.url), 'utf8')
 const data = (name: string) => JSON.parse(fx(name)) as unknown[]
@@ -46,9 +46,18 @@ test('storiesIn: full text, every photo of a multi-photo post, "more" when Faceb
   expect(p).toMatchObject({ id: '10', text: 'Apistogramma cacatuoides, F1 pair', photoIds: ['11', '12', '13'], more: true, reshare: false })
 })
 
-test('storiesIn: a reshare, or a post by someone else on the timeline, is marked and brings no photos', () => {
-  const ps = storiesIn([story({ postId: '20', reshare: true }), story({ postId: '30', actor: '42', photos: ['31'] })], FB.ownerId)
-  expect(ps.map(p => [p.id, p.reshare, p.photoIds])).toEqual([['20', true, []], ['30', true, []]])
+test('storiesIn: Jim\'s reshare keeps his own words but none of the shared photos; a post someone else wrote on his timeline is left out entirely', () => {
+  const ps = storiesIn([story({ postId: '20', reshare: true, text: 'Look at this one' }), story({ postId: '30', actor: '42', photos: ['31'], text: 'Happy birthday Jim!' })], FB.ownerId)
+  expect(ps.map(p => [p.id, p.reshare, p.photoIds, p.text])).toEqual([['20', true, [], 'Look at this one']])
+})
+
+test('listEnd: Facebook says a list has no next page (only for the list asked about, not a comment thread)', () => {
+  const comments = { edges: [{ node: { __typename: 'Comment' } }], page_info: { has_next_page: false } }
+  const feed = (more: boolean) => ({ edges: [{ node: story({ postId: '1' }) }], page_info: { has_next_page: more } })
+  expect(listEnd([comments], 'Story')).toBe(false)
+  expect(listEnd([{ data: feed(true) }], 'Story')).toBe(false)
+  expect(listEnd([{ data: feed(false) }], 'Story')).toBe(true)
+  expect(listEnd([{ grid_media: { edges: [{ node: { __typename: 'Photo', id: '1' } }], page_info: { has_next_page: false } } }], 'Photo')).toBe(true)
 })
 
 test('storiesIn: videos are skipped; the same post seen twice (nested copies, later pages) is one post', () => {

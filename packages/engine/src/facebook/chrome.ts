@@ -37,7 +37,8 @@ export function chromeFb(f: ChromeFetcher): FbBrowser {
     },
     async scroll() {
       await page.mouse.wheel(0, 2500 + Math.round(Math.random() * 1500))
-      return drain()
+      const data = await drain()
+      return { data, html: await page.content() }
     },
     bytes: (url, referer) => f.bytes(url, referer),
   }
