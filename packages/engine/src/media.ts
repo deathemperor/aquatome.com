@@ -6,11 +6,11 @@ const thumbKey = (key: string) => key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)
 const thumb = (bytes: Uint8Array) => sharp(bytes).rotate().resize({ width: THUMB_WIDTH, withoutEnlargement: true }).webp({ quality: 75 }).toBuffer()
 
 /** Cloudflare R2 bucket behind a public custom domain; images are normalised to ≤1200px WebP plus a 480px card thumb, cached a year (a key is never reused for other content). */
-export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void> } {
+export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void>; putRaw: (key: string, bytes: Uint8Array, contentType: string) => Promise<string> } {
   const urlFor = (key: string) => `${opts.publicBase}/${key}`
-  async function upload(key: string, data: Uint8Array) {
+  async function upload(key: string, data: Uint8Array, contentType = 'image/webp') {
     const put = () => fetch(`https://api.cloudflare.com/client/v4/accounts/${opts.accountId}/r2/buckets/${opts.bucket}/objects/${key}`, {
-      method: 'PUT', headers: { authorization: `Bearer ${opts.token}`, 'content-type': 'image/webp', 'cache-control': 'public, max-age=31536000, immutable' }, body: new Uint8Array(data),
+      method: 'PUT', headers: { authorization: `Bearer ${opts.token}`, 'content-type': contentType, 'cache-control': 'public, max-age=31536000, immutable' }, body: new Uint8Array(data),
     })
     let r = await put()
     for (let i = 1; i <= 3 && r.status >= 500; i++) { // Cloudflare API hiccups (e.g. 10500) are transient
@@ -29,5 +29,7 @@ export function r2Media(opts: { accountId: string; token: string; bucket: string
     },
     /** Backfill: the thumb for an already-stored photo. */
     putThumb: async (key, bytes) => upload(thumbKey(key), await thumb(bytes)),
+    /** An original as it came (Facebook originals for later rewriting): no resize, no thumb. */
+    putRaw: async (key, bytes, contentType) => { await upload(key, bytes, contentType); return urlFor(key) },
   }
 }
