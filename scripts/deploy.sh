@@ -15,5 +15,10 @@ PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build
 # The same list goes into the Worker: what it answers from until it has read the live one (worker/hidden.ts isHidden).
 HIDDEN_PAGES="$(node -e 'try { process.stdout.write(Object.keys(JSON.parse(require("fs").readFileSync(".hidden.json", "utf8"))).join(" ")) } catch {}')"
 [ "${#HIDDEN_PAGES}" -le 5000 ] || { echo "warning: hidden-page list over 5 KB, not baked in"; HIDDEN_PAGES=; } # a Worker variable's limit
-pnpm exec wrangler deploy ${HIDDEN_PAGES:+--var "HIDDEN_PAGES:$HIDDEN_PAGES"}
+# Cloudflare's API now and then fails an upload ("unknown error", code 10013; 5xx): try again before failing the deploy.
+for i in 1 2 3; do
+  pnpm exec wrangler deploy ${HIDDEN_PAGES:+--var "HIDDEN_PAGES:$HIDDEN_PAGES"} && break
+  [ "$i" -lt 3 ] || exit 1
+  echo "deploy failed, trying again in $((i * 30)) s"; sleep $((i * 30))
+done
 [ -f .hidden.json ] && shasum < .hidden.json | cut -c1-40 > "$HOME/.config/thuysinh/hidden-deployed" || true
