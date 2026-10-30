@@ -48,20 +48,26 @@ export async function unsplashPhotos(root: string, api: UnsplashApi, d: GalleryD
   const has = async (kind: string) => new Set(await readdir(join(content, kind)).catch(() => [] as string[]))
   const species = await has('species')
   const breeds = await has('breeds')
-  const ids = [...new Set([...STAPLE_SPECIES, ...[...breeds].sort(), ...POPULAR.map(slugify)])].filter(id => species.has(id) || breeds.has(id))
+  // Breeds with no photo at all first (Commons often has none of a line): their pages have no picture yet.
+  const photoless = new Set<string>()
+  for (const id of breeds) if (!(JSON.parse(await readFile(join(content, 'breeds', id, 'entity.json'), 'utf8')) as { photos: Photo[] }).photos.length) photoless.add(id)
+  const ids = [...new Set([...[...photoless].sort(), ...STAPLE_SPECIES, ...[...breeds].sort(), ...POPULAR.map(slugify)])].filter(id => species.has(id) || breeds.has(id))
   const report = { done: [] as string[], failed: [] as string[], stopped: '' }
   let remaining = Infinity
   for (const id of ids) {
     if (report.done.length + report.failed.length >= o.limit) break
     if (tried[id] && (d.now().getTime() - Date.parse(tried[id])) / 86_400_000 < RETRY_DAYS) continue
+    const breed = breeds.has(id)
     const file = join(content, 'gallery', `${id}.json`)
     const gallery = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { id: string; photos: Photo[]; seen: number; updatedAt: string } | null
-    if (!gallery) continue // the gallery step makes it first (Commons, iNaturalist)
+      // The gallery step makes species galleries first (Commons, iNaturalist); it never makes a breed's.
+      ?? (breed ? { id, photos: [], seen: 0, updatedAt: d.now().toISOString().slice(0, 10) } : null)
+    if (!gallery) continue
     if (remaining < 1 + MAX) { report.stopped = `rate limit (${remaining} requests left this hour)`; break }
     try {
-      const breed = breeds.has(id)
       const kind = breed ? 'breeds' : 'species'
-      const e = JSON.parse(await readFile(join(content, kind, id, 'entity.json'), 'utf8')) as { scientificName?: string }
+      const entityFile = join(content, kind, id, 'entity.json')
+      const e = JSON.parse(await readFile(entityFile, 'utf8')) as { scientificName?: string; photos: Photo[] }
       const vi = JSON.parse(await readFile(join(content, kind, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
       const sci = e.scientificName ?? id.replace(/-/g, ' ')
       const query = breed ? id.replace(/-/g, ' ') : await englishName(sci, d.http)
@@ -76,9 +82,12 @@ export async function unsplashPhotos(root: string, api: UnsplashApi, d: GalleryD
         const c = cands.find(x => x.url === p.url)!
         try { remaining = (await api(c.report)).remaining; added.push(p) } catch { /* not reported: not used */ }
       }
+      // A breed page without a photo takes the best ones as its own (the first leads the page), the rest go to the gallery.
+      const own = breed && !e.photos.length ? added.splice(0, 4) : []
+      if (own.length) await writeFile(entityFile, `${JSON.stringify({ ...e, photos: own }, null, 2)}\n`)
       if (added.length) await writeFile(file, `${JSON.stringify(GallerySchema.parse({ ...gallery, photos: [...gallery.photos, ...added], seen: gallery.seen + cands.length }), null, 2)}\n`)
       tried[id] = d.now().toISOString().slice(0, 10)
-      report.done.push(`${id}: ${added.length} of ${cands.length}`)
+      report.done.push(`${id}: ${own.length + added.length} of ${cands.length}`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message}`; break }
       report.failed.push(`${id}: ${(err as Error).message.slice(0, 160)}`)
