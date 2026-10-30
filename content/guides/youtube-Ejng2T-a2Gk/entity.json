@@ -68,6 +68,28 @@
       "url": "https://i.ytimg.com/vi/Ejng2T-a2Gk/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 216
+      },
+      {
+        "category": "loc",
+        "t": 137
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 430
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 182
+      }
+    ]
   }
 }

@@ -44,6 +44,29 @@
       "url": "https://i.ytimg.com/vi/2cQKwuP8G8I/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 62
+      },
+      {
+        "category": "khac",
+        "brand": "Easy Carbo",
+        "t": 314
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 374
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 405
+      }
+    ]
   }
 }

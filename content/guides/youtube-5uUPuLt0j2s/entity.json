@@ -44,6 +44,33 @@
       "url": "https://i.ytimg.com/vi/5uUPuLt0j2s/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "taxa": [
+      "Caridina multidentata",
+      "Fissidens fontanus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Easy Carbo",
+        "t": 257
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 316
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 451
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 484
+      }
+    ]
   }
 }

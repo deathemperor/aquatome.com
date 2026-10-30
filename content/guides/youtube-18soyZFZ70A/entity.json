@@ -5,7 +5,9 @@
   "sourceUrl": "https://www.youtube.com/watch?v=18soyZFZ70A",
   "html": "",
   "photos": [],
-  "mentions": [],
+  "mentions": [
+    "bucephalandra-sp"
+  ],
   "updatedAt": "2026-10-29",
   "video": {
     "youtubeId": "18soyZFZ70A",
@@ -108,6 +110,38 @@
       "url": "https://i.ytimg.com/vi/18soyZFZ70A/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "taxa": [
+      "Otocinclus sp.",
+      "Caridina multidentata",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Cryptocoryne sp."
+    ],
+    "gear": [
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 171
+      },
+      {
+        "category": "loc",
+        "t": 200
+      },
+      {
+        "category": "co2",
+        "t": 264
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 399
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 238
+      }
+    ]
   }
 }

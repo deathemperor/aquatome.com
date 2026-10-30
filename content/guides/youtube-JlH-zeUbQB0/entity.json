@@ -5,7 +5,10 @@
   "sourceUrl": "https://www.youtube.com/watch?v=JlH-zeUbQB0",
   "html": "",
   "photos": [],
-  "mentions": [],
+  "mentions": [
+    "bucephalandra-sp",
+    "microsorum-pteropus"
+  ],
   "updatedAt": "2026-10-29",
   "video": {
     "youtubeId": "JlH-zeUbQB0",
@@ -48,6 +51,30 @@
       "url": "https://i.ytimg.com/vi/JlH-zeUbQB0/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "taxa": [
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Microsorum pteropus"
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 152
+      },
+      {
+        "category": "khac",
+        "brand": "APT",
+        "model": "APT Zero",
+        "t": 350
+      },
+      {
+        "category": "khac",
+        "brand": "APT",
+        "model": "APT Complete",
+        "t": 350
+      }
+    ]
   }
 }
