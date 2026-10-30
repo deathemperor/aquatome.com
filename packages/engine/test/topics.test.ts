@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { makeTopic, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -58,4 +58,29 @@ test('nothing reliable found: nothing written', async () => {
   const root = await site()
   const r = await makeTopic(root, { research: async () => ({ ...facts, found: false }) as never, llm: async () => { throw new Error('no') } }, { topic: 'x', kind: 'care' })
   expect(r).toMatchObject({ skipped: expect.stringContaining('nothing reliable') })
+})
+
+test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only the sources those facts use; Thai slug in English', async () => {
+  const root = await site()
+  const withVn: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'vietnam', fact: 'Vietnamese shops sell it as "thuốc lồi mắt"', source: 1 }] }
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => withVn as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  // Only the Vietnam fact cited the second source here: drop the Epsom fact to see that source go.
+  const file = join(root, 'engine-state/topics', `${r0.id}.json`)
+  const saved = JSON.parse(await readFile(file, 'utf8')) as TopicFacts
+  await writeFile(file, JSON.stringify({ ...saved, facts: saved.facts.filter(f => !f.fact.startsWith('Epsom')) }))
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.88, notes: [] } as never
+    return { name: 'ตาโปนในปลา: สาเหตุและการรักษา', slug: 'fish-popeye-causes-treatment', summary: ['ตาปลาโปน'], body: '<h3>อาการ</h3><p>ตาโปน</p>', faq: [] } as never
+  }
+  const r = await localizeTopic(root, llm, r0.id, 'th')
+  expect(r).toMatchObject({ slug: 'fish-popeye-causes-treatment', score: 0.88 })
+  expect(prompts[0]).toContain('Thai')
+  expect(prompts[0]).not.toContain('thuốc lồi mắt')
+  const th = JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8'))
+  expect(th.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }])
+  expect(th.quality).toEqual({ score: 0.88, indexable: true })
+  expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })

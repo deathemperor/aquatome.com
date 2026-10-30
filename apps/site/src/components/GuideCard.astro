@@ -16,7 +16,7 @@ const ph = guideImage(c, g)
   <div class:list={['img', { video: g.video }]}>{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang={lang}>{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
   <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])}</p>
   <h3>{g.t.name}</h3>
-  <p class="src">{g.video ? t('Theo video của {name}', { name: g.video.channel }) : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source })}</p>
+  <p class="src">{g.video ? t('Theo video của {name}', { name: g.video.channel }) : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 }) : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source })}</p>
 </a>
 <style>
   .gc { display: block; text-decoration: none; color: inherit; }

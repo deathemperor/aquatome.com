@@ -3,11 +3,13 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity } from '@aq/schema'
 import type { Llm } from './claude'
+import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
+const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8')
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const
 /** What research found about one fishkeeping topic: facts in the researcher's own words, each with its source's index. */
@@ -48,6 +50,7 @@ const WRITE_SCHEMA = {
   },
 }
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
+const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
 const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
@@ -127,4 +130,54 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
   return { id, slug, score: review.score, notes: review.notes, refs: refs.length }
+}
+
+/**
+ * An AquaTome guide in another site language, written afresh from the same research (engine-state/topics/<id>.json)
+ * rather than translated from the Vietnamese: facts about Vietnam itself are left out, the rest written for that
+ * country's hobbyists and checked against the facts like the Vietnamese one. content/guides/<id>/<lang>.json; a guide
+ * already done is skipped unless redo. Thai pages are addressed by an English slug the writer gives.
+ */
+export async function localizeTopic(root: string, llm: Llm, id: string, lang: TargetLang, o: { model?: string; redo?: boolean } = {}) {
+  const file = join(root, 'content/guides', id, `${lang}.json`)
+  if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
+  const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
+  const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
+  const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
+  // Facts about Vietnam itself stay on the Vietnamese page; this page cites only the sources its facts come from
+  // (in the Vietnamese page's order), numbered afresh.
+  const kept = researched.facts.filter(f => f.section !== 'vietnam' && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
+  const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
+  const facts = kept.map(f => ({ ...f, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  if (!facts.length) return { id, skipped: 'no facts' }
+  const forWriter = { topic: vi.name, kind: entity.kind, facts }
+  const T = TARGETS[lang]
+  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
+  const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
+  const check = async (x: Written) => {
+    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${T.lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
+  }
+  let w = await write()
+  let review = await check(w)
+  if (review.score < QUALITY_THRESHOLD || review.notes.length) {
+    const again = await write(review.notes)
+    const r = await check(again)
+    if (r.score > review.score) { w = again; review = r }
+  }
+  const taken = new Set<string>()
+  for (const g of await readdir(join(root, 'content/guides')).catch(() => [] as string[])) {
+    if (g === id) continue
+    const t = JSON.parse(await readFile(join(root, 'content/guides', g, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+    if (t.slug) taken.add(t.slug)
+  }
+  const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
+  const name = w.name.trim()
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), lang === 'id' ? 'panduan' : 'guide', taken)
+  const t = TranslationSchema.parse({
+    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+  })
+  await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  return { id, slug, score: review.score, notes: review.notes }
 }
