@@ -29,6 +29,20 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ailiidae/clupisoma_garua.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-30T00:28:46.156Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): Failed to authenticate. API Error: 401 Invalid bearer token"
+  },
+  "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-30T00:29:02.494Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): Failed to authenticate. API Error: 401 Invalid bearer token"
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",

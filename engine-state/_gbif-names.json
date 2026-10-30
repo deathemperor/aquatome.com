@@ -71,6 +71,13 @@
     "genus": "Acanthodoras",
     "matchType": "EXACT"
   },
+  "Acanthonotus hardwickii": {
+    "canonicalName": "Ailia coila",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Ailia",
+    "matchType": "EXACT"
+  },
   "Acanthopsoides gracilentus": {
     "canonicalName": "Acanthopsoides gracilentus",
     "order": "Cypriniformes",
@@ -361,11 +368,39 @@
     "genus": "Aguarunichthys",
     "matchType": "EXACT"
   },
+  "Ailia affinis": {
+    "canonicalName": "Ailia coila",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Ailia",
+    "matchType": "EXACT"
+  },
+  "Ailia coila": {
+    "canonicalName": "Ailia coila",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Ailia",
+    "matchType": "EXACT"
+  },
   "Ailia occidentalis": {
     "canonicalName": "Parailia occidentalis",
     "order": "Siluriformes",
     "family": "Schilbeidae",
     "genus": "Parailia",
+    "matchType": "EXACT"
+  },
+  "Ailia punctata": {
+    "canonicalName": "Ailiichthys punctata",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Ailiichthys",
+    "matchType": "EXACT"
+  },
+  "Ailiichthys punctata": {
+    "canonicalName": "Ailiichthys punctata",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Ailiichthys",
     "matchType": "EXACT"
   },
   "Akademie der": null,
@@ -1696,6 +1731,7 @@
     "genus": "Baryancistrus",
     "matchType": "EXACT"
   },
+  "Bastar garua": null,
   "Batasio dayi": {
     "canonicalName": "Batasio dayi",
     "order": "Siluriformes",
@@ -2349,6 +2385,13 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Cincelichthys",
+    "matchType": "EXACT"
+  },
+  "Clupisoma bastari": {
+    "canonicalName": "Clupisoma bastari",
+    "order": "Siluriformes",
+    "family": "Schilbeidae",
+    "genus": "Clupisoma",
     "matchType": "EXACT"
   },
   "Cmposcia retusa": null,
@@ -3366,6 +3409,7 @@
     "genus": "Iriatherina",
     "matchType": "EXACT"
   },
+  "Jamuna ailia": null,
   "Janalychas tricarinatus": {
     "canonicalName": "Janalychas tricarinatus",
     "order": "Scorpiones",
@@ -3889,6 +3933,7 @@
     "genus": "Misgurnus",
     "matchType": "FUZZY"
   },
+  "Mishra managed": null,
   "Moapa coriacea": {
     "canonicalName": "Moapa coriacea",
     "order": "Cypriniformes",
