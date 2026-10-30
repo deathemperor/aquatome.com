@@ -6,7 +6,7 @@
 
 **Architecture:** Three engine modules under `packages/engine/src/facebook/`:
 - `parse.ts`: pure HTML parsers, tested on saved fixtures.
-- `collect.ts`: drives a logged-in Chrome through a small `FbBrowser` interface; incremental state lives in `engine-state/facebook-jim.json`.
+- `collect.ts`: drives a logged-in Chrome through a small `FbBrowser` interface; incremental state lives in `engine-state/facebook-jim-crawl.json`.
 - `identify.ts`: faces → contact-sheet "is there a fish" → one vision call per photo against the site's closed species list → only high-confidence matches go into `content/gallery/<id>.json`.
 
 Gallery rebuilds keep photos that carry a `source`.
@@ -16,6 +16,9 @@ Gallery rebuilds keep photos that carry a `source`.
 **Spec:** `docs/superpowers/specs/2026-10-30-facebook-source-design.md`
 
 ## Global Constraints
+
+- **Work on a feature branch (or worktree) and open a draft PR.** Never commit code to `main`: the home machine's cycle pulls `main` every 6 h and would run half-built code. Merge only after Task 8 passes.
+- The state file is `engine-state/facebook-jim-crawl.json`, **not** `engine-state/facebook-jim.json`. That name belongs to `loadState(root, 'facebook-jim')`, which `pnpm engine status` reads for every source id.
 
 - Source id `facebook-jim`; display name / photo author `Jim Cumming`; profile `https://www.facebook.com/jim.cumming.982410/`.
 - Licence on gallery photos: `SOURCE_PHOTO_LICENCE` (`'dùng với sự cho phép'`), with `source: 'facebook-jim'` and `sourceUrl` set to the photo's Facebook permalink.
@@ -49,7 +52,7 @@ Gallery rebuilds keep photos that carry a `source`.
 - Test: `packages/schema/test/` (the existing sources-load test; add a case if none covers new ids)
 
 **Interfaces:**
-- Produces: `export const FB = { id: 'facebook-jim' as const, name: 'Jim Cumming', profile: 'https://www.facebook.com/jim.cumming.982410/', stateFile: 'engine-state/facebook-jim.json', decisionsFile: 'engine-state/facebook-jim-photos.json', snapshotDir: 'sources/facebook-jim', rawPrefix: 'facebook', galleryPrefix: 'facebook-jim', polite: 5000 }` in `config.ts`.
+- Produces: `export const FB = { id: 'facebook-jim' as const, name: 'Jim Cumming', profile: 'https://www.facebook.com/jim.cumming.982410/', stateFile: 'engine-state/facebook-jim-crawl.json', decisionsFile: 'engine-state/facebook-jim-photos.json', snapshotDir: 'sources/facebook-jim', rawPrefix: 'facebook', galleryPrefix: 'facebook-jim', polite: 5000 }` in `config.ts`.
 
 - [ ] **Step 1:** Add the `sources.json` entry: `"facebook-jim": {"name": "Jim Cumming (Facebook)", "homepage": "https://www.facebook.com/jim.cumming.982410/", "publish": true, "permission": {"date": "2026-10-30", "file": "Owner statement 2026-10-30: all permissions granted", "scope": ["text", "photos", "automated copying", "commercial use (ads, affiliate)"]}}`.
 - [ ] **Step 2:** Add the id to `SOURCE_IDS`. Write `config.ts`.
@@ -69,7 +72,13 @@ Gallery rebuilds keep photos that carry a `source`.
 
 - [ ] **Step 1:** Write `fb-recon.ts`. It opens `ChromeFetcher` on the engine profile, then for each target loads the page, waits 5 s, scrolls 3 times (5 s apart) where it's a feed or grid, clicks every "See more", and saves `page.content()`.
   - Targets: profile timeline; `…/jim.cumming.982410/photos_albums` (or whatever URL the albums tab lands on); one album; one photo page; one post with "+N" photos; a logged-out load in a fresh temp profile.
-- [ ] **Step 2:** Run it: `pnpm --filter @aq/engine exec tsx scripts/fb-recon.ts`. Trim each fixture to the main feed or region, keeping the attributes the parsers will use, so files stay under ~300 KB each.
+- [ ] **Step 2:** Run it: `pnpm --filter @aq/engine exec tsx scripts/fb-recon.ts`.
+
+  **Go/no-go:** if Facebook shows a checkpoint, a login wall, or an empty timeline, stop here and report to the owner. Don't start Tasks 3–7. (An older spare account is less likely to be checkpointed than a brand-new one.)
+
+  Trim each fixture to the post, album and photo regions only, so files stay under ~300 KB each:
+  - keep the attributes the parsers will use;
+  - **the repo is public**, so remove comment and reaction blocks, other people's names and avatars, and the logged-in account's nav and identity.
 - [ ] **Step 3:** In `NOTES.md`, record what the parsers key on, preferring hrefs, `role`, `aria-*` and `data-*` over Facebook's generated class names:
   - how a post's id and permalink look;
   - where the timestamp is (if it can't be read, `time` stays optional);
@@ -203,6 +212,7 @@ Behaviour:
   - Append `{ ...stored, licence: SOURCE_PHOTO_LICENCE, author: FB.name, sourceUrl: photoUrl(id), caption, source: 'facebook-jim' }` to `content/gallery/<species>.json`. If that file doesn't exist, create `{ id, photos: [], seen: 0, updatedAt: today }` with no `builtAt`.
   - Set `updatedAt` to today.
 - **Stopping:** an `LlmError` stops with `stopped` set; undecided photos stay undecided.
+- **Owner removals:** every run first removes `source: 'facebook-jim'` photos whose `url` is in `_photo-rejected.json` from all gallery files, and sets their decision to `rejected`. This happens before any model call, so it runs even when the model is out of quota.
 
 - [ ] **Step 1: Write failing tests** with fake deps, a temp root holding two species (`betta-splendens`, `paracheirodon-innesi`) and a state with 5 stored photos. Expected results:
   - Photo 1 → high, betta, ok: added with `source`, `author: 'Jim Cumming'`, `licence: SOURCE_PHOTO_LICENCE`, and `sourceUrl` ending `fbid=1`.
@@ -214,6 +224,7 @@ Behaviour:
   - A second run makes zero `sheet`/`look` calls.
   - `look` throwing `LlmError` on photo 2: `stopped` is set, photo 1's decision is kept, and photo 2 has no decision.
   - A gallery URL listed in `_photo-rejected.json` is not added.
+  - A Facebook photo already in a gallery whose URL is then added to `_photo-rejected.json` is removed on the next run.
 - [ ] **Step 2:** Run `pnpm --filter @aq/engine exec vitest run test/facebook-identify.test.ts`. Expected: FAIL.
 - [ ] **Step 3:** Write the two prompts (English instructions, Vietnamese caption, in the style of `gallery.ts`'s `vetPrompt`), then implement `identifyPhotos`.
 - [ ] **Step 4:** Run the tests again. Expected: PASS.
@@ -231,18 +242,19 @@ Behaviour:
 - Produces: in `galleries()`:
   - Freshness uses `prev.builtAt ?? (prev.photos.some(p => !p.source) ? prev.updatedAt : undefined)`.
   - It writes `builtAt: today`.
-  - The written photos are `[...screened, ...prev.photos.filter(p => p.source)]`, deduped by `url`.
+  - The written photos are `[...screened, ...prev.photos.filter(p => p.source && !rejected[p.url])]`, deduped by `url`.
 
 - [ ] **Step 1: Write failing tests:**
   - A gallery file holding only a `source: 'facebook-jim'` photo, with today's `updatedAt` and no `builtAt`, is built (not skipped). The result keeps the Facebook photo after the screened ones, and has `builtAt`.
   - A rebuild with `--only` keeps source photos.
   - A file with `builtAt` 10 days old is skipped.
+  - A source photo whose `url` is in `_photo-rejected.json` is dropped on rebuild.
 - [ ] **Step 2:** Run `pnpm --filter @aq/engine exec vitest run test/gallery.test.ts`. Expected: the new cases FAIL.
 - [ ] **Step 3:** Implement.
 - [ ] **Step 4:** Run `pnpm test && pnpm typecheck` from the root. Expected: PASS. The existing 21 gallery files still parse, and since they have no `builtAt` and do have non-source photos, they are treated as built on their `updatedAt`.
 - [ ] **Step 5:** Commit `feat(engine): gallery rebuilds keep photos copied with permission`.
 
-### Task 7: Command, cycle, docs
+### Task 7: Command and docs
 
 **Files:**
 - Modify: `packages/engine/src/cli.ts` (new `facebook` branch and a usage line)
@@ -263,17 +275,12 @@ Behaviour:
 - Output: `facebook: N new posts, N new albums, N photos stored, N failed` and `facebook photos: N added to galleries, N dropped (stopped: …)`, plus one line per added photo.
 
 - [ ] **Step 1:** Implement the CLI branch. Collect opens `ChromeFetcher` with `profileDir: ~/.cache/thuysinh/chrome-profile` (same as `run`) and closes it in `finally`.
-- [ ] **Step 2:** In `engine-cycle.sh`, after the `pnpm engine run …` line, add:
-  ```bash
-  # Jim Cumming's Facebook (spare account in the engine's Chrome profile): new posts and albums, then species photos for galleries.
-  [ -n "${ENGINE_ARGS:-}" ] || pnpm engine facebook --max-minutes "${FACEBOOK_MAX_MINUTES:-45}" || log "facebook: failed"
-  ```
-- [ ] **Step 3:** In `README.md`, add a table row for `pnpm engine facebook`, and a bullet covering:
+- [ ] **Step 2:** In `README.md`, add a table row for `pnpm engine facebook`, and a bullet covering:
   - the spare account and the login-by-hand step;
   - `--retry-blocked`;
   - that originals sit in `media.aquatome.com/facebook/` (public, unlinked).
-- [ ] **Step 4:** Run `pnpm typecheck && pnpm test` from the root. Expected: PASS.
-- [ ] **Step 5:** Commit `feat(engine): pnpm engine facebook, in the cycle`.
+- [ ] **Step 3:** Run `pnpm typecheck && pnpm test` from the root. Expected: PASS.
+- [ ] **Step 4:** Commit `feat(engine): pnpm engine facebook command`.
 
 ### Task 8: First live run (with the owner)
 
@@ -281,6 +288,17 @@ Behaviour:
 - [ ] **Step 2:** Spot-check:
   - three `sources/facebook-jim/posts/*.md` files have the full text and working raw R2 URLs;
   - an album file lists captions;
-  - each photo added to a gallery is the right species (open it next to the species page). Report any wrong one to the owner and add it to `_photo-rejected.json`.
+  - each photo added to a gallery is the right species (open it next to the species page).
+
+  **If any added photo is the wrong species,** it's a systemic miss on the main anti-goal, not a one-off:
+  1. add it to `_photo-rejected.json`;
+  2. tighten the `look` prompt;
+  3. clear the `added` decisions;
+  4. re-run Steps 1–2 until a run adds no wrong photo.
 - [ ] **Step 3:** Run `pnpm build`. Expected: the build succeeds and the gallery pages show Facebook photos credited to Jim Cumming.
-- [ ] **Step 4:** Commit the content (`content: facebook-jim first run`). The cycle then takes over.
+- [ ] **Step 4:** In `engine-cycle.sh`, after the `pnpm engine run …` line, add:
+  ```bash
+  # Jim Cumming's Facebook (spare account in the engine's Chrome profile): new posts and albums, then species photos for galleries.
+  [ -n "${ENGINE_ARGS:-}" ] || pnpm engine facebook --max-minutes "${FACEBOOK_MAX_MINUTES:-45}" || log "facebook: failed"
+  ```
+- [ ] **Step 5:** Commit the content and the cycle change (`content: facebook-jim first run`), mark the PR ready, and merge. The cycle then takes over.
