@@ -1,0 +1,85 @@
+{
+  "category": "den",
+  "name": "Lampu akuarium",
+  "lead": "Lampu membuat Anda bisa menikmati ikan dan menumbuhkan tanaman. Ikan hanya butuh cahaya lembut; tanaman air butuh lampu dengan spektrum lengkap dan cukup kuat.",
+  "intro": "<p>Akuarium yang hanya berisi ikan butuh lampu untuk dinikmati dan untuk menjaga ritme siang-malam ikan, tidak perlu kuat. Banyak spesies dari hutan lebat, seperti ikan loach, cupang (betta) dan rasbora, menyukai cahaya lembut dan tempat teduh di bawah tanaman apung.</p><p>Akuarium tanaman berbeda: tanaman butuh cahaya yang cukup untuk berfotosintesis. Lampu berdaya rendah sudah cukup untuk lumut (moss), pakis dan anubias; tanaman batang merah dan tanaman latar depan yang membentuk karpet butuh lampu kuat dan biasanya juga CO2.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+    "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "diu",
+      "name": "Lampu LED cahaya lembut",
+      "match": "dịu|yếu|mờ|thấp|betta|ban đêm|nano|nhỏ|mini",
+      "desc": "<p>Lampu LED ringkas dengan cahaya putih hangat atau putih netral. Cukup untuk akuarium ikan, lumut (moss), pakis, anubias dan tanaman mudah.</p>",
+      "pick": "Pilih yang panjangnya sekitar 80–100% panjang akuarium. Adanya pengatur kecerahan (dimmer) adalah nilai tambah besar.",
+      "buy": "đèn led bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060-480.webp",
+        "width": 900,
+        "height": 600,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
+        "caption": "Our Favorite Easy & Low Light Plants: Cryptocoryne Lutea and Vallisneria - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "thuy-sinh",
+      "name": "Lampu LED aquascape full spectrum",
+      "match": "thủy sinh|full spectrum|toàn phổ|6700k|mạnh|xanh đỏ|120cm|hồ",
+      "desc": "<p>Lampu dengan banyak kanal warna (putih, merah, biru), cahayanya kuat, biasanya dilengkapi timer dan efek matahari terbit. Untuk tanaman batang, tanaman merah dan tanaman karpet.</p>",
+      "pick": "Suhu warna 6500–7000 K. Akuarium yang tingginya lebih dari 45 cm butuh lampu lebih kuat karena cahaya cepat melemah saat masuk ke bagian dalam.",
+      "buy": "đèn led thủy sinh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/2f9698690d8f12aa.webp",
+        "thumb": "https://media.aquatome.com/commons/2f9698690d8f12aa-480.webp",
+        "width": 960,
+        "height": 666,
+        "licence": "CC BY-SA 3.0",
+        "author": "Lime Huang",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+        "caption": "water plant aquarium led light"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Nyalakan 6–8 jam per hari, dengan jam tetap menggunakan stopkontak timer. Lebih dari 10 jam berarti mengundang alga pengganggu.</p>",
+    "<p>Akuarium yang hanya berisi ikan atau tanaman mudah: lampu lembut sudah cukup; simpan dananya untuk filter yang bagus.</p>",
+    "<p>Akuarium tanaman: kalau lampu ditambah kekuatannya, pupuk cair dan CO2 juga harus ditambah, kalau tidak alga pengganggu akan meledak.</p>",
+    "<p>Ikan yang suka tempat teduh: tambahkan tanaman apung untuk melembutkan cahaya, bukan mengurangi lampu.</p>"
+  ],
+  "mistakes": [
+    "<p>Meletakkan akuarium di dekat jendela yang terkena sinar matahari langsung: alga hijau menutupi kaca setelah beberapa minggu.</p>",
+    "<p>Langsung menyalakan lampu kuat sejak hari pertama akuarium tanaman baru; sebaiknya mulai 6 jam lalu dinaikkan bertahap.</p>",
+    "<p>Menyalakan lampu 24 jam penuh supaya ikan \"tidak bosan\": ikan juga butuh gelap untuk beristirahat.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Berapa jam sehari lampu akuarium dinyalakan?",
+      "a": "<p>Sekitar 6–8 jam. Jika akuarium ada alga pengganggu, kurangi menjadi 6 jam dan periksa takaran pupuk cairnya.</p>"
+    },
+    {
+      "q": "Tanaman air apa yang bisa hidup dengan lampu berdaya rendah?",
+      "a": "<p>Java moss, java fern, anubias, bucephalandra, vallisneria dan tanaman apung.</p>"
+    },
+    {
+      "q": "Apa gunanya lampu merah di malam hari?",
+      "a": "<p>Untuk mengamati ikan yang aktif di malam hari, seperti catfish (ikan berkumis) dan ikan loach, tanpa terlalu membuatnya panik. Lampu ini tidak diperlukan untuk kesehatan ikan.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.86,
+    "indexable": true
+  }
+}

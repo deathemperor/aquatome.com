@@ -1,0 +1,88 @@
+{
+  "category": "be-ca",
+  "name": "Akuarium",
+  "lead": "Makin besar akuarium, makin stabil airnya. Pilih akuarium sesuai ukuran ikan saat dewasa, bukan ukuran ikan saat dibeli.",
+  "intro": "<p>Air di akuarium kecil cepat berubah: suhu, amonia, dan pH naik turun dengan tajam saat pakan berlebih atau listrik padam. Karena itu, pemula biasanya lebih mudah merawat akuarium 60 cm daripada akuarium mini 20 liter.</p><p>Setiap halaman spesies di AquaTome mencantumkan ukuran akuarium minimum. Panjang akuarium penting untuk ikan perenang cepat (danio, tetra), tinggi akuarium untuk ikan bertubuh tinggi (manfish), dan luas dasar untuk ikan dasar (loach, corydoras).</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/9c17b7436f13c8db.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/9c17b7436f13c8db-480.webp",
+    "width": 1024,
+    "height": 683,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank",
+    "caption": "5 Steps to a Better 10 Gallon Fish Tank - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "nano",
+      "name": "Akuarium mini, akuarium nano (di bawah 40 liter)",
+      "match": "mini|nano|nhỏ|30cm|40 lít|betta|20|25|lùn",
+      "desc": "<p>Akuarium 20–40 liter untuk di meja kerja. Cocok untuk cupang, udang hias, rasbora mini, dan kawanan ikan yang sangat kecil.</p>",
+      "pick": "Minimal 20 liter untuk cupang. Akuarium kecil butuh heater dengan pengatur suhu dan ganti air yang lebih rutin.",
+      "buy": "bể cá mini",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+        "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "lon",
+      "name": "Akuarium besar (90 cm ke atas)",
+      "match": "lớn|80|90|100|120|150|180|200|240|300|hồ",
+      "desc": "<p>Akuarium 200 liter ke atas untuk ikan besar, kawanan ikan yang ramai, cichlid, serta ikan arus deras yang butuh ruang panjang untuk berenang.</p>",
+      "pick": "Periksa lantai dan kabinet: akuarium 120 cm beratnya lebih dari 300 kg saat penuh. Kaca minimal 10 mm, sebaiknya memakai bingkai atau penguat (brace).",
+      "buy": "bể cá 120cm",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/c46f0ad632556fc6.webp",
+        "thumb": "https://media.aquatome.com/commons/c46f0ad632556fc6-480.webp",
+        "width": 800,
+        "height": 484,
+        "licence": "CC BY-SA 3.0",
+        "author": "Neale_Monks (talk) (Uploads)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium3.jpg",
+        "caption": "A freshwater aquarium."
+      }
+    },
+    {
+      "id": "chuan",
+      "name": "Akuarium 45–60 cm (40–100 liter)",
+      "match": "45|50|60|70",
+      "desc": "<p>Ukuran paling populer untuk pemula: cukup stabil, cukup ruang untuk satu kawanan ikan kecil dan beberapa ikan dasar.</p>",
+      "pick": "Akuarium 60 × 30 × 36 cm berisi sekitar 54–65 liter. Cukup untuk kawanan 10–12 ikan kecil seukuran neon tetra.",
+      "buy": "bể cá 60cm"
+    }
+  ],
+  "choose": [
+    "<p>Lihat \"Akuarium minimum\" di halaman tiap spesies dan pilih berdasarkan spesies terbesar yang ingin dipelihara.</p>",
+    "<p>Ikan perenang cepat dan kawanan besar: utamakan panjang akuarium. Ikan dasar: utamakan luas dasar.</p>",
+    "<p>Sisakan ruang untuk filter, heater, dan kabinet yang kokoh; letakkan akuarium jauh dari sinar matahari langsung.</p>"
+  ],
+  "mistakes": [
+    "<p>Membeli akuarium kecil untuk ikan muda dengan niat \"nanti ganti kalau sudah besar\": banyak spesies tumbuh sangat cepat.</p>",
+    "<p>Meletakkan akuarium di atas kabinet yang tidak kuat menahan beban atau di lantai yang tidak rata.</p>",
+    "<p>Memasukkan ikan di hari pertama: akuarium baru perlu menjalankan filter selama 3–6 minggu.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Pemula sebaiknya membeli akuarium ukuran berapa?",
+      "a": "<p>Akuarium 60 cm (sekitar 60 liter) adalah ukuran yang paling mudah dirawat: cukup stabil dan biaya peralatannya masih wajar.</p>"
+    },
+    {
+      "q": "Akuarium 60 cm bisa diisi berapa ikan?",
+      "a": "<p>Sekitar 10–15 ikan kecil (di bawah 4 cm) ditambah beberapa ikan dasar, tergantung spesies dan filternya. Lihat ukuran akuarium minimum di halaman tiap spesies.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

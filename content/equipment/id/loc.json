@@ -1,0 +1,143 @@
+{
+  "category": "loc",
+  "name": "Filter",
+  "lead": "Filter menjaga air tetap jernih dan menjadi tempat hidup bakteri yang mengolah kotoran ikan. Pilih jenis yang tepat sesuai ukuran akuarium dan sifat ikan.",
+  "intro": "<p>Filter punya tiga tugas: menahan kotoran (filtrasi mekanis), menjadi tempat hidup bakteri yang mengubah amonia menjadi nitrit lalu nitrat (filtrasi biologis), dan menciptakan arus agar air bisa bertukar oksigen. Dari ketiganya, filtrasi biologis paling penting: air akuarium bisa terlihat bening tetapi tetap beracun kalau bakterinya belum cukup.</p><p>Tidak ada jenis filter yang \"terbaik\". Filter spons murah, senyap, dan aman untuk burayak serta udang. Filter gantung mudah dipasang untuk akuarium 40–100 liter. Filter canister kuat dan rapi untuk akuarium besar atau aquascape. Ikan arus deras seperti hillstream loach butuh tambahan wavemaker.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-filters-which-one-should-you-get",
+    "caption": "Fish Tank Filters: Which One Should You Get? - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "suc-khi",
+      "name": "Aerator (pompa udara)",
+      "match": "^(máy sục|máy sủi|sủi oxy)",
+      "desc": "<p>Pompa yang mengalirkan udara lewat selang dan batu aerasi. Alat ini sendiri tidak menyaring, tetapi bisa menjalankan filter spons dan menambah oksigen saat cuaca panas atau saat ikan sakit.</p>",
+      "pick": "Satu aerator dua lubang cukup untuk 2 filter spons. Pasang katup satu arah (check valve) agar air tidak mengalir balik saat listrik padam.",
+      "buy": "máy sủi oxy bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/1386755734fcbfaf.webp",
+        "thumb": "https://media.aquatome.com/commons/1386755734fcbfaf-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 4.0",
+        "author": "Ofkun",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+        "caption": "Air pump and stone.jpg"
+      }
+    },
+    {
+      "id": "tao-dong",
+      "name": "Wavemaker (pembuat arus)",
+      "match": "tạo dòng|tạo sóng|powerhead",
+      "desc": "<p>Pompa kecil yang diletakkan di dalam akuarium untuk mendorong air menjadi arus kuat tanpa menyaring. Dipakai untuk ikan arus deras, hillstream loach, dan gobi sungai yang butuh air mengalir dan banyak oksigen.</p>",
+      "pick": "Total debit (filter + wavemaker) sekitar 10–20 kali volume akuarium per jam untuk akuarium biotop sungai; sisakan area air tenang untuk tempat ikan beristirahat.",
+      "buy": "máy tạo dòng bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/839fbe9ded0e3841.webp",
+        "thumb": "https://media.aquatome.com/commons/839fbe9ded0e3841-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 3.0",
+        "author": "Brianza2008",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinotitti.JPG",
+        "caption": "60 lit. aquarium Anubias and Echinodorus"
+      }
+    },
+    {
+      "id": "sump",
+      "name": "Filter sump",
+      "match": "sump|tràn",
+      "desc": "<p>Bak tambahan yang diletakkan di bawah kabinet; air meluap turun melewati sekat-sekat berisi media filter, lalu dipompa kembali ke atas. Bisa menampung sangat banyak media dan menyembunyikan heater serta peralatan lain.</p>",
+      "pick": "Cocok untuk akuarium mulai 300 liter, kolam ikan besar, dan ikan predator. Perlu akuarium yang dibor atau kotak overflow; perhitungkan ruang tampung air saat listrik padam.",
+      "buy": "lọc tràn bể cá"
+    },
+    {
+      "id": "thung",
+      "name": "Filter canister (filter eksternal)",
+      "match": "thùng|ngoài|ngoại|canister|lớn|công suất",
+      "desc": "<p>Tabung tertutup yang diletakkan di bawah kabinet, dengan selang inlet dan outlet yang terhubung ke akuarium. Menampung banyak media filter, senyap, dan tidak memakan tempat di dalam akuarium, sehingga disukai untuk aquascape dan akuarium mulai 60 cm.</p>",
+      "pick": "Pilih debit yang tertera di kemasan sekitar 4–6 kali volume akuarium per jam (akuarium 120 liter: filter 500–700 L/jam). Bersihkan 1–2 bulan sekali.",
+      "buy": "lọc thùng bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/ddd1a46ad1595bb5.webp",
+        "thumb": "https://media.aquatome.com/commons/ddd1a46ad1595bb5-480.webp",
+        "width": 960,
+        "height": 1280,
+        "licence": "CC BY-SA 4.0",
+        "author": "Raimond Spekking",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
+        "caption": "Eheim type 2011, pump 101101993 - Aquarium filter"
+      }
+    },
+    {
+      "id": "treo",
+      "name": "Filter gantung (hang-on)",
+      "match": "treo|thác|hông",
+      "desc": "<p>Kotak filter yang dikaitkan di dinding akuarium; air disedot naik lalu mengalir kembali seperti air terjun kecil. Murah, mudah dipasang, dan kapasnya mudah diganti.</p>",
+      "pick": "Cocok untuk akuarium 20–100 liter. Bungkus ujung inlet dengan spons jika memelihara udang atau ikan kecil agar mereka tidak tersedot.",
+      "buy": "lọc treo bể cá"
+    },
+    {
+      "id": "bot-bien",
+      "name": "Filter spons",
+      "match": "bọt biển|sủi|bọt khí|sponge|mút|xốp|bông|lọc khí|vi sinh|mini|nhỏ|nano|betta",
+      "desc": "<p>Blok spons yang dijalankan dengan aerator: gelembung udara menarik air melewati spons, dan bakteri hidup di pori-pori spons. Arusnya lembut, tidak menyedot burayak, dan hampir tidak pernah rusak.</p>",
+      "pick": "Cocok untuk akuarium di bawah 60 liter, akuarium cupang, akuarium udang, akuarium pemijahan, dan anakan ikan. Saat membersihkan, peras spons di dalam air akuarium lama, jangan dibilas di bawah keran agar bakterinya tetap terjaga.",
+      "buy": "lọc bọt biển bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/sponge-filters-the-easiest-fish-tank-filter-ever",
+        "caption": "Sponge Filters: The Easiest Fish Tank Filter Ever - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Hitung volume akuarium (panjang × lebar × tinggi dalam cm ÷ 1000 = liter), lalu pilih filter dengan debit 4–6 kali volume tersebut per jam.</p>",
+    "<p>Burayak, udang, cupang, ikan bersirip panjang: arus lembut, utamakan filter spons atau filter gantung yang debitnya bisa diatur.</p>",
+    "<p>Ikan arus deras, hillstream loach, gobi sungai: filter kuat ditambah wavemaker, banyak oksigen.</p>",
+    "<p>Ikan besar dan ikan yang makannya banyak (cichlid, ikan mas koki, ikan lele/catfish): pilih filter satu ukuran lebih besar dari volume akuarium.</p>",
+    "<p>Aquascape dengan CO2: filter canister lebih baik menahan CO2 daripada filter gantung karena permukaan air tidak banyak teraduk.</p>"
+  ],
+  "mistakes": [
+    "<p>Mencuci media filter dengan air keran berklorin: bakteri mati, akuarium \"mengulang siklus\", dan ikan mati massal.</p>",
+    "<p>Mengganti seluruh kapas dan ring keramik sekaligus. Ganti bergantian, sebagian demi sebagian.</p>",
+    "<p>Langsung memasukkan ikan begitu filter baru dipasang. Akuarium baru butuh 3–6 minggu agar bakteri berkembang.</p>",
+    "<p>Mematikan filter semalaman supaya senyap: bakteri yang kekurangan oksigen akan mati dalam beberapa jam.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Akuarium 60 cm sebaiknya pakai filter apa?",
+      "a": "<p>Akuarium 60 cm (sekitar 54–60 liter) cocok memakai satu filter gantung 300–400 L/jam, satu filter canister kecil, atau dua filter spons jika memelihara udang dan ikan kecil.</p>"
+    },
+    {
+      "q": "Seberapa sering filter perlu dibersihkan?",
+      "a": "<p>Saat arusnya jelas melemah, biasanya 2–4 minggu untuk filter spons dan filter gantung, 1–2 bulan untuk filter canister. Selalu cuci media di dalam air akuarium yang baru saja dibuang saat ganti air.</p>"
+    },
+    {
+      "q": "Apakah filter harus menyala siang dan malam?",
+      "a": "<p>Ya. Bakteri di dalam filter butuh aliran air beroksigen terus-menerus; dimatikan beberapa jam saja, bakteri mulai mati.</p>"
+    },
+    {
+      "q": "Apakah perlu aerator kalau sudah ada filter?",
+      "a": "<p>Tidak wajib jika filter mengaduk permukaan air dengan baik. Sebaiknya dipasang saat suhu air di atas 28 °C, saat akuarium padat ikan, atau saat memakai obat.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

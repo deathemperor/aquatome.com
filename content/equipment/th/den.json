@@ -1,0 +1,85 @@
+{
+  "category": "den",
+  "name": "ไฟตู้ปลา",
+  "lead": "ไฟช่วยให้ชมปลาและเลี้ยงไม้น้ำได้ ปลาต้องการเพียงแสงนุ่มนวล ส่วนไม้น้ำต้องการไฟที่มีสเปกตรัมครบและแรงพอ",
+  "intro": "<p>ตู้ที่เลี้ยงแต่ปลาต้องการไฟไว้สำหรับชมปลาและช่วยรักษาจังหวะกลางวันกลางคืนของปลา ไม่จำเป็นต้องแรง ปลาหลายชนิดจากแหล่งน้ำในป่าทึบ เช่น ปลาหมู ปลากัด และปลาซิวราสบอร่า ชอบแสงนุ่มนวลและที่ร่มใต้ไม้น้ำลอยผิวน้ำ</p><p>ตู้ไม้น้ำนั้นต่างออกไป เพราะไม้น้ำต้องได้แสงเพียงพอสำหรับสังเคราะห์แสง ไฟแสงน้อยก็เพียงพอสำหรับมอส เฟิร์น และอนูเบียส (anubias) ส่วนไม้ข้อสีแดงและไม้หน้าตู้ที่เลื้อยเป็นพรมต้องใช้ไฟแรง และมักต้องใช้ CO2 ร่วมด้วย</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+    "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "diu",
+      "name": "ไฟ LED แสงนุ่มนวล",
+      "match": "dịu|yếu|mờ|thấp|betta|ban đêm|nano|nhỏ|mini",
+      "desc": "<p>ไฟ LED ขนาดกะทัดรัด ให้แสงสีขาวอมเหลือง (วอร์มไวท์) หรือขาวกลาง (นิวทรัลไวท์) เพียงพอสำหรับตู้ปลา มอส เฟิร์น อนูเบียส และไม้น้ำเลี้ยงง่าย</p>",
+      "pick": "เลือกความยาวประมาณ 80–100% ของความยาวตู้ หากปรับความสว่างได้ถือเป็นข้อดีมาก",
+      "buy": "đèn led bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060-480.webp",
+        "width": 900,
+        "height": 600,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
+        "caption": "Our Favorite Easy & Low Light Plants: Cryptocoryne Lutea and Vallisneria - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "thuy-sinh",
+      "name": "ไฟ LED ไม้น้ำ ฟูลสเปกตรัม",
+      "match": "thủy sinh|full spectrum|toàn phổ|6700k|mạnh|xanh đỏ|120cm|hồ",
+      "desc": "<p>ไฟหลายช่องสี (ขาว แดง น้ำเงิน) ให้แสงแรง มักมีระบบตั้งเวลาและเอฟเฟกต์แสงยามเช้า เหมาะกับไม้ข้อ ไม้น้ำสีแดง และไม้ปูพรม</p>",
+      "pick": "อุณหภูมิสี 6500–7000 K ตู้ที่สูงเกิน 45 ซม. ต้องใช้ไฟแรงขึ้น เพราะแสงจะอ่อนลงอย่างรวดเร็วเมื่อลงไปลึก",
+      "buy": "đèn led thủy sinh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/2f9698690d8f12aa.webp",
+        "thumb": "https://media.aquatome.com/commons/2f9698690d8f12aa-480.webp",
+        "width": 960,
+        "height": 666,
+        "licence": "CC BY-SA 3.0",
+        "author": "Lime Huang",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+        "caption": "water plant aquarium led light"
+      }
+    }
+  ],
+  "choose": [
+    "<p>เปิดไฟวันละ 6–8 ชั่วโมง โดยใช้ปลั๊กตั้งเวลาให้เปิดปิดตรงเวลาทุกวัน หากเปิดเกิน 10 ชั่วโมงจะเป็นการเชิญตะไคร่</p>",
+    "<p>ตู้ที่มีแต่ปลาหรือไม้น้ำเลี้ยงง่าย: ไฟแสงนุ่มนวลก็เพียงพอ เก็บงบไว้สำหรับระบบกรองดี ๆ</p>",
+    "<p>ตู้ไม้น้ำ: เมื่อเพิ่มความแรงของไฟ ต้องเพิ่มปุ๋ยน้ำและ CO2 ตามไปด้วย มิฉะนั้นตะไคร่จะระบาด</p>",
+    "<p>ปลาที่ชอบที่ร่ม: ใส่ไม้น้ำลอยผิวน้ำเพิ่มเพื่อช่วยลดความจ้าของแสง แทนการลดไฟ</p>"
+  ],
+  "mistakes": [
+    "<p>วางตู้ไว้ข้างหน้าต่างที่โดนแดดโดยตรง: ไม่กี่สัปดาห์ตะไคร่เขียวจะเกาะเต็มกระจก</p>",
+    "<p>เปิดไฟแรงตั้งแต่วันแรกของตู้ไม้น้ำที่เพิ่งจัด ควรเริ่มที่ 6 ชั่วโมงแล้วค่อย ๆ เพิ่ม</p>",
+    "<p>เปิดไฟตลอด 24 ชั่วโมงเพื่อให้ปลา \"ไม่เหงา\": ปลาก็ต้องการความมืดเพื่อพักผ่อนเช่นกัน</p>"
+  ],
+  "faq": [
+    {
+      "q": "ควรเปิดไฟตู้ปลาวันละกี่ชั่วโมง",
+      "a": "<p>ประมาณ 6–8 ชั่วโมง หากตู้มีตะไคร่ ให้ลดเหลือ 6 ชั่วโมงและตรวจปริมาณปุ๋ยที่ใส่</p>"
+    },
+    {
+      "q": "ไม้น้ำชนิดใดอยู่ได้กับไฟแสงน้อย",
+      "a": "<p>จาวามอส เฟิร์นชวา (java fern) อนูเบียส บูเซป (bucephalandra) วัลลิสเนเรีย (vallisneria) และไม้น้ำลอยผิวน้ำ</p>"
+    },
+    {
+      "q": "ไฟสีแดงตอนกลางคืนมีประโยชน์อย่างไร",
+      "a": "<p>ใช้สำหรับชมปลาที่ออกหากินกลางคืน เช่น ปลาหนังอย่างคอรี่ และปลาหมู โดยรบกวนให้ปลาตกใจน้อย แต่ไม่จำเป็นต่อสุขภาพปลา</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}
