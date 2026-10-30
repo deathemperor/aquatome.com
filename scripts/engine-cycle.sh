@@ -107,6 +107,12 @@ if part rewrite; then
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-8}" || log "localize $lang: failed"; done
+  # Plants, glossary terms and AquaTome's own guides in both: only what is new or whose source changed (all exist already).
+  for lang in id th; do
+    pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
+    pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
+    pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}" || log "localize-guides $lang: failed"
+  done
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
   if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
