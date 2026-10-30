@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { BreedSchema, GallerySchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
-import type { Llm } from './claude'
+import { LlmError, type Llm } from './claude'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
@@ -150,7 +150,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const prevPhotos = kept ? JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as BreedEntity | null : null
   const prevGallery = prevPhotos ? JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number } | null : null
   const enName = facts.enNames[0] ?? a.name
-  const cands = prevPhotos ? [] : await commonsCandidates((facts.commons ?? enName).replace(/^Category:/i, '').trim(), d.gallery.http)
+  const cands = prevPhotos ? [] : await commonsCandidates((facts.commons ?? enName).replace(/^Category:/i, '').trim(), d.gallery.http, 450, !facts.commons)
   const photos = prevPhotos ? [...prevPhotos.photos, ...(prevGallery?.photos ?? [])] : await screen(cands.slice(0, 300), enName, w.name, d.gallery, true)
   const seen = prevPhotos ? prevGallery?.seen ?? photos.length : cands.length
 
@@ -193,4 +193,53 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
   }
   return { id, slug: vi.slug, score: review.score, notes: review.notes, photos: `${photos.length} of ${seen}` }
+}
+
+/**
+ * Photos for breed pages that have none: a search for the name's words on Commons, screened for this line only. The
+ * best 4 lead the page, the rest go to its gallery. Tried again after a month (the Unsplash step tries these pages too).
+ */
+export async function breedPhotos(root: string, d: GalleryDeps, o: { limit?: number }) {
+  const content = join(root, 'content')
+  const triedFile = join(root, 'engine-state/_breed-photos.json')
+  const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const today = d.now().toISOString().slice(0, 10)
+  const report = { done: [] as string[], failed: [] as string[], stopped: '' }
+  const ids = (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()
+  // A photo on another breed page stays there: Commons rarely says which line a fish is (red-tailed golden or super red).
+  const used = new Set<string>()
+  for (const id of ids) {
+    const e = JSON.parse(await readFile(join(content, 'breeds', id, 'entity.json'), 'utf8')) as BreedEntity
+    const g = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos'] } | null
+    for (const p of [...e.photos, ...(g?.photos ?? [])]) used.add(p.sourceUrl)
+  }
+  for (const id of ids) {
+    if (report.done.length + report.failed.length >= (o.limit ?? Infinity)) break
+    if (tried[id] && d.now().getTime() - Date.parse(tried[id]) < 30 * 86_400_000) continue
+    const file = join(content, 'breeds', id, 'entity.json')
+    const e = JSON.parse(await readFile(file, 'utf8')) as BreedEntity
+    if (e.photos.length) continue
+    const vi = JSON.parse(await readFile(join(content, 'breeds', id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
+    const name = id.replace(/-/g, ' ')
+    try {
+      const cands = (await commonsCandidates(name, d.http, 450, true)).filter(c => !used.has(c.sourceUrl))
+      const photos = await screen(cands.slice(0, 300), name, vi.name ?? name, d, true)
+      if (photos.length) await writeFile(file, `${JSON.stringify({ ...e, photos: photos.slice(0, 4) }, null, 2)}\n`)
+      for (const p of photos) used.add(p.sourceUrl)
+      if (photos.length > 4) {
+        const gfile = join(content, 'gallery', `${id}.json`)
+        const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number; updatedAt: string } | null
+        const have = new Set(g?.photos.map(p => p.url))
+        await mkdir(join(content, 'gallery'), { recursive: true })
+        await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos: [...(g?.photos ?? []), ...photos.slice(4).filter(p => !have.has(p.url))], seen: (g?.seen ?? 0) + cands.length, updatedAt: g?.updatedAt ?? today }), null, 2)}\n`)
+      }
+      tried[id] = today
+      report.done.push(`${id}: ${photos.length} of ${cands.length}`)
+    } catch (err) {
+      if (err instanceof LlmError) { report.stopped = `${id}: ${err.message}`; break }
+      report.failed.push(`${id}: ${(err as Error).message.slice(0, 160)}`)
+    }
+  }
+  await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
+  return report
 }

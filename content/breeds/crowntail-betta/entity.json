@@ -65,7 +65,28 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/CTPK_Multi_M_-_Betta-Online.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c2/CTPK_Multi_M_-_Betta-Online.jpg",
+      "width": 1280,
+      "height": 1106,
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:CTPK_Multi_M_-_Betta-Online.jpg",
+      "caption": "Cá betta đực đuôi tưa màu trắng xanh viền đỏ trong bể"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/CTPK_Multi_M_-_Betta-online.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a8/CTPK_Multi_M_-_Betta-online.jpg",
+      "width": 1280,
+      "height": 1004,
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:CTPK_Multi_M_-_Betta-online.jpg",
+      "caption": "Cá betta đực đuôi tưa màu xanh ngọc lam trong bể"
+    }
+  ],
   "sources": [
     {
       "url": "https://aqualimul.blogspot.com/2009/05/creator-of-crowntail.html",

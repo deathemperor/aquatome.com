@@ -81,7 +81,48 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/15.12.2006_038.jpg/1280px-15.12.2006_038.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/15.12.2006_038.jpg/500px-15.12.2006_038.jpg",
+      "width": 1280,
+      "height": 1067,
+      "licence": "CC BY-SA 3.0",
+      "author": "Bastet78",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:15.12.2006_038.jpg",
+      "caption": "Cá mỏ vịt Mickey Mouse màu cam, đốm đen ở gốc đuôi, trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Female_platyfish.jpg/1280px-Female_platyfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Female_platyfish.jpg/500px-Female_platyfish.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Cucumberkvp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_platyfish.jpg",
+      "caption": "Cá mỏ vịt Mickey Mouse màu vàng, đốm đen ở gốc đuôi, trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Platy_9.jpg/1280px-Platy_9.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Platy_9.jpg/500px-Platy_9.jpg",
+      "width": 1280,
+      "height": 596,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platy_9.jpg",
+      "caption": "Cá mỏ vịt Mickey cam, đuôi đen, bơi giữa cây thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Platy_Nahrungsaufnahme.jpg/1280px-Platy_Nahrungsaufnahme.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Platy_Nahrungsaufnahme.jpg/500px-Platy_Nahrungsaufnahme.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platy_Nahrungsaufnahme.jpg",
+      "caption": "Cá mỏ vịt Mickey thân cam đỏ, đuôi đen trong bể thủy sinh"
+    }
+  ],
   "sources": [
     {
       "url": "https://www.aquariadise.com/mickey-mouse-platy/",

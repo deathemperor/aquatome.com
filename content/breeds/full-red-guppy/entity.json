@@ -83,7 +83,18 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Guppy_rrea_full_red_tail_japan_20090821_050.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Guppy_rrea_full_red_tail_japan_20090821_050.jpg",
+      "width": 1280,
+      "height": 850,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hirase",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guppy_rrea_full_red_tail_japan_20090821_050.jpg",
+      "caption": "Cá bảy màu đực Full Red thân và đuôi đỏ trong bể kính"
+    }
+  ],
   "sources": [
     {
       "url": "https://vinwonders.com/vi/wonderpedia/news/ca-bay-mau/",

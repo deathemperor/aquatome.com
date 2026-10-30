@@ -87,6 +87,8 @@ if part photos; then
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
   pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
+  # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
+  pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
   pnpm engine unsplash --limit "${UNSPLASH_LIMIT:-6}" || log "unsplash: failed"
 fi
