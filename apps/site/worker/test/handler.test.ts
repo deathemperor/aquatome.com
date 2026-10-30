@@ -224,3 +224,16 @@ test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>; unk
   expect(r.headers.get('location')).toBe('/vi/ca/ca-betta/?tu=ca-betta-green-alien')
   expect((await handle(new Request('https://aquatome.com/vi/ca/khong-co/'), e)).status).toBe(404)
 })
+
+test('a page is fetched while the hidden-page lookup is still out; Server-Timing shows both', async () => {
+  let release!: () => void
+  const kv = new Promise<null>(r => { release = () => r(null) })
+  const { e, seen } = env({ AB: { get: () => kv, put: async () => {} } as unknown as KVNamespace })
+  const pending = handle(get('/vi/ca/z/'), e)
+  await new Promise(r => setTimeout(r, 0))
+  expect(seen.map(r => new URL(r.url).pathname)).toEqual(['/vi/ca/z/'])
+  release()
+  const r = await pending
+  expect(r.status).toBe(200)
+  expect(r.headers.get('server-timing')).toMatch(/^(hidden;dur=\d+, asset;dur=\d+|asset;dur=\d+, hidden;dur=\d+)$/)
+})

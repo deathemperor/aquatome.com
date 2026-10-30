@@ -9,7 +9,7 @@ import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, saf
 import { parseEvent, toDataPoint } from './events'
 import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
-import { gonePage, loadHidden, pagePath, updateHidden } from './hidden'
+import { gonePage, loadHidden, pagePath, updateHidden, type Hidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
@@ -102,15 +102,18 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
-  // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike, within a minute of hiding.
-  if (url.pathname.startsWith('/vi/')) {
-    const p = pagePath(url.pathname)
-    if (p && (await loadHidden(env.AB).catch(() => ({})) as Record<string, unknown>)[p]) return finish(gonePage(), env) // KV down: serve the page
-  }
+  // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike, within a minute of hiding. The lookup
+  // runs while the page itself is fetched: on a cold edge each is a round trip. Server-Timing shows both.
+  const timing: string[] = []
+  const timed = <T>(name: string, work: Promise<T>) => { const t = Date.now(); return work.finally(() => { timing.push(`${name};dur=${Date.now() - t}`) }) }
+  const p = url.pathname.startsWith('/vi/') ? pagePath(url.pathname) : null
+  const hidden = p ? timed('hidden', loadHidden(env.AB).catch(() => ({}) as Hidden)) : undefined // KV down: serve the page
+  const gone = async () => !!p && !!(await hidden)?.[p]
   // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
   if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
-    const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
+    const [md, isGone] = await Promise.all([env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url))), gone()])
+    if (isGone) return finish(gonePage(), env)
     if (md.ok) {
       const text = await md.text()
       return finish(new Response(text, { headers: {
@@ -180,13 +183,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const plain = new Request(req)
   plain.headers.delete('if-none-match')
   plain.headers.delete('if-modified-since')
-  const res = await env.ASSETS.fetch(plain)
+  const [res, isGone] = await Promise.all([timed('asset', env.ASSETS.fetch(plain)), gone()])
+  if (isGone) return finish(gonePage(), env)
   if (res.status === 404 && url.pathname.startsWith('/vi/')) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
-  const extra: Record<string, string> = { Vary: 'Accept' }
+  const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': timing.join(', ') }
   // The design A/B test is over: clear its cookie from returning visitors.
   if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
   if (url.pathname === '/vi/') extra.Link = DISCOVERY_LINK
