@@ -1,0 +1,324 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Astronotus ocellatus",
+  "enNames": [
+    "Albino oscar",
+    "Albino tiger oscar",
+    "Albino red oscar",
+    "Albino ruby oscar",
+    "Albino red tiger oscar"
+  ],
+  "viNames": [
+    {
+      "name": "Cá tai tượng albino",
+      "source": 3
+    },
+    {
+      "name": "Cá tai tượng bạch tạng",
+      "source": 3
+    },
+    {
+      "name": "Cá Oscar vàng",
+      "source": 3
+    },
+    {
+      "name": "Cá tai tượng vàng",
+      "source": 3
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "It is an albino colour form of the oscar, Astronotus ocellatus, a cichlid from the Amazon basin in South America.",
+      "source": 0
+    },
+    {
+      "fact": "Albinos came from captive breeding. One source says the first ones showed up in the 1970s and 1980s and then became a regular trade fish. No named breeder or country is given.",
+      "source": 1
+    },
+    {
+      "fact": "Aquarium breeders have made albino, leucistic, xanthistic and stronger-red forms of the oscar.",
+      "source": 2
+    },
+    {
+      "fact": "The albino red tiger is sold as a line bred in captivity from the red tiger oscar. It does not come from a wild population.",
+      "source": 6
+    }
+  ],
+  "looks": [
+    {
+      "fact": "A true albino has a near-white body with pink to orange-red markings and pinkish-red eyes.",
+      "source": 0
+    },
+    {
+      "fact": "Clear, bright red eyes are the main sign of a true albino. Dark or dull eyes point to a lutino or mixed genetics.",
+      "source": 1
+    },
+    {
+      "fact": "Albino red tiger: pale cream to peach body with orange-red to coppery-red marbling, and red or pink eyes.",
+      "source": 6
+    },
+    {
+      "fact": "Albinism here is a simple recessive trait: a fish needs two copies of the gene to show it.",
+      "source": 1
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Albino tiger: white or cream base with uneven orange-red stripes or patches. This is the most common line.",
+      "source": 1
+    },
+    {
+      "fact": "Albino red: red-orange covers most of the body with little white. Red coverage depends on many genes, so top-quality fish are harder to breed.",
+      "source": 1
+    },
+    {
+      "fact": "Albino ruby: deeper red on the sides and back, with a white belly and face. 'Ruby' is partly a sales label.",
+      "source": 1
+    },
+    {
+      "fact": "Albino lemon: warm yellow body with faint or no stripes. Ruby eyes suggest a true albino, dark eyes a lutino.",
+      "source": 1
+    },
+    {
+      "fact": "Lutino: golden-yellow body with dark red to brown eyes. It is caused by a different recessive gene from albino.",
+      "source": 1
+    },
+    {
+      "fact": "Long-finned oscar varieties have also been bred in recent years.",
+      "source": 2
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 25,
+      "max": 27,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 27,
+      "max": 30,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 25,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 20,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 15,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 30,
+      "max": 61,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 30,
+      "max": 40,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 25,
+      "max": 35,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 120,
+      "max": 120,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Minimum about 208 L for one fish with extra filtration; 284 L is better. More than two fish quickly overcrowd a tank.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese guide gives at least 280 L for one fish, 400–500 L as ideal, and 800 L or more for a pair.",
+      "source": 3
+    },
+    {
+      "fact": "Use a canister filter rated 1.5–2 times the tank volume and change 25–30% of the water each week. Keep ammonia and nitrite at zero.",
+      "source": 1
+    },
+    {
+      "fact": "Albinos are sensitive to light, so use moderate, indirect lighting and floating plants for shade.",
+      "source": 1
+    },
+    {
+      "fact": "Soft sand suits their digging. Fix wood and decor firmly in place, and keep lighting dim.",
+      "source": 0
+    },
+    {
+      "fact": "Staple food is cichlid pellets. Add carotenoid-rich foods such as krill, shrimp and spirulina to keep the red and orange colour. Avoid feeder goldfish.",
+      "source": 1
+    },
+    {
+      "fact": "It eats any fish that fits in its mouth. A species-only tank is best. Severums, arowanas, Jack Dempseys and plecos may work in a big tank.",
+      "source": 0
+    },
+    {
+      "fact": "Do not keep it with small or long-finned fish such as neons, bettas or guppies.",
+      "source": 3
+    },
+    {
+      "fact": "Use a lid, because oscars can jump out.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Two albinos produce only albino young, so the line breeds true.",
+      "source": 1
+    },
+    {
+      "fact": "Two normal-looking carriers give on average about 25% albino young. Carriers cannot be spotted by looks.",
+      "source": 1
+    },
+    {
+      "fact": "Crossing an albino with a lutino gives wild-coloured young, because the two traits come from different genes.",
+      "source": 1
+    },
+    {
+      "fact": "Pairs clean a flat surface to lay on. Small females lay about 300–500 eggs, large ones 2,500–3,000. Both parents guard the brood.",
+      "source": 2
+    },
+    {
+      "fact": "Oscars mature at about one year and can breed for 9–10 years.",
+      "source": 2
+    },
+    {
+      "fact": "Forced pairings often fail. Fry live on their yolk for 3–4 days, then eat baby brine shrimp.",
+      "source": 3
+    },
+    {
+      "fact": "One guide calls breeding hard in aquariums: sexes are hard to tell apart, mates may fight, and parents may eat eggs or fry.",
+      "source": 0
+    }
+  ],
+  "health": [
+    {
+      "fact": "With no melanin, even in the eyes, albinos are sensitive to bright light. They may hide, refuse food or lose colour; dimming the light usually helps within 24–48 hours.",
+      "source": 1
+    },
+    {
+      "fact": "Ich spots and fin damage show up more clearly on pale skin.",
+      "source": 1
+    },
+    {
+      "fact": "Hole-in-the-head disease is linked to poor water, vitamin shortage and feeder fish.",
+      "source": 1
+    },
+    {
+      "fact": "One source says albinos are not less healthy than normally coloured oscars.",
+      "source": 1
+    },
+    {
+      "fact": "Common problems listed: ich, fungus, bacterial ulcers and worms. Prevent them with stable water, clean food and quarantine.",
+      "source": 3
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick a fish with clear red eyes, a full but not bloated body, smooth skin and open fins, that reacts to you. Avoid fish hiding or hovering listlessly.",
+      "source": 1
+    },
+    {
+      "fact": "Check the shop tank: cloudy water, dead fish or overcrowding raise the risk of hidden disease. Quarantine new fish for at least 2 weeks.",
+      "source": 1
+    },
+    {
+      "fact": "Ask about the parents. Fish sold as 'albino' are often lutino or lemon fish.",
+      "source": 1
+    },
+    {
+      "fact": "Many white oscars sold as albino are actually lutino. These may later develop orange mottling or grey fins.",
+      "source": 0
+    },
+    {
+      "fact": "Watch Vietnamese names: one Vietnamese page sells an 'albino tai tượng' under the peacock bass name Cichla ocellaris with a size of 8–12 cm, so it is not this oscar. 'Tai tượng' is also used for other fish.",
+      "source": 5
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Wikipedia notes that oscars are sometimes artificially coloured ('painted').",
+      "source": 2
+    },
+    {
+      "fact": "Wild oscars released through the aquarium trade have formed feral populations in China, northern Australia and Florida.",
+      "source": 2
+    },
+    {
+      "fact": "Hobbyist writers criticise shops for calling any white oscar 'albino' when many are lutino.",
+      "source": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/albino-oscar/",
+      "title": "Albino oscar (Astronotus ocellatus) – Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://oscarfishlover.com/albino-oscar-fish/",
+      "title": "Albino Oscar Fish: Care, Colors & Genetics",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Oscar_(fish)",
+      "title": "Oscar (fish) – Wikipedia",
+      "kind": "other"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-tai-tuong-albino/",
+      "title": "Hướng Dẫn Nuôi Cá Tai Tượng Albino – SG AQUA",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dongngu.com/ca-tai-tuong-chau-phi-tiger-oscar-fish/",
+      "title": "Cá tai tượng châu Phi / Cá heo lửa (Oscar Fish) – Đông Ngư",
+      "kind": "article"
+    },
+    {
+      "url": "https://trunghao.com/ca-tai-tuong-albino/",
+      "title": "Cá Tai Tượng Albino – Trung Hào",
+      "kind": "article"
+    },
+    {
+      "url": "https://warehouse-aquatics.co.uk/products/albino-red-tiger-oscar-astronotus-ocellatus",
+      "title": "Albino Red Tiger Oscar – Warehouse Aquatics",
+      "kind": "shop"
+    }
+  ]
+}

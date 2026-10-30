@@ -1,0 +1,152 @@
+{
+  "id": "pearlscale-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 18,
+          "max": 27
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 17,
+          "max": 28
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 4.5,
+          "max": 14
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      },
+      {
+        "source": 0,
+        "value": 20
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/GoldfishPearl.jpg/1280px-GoldfishPearl.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/GoldfishPearl.jpg/500px-GoldfishPearl.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.5",
+      "author": "Taken by Fanghong",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoldfishPearl.jpg",
+      "caption": "Cá ping pong màu cam đầu đỏ bơi trong bể kính nền xanh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Goldfish_Pearl_Scale.jpg/1280px-Goldfish_Pearl_Scale.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Goldfish_Pearl_Scale.jpg/500px-Goldfish_Pearl_Scale.jpg",
+      "width": 1280,
+      "height": 1266,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldfish_Pearl_Scale.jpg",
+      "caption": "Cá ping pong màu cam đỏ, vảy ngọc trai, nền xanh dương"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Pearlscale.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/25/Pearlscale.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lawrencekhoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pearlscale.jpg",
+      "caption": "Cá ping pong cam trắng trong bể sỏi có đá và cây"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/%E3%83%94%E3%83%B3%E3%83%9D%E3%83%B3%E3%83%91%E3%83%BC%E3%83%AB.jpg/1280px-%E3%83%94%E3%83%B3%E3%83%9D%E3%83%B3%E3%83%91%E3%83%BC%E3%83%AB.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/%E3%83%94%E3%83%B3%E3%83%9D%E3%83%B3%E3%83%91%E3%83%BC%E3%83%AB.jpg/500px-%E3%83%94%E3%83%B3%E3%83%9D%E3%83%B3%E3%83%91%E3%83%BC%E3%83%AB.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "Public domain",
+      "author": "MMH2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%83%94%E3%83%B3%E3%83%9D%E3%83%B3%E3%83%91%E3%83%BC%E3%83%AB.jpg",
+      "caption": "Cá ping pong màu vàng cam, thân tròn, vây trắng trong bể"
+    }
+  ],
+  "commons": "Category:Pearlscale goldfish",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Pearlscale",
+      "title": "Pearlscale – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquasetup.com/tat-tan-tat-ve-ca-ping-pong-ca-ngoc-trai-dong-ca-vang-de-thuong-ky-la/",
+      "title": "Tất tần tật về cá ping pong/ Cá ngọc trai – Aquasetup",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://senaquatic.vn/ca-ping-pong-pearlscale-goldfish",
+      "title": "Cá Ping Pong (Pearlscale Goldfish) – Sen Aquatic",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariadise.com/pearlscale-goldfish/",
+      "title": "Pearlscale goldfish – Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Pearlscale_goldfish",
+      "title": "Category:Pearlscale goldfish – Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,316 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Betta splendens",
+  "enNames": [
+    "Koi betta",
+    "Koi plakat betta",
+    "Galaxy koi betta",
+    "Nemo koi betta"
+  ],
+  "viNames": [
+    {
+      "name": "Betta Koi",
+      "source": 3
+    },
+    {
+      "name": "Cá betta koi",
+      "source": 4
+    },
+    {
+      "name": "Koi Betta",
+      "source": 2
+    },
+    {
+      "name": "Koi Galaxy",
+      "source": 4
+    },
+    {
+      "name": "Koi Nemo Galaxy",
+      "source": 4
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Bred in captivity from Betta splendens; it does not occur in the wild.",
+      "source": 0
+    },
+    {
+      "fact": "It is a form of marble betta. The marble gene behind it is credited to US breeder Orville Gulley in the 1970s.",
+      "source": 1
+    },
+    {
+      "fact": "One Vietnamese seller says koi bettas existed before 2000, drew collector interest in the US and Thailand from 2002, and became most popular in Japan.",
+      "source": 2
+    },
+    {
+      "fact": "A Vietnamese food-brand blog says it was developed in Thailand from Marble Plakat stock in the early 2010s, around 2012.",
+      "source": 4
+    },
+    {
+      "fact": "One Singapore guide says Galaxy Koi appeared from Indonesian and Thai breeders at about the same time, around 2016–2018.",
+      "source": 6
+    },
+    {
+      "fact": "A Vietnamese article says the koi colouring appeared while breeding fancy (geno) bettas, as some fish changed colour into koi-carp-like patterns.",
+      "source": 3
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Patches of red, orange and black on a pale or white body, like koi carp.",
+      "source": 0
+    },
+    {
+      "fact": "Usually short-finned like a plakat. Males have stronger colour and slightly showier fins than females.",
+      "source": 0
+    },
+    {
+      "fact": "The pale base is a see-through 'cellophane' layer.",
+      "source": 2
+    },
+    {
+      "fact": "In a good fish the light base covers at least 30% of the body, and the orange, red and black patches have clear edges.",
+      "source": 4
+    },
+    {
+      "fact": "The pattern comes from transposons ('jumping genes'), so colours can move or deepen as the fish ages.",
+      "source": 0
+    },
+    {
+      "fact": "Young fish need about 5–6 months to reach full colour.",
+      "source": 2
+    },
+    {
+      "fact": "Koi bettas come in many fin types, such as crowntail, halfmoon, doubletail and dumbo.",
+      "source": 3
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Galaxy koi: koi pattern plus shiny metallic or iridescent scales. One Vietnamese article describes it as a cross of koi with fancy fish.",
+      "source": 3
+    },
+    {
+      "fact": "Nemo: mostly orange, red and yellow, with a marble pattern.",
+      "source": 3
+    },
+    {
+      "fact": "Nemo is an informal name for an orange-and-white pattern that looks like a clownfish.",
+      "source": 5
+    },
+    {
+      "fact": "Tancho koi: white with a red spot on the head, like the Japanese flag.",
+      "source": 2
+    },
+    {
+      "fact": "Koi candy, formerly called fancy koi, has a metallic layer on its scales.",
+      "source": 2
+    },
+    {
+      "fact": "Tiger koi: yellow with black stripes, like a tiger.",
+      "source": 3
+    },
+    {
+      "fact": "One source lists five lines: Standard Koi, Koi Nemo, Koi Galaxy (blue-violet shine), Koi Nemo Galaxy (the rarest) and Fancy Koi (random multicolour).",
+      "source": 4
+    },
+    {
+      "fact": "Lines sold by one shop include Galaxy Koi Red, Plakat, Tangerine, Nemo, Candy, Traditional and Dumbo Ear.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 25,
+      "max": 28,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 0
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 15,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 7.6,
+      "max": 7.6,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 7,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 6.4,
+      "max": 7.6,
+      "source": 1
+    },
+    {
+      "field": "tankCm",
+      "min": 17,
+      "max": 20,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Keep one betta in a heated tank of at least about 19 L (5 gal). Allow about 57 L (15 gal) if it shares the tank with other fish.",
+      "source": 0
+    },
+    {
+      "fact": "Males fight other males, sometimes to the death, so never keep two males together.",
+      "source": 0
+    },
+    {
+      "fact": "If it must have tankmates, choose calm ones such as Corydoras, nerite or mystery snails, larger shrimp, Otocinclus or small rasboras. Avoid fin-nippers.",
+      "source": 1
+    },
+    {
+      "fact": "Feed betta pellets plus live or frozen foods such as brine shrimp, bloodworms, daphnia and mosquito larvae.",
+      "source": 1
+    },
+    {
+      "fact": "Change 30% of the water each week with dechlorinated water, and keep the current gentle.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese hobbyists feed live foods such as tubifex worms and mosquito larvae, and use pellets when live food is not available.",
+      "source": 3
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds like any Betta splendens: the male builds a bubble nest. Remove the female after spawning, and the male once the fry swim freely.",
+      "source": 1
+    },
+    {
+      "fact": "Eggs hatch in 24–36 hours at 27°C. Feed fry infusoria from day 3 and Artemia from day 7.",
+      "source": 4
+    },
+    {
+      "fact": "Because the pattern comes from the marble gene, the offspring vary and a juvenile's pattern can still change. A fish that looks like a perfect Nemo at 6 months may be mostly red or black by 12 months.",
+      "source": 5
+    },
+    {
+      "fact": "Getting good colour and finnage takes knowledge of colour genetics.",
+      "source": 2
+    }
+  ],
+  "health": [
+    {
+      "fact": "Selective breeding is said to have made them more prone to fin rot, swim bladder problems and tumours. Some lumps are wounds or infections instead, so check the fish in quarantine first.",
+      "source": 0
+    },
+    {
+      "fact": "Overfeeding can cause obesity and constipation.",
+      "source": 0
+    },
+    {
+      "fact": "Common problems: colour loss and refusing food from stress, fin fungus and rot, bloating, and spine problems from poor food.",
+      "source": 4
+    },
+    {
+      "fact": "Lifespan is about 2–3 years.",
+      "source": 2
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Buy from a trusted seller and ask for a video in natural light, because filters and editing can make colours look stronger.",
+      "source": 2
+    },
+    {
+      "fact": "Look up a line's name before buying, because made-up fancy names can push prices up.",
+      "source": 2
+    },
+    {
+      "fact": "The pattern may change with age, so a young fish's colours are not final.",
+      "source": 5
+    },
+    {
+      "fact": "Vietnamese prices: Koi about 130,000–290,000 VND, Galaxy about 140,000–300,000 VND, Nemo about 240,000–400,000 VND.",
+      "source": 3
+    },
+    {
+      "fact": "Another source gives a range of 80,000–2,500,000 VND depending on line and rarity, and advises buying from farms or specialist shops rather than market stalls.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "A Vietnamese seller warns that shops use inflated line names and edited photos or videos to overprice koi bettas.",
+      "source": 2
+    },
+    {
+      "fact": "A Singapore guide warns that the marble pattern can drift, so a fish bought as a Nemo may later turn mostly red or black.",
+      "source": 5
+    },
+    {
+      "fact": "One care site links the selective breeding behind koi bettas to more tumours and fin and swim bladder problems.",
+      "source": 0
+    }
+  ],
+  "commons": "",
+  "sources": [
+    {
+      "url": "https://aquariadise.com/koi-betta/",
+      "title": "Koi Betta – Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://tropicflow.com/blogs/blog/koi-betta-fish-the-ultimate-care-guide",
+      "title": "Koi Betta Fish: The Ultimate Care Guide – Tropicflow",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/koi-betta-la-gi-cach-nhan-dang-koi-luu-y-khi-chon-choi-koi-betta.html",
+      "title": "Koi Betta Là Gì? Cách Nhận Dạng Koi – Bettasales",
+      "kind": "shop"
+    },
+    {
+      "url": "https://wikicacanh.com/cach-phan-biet-cac-dong-ca-betta-koi.html",
+      "title": "Cách phân biệt các dòng cá Betta Koi – Wiki Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "https://thucancakoihikari.com/ca-betta-koi/",
+      "title": "Cá Betta Koi Là Cá Gì? Phân Loại, đặc Tính Sống Của Cá Betta Koi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=43419",
+      "title": "Nemo Betta Strain Care Guide: Multi Color Pattern Heritage – gensou.sg",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=43420",
+      "title": "Galaxy Koi Betta Strain Care Guide: Marble Pattern Heritage – gensou.sg",
+      "kind": "article"
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "found": true,
+  "kind": "hybrid",
+  "enNames": [
+    "Butterfly koi",
+    "Longfin koi",
+    "Dragon carp",
+    "Dragon koi",
+    "American koi"
+  ],
+  "viNames": [
+    {
+      "name": "Koi bướm",
+      "source": 5
+    },
+    {
+      "name": "Cá chép vây dài",
+      "source": 5
+    },
+    {
+      "name": "Cá chép Rồng",
+      "source": 6
+    }
+  ],
+  "basedOn": "Cyprinus carpio",
+  "parents": [
+    {
+      "name": "Koi (nishikigoi)",
+      "scientificName": "Cyprinus carpio",
+      "certain": true,
+      "source": 0
+    },
+    {
+      "name": "Indonesian long-finned carp",
+      "scientificName": "Cyprinus carpio var. flavipinnis",
+      "certain": false,
+      "source": 0
+    },
+    {
+      "name": "Long-finned grey and brown carp found in Indonesian canals (species not named)",
+      "certain": false,
+      "source": 1
+    },
+    {
+      "name": "Long-finned Indonesian carp, rumoured to be an 'Asian carp'; source says it is not a koi × goldfish cross",
+      "certain": false,
+      "source": 2
+    }
+  ],
+  "origin": [
+    {
+      "fact": "In 1977, Crown Prince Akihito visited Japan's Saitama Prefectural Fisheries Experiment Station and proposed crossing Indonesian long-finned carp with koi. Breeding began in 1980, and the long-finned fish appeared about two years later.",
+      "source": 0
+    },
+    {
+      "fact": "In Japan it was called onagagoi or hire naga nishikigoi, meaning roughly 'long-tail carp'.",
+      "source": 0
+    },
+    {
+      "fact": "US account: in the 1980s, long-finned grey and brown carp were found in Indonesian canals and bought by a New York firm. They sold poorly, and Blue Ridge Fish Hatchery in North Carolina then crossed them with koi.",
+      "source": 1
+    },
+    {
+      "fact": "The source credits Blue Ridge Fish Hatchery as the creator of butterfly koi.",
+      "source": 1
+    },
+    {
+      "fact": "The name came from breeder Wyatt LeFever's son Randy, who said the fish looked like butterflies.",
+      "source": 4
+    },
+    {
+      "fact": "Japan began breeding koi bướm in 1980.",
+      "source": 6
+    },
+    {
+      "fact": "The source mentions both stories: the Japanese one (first fish around 1982) and a competing North Carolina hatchery one.",
+      "source": 3
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Fins are much longer than on standard koi, and the body is slimmer.",
+      "source": 0
+    },
+    {
+      "fact": "Fins and tail can reach about two-thirds of body length.",
+      "source": 6
+    },
+    {
+      "fact": "Fin-to-body ratio is about 1:3, against roughly 1:5 in standard koi. In rare fish the fins are as long as the body. Fins keep growing as the fish ages.",
+      "source": 2
+    },
+    {
+      "fact": "Older fish have the longest fins and look dragon-like. Barbels can also grow long and take unusual shapes.",
+      "source": 1
+    },
+    {
+      "fact": "A good fish has strong support along the leading fin rays and fan-shaped pectoral fins, not ribbon-like ones. Loose, flimsy fins get weaker with age.",
+      "source": 3
+    },
+    {
+      "fact": "Value depends heavily on pattern and colour. Solid platinum and lemon ogon are especially prized.",
+      "source": 1
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Traditional koi patterns also come in longfin form, including kohaku, sanke, showa, utsuri and ogon. The patterns look somewhat different on longfins.",
+      "source": 0
+    },
+    {
+      "fact": "Longfin Soragoi/Sorogoi: grey with a black net pattern.",
+      "source": 1
+    },
+    {
+      "fact": "Longfin Karasu: black, scaleless and very long-finned. It is the rarest type and tends to grow large.",
+      "source": 1
+    },
+    {
+      "fact": "Metallic longfins, such as platinum and lemon ogon, are among the most valued.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 0.5,
+      "max": 32,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 27,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6.8,
+      "max": 7.2,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.5,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 30,
+      "max": 38,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 91,
+      "max": 102,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Care is much the same as for standard koi, and it can share a pond with them. Feed a balanced, high-protein diet plus vegetables and occasional earthworms or shrimp.",
+      "source": 0
+    },
+    {
+      "fact": "Pond guidance: about 1,000 gallons (about 3,800 L) per fish and at least 90 cm deep. Clean water and good filtration protect the fins.",
+      "source": 0
+    },
+    {
+      "fact": "It swims more slowly, so it can lose out in strong currents and at feeding time. Watch that it gets its share of food.",
+      "source": 0
+    },
+    {
+      "fact": "Pond of at least 1,000 gallons (about 3,800 L), deeper than 1 m. Concrete ponds raise pH, so seal them.",
+      "source": 3
+    },
+    {
+      "fact": "Small fish can live in an aquarium, but like other koi they only reach full size in a pond.",
+      "source": 2
+    },
+    {
+      "fact": "It can be kept in a pond or a glass tank. Its graceful shape makes it a recommended choice for glass tanks.",
+      "source": 6
+    },
+    {
+      "fact": "Lives 25–35 years or more.",
+      "source": 0
+    },
+    {
+      "fact": "General koi figures from this source: about 2.5 mg/L oxygen minimum, and feed about 5% of body weight twice a day.",
+      "source": 5
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "The long-fin gene is dominant. Crossing back toward the original colours did not remove the long fins.",
+      "source": 1
+    },
+    {
+      "fact": "Combining the long-fin gene from the carp with koi colours gave butterfly koi. The fish breeds in many colours.",
+      "source": 2
+    },
+    {
+      "fact": "Most of Japan's well-known koi breeders now produce butterfly koi.",
+      "source": 0
+    },
+    {
+      "fact": "Spawning can injure the fish.",
+      "source": 3
+    }
+  ],
+  "health": [
+    {
+      "fact": "The long fins tear easily and are prone to injury and fin rot, especially with sharp objects or poor water. The exposed fins may also make parasites more likely.",
+      "source": 0
+    },
+    {
+      "fact": "Torn or bent fins stay damaged for good, though the damage is only cosmetic.",
+      "source": 3
+    },
+    {
+      "fact": "Nets and handling easily damage the fins. Fins develop best when the fish grows slowly and steadily.",
+      "source": 2
+    },
+    {
+      "fact": "One Vietnamese source says standard koi are about twice as hardy as butterfly koi, so it recommends standard koi for concrete ponds.",
+      "source": 6
+    },
+    {
+      "fact": "A retailer's page calls longfins exceptionally healthy and disease-resistant.",
+      "source": 1
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Choose fish with bright colour, smooth unbroken scales, clear alert eyes, and no injuries, discoloured patches or clamped fins.",
+      "source": 3
+    },
+    {
+      "fact": "Check for firm leading fin rays and fan-shaped pectoral fins. Avoid fish with floppy fins.",
+      "source": 3
+    },
+    {
+      "fact": "Pet and pond shops sell them, but specialist koi breeders are the better choice.",
+      "source": 0
+    },
+    {
+      "fact": "In Vietnam a koi bướm costs about 150,000–1,500,000 VND.",
+      "source": 5
+    },
+    {
+      "fact": "Koi prices depend on variety, size, origin, purity and colour. Be wary of fish priced far below the market.",
+      "source": 5
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Japan's Zen Nippon Airinkai has long barred butterfly koi from its shows, and the UK Koi Judges Association excludes them too. The reasons given are the slimmer body, fins far out of the standard proportion, and patterns that look different.",
+      "source": 0
+    },
+    {
+      "fact": "The Associated Koi Clubs of America reportedly set separate judging standards in 2006. US shows usually enter them as their own class, and they rarely win top awards.",
+      "source": 0
+    },
+    {
+      "fact": "Some Japanese enthusiasts object to them because they are not a pure breed.",
+      "source": 4
+    },
+    {
+      "fact": "Some collectors do not count them as true koi.",
+      "source": 3
+    },
+    {
+      "fact": "Some connoisseurs rank them below traditional koi.",
+      "source": 2
+    },
+    {
+      "fact": "Classification is disputed: Wikipedia calls it a breed of common carp (Cyprinus carpio), the same species as koi, while hobby sources call it a cross between koi and Indonesian long-finned carp.",
+      "source": 0
+    }
+  ],
+  "commons": "",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Butterfly_koi",
+      "title": "Butterfly koi – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fitzfishponds.com/blog/an-introduction-to-butterfly-koi/",
+      "title": "An Introduction to Butterfly Koi – Fitz's Fish Ponds",
+      "kind": "shop"
+    },
+    {
+      "url": "https://koistory.com/blog/all-about-butterfly-koi",
+      "title": "All About Butterfly Koi – Koi Story",
+      "kind": "shop"
+    },
+    {
+      "url": "https://koifishusa.com/blogs/koi-fish/butterfly-koi-the-ultimate-guide-to-this-popular-koi-variety",
+      "title": "Butterfly Koi: The Ultimate Guide – Koi Fish USA",
+      "kind": "shop"
+    },
+    {
+      "url": "https://everythingkoi.com/blog/what-is-a-butterfly-koi/",
+      "title": "What is a Butterfly Koi – Everything Koi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/tu-a-z-ve-ca-koi-cho-nguoi-moi-dac-diem-gia-ban-cach-nuoi.html",
+      "title": "Từ A-Z về cá Koi cho người mới – Chợ Tốt",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-koi.html",
+      "title": "Cá Koi – Mytour",
+      "kind": "article"
+    }
+  ]
+}

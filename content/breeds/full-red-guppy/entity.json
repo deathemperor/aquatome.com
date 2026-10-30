@@ -1,0 +1,162 @@
+{
+  "id": "full-red-guppy",
+  "kind": "variety",
+  "basedOn": "poecilia-reticulata",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 0,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 7,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 8,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 3,
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 3,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://vinwonders.com/vi/wonderpedia/news/ca-bay-mau/",
+      "title": "Cá bảy màu – VinWonders Wonderpedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/albino-guppy-strain-care-guide/",
+      "title": "Albino Guppy Strain Care Guide: Real Albino RREA Genetics",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cabaymau.net/san-pham/ca-bay-mau-full-red",
+      "title": "Cá bảy màu full red – Guppy City",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://wikicacanh.com/ca-bay-mau-full-red-guppy.html",
+      "title": "Cá bảy màu Full Red Guppy – Wiki Cá Cảnh",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://trunghao.com/san-pham/ca-bay-mau-full-red/",
+      "title": "Cá bảy màu Full Red BDS – Trung Hạo",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cabaymau.net/cach-nuoi-ca-canh/ca-bay-mau-mat-do.html",
+      "title": "Cá bảy màu mắt đỏ – Guppy City",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://creatures.com/species/fancy-guppy/red",
+      "title": "Red fancy guppy – Creatures",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://voz.vn/t/nuoi-ca-bay-mau.269589/",
+      "title": "Nuôi cá bảy màu – VOZ",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariacentral.com/forums/threads/red-albino-guppy.225881",
+      "title": "Red Albino Guppy – AquariaCentral",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquaticarts.com/products/red-albino-guppies",
+      "title": "Red Albino Guppies – Aquatic Arts",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://fishyhub.com/product-detail/albino-full-red-guppy-25cm-pairs-21918",
+      "title": "Albino Full Red Guppy – FishyHub",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/guppy-genetics-colour-selective-breeding/",
+      "title": "Guppy Genetics and Colour Inheritance: Selective Breeding Explained",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

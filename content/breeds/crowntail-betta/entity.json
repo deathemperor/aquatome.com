@@ -1,0 +1,126 @@
+{
+  "id": "crowntail-betta",
+  "kind": "variety",
+  "basedOn": "betta-splendens",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 2,
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 2,
+        "value": {
+          "min": 3,
+          "max": 3.5
+        }
+      },
+      {
+        "source": 4,
+        "value": 6.4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 2,
+        "value": 20
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://aqualimul.blogspot.com/2009/05/creator-of-crowntail.html",
+      "title": "Creator of Crowntail (aqualimul blog, 2009)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://jessielbettas.substack.com/p/tail-types-the-crowntails",
+      "title": "Tail types: the crowntails – Jessie L Bettas",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://wikicacanh.com/crowntail-betta-dong-ca-betta-duoi-tua-tuyet-dep.html",
+      "title": "Crowntail Betta: Dòng cá betta đuôi tưa tuyệt đẹp – Wiki Cá Cảnh",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "http://bettasales.net/ky-thuat-nuoi-ca/phan-loai-chung-loai-ca-betta-co-ban-bettasales-net.html",
+      "title": "Phân loại chủng loại cá Betta cơ bản – BettaSales.net",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariadise.com/crowntail-betta/",
+      "title": "Crowntail betta – Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bettautiful.blogspot.com/2012/11/defining-good-crowntail.html",
+      "title": "Defining a good crowntail (Bettautiful blog, 2012)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fish-archives/betta_splendens_crowntail_black_en",
+      "title": "Betta splendens Crowntail Black – Aquarium Glaser",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://fishforums.net/threads/keeping-your-crowntails-rays-straight.112656",
+      "title": "Keeping your crowntail's rays straight – FishForums.net",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://wildbettablog.com/crowntail-betta/",
+      "title": "Crowntail Bettas 101 – Wild Betta Blog",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

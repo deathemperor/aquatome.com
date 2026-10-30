@@ -1,0 +1,162 @@
+{
+  "id": "koi-angelfish",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 5,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 5,
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.8,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 5,
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 3,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 6,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      },
+      {
+        "source": 5,
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 5,
+        "value": 120
+      },
+      {
+        "source": 4,
+        "value": 100
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://www.finarama.com/genetics/1988vol11-9.htm",
+      "title": "Gold Marble – Dr. Joanne Norton, FAMA Sept 1988",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/cichlid/angelfish-genetics.php",
+      "title": "Angelfish Genetics - Types of angelfish (AquaticCommunity)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://monsterfishkeepers.com/forums/threads/do-koi-angelfish-keep-the-blushed-gill-plates-as-adults.486709",
+      "title": "Do koi angelfish keep the blushed gill plates as adults? (MonsterFishKeepers)",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://angelsplus.com/blogs/news/wild-cross-koi-project-update",
+      "title": "Wild-cross Koi Angelfish Project Update (Angels Plus)",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=32652",
+      "title": "Koi Angelfish Care Guide (Gensou)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.garnelio.de/en/angelfish-koi-red-dnz-pterophyllum-scalare",
+      "title": "Angelfish koi red DNZ - Pterophyllum scalare (Garnelio)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://kingaqua.vn/ca-than-tien-koi-3-mau-45cm-p16185320.html",
+      "title": "Cá thần tiên Koi 3 màu (King Aqua)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thichthucung.com/ca-than-tien/",
+      "title": "Top 13 giống cá thần tiên được yêu thích nhất (Thichthucung)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/ca-than-tien-marble/",
+      "title": "Cá Thần Tiên Marble (Mayaqua)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/red-devil-angelfish.753173/",
+      "title": "Red devil angelfish (MonsterFishKeepers)",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishforums.net/threads/angelfish-weak.144955",
+      "title": "Angelfish Weak? (FishForums)",
+      "kind": "forum",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

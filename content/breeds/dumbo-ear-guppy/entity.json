@@ -1,0 +1,152 @@
+{
+  "id": "dumbo-ear-guppy",
+  "kind": "variety",
+  "basedOn": "poecilia-reticulata",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 5.5,
+          "max": 8
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 7,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": 6.4
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      {
+        "source": 4,
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 1,
+        "value": 50
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new-guppy-elephant-ear/",
+      "title": "New Guppy: Elephant Ear (Aquarium Glaser, F. Schäfer, 2017)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/dumbo-ear-guppy-male",
+      "title": "Dumbo Ear Guppy, Male - LiveAquaria",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariumvibe.com/ca-bay-mau-dumbo-big-ear/",
+      "title": "Cá bảy màu Dumbo Big Ear - AquariumVibe",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquasetup.com/38-dong-ca-bay-mau-dep-va-pho-bien-nhat-hien-nay/",
+      "title": "38 dòng cá bảy màu đẹp và phổ biến nhất hiện nay - Aquasetup",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://atlarium.bio/en/catalog/fish/poecilia-reticulata-dumbo",
+      "title": "Dumbo Guppy Care - Atlarium (AI-generated)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://guppyguide.com/dumbo-ear-guppy",
+      "title": "Dumbo Ear Guppy Guide - GuppyGuide",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/35167-guppy-breeding/",
+      "title": "Guppy breeding - Aquarium Co-Op forum",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/dumbo-ear-dragon-guppy-male",
+      "title": "Dumbo Ear Dragon Guppy Male - LiveAquaria",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

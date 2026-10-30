@@ -1,0 +1,310 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Ryukin",
+    "Ryukin goldfish",
+    "Ryūkin",
+    "Japanese ribbontail",
+    "Nagasaki goldfish",
+    "Liukiu goldfish",
+    "Onaga"
+  ],
+  "viNames": [
+    {
+      "name": "Cá vàng Lưu kim",
+      "source": 1
+    },
+    {
+      "name": "Cá vàng gù",
+      "source": 1
+    },
+    {
+      "name": "Cá vàng Ryukin",
+      "source": 2
+    },
+    {
+      "name": "Cá vàng lưng gù Ryukin",
+      "source": 7
+    }
+  ],
+  "basedOn": "Carassius auratus",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Of Chinese origin and probably a mutation of the Wakin. Its breeding date is unknown.",
+      "source": 0
+    },
+    {
+      "fact": "Named after the Ryukyu Islands, the route by which it was said to reach Japan. Sources disagree on the date: arrival in the 1770s, and written records from 1833.",
+      "source": 0
+    },
+    {
+      "fact": "Its origin is debated. Some say China first and Japan later refined it; others say it is purely Japanese. The tall hump seems to be fairly recent and appears in photos only from the last roughly 20 to 60 years.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese sources say Japan bred it from the Chinese Fantail goldfish.",
+      "source": 2
+    },
+    {
+      "fact": "Vietnamese Wikipedia gives Japan as the origin and notes that breeding farms are in China.",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Short, deep body with a pointed head and a clear hump behind the head. High dorsal fin. The tail is often about twice the body length and has 3 or 4 lobes.",
+      "source": 0
+    },
+    {
+      "fact": "Colours: red, red-and-white, white, silver, blue, black, orange, lavender grey, iron and calico. The calico form with black specks is called sakura.",
+      "source": 0
+    },
+    {
+      "fact": "Judging: pointed, triangular head with no head growth, no more than 1/3 of body length. The hump rises sharply in a semicircle. The dorsal fin starts before the top of the hump and stands upright. The body looks nearly round from the side. The tail is held high with broad lobes.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese hobbyists value the fish more the taller the back is.",
+      "source": 1
+    },
+    {
+      "fact": "A good fish has a full, balanced body with the hump rising at about 45°. Fins are symmetrical and untorn, colour is bright and even, and it swims upright.",
+      "source": 2
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Twin-tailed forms: standard (long-finned), broad-tailed (butterfly, also called Chochokin) and short-tailed.",
+      "source": 3
+    },
+    {
+      "fact": "Tamasaba (Yamagata kingyo, sabao) is a hardy single-tailed Ryukin from Yamagata Prefecture, Japan. It comes only in red and white.",
+      "source": 3
+    },
+    {
+      "fact": "Tetsu onaga is a rare iron-coloured long-tailed form.",
+      "source": 0
+    },
+    {
+      "fact": "Named colour types: Ginrin, Sakura, Tancho and Tiger.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese shops sell 'short' body forms as a separate type.",
+      "source": 7
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 23,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 22,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 20,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 19,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 21,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 25,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 21,
+      "max": 21,
+      "source": 0
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "For one large Ryukin, 35 US gal (about 132 L) is the bare minimum; 40–50 gal (151–189 L) is better. Keep growing water no deeper than about 60 cm, because deep water makes the body longer.",
+      "source": 3
+    },
+    {
+      "fact": "Avoid strong filter current. Keep nitrate near zero with large weekly water changes.",
+      "source": 3
+    },
+    {
+      "fact": "Allow 40–50 L per fish, ideally 100 L or more. Use a long tank rather than a round one, with strong filtration plus aeration and no sharp decor.",
+      "source": 2
+    },
+    {
+      "fact": "Omnivore. Soak pellets before feeding and add bloodworms, daphnia and blanched vegetables such as peas.",
+      "source": 2
+    },
+    {
+      "fact": "Keep with other fancy goldfish such as Oranda, Lionhead and Ranchu. It tends to uproot plants.",
+      "source": 1
+    },
+    {
+      "fact": "Do not keep with slim-bodied goldfish, which outcompete it. Very small fish and shrimp may be eaten.",
+      "source": 4
+    },
+    {
+      "fact": "Possibly the only goldfish variety that can be aggressive toward tankmates, including shredding fins.",
+      "source": 3
+    },
+    {
+      "fact": "Handles extreme cold poorly. Pond fish need early acclimatisation and good feeding before winter.",
+      "source": 3
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds readily and is very prolific. Males chase hard and can injure females, so breeders often hand-strip, using milt from 2–3 males per female.",
+      "source": 3
+    },
+    {
+      "fact": "Breeders cull fry several times: for deformities at free-swimming, for tails at about 2.5 cm, and for head and hump at 2–3 months. This shows that not all offspring breed true.",
+      "source": 3
+    },
+    {
+      "fact": "Spawns on plants or mops. A female may lay up to 10,000 eggs, and the parents eat them. Eggs hatch in about a week. Males show white tubercles on the gill covers.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese sources say it can spawn from about 5 months old.",
+      "source": 2
+    }
+  ],
+  "health": [
+    {
+      "fact": "The short, deep body makes swim bladder and balance problems common. Fish that float or hang head-down may be affected.",
+      "source": 1
+    },
+    {
+      "fact": "Swim bladder trouble is often linked to high nitrate. Egg-bound females can also lose buoyancy.",
+      "source": 3
+    },
+    {
+      "fact": "Curled or missing gill covers are breeding faults. Affected fish should not be bred.",
+      "source": 3
+    },
+    {
+      "fact": "Fish chilled in cold water can develop septicaemia in spring.",
+      "source": 3
+    },
+    {
+      "fact": "Common diseases: white spot, ulcers, dropsy, bloating and fin rot. Peeled peas help digestion.",
+      "source": 2
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick fish that swim upright and smoothly and come quickly for food. Avoid fish that sit on the bottom or tilt, or that show white spots, wounds or torn fins.",
+      "source": 2
+    },
+    {
+      "fact": "Avoid a sunken belly or an overly long body. Check that the fins are symmetrical and the pectoral and pelvic fins are not curled.",
+      "source": 2
+    },
+    {
+      "fact": "In Vietnam, small fish (2–3 fingers wide) cost about 120,000–200,000 VND; large ones (about 5 fingers) cost up to about 500,000 VND.",
+      "source": 2
+    },
+    {
+      "fact": "Quarantine new fish for at least two weeks.",
+      "source": 4
+    },
+    {
+      "fact": "Check the gill covers. Avoid fish with curled or cut gill plates.",
+      "source": 3
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Critics including writer Charlie Morton say fancy goldfish are heavily inbred and that compressed bodies and bent spines cause chronic swim bladder problems and suffering. The Bubble Eye criticised there is described as a Ryukin derivative.",
+      "source": 5
+    },
+    {
+      "fact": "Wikipedia, citing the SPCA (New Zealand), says breeding for round bodies changes swim bladder shape and can harm spine and organs. Some fishkeepers and animal-rights activists call this cruel.",
+      "source": 6
+    }
+  ],
+  "commons": "Category:Ryūkin",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ryukin",
+      "title": "Ryukin - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/C%C3%A1_v%C3%A0ng_L%C6%B0u_kim",
+      "title": "Cá vàng Lưu kim - Wikipedia tiếng Việt",
+      "kind": "article"
+    },
+    {
+      "url": "https://hirosaqua.com/ca-vang-ryukin/",
+      "title": "Cá vàng ryukin: Nguồn gốc, đặc điểm và cách chăm sóc",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thegoldfishcouncil.org/post/ryukin-goldfish",
+      "title": "Ryukin Goldfish - The Goldfish Council",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariadise.com/ryukin-goldfish/",
+      "title": "Ryukin Goldfish - Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariadise.com/is-it-cruel-to-keep-fancy-goldfish/",
+      "title": "Is it cruel to keep fancy goldfish? - Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Pearlscale",
+      "title": "Pearlscale - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://cacanhkimgiang.com/ca-vang-gu-ryukin-dep-dang-short",
+      "title": "Cá Vàng Lưng Gù Ryukin Dáng Short - Cá cảnh Kim Giang",
+      "kind": "shop"
+    }
+  ]
+}

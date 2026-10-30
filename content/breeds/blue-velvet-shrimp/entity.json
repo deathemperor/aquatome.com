@@ -1,0 +1,145 @@
+{
+  "id": "blue-velvet-shrimp",
+  "kind": "variety",
+  "basedOn": "neocaridina-davidi",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 18,
+          "max": 29
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 0,
+        "value": {
+          "min": 6.2,
+          "max": 8
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 6.4,
+          "max": 8
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 0,
+        "value": {
+          "min": 4,
+          "max": 8
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 4,
+          "max": 14
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 6,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": {
+          "min": 3.2,
+          "max": 5
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 0,
+        "value": 40
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://www.theshrimpfarm.com/posts/blue-velvet-shrimp-care/",
+      "title": "Blue velvet shrimp | Neocaridina davidi \"Blue Velvet\" care & info – The Shrimp Farm",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquaticarts.com/pages/blue-velvet-shrimp-care-guide",
+      "title": "Blue Velvet Shrimp – Care Guide (Aquatic Arts)",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "http://shurinmall.com/blue-dream",
+      "title": "Tép Blue Dream - Blue Velvet Shrimp (Shurinmall)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://link.springer.com/content/pdf/10.1007/s10530-024-03324-3.pdf",
+      "title": "Invisible invaders: range expansion of feral Neocaridina davidi (Biological Invasions, 2024)",
+      "kind": "paper",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mdpi.com/2076-2615/11/4/1071",
+      "title": "Plichta et al. 2021, Animals – colour morphs of Neocaridina davidi and substratum preference",
+      "kind": "paper",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://flipaquatics.com/products/blue-velvet",
+      "title": "Blue Velvet – Flip Aquatics",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.buildyouraquarium.com/blue-velvet-shrimp/",
+      "title": "Blue Velvet Shrimp Care, Information & Pictures",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

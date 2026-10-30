@@ -1,0 +1,167 @@
+{
+  "id": "ryukin-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 4,
+          "max": 20
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 19
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": {
+          "min": 15,
+          "max": 21
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      },
+      {
+        "source": 0,
+        "value": 21
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Goldfish_Ryukin.jpg/1280px-Goldfish_Ryukin.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Goldfish_Ryukin.jpg/500px-Goldfish_Ryukin.jpg",
+      "width": 1280,
+      "height": 1317,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldfish_Ryukin.jpg",
+      "caption": "Cá vàng Lưu kim màu cam đỏ, đuôi dài xòe rộng trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/OrangeWhite_Ryukin.jpg/1280px-OrangeWhite_Ryukin.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/OrangeWhite_Ryukin.jpg/500px-OrangeWhite_Ryukin.jpg",
+      "width": 1280,
+      "height": 1029,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lawrencekhoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:OrangeWhite_Ryukin.jpg",
+      "caption": "Cá vàng Lưu kim hai màu trắng cam trong bể nuôi"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Welon.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Welon.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "Public domain",
+      "author": "SUPER AKWARIUM",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Welon.jpg",
+      "caption": "Cá vàng Lưu kim màu cam bơi giữa cây thủy sinh trong bể"
+    }
+  ],
+  "commons": "Category:Ryūkin",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ryukin",
+      "title": "Ryukin - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/C%C3%A1_v%C3%A0ng_L%C6%B0u_kim",
+      "title": "Cá vàng Lưu kim - Wikipedia tiếng Việt",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://hirosaqua.com/ca-vang-ryukin/",
+      "title": "Cá vàng ryukin: Nguồn gốc, đặc điểm và cách chăm sóc",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thegoldfishcouncil.org/post/ryukin-goldfish",
+      "title": "Ryukin Goldfish - The Goldfish Council",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariadise.com/ryukin-goldfish/",
+      "title": "Ryukin Goldfish - Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariadise.com/is-it-cruel-to-keep-fancy-goldfish/",
+      "title": "Is it cruel to keep fancy goldfish? - Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Pearlscale",
+      "title": "Pearlscale - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cacanhkimgiang.com/ca-vang-gu-ryukin-dep-dang-short",
+      "title": "Cá Vàng Lưng Gù Ryukin Dáng Short - Cá cảnh Kim Giang",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

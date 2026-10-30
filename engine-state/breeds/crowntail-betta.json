@@ -1,0 +1,290 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Betta splendens",
+  "enNames": [
+    "Crowntail betta",
+    "Crowntail",
+    "CT betta",
+    "Crowntail Siamese fighting fish"
+  ],
+  "viNames": [
+    {
+      "name": "Betta đuôi tưa",
+      "source": 2
+    },
+    {
+      "name": "Cá đuôi tưa",
+      "source": 3
+    },
+    {
+      "name": "Betta Crowntail",
+      "source": 2
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Developed by Indonesian breeder Achmad Yusuf (Iyus) in Slipi, West Jakarta, in 1997.",
+      "source": 0
+    },
+    {
+      "fact": "Yusuf called it 'cupang serit'. Henri Gunawan showed it at an IBC show under the name 'Crowntail'.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese betta site also dates the tail form to 1997 and credits Indonesian breeder Ahmad Yusuf with introducing it.",
+      "source": 3
+    },
+    {
+      "fact": "A Vietnamese wiki lists its origin as Thailand, Cambodia, Indonesia and Vietnam. These are probably the places where it is farmed now, not where it was created.",
+      "source": 2
+    },
+    {
+      "fact": "A captive-bred variety of Betta splendens, first produced in 1997.",
+      "source": 4
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The fin rays stick out past the reduced webbing, so the fins look spiky, like a crown or comb.",
+      "source": 3
+    },
+    {
+      "fact": "To count as a crowntail, webbing must be reduced by at least 33% of ray length in the caudal, anal and dorsal fins. About 50% reduction is ideal.",
+      "source": 5
+    },
+    {
+      "fact": "A good fish has extensions that are even in length and spacing, and dorsal and anal fins that match the tail pattern. Curled or bent extensions, uneven lengths and stray rays are faults.",
+      "source": 5
+    },
+    {
+      "fact": "Vietnamese buyers look for an evenly split tail with rays forming a V shape, straight parallel rays in the anal fin, a dorsal fin that is not kinked, and serrated ventral fins.",
+      "source": 2
+    },
+    {
+      "fact": "The crown trait can be combined with other tail types. A crowntail crossed with a halfmoon is called a half-sun (CTHM).",
+      "source": 0
+    },
+    {
+      "fact": "Crowntails are active, high-energy fish and are known for their aggressive temperament.",
+      "source": 1
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Single ray (SR): each fin segment ends in one extension, and webbing reduction is even.",
+      "source": 5
+    },
+    {
+      "fact": "Double ray (DR): webbing is also cut deeply between ray branches, giving paired spikes. Breeders prize it.",
+      "source": 5
+    },
+    {
+      "fact": "Double-double ray (DDR): rays branch into four extensions.",
+      "source": 5
+    },
+    {
+      "fact": "Cross ray (CR): pairs of extensions curve over each other.",
+      "source": 5
+    },
+    {
+      "fact": "Random ray (RR): a mix of patterns that is not fixed.",
+      "source": 5
+    },
+    {
+      "fact": "Vietnamese sources name four types: tia đơn (single), tia đôi (double), tia hai đôi (double-double) and tia chéo (cross).",
+      "source": 3
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 24.4,
+      "max": 26.7,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.4,
+      "max": 7,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 20,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 3,
+      "max": 3.5,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 6.4,
+      "max": 6.4,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 20,
+      "max": 20,
+      "source": 2
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "One guide recommends at least about 38 L (10 US gal), preferably a long, shallow tank, because the heavy fins make it harder to swim to the surface. Use a tight lid.",
+      "source": 4
+    },
+    {
+      "fact": "A Vietnamese guide recommends at least 5 L or a tank 20 cm long, so the long fins do not get damaged.",
+      "source": 2
+    },
+    {
+      "fact": "The thin fins are very sensitive to poor water. High ammonia can make rays curl or shrivel for good, so the water must be clean and stable.",
+      "source": 1
+    },
+    {
+      "fact": "Hobbyists say water quality matters more for crowntails than for other tail types. Some Thai breeders reportedly put fish with bent rays in sunlight, but this is only an anecdote.",
+      "source": 7
+    },
+    {
+      "fact": "Feed a mix of good sinking pellets and frozen food to prevent constipation.",
+      "source": 1
+    },
+    {
+      "fact": "Live foods such as bloodworms, mosquito larvae and small shrimp are accepted, along with pellets.",
+      "source": 2
+    },
+    {
+      "fact": "Never keep two males together. Calm bottom-dwellers such as Corydoras, snails and large shrimp are suitable tankmates. Avoid fin-nippers, fast swimmers and bright fish like guppies.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds like any Betta splendens: the male builds a bubble nest and guards the eggs. Fry hatch in about 48 hours and eat infusoria, then Artemia and microworms.",
+      "source": 4
+    },
+    {
+      "fact": "Offspring are fully fertile because this is a form of one species. One hobby source calls the crown gene recessive or possibly intermediate, and says some singletail carriers show slightly extended rays.",
+      "source": 0
+    },
+    {
+      "fact": "A shop source says the crowntail factor is inherited as a dominant trait. Sources disagree.",
+      "source": 6
+    },
+    {
+      "fact": "Crowntail-to-crowntail pairings generally give crowntail offspring, but fin quality varies with the parents' genetics.",
+      "source": 8
+    },
+    {
+      "fact": "Females can become very heavy with eggs, which can cause bloating and egg-binding.",
+      "source": 1
+    }
+  ],
+  "health": [
+    {
+      "fact": "Exposed rays easily catch fungus, and ray tips can crumble off. Damage from high ammonia (curling) is permanent.",
+      "source": 1
+    },
+    {
+      "fact": "A long-time breeder reports bulging eyes in crowntails. It looks like pop-eye but is not an infection; she suspects a glaucoma-like pressure disorder that may cause blindness.",
+      "source": 1
+    },
+    {
+      "fact": "Crowntails tend toward chronic constipation, which can lead to bloat and dropsy. Fin tumors can also appear on the fins.",
+      "source": 1
+    },
+    {
+      "fact": "Long rays tend to curl or warp without careful care, so this line is considered harder to keep than other tail types.",
+      "source": 3
+    },
+    {
+      "fact": "Ich is treated with medication plus raising the temperature to about 28°C for four days. Constipation is treated with a 48-hour fast.",
+      "source": 4
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick a fish with straight, even, symmetrical rays and no curled or bent tips. Check that the anal and dorsal fins match the tail and that webbing reduction shows in all three fins.",
+      "source": 5
+    },
+    {
+      "fact": "Check that the tail splits evenly, the dorsal fin is not kinked, and the anal fin rays are straight.",
+      "source": 2
+    },
+    {
+      "fact": "Reference prices in Vietnam: about 80,000 VND for a locally bred fish, and 150,000–170,000 VND for one imported from Thailand.",
+      "source": 2
+    },
+    {
+      "fact": "Common red and blue crowntails cost about US$5–30. Buying online means you cannot inspect the fish first.",
+      "source": 4
+    }
+  ],
+  "controversy": [],
+  "sources": [
+    {
+      "url": "https://aqualimul.blogspot.com/2009/05/creator-of-crowntail.html",
+      "title": "Creator of Crowntail (aqualimul blog, 2009)",
+      "kind": "article"
+    },
+    {
+      "url": "https://jessielbettas.substack.com/p/tail-types-the-crowntails",
+      "title": "Tail types: the crowntails – Jessie L Bettas",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://wikicacanh.com/crowntail-betta-dong-ca-betta-duoi-tua-tuyet-dep.html",
+      "title": "Crowntail Betta: Dòng cá betta đuôi tưa tuyệt đẹp – Wiki Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "http://bettasales.net/ky-thuat-nuoi-ca/phan-loai-chung-loai-ca-betta-co-ban-bettasales-net.html",
+      "title": "Phân loại chủng loại cá Betta cơ bản – BettaSales.net",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariadise.com/crowntail-betta/",
+      "title": "Crowntail betta – Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://bettautiful.blogspot.com/2012/11/defining-good-crowntail.html",
+      "title": "Defining a good crowntail (Bettautiful blog, 2012)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fish-archives/betta_splendens_crowntail_black_en",
+      "title": "Betta splendens Crowntail Black – Aquarium Glaser",
+      "kind": "shop"
+    },
+    {
+      "url": "https://fishforums.net/threads/keeping-your-crowntails-rays-straight.112656",
+      "title": "Keeping your crowntail's rays straight – FishForums.net",
+      "kind": "forum"
+    },
+    {
+      "url": "https://wildbettablog.com/crowntail-betta/",
+      "title": "Crowntail Bettas 101 – Wild Betta Blog",
+      "kind": "article"
+    }
+  ]
+}

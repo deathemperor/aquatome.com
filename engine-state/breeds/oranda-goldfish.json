@@ -1,0 +1,306 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Carassius auratus",
+  "enNames": [
+    "Oranda",
+    "Oranda goldfish",
+    "Red cap oranda",
+    "Dutch lionhead (Oranda shishigashira)"
+  ],
+  "viNames": [
+    {
+      "name": "Cá vàng Oranda",
+      "source": 2
+    },
+    {
+      "name": "Cá vàng đầu lân",
+      "source": 2
+    },
+    {
+      "name": "Hạc đỉnh hồng (Oranda đầu đỏ)",
+      "source": 1
+    },
+    {
+      "name": "Cá vàng vương miện",
+      "source": 1
+    },
+    {
+      "name": "Oranda đầu sư tử",
+      "source": 2
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "A goldfish breed of Chinese origin. It may have reached Japan through the Dutch trading post at Dejima.",
+      "source": 0
+    },
+    {
+      "fact": "The name comes from the Japanese 'Oranda shishigashira', meaning 'Dutch lionhead'. When the Japanese imported it from China, they mistakenly thought it came from Holland.",
+      "source": 1
+    },
+    {
+      "fact": "Developed more than a century ago, probably by crossing lionhead goldfish with fish that had a dorsal fin. It is still unclear whether this happened first in China or Japan.",
+      "source": 4
+    },
+    {
+      "fact": "Since the early 2000s, breeders in Thailand, Indonesia, Vietnam and other countries have developed new body and fin styles.",
+      "source": 4
+    },
+    {
+      "fact": "The Azuma Nishiki line was bred in Yokohama in 1931 by Katou Kinzou, from a telescope-eye × oranda cross.",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Its defining feature is a fleshy head growth called a wen, hood or crown. It can cover the whole face except the mouth.",
+      "source": 0
+    },
+    {
+      "fact": "Long, deep body with a dorsal fin and a long, split four-lobed tail. It has no ryukin-style hump on the back.",
+      "source": 0
+    },
+    {
+      "fact": "The wen starts to grow at about 6 months of age.",
+      "source": 3
+    },
+    {
+      "fact": "The wen takes about 1–2 years to fully develop.",
+      "source": 0
+    },
+    {
+      "fact": "In the judging standard, the head is worth 30 of 100 points. The wen should be balanced, symmetrical and free of blemishes. Body depth should be about one-half to two-thirds of body length. Paired fins should match.",
+      "source": 4
+    },
+    {
+      "fact": "Show faults include a lopsided wen, white or grey patches on the wen (signs of infection), fused or clamped tails, a crooked mouth, a missing anal fin, and bottom sitting.",
+      "source": 4
+    },
+    {
+      "fact": "Colours include orange, red, red-and-white, black, blue, chocolate, white and calico, plus panda and tricolour patterns.",
+      "source": 0
+    },
+    {
+      "fact": "The red on a red cap can fade with age, and some fish end up completely white.",
+      "source": 1
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Red cap (Hạc đỉnh hồng): white or silver body with a red wen only on top of the head. It is the most common oranda in Vietnam.",
+      "source": 1
+    },
+    {
+      "fact": "Azuma Nishiki: a calico (nacreous) oranda from Japan.",
+      "source": 1
+    },
+    {
+      "fact": "Apache: red and black. A fish with only black fins does not count as Apache.",
+      "source": 1
+    },
+    {
+      "fact": "Panda: black and white.",
+      "source": 1
+    },
+    {
+      "fact": "Other named forms: pompom (hana fusa), nagate (from Shikoku), ingot (Yuan-Bao), chakin (chocolate), seibungyo (blue), jade seal, and telescope-eyed crosses.",
+      "source": 0
+    },
+    {
+      "fact": "The 2016 standard has four divisions: Metallic, Red Cap Metallic, Calico and Azuma Nishiki. 'Goosehead' fish have head growth only above the eyes.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese shops also sell butterfly oranda (oranda bướm), telescope oranda (oranda mắt lồi) and 'oranda đầu ngọc'.",
+      "source": 2
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 17,
+      "max": 28,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 24,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 2,
+      "max": 12,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 20,
+      "max": 31,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 17,
+      "max": 23,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 25,
+      "max": 25,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Plan about 50–75 L of water per fish (100–150 L for 2–3 fish). Use a filter and an air pump.",
+      "source": 2
+    },
+    {
+      "fact": "Keep ammonia and nitrite at 0 and nitrate below 40 ppm. Change 20–30% of the water each week with dechlorinated water.",
+      "source": 2
+    },
+    {
+      "fact": "Use smooth gravel or sand and avoid sharp decorations, because the wen injures easily.",
+      "source": 2
+    },
+    {
+      "fact": "It does not tolerate cold well.",
+      "source": 0
+    },
+    {
+      "fact": "Pond fish in very cold climates should spend the winter indoors.",
+      "source": 3
+    },
+    {
+      "fact": "It is an omnivore. Feed slowly sinking food with about 30% protein, so the fish do not gulp air at the surface.",
+      "source": 3
+    },
+    {
+      "fact": "Feed twice a day, only as much as is eaten in 2–3 minutes. Add vegetables and live or frozen food.",
+      "source": 2
+    },
+    {
+      "fact": "Keep it with other slow fancy goldfish, not with koi or fast fish that take the food first.",
+      "source": 3
+    },
+    {
+      "fact": "Orandas with poor eyesight should be kept with similarly impaired fish so they can still get food.",
+      "source": 0
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "It is an egg scatterer. One spawn can produce up to about 1,000 eggs, and fry hatch in about 5–6 days.",
+      "source": 3
+    },
+    {
+      "fact": "As a goldfish line, the offspring are fertile.",
+      "source": 3
+    },
+    {
+      "fact": "Fancy goldfish do not breed true even from the best stock, and the more developed the variety, the more faulty fry appear.",
+      "source": 6
+    },
+    {
+      "fact": "Breeders cull fry over many months, starting at about 2 weeks old by removing fish with bent spines or uneven eyes. Mature fish, ideally in their third year, are recommended as breeders.",
+      "source": 6
+    }
+  ],
+  "health": [
+    {
+      "fact": "A large wen can cover the eyes and cause poor sight or blindness.",
+      "source": 0
+    },
+    {
+      "fact": "The wen is prone to bacterial infection and to injury from rough objects in the tank.",
+      "source": 0
+    },
+    {
+      "fact": "Gulping floating food at the surface can lead to swim bladder problems.",
+      "source": 3
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Choose a fish that swims actively and steadily, with bright colour, clear eyes, an intact hood, and no spots, fungus or torn fins.",
+      "source": 2
+    },
+    {
+      "fact": "Prefer fish at least 6 months old.",
+      "source": 2
+    },
+    {
+      "fact": "Vietnamese prices: about 50,000–200,000 VND for juveniles, 200,000–1,000,000 VND for adults, and up to several million VND for imported fish.",
+      "source": 2
+    },
+    {
+      "fact": "Look for a symmetrical, smooth wen with no white or grey patches, matched fins, no fused tail, and an anal fin present.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Some aquarists trim the wen with scissors and use peroxide to stop it from blinding the fish.",
+      "source": 0
+    },
+    {
+      "fact": "UFAW (Universities Federation for Animal Welfare) lists excess head tissue in ranchu and lionchu goldfish as a welfare problem caused by breeding. The harm depends on how close the tissue is to the eyes and gills. UFAW says the trait could be removed by not breeding from affected fish. The page covers ranchu and lionchu, not oranda specifically.",
+      "source": 5
+    }
+  ],
+  "commons": "Category:Oranda",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Oranda",
+      "title": "Oranda – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://thanhnien.vn/nhung-bat-mi-ve-loai-ca-vang-hac-dinh-hong-vuong-mien-pho-bien-o-viet-nam-1851480848.htm",
+      "title": "Những 'bật mí' về loại cá vàng Hạc đỉnh hồng (vương miện) phổ biến ở Việt Nam – Thanh Niên",
+      "kind": "article"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-vang-oranda-dep/",
+      "title": "Cá vàng oranda đẹp: Hướng dẫn chọn mua, chăm sóc – SG AQUA",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.liveaquaria.com/article/232/",
+      "title": "Oranda – LiveAquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/oranda",
+      "title": "Oranda (Metallic) standard – The Goldfish Council",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/ranchu-goldfish-excessive-facial-tissue",
+      "title": "Ranchu goldfish: excessive facial tissue – UFAW genetic welfare problems",
+      "kind": "article"
+    },
+    {
+      "url": "https://about-goldfish.com/goldfish-culling.html",
+      "title": "Goldfish Culling – about-goldfish.com",
+      "kind": "article"
+    }
+  ]
+}

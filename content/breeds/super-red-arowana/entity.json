@@ -1,0 +1,129 @@
+{
+  "id": "super-red-arowana",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 28,
+          "max": 32
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": 90
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 60,
+          "max": 80
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 1,
+        "value": 200
+      },
+      {
+        "source": 4,
+        "value": 150
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Asian_arowana",
+      "title": "Asian arowana – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/scleropages-formosus/",
+      "title": "Scleropages formosus – Seriously Fish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18616",
+      "title": "Chợ Tốt kinh nghiệm – các loại cá rồng (Huyết Long, Hồng Long)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tienphong.vn/xa-hoi/580439/Thu-choi-ca-rong-nghin-do-tpol.html",
+      "title": "Thú chơi cá rồng nghìn đô – Tiền Phong (VnExpress)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thuviennhadat.vn/phap-luat/y-nghia-phong-thuy-cua-ca-rong-hong-long-625638.html",
+      "title": "Ý nghĩa phong thủy của cá Rồng Hồng Long – Thư viện nhà đất",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://monsterfishkeepers.com/forums/threads/need-help-in-identifying-super-red-arowana.381120",
+      "title": "Need help in identifying super red arowana – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatget.asp?spid=67876",
+      "title": "Catalog of Fishes – Scleropages legendrei",
+      "kind": "paper",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Scleropages_formosus",
+      "title": "Category:Scleropages formosus – Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/preventing-drop-eye.120054/post-1481314",
+      "title": "Preventing drop eye – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

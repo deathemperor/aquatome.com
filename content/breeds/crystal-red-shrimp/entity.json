@@ -1,0 +1,222 @@
+{
+  "id": "crystal-red-shrimp",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      },
+      {
+        "source": 9,
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 0,
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 6,
+          "max": 6.8
+        }
+      },
+      {
+        "source": 9,
+        "value": {
+          "min": 6,
+          "max": 6.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 0,
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      },
+      {
+        "source": 9,
+        "value": {
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": 3
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 3,
+          "max": 3.5
+        }
+      },
+      {
+        "source": 9,
+        "value": {
+          "min": 2.5,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Caridina-cf-cantonensis-red-bee.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/46/Caridina-cf-cantonensis-red-bee.jpg",
+      "width": 1280,
+      "height": 884,
+      "licence": "CC BY-SA 3.0",
+      "author": "DirkBlankenhaus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina-cf-cantonensis-red-bee.jpg",
+      "caption": "Tép ong đỏ trưởng thành vằn đỏ trắng trong bể thủy sinh rêu"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Red_Bee_K_6.jpg/1280px-Red_Bee_K_6.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Red_Bee_K_6.jpg/500px-Red_Bee_K_6.jpg",
+      "width": 1280,
+      "height": 687,
+      "licence": "CC BY-SA 3.0",
+      "author": "C.Schiessl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Bee_K_6.jpg",
+      "caption": "Tép ong đỏ vằn đỏ trắng bò trên nền đá trong bể"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Red_Bee_K_0.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Red_Bee_K_0.jpg",
+      "width": 1280,
+      "height": 1813,
+      "licence": "CC BY-SA 3.0",
+      "author": "C.Schiessl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Bee_K_0.jpg",
+      "caption": "Hai con tép ong đỏ vằn đỏ trắng trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Garnelepepe_redbeeshrimp_2018.jpg/1280px-Garnelepepe_redbeeshrimp_2018.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Garnelepepe_redbeeshrimp_2018.jpg/500px-Garnelepepe_redbeeshrimp_2018.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "神谷純平",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Garnelepepe_redbeeshrimp_2018.jpg",
+      "caption": "Tép ong đỏ trắng vằn đỏ trên nền sỏi đen trong bể"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.shrimpscience.com/species/caridina/crystal-red-shrimp/",
+      "title": "Crystal Red Shrimp – Shrimp Science",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Caridina_cantonensis",
+      "title": "Caridina cantonensis – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/posts/grading-crystal-red-shrimp/",
+      "title": "Grading Your Crystal Red Shrimp – The Shrimp Farm",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.garnelio.de/en/crystal-red-shrimp-caridina-logemanni-crystal-red",
+      "title": "Crystal Red Shrimp – Garnelio",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://seriouslyfish.com/articles/new-shrimp-from-hong-kong-and-southern-china",
+      "title": "New shrimp from Hong Kong and southern China – Seriously Fish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tfhmagazine.com/articles/freshwater/the-latest-buzz-freshwater-bee-shrimp-full-article",
+      "title": "The Latest Buzz: Freshwater Bee Shrimp – TFH Magazine",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://shrimptouch.com/index.php/2024/10/18/tep-ong-do-crystal-red-bee-crs-dong-tep-cho-nguoi-moi-nhap-mon/",
+      "title": "Tép ong đỏ (Crystal Red Bee – CRS) – Shrimp Touch",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tepbac.com/tin-tuc/full/nuoi-tep-canh-thu-choi-sinh-dong-de-bat-dau-38087.html",
+      "title": "Nuôi tép cảnh: Thú chơi sinh động, dễ bắt đầu – Tepbac",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tepcanh.wordpress.com/2015/09/29/huong-dan-nuoi-cac-loai-tep-canh-thuoc-ho-tep-ong/",
+      "title": "Hướng dẫn nuôi các loại tép cảnh thuộc họ tép ong",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thuysinhtim.vn/tep-pure-red-line",
+      "title": "Tép Ong Đỏ (CRS) – Thủy Sinh Tím",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

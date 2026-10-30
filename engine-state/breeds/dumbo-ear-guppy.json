@@ -1,0 +1,281 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Poecilia reticulata",
+  "enNames": [
+    "Dumbo ear guppy",
+    "Dumbo guppy",
+    "Elephant ear guppy",
+    "Big ear guppy",
+    "Dumbo big ear guppy"
+  ],
+  "viNames": [
+    {
+      "name": "Cá bảy màu tai voi",
+      "source": 2
+    },
+    {
+      "name": "Cá bảy màu Dumbo Big Ear",
+      "source": 2
+    },
+    {
+      "name": "Guppy Dumbo",
+      "source": 2
+    },
+    {
+      "name": "Bảy màu dumbo",
+      "source": 3
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Guppy breeders produced it by selective breeding. They started with colourful guppies that had jet-black pectoral fins, then found they could also make those fins bigger. Aquarium Glaser reported it as a new strain in 2017.",
+      "source": 0
+    },
+    {
+      "fact": "Some guppy types already had black pectoral fins before this strain, such as nigrocaudatus types and Moscow guppies. The Elephant Ear strain enlarges those black fins.",
+      "source": 0
+    },
+    {
+      "fact": "One AI-generated profile calls it a Russian-Asian commercial strain. It says an Asian 'Big Ear' mutation was crossed with Moscow or Tuxedo guppies of American origin. No other source confirms this.",
+      "source": 4
+    },
+    {
+      "fact": "A Vietnamese article names Thailand, Indonesia and Vietnam as the main places where it is farmed.",
+      "source": 2
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The defining trait is a pair of greatly enlarged pectoral fins that look like elephant ears. In the original strain these fins are often black.",
+      "source": 0
+    },
+    {
+      "fact": "It is a fin-shape trait, not a colour, so it appears in many colour strains.",
+      "source": 6
+    },
+    {
+      "fact": "Many males have silver to blue bodies with red dorsal and tail fins, sometimes with dark spots.",
+      "source": 1
+    },
+    {
+      "fact": "A good fish has clearly enlarged pectoral fins of matching size, clean fin edges and a smooth, controlled swimming style.",
+      "source": 5
+    },
+    {
+      "fact": "In Vietnam, fish with large, balanced 'ears' and stable colour sell for more.",
+      "source": 2
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Dumbo Red Tail, Dumbo Koi, Dumbo White Big Ear and Dumbo Panda are sold in Vietnam. Red Tail, Koi and White Big Ear usually cost more.",
+      "source": 2
+    },
+    {
+      "fact": "Combined forms are traded abroad, such as Dumbo Ear Dragon (blue, green or orange), Platinum Dumbo, Dumbo Mosaic, Dumbo Cobra and Dumbo Silver Tux.",
+      "source": 7
+    },
+    {
+      "fact": "A breeder forum discussed crossing Dumbo Ear with koi lines. Commenters noted both lines are heavily inbred and that crossing mixes up the genetics.",
+      "source": 6
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 28,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "tempC",
+      "min": 23,
+      "max": 28,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 5.5,
+      "max": 8,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 8.5,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.8,
+      "source": 5
+    },
+    {
+      "field": "gh",
+      "min": 10,
+      "max": 25,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 6.4,
+      "max": 6.4,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 3,
+      "max": 5,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 5,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 50,
+      "max": 50,
+      "source": 1
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Peaceful and easy to keep. It eats everything: give flakes with plant or algae content plus bloodworms, brine shrimp and tubifex.",
+      "source": 1
+    },
+    {
+      "fact": "Keep it in at least about 38 L (10 US gal). Use gentle to moderate filter flow and keep it only with peaceful fish that do not nip fins.",
+      "source": 5
+    },
+    {
+      "fact": "One Vietnamese guide suggests 20–40 L, live plants, and 10–20% water changes two or three times a week. It names neon tetras, mollies and platies as possible tankmates.",
+      "source": 2
+    },
+    {
+      "fact": "The heavy pectoral fins make it a weak swimmer. A sponge filter and calm water are advised, because strong currents tire it out and fin-nippers target it.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "It is a livebearer. Pregnancy lasts about 25–30 days and gives 20–50 fry.",
+      "source": 2
+    },
+    {
+      "fact": "Easy to breed. Floating plants or a breeding box keep the fry away from the adults.",
+      "source": 1
+    },
+    {
+      "fact": "Not all fry get large pectoral fins, even from good parents. Crosses with ordinary guppies often lose the trait.",
+      "source": 5
+    },
+    {
+      "fact": "One AI-generated source calls the Big Ear gene incompletely dominant and says Dumbo × Dumbo litters are mixed. Other hobby pages call the trait recessive, so how it is inherited is still unsettled.",
+      "source": 4
+    },
+    {
+      "fact": "A forum user's Punnett-square guess for a Dumbo × koi cross was about 25:50:25. It was a guess, not a result from real spawns.",
+      "source": 6
+    }
+  ],
+  "health": [
+    {
+      "fact": "Warning signs are clamped pectoral fins, torn fin edges, using one pectoral fin less than the other, and sluggishness.",
+      "source": 5
+    },
+    {
+      "fact": "One source says the large black pectoral fins are often where ich and Saprolegnia fungus show up first. It also says the fish is sensitive to sudden water and temperature changes.",
+      "source": 4
+    },
+    {
+      "fact": "The big pectoral fins tear easily, so do not keep it with fin-nippers.",
+      "source": 2
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Choose males with clearly large, even pectoral fins, clean fin edges, smooth swimming, a good appetite and a straight body. Ask the seller about the line.",
+      "source": 5
+    },
+    {
+      "fact": "Pass on fish with one small or damaged pectoral fin, clamped or torn fins, trouble swimming, sick tankmates, or 'Dumbo' fins that are barely bigger than normal.",
+      "source": 5
+    },
+    {
+      "fact": "A Vietnamese source quotes about 10,000–40,000 VND per fish. Price depends on colour, size, purity and the farm.",
+      "source": 2
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "An AI-generated profile on Atlarium says the huge fins badly hurt swimming, comparing them to heavy oars, and leave the fish exposed to fin-nippers and strong currents. Other hobby pages describe it as an active swimmer.",
+      "source": 4
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new-guppy-elephant-ear/",
+      "title": "New Guppy: Elephant Ear (Aquarium Glaser, F. Schäfer, 2017)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/dumbo-ear-guppy-male",
+      "title": "Dumbo Ear Guppy, Male - LiveAquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumvibe.com/ca-bay-mau-dumbo-big-ear/",
+      "title": "Cá bảy màu Dumbo Big Ear - AquariumVibe",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/38-dong-ca-bay-mau-dep-va-pho-bien-nhat-hien-nay/",
+      "title": "38 dòng cá bảy màu đẹp và phổ biến nhất hiện nay - Aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://atlarium.bio/en/catalog/fish/poecilia-reticulata-dumbo",
+      "title": "Dumbo Guppy Care - Atlarium (AI-generated)",
+      "kind": "article"
+    },
+    {
+      "url": "https://guppyguide.com/dumbo-ear-guppy",
+      "title": "Dumbo Ear Guppy Guide - GuppyGuide",
+      "kind": "article"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/35167-guppy-breeding/",
+      "title": "Guppy breeding - Aquarium Co-Op forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/dumbo-ear-dragon-guppy-male",
+      "title": "Dumbo Ear Dragon Guppy Male - LiveAquaria",
+      "kind": "shop"
+    }
+  ]
+}

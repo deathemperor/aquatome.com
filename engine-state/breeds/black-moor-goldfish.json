@@ -1,0 +1,343 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Carassius auratus",
+  "enNames": [
+    "Black Moor",
+    "Black Moor goldfish",
+    "Black Telescope",
+    "Moor",
+    "Blackamoor",
+    "Black Dragon Eye",
+    "Black Peony",
+    "Broadtail Moor",
+    "Kuro Demekin"
+  ],
+  "viNames": [
+    {
+      "name": "cá vàng mắt lồi đen",
+      "source": 3
+    },
+    {
+      "name": "cá mắt kính viễn vọng",
+      "source": 3
+    },
+    {
+      "name": "cá vàng mắt rồng",
+      "source": 2
+    },
+    {
+      "name": "cá ba đuôi đen",
+      "source": 4
+    },
+    {
+      "name": "cá 3 đuôi đen",
+      "source": 4
+    },
+    {
+      "name": "cá ba đuôi mắt lồi đen",
+      "source": 4
+    },
+    {
+      "name": "Hoa mẫu đơn đen",
+      "source": 2
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Black moors are thought to come from China in the 1400s. They were traded in Japan in the 1500s and reached the USA in the 1800s.",
+      "source": 0
+    },
+    {
+      "fact": "The same page says the telescope-eye trait itself was first bred in China in the early 1700s, where it was called 'dragon eyes'. In Japan the fish became the Demekin.",
+      "source": 0
+    },
+    {
+      "fact": "Chinese records mention twin-tailed goldfish in the 16th century, so Moors probably appeared around then. They descend from the telescope-eyed line, which came from the twin-tailed Wakin.",
+      "source": 1
+    },
+    {
+      "fact": "A Vietnamese newspaper says Chinese breeders developed the dragon-eye goldfish in the 17th century. Its Chinese name is 出目金.",
+      "source": 2
+    },
+    {
+      "fact": "In 1941, the Moscow aquarist P. Andrianov bred a black telescope with orange-red eyes.",
+      "source": 0
+    },
+    {
+      "fact": "The name 'Moor' refers to the Black Muslim people of Al-Andalus. 'Blackamoor' is an archaic form.",
+      "source": 0
+    }
+  ],
+  "looks": [
+    {
+      "fact": "A deep, round body with long flowing double fins and telescope eyes that stick out to the sides.",
+      "source": 0
+    },
+    {
+      "fact": "The best fish have a deep, velvety blue-black colour that reaches the fins and belly.",
+      "source": 1
+    },
+    {
+      "fact": "Top-quality moors look velvety, without metallic shine, but can lose this look with age.",
+      "source": 0
+    },
+    {
+      "fact": "The eyes should point outward and slightly forward, match in size and shape, and be large for the head. Eye shapes can be conical, ringed or round like a balloon.",
+      "source": 1
+    },
+    {
+      "fact": "Body depth should be at least about 65% of body length. The tail should be even and divided, without curled edges.",
+      "source": 1
+    },
+    {
+      "fact": "UK standards ask for a veil tail at least 75% of body length with no fork. The American Goldfish Association accepts both veil and forked tails.",
+      "source": 1
+    },
+    {
+      "fact": "Young fish look like bronze fantails with flat eyes. The black colour and bulging eyes develop with age.",
+      "source": 0
+    },
+    {
+      "fact": "The black comes from extra melanin. Fry are grey at first, and black usually shows from about 5–6 weeks old.",
+      "source": 1
+    },
+    {
+      "fact": "A Vietnamese newspaper describes a short, thick body, sometimes with a rounded hump at the shoulder. It calls Black Moor the most common dragon-eye goldfish.",
+      "source": 2
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Panda telescope (panda moor): black and white. Its colours may change to orange-white or fade to all white.",
+      "source": 0
+    },
+    {
+      "fact": "Telescopes also come in white, red, orange and yellow. The black form is the most popular.",
+      "source": 0
+    },
+    {
+      "fact": "Butterfly-tail telescopes are listed as a related breed.",
+      "source": 0
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 16,
+      "max": 24,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 22,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 24,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.4,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 7,
+      "max": 11,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 20,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 15,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 12.5,
+      "max": 12.5,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 10,
+      "max": 25,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 20.3,
+      "max": 25.5,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 20,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Allow about 70 L for one fish plus about 45 L for each extra goldfish. Use gentle filtration that turns the water over about 4 times an hour.",
+      "source": 1
+    },
+    {
+      "fact": "A Vietnamese guide gives 75–95 L as the tank size.",
+      "source": 3
+    },
+    {
+      "fact": "Avoid sharp decorations and clutter, because the eyes are easily punctured and a damaged eye does not refill.",
+      "source": 1
+    },
+    {
+      "fact": "Do not keep with normal-eyed goldfish, which get to the food first. Bubble-eyes and celestials, which also see poorly, are suitable tankmates.",
+      "source": 0
+    },
+    {
+      "fact": "Feed adults about 1–2% of body weight a day in several small meals. Gel foods, vegetables and live or frozen foods such as daphnia and bloodworms are good choices.",
+      "source": 1
+    },
+    {
+      "fact": "Sinking food is better than floating food, because the fish have trouble finding food at the surface.",
+      "source": 3
+    },
+    {
+      "fact": "Some keepers advise not keeping moors too warm, because warmth may speed up colour change.",
+      "source": 1
+    },
+    {
+      "fact": "Black moors are hardy and tolerate a wide range of temperatures.",
+      "source": 0
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Black moors breed like other goldfish. Use several males per female, because the telescope eyes make it hard for males to find the female.",
+      "source": 1
+    },
+    {
+      "fact": "Males in breeding condition show white tubercles on the gill covers and pectoral fins.",
+      "source": 1
+    },
+    {
+      "fact": "Black telescopes do not always breed true. They can produce normal-eyed black young, which are usually culled.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese source says the fish mature and can breed at about 6–7 months.",
+      "source": 3
+    },
+    {
+      "fact": "A Vietnamese guide recommends broodstock about 1–2 years old.",
+      "source": 4
+    }
+  ],
+  "health": [
+    {
+      "fact": "Poor eyesight makes them slow at getting food and prone to eye injuries and infections.",
+      "source": 0
+    },
+    {
+      "fact": "Swim bladder disorder, often caused by a poor diet in older fish, is the main killer of adults.",
+      "source": 1
+    },
+    {
+      "fact": "They are no more prone to disease than other fancy goldfish and handle cold better than most.",
+      "source": 1
+    },
+    {
+      "fact": "A fish that has lost an eye may need salt baths and watching at feeding time.",
+      "source": 1
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Avoid fish with a bronze tint, which may later turn orange or red. Fish with a white or silvery belly are more likely to stay black.",
+      "source": 1
+    },
+    {
+      "fact": "Choose fish with even, matching eyes, a deep body and an even, divided tail.",
+      "source": 1
+    },
+    {
+      "fact": "Young telescopes can be temporarily black and later fade to orange. A true black moor stays black.",
+      "source": 0
+    },
+    {
+      "fact": "Quarantine new fish and treat them as if they carry parasites. A mild salt bath is useful.",
+      "source": 1
+    },
+    {
+      "fact": "Choose fish with bright colour, a balanced body and no signs of disease.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "The UK Companion Animal Welfare Council report 'Breeding and Welfare in Companion Animals' lists telescope goldfish among bred traits that harm welfare. It says the bulging eyes (up to 2 cm) are vulnerable to injury. Critics said the report relied on hobby books rather than new research.",
+      "source": 5
+    },
+    {
+      "fact": "Normal-eyed young from black telescope spawns are often culled.",
+      "source": 0
+    }
+  ],
+  "commons": "Category:Black Moor goldfish",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Telescope_(goldfish)",
+      "title": "Telescope (goldfish) – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://about-goldfish.com/black-moor-goldfish.html",
+      "title": "Black Moor Goldfish – About-Goldfish.com",
+      "kind": "article"
+    },
+    {
+      "url": "https://thanhnien.vn/bi-mat-ve-loai-ca-vang-mat-rong-co-tu-the-ky-17-1851479705.htm",
+      "title": "Bí mật về loại cá vàng mắt rồng có từ thế kỷ 17 – Thanh Niên",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-vang-mat-loi-mau-den.html",
+      "title": "Cá vàng mắt lồi màu đen – Mytour",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.hanoizoo.com/ca-ba-duoi-den/",
+      "title": "Cá Ba Đuôi Đen – Hanoizoo",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/the-end-for-fancy-goldfish/",
+      "title": "The end for fancy goldfish? – Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Carassius_auratus_Black_Moor-edit1.jpg",
+      "title": "File:Carassius auratus Black Moor-edit1.jpg – Wikimedia Commons",
+      "kind": "other"
+    }
+  ]
+}

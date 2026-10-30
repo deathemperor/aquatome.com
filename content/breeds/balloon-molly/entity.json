@@ -1,0 +1,166 @@
+{
+  "id": "balloon-molly",
+  "kind": "variety",
+  "parents": [
+    {
+      "name": "Common/shortfin molly (Poecilia sphenops)",
+      "certain": false
+    },
+    {
+      "name": "Sailfin molly (white sailfin molly with the dwarf/balloon trait) (Poecilia latipinna)",
+      "certain": false
+    }
+  ],
+  "care": {
+    "tempC": [
+      {
+        "source": 4,
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      },
+      {
+        "source": 6,
+        "value": 28
+      }
+    ],
+    "ph": [
+      {
+        "source": 4,
+        "value": {
+          "min": 6.7,
+          "max": 8.5
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 2,
+        "value": {
+          "min": 15,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 4,
+        "value": 7.5
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 4,
+        "value": {
+          "min": 50,
+          "max": 60
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Balloon_Molly.jpg/1280px-Balloon_Molly.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Balloon_Molly.jpg/500px-Balloon_Molly.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 2.0",
+      "author": "Bernat Arlandis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly.jpg",
+      "caption": "Cá bình tích balloon màu xám bạc bơi trong bể cây thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Molly_Balloon.jpg/1280px-Molly_Balloon.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Molly_Balloon.jpg/500px-Molly_Balloon.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 2.0",
+      "author": "Bernat Arlandis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Molly_Balloon.jpg",
+      "caption": "Cá bình tích balloon màu trắng bạc vây lưng có vân trong bể"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Balloon_Molly_female.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Balloon_Molly_female.jpg",
+      "width": 1280,
+      "height": 959,
+      "licence": "CC BY-SA 3.0",
+      "author": "Gourami Watcher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly_female.jpg",
+      "caption": "Cá bình tích balloon đốm đen trên nền bạc trong bể thủy sinh"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Fancy_molly",
+      "title": "Fancy molly - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Common_molly.html",
+      "title": "Poecilia sphenops (Wikipedia mirror)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://seriouslyfish.com/species/poecilia-latipinna",
+      "title": "Poecilia latipinna - Seriously Fish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6628085/",
+      "title": "Identification of Loci Controlling the Dwarfism Trait in the White Sailfin Molly (Poecilia latipinna) (Genes, 2019)",
+      "kind": "paper",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariadise.com/balloon-molly/",
+      "title": "Balloon Molly - Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "http://lazymen147.blogspot.com/2015/04/ca-binh-tich-ballon-molly-fish-hinh-anh.html",
+      "title": "Cá bình tích, ballon - molly fish (Lazymen's house blog)",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cacanhthienduc.com/ca-binh-tich-mix-mau-mix-baloon-molly",
+      "title": "Cá Bình Tích Mix Màu - Mix Baloon Molly - Cá cảnh Thiên Đức",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-molly-gia-bao-nhieu/",
+      "title": "Cá Molly Giá Bao Nhiêu? - SG AQUA",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

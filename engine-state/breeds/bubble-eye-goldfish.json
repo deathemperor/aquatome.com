@@ -1,0 +1,313 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Carassius auratus",
+  "enNames": [
+    "Bubble eye goldfish",
+    "Bubble Eye",
+    "Water bubble eye goldfish"
+  ],
+  "viNames": [
+    {
+      "name": "cá vàng mắt bong bóng",
+      "source": 2
+    },
+    {
+      "name": "cá thủy bao nhãn",
+      "source": 2
+    },
+    {
+      "name": "thủy bao nhãn",
+      "source": 1
+    },
+    {
+      "name": "cá vàng thủy bao nhãn",
+      "source": 3
+    },
+    {
+      "name": "cá mắt ngọc (loosely used, also for other varieties)",
+      "source": 7
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Country of origin is China.",
+      "source": 0
+    },
+    {
+      "fact": "Most likely developed in China from the Toadhead goldfish, which has no dorsal fin and upturned eyes.",
+      "source": 4
+    },
+    {
+      "fact": "Like all goldfish, it traces back to the Prussian (gibel) carp.",
+      "source": 4
+    },
+    {
+      "fact": "Bred into its present form in the early 20th century, though there are signs it existed as early as the 18th century.",
+      "source": 3
+    },
+    {
+      "fact": "Japanese name is suihogan (スイホウガン).",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Small fancy goldfish with upward-pointing eyes and a large fluid-filled sac under each eye.",
+      "source": 0
+    },
+    {
+      "fact": "No dorsal fin, double tail, evenly curved back.",
+      "source": 0
+    },
+    {
+      "fact": "A good fish has a clean, smooth back and eye sacs that match in colour and size.",
+      "source": 0
+    },
+    {
+      "fact": "For shows, even size and shape of the two sacs matters most. Body depth should be at least 65% of length, and the tail should be divided and symmetrical with no curled tips.",
+      "source": 4
+    },
+    {
+      "fact": "Sacs start forming at about 4 weeks and may take up to a year to fully develop.",
+      "source": 4
+    },
+    {
+      "fact": "Wikipedia says the sacs begin to develop about three months after hatching.",
+      "source": 0
+    },
+    {
+      "fact": "Colours include red, calico, orange, red-and-white and a rare black. Scales may be metallic, matte or nacreous.",
+      "source": 0
+    },
+    {
+      "fact": "Colours sold in Vietnam include red-and-white, solid red, red-and-black, blue-and-brown and black-spotted.",
+      "source": 2
+    }
+  ],
+  "lines": [
+    {
+      "fact": "A newer line has four eye sacs instead of two.",
+      "source": 0
+    },
+    {
+      "fact": "In East Asia, some fish have smaller bubbles and a toad-like head, and some have a dorsal fin.",
+      "source": 3
+    },
+    {
+      "fact": "Scale types are metallic, matt and nacreous (calico). Nacreous x nacreous gives about 1/2 nacreous, 1/4 matt and 1/4 metallic fry.",
+      "source": 4
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 22,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 16,
+      "max": 24,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.4,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 20,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 7.5,
+      "max": 10,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 17,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 10,
+      "max": 20.3,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Tank of 70 L for one fish, plus 45 L for each additional goldfish.",
+      "source": 4
+    },
+    {
+      "fact": "A Vietnamese article recommends at least 20–30 US gallons (about 75–115 L).",
+      "source": 2
+    },
+    {
+      "fact": "Use smooth substrate and no sharp objects, holes or clutter. Use a gentle filter turning the water over about 4 times per hour without strong current.",
+      "source": 4
+    },
+    {
+      "fact": "It is a weak swimmer and the sacs can be sucked into filter intakes or siphons.",
+      "source": 0
+    },
+    {
+      "fact": "Avoid sharp decorations and plastic plants, which can damage the sacs.",
+      "source": 2
+    },
+    {
+      "fact": "Keep it only with slow fish such as other bubble eyes, black moors, demekins or celestials, so it can compete for food.",
+      "source": 0
+    },
+    {
+      "fact": "Do not mix it with single-tailed or fast fancy goldfish, which outcompete it for food.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese sellers advise keeping it apart from other fish because the sacs are easily injured.",
+      "source": 2
+    },
+    {
+      "fact": "Feed a varied diet of gel food plus live or frozen food, about 1–2% of body weight per day, with vegetable matter to prevent digestive problems.",
+      "source": 4
+    },
+    {
+      "fact": "Because the sacs make food hard to find, drop food slowly in one spot, use floating pellets or hand-feed. Lettuce and cucumber are also given.",
+      "source": 2
+    },
+    {
+      "fact": "No heater is needed indoors. Avoid direct sunlight. Keep nitrate under 30 ppm with zero ammonia and nitrite.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds like other goldfish, by hand spawning or natural spawning. Males show white tubercles on the gill plates and pectoral fins.",
+      "source": 4
+    },
+    {
+      "fact": "The sacs make it hard for males to find females, so use several males per female in an uncluttered container.",
+      "source": 4
+    },
+    {
+      "fact": "It does not breed true: fry often show dorsal fins, spikes or uneven backs, and half or more may need culling.",
+      "source": 4
+    },
+    {
+      "fact": "Cull starts once dorsal fins appear, checking both side and top views.",
+      "source": 4
+    }
+  ],
+  "health": [
+    {
+      "fact": "The sacs can pop from pressure or sharp objects. They regrow, but the wound can become infected.",
+      "source": 0
+    },
+    {
+      "fact": "Burst sacs may regrow smaller or misshapen. A mild salt bath is suggested for sac injuries and for quarantine.",
+      "source": 4
+    },
+    {
+      "fact": "Swim bladder disorder, usually linked to poor diet, is the main killer of adults. Otherwise it is no more prone to disease than other fancy goldfish.",
+      "source": 4
+    },
+    {
+      "fact": "Vision is impaired by the sacs.",
+      "source": 0
+    },
+    {
+      "fact": "Lives about 10 years indoors with good care.",
+      "source": 4
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Choose fish with a clean back with no dorsal fin or bumps, and two sacs equal in size, shape and colour.",
+      "source": 0
+    },
+    {
+      "fact": "Check that the tail is divided and symmetrical. Note that sacs on young fish are not yet fully grown.",
+      "source": 4
+    },
+    {
+      "fact": "Not suitable for beginners. Quarantine new fish.",
+      "source": 4
+    },
+    {
+      "fact": "Sold in Vietnamese pet shops (e.g. Thủ Đức, Vĩnh Phúc) for about 30,000–40,000 VND each.",
+      "source": 2
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "UFAW's genetic welfare resource treats the eye sacs as a deformity that every bubble eye has, and says the breed should not be continued for welfare reasons.",
+      "source": 5
+    },
+    {
+      "fact": "SPCA New Zealand says the sacs serve no purpose and impair vision and swimming, so the fish cannot behave normally. It adds that the bare tanks used to protect the sacs bring problems of their own.",
+      "source": 6
+    },
+    {
+      "fact": "Japanese researchers have studied the sac fluid as a possible cell-growth stimulant.",
+      "source": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Bubble_Eye",
+      "title": "Bubble Eye - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Th%E1%BB%A7y_bao_nh%C3%A3n",
+      "title": "Thủy bao nhãn - Wikipedia tiếng Việt",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.24h.com.vn/thi-truong-tieu-dung/muc-so-thi-quai-ca-vang-co-mat-bong-bong-dep-long-lanh-o-viet-nam-c52a975489.html",
+      "title": "Thủy bao nhãn loại cá vàng có mắt bong bóng đẹp long lanh ở Việt Nam (24h)",
+      "kind": "article"
+    },
+    {
+      "url": "https://thanhnien.vn/bi-mat-ve-loai-ca-vang-mat-rong-co-tu-the-ky-17-1851479705.htm",
+      "title": "Bí mật về loại cá vàng mắt rồng có từ thế kỷ 17 (Thanh Niên)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.about-goldfish.com/water-bubble-eye-goldfish.html",
+      "title": "Water Bubble Eye Goldfish - about-goldfish.com",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/bubble-eye-goldfish-bubble-eye",
+      "title": "UFAW Genetic Welfare Problems of Companion Animals: Bubble eye goldfish",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.spca.nz/advice-and-welfare/article/implications-of-breeding-goldfish",
+      "title": "SPCA New Zealand: Implications of breeding goldfish",
+      "kind": "article"
+    },
+    {
+      "url": "https://cakienghoanglam.com/ca-anh/ca-mat-ngoc/",
+      "title": "Cá mắt ngọc: Vẻ đẹp mong manh của mắt bong bóng lạ",
+      "kind": "shop"
+    }
+  ]
+}

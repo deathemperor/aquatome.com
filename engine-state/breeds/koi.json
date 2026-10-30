@@ -1,0 +1,338 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Koi",
+    "Nishikigoi",
+    "Japanese koi",
+    "Butterfly koi (long-finned form)"
+  ],
+  "viNames": [
+    {
+      "name": "cá Koi",
+      "source": 1
+    },
+    {
+      "name": "cá Koi Nhật / Koi Nhật Bản",
+      "source": 1
+    },
+    {
+      "name": "cá chép Nhật",
+      "source": 4
+    },
+    {
+      "name": "Koi bướm / cá chép vây dài",
+      "source": 1
+    },
+    {
+      "name": "Koi Nhật lai",
+      "source": 1
+    },
+    {
+      "name": "Koi mini",
+      "source": 1
+    }
+  ],
+  "basedOn": "Cyprinus rubrofuscus (Amur carp; formerly listed as Cyprinus carpio haematopterus)",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Koi are domesticated colour forms of the Amur carp. They were once listed as Cyprinus carpio haematopterus, and recent authorities treat the Amur carp as Cyprinus rubrofuscus.",
+      "source": 0
+    },
+    {
+      "fact": "Systematic ornamental breeding began in the 1820s in Nijūmuragō (Ojiya and Yamakoshi), Niigata Prefecture, Japan. No single founder is credited.",
+      "source": 0
+    },
+    {
+      "fact": "Kichigoro Akiyama created Shūsui in 1906. Kunizo Hiroi fixed Kōhaku as a breed in 1917.",
+      "source": 0
+    },
+    {
+      "fact": "Kei Abe, a Niigata fisheries officer, is said to have coined the name Nishikigoi.",
+      "source": 0
+    },
+    {
+      "fact": "Butterfly koi come from crossing koi with the Indonesian longfin carp. Crown Prince Akihito suggested the cross in 1977, and the Saitama Prefectural Fisheries Experiment Station began breeding in 1980. Randy LeFever is credited with the 'butterfly' name.",
+      "source": 3
+    },
+    {
+      "fact": "In Vietnam, Akikoi (Mỹ Đình, Hà Nội) introduced Japanese Koi and Japanese pond know-how around the 40th anniversary of Vietnam–Japan relations (2013).",
+      "source": 4
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Koi are selected and culled for colour and pattern. They are not a separate species.",
+      "source": 0
+    },
+    {
+      "fact": "Show judges score body, quality, finish and pattern. Body matters most in large fish: no distortion, even lines on both sides, and a full, balanced build.",
+      "source": 5
+    },
+    {
+      "fact": "Good quality means thick, uniform red (hi), deep black (sumi) and white skin that looks like porcelain. For red-and-white koi, judges favour round markings in three- or four-step patterns.",
+      "source": 5
+    },
+    {
+      "fact": "Shows split koi into size classes called 'bu', in 5 cm steps in Japan. Koi over 55 bu are judged by sex.",
+      "source": 5
+    },
+    {
+      "fact": "Vietnamese tips for spotting a true Japanese Koi: long, stiff barbels; deep, clean colour that does not bleed; a slightly stout body; short hips seen from above; thick, opaque pectoral fins.",
+      "source": 1
+    },
+    {
+      "fact": "Japan recognises more than 20 Koi varieties, with set colour and naming standards.",
+      "source": 4
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Kōhaku: white with large red markings.",
+      "source": 0
+    },
+    {
+      "fact": "Taishō Sanshoku (Sanke): a Kōhaku with small black spots added.",
+      "source": 0
+    },
+    {
+      "fact": "Shōwa Sanshoku: black base with red and white. Kōhaku, Sanke and Shōwa together form the Gosanke, the most popular group.",
+      "source": 0
+    },
+    {
+      "fact": "Bekkō: white, red or yellow with black markings. Utsurimono: black with white, red or yellow markings.",
+      "source": 0
+    },
+    {
+      "fact": "Asagi: light blue on the back, usually red below. Shūsui: scaleless or mirror-scaled Asagi type.",
+      "source": 0
+    },
+    {
+      "fact": "Tanchō: a single red patch on the head. Ōgon: a single metallic colour. Kumonryū: black and white, with colour changing by season.",
+      "source": 0
+    },
+    {
+      "fact": "Butterfly and ghost koi are long-finned or metallic crosses that some keepers do not count as true nishikigoi.",
+      "source": 0
+    },
+    {
+      "fact": "Butterfly koi have long fins and a slimmer body. ZNA and the UK Koi Judges Association exclude them from judging, while US shows often list them as a separate class.",
+      "source": 3
+    },
+    {
+      "fact": "Ginrin Red Chagoi and Tancho are among the most prized Koi in Vietnam.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese hobbyists split Koi into standard Koi (kept in ponds) and butterfly Koi (often kept in glass tanks).",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 15,
+      "max": 25,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 24,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 27,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 8.6,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.5,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 61,
+      "max": 91,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 50,
+      "max": 81,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Koi are pond fish. Warm-climate ponds should be at least 1 m deep, and about 1.5 m where winters are harsh.",
+      "source": 0
+    },
+    {
+      "fact": "Allow about 38 L per 2.5 cm of adult length (about 950 L for a 61–64 cm koi). Juveniles under 15 cm can start in a 110 L tank.",
+      "source": 2
+    },
+    {
+      "fact": "Do not feed below 10 °C, because the immune system is weak in cold water.",
+      "source": 0
+    },
+    {
+      "fact": "Feed koi pellets plus varied foods, only what is eaten in 1–2 minutes. Feed every few days below about 13 °C, once a day at 13–21 °C, and twice a day above 21 °C.",
+      "source": 2
+    },
+    {
+      "fact": "Vietnamese guides suggest feeding about 5% of body weight a day in two meals. Dechlorinate tap water and keep dissolved oxygen at 2.5 mg/l or more.",
+      "source": 1
+    },
+    {
+      "fact": "Koi are peaceful and social. Keep five or more, with tankmates that suit the same cool temperatures.",
+      "source": 2
+    },
+    {
+      "fact": "Japanese-style Koi ponds need a dedicated recirculating filter and clear water with steady pH.",
+      "source": 4
+    },
+    {
+      "fact": "Sudden swings in pH or temperature can kill Koi.",
+      "source": 1
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Koi spawn in spring and summer. The eggs sink and stick to surfaces, and one spawning can give thousands of fry.",
+      "source": 0
+    },
+    {
+      "fact": "Koi do not breed true: most fry are culled for poor colour or defects, and under 1% become top-grade fish. Culls are sold as feeders or pond-grade koi.",
+      "source": 0
+    },
+    {
+      "fact": "Fry eat plankton from about day 3, then worms and mosquito larvae from day 15 to one month, then adult food.",
+      "source": 1
+    },
+    {
+      "fact": "Koi are fully fertile with other carp of their species, including butterfly koi, which belong to the same species.",
+      "source": 3
+    }
+  ],
+  "health": [
+    {
+      "fact": "Koi herpesvirus (KHV) and spring viraemia of carp are major threats with no cure. Biosecurity (quarantine, disinfection) is the main defence. Israel vaccinates with KV3.",
+      "source": 0
+    },
+    {
+      "fact": "Vietnam's standard TCVN 8710-6:2019 covers KHV (CyHV-3) in carp and koi. Outbreaks happen at 18–28 °C with 80–100% deaths. Signs include gill damage, sunken eyes and bleeding at the fin bases.",
+      "source": 6
+    },
+    {
+      "fact": "Other common problems: carp pox, parasites, fungal and bacterial infections, fin and gill rot, and egg binding.",
+      "source": 2
+    },
+    {
+      "fact": "Butterfly koi's long fins tear easily and are prone to fin rot. These slower swimmers can lose out at feeding time.",
+      "source": 3
+    },
+    {
+      "fact": "Koi often live 25–35 years or more. Claims of 200+ years (such as 'Hanako') are disputed, and other sources accept just over 50 years.",
+      "source": 0
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick a balanced body with no deformities or scratches, clear, bright colours, straight and lively swimming, and a good appetite (test-feed before buying).",
+      "source": 1
+    },
+    {
+      "fact": "Quarantine new Koi for about 14 days before adding them to the pond.",
+      "source": 1
+    },
+    {
+      "fact": "Quarantine new fish for 4–6 weeks. Look for intact fins and scales, bright colour and active swimming.",
+      "source": 2
+    },
+    {
+      "fact": "Price depends on variety, size, origin and bloodline. Be wary of fish priced far below market. Example prices: imported Japanese Koi of 28–35 cm at 0.8–4 million VND each, and Vietnamese-bred 'Koi Nhật lai' from about 150,000 VND.",
+      "source": 1
+    },
+    {
+      "fact": "Top fish can be very costly: an 81 cm Ginrin Red Chagoi sold in Vietnam for about 200 million VND.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Released Koi have spread to every continent except Antarctica and quickly revert to wild colours. They stir up sediment, cloud the water and destroy water plants. Queensland and New South Wales list them as noxious fish.",
+      "source": 0
+    },
+    {
+      "fact": "In Japan, released Koi cause genetic pollution of native carp.",
+      "source": 0
+    },
+    {
+      "fact": "Heavy culling is standard: most fry are destroyed or sold as feeders.",
+      "source": 0
+    },
+    {
+      "fact": "The live Koi trade is a major route for spreading KHV around the world.",
+      "source": 6
+    },
+    {
+      "fact": "Traditional bodies (ZNA, UK Koi Judges Association) do not accept butterfly koi as show koi.",
+      "source": 3
+    }
+  ],
+  "commons": "Category:Koi",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Koi",
+      "title": "Koi – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/tu-a-z-ve-ca-koi-cho-nguoi-moi-dac-diem-gia-ban-cach-nuoi.html",
+      "title": "Từ A-Z về cá Koi cho người mới – Chợ Tốt",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.petmd.com/fish/koi-fish-care-sheet",
+      "title": "Koi Fish Care Sheet – PetMD",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Butterfly_koi",
+      "title": "Butterfly koi – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://vnexpress.net/ca-chep-nhat-gia-hon-200-trieu-dong-2928925.html",
+      "title": "Cá chép Nhật giá hơn 200 triệu đồng – VnExpress",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.pondtrademag.com/understanding-koi-shows/",
+      "title": "Understanding Koi Shows – Pond Trade Magazine",
+      "kind": "article"
+    },
+    {
+      "url": "https://hethongphapluat.com/tieu-chuan-quoc-gia-tcvn-8710-6-2019-ve-benh-thuy-san-quy-trinh-chan-doan-phan-6-benh-do-koi-herpesvirus-o-ca-chep.html",
+      "title": "TCVN 8710-6:2019 – Bệnh do Koi herpesvirus ở cá chép",
+      "kind": "other"
+    }
+  ]
+}

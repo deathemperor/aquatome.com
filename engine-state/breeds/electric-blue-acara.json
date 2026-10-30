@@ -1,0 +1,291 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Electric blue acara",
+    "Neon blue acara",
+    "Electric blue morph of blue acara"
+  ],
+  "viNames": [
+    {
+      "name": "Cá Phượng Hoàng Blue Acara",
+      "source": 2
+    },
+    {
+      "name": "Cá phượng hoàng blue acara (Electric Blue Acara)",
+      "source": 3
+    }
+  ],
+  "basedOn": "Andinoacara pulcher",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "It is a colour form of the blue acara bred in captivity, not a separate wild population.",
+      "source": 5
+    },
+    {
+      "fact": "Breeders kept picking the bluest fish and bred them over many generations until the colour was strong and stable.",
+      "source": 5
+    },
+    {
+      "fact": "The electric blue colour showed up after many generations of captive breeding. No breeder or date is named.",
+      "source": 1
+    },
+    {
+      "fact": "A forum moderator called it a 'designer fish' that appeared about 10 to 12 years before his post.",
+      "source": 4
+    },
+    {
+      "fact": "A German exporter says the 'Neon Blue' breeding form is the one most kept today. It adds that the origin of the old imported ancestor stock can no longer be traced.",
+      "source": 0
+    },
+    {
+      "fact": "The wild parent species is native to Trinidad and Venezuela.",
+      "source": 8
+    },
+    {
+      "fact": "The wild blue acara lives in Venezuela and Colombia, including the Orinoco basin.",
+      "source": 5
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The whole body and fins are a bright, shining blue, much stronger than the blue-grey of wild fish.",
+      "source": 5
+    },
+    {
+      "fact": "Wild-type blue acaras have blue-grey scales. Males are brighter than females, especially when breeding.",
+      "source": 8
+    },
+    {
+      "fact": "Males are usually larger, with longer fins and deeper colour than females.",
+      "source": 2
+    },
+    {
+      "fact": "Electric blues are often a little smaller than standard blue acaras.",
+      "source": 5
+    },
+    {
+      "fact": "Forum keepers dispute that electric blues stay small, reporting fish of about 16.5 to 20 cm.",
+      "source": 4
+    }
+  ],
+  "lines": [],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 23,
+      "max": 27,
+      "source": 5
+    },
+    {
+      "field": "tempC",
+      "min": 23,
+      "max": 30,
+      "source": 6
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 2
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.2,
+      "source": 6
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 15,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 10,
+      "max": 15,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 12.5,
+      "max": 15,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 12.7,
+      "max": 12.7,
+      "source": 6
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 20,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Tank of at least 100 L, or 120 L or more for a pair. Use rocks, driftwood, sand or fine gravel and a few plants.",
+      "source": 2
+    },
+    {
+      "fact": "At least 40 US gallons (about 150 L), 55 gallons or more preferred. Give open swimming space and moderate light.",
+      "source": 5
+    },
+    {
+      "fact": "At least 30 gallons (about 115 L) for a pair, with sand and hiding places. It digs, so tie plants to wood or rock.",
+      "source": 6
+    },
+    {
+      "fact": "Because it is so long established in captivity, exact pH and hardness matter little.",
+      "source": 1
+    },
+    {
+      "fact": "Feed twice a day: sinking and colour pellets, artemia, worms and chopped shrimp, plus mashed boiled vegetables once or twice a week.",
+      "source": 2
+    },
+    {
+      "fact": "Eats meaty flakes or pellets, and also takes frozen and live food.",
+      "source": 1
+    },
+    {
+      "fact": "Keep with fish too big to swallow, such as medium to large South American tetras, Corydoras, plecos and peaceful cichlids like flag and keyhole cichlids.",
+      "source": 1
+    },
+    {
+      "fact": "Not safe with dwarf shrimp or small invertebrates. Large snails may be fine in a big tank.",
+      "source": 6
+    },
+    {
+      "fact": "Calm and not quarrelsome, but somewhat territorial when breeding.",
+      "source": 2
+    },
+    {
+      "fact": "Some keepers found the electric blue calmer than the regular blue acara.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "It lays eggs on a flat stone, and both parents guard the eggs and fry. Eggs hatch in about 2 to 3 days.",
+      "source": 2
+    },
+    {
+      "fact": "A good first breeding cichlid. A well-fed pair claims a territory. Fry use their yolk for a few days, then take crushed flakes, micro-worms or vinegar eels.",
+      "source": 1
+    },
+    {
+      "fact": "The parents often move the fry into pits dug in the substrate. Electric blues can be harder to breed reliably than wild-type fish.",
+      "source": 5
+    },
+    {
+      "fact": "It breeds true: offspring keep the electric blue colour.",
+      "source": 6
+    }
+  ],
+  "health": [
+    {
+      "fact": "Slightly more delicate than the standard blue acara, possibly because of selective breeding. It does best in a stable, well-kept tank.",
+      "source": 5
+    },
+    {
+      "fact": "A moderator found it hardier than electric blue Jack Dempseys, which are weaker than their normal form.",
+      "source": 4
+    },
+    {
+      "fact": "Not hard to keep healthy in captivity.",
+      "source": 1
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Buy from sellers known for healthy stock. Electric blues sell for more than standard blue acaras.",
+      "source": 5
+    },
+    {
+      "fact": "A Vietnamese shop sells 6 to 7 cm fish. Pick males for size, longer fins and stronger colour.",
+      "source": 2
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "A US retailer calls it a hybrid and says many think it was made by crossing with the blue ram, then line-bred. It also admits the origin is debated.",
+      "source": 6
+    },
+    {
+      "fact": "Another retailer says plainly that it is not a hybrid with another species and is not dyed.",
+      "source": 5
+    },
+    {
+      "fact": "A German exporter says it is unclear whether trade blue acaras are truly A. pulcher or a close relative.",
+      "source": 0
+    },
+    {
+      "fact": "Some sources get the basic facts wrong: one article calls this South American species a Central American cichlid.",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/andinoacara-pulcher-formerly-aequidens-pulcher/",
+      "title": "Andinoacara pulcher (formerly Aequidens pulcher) – Aquarium Glaser",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://www.qualitymarine.com/news/the-electric-blue-acara-aequidens-pulcher/",
+      "title": "The Electric Blue Acara (Aequidens pulcher) – Quality Marine",
+      "kind": "article"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/ca-phuong-hoang-electric-blue-acara-cichlid/",
+      "title": "Cá Phượng Hoàng Blue Acara – Mayaqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://saigoncacanh.com/san-pham/ca-phuong-hoang-blue-acara-electric-blue-acara-andinoacara-pulcher/",
+      "title": "Cá phượng hoàng blue acara – Sài Gòn Cá Cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/goto/post?id=8316182",
+      "title": "Electric vs Regular blue acara – MonsterFishKeepers",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.steenfottaquatics.com/blogs/news/electric-blue-acara-vs-blue-acara-a-comprehensive-guide-andinoacara-pulcher",
+      "title": "Electric Blue Acara vs. Blue Acara – Steenfott Aquatics",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquaticarts.com/products/electric-blue-acara-cichlid",
+      "title": "Electric Blue Acara Cichlid – Aquatic Arts",
+      "kind": "shop"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Aequidens_pulcher",
+      "title": "Category:Aequidens pulcher – Wikimedia Commons",
+      "kind": "other"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Blue_acara",
+      "title": "Blue acara – Wikipedia",
+      "kind": "article"
+    }
+  ]
+}

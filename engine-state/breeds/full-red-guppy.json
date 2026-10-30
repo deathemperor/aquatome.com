@@ -1,0 +1,365 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Poecilia reticulata",
+  "enNames": [
+    "Full Red guppy",
+    "Full Red Guppy",
+    "Albino Full Red guppy (red-eyed form)"
+  ],
+  "viNames": [
+    {
+      "name": "Cá bảy màu Full Red",
+      "source": 3
+    },
+    {
+      "name": "Guppy Full Red",
+      "source": 0
+    },
+    {
+      "name": "Full Red mắt đỏ",
+      "source": 4
+    },
+    {
+      "name": "Full Red mắt đen",
+      "source": 4
+    },
+    {
+      "name": "Full Red BDS",
+      "source": 4
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Said to come from Thailand.",
+      "source": 3
+    },
+    {
+      "fact": "One shop's article says it comes from Thailand and Taiwan, while the same shop's product listing says Vietnam.",
+      "source": 4
+    },
+    {
+      "fact": "One Vietnamese article lists Vietnam as its origin.",
+      "source": 0
+    },
+    {
+      "fact": "It is a strain of the guppy bred in captivity for red colour. No named breeder or year was found.",
+      "source": 6
+    },
+    {
+      "fact": "One US shop calls the albino full red a newer colour strain that only recently became available.",
+      "source": 9
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The whole body and all fins are bright red.",
+      "source": 4
+    },
+    {
+      "fact": "Males are a deeper red and smaller. Females are larger and paler, with a white belly.",
+      "source": 3
+    },
+    {
+      "fact": "In the albino form, males are red over the whole body and fins, and females are light tan or clear with red fins.",
+      "source": 10
+    },
+    {
+      "fact": "The colour is best judged in mature males, because young fish can change shade as they grow.",
+      "source": 6
+    },
+    {
+      "fact": "One shop judges the best fish by an even, vivid red from body to fins, plus red eyes in the albino form.",
+      "source": 2
+    },
+    {
+      "fact": "In the BDS form, a wider dorsal fin is valued more.",
+      "source": 3
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Full Red mắt đỏ: an albino form with red eyes, red body and red fins.",
+      "source": 5
+    },
+    {
+      "fact": "Full Red mắt đen: a black-eyed full red, not albino.",
+      "source": 4
+    },
+    {
+      "fact": "Wild Red: a black-eyed form, described as a deeper red than the albino full red.",
+      "source": 4
+    },
+    {
+      "fact": "Full Red BDS (Big Dorsal): has a large, fanning dorsal fin.",
+      "source": 3
+    },
+    {
+      "fact": "Full Red Ribbon: long ribbon-like extensions under the belly that reach back to the tail.",
+      "source": 3
+    },
+    {
+      "fact": "Fin-type forms sold in Vietnam include Full Red HTD (high dorsal), RB (ribbon) and Swallow.",
+      "source": 4
+    },
+    {
+      "fact": "Albino Full Red is also sold in ribbon and high-dorsal forms.",
+      "source": 10
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 30,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 30,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 26,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 0
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.4,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 8,
+      "max": 12,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 4,
+      "max": 7,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 3,
+      "max": 4,
+      "source": 5
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Described as finicky and sensitive to weather and water changes. It can go into shock when moved to another tank.",
+      "source": 0
+    },
+    {
+      "fact": "Rated 8 out of 10 for difficulty and recommended for experienced keepers. Avoid strong light, especially right after a move.",
+      "source": 2
+    },
+    {
+      "fact": "Keep the lights off or dim when the fish first arrive, and acclimate them slowly.",
+      "source": 3
+    },
+    {
+      "fact": "Suitable for planted tanks, tubs, cement tanks and foam boxes. Add plants for cover.",
+      "source": 3
+    },
+    {
+      "fact": "Omnivore: feed tubifex, bloodworms, mosquito larvae, artemia and fine pellets or flakes, without overfeeding.",
+      "source": 3
+    },
+    {
+      "fact": "Feed once or twice a day for no more than 15 minutes, then remove leftovers. Change water about twice a week.",
+      "source": 4
+    },
+    {
+      "fact": "Peaceful and suited to community tanks with calm fish.",
+      "source": 4
+    },
+    {
+      "fact": "Albinos see less well, so use softer lighting and plenty of cover, and keep them away from aggressive tankmates.",
+      "source": 1
+    },
+    {
+      "fact": "For albino lines, allow at least 60 L per breeding line.",
+      "source": 1
+    },
+    {
+      "fact": "Foods rich in carotenoids help the red colour, but genetics set the limit.",
+      "source": 6
+    },
+    {
+      "fact": "A hobbyist warns against letting rainwater get into tanks holding red-eyed lines such as full red.",
+      "source": 7
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Livebearer that gives birth to about 20–50 fry per brood.",
+      "source": 0
+    },
+    {
+      "fact": "Broods are 10–60 fry. Females can breed at about 2.5–3 months, about every 3 weeks to a month.",
+      "source": 2
+    },
+    {
+      "fact": "Adults eat their fry, so separate the fry or provide plants and rocks for them to hide in.",
+      "source": 4
+    },
+    {
+      "fact": "Offspring are fertile. One shop says they usually keep the parents' colour.",
+      "source": 2
+    },
+    {
+      "fact": "Albinism is recessive, so two carrier parents give about 25% albino young. Crossing to non-albinos loses the trait in F1, and it comes back only in F2.",
+      "source": 1
+    },
+    {
+      "fact": "Do not cross a full red line with unrelated red or bicolour guppies, or the colour will wash out.",
+      "source": 6
+    },
+    {
+      "fact": "One forum keeper doubts a red albino line can breed more than about 75% true.",
+      "source": 8
+    },
+    {
+      "fact": "Ribbon females are best paired with a normal-finned male.",
+      "source": 10
+    }
+  ],
+  "health": [
+    {
+      "fact": "Albino lines are said to be a little weaker than normal-coloured guppies.",
+      "source": 5
+    },
+    {
+      "fact": "Albino lines bred in closed groups risk inbreeding depression. Breeders bring in related albino lines from time to time to keep the fish vigorous.",
+      "source": 1
+    },
+    {
+      "fact": "Heavy line breeding can cause curved spines, smaller broods and faded colour.",
+      "source": 11
+    },
+    {
+      "fact": "Prone to shock from sudden water changes or strong light.",
+      "source": 2
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick healthy fish with good colour.",
+      "source": 3
+    },
+    {
+      "fact": "Start with 3–5 pairs from a reputable seller.",
+      "source": 4
+    },
+    {
+      "fact": "Prices in Vietnam range from about 30,000 VND to several hundred thousand VND, depending on the form.",
+      "source": 3
+    },
+    {
+      "fact": "For a real albino, check that the eyes are red. Some shops sell lutino fish, which have dark eyes, as albino. Ask for lineage records.",
+      "source": 1
+    },
+    {
+      "fact": "Judge the colour of a line on adult fish.",
+      "source": 6
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "A Singapore breeder site warns that some shops sell lutino fish as true albinos, and that mass-market shops rarely document the genetic background.",
+      "source": 1
+    },
+    {
+      "fact": "A Singapore breeder site notes that keeping albino lines in closed groups risks inbreeding depression.",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://vinwonders.com/vi/wonderpedia/news/ca-bay-mau/",
+      "title": "Cá bảy màu – VinWonders Wonderpedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/albino-guppy-strain-care-guide/",
+      "title": "Albino Guppy Strain Care Guide: Real Albino RREA Genetics",
+      "kind": "article"
+    },
+    {
+      "url": "https://cabaymau.net/san-pham/ca-bay-mau-full-red",
+      "title": "Cá bảy màu full red – Guppy City",
+      "kind": "shop"
+    },
+    {
+      "url": "https://wikicacanh.com/ca-bay-mau-full-red-guppy.html",
+      "title": "Cá bảy màu Full Red Guppy – Wiki Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "https://trunghao.com/san-pham/ca-bay-mau-full-red/",
+      "title": "Cá bảy màu Full Red BDS – Trung Hạo",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cabaymau.net/cach-nuoi-ca-canh/ca-bay-mau-mat-do.html",
+      "title": "Cá bảy màu mắt đỏ – Guppy City",
+      "kind": "shop"
+    },
+    {
+      "url": "https://creatures.com/species/fancy-guppy/red",
+      "title": "Red fancy guppy – Creatures",
+      "kind": "other"
+    },
+    {
+      "url": "https://voz.vn/t/nuoi-ca-bay-mau.269589/",
+      "title": "Nuôi cá bảy màu – VOZ",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.aquariacentral.com/forums/threads/red-albino-guppy.225881",
+      "title": "Red Albino Guppy – AquariaCentral",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquaticarts.com/products/red-albino-guppies",
+      "title": "Red Albino Guppies – Aquatic Arts",
+      "kind": "shop"
+    },
+    {
+      "url": "https://fishyhub.com/product-detail/albino-full-red-guppy-25cm-pairs-21918",
+      "title": "Albino Full Red Guppy – FishyHub",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/guppy-genetics-colour-selective-breeding/",
+      "title": "Guppy Genetics and Colour Inheritance: Selective Breeding Explained",
+      "kind": "article"
+    }
+  ]
+}

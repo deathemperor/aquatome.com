@@ -1,0 +1,325 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Koi angelfish",
+    "Koi angel",
+    "Gold marble blushing angelfish",
+    "Ghianni's koi angel"
+  ],
+  "viNames": [
+    {
+      "name": "Cá thần tiên Koi",
+      "source": 7
+    },
+    {
+      "name": "Cá thần tiên Koi 3 màu",
+      "source": 6
+    },
+    {
+      "name": "Cá ông tiên / thần tiên Koi Marble",
+      "source": 8
+    }
+  ],
+  "basedOn": "Pterophyllum scalare",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "The koi angelfish came out in 1987, through two articles by Jones titled 'Ghianni's koi angel' in Freshwater and Marine Aquarium and Tropical Fish Hobbyist. The breeder is not named beyond that, and no place is given.",
+      "source": 0
+    },
+    {
+      "fact": "Dr. Joanne Norton (1988) worked out from photos and parentage data that the koi is a blushing gold marble, meaning gold marble plus two copies of stripeless.",
+      "source": 0
+    },
+    {
+      "fact": "Norton wrote that crossing a gold blushing with a gold marble should give koi within two generations.",
+      "source": 0
+    },
+    {
+      "fact": "It is a multi-gene colour form of the common angelfish, Pterophyllum scalare. Its genotype is Gm/Gm S/S or Gm/g S/S.",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The typical look is a white body with black spots and a yellow-orange crown on the head. Some lines are now mostly or fully orange-yellow on the body.",
+      "source": 1
+    },
+    {
+      "fact": "A true koi needs two copies of stripeless (S/S), so the fins have no stripes. Gm/Gm fish usually show more black and deeper orange than Gm/g fish.",
+      "source": 1
+    },
+    {
+      "fact": "The red patch at the gill cover comes from a cover with no pigment, so the red gills show through. This 'blushing' often fades as adults grow pigment back. Gold marbles look similar but do not blush.",
+      "source": 2
+    },
+    {
+      "fact": "The orange crown builds with age and diet, and young fish often show little of it. Good fish have clean black marbling and no grey tones on the body.",
+      "source": 4
+    },
+    {
+      "fact": "Hobbyists grade koi by how much of the body is orange, and buyers look for high-coverage fish of 75% or more.",
+      "source": 9
+    },
+    {
+      "fact": "The amount of orange, black and white differs from fish to fish, and every pattern is unique.",
+      "source": 7
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Red Devil (Red Devil Koi) is a line-bred, high-coverage koi with much more red and orange. One hobbyist argues it is genetically the same as other breeders' high-coverage koi.",
+      "source": 9
+    },
+    {
+      "fact": "Koi Red is sold in Germany (German-bred, DNZ) as a red colour variant: a light body with orange and black spots.",
+      "source": 5
+    },
+    {
+      "fact": "Blue Koi (Gm/+ S/S) is dull blue-grey. In Angels Plus's wild-cross project, some showed an orange underlay through the grey.",
+      "source": 3
+    },
+    {
+      "fact": "Angels Plus crossed a wild Peruvian scalare male with a veil koi female to put more orange into koi. The 25%-wild koi showed full orange coverage and still had good fins and body shape.",
+      "source": 3
+    },
+    {
+      "fact": "A Vietnamese shop lists Koi Marble as a variant of the marble angelfish, with red, black and white colouring.",
+      "source": 8
+    },
+    {
+      "fact": "Veil and superveil koi are long-finned forms.",
+      "source": 3
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 5
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 6
+    },
+    {
+      "field": "tempC",
+      "min": 26,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.5,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 6
+    },
+    {
+      "field": "ph",
+      "min": 6.8,
+      "max": 7.4,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 3,
+      "max": 15,
+      "source": 5
+    },
+    {
+      "field": "gh",
+      "min": 3,
+      "max": 8,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 12,
+      "max": 15,
+      "source": 6
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 15,
+      "source": 5
+    },
+    {
+      "field": "tankCm",
+      "min": 120,
+      "max": 120,
+      "source": 5
+    },
+    {
+      "field": "tankCm",
+      "min": 100,
+      "max": 100,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Use a tall tank, at least about 300 L and around 120 cm long, so the long fins have room. Fully grown fish are about 26 cm tall including fins.",
+      "source": 5
+    },
+    {
+      "fact": "At least 200 L and 50 cm tall is advised, and a 100x45x45 cm tank suits a pair or trio. Steady water matters more than exact numbers.",
+      "source": 4
+    },
+    {
+      "fact": "It eats everything. Rotate colour-boosting foods with frozen mysis and bloodworms, and feed small amounts twice a day, because overfeeding causes bloat and dull colour.",
+      "source": 4
+    },
+    {
+      "fact": "Good tankmates are rummynose tetras, larger rasboras, Bolivian rams, Corydoras and bristlenose plecos. Avoid neon tetras, which may get eaten, and fin-nippers.",
+      "source": 4
+    },
+    {
+      "fact": "Keep it in a large, calm tank out of direct sun. Change part of the water about twice a month and never all of it. It eats dry, live and frozen foods.",
+      "source": 6
+    },
+    {
+      "fact": "Vietnamese shops list a minimum of 60 L for a pair of marble/koi-type angelfish, 20-30% water changes twice a week, and plenty of live plants.",
+      "source": 8
+    },
+    {
+      "fact": "Koi angels like slightly soft, low-pH water and need a tank of at least 30 gallons (about 114 L).",
+      "source": 7
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Jones reported that the original koi strain gave 75% koi and 25% gold blushing offspring.",
+      "source": 0
+    },
+    {
+      "fact": "Stripeless is recessive, so two blushing parents should give all-blushing offspring.",
+      "source": 2
+    },
+    {
+      "fact": "One shop guide says koi x koi gives roughly 100% gold-marble offspring. Crossing to silver thins out the orange. Pairs lay eggs on upright surfaces every 10-14 days.",
+      "source": 4
+    },
+    {
+      "fact": "Koi are fertile and are used in outcrosses. A wild x koi F1 came out as plain 'silver gold marble ghost' fish, and koi types came back in the next generation and in backcrosses.",
+      "source": 3
+    },
+    {
+      "fact": "Even a bright red/high-coverage line still throws some less red fry.",
+      "source": 9
+    },
+    {
+      "fact": "A Vietnamese shop says the eggs hatch in about two days and advises moving the pair to a separate tank to spawn.",
+      "source": 6
+    }
+  ],
+  "health": [
+    {
+      "fact": "Hobbyists say koi and black angels are among the most inbred angelfish strains, which makes them weaker. Long sibling line-breeding without outcrossing is blamed.",
+      "source": 10
+    },
+    {
+      "fact": "Overfeeding causes bloat and fades the colour.",
+      "source": 4
+    },
+    {
+      "fact": "Watch for fungal and parasite infections.",
+      "source": 8
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick active young fish with some yellow on the head and clean black marbling. Avoid washed-out or greyish fish.",
+      "source": 4
+    },
+    {
+      "fact": "Young fish often show little orange, and the colour may deepen as they mature, so final coverage is not guaranteed.",
+      "source": 9
+    },
+    {
+      "fact": "To tell a true koi from a gold marble, check for stripeless fins and a blushing gill area while young. The blush can fade in adults.",
+      "source": 2
+    },
+    {
+      "fact": "In Vietnam, King Aqua sells 4-5 cm 'Koi 3 màu' juveniles for about 45,000 VND.",
+      "source": 6
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Forum hobbyists criticise koi angelfish as a heavily inbred strain that tends to be weak. Colour mutations have been kept going by inbreeding since the 1950s.",
+      "source": 10
+    },
+    {
+      "fact": "Hobbyists disagree over whether 'Red Devil' is a separate line or just a marketing name for high-coverage koi.",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.finarama.com/genetics/1988vol11-9.htm",
+      "title": "Gold Marble – Dr. Joanne Norton, FAMA Sept 1988",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/cichlid/angelfish-genetics.php",
+      "title": "Angelfish Genetics - Types of angelfish (AquaticCommunity)",
+      "kind": "article"
+    },
+    {
+      "url": "https://monsterfishkeepers.com/forums/threads/do-koi-angelfish-keep-the-blushed-gill-plates-as-adults.486709",
+      "title": "Do koi angelfish keep the blushed gill plates as adults? (MonsterFishKeepers)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://angelsplus.com/blogs/news/wild-cross-koi-project-update",
+      "title": "Wild-cross Koi Angelfish Project Update (Angels Plus)",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://gensou.sg/?p=32652",
+      "title": "Koi Angelfish Care Guide (Gensou)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.garnelio.de/en/angelfish-koi-red-dnz-pterophyllum-scalare",
+      "title": "Angelfish koi red DNZ - Pterophyllum scalare (Garnelio)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://kingaqua.vn/ca-than-tien-koi-3-mau-45cm-p16185320.html",
+      "title": "Cá thần tiên Koi 3 màu (King Aqua)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thichthucung.com/ca-than-tien/",
+      "title": "Top 13 giống cá thần tiên được yêu thích nhất (Thichthucung)",
+      "kind": "article"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/ca-than-tien-marble/",
+      "title": "Cá Thần Tiên Marble (Mayaqua)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/red-devil-angelfish.753173/",
+      "title": "Red devil angelfish (MonsterFishKeepers)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.fishforums.net/threads/angelfish-weak.144955",
+      "title": "Angelfish Weak? (FishForums)",
+      "kind": "forum"
+    }
+  ]
+}
