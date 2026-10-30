@@ -1,0 +1,181 @@
+{
+  "id": "electric-blue-ram",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      },
+      {
+        "source": 0,
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 5,
+          "max": 7.2
+        }
+      },
+      {
+        "source": 0,
+        "value": {
+          "min": 5,
+          "max": 6
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      },
+      {
+        "source": 10,
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 1,
+        "value": {
+          "min": 60,
+          "max": 75
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Electric_blue_ram_cichlids.jpg/1280px-Electric_blue_ram_cichlids.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Electric_blue_ram_cichlids.jpg/500px-Electric_blue_ram_cichlids.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "BlueRam92",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electric_blue_ram_cichlids.jpg",
+      "caption": "Cá Phượng Hoàng Lam đực màu xanh điện trong bể thủy sinh"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://tfhmagazine.com/articles/freshwater/electric-blue-ram-full-article",
+      "title": "Electric Blue Ram - TFH Magazine",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/electric-blues/",
+      "title": "Electric blues - Practical Fishkeeping",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ram_cichlid",
+      "title": "Ram cichlid - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-phuong-hoang-lam/",
+      "title": "Cá Phượng Hoàng Lam: Cẩm nang chi tiết - SG AQUA",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tepmauquan3.com/ca-phuong-hoang-lam-electric-blue-ram-cichlid",
+      "title": "Cá Phượng Hoàng Lam - Tép Màu Quận 3",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.apistogramma.com/forum/threads/ramirezi.11955/",
+      "title": "Ramirezi thread - apistogramma.com forum",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cacanhthienduc.com/ca-phuong-hoang-ngu-sac-lun-electric-blue-ram-balloon",
+      "title": "Cá Phượng Hoàng Ngũ Sắc Lùn - Electric Blue Ram Balloon - Thiên Đức",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/phuong-hoang-lam-short-sz-to/",
+      "title": "Phượng Hoàng Lam - Mayaqua",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.thatpetplace.com/Mikrogeophagus-ramirezi-blue-ram-289196",
+      "title": "Electric Blue Balloon Ram - That Pet Place",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquaticsunlimited.com/?p=25697",
+      "title": "Cichlid - Ram Balloon Longfin Electric Blue - Aquatics Unlimited",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumfishparadise.com.au/electric-blue-ram/",
+      "title": "Electric Blue Ram - Aquarium Fish Paradise",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/5196-selective-breeding-for-new-colorations-what-have-you-worked-on/",
+      "title": "Selective breeding for new colorations - Aquarium Co-Op forum",
+      "kind": "forum",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

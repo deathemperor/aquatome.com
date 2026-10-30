@@ -1,0 +1,121 @@
+{
+  "id": "lionhead-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 19,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.4
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": 12.5
+      },
+      {
+        "source": 2,
+        "value": 15
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Gold_red_and_white_Lionhead.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/17/Gold_red_and_white_Lionhead.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lawrencekhoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_red_and_white_Lionhead.jpg",
+      "caption": "Cá vàng Lan Thọ màu cam trắng, đầu u, trong bể có sỏi và đá"
+    }
+  ],
+  "commons": "Category:Lionhead goldfish",
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/whats-the-difference-between-a-ranchu-and-a-lionhead/",
+      "title": "What's the difference between a Ranchu and a Lionhead? (Practical Fishkeeping, Paul Green)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://about-goldfish.com/lionhead-goldfish.html",
+      "title": "Lionhead goldfish - About Goldfish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Lionhead_(goldfish)",
+      "title": "Lionhead (goldfish) - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thanhnien.vn/giai-ma-ca-vang-dau-su-tu-ca-vang-ranchu-pho-bien-trong-gioi-choi-ca-canh-1851480488.htm",
+      "title": "'Giải mã' cá vàng đầu sư tử, cá vàng Ranchu - Thanh Niên",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ve-mot-so-ten-ca-vang.2361/",
+      "title": "Về một số tên cá vàng - Diễn đàn cá cảnh",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cacanhkimgiang.com/ca-canh-lan-tho",
+      "title": "Cá vàng LAN THỌ - Cá cảnh Kim Giang",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Lionhead_goldfish",
+      "title": "Category:Lionhead goldfish - Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/lionhead-goldfish-excessive-facial-tissue",
+      "title": "Lionhead goldfish - excessive facial tissue (UFAW Genetic Welfare Problems)",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

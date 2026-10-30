@@ -1,0 +1,111 @@
+{
+  "id": "butterfly-koi",
+  "kind": "hybrid",
+  "parents": [
+    {
+      "name": "Cá Koi (Cyprinus carpio)",
+      "certain": true
+    },
+    {
+      "name": "Cá chép vây dài Indonesia (Cyprinus carpio var. flavipinnis)",
+      "certain": false
+    },
+    {
+      "name": "Cá chép vây dài xám nâu ở kênh rạch Indonesia",
+      "certain": false
+    },
+    {
+      "name": "Cá chép vây dài Indonesia",
+      "certain": false
+    }
+  ],
+  "care": {
+    "tempC": [
+      {
+        "source": 5,
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 3,
+        "value": {
+          "min": 6.8,
+          "max": 7.2
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 3,
+        "value": {
+          "min": 30,
+          "max": 38
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 91,
+          "max": 102
+        }
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Butterfly_koi",
+      "title": "Butterfly koi – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fitzfishponds.com/blog/an-introduction-to-butterfly-koi/",
+      "title": "An Introduction to Butterfly Koi – Fitz's Fish Ponds",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://koistory.com/blog/all-about-butterfly-koi",
+      "title": "All About Butterfly Koi – Koi Story",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://koifishusa.com/blogs/koi-fish/butterfly-koi-the-ultimate-guide-to-this-popular-koi-variety",
+      "title": "Butterfly Koi: The Ultimate Guide – Koi Fish USA",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://everythingkoi.com/blog/what-is-a-butterfly-koi/",
+      "title": "What is a Butterfly Koi – Everything Koi",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/tu-a-z-ve-ca-koi-cho-nguoi-moi-dac-diem-gia-ban-cach-nuoi.html",
+      "title": "Từ A-Z về cá Koi cho người mới – Chợ Tốt",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-koi.html",
+      "title": "Cá Koi – Mytour",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

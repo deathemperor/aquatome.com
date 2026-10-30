@@ -1,0 +1,176 @@
+{
+  "id": "blue-diamond-discus",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      },
+      {
+        "source": 4,
+        "value": 7
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 6.1,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 2,
+        "value": {
+          "min": 3,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 2,
+        "value": {
+          "min": 15,
+          "max": 18
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 15,
+          "max": 23
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Blue_Diamond_Discus_Fish.jpg/1280px-Blue_Diamond_Discus_Fish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Blue_Diamond_Discus_Fish.jpg/500px-Blue_Diamond_Discus_Fish.jpg",
+      "width": 1280,
+      "height": 722,
+      "licence": "CC BY-SA 2.0",
+      "author": "Rego Korosi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Diamond_Discus_Fish.jpg",
+      "caption": "Cá dĩa Blue Diamond màu xanh lam đồng nhất bơi trong bể thủy sinh"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fish-archives/symphysodon-blue-diamond-2",
+      "title": "Symphysodon 'Blue Diamond' – Aquarium Glaser (Frank Schäfer)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.sydneydiscusworld.com/blue-diamond-discus",
+      "title": "Blue Diamond Discus – Sydney Discus World",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=32812",
+      "title": "Blue Diamond Discus Care Guide: Solid Blue Variety",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://light.fish/blog/blue-diamond-discus",
+      "title": "Blue Diamond Discus Care – Light Fish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cacanhthienduc.com/ca-dia-lam-duc-blue-diamond-discus",
+      "title": "Cá Dĩa Lam Đức - Blue Diamond Discus – Cá cảnh Thiên Đức",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://traicacanhvinhloc.com/ca-dia-lam-duc-blue-diamond-discus",
+      "title": "Cá Dĩa Lam Đức - Blue Diamond Discus – Trại cá cảnh Vĩnh Lộc",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/ca-dia",
+      "title": "Khám phá cá đĩa – AquaZone",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cadiadaiphat.com/san-pham/ca-dia-lam-phan/",
+      "title": "Cá dĩa Lam Phấn - blue diamond discus – Cá Dĩa Đại Phát",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cadiadaiphat.com/ca-dia-xanh-lam-blue-diamond-nguon-goc-ngoai-hinh-kich-co/",
+      "title": "Cá dĩa xanh lam (Blue diamond discus) – Cá Dĩa Đại Phát",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://extraaquaworld.blogspot.com/2019/03/blue-diamond-discus.html",
+      "title": "Blue Diamond Discus – Extra Aqua World blog",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://qualitymarine.com/news/albino-blue-diamond-discus",
+      "title": "Albino Blue Diamond Discus – Quality Marine",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://reliableaquaticsproducts.blogspot.com/2010/04/facts-about-color-enhancing-hormones.html",
+      "title": "Facts about color enhancing hormones usage on discus fish – Reliable Aquatics",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,119 @@
+{
+  "id": "plakat-betta",
+  "kind": "variety",
+  "basedOn": "betta-splendens",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 3,
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 7.6
+        }
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Siamese_fighting_fish",
+      "title": "Siamese fighting fish - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://hoanghamobile.com/tin-tuc/ca-betta-ca-xiem/",
+      "title": "Cá betta (cá xiêm) - Hoàng Hà Mobile",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bettadreams.com/genetics/fin-types/",
+      "title": "Betta Fin Types: Halfmoon, Crowntail, Plakat, IBC Forms - Betta Dreams",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariadise.com/plakat-betta/",
+      "title": "Plakat Betta - Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/tieu-chuan-ca-betta-plakat-dep.html",
+      "title": "Tiêu chuẩn cá betta plakat đẹp - Betta Sales",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/ca-betta-plakat-la-gi-cach-phan-biet-ca-betta-plakat-cach-nhan-dang-ca-betta-plakat.html",
+      "title": "Cá betta plakat là gì? Cách phân biệt - Betta Sales",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://shopheo.com/dong-ca-betta-plakat-cuc-hot-va-nhung-dieu-can-biet/",
+      "title": "Dòng cá betta Plakat cực hot và những điều cần biết - Shopheo",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.sggp.org.vn/kiem-tien-tu-nghe-nuoi-ca-betta-post433850.html",
+      "title": "Kiếm tiền từ nghề nuôi cá betta - SGGP",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-betta.html",
+      "title": "Cá betta - Mytour",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquariumglaser.de/en/fish-archives/betta-splendens-pla-kat-hellboy-and-giant-halfmoon",
+      "title": "Betta splendens 'Pla Kat Hellboy' and 'Giant Halfmoon' - Aquarium Glaser",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thethaiger.com/news/national/animal-fights-along-with-betting-legalised-promoted-as-soft-power",
+      "title": "Thailand to resume cockfights and other animal sports, gambling allowed - The Thaiger",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

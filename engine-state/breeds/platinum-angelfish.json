@@ -1,0 +1,218 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Platinum angelfish",
+    "Platinum angel",
+    "White angel"
+  ],
+  "viNames": [
+    {
+      "name": "Cá ông tiên platinum",
+      "source": 5
+    },
+    {
+      "name": "Cá thần tiên platinum",
+      "source": 5
+    },
+    {
+      "name": "Cá thần tiên platinum",
+      "source": 7
+    }
+  ],
+  "basedOn": "Pterophyllum scalare",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "A fairly recent man-made colour form of the common aquarium angelfish. This wholesaler first got it from Sri Lanka in 2006, and almost all big ornamental fish farms now produce it.",
+      "source": 0
+    },
+    {
+      "fact": "This wholesaler thinks several species were probably involved in making the domestic angelfish, so it does not see much point in giving a species name.",
+      "source": 0
+    },
+    {
+      "fact": "It came out of gold angelfish lines.",
+      "source": 1
+    },
+    {
+      "fact": "It came from gold angelfish lines.",
+      "source": 4
+    },
+    {
+      "fact": "Hobby lore says platinums from Asian farms were used to bring out the blue gene. The source names no breeder and gives no date.",
+      "source": 2
+    },
+    {
+      "fact": "Crossing a gold with a Philippine Blue and then breeding the young together produces platinums, along with wild-type, gold and blue fish.",
+      "source": 3
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Solid silvery white with no bars. Young fish have a white sheen, and adults can take on a green or blue tint.",
+      "source": 1
+    },
+    {
+      "fact": "The white sheen of young fish turns greenish-blue as they mature.",
+      "source": 4
+    },
+    {
+      "fact": "Silvery white body with black eyes. The black eyes separate it from the red-eyed albino.",
+      "source": 5
+    },
+    {
+      "fact": "This wholesaler describes its stock as snow-white with red eyes that are somewhat sensitive to light. This is the opposite of the black-eyed description used elsewhere.",
+      "source": 0
+    },
+    {
+      "fact": "Show fish must be ghostly white with no trace of bars. Any leftover stripes or yellowing disqualifies a fish, so platinums need stricter culling than other lines.",
+      "source": 6
+    },
+    {
+      "fact": "Looks best under bright light in a planted tank.",
+      "source": 5
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Platinum Pearlscale, sometimes sold as 'White Pearl', is the platinum combined with the pearlscale gene.",
+      "source": 2
+    },
+    {
+      "fact": "Long-finned (veil) platinums are also sold.",
+      "source": 4
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 5.8,
+      "max": 7,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 15,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Care, temperature and food are the same as for the ordinary aquarium angelfish.",
+      "source": 0
+    },
+    {
+      "fact": "Needs at least about 114 litres (30 US gallons). Prefers soft, slightly acidic water with KH 1–5.",
+      "source": 4
+    },
+    {
+      "fact": "Rated semi-aggressive. Does best in a well-planted tank with plenty of swimming room.",
+      "source": 4
+    },
+    {
+      "fact": "Omnivore. Feed good flakes plus live or frozen brine shrimp and bloodworms, and add some plant matter.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds like other angelfish. Let a pair form, then give them an angled flat surface to spawn on.",
+      "source": 4
+    },
+    {
+      "fact": "Platinum is recessive. This source gives the genotype as g/g pb/pb. A platinum crossed with a wild-type fish gives only normal-looking carriers. Breeding those carriers together gives golds, platinums, blues and wild-type fish.",
+      "source": 2
+    },
+    {
+      "fact": "Caused by two copies of a recessive gene, so platinum × platinum should breed true.",
+      "source": 1
+    },
+    {
+      "fact": "This source gives a different explanation: two copies of gold on a stripeless background, at minimum ggSS. Normal-looking fish may hide these genes, and only test crosses reveal them.",
+      "source": 6
+    },
+    {
+      "fact": "This wholesaler links the colour loss to a gene for complete albinism.",
+      "source": 0
+    },
+    {
+      "fact": "Angelfish spawn readily at 27–29 °C in slightly soft water.",
+      "source": 6
+    }
+  ],
+  "health": [
+    {
+      "fact": "In red-eyed stock, the eyes are somewhat sensitive to light.",
+      "source": 0
+    },
+    {
+      "fact": "Heavy inbreeding (a coefficient above 0.25 over three generations) is linked to smaller spawns, spinal deformities and weaker immunity. That matters for lines kept closed to fix a recessive colour.",
+      "source": 6
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick fish that are pure white with no faint bars or yellow cast.",
+      "source": 6
+    },
+    {
+      "fact": "Check the eye colour. A true platinum has black eyes, and red eyes mean an albino.",
+      "source": 5
+    },
+    {
+      "fact": "For breeding, add unrelated fish from a trusted breeder now and then, and keep pedigree records.",
+      "source": 6
+    }
+  ],
+  "controversy": [],
+  "sources": [
+    {
+      "url": "https://aquariumglaser.de/en/fisharchive/pterophyllum-platinum-2",
+      "title": "Pterophyllum \"Platinum\" – Aquarium Glaser",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/cichlid/angelfish-genetics.php",
+      "title": "Angelfish Genetics - Types of angelfish",
+      "kind": "article"
+    },
+    {
+      "url": "https://amazonasmagazine.com/2012/12/14/a-life-with-angels-errata-discussion-janfeb-2013",
+      "title": "A Life with Angels: errata & discussion (AMAZONAS, Jan/Feb 2013)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.amazonasmagazine.com/2014/10/03/amazonas-excerpt-the-next-big-angelfish-gene/",
+      "title": "AMAZONAS excerpt: The next big angelfish gene",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/platinum-angelfish",
+      "title": "Platinum Angelfish – LiveAquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://hirosaqua.com/ca-than-tien/",
+      "title": "Top 10 loại cá thần tiên đẹp nhất",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=31592",
+      "title": "Angelfish Colour Genetics Breeding Guide: Pearl Scale, Koi, and Platinum",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dauaquarium.com/ca-than-tien-platinum/",
+      "title": "Cá Thần Tiên Platinum – Dau Aquarium",
+      "kind": "shop"
+    }
+  ]
+}

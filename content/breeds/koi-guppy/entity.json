@@ -1,0 +1,149 @@
+{
+  "id": "koi-guppy",
+  "kind": "variety",
+  "basedOn": "poecilia-reticulata",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 4,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 17,
+          "max": 28
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 6.8,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 3,
+        "value": {
+          "min": 9,
+          "max": 30
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 8,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 4,
+        "value": {
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 3.8,
+          "max": 5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 6
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 3,
+        "value": 50
+      },
+      {
+        "source": 4,
+        "value": 40
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://creatures.com/species/guppy/koi",
+      "title": "Koi guppy – creatures.com",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-kohaku-koi-tuxedo-2/",
+      "title": "Guppy Kohaku Koi Tuxedo – Aquarium Glaser (Frank Schäfer, 2021)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new-highly-selected-guppys-koi-red-tuxedo-red-nose-and-full-black/",
+      "title": "New highly selected guppys: Koi Red Tuxedo Red Nose and Full Black – Aquarium Glaser",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishstores.org/species/koi-guppy",
+      "title": "Koi Guppy Care: Tank Mates, Diet & Breeding Guide – fishstores.org",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://wikicacanh.com/guppy-koi.html",
+      "title": "Guppy Koi – Wiki Cá Cảnh",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://trunghao.com/ca-bay-mau-guppy-koi/",
+      "title": "Cá Bảy Màu Guppy Koi: Tổng Quan – trunghao.com",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquaticarts.com/collections/livebearers/products/koi-tuxedo-guppy",
+      "title": "Koi Tuxedo Guppy – Aquatic Arts",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

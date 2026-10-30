@@ -1,0 +1,299 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Super red arowana",
+    "Red arowana",
+    "Chili red arowana",
+    "Blood red arowana",
+    "Super red dragon fish"
+  ],
+  "viNames": [
+    {
+      "name": "Huyết long",
+      "source": 2
+    },
+    {
+      "name": "Huyết Long (cá rồng đỏ)",
+      "source": 3
+    },
+    {
+      "name": "Đỏ ớt (Chilli Red)",
+      "source": 2
+    },
+    {
+      "name": "Đỏ huyết (Blood Red)",
+      "source": 2
+    }
+  ],
+  "basedOn": "Scleropages formosus",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "A natural red colour form found only in the upper Kapuas River and nearby lakes in Indonesian West Borneo. Fish in the trade are bred on farms.",
+      "source": 0
+    },
+    {
+      "fact": "Vietnamese hobby writers place Huyết long in the upper Kapuas River and Lake Sentarum on Borneo, and call it especially rare.",
+      "source": 2
+    },
+    {
+      "fact": "The first CITES-approved arowana farm was in Indonesia. Singapore began supplying certified farm-bred fish in 1994. Over 150 CITES-registered farms now operate in Southeast Asia.",
+      "source": 0
+    },
+    {
+      "fact": "Pouyaud, Sudarto and Teugels (2003) described the super red as a separate species, S. legendrei. Its type locality is Semitau, near Lake Sentarum.",
+      "source": 6
+    },
+    {
+      "fact": "The Catalog of Fishes lists S. legendrei as a synonym of S. formosus, following Roberts (2012) and Kottelat (2013).",
+      "source": 6
+    },
+    {
+      "fact": "Most researchers treat the super red as a colour form of S. formosus. Seriously Fish notes it could still prove to be its own species.",
+      "source": 1
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Adults have metallic red gill covers, scales and fin membranes, ranging from gold-tinged red to deep red. The back is dark brown.",
+      "source": 0
+    },
+    {
+      "fact": "In juveniles, a darker back tends to lead to a deeper red in the adult.",
+      "source": 0
+    },
+    {
+      "fact": "The red usually takes 2–3 years to develop. Diet, light, water quality and genes all affect it.",
+      "source": 3
+    },
+    {
+      "fact": "In southern Vietnam, buyers judge Huyết long mainly by colour: the redder the fish, the higher the price. Northern buyers look for a balanced body, a large tight tail, eyes that do not droop and barbels that point upward.",
+      "source": 3
+    },
+    {
+      "fact": "Some hobbyists say 'super red' just means Grade 1 red (chili or blood red). Orange or yellow reds are Grade 2.",
+      "source": 5
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Blood Red (đỏ huyết): deep red, small pale-yellow eyes, and a long slim body that tapers to the tail.",
+      "source": 2
+    },
+    {
+      "fact": "Chilli Red (đỏ ớt): bright red with a broad, thick body that stays even to the tail, and large red eyes that reach the edge of the head.",
+      "source": 2
+    },
+    {
+      "fact": "Orange Red (đỏ cam): yellow-orange, with paler fins than chili or blood red.",
+      "source": 2
+    },
+    {
+      "fact": "Golden Red (đỏ vàng): pale yellow on the body, fins, lips and barbels. The source says it comes from crossing and forced breeding.",
+      "source": 2
+    },
+    {
+      "fact": "Hobbyists disagree on whether chili and blood red are separate lines. One view says they came from different localities and farms now mix them, so many are sold simply as super red.",
+      "source": 5
+    },
+    {
+      "fact": "Banjar Red is a common cross between super red and the yellowtail silver form. Vietnamese hobbyists list Banjar Red as Hồng long, separate from Huyết long.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 28,
+      "max": 32,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 5,
+      "max": 8,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "gh",
+      "min": 2,
+      "max": 15,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 90,
+      "max": 90,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 60,
+      "max": 80,
+      "source": 4
+    },
+    {
+      "field": "tankCm",
+      "min": 200,
+      "max": 200,
+      "source": 1
+    },
+    {
+      "field": "tankCm",
+      "min": 150,
+      "max": 150,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Only suitable for very large aquaria, at least 2 m long. It jumps, so use a tight-fitting lid.",
+      "source": 1
+    },
+    {
+      "fact": "A strict predator. Feed prawns, fish strips, mussels, earthworms and live shrimp. Pellets should not be the main food. Avoid beef heart, chicken and feeder fish.",
+      "source": 1
+    },
+    {
+      "fact": "Best kept alone. Choose any tankmates carefully.",
+      "source": 1
+    },
+    {
+      "fact": "Vietnamese keepers say good filtration matters most. Avoid sudden changes in temperature or water, keep the tank covered, and use a heater in winter. Common foods include worms, crickets, shrimp, loach and centipedes.",
+      "source": 3
+    },
+    {
+      "fact": "Change 20–30% of the water each week. Avoid direct sunlight on the tank.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds true as a colour form of S. formosus, but it is mostly bred commercially in outdoor pools. The male is a mouthbrooder.",
+      "source": 1
+    },
+    {
+      "fact": "Males mature at 3–4 years. Females lay 30–100 large eggs, and the male carries the eggs and larvae in his mouth.",
+      "source": 0
+    },
+    {
+      "fact": "Under CITES, legal trade needs fish bred on a farm for at least two captive generations.",
+      "source": 0
+    }
+  ],
+  "health": [
+    {
+      "fact": "Fungus and raised (pine-cone) scales are common problems for arowana kept in Vietnam.",
+      "source": 3
+    },
+    {
+      "fact": "Hobbyists often link drop eye in arowanas to fatty diets, short or shallow tanks, or genetics. None of these causes is proven, and there is no reliable way to prevent it.",
+      "source": 8
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Legal fish come with a certificate of authenticity, a birth certificate and an implanted microchip.",
+      "source": 0
+    },
+    {
+      "fact": "Fish are microchipped at about 4–5 months old (12–15 cm) to show which farm bred them. Vietnamese hobbyists treat the chip as the fish's birth certificate.",
+      "source": 3
+    },
+    {
+      "fact": "Pick a juvenile with a dark back, since it tends to colour up deeper red.",
+      "source": 0
+    },
+    {
+      "fact": "A juvenile red should already show red or orange on the dorsal, tail and anal fins. Hobbyists warn there is no guarantee which grade it will become until it is fully coloured.",
+      "source": 5
+    },
+    {
+      "fact": "Around 2012 in Vietnam, Huyết long sold for USD 800–2,500, and top fish reached about USD 3,000.",
+      "source": 3
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "The Asian arowana has been on CITES Appendix I since 1975. The super red and red-tailed golden are thought to be more endangered in the wild than other forms.",
+      "source": 0
+    },
+    {
+      "fact": "In the USA it is listed under the Endangered Species Act and needs a permit. Florida and New Mexico ban private ownership.",
+      "source": 0
+    },
+    {
+      "fact": "Seriously Fish says the trade is not legal in the USA, but a black market continues.",
+      "source": 1
+    },
+    {
+      "fact": "Author Emily Voigt links the arowana trade to kidnappings, canings and even murder.",
+      "source": 0
+    },
+    {
+      "fact": "Scientists dispute the taxonomy: Pouyaud et al. call it S. legendrei, while most others treat it as S. formosus.",
+      "source": 6
+    }
+  ],
+  "commons": "",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Asian_arowana",
+      "title": "Asian arowana – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/scleropages-formosus/",
+      "title": "Scleropages formosus – Seriously Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18616",
+      "title": "Chợ Tốt kinh nghiệm – các loại cá rồng (Huyết Long, Hồng Long)",
+      "kind": "article"
+    },
+    {
+      "url": "https://tienphong.vn/xa-hoi/580439/Thu-choi-ca-rong-nghin-do-tpol.html",
+      "title": "Thú chơi cá rồng nghìn đô – Tiền Phong (VnExpress)",
+      "kind": "article"
+    },
+    {
+      "url": "https://thuviennhadat.vn/phap-luat/y-nghia-phong-thuy-cua-ca-rong-hong-long-625638.html",
+      "title": "Ý nghĩa phong thủy của cá Rồng Hồng Long – Thư viện nhà đất",
+      "kind": "article"
+    },
+    {
+      "url": "https://monsterfishkeepers.com/forums/threads/need-help-in-identifying-super-red-arowana.381120",
+      "title": "Need help in identifying super red arowana – MonsterFishKeepers",
+      "kind": "forum"
+    },
+    {
+      "url": "https://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatget.asp?spid=67876",
+      "title": "Catalog of Fishes – Scleropages legendrei",
+      "kind": "paper"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Scleropages_formosus",
+      "title": "Category:Scleropages formosus – Wikimedia Commons",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/preventing-drop-eye.120054/post-1481314",
+      "title": "Preventing drop eye – MonsterFishKeepers",
+      "kind": "forum"
+    }
+  ]
+}

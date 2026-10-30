@@ -1,0 +1,304 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Koi guppy",
+    "Kohaku guppy",
+    "Koi Kohaku guppy",
+    "Red Cap Kohaku guppy"
+  ],
+  "viNames": [
+    {
+      "name": "Guppy Koi",
+      "source": 4
+    },
+    {
+      "name": "Bảy màu Koi",
+      "source": 4
+    },
+    {
+      "name": "7 màu koi",
+      "source": 4
+    },
+    {
+      "name": "Cá bảy màu Guppy Koi",
+      "source": 5
+    }
+  ],
+  "basedOn": "Poecilia reticulata",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Captive-bred colour strain of the common guppy. It is not a separate species, has no wild form and is not related to koi carp.",
+      "source": 3
+    },
+    {
+      "fact": "The name describes a look borrowed from koi carp (red or orange on white, sometimes with black). It is a trade pattern name, not an origin, and no breeder or date is documented.",
+      "source": 0
+    },
+    {
+      "fact": "One Vietnamese article says breeders in Thailand and Malaysia developed the pattern in the 1990s through many generations of selection. This claim is unverified.",
+      "source": 5
+    },
+    {
+      "fact": "Most Koi guppies sold in Vietnam come from Thailand and are imported by hobbyists and shops.",
+      "source": 4
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Pale or white body with sharp red or orange blocks on the head, back and/or tail.",
+      "source": 3
+    },
+    {
+      "fact": "Many lines are built on an albino or translucent base. A clean red head or tail needs careful selection, because the colour can break into patchy orange.",
+      "source": 0
+    },
+    {
+      "fact": "Kohaku factor: both sexes have a red head, red tail and red back.",
+      "source": 1
+    },
+    {
+      "fact": "Vietnamese hobbyists describe it as an albino line with red eyes, a white body and a red head and tail.",
+      "source": 4
+    },
+    {
+      "fact": "A good fish shows sharp red-on-white contrast, intact fins and clear eyes.",
+      "source": 3
+    },
+    {
+      "fact": "Breeders do not share one fixed standard for the pattern.",
+      "source": 0
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Red koi: red or orange blocks on white, the most common form. Red Cap: red mostly on the head. White koi: mostly white with small red marks. Golden or blonde koi: the pattern on a golden base. Albino koi: red eyes and a pinkish-white body. Tiger koi: black tiger stripes on the tail or rear half.",
+      "source": 3
+    },
+    {
+      "fact": "Kohaku Koi Tuxedo: Kohaku red head and tail plus a black Tuxedo rear body. Often combined with Elephant Ear (Dumbo), where males have enlarged, coloured pectoral fins.",
+      "source": 1
+    },
+    {
+      "fact": "Koi Tuxedo comes in standard-fin and Dumbo Ear forms. Only Dumbo Ear males grow the big pectoral fins; females carry the gene but look normal.",
+      "source": 6
+    },
+    {
+      "fact": "Koi Red Tuxedo Red Nose is sold as a high-end strain.",
+      "source": 2
+    },
+    {
+      "fact": "Lines named in Vietnam: Albino Koi (red-eyed), black Koi, King Koi, Koi Red Ear and Koi Ribbon.",
+      "source": 4
+    },
+    {
+      "fact": "Koi Cobra combines the koi colours with a snakeskin (cobra) pattern.",
+      "source": 3
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "tempC",
+      "min": 17,
+      "max": 28,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 27,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 8,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 6.8,
+      "max": 7.5,
+      "source": 5
+    },
+    {
+      "field": "gh",
+      "min": 9,
+      "max": 30,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 8,
+      "max": 12,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 2,
+      "max": 6,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 3.8,
+      "max": 5,
+      "source": 6
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 6,
+      "source": 3
+    },
+    {
+      "field": "tankCm",
+      "min": 50,
+      "max": 50,
+      "source": 3
+    },
+    {
+      "field": "tankCm",
+      "min": 40,
+      "max": 40,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "A 10-gallon (about 38 L) tank suits a trio; 20 gallons is better for five or more fish. Use a sponge filter or a filter with gentle flow to protect long fins.",
+      "source": 3
+    },
+    {
+      "fact": "Hard, stable water is preferred. Avoid soft or acidic water such as tanks with driftwood or peat.",
+      "source": 3
+    },
+    {
+      "fact": "A 40x30x30 cm tank holds about 5–7 pairs. Change 20–40% of the water each week and let tap water stand 1–2 days first.",
+      "source": 4
+    },
+    {
+      "fact": "Feed small pellets as the staple. Carotenoid foods with astaxanthin or spirulina help keep the red. Add brine shrimp and daphnia as treats.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese keepers feed live foods (tubifex, moina, Artemia, mosquito larvae) together with Thai or Japanese pellets to bring out colour.",
+      "source": 4
+    },
+    {
+      "fact": "Good tankmates are corydoras, small rasboras and tetras, otocinclus and snails. Avoid fin-nippers, bettas, large cichlids, goldfish and koi carp, and keep them apart from Endler's livebearers, which hybridise with guppies.",
+      "source": 3
+    },
+    {
+      "fact": "Pale-bodied fish show stress quickly when water quality drops.",
+      "source": 0
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Livebearer. Gestation is about 4–6 weeks, with broods of usually 20–40 fry. Females can store sperm for 6 months or more.",
+      "source": 3
+    },
+    {
+      "fact": "Not true-breeding. The koi colour depends on several genes and drifts without selection, so keeping the pattern needs culling and new unrelated stock. Tiger lines and Endler crosses give mixed offspring.",
+      "source": 3
+    },
+    {
+      "fact": "Females give birth every 28–35 days. Dense plants such as Java moss or guppy grass help fry survive.",
+      "source": 6
+    },
+    {
+      "fact": "Large females can drop 120–150 fry. Adults eat fry, so use a breeding box or thick plants.",
+      "source": 4
+    }
+  ],
+  "health": [
+    {
+      "fact": "Common problems are Camallanus worms, internal parasites, fin rot and fungus. Inbreeding can weaken immunity, so bring in new stock every few generations.",
+      "source": 3
+    },
+    {
+      "fact": "Commonly reported: white spot (ich), fin rot and velvet.",
+      "source": 5
+    },
+    {
+      "fact": "Stress (fish sitting in a corner) is common after moving. Acclimate new fish slowly.",
+      "source": 4
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick active fish with clear eyes and even colour. Avoid washed-out juveniles that were sold too young.",
+      "source": 0
+    },
+    {
+      "fact": "Look for sharp red-white contrast and intact fins. Avoid tanks holding any sick fish, ask for line history if you plan to breed, quarantine new fish and drip-acclimate them.",
+      "source": 3
+    },
+    {
+      "fact": "In Vietnam, prices run from about 40,000 VND a pair to several million VND, depending on the line.",
+      "source": 4
+    },
+    {
+      "fact": "Usually sold at 1.9–3.2 cm.",
+      "source": 6
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "The name 'koi' has no fixed standard. Similar fish are sold as Kohaku or under other names, so the label alone does not guarantee a stable line.",
+      "source": 3
+    }
+  ],
+  "commons": "",
+  "sources": [
+    {
+      "url": "https://creatures.com/species/guppy/koi",
+      "title": "Koi guppy – creatures.com",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-kohaku-koi-tuxedo-2/",
+      "title": "Guppy Kohaku Koi Tuxedo – Aquarium Glaser (Frank Schäfer, 2021)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new-highly-selected-guppys-koi-red-tuxedo-red-nose-and-full-black/",
+      "title": "New highly selected guppys: Koi Red Tuxedo Red Nose and Full Black – Aquarium Glaser",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishstores.org/species/koi-guppy",
+      "title": "Koi Guppy Care: Tank Mates, Diet & Breeding Guide – fishstores.org",
+      "kind": "article"
+    },
+    {
+      "url": "https://wikicacanh.com/guppy-koi.html",
+      "title": "Guppy Koi – Wiki Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "https://trunghao.com/ca-bay-mau-guppy-koi/",
+      "title": "Cá Bảy Màu Guppy Koi: Tổng Quan – trunghao.com",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquaticarts.com/collections/livebearers/products/koi-tuxedo-guppy",
+      "title": "Koi Tuxedo Guppy – Aquatic Arts",
+      "kind": "breeder"
+    }
+  ]
+}

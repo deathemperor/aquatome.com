@@ -1,0 +1,363 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Crystal red shrimp",
+    "CRS",
+    "Red bee shrimp",
+    "Crystal red bee shrimp",
+    "Red crystal shrimp"
+  ],
+  "viNames": [
+    {
+      "name": "Tép ong đỏ",
+      "source": 9
+    },
+    {
+      "name": "Tép ong đỏ (CRS)",
+      "source": 8
+    },
+    {
+      "name": "Tép ong (Crystal Red)",
+      "source": 7
+    },
+    {
+      "name": "Tép ong đỏ Crystal Red Bee",
+      "source": 6
+    }
+  ],
+  "basedOn": "Caridina cantonensis",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "In 1996 the Japanese breeder Hisayasu Suzuki found one red shrimp among his black bee shrimp, and later found two more. He and other breeders then line-bred them.",
+      "source": 1
+    },
+    {
+      "fact": "Suzuki noticed slightly reddish bee shrimp in the mid-1990s. Several years of selective breeding produced the first crystal reds, and later breeders added brighter colour, sharper patterns and more white.",
+      "source": 5
+    },
+    {
+      "fact": "A German shop also credits Suzuki with first finding the red form in a tank of black bee shrimp.",
+      "source": 3
+    },
+    {
+      "fact": "A care sheet gives Taiwan as the origin.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese blog calls tép ong đỏ a line bred in Japan.",
+      "source": 8
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Alternating red and white bands. The whiter the shrimp, the higher the grade, and good shrimp have solid colour with clean edges between red and white.",
+      "source": 0
+    },
+    {
+      "fact": "Opacity matters: see-through patches lower the grade. A fully white shrimp grades high but cannot reach the top grade.",
+      "source": 2
+    },
+    {
+      "fact": "Grade ladder from lowest to highest: C (mostly red with thin white stripes), B (blotchy), A (opaque with defined bands), S (more white), SS (middle band reduced to a dot), SSS (most white).",
+      "source": 2
+    },
+    {
+      "fact": "C grade is the original red bee look, and SSS is also called Mosura. The name is ironic, because the shrimp is graded on its white.",
+      "source": 5
+    },
+    {
+      "fact": "Older shrimp can lose some colour or opacity but still carry the genes.",
+      "source": 2
+    },
+    {
+      "fact": "A Vietnamese shop lists grades S, SS and SSS, with some sellers adding SSSS or 'Red Ruby' for top shrimp (search snippet only; page not fetched).",
+      "source": 6
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Mosura (SSS): almost fully white body with red only on the head and tail. Sub-patterns include Flower, Crown, Heart and Smiley, named for the white mark on the red head.",
+      "source": 2
+    },
+    {
+      "fact": "Hinomaru (SS): a single red circle on top of the back. No-entry has a white dash through the dot. Double has a second dot on the tail.",
+      "source": 2
+    },
+    {
+      "fact": "S-grade patterns that can raise an S to S+: Tiger tooth (white triangle in the middle red band), V-band (middle red shaped like a triangle), and 4-band or 3-band patterns.",
+      "source": 2
+    },
+    {
+      "fact": "Pure Red Line (PRL): recommended when you want all the offspring to stay red. Ordinary crystal reds can throw black young because black is dominant.",
+      "source": 0
+    },
+    {
+      "fact": "Golden bee (white to yellow-white) is the likely source of the extra white in high-grade crystal reds. Taiwan bee strains such as Red Ruby come from a separate recessive mutation.",
+      "source": 5
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 25,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 15,
+      "max": 25,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 23,
+      "max": 26,
+      "source": 8
+    },
+    {
+      "field": "tempC",
+      "min": 20,
+      "max": 24,
+      "source": 9
+    },
+    {
+      "field": "ph",
+      "min": 5.5,
+      "max": 7,
+      "source": 0
+    },
+    {
+      "field": "ph",
+      "min": 5,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 6.8,
+      "source": 8
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 6.8,
+      "source": 9
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 6,
+      "source": 0
+    },
+    {
+      "field": "gh",
+      "min": 3,
+      "max": 10,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 3,
+      "max": 8,
+      "source": 9
+    },
+    {
+      "field": "gh",
+      "min": 4,
+      "max": 6,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 3,
+      "max": 3,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 3,
+      "max": 3.5,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 2.5,
+      "max": 3,
+      "source": 9
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Needs soft water with KH 0–2 and TDS of about 100–180. Use 19 L at the very least; 38 L or more is better.",
+      "source": 0
+    },
+    {
+      "fact": "In hard-water areas, use RO water with a remineralizer. Active soil is recommended. Change 10–30% of the water each week. Lives about 18–24 months. Use at least 20 L for beginners.",
+      "source": 3
+    },
+    {
+      "fact": "A Vietnamese shop gives about 50 L as the minimum tank.",
+      "source": 9
+    },
+    {
+      "fact": "Keep below about 23 °C. Above 24 °C, add aeration, because cool, oxygen-rich water suits them. A heater is often not needed.",
+      "source": 5
+    },
+    {
+      "fact": "Grazes biofilm, algae and detritus, and eats dried leaves. Feed mostly plant-based food, with extra protein for breeding.",
+      "source": 3
+    },
+    {
+      "fact": "Only tiny fish such as Otocinclus are safe tankmates. Use a shrimp-only tank for breeding.",
+      "source": 5
+    },
+    {
+      "fact": "Can live with Neocaridina and other Caridina that need similar water. Small fish such as neons are risky because they eat the young.",
+      "source": 0
+    },
+    {
+      "fact": "Use plenty of plants, moss and hiding places. Keep the water level low at first, because new shrimp may climb out. Ammonia and nitrate should be zero.",
+      "source": 8
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Breeds readily in soft water but struggles in hard water. Females release 20–40 young about every 3–4 weeks, and adults leave the young alone.",
+      "source": 3
+    },
+    {
+      "fact": "Eggs hatch in about 28 days at 22 °C. The strongest colours develop at 24–25 °C.",
+      "source": 1
+    },
+    {
+      "fact": "A ripe female shows a saddle-shaped ovary behind the head. After moulting she releases pheromones, and she carries the eggs for about a month.",
+      "source": 5
+    },
+    {
+      "fact": "When ready to breed, females show a whitish-yellow 'yên ngựa' (saddle) on the back.",
+      "source": 9
+    },
+    {
+      "fact": "Fertile with other Caridina, and the young often keep some white. Because black is dominant, red parents can produce black young, so ordinary crystal reds do not always breed true.",
+      "source": 0
+    },
+    {
+      "fact": "Crossing with other strains can undo careful selective breeding. Breeders cross crystal black with tiger shrimp to make 'tibee'.",
+      "source": 5
+    }
+  ],
+  "health": [
+    {
+      "fact": "Keeping KH at 0–2 lowers the risk of bad moults.",
+      "source": 0
+    },
+    {
+      "fact": "Copes poorly above 25 °C, so cooling may be needed in summer.",
+      "source": 3
+    },
+    {
+      "fact": "Line breeding has left the strain with little genetic diversity.",
+      "source": 1
+    },
+    {
+      "fact": "Sensitive to water quality. Remove uneaten food and test the water often.",
+      "source": 8
+    },
+    {
+      "fact": "A Vietnamese article says tép ong đỏ can die when temperature or pH changes.",
+      "source": 7
+    }
+  ],
+  "buying": [
+    {
+      "fact": "A grade (opaque, with clearly defined bands) is often recommended for beginners and costs less than higher grades.",
+      "source": 2
+    },
+    {
+      "fact": "Beginners should start with a group of 10–12 low-grade crystal reds or crystal blacks.",
+      "source": 5
+    },
+    {
+      "fact": "Start with 10–20 shrimp to reduce stress.",
+      "source": 3
+    },
+    {
+      "fact": "The health of the seller's stock matters: weak shrimp are more likely to die after the move. This shrimp is fussy for beginners.",
+      "source": 8
+    },
+    {
+      "fact": "A Vietnamese article lists tép ong đỏ among the hard lines that beginners should avoid.",
+      "source": 7
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Klotz and von Rintelen (Zootaxa, 2014) used DNA to place aquarium bee shrimp strains, crystal red among them, within Caridina cantonensis. They named the look-alike C. logemanni in the same paper, and noted possible hybridisation.",
+      "source": 4
+    },
+    {
+      "fact": "Some shops still sell crystal red as Caridina logemanni, which conflicts with the DNA findings.",
+      "source": 3
+    },
+    {
+      "fact": "The related, heavily line-bred Taiwan bee strains are described as highly inbred and prone to genetic defects and deformities.",
+      "source": 5
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.shrimpscience.com/species/caridina/crystal-red-shrimp/",
+      "title": "Crystal Red Shrimp – Shrimp Science",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Caridina_cantonensis",
+      "title": "Caridina cantonensis – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/posts/grading-crystal-red-shrimp/",
+      "title": "Grading Your Crystal Red Shrimp – The Shrimp Farm",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://www.garnelio.de/en/crystal-red-shrimp-caridina-logemanni-crystal-red",
+      "title": "Crystal Red Shrimp – Garnelio",
+      "kind": "shop"
+    },
+    {
+      "url": "https://seriouslyfish.com/articles/new-shrimp-from-hong-kong-and-southern-china",
+      "title": "New shrimp from Hong Kong and southern China – Seriously Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://tfhmagazine.com/articles/freshwater/the-latest-buzz-freshwater-bee-shrimp-full-article",
+      "title": "The Latest Buzz: Freshwater Bee Shrimp – TFH Magazine",
+      "kind": "article"
+    },
+    {
+      "url": "https://shrimptouch.com/index.php/2024/10/18/tep-ong-do-crystal-red-bee-crs-dong-tep-cho-nguoi-moi-nhap-mon/",
+      "title": "Tép ong đỏ (Crystal Red Bee – CRS) – Shrimp Touch",
+      "kind": "shop"
+    },
+    {
+      "url": "https://tepbac.com/tin-tuc/full/nuoi-tep-canh-thu-choi-sinh-dong-de-bat-dau-38087.html",
+      "title": "Nuôi tép cảnh: Thú chơi sinh động, dễ bắt đầu – Tepbac",
+      "kind": "article"
+    },
+    {
+      "url": "https://tepcanh.wordpress.com/2015/09/29/huong-dan-nuoi-cac-loai-tep-canh-thuoc-ho-tep-ong/",
+      "title": "Hướng dẫn nuôi các loại tép cảnh thuộc họ tép ong",
+      "kind": "article"
+    },
+    {
+      "url": "https://thuysinhtim.vn/tep-pure-red-line",
+      "title": "Tép Ong Đỏ (CRS) – Thủy Sinh Tím",
+      "kind": "shop"
+    }
+  ]
+}

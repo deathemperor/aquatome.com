@@ -1,0 +1,284 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Balloon molly",
+    "Balloon belly molly",
+    "Belly molly"
+  ],
+  "viNames": [
+    {
+      "name": "Cá bình tích (balloon)",
+      "source": 5
+    },
+    {
+      "name": "Cá bình tích mix màu (Mix Balloon Molly)",
+      "source": 6
+    },
+    {
+      "name": "Cá molly Balloon",
+      "source": 7
+    }
+  ],
+  "basedOn": "Poecilia sphenops / Poecilia latipinna (sources disagree; fancy mollies are often of mixed molly ancestry)",
+  "parents": [
+    {
+      "name": "Common/shortfin molly",
+      "scientificName": "Poecilia sphenops",
+      "certain": false,
+      "source": 1
+    },
+    {
+      "name": "Sailfin molly (white sailfin molly with the dwarf/balloon trait)",
+      "scientificName": "Poecilia latipinna",
+      "certain": false,
+      "source": 3
+    }
+  ],
+  "origin": [
+    {
+      "fact": "No breeder, place or date is documented. Fancy mollies have entered the hobby since about 1905, and their parent species are unclear.",
+      "source": 0
+    },
+    {
+      "fact": "Retail and wiki-style sources call it a bred form of the common molly, P. sphenops.",
+      "source": 1
+    },
+    {
+      "fact": "A 2019 genetics paper treats the balloon belly molly as a dwarf form of the white sailfin molly, P. latipinna.",
+      "source": 3
+    },
+    {
+      "fact": "Many molly colour forms come from P. latipinna crossed with other mollies, especially P. sphenops.",
+      "source": 2
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The body is short and rounded, with a swollen 'balloon' belly and an arched back.",
+      "source": 4
+    },
+    {
+      "fact": "The shape comes from a shortened, deformed spine and a compressed abdominal cavity.",
+      "source": 0
+    },
+    {
+      "fact": "Dwarf (balloon) sailfin mollies have a shorter, dysplastic spine than normal fish.",
+      "source": 3
+    },
+    {
+      "fact": "Adults are only about 7.5 cm (3 in) long.",
+      "source": 4
+    },
+    {
+      "fact": "In Vietnamese shops it is sold in white, yellow and black, at 5–7 cm.",
+      "source": 7
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Shops sell colour forms such as silver/white, black, gold, calico and dalmatian, plus sailfin and lyretail balloon types. They are often sold as a mix.",
+      "source": 6
+    },
+    {
+      "fact": "The colour form 'silver balloon molly' is illustrated.",
+      "source": 0
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 26,
+      "source": 4
+    },
+    {
+      "field": "tempC",
+      "min": 21,
+      "max": 26,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 28,
+      "max": 28,
+      "source": 6
+    },
+    {
+      "field": "ph",
+      "min": 6.7,
+      "max": 8.5,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 8.5,
+      "source": 2
+    },
+    {
+      "field": "gh",
+      "min": 15,
+      "max": 35,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 7.5,
+      "max": 7.5,
+      "source": 4
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 7,
+      "source": 7
+    },
+    {
+      "field": "tankCm",
+      "min": 50,
+      "max": 60,
+      "source": 4
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "A tank of at least about 38 L (10 US gal) suits 4 fish. Add about 11 L (3 gal) for each extra fish.",
+      "source": 4
+    },
+    {
+      "fact": "It needs hard or moderately hard, alkaline water. Soft or acidic water weakens mollies and can bring on the 'shimmies'.",
+      "source": 2
+    },
+    {
+      "fact": "It eats everything: flakes, pellets, algae wafers, blanched greens, brine shrimp and bloodworms. Feed small amounts twice a day.",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese shops feed pellets, blackworms (trùn chỉ) and bobo. The fish lives in groups.",
+      "source": 6
+    },
+    {
+      "fact": "Keep it with peaceful community fish such as corydoras, platies, tetras and danios. Avoid big or aggressive species. Keep mostly females.",
+      "source": 4
+    },
+    {
+      "fact": "It swims poorly because of its body shape.",
+      "source": 0
+    },
+    {
+      "fact": "Keep only one molly species per tank to prevent crossbreeding.",
+      "source": 2
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "It is a livebearer. Gestation is about 35–45 days, and a brood has about 10–60 fry roughly every 2 months.",
+      "source": 4
+    },
+    {
+      "fact": "Balloon mollies can still reproduce and live a life similar to other mollies.",
+      "source": 1
+    },
+    {
+      "fact": "The balloon (dwarf) trait is linked to two genomic regions and candidate genes ADAMTSL1, Larp7 and PPP3CA. How the phenotype arises is still unknown.",
+      "source": 3
+    },
+    {
+      "fact": "Use a breeding box or a separate tank, because adults eat newborn fry.",
+      "source": 5
+    }
+  ],
+  "health": [
+    {
+      "fact": "The malformed body can cause swim bladder and digestive problems and may lead to early death.",
+      "source": 2
+    },
+    {
+      "fact": "The round belly makes it prone to bloat and constipation. Avoid overfeeding.",
+      "source": 4
+    },
+    {
+      "fact": "Like other mollies, it can get shimmies, ich and velvet.",
+      "source": 4
+    },
+    {
+      "fact": "Stress can make pregnant females abort or give birth early.",
+      "source": 5
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Pick active fish with clear eyes, pink gills, intact fins and bright colour that are not gasping at the surface. Fish bred in Vietnam are better adapted to local water.",
+      "source": 7
+    },
+    {
+      "fact": "In Vietnam it costs about 10,000–15,000 VND per fish.",
+      "source": 7
+    },
+    {
+      "fact": "One Vietnamese shop sells mixed-colour balloon mollies at about 5,000–10,000 VND, depending on size.",
+      "source": 6
+    },
+    {
+      "fact": "Quarantine new fish for at least two weeks.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Because of its deformity, the balloon molly has been cited as an example of cruelty to animals.",
+      "source": 0
+    },
+    {
+      "fact": "Seriously Fish calls it a 'grotesque' variety with a malformed body that suffers from health problems.",
+      "source": 2
+    },
+    {
+      "fact": "Some keepers believe the defect shortens its lifespan.",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Fancy_molly",
+      "title": "Fancy molly - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq.ipfs.4everland.io/wiki/Common_molly.html",
+      "title": "Poecilia sphenops (Wikipedia mirror)",
+      "kind": "article"
+    },
+    {
+      "url": "https://seriouslyfish.com/species/poecilia-latipinna",
+      "title": "Poecilia latipinna - Seriously Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6628085/",
+      "title": "Identification of Loci Controlling the Dwarfism Trait in the White Sailfin Molly (Poecilia latipinna) (Genes, 2019)",
+      "kind": "paper"
+    },
+    {
+      "url": "https://aquariadise.com/balloon-molly/",
+      "title": "Balloon Molly - Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "http://lazymen147.blogspot.com/2015/04/ca-binh-tich-ballon-molly-fish-hinh-anh.html",
+      "title": "Cá bình tích, ballon - molly fish (Lazymen's house blog)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://cacanhthienduc.com/ca-binh-tich-mix-mau-mix-baloon-molly",
+      "title": "Cá Bình Tích Mix Màu - Mix Baloon Molly - Cá cảnh Thiên Đức",
+      "kind": "shop"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-molly-gia-bao-nhieu/",
+      "title": "Cá Molly Giá Bao Nhiêu? - SG AQUA",
+      "kind": "shop"
+    }
+  ]
+}

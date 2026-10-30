@@ -1,0 +1,288 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Carassius auratus",
+  "enNames": [
+    "Lionhead goldfish",
+    "Lionhead",
+    "Chinese lionhead"
+  ],
+  "viNames": [
+    {
+      "name": "Cá vàng đầu sư tử",
+      "source": 3
+    },
+    {
+      "name": "Cá vàng thủ sư",
+      "source": 3
+    },
+    {
+      "name": "Cá vàng lan thọ (widely used, though some say this name belongs to Ranchu)",
+      "source": 3
+    },
+    {
+      "name": "Cá vàng lan thọ",
+      "source": 4
+    },
+    {
+      "name": "Thọ Tinh (Chinese-derived name)",
+      "source": 4
+    },
+    {
+      "name": "Cá vàng Lan Thọ",
+      "source": 5
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "Bred in China to look like the mythical Chinese lion-dog.",
+      "source": 2
+    },
+    {
+      "fact": "Reached Japan in the 17th–18th centuries. There it was the precursor of the Ranchu, which Japanese breeders gave a rounder back, a different tail and a smaller head growth.",
+      "source": 2
+    },
+    {
+      "fact": "Comes from the Egg Fish (Maruko), a fantail without a dorsal fin that is linked to the twin-tailed Wakin.",
+      "source": 1
+    },
+    {
+      "fact": "Chinese names refer to the mythical stone lion. Japanese names are Shishi and Kara Shishi.",
+      "source": 3
+    },
+    {
+      "fact": "Described as the Chinese counterpart of the Japanese ranchu.",
+      "source": 0
+    }
+  ],
+  "looks": [
+    {
+      "fact": "No dorsal fin. Short, deep body with a fairly straight or evenly arched back.",
+      "source": 2
+    },
+    {
+      "fact": "A raspberry-like hood (wen) should cover the top of the head, the gill plates and the cheeks evenly. Hoods only on the cap ('goose-head') or only on the cheeks are judged inferior.",
+      "source": 1
+    },
+    {
+      "fact": "Body depth should be about half of body length. The back should be smooth, with no bumps, dips or dorsal spikes.",
+      "source": 1
+    },
+    {
+      "fact": "The double tail should be forked, even and held above horizontal. Breed standards also call for paired anal fins.",
+      "source": 2
+    },
+    {
+      "fact": "Compared with the ranchu, it has a flatter back and peduncle, a tail held more level, a rounded rather than rectangular head growth and a shorter body.",
+      "source": 0
+    },
+    {
+      "fact": "Males usually grow bigger hoods and periodically shed patches of it.",
+      "source": 2
+    },
+    {
+      "fact": "Scales are metallic, nacreous or matt. Colours include red, white, red-and-white, blue, black, black-and-white, black-and-red, natural and chocolate.",
+      "source": 2
+    },
+    {
+      "fact": "Vietnamese judging: the wen should cover the crown, face and gill covers evenly. The back should be nearly flat with only a slight curve near the tail base. The tail lobes should be split by more than 25%, ideally over 50%.",
+      "source": 5
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Lionchu: a Thai cross of lionhead and ranchu, known in Vietnam as cá vàng lan sư.",
+      "source": 3
+    },
+    {
+      "fact": "Lionchu can be told apart by its high back, rounded tail and large crest. A curved back with a sharply bent tail suggests a ranchu instead.",
+      "source": 5
+    },
+    {
+      "fact": "Scale-type forms: metallic (the most popular), matt, and nacreous or calico.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 16,
+      "max": 24,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 19,
+      "max": 28,
+      "source": 5
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.4,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 5
+    },
+    {
+      "field": "sizeCm",
+      "min": 12.5,
+      "max": 12.5,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 15,
+      "source": 2
+    },
+    {
+      "field": "sizeCm",
+      "min": 12,
+      "max": 15,
+      "source": 5
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Needs at least 70 L for one fish plus about 45 L for each extra goldfish, with a filter turning the water over about 4 times an hour but without strong current, since it swims weakly.",
+      "source": 1
+    },
+    {
+      "fact": "Keep decor sparse and smooth. Avoid sharp items and gaps a fish could get stuck in, and keep the tank out of direct sun.",
+      "source": 1
+    },
+    {
+      "fact": "Suggested water hardness is GH 11 dGH or more and KH 8 dKH or more. Ammonia and nitrite should be zero and nitrate under 30 ppm.",
+      "source": 1
+    },
+    {
+      "fact": "Usually needs no heater indoors. Pond fish should come indoors if it stays below 7°C for a long time.",
+      "source": 1
+    },
+    {
+      "fact": "Feed gel food plus frozen or live foods such as bloodworm, daphnia and brine shrimp, at about 1–2% of body weight a day, with enough vegetable matter.",
+      "source": 1
+    },
+    {
+      "fact": "Do not keep with fast single-tailed goldfish, which take the food. Plecos and bristlenose may graze on its slime coat.",
+      "source": 1
+    },
+    {
+      "fact": "Vietnamese practice: shallow water of 15–25 cm (deep water can make the tail droop), an air stone, gentle flow, and frequent partial changes with aged, chlorine-free water.",
+      "source": 5
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Can be crossed with ranchu, giving the lionchu.",
+      "source": 2
+    },
+    {
+      "fact": "Does not breed true for the missing dorsal fin. Getting 40% of fry without a dorsal fin is considered a very good result, so fry are culled when dorsal fins appear.",
+      "source": 1
+    },
+    {
+      "fact": "Breeding nacreous fish gives roughly 50% nacreous, 25% matt and 25% metallic fry.",
+      "source": 1
+    },
+    {
+      "fact": "The hood starts growing about 120 days after hatching and can take 4–5 years to mature.",
+      "source": 1
+    },
+    {
+      "fact": "Egg-layer.",
+      "source": 5
+    }
+  ],
+  "health": [
+    {
+      "fact": "The short body makes it more prone to swim bladder disorders than the longer ranchu.",
+      "source": 0
+    },
+    {
+      "fact": "The deep body can lead to buoyancy problems on poor food or too little plant matter.",
+      "source": 1
+    },
+    {
+      "fact": "The hood can grow over the eyes and may need trimming.",
+      "source": 1
+    },
+    {
+      "fact": "Like other goldfish it gets flukes, ich, Costia, anchor worm, fin rot, gill disease and carp pox. Quarantine new fish.",
+      "source": 1
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Choose fish whose wen covers all three areas evenly, whose back is fairly straight and whose double tail is well split.",
+      "source": 5
+    },
+    {
+      "fact": "Avoid fish with a dorsal fin ridge or a tapered tail base.",
+      "source": 5
+    },
+    {
+      "fact": "Avoid fish with bumps or spikes on the back. Black patches on metallic fish usually mean injury or a colour change still in progress.",
+      "source": 1
+    },
+    {
+      "fact": "Names are mixed up in Vietnam: 'lan thọ' may be used for both lionhead and ranchu, so check the back and tail shape yourself.",
+      "source": 3
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "The animal-welfare charity UFAW lists excessive facial tissue in lionheads as a genetic welfare problem from selective breeding, and notes that the missing dorsal fin impairs swimming.",
+      "source": 7
+    }
+  ],
+  "commons": "Category:Lionhead goldfish",
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/whats-the-difference-between-a-ranchu-and-a-lionhead/",
+      "title": "What's the difference between a Ranchu and a Lionhead? (Practical Fishkeeping, Paul Green)",
+      "kind": "article"
+    },
+    {
+      "url": "https://about-goldfish.com/lionhead-goldfish.html",
+      "title": "Lionhead goldfish - About Goldfish",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Lionhead_(goldfish)",
+      "title": "Lionhead (goldfish) - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://thanhnien.vn/giai-ma-ca-vang-dau-su-tu-ca-vang-ranchu-pho-bien-trong-gioi-choi-ca-canh-1851480488.htm",
+      "title": "'Giải mã' cá vàng đầu sư tử, cá vàng Ranchu - Thanh Niên",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ve-mot-so-ten-ca-vang.2361/",
+      "title": "Về một số tên cá vàng - Diễn đàn cá cảnh",
+      "kind": "forum"
+    },
+    {
+      "url": "https://cacanhkimgiang.com/ca-canh-lan-tho",
+      "title": "Cá vàng LAN THỌ - Cá cảnh Kim Giang",
+      "kind": "shop"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Lionhead_goldfish",
+      "title": "Category:Lionhead goldfish - Wikimedia Commons",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/lionhead-goldfish-excessive-facial-tissue",
+      "title": "Lionhead goldfish - excessive facial tissue (UFAW Genetic Welfare Problems)",
+      "kind": "article"
+    }
+  ]
+}

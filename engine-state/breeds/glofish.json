@@ -1,0 +1,353 @@
+{
+  "found": true,
+  "kind": "transgenic",
+  "enNames": [
+    "GloFish",
+    "GloFish Danio",
+    "GloFish Tetra",
+    "GloFish Barb",
+    "GloFish Betta",
+    "fluorescent zebrafish",
+    "glow fish"
+  ],
+  "viNames": [
+    {
+      "name": "cá GloFish",
+      "source": 3
+    },
+    {
+      "name": "cá huỳnh quang",
+      "source": 3
+    },
+    {
+      "name": "bóng cá phát sáng",
+      "source": 3
+    },
+    {
+      "name": "cá ngựa vằn huỳnh quang (GloFish Danio)",
+      "source": 3
+    },
+    {
+      "name": "cá hồng kông phát sáng (GloFish Tetra)",
+      "source": 3
+    },
+    {
+      "name": "cá ngạnh huỳnh quang (GloFish Barb)",
+      "source": 3
+    },
+    {
+      "name": "cá xiêm phát sáng (GloFish Betta)",
+      "source": 3
+    },
+    {
+      "name": "cá betta dạ quang GloFish",
+      "source": 4
+    },
+    {
+      "name": "cá cánh buồm dạ quang / tetra dạ quang",
+      "source": 9
+    },
+    {
+      "name": "cá cảnh phát sáng",
+      "source": 10
+    }
+  ],
+  "parents": [
+    {
+      "name": "Zebrafish (first and original GloFish species; later other species were also modified)",
+      "scientificName": "Danio rerio",
+      "certain": true,
+      "source": 0
+    }
+  ],
+  "origin": [
+    {
+      "fact": "In 1999 Prof. Gong Zhiyuan's team at the National University of Singapore made the first fluorescent zebrafish by putting a jellyfish fluorescent-protein gene into the zebrafish genome.",
+      "source": 1
+    },
+    {
+      "fact": "Gong first wanted zebrafish that glow when water toxins are present, as a pollution alarm. Selling them as pet fish came later.",
+      "source": 1
+    },
+    {
+      "fact": "The first fish sold was red, made with a red fluorescent gene from a sea anemone.",
+      "source": 1
+    },
+    {
+      "fact": "Yorktown Technologies of Austin, Texas, licensed the work, named it GloFish and started selling it in the USA in late 2003. NUS still gets royalties.",
+      "source": 0
+    },
+    {
+      "fact": "Spectrum Brands bought GloFish from Yorktown in May 2017.",
+      "source": 0
+    },
+    {
+      "fact": "In December 2003 the US FDA decided not to regulate the GloFish zebrafish. It said the fish posed no threat to the food supply or a greater threat to the environment.",
+      "source": 0
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The colours come from inherited fluorescent proteins, first taken from marine animals. The company says the fish are not dyed or altered in any way.",
+      "source": 2
+    },
+    {
+      "fact": "The fish are fluorescent, not bioluminescent. They do not glow in the dark, but they shine brightly under blue light.",
+      "source": 5
+    },
+    {
+      "fact": "Under normal light the fish just looks coloured. A UV/blacklight lamp and a dark background make the glow stand out.",
+      "source": 4
+    },
+    {
+      "fact": "The trademark colour names are Starfire Red, Moonrise Pink, Sunburst Orange, Electric Green, Cosmic Blue and Galactic Purple. Not every species comes in every colour.",
+      "source": 0
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Zebra danio (Danio rerio): red came first. Green and orange-yellow followed in 2006, and blue and purple in 2011.",
+      "source": 0
+    },
+    {
+      "fact": "Other species sold under the brand: black skirt tetra, tiger barb, rainbow shark, Siamese fighting fish, X-ray (pristella) tetra, bronze corydoras and freshwater angelfish.",
+      "source": 0
+    },
+    {
+      "fact": "The shop also lists pearl gourami and long-fin skirt tetra lines.",
+      "source": 2
+    },
+    {
+      "fact": "In Vietnam the GloFish tetra is sold as a gene-modified form of the ordinary black skirt tetra (cá cánh buồm).",
+      "source": 9
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 29,
+      "source": 3
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 5
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 6
+    },
+    {
+      "field": "tempC",
+      "min": 26,
+      "max": 28,
+      "source": 4
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 5
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 10,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 2.5,
+      "max": 2.5,
+      "source": 1
+    },
+    {
+      "field": "tankCm",
+      "min": 50,
+      "max": 60,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "For 5–6 danios or tetras, use at least 38 L (10 gal), which is roughly a 50–60 cm tank. 75–115 L is better for bigger groups or mixed tanks. The tank length is my estimate from the volume.",
+      "source": 3
+    },
+    {
+      "fact": "Petco's care sheet gives a minimum of 5+ gallons (about 19 L), depending on the species.",
+      "source": 6
+    },
+    {
+      "fact": "Keep ammonia and nitrite at 0 and nitrate under 20 ppm. Change 25–30% of the water every 1–2 weeks.",
+      "source": 3
+    },
+    {
+      "fact": "Blue light makes the fish stand out. Keep the lights on no more than 12 hours a day.",
+      "source": 2
+    },
+    {
+      "fact": "Feed flakes to danios, barbs, tetras and angelfish, and wafers to bottom feeders such as sharks and corydoras.",
+      "source": 2
+    },
+    {
+      "fact": "Give flakes or pellets as the main food, with frozen bloodworms, brine shrimp or daphnia a few times a week. Feed only what the fish finish in 2–3 minutes.",
+      "source": 3
+    },
+    {
+      "fact": "Good tankmates are danios, neon tetras, corydoras, guppies, rasboras and dwarf gouramis. Avoid large aggressive cichlids, and take care with male bettas and adult angelfish.",
+      "source": 3
+    },
+    {
+      "fact": "GloFish betta: only one male per tank.",
+      "source": 4
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "The fluorescence is passed on to the young.",
+      "source": 2
+    },
+    {
+      "fact": "Some GloFish are fertile. The licence forbids deliberate breeding and any sale or trade of the offspring.",
+      "source": 0
+    },
+    {
+      "fact": "A Practical Fishkeeping reader bred GloFish, which shows they are not sterile. The magazine says media reports of triploid sterilisation were wrong. Crosses with other zebra danio strains gave some glowing fry, but never a whole spawn.",
+      "source": 7
+    },
+    {
+      "fact": "How many fry glow depends on the species and the parents' genes. Breeding works the same way as for the unmodified species.",
+      "source": 3
+    },
+    {
+      "fact": "In Brazilian streams, escaped transgenic zebrafish breed in almost every sampling period and mature at a small size.",
+      "source": 8
+    }
+  ],
+  "health": [
+    {
+      "fact": "A 2011 study found transgenic fluorescent zebrafish about twice as likely as wild-type fish to be caught by native predators.",
+      "source": 0
+    },
+    {
+      "fact": "Faded colour may come from stress or a poor diet. The fix is water changes and checking the water values.",
+      "source": 5
+    },
+    {
+      "fact": "The company says GloFish need the same care as other fish of their species.",
+      "source": 2
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Before buying, check for illness: sluggish swimming, clamped or torn fins, white spots, a swollen belly or lost colour. Quarantine new fish for about 2 weeks.",
+      "source": 3
+    },
+    {
+      "fact": "Pick a seller with a clear source and health checks. Most of the glow only shows under UV/blue light.",
+      "source": 4
+    },
+    {
+      "fact": "The article says Vietnam has no specific ban on GloFish, but imports of GMOs must follow quarantine and biosafety rules.",
+      "source": 3
+    },
+    {
+      "fact": "When floating the bag, wait about 15–20 minutes before releasing the fish.",
+      "source": 5
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "California banned selling or keeping GloFish in 2003 under its rules on genetically modified fish. The rules were lifted in 2015.",
+      "source": 0
+    },
+    {
+      "fact": "The EU does not allow import, sale or possession. In 2006 Dutch authorities found 1,400 fluorescent fish in aquarium shops.",
+      "source": 0
+    },
+    {
+      "fact": "The Center for Food Safety sued over GloFish. The court dismissed the case in 2005 as without merit.",
+      "source": 0
+    },
+    {
+      "fact": "Magalhães and colleagues found transgenic fluorescent zebrafish breeding in the wild in all five creeks they sampled in the Paraíba do Sul basin (Minas Gerais, Brazil). The fish probably escaped from fish farms near Muriaé.",
+      "source": 8
+    },
+    {
+      "fact": "Brazil has banned transgenic fish imports since 2017, but reports say the ban is not enforced.",
+      "source": 8
+    },
+    {
+      "fact": "Environmental groups worry about release into the wild. Later research suggests the risk may be exaggerated because transgenic fish may attract wild mates less.",
+      "source": 10
+    }
+  ],
+  "commons": "Category:GloFish",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/GloFish",
+      "title": "GloFish – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://news.nus.edu.sg/nus-glowing-fish-goes-places/",
+      "title": "NUS glowing fish goes places – NUS News",
+      "kind": "article"
+    },
+    {
+      "url": "https://shop.glofish.com/pages/glofish-faq",
+      "title": "GloFish Fish Care FAQ",
+      "kind": "breeder"
+    },
+    {
+      "url": "https://aquatechvn.com/bong-ca-phat-sang-la-gi-huong-dan-nuoi-cham-soc-ca-glofish.html",
+      "title": "Bóng cá phát sáng là gì? Hướng dẫn nuôi & chăm sóc cá Glofish – Aquatech",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bettashouse.com/blogs/news/ca-betta-da-quang-glofish-ve-dep-phat-sang-day-me-hoac-tai-betta-s-house",
+      "title": "Cá Betta Dạ Quang GloFish – Betta's House",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-care-for-glofish",
+      "title": "How To Care for GloFish: A Complete Beginner's Guide – Chewy",
+      "kind": "shop"
+    },
+    {
+      "url": "https://assets.petco.com/petco/image/upload/caresheet-glofish-2016.pdf",
+      "title": "GloFish care sheet – Petco",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/pfk-reader-breeds-gm-fish/",
+      "title": "PFK reader breeds GM fish – Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://revistapesquisa.fapesp.br/en/transgenic-zebrafish-found-in-streams-in-the-paraiba-do-sul-basin-minas-gerais",
+      "title": "Transgenic zebrafish found in streams in the Paraíba do Sul basin – Revista Pesquisa FAPESP",
+      "kind": "article"
+    },
+    {
+      "url": "https://saigoncacanh.com/ca-canh-buom-da-quang-2/",
+      "title": "Cá cánh buồm dạ quang – Sài Gòn Cá Cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mochicat.vn/ca-canh-phat-sang-trong-dem-su-that-va-huong-dan-cham-soc/",
+      "title": "Cá cảnh phát sáng trong đêm: sự thật và hướng dẫn chăm sóc – MochiCat",
+      "kind": "article"
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Betta splendens",
+  "enNames": [
+    "Plakat betta",
+    "Plakat",
+    "Plakat Thai",
+    "Short-finned betta",
+    "Halfmoon plakat (HMPK)",
+    "Traditional plakat"
+  ],
+  "viNames": [
+    {
+      "name": "cá betta Plakat",
+      "source": 6
+    },
+    {
+      "name": "Plakat truyền thống",
+      "source": 6
+    },
+    {
+      "name": "Plakat kiểng",
+      "source": 6
+    },
+    {
+      "name": "Betta Plakat / HMPK (Halfmoon Plakat)",
+      "source": 5
+    },
+    {
+      "name": "cá đá (plakat chọn làm cá đá)",
+      "source": 6
+    },
+    {
+      "name": "cá lia thia / cá xiêm / cá chọi (tên chung của betta, plakat là dạng đuôi ngắn)",
+      "source": 1
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "The name comes from the Thai 'pla kat', meaning 'biting fish'. In Thailand the word covers all Betta, but abroad it usually means the short-finned strains.",
+      "source": 0
+    },
+    {
+      "fact": "Short-finned fighting strains were bred in Thailand for aggression and stamina. DNA evidence suggests that breeding for fighting may go back to around the 13th century.",
+      "source": 0
+    },
+    {
+      "fact": "In the 19th century, fish fights were gambling events in Siam and Malaysia that the king regulated and taxed.",
+      "source": 0
+    },
+    {
+      "fact": "Thai breeders separate fighting plakat (plakat morh) from show plakat (plakat cheen), which is bred for colour and symmetry on the same body.",
+      "source": 2
+    },
+    {
+      "fact": "Thai breeders led most of the development of the halfmoon plakat (HMPK) from the 1990s. They combined the sturdy fighting body with the Western 180° halfmoon tail.",
+      "source": 2
+    },
+    {
+      "fact": "A Vietnamese source says HMPK came from crossing traditional plakat with long-finned halfmoon, with the short-tailed halfmoon type settling by about F3–F4. It notes that the exact crosses are disputed.",
+      "source": 5
+    },
+    {
+      "fact": "The pla kat (Siamese fighting fish) became Thailand's national aquatic animal in February 2019.",
+      "source": 0
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Short, rounded, compact fins on a stocky, muscular body. This is closer to the wild form than long-finned bettas are.",
+      "source": 2
+    },
+    {
+      "fact": "Short, round tail spreading about 180°, with a sturdier body than other betta types.",
+      "source": 6
+    },
+    {
+      "fact": "A good HMPK has a tail spreading about 180° with a straight edge. A round tail like a traditional plakat fails the standard.",
+      "source": 5
+    },
+    {
+      "fact": "In a good HMPK, the tail rays split into 4 branches; only 2 branches is below standard. The dorsal fin should be large, broad and upright, and should overlap the tail.",
+      "source": 5
+    },
+    {
+      "fact": "The body should be thick and in proportion to the fins. A body too slim for the fins fails.",
+      "source": 5
+    },
+    {
+      "fact": "Under the plakat standard proposed by Joep van Esch (Bettas4all, 2008), the tail must spread a full 180°, and over-180° (overhalfmoon) tails are not favoured. Under 180°, a body too short or too slim, and a pointed anal fin are serious faults.",
+      "source": 4
+    },
+    {
+      "fact": "Heavily branched 'rose' tails often come with poor body balance, uneven scales and pale colour, and the standard aims to keep them out of shows.",
+      "source": 4
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Traditional plakat (asymmetric): the longest, slimmest body; trapezoid anal fin; 180° tail with rays usually split in 2.",
+      "source": 4
+    },
+    {
+      "fact": "Asymmetric show plakat: rounder body, half-round dorsal fin, straight tail rays split 4 or more times.",
+      "source": 4
+    },
+    {
+      "fact": "Symmetric show plakat (shortmoon/HMPK): thick, strong body; dorsal and anal fins nearly square and matched to each other.",
+      "source": 4
+    },
+    {
+      "fact": "Plakat morh is bred for fighting (stamina, jaw strength). Plakat cheen is bred for colour and symmetry for shows.",
+      "source": 2
+    },
+    {
+      "fact": "Combined forms include PKDT (plakat double-tail) and HMPKDT (halfmoon plakat double-tail).",
+      "source": 2
+    },
+    {
+      "fact": "Thai fighter types by build: Plachon (long, narrow, fast), Plamor (short body and head, tough), Plakrai (spoon-head) and Plasang (smaller, a wild × line-bred mix).",
+      "source": 3
+    },
+    {
+      "fact": "Nemo Koi plakats have varied, multi-coloured patterns.",
+      "source": 3
+    },
+    {
+      "fact": "Plakat Hellboy is a velvet-red short-finned form with deep red pectoral fins, often with blue scales.",
+      "source": 9
+    },
+    {
+      "fact": "Giant bettas are selected only for size and reach 7–8 cm total length, against 4–5 cm for normal bettas.",
+      "source": 9
+    },
+    {
+      "fact": "Vietnamese hobbyists split plakat into 'truyền thống' (traditional) and 'kiểng' (ornamental). The ornamental type is showier and preferred for display.",
+      "source": 6
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 28,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 6,
+      "max": 8,
+      "source": 0
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 7.6,
+      "source": 3
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Never keep two males together. Bottom fish such as Corydoras and invertebrates too big to eat usually work as tankmates.",
+      "source": 3
+    },
+    {
+      "fact": "Plakats jump, so use a tight lid. A long, shallow tank with gentle filtration and a heater works well.",
+      "source": 3
+    },
+    {
+      "fact": "Change about 25% of the water at least weekly, and keep ammonia and nitrate low.",
+      "source": 3
+    },
+    {
+      "fact": "Expect more aggression than in long-finned bettas, since plakats descend from Thai fighters.",
+      "source": 3
+    },
+    {
+      "fact": "Plakats have the strongest territorial instinct of the betta lines.",
+      "source": 6
+    },
+    {
+      "fact": "Bettas are carnivores and cannot live on plant food. Kept with other fish, a betta needs at least about 45 L with plants or caves.",
+      "source": 0
+    },
+    {
+      "fact": "Feed a mix of betta pellets, bloodworms and brine shrimp in small amounts so leftovers do not foul the water.",
+      "source": 1
+    },
+    {
+      "fact": "No air pump is needed because bettas breathe air with their labyrinth organ, but avoid sudden temperature changes.",
+      "source": 1
+    },
+    {
+      "fact": "Short fins reduce drag and are less prone to tearing or fin-biting than long fins.",
+      "source": 2
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Remove the female after spawning, or the male may kill her.",
+      "source": 0
+    },
+    {
+      "fact": "Velvet (Piscinoodinium) is a common killer of fry in captivity.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese farm says each pair can give from a few dozen to several hundred fry, which are ready to sell at about 3 months. Pairs are matched to balance colour and fin proportions.",
+      "source": 7
+    },
+    {
+      "fact": "Fighting plakats have been selected for bite strength, fin focus and stamina.",
+      "source": 3
+    },
+    {
+      "fact": "HMPK is said to have stabilised only by about F3–F4 after crossing plakat with halfmoon, so early crosses do not breed true.",
+      "source": 5
+    }
+  ],
+  "health": [
+    {
+      "fact": "Selective breeding has made fighting strains much more aggressive than wild bettas.",
+      "source": 0
+    },
+    {
+      "fact": "Some live foods from farms, such as rotifers and water fleas, can carry disease.",
+      "source": 0
+    },
+    {
+      "fact": "Bettas live about 2–3 years.",
+      "source": 7
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Very cheap, mixed fish sold for a few tens of thousands of đồng often have weak colour and die easily. Buy from reputable breeders.",
+      "source": 6
+    },
+    {
+      "fact": "For HMPK, check for a straight-edged 180° tail, rays split into 4, a broad upright dorsal fin and a thick body in proportion to the fins.",
+      "source": 5
+    },
+    {
+      "fact": "Fighters with good ancestry sell for up to about US$65. Nemo Koi prices depend on each fish's unique colour.",
+      "source": 3
+    },
+    {
+      "fact": "More hobbyists now prefer HMPK to traditional plakat, which has pushed traditional plakat prices down.",
+      "source": 5
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Plakats were bred for fish fights, which were gambling matches in Siam and Malaysia.",
+      "source": 0
+    },
+    {
+      "fact": "In February 2023, Thailand's Interior Ministry said Siamese fighting fish battles could resume with licensed betting, on weekends only and not on Buddhist days, under welfare and age rules.",
+      "source": 10
+    },
+    {
+      "fact": "Betta splendens has been released into the wild and has become established in Australia's Northern Territory, Brazil, Colombia, Singapore and the southern United States. Wikipedia says the Australian population threatens native wildlife.",
+      "source": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Siamese_fighting_fish",
+      "title": "Siamese fighting fish - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://hoanghamobile.com/tin-tuc/ca-betta-ca-xiem/",
+      "title": "Cá betta (cá xiêm) - Hoàng Hà Mobile",
+      "kind": "article"
+    },
+    {
+      "url": "https://bettadreams.com/genetics/fin-types/",
+      "title": "Betta Fin Types: Halfmoon, Crowntail, Plakat, IBC Forms - Betta Dreams",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariadise.com/plakat-betta/",
+      "title": "Plakat Betta - Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/tieu-chuan-ca-betta-plakat-dep.html",
+      "title": "Tiêu chuẩn cá betta plakat đẹp - Betta Sales",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/ca-betta-plakat-la-gi-cach-phan-biet-ca-betta-plakat-cach-nhan-dang-ca-betta-plakat.html",
+      "title": "Cá betta plakat là gì? Cách phân biệt - Betta Sales",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopheo.com/dong-ca-betta-plakat-cuc-hot-va-nhung-dieu-can-biet/",
+      "title": "Dòng cá betta Plakat cực hot và những điều cần biết - Shopheo",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.sggp.org.vn/kiem-tien-tu-nghe-nuoi-ca-betta-post433850.html",
+      "title": "Kiếm tiền từ nghề nuôi cá betta - SGGP",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-betta.html",
+      "title": "Cá betta - Mytour",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumglaser.de/en/fish-archives/betta-splendens-pla-kat-hellboy-and-giant-halfmoon",
+      "title": "Betta splendens 'Pla Kat Hellboy' and 'Giant Halfmoon' - Aquarium Glaser",
+      "kind": "article"
+    },
+    {
+      "url": "https://thethaiger.com/news/national/animal-fights-along-with-betting-legalised-promoted-as-soft-power",
+      "title": "Thailand to resume cockfights and other animal sports, gambling allowed - The Thaiger",
+      "kind": "article"
+    }
+  ]
+}

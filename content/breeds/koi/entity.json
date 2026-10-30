@@ -1,0 +1,157 @@
+{
+  "id": "koi",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 7,
+          "max": 8.6
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 2,
+        "value": {
+          "min": 61,
+          "max": 91
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 50,
+          "max": 81
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/4018_three_Kois.JPG/1280px-4018_three_Kois.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/4018_three_Kois.JPG/500px-4018_three_Kois.JPG",
+      "width": 1280,
+      "height": 1021,
+      "licence": "CC BY-SA 3.0",
+      "author": "Tubifex",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:4018_three_Kois.JPG",
+      "caption": "Ba con cá Koi đỏ trắng bơi trong ao tối"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/1Koi_Fish.JPG/1280px-1Koi_Fish.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/1Koi_Fish.JPG/500px-1Koi_Fish.JPG",
+      "width": 1280,
+      "height": 956,
+      "licence": "CC BY-SA 3.0",
+      "author": "Laslovarga",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:1Koi_Fish.JPG",
+      "caption": "Đàn cá Koi đỏ trắng và trắng bơi trong ao"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/5_Chome_Obi%2C_Nichinan-shi%2C_Miyazaki-ken_889-2535%2C_Japan_-_panoramio_%286%29.jpg/1280px-5_Chome_Obi%2C_Nichinan-shi%2C_Miyazaki-ken_889-2535%2C_Japan_-_panoramio_%286%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/5_Chome_Obi%2C_Nichinan-shi%2C_Miyazaki-ken_889-2535%2C_Japan_-_panoramio_%286%29.jpg/500px-5_Chome_Obi%2C_Nichinan-shi%2C_Miyazaki-ken_889-2535%2C_Japan_-_panoramio_%286%29.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 3.0",
+      "author": "z tanuki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:5_Chome_Obi,_Nichinan-shi,_Miyazaki-ken_889-2535,_Japan_-_panoramio_(6).jpg",
+      "caption": "Ba con cá Koi đỏ trắng và cam trong ao đáy đá"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/2012-12-15_Koi_at_the_huntington.jpg/1280px-2012-12-15_Koi_at_the_huntington.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/2012-12-15_Koi_at_the_huntington.jpg/500px-2012-12-15_Koi_at_the_huntington.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "John Lodder",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2012-12-15_Koi_at_the_huntington.jpg",
+      "caption": "Cá Koi màu cam đỏ bơi trên nền đất trong ao"
+    }
+  ],
+  "commons": "Category:Koi",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Koi",
+      "title": "Koi – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/tu-a-z-ve-ca-koi-cho-nguoi-moi-dac-diem-gia-ban-cach-nuoi.html",
+      "title": "Từ A-Z về cá Koi cho người mới – Chợ Tốt",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.petmd.com/fish/koi-fish-care-sheet",
+      "title": "Koi Fish Care Sheet – PetMD",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Butterfly_koi",
+      "title": "Butterfly koi – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://vnexpress.net/ca-chep-nhat-gia-hon-200-trieu-dong-2928925.html",
+      "title": "Cá chép Nhật giá hơn 200 triệu đồng – VnExpress",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.pondtrademag.com/understanding-koi-shows/",
+      "title": "Understanding Koi Shows – Pond Trade Magazine",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://hethongphapluat.com/tieu-chuan-quoc-gia-tcvn-8710-6-2019-ve-benh-thuy-san-quy-trinh-chan-doan-phan-6-benh-do-koi-herpesvirus-o-ca-chep.html",
+      "title": "TCVN 8710-6:2019 – Bệnh do Koi herpesvirus ở cá chép",
+      "kind": "other",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

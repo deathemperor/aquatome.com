@@ -1,0 +1,142 @@
+{
+  "id": "mickey-mouse-platy",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 5,
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 0,
+        "value": {
+          "min": 7,
+          "max": 8.2
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 6.8,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 0,
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 2.5,
+          "max": 5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 3.5,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 0,
+        "value": 50
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/mickey-mouse-platy/",
+      "title": "Mickey Mouse Platy Fish Care Guide (Aquariadise)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=31597",
+      "title": "Platy Colour Genetics Breeding Guide: Mickey Mouse, Sunburst, and Variatus",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-platy-mickey-mouse-white-red-tail-2/",
+      "title": "Xiphophorus maculatus Platy Mickey Mouse White Red Tail (Aquarium Glaser)",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/platy-bleeding-heart-mickey-mouse-2/",
+      "title": "Platy Bleeding Heart Mickey Mouse (Aquarium Glaser)",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thucanchoca.com/bai-viet/ca-mo-vit-chuot-mickey",
+      "title": "Cá mỏ vịt Chuột Mickey",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.liveaquaria.com/products/tiger-mickey-mouse-platy",
+      "title": "Tiger Mickey Mouse Platy (LiveAquaria)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://qualitymarine.com/news/mixed-mickey-mouse-platy-xiphophonus-maculatus",
+      "title": "Mixed Mickey Mouse Platy (Quality Marine)",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://hoanghamobile.com/tin-tuc/ca-mun/",
+      "title": "Cá mún (platy): đặc điểm, ý nghĩa, cách nuôi và nhân giống",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aqualife.vn/ca-mun-platy-fish-ca-canh-de-nuoi-cho-nguoi-moi-choi/",
+      "title": "Cá mún Platy fish - cá cảnh dễ nuôi cho người mới chơi (Aqualife)",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

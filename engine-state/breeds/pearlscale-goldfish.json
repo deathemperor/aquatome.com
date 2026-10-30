@@ -1,0 +1,277 @@
+{
+  "found": true,
+  "kind": "variety",
+  "enNames": [
+    "Pearlscale goldfish",
+    "Pearlscale",
+    "Chinshurin",
+    "Ping Pong Pearlscale",
+    "Golfball Pearlscale",
+    "Crown Pearlscale",
+    "Hamanishiki"
+  ],
+  "viNames": [
+    {
+      "name": "Cá ping pong",
+      "source": 1
+    },
+    {
+      "name": "Cá vàng ngọc trai",
+      "source": 1
+    },
+    {
+      "name": "Cá bóng bàn",
+      "source": 1
+    },
+    {
+      "name": "Cá ngọc trai nữ hoàng",
+      "source": 1
+    },
+    {
+      "name": "Cá vảy trân châu Chinsurin",
+      "source": 2
+    }
+  ],
+  "basedOn": "Carassius auratus",
+  "parents": [],
+  "origin": [
+    {
+      "fact": "A fancy goldfish variety credited to China and Japan; its Japanese name is Chinshurin.",
+      "source": 0
+    },
+    {
+      "fact": "Selectively bred in China in the 20th century, then became popular in Japan.",
+      "source": 1
+    },
+    {
+      "fact": "Care sheet lists China as the origin.",
+      "source": 3
+    },
+    {
+      "fact": "Shop page gives China as the origin.",
+      "source": 2
+    }
+  ],
+  "looks": [
+    {
+      "fact": "Round, almost spherical body often compared to a golf ball, with thick domed scales that look like pearls.",
+      "source": 0
+    },
+    {
+      "fact": "Doubled fins like a fantail. Fins can be long or short.",
+      "source": 0
+    },
+    {
+      "fact": "Breed standard: body depth over two-thirds of body length, domed scales, a single dorsal fin, paired other fins, and a divided, forked tail held above horizontal.",
+      "source": 0
+    },
+    {
+      "fact": "A good fish is bright and alert, with strong colour that reaches into the fins. Colours include metallic, orange, calico and solid black.",
+      "source": 0
+    },
+    {
+      "fact": "Raised scales feel hard and look white like pearls. Sold in metallic, semi-metallic and non-metallic scale types.",
+      "source": 2
+    },
+    {
+      "fact": "Colours sold in Vietnam include orange, red, white, black, brown, blue, purple and calico (ngũ hoa). Fins are short and the tail is forked.",
+      "source": 1
+    },
+    {
+      "fact": "Young fish look much like ordinary goldfish. The round body and clear pearl scales only show as they grow, so small fish are hard to judge.",
+      "source": 1
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Three head forms: no head growth, an oranda-like wen, or two large bubble-like domes (High-head Pearlscale, Crown Pearlscale or Hamanishiki).",
+      "source": 0
+    },
+    {
+      "fact": "The Crown pearlscale (Hamanishiki) has one or two lumps on its head and can grow larger than 15 cm.",
+      "source": 1
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 27,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 17,
+      "max": 28,
+      "source": 2
+    },
+    {
+      "field": "tempC",
+      "min": 18,
+      "max": 26,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 7.5,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 4.5,
+      "max": 14,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 12,
+      "max": 15,
+      "source": 1
+    },
+    {
+      "field": "sizeCm",
+      "min": 15,
+      "max": 20,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 20,
+      "max": 20,
+      "source": 0
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "A coldwater fish that copes with cool water better than heat. It struggles in very hot places.",
+      "source": 1
+    },
+    {
+      "fact": "Tank of at least 60 L for one fish, plus about 30 L for each extra fish. Can also live in an outdoor pond.",
+      "source": 1
+    },
+    {
+      "fact": "Recommends a tank of at least 30 US gal (about 114 L). Use gentle filtration, such as a spray bar or lily pipe, because it swims poorly.",
+      "source": 3
+    },
+    {
+      "fact": "Keep it above 13 °C (55 °F) because it is sensitive to cold. Avoid sudden pH swings.",
+      "source": 0
+    },
+    {
+      "fact": "Feed sparingly because its compact body crowds the organs. Overfeeding causes problems.",
+      "source": 0
+    },
+    {
+      "fact": "Main food is good goldfish pellets, soaked before feeding. Add chopped boiled vegetables to prevent constipation. Give live or frozen food only now and then.",
+      "source": 1
+    },
+    {
+      "fact": "Feed twice a day, only what is eaten in 2 minutes. Add frozen foods and plant matter.",
+      "source": 3
+    },
+    {
+      "fact": "Possible tankmates are hardy coolwater fish such as zebra or pearl danios. Keep it away from fin nippers and fast or aggressive fish. Goldfish may eat shrimp.",
+      "source": 3
+    },
+    {
+      "fact": "Change 10–15% of the water each week.",
+      "source": 1
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "Can spawn in home tanks. One method is to cool the water to about 18 °C and then raise it about 2 °C a day.",
+      "source": 1
+    },
+    {
+      "fact": "A female can lay up to about 1,000 eggs. Remove the eggs early so the adults do not eat them, and use methylene blue to limit fungus.",
+      "source": 1
+    },
+    {
+      "fact": "During spawning season, males show white breeding tubercles on the gill covers and head.",
+      "source": 2
+    },
+    {
+      "fact": "Lays eggs. Breeding in an aquarium is not easy, and a separate tank set up to imitate spring may be needed.",
+      "source": 3
+    }
+  ],
+  "health": [
+    {
+      "fact": "Prone to swim bladder disorders linked to the round body bred into it. The extreme shape may also harm the spine and organs and shorten its life.",
+      "source": 0
+    },
+    {
+      "fact": "Swim bladder trouble, bloating and constipation are common, mostly from overfeeding. The rounded body can bend the spine.",
+      "source": 3
+    },
+    {
+      "fact": "Gets sick more easily than ordinary goldfish. Common problems are digestive upsets, white spot, fin rot, bleeding and cloudy eyes.",
+      "source": 1
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Buy from reputable breeders or dealers. Before buying, watch the fish for signs of illness or trouble swimming.",
+      "source": 3
+    },
+    {
+      "fact": "Common in Vietnam, at about 25,000–50,000 VND each. Some lines cost more.",
+      "source": 1
+    },
+    {
+      "fact": "Colour may look pale after shipping. It usually comes back once the fish settles in.",
+      "source": 2
+    },
+    {
+      "fact": "Choose a bright, alert fish with strong colour that reaches into the fins.",
+      "source": 0
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Some hobbyists and animal welfare advocates consider breeding goldfish for extreme body shapes cruel. Single-tailed goldfish such as comets have fewer health problems.",
+      "source": 0
+    },
+    {
+      "fact": "The care sheet raises ethical concerns about breeding for deformities and suggests single-tailed goldfish may be healthier and live longer.",
+      "source": 3
+    }
+  ],
+  "commons": "Category:Pearlscale goldfish",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Pearlscale",
+      "title": "Pearlscale – Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/tat-tan-tat-ve-ca-ping-pong-ca-ngoc-trai-dong-ca-vang-de-thuong-ky-la/",
+      "title": "Tất tần tật về cá ping pong/ Cá ngọc trai – Aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://senaquatic.vn/ca-ping-pong-pearlscale-goldfish",
+      "title": "Cá Ping Pong (Pearlscale Goldfish) – Sen Aquatic",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariadise.com/pearlscale-goldfish/",
+      "title": "Pearlscale goldfish – Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Pearlscale_goldfish",
+      "title": "Category:Pearlscale goldfish – Wikimedia Commons",
+      "kind": "other"
+    }
+  ]
+}

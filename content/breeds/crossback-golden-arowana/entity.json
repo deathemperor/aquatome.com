@@ -1,0 +1,123 @@
+{
+  "id": "crossback-golden-arowana",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 28,
+          "max": 32
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 6,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": 90
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 6,
+        "value": {
+          "min": 180,
+          "max": 200
+        }
+      },
+      {
+        "source": 3,
+        "value": 150
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Asian_arowana",
+      "title": "Asian arowana - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/posts/269975/",
+      "title": "Asian Arowana Classes – Cross Back Golden (Unoaquatic article), MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18616",
+      "title": "Chợ Tốt kinh nghiệm – các loại cá rồng",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://vietnamnet.vn/choi-ca-rong-de-vuong-tram-trieu-van-khong-ngan-269132.html",
+      "title": "Chơi cá rồng để vương, trăm triệu vẫn không ngán - VietNamNet",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18616",
+      "title": "Chợ Tốt – Kim Long Quá Bối (Cross Back Golden)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/asian-arowana-classes-part1-x-back.20929/page-5",
+      "title": "Asian Arowana Classes, Part 1 (X-Back) - MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://fishyhub.com/sg/blogs/blog-detail/arowana-care-guide",
+      "title": "Arowana Care Guide - FishyHub",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.thatpetplace.com/articles/arowanas-article-care-guide",
+      "title": "Arowanas Care Guide - That Pet Place",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://vnexpress.net/nghe-cat-mi-sua-moi-cho-ca-4822542.html",
+      "title": "Nghề cắt mí, sửa môi cho cá - VnExpress",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,157 @@
+{
+  "id": "oranda-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 17,
+          "max": 28
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 3,
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 20,
+          "max": 31
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 17,
+          "max": 23
+        }
+      },
+      {
+        "source": 3,
+        "value": 25
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/GoldfishTigerhead.jpg/1280px-GoldfishTigerhead.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/GoldfishTigerhead.jpg/500px-GoldfishTigerhead.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.5",
+      "author": "Taken by Fanghong",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoldfishTigerhead.jpg",
+      "caption": "Cá Oranda mai hoa nhiều màu với mào đầu lớn trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/RedCapOrandasPairRodsan18a.jpg/1280px-RedCapOrandasPairRodsan18a.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/RedCapOrandasPairRodsan18a.jpg/500px-RedCapOrandasPairRodsan18a.jpg",
+      "width": 1280,
+      "height": 620,
+      "licence": "CC BY 2.5",
+      "author": "User:Rodsan18",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RedCapOrandasPairRodsan18a.jpg",
+      "caption": "Hai cá Oranda mũ đỏ thân trắng vây dài trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/%28Carassius_auratus%29_Red_cap_oranda_at_Visakhapatnam%2C_India_01.JPG/1280px-%28Carassius_auratus%29_Red_cap_oranda_at_Visakhapatnam%2C_India_01.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/%28Carassius_auratus%29_Red_cap_oranda_at_Visakhapatnam%2C_India_01.JPG/500px-%28Carassius_auratus%29_Red_cap_oranda_at_Visakhapatnam%2C_India_01.JPG",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Adityamadhav83",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:(Carassius_auratus)_Red_cap_oranda_at_Visakhapatnam,_India_01.JPG",
+      "caption": "Cá Oranda mũ đỏ thân trắng bơi giữa cây thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Dazed_again_%284972630499%29.jpg/1280px-Dazed_again_%284972630499%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Dazed_again_%284972630499%29.jpg/500px-Dazed_again_%284972630499%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 2.0",
+      "author": "Benson Kua from Toronto, Canada",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dazed_again_(4972630499).jpg",
+      "caption": "Cá Oranda thân trắng mào đỏ nhìn chính diện trong bể"
+    }
+  ],
+  "commons": "Category:Oranda",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Oranda",
+      "title": "Oranda – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thanhnien.vn/nhung-bat-mi-ve-loai-ca-vang-hac-dinh-hong-vuong-mien-pho-bien-o-viet-nam-1851480848.htm",
+      "title": "Những 'bật mí' về loại cá vàng Hạc đỉnh hồng (vương miện) phổ biến ở Việt Nam – Thanh Niên",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-vang-oranda-dep/",
+      "title": "Cá vàng oranda đẹp: Hướng dẫn chọn mua, chăm sóc – SG AQUA",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.liveaquaria.com/article/232/",
+      "title": "Oranda – LiveAquaria",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.thegoldfishcouncil.org/post/oranda",
+      "title": "Oranda (Metallic) standard – The Goldfish Council",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/ranchu-goldfish-excessive-facial-tissue",
+      "title": "Ranchu goldfish: excessive facial tissue – UFAW genetic welfare problems",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://about-goldfish.com/goldfish-culling.html",
+      "title": "Goldfish Culling – about-goldfish.com",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

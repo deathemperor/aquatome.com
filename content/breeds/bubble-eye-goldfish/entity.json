@@ -1,0 +1,165 @@
+{
+  "id": "bubble-eye-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 2,
+        "value": {
+          "min": 4,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 7.5,
+          "max": 10
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 15,
+          "max": 17
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 10,
+          "max": 20.3
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Goldfish_Bubble_Eye.jpg/1280px-Goldfish_Bubble_Eye.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Goldfish_Bubble_Eye.jpg/500px-Goldfish_Bubble_Eye.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldfish_Bubble_Eye.jpg",
+      "caption": "Cá vàng mắt bong bóng màu đỏ cam trong bể nền xanh"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Extra_flotation_devices.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Extra_flotation_devices.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 2.0",
+      "author": "Angie Torres from Toronto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Extra_flotation_devices.jpg",
+      "caption": "Cá vàng mắt bong bóng màu cam với hai bọng mắt lớn trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/A_Bubble_Eye_Goldfish.jpg/1280px-A_Bubble_Eye_Goldfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/A_Bubble_Eye_Goldfish.jpg/500px-A_Bubble_Eye_Goldfish.jpg",
+      "width": 1280,
+      "height": 1967,
+      "licence": "CC BY-SA 4.0",
+      "author": "31kiwi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Bubble_Eye_Goldfish.jpg",
+      "caption": "Cá vàng mắt bong bóng màu cam vàng cận cảnh trên nền sỏi"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Bubble_Eye_goldfish.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Bubble_Eye_goldfish.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Original uploader was Jordan Hartig at en.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bubble_Eye_goldfish.jpg",
+      "caption": "Cá vàng mắt bong bóng màu cam vàng bơi trong bể"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Bubble_Eye",
+      "title": "Bubble Eye - Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Th%E1%BB%A7y_bao_nh%C3%A3n",
+      "title": "Thủy bao nhãn - Wikipedia tiếng Việt",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.24h.com.vn/thi-truong-tieu-dung/muc-so-thi-quai-ca-vang-co-mat-bong-bong-dep-long-lanh-o-viet-nam-c52a975489.html",
+      "title": "Thủy bao nhãn loại cá vàng có mắt bong bóng đẹp long lanh ở Việt Nam (24h)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thanhnien.vn/bi-mat-ve-loai-ca-vang-mat-rong-co-tu-the-ky-17-1851479705.htm",
+      "title": "Bí mật về loại cá vàng mắt rồng có từ thế kỷ 17 (Thanh Niên)",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.about-goldfish.com/water-bubble-eye-goldfish.html",
+      "title": "Water Bubble Eye Goldfish - about-goldfish.com",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ufaw.org.uk/fish/bubble-eye-goldfish-bubble-eye",
+      "title": "UFAW Genetic Welfare Problems of Companion Animals: Bubble eye goldfish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.spca.nz/advice-and-welfare/article/implications-of-breeding-goldfish",
+      "title": "SPCA New Zealand: Implications of breeding goldfish",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://cakienghoanglam.com/ca-anh/ca-mat-ngoc/",
+      "title": "Cá mắt ngọc: Vẻ đẹp mong manh của mắt bong bóng lạ",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,124 @@
+{
+  "id": "koi-betta",
+  "kind": "variety",
+  "basedOn": "betta-splendens",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 0,
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 0,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": 7.6
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 6.4,
+          "max": 7.6
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 3,
+        "value": {
+          "min": 17,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "photos": [],
+  "sources": [
+    {
+      "url": "https://aquariadise.com/koi-betta/",
+      "title": "Koi Betta – Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://tropicflow.com/blogs/blog/koi-betta-fish-the-ultimate-care-guide",
+      "title": "Koi Betta Fish: The Ultimate Care Guide – Tropicflow",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://bettasales.net/ky-thuat-nuoi-ca/koi-betta-la-gi-cach-nhan-dang-koi-luu-y-khi-chon-choi-koi-betta.html",
+      "title": "Koi Betta Là Gì? Cách Nhận Dạng Koi – Bettasales",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://wikicacanh.com/cach-phan-biet-cac-dong-ca-betta-koi.html",
+      "title": "Cách phân biệt các dòng cá Betta Koi – Wiki Cá Cảnh",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thucancakoihikari.com/ca-betta-koi/",
+      "title": "Cá Betta Koi Là Cá Gì? Phân Loại, đặc Tính Sống Của Cá Betta Koi",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=43419",
+      "title": "Nemo Betta Strain Care Guide: Multi Color Pattern Heritage – gensou.sg",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=43420",
+      "title": "Galaxy Koi Betta Strain Care Guide: Marble Pattern Heritage – gensou.sg",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

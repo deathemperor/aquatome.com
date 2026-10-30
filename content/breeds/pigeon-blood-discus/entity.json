@@ -1,0 +1,142 @@
+{
+  "id": "pigeon-blood-discus",
+  "kind": "variety",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      },
+      {
+        "source": 0,
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      },
+      {
+        "source": 0,
+        "value": {
+          "min": 6,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 5,
+        "value": {
+          "min": 4,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 5,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Sunfish_1.jpg/1280px-Sunfish_1.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Sunfish_1.jpg/500px-Sunfish_1.jpg",
+      "width": 1280,
+      "height": 857,
+      "licence": "CC BY 2.0",
+      "author": "Thomas Quine",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunfish_1.jpg",
+      "caption": "Cá dĩa bồ câu màu kem cam vân nhỏ trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_02.jpg/1280px-Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_02.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_02.jpg/500px-Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_02.jpg",
+      "width": 1280,
+      "height": 1024,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_02.jpg",
+      "caption": "Cá dĩa bồ câu màu cam vàng, mắt đỏ, bơi cạnh cây thủy sinh"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/pigeon-blood-discus/",
+      "title": "Pigeon Blood Discus – Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-pidgeon-blood-panda-2/",
+      "title": "Symphysodon 'Pidgeon Blood Panda' – Aquarium Glaser",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://gensou.sg/?p=32809",
+      "title": "Pigeon Blood Discus Care Guide: Red Body Strain",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/rocky-mountain-discus.373937",
+      "title": "Rocky Mountain Discus? – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/mua-ban-quan-hoang-mai-ha-noi/133363192.htm",
+      "title": "Cá dĩa đỏ, bồ câu đẹp size 7-9 – Chợ Tốt",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-dia.html",
+      "title": "Cá dĩa – Mytour",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://monsterfishkeepers.com/forums/goto/post?id=8098275",
+      "title": "'Peppering' Discus.. what is it? – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.chotot.com/mua-ban-quan-11-tp-ho-chi-minh/133882767.htm",
+      "title": "Cá dĩa baby 70 con – Chợ Tốt",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/goto/post?id=8233357",
+      "title": "Pigeon blood discus thread – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://plo.vn/nong-dan-cu-chi-nuoi-ca-dia-nuoi-choi-loi-hang-chuc-trieu-dong-post379548.html",
+      "title": "Nông dân Củ Chi nuôi cá dĩa – PLO",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

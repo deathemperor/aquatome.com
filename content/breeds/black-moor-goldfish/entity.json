@@ -1,0 +1,185 @@
+{
+  "id": "black-moor-goldfish",
+  "kind": "variety",
+  "basedOn": "carassius-auratus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.4
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 7,
+          "max": 11
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 4,
+          "max": 20
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 1,
+        "value": 12.5
+      },
+      {
+        "source": 0,
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 20.3,
+          "max": 25.5
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Black_Moor_Goldfish.jpg/1280px-Black_Moor_Goldfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Black_Moor_Goldfish.jpg/500px-Black_Moor_Goldfish.jpg",
+      "width": 1280,
+      "height": 851,
+      "licence": "Public domain",
+      "author": "KDBlackmore",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Moor_Goldfish.jpg",
+      "caption": "Cá vàng mắt lồi đen đuôi dài bơi trong bể"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Black_Moor_Goldfish_2.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Black_Moor_Goldfish_2.jpg",
+      "width": 1280,
+      "height": 1074,
+      "licence": "Public domain",
+      "author": "KDBlackmore",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Moor_Goldfish_2.jpg",
+      "caption": "Cá vàng mắt lồi đen thân tròn, vây đuôi xòe trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Black_Moor_Fish.jpg/1280px-Black_Moor_Fish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Black_Moor_Fish.jpg/500px-Black_Moor_Fish.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.5",
+      "author": "Riyad Youssef",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Moor_Fish.jpg",
+      "caption": "Cá vàng mắt lồi đen nhìn chính diện trong bể thủy sinh"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Carassius_auratus_Black_Moor.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/65/Carassius_auratus_Black_Moor.jpg",
+      "width": 1280,
+      "height": 1032,
+      "licence": "CC BY-SA 4.0",
+      "author": "ﻯναოթ€ռ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carassius_auratus_Black_Moor.jpg",
+      "caption": "Cá vàng mắt lồi đen nhìn chính diện giữa cây thủy sinh"
+    }
+  ],
+  "commons": "Category:Black Moor goldfish",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Telescope_(goldfish)",
+      "title": "Telescope (goldfish) – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://about-goldfish.com/black-moor-goldfish.html",
+      "title": "Black Moor Goldfish – About-Goldfish.com",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://thanhnien.vn/bi-mat-ve-loai-ca-vang-mat-rong-co-tu-the-ky-17-1851479705.htm",
+      "title": "Bí mật về loại cá vàng mắt rồng có từ thế kỷ 17 – Thanh Niên",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/ca-vang-mat-loi-mau-den.html",
+      "title": "Cá vàng mắt lồi màu đen – Mytour",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.hanoizoo.com/ca-ba-duoi-den/",
+      "title": "Cá Ba Đuôi Đen – Hanoizoo",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/the-end-for-fancy-goldfish/",
+      "title": "The end for fancy goldfish? – Practical Fishkeeping",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Carassius_auratus_Black_Moor-edit1.jpg",
+      "title": "File:Carassius auratus Black Moor-edit1.jpg – Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

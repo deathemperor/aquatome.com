@@ -1,0 +1,311 @@
+{
+  "found": true,
+  "kind": "variety",
+  "basedOn": "Mikrogeophagus ramirezi",
+  "enNames": [
+    "Electric blue ram",
+    "Electric blue ram cichlid",
+    "Electric blue German ram"
+  ],
+  "viNames": [
+    {
+      "name": "Cá Phượng Hoàng Lam",
+      "source": 3
+    },
+    {
+      "name": "Phượng Hoàng Lam",
+      "source": 7
+    },
+    {
+      "name": "Cá Phượng Hoàng Lam",
+      "source": 4
+    },
+    {
+      "name": "Cá Phượng Hoàng Ngũ Sắc Lùn (balloon form)",
+      "source": 6
+    }
+  ],
+  "parents": [],
+  "origin": [
+    {
+      "fact": "It is a colour morph of the ram cichlid, Mikrogeophagus ramirezi, and was developed in 2009. The developer is not named.",
+      "source": 0
+    },
+    {
+      "fact": "It became widely known around 2009. It arose from selective breeding plus a chance mutation.",
+      "source": 1
+    },
+    {
+      "fact": "Farmed blue rams come mainly from Eastern Europe and Southeast Asia.",
+      "source": 1
+    },
+    {
+      "fact": "Wild rams come from the llanos of the Orinoco basin in Venezuela and Colombia.",
+      "source": 2
+    }
+  ],
+  "looks": [
+    {
+      "fact": "The whole body is a bright metallic blue and the eyes are red.",
+      "source": 8
+    },
+    {
+      "fact": "The scales are electric blue with black and yellow-orange spots. The dorsal and tail fins are often yellow-orange.",
+      "source": 3
+    },
+    {
+      "fact": "Males have a slightly longer dorsal fin, but sexing is very hard.",
+      "source": 0
+    }
+  ],
+  "lines": [
+    {
+      "fact": "Balloon electric blue ram: a short, rounded body form.",
+      "source": 8
+    },
+    {
+      "fact": "In Vietnam the balloon form is sold as Phượng Hoàng Ngũ Sắc Lùn.",
+      "source": 6
+    },
+    {
+      "fact": "Longfin balloon electric blue ram: the balloon body with long fins.",
+      "source": 9
+    },
+    {
+      "fact": "Powder blue ram: reportedly made by crossing electric blue with gold rams and keeping the palest blue young. It is doubtful whether it breeds true.",
+      "source": 5
+    }
+  ],
+  "care": [
+    {
+      "field": "tempC",
+      "min": 22,
+      "max": 30,
+      "source": 1
+    },
+    {
+      "field": "tempC",
+      "min": 25.5,
+      "max": 29.5,
+      "source": 0
+    },
+    {
+      "field": "tempC",
+      "min": 26,
+      "max": 29,
+      "source": 3
+    },
+    {
+      "field": "ph",
+      "min": 5,
+      "max": 7.2,
+      "source": 1
+    },
+    {
+      "field": "ph",
+      "min": 5,
+      "max": 6,
+      "source": 0
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.5,
+      "source": 3
+    },
+    {
+      "field": "gh",
+      "min": 0,
+      "max": 8,
+      "source": 1
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 12,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 5,
+      "max": 8,
+      "source": 3
+    },
+    {
+      "field": "sizeCm",
+      "min": 4,
+      "max": 6,
+      "source": 10
+    },
+    {
+      "field": "tankCm",
+      "min": 60,
+      "max": 75,
+      "source": 1
+    }
+  ],
+  "keeping": [
+    {
+      "fact": "Allow about 75 L (20 US gal) for one pair and at least 150 L (40 US gal) for two pairs. Do not put them in a newly set-up tank.",
+      "source": 0
+    },
+    {
+      "fact": "They are sensitive to nitrate and organic waste. They need good filtration, gentle flow and regular water changes.",
+      "source": 0
+    },
+    {
+      "fact": "Give them dense plants, open swimming space, caves and flat stones.",
+      "source": 0
+    },
+    {
+      "fact": "They eat both meaty and plant foods. Newly moved fish may refuse food, and mosquito larvae can tempt them to eat.",
+      "source": 0
+    },
+    {
+      "fact": "Avoid fast, aggressive tankmates and other dwarf cichlids. Use slow, peaceful companions.",
+      "source": 0
+    },
+    {
+      "fact": "Pencilfish and tetras are suggested tankmates. Keep them away from other cichlids.",
+      "source": 1
+    },
+    {
+      "fact": "Change 20-30% of the water weekly. Feed 2-3 times a day.",
+      "source": 3
+    }
+  ],
+  "breeding": [
+    {
+      "fact": "They form monogamous pairs, and both parents guard the eggs and fry. Buying a group of juveniles is the cheapest way to get a pair.",
+      "source": 0
+    },
+    {
+      "fact": "They spawn on flat stones. Eggs hatch in about 40 hours, and the fry swim freely at about 5 days.",
+      "source": 0
+    },
+    {
+      "fact": "Colour morphs are less fertile and worse at brood care than wild-type rams. Young pairs often eat their eggs.",
+      "source": 0
+    },
+    {
+      "fact": "Two blue rams usually breed true.",
+      "source": 1
+    },
+    {
+      "fact": "One forum poster says the electric blue gene is incompletely dominant. Crossing it with gold gives young with only a slight blue tint.",
+      "source": 5
+    },
+    {
+      "fact": "One breeder crossed electric blue with gold and got mixed-colour young.",
+      "source": 11
+    }
+  ],
+  "health": [
+    {
+      "fact": "Reports suggest blue and other exaggerated morphs catch disease more easily than normal rams, and whitespot is a particular weakness. Keep a whitespot treatment on hand.",
+      "source": 1
+    },
+    {
+      "fact": "Fish given hormones are weaker and live shorter lives.",
+      "source": 0
+    },
+    {
+      "fact": "Common problems are fungus, whitespot, fin rot and skin flukes. Quarantine new fish for 1-2 weeks.",
+      "source": 3
+    }
+  ],
+  "buying": [
+    {
+      "fact": "Buy from a trusted dealer or breeder. Avoid fish that are unusually cheap, since they may have been given hormones.",
+      "source": 0
+    },
+    {
+      "fact": "Pick fish with bright colour that swim actively and show no signs of disease. Check that the shop's water is clean.",
+      "source": 3
+    },
+    {
+      "fact": "Vietnamese prices quoted: juveniles 30,000-50,000 VND, pairs 200,000-300,000 VND.",
+      "source": 3
+    },
+    {
+      "fact": "One Vietnamese shop listed them at 100,000 VND.",
+      "source": 4
+    }
+  ],
+  "controversy": [
+    {
+      "fact": "Practical Fishkeeping says some fish are given hormones to boost their colour. The colour can fade later, leaving a weaker fish.",
+      "source": 1
+    },
+    {
+      "fact": "Practical Fishkeeping says these demanding fish are often sold to beginners who keep them in tanks that are too small or not yet established.",
+      "source": 1
+    },
+    {
+      "fact": "TFH warns that cheap, hormone-treated fish are weakened and short-lived.",
+      "source": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://tfhmagazine.com/articles/freshwater/electric-blue-ram-full-article",
+      "title": "Electric Blue Ram - TFH Magazine",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/electric-blues/",
+      "title": "Electric blues - Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ram_cichlid",
+      "title": "Ram cichlid - Wikipedia",
+      "kind": "article"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-phuong-hoang-lam/",
+      "title": "Cá Phượng Hoàng Lam: Cẩm nang chi tiết - SG AQUA",
+      "kind": "shop"
+    },
+    {
+      "url": "https://tepmauquan3.com/ca-phuong-hoang-lam-electric-blue-ram-cichlid",
+      "title": "Cá Phượng Hoàng Lam - Tép Màu Quận 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.apistogramma.com/forum/threads/ramirezi.11955/",
+      "title": "Ramirezi thread - apistogramma.com forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://cacanhthienduc.com/ca-phuong-hoang-ngu-sac-lun-electric-blue-ram-balloon",
+      "title": "Cá Phượng Hoàng Ngũ Sắc Lùn - Electric Blue Ram Balloon - Thiên Đức",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/phuong-hoang-lam-short-sz-to/",
+      "title": "Phượng Hoàng Lam - Mayaqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.thatpetplace.com/Mikrogeophagus-ramirezi-blue-ram-289196",
+      "title": "Electric Blue Balloon Ram - That Pet Place",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquaticsunlimited.com/?p=25697",
+      "title": "Cichlid - Ram Balloon Longfin Electric Blue - Aquatics Unlimited",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumfishparadise.com.au/electric-blue-ram/",
+      "title": "Electric Blue Ram - Aquarium Fish Paradise",
+      "kind": "shop"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/5196-selective-breeding-for-new-colorations-what-have-you-worked-on/",
+      "title": "Selective breeding for new colorations - Aquarium Co-Op forum",
+      "kind": "forum"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "electric-blue-acara",
+  "kind": "variety",
+  "basedOn": "andinoacara-pulcher",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 2,
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 2,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 5,
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 2,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 12.5,
+          "max": 15
+        }
+      },
+      {
+        "source": 6,
+        "value": 12.7
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/The_Electric_Blue_Acara_%28Andinoacara_pulcher%2C_electric_blue_morph%29.jpg/1280px-The_Electric_Blue_Acara_%28Andinoacara_pulcher%2C_electric_blue_morph%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/The_Electric_Blue_Acara_%28Andinoacara_pulcher%2C_electric_blue_morph%29.jpg/500px-The_Electric_Blue_Acara_%28Andinoacara_pulcher%2C_electric_blue_morph%29.jpg",
+      "width": 1280,
+      "height": 1269,
+      "licence": "CC BY 4.0",
+      "author": "Shamekh.yasser",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Electric_Blue_Acara_(Andinoacara_pulcher,_electric_blue_morph).jpg",
+      "caption": "Cá Phượng Hoàng xanh điện bơi trong bể tối, thân ánh xanh lam"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/andinoacara-pulcher-formerly-aequidens-pulcher/",
+      "title": "Andinoacara pulcher (formerly Aequidens pulcher) – Aquarium Glaser",
+      "kind": "breeder",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.qualitymarine.com/news/the-electric-blue-acara-aequidens-pulcher/",
+      "title": "The Electric Blue Acara (Aequidens pulcher) – Quality Marine",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/cac-dong-ca-tep-canh/ca-phuong-hoang-electric-blue-acara-cichlid/",
+      "title": "Cá Phượng Hoàng Blue Acara – Mayaqua",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://saigoncacanh.com/san-pham/ca-phuong-hoang-blue-acara-electric-blue-acara-andinoacara-pulcher/",
+      "title": "Cá phượng hoàng blue acara – Sài Gòn Cá Cảnh",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/goto/post?id=8316182",
+      "title": "Electric vs Regular blue acara – MonsterFishKeepers",
+      "kind": "forum",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.steenfottaquatics.com/blogs/news/electric-blue-acara-vs-blue-acara-a-comprehensive-guide-andinoacara-pulcher",
+      "title": "Electric Blue Acara vs. Blue Acara – Steenfott Aquatics",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://aquaticarts.com/products/electric-blue-acara-cichlid",
+      "title": "Electric Blue Acara Cichlid – Aquatic Arts",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Category:Aequidens_pulcher",
+      "title": "Category:Aequidens pulcher – Wikimedia Commons",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Blue_acara",
+      "title": "Blue acara – Wikipedia",
+      "kind": "article",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

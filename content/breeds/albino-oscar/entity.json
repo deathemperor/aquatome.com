@@ -1,0 +1,149 @@
+{
+  "id": "albino-oscar",
+  "kind": "variety",
+  "basedOn": "astronotus-ocellatus",
+  "parents": [],
+  "care": {
+    "tempC": [
+      {
+        "source": 1,
+        "value": {
+          "min": 25,
+          "max": 27
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 27,
+          "max": 30
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": 1,
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": 1,
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": 0,
+        "value": {
+          "min": 30,
+          "max": 61
+        }
+      },
+      {
+        "source": 3,
+        "value": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 25,
+          "max": 35
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": 4,
+        "value": 120
+      }
+    ]
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Albino_Oscar-3-sea_park_exhibition-salem-India.jpg/1280px-Albino_Oscar-3-sea_park_exhibition-salem-India.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Albino_Oscar-3-sea_park_exhibition-salem-India.jpg/500px-Albino_Oscar-3-sea_park_exhibition-salem-India.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albino_Oscar-3-sea_park_exhibition-salem-India.jpg",
+      "caption": "Cá tai tượng albino trắng đốm cam bơi trong bể kính nền xanh"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/albino-oscar/",
+      "title": "Albino oscar (Astronotus ocellatus) – Aquariadise",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://oscarfishlover.com/albino-oscar-fish/",
+      "title": "Albino Oscar Fish: Care, Colors & Genetics",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Oscar_(fish)",
+      "title": "Oscar (fish) – Wikipedia",
+      "kind": "other",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://sgaqua.vn/ca-tai-tuong-albino/",
+      "title": "Hướng Dẫn Nuôi Cá Tai Tượng Albino – SG AQUA",
+      "kind": "shop",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://dongngu.com/ca-tai-tuong-chau-phi-tiger-oscar-fish/",
+      "title": "Cá tai tượng châu Phi / Cá heo lửa (Oscar Fish) – Đông Ngư",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://trunghao.com/ca-tai-tuong-albino/",
+      "title": "Cá Tai Tượng Albino – Trung Hào",
+      "kind": "article",
+      "at": "2026-10-30"
+    },
+    {
+      "url": "https://warehouse-aquatics.co.uk/products/albino-red-tiger-oscar-astronotus-ocellatus",
+      "title": "Albino Red Tiger Oscar – Warehouse Aquatics",
+      "kind": "shop",
+      "at": "2026-10-30"
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
