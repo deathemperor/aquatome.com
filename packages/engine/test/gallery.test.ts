@@ -123,3 +123,33 @@ test('gallery: the page\'s photo is recognised after it moved to our bucket (sam
   const report = await galleries(r, deps(), { limit: 5 })
   expect(report.done).toEqual(['betta-splendens: 1 of 2'])
 })
+
+const jim = (id: string) => ({ url: `https://media.aquatome.com/facebook-jim/${id}.webp`, width: 1200, height: 800, licence: 'dùng với sự cho phép', author: 'Jim Cumming', sourceUrl: `https://www.facebook.com/photo/?fbid=${id}`, source: 'facebook-jim' })
+const okDeps = () => deps({ faces: async f => f.map(() => 0), look: async () => ({ keep: [{ n: 1, caption: 'x' }], best: [] }) })
+
+test('gallery: a file holding only photos a source added (today) is still built, and keeps them after the screened photos', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: [jim('1')], seen: 0, updatedAt: '2026-10-30' }))
+  expect((await galleries(r, okDeps(), { limit: 5 })).done).toEqual(['betta-splendens: 1 of 2'])
+  const g = JSON.parse(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8'))
+  expect(g.photos.map((p: { url: string }) => p.url)).toEqual(['https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/A.jpg/1280px-A.jpg', jim('1').url])
+  expect(g.builtAt).toBe('2026-10-30')
+})
+
+test('gallery: a rebuild (--only) keeps source photos, except ones the owner rejected', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: [jim('1'), jim('2')], seen: 3, updatedAt: '2026-10-29', builtAt: '2026-10-29' }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [jim('2').url]: 'not this species' }))
+  await galleries(r, okDeps(), { limit: 5, only: 'betta-splendens' })
+  const g = JSON.parse(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8'))
+  expect(g.photos.filter((p: { source?: string }) => p.source).map((p: { url: string }) => p.url)).toEqual([jim('1').url])
+})
+
+test('gallery: freshness counts the last build (builtAt), not updatedAt: built 10 days ago is skipped', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: [jim('1')], seen: 3, updatedAt: '2026-04-01', builtAt: '2026-10-20' }))
+  expect((await galleries(r, okDeps(), { limit: 5 })).done).toEqual([])
+})
