@@ -3,6 +3,7 @@ export function licenceUrl(licence: string): string | undefined {
   const l = licence.toLowerCase()
   if (/cc0/.test(l)) return 'https://creativecommons.org/publicdomain/zero/1.0/'
   if (/public domain/.test(l)) return 'https://creativecommons.org/publicdomain/mark/1.0/'
+  if (/unsplash/.test(l)) return 'https://unsplash.com/license'
   const v = l.match(/\d\.\d/)?.[0] ?? '4.0'
   if (/by[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-sa/${v}/`
   if (/\bby\b/.test(l)) return `https://creativecommons.org/licenses/by/${v}/`
