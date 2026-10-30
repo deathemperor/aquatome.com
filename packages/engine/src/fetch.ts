@@ -19,6 +19,11 @@ export class ChromeFetcher {
     this.page = this.ctx.pages()[0] ?? (await this.ctx.newPage())
   }
 
+  /** The open page, for drivers that need more than get/links (Facebook's scrolling feed). */
+  get current(): Page {
+    return this.need()
+  }
+
   private need(): Page {
     if (!this.page) throw new Error('ChromeFetcher.open() not called')
     return this.page

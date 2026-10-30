@@ -18,7 +18,11 @@ import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
 import { SOURCES } from './sources'
-import { loadState } from './state'
+import { loadState, setSourceBlock, sourceBlockedSince } from './state'
+import { collect } from './facebook/collect'
+import { chromeFb } from './facebook/chrome'
+import { FB } from './facebook/config'
+import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } from './facebook/identify'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { extractTraits } from './traits'
@@ -56,7 +60,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' } } })
 
 /** Photo fetching and screening for galleries and breed pages. */
 const galleryDeps = (): GalleryDeps => ({
@@ -258,6 +262,37 @@ if (cmd === 'run') {
   }, galleryDeps(), { limit: values.limit ? Number(values.limit) : 6 })
   console.log(`unsplash: ${r.done.length} galleries, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'facebook') {
+  // Jim Cumming's Facebook, through the spare account logged into the engine's Chrome profile: new posts and albums, their
+  // full-size originals (media bucket, facebook/), then species photos for galleries (high confidence only).
+  // pnpm engine facebook [--limit <model calls, 60>] [--max-minutes M] [--retry-blocked] [--backfill]
+  // --backfill (by hand, first time and until it reports no warnings): scroll the whole timeline and every album, bigger budgets.
+  const blockedAt = await sourceBlockedSince(ROOT, FB.id)
+  if (values['retry-blocked']) await setSourceBlock(ROOT, FB.id, undefined)
+  if (blockedAt && !values['retry-blocked']) {
+    console.log(`facebook: blocked since ${blockedAt}: log into the spare account in ~/.cache/thuysinh/chrome-profile, then run pnpm engine facebook --retry-blocked`)
+  } else {
+    const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile') })
+    await fetcher.open()
+    try {
+      const m = media()
+      const r = await collect(ROOT, chromeFb(fetcher), { putRaw: m.putRaw, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : values.backfill ? 600 : 45, maxPhotos: values.backfill ? 3000 : 150, maxScrolls: values.backfill ? 2000 : 30, backfill: values.backfill })
+      console.log(`facebook: ${r.newPosts} new posts, ${r.newAlbums} new albums, ${r.stored} photos stored, ${r.failed.length} failed`)
+      for (const f of r.failed) console.log(`failed: ${f}`)
+      for (const w of r.warnings) console.log(`warning: ${w}`)
+      if (r.blocked) console.log(`facebook: ${r.blocked} wall — log into the spare account in ~/.cache/thuysinh/chrome-profile, then run pnpm engine facebook --retry-blocked`)
+    } finally {
+      await fetcher.close()
+    }
+  }
+  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const id = await identifyPhotos(ROOT, {
+    get, faces: visionFaces, media: media(), now: () => new Date(),
+    sheet: (file, prompt) => claudeVision<{ fish: number[] }>({ system: 'You sort photos for a fish photo gallery. Reply only with JSON.', prompt, schema: FB_FISH_SCHEMA, file }),
+    look: (file, prompt) => claudeVision<FbVerdict>({ system: 'You identify aquarium fish in photos. Reply only with JSON.', prompt, schema: FB_SPECIES_SCHEMA, file, model: process.env.FB_ID_MODEL ?? 'opus' }),
+  }, { limit: values.limit ? Number(values.limit) : 60 })
+  console.log(`facebook photos: ${id.added.length} added to galleries, ${id.dropped} dropped${id.stopped ? ` (stopped: ${id.stopped})` : ''}`)
+  for (const a of id.added) console.log(`added: ${a}`)
 } else if (cmd === 'breed') {
   // A page for a man-made fish (hybrid, line, colour form), from web research: pnpm engine breed "<English name>" [--kind hybrid|variety|transgenic] [--based-on <species id>] [--redo]
   // --redo: rewrite the page from the research already kept (engine-state/breeds), no new searching.
@@ -308,6 +343,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine unsplash [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }

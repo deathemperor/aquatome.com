@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'youtube'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'youtube'] as const
 export const LANGS = ['vi'] as const
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -86,7 +86,8 @@ export const EquipmentSchema = z.object({
  * Many photos of one species (content/gallery/<species id>.json): open-licence photos from Wikimedia Commons and
  * iNaturalist, screened (a living fish, clearly shown, no people), best first, each with a short Vietnamese caption.
  */
-export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string() })
+/** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
+export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
 const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)

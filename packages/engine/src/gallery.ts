@@ -157,8 +157,10 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
   for (const id of ids) {
     if (report.done.length + report.failed.length >= o.limit) break
     const file = join(content, 'gallery', `${id}.json`)
-    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { updatedAt: string; photos: Photo[] } | null
-    if (prev && !o.only && (d.now().getTime() - Date.parse(prev.updatedAt)) / 86_400_000 < (o.maxAgeDays ?? 180)) continue
+    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { photos: Photo[]; updatedAt: string; builtAt?: string } | null
+    // Built when: `builtAt`, else (files from before it) `updatedAt`, unless the file only holds photos a source added.
+    const built = prev && (prev.builtAt ?? (prev.photos.length && prev.photos.every(p => p.source) ? undefined : prev.updatedAt))
+    if (built && !o.only && (d.now().getTime() - Date.parse(built)) / 86_400_000 < (o.maxAgeDays ?? 180)) continue
     const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8')) as { scientificName: string; photos: Photo[] }
     const vi = JSON.parse(await readFile(join(content, 'species', id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
     try {
@@ -166,11 +168,13 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
       const seen = new Set(e.photos.flatMap(p => [p.url, p.sourceUrl]))
       const cands = [...await commonsCandidates(e.scientificName, d.http), ...await inatCandidates(e.scientificName, d.http, d.sleep)]
         .filter(c => !rejected[c.url] && !seen.has(c.url) && !seen.has(c.sourceUrl) && !seen.has(c.key) && (seen.add(c.key), true))
-      // Unsplash photos come from their own step (unsplash.ts) and stay through a rebuild.
-      const photos = [...(await screen(cands.slice(0, Math.round((o.max ?? 300) * 1.5)), e.scientificName, vi.name ?? e.scientificName, d)).slice(0, o.max ?? 300), ...(prev?.photos ?? []).filter(p => p.licence === 'Unsplash License')]
+      const screened = (await screen(cands.slice(0, Math.round((o.max ?? 300) * 1.5)), e.scientificName, vi.name ?? e.scientificName, d)).slice(0, o.max ?? 300)
+      // Photos from their own steps stay, after the open-licence ones: Unsplash (unsplash.ts) and those a source added with
+      // permission (Jim Cumming's Facebook), unless the owner rejected them.
+      const kept = (prev?.photos ?? []).filter(p => (p.source || p.licence === 'Unsplash License') && !rejected[p.url] && !screened.some(x => x.url === p.url))
       await mkdir(join(content, 'gallery'), { recursive: true })
-      await writeFile(file, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: cands.length, updatedAt: today }), null, 2)}\n`)
-      report.done.push(`${id}: ${photos.length} of ${cands.length}`)
+      await writeFile(file, `${JSON.stringify(GallerySchema.parse({ id, photos: [...screened, ...kept], seen: cands.length, updatedAt: today, builtAt: today }), null, 2)}\n`)
+      report.done.push(`${id}: ${screened.length} of ${cands.length}`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message}`; break }
       report.failed.push(`${id}: ${(err as Error).message}`)

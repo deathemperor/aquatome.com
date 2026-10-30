@@ -18,7 +18,7 @@ export type Content = {
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
   equipment: EquipmentGuide[]
-  /** Photo galleries by species id (content/gallery), open licences only. */
+  /** Photo galleries by species id (content/gallery): open licences, or a source's permission. */
   galleries: Record<string, Photo[]>
   /** Products with a page in this language, with their prices in the language's market when known. */
   products: (Localized<ProductEntity> & { market?: Market })[]
