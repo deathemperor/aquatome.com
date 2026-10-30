@@ -1,0 +1,423 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus",
+    "Betta splendens",
+    "Poecilia reticulata",
+    "Paracentrotus? "
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "The swim bladder is a gas-filled sac that keeps a fish neutrally buoyant. Without it the fish would sink, because its body is denser than water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Cyprinids such as goldfish, koi, barbs and rasboras have a two-chambered swim bladder joined by a narrow duct. Most other fish have one chamber.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Swim bladder disorder is a sign with many possible causes, not one disease, so there is no single treatment.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Goldfish are physostomous: a duct links the oesophagus to the swim bladder. Sources link this to how diet and air-gulping can affect buoyancy.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Japanese researchers call the capsizing syndrome of goldfish 'tenpuku disease'. Many cases have no identified cause.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The condition may be temporary or permanent.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Typical signs are floating at the surface or sinking to the bottom, often starting suddenly. The fish may also swim head-down or tilt to one side.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "An over-inflated bladder makes the fish rise and float on its side or upside-down. Skin above the water can dry out, ulcerate or become infected.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "An under-inflated, collapsed or ruptured bladder, or one with fluid inside, makes the fish sink. Its belly can then get scraped on the substrate.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Affected goldfish usually stay alert and keep eating. Tankmates are often unaffected.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Usually only one fish in a tank is affected.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Outward signs rarely show the underlying cause.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Look-alikes: some infections, ammonia toxicity, and insecticide or pesticide contamination damage the nervous system and cause uncoordinated swimming that resembles a swim bladder problem.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrate poisoning in goldfish causes disorientation, erratic swimming and a C-shaped body. Goldfish tolerate about 20 ppm nitrate before showing signs.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite toxicity signs can appear at about 0.75 ppm. The safest level for both ammonia and nitrite is 0 ppm.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "If a swollen belly comes with raised scales and the fish stops eating, a bacterial infection is more likely.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "A fish lying belly-up is not necessarily dead. If it is still breathing, a swim bladder disorder is likely.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "An X-ray by a vet is the most reliable diagnostic test. The gas-filled bladder shows as a dark area, revealing its size, position, collapse or fluid content.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Gas building up in the gut, from a gut infection or digestive problem, can make a fish float.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Diet, feeding behaviour and constipation may contribute, especially in goldfish and other cyprinids. The evidence for this is circumstantial.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Surface feeding and gulping air may let gas build up and make the fish float.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Some experts suspect floating pellets or flakes worsen or trigger the problem in round-bodied fancy goldfish. Water temperature also appears to be linked.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Bacterial infections (for example mycobacteria, linked to fluid build-up), viral infections and some fungus-like infections can affect the swim bladder.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Swim bladder infection is usually part of a larger, whole-body (systemic) infection.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Internal tumours or a nearby diseased organ can compress or displace the swim bladder. Tumours are untreatable and usually fatal.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Genetic or developmental defects and abnormal body shapes make fish more prone. Examples are inbred convict cichlids, blood parrot cichlids and fancy goldfish.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Sudden temperature changes can cause buoyancy problems, for example adding very cold water to a tropical tank.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Physical injury, common in territorial fish such as cichlids, and heavy loads of parasitic worms in the gut are further causes.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes reported by keepers: fatty liver, kidney cysts, egg-bound females, and a damaged or blocked duct between gut and swim bladder.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Very pregnant livebearers such as mollies and guppies, and overweight fish, can also swim abnormally.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Low oxygen is more likely in warm water, in tanks without aeration, or in fish with gill disease, and it impairs swimming.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "High nitrogenous waste or a rapid temperature drop (reported in pond fish) have been linked to the problem, but the evidence is mostly anecdotal.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Always test the water (ammonia, nitrite, nitrate) and fix any problems, whether or not they seem to be the cause.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If ammonia or nitrite is high, do frequent partial water changes. In severe cases the page suggests 30% to 50% every 4 hours, plus siphoning waste from the substrate.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the problem looks like shock, turn the lights off so the fish can rest. Recovery often takes a few hours.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Move the sick fish to a separate tank with clean, well-aerated water.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "For a fish lying on the bottom, lower the water to about half. For a floating fish, reduce the filter current and add floating plants to support it.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Keep the water only a few inches above the fish so it is not left exposed to air.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For floating goldfish or other cyprinids, try a few days without food or feed crushed cooked peas to clear the gut. The source calls this harmless and worth trying.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Keepers' protocol: fast for 2–3 days, then feed a cooked, peeled, mashed pea.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "If the belly is swollen and the fish refuses food, fast for 1–2 days, then resume feeding.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "If the water is below 22°C, raise the temperature a little.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "If it does not improve, keepers raise the temperature to 78–80°F and add salt at 8 teaspoons per 5 gallons.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "In a hospital tank filled with water from the main tank, the heater can be set up to 9°F above the main tank. Some species cannot take warm water or the lower oxygen that comes with it, so keep within the species' tolerance.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Peas suit omnivorous fish only and should not be fed to bettas. For bettas, use live foods with a chitin shell instead, such as water bugs, daphnia (bo bo) or artemia.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "If fasting and peas fail, see a vet for X-rays and possibly antibiotics if a bacterial infection is suspected.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For bacterial infection: treat in a separate tank, because the drugs can harm the main tank's beneficial bacteria. KanaPlex or Maracyn 2 are used at the maker's dose.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Antibiotics work better mixed into food than added to the water. Adding them straight to the water has little effect.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Home-made medicated food: 5 g gelatin, 60 g hot water, 30 g dry food and about 0.5 g antibiotic. Feed at least 2 times a day for 10 days, keep it in the fridge and use it for 10 days only.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Also bathe the fish at least once a day in methylene blue and salt to prevent outside infections.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Standard antibiotics may work for bacterial swim bladder infection, but results are uncertain. Small fish often need euthanasia, while larger fish can recover.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Viral infections are virtually impossible to treat.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Treat parasitic gut worms with an antihelminthic (dewormer) medication.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "A vet can vent excess gas from an over-inflated bladder with a needle, but the effect is often only temporary.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Surgical weights or external floats can correct buoyancy, but they do not treat the cause.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "In goldfish, medical and surgical treatments often give poor results. Vets tested a Floy anchor tag with a small cork float placed in the back muscle under anaesthesia. The first fabric tag was expelled within five days.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt and antibiotics can harm the tank's beneficial bacteria, so watch water quality closely, especially when the water level is lowered.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Where a body part sticks out of the water, keepers apply a thin layer of Vaseline.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Many cases do not improve. Euthanasia may be the kindest option, and deformed fry cannot be treated.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "1) Test the water and fix ammonia, nitrite or nitrate problems. 2) Move the fish to a hospital tank. 3) Fast for 2–3 days, then feed peas (omnivores only). 4) Raise the temperature gently. 5) If there is no improvement after a few days, consider antibiotics or a vet.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed sinking food, or soak pellets until they sink, so fish swallow less air. Keep goldfish water above about 70°F.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep nitrate below 20 ppm.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what the fish eat in about 3 minutes, vary the diet (dry, live foods and greens) and skip feeding one day a week.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 10–15% of the water each week and siphon the substrate about every 2 weeks. Avoid sudden temperature changes and overcrowding.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Give fancy fish a fibre-rich diet, quarantine new fish to prevent parasitic worms, avoid aggressive tankmates and breed carefully.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed small meals once or twice a day, only as much as the fish eat in 3 to 5 minutes. Cycle the tank and keep good biological filtration.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes: overfeeding or low-quality food, changing too much water at once, letting the temperature swing quickly, feeding peas to bettas, and putting antibiotics in the main tank.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Weights or floats only fix buoyancy and leave the cause untreated.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, one keeper uses metronidazole and prefers Megyna (metronidazole plus chloramphenicol) at 1 tablet per 10 litres in purified water. US products such as Medigold and Metromed are not available.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Above 76°F (≈24°C), increase aeration. This matters in Vietnam's warm climate, where warm water holds less oxygen.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers try roasted sesame seeds as a substitute for peas, which they find harder to get. Soaked seeds go mouldy within about a day, so remove leftovers at once. This is personal experience, not tested.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese sources disagree on peas for bettas. Aquasetup says peas can make bettas worse, while some other Vietnamese sites recommend them.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: every fish that floats or swims erratically has a swim bladder problem. Practical Fishkeeping says infections, toxins and gut gas cause the same signs.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: fasting or peas are a proven cure. Practical Fishkeeping says they are widely claimed and worth trying, but not guaranteed.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "If the fish does not respond after several weeks of treatment, the condition is likely permanent.",
+      "source": 6
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-answers/what-causes-swim-bladder-disease/",
+      "title": "What causes swim bladder disease? – Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.vin.com/doc/?id=3865101",
+      "title": "Development of a Minimally Invasive Technique to Stabilize Buoyancy-Challenged Goldfish (Carassius auratus) – VIN",
+      "kind": "vet"
+    },
+    {
+      "url": "https://thevetdesk.com/pet-health-wellness/goldfish/why-is-my-goldfish-swimming-upside-down",
+      "title": "Why is my goldfish swimming upside down (vet-reviewed, Dr. Lauren Demos DVM)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/health-and-wellness/identifying-and-treating-swim-bladder-disease",
+      "title": "Identifying and Treating Swim Bladder Disease – Chewy",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/ca-canh-bi-boi-nghieng-chui-dau-xoay-vong-ngua-bung-nguyen-nhan-va-cach-chua-tri/",
+      "title": "Cá cảnh bị bơi nghiêng, chúi đầu, xoay vòng, ngửa bụng – aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/benh-bong-bong-sinh-ly-benh-nguyen-nhan-va-dieu-tri.159331/",
+      "title": "Bệnh Bong bóng – Sinh lý bệnh, nguyên nhân và điều trị – Diễn đàn cá cảnh",
+      "kind": "forum"
+    },
+    {
+      "url": "https://fitzfishponds.com/blog/fish-disease-spotlight-swim-bladder-disorder/",
+      "title": "Fish Disease Spotlight: Swim Bladder Disorder – Fitz Fish Ponds",
+      "kind": "article"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "found": true,
+  "species": [
+    "Poecilia reticulata"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/fish-acclimation",
+      "title": "How to acclimate new aquarium fish – Aquarium Co-Op",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.thatpetplace.com/articles/aquarium-fish-acclimation-procedures",
+      "title": "Aquarium Fish Acclimation Procedures – That Fish Place/That Pet Place",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-acclimate-fish",
+      "title": "How To Acclimate Fish the Right Way – Chewy (Hilary Jaffe, marine biologist)",
+      "kind": "article"
+    },
+    {
+      "url": "https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/",
+      "title": "Cách Thả Cá Mới Mua Vào Bể: Hướng Dẫn Toàn Tập Cho Người Mới Bắt Đầu – Cá Bảy Màu",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquaticarts.com/pages/acclimation-information",
+      "title": "Acclimation Guides & Information – Aquatic Arts",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.seachem.com/prime.php",
+      "title": "Seachem Prime – product page",
+      "kind": "maker"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Acclimation lets new fish adjust slowly to the tank's temperature and water chemistry. A sudden change in water conditions can be more dangerous than staying slightly longer in poor water.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Fish breathe out CO2 inside a sealed bag, which lowers the pH. At that lower pH, waste ammonia stays mostly in the less toxic ammonium form.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Opening the bag lets CO2 escape, so the pH rises fast and the ammonia turns toxic. This can burn the fish's gills.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia occurs as NH3, which is highly toxic, and NH4+, which is fairly harmless for a short time. Which form dominates depends on pH and temperature.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "The longer fish stay in the bag, the lower the oxygen and the higher the waste build-up.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Floating method, step 1: turn off the aquarium lights.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Floating method, step 2: float the sealed bag in the tank for about 15–20 minutes to match the temperature.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Floating method, step 3: add an ammonia-detoxifying water conditioner to the bag.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Floating method, step 4: every few minutes, add small amounts of tank water to the bag until the volume roughly doubles.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Floating method, step 5: move the fish with a net or small container, then throw away the bag and its water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Catch-cup method: pour the fish with some bag water into a cup and add tank water to double the volume. Wait 15 minutes and double it again, then wait 10 minutes and double it once more. Net the fish into the tank.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Cup method for hardy freshwater fish: empty the bag into a clean container and add 1/2 cup of tank water every five minutes until the volume is about three times the start. Move the fish with a soft net.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Drip method: siphon tank water through airline tubing at about 2–4 drops per second until the volume doubles, which usually takes 30–60 minutes.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Shrimp drip method: drip about 1 drop per second until the container is about 1/3 shipping water and 2/3 tank water, which takes 1–2 hours. Add a detoxifier such as Seachem Prime to the container.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "'Plop and drop' for shipped animals: float the sealed bag 10–15 minutes, cut it, pour it through a net over a bucket, and put the animals in the tank without the shipping water.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "For shipped fish in a breather bag, set the bag on the aquarium lid for 30–60 minutes instead of floating it. Sealed bags should float 10–15 minutes.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Vietnamese guide: float the sealed bag 15–20 minutes, then drip tank water in at 2–3 drops per second until the volume doubles (30–60 minutes). Catch the fish with a clean net.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Suggested acclimation times: most freshwater fish 15–30 minutes by floating; sensitive freshwater fish 15–30 minutes by moderate drip; shrimp and invertebrates 1–2 hours by slow drip.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime removes chlorine and chloramine and binds ammonia, nitrite and nitrate for up to 48 hours. Dose: 5 mL (1 capful) per 200 L of new water. In emergencies, up to 5 times the dose.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says to use a half dose of Prime in water above 30 °C when chlorine or ammonia is low.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Once a shipping bag is open, get the fish out of the shipping water quickly, or use an ammonia-detoxifying conditioner during acclimation.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If fish are frantic during acclimation, dim the room or cover the container with a towel.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new animals in a separate tank before adding them to an established aquarium, so parasites and disease don't get in.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Vietnamese guide: only add fish once ammonia and nitrite are 0 ppm. Add 2–3 fish at a time, 1–2 weeks apart. A 20–40 L quarantine tank can be used to watch new fish for 1–2 weeks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "After adding new animals, keep the tank lights off and the room dim for at least the first 12 hours to cut stress and aggression from tank mates.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep aquarium lights off for the first 6–8 hours after adding new animals.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Hold the fish's first feeding for 12–24 hours.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Vietnamese guide: don't feed for 24–48 hours after adding fish, then feed lightly.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a net that carries water for air-sensitive animals such as puffers, micro rasboras, mollusks and dwarf shrimp.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Never pour bag water into the tank. It carries ammonia from the trip.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Bag water may also carry waste, medications, parasites or pathogens.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Other common errors: putting fish straight into the tank without acclimating, rushing, leaving fish in bags too long, and ignoring differences in temperature, pH or hardness.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting the drip container overflow or leaving animals unattended (they may jump out) is a common error.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Vietnamese guide lists these mistakes: adding too many fish at once (the nitrogen cycle can crash), keeping bright lights on in the first days, feeding right after adding fish, and using a net with chemical residue.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese guide: transport bags should be about 1/3 oxygen. Get home within 1–2 hours and keep the bag out of direct sun.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "For guppies, the Vietnamese guide gives an ideal 24–28 °C, daily swings of no more than 2 °C, and pH 7.0–8.0.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Aquatic Arts says drip acclimation is mainly needed only for saltwater animals, dwarf shrimp and very sensitive fish. For most shipped fish it uses plop and drop.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Chewy recommends drip acclimation for marine fish, sensitive freshwater species, shrimp and most invertebrates.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Shrimp and invertebrates are sensitive to water chemistry, nitrate, pH and temperature, so they need the slowest acclimation.",
+      "source": 2
+    }
+  ]
+}

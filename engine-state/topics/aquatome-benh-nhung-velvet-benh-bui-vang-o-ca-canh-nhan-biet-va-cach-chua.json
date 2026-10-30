@@ -1,0 +1,500 @@
+{
+  "found": true,
+  "species": [
+    "Piscinoodinium pillulare",
+    "Betta splendens",
+    "Puntius gonionotus",
+    "Melanotaenia spp.",
+    "Denariusa bandata",
+    "Caridina spp."
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/faqs/what-is-velvet-or-gold-dust-disease",
+      "title": "What is velvet (or gold dust disease)? – Aquarium Co-op",
+      "kind": "maker"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Velvet_(fish_disease)",
+      "title": "Velvet (fish disease) – Wikipedia",
+      "kind": "other"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/disease_prevention_and_control/piscinoodiniasis.html",
+      "title": "Piscinoodiniasis – ANGFA Rainbowfish disease prevention and control",
+      "kind": "article"
+    },
+    {
+      "url": "http://www.fao.org/4/v9551e/V9551E07.htm",
+      "title": "FAO compendium of fish parasites – Piscinoodinium",
+      "kind": "paper"
+    },
+    {
+      "url": "https://bwaquatics.com/blogs/care-setup/velvet-disease-piscinoodinium-sp-in-wild-bettas",
+      "title": "Velvet disease (Piscinoodinium sp.) in wild bettas – BW Aquatics",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/dau-hieu-nhan-biet-ca-betta-bi-benh.html",
+      "title": "Dấu hiệu nhận biết cá betta bị bệnh – Mytour",
+      "kind": "article"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/cach-tri-va-phong-benh-nhung-velvet-o-ca-n133987.html",
+      "title": "Cách trị và phòng bệnh nhung (Velvet) ở cá – Thế Giới Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "https://bettavietnam.blogspot.com/2014/10/benh-nam-velvet-o-ca-betta.html",
+      "title": "Bệnh nấm velvet ở cá betta – Halfmoon Việt Nam",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Freshwater velvet is caused by the parasitic dinoflagellate Piscinoodinium pillulare. Older texts call it Oodinium.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Velvet is caused by Amyloodinium in marine fish and Oodinium in freshwater fish. It is also called gold-dust, rust or coral disease.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Velvet is highly contagious and can kill fish.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The parasite infects 14 species of tropical ornamental fish from many families, as well as carp and crucian carp.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "The gills are the main site of infection and damage. Heavy infections fuse the gill lamellae.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Advanced cases die of hypoxia caused by gill necrosis.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Very young and very old fish have high death rates from velvet.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "The life cycle has three stages: the trophont feeds on the fish, the tomont is a resting cyst on the bottom, and the dinospores swim free.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "A tomont rests on the tank floor and divides into as many as 256 tomites.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Free-swimming dinospores are the only stage that treatment can kill. Tomonts and trophonts resist chemicals.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Cysts resist chemical treatment, so several applications are usually needed. Free-swimming dinospores are the most vulnerable stage.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Dinospores contain chlorophyll, so they can survive without a host while light is available.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Tomonts can stay dormant in the substrate for weeks or months.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "At 23–25°C a trophont matures into a detached tomont in 3–4 days, and the tomont divides into dinospores in 50–70 hours.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "At 15–17°C, tomont division takes about 11 days.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "The full life cycle takes 10–14 days at 22–25°C and is slower at lower temperatures.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Trophonts take about 6 days to mature at 25°C before dropping off.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Under bright light, the fish looks covered in fine gold dust on the head, body and fins.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The infection often starts on the gills, so the fish can be very sick before any skin signs appear.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Flashing, meaning sudden rubbing against objects, is a common sign.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs include clamped fins, lethargy and a brown, gold or greenish dusting. Advanced cases show laboured breathing and refusal to eat.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Early infections show a light golden dusting in oblique light. Heavy infestations can look like dense white dusting.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fish crowd near the surface or filter outlets. With heavy gill infection they breathe fast with flared gill covers.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Skin may show extra mucus, scale loss, pinpoint bleeding and small ulcers.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Velvet can be confused with ich (white spot). Diagnosis uses skin or gill wet mounts that show sac-shaped trophonts of 80–100 µm.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Trophonts stain dark blue with Lugol's iodine, which helps identify them under a microscope.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Affected fish can look rust-coloured with a thick mucus coat.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Shining a flashlight on the fish in a dark room makes the yellow or rust film on the fins, body and gills easier to see.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Sick fish may stay near the surface gasping. Death is usually from suffocation, sometimes with secondary fungal or bacterial infection.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Velvet spreads through contaminated tanks, fish and tools such as nets. Rarely, frozen live foods carry dormant forms.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "The parasite is often already present in a tank and breaks out when the fish's immune system is weakened.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "A temperature drop of about 15°F within an hour, or water below about 73°F, can trigger an outbreak.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Wild bettas and blackwater fish are especially prone to velvet.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Dinospores may spread between tanks placed close together through aerosol droplets.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Dirty tanks, poor water quality, large temperature swings and rough handling raise the risk.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Change 30–50% of the water and test pH, temperature, chlorine, ammonia, nitrite and nitrate.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove activated carbon from the filter so it does not take the medication out of the water.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Isolate the sick fish in clean water, but treat both tanks because the disease spreads easily.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper sulphate: 0.15 ppm copper ion as a bath for up to 10 days, repeated if needed.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper sulphate dose (mg/L) = total alkalinity (mg/L) ÷ 100. Do not use it if alkalinity is below 50 mg/L.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Homemade chelated copper: mix 2 parts citric acid with 1 part copper sulphate by weight, and dose by the copper sulphate weight only.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Only use copper sulphate if you can test alkalinity, measure tank volume accurately and weigh the chemical. If unsure, do not use it.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper binds to the substrate and can leach back into the water, so levels need frequent testing.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "The Amyloodinium method of copper sulphate plus citric acid gives 0.15 ppm copper ion. FAO says such marine methods should work for Piscinoodinium with the dose adjusted.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "In freshwater below pH 7.0, copper above 0.3 ppm can kill fish such as Puntius gonionotus fry.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "BW Aquatics treats wild bettas with Mardel CopperSafe at about 5 ml per 5 gallons, which it calls roughly 1.5–2.0 ppm copper, at 84°F or above for 30 days.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper is more toxic in acidic water, so chelated copper is preferred there.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Heat: raising water to 33–34°C has been reported to control infestations.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Heat above 84°F shortens the life cycle. The author says there is no evidence that heat alone kills the parasite.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Raising the temperature speeds the life cycle, but it does not suit all fish and the stress can weaken their immunity.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For tropical tanks, raise the temperature gradually to 29°C over 24 hours to shorten the parasite's life cycle.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt bath: 30 g/L sodium chloride for 5–15 minutes, only for species that tolerate it.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Quinine hydrochloride at 30 mg/L, alone or with malachite green as the maker directs.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "In a lab study on swordtails, salinomycin in food at 60 or 90 ppm was fed daily for 16 or 19 days.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-op's anecdotal method uses plain sodium chloride (not marine salt) at 1 cup per 20 gallons, with the tank kept completely dark for 7 days.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt is believed to slow the parasite's reproduction in freshwater but cannot wipe out an outbreak on its own.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Drugs added to the water include copper sulfate, methylene blue, formalin, malachite green and acriflavine. Seven days of total darkness can help alongside them.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "UV-C only works with a good bulb of at least 36 W near 250 nm and slow flow. Small submersible units and bulbs near 280 nm do not work.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Velvet usually does not respond to broad-spectrum medications.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper toxicity: Caridina shrimp are harmed at about 2 µg Cu/L, and 42 µg Cu/L is acutely toxic to Denariusa bandata.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Half of tested Melanotaenia and Ambassis died at 120–200 µg Cu/L, and half of Macrobrachium at 160 µg Cu/L. Snails are also very sensitive.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper sulphate can be dangerous to some fish, plants, shrimp and snails.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Anchor catfish are extremely sensitive to salt.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Malachite green should not be used on catfish, loaches or tetras.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Treat continuously for about a week, and longer in cool water.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "1) Change 30–50% of the water and test it. 2) Raise the temperature slowly to 29°C over 24 hours. 3) Dim or turn off the lights. 4) Remove carbon. 5) Add aquarium salt.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Keep treating until the fish show no symptoms. Treat both the quarantine tank and the main tank.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish for 10–14 days before adding them to the main tank.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new plants too, avoid sudden temperature changes, and float the bag for about 15 minutes before releasing fish.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Disinfect siphons, nets and brushes that touched infected fish. Improve hygiene and lower stocking density.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a heater to keep the temperature stable, avoid overstocking and remove bullying fish.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Change water regularly, avoid overcrowding and check the fish daily.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Stopping treatment early lets tomonts in the substrate release new dinospores, and the disease comes back.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Relying on Indian almond leaves does nothing against the parasite.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Low-wattage or fast-flow UV units do not kill dinospores.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "In heavily stocked tanks, dinospores can reinfect fish before copper kills them.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Fish with no spots left may still not be cured, because parasites remain in the water and substrate.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Returning treated fish to an untreated main tank can reinfect them.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for velvet include bệnh nhung, nấm velvet, bệnh gỉ sắt and bệnh bụi vàng.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese guide names Bettazing (12 drops per 4 L) and Maracide as betta remedies for velvet.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same guide suggests about 1 teaspoon of salt per 10 L as routine prevention, added only at water changes.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese betta blog names Coppersafe and Aquarisol as copper drugs, and Aquatronics Clear Ich for fish sensitive to malachite green.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "One Vietnamese betta blog says to raise water to about 21–26°C, which is unusually low compared with other sources.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese source says goldfish and zebrafish are more prone to velvet.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "Vietnamese sources call velvet a fungus (nấm velvet), but it is caused by a parasite, Oodinium.",
+      "source": 7
+    },
+    {
+      "section": "myths",
+      "fact": "BW Aquatics says salt has little effect on velvet. The benefit of heat-plus-salt comes from the heat, and salt only helps against secondary infections.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "BW Aquatics says covering the tank to starve the parasite does not work, because dinospores survive without a host while light is present.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-op and Wikipedia instead say the parasite needs light, and recommend 7 days of darkness as a helpful supplement.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Wild bettas tolerate the mid-80s °F for a while, and Betta splendens prefer it.",
+      "source": 4
+    }
+  ]
+}
