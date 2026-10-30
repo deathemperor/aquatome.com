@@ -15,15 +15,31 @@ const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.
 /** Site languages besides Vietnamese, and how each is written. */
 export const TARGETS = {
   id: {
-    lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia',
+    lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia', place: 'indonesia',
     style: `Style: natural, plain Bahasa Indonesia, friendly but not slangy, addressing the reader neutrally (no "gue/lo"). Use the words Indonesian aquarists use: akuarium, ikan hias, tanaman air, aquascape, filter, suhu, pH, kesadahan (GH), ganti air, siklus nitrogen, karantina, pakan. Decimal comma (1,5), ranges with an en dash (22–26 °C). Live and frozen foods as Indonesian shops name them: cacing darah (bloodworm), cacing sutra (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet, pakan serpihan (flakes). Bubble nest: sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up "loach sungai".`,
   },
   th: {
-    lang: 'Thai', country: 'Thailand',
+    lang: 'Thai', country: 'Thailand', place: 'thailand',
     style: `Style: natural, plain written Thai, neutral and polite without spoken particles (no ครับ/ค่ะ). Use the words Thai aquarists use: ตู้ปลา, ปลาสวยงาม, ไม้น้ำ, อุณหภูมิ, ค่า pH, ความกระด้าง (GH), เปลี่ยนน้ำ, ระบบกรอง, วงจรไนโตรเจน, กักโรค, อาหารปลา. Decimal point (1.5), ranges with an en dash (22–26 °C); units in running text the Thai way (ซม., ลิตร), the symbols °C and pH as they are. Live and frozen foods as Thai shops name them: หนอนแดง (bloodworm), ไส้เดือนน้ำ (tubifex), ไรแดง (moina, daphnia), ไรทะเล (brine shrimp, artemia), อาหารเม็ด (pellets), อาหารแผ่น (flakes). Bubble nest: หวอด.`,
   },
 } as const
 export type TargetLang = keyof typeof TARGETS
+
+/** Species found wild in a place (content/places id): listed under it, or under a region, river or island inside it. */
+export async function nativeTo(root: string, place: string): Promise<Set<string>> {
+  const parent = new Map<string, string>()
+  for (const id of await readdir(join(root, 'content/places')).catch(() => [] as string[])) {
+    const p = JSON.parse(await readFile(join(root, 'content/places', id, 'entity.json'), 'utf8').catch(() => '{}')) as { parent?: string }
+    if (p.parent) parent.set(id, p.parent)
+  }
+  const within = (p: string) => { for (let at: string | undefined = p, n = 0; at && n < 10; at = parent.get(at), n++) if (at === place) return true; return false }
+  const out = new Set<string>()
+  for (const id of (await readdir(join(root, 'content/species'))).sort()) {
+    const e = JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8')) as { places?: string[] }
+    if ((e.places ?? []).some(within)) out.add(id)
+  }
+  return out
+}
 
 const fill = (s: string, lang: TargetLang, species = '') =>
   s.replaceAll('{{LANG}}', TARGETS[lang].lang).replaceAll('{{COUNTRY}}', TARGETS[lang].country).replace('{{STYLE}}', TARGETS[lang].style).replace('{{SPECIES}}', species)

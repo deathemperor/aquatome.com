@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { localizeGlossary, localizePlaces, localizeSpecies } from '../src/localize'
+import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -150,4 +150,12 @@ test('place names: every place named in the language; a name with Vietnamese let
   prompts.length = 0
   await localizePlaces(root, llm, 'th')
   expect([...prompts[0]!.matchAll(/^### (\S+)/gm)].map(m => m[1]).sort()).toEqual(['china', 'peru'])
+})
+
+test('fish native to a country: listed under it or under a place inside it', async () => {
+  const root = await site()
+  const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
+  await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), places: ['rio-negro'] }))
+  expect([...await nativeTo(root, 'indonesia')]).toEqual(['boraras-brigittae'])
+  expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'symphysodon-aequifasciatus'])
 })

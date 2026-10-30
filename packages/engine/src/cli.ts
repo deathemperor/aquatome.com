@@ -41,7 +41,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStorybo
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
 import { ArchiveFetcher } from './archive'
-import { localizeGlossary, localizePlaces, localizeSpecies, TARGETS, type TargetLang } from './localize'
+import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, TARGETS, type TargetLang } from './localize'
 import { POPULAR } from './wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -359,7 +359,9 @@ if (cmd === 'run') {
   const kind = values.kind === 'plants' ? 'plants' : 'species'
   if (!(lang in TARGETS) || (values.kind && values.kind !== kind)) throw new Error('usage: pnpm engine localize --lang id|th [--kind plants] [--only id,id | --top N] [--limit N] [--redo]')
   const all = await readdir(join(ROOT, 'content', kind))
-  const ranked = kind === 'plants' ? [...all].sort() : [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...[...all].sort()])].filter(id => all.includes(id))
+  // Species: the staples, then the country's own wild fish (what hobbyists there keep and search for), then the rest.
+  const native = kind === 'plants' ? [] : [...await nativeTo(ROOT, TARGETS[lang].place)]
+  const ranked = kind === 'plants' ? [...all].sort() : [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...native, ...[...all].sort()])].filter(id => all.includes(id))
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? (values.top ? ranked.slice(0, Number(values.top)) : ranked)
   const limit = values.only || values.top ? undefined : Number(values.limit ?? 10)
   const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit, kind })
