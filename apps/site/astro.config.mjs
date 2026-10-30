@@ -15,7 +15,11 @@ function i18nRoutes() {
       'astro:build:done': () => {
         const gaps = [...missing].filter(([, s]) => s.size)
         if (process.env.I18N_MISSING_OUT) return writeFileSync(process.env.I18N_MISSING_OUT, JSON.stringify(Object.fromEntries(gaps.map(([l, s]) => [l, [...s].sort()])), null, 1))
-        if (gaps.length) throw new Error(`Untranslated UI text (add to src/i18n/<lang>.json):\n${gaps.map(([lang, s]) => `${lang}: ${[...s].map(x => JSON.stringify(x)).join(', ')}`).join('\n')}`)
+        if (!gaps.length) return
+        const msg = `Untranslated UI text (add to src/i18n/<lang>.json, or run packages/engine/scripts/translate-ui.ts):\n${gaps.map(([lang, s]) => `${lang}: ${[...s].map(x => JSON.stringify(x)).join(', ')}`).join('\n')}`
+        // I18N_LENIENT=1 (the engine cycle): those strings show in Vietnamese for now; everywhere else the build fails.
+        if (process.env.I18N_LENIENT === '1') console.warn(msg)
+        else throw new Error(msg)
       },
     },
   }
