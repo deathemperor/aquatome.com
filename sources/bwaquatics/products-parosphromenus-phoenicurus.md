@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/parosphromenus-phoenicurus
+title: Parosphromenus Phoenicurus – BWAquatics
+fetchedAt: 2026-10-30T18:14:28.767Z
+hash: 9bd0341479c0db330b6bc7943ff1797317b6d54cadd21ee08f86196502aeb311
+---
+
+Skip to product information 1 / of 2 BWAquatics Parosphromenus Phoenicurus Parosphromenus Phoenicurus Sale amount Groups of 5Variant or unavailable Groups of 10Variant or unavailable Quantity Quantity (0 in cart) Imported 3/28/25 Wild Caught Parosphromenus Phoenicurus Compared to other Licorice Gouramis, they identify from similar looking Bintan or Harveyi type by having substantial black and red parallel bands on unpaired fins. Parosphromenus phoenicurus, also known as the Red-finned Licorice Gourami is a small freshwater fish belonging to the family Osphronemidae. It is found only in the blackwater swamps area near Kota Kerincikiri, on the Indonesian island of Sumatra. Adult males of this species typically reach a maximum length of 4 cm (1.6 in), while females are slightly smaller. Their body is elongated and laterally compressed, with a dark brown to blackish coloration on the back and a lighter brown coloration on the sides. The most striking feature of P. phoenicurus is its bright red fins, which include the dorsal, anal, and caudal fins. In the wild, P. phoenicurus is found in slow-moving and shaded water bodies with a pH between 4.0 and 6.0, and a temperature range of 22 to 28°C (71.6 to 82.4°F). They feed on small aquatic invertebrates, such as insect larvae and crustaceans. Housing: they are small fish so it is recommended to keep them in groups of 5 in a 5gallon or larger unless breeding. In that case, they are best kept in pairs. Temperament: peaceful but males can be territorial Size: .5 to 1" TDS: 0-60 temperature: 74 - 82 F Ph: 4-6 (water with low ph is recommended) food: blackworms, brine shrimp and daphnia (they only eat live food) sexing: Males have much more colorful and elongated fins difficulty: expert, these are not for beginners as they ONLY eat live food. Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

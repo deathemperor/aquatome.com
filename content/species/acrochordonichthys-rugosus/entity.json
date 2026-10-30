@@ -12,7 +12,10 @@
     "malaysia",
     "terengganu",
     "thailand",
-    "pattani"
+    "pattani",
+    "java",
+    "sumatra",
+    "rajang"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +23,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 17.5,
+          "max": 24
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
           "max": 24
         }
       }
@@ -30,6 +40,13 @@
         "value": {
           "min": 5,
           "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.7,
+          "max": 7.2
         }
       }
     ],
@@ -46,6 +63,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "scotcat",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -69,16 +90,34 @@
       "html": "<p>The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand. The most commonly encountered member of the genus in the trade, it is still by no means common, and body colouration varies widely even among fish from a single locality. Like its congeners it can secrete a milky substance from the axillary pore when stressed, and this can quickly kill other fishes in the confines of an aquarium.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 90 × 30 cm</li><li>Temperature: 17.5–24°C</li><li>pH: 5.0–7.0</li><li>Hardness: 0–10 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 12.0 cm</li><li>Temperature: 18-24°C</li><li>pH: 6.7-7.2</li><li>IUCN Red List: Least Concern (2019)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "html": "<p>Type locality is the city of Surakarta in central Java, Indonesia, but as currently accepted this species is widely-distributed having been recorded from the Solo, Ciliwung and Citarum River drainages in Java, the Barito, Kapuas, Mahakam and Rajang River drainages in Kalimantan province, Indonesian Borneo, the Musi and Tulangbawan River drainages in Sumatra and the Bernam, Terengganu, Mae Nam Sungai Kolok, and Pattani River drainages in Peninsular Malaysia and southern Thailand.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<p>Asia: Solo, Ciliwung, Citarum River basins, Java; Barito, Kapuas, Mahakam and Rajang River basins, Borneo; Bernam, Terengganu, Mae Nam Sungai Kolok and Pattani River basins, peninsular Malaysia and Thailand; Musi and Tulangbawan River basins, Sumatra. Type locality: Java.</p><p>This species is widely distributed across Java, Borneo, Peninsular Malaysia, southern Thailand, and Sumatra. Extent of occurrence is estimated at 1.2 million km2. The number of locations where this species occurs likely exceeds ten.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "html": "<p>According to Ng and Ng (2001) this species inhabits fast-flowing forest streams containing transparent water with substrates of sand or rocks with some patches of leaf litter, and tends to congregate under submerged driftwood or rocks. It appears to be largely nocturnal based on observations both in captivity and the field.</p><p>In the Rajang river basin sympatric species include Cyclocheilichthys apogon, C. repasson, Garra borneensis, Osteochilus vittatus, Paracrossochilus vittatus, Rasbora argyrotaenia, R. dusonensis, R. kottelati, R. sarawakensis, Trigonopoma pauciperforatum, Sundadanio axelrodi, 'Puntius' johorensis, 'P.' kuchingensis, 'P.' pentazona, Pangio anguillaris, P. piperata, P. semicincta, Syncrossus hymenophysa, several Gastromyzon, Homaloptera and Nemacheilus spp., Betta akarensis, Sphaerichthys osphromenoides and Carinotetraodon salivator.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<p>Inhabits clear, swiftly flowing forested streams with pH of 7 and sandy or rocky bottoms. Hides under submerged logs or rocks with some leaf litter in the swifter parts of the stream.</p>"
     },
     {
       "key": "aquariumSize",
@@ -105,6 +144,12 @@
       "html": "<p>Acrochordonichthys spp. are ambush predators by nature and Ng and Ng (2001) report that an adult specimen collected in the state of Terengganu, Peninsular Malaysia regurgitated three individuals of a Nemacheilus and one of a Glyptothorax sp.. In the aquarium there's no need to feed live fishes since live or frozen invertebrates such as chronomid larvae, Tubifex and small earthworms are normally accepted without issue, though you may have to drop the food directly in front of the fish to provoke a response. Such targeted feeding will probably be mandatory in a community setting since these catfishes are sedentary and make poor competitors.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<p>A predatory fish, ambushing balitorid loaches of Nemacheilus and sisorid catfish of the genus Glyptothorax.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
@@ -127,6 +172,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "html": "<p>This is the most commonly-encountered representative of the genus in the aquatic trade though is by no means common. As in other members of the genus body colouration is highly variable, even among individuals collected from a single locality, although a few useful regularities have been observed which can be used to distinguish certain species. This is thought related to the fact that Acrochordonichthys spp. periodically shed their skins and appear paler post-moulting.</p><p>A. rugosus lends its name to one of two groups of closely-related members designated by Ng and Ng (2001) who noted that although possibly artificial such an arrangement provides assistance when discussing taxonomic relationships between the various species.</p><p>The first group contains those species possessing a relatively slim caudal peduncle (depth 4.7-5.3% of standard length), narrower head (width 18.3-21.9% of standard length) and 39-41 vertebrae and currently comprises A. ischnosoma, A. guttatus, A. gyrinus, A. mahakamensis, A. septentrionalis and A. strigosus.</p><p>The second group is composed of species with a deeper caudal peduncle (depth 5.5-8.8% of standard length), wider head (width 22.0-29.6% of standard length) and 35-37 vertebrae. Constituent species at time of writing are A. rugosus, A. chamaeleon, A. falcifer and A. pachyderma.</p><p>Among the latter group A. rugosus differs from both A. falcifer and A. pachyderma by possessing a series of serrations along the posterior edge of the pectoral fin spine. It further differs from A. falcifer by the angular shape of the posterior margin of the adipose fin (vs. rounded) and from A. pachyderma by having a generally dark brown body colouration with irregular patches of light brown (vs. overall cream colour). A. chamaeleon also has a serrated pectoral spine but A. rugosus possesses longer nasal barbels (6.5–15.6% of head length vs. 1.0–6.0%), a head with steeply-sloping lateral margins (vs. gently sloping) and a convex (vs. broadly rounded) snout when viewed from above.</p><p>Acrochordonichthys spp. possess some interesting adaptations, the most conspicuous of which is the ability to secrete a milky substance from the axillary pore located just below the humeral process (above the base of the pectoral fin). This discharge has not been studied in detail but appears to be a defensive mechanism since it can quickly kill other fishes in a confined environment such as an aquarium and is only produced when an individual is stressed in some way. Below the pectoral fin base the gill opening forms a specialised spout-like arrangement which is apparently related to locomotion, water being channeled through it in order to push the fish forwards in a similar fashion to members of the family Aspredinidae.</p><p>In terms of phylogenetics the family Akysidae is considered most closely related to the families Sisoridae, Amblycipitidae and Erethistidae with these four forming a monophyletic clade sister to the Bagridae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 4-5; anal soft rays: 8-10; vertebrae: 35-37. Long nasal barbels 6.5-15.6% HL. Lateral margins of head steeply sloping; convex snout when viewed dorsally. Adipose fin with angular posterior margin. Pectoral spine with serrations on the posterior edge. Colouration: generally dark brown with many irregular light brown patches.</p><p>Etymology: The genus name Acrochordonichthys: akrochordon, wart, referring to tuberculate skin; ichthys, fish. The specific name rugosus: rugose or wrinkled, referring to \"glandular-verrucose\" skin (translation), with warts (tubercles) on head, snout, cheeks, back, flanks and belly.</p><p>Conservation: On a range-wide scale, there are no major pervasive threats to this species. Regional threats include deforestation resulting from logging and land conversion for agriculture. In Java, localised threats have likely resulted in a reduction in habitat quality. Given a broad distribution, large number of locations and subpopulations, and lack of major pervasive threats, this species is assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "html": "<p>Ng, H.H. 2019. Acrochordonichthys rugosus. The IUCN Red List of Threatened Species 2019.</p><p>Ng, H.H. and P.K.L. Ng 2001 A revision of the akysid catfish genus Acrochordonichthys Bleeker. J. Fish Biol. 58:386-418.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -165,25 +222,25 @@
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/da398d1cb5fa48a6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/da398d1cb5fa48a6-480.webp",
       "width": 700,
       "height": 375,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "caption": "This species exhibits highly variable body colouration which can range from dark...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/da398d1cb5fa48a6-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/b33760e38d7e0369.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b33760e38d7e0369-480.webp",
       "width": 700,
       "height": 342,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrochordonichthys-rugosus",
       "caption": "...to much paler.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b33760e38d7e0369-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/57d9065ef2400109.webp",
@@ -195,9 +252,67 @@
       "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
       "caption": "Acrochordonichthys rugosus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4540729622fa7bf6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4540729622fa7bf6-480.webp",
+      "width": 500,
+      "height": 266,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "caption": "Acrochordonichthys rugosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d9f6cec2e0d67b8c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d9f6cec2e0d67b8c-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "caption": "Acrochordonichthys rugosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a828d8caa7a06a27.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a828d8caa7a06a27-480.webp",
+      "width": 500,
+      "height": 244,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "caption": "Acrochordonichthys rugosus",
+      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "KMUy5k99MFU",
+      "title": "Acrochordonichthys rugosus aka Asian Banjo Catfish from Thailand",
+      "durationSec": 115,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5gJiT7z5IOo",
+      "title": "Asian Banjo Catfish From Indonesia",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gDj-YUjVqyM",
+      "title": "Eel tailed Banjo Catfish (42 gal) #5",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "f5SPMdMop4w",
+      "title": "「亞洲斑鳩貓」-鮮少輸入國內的物種,似乎有著數種表現？！《三和水族》",
+      "durationSec": 88,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -228,5 +343,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

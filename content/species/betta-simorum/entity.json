@@ -1,0 +1,125 @@
+{
+  "id": "betta-simorum",
+  "scientificName": "Betta simorum",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "riau"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 10
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<ul><li>Wild-caught, from Riau, Indonesia</li><li>Part of the Betta bellica complex</li><li>IUCN Red List: Least Concern</li><li>Maximum size: about 10 cm (4 inches)</li><li>TDS: 60–100</li><li>pH: 5.0–6.5</li><li>Temperature: 24–28°C (75–82°F)</li><li>Breeding: bubble nest builder</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<p>Behaviour was found to be similar to the Unimaculata complex. Although some sites describe them as fairly peaceful, they have been more on the aggressive side. Treat them like Betta splendens. This is the largest bubble-nesting betta, with a temperament similar to the Unimaculata bettas.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<p>Males have better coloring, especially while breeding. Males have a pointier dorsal, caudal and tail fin than females, and slightly longer fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<p>Bubble nest builder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "html": "<p>Very similar to Betta bellica, with a green iridescent body and long fins.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/e8db62f24ce0fd42.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/e8db62f24ce0fd42-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

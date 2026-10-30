@@ -1,0 +1,132 @@
+{
+  "id": "laides-hexanema",
+  "scientificName": "Laides hexanema",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Laides",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong",
+    "indonesia",
+    "palembang",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Size: 14 cm</li><li>Temperature: 22-26°C</li><li>pH: 6.0-7.0</li><li>IUCN Red List: Least Concern (2019)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>Asia: Thailand to Indonesia, in large rivers, including the Mekong. Type locality: Palembang, Batavia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>Found in large rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>Feeds on small fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>Oviparous, eggs are unguarded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>This genus has a posterior nostril located near the anterior nostril. Barbels are ribbon shaped, with a mandibular and a mental pair on the lower jaw. 6 pelvic fin rays. There are two species in this genus: L. hexanema and L. longibarbus. Compared to L. laides, this species differs in having a shorter anal fin base (34.8-37.9% SL versus 38.6-41.5% SL) with fewer anal fin rays (39-42 versus 41-47), a larger eye (eye diameter 28.6-38.5% HL versus 20.1-23.6% HL) and a smaller interorbital distance (37.9-47.3% HL versus 47.0-55.6%).</p><p>Etymology: The genus name Laides: -ides, descendant of; replacement name for Lais Bleeker 1858, preoccupied by Lais Gistel 1848 in Tunicata (Lais is the Sundanese name for L. hexanema). The specific name hexanema: hexa-, six; nema, thread, referring to the three pairs of fleshy barbels.</p><p>Remarks: Laides hexanema is still listed in FishBase as belonging to the Schilbeidae family, but the Catalog of Fishes updates it as a member of the Ailiidae family.</p><p>IUCN Red List: Although there is no detailed information on the population and its trends for this species, it is still relatively abundant throughout much of its range (based on survey data). It is therefore assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (07/2010). Ng, H.H. 2019. Laides hexanema. The IUCN Red List of Threatened Species 2019. Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p. Roberts, T.R., 1989. The freshwater fishes of Western Borneo (Kalimantan Barat, Indonesia). Mem. Calif. Acad. Sci. 14:210 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/fc2489617e2a0a9f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fc2489617e2a0a9f-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "caption": "Laides hexanema",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/25cbd4a5fc832d82.webp",
+      "thumb": "https://media.aquatome.com/scotcat/25cbd4a5fc832d82-480.webp",
+      "width": 500,
+      "height": 267,
+      "licence": "dùng với sự cho phép",
+      "author": "Udomchai leelahanaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_hexanema.htm",
+      "caption": "Laides hexanema",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

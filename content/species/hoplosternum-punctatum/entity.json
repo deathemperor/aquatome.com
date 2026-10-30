@@ -1,0 +1,85 @@
+{
+  "id": "hoplosternum-punctatum",
+  "scientificName": "Hoplosternum punctatum",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Hoplosternum",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "atrato"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
+      "html": "<p>Hoplosternum punctatum Meek &amp; Hildebrand, 1916. Common names: Spotted Hoplo. Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama. Size: 77 mm (3\") SL. IUCN Red List: Near Threatened (last assessed 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
+      "html": "<p>South America: Colombia, Caribbean Rivers, Atrato.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
+      "html": "<p>In Dianema, Hoplosternum and Megalechis (but not in Callichthys), medial expansions of the coracoid bones are especially developed, covering most of the skin between the pectoral fins and sometimes overlapping in the midline in fully developed mature males (vs. not fully covering the abdominal skin and not overlapping in females). Mature males of Callichthys, Dianema, Hoplosternum, Lepthoplosternum, and Megalechis have a thick adipose body on the ventral surface of the pectoral fin. Mature females of Dianema, Hoplosternum and Megalechis have a small fold of skin on the external face of the leading pelvic-fin ray.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
+      "html": "<p>There is a single breeding report for this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
+      "html": "<p>Field Museum of Natural History, Publications, Zoölogical Series v. 10 (no. 15), pp 264, Pls. 14-15.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

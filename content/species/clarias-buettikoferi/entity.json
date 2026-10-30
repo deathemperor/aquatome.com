@@ -1,0 +1,128 @@
+{
+  "id": "clarias-buettikoferi",
+  "scientificName": "Clarias buettikoferi",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Clarias",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gambia",
+    "cote-d-ivoire",
+    "agneby",
+    "ghana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 19.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Clarias buettikoferi Steindachner, 1894. Type locality: Buluma, Liberia. Size: 192 mm (7.6\") SL. IUCN Red List: Least Concern (last assessed 2019).</p><p>Etymology: Clarias, from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water. Named after J. Büttikofer, who collected the holotype.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Africa: from the Upper Gambia to the Agnebi River in Côte d'Ivoire. Reported from Ghana.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>pH 6.0–8.0. Temperature 20–27 °C (68–80.6 °F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Open spaces for swimming and some cover are required.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Omnivorous and predatory. Will eat virtually anything that can be considered edible.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Must be housed with lively, robust large fish. Suggested tankmates: large cyprinids (for example Silver Sharks, Tinfoil or Spanner Barbs) or Central American cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>The genital papilla, which is to the right of the anus as you look at the fish with its head to the left, is elongated and pointed in males, while it is round and relatively larger (and larger than the anus) in females. In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Not reported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Clarias species are characterized by an elongated body; a soft-rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft-rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; a depressed head covered largely by firmly sutured, surface-sculptured bony plates forming a protective helmet; four pairs of flagellate barbels; and air-breathing organs derived from the 2nd and 4th epibranchials within a superbranchial chamber.</p><p>Dorsal rays 57-68; anal rays 43-53; vertebrae 50-52. Head rather rectangular in dorsal outline; snout broadly rounded. Frontal fontanelle long and narrow ('knife-shaped'); occipital fontanelle oval-shaped. The dermosphenotic and supraorbital bones are fused. Pectoral spine slightly curved, with strong downward-pointed serrations on its inner side and relatively small ones on its outer side. Openings of the secondary canals of the lateral line appear as irregular white spots on the body.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1053",
+      "html": "<p>Notes from the Leyden Museum v. 16 (nos 1-2, art. 1), pp 53, Pl. 3 (fig. 1).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

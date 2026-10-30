@@ -1,0 +1,123 @@
+{
+  "id": "silurichthys-hasseltii",
+  "scientificName": "Silurichthys hasseltii",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Silurichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "singapore",
+    "indonesia",
+    "java"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.2,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<ul><li>Scientific name: Silurichthys hasseltii Bleeker, 1858</li><li>Common name: Hassel's Leaf Catfish</li><li>Type locality: Tjisekat, Java, Indonesia.</li><li>Size: 110 mm (4.3\") SL.</li><li>Identification: Distinguished by a shorter caudal fin, more mottled coloration, 2-4 gill rakers on first branchial arch and 46-56 anal-fin rays.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Asia: Malaysia, Singapore and Indonesia. Known from the Mekong basin. IUCN Red List category: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<ul><li>pH: 5.2 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Provide plenty of driftwood as hiding places. They also enjoy a layer of leaf litter to burrow into.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Will eat all manner of live, frozen and prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>A peaceful, shoaling species compatible with most fish. Ideal tankmates are mid-sized barbs, rasboras and gouramies in an Asian forest stream biotope tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Males are smaller and possess serrations on posterior edge of pectoral spine.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Not reported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1036",
+      "html": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 270</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể biotope"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "lũa trang trí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,134 @@
+{
+  "id": "otocinclus-macrospilus",
+  "scientificName": "Otocinclus macrospilus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "amazon",
+    "ecuador",
+    "peru",
+    "morona"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<ul><li>Scientific name: Otocinclus macrospilus Eigenmann &amp; Allen, 1942</li><li>Size: 34 mm (1.3\") SL</li><li>Type locality: Río Morona, upper Amazon River basin, Dpto Loreto, Peru.</li><li>Temperature: 21.0–26.0°C</li><li>pH: 5.5–7.5</li><li>Compatibility: peaceful</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Upper Amazon Basin of Colombia, Ecuador and Peru.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Large leafed plants and vertical flat rock surfaces (especially slate). Not essential, but it likes bogwood and a large rounded substrate. Live plants seem essential to the long term survival of this fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Initially algae: add a shoal to an \"algaefied\" tank and then supplement the diet with sinking tablets and the usual cucumber, lettuce or courgette (zucchini).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Peaceful. Keep in groups (preferably at least six) with any small to mid-sized community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Identification: similar in overall colouration to O. vestitus. The caudal fin marking is key to separating this species from other Otocinclus. In O. macrospilus the lateral black stripe stops or becomes pale before the tail blotch, which can look like a fat spindle or diamond as it crosses into the tail proper.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
+      "html": "<p>Fishes of western South America, pp 201, Pl. 13 (fig. 1).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/75a4180f2e60f3cc.webp",
+      "width": 800,
+      "height": 361,
+      "licence": "CC BY-SA 3.0",
+      "author": "Rainer Schmitt, 2004",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_macrospilus_2.jpg",
+      "caption": "Otocinclus macrospilus",
+      "thumb": "https://media.aquatome.com/commons/75a4180f2e60f3cc-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên chìm cho cá dọn tảo",
+        "thức ăn cá otocinclus"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá lớn",
+        "cây thủy sinh cho bể cộng đồng"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

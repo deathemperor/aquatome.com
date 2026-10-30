@@ -1,0 +1,121 @@
+{
+  "id": "betta-balunga",
+  "scientificName": "Betta balunga",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "tarakan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 6.4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<ul><li>Temperament: peaceful; can be kept in pairs or a group.</li><li>Max size: 6.4 cm (2.5 inches)</li><li>TDS: 60–200</li><li>pH: 6.5–7</li><li>Temperature: 24–28 °C (75–82 °F)</li><li>Diet: carnivorous</li><li>Breeding: mouthbrooder</li><li>IUCN Red List: Least Concern</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>Another mouthbrooder type betta found in Tarakan in Indonesia. It is the only one in its group, the Betta akarensis complex.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>TDS 60–200, pH 6.5–7, temperature 24–28 °C. Kept in soft water with low TDS, but they are more tolerant of water conditions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>This betta appears to be very peaceful and can be kept in groups, in a pair or a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>Males are generally larger with longer fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "bucephalandra-pygmaea",
+  "scientificName": "Bucephalandra pygmaea",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "none",
+  "growth": "slow",
+  "placement": [
+    "epiphyte",
+    "foreground",
+    "midground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bucephalandrapygmaea'BukitKelam'(139CLP)/31143",
+      "html": "<ul><li>Origin: Asia</li><li>Growth rate: slow</li><li>Height: 5 - 10+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bucephalandrapygmaea'BukitKelam'(139CLP)/31143",
+      "html": "<p>In nature, Bucephalandra usually grows on rocks or wood in rivers and streams - much like Anubias, which they resemble regarding use and care in the aquarium. Bucephalandra 'Wavy Green' is an easy, slow-growing plant that prefers lower light levels. A nice, dense appearance is ensured by the willingness to branch, even without trimming.</p><p>The creeping stem, rhizome, must not be covered when planting. This will cause the plant to rot and die.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bucephalandrapygmaea'BukitKelam'(139CLP)/31143",
+      "html": "<p>The green leaves are 2 cm wide and 5 cm long with wavy edges. Tiny white spots will appear on immersed leaves.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1f4c3c60cd8f4052.webp",
+      "width": 960,
+      "height": 587,
+      "licence": "CC BY-SA 4.0",
+      "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
+      "caption": "Bucehalandra “Shine Blue” (in the foreground) and Bucephalandra pygmaea from Bukit Kelam in West Kalimantan (“Bukit Kelam,” “Wavy Leaf,” “Green Wavy,” etc.) middle rear, ex situ",
+      "thumb": "https://media.aquatome.com/commons/1f4c3c60cd8f4052-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "Bucephalandra Bukit Kelam",
+        "cây buce thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng yếu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

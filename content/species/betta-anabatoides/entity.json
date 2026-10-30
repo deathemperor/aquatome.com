@@ -1,0 +1,135 @@
+{
+  "id": "betta-anabatoides",
+  "scientificName": "Betta anabatoides",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 12.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<ul><li><strong>Temperament:</strong> Peaceful. Can be kept in pairs or a group.</li><li><strong>Max size:</strong> 5 inches (about 12.5 cm)</li><li><strong>TDS:</strong> 60–200</li><li><strong>pH:</strong> 6.5–7</li><li><strong>Temperature:</strong> 75–82 °F (24–28 °C)</li><li><strong>Diet:</strong> Carnivorous</li><li><strong>Breeding:</strong> Mouthbrooder</li><li><strong>IUCN Red List:</strong> Least Concern</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<p>TDS 60–200. Kept in soft water with low TDS, but they are more tolerant of water conditions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<p>Carnivorous. Can be fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<p>Males are generally larger with longer fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "html": "<p>The only one in its group, the Betta anabatoides complex. Also known as the Giant Betta as this species can get up to 5 inches in length. Another mouthbrooder type betta originating from South Kalimantan in Indonesia. These can be maintained in a pair or a group. Males are generally larger with longer fins. This betta appears to be very peaceful and can be kept in groups.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8-480.webp",
+      "width": 1200,
+      "height": 1800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/3f62e3bd057a100d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/3f62e3bd057a100d-480.webp",
+      "width": 782,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bể betta"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

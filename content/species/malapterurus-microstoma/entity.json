@@ -1,0 +1,146 @@
+{
+  "id": "malapterurus-microstoma",
+  "scientificName": "Malapterurus microstoma",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-congo",
+    "congo-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 55.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p><strong>Scientific name:</strong> Malapterurus microstoma Poll &amp; Gosse, 1969</p><p><strong>Common names:</strong> Dwarf Electric Catfish, Zitterwels (Germany)</p><p><strong>Size:</strong> 555 mm (21.9\") SL</p><p><strong>Identification:</strong> Easily distinguished by its narrow snout and tooth patches, and horizontally based pectoral fins placed low on the body.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>Africa: restricted to the Congo River system; absent from the lowland, central portion of the basin. Type locality: Yangambi, Congo River, Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>pH: 6.0 - 7.0</p><p>Temperature: 23.0-30.0°C (73.4-86°F)</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>A dimly lit tank with a suitably sized retreat - appears to prefer stone over wood.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>Feeds readily on all manner of frozen and live food. Will also take meaty food such as frozen meat but will only take prepared foods if nothing else is available.</p><p>Gut contents contained large amounts of detritus along with animal remains, suggesting that this species is a generalist bottom forager rather than a strict piscivore.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>Best kept alone, given its electrogenic ability.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>Possibly spawns in burrows along river banks and may exhibit brood care. Females are apparently not sexually mature until 40-50 cm SL. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>IUCN Red List category: Least Concern (last assessed 2009).</p><p>Etymology: Malapterurus: from the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin. Microstoma: from the Greek mikros, meaning small and stoma, meaning mouth (or opening); in reference to the small mouth of this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
+      "html": "<p>Bulletin de l'Institut Royal des Sciences Naturelles de Belgique v. 45 (no. 38), pp 8, Pls. 1, 2 (fig. b), 3 (fig. b).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/cbcbaa345847310e.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "ゆうき315",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_microstoma.JPG",
+      "caption": "Smallmouth electric catfish (Malapterurus microstoma) in Hakone-en Aquarium, Japan.",
+      "thumb": "https://media.aquatome.com/commons/cbcbaa345847310e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/24c1648410e5de5d.webp",
+      "width": 960,
+      "height": 573,
+      "licence": "CC BY-SA 3.0",
+      "author": "Stan Shebs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_electricus_1.jpg",
+      "caption": "Photo of Malapterurus electricus (electric catfish) at the Steinhart Aquarium in San Francisco",
+      "thumb": "https://media.aquatome.com/commons/24c1648410e5de5d-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

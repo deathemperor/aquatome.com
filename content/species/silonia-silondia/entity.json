@@ -1,0 +1,171 @@
+{
+  "id": "silonia-silondia",
+  "scientificName": "Silonia silondia",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Silonia",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bangladesh",
+    "myanmar",
+    "nepal"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 160
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Common name: Silond catfish</li><li>Size: 160 cm SL (63 in)</li><li>Temperature: 23-26°C (73-79°F)</li><li>pH: 6.5-7.2</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>Asia: Northern India, Bangladesh, Myanmar and Nepal. Type locality: Gangetic estuaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>Inhabit rivers. Occur in shoals. Adults ascend from estuaries into large rivers for breeding during monsoons. After the water level recedes, they often get stranded in small pools.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>These fish can grow big and have some gnarly teeth especially visible when they grow big. Again being an ailiid puts them in the sensitive zone which makes them very difficult to keep alive in home aquaria (Mishra, A).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>Large specimens have abundant curved teeth in their jaws and feed on fishes. Smaller specimens feed on invertebrates.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>Oviparous, eggs are unguarded. Spawns in the rainy season and is said to migrate upstream to the area of the upper tributaries.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<p>IUCN Red List: S. silondia has been assessed as Least Concern due to its very wide distribution, and reports that this is a common species in some areas. However, the abundance of this species is likely to vary between populations, and due to its low resilience to fishing pressures, monitoring of populations subject to harvesting is recommended, particularly those where declines in fish have been observed, as in the Hirakud reservoir, and needs updating (IUCN 2009).</p><p>Etymology: The genus name Silonia: Etymology not explained, possibly latinisation of silon, local name for juveniles of this catfish in Bihar, India, or putative tautonymy with Pimelodus silondia but missing the \"d\". The specific name silondia: Latinisation of Silond, local name for this catfish in Bihar, India.</p><p>Remarks: Silonia silondia is still listed in Fishbase as belonging to the Schilbeidae family but it is updated in The Catalog of Fishes as the current status of being a member of the Ailiidae family.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "html": "<ul><li>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Devi, R. &amp; Boguskaya, N. 2009. Silonia silondia. The IUCN Red List of Threatened Species 2009.</li><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (07/2008).</li><li>Mishra, A. pers comm. 2022.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2f66fa1d59de8577.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2f66fa1d59de8577-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "caption": "Silonia silondia - juvenile: showing mouth structure",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b2c1cd03b4b9ad26.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b2c1cd03b4b9ad26-480.webp",
+      "width": 500,
+      "height": 306,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "caption": "Silonia silondia: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/916d6ac8add48994.webp",
+      "thumb": "https://media.aquatome.com/scotcat/916d6ac8add48994-480.webp",
+      "width": 500,
+      "height": 404,
+      "licence": "dùng với sự cho phép",
+      "author": "Kamphol Udomritthiruj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "caption": "Silonia silondia: Adult showing curved teeth.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/82681e637f6c2942.webp",
+      "thumb": "https://media.aquatome.com/scotcat/82681e637f6c2942-480.webp",
+      "width": 500,
+      "height": 151,
+      "licence": "dùng với sự cho phép",
+      "author": "Kamphol Udomritthiruj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
+      "caption": "Silonia silondia",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CBL6F0LEua4",
+      "title": "Silonia silondia with a belly full of mollies",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MH-Zg0-OS3w",
+      "title": "Feeding silonia silondia",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FGOxaIXw6xc",
+      "title": "Silonia silondia with bagarius",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_NZr2Ix5344",
+      "title": "Silonia silondia from Mahanadi river, Odisha, India",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-10-30"
+}

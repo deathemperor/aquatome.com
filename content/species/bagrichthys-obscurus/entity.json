@@ -1,0 +1,129 @@
+{
+  "id": "bagrichthys-obscurus",
+  "scientificName": "Bagrichthys obscurus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Bagrichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.4,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Bagrichthys obscurus Ng, 1999. Maximum size 249 mm (9.8\") SL. Type locality: Lam Chi, 1.5 km below highway 23 bridge, 4 km west of Selaphum, Roi Et Province, Thailand.</p><p>Members of the genus Bagrichthys live in large muddy rivers throughout Southeast Asia. They are characterised by an elongate, laterally compressed caudal peduncle, dorsally-directed serrations on the posterior edge of the dorsal-fin spine, and a long adipose fin without a free posterior margin. This species has a relatively small, narrow mouth opening, extremely reduced oral dentition, a relatively short dorsal-fin spine with 15 or fewer serrae, crenulated inner and outer mandibular barbels, a slender body, a short adipose fin base, and a uniformly brown body without a pale midlateral stripe or pale blotches on the sides.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Asia: Chao Phraya, Bang Pakong and Mekong drainages in Indochina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Occurs in large muddy rivers. Feeds on small fishes, benthic invertebrates and large amounts of plant detritus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>pH 5.4 - 7.0. Temperature 22.0-28.0°C (71.6-82.4°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>The fish loves tangles of plants which it carefully inspects for morsels of food after lights out. A suitably sized pipe or cave is required, as it can easily injure itself in panic if one is not provided and easily accessed. Heater elements should be guarded or positioned so they cannot be used for refuge - this fish is prone to heater burns.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Readily accepts prepared foods. Frozen brine shrimp appears to produce the most activity from the fish and frozen bloodworms are also relished.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>A timid fish that does well in a sizeable aquarium inhabited by smaller fish. Although a night-time prowler, even small fish are safe enough. Conspecifics may be aggressively territorial.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Males have a prominent genital papilla in front of the anal fin and longer barbels.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Not reported in aquaria; there is no breeding report. In the wild it spawns at the beginning of the rainy season and uses the flooded forests along the river edge. Juveniles appear in August.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
+      "html": "<p>Revista de Biología Tropical v. 47 (no. 3), pp 546, Figs. 1-2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "thanh sưởi bể cá có bảo vệ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

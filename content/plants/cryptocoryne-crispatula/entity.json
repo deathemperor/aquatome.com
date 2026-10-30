@@ -1,0 +1,72 @@
+{
+  "id": "cryptocoryne-crispatula",
+  "scientificName": "Cryptocoryne crispatula",
+  "difficulty": 2,
+  "light": "low",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "background"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocorynecrispatula(125TC)/18756",
+      "html": "<ul><li>Origin: Asia</li><li>Growth rate: medium</li><li>Height: 20 - 30+ cm</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocorynecrispatula(125TC)/18756",
+      "html": "<p>Cryptocoryne crispatula var. balansae is from the limestone mountains of Southern Thailand, where the water can be very hard.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocorynecrispatula(125TC)/18756",
+      "html": "<p>Not very demanding, but appreciates a nutritious substrate and good light. Like many other Cryptocorynes it needs to acclimatize before growth starts in earnest. Leaves become 20-60 cm long and the single rosette plant becomes 15-20 cm wide. Place it in the rear part of the tank, from where the leaves may float beautifully on the water surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocorynecrispatula(125TC)/18756",
+      "html": "<p>Supplied as aquarium plant from tissue culture in a closed cup. The leaves are either entirely green or maroon.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c0092856d962c461.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_crispatula_kz01.jpg",
+      "caption": "Cryptocoryne crispatula in the Botanischer Garten Halle",
+      "thumb": "https://media.aquatome.com/commons/c0092856d962c461-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh Cryptocoryne",
+        "cây ráy crispatula cấy mô"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh",
+        "nền dinh dưỡng cho cây thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

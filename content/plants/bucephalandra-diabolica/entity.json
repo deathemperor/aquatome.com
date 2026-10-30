@@ -1,0 +1,72 @@
+{
+  "id": "bucephalandra-diabolica",
+  "scientificName": "Bucephalandra diabolica",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "optional",
+  "growth": "slow",
+  "placement": [
+    "epiphyte",
+    "foreground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bucephalandradiabolica'Kedagang'(139BCLP)/31144",
+      "html": "<ul><li><strong>Origin:</strong> Asia (Borneo)</li><li><strong>Growth rate:</strong> Slow</li><li><strong>Height:</strong> 10 - 20+ cm</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bucephalandradiabolica'Kedagang'(139BCLP)/31144",
+      "html": "<p>The 'Kedagang' is a variety of the Bucephalandra family originated in Borneo. It is characterized by long, narrow, dark green leaves with white dots. The leaf can be 1-2 cm wide and up to 6 cm long. The rhizomes are red and similar to the Red variety of Bucephalandra. When immersed, a blue metallic shade may appear on the leaves.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9ec5a1773b9483ef.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "Manuel Werner / CC-BY-SA-4.0 Werner, Deutschland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2026-02-27-Bucepha%C3%B6andra_spatha_one_day_before_opening.jpg",
+      "caption": "Bucephalandra spatha, submerged, one day before fully opening, with filaments and Theka horns, ex situ.",
+      "thumb": "https://media.aquatome.com/commons/9ec5a1773b9483ef-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c3ad00891288cb6a.webp",
+      "width": 960,
+      "height": 644,
+      "licence": "CC BY 4.0",
+      "author": "Manuel Werner / CC-BY-SA-4.0 Werner, Deutschland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2026-02-28--Bucephalandra_Inflorescence_13_emers.jpg",
+      "caption": "Bucephalandra inflorescence, emersed, ex situ.",
+      "thumb": "https://media.aquatome.com/commons/c3ad00891288cb6a-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "bucephalandra kedagang",
+        "buce kedagang",
+        "cây thủy sinh bám lũa"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng yếu"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nước thủy sinh",
+        "keo dán cây thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

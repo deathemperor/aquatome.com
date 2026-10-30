@@ -1,0 +1,76 @@
+{
+  "id": "cardamine-lyrata",
+  "scientificName": "Cardamine lyrata",
+  "difficulty": 2,
+  "light": "low",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "midground",
+    "background"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cardaminelyrata(024)/4441",
+      "html": "<ul><li>Type: stem plant</li><li>Origin: Asia</li><li>Height: 20–30+ cm</li><li>Light demand: low</li><li>CO2 demand: medium</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cardaminelyrata(024)/4441",
+      "html": "<p>Plant it in groups, and make sure the water temperature does not exceed 28 °C (this makes the leaves much smaller and the plant more leggy).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cardaminelyrata(024)/4441",
+      "html": "<p>Cardamine lyrata is actually a marsh plant from Japan. But it is also a familiar aquarium plant which thrives under water with 20–50 cm long stems. A characteristic trailing growth form makes it highly decorative, and 'aerial' roots often form on the plant itself. Also suitable in garden ponds in the summer.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ec5f4712c3e6a57f.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY 2.0",
+      "author": "batra3x",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardamine_lyrata.jpg",
+      "caption": "Cardamine lyrata in a terrarium. Note: Flickr doesn't offer to choose a GFDL license. So the official license is cc-by-2.0 But the author explicitely permitted others to use this photo as a GFDL photo",
+      "thumb": "https://media.aquatome.com/commons/ec5f4712c3e6a57f-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0786d88f613f4e17.webp",
+      "width": 800,
+      "height": 800,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wig0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardamine_Lyrata.png",
+      "caption": "Cardamine lyrata",
+      "thumb": "https://media.aquatome.com/commons/0786d88f613f4e17-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh cardamine lyrata",
+        "cây thân thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

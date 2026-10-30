@@ -4,22 +4,24 @@
   "altNames": [
     "Cá betta hoang dã Tanah Grogot",
     "Betta patoti",
-    "Betta Patoti Tanah Grogot"
+    "Betta Patoti Tanah Grogot",
+    "Cá betta Patoti Tanah Grogot Red",
+    "Tanah Grogot Red"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Thuộc nhóm Betta unimaculata. Danh sách Đỏ IUCN: Nguy cấp (nguy cơ tuyệt chủng ngoài tự nhiên rất cao). Betta patoti đánh bắt tự nhiên từ Tanah Grogot.</p><ul><li>Kích thước tối đa: 3,5 inch (khoảng 9 cm)</li><li>TDS: ~60–100</li><li>pH: ~5,0–7,0</li><li>Nhiệt độ: 72–82°F (22–28°C)</li><li>Sinh sản: ấp trứng trong miệng</li></ul>",
-    "behaviour:bwaquatics": "<p>Giống nhiều loài trong nhóm này, với những loài betta lớn nhất, chúng có thể hung dữ. Nên nuôi riêng một loài trong bể vì chúng có thể ăn bất cứ thứ gì vừa miệng lớn của chúng.</p>",
-    "dimorphism:bwaquatics": "<p>Chúng có thân nền màu nâu với ánh xanh lam óng ở má (nắp mang), thân và đuôi; con cái có ít ánh óng hơn. Cả con đực và con cái thỉnh thoảng có thể có sọc giống vằn hổ ở hai bên thân. Con đực trưởng thành hoàn toàn có vây bụng dài hơn.</p>",
-    "diet:bwaquatics": "<p>Ăn thịt. Hiện được cho ăn thức ăn sống, đông lạnh và khô: giun đen, trùn chỉ đông lạnh và cám viên.</p>",
-    "waterConditions:bwaquatics": "<p>TDS ~60–100, pH ~5,0–7,0. Nhiệt độ: 22–28°C (72–82°F); chúng thích nhiệt độ mát hơn, nhưng nhiệt độ cao hơn kích thích lên màu và hành vi sinh sản.</p>",
-    "reproduction:bwaquatics": "<p>Loài ấp trứng trong miệng.</p>",
-    "beforeYouBuy:bwaquatics": "<p>Hãy chuẩn bị sẵn môi trường sống trước khi mua.</p>"
+    "quickFacts:bwaquatics": "<ul><li>Thuộc nhóm loài Betta unimaculata.</li><li>Danh lục đỏ IUCN: Nguy cấp (nguy cơ tuyệt chủng ngoài tự nhiên rất cao).</li><li>Cá bắt ngoài tự nhiên, xuất xứ Tanah Grogot.</li><li>Kích thước tối đa: khoảng 9 cm.</li><li>Sinh sản: ấp trứng trong miệng.</li></ul>",
+    "notes:bwaquatics": "<p>Thân cá có màu nền nâu. Má nắp mang, thân và đuôi có ánh xanh óng. Cá cái ít ánh óng hơn cá đực. Đôi khi cả cá đực lẫn cá cái hiện sọc vằn như hổ dọc hai bên thân. Cá đực trưởng thành hẳn có vây bụng dài hơn. Dạng này có thân ngả đỏ hơn dạng thường.</p>",
+    "dimorphism:bwaquatics": "<p>Cá cái ít ánh óng hơn cá đực. Cá đực trưởng thành hẳn có vây bụng dài hơn.</p>",
+    "behaviour:bwaquatics": "<p>Nhóm loài này có những con betta to nhất. Cũng như nhiều loài khác trong nhóm, cá có thể khá hung dữ. Bạn nên nuôi riêng một loài trong bể, vì miệng cá rất to và con gì lọt vừa miệng là nó có thể ăn.</p>",
+    "waterConditions:bwaquatics": "<ul><li>TDS: ~60–100</li><li>pH: 5,0–7,0</li><li>Nhiệt độ: 22–28°C. Cá thích nước mát hơn, nhưng nước ấm hơn lại kích cá lên màu và vào giai đoạn sinh sản.</li></ul>",
+    "diet:bwaquatics": "<p>Cá ăn thịt. Cá ăn được cả thức ăn sống, đông lạnh lẫn đồ khô, cụ thể là giun đen, trùng huyết đông lạnh và cám viên.</p>",
+    "reproduction:bwaquatics": "<p>Cá ấp trứng trong miệng.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.85
+      "bwaquatics": 0.8
     }
   }
 }

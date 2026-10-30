@@ -7,220 +7,128 @@
   "group": "livebearers",
   "places": [
     "north-america",
-    "mexico",
-    "guatemala",
     "belize",
-    "nicaragua"
+    "belize-river",
+    "mexico",
+    "tabasco"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 20,
-          "max": 26
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 7,
-          "max": 8.2
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 10,
-          "max": 30
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 5
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 60
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 3
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua. Wild fish are almost never seen in the hobby, where dozens of selectively bred varieties are available, some produced by crossing with other Xiphophorus species. Many commercially bred platies are not very hardy because of inbreeding and over-production. Very peaceful, it suits the beginner as long as the water is moderately hard or harder.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "html": "<p>The wild platy (Xiphophorus maculatus) \"Tabasco\" has an inconspicuous gray basic coloration. Many (but not all) animals show a golden-bordered shoulder spot. The gill cover is partially transparent, resulting in a red spot, and the tail root pattern is highly variable: it can be completely absent, form a double crescent, or a Mickey Mouse pattern.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>It can be found in streams and rivers.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Standard length: 50 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Not critical but this species does appreciate a planted aquarium, and will be seen at its best if kept in this type of setup.</p><p>X. maculatus must be maintained in moderately hard or harder water; it will not thrive in soft, acidic water.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<ul><li>Temperature: 20–26 °C</li><li>pH: 7.0–8.2</li><li>Hardness: 10–30 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Unfussy and will accept most foods, whether frozen, live or dried.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Very peaceful and can be kept with most community species. They exhibit none of the aggression of some swordtails and mollies, and even males tolerate one another.</p><p>When males and females are to be housed in the same tank, there should be more females to spread out the attention of the males which can be relentless. Batches of fry will be continual.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Males are the smaller sex and possess a gonopodium.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "html": "<p>This platy originates from the Mexican state of Tabasco, where this population was first found by Dutch ornamental fish enthusiasts and brought to Europe. A similar golden-bordered shoulder spot (\"Admiral's epaulette\") is also known from populations from the Mexican state of Veracruz. So far it has not been crossed into breeding lines.</p>"
     },
     {
       "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Very easy. Will breed in the community tank. Breeding this species is more a case of 'when' rather than 'how'. If you're not interested in breeding them, buy only male fish. Otherwise breeding is much the same as for many other livebearers. Several females should be kept to every male in order to dissipate vigorous harassment by males. Areas of dense planting will also help.</p><p>Gestation takes around 4-6 weeks and large broods of up to 80 fry are not uncommon. The adult fish will not eat their young but the best method of raising them is still to remove the gravid female to a separate tank and allow her to give birth there before returning her to the main aquarium. The use of breeding nets or traps is not recommended as their small size is not suitable for raising fry.</p><p>The fry are quite large and will accept brine shrimp nauplii or powdered flake from birth. They grow very quickly if fed 2-3 times per day.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
-      "html": "<p>Another massively popular aquarium fish, with dozens of selectively bred varieties available, including mickey mouse, wagtail, tuxedo, moon, blue, red, comet and hi-fin. Some of these are produced by crossbreeding with X. helleri or X. variatus. Many commercially bred platies are not very hardy due to inbreeding and over-production and are prone to disease and premature death.</p><p>Wild fish are almost never seen in the hobby.</p><p>As long as the pH remains above neutral this fish is one of the best species available to the beginner.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "html": "<p>The particular challenge in long term breeding of such fish is to maintain variability. It is all too easy to succumb to the temptation of selecting particularly pretty specimens, which results in a uniform type after only a few generations that no longer has much in common with the wild population. To avoid this, as many color variants as possible from the respective population should be allowed to swim in the largest possible mixed shoal. This at least increases the probability that the diversity of forms of a population prevailing in nature will also be preserved among the offspring born in the aquarium.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d549e6b588815198.webp",
-      "width": 960,
-      "height": 627,
-      "licence": "CC BY-SA 3.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow_wag_platy.jpg",
-      "caption": "Xiphophorus maculatus, female, rainbow wag variety",
-      "thumb": "https://media.aquatome.com/commons/d549e6b588815198-480.webp"
+      "url": "https://media.aquatome.com/glaser/b4dc9fe43191d494.webp",
+      "thumb": "https://media.aquatome.com/glaser/b4dc9fe43191d494-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/bee1857a1659f116.webp",
-      "width": 921,
-      "height": 327,
-      "licence": "CC BY-SA 3.0",
-      "author": "Photograph by Jere Kyyrö. Uploaded by Rasvis.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_maculatus_in_aqarium.JPG",
-      "caption": "Southern Platyfish (Xiphophorus maculatus, Günther 1866) in aqarium. The colour variation with red body and black fin rays is called wagtail, or sometimes red wagtail. (There is also a yellow wagtail,",
-      "thumb": "https://media.aquatome.com/commons/bee1857a1659f116-480.webp"
+      "url": "https://media.aquatome.com/glaser/857c1d591f24c74b.webp",
+      "thumb": "https://media.aquatome.com/glaser/857c1d591f24c74b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/f88be7d91a0eb7af.webp",
-      "width": 960,
-      "height": 717,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sbane5001",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:24karat_platy.jpg",
-      "caption": "male platy, 24 karat gold breed, freshwater",
-      "thumb": "https://media.aquatome.com/commons/f88be7d91a0eb7af-480.webp"
+      "url": "https://media.aquatome.com/glaser/e32aeb567a5ad83b.webp",
+      "thumb": "https://media.aquatome.com/glaser/e32aeb567a5ad83b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/1ced08b4a1a6d500.webp",
-      "width": 960,
-      "height": 837,
-      "licence": "Public domain",
-      "author": "Cucumberkvp at en.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Gourami_and_Platies.jpg",
-      "caption": "A flame morph dwarf gourami (Colisa laila) with platyfish in an aquarium.",
-      "thumb": "https://media.aquatome.com/commons/1ced08b4a1a6d500-480.webp"
+      "url": "https://media.aquatome.com/glaser/28ae78ad64c38d4b.webp",
+      "thumb": "https://media.aquatome.com/glaser/28ae78ad64c38d4b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-tabasco-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a3c3eea711d96c10.webp",
+      "thumb": "https://media.aquatome.com/glaser/a3c3eea711d96c10-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-belize-purple/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6fdf4cdde5d673ca.webp",
+      "thumb": "https://media.aquatome.com/glaser/6fdf4cdde5d673ca-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-belize-purple/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a6b96cf33bc828c2.webp",
+      "thumb": "https://media.aquatome.com/glaser/a6b96cf33bc828c2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-belize-purple/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0ee13ccc2895eec0.webp",
+      "thumb": "https://media.aquatome.com/glaser/0ee13ccc2895eec0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-maculatus-belize-purple/",
+      "source": "glaser"
     }
   ],
-  "videos": [
-    {
-      "youtubeId": "oMRPIsRHlc4",
-      "title": "Platy fry (Xiphophorus maculatus) are growing quite rapidly :D",
-      "durationSec": 8,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "sLh4CEs56r0",
-      "title": "All You Need to Know About Platy Fish! Platy Care and Breeding",
-      "durationSec": 640,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "2Ug9BcRe01Q",
-      "title": "Platy Fish Care Guide (aka My Favorite Livebearer for Beginners)",
-      "durationSec": 355,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "c3D5VZLQPOY",
-      "title": "Breeding Platy Fish - Babies in 22 Days!",
-      "durationSec": 575,
-      "lang": "en"
-    }
-  ],
+  "videos": [],
   "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá 60cm",
-        "bể cá cảnh 54 lít"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng bể 60cm",
-        "lọc treo bể cá nhỏ"
-      ]
-    },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá bảy màu",
-        "thức ăn cá cảnh dạng vảy"
+        "thức ăn cá đẻ con"
       ]
     },
     {
-      "category": "cay-thuy-sinh",
+      "category": "be-ca",
       "keywords": [
-        "cây thủy sinh dễ trồng"
+        "bể cá 60cm",
+        "bể cá cộng đồng"
       ]
     }
   ],

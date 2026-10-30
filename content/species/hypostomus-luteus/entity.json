@@ -1,0 +1,114 @@
+{
+  "id": "hypostomus-luteus",
+  "scientificName": "Hypostomus luteus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-pelotas",
+    "uruguay",
+    "uruguay-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 31
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
+      "html": "<ul><li>Scientific name: Hypostomus luteus (Godoy, 1980)</li><li>Common names: Golden Sailfin Pleco</li><li>Synonym: Plecostomus luteus</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its yellow (luteus = yellow) colouring.</li><li>Size: 310 mm (12.2\") SL</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
+      "html": "<p>South America: upper Uruguay River basin (La Plata, Uruguay, Upper Uruguay, Pelotas). Type locality: Rio Pelotas at Volta Grande Dois, Marcelino Ramos, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
+      "html": "<p>Temperature: 23.0-24.0°C (73.4-75.2°F).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
+      "html": "<p>Poluiçao -- peixes e pesca, pp 29, Figs. 15-16.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "F2jfbZshBc8",
+      "title": "Hypostomus Luteus",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "99-wrZc2XDw",
+      "title": "50cm Hypostomus luteus Phase 3",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HnmvIagWejY",
+      "title": "18000 liter Hypostomus luteus tank",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GptH9_hcZ9w",
+      "title": "Hypostomus luteus - Pier Aquatics",
+      "durationSec": 145,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước công suất cao"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

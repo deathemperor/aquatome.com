@@ -1,0 +1,154 @@
+{
+  "id": "rita-kuturnee",
+  "scientificName": "Rita kuturnee",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Rita",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "krishna"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p><strong>Scientific name:</strong> Rita kuturnee (Sykes, 1839)</p><p><strong>Common name:</strong> Deccan Rita</p><p><strong>Type locality:</strong> Deccan, India.</p><p><strong>Size:</strong> 300 mm (11.8\") SL.</p><p><strong>Etymology:</strong> The name Rita is derived from the local name of the fish. The specific epithet comes from the local name of the fish, 'katarnaa'. Most of Sykes' species are named after regional/local species names.</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2010).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Asia: Peninsular India from Deccan rivers up to the Krishna river system, including the Kaveri, Krishna and Tungabhadra, and the states of Andhra Pradesh and Karnataka.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>pH: 6.0 - 7.0</p><p>Temperature: 22.0-27.0°C (71.6-80.6°F)</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Provide plenty of driftwood as hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Readily eats all manner of live and prepared foods. Will eat smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Although a fairly peaceful fish, it will eat smaller tankmates and is therefore best kept only with large, robust fishes. Larger cyprinids (e.g. Osteochilus) and larger spiny eels (Mastacembelus) are ideal tankmates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Not reported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Bagrid catfishes of the genus Rita Bleeker, 1854 are found in large rivers throughout the Indian subcontinent and Myanmar, and can reach sizes of up to 1500 mm TL (Talwar and Jhingran, 1991), although mature specimens of about 200-300 mm SL are more commonly encountered. The genus is diagnosed by the following synapomorphies (Mo, 1991): single pair of mandibular barbels, elongated Weberian apparatus firmly sutured to the basioccipital, and the sensory canal on the posttemporal enclosed within the bone.</p><p>Palatal teeth in two slender crescentic bands and dorsal spine smooth anteriorly, except for a few serrations at the base.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
+      "html": "<p>Proceedings of the Zoological Society of London 1838 (pt 6) (for 27 Nov. 1838), pp 164.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9110107fd7147121.webp",
+      "width": 960,
+      "height": 685,
+      "licence": "Public domain",
+      "author": "J. Swaine (artist)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_kuturnee_Sykes.jpg",
+      "caption": "Rita kuturnee syn. Phractocephalus kuturnee",
+      "thumb": "https://media.aquatome.com/commons/9110107fd7147121-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/740ff44d8c2a9094.webp",
+      "width": 960,
+      "height": 463,
+      "licence": "Public domain",
+      "author": "Robert Mintern",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rita_hastata_Mintern_103.jpg",
+      "caption": "Rita kuturnee syn. R. hastataThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Rita hastata",
+      "thumb": "https://media.aquatome.com/commons/740ff44d8c2a9094-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

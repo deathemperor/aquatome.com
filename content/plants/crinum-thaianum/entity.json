@@ -1,0 +1,60 @@
+{
+  "id": "crinum-thaianum",
+  "scientificName": "Crinum thaianum",
+  "difficulty": 1,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "background"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Crinumthaianum(093XL)/4538",
+      "html": "<ul><li>Type: bulb</li><li>Origin: Asia</li><li>Growth rate: medium</li><li>Height: 20 - 30+ cm</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Crinumthaianum(093XL)/4538",
+      "html": "<p>Crinum thaianum is undemanding apart from the fact that it needs plenty of space. Keep the top 2/3 of the bulb visible when you plant it because otherwise the bulb tends to rot.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Crinumthaianum(093XL)/4538",
+      "html": "<p>Crinum thaianum from Thailand is a distinctive bulbous plant belonging to the lily family having 60-200 cm long leaves. When the plant grows older it sometimes sends a flower stem up to the water surface with an aromatic, elegant lily flower.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/269c82a31ba2894c.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC BY 4.0",
+      "author": "Ito Y, Barfod A",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crinum_thaianum_in_Thailand.jpg",
+      "caption": "Crinum thaianum in Thailand (3 Dec. 2003). Credit: R. Pooma.",
+      "thumb": "https://media.aquatome.com/commons/269c82a31ba2894c-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây crinum thaianum",
+        "cây củ thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh",
+        "nền dinh dưỡng cho cây củ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

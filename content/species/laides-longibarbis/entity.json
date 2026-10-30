@@ -1,0 +1,124 @@
+{
+  "id": "laides-longibarbis",
+  "scientificName": "Laides longibarbis",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Laides",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "mekong",
+    "chao-phraya"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Family: Ailiidae (formerly in Schilbeidae). Size: 14 cm. Temperature: 22-26°C. pH: 6.0-7.0.</p><p>This genus has a posterior nostril located near the anterior nostril. Barbels are ribbon-shaped, with a mandibular and a mental pair on the lower jaw. 6 pelvic fin rays. There are two species in this genus: L. hexanema and L. longibarbis. Dorsal spines: 1; dorsal soft rays: 6; anal spines: 0; anal soft rays: 41-47; vertebrae: 44-46.</p><p>Compared to L. hexanema, this species has a longer anal fin base (38.6-41.5% SL versus 34.8-37.9%), more anal fin rays (41-47 versus 39-42), a smaller eye (eye diameter 20.1-23.6% HL versus 28.6-38.5%) and a larger interorbital distance (47.0-55.6% HL versus 37.9-47.3%).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Asia: Mekong, Mae Klong and Chao Phraya River basins. Type locality: Mekong at Chieng Sen, northern Siam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Inhabits large rivers with turbid and slow or standing waters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Feeds on fishes and zooplankton.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Oviparous; eggs are unguarded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Etymology: the genus name Laides (-ides, descendant of) is a replacement name for Lais Bleeker 1858, preoccupied by Lais Gistel 1848 in Tunicata (Lais is the Sundanese name for L. hexanema). The specific name longibarbis means long barbels.</p><p>This species was redescribed by Ng, H.H. in 1999. IUCN Red List: although there is no information on the population and its trends, it is still relatively abundant throughout most of Indochina. Despite the lack of understanding of potential threats, it is assessed as Least Concern given its abundance, but needs updating (IUCN 2012).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (11/2009).</p><p>Ng, H.H., 1999. Laides longibarbis, a valid species of schilbeid catfish from Indochina (Teleostei: Siluriformes). Ichthyol. Explor. Freshwat. 10(4):381-385.</p><p>Ng, H.H. 2012. Laides longibarbis. The IUCN Red List of Threatened Species 2012.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e3dd61489176688f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e3dd61489176688f-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "caption": "Laides longibarbis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/50e5148695afc3aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/50e5148695afc3aa-480.webp",
+      "width": 500,
+      "height": 285,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
+      "caption": "Laides longibarbis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

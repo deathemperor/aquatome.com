@@ -9,51 +9,54 @@
     "asia",
     "india",
     "ganges",
-    "bangladesh"
+    "bangladesh",
+    "nepal",
+    "myanmar",
+    "sri-lanka"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "seriouslyfish",
+        "source": "aquariumbreeder",
         "value": {
-          "min": 18,
-          "max": 25
+          "min": 24,
+          "max": 28
         }
       }
     ],
     "ph": [
       {
-        "source": "seriouslyfish",
+        "source": "aquariumbreeder",
         "value": {
-          "min": 6,
+          "min": 7,
           "max": 8
         }
       }
     ],
     "gh": [
       {
-        "source": "seriouslyfish",
+        "source": "aquariumbreeder",
         "value": {
-          "min": 5,
+          "min": 10,
           "max": 20
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 5
+        "source": "aquariumbreeder",
+        "value": 4
       }
     ],
     "tankCm": [
       {
-        "source": "seriouslyfish",
-        "value": 90
+        "source": "aquariumbreeder",
+        "value": 60
       }
     ],
     "difficulty": [
       {
-        "source": "seriouslyfish",
+        "source": "aquariumbreeder",
         "value": 2
       }
     ]
@@ -61,115 +64,93 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies. Peaceful, hardy and inexpensive, it has been mass-produced for many years and quality stock can be hard to find. The spotted 'leopard danio' is a spontaneous mutation of the striped form that also occurs in the wild.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Zebrafish</li><li>Other names: Zebra danio, Rerio, Striped danio, Zebra, Leopard danio and Longfin danio</li><li>Minimum tank size: 15 gallons (~60 litres), long</li><li>Keeping: easy to medium</li><li>Breeding: easy to medium</li><li>Size: 3–4 cm</li><li>Temperature: 24–28°C</li><li>pH: 7.0–8.0</li><li>GH: 10–20</li><li>Dwellers: mostly mid-dwelling</li><li>Nitrate: less than 80</li><li>Diet: carnivore / omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 3 years</li><li>Colour: striped with dark blue, gold and iridescent</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Zebrafish are generally peaceful in large schools, but may become nippers in community tanks. They should not be housed with slow fish, long-finned fish (such as Betta) or fish that cannot stand up for themselves; feeding time can involve a lot of fighting.</p><p><strong>Potentially compatible fish:</strong> Glowlight Danio, Harlequin Rasbora, Pygmy Cory, Boraras, Swordtails, Panda Garra, Neon Tetras, Brilliant Rummynose Tetras, Dwarf Ember Barbs, Clown Killifish, Least Killifish, Cherry barbs, Guppies, Ghost Glass Catfish, Dwarf Chain loaches, Kuhli Loaches, Endlers, Medaka Ricefish. Monitor their interactions.</p><p><strong>Dwarf shrimp:</strong> Not a good idea if breeding shrimp: they will eat shrimplets, and even adult shrimp can be killed while moulting.</p><p><strong>Snails:</strong> Usually left alone, though they may nip off antennae.</p><p><strong>Bad tankmates:</strong> larger or aggressive fish; timid, slow-moving or long-finned fish; crayfish; freshwater crabs; dwarf frogs.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>Described from the Kosi River, a tributary of the Ganges system in Uttar Pradesh state, northern India.</p><p>It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.</p><p>The primary reason for this is that many older records almost certainly represent misidentification of other species. In Myanmar, for example, the last record of D. rerio was in 1926, but in the years since several new, similar-looking fishes have been discovered and described to science, with others still to follow.</p><p>Agriculture, industry, modern fishing methods involving industrial reagents and other forms of habitat degradation may also have adversely affected its range.</p><p>At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.</p><p>This area is subjected to seasonal rainfall between the months of June and September due to the southwestern summer monsoon meaning habitats vary considerably depending on the time of year.</p><p>Wild caught fish have virtually disappeared from the aquarium trade since it's more cost-effective to produce on a commercial basis.</p><p>As a result it's become one of the most heavily-farmed species in the hobby, now available in several artificial forms (see 'Notes'), and invariably very cheap to buy. If you want wild specimens some specialist retailers carry them sporadically.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Danio rerio is indigenous to South Asia, widely distributed over the Indian subcontinent. It occurs in:</p><ul><li>the Ganges and Brahmaputra river basins in north-eastern India,</li><li>Bangladesh and Nepal,</li><li>the Krishna river basin,</li><li>the states of Rajasthan, Gujarat and Andhra Pradesh (river basins draining into the Arabian Sea),</li><li>Northern Myanmar and Sri Lanka.</li></ul><p>This region has a monsoon climate with pronounced rainy and dry seasons that strongly affect habitat parameters, including water chemistry and resource abundance.</p>"
     },
     {
       "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>A 2007 survey by Engeszer et al. recorded D. rerio at 28 sites in north-eastern India and found that in half of them water flow was either slow or non-existent.</p><p>The most common substrate-type was silt, submerged/overhanging vegetation was typical and generally the fish were more abundant in marginal/seasonally-inundated pools and mature rice paddies than stream or river channels.</p><p>When they were observed in flowing streams with rocky substrates they tended to school in marginal zones with overhanging vegetation. The water in most habitats was clear or relatively clear, only occasionally turbid.</p><p>Sympatric species across the localities included Opsarius barna, B. bendelisis, Danio dangila, Devario assamensis, D. devario, Laubuca laubuca, Esomus danricus, Pethia conchonius, P. shalynius, Oreichthys sp. 'sail fin', Lepidocephalichthys annandalei, L. guntea, Badis blosyrus, Dario dario, Colisa chuna, Ctenops nobilis, Aplocheilus panchax plus unidentified members of Oryzias and Lepidocephalichthys. Potential predators comprised various Channa species, Mastacembelus armatus, Mystus bleekeri, Xenentodon cancila and Notopterus notopterus.</p><p>The authors' final hypothesis as to the life cycle of the zebra danio was that adults spend dryer months of the year in permanent streams and minor rivers. There they inhabit calmer, shaded areas before migrating into seasonally-inundated tributaries, marginal pools and rice paddies during the monsoon to spawn.</p><p>The latter are typified by dense growths of flooded vegetation and silty substrates, and the young fish remain there until the flood waters begin to recede.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Zebrafish occur in a wide variety of habitats, including ponds, pools, channels, irrigation ditches, paddy (rice) fields and the edges of streams and rivers.</p><p>They prefer shallow water (10–40 cm deep), still or slow-flowing (up to 10 cm/s), in unshaded locations with some overhanging vegetation.</p><p>The species is also reported from fast rivers and hill streams, but some researchers believe this inconsistency probably results from taxonomic confusion between the genera Danio and Devario.</p>"
     },
     {
       "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>An active species so even a small group needs an aquarium with minimum base dimensions of 90 × 30 cm (36 × 12 in). Volume: approximately 81 litres.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong given its natural habitat preferences though it does seem to appreciate a degree of water movement.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Although small, Danio rerio needs a lot of space as it is very fast and active, so it is not suitable for nano tanks. Technically 5–6 danios can be kept in a 40-litre tank, but their true behaviour will not show, so this is not recommended. A group of 6–8 Zebrafish needs at least a 60-litre long tank, or larger.</p><p>In laboratories they are often housed at much higher densities (15–30 fish per 40 litres), but those experiments have other purposes and may conflict with their natural preferences.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p><strong>Temperature:</strong> The temperature range in its native waters was recorded to be 24.6–38.6°C during the month of July but presumably drops somewhat during winter. For general maintenance a value of 18–25°C should suffice meaning a heater may not always be required.</p><p><strong>pH:</strong> 6.0–8.0</p><p><strong>Hardness:</strong> 5–20 dGH</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Temperature:</strong> Zebrafish tolerate a wide range; in the wild they survive from about 6°C in winter to 38°C in summer. In the aquarium they thrive at 24–28°C. Tank temperature should not fluctuate widely over short periods; tolerance depends strongly on acclimation temperature.</p><p><strong>pH:</strong> They tolerate pH 6.5–9.0 but are more comfortable in neutral to alkaline water; ideal pH is 7.0–8.0.</p><p><strong>Hardness:</strong> A \"hard water\" species that dislikes soft water. The highest mortalities occurred at the lowest (5.5 dGH) and highest (32.5 dGH) tested levels. Ideal is 10–20 GH.</p><p><strong>Salinity:</strong> Freshwater, but tolerates up to 1 ppt.</p><p><strong>Dissolved oxygen:</strong> They have high metabolic rates and consume more oxygen per unit weight than larger fish. Keep oxygen at or just under saturation (~8 mg/L at 28°C).</p><p><strong>Nitrogen:</strong> Ammonia (0.02 ppm) and nitrite (1 ppm) in excess are typically toxic. Nitrate is tolerated relatively well, but prolonged exposure up to 100 ppm causes health problems.</p><p><strong>Water changes:</strong> Change 20–30% weekly. Added water should at least be dechlorinated. Dwarf shrimp kept with them dislike big water changes, which can cause moulting problems.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Cycling:</strong> Do not add fish to an uncycled tank; high ammonia and nitrate will kill them.</p><p><strong>Filtration and water flow:</strong> Zebrafish prefer still or slow-moving water, so choose filters with adjustable flow set as low as possible. Some filter intakes can suck in these small fish; use an extra sponge pre-filter.</p><p><strong>Lighting:</strong> No special requirements. Their diurnal activity is synchronized with the light/dark and feeding cycles, and spawning is influenced by photoperiod.</p><p><strong>Substrate:</strong> No special requirements if not breeding; adapt it to the plants. For breeding, gravel is more favourable, as it lets eggs escape predation by the parents.</p><p><strong>Decorations and hiding places:</strong> Live or artificial plants, driftwood, rocks etc. reduce the negative effects of aggression. In the wild they are associated with aquatic vegetation and prefer to spawn there.</p><p><strong>Acclimation:</strong> Introduce them gradually, temperature acclimate them, and quarantine them before adding them to the main tank, slowly, to avoid stress.</p>"
     },
     {
       "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>Stomach analyses of wild specimens have shown it to be a micropredator, feeding on aquatic crustaceans and other invertebrates such as mosquito larvae.</p><p>In the aquarium it is unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and bloodworm.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Zebrafish are opportunistic omnivores with a strong preference for high-protein food. Gut content analysis shows they mainly feed on aquatic invertebrates such as zooplankton, but filamentous algae, plant material, phytoplankton, invertebrate eggs, fish scales, spores, detritus, sand and mud have also been found.</p><p>In the aquarium, feed live prey or a mix with prepared diets, for example brine shrimp, artemia nauplii, rotifers, daphnia, moina, bloodworms, blackworms, fruit flies, mosquito larvae, grindal worms and cyclops. Live food has balanced nutrition for adults and young. Large prey (bloodworms, grindal worms) suits adults. An exclusively artificial diet is not recommended, as fish showed slightly reduced growth and survival compared with Artemia alone.</p><p>Zebrafish are mid-dwellers and mostly feed in the water column, though they can also feed at the surface and on the substrate.</p><p><strong>How often:</strong> Adults once a day, juveniles at least twice a day. Small, frequent meals promote maximum growth. They are aggressive eaters. Adults can fast a day or two without harm.</p><p><strong>How much:</strong> Either feed to satiation (the \"five-minute rule\": all food eaten within 5–7 minutes) or by body weight. Adults get up to 10% of body weight per day; larvae need 50–300%. It is better to underfeed than overfeed, since overfeeding degrades water quality and causes infections and disease. Siphon out leftovers and waste after every feeding.</p>"
     },
     {
       "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>This species is very peaceful indeed and can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches.</p><p>As always when selecting a compatible community of fishes thorough research is essential, and its small adult size must be a consideration.</p><p>It is a schooling species by nature and should be maintained in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display while males will also display their best colours as they compete with one other for female attention.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Sociality:</strong> Danio rerio is a highly social shoaling species. Shoaling is innate and starts soon after hatching. Keep at least 6 (bare minimum); larger groups are better. Too-small numbers are one reason Zebrafish become aggressive towards other fish and each other.</p><p><strong>Activity:</strong> They are almost constantly and quickly on the move and very playful, but play rough, which can stress, sicken or even kill tankmates. They may nip other fish to get them to play, especially in small groups. They are diurnal and rely on vision, but hide in darker areas when in danger.</p><p><strong>Dominance:</strong> Both sexes establish dominance hierarchies. Aggression includes chasing and sometimes biting; splayed fins and slowly circling each other while ascending is a sign they are ready to fight. Dominant fish are darker and more intensely coloured, subordinates paler. Once hierarchies are formed, aggression lessens. Hierarchies are fairly stable, and gender is not important in determining rank.</p><p><strong>Aggression:</strong> Generally quite peaceful, but some individuals (mostly males) may show territoriality. They are fin-nippers but rarely malevolent.</p><p><strong>Signs of alarm:</strong> tighter shoaling, agitated swimming or freezing on the substrate, decreased feeding, increased aggression (including nipping).</p><p><strong>Colour response:</strong> Fish on a black background tend to be darker than on a light background; stressed or scared fish lose colour. A white substrate, light background or aggressive tankmates will make colours fade.</p><p><strong>Learning:</strong> They are relatively smart and can remember tasks for at least 10 days. Juveniles of 6–8 weeks learned as well as or better than adults, whereas those of 3–4 weeks did not. They learn through visual and olfactory cues and show stress responses to cues associated with predators.</p>"
     },
     {
       "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>Sexually mature females are usually rounder-bellied, slightly less colourful and a little larger than males.</p><p>The differences are especially clear when the fish are in spawning condition as the males intensify in colour and the females fill with eggs.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Adult Zebrafish are sexually dimorphic, but the difference can be hard to see. The sex of juveniles cannot be reliably distinguished without dissection.</p><ul><li>Size: females are generally larger than males.</li><li>Growth rate: females grow faster.</li><li>Colour: males are generally darker, with more yellow in the anal fin. Females have little, if any, gold on their undersides.</li><li>Abdomen: females have a bigger underbelly; males are more slender and torpedo-shaped.</li><li>Genitals: females have a small genital papilla in front of the anal fin.</li></ul><p>Every Zebrafish starts developing as an immature female; future males undergo a 'gonadal transformation' at approximately 5–7 weeks after hatching (1–1.5 cm total length).</p>"
     },
     {
       "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>An excellent choice for those new to breeding fishes in aquaria. Like many small cyprinids it is an egg-scattering spawner that exhibits no parental care.</p><p>When the fish are in good condition they should spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention, but if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and half-filled with water.</p><p>These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well; alternatively filling much of the tank with Java moss or other fine-leaved plant can also yield good results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container.</p><p>Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods.</p><p>The pair should spawn the following morning. The easiest and quickest way to tell is simply to look at the female. If the fish have spawned she will be noticeably slimmer.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation is temperature-dependant to an extent but usually takes between 24 and 36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron diameter) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Zebrafish are asynchronous group spawners and egg scatterers. They breed under a wide range of conditions but show complex breeding behaviour involving competition, mate preference and substrate preference.</p><p><strong>Maturity:</strong> Reached after 75 days at 25.5°C, when females are about 2.5 cm long. Males mature at about 2.3 cm.</p><p><strong>Spawning cycle:</strong> Domesticated fish can breed all year in the laboratory; in nature spawning is more seasonal.</p><p><strong>Mating:</strong> Females usually prefer the odour of larger, unrelated males. Spawning starts in the morning (within the first minute of light after darkness) and lasts about an hour. Males release steroid pheromones to induce ovulation; after ovulation females release hormones that prompt male mating behaviour. Female pheromones may suppress reproduction of subordinate females, and dominant females produce more eggs.</p><p><strong>Courtship:</strong> The male chases the female and nudges her flanks with his snout to lead her to a spawning site, or circles her and swims back and forth between her and the site. Some males become territorial around potential sites; females prefer gravel to silt. Fertilization is external. The idea that they mate for life is false; they change partners easily.</p><p><strong>Eggs:</strong> Clutches are usually 150–190 eggs; large females can produce more than 700. Egg number correlates with female size. Females exposed to male pheromones for several days before spawning produce higher-quality eggs. Eggs are about 0.7 mm, non-adhesive, demersal and transparent when fertilized. Females release eggs directly over the substrate. Parents give no care and leave soon after fertilization.</p><p><strong>Hatching:</strong> Eggs hatch in 2–3 days at 28°C. Newly hatched juveniles are about 3 mm and optically clear. Larvae adhere to hard surfaces by cells on the head; by day 5 they must inflate their swim bladder by swallowing air at the surface, after which they swim freely. Rapid growth occurs in the first 3 months and stops by about 18 months. Under optimal conditions they can reach 1.8 cm in 45 days and 2.5 cm after one year.</p><p><strong>Breeding tank:</strong></p><ul><li>Use a separate spawning tank, as parents eat the eggs. Fill the bottom with gravel or marbles, or place a net on a frame about 2.5 cm above the bottom to create a double floor.</li><li>Remove the parents afterwards to avoid cannibalism of larvae.</li><li>Provide lighting; reproduction is strongly regulated by photoperiod and they generally spawn at dawn.</li><li>Keep the temperature around 28°C; low temperature is very bad for egg development.</li><li>Feed live foods to parents 2–3 times a day for 1–2 weeks before spawning.</li><li>Feed larvae from 4–5 days after fertilization, when they start swimming, with a mixture of ciliates, rotifers and Artemia nauplii. Live prey is preferable.</li><li>Water quality is critical: change 30–50% daily, removing dead or diseased larvae and debris.</li><li>Use no or very low water flow, as larvae would waste energy holding position and find prey harder to catch.</li></ul><p><strong>Triggering breeding:</strong> In nature they spawn during heavy rains, so a small drop in temperature and a slight rise in water level may trigger breeding.</p>"
     },
     {
       "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "html": "<p>D. rerio is one of the most popular and ubiquitous fishes in the aquarium hobby, and its popularity is well deserved since it is peaceful, hardy and inexpensive.</p><p>Unfortunately it has been mass-produced in huge numbers for many years, thus inbreeding has occurred on a large scale and quality stock can be hard to find.</p><p>Alongside morphological deformities common ailments include 'neon tetra disease' (NTD), caused by the microsporidian parasite Pleistophora hyphessobryconis and basically untreatable once it reaches an advanced stage.</p><p>Symptoms include restlessness, increased respiration, white patches on the skin, and an individual separating itself from the group. The spores (larval stage) of the parasite enter the fish through the mouth and burrow through the walls of the gut before settling in the muscles. There they produce cysts which cause rapid degeneration of the muscle tissue and development of the characteristic white patches.</p><p>Once the disease takes hold mortality rates can rapidly become very high. No medication is available, and the only way to 'treat' the tank is to physically remove any fish displaying symptoms.</p><p>Similar symptoms are caused by a severe form of the pathogenic bacterium Flavobacterium columnare, and this is sometimes mistaken for NTD (Michel, Messiaen, and Bernardet, 2002).</p><p>Another common problem is microsporidiosis, caused by the parasite Pseudoloma neurofilia (Matthews et al. 2001), with external symptoms including chronic emaciation and curvature of the spine having led to the vernacular term 'skinny disease'. Its life-cycle is similar to that of F. columnare in that it is ingested orally, but the main site of infection is the central nervous system, and it can be tricky to diagnose since infestations have been recorded in seemingly healthy individuals.</p><p>The 'leopard danio' is a spotted morph of D. rerio which was described as Brachydanio frankei (Meinken, 1963), but is now generally referred to as D. rerio var. frankei. Its origin was considered something of a mystery for a number of decades, with the most accepted theory being that it was produced via selective breeding, but it is now known to be a spontaneous mutation of the striped form which also occurs in the wild (Spence et al., 2008). There do exist several ornamental strains, however, including a xanthistic 'golden' form and a long-finned variety.</p><p>More recently, transgenically-modified 'Glofish' which fluoresce constantly have appeared on the market.</p><p>These were originally produced by the National University of Singapore in an attempt to mutate a fish so that it would literally glow in the presence of certain environmental toxins and are available in a number of colours, including yellow, green and red.</p><p>The substances causing this effect are proteins extracted from a particular jellyfish (green and yellow forms) or coral species (red form). An American company quickly purchased the rights to market Glofish in the United States where they've achieved a fair level of popularity.</p><p>As things stand they're illegal to buy, sell or own within the European Union although several instances of smuggling have been recorded, the punishment for which is a hefty fine.</p><p>D. rerio is a commonly-used model organism in scientific research, particularly the fields of vertebrate ontogeny and gene function, and is one of the few fishes to have been launched into space!</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm (3.5 in) SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Taxonomy: Danio rerio was originally described by Francis Hamilton in 1822 in \"An Account of the Fishes Found in the River Ganges and its Branches\". It belongs to the family Cyprinidae. There are currently approximately 30 species of danios and another 40 species of giant danios.</p><p>Etymology: the name Danio has Bengali roots from 'Dhani', meaning 'of the rice field'. 'Rerio' is presumably derived from a local Bengali name for the species.</p><p>Zebrafish are also a key research model organism in genetics, developmental biology, neurophysiology, biomedicine and toxicology.</p><p><strong>Description:</strong> Adults average about 3 cm from the snout tip to the origin of the caudal fin and rarely exceed 4 cm. The body is spindle-shaped and laterally compressed, the mouth oblique and directed upwards, with a protruding lower jaw. The lateral line is incomplete, extending to the pelvic fin base. There are two pairs of barbels and five to seven dark blue longitudinal stripes from behind the operculum into the caudal fin. The colour pattern includes three types of pigment cells: dark blue, gold and iridescent. The anal fin is also striped, while the dorsal fin has a dark-blue upper edge bordered with white.</p><p>Colour can change in response to stimuli: fish fade with light intensity (camouflage) and darken during aggressive displays. They can fully regenerate an amputated caudal fin within a few weeks.</p><p><strong>Variants:</strong> The Leopard danio and GloFish are not separate species; this mutation shows spots instead of stripes. The Longfin danio is a mutation with elongated fins. All belong to Danio rerio and can interbreed and produce fertile offspring.</p><p><strong>Lifespan:</strong> In captivity, mean life spans exceeded 3.5 years and the oldest individual survived 5.5 years. In the wild the species appears to be mainly annual.</p><p><strong>Plant safety:</strong> Zebrafish are completely plant safe and do not eat healthy living plants.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Spence, Rowena, Gabriele Gerlach, Christian Lawrence, and Carl Smith. “The behaviour and ecology of the zebrafish, Danio rerio.” Biological reviews 83, no. 1 (2008): 13-34.</li><li>Lawrence, Christian. “The husbandry of zebrafish (Danio rerio): a review.” Aquaculture 269, no. 1-4 (2007): 1-20.</li><li>McClure, M. M., P. B. McIntyre, and A. R. McCune. “Notes on the natural diet and habitat of eight danionin fishes, including the zebrafish Danio rerio.” Journal of Fish Biology 69, no. 2 (2006): 553-570.</li><li>Buske, Christine, and Robert Gerlai. “Shoaling develops with age in Zebrafish (Danio rerio).” Progress in Neuro-Psychopharmacology and Biological Psychiatry 35, no. 6 (2011): 1409-1415.</li><li>Gerhard, G.S., et al., 2002. Life spans and senescent phenotypes in two strains of Zebrafish (Danio rerio). Gerontol. 37, 1055–1068</li><li>Hundt, Matthias, et al. “The effect of water hardness on mortality of zebrafish (Danio rerio) during exposure to oxytetracycline.” Bulletin of environmental contamination and toxicology 96, no. 2 (2016): 144-149.</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/12c62a0d7e2f0be9.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/12c62a0d7e2f0be9-480.webp",
-      "width": 720,
-      "height": 405,
+      "url": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7-480.webp",
+      "width": 1200,
+      "height": 800,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "caption": "Adult male individual.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588-480.webp",
-      "width": 819,
-      "height": 648,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "caption": "The 'leopard danio' (aka 'B. rerio var. frankei') is an ornamental form of the species.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/32795a286bf2ef56.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/32795a286bf2ef56-480.webp",
-      "width": 720,
-      "height": 405,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "caption": "Long-finned, ornamental form of B. rerio var. frankei",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5fc2aade73269657.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5fc2aade73269657-480.webp",
-      "width": 720,
-      "height": 405,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "caption": "This ornamental strain is known as 'Russian long-fin blue'and appears to be derived from the leopard form.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [],
@@ -177,29 +158,29 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn cá nhỏ",
-        "artemia"
-      ]
-    },
-    {
-      "category": "cay-thuy-sinh",
-      "keywords": [
-        "rêu java",
-        "cây thủy sinh nổi"
+        "bể cá 60 lít",
+        "bể cá dài 60cm"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc sủi mút",
-        "lọc bể cá nhỏ"
+        "lọc thùng cho bể cá nhỏ",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá danio",
+        "artemia",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
       ]
     }
   ],

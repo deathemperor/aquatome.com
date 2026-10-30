@@ -9,14 +9,15 @@
     "oceania",
     "papua-new-guinea",
     "asia",
-    "indonesia"
+    "indonesia",
+    "papua"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
         "value": {
-          "min": 18,
+          "min": 22,
           "max": 26
         }
       }
@@ -25,7 +26,7 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 6.5,
+          "min": 6,
           "max": 7.5
         }
       }
@@ -33,7 +34,22 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 2.5
+        "value": 3.8
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 3
       }
     ]
   },
@@ -41,56 +57,78 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>The Red Neon Blue Eye Rainbowfish, also known as Pseudomugil luminatus, is a stunning nano fish native to freshwater rivers and streams in New Guinea and Indonesia. They are a captivating addition to planted aquariums due to their vibrant colors and peaceful nature.</p><p>Both males and females grow to about 1 inch (2.5 cm) long.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Pseudomugil luminatus, commonly known as the Red Neon Blue-Eye Rainbowfish, is a small, dazzling freshwater species. Adults reach approximately 2.5–3.8 cm (1.0–1.5 in) in length.</p>"
     },
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>Native to freshwater rivers and streams in New Guinea and Indonesia.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Native to a limited region near Timika, Papua, Indonesia.</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>In the wild, they are found in densely vegetated areas. Replicate this environment in your tank with plenty of live plants and floating plants for cover.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Provide clean, stable water with gentle flow, abundant plants, floating vegetation, and subdued lighting to replicate their natural blackwater habitats.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<ul><li>pH: They thrive in slightly acidic, soft water with a pH of 6.5 to 7.5.</li><li>TDS: Adaptable; they can be kept in tap water with a TDS in excess of 200.</li><li>Temperature: 18°C to 26°C (64.4°F to 78.8°F).</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Soft to moderately soft, slightly acidic to neutral water is preferred.</p><ul><li>pH 6.0–7.5</li><li>GH ≤ 8 dGH</li><li>KH ≤ 4 dKH</li><li>TDS &lt; 200 ppm</li><li>Temperature: 22–26 °C (72–79 °F); maintain stable warmth for consistent coloration and activity.</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>They are omnivores and enjoy a varied diet of high-quality flake food supplemented with small live or frozen foods like brine shrimp, daphnia, and bloodworms. Their mouths are tiny, so ensure the food is appropriately sized.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Micropredator/omnivore — feeds on small invertebrates and plankton in the wild. In captivity, offer fine flakes, micro-pellets, and frequent live or frozen foods such as baby brine shrimp, daphnia, and microworms to bring out vivid coloration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Peaceful, social fish best kept in groups of at least 6–8 individuals. Excellent companions include small rasboras, ricefish, dwarf corydoras, and other gentle rainbowfish. Avoid large or aggressive tankmates that may outcompete them for food. They are active midwater swimmers that need both open space and cover.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "html": "<p>Males boast vibrant red-orange bodies with electric blue accents, particularly on their fins. Females are a more subdued silver with a hint of blue.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>Males display vibrant red to orange body tones, electric blue eyes, and elongated fins, while females are slightly smaller and paler but still colorful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>An egg-scattering species. For breeding, use a separate tank with soft, slightly acidic water, fine-leaved plants, or spawning mops. Condition adults with live foods. Spawning occurs daily, with eggs adhering to fine surfaces. Eggs hatch in 7–10 days depending on temperature. Feed fry infusoria or green water at first, then baby brine shrimp or microworms as they grow.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "html": "<p>This species is tank-bred, hardy, and adaptable once established. Ensure excellent water quality and stable conditions to maintain vibrant coloration and breeding behavior.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/bwaquatics/ec3a33bd635a6587.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/ec3a33bd635a6587-480.webp",
+      "width": 1000,
+      "height": 734,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus-red-neon-rainbowfish-juveniles",
+      "source": "bwaquatics"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa-480.webp",
       "width": 1000,
       "height": 734,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-luminatus",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa-480.webp"
+      "source": "bwaquatics"
     }
   ],
   "videos": [],
@@ -124,5 +162,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

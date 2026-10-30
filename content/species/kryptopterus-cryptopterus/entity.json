@@ -1,0 +1,177 @@
+{
+  "id": "kryptopterus-cryptopterus",
+  "scientificName": "Kryptopterus cryptopterus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Kryptopterus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "malaysia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<ul><li>Scientific name: Kryptopterus cryptopterus (Bleeker, 1851)</li><li>Common name: Blue Sheatfish</li><li>Type locality: Banjarmasin, South Kalimantan, Borneo, Indonesia</li><li>Size: 200 mm (7.9 in) SL</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>Asia: Mekong and Chao Phraya basins; also from the Malay Peninsula, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<ul><li>pH: 6.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>This fish is fairly active and needs open spaces to swim in. Provide plenty of vegetation for it to hide in during the day.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>Readily feeds on live/frozen foods and other prepared foods such as pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>A schooling species that should be kept in groups of three or more. A relatively peaceful fish compatible with most other species. Ideal tankmates include larger barbs and rasboras, and other mid-sized bottom-dwelling Asian catfishes (e.g. Mystus).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>Males are more slender and have strong serrations on the posterior edge of the pectoral spine (females lack these serrations).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>In the Mekong, this species spawns during the early part of the rainy season (June-July). The young move toward the seasonally flooded habitats and are first seen in August. Not reported in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>Identification: rudimentary dorsal fin; the maxillary barbels reaching to the base of the pectoral fin; 64-78 anal rays. Nearly straight dorsal profile with no nuchal concavity; pectoral-fin length greater than head length.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 3), pp 270.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bc9a34397cfe8885.webp",
+      "width": 960,
+      "height": 641,
+      "licence": "CC BY-SA 4.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_cryptopterus.JPG",
+      "caption": "Kryptopterus cryptopterus",
+      "thumb": "https://media.aquatome.com/commons/bc9a34397cfe8885-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6be44392d0a8456f.webp",
+      "width": 960,
+      "height": 533,
+      "licence": "CC BY-SA 4.0",
+      "author": "JSutton93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_sheatfish_(Kryptopterus_cryptopterus).jpg",
+      "caption": "Blue sheatfish at Berlin Aquarium",
+      "thumb": "https://media.aquatome.com/commons/6be44392d0a8456f-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b1938d527a814313.webp",
+      "width": 960,
+      "height": 554,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gunawan Kartapranata",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brengkes_Tempoyak_Iwak_Lais_Palembang_1.jpg",
+      "caption": "Brengkes Tempoyak iwak Lais served in Palembang. It is Kryptopterus cryptopterus freshwater fish seasoned with tempoyak fermented durian sauce, cooked inside banana package. Specialty of Palembang, So",
+      "thumb": "https://media.aquatome.com/commons/b1938d527a814313-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0cdb6acd05e83ecc.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gunawan Kartapranata",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brengkes_Tempoyak_Iwak_Lais_Palembang_3.jpg",
+      "caption": "Brengkes Tempoyak iwak Lais served in Palembang. It is Kryptopterus cryptopterus freshwater fish seasoned with tempoyak fermented durian sauce, cooked inside banana package. Specialty of Palembang, So",
+      "thumb": "https://media.aquatome.com/commons/0cdb6acd05e83ecc-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh tạo chỗ ẩn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

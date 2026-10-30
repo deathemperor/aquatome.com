@@ -1,0 +1,73 @@
+{
+  "id": "pseudeutropius-brachypopterus",
+  "scientificName": "Pseudeutropius brachypopterus",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Pseudeutropius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra",
+    "borneo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
+      "html": "<ul><li>Scientific name: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>Family: Horabagridae</li><li>Synonym: Eutropius brachypopterus</li><li>Type locality: Palembang, southern Sumatra, Indonesia.</li><li>Etymology: Greek, pseudes = false + Greek, eu = well + keel, in reference to the compressed body of the fish.</li><li>Size: 115 mm (4.5\") SL.</li><li>IUCN Red List: Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
+      "html": "<p>Asia: Sumatra and Borneo. Pacific, Greater Sunda Island Rivers, Sumatra Waters; Pacific, Greater Sunda Island Rivers, Borneo Waters.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
+      "html": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
