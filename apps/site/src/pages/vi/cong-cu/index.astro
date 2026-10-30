@@ -6,6 +6,8 @@ import { jsonForScript } from '../../../lib/json'
 import { VN_WATER } from '../../../lib/climate'
 import { getTraits } from '../../../lib/traits'
 import { SUBSTRATES } from '../../../scripts/calc'
+import { EI_WEEK, SALTS } from '../../../scripts/ferts'
+import { fmt } from '../../../lib/format'
 import { i18n } from '../../../lib/i18n'
 
 const { lang, t } = i18n(Astro.url)
@@ -13,7 +15,7 @@ const c = await getContent(lang)
 const traits = await getTraits()
 const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, lang))
 ---
-<Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua và công suất sưởi.')}>
+<Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.')}>
   <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
     <h2 id="tm-h">{t('Nuôi chung được không? Thả bao nhiêu con?')}</h2>
     <p class="lead">{t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')}</p>
@@ -66,6 +68,21 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
     <p class="note">{t('Ước tính cho bể kính có nắp. Bể không nắp, đặt gần cửa sổ hoặc trong phòng có gió cần sưởi lớn hơn; bể dài trên 120 cm nên chia hai sưởi ở hai đầu.')}</p>
   </section>
 
+  <section class="tool" id="phan-bon" aria-labelledby="fert-h">
+    <h2 id="fert-h">{t('Châm phân nước: bao nhiêu ppm?')}</h2>
+    <p class="lead">{t('Dùng thể tích nước của bể ở trên. Chọn muối phân và số gam mỗi lần châm; nếu pha thành dung dịch, nhập thêm lượng nước pha và số ml mỗi lần châm.')}</p>
+    <form id="fert-form" class="row">
+      <label class="grow">{t('Muối phân')}
+        <select name="salt">{Object.entries(SALTS).map(([k, x]) => <option value={k}>{t(x.name)}</option>)}</select>
+      </label>
+      <label>{t('Số gam')} <input name="g" type="number" inputmode="decimal" min="0" max="1000" step="0.01" value="1" /></label>
+      <label>{t('Pha với (ml nước, không bắt buộc)')} <input name="sol" type="number" inputmode="numeric" min="0" max="5000" placeholder={t('vd. 500')} /></label>
+      <label>{t('Mỗi lần châm (ml)')} <input name="dose" type="number" inputmode="decimal" min="0" max="500" step="0.5" placeholder={t('vd. 10')} /></label>
+    </form>
+    <div id="fert-out" aria-live="polite"></div>
+    <p class="note">{t('Mức EI (Estimative Index) mỗi tuần: NO₃ {no3} ppm, PO₄ {po4} ppm, K {k} ppm, Mg {mg} ppm, Fe {fe} ppm, chia 3 lần châm, thay 50% nước mỗi tuần. Đó là mức cho bể nhiều cây, đèn mạnh, có CO₂; bể ít cây, không CO₂ cần ít hơn nhiều. Châm phân đa lượng và vi lượng khác ngày.', { no3: EI_WEEK.NO3!, po4: EI_WEEK.PO4!, k: EI_WEEK.K!, mg: EI_WEEK.Mg!, fe: fmt(lang).num(EI_WEEK.Fe!) })}</p>
+  </section>
+
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
@@ -73,6 +90,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   import { checkTankmates, TEMPERAMENT_LABELS } from '../../../scripts/tankmates'
   import { heaterWatts, substrate, tankVolume, type SubstrateKind } from '../../../scripts/calc'
   import { stocking } from '../../../scripts/stocking'
+  import { EI_DOSES, EI_WEEK, gramsFor, MAIN, ppm, SALTS, type Ion, type SaltId } from '../../../scripts/ferts'
   import { cpath, ct } from '../../../scripts/ct'
 
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
@@ -177,12 +195,31 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
       const sub = substrate(l, w, front, back, (sf.elements.namedItem('kind') as HTMLSelectElement).value as SubstrateKind)
       $('sub-out').innerHTML = ct('<strong>{litres} lít</strong> (khoảng {kg} kg) → mua <strong>{bags}</strong>.', { litres: fmt(sub.litres), kg: fmt(sub.kg), bags: sub.bags.map(b => ct('{n} bao {size} {unit}', { n: b.n, size: b.size, unit: b.unit === 'lít' ? ct('lít') : b.unit })).join(' + ') })
     } else $('sub-out').textContent = ct('Nhập độ dày nền.')
+    renderFerts(vol.water)
     const heat = heaterWatts(l, w, ht, num(h, 'target'), num(h, 'room'))
     $('heat-out').innerHTML = heat.heater === 0 ? ct('Phòng đã đủ ấm, không cần sưởi.')
       : heat.heater === null ? ct('Cần khoảng {w} W: dùng nhiều sưởi cộng lại.', { w: fmt(heat.watts, 0) })
       : ct('Cần khoảng {w} W → chọn sưởi <strong>{heater} W</strong>.', { w: fmt(heat.watts, 0), heater: heat.heater })
   }
-  for (const id of ['vol-form', 'sub-form', 'heat-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
+  const ION: Record<Ion, string> = { NO3: 'NO₃', N: 'N', PO4: 'PO₄', P: 'P', K: 'K', Mg: 'Mg', Ca: 'Ca', SO4: 'SO₄', Fe: 'Fe', Mn: 'Mn', B: 'B' }
+  function renderFerts(water: number) {
+    const f = $<HTMLFormElement>('fert-form')
+    const salt = (f.elements.namedItem('salt') as HTMLSelectElement).value as SaltId
+    const [g, sol, dose] = [num(f, 'g'), num(f, 'sol'), num(f, 'dose')]
+    if (!(g > 0)) { $('fert-out').textContent = ct('Nhập số gam.'); return }
+    const solution = sol > 0 && dose > 0 ? { solutionMl: sol, doseMl: dose } : undefined
+    const r = ppm(salt, g, water, solution)
+    const main = MAIN[salt]
+    const ei = EI_WEEK[main]
+    const want = ei === undefined ? undefined : gramsFor(salt, main, ei / EI_DOSES, water)
+    const rows = (Object.keys(r) as Ion[]).map(ion => `<tr><th scope="row">${ION[ion]}</th><td>${fmt(r[ion]!, 2)}</td><td>${EI_WEEK[ion] === undefined ? '–' : fmt(EI_WEEK[ion]! / EI_DOSES, 2)}</td></tr>`).join('')
+    $('fert-out').innerHTML = `<p>${solution ? ct('Mỗi lần châm {dose} ml dung dịch ({g} g trong {sol} ml) vào {water} lít nước:', { dose: fmt(dose), g: fmt(g, 2), sol: fmt(sol, 0), water: fmt(water, 0) }) : ct('{g} g thả thẳng vào {water} lít nước:', { g: fmt(g, 2), water: fmt(water, 0) })}</p>`
+      + `<div class="scroll"><table><thead><tr><th scope="col">${ct('Chất')}</th><th scope="col">${ct('Thêm (ppm)')}</th><th scope="col">${ct('Mức EI mỗi lần (ppm)')}</th></tr></thead><tbody>${rows}</tbody></table></div>`
+      + (want === undefined ? '' : `<p>${solution
+        ? ct('Để thêm đúng mức EI mỗi lần ({target} ppm {ion}): châm khoảng <strong>{ml} ml</strong> dung dịch này.', { target: fmt(ei! / EI_DOSES, 2), ion: ION[main], ml: fmt((want * sol) / g) })
+        : ct('Để thêm đúng mức EI mỗi lần ({target} ppm {ion}): khoảng <strong>{g} g</strong> {salt}.', { target: fmt(ei! / EI_DOSES, 2), ion: ION[main], g: fmt(want, 2), salt: SALTS[salt].formula })}</p>`)
+  }
+  for (const id of ['vol-form', 'sub-form', 'heat-form', 'fert-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
   renderCalc()
 </script>
 <style>
@@ -199,7 +236,9 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   :global(.chips) { list-style: none; padding: 0; margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-2); }
   :global(.chips li) { padding: 0.25rem 0.4rem 0.25rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); }
   :global(.chips button) { border: 0; background: none; cursor: pointer; font-size: 1.1rem; line-height: 1; color: var(--c-ink-soft); }
-  :global(#tm-out .scroll) { overflow-x: auto; }
+  :global(#tm-out .scroll), :global(#fert-out .scroll) { overflow-x: auto; }
+  :global(#fert-out table) { border-collapse: collapse; font-size: 0.95rem; margin: var(--space-2) 0; }
+  :global(#fert-out th), :global(#fert-out td) { text-align: left; padding: var(--space-1) var(--space-4) var(--space-1) 0; border-bottom: 1px solid var(--c-rule); font-variant-numeric: tabular-nums; }
   :global(#tm-out table) { border-collapse: collapse; font-size: 0.9rem; min-width: 100%; }
   :global(#tm-out th), :global(#tm-out td) { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--c-rule); white-space: nowrap; }
   :global(#tm-out tbody th) { white-space: normal; font-weight: 500; min-width: 9rem; }
