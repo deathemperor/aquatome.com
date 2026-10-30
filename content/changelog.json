@@ -2,6 +2,34 @@
   {
     "date": "2026-10-30",
     "kind": "species",
+    "id": "betta-livida",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-30",
+    "kind": "species",
+    "id": "camposcia-retusa",
+    "source": "aquariumbreeder",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-30",
+    "kind": "species",
+    "id": "parotocinclus-maculicauda",
+    "source": "aquariumbreeder",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-30",
+    "kind": "species",
+    "id": "sulcospira-testudinaria",
+    "source": "aquariumbreeder",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-30",
+    "kind": "species",
     "id": "trichogaster-chuna",
     "source": "glaser",
     "action": "updated"
@@ -3468,34 +3496,6 @@
     "date": "2026-10-29",
     "kind": "plant",
     "id": "caloglossa-beccarii",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-29",
-    "kind": "plant",
-    "id": "proserpinaca-palustris",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-29",
-    "kind": "species",
-    "id": "sulcospira-testudinaria",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-29",
-    "kind": "guide",
-    "id": "aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-29",
-    "kind": "guide",
-    "id": "aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum",
     "source": "aquariumbreeder",
     "action": "new"
   }
