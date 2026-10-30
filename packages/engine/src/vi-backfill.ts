@@ -10,7 +10,7 @@ export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as cons
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
 type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
-type Vi = { sections?: Record<string, string>; body?: string; definition?: string; quality?: { score: number; indexable: boolean; bySource?: Record<string, number> } }
+type Vi = { sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number> } }
 export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
@@ -18,17 +18,27 @@ export const REWRITE_V = 2
 const CHUNK = 12_000 // English characters per model call
 const json = async <T>(f: string): Promise<T> => JSON.parse(await readFile(f, 'utf8'))
 
-/** Each page's text in groups that are reviewed together: one source's sections (chunked), or one Vietnamese-only field. */
-async function jobs(contentRoot: string, kinds: readonly Kind[]): Promise<Job[]> {
+/**
+ * Each page's text in groups that are reviewed together: one source's sections (chunked), or one Vietnamese-only field.
+ * `match`: only pages whose Vietnamese matches, video guides included, and for guides also the summary and FAQ lines that match.
+ */
+async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp): Promise<Job[]> {
   const out: Job[] = []
   for (const kind of kinds) {
     for (const slug of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
-      if (!vi) continue
+      if (!vi || (match && !match.test(JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])))) continue
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
-      if (kind === 'guides') { if (e.source !== 'youtube' && vi.body) groups.push({ source: e.source, parts: [{ id: 'body', vi: vi.body }] }) }
+      if (kind === 'guides') {
+        if ((match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
+        const lines = !match ? [] : [
+          ...(vi.summary ?? []).map((s, i) => ({ id: `summary:${i}`, vi: s })),
+          ...(vi.faq ?? []).flatMap((f, i) => [{ id: `faq:${i}:q`, vi: f.q }, { id: `faq:${i}:a`, vi: f.a }]),
+        ].filter(p => match.test(p.vi))
+        if (lines.length) groups.push({ parts: lines })
+      }
       else if (kind === 'glossary') { if (vi.definition) groups.push({ parts: [{ id: 'definition', vi: vi.definition }] }) }
       else {
         for (const source of [...new Set((e.sections ?? []).map(s => s.source))]) {
@@ -53,12 +63,13 @@ async function jobs(contentRoot: string, kinds: readonly Kind[]): Promise<Job[]>
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[] }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp }) {
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS)).filter(j => due(state[j.id]))) {
+  // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id]))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
     const vi = await json<Vi>(file)
@@ -90,8 +101,11 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         if (hasEn) k.scores.push(score)
         rewritten++
         for (const p of g.parts) {
+          const [field, i, qa] = p.id.split(':') as [string, string?, string?]
           if (p.id === 'body') vi.body = next.get(p.id)!
           else if (p.id === 'definition') vi.definition = next.get(p.id)!
+          else if (field === 'summary') vi.summary![Number(i)] = next.get(p.id)!
+          else if (field === 'faq') vi.faq![Number(i)]![qa as 'q' | 'a'] = next.get(p.id)!
           else vi.sections![p.id] = next.get(p.id)!
         }
       }

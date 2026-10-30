@@ -99,7 +99,7 @@ test('a guide translated from a plain-text outline keeps its HTML', async () => 
   expect(m.get('body')).toBe('<h3>Tiêu đề</h3><p>Đoạn một.</p><ul><li>Ý</li></ul>')
 })
 
-test('the source is named for attribution; a page rejected under an older version is tried again, once', async () => {
+test('the source is named so its "we" is written neutrally; a page rejected under an older version is tried again, once', async () => {
   const root = await setup()
   await writeFile(join(root, 'sources.json'), JSON.stringify({ aquariumcoop: { name: 'Aquarium Co-op' } }))
   const state = join(root, 's.json')
@@ -109,7 +109,7 @@ test('the source is named for attribution; a page rejected under an older versio
   const llm: Llm = async <T,>(a: { system: string; prompt: string }) => { prompts.push(a.prompt); return fake({ en: 0.9, vi: 0.9 }, calls)(a as never) as Promise<T> }
   const r = await rewriteExisting(root, state, { llm, opts: { mode: 'fix' }, now }, { limit: 10, kinds: ['guides', 'species'] })
   expect(r.done.map(x => x.split(' ')[0])).toEqual(['guides/g']) // species/x was fully rewritten before: left alone
-  expect(prompts[0]).toContain('Theo Aquarium Co-op…')
+  expect(prompts[0]).toContain('không nhắc Aquarium Co-op hay "tác giả"')
   expect((await rewriteExisting(root, state, { llm, opts: { mode: 'fix' }, now }, { limit: 10 })).done.map(x => x.split(' ')[0])).toEqual(['glossary/t'])
 })
 
@@ -126,4 +126,20 @@ test('a rewrite below the bar gets one more try with the reviewer notes; the bet
   expect(r.done).toEqual(['guides/g (1/1, 0.85)'])
   expect(prompts[1]).toContain('"có thể giảm" became a certainty')
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>lần 2</p>')
+})
+
+test('--match re-edits only the pages containing it, video guides and their summary and FAQ lines included, even if rewritten before', async () => {
+  const root = await setup()
+  await put(root, 'guides/youtube-v/vi.json', { slug: 'v', name: 'V', body: '<p>Theo tác giả, thay nước mỗi tuần.</p>', summary: ['Thay nước đều.', 'Theo tác giả, rêu do thừa phân.'], faq: [{ q: 'Bao lâu thay nước?', a: 'Tác giả thay mỗi tuần.' }] })
+  const state = join(root, 'state.json')
+  await writeFile(state, JSON.stringify({ 'guides/youtube-v': { at: '2026-10-29', rewritten: 1, of: 1, scores: [0.9], v: 2 } }))
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { system: string; prompt: string }) => { prompts.push(a.prompt); return fake({ en: 0.9, vi: 0.9 })(a as never) as Promise<T> }
+  const r = await rewriteExisting(root, state, { llm, opts: { mode: 'fix' }, now }, { limit: 10, match: /tác giả/i })
+  expect(r.done.map(x => x.split(' ')[0])).toEqual(['guides/youtube-v'])
+  const vi = await read(root, 'guides/youtube-v/vi.json')
+  expect(vi.body).toBe('<p>mới body</p>')
+  expect(vi.summary).toEqual(['Thay nước đều.', 'mới summary:1']) // plain text stays plain
+  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'mới faq:0:a' }])
+  expect(prompts.some(p => p.includes('### faq:0:q'))).toBe(false)
 })
