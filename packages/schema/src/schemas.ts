@@ -143,6 +143,8 @@ export const TranslationSchema = z.object({
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),
+  /** AquaTome's own guides in another language: the sources that page's facts come from (the entity's refs otherwise). */
+  refs: z.array(z.object({ url: z.string(), title: z.string() })).optional(),
   quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional() }),
 })
 

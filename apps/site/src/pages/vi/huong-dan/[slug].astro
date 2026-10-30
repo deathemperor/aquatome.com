@@ -22,6 +22,7 @@ import VideoPlayer from '../../../components/VideoPlayer.astro'
 import { clock, illustrate, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
 import { slugify } from '@aq/schema/slug'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesOf } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -52,6 +53,10 @@ const pos = inSeries.findIndex(x => x.id === g.id)
 const next = series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g)
 const v = g.video
 const description = excerpt(g.t.body ?? '')
+// A guide in another language cites only the sources its own facts come from.
+const refs = g.t.refs ?? g.refs
+// A cited page in Vietnamese keeps its title, marked as Vietnamese on the other languages' pages.
+const viTitle = (s: string) => /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i.test(s)
 const jsonld: object[] = []
 if (v) {
   jsonld.push({
@@ -60,11 +65,16 @@ if (v) {
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
     ...(v.chapters.length > 1 ? { hasPart: v.chapters.map((ch, i) => ({ '@type': 'Clip', name: g.t.chapters?.[i] ?? ch.title, startOffset: ch.start, endOffset: v.chapters[i + 1]?.start ?? v.durationSec, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
   })
+} else {
+  // A written guide: an article in the page's language, citing the pages its facts come from.
+  const cites = refs?.map(r => r.url)
+  jsonld.push({ '@context': 'https://schema.org', '@type': 'Article', headline: g.t.name, inLanguage: lang, dateModified: g.updatedAt, image: ph?.url, mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href, description, ...(cites?.length ? { citation: cites } : {}) })
 }
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
+const alternates = await alternatesOf('guides', g.id)
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 ---
-<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
+<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
   {v && <link slot="head" rel="preconnect" href="https://i.ytimg.com" />}
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
@@ -73,7 +83,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
       <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
-      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={g.refs} />
+      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={refs} />
       {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
@@ -95,10 +105,10 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
         {g.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </section>
     )}
-    {g.refs && g.refs.length > 0 && (
+    {refs && refs.length > 0 && (
       <section class="refs" id="nguon" aria-labelledby="ref-h">
         <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
-        <ol>{g.refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank">{r.title}</a></li>)}</ol>
+        <ol>{refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={viTitle(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && viTitle(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
       </section>
     )}
   </article>
@@ -120,7 +130,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{t(categoryLabel(cat))}</a></li>)}</ul>
     </section>
   )}
-  <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
+  {lang === 'vi' && <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>}
 </Base>
 <style>
   .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }

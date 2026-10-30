@@ -25,7 +25,7 @@ import { creditsFor } from '../../../lib/credits'
 import { slugify } from '@aq/schema/slug'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
-import { speciesAlternates } from '../../../lib/alternates'
+import { alternatesOf } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -52,7 +52,7 @@ const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/
 // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes and comments) stay on /vi/.
 const vn = lang === 'vi'
 const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
-const alternates = await speciesAlternates(s.id)
+const alternates = await alternatesOf('species', s.id)
 const breeds = breedsOf(lang, c, s.id)
 ---
 <Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
