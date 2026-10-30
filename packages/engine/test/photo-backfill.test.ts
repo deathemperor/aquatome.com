@@ -35,3 +35,28 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   expect(again.pages).toBe(0)
   expect(gets).toHaveLength(1)
 })
+
+test('archive-read sources are left out; ScotCat photos come from their own pages', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const sp = (id: string, sections: object[]) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName: id, photos: [], sections })))
+  await sp('pc', [{ source: 'planetcatfish', sourceUrl: 'https://www.planetcatfish.com/common/species.php?species_id=1' }])
+  const SC = 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai.htm'
+  await sp('hoplisoma-sterbai', [{ source: 'scotcat', sourceUrl: SC }])
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { name: 'ScotCat' } }))
+  const gets: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async (u: string) => {
+      gets.push(u)
+      return { status: 200, html: u === SC ? '<div class="top-padding-10">Hoplisoma sterbai</div><a href="hoplisoma_sterbai1.htm"><img src="../Thumbnails/c_sterbai.jpg" width="100"></a>' : '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Helen Burns</strong>' }
+    },
+    bytes: async (u: string) => new TextEncoder().encode(u),
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 500, height: 316 }) },
+    now: () => new Date('2026-10-29T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(gets).toEqual([SC, 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm'])
+  expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
+  const e = JSON.parse(await readFile(join(root, 'content', 'species', 'hoplisoma-sterbai', 'entity.json'), 'utf8'))
+  expect(e.photos[0]).toMatchObject({ author: 'Helen Burns / ScotCat', source: 'scotcat' })
+})

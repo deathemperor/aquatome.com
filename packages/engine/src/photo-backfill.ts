@@ -4,7 +4,7 @@ import type { Photo, SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos } from './run'
 import { sourceById } from './sources'
-import { pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
+import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 
 export type BackfillDeps = {
   get: (url: string) => Promise<{ status: number; html: string }>
@@ -38,7 +38,8 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       if (e.photos.length >= WANT) continue
       // Video guides (source 'youtube') have no web page to read photos from.
       const refs = kind === 'guides' ? (e.source && e.sourceUrl && e.source !== 'youtube' ? [{ source: e.source, sourceUrl: e.sourceUrl }] : []) : (e.sections ?? [])
-      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u]) => !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS)
+      // Sources read through the Internet Archive are left out: the archive keeps no usable copies of their photos.
+      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => sourceById(s).via !== 'archive' && (!tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS))
       if (!urls.length) continue
       pages++
       const before = e.photos.length
@@ -50,7 +51,9 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           last.set(source, d.now().getTime())
           const o = htmlToOutline(r.html, src.contentSelector)
           if (r.status >= 400 || isChallenge(o.title, o.outline)) throw new Error(r.status >= 400 ? `HTTP ${r.status}` : 'challenge')
-          const picked = pickSourcePhotos(o.images, url, e.scientificName ? [e.scientificName] : [], kind === 'guides' ? 6 : 4, kind === 'guides' ? 'guide' : 'subject')
+          // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
+          const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, d.get) : o.images
+          const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], kind === 'guides' ? 6 : 4, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
           const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: d.bytes, media: d.media }, e.photos)
           if (stored.length) e.photos = kind === 'guides' ? [...stored, ...e.photos.filter(p => p.sourceUrl !== url)].slice(0, 6) : mergePhotos(e.photos, source, url, stored)
           tried[url] = d.now().toISOString()
