@@ -24,6 +24,9 @@ const list = async (e: CommentsEnv, ref = 'species:betta-splendens') => (await (
 test('shape: name 1–40, body 2–2000, known entity type', () => {
   expect(parseComment({ e: 'species:x', name: ' A ', body: 'hi' })).toEqual({ entityRef: 'species:x', name: 'A', body: 'hi' })
   expect(parseComment({ e: 'user:x', name: 'A', body: 'hi' })).toBe('bad entity')
+  // Video guides are named after the YouTube id: capitals and underscores.
+  expect(parseComment({ e: 'guide:youtube-J_PR999bgtw', name: 'A', body: 'hi' })).toEqual({ entityRef: 'guide:youtube-J_PR999bgtw', name: 'A', body: 'hi' })
+  expect(parseComment({ e: 'guide:a/b', name: 'A', body: 'hi' })).toBe('bad entity')
   expect(parseComment({ e: 'species:x', name: '', body: 'hi' })).toMatch(/name/)
   expect(parseComment({ e: 'species:x', name: 'x'.repeat(41), body: 'hi' })).toMatch(/name/)
   expect(parseComment({ e: 'species:x', name: 'A', body: 'h' })).toMatch(/comment/)
