@@ -264,7 +264,7 @@ export type WriteOpts = { style?: boolean; edit?: boolean; model?: string }
 const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?: boolean) => [
   WRITE,
   ...(style ? [STYLE] : []),
-  `Tiêu đề video: ${m.title}`, `Kênh: ${m.channel}`,
+  `Tiêu đề video: ${m.title}`,
   `Chương (${m.chapters.length}):\n${m.chapters.map(c => `- [${clock(c.start)}] ${c.title}`).join('\n') || '(không có)'}`,
   `Mô tả video:\n${m.description.slice(0, 1500)}`,
   `Ngôn ngữ video: ${LANG_NAME[m.lang ?? 'en'] ?? m.lang}.${m.lang === 'vi' ? ' Video bằng tiếng Việt: tuyệt đối không chép lại câu nói trong bản ghi; viết lại hoàn toàn bằng lời của bạn, sắp xếp theo cấu trúc bài hướng dẫn.' : ''}`,
@@ -286,9 +286,14 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
   return same ? { ...e, kind: d.kind, relevant: d.relevant } : d
 }
 
+const namesSource = (d: Draft, channel: string) => {
+  const text = JSON.stringify([d.viTitle, d.summary, d.body, d.faq]).toLowerCase()
+  return /tác giả|người làm video|trong video|theo video|video này/.test(text) || (!!channel.trim() && text.includes(`theo ${channel.trim().toLowerCase()}`))
+}
+
 export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide may name the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 
@@ -381,6 +386,8 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         // A broken rewrite keeps the first draft and its score.
         if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
       }
+      // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.
+      if (namesSource(d, m.channel)) d = await editDraft(llm, d, opts.write?.model)
 
       // What the video shows and uses (species we have pages for get linked); a bad answer only means no list.
       kit ??= await readKit(contentRoot)
