@@ -13,7 +13,7 @@ log() { echo "$(date -u +%FT%TZ) $*"; }
 PART="${1:-all}"
 case "$PART" in all|pages|photos|rewrite) ;; *) echo "usage: $0 [pages|photos|rewrite]" >&2; exit 2 ;; esac
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
-# GitHub: the push (GITHUB_TOKEN) starts no workflow, so ask deploy.yml, which deploys main as it is then, one at a time.
+# GitHub: a push made with GITHUB_TOKEN starts no workflow, so start deploy.yml for it (one deploy at a time, the newest waiting).
 deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
 
 # Single instance: a PID file, so a crashed or killed cycle doesn't block the schedule forever.
