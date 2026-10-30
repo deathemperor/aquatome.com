@@ -390,6 +390,8 @@ describe('instant navigation', () => {
     expect(r.eagerness).toBe('moderate')
     expect(r.where.and[0]).toEqual({ href_matches: '/vi/*' })
     expect(r.where.and[1].not.selector_matches).toContain('[rel~=sponsored]')
+    // The page's HTML is fetched sooner (10 ms hover; on phones, a link in view): a first visit waits ~0.5 s for it.
+    expect(rules.prefetch).toEqual([{ where: r.where, eagerness: 'eager' }])
   })
   test('analytics wait until a preloaded page is shown', () => {
     const beacon = dom.querySelector('script[data-beacon]')!.textContent!
