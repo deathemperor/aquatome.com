@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
-import { parseTranscript, videoGuides, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, parseTranscript, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -190,4 +190,46 @@ test("the video's species and kit are listed, cleaned up; species we have pages 
   expect(e.video.taxa).toEqual(['Neocaridina davidi', 'Rotala rotundifolia'])
   expect(e.video.gear).toEqual([{ category: 'co2', type: 'binh', brand: 'Chihiros', model: 'Diffuser S', t: 95 }, { category: 'khac', brand: 'Seachem', model: 'Flourish' }, { category: 'co2' }])
   expect(calls.prompts.some(p => p.includes('- co2: CO2; binh=Bộ CO2 bình nạp'))).toBe(true)
+})
+
+test('API metadata leaves captions unknown: captions are asked for, else our own transcript, else a skip (not an error)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d, calls } = deps(root, { videos: { a1: { captions: undefined } }, transcript: null })
+  d.yt.transcribe = async () => `[0:00] ${'cyanobacteria grows in low flow. '.repeat(60)}`
+  expect((await videoGuides(d, { playlists: ['PL1'] })).written).toEqual(['youtube-a1 (0.90)'])
+  expect(calls.transcripts).toBe(1)
+  expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.transcribed).toBe(true)
+  const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
+  const two = deps(root2, { videos: { a1: { captions: undefined } }, transcript: null })
+  two.d.yt.transcribe = async () => null // Whisper not on this machine
+  const r = await videoGuides(two.d, { playlists: ['PL1'] })
+  expect(r.skipped).toEqual(['a1: no captions; transcription unavailable'])
+  expect(r.errors).toEqual([])
+})
+
+test('ytApi: playlist pages and video details from the Data API, with the key; private and deleted entries dropped', async () => {
+  const asked: string[] = []
+  const get = async (u: string) => {
+    asked.push(u)
+    const q = new URL(u).searchParams
+    expect(q.get('key')).toBe('K')
+    if (u.includes('/playlists?')) return { items: [{ snippet: { title: 'Algae', channelTitle: 'MJ Aquascaping', channelId: 'UC1' } }] }
+    if (u.includes('/playlistItems?')) return q.get('pageToken')
+      ? { items: [{ snippet: { title: 'Deleted video', resourceId: { videoId: 'x' } } }, { snippet: { title: 'Part 2', resourceId: { videoId: 'b2' } } }] }
+      : { items: [{ snippet: { title: 'Part 1', resourceId: { videoId: 'a1' } } }, { snippet: { title: 'Private video', resourceId: { videoId: 'y' } } }], nextPageToken: 'P2' }
+    return { items: [{ snippet: { title: 'Part 1', channelTitle: 'MJ Aquascaping', channelId: 'UC1', publishedAt: '2023-02-11T10:00:00Z', description: '0:00 Intro\n1:05 Why algae\n12:30 Fixes', defaultAudioLanguage: 'en-GB', thumbnails: { high: { url: 'https://i.ytimg.com/vi/a1/hqdefault.jpg', width: 480, height: 360 } } }, contentDetails: { duration: 'PT14M5S' }, status: { embeddable: true, privacyStatus: 'public' } }] }
+  }
+  const yt = ytApi('K', get)
+  expect(await yt.playlist('PL1')).toEqual({ id: 'PL1', title: 'Algae', channel: 'MJ Aquascaping', channelUrl: 'https://www.youtube.com/channel/UC1', videos: [{ id: 'a1', title: 'Part 1' }, { id: 'b2', title: 'Part 2' }] })
+  const m = await yt.video('a1')
+  expect(m).toMatchObject({ durationSec: 845, publishedAt: '2023-02-11', lang: 'en', embeddable: true, chapters: [{ start: 0, title: 'Intro' }, { start: 65, title: 'Why algae' }, { start: 750, title: 'Fixes' }], thumb: { width: 480 } })
+  expect(m.captions).toBeUndefined()
+  expect(asked).toHaveLength(4)
+})
+
+test('chapters: only when the description lists at least three, from 0:00, in order', () => {
+  expect(chaptersFrom('1:00 a\n2:00 b\n3:00 c')).toEqual([])
+  expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])
+  expect(chaptersFrom('Intro text\n0:00 - Start\n1:02:03 End part\n59:00 back')).toEqual([])
+  expect(chaptersFrom('0:00 - Start\n10:00 | Middle\n1:02:03 End')).toEqual([{ start: 0, title: 'Start' }, { start: 600, title: 'Middle' }, { start: 3723, title: 'End' }])
 })

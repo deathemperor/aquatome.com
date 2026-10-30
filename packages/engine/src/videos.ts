@@ -2,7 +2,7 @@ import type { Video } from '@aq/schema'
 import type { Llm } from './claude'
 
 type Item = { id: string; snippet: { title: string; description: string; defaultAudioLanguage?: string }; contentDetails: { duration: string } }
-const seconds = (iso: string) => {
+export const seconds = (iso: string) => {
   const m = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso)
   return m ? Number(m[1] ?? 0) * 3600 + Number(m[2] ?? 0) * 60 + Number(m[3] ?? 0) : 0
 }
