@@ -33,7 +33,7 @@
   "Ejng2T-a2Gk": {
     "status": "error",
     "entityIds": [],
-    "error": "yt-dlp: ERROR: [youtube] Ejng2T-a2Gk: Sign in to confirm you\u2019re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  htt",
+    "error": "yt-dlp: ERROR: [youtube] Ejng2T-a2Gk: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  htt",
     "attempts": 1,
     "updatedAt": "2026-10-29T16:46:41.274Z"
   },
@@ -60,12 +60,34 @@
     "attempts": 0,
     "updatedAt": "2026-10-29T16:46:34.327Z"
   },
+  "Nbl2XlDFhY4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Nbl2XlDFhY4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T01:06:00.086Z"
+  },
+  "RVyowD7Sln4": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T01:11:20.139Z"
+  },
   "YXhZnSTaUW0": {
     "status": "error",
     "entityIds": [],
     "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
     "attempts": 1,
     "updatedAt": "2026-10-29T16:43:34.292Z"
+  },
+  "bQwIesUyAHY": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T01:11:59.387Z"
   },
   "dTkvCEn1xHA": {
     "status": "error",
@@ -82,6 +104,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-29T16:49:43.338Z"
   },
+  "kq-MchItRfo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-kq-MchItRfo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T01:08:30.781Z"
+  },
   "ohxFuNlRd2c": {
     "status": "processed",
     "entityIds": [
@@ -89,6 +119,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-29T16:44:58.982Z"
+  },
+  "tPkJ5PEBVYA": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-tPkJ5PEBVYA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T01:10:59.934Z"
   },
   "vl1Lx9iWDYU": {
     "status": "error",

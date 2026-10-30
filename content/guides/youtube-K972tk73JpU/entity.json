@@ -68,6 +68,107 @@
       "url": "https://i.ytimg.com/vi/K972tk73JpU/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "figures": [
+      {
+        "heading": "CO2 và đèn: chỗ dễ sai nhất",
+        "moments": [
+          {
+            "t": 59,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t59.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Drop checker có dung dịch màu xanh lá, báo mức CO2 vừa đủ."
+          },
+          {
+            "t": 64,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t64.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bộ dụng cụ CO2 bằng ống kính gắn ở bể thủy sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Set bể mới vào lúc nào cho đúng",
+        "moments": [
+          {
+            "t": 198,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t198.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Hai bể thủy sinh đặt cạnh cửa sổ, cây xanh tươi."
+          }
+        ]
+      },
+      {
+        "heading": "Châm phân thế nào để không nuôi rêu hại",
+        "moments": [
+          {
+            "t": 307,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t307.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Ba chai phân nước vi lượng, đa lượng và kali đặt trên kệ cạnh bể."
+          },
+          {
+            "t": 367,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t367.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh đá và cây xanh tốt, sạch rêu hại."
+          }
+        ]
+      },
+      {
+        "heading": "Thay nước bao nhiêu là đủ",
+        "moments": [
+          {
+            "t": 625,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t625.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh mới setup với phân nền, đá lớn và cây con."
+          },
+          {
+            "t": 635,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t635.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh lớp phân nền phủ cây con và hòn đá trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K972tk73JpU/p4-bV9GaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p4-bV9GaXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
+          "caption": "Bể cá có nền sỏi sáng và nước trong, hai con cá chép bơi gần đáy."
+        }
+      }
+    ],
+    "taxa": [
+      "Rotala sp."
+    ],
+    "gear": [
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 35
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 212
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 476
+      }
+    ]
   }
 }

@@ -36,6 +36,53 @@
       "url": "https://i.ytimg.com/vi/hL920TrlANg/maxresdefault.jpg",
       "width": 1280,
       "height": 720
-    }
+    },
+    "figures": [
+      {
+        "heading": "Xử lý GSA trên ráy và cây mọc chậm",
+        "moments": [
+          {
+            "t": 207,
+            "url": "https://media.aquatome.com/video/hL920TrlANg/t207.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh cây ráy và lá cây trên lũa trong hồ thủy sinh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/hL920TrlANg/p3-9TbmFpbF8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/hL920TrlANg/p3-9TbmFpbF8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "TheJammingYam (talk)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Nerite_Snail_1.jpg",
+          "caption": "Ốc nerite vằn bò trên lũa trong bể thủy sinh, chuyên dọn rêu."
+        }
+      }
+    ],
+    "taxa": [
+      "Anubias sp.",
+      "Neritina sp.",
+      "Clithon sp."
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Flourish Excel",
+        "t": 219
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 282
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 250
+      }
+    ]
   }
 }
