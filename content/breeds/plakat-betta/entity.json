@@ -46,7 +46,38 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/DVJ_Betta_splendens_003.jpg/1280px-DVJ_Betta_splendens_003.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/DVJ_Betta_splendens_003.jpg/500px-DVJ_Betta_splendens_003.jpg",
+      "width": 1280,
+      "height": 851,
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DVJ_Betta_splendens_003.jpg",
+      "caption": "Cá betta plakat đực màu xanh ngọc trong bể kính"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/DVJ_Betta_splendens_009.jpg/1280px-DVJ_Betta_splendens_009.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/DVJ_Betta_splendens_009.jpg/500px-DVJ_Betta_splendens_009.jpg",
+      "width": 1280,
+      "height": 932,
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DVJ_Betta_splendens_009.jpg",
+      "caption": "Cá betta plakat màu xanh lam ngọc bơi trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Doubletail_Plakat_female.JPG/1280px-Doubletail_Plakat_female.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Doubletail_Plakat_female.JPG/500px-Doubletail_Plakat_female.JPG",
+      "width": 1280,
+      "height": 909,
+      "licence": "CC BY-SA 3.0",
+      "author": "Tobias Schulte",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Doubletail_Plakat_female.JPG",
+      "caption": "Cá betta plakat cái màu nâu cam trong bể thủy sinh có rong"
+    }
+  ],
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/Siamese_fighting_fish",

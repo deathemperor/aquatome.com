@@ -89,7 +89,18 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Freshwater_angelfish.jpg/1280px-Freshwater_angelfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Freshwater_angelfish.jpg/500px-Freshwater_angelfish.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 3.0",
+      "author": "Visa Kopu, Roxeteer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_angelfish.jpg",
+      "caption": "Cá thần tiên Koi thân trắng đầu cam trong bể thủy sinh"
+    }
+  ],
   "sources": [
     {
       "url": "https://www.finarama.com/genetics/1988vol11-9.htm",

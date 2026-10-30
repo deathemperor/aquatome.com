@@ -62,7 +62,48 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/East_Gardens_of_the_Imperial_Palace_%289409570568%29.jpg/1280px-East_Gardens_of_the_Imperial_Palace_%289409570568%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/East_Gardens_of_the_Imperial_Palace_%289409570568%29.jpg/500px-East_Gardens_of_the_Imperial_Palace_%289409570568%29.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "CC BY 2.0",
+      "author": "Rob Young from United Kingdom",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:East_Gardens_of_the_Imperial_Palace_(9409570568).jpg",
+      "caption": "Hai cá koi bướm vây dài trắng đỏ bơi trong hồ"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Butterfly_Koi.jpg/1280px-Butterfly_Koi.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Butterfly_Koi.jpg/500px-Butterfly_Koi.jpg",
+      "width": 1280,
+      "height": 1081,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dslcards",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Butterfly_Koi.jpg",
+      "caption": "Cá koi bướm màu vàng trắng đuôi dài nhìn từ trên xuống"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Doitsu_Hariwake_Hirenaga.jpg/1280px-Doitsu_Hariwake_Hirenaga.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Doitsu_Hariwake_Hirenaga.jpg/500px-Doitsu_Hariwake_Hirenaga.jpg",
+      "width": 1280,
+      "height": 710,
+      "licence": "CC BY-SA 4.0",
+      "author": "Koilover68",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Doitsu_Hariwake_Hirenaga.jpg",
+      "caption": "Cá koi bướm vàng cam vây đuôi dài mềm mại"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Butterfly_Garden_Koi_%283733116209%29.jpg/1280px-Butterfly_Garden_Koi_%283733116209%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Butterfly_Garden_Koi_%283733116209%29.jpg/500px-Butterfly_Garden_Koi_%283733116209%29.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "CC BY 2.0",
+      "author": "Eden, Janine and Jim from New York City",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Butterfly_Garden_Koi_(3733116209).jpg",
+      "caption": "Cá koi bướm trắng vây dài bơi trong ao"
+    }
+  ],
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/Butterfly_koi",

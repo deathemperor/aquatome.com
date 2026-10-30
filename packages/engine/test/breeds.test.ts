@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { makeBreed, type BreedFacts } from '../src/breeds'
+import { breedPhotos, makeBreed, type BreedFacts } from '../src/breeds'
 import type { GalleryDeps } from '../src/gallery'
 
 const facts: BreedFacts = {
@@ -109,4 +109,37 @@ test('something research could not find (or a wild species) is skipped, nothing 
   const r = await root()
   const out = await makeBreed(r, { research: (async () => ({ ...facts, found: false })) as Llm, llm: (async () => { throw new Error('not called') }) as Llm, gallery: gallery([]) }, { name: 'Nope' })
   expect(out.skipped).toMatch(/not a man-made/)
+})
+
+test('breed-photos: a page with no photo gets them from a word search on Commons (not the exact phrase), best first; a month before the next try', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-breed-photos-'))
+  // Halfmoon's page already shows R0: a photo is never on two breed pages (Commons rarely says which line a fish is).
+  for (const [id, photos] of [['crowntail-betta', []], ['halfmoon-betta', [{ url: 'https://media.aquatome.com/commons/r0.webp', sourceUrl: 'https://commons.wikimedia.org/wiki/File:R0.jpg' }]]] as const) {
+    await mkdir(join(r, 'content/breeds', id), { recursive: true })
+    await writeFile(join(r, 'content/breeds', id, 'entity.json'), JSON.stringify({ id, kind: 'variety', photos }))
+    await writeFile(join(r, 'content/breeds', id, 'vi.json'), JSON.stringify({ name: `vi ${id}` }))
+  }
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  const searches: string[] = []
+  const prompts: string[] = []
+  const g = gallery(prompts)
+  const d: GalleryDeps = { ...g, http: async u => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'search') { searches.push(q.get('srsearch')!); return { query: { search: files.map(title => ({ title })) } } }
+    if (q.get('list') === 'categorymembers') return {}
+    return g.http(u)
+  } }
+  const rep = await breedPhotos(r, d, {})
+  expect(rep.done).toEqual(['crowntail-betta: 5 of 5'])
+  expect(searches).toEqual(['filetype:bitmap crowntail betta'])
+  expect(prompts[0]).toContain('crowntail betta (vi crowntail-betta)')
+  expect(prompts[0]).toContain('man-made line')
+  const e = JSON.parse(await readFile(join(r, 'content/breeds/crowntail-betta/entity.json'), 'utf8'))
+  expect(e.photos.map((p: { sourceUrl: string }) => p.sourceUrl.split(':').pop())).toEqual(['R1.jpg', 'R2.jpg', 'R3.jpg', 'R4.jpg'])
+  const gal = JSON.parse(await readFile(join(r, 'content/gallery/crowntail-betta.json'), 'utf8'))
+  expect(gal.photos.map((p: { sourceUrl: string }) => p.sourceUrl.split(':').pop())).toEqual(['R5.jpg'])
+  searches.length = 0
+  await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
+  await breedPhotos(r, d, {})
+  expect(searches).toEqual([]) // tried today
 })

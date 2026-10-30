@@ -11,7 +11,7 @@ const { breeds, heading, bare, eager = 0 } = Astro.props
     <ul>
       {breeds.map((x, i) => (
         <li><a href={`/vi/ca/${x.t.slug}/`}>
-          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph" />}
+          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>Chưa có ảnh</span>}
           <span class="n">{x.t.name}</span><span class="k">{BREED_KIND[x.kind]}</span>
         </a></li>
       ))}
@@ -24,6 +24,9 @@ const { breeds, heading, bare, eager = 0 } = Astro.props
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--space-3); }
   a { display: block; text-decoration: none; color: inherit; }
   img, .ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; height: auto; display: block; background: var(--c-plate); }
+  .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); color: var(--c-ink-faint); font-size: 0.8rem; }
+  .ph svg { width: 40%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; opacity: 0.6; }
+  .ph circle { fill: currentColor; stroke: none; }
   .n { display: block; padding-top: var(--space-2); font-weight: 600; }
   .k { display: block; font-size: 0.8rem; color: var(--c-ink-faint); }
   a:hover .n { text-decoration: underline; }

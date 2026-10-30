@@ -18,8 +18,11 @@ const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').
 type Members = { query?: { categorymembers?: { ns: number; title: string }[] }; continue?: { cmcontinue?: string } }
 type Info = { query?: { pages?: Record<string, { title: string; imageinfo?: { width: number; mime: string; thumburl: string; thumbwidth: number; thumbheight: number; descriptionurl: string; extmetadata?: Record<string, { value: string }> }[] }> } }
 
-/** Commons photos of a species: its category and two levels of subcategories, then a search; open licences, ≥ 800 px. */
-export async function commonsCandidates(name: string, http: Http, max = 450): Promise<Candidate[]> {
+/**
+ * Commons photos of a species: its category and two levels of subcategories, then a search; open licences, ≥ 800 px.
+ * `loose`: search the name's words rather than the exact phrase (a breed: few files carry "Crowntail betta" as such).
+ */
+export async function commonsCandidates(name: string, http: Http, max = 450, loose = false): Promise<Candidate[]> {
   const api = (q: Record<string, string>) => http(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ format: 'json', ...q }).toString().replace(/\+/g, '%20')}`)
   const titles = new Set<string>()
   const walk = async (cat: string, depth: number) => {
@@ -34,7 +37,7 @@ export async function commonsCandidates(name: string, http: Http, max = 450): Pr
     } while (cont && titles.size < max)
   }
   await walk(`Category:${name}`, 0)
-  const s = (await api({ action: 'query', list: 'search', srsearch: `filetype:bitmap "${name}"`, srnamespace: '6', srlimit: '100' })) as { query?: { search?: { title: string }[] } }
+  const s = (await api({ action: 'query', list: 'search', srsearch: loose ? `filetype:bitmap ${name}` : `filetype:bitmap "${name}"`, srnamespace: '6', srlimit: '100' })) as { query?: { search?: { title: string }[] } }
   for (const x of s.query?.search ?? []) titles.add(x.title)
   const list = [...titles].filter(t => !SKIP.test(t)).slice(0, max)
   const out: Candidate[] = []

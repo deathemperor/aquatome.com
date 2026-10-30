@@ -96,7 +96,41 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
+      "thumb": "https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
+      "width": 1280,
+      "height": 1024,
+      "licence": "Unsplash License",
+      "author": "aquariumstocking.com",
+      "sourceUrl": "https://unsplash.com/photos/a-blue-insect-sitting-on-top-of-a-banana-rm0jnHOdTX0?utm_source=aquatome&utm_medium=referral",
+      "report": "https://api.unsplash.com/photos/rm0jnHOdTX0/download?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA",
+      "caption": "Tép Blue Velvet màu xanh lam đậm trên lá khô trong bể thủy sinh"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
+      "thumb": "https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
+      "width": 1280,
+      "height": 1024,
+      "licence": "Unsplash License",
+      "author": "aquariumstocking.com",
+      "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-blue-and-black-insect-OaBAOoPGbQ4?utm_source=aquatome&utm_medium=referral",
+      "report": "https://api.unsplash.com/photos/OaBAOoPGbQ4/download?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA",
+      "caption": "Tép Blue Velvet xanh đậm bò trên rêu trong bể thủy sinh"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
+      "thumb": "https://images.unsplash.com/photo-1754077366222-858cb109e2e2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
+      "width": 1280,
+      "height": 848,
+      "licence": "Unsplash License",
+      "author": "Mathilde Wattrelos",
+      "sourceUrl": "https://unsplash.com/photos/a-blue-shrimp-rests-on-a-leaf-DVKbEiPvj1o?utm_source=aquatome&utm_medium=referral",
+      "report": "https://api.unsplash.com/photos/DVKbEiPvj1o/download?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA",
+      "caption": "Tép Blue Velvet xanh lam bò trên lá khô trong bể"
+    }
+  ],
   "sources": [
     {
       "url": "https://www.theshrimpfarm.com/posts/blue-velvet-shrimp-care/",

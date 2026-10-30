@@ -75,7 +75,18 @@
       }
     ]
   },
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/PezBettaKoi.jpg/1280px-PezBettaKoi.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/PezBettaKoi.jpg/500px-PezBettaKoi.jpg",
+      "width": 1280,
+      "height": 827,
+      "licence": "CC0",
+      "author": "Rluen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PezBettaKoi.jpg",
+      "caption": "Cá betta koi đuôi dài loang nhiều màu trong bể thủy sinh có đá"
+    }
+  ],
   "sources": [
     {
       "url": "https://aquariadise.com/koi-betta/",
