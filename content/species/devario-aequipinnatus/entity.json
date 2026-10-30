@@ -1,0 +1,219 @@
+{
+  "id": "devario-aequipinnatus",
+  "scientificName": "Devario aequipinnatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra",
+    "bangladesh",
+    "meghna",
+    "nepal",
+    "kosi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<ul><li>Max size: 75 mm SL (3.0 in SL)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 16–26°C (61–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Weekly water changes of 30-50% volume should be considered routine.</p><p>Devario aequipinnatus is a striped devario from hill streams in northeastern India, Bangladesh and Nepal. It is recognised by three straight dark stripes along each side, of which the middle one is widest. The name was long applied to almost any striped Devario, including the commercially bred giant danio, which is covered under D. malabaricus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Northeastern and northern India, Bangladesh and Nepal.</p><p>In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers. There is also a record from the upper Kosi River, a tributary of the Ganges, in Nepal (Kullander et al., 2017).</p><p>Type locality is given simply as 'Assam, India'. McClelland's specimen came from material collected by William Griffith, whose 1835 route passed through parts of present-day Bangladesh, Meghalaya and Assam.</p><p>Records from southern India and Sri Lanka refer to D. malabaricus and similar species. Around half of the DNA barcodes lodged under this name by 2016 were from those fish (Kullander et al., 2017).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Inhabits hill streams and upper parts of small rivers containing clear, well-oxygenated water with substrates of gravel and variably-sized rocks and some marginal or over-hanging vegetation. In Bangladesh it's found in small numbers in fast-flowing small streams (Kullander et al., 2017).</p><p>Water flow, volume and turbidity are highly variable depending on time of year.</p><p>At one high elevation site in Meghalaya state, northeastern India the water was somewhat clear with a mixed gravel and cobble substrate plus some overhanging marginal vegetation.</p><p>Other fish species included Danio dangila and an unidentified species of Channa.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Standard length: 75 mm SL (3.0 in SL). An aquarium with surface dimensions of 120 × 45 cm (48 × 18 in) or similar is suggested for long-term maintenance, with a volume of about 243 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Prefers an aquarium set up to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in pristine habitats it's probably intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though very fast flow is unnecessary it should also prefer a relatively high proportion of dissolved oxygen and moderate water movement.</p><p>Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as all Devario spp. are accomplished jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<ul><li>Temperature: 16–26°C (61–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>The gut contents of wild specimens were found to contain mostly insects with the remainder plant material.</p><p>In aquaria a good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Not an aggressive fish but may upset slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, and is therefore most appropriate for larger aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfishes and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but will result in a more effective, natural looking display.</p><p>Any aggression will also be contained as the fish concentrate on maintaining their hierarchical position within the group, and males tend to display better colours in the presence of rivals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Sexually mature females should be rounder-bellied, less colourful and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>Wild D. aequipinnatus have not been reported as bred by hobbyists, but fish identified as this species have been spawned in captivity without hormones by raising the temperature and simulating rainfall (Dey et al., 2014). Like most small cyprinids Devario spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a well-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required. The adult group can still be conditioned together but a smaller tank with a base measuring at least 60 cm x 30 cm should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced.</p><p>If ready, spawning usually takes place within 24 hours, with the female tending to appear noticeably slimmer after the event, and after 48 hours the adults should be removed whether this is observed or not.</p><p>Incubation is temperature-dependent to an extent but typically lasts 24-36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<p>This species is one of a group of similar-looking striped congeners alongside D. anomalus, D. coxi, D. devario, D. malabaricus and D. xyrops, among others.</p><p>Its name has been applied to almost any striped Devario, and in most aquarium literature to the commercially bred 'giant danio'. Genetic and morphological data have identified that fish as D. malabaricus.</p><p>McClelland's description is brief, and the drawing that accompanies it shows a fish with a deeply-forked caudal fin, small dark spots in two or three rows near the back, and no other colour pattern. Kullander et al. (2017) applied the name to the striped fish found in the area Griffith collected in, since no species known from there matches McClelland's description more closely.</p><p>Following Kullander et al. (2017) D. aequipinnatus can be told apart from all other Devario by its colour pattern of distinct, straight P+1, P and P-1 stripes, of which the P stripe is the widest and is equal in width from front to back or slightly tapering towards the tail. It also has 9½-10½ (exceptionally 11½) branched dorsal-fin rays and usually 12 scales around the caudal peduncle.</p><p>D. coxi, described in the same paper from near Cox's Bazar in Bangladesh, is very similar. It has 11½-12½ branched dorsal-fin rays, 14 scales around the caudal peduncle, and P and P-1 stripes that join towards the front of the body and contain light spots.</p><p>Perilampus ostreographus McClelland, 1839, described in the same work, was treated as a synonym of D. devario for many years and revalidated by Conway et al. (2009). Kullander et al. (2017) tentatively placed it in the synonymy of D. aequipinnatus, which the Catalog of Fishes follows. They also listed Danio assamensis Barman, 1984, known from only three specimens from the Brahmaputra in Assam, as a possible synonym.</p><p>The current genus name has only been in general use since 2003, prior to which members were considered to belong to the genus Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-aequipinnatus",
+      "html": "<ul><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>McClelland, J. (1839). Indian Cyprinidae. Asiatic Researches 19(2), 217-471</li><li>Cottle, P. W. (2010). Danios and Devarios. NPM Publishing, 1-160</li><li>Kullander, Sven O.; Rahman, Md. Mizanur; Norén, Michael; Mollah, Abdur Rob (2017). Devario in Bangladesh: Species diversity, sibling species, and introgression within danionin cyprinids (Teleostei: Cyprinidae: Danioninae) PLOS ONE 12(11), e0186895</li><li>Dey, S.; Ramanujam, S. N.; Mahapatra, B. K. (2014). Breeding and development of ornamental hill stream fish Devario aequipinnatus (McClelland) in captivity International Journal of Fisheries and Aquatic Studies 1(4), 1-7</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/797ee380743fcf6a.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 2.5",
+      "author": "Faucon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_aequipinnatus.JPG",
+      "caption": "Giant Danio, Devario aequipinnatus",
+      "thumb": "https://media.aquatome.com/commons/797ee380743fcf6a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/83dff0da3ba47aa1.webp",
+      "width": 904,
+      "height": 395,
+      "licence": "Public domain",
+      "author": "Sir Francis Day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_aequipinnatus_Day.png",
+      "caption": "Printed drawing of Devario aequipinnatus (McClelland, 1839)",
+      "thumb": "https://media.aquatome.com/commons/83dff0da3ba47aa1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4c639eec226f71ae.webp",
+      "width": 960,
+      "height": 887,
+      "licence": "CC BY 4.0",
+      "author": "Sven O. Kullander, Md. Mizanur Rahman, Michael Norén, Abdur Rob Mollah",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_aequipinnatus,_conserved_young_male,_young_female_and_adult_male_specimen.jpg",
+      "caption": "Devario aequipinatus, subadultes männliches, subadultes weibliches und adultes männliches Exemplar",
+      "thumb": "https://media.aquatome.com/commons/4c639eec226f71ae-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/88459e99201894a2.webp",
+      "width": 960,
+      "height": 415,
+      "licence": "Public domain",
+      "author": "R. Mintern",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_aequipinnatus_Mintern_150.jpg",
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Danio aequipinnatus",
+      "thumb": "https://media.aquatome.com/commons/88459e99201894a2-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá danio",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi suối",
+        "cát mịn cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,145 @@
+{
+  "id": "crossocheilus-burmanicus",
+  "scientificName": "Crossocheilus burmanicus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Crossocheilus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "india",
+    "thailand",
+    "salween",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>Crossocheilus burmanicus is a cyprinid from Myanmar plus northeastern India and western Thailand, in rivers draining to the Irrawaddy and Salween. It lives in clear, flowing streams over boulders, pebbles, gravel and sand, browsing the biofilm on submerged surfaces. Its dark lateral stripe does not extend into the caudal fin, which separates it from the fish traded as 'Siamese algae eater' or 'SAE'.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>Needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.</p><p>The type series was derived from both the Indian state of Assam and Myanmar thus the original type locality is given as 'Myanmar: Assam, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>Inhabits flowing streams and tributaries with substrates of boulders, pebbles, gravel and sand, often in areas with submerged driftwood or tree roots. The clear, often shallow, water allows sunlight to penetrate the surface and the development of a rich biofilm covering submerged surfaces upon which the fish browse.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>Minimum base dimensions of 150 × 45 cm (60 × 18 in) are recommended. Volume approximately 304 litres (80 US gal).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: not recorded</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>In nature Crossocheilus species are aufwuchs grazers feeding on algae, diatoms and other phytoplankton, plus associated microorganisms. The use of high-protein foods in the aquarium should therefore be avoided as the fish are unable to metabolise some components efficiently; regular, prolonged consumption can result in excessive deposits of fat and even organ degeneration.</p><p>A good quality dried product(s) with added Spirulina or similar is ideal but plenty of fresh vegetable matter should also be included in the diet. Shelled peas, blanched courgette, spinach and chopped fruit all make good additions to the menu. Once settled into the aquarium the fish sometimes ascend into midwater to feed and in a set-up as described above will often be seen browsing the biofilm that tends to form on the rockwork.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<p>We've been unable to obtain a diagnosis for this species to date but it can at least be distinguished from those congeners traded as 'Crossocheilus siamensis' (an invalid name synonymous with C. oblongus, which is itself of questionable identity), 'Siamese algae eater', or 'SAE' by the fact that the dark lateral stripe does not extend into the caudal-fin.</p><p>Members of Crossocheilus are characterised by possessing 8 branched dorsal fin rays, immobile rostral lobes, lacking a dorsal spine and by the fact that the upper and lower lips aren't connected, the upper being attached to the lower jaw via a thin membrane.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "html": "<ul><li>Kottelat, M. (2003). Nomenclatural status of Crossocheilus burmanicus, C. horai and C. multirastellatus (Osteichthyes: Cyprinidae). Raffles Bulletin of Zoology 51(2), 399-401</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Hora, S. L. (1936). On a further collection of fish from the Naga Hills. Records of the Indian Museum (Calcutta) v. 38 (pt 3), 317-331</li><li>Su, R.-F., J.-X. Yang and Y.-R. Chen (2000). A review of the Chinese species of Crossocheilus, with description of a new species (Ostariophysi: Cyprinidae). The Raffles Bulletin of Zoology 48(2), 215-221</li><li>Bănărescu, P. M. (1986). A review of the species of Crossocheilus, Epalzeorhynchos and Paracrossochilus (Pisces, Cyprinidae). Travaux du Muséum d'Histoire Naturelle 28, 141-161</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ecb4454369546181.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ecb4454369546181-480.webp",
+      "width": 600,
+      "height": 288,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "caption": "Individual in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2dd23b29b9c56ec0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2dd23b29b9c56ec0-480.webp",
+      "width": 700,
+      "height": 437,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crossocheilus-burmanicus",
+      "caption": "Specimen in its natural habitat, northwestern Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá dài 1m5"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "thức ăn cá ăn tảo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

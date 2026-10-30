@@ -8,147 +8,182 @@
   "places": [
     "asia",
     "thailand",
-    "chao-phraya",
-    "cambodia",
     "mekong",
     "laos",
+    "cambodia",
     "vietnam"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": {
-          "min": 22,
+          "min": 23,
           "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>One of the most beautiful and largest botias besides the well known and popular Chromobotia macracanthus is the Redtail botia Yasuhikotakia (formerly: Botia) modesta from Southeast Asia. These are gorgeous fish, usually with a very unusual dove blue base coloration that contrasts very nicely with the red fins. But there are also green, yellow-finned variants or lead-gray ones with transparent fins.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>The redtail loach, Yasuhikotakia modesta, is a botiid loach from the middle and lower Mekong and the Chao Phraya and Mae Klong drainages of Thailand. One of the more commonly encountered botiids in the hobby, it is also sold as 'blue', 'orange-finned' or 'red-finned' botia. Some fish are dyed and sold as 'blueberry' or 'raspberry' loach, and their health is normally compromised by the process. Deeper-bodied than the similar Y. lecontei, it grows to 250 mm and needs an aquarium with a base of at least 150 × 45 cm.</p>"
     },
     {
       "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>The species is distributed in the drainages of the big rivers Mekong, Chao Phraya and Mae Klong, the distribution area includes the countries Thailand, Cambodia, Laos and Vietnam.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>This species was described from the town of Phra Nakhon Si Ayutthaya, Ayutthaya province, central Thailand, located at the confluence of the Chao Phraya, Lopburi, and Pa Sak rivers.</p><p>It's since been collected throughout much of the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam plus the Chao Phraya and Mae Klong drainages in western and central Thailand.</p><p>In the Mekong several populations are known to exist which may overlap slightly during the spawning season, and especially in the upper part of the system. Of the wild fish collected for the aquarium trade, many are thought to originate from the Songkhram River, a Mekong tributary in northeastern Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>This species is apparently quite common across its native range and according to Rainboth (1996) shows a preference for flowing waters where it takes refuge among submerged rocks, tree roots, etc., during daylight hours, emerging to forage under cover of darkness.</p><p>It undergoes seasonal migrations as part of its life cycle (see 'Reproduction') and can thus be found in various habitat-types depending on the time of year from main river channels to smaller tributary drainages and temporarily-flooded zones.</p><p>It co-occurs with Yasuhikotakia lecontei, Y. morleti, and Syncrossus helodes across much of its range and in a survey of the Mun River conducted in Surin province, northeastern Thailand was collected alongside a host of other fish species including those three plus Acantopsis choirhynchos, Lepidocephalichthys hasselti, Barbonymus altus, B. gonionotus, Cyclocheilichthys apogon, C. repasson, Discherodontus ashmeadi, Epalzeorhynchos frenatum, Esomus metallicus, Hampala dispar, H. macrolepidota, Mystacoleucus marginatus, Barilius koratensis, Osteochilus vittatus, Raiamas guttatus, Rasbora borapetensis, R. dusonensis, R. rubrodorsalis, R. trilineata, Puntius orphoides, 'Puntius' partipentazona, Gyrinocheilus aymonieri, Trichopodus pectoralis, T. trichopterus, Trichopsis pumila, T. vittata, Pseudomystus siamensis, Mystus singaringan, Kryptopterus cryptopterus, and Mastacembelus favus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>Standard length: 250 mm SL (10 in). Aquarium base: 150 × 45 cm (60 × 18 in). Volume: ~304 litres (~80 US gal).</p><p>For long-term maintenance an aquarium with base measurements of 150 × 45 cm (60 × 18 in) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as Yasuhikotakia spp. are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>They have no special demands on the water chemistry. The water temperature can be between 22 and 28°C, but during the acclimation it is better to choose the upper temperature range, because all botias are somewhat sensitive to the spot disease (Ichthyophthirius), but tolerate medication against it only poorly. Ichthyophthirius does not like high water temperatures.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
       "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>They will eat any common ornamental fish food.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>While Yasuhikotakia spp. appear to be chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs, insects, worms, and other invertebrates.</p><p>They're largely unfussy feeders but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while most botiids also prey on aquatic snails they should never be considered the answer to an infestation since they're not obligate molluscivores.</p><p>Once settled into an aquarium they're bold feeders and often rise into midwater at meal times.</p>"
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>You should always keep all botias in social groups of as many specimens as possible, otherwise it can happen that they let out their social vein on other tank inhabitants and get on their nerves.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>Milder in temperament than some congeners such as Y. eos and Y. morleti but prone to occasional phases of aggression and may nip trailing finnage. Slow-moving or long-finned fishes are best omitted with active, pelagic cyprinids such as many Devario, Rasbora, Barilius, 'Puntius', and some Danio spp. representing more suitable tankmates.</p><p>In terms of other bottom-dwellers it should coexist relatively peacefully with most Botia and Syncrossus spp. or in very large tanks, Chromobotia macracanthus. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus, Garra, and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid potential problems.</p><p>Yasuhikotakia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or even aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual can stress the other(s) to the extent that they stop feeding.</p><p>That said they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>Sexually mature females are normally fuller-bodied and grow a little larger than males.</p>"
     },
     {
       "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "html": "<p>With a record size of 25 cm, Y. modesta is not a small fish, but sexual maturity occurs much earlier, at 8-10 cm in length. These are also the usual maximum sizes of the animals in nature. However, these loaches can become quite old in the aquarium, much older than in the wild and certainly older than 10 years and then really large animals are possible in large aquariums.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>Some Yasuhikotakia species, including Y. modesta, are farmed commercially for the hobby via the use of hormones but reports of breeding by private aquarists are unheard of, possibly because the majority are seasonal, migratory spawners in the wild.</p><p>For example, in the lower Mekong basin Y. modesta undergoes an upstream migration, apparently triggered by receding water levels, between November and March each year whereas from May to July it migrates in the opposite direction as waters rise once more.</p><p>It thus enters flooded areas to spawn at the onset of the wet season, with eggs and fry dispersed into flooded zones of southern Cambodia and the Mekong delta region.</p><p>In the upper Mekong, above Khone Falls, the species has been recorded to migrate upstream from February to May alongside a Henicorhynchus sp.</p><p>It enters smaller tributaries and streams and again spawns at the start of the rainy season with eggs and fry similarly swept into flooded areas where they complete the initial stages of development.</p><p>The precise pattern of migrations is therefore slightly different in the upper Mekong since the adults must move into tributaries to access flooded zones, whereas in the lower basin they can do so directly via the main river channel.</p><p>Eggs were recorded between February and July with a strong peak in May and June while juveniles of around 20 mm (0.8 in) TL were observed at various times depending on locality, dispersing into perennial channels when water depth/flow in tributaries and flood plains begins to recede.</p><p>They have a series of dark, vertical bars on the flanks which fade as they reach maturity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<p>This species is one of the more commonly-encountered botiids in the hobby and is also sold as 'blue', 'orange-finned', or 'red-finned' botia/loach. It's sometimes subject to artificial colouring with bright blue or purple dyes and purchasing such fish is strongly discouraged (they're illegal in several countries).</p><p>Not only is there a welfare issue to consider but also the fact that the health of the fish is normally compromised during the process, leaving them less vigorous and more susceptible to disease. The dyed fish are normally sold as 'blueberry' or 'raspberry' loach/botia.</p><p>It's sometimes confused with Y. lecontei though in reality the two are readily distinguishable from one another by body shape since Y. modesta is a deeper-bodied, more compact fish.</p><p>Further, in Y. lecontei the overall body colouration is usually brownish with a gold/green sheen and the dark markings present on either side of the caudal peduncle tend to be roundish and not meet on the ventral surface of the fish whereas in Y. modesta base body colour is most often bluish with blue/green sheen and when present (it isn't always) the dark caudal peduncle markings tend to form a continuous bar around the entire peduncle.</p><p>There exist both red and yellow-finned colour variants, with the latter sometimes referred to as Y. sp. 'blue fin' or, incorrectly, Y. lecontei. The former name is derived from the fact that the dorsal fin is the same colour as the body rather than the caudal fin, unlike in the red-finned form where both caudal and dorsal fins are the same colour, which has led to speculation it may represent an undescribed species.</p><p>Apparently both can be found living alongside one another in nature, but the red-finned form is predominant in the Mekong drainage and yellow-finned the Chao Phraya. At time of writing both are considered to be Y. modesta.</p><p>The genus Yasuhikotakia was erected by Nalbant (2002) to include some former members of Botia which were previously referred to as the Botia modesta 'group' following Taki (1972).</p><p>Members are defined by the following combination of characters as given by Kottelat (2004): mental lobe not developed in a barbel, with a pair of fleshy papillae at its anterior edge; fronto-parietal fontanelle large and wide; anterior chamber of gas bladder partly covered by bony capsule; posterior chamber large; top of supraethmoid narrow; optic foramen small; anterior process of premaxilla entire, not surrounding a cavity; rostral process long, with a more or less distinct ridge along inner edge; suborbital spine strongly curved backwards and bifid; head naked.</p><p>The family Botiidae has been widely considered a genetically distinct grouping since Nalbant (2002), having previously been considered a subfamily (Botiinae) of the family Cobitidae. Nalbant also moved some previous members of Botia into the new genus Yasuhikotakia based on a number of morphological characters.</p><p>Later Kottelat (2004) made further modifications to the taxonomy, raising Chromobotia for B. macracanthus and confirming that species previously included in the genus Hymenophysa should instead be referred to Syncrossus.</p><p>The former alteration was based on colour pattern plus some morphological characters and the latter because Hymenophysa not only represents a spelling mistake (McClelland's original spelling was Hymenphysa) but is a junior synonym of Botia.</p><p>More recently Kottelat (2012) erected the genus Ambastaia to accommodate A. nigrolineata and A. sidthimunki, two former members of both Botia and Yasuhikotakia.</p><p>As a result of these works the family Botiidae is thus divided into two tribes within which Botia appears to be the most basal lineage:</p><p>Tribe Leptobotiini - Leptobotia, Parabotia, Sinibotia. Tribe Botiini - Ambastaia, Botia, Chromobotia, Syncrossus, Yasuhikotakia.</p><p>Phylogenetic studies by Tang et al. (2005) and Šlechtová et al. (2006) have largely confirmed this system to be correct although the latter disagreed with the placement of Sinibotia, finding it to be more closely related to the tribe Botiini.</p><p>Ambastaia nigrolineata and A. sidthimunki were found to be more closely-related to both Sinibotia and Syncrossus than Yasuhikotakia, despite being considered members of the latter at the time. Šlechtová et al. also proposed the use of subfamily names under the following system:</p><p>Subfamily Leptobotiinae - Leptobotia, Parabotia. Subfamily Botiinae - Botia, Chromobotia, Sinibotia, Syncrossus, Yasuhikotakia.</p><p>Within these Botia appears to be the basal, i.e., most ancient, lineage and in a more-detailed phylogenetic analysis Šlechtová et al. (2007) confirmed the validity of the family Botiidae with the genera listed above as members rather than being grouped into subfamilies. This more recent, simpler system is the one followed here.</p><p>Some behavioural routines exhibited by Yasuhikotakia spp. have been recorded often enough that they've been assigned non-scientific terms for ease of reference.</p><p>For example during dominance battles (these occur most frequently when the fish have been introduced to a new tank, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon that's come to be known as 'greying out'.</p><p>Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>Interestingly some observations suggest that the character of the highest-ranked, or alpha, fish appears to affect that of the whole group though it must be said that scientific studies of botiid loach behaviour are virtually non-existent.</p><p>It certainly seems that they display a degree of 'personality' with some specimens being naturally bolder or more aggressive than others, for example. The alpha is normally the largest specimen within the group and often female.</p><p>'Shadowing' is an interesting behaviour in which younger individuals swim flank-to-flank with older, mimicking their every movement. Some keepers report that more than one smaller fish may shadow a larger simultaneously, with even three or four on each side!</p><p>The reason for it is unknown; it may relate to a group staying in touch with one another when rivers swell during times of flooding, perhaps reducing drag by swimming 'in formation' or having some other communicative function.</p><p>It's been observed in aquaria with both high and low water flow and seems to be habitual to the extent whereby some individuals will shadow other fishes if no conspecifics are present.</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, these increasing in volume when the fish are excited. The behavioural aspects of this phenomenon remain largely unstudied but the sounds are thought to be produced by grinding of the pharyngeal (throat) teeth or subocular spines.</p><p>A further curiosity is the so-called 'loachy dance' which involves an entire group swimming in a constant, restless fashion around the sides of the tank, usually utilising the full length and height.</p><p>The reasons for this are unknown and reports as to when it occurs vary but the most common triggers appear to be the addition of food, fresh water or new conspecifics, and it can last anything from a few minutes to a day or more.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>Yasuhikotakia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus.</p><p>It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "html": "<ul><li>Bleeker, P. (1864). Description de deux espèces inédites de Cobitioïdes. Nederlandsch Tijdschrift voor de Dierkunde 2, 11-14</li><li>Grant, S. (2001). The Botia modesta complex (Cobitidae, Botiinae). Ichthyofile No. 1, 1-8</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Nalbant, T. T. (2002). Sixty million years of evolution. Part one: family Botiidae (Pisces: Ostariophysi: Cobitoidea). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 44, 309-333</li><li>Nalbant, T. T. (2004). Hymenphysa, Hymenophysa, Syncrossus, Chromobotia and other problems in the systematics of Botiidae. A reply to Maurice Kottelat. Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 47, 269-277</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Šlechtová, V., J. Bohlen, J. Freyhof and P. Ráb (2006). Molecular phylogeny of the Southeast Asian freshwater fish family Botiidae (Teleostei: Cobitoidea) and the origin of polyploidy in their evolution. Molecular Phylogenetics and Evolution 39(2), 529-541</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Sokheng, C., C. K. Chhea, S. Viravong, K. Bouakhamvongsa, U. Suntornratana, N. Yoorong, N. T. Tung, T. Q. Bao, A. F. Poulsen, and J. V. Jørgensen (1999). Fish migrations and spawning habits in the Mekong mainstream: a survey using local knowledge (basin-wide). Assessment of Mekong Fisheries, AMFP Report 2/99. Vientiane, Lao, P.D.R.</li><li>Taki, Y. and A. Doi (1995). Two new species of the cobitid genus Botia from the Lao Mekong Basin. Japanese Journal of Ichthyology 42(2), 147-155</li><li>Tang, Q., B. Xiong, X. Yang and H. Liu (2005). Phylogeny of the East Asian botiine loaches (Cypriniformes, Botiidae) inferred from mitochondrial cytochrome b gene sequences. Hydrobiologia 544(1), 249-258</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/28b29e3684acf8a1.webp",
-      "thumb": "https://media.aquatome.com/glaser/28b29e3684acf8a1-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/ce8fd616fc38986b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ce8fd616fc38986b-480.webp",
+      "width": 700,
+      "height": 383,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "caption": "This is the red-finned form of the species most-often seen in the trade...",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/34c1e85c859a3591.webp",
-      "thumb": "https://media.aquatome.com/glaser/34c1e85c859a3591-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/660c66d8f1ec6a7d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/660c66d8f1ec6a7d-480.webp",
+      "width": 700,
+      "height": 401,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "caption": "...and this is the yellow-finned one with blue dorsal which may represent a different species.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/6bfa8c4d579a6632.webp",
-      "thumb": "https://media.aquatome.com/glaser/6bfa8c4d579a6632-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/73a2b429e0b7662d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/73a2b429e0b7662d-480.webp",
+      "width": 720,
+      "height": 478,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "caption": "Subadult specimen.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/9ca00e84eb0d1047.webp",
-      "thumb": "https://media.aquatome.com/glaser/9ca00e84eb0d1047-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/e69f2048d725387c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e69f2048d725387c-480.webp",
+      "width": 720,
+      "height": 478,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2-3/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/ec5bcdc37e56dd88.webp",
-      "thumb": "https://media.aquatome.com/glaser/ec5bcdc37e56dd88-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/ebf194f83b7a31c4.webp",
-      "thumb": "https://media.aquatome.com/glaser/ebf194f83b7a31c4-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/5fe15597112ae5dc.webp",
-      "thumb": "https://media.aquatome.com/glaser/5fe15597112ae5dc-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/2669ae2e1f82f177.webp",
-      "thumb": "https://media.aquatome.com/glaser/2669ae2e1f82f177-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-modesta-2/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-modesta",
+      "caption": "Juvenile.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -181,22 +216,29 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá thủy sinh lớn"
+        "bể cá 150cm",
+        "bể cá lớn cho cá chạch"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng cho bể cá",
+        "lọc thùng bể lớn",
         "máy lọc nước hồ cá"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
-        "thức ăn chìm cho cá chuột",
+        "thức ăn cá chạch",
         "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn hồ cá",
+        "sỏi nhẵn hồ cá"
       ]
     }
   ],

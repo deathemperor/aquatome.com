@@ -10,79 +10,171 @@
     "malaysia",
     "baram"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
   "sections": [
     {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "html": "<p>The five banded barb is one of the most beautiful small barbs. Once the black water species was regarded as delicate, its breeding as a high school, but these problems have long since been solved. Nowadays, D. pentazona, which was formerly assigned to the genera Barbus or Puntius, is sold almost exclusively as bred ones.</p>"
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>The five-banded barb, Desmopuntius pentazona, is a cyprinid generally accepted to be endemic to northwestern Borneo, with a type locality in Sarawak. It is rare in the trade, and most fish sold as 'pentazona barb' are the closely-related D. hexazona. The two are almost identical, but D. pentazona has a small dark marking at the rear of the dorsal-fin base that D. hexazona lacks.</p><ul><li>Max size: 55 mm SL (2.2 in)</li><li>Aquarium size: 80 × 30 cm</li><li>Temperature: 21–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "html": "<p>Originally it comes from the river Baram on Borneo, which flows through the Malaysian part (Sarawak) of the big island.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Type locality is given as 'Baram River, Sarawak state, Borneo, East Malaysia', which corresponds to the Baram River drainage in the Malaysian state of Sarawak, Borneo.</p><p>It's generally accepted to be endemic to the northwest of the island and possibly Sarawak, being replaced by the closely-related D. hexazona south of the Rajang River near Kuching city and in other parts of Borneo.</p><p>Wild specimens shown in some of our images were apparently collected in the vicinity of Mersing, Johor state, Peninsular Malaysia, however, and both display the dark marking under the posterior dorsal-fin base characteristic of this species (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Base dimensions of at least 80 × 30 cm (31 × 12 in) or equivalent are required, a volume of about 72 litres.</p>"
     },
     {
       "key": "maintenance",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "html": "<p>Five banded barbs are always beautiful, but the most beautiful they are in soft, slightly acidic water, which is equipped with dark ground (a layer of peat) and abundantly planted.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp.</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<ul><li>Temperature: 21–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Primarily a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "html": "<p>When taking care of these animals, it is important to note that they are distinct schooling fish. 20-30 animals are a fascinating sight and delight the keeper with their interesting and varied behaviour. The gender ratio is irrelevant for the composition of the swarm, but more males mean more action.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized, open water-dwelling cyprinids, cobitids, and certain anabantoids perhaps constituting the best choices.</p><p>Some of the more commonly exported species from Borneo include Desmopuntius johorensis, D. rhomboocellatus, Brevibora dorsiocellata, Trigonopoma pauciperforatum, T. gracile, and several Pangio spp.</p><p>Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and ideally should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural looking display, plus males will also display their best colours as they compete with one other for female attention.</p>"
     },
     {
       "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "html": "<p>The females lack the red in their fins, which makes them easy to recognize.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>Like most small cyprinids Desmopuntius spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<p>This species is rare in the aquarium trade with the majority of fish available under the name or the vernacular 'pentazona barb' being the closely-related D. hexazona.</p><p>The two are almost identical in terms of both appearance and meristics but can be separated by the fact that D. pentazona possesses a small dark marking at the posterior base of the dorsal-fin which is absent in D. hexazona.</p><p>The latter is also much the more widely-distributed with a range including southern Borneo (including southern Sarawak), Sumatra, and the Malay Peninsula.</p><p>D. hexazona and D. pentazona are both included in a group of closely-related, similar-looking fishes which were moved into the new genus Desmopuntius by Kottelat (2013). They were formerly included in the Puntius assemblage which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Alfred, E. R. (1963). Some Colourful Fishes of the Genus Puntius Hamilton. Bulletin of the National Museum of Singapore 32, 135-142</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Boulenger, G. A. (1894). Descriptions of new freshwater fishes from Borneo. Annals and Magazine of Natural History (Series 6) v. 13 (no. 75), 245-251</li><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/9b3d756ccdf6cdcf.webp",
-      "thumb": "https://media.aquatome.com/glaser/9b3d756ccdf6cdcf-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/96a2e8e3fa6b5a6b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/96a2e8e3fa6b5a6b-480.webp",
+      "width": 750,
+      "height": 500,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "caption": "Another specimen apparently collected in Johor state, Peninsular Malaysia.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/c06419dda6663763.webp",
-      "thumb": "https://media.aquatome.com/glaser/c06419dda6663763-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/5b87260e2a5ecfc6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5b87260e2a5ecfc6-480.webp",
+      "width": 784,
+      "height": 558,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "caption": "Wild caught specimen from Sibu Division, Sarawak, Borneo.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/8703d2f913b6c740.webp",
-      "thumb": "https://media.aquatome.com/glaser/8703d2f913b6c740-480.webp",
-      "width": 850,
-      "height": 940,
+      "url": "https://media.aquatome.com/seriouslyfish/98ae1ae9096c4a1e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/98ae1ae9096c4a1e-480.webp",
+      "width": 750,
+      "height": 500,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "caption": "This individual displays the dark marking below the posterior base of the dorsal-fin which is characteristic of P. pentazona, but was apparentl collected in Johor state, Peninsular Malaysia which is o",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/9345617643e96969.webp",
-      "thumb": "https://media.aquatome.com/glaser/9345617643e96969-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/44048994782e54c3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/44048994782e54c3-480.webp",
+      "width": 712,
+      "height": 439,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/desmopuntius-pentazona-2/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-pentazona",
+      "caption": "Specimen from southern Peninsular Malaysia pictured in the field.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -90,21 +182,30 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá thủy sinh 80cm",
-        "bể cá 60cm"
+        "bể cá 80cm",
+        "bể thủy sinh 80x30"
       ]
     },
     {
-      "category": "phan-nen",
+      "category": "loc",
       "keywords": [
-        "than bùn cho bể cá",
-        "nền thủy sinh tối màu"
+        "lọc bọt biển",
+        "lọc sponge cho bể nhỏ"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
-        "thức ăn cho cá barb nhỏ"
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền mềm cho bể nước đen",
+        "lá bàng khô"
       ]
     }
   ],

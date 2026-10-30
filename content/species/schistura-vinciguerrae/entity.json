@@ -1,0 +1,178 @@
+{
+  "id": "schistura-vinciguerrae",
+  "scientificName": "Schistura vinciguerrae",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Schistura",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "india",
+    "chindwin",
+    "china",
+    "salween"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India. Traded fairly regularly, it belongs to the Schistura multifasciata group, in which the anterior flank bars are divided and thinner than those behind. Males lack a suborbital flap, and this separates it from S. bella, S. mahnerti, S. reticulata and S. udomritthiruji. It inhabits clear, well-oxygenated forest streams over coarse sand, gravel, rocks and boulders.</p><ul><li>Max size: 75 mm SL (3.0 in)</li><li>Aquarium size: 90 × 30 cm</li><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Type locality is 'Meekalam, Myanmar', corresponding to an area in current-day Tanintharyi Region, Myanmar, and this species is known from the Irrawaddy and Salween river basins in Myanmar, plus the Chindwin watershed in Myanmar and northeastern India.</p><p>The Chindwin is the major tributary of the Irrawaddy and most of it flows within Myanmar with only two of its own tributaries, the Manipur and Yu rivers, originating in the Indian states of Manipur and Nagaland.</p><p>Unconfirmed records also exist from the Salween basin in Yunnan Province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Inhabits clear, well-oxygenated streams and minor rivers around watersheds and headwaters. These are often shaded by forest cover with the substrate invariably composed of coarse sand, gravel, rocks and boulders with no aquatic plants.</p><p>Flow rate and turbidity are likely to vary somewhat depending on the time of year.</p><p>At one locality in Myanmar it was collected from fast-flowing channels with bare substrates, close to a waterfall. Sympatric fishes included Lepidocephalichthys berdmorei, Pethia ticto and Danio choprae plus unidentified Garra and Barilius spp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Standard length: 75 mm SL (3.0 in). Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>Even a small group will need an aquarium with base dimensions of 90 × 30 cm or similar.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Not difficult to maintain under the correct conditions. It is strongly recommended to keep it in a tank designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Once acclimatised individuals tend to select a particular cave or sheltered space which they defend against conspecifics and similar-looking species so it's important to provide a well-structured environment.</p><p>In this kind of set-up it will thrive and can be kept alongside other species that enjoy similar conditions (see 'Behaviour and compatibility').</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank so power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. Weekly water changes of 30-50% tank volume should therefore be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Schistura species are omnivorous although the bulk of their diet consists of small insects, worms, crustaceans, and other zooplankton with only relatively small amounts of plant matter and other organic detritus consumed.</p><p>In the aquarium they will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc., will result in the best colouration and condition. In a set-up with moving water they will often shoot up to snatch morsels passing in the flow.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Not especially aggressive compared with some members of the genus but remains largely unsuitable for the 'general' community aquarium due to its somewhat specialised requirements.</p><p>This is not to say it must be kept alone, rather that tankmates must be selected with care and proper research.</p><p>Slow-moving or long-finned species should certainly be omitted because they're likely to struggle with the necessary level of water movement and may end up with nipped fins.</p><p>Placid bottom-dwellers such as Corydoras or Pangio spp. also tend to be easy targets for territorial Schistura and are best avoided.</p><p>Fishes which inhabit similar biotopes in nature, especially those which swim in open water such as Danio, Devario, Mystacoleucus, smaller Barilius, Pethia, Puntius, and Rasbora spp. constitute the best options, and one or two schools can make a visible difference to the confidence of this naturally reclusive loach.</p><p>Other possibilities include current-loving loaches from genera such as Pseudogastromyzon, Beaufortia, or Sewellia plus benthic cyprinids such as Crossocheilus and Garra spp.</p><p>Similarly-shaped relatives like Nemacheilus, Acanthocobitis, and other Schistura spp. aren't recommended under most circumstances although a combination may work in larger aquaria.</p><p>While it can't be described as gregarious a group can be maintained together provided the set-up contains plenty of rocky structures and broken lines of sight.</p><p>Occasional skirmishes may occur, however, and in small or sparsely-decorated tanks conspecific aggression may escalate to an unacceptable level.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Females should be slightly thicker-bodied, especially when full of eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>Not known to have been bred in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "html": "<p>This species is traded on a fairly regular basis and is similar in appearance to some congeners, most notably S. bella, S. hoai, S. mahnerti, S. multifasciata, S. poculi, S. reticulata, S. longa, S. conirostris and S. udomritthiruji.</p><p>This assemblage has been referred to as the Schistura multifasciata 'group', and members share a colour pattern in which the anterior vertical flank bars are divided, and thus thinner in the anterior portion of the body than in the posterior.</p><p>S. vinciguerrae can be told apart from S. bella, S. mahnerti, S. reticulata and S. udomritthiruji by the absence of a suborbital flap in males (vs. presence), and from S. poculi by possession of 9+8 branched caudal-fin rays (vs. 8+7).</p><p>It can be further distinguished from congeners by the following combination of characters: body yellowish brown with 10-16 dark bars, wider than interspaces; most bars have darker margins; no adipose crests on caudal peduncle; presence of vertically-elongate dark spot on caudal peduncle, extending downwards from extremity of lateral line, with 1-2 small spots on base of upper caudal-fin rays; 1-2 irregular rows of spots in caudal-fin.</p><p>It also differs in some aspects of colour pattern but since individuals of all species in the S. multifasciata group are variable in this respect both between and within populations it is a less reliable means of identification.</p><p>Schistura is the most species-rich genus among nemacheilid loaches with some 190 members and it continues to grow with over 100 having been described since 1990.</p><p>It may represent a polyphyletic lineage and is often arranged into a number of loosely-defined species 'groups', some of which are quite dissimilar to one another.</p><p>Among these are an assemblage in which some or all of the body bars are vertically split and another which exhibit reductions in body size (adult size &lt;50 mm SL), the number of pelvic and pectoral-fin rays and often the number of caudal-fin rays and lateral line length, for example.</p><p>Some species, such as S. geisleri, also appear to be unrelated to any of the others.</p><p>Most inhabit flowing streams or areas close to waterfalls where there naturally exist high concentrations of dissolved oxygen, and a handful are troglobytic, i.e., cave-dwelling, in existence. The latter have reduced pigmentation and are completely blind in many cases.</p><p>Schistura spp. are distinguished from other nemacheilids by a combination of morphological characters which include: a moderately arched mouth which is 2-3.5 times wider than it is long; a median 'interruption' in the lower lip which does not form two lateral triangular pads and can vary from smooth to furrowed in texture; diverse colour pattern but usually dark with relatively regular bars; usually a black bar at the caudal-fin base which can be broken into two spots or smaller bars; one or two black markings along the base of the dorsal-fin; lack of acuminate scales on the caudal peduncle; caudal-fin shape variable from truncate to forked but usually emarginate; presence or absence of a median notch in the lower jaw; clear sexual dimorphism in some species.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f707c93db1bc6a80.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f707c93db1bc6a80-480.webp",
+      "width": 640,
+      "height": 364,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/schistura-vinciguerrae",
+      "caption": "S. vinciguerrae from the Kasa (known as Ataran once it passes into Myanmar) River basin, western Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90x30cm",
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mạnh",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi suối",
+        "cát sông"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

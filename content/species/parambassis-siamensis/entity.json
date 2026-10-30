@@ -8,85 +8,139 @@
   "places": [
     "asia",
     "thailand",
-    "vietnam",
+    "laos",
     "cambodia",
-    "laos"
+    "vietnam",
+    "malaysia",
+    "singapore",
+    "indonesia"
   ],
   "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
     "ph": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": {
-          "min": 7.5,
-          "max": 8.5
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 15
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>Formerly this species of glass perch was the most common found in the trade. Parambassis siamensis was most often mis-identified and traded under the name “Chanda wolfi”. P. siamensis is very similar to the Indian species P. ranga. Both are distinguished by only minor details and both become about 6 cm long.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia. An occasional import, it is sometimes sold as C. ranga, the Indian glass fish, but lacks patterning behind the eye and has a more elongate body. C. siamensis inhabits lowland rivers and flooded fields and is exclusively a freshwater fish, so it should never be kept under brackish conditions.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 8–15 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Cambodia, Malaysia, Laos, Thailand, Vietnam, Singapore, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>It inhabits lowland rivers and flooded fields.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Standard length 60 mm SL. Aquarium base 45 × 30 cm. Volume ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>A dark substrate will help to make this shy species less nervous, and it will also display its best colours. Provide cover by planting some areas of the tank densely, along with some floating vegetation. Rocks and driftwood can also be used. It is a freshwater species and does not require the addition of salt to its tank.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>The fish are undemanding in respect of the water, but the water should be not too soft and – more important – not too acidic. The best pH is between 7.5 and 8.5. It is not recommended to add salt to the water; both species are pure freshwater fish.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 8–15 dGH</li></ul>"
     },
     {
       "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>They do not accept dried food items, but can be easily fed with frozen or live food.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Relatively unfussy, and will accept most live, frozen and dried foods.</p>"
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>These glass perches are wonderful aquarium fishes and very peaceful. It is important not to keep them alone or in pairs, but in larger schools. Ten specimens should be the minimum, otherwise the fish will be very shy and anxious.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>C. siamensis is peaceful and shy, and should not be combined with vigorous or aggressive species. Good tankmates include barbs, livebearers, smaller rainbowfish and loaches. It is a shoaling species and will not do well if kept singly or in pairs. Aim for a group of at least 6. Males do become somewhat territorial when spawning but physical damage is rare.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Unknown. Adult females will most likely be fuller in the belly when in breeding condition.</p>"
     },
     {
       "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "html": "<p>They spawn in fine plant material. The mating rituals are very nice to look at. The fish do not care for eggs or brood. It is pretty difficult to raise the extremely tiny brood that accepts only live copepod nauplia for food. The best nauplia for raising glass perches are those from members of the genus Diaptomus.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>Not thought to have been bred in captivity, although the process is probably similar to that of C. ranga.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "html": "<p>This occasional import is sometimes offered for sale as C. ranga, the Indian glass fish. Unlike that species however, C. siamensis is an exclusively freshwater fish and should never be kept under brackish conditions. It can be distinguished from ranga by the lack of patterning behind the eye and its generally more elongate body.</p><p>Moved from Parambassis siamensis to Chanda siamensis (2025).</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/512c7327f37a95d1.webp",
-      "thumb": "https://media.aquatome.com/glaser/512c7327f37a95d1-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/800dd409b79e0d08.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/800dd409b79e0d08-480.webp",
+      "width": 600,
+      "height": 402,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/fea88ae4c30b0b55.webp",
-      "thumb": "https://media.aquatome.com/glaser/fea88ae4c30b0b55-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
+      "caption": "Parambassis siamensis",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -94,22 +148,29 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 100cm",
-        "bể cá cộng đồng"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn đông lạnh cho cá",
-        "trùng huyết đông lạnh",
-        "artemia"
+        "bể cá 45cm",
+        "bể cá 40 lít"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng cho bể cá"
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 45cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền sỏi tối màu",
+        "cát đen cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "trùng huyết đông lạnh"
       ]
     }
   ],

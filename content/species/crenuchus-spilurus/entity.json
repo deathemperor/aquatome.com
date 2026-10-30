@@ -1,0 +1,224 @@
+{
+  "id": "crenuchus-spilurus",
+  "scientificName": "Crenuchus spilurus",
+  "order": "Characiformes",
+  "family": "Crenuchidae",
+  "genus": "Crenuchus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "negro",
+    "colombia",
+    "putumayo",
+    "ecuador",
+    "pastaza",
+    "french-guiana",
+    "guyana",
+    "essequibo",
+    "peru",
+    "ampiyacu",
+    "suriname",
+    "courantyne",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>The sailfin characin, Crenuchus spilurus, is a crenuchid from much of the Amazon and Orinoco drainages and coastal rivers of the Guianas. The only described member of its genus, it varies considerably in colour pattern and morphology across that range. It lives in tea-stained forest streams, and its timid, predominantly benthic nature means it does not always make an ideal community fish. Males guard eggs laid on the roof of a small cave, often formed from leaf litter.</p><ul><li>Max size: 70 mm SL (standard length)</li><li>Aquarium size: 75 × 30 cm</li><li>Temperature: 20–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Type locality is the Essequibo river system in Guyana but this species is currently understood to range throughout much of the Amazon and Orinoco drainages plus coastal rivers of Guyana, French Guiana and Suriname.</p><p>Colour pattern, fin morphology and adult size is somewhat variable across this range.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Mostly inhabits forest streams and minor tributaries, and often occurs in flooded forests during periods of high water.</p><p>Its most-favoured habitats are characterised by large amounts of overhanging riparian vegetation and the water is typically stained the colour of weak tea due to substances released by decomposing organic matter.</p><p>The bottom tends to be covered in fallen branches, tree roots and leaf litter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Standard length: 70 mm SL. Aquarium base: 75 × 30 cm. Volume: ~68 litres.</p><p>An aquarium with base dimensions of 75 × 30 cm or equivalent is recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Best-maintained in a well-structured set-up, ideally comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial. Alder cones may also be used for the latter purpose.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>It goes without saying that this species is sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Chiefly a micropredator feeding on tiny invertebrates and other zooplankton with the stomach contents of wild specimens from Guyana observed to comprise Ephemeroptera larvae, copepods and ostracods.</p><p>In the aquarium it may learn to accept dried foods of a suitable size but should ideally be offered daily meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Peaceful with other species but does not always make an ideal community fish due to its rather timid nature and predominantly benthic existence.</p><p>Ideally it should be maintained alone or with comparably-sized, non-aggressive characids and relatives plus smaller callichthyid or loricariid catfishes.</p><p>Nuptial adult males are territorial to an extent but physical damage is rare provided the décor is arranged in such a way that plenty of broken lines-of-sight are provided.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Adult males are larger, more colourful, and develop greatly-extended dorsal and anal fins whereas females are relatively plain.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Sexually-active males form small, temporary territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen (see 'Maintenance').</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular fin displays.</p><p>Eggs are normally attached to the roof of the chosen 'cave' with the female ejected post-spawning.</p><p>Inexperienced individuals may eat their first few broods, but don't be tempted to remove the eggs and hatch them artificially, as the presence of the male seems to be crucial to success.</p><p>Incubation is normally 36-48 hours with the fry free-swimming around 4-6 days later.</p><p>The male continues to guard them diligently during this period. Once they are free swimming the fry can be offered newly hatched brine shrimp and/or microworm. The adult fish are usually safe with the fry, but watch them carefully for signs of predation if you decide to leave them together.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<p>This species is currently the only described member of its genus although colour pattern and morphology vary considerably across its range.</p><p>You may see reference to this species being the only fish species to possess infra-red vision, but other species also possess this ability and we suspect that infra-red plays an important role in the reproductive cycle of many fishes.</p><p>The family Crenuchidae is separated from other Characiformes by possession of paired foramina in the frontal bones located posterodorsally to the orbits, and it's often split into the putative subfamilies Crenuchinae and Characidiinae.</p><p>Crenuchus is a member of the Crenuchinae and the only other genus currently included in this subfamily is Poecilocharax while the Characidiinae currently contains the genera Characidium, Ammocryptocharax, Geryichthys, Leptocharacidium, Melanocharacidium, Klauzewitzia, Odontocharacidium, Microcharacidium, Skiotocharax and Elachocharax.</p><p>The majority of crenuchids are native to waters surrounding the Guiana Shield, including the Orinoco and upper Amazon basins, although the genus Characidium is much more widespread with members known from as far south as the Río de la Plata drainage in Argentina.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "html": "<ul><li>Günther, A. (1863). On new species of fishes from the Essequibo. Annals and Magazine of Natural History (Series 3) v. 12, 441-443</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/91e5ebd6cd641d09.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/91e5ebd6cd641d09-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/25f6e2b745411b9e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/25f6e2b745411b9e-480.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3f92ef5801623d4f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3f92ef5801623d4f-480.webp",
+      "width": 806,
+      "height": 451,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "caption": "Enormous adult male measuring approximately 80 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/aeaec4bf0430a403.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/aeaec4bf0430a403-480.webp",
+      "width": 799,
+      "height": 470,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
+      "caption": "Freshly-collected, young adult male from the rio Negro system in the vicinity of São Gabriel da Cachoeira, Amazonas state, Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 75x30 cm",
+        "bể cá mini 70 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ thủy sinh",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "Artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -7,121 +7,178 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "thailand"
+    "laos",
+    "mekong",
+    "vietnam",
+    "cambodia",
+    "thailand",
+    "chao-phraya"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
-          "max": 26
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ],
     "difficulty": [
       {
-        "source": "glaser",
-        "value": 3
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>The Sparkling Gourami (Trichopsis pumila) is one of the smallest anabantoid species at all – and one of the prettiest! It is charming and totally peaceful and reaches a maximum length of only 3-4 cm.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>The sparkling gourami, Trichopsis pumila, is a small labyrinth fish from the lower Mekong basin and central and southern Thailand. Also known as the pygmy gourami, it has a solid dark midlateral stripe topped by a row of dark blotches, which with its small size separates it from T. schalleri. Both sexes produce audible 'croaking' sounds with a specialised pectoral mechanism, and most traded fish are produced commercially.</p>"
     },
     {
       "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>Origin: Thailand.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Distributed throughout the lower Mekong River basin in Laos, Vietnam, Cambodia, and Thailand, and in watersheds across central and southern (peninsular) Thailand.</p><p>Type locality is 'Saigon, southern Vietnam'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Found in all types of still to slow-moving, predominantly lowland habitat, including swamp forest, peat swamps, floodplains, river tributaries, irrigation canals, paddy fields, and roadside ditches. Displays a distinct preference for sluggish to still environments with dense growths of aquatic or riparian vegetation.</p><p>Sympatric fish species include Trichopsis vittata, T. schalleri, Trichopodus trichopterus, Betta siamorientalis, Anabas testudineus, Lepidocephalichthys hasselti, Pangio anguillaris, Macrognathus siamensis and Monopterus albus.</p>"
     },
     {
       "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>It is perfectly suitable for a community tank with other tiny, peaceful species of fish. The tank should be well planted.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) or equivalent is large enough to house a pair or small group. Volume is about 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>This species fares best in a well-planted, shady aquarium with plenty of surface cover in the form of tall stem plants, floating varieties, or tropical lilies. Cryptocoryne spp. are also a good choice.</p><p>Driftwood can also be used and other plants such as Microsorum or Taxiphyllum spp. may be attached to it. Small clay plant pots, lengths of plastic piping or empty camera film cases can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial.</p><p>As it naturally inhabits sluggish environments strong water movement should be avoided, with an air-powered sponge filter set to turn over gently adequate. Keep the aquarium well-covered and do not fill it to the top since it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>The water temperature can be between 22 and 26°C.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
-      "key": "equipment",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>Some dead leaves (best choice is beech, but Indian almond or oak may also be used) and some caves (half coconut shells or something like that) should not be missing.</p>"
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Likely to feed on insects and other small invertebrates in the wild.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) to ensure development of optimal colour and condition.</p>"
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>These fish bear their name “sparkling” with good reason; at least the males do, the females do not sparkle at all. The males can produce silent croaking sounds, usually associated with mating behaviour or displaying. The sound is comparable with that produced by a flapper, but much less noisy, and one has to listen carefully to hear it. The sound is produced by bones that stretch over sinews on the swim bladder – one can say these fish play the guitar!</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Best maintained in a pair or small group, either alone or with very peaceful, similarly-sized species, since much bigger or more vigorous tankmates are likely to both intimidate and outcompete it. Small, schooling cyprinids such as Microdevario, Boraras, or Trigonostigma spp. make good choices, as do diminutive loaches such as Pangio or Petruichthys.</p><p>Some aquarists have reported that this species preys on small freshwater shrimp from genera such as Caridina and Neocaridina.</p>"
     },
     {
       "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>Males sparkle; females do not sparkle at all.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Can be tricky to sex, but sexually mature males normally exhibit a more intense colour pattern and develop longer ventral, anal, dorsal, and caudal fins than females. Sexually mature individuals can also be sexed by placing a strong light behind the fish, with the ovaries in females clearly visible below the swim bladder.</p>"
     },
     {
       "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "html": "<p>T. pumila prefers to build small bubble nests (maximum size about as large as a hazelnut) in caves or under broad plant leaves about 10-15 cm above the bottom of the tank.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>Bubble-nester. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>It should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male may construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapping himself around the female. At the point of climax milt and a few eggs are released in a cluster or 'packet', which the male collects and transports to the nest. This cycle is then repeated until the female is spent of eggs.</p><p>Post-spawning the adults can normally be left in situ, although the female is no longer actively involved with the male assuming sole responsibility for guarding and tending the nest. The eggs hatch in 24-48 hours, remaining in the nest for a further 2-3 days until the yolk sac is fully-absorbed, while the male continues to collect and return any that fall.</p><p>Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring. They require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<p>This species is also known as 'pygmy gourami' and 'dwarf croaking gourami'. It is a popular aquarium fish, with the majority of fish traded produced on a commercial basis.</p><p>It can be distinguished from congeners by its small adult size and presence of a single solid dark midlateral stripe on the body, above which is a series of dark blotches forming a second stripe. In the similar but larger, T. schalleri the upper stripe is more variable depending on the mood of the fish, sometimes fading entirely.</p><p>Trichopsis species are able to produce audible sounds via a specialised pectoral mechanism which is unique within the family Osphronemidae. The structure comprises modified pectoral-fin tendons and muscles which are stretched and plucked by the basal portion of the anterior fin rays in a similar way to guitar strings. The pectoral-fins beat alternately, each able to generate short or long bursts of sound. These sounds are produced by both sexes, predominantly during agnostic and nuptial interactions, and they differ in temporal parameters, frequency, and pressure between the species. Studies suggest that Trichopsis species are able to settle conflicts without damaging each other physically by assessing factors such as body weight and length, which are transmitted by both visual and acoustic 'croaking' signals. During courtship the female produces 'purring' sounds in order to initiate spawning, and they are the only fishes in which this is known to occur.</p><p>Following Rainboth (1996), the genus Trichopsis can be diagnosed as follows: dorsal-fin origin markedly posterior to pectoral-fin base; pelvic-fin with a single spinous ray with a filamentous extension, and 4 branched rays; 2-4 spinous dorsal-fin rays; 4-8 spinous anal-fin rays; lateral line absent. Its closest relatives are considered to be the genera Betta and Pseudosphromenus.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "html": "<ul><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Linke, H. (1991). Labyrinth Fish. The Bubble-Nest-Builders. Tetra Press, 176 pp.</li><li>Arnold, J. P. (1936). Ctenops pumilus Arnold, 1936. Wochenschrift für Aquarien- und Terrarienkunde 33(11), Brief description appears on inside of back cover</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ladich, F. (1998). Sound Characteristics and Outcome of Contests in Male Croaking Gouramis (Teleostei). Ethology 104, 517-529</li><li>Ladich, F. and G. Schleinzer (2015). Effect of temperature on acoustic communication: Sound production in the croaking gourami (labyrinth fishes). Comparative Biochemistry and Physiology, Part A 182, 8-13</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/1ac2e57b5920c962.webp",
-      "thumb": "https://media.aquatome.com/glaser/1ac2e57b5920c962-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/39dcebe7a30c2e1d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/39dcebe7a30c2e1d-480.webp",
+      "width": 794,
+      "height": 529,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/75fddb6f276af280.webp",
-      "thumb": "https://media.aquatome.com/glaser/75fddb6f276af280-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/7eb85c0c600c686b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7eb85c0c600c686b-480.webp",
+      "width": 799,
+      "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/9bd623f5adc870b4.webp",
-      "thumb": "https://media.aquatome.com/glaser/9bd623f5adc870b4-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c-480.webp",
+      "width": 800,
+      "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "caption": "Detail of head and anterior portion of body.",
+      "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/163f41119a3214e8.webp",
-      "thumb": "https://media.aquatome.com/glaser/163f41119a3214e8-480.webp",
-      "width": 850,
-      "height": 567,
+      "url": "https://media.aquatome.com/seriouslyfish/8d81ea240370e70a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8d81ea240370e70a-480.webp",
+      "width": 891,
+      "height": 668,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
-      "source": "glaser"
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "caption": "Adult female from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -129,28 +186,31 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể thủy sinh mini"
+        "bể cá 45x30 cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút sủi khí",
+        "máy sủi khí mini"
       ]
     },
     {
       "category": "cay-thuy-sinh",
       "keywords": [
-        "cây thủy sinh lá rộng",
-        "rêu thủy sinh"
+        "cây thủy sinh nổi",
+        "cryptocoryne",
+        "rêu java"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
-        "thức ăn cá nhỏ",
-        "artemia đông lạnh"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá mini"
+        "trùng huyết đông lạnh",
+        "artemia",
+        "daphnia"
       ]
     }
   ],

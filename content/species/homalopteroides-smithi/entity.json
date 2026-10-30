@@ -1,0 +1,217 @@
+{
+  "id": "homalopteroides-smithi",
+  "scientificName": "Homalopteroides smithi",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Homalopteroides",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "malaysia",
+    "peninsular-malaysia",
+    "laos",
+    "mekong",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25.5
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Homalopteroides smithi is a hillstream loach from Thailand, Peninsular Malaysia and parts of the Mekong basin in Laos, Cambodia and Vietnam. Perhaps the best-known member of the genus, it is relatively common in the aquarium hobby, and Rainboth (1996) considered it 'probably the commonest member of the genus in the Mekong'. An obligate dweller of swiftly-flowing streams and headwaters, it needs clean, well-oxygenated water.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 20–25.5°C (68–78°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Described from close to the village of Ban Khiri Wong, Nakhon Si Thammarat Province, southern (peninsular) Thailand but since recorded throughout much of the country, including the Chao Phraya and Mekong river systems.</p><p>It's also known from Peninsular Malaysia and parts of the Mekong basin in Laos, Cambodia and Vietnam. Rainboth (1996) considered it 'probably the commonest member of the genus in the Mekong' and in a 2008 study of balitorid habitats in central Thailand it was the only species recorded in all river systems.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>An obligate dweller of swiftly-flowing streams and headwaters containing clear, oxygen-saturated water. It often inhabits riffles and runs and is likely to display a preference for shallower zones.</p><p>Substrates are generally composed of gravel, rocks, boulders or bedrock carpeted with a rich biofilm formed by algae and other micro-organisms. Patches of aquatic plants are only occasionally present but riparian vegetation is usually well-developed.</p><p>At the type locality of Schistura bella (Kottelat, 1990) in the Kok River, Chiang Mai Province, northern Thailand H. smithi was collected alongside various other species including Schistura breviceps, Homaloptera cf. sexmaculata, Acanthopsoides gracilentus, Pethia ticto, an unidentified Barilius sp., and Rhinogobius mekongianus.</p><p>In The Nam Man river, Loei Province, northeastern Thailand it was found living sympatrically with Nemacheilus pallidus, Schistura nicholsi, Lepidocephalichthys hasselti, Acanthopsoides gracilis, Rasbora borapetensis and an Amblyceps sp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) or equivalent is required for long-term maintenance. Volume: about 54 litres (14 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement. Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc., should be employed as necessary to achieve the desired flow and oxygenation.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable and aquatic plants from adaptable genera such as Microsorum, Crinum and Anubias spp. can also be included. The latter are particularly useful as Homalopteroides spp. appear to enjoy resting on their leaves.</p><p>Since it requires stable water conditions this species should never be added to a biologically immature set-up.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<ul><li>Temperature: 20–25.5°C (68–78°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Homalopteroides spp. are specialised micropredators feeding on small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a continual, easily-obtainable source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Not an aggressive fish although its particular requirements limit the choice of suitable tankmates. Species inhabiting similar environments include Barilius, Discherodontus, Garra, Devario, some Rasbora, gobies of the genera Rhinogobius, Sicyopterus and Stiphodon plus Glyptothorax, Akysis and Oreoglanis spp. catfishes.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable although harmless squabbles may occur with the latter group in particular. Research your choices before purchase to be sure.</p><p>It's found living in aggregations in nature so buy six or more to see it at its best as when kept in smaller group it may be less bold. The interaction between individuals is also interesting to watch.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Sexually mature females are usually a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<p>This species is perhaps the best-known member of the genus and is relatively common in the aquarium hobby.</p><p>According to Rainboth (1996) it can be told apart from congeners by the following combination of characters: 6 'saddles' on the dorsal surface, 37-39 lateral line scales, 4-6 simple and 11-12 branched pectoral-fin rays and the pectoral fins extend 'well beyond' the pelvic-fin insertion.</p><p>Kottelat (2001) gave defining characters as 37-39 +2 lateral line scales, 5-6 simple and 10-12 branched pectoral-fin rays.</p><p>Following Randall and Page (2012) it has: 3-4 dark bands on the caudal-fin (though in some specimens the lower lobe can be fully-pigmented thus obscuring the bands); 17-18 total pectoral-fin rays; pectoral-fin length greater than head length; scale count above and below line to pelvic-fin 5-6½/5-6; 39-42 pored lateral-line scales; presence of an axillary lobe; pelvic-fin not extending to or past anus; orbital length less than interopercular width.</p><p>The genus Homalopteroides was itself revalidated by Randall and Page (2012) and is told apart from the related Homaloptera by the following character combination: dorsal-fin origin above pelvic-fin; ≤ 60 lateral-line scales; ≤ 30 predorsal scales; oral morphology consisting of two thin and widely separated rostral barbels on each side of the mouth, thin crescent-shaped lips, the absence of any structure such as a mental pad or lobes between the lateral portions of the lower lip, and a chin that extends anterior to the lateral portions of the lower lip.</p><p>Homalopteroides currently (February 2016) contains H. wassinkii, H. modestus, H. nebulosus, H. rupicola, H. smithi, H. tweediei, H. stephensoni, H. indochinensis, H. weberi, H. yuwonoi, H. avii and possibly H. manipurensis. These are all former members of Homaloptera, a polyphyletic grouping which following Randall and Page (2015) was split into the genera Homaloptera, Homalopterula, Pseudohomaloptera, Homalopteroides, Balitoropsis, and Ghatsa.</p><p>Homalopteroides spp. are sometimes referred to as 'lizard' or 'gecko' loaches due to their behaviour and appearance. Like all balitorids they have morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely-distributed across much of the Indian subcontinent, Southeast Asia and China.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "html": "<ul><li>Alfred, E. R. (1967). Homaloptera ogilviei, a new species of homalopterid fish from Malaya. Copeia 1967(3), 587-591</li><li>Beamish, F. W. H., P. Sa-ardrit and V. Cheevaporn (2008). Habitat and abundance of Balitoridae in small rivers of central Thailand. Journal of Fish Biology 72(10), 2467–2484</li><li>Kottelat, M. (1990). Indochinese nemacheilines. A revision of nemacheiline loaches (Pisces: Cypriniformes) of Thailand, Burma, Laos, Cambodia and southern Viet Nam. Verlag Dr. Friedrich Pfeil, München, Germany, 1-262</li><li>Kottelat, M. (1998). Homaloptera yuwonoi, a new species of hillstream loach from Borneo, with a new generic name for H. thamicola (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 9(3), 267-272</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tan, H. H. and P. K. L. Ng (2005). Homaloptera parclitella, a new species of torrent loach from the Malay Peninsula, with redescription of H. orthogoniata (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 16(1), 1-12</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Randall, Z. S. and L. M. Page (2012). Resurrection of the genus Homalopteroides (Teleostei: Balitoridae) with a redescription of H. modestus (Vinciguerra 1890). Zootaxa 3586, 329-346</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/60d70e9c79cb207c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/60d70e9c79cb207c-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "caption": "H. smithi is the most commonly-available member of the H. wassinki species group.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e246412aaba76664.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e246412aaba76664-480.webp",
+      "width": 912,
+      "height": 684,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "caption": "H. smithi underwater in the stream shown in the previous image.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0cc3417910e7c45b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0cc3417910e7c45b-480.webp",
+      "width": 870,
+      "height": 653,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "caption": "Specimen exhibiting cryptic colour pattern, Chanthaburi province, Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/67be0327b4c9bc00.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/67be0327b4c9bc00-480.webp",
+      "width": 821,
+      "height": 380,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-smithi",
+      "caption": "Newly-imported specimens are often a little emaciated as seen here.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc thùng công suất lớn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội trang trí bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

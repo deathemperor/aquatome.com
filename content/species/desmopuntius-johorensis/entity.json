@@ -1,0 +1,218 @@
+{
+  "id": "desmopuntius-johorensis",
+  "scientificName": "Desmopuntius johorensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Desmopuntius",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "thailand",
+    "narathiwat",
+    "malaysia",
+    "johor",
+    "singapore",
+    "indonesia",
+    "sumatra",
+    "brunei"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Max size: 100 mm SL (3.9 in). Aquarium size: 120 × 45 cm (48 × 18 in). Temperature: 20–25°C (68–77°F). pH: 5.0–7.0. Hardness: 1–10 dGH. Difficulty: 5 of 8.</p><p>The striped barb, Desmopuntius johorensis, is a cyprinid from southern Thailand, Peninsular Malaysia, Singapore, Sumatra and Borneo. Juveniles have 4 dark vertical bars and develop 5 or 6 broad lateral stripes as they grow, a pattern change shared with D. gemellus and D. trifasciatus. Before Kottelat (1992) it was referred to as Puntius eugrammus, while the name 'Puntius johorensis' was misapplied to D. hexazona. It lives mainly in peat swamps and black water streams.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.</p><p>In Thailand it's known only from Narathiwat province while in Peninsular Malaysia records exist from the states of Johor, Pahang, Terengganu, Selangor, and Perak.</p><p>On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).</p><p>There are also a number of records from Brunei Darussalam. In West Kalimantan (Kalimantan Barat) and possibly southern Sarawak it appears to be replaced by D. trifasciatus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Most commonly inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is generally negligible, pH as low as 3.0 or 4.0, and substrate usually littered with fallen leaves, branches and submerged tree roots.</p><p>At the type locality of Brevibora cheeya it was collected from waters flowing slowly through 'coastal heath forest' among stands of a Melaleuca species (myrtle).</p><p>The substrate was a mixture of sand and peat and the water acidic (pH 4.5 in February 2009).</p><p>Fish diversity was high with other sympatric species including Boraras maculatus, Cyclocheilichthys apogon, Osteochilus spilurus, Parachela maculicauda, P. oxygastroides, Rasbora einthovenii, R. trilineata, Trigonopoma gracile, T. pauciperforatum, Lepidocephalichthys furcatus, Pangio alcoides, P. semicincta, Kryptopterus macrocephalus, Ompok leiacanthus, Wallago leerii, Hemibagrus nemurus, Pseudomystus leiacanthus, Clarias batrachus, C. meladerma, Parakysis verrucosa, Aplocheilus panchax, Hemirhamphodon pogonognathus, Monopterus albus, Nandus nebulosus, Pristolepis grooti, Belontia hasselti, Betta imbellis, B. waseri, Luciocephalus pulcher, Parosphromenus paludicola, Trichopodus leerii, T. trichopterus, Trichopsis vittata, Channa bankanensis, C. lucius, and C. striata.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Standard length: 100 mm SL (3.9 in). Aquarium base: 120 × 45 cm (48 × 18 in). Volume: ~243 litres (~64 US gal).</p><p>Base dimensions of at least 120 × 45 cm (48 × 18 in) or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Temperature: 20–25°C (68–77°F). pH: 5.0–7.0. Hardness: 1–10 dGH.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized, open water-dwelling cyprinids and small loaches perhaps constituting the best choices.</p><p>Some of the more commonly exported species from Borneo include 'Puntius' lineatus, 'P.' pentazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, T. gracile, and Pangio spp., for example.</p><p>It's a schooling species by nature, and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, and males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Like most small cyprinids Desmopuntius spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<p>Prior to Kottelat (1992) this species was referred to as Puntius eugrammus, with the name 'Puntius johorensis' routinely misapplied to the congener D. hexazona.</p><p>It's one of three similar-looking members of the genus alongside D. gemellus and D. trifasciatus, while it may also be confused with Striuntius lineatus.</p><p>Juveniles of all except S. lineatus exhibit a vertically-barred rather than laterally-striped colour pattern, the metamorphosis to adult patterning beginning at around 20 mm (0.8 in) SL and normally being complete by 30 – 40 mm (1.2 – 1.6 in).</p><p>D. johorensis can be distinguished by the following combination of characters: 5-6 dark, lateral stripes on body in specimens larger than 40 mm; stripes immediately above and below the central stripe (stripes '+1' and '-1', respectively) located on scale rows +2 and -2, not touching dorsal and ventral midlines (except in some small specimens from Peninsular Malaysia); stripes broad, typically between 0.5-1 scale rows deep; interaxial streak not distinct beneath dorsal-fin base; 2 pairs of barbels, posterior pair usually reaching beyond posterior margin of eye; 1/24/1/3 in transverse row between dorsal-fin origin and anal-fin origin; 7-11 gill rakers on anterior gill arch; mouth terminal; lower lip thin and post-labial groove interrupted medially; specimens smaller than 30 mm (1.2 in) with 4 dark, vertical bars.</p><p>It was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. (1996). The identity of Puntius eugrammus and diagnoses of two new species of striped barbs (Teleostei: Cyprinidae) from southeast Asia. Raffles Bulletin of Zoology 44(1), 301-316</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Duncker, G. (1904). Die Fische der malayischen Halbinsel. Mitteilungen aus dem Naturhistorischen (Zoologischen) Museum in Hamburg v. 21, 133-207</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5d454ef0b64534ea.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d454ef0b64534ea-480.webp",
+      "width": 700,
+      "height": 438,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "caption": "Wild-collected adult from southern Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/055cc71a57eefa5f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/055cc71a57eefa5f-480.webp",
+      "width": 697,
+      "height": 423,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "caption": "Freshly-collected individual from Perak state, Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8bb84331a45b6c3d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8bb84331a45b6c3d-480.webp",
+      "width": 700,
+      "height": 467,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "caption": "Juvenile individual from Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6f8739bb17226e41.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6f8739bb17226e41-480.webp",
+      "width": 800,
+      "height": 444,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
+      "caption": "Adult male from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt xốp",
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng vảy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "nền cát mịn bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

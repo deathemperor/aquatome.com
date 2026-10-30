@@ -1,0 +1,212 @@
+{
+  "id": "dawkinsia-filamentosa",
+  "scientificName": "Dawkinsia filamentosa",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Dawkinsia",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>The filament barb, Dawkinsia filamentosa, is a cyprinid endemic to the Western Ghats region of southern India, in Kerala, Tamil Nadu and Karnataka. Adult males and some females develop filament-like extensions to the branched dorsal-fin rays. Most common in lowland coastal floodplains, it occurs in fresh and brackish water, and it also appears on trade lists as 'blackspot barb' or 'mahecola barb'.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 20–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Endemic to but widespread within the Western Ghats mountains region of southern India in the states of Kerala, Tamil Nadu and Karnataka, and possibly restricted to the south of the latter.</p><p>Type locality is 'Alleppey', also known as Alappuzha, situated between Vembanad Lake and the Arabian Sea, 9°20'N, 76°25'E, Kerala state, southwestern India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>According to Pethiyagoda and Kottelat (2005) this species is most common in lowland coastal floodplains. It's found in both fresh and brackish waters of rivers, estuaries, coastal marshes and reservoirs.</p><p>Other species found in the same general area include Pethia conchonius, Puntius denisonii, Haludaria fasciata, Dawkinsia assimilis, D. arulius, D. rubrotincta, Opsarius bakeri, O. bendelisis, O. canarensis, Devario malabaricus, Esomus danricus, Garra mcclellandi, G. hughi, Bhavania australis, Travancoria jonesi, Mesonoemacheilus guentheri, M. triangularis, Schistura denisoni, Lepidocephalichthys thermalis, Batasio travancoria, Mystus armatus, M. canarensis, Glyptothorax annandalei, Aplocheilus lineatus, Parambassis thomassi, Etroplus canarensis, Pseudetroplus maculatus, Sicyopterus griseus, Pseudosphromenus dayi, Channa striata, and Carinotetraodon travancoricus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>An aquarium with base measurements of at least 120 × 45 cm (48 × 18 in) or equivalent should be the smallest considered for long-term care. Volume is about 243 litres (64 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though aquascaping the tank to resemble a flowing stream or river is recommended, with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in relatively pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement, while weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<ul><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Probably a foraging omnivore feeding on a variety of worms, insects, crustaceans, plant material, and other organic debris in nature.</p><p>In the aquarium it's easily-fed but a balanced diet comprising regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules will bring about optimal condition and colours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>An ideal addition to a peaceful community of riverine species alongside other schooling or shoaling cyprinids plus botiid, cobitid, nemacheilid, and balitorid loaches.</p><p>If geography isn't an issue it can actually be combined with most peaceful fish of a size too large to be considered food and that have a bold enough disposition to not be intimidated by its size and active nature.</p><p>As always, thorough research is the best way to avoid problems when selecting a compatible fish community.</p><p>It's a schooling species by nature so ideally 8-10 specimens should be purchased. Maintaining it in decent numbers will not only make the fish less skittish but will result in a more effective, natural looking display.</p><p>In addition, any aggressive behaviour will normally be contained as males concentrate on maintaining their hierarchical position within the group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Adult males develop a more intense colour pattern than females and exhibit noticeable tubercules on the head when in spawning condition.</p><p>Adult females tend to grow a little larger, are heavier-bodied, and less colourful.</p><p>Both sexes may develop filamentous rays in the dorsal-fin, depending on population, but apparently these are not always present and shed or absorbed outside the spawning season (K. R. Devi et al. 2010).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Like most small cyprinids this is an egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition it will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention, although if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a separate aquarium should be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They require microscopic food for the first few days until large enough to accept microworm, Artemia nauplii or suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<p>Also referred to as 'blackspot barb' and formerly included in the genus Puntius and Puntius filamentosus 'group' of related species, which also contained P. arulius, P. assimilis, P. exclamatio, P. filamentosus, P. rohani, P. rubrotinctus, P. singhala, P. srilankensis and P. tambraparniei, but all of these were moved to the new genus Dawkinsia by Pethiyagoda et al. (2012).</p><p>D. filamentosa is told apart from all other Dawkinsia spp. by the following combination of characters: branched dorsal-fin rays extended into filament-like extensions in adult males and some adult females; a black band about as wide as the eye near tip of each caudal-fin lobe; lower lip continuous; presence of a dark blotch on the caudal peduncle, 2-5 scales wide and commencing posterior to anal-fin origin; no distinct markings on body in advance of anal-fin origin.</p><p>Within the group the most similar-looking species are D. assimilis and D. rohani, but the former is readily identifiable by possession of an inferior mouth (vs. subterminal in D. filamentosa) and longer maxillary barbels (5.5-9.3 % SL, vs. 0.5-2.2 %), while in the latter the caudal-fin lobes lack transverse black bands.</p><p>D. filamentosa has been misidentified as Puntius mahecola (Valenciennes 1844) in the past but the identity of both species was resolved by Pethiyagoda and Kottelat (2005a, 2005b). They concluded that P. mahecola, though valid, isn't closely related to any member of Dawkinsia but is rather a smaller, silvery fish with a single dark blotch on the caudal peduncle, located entirely posterior to the anal fin. Several Dawkinsia species, including D. filamentosa, continue to appear on trade lists as 'mahecola barb'.</p><p>The precise relationships within the genus are still open to question, with Knight et al. (2011) suggesting that members may hybridise naturally at some localities. Forms apparently intermediate between D. filamentosa and D. tambraparniei have also been collected where the two occur together in the Thamirabarani River, Tamil Nadu. Hybridisation between D. filamentosa and D. arulius in that river had previously been speculated, though no conclusions were reached because DNA testing was not performed.</p><p>The genus Puntius was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members. New genera Dawkinsia, Dravidia, and Pethia were erected, and the name Dravidia was later replaced by Haludaria (Pethiyagoda, 2013) because it was preoccupied by a genus of flesh fly. Many former Puntius are currently classed as incertae sedis, and are perhaps best referred to as 'Puntius' for the time being.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "html": "<ul><li>Pethiyagoda, R. and M. Kottelat (2005). A review of the barbs of the Puntius filamentosus group (Teleostei: Cyprinidae) of southern India and Sri Lanka. Raffles Bulletin of Zoology Supplement 12, 127-144</li><li>Pethiyagoda, R. and M. Kottelat (2005). The identity of the south Indian barb Puntius mahecola (Teleostei: Cyprinidae). Raffles Bulletin of Zoology Supplement 12, 145-152</li><li>Rema Devi, K., T. J. Indra, and J. D. Marcus Knight (2010). Puntius rohani (Teleostei: Cyprinidae), a new species of barb in the Puntius filamentosus group from the southern Western Ghats of India. Journal of Threatened Taxa 2(9), 1121-1129</li><li>Marcus Knight, J. D., K. Rema Devi, and V. Atkore (2011). Systematic status of Systomus rubrotinctus Jerdon (Teleostei: Cyprinidae) with notes on the Puntius arulius group of fishes. Journal of Threatened Taxa 3(4), 1686-1693</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Kurian Abraham, R., N. Kelkar and A. Biju Kumar (2011). Freshwater fish fauna of the Ashambu Hills landscape, southern Western Ghats, India, with notes on some range extensions. Journal of Threatened Taxa 3(3), 1585-1593</li><li>Raju Thomas, K., C. R. Biju, C. R. Ajithkumar and M. J. George (2000). Fish fauna of Idukki and Neyyar wildlife sanctuaries southern Kerala, India. Journal of the Bombay Natural History Society 97(3), 443-446</li><li>Raju Thomas, K., M. J. George, and C. R. Biju (2002). Freshwater fishes of southern Kerala with notes on the distribution of endemic and endangered species. Journal of the Bombay Natural History Society 99(1), 47-53</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f35c6ff5e7fac7d3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f35c6ff5e7fac7d3-480.webp",
+      "width": 864,
+      "height": 574,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "caption": "Adult males of certain populations are highly-coloured.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a79c046e2a4c667b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a79c046e2a4c667b-480.webp",
+      "width": 650,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "caption": "Probable female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/287f1a0d54fa10d8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/287f1a0d54fa10d8-480.webp",
+      "width": 798,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "caption": "This species will display better colouration and more interesting behaviour when maintained in a group.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8879a7cb9d9a8b07.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8879a7cb9d9a8b07-480.webp",
+      "width": 800,
+      "height": 438,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-filamentosa",
+      "caption": "Juvenile specimen collected in the Bhadra River basin.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng vảy",
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

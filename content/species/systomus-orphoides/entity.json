@@ -1,0 +1,224 @@
+{
+  "id": "systomus-orphoides",
+  "scientificName": "Systomus orphoides",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Systomus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "cambodia",
+    "tonle-sap",
+    "indonesia",
+    "java",
+    "laos",
+    "mekong",
+    "malaysia",
+    "rajang",
+    "myanmar",
+    "hanthayaw",
+    "thailand",
+    "chao-phraya",
+    "vietnam",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Systomus orphoides is a large cyprinid ranging from Myanmar to Vietnam and south through Peninsular Malaysia to Borneo, Sumatra and Java. It mostly inhabits flowing tributaries and large streams, moving onto inundated farmland and forest in the wet season to feed and spawn. Not often available in the trade and usually seen as bycatch, it grows to 250 mm SL, is quite boisterous, and needs more-or-less spotless water.</p><ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 200 × 60 cm (79 × 24 in)</li><li>Temperature: 18–26°C (64–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li><li>Difficulty: 7 of 8; needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Type locality is 'Java, Indonesia', but this species is currently considered to have a wide range extending eastwards from northern India and Myanmar via Thailand, Laos, and Cambodia as far as Vietnam and to the south through Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra, and Java.</p><p>It thus occurs throughout the great Mae Klong, Chao Phraya and Mekong drainages as well as many smaller river basins, lakes and reservoirs.</p><p>More recently it's recorded close to Chennai in Tamil Nadu state, southern India but it remains to be seen whether it's more widely-distributed than previously thought or has been introduced in some way (Knight and Rema devi 2010).</p><p>In addition, the fish can vary in appearance somewhat depending on locality with a number of variants recognised, some of which exhibit a greater degree of red colour pattern in the finnage, for example.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Mostly inhabits flowing tributaries, large streams, and their surrounding floodplains.</p><p>The fish move into inundated agricultural areas and forests during the wet season to feed and spawn, returning to the rivers as the water begins to recede.</p><p>It's also found in some larger rivers and permanent water bodies including the highly seasonal Tonlé Sap system in Cambodia.</p><p>In the Suriya River, Tak province, western Thailand aquatic plants include Pogostemon helferi and a species of Cryptocoryne and S. orphoides has been recorded to exist alongside numerous other fish species including Acanthocobitis pictilis, Botia kubotai, Syncrossus berdmorei, Pangio fusca, Crossocheilus burmanicus, Chanda pulcinella, Pethia stoliczkana, Microdevario kubotai, Hampala salweenensis, Poropuntius scapanognathus, Glyptothorax dorsalis, Batasio dayi, B. feruminatus, Akysis vespa, Amblyceps caecutiens, and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Standard length: 250 mm SL (10 in). Aquarium base: 200 × 60 cm (79 × 24 in). Volume: ~720 litres (~190 US gal).</p><p>Base dimensions of at least 200 × 60 × 60 cm (79 × 24 × 24 in) or equivalent are required for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though we recommend aquascaping the tank to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while soft-leaved plants may be eaten hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in relatively pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<ul><li>Temperature: 18–26°C (64–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>This species is quite boisterous and can easily intimidate less robust species with its size and activity, especially at feeding times.</p><p>In a spacious aquarium it can be combined with other robust fishes such as similarly-sized, open water-dwelling cyprinids, benthic species such as Garra and botiid loaches.</p><p>As always proper research is essential in order to avoid problems.</p><p>It forms aggregations in nature so ideally 6 or more specimens should be purchased which will not only make the fish less skittish but result in a more effective, natural looking display.</p><p>In addition, any aggressive behaviour will normally be contained as the fish concentrate on maintaining their hierarchical position within the group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Adult males develop a more intense colour pattern than females and exhibit noticeable tubercules on the head when in spawning condition.</p><p>Adult females tend to grow a little larger, are heavier-bodied, and less colourful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Possibly unrecorded in aquaria but cultured in some numbers as a food fish in its native countries.</p><p>Like others in the genus it's an egg-scatterer that exhibits no parental care and produces large broods with a single female being capable of releasing thousands of eggs in a single spawning event.</p><p>We suspect that a serious attempt by the private aquarist would not be a tempting prospect as it would require a method of preventing the adults eating the eggs, a large, dedicated breeding tank plus the facilities and contacts to raise and sell on hundreds of juveniles that are unsuitable for the vast majority of aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<p>Not often available in the aquarium trade and most often encountered as bycatch among shipments of other fishes.</p><p>Following Kottelat (2001) it can be distinguished by a combination of characters: presence of 2 pairs of barbels; a black blotch on the caudal peduncle; a small, vertically-orientated black spot below the dorsal-fin origin; a narrow dark band running from the base of the pectoral-fin to top of gill opening; last simple dorsal-fin ray osseous and serrated along the posterior edge; caudal-fin orange-red with a broad, black marginal stripe in both lobes; rows of black spots running longitudinally along scale rows in most populations; dorsal-fin with 4 spinous and 8 soft rays; anal-fin with 2 spinous and 5 soft rays.</p><p>Among congeners it's very similar to S. sarana and a comparative study by Shantakumar and Vishwanath found populations from Manipur state, northern India to differ only in the number of scale rows between the lateral line and dorsal-fin origin, there being 6 such rows in S. orphoides and 5 in S. sarana.</p><p>Systomus species can be identified by the following combination of characters: adult size greater than 80 mm SL (in South Asian species); maxillary and rostral barbels both present; last unbranched dorsal-fin ray stiff and serrated; lateral line complete with 27-34 scales; post-epiphysial fontanelle absent.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here on SF at the moment.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "html": "<ul><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Motomura, H., S. Tsukawaki, and T. Kamiya (2002). A preliminary survey of the fishes of Lake Tonle Sap near Siem Reap, Cambodia. Bulletin of the National Science Museum, Tokyo, Series A 28(4), 233-246</li><li>Cuvier, G. and A. Valenciennes (1842). Histoire naturelle des poissons. Tome seizième. Livre dix-huitième. Les Cyprinoïdes. Histoire naturelle des poissons v. 16, i-xx + 1-472</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Roberts, T. R. (1993). The freshwater fishes of Java, as observed by Kuhl and van Hasselt in 1820-23. Zoologische Verhandelingen (Leiden) 285, 1-94</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Shantakumar, M. and W. Vishwanath (2006). Inter-relationships of Puntius Hamilton-Buchanan (Cyprinidae: Cyprininae) found in Manipur, India. Zoos' Print Journal 21(6), 2279-2283</li><li>Marcus Knight, J. D. and K. Rema Devi (2010). Species persistence: a re-look at the freshwater fish fauna of Chennai, India. Journal of Threatened Taxa 2(1), 1334-1337</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d873606c3a55b1e6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d873606c3a55b1e6-480.webp",
+      "width": 617,
+      "height": 410,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "caption": "P. orphoides is a rarely-traded species.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/05390c873be3c26a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/05390c873be3c26a-480.webp",
+      "width": 700,
+      "height": 448,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "caption": "Adults underwater in the partially dried-out channel seen to the left of the previous image.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/199358a7b04e2f97.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/199358a7b04e2f97-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "caption": "Juvenile from the aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/99d9c3318e43c952.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/99d9c3318e43c952-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/systomus-orphoides",
+      "caption": "Freshly-collected subadult from Sarawak",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn 700 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá cạnh",
+        "thức ăn cá chứa tảo spirulina"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
