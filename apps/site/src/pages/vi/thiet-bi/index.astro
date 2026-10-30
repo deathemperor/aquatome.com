@@ -1,14 +1,14 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
-import { categories, speciesUsing } from '../../../lib/equipment'
+import { categoriesIn, speciesUsing } from '../../../lib/equipment'
 import { categoryLabel } from '../../../lib/format'
 import { smallSrc } from '../../../lib/img'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 /** Guides with the most species first; categories without a written guide last. */
-const cats = categories(c)
+const cats = categoriesIn(lang, c)
   .map(u => ({ u, g: c.equipment.find(x => x.category === u.category), n: speciesUsing(lang, c, u.category).length }))
   .sort((a, b) => Number(!!b.g) - Number(!!a.g) || b.n - a.n)
 ---

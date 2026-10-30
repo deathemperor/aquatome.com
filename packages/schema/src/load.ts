@@ -104,7 +104,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const equipDir = join(root, 'equipment')
   const equipment: EquipmentGuide[] = []
   for (const f of (await readdir(equipDir).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
-    const e = await readJson(join(equipDir, f), EquipmentSchema)
+    // Another language has the guides translated so far (content/equipment/<lang>/<category>.json).
+    const file = lang === 'vi' ? join(equipDir, f) : join(equipDir, lang, f)
+    if (lang !== 'vi' && !(await exists(file))) continue
+    const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
     equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
   }

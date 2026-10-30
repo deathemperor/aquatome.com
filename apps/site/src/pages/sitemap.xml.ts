@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { getContent } from '../lib/content'
 import { localizePath, PAGES, routeIn, served } from '../lib/i18n'
-import { categories } from '../lib/equipment'
+import { categories, categoriesIn } from '../lib/equipment'
 import { GALLERY_MIN } from '../lib/gallery'
 import { videoChannels } from '../lib/video'
 
@@ -27,6 +27,7 @@ export const GET: APIRoute = async ({ site }) => {
     paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
     if (served(lang, '/vi/ca/x/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))
     if (served(lang, '/vi/ca/x/anh/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable && (t.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/anh/`)))
+    if (served(lang, '/vi/thiet-bi/x/')) paths.push(...categoriesIn(lang, t).filter(u => t.equipment.find(e => e.category === u.category)?.quality?.indexable).map(u => localizePath(lang, `/vi/thiet-bi/${u.category}/`)))
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
     if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
     for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) if (served(lang, index)) paths.push(localizePath(lang, index))

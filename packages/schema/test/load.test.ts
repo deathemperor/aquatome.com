@@ -90,3 +90,18 @@ test('Vietnamese photo captions are shown translated in another language, or lef
   const vi = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
   expect(vi.galleries.alpha!.map(p => p.caption)).toEqual(['Cá alpha đực trong bể thủy sinh', 'Cá alpha cái', 'Male, aquarium trade'])
 })
+
+test('another language has only the equipment guides translated into it', async () => {
+  const { cp, mkdir, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-equip-'))
+  await cp(root, dir, { recursive: true })
+  const photo = { url: 'https://x/1.jpg', width: 4, height: 3, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://x/1' }
+  const guide = (category: string, name: string) => ({ category, name, lead: '', intro: '', hero: photo, types: [], choose: [], mistakes: [], faq: [] })
+  await mkdir(join(dir, 'equipment/id'), { recursive: true })
+  await writeFile(join(dir, 'equipment/loc.json'), JSON.stringify(guide('loc', 'Lọc')))
+  await writeFile(join(dir, 'equipment/den.json'), JSON.stringify(guide('den', 'Đèn')))
+  await writeFile(join(dir, 'equipment/id/loc.json'), JSON.stringify({ ...guide('loc', 'Filter'), quality: { score: 0.9, indexable: true } }))
+  expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).equipment.map(e => e.name)).toEqual(['Đèn', 'Lọc'])
+  expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).equipment.map(e => e.name)).toEqual(['Filter'])
+  expect((await loadAll({ root: dir, lang: 'th', publicBuild: false })).equipment).toEqual([])
+})
