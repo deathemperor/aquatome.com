@@ -127,6 +127,16 @@ test('a guide that still names the creator or the video gets one editor pass; th
   expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
 })
 
+test('redo rewrites only guides already written: a video not done yet waits for an ordinary run', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const again = deps(root, { videos: { a1: {}, a2: {} } })
+  const r = await videoGuides(again.d, { playlists: ['PL1'], redo: true })
+  expect(r.written).toEqual(['youtube-a1 (0.90)'])
+  expect(again.calls.transcripts).toBe(1)
+  expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
+})
+
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const first = deps(root)
