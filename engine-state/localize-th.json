@@ -366,6 +366,33 @@
     "confidence": "medium",
     "score": 0.85
   },
+  "corydoras-panda": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "คอรี่แพนด้า",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"ผู้เลี้ยงที่เลี้ยงในตู้ปลารวม\" is repetitive; use \"ผู้เลี้ยงตู้รวม\".",
+      "Item 1: \"ผู้ที่เพาะพันธุ์ปลา\" is fine but \"ให้ลูกปลาจำนวนมาก\" slightly adds meaning to \"productive\"; consider \"ให้ผลผลิตดี\" or \"ออกลูกดก\".",
+      "Item 1: \"อูกายาลี\" is a non-standard spelling; the common Thai form is \"อูกายาลี\" or \"อุคายาลี\", so check it against the local usage.",
+      "Item 3: \"half-grown animals\" became \"ปลาวัยรุ่นที่ยังโตไม่เต็มที่นี้\". \"นี้\" refers to something not in the excerpt, and \"วัยรุ่น\" and \"โตไม่เต็มที่\" say the same thing twice. Use \"ปลาที่โตครึ่งวัย\" or \"ปลาวัยรุ่น\".",
+      "Item 3: \"swarm behaviour\" as \"พฤติกรรมว่ายรวมฝูง\" is fine, but \"สวยงามมาก\" is a bit stiff. Use \"น่าดูมาก\"."
+    ]
+  },
+  "corydoras-sterbai": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "แพะสเตอร์ไบ",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"ปลาแพะ\" is a less usual term for corydoras; Thai hobbyists usually say \"ปลาคอรี่\" or \"คอรีดอรัส\" (consider \"ปลาแพะ (คอรีดอรัส)\")",
+      "\"Rio Guaporé\" is redundant with \"แม่น้ำ\" (Rio = river); better \"แม่น้ำกวาโปเร (Rio Guaporé)\" or just \"Rio Guaporé\"",
+      "\"splendid\" translated as \"สวยงามโดดเด่น\" is slightly wordy; the opening sentence is slightly awkward with the Latin name placed before the noun phrase",
+      "\"หาได้ยาก ... น่าสนใจอย่างยิ่ง\": \"definitely worth a mention\" is rendered as \"interesting\"; \"น่ากล่าวถึง\" would be closer"
+    ]
+  },
   "danio-margaritatus": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -387,40 +414,18 @@
       "Item 8: \"ปลากินอาหารอย่างดุเดือด\" is overly dramatic for \"aggressive eaters\". Use something like \"กินอาหารแย่งกันและกินเก่ง\"."
     ]
   },
-  "datnioides-microlepis": {
+  "epalzeorhynchos-bicolor": {
     "at": "2026-10-30",
     "from": "2026-10-30",
-    "name": "ปลาเสือตออินโด",
-    "confidence": "high",
-    "score": 0.92,
-    "notes": [
-      "Item 8: \"ปลาที่แย่งชิงอาหารและพื้นที่\" adds a gloss for \"competitive\". Consider the simpler \"ปลาที่ก้าวร้าวหรือแข่งขันสูง\".",
-      "Item 5: \"ปรับตัวให้นิ่งได้ยาก\" is slightly stiff for \"tricky to stabilise\". Consider \"ทำให้ปลาปรับตัวและอยู่ตัวได้ยาก\"."
-    ]
-  },
-  "datnioides-pulcher": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "ปลาเสือตอ",
+    "name": "ปลาทรงเครื่อง",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "Item 1: the generic name \"ปลาเสือตอ\" for D. pulcher doesn't separate it from the other Datnioides species. Thai hobbyists use specific names such as เสือตอลายใหญ่/ลายเล็ก, so check the common name used for this species.",
-      "Item 11: \"ปลากะพงดำทะเล (tripletail)\" for Lobotidae is a questionable common name. Keep \"tripletail\" with a more standard Thai name, or give only the family name.",
-      "Item 10: \"ประสบความสำเร็จน้อยมาก\" overstates \"little success\". Use \"ประสบความสำเร็จเพียงเล็กน้อย\".",
-      "Items 1 and 3: \"สูญพันธุ์ไปจากธรรมชาติในประเทศไทย\" reads like IUCN \"Extinct in the Wild\". For \"locally extinct\" use \"สูญพันธุ์ในประเทศไทย\" or \"สูญพันธุ์ไปจากแหล่งน้ำในไทย\"."
-    ]
-  },
-  "dichotomyctere-nigroviridis": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "ปลาปักเป้าเขียวจุด",
-    "confidence": "medium",
-    "score": 0.7,
-    "notes": [
-      "Item 8: \"ปลาเสือดาว (scat)\" is the wrong Thai name. Scats (Scatophagus) are called ปลาตะกรับ. Using a different fish name could lead readers to pick the wrong tankmate.",
-      "Item 8: \"ปลาผีเสื้อเงิน (mono)\" is not the usual hobby name for Monodactylus. Use ปลาโมโน or the common name for Monodactylus, e.g. ปลาใบโพธิ์/ปลาจาน.",
-      "Item 8: \"อาจรวมถึง\" for \"perhaps monos\" is slightly off. \"และบางทีก็ปลาโมโน\" would be closer to the original hedging."
+      "#11: \"สูญเสียสีแดงบนครีบหลังแช่แอลกอฮอล์ได้ 3 เดือน\" reads as \"dorsal fin\" and has no space or particle. Write \"สูญเสียสีแดงบนครีบหลังจากแช่แอลกอฮอล์ 3 เดือน\", and make clear it means the fins in general, not only the dorsal fin.",
+      "#4: \"ควรเป็นขนาดเล็กที่สุดที่พิจารณา\" is stiff and unnatural. Use \"ควรใช้ตู้ขนาดนี้เป็นขนาดเล็กที่สุด\".",
+      "#8: \"ปลาแมว\" for catfish is not the usual hobby term. Use \"ปลาดุก/แคทฟิช\".",
+      "#7: \"โดยหลักเป็นปลาที่เล็มกินฟิล์มชีวภาพ (aufwuchs) ได้แก่ ตะไคร่...\" blends the grazer sense into the list of foods. Rephrase it so it is clear that the fish grazes on aufwuchs, and that algae and small crustaceans are among its foods.",
+      "#8: \"เป็นพันธมิตรกับปลาชนิดอื่น\" is a literal rendering of \"alliances\". \"ไม่ก้าวร้าวใส่/อยู่ร่วมกันได้ดีกับ\" would be more natural."
     ]
   },
   "gymnocorymbus-ternetzi": {
@@ -439,28 +444,15 @@
       "Item 10: \"ไมโครเวิร์ม\" and \"ลูกไรทะเลแรกฟัก\" are understandable. Hobbyists more often say \"ไมโครวอร์ม\" and \"อาร์ทีเมียแรกฟัก\"."
     ]
   },
-  "labidochromis-caeruleus": {
+  "hyphessobrycon-herbertaxelrodi": {
     "at": "2026-10-30",
     "from": "2026-10-30",
-    "name": "ปลาหมอเยลโล่",
-    "confidence": "medium",
-    "score": 0.9,
-    "notes": [
-      "Item 11: \"ฟาร์มแห่งหนึ่งริมทะเลสาบแทนกันยีกา\" adds \"farm\" and \"ริม\" (beside the lake). The source says only \"a facility at Lake Tanganyika\". Use \"สถานที่เพาะเลี้ยงแห่งหนึ่งที่ทะเลสาบแทนกันยีกา\".",
-      "Items 1 and 4: \"SL\" is left unexplained. Write \"ความยาวมาตรฐาน (SL)\" in the spec list, as item 4 already does for the label."
-    ]
-  },
-  "macropodus-opercularis": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "ปลาพาราไดซ์",
+    "name": "นีออนดำ",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 11: \"ซี่เหงือกอันแรก\" for \"first gill arch\" — the standard term is \"คันเหงือก\" (gill arch), not gill rakers/filaments.",
-      "Item 11: \"ไม่เข้มกว่าตัวเกล็ด\" is awkward; use \"ไม่เข้มกว่าสีของเกล็ดส่วนอื่น\".",
-      "Item 11: \"สภาพแวดล้อมที่ทรหดกว่า\" is slightly odd for \"harsher environments\"; use \"สภาพแวดล้อมที่รุนแรง/ไม่เอื้ออำนวยกว่า\".",
-      "Item 1: \"ปลาพาราไดซ์\" is a transliteration; consider adding the common Thai name \"ปลากัดจีน\" for \"paradise fish\"."
+      "Item 8: \"ตู้ปลารวมที่ผู้เลี้ยงศึกษาข้อมูลมาอย่างดี\" reads a little stiff for \"well-researched community aquarium\"; consider rephrasing more naturally.",
+      "Item 10: \"ขุนพ่อแม่ปลา\" is fine but \"ปลาหมอสี\" for small cichlids in item 8 is only a loose match; minor."
     ]
   },
   "mikrogeophagus-ramirezi": {
@@ -641,6 +633,18 @@
       "Item 3: \"อ่อนมาก\" alone is ambiguous; use \"เป็นน้ำอ่อนมาก\" (soft water)."
     ]
   },
+  "puntigrus-tetrazona": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "ปลาเสือสุมาตรา",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 7: \"อาหารสดและอาหารแช่แข็งขนาดเล็ก\" for \"small live and frozen foods\" – \"อาหารสด\" is vague; use \"อาหารมีชีวิต\" or \"อาหารสด/แช่แข็ง\" in the usual hobby sense.",
+      "Item 11: \"traditionally considered\" became just \"โดยทั่วไป\"; \"ตามที่เข้าใจกันมาแต่เดิม\" would keep the nuance.",
+      "Item 8: \"ปลาค้อในวงศ์ Balitoridae, Cobitidae และ Nemacheilidae\" – \"ปลาค้อ\" is a loose label for the three loach families; consider adding \"ปลาหมู\" for Cobitidae."
+    ]
+  },
   "puntius-titteya": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -712,24 +716,41 @@
     "confidence": "high",
     "score": 0.94
   },
-  "thorichthys-meeki": {
+  "trichogaster-lalius": {
     "at": "2026-10-30",
     "from": "2026-10-30",
-    "name": "ปลาหมอไฟร์เมาท์",
-    "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "name": "ปลากระดี่แคระ",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"พอดีสำหรับเลี้ยงหนึ่งคู่\" loses the hedge \"just about big enough\"; use \"พอเพียงสำหรับ...\" or \"เล็กที่สุดที่ยังเลี้ยงได้\".",
+      "Items 5, 8, 10: \"Anabantoid\" is left in English; use \"ปลากลุ่มที่มีอวัยวะช่วยหายใจ (Anabantoid)\" or \"ปลากระดี่และปลากัด\" for consistency.",
+      "Item 8: \"ปลาหมู\" for loaches is ambiguous; \"ปลาหมูเทียม/โลช (loach)\" is clearer.",
+      "Item 10: \"ตัวผู้จะตัวอ่อนปวกเปียก\" is awkward; use \"ตัวผู้จะตัวอ่อนระทวย/ปวกเปียกลง\"."
+    ]
   },
-  "toxotes-jaculatrix": {
+  "trichopodus-leerii": {
     "at": "2026-10-30",
     "from": "2026-10-30",
-    "name": "ปลาเสือพ่นน้ำ",
+    "name": "ปลากระดี่มุก",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 6: \"ชอบค่าช่วงบน\" is awkward; use \"ชอบค่าช่วงสูงของช่วงนี้\" or \"ชอบค่าใกล้ 8.0\".",
-      "Items 1 and 10: \"full seawater\" is rendered as plain \"น้ำทะเล\". Consider \"น้ำทะเลเต็มความเค็ม\" to keep the nuance that it is not brackish.",
-      "Item 8: \"ปลาโมโน\" and \"ปลากรีนโครมายด์\" are transliterations. Consider adding the English or Latin name in brackets (Monodactylus, Etroplus suratensis). \"โครมายด์\" is better spelled \"โครไมด์\"."
+      "Item 3: \"เหมาะกับการเลี้ยงรวมในตู้ปลารวม\" is redundant; use \"เหมาะกับตู้ปลารวม\".",
+      "Item 6: \"ไส้เดือนน้ำ\" for blackworms is loose; consider adding \"(blackworm)\" to avoid confusion with tubifex or bloodworm."
+    ]
+  },
+  "trichopodus-trichopterus": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "ปลากระดี่หม้อ",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "#11: 'พบเห็นได้บ่อยกว่าแบบธรรมชาติซึ่งมีสีเทาอมฟ้าและมีจุดสามจุดมาก' – the trailing 'มาก' is misplaced and reads awkwardly; rephrase as 'พบเห็นได้บ่อยกว่าแบบธรรมชาติ (สีเทาอมฟ้า มีจุดสามจุด) มาก'.",
+      "#2: 'มีการนำเข้าไปยังหลายประเทศ' – 'introduced' means released or established in the wild, so use 'ถูกนำไปปล่อยหรือแพร่กระจายในหลายประเทศ' instead of 'imported'.",
+      "#9: 'ครีบหลังยาวแหลม' – the source only says 'pointed'; 'ยาว' is added, so use 'ครีบหลังแหลม'.",
+      "#10: 'ครีบท้องที่เปลี่ยนรูปเป็นเส้นยาว' – 'เป็นเส้นยาว' is added detail; 'ครีบท้องที่ดัดแปลงไป' is closer to the source."
     ]
   },
   "trigonostigma-heteromorpha": {

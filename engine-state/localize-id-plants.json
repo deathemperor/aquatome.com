@@ -669,6 +669,25 @@
       "\"Mudah dirawat dan tumbuh subur\": the subject is slightly ambiguous; consider \"Tanaman ini mudah dirawat dan tumbuh subur...\"."
     ]
   },
+  "cryptocoryne-x-willisii": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne willisii",
+    "confidence": "high",
+    "score": 1,
+    "notes": []
+  },
+  "cyperus-helferi": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "Cyperus helferi",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Kecepatan tumbuh\" is fine but \"Laju pertumbuhan\" is more common in hobby texts; optional.",
+      "\"tanaman air yang tumbuh terendam\" is slightly wordy; \"tanaman air sejati/terendam\" is more natural."
+    ]
+  },
   "echinodorus-angustifolia": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -683,6 +702,25 @@
       "\"Vesuvius cocok masuk kategori yang terakhir\": awkward; use 'termasuk dalam kategori terakhir (tekstur unik)'.",
       "\"Nama umumnya dipilih\": 'common name' is slightly unclear; consider 'Nama populernya'."
     ]
+  },
+  "echinodorus-aquartica": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "Echinodorus Aquartica",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "\"Kecepatan tumbuh\" is fine, but \"Laju pertumbuhan\" is the more common hobby wording; optional.",
+      "\"tanaman hias tunggal (soliter)\" is slightly redundant; \"tanaman solitaire/tunggal\" would be more natural."
+    ]
+  },
+  "echinodorus-cordifolius": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "Echinodorus cordifolius 'Fluitans'",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
   },
   "hygrophila-polysperma": {
     "at": "2026-10-30",

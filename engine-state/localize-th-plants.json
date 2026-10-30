@@ -601,6 +601,27 @@
       "\"ลงตู้ได้สองเดือน\" is fine, but \"ใบจะแผ่ราบแทบติดพื้นตู้\" needs a softer link. The 'closed cup' phrase \"ถ้วยปิด\" is acceptable, but \"ถ้วยเพาะเลี้ยงเนื้อเยื่อแบบปิด\" is clearer."
     ]
   },
+  "cryptocoryne-x-willisii": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "คริปโตคอรีน วิลลิซิอาย",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "cyperus-helferi": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "ไซเปอรัส เฮลเฟอรี่",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ตู้ปลา\" for aquarium: plant-focused handbook, \"ตู้ไม้น้ำ\" or \"ตู้\" is more natural.",
+      "\"ไม้น้ำที่ปลูกใต้น้ำได้ดี\" is slightly wordy; \"ไม้น้ำที่เหมาะปลูกแบบจมน้ำ\" is smoother.",
+      "\"ต้นไม้จะพลิ้วไหว\" should be \"ต้น/ไม้น้ำชนิดนี้\" to be specific.",
+      "\"ในตู้ที่มีกระแสน้ำดี\" is slightly awkward; \"ในตู้ที่มีการไหลเวียนของน้ำดี\" is clearer."
+    ]
+  },
   "echinodorus-angustifolia": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -610,6 +631,32 @@
     "notes": [
       "\"สาหร่ายริบบิ้น\" for vallisneria: Thai hobbyists more commonly write \"วาลิสเนเรีย\" or \"สาหร่ายหางหมา/หางไหม\"; consider giving the Latin name in brackets once.",
       "\"ไม้น้ำกลุ่มอเมซอน\" for \"sword plant\": consider \"ไม้น้ำกลุ่มอเมซอนซอร์ด (sword plant)\" to keep the source term."
+    ]
+  },
+  "echinodorus-aquartica": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "อเมซอน Aquartica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้กอ\" for Rosulate is imprecise; use \"ไม้ใบเรียงเป็นกอ/โรเซ็ตต์\" (rosette-forming) so the growth form is clear.",
+      "\"ถิ่นกำเนิด: สายพันธุ์ที่ผ่านการพัฒนา\" is awkward; use \"ไม้ผสม/สายพันธุ์ปรับปรุง (cultivar)\" or \"พันธุ์ปลูกเลี้ยง\".",
+      "\"พืชที่ผ่านการเพาะปลูกหลายชนิด\" is clumsy for \"cultivated plants\"; use \"พันธุ์ปลูกเลี้ยง/พันธุ์ลูกผสมหลายชนิด\".",
+      "\"เตี้ย\" is placed awkwardly after the size in brackets; reword to \"ทรงต้นเตี้ยและกะทัดรัด (10–20 ซม.)\".",
+      "\"ตู้ไม้น้ำ\" narrows \"aquarium\"; use \"ตู้ปลา/ตู้เลี้ยง\" or keep the wording neutral."
+    ]
+  },
+  "echinodorus-cordifolius": {
+    "at": "2026-10-30",
+    "from": "2026-10-30",
+    "name": "Echinodorus cordifolius 'Fluitans'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Rosulate\" rendered as \"ไม้น้ำทรงกอแบบโรเซตต์\" is slightly wordy; ไม้น้ำทรงกุหลาบซ้อน/โรเซตต์ is more usual in Thai hobby use.",
+      "\"ขอบหยักเป็นคลื่น\" adds 'serrated edge' (หยัก); the source says only 'wavy' leaves. Use \"ใบเป็นคลื่น\".",
+      "\"ถ้าโตจนใหญ่พอ จะแตกใบใหญ่อยู่ใต้ผิวน้ำแทน\" is slightly vague; make it clear the large leaves form just under the surface (\"ใบขนาดใหญ่ใต้ผิวน้ำพอดี\")."
     ]
   },
   "hygrophila-polysperma": {
