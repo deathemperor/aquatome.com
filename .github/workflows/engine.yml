@@ -1,0 +1,47 @@
+name: engine
+# The content engine, every 6 hours (was launchd on the owner's Mac). macOS: face screening uses Apple's Vision
+# framework, and the page fetcher drives a real (headed) Chrome. Commits content and deploys (scripts/engine-cycle.sh).
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      engine_args:
+        description: 'Extra args for `pnpm engine run` (e.g. --sources scotcat --limit 2); set = a short run without the video/photo steps'
+        default: ''
+      max_minutes:
+        description: 'Minutes for page processing'
+        default: '150'
+concurrency:
+  group: engine
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  cycle:
+    runs-on: macos-latest
+    timeout-minutes: 355
+    env:
+      ENGINE_ARGS: ${{ inputs.engine_args }}
+      ENGINE_MAX_MINUTES: ${{ inputs.max_minutes || '150' }}
+      VIDEO_MAX_MINUTES: '45'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/engine-config
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+      - run: brew install yt-dlp
+      - run: scripts/engine-cycle.sh
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engine-test-log
+          path: /tmp/thuysinh-engine-test.log
+          if-no-files-found: ignore
