@@ -1,16 +1,17 @@
 ---
 import { BREED_KIND, type Breed } from '../lib/breeds'
-/** Its pictures must be in the page's credits (each breed's first photo). `bare`: inside a container that already has margins. */
-interface Props { breeds: Breed[]; heading: string; bare?: boolean }
-const { breeds, heading, bare } = Astro.props
+import { smallSrc } from '../lib/img'
+/** Its pictures must be in the page's credits (each breed's first photo). `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page). */
+interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number }
+const { breeds, heading, bare, eager = 0 } = Astro.props
 ---
 {breeds.length > 0 && (
   <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
     <h2 id="breeds-h">{heading}</h2>
     <ul>
-      {breeds.map(x => (
+      {breeds.map((x, i) => (
         <li><a href={`/vi/ca/${x.t.slug}/`}>
-          {x.photos[0] ? <img src={x.photos[0].thumb ?? x.photos[0].url} alt="" width={x.photos[0].width} height={x.photos[0].height} loading="lazy" decoding="async" /> : <span class="ph" />}
+          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph" />}
           <span class="n">{x.t.name}</span><span class="k">{BREED_KIND[x.kind]}</span>
         </a></li>
       ))}

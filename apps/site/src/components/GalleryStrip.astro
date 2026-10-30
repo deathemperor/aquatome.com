@@ -1,6 +1,7 @@
 ---
 import type { Photo } from '@aq/schema'
 import { GALLERY_STRIP } from '../lib/gallery'
+import { smallSrc } from '../lib/img'
 /** `href`: the gallery page; without one (too few photos for a page) each thumb opens its photo. */
 interface Props { photos: Photo[]; href?: string; name: string }
 const { photos, href, name } = Astro.props
@@ -10,7 +11,7 @@ const shown = photos.slice(0, GALLERY_STRIP)
   <div class="head"><h2 id="gal-h">Ảnh {name}</h2>{href && <a href={href}>Xem tất cả {photos.length} ảnh →</a>}</div>
   <ul>
     {shown.map((p, i) => (
-      <li><a href={href ? `${href}#a${i + 1}` : p.url}><img src={p.thumb ?? p.url} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /></a></li>
+      <li><a href={href ? `${href}#a${i + 1}` : p.url}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /></a></li>
     ))}
   </ul>
 </section>

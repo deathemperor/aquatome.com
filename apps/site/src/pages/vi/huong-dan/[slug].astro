@@ -63,6 +63,8 @@ if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'F
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
 ---
 <Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
+  {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
+  {v && <link slot="head" rel="preconnect" href="https://i.ytimg.com" />}
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
