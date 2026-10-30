@@ -127,3 +127,6 @@ export function served(lang: Lang, viPath: string): boolean {
   const path = viPath.replace(/[?#].*$/, '')
   return ps.some(p => p.test(path))
 }
+
+/** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
+export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)

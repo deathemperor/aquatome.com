@@ -59,3 +59,10 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
 })
+
+test('licence: the stored permission note is translated, licence names are not', async () => {
+  const { licenceLabel, translator } = await import('../src/lib/i18n')
+  expect(licenceLabel(translator('id'), 'dùng với sự cho phép')).toBe('digunakan dengan izin')
+  expect(licenceLabel(translator('vi'), 'dùng với sự cho phép')).toBe('dùng với sự cho phép')
+  expect(licenceLabel(translator('th'), 'CC BY 4.0')).toBe('CC BY 4.0')
+})

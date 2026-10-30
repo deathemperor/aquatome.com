@@ -1,6 +1,6 @@
 ---
 import { groupCredits, type Credit } from '../lib/credits'
-import { i18n, LANG_NAME, served, type Lang } from '../lib/i18n'
+import { i18n, LANG_NAME, licenceLabel, served, type Lang } from '../lib/i18n'
 /** langs: this page in each language that has it (absolute URLs), for the language links. */
 interface Props { credits?: Credit[]; langs?: (readonly [Lang, string])[] }
 const { credits = [], langs = [] } = Astro.props
@@ -31,7 +31,7 @@ const groups = groupCredits(credits)
         {groups.map(g => (
           <li>
             {g.urls.length === 1 ? <a href={g.urls[0]} rel="noopener">{g.author}</a> : <strong>{g.author}</strong>}
-            <span class="lic"> · {g.licence}{g.urls.length > 1 && ` · ${t('{n} ảnh', { n: g.urls.length })}`}</span>
+            <span class="lic"> · {licenceLabel(t, g.licence)}{g.urls.length > 1 && ` · ${t('{n} ảnh', { n: g.urls.length })}`}</span>
             {g.urls.length > 1 && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={t('{author}, ảnh {n}', { author: g.author, n: i + 1 })}>{i + 1}</a>)}</span>}
           </li>
         ))}
