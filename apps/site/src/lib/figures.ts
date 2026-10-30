@@ -1,6 +1,6 @@
 import type { Photo } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
-import { translator, type Lang } from './i18n'
+import { licenceLabel, translator, type Lang } from './i18n'
 
 /** A picture placed inside article text: a photo, its credit, and optionally what it shows (linked). */
 export type Figure = { photo: Photo; label?: string; href?: string }
@@ -10,7 +10,7 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 export function figureHtml(lang: Lang, { photo: p, label, href }: Figure): string {
   const img = `<img src="${esc(p.url)}" width="${p.width}" height="${p.height}" alt="${esc(label ?? p.caption ?? '')}" loading="lazy" decoding="async">`
   const what = label ? (href ? `<a href="${esc(href)}">${esc(label)}</a> · ` : `${esc(label)} · `) : ''
-  return `<figure class="inl">${href ? `<a href="${esc(href)}" tabindex="-1">${img}</a>` : img}<figcaption>${what}${translator(lang)('Ảnh:')} <a href="${esc(p.sourceUrl)}" rel="noopener">${esc(p.author)}</a>, ${esc(p.licence)}</figcaption></figure>`
+  return `<figure class="inl">${href ? `<a href="${esc(href)}" tabindex="-1">${img}</a>` : img}<figcaption>${what}${translator(lang)('Ảnh:')} <a href="${esc(p.sourceUrl)}" rel="noopener">${esc(p.author)}</a>, ${esc(licenceLabel(translator(lang), p.licence))}</figcaption></figure>`
 }
 
 /**

@@ -28,7 +28,7 @@ export function unsplashCandidates(hits: Hit[]): (Candidate & { report: string }
 }
 
 /** The English Wikipedia title a scientific name redirects to ("Paracheirodon innesi" → "Neon tetra"): Unsplash is searched by common name. */
-async function englishName(sci: string, http: GalleryDeps['http']): Promise<string> {
+export async function englishName(sci: string, http: GalleryDeps['http']): Promise<string> {
   const r = (await http(`https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&titles=${encodeURIComponent(sci)}`).catch(() => null)) as { query?: { pages?: Record<string, { title: string; missing?: string }> } } | null
   const page = Object.values(r?.query?.pages ?? {})[0]
   return page && page.missing === undefined ? page.title.replace(/\s*\([^)]*\)$/, '') : sci

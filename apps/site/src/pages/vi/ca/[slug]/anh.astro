@@ -6,7 +6,7 @@ import { creditsFor } from '../../../../lib/credits'
 import { GALLERY_MIN, licenceUrl } from '../../../../lib/gallery'
 import { breedGallery } from '../../../../lib/breeds'
 import { smallSrc } from '../../../../lib/img'
-import { i18n, langOf } from '../../../../lib/i18n'
+import { i18n, langOf, licenceLabel } from '../../../../lib/i18n'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   // Species and man-made fish (breeds) alike; a breed has no scientific name.
@@ -31,7 +31,7 @@ const jsonld = [{
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>
-        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={p.licence} data-src={p.sourceUrl}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(t, p.licence)} data-src={p.sourceUrl}>
           <img src={smallSrc(p)} alt={p.caption ?? s.t.name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
         </a>
       </li>

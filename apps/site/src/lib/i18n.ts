@@ -59,9 +59,28 @@ export function localizePath(lang: Lang, path: string): string {
  * is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
  */
 export function localizeLinks(html: string, lang: Lang, origin: string): string {
+  // A link to a page this language doesn't have (yet) is dropped, its text kept.
+  html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs: string, inner: string) => {
+    const href = /\bhref="(\/vi\/[^"]*)"/.exec(attrs)?.[1]
+    return href && !/\bhreflang=/.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
+  })
   const site = origin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const re = new RegExp(`<[^>]*\\bhreflang=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
   return html.replace(re, (m, o: string | undefined, path: string | undefined) => (path === undefined ? m : (o ?? '') + localizePath(lang, path)))
+}
+
+/** "/id/ikan/x/foto/" → "/vi/ca/x/anh/": the Vietnamese form of any page's path (the form links are written in). */
+export function toVi(path: string): string {
+  const lang = langOf(path)
+  if (lang === 'vi') return path
+  const seg = path.split('/')
+  const back = (m: Record<string, string>, v?: string) => Object.keys(m).find(k => m[k] === v)
+  seg[1] = 'vi'
+  seg[2] = back(SECTIONS[lang], seg[2]) ?? seg[2]!
+  if (seg[2] === 'cong-cu' && seg[3] === SUB[lang]['the-tich-be']) seg[3] = 'the-tich-be'
+  if (seg[2] === 'video' && seg[3] === SUB[lang].kenh && seg.length > 5) seg[3] = 'kenh'
+  if (seg[2] === 'ca' && seg[4] === SUB[lang].anh && seg.length === 6) seg[4] = 'anh'
+  return seg.join('/')
 }
 
 const DICTS: Record<Exclude<Lang, 'vi'>, Record<string, string>> = { id, th }
@@ -90,7 +109,24 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: [], th: [] }
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro']
+export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
+const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */
-export const routeIn = (lang: Lang, file: string) =>
-  localizePath(lang, `/vi/${file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '')}/`.replace(/\/\/$/, '/')).replace(/(.)\/$/, '$1')
+export const routeIn = (lang: Lang, file: string) => localizePath(lang, `/vi/${segments(file).map(s => `${s}/`).join('')}`).replace(/(.)\/$/, '$1')
+
+const patterns = new Map<Lang, RegExp[]>()
+/** Does this language have the page at this Vietnamese path ("/vi/ca/x/?q" → the ca/[slug] file)? Vietnamese has every page. */
+export function served(lang: Lang, viPath: string): boolean {
+  if (lang === 'vi') return true
+  let ps = patterns.get(lang)
+  if (!ps) {
+    ps = PAGES[lang].map(f => new RegExp(`^/vi/${segments(f).map(s => (s.startsWith('[...') ? '.+' : s.startsWith('[') ? '[^/]+' : s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) + '/').join('')}$`))
+    patterns.set(lang, ps)
+  }
+  const path = viPath.replace(/[?#].*$/, '')
+  return ps.some(p => p.test(path))
+}
+
+/** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
+export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)

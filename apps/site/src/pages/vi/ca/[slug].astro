@@ -24,7 +24,8 @@ import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { slugify } from '@aq/schema/slug'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
-import { i18n, langOf } from '../../../lib/i18n'
+import { i18n, langOf, served } from '../../../lib/i18n'
+import { speciesAlternates } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -41,16 +42,20 @@ const jsonld = [
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
-    { '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href },
-    { '@type': 'ListItem', position: 3, name: s.t.name, item: url } ] },
+    ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href }] : []),
+    { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 const firstSource = s.sections[0]
 const summary = await approvedSummary(s.id)
 const gallery = c.galleries[s.id] ?? []
-const strip = gallery.length >= GALLERY_MIN ? gallery.slice(0, GALLERY_STRIP) : []
+const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP) : []
+// Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes and comments) stay on /vi/.
+const vn = lang === 'vi'
+const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
+const alternates = await speciesAlternates(s.id)
 const breeds = breedsOf(lang, c, s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
@@ -65,25 +70,27 @@ const breeds = breedsOf(lang, c, s.id)
       {s.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <DataCard card={s.dataCard} sources={c.sources} />
       {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
-      <VnClimate card={s.dataCard} />
+      {vn && <VnClimate card={s.dataCard} />}
       <p class="srcline"><a href={`/vi/cong-cu/?ca=${s.t.slug}#nuoi-chung`}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>
     </div>
   </header>
 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
-  {summary && <QuickSummary summary={summary} />}
+  {vn && summary && <QuickSummary summary={summary} />}
   <Sections sections={s.sections} t={s.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} />
   <BreedList breeds={breeds} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
 
-  <VideoFacade videos={s.videos} />
-  <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
+  <VideoFacade videos={videos} />
+  {vn && <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />}
 
-  <div class="wrap two">
-    <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
-    <Comments entity={`species:${s.id}`} />
-  </div>
+  {vn && (
+    <div class="wrap two">
+      <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
+      <Comments entity={`species:${s.id}`} />
+    </div>
+  )}
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }

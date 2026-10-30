@@ -45,3 +45,24 @@ test('src/i18n/client.json lists every ct()/msg() string', async () => {
   const { execFileSync } = await import('node:child_process')
   expect(() => execFileSync('node', ['scripts/i18n-client.mjs', '--check'], { cwd: new URL('..', import.meta.url).pathname, stdio: 'pipe' })).not.toThrow()
 })
+
+test('served: the pilot pages; a link to a page the language lacks keeps its text only', async () => {
+  const { served, toVi } = await import('../src/lib/i18n')
+  expect(served('vi', '/vi/thiet-bi/loc/')).toBe(true)
+  expect(served('id', '/vi/ca/x/?q=1')).toBe(true)
+  expect(served('id', '/vi/ca/x/anh/')).toBe(false)
+  expect(served('th', '/vi/cong-cu/the-tich-be/')).toBe(true)
+  expect(served('th', '/vi/phan-loai/a/b/')).toBe(false)
+  expect(localizeLinks('<a href="/vi/phan-loai/a/" class="x">Cyprinidae</a> <a href="/vi/ca/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>', 'id', ''))
+    .toBe('Cyprinidae <a href="/id/ikan/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>')
+  expect(toVi('/id/ikan/x/foto/')).toBe('/vi/ca/x/anh/')
+  expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
+  expect(toVi('/vi/ca/')).toBe('/vi/ca/')
+})
+
+test('licence: the stored permission note is translated, licence names are not', async () => {
+  const { licenceLabel, translator } = await import('../src/lib/i18n')
+  expect(licenceLabel(translator('id'), 'dùng với sự cho phép')).toBe('digunakan dengan izin')
+  expect(licenceLabel(translator('vi'), 'dùng với sự cho phép')).toBe('dùng với sự cho phép')
+  expect(licenceLabel(translator('th'), 'CC BY 4.0')).toBe('CC BY 4.0')
+})

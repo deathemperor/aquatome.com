@@ -13,3 +13,9 @@ test('no headings: html untouched; reading time is at least a minute', () => {
   expect(readingMinutes('<p>một hai</p>')).toBe(1)
   expect(readingMinutes(`<p>${'chữ '.repeat(690)}</p>`)).toBe(3)
 })
+
+test('reading time: Thai counted by letters, not by spaces', () => {
+  const thai = `<p>${'ปลากัดเป็นปลาที่เลี้ยงง่าย'.repeat(200)}</p>` // 5,000 Thai letters, no spaces
+  expect(readingMinutes(thai)).toBe(5)
+  expect(readingMinutes(`<p>${'một '.repeat(690)}</p>`)).toBe(3)
+})
