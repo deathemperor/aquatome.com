@@ -5,41 +5,43 @@ import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { guideImage } from '../../../lib/mentions'
 import { hours, isVideo, seriesGuides, seriesSeconds, videoChannels } from '../../../lib/video'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length).sort((a, b) => b.guides.length - a.guides.length)
 const channels = videoChannels(c)
 const withSingles = channels.filter(ch => ch.singles.length)
 const all = c.guides.filter(isVideo)
 ---
-<Browse title="Video hướng dẫn" heading="Video hướng dẫn"
-  intro="Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem."
+<Browse title={t('Video hướng dẫn')} heading={t('Video hướng dẫn')}
+  intro={t('Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem.')}
   credits={creditsFor(all.map(g => guideImage(c, g)))}>
-  {all.length === 0 && <p>Chưa có video hướng dẫn nào.</p>}
+  {all.length === 0 && <p>{t('Chưa có video hướng dẫn nào.')}</p>}
   {series.map(({ s, guides }) => (
     <section class="series" aria-labelledby={`s-${s.vi.slug}`}>
       <header>
         <h2 id={`s-${s.vi.slug}`}><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a></h2>
-        <p class="meta">{guides.length} video · {hours(seriesSeconds(c, s))} · kênh {s.channel}</p>
+        <p class="meta">{t('{n} video', { n: guides.length })} · {hours(lang, seriesSeconds(c, s))} · {t('kênh {name}', { name: s.channel })}</p>
         <p class="intro">{s.vi.intro}</p>
       </header>
       <div class="grid">{guides.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
-      {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>Xem cả {guides.length} bài trong loạt</a></p>}
+      {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>{t('Xem cả {n} bài trong loạt', { n: guides.length })}</a></p>}
     </section>
   ))}
   {withSingles.map(ch => (
     <section class="series" aria-labelledby={`c-${ch.slug}`}>
       <header>
-        <h2 id={`c-${ch.slug}`}><a href={`/vi/video/kenh/${ch.slug}/`}>Video lẻ của {ch.name}</a></h2>
-        <p class="meta">{ch.singles.length} video</p>
+        <h2 id={`c-${ch.slug}`}><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Video lẻ của {name}', { name: ch.name })}</a></h2>
+        <p class="meta">{t('{n} video', { n: ch.singles.length })}</p>
       </header>
       <div class="grid">{ch.singles.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
-      {ch.singles.length > 4 && <p class="more"><a href={`/vi/video/kenh/${ch.slug}/`}>Xem cả {ch.guides.length} bài của kênh</a></p>}
+      {ch.singles.length > 4 && <p class="more"><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Xem cả {n} bài của kênh', { n: ch.guides.length })}</a></p>}
     </section>
   ))}
   {channels.length > 1 && (
     <section class="series" aria-labelledby="ch-h">
-      <header><h2 id="ch-h">Theo kênh</h2></header>
-      <ul class="chans">{channels.map(ch => <li><a href={`/vi/video/kenh/${ch.slug}/`}>{ch.name}</a> <span>{ch.guides.length} bài</span></li>)}</ul>
+      <header><h2 id="ch-h">{t('Theo kênh')}</h2></header>
+      <ul class="chans">{channels.map(ch => <li><a href={`/vi/video/kenh/${ch.slug}/`}>{ch.name}</a> <span>{t('{n} bài', { n: ch.guides.length })}</span></li>)}</ul>
     </section>
   )}
 </Browse>

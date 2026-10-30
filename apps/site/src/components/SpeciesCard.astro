@@ -2,11 +2,15 @@
 import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
-import { isRange, range } from '../lib/format'
+import { fmt, isRange } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
+import { i18n } from '../lib/i18n'
 interface Props { s: Localized<SpeciesEntity>; eager?: boolean }
 const { s, eager = false } = Astro.props
+// `t` below is the temperature range: the translator is `tr` here.
+const { t: tr, lang } = i18n(Astro.url)
+const { range } = fmt(lang)
 const p = cleanPhoto(s.photos)
 const temp = resolveDataCard(s.dataCard.tempC ?? [])
 const ph = resolveDataCard(s.dataCard.ph ?? [])
@@ -22,9 +26,9 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
   </a>
   {(t || h || diff) && (
     <dl class="label">
-      {t && <div><dt>Nhiệt độ</dt><dd data-c={`${t.min},${t.max}`}>{range(t)}°C</dd><RangeBar kind="temp" min={t.min} max={t.max} /></div>}
+      {t && <div><dt>{tr('Nhiệt độ')}</dt><dd data-c={`${t.min},${t.max}`}>{range(t)}°C</dd><RangeBar kind="temp" min={t.min} max={t.max} /></div>}
       {h && <div><dt>pH</dt><dd>{range(h)}</dd><RangeBar kind="ph" min={h.min} max={h.max} /></div>}
-      {diff && typeof diff.value === 'number' && <div class="lvl"><dt>Độ khó</dt><dd><Difficulty value={diff.value} /></dd></div>}
+      {diff && typeof diff.value === 'number' && <div class="lvl"><dt>{tr('Độ khó')}</dt><dd><Difficulty value={diff.value} /></dd></div>}
     </dl>
   )}
 </article>

@@ -4,21 +4,23 @@ import { getContent } from '../../../lib/content'
 import { categories, speciesUsing } from '../../../lib/equipment'
 import { categoryLabel } from '../../../lib/format'
 import { smallSrc } from '../../../lib/img'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 /** Guides with the most species first; categories without a written guide last. */
 const cats = categories(c)
-  .map(u => ({ u, g: c.equipment.find(x => x.category === u.category), n: speciesUsing(c, u.category).length }))
+  .map(u => ({ u, g: c.equipment.find(x => x.category === u.category), n: speciesUsing(lang, c, u.category).length }))
   .sort((a, b) => Number(!!b.g) - Number(!!a.g) || b.n - a.n)
 ---
-<Browse title="Thiết bị bể cá: chọn lọc, đèn, sưởi, nền, thức ăn" heading="Thiết bị" intro="Mỗi loại thiết bị: các kiểu nên mua, cách chọn theo cỡ bể và loài cá, lỗi người mới hay mắc, và những loài cần đến nó.">
+<Browse title={t('Thiết bị bể cá: chọn lọc, đèn, sưởi, nền, thức ăn')} heading={t('Thiết bị')} intro={t('Mỗi loại thiết bị: các kiểu nên mua, cách chọn theo cỡ bể và loài cá, lỗi người mới hay mắc, và những loài cần đến nó.')}>
   <div class="cats">
     {cats.map(({ u, g, n }) => (
       <a class="cat" href={`/vi/thiet-bi/${u.category}/`}>
         <div class="img">{g && <img src={smallSrc(g.hero)} width={g.hero.width} height={g.hero.height} alt="" loading="lazy" />}</div>
-        <h2>{g?.name ?? categoryLabel(u.category)}</h2>
+        <h2>{g?.name ?? t(categoryLabel(u.category))}</h2>
         {g && <p class="lead">{g.lead}</p>}
         {g && <p class="types">{g.types.map(t => t.name).join(' · ')}</p>}
-        <p class="n">{u.category === 'cay-thuy-sinh' ? `${c.plants.length} loài cây` : u.category === 'co2' ? `${c.plants.filter(p => p.co2 !== 'none').length} loài cây cần` : `${n} loài cá cần`}</p>
+        <p class="n">{u.category === 'cay-thuy-sinh' ? t('{n} loài cây', { n: c.plants.length }) : u.category === 'co2' ? t('{n} loài cây cần', { n: c.plants.filter(p => p.co2 !== 'none').length }) : t('{n} loài cá cần', { n })}</p>
       </a>
     ))}
   </div>

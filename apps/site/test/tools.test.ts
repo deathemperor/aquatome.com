@@ -2,22 +2,23 @@ import { expect, test } from 'vitest'
 import { checkTankmates } from '../src/scripts/tankmates'
 import { heaterWatts, tankVolume } from '../src/scripts/calc'
 import type { SpeciesIndexItem } from '../src/scripts/filter'
+import { translator } from '../src/lib/i18n'
 
 const f = (name: string, o: Partial<SpeciesIndexItem>): SpeciesIndexItem => ({ slug: name, name, scientificName: name, group: 'x', ...o })
 
 test('tankmates: shared water range, missing data listed, biggest tank wins', () => {
-  const r = checkTankmates([f('neon', { tempC: { min: 20, max: 26 }, ph: { min: 5, max: 7 }, tankCm: 60 }), f('galaxy', { tempC: { min: 22, max: 25 }, tankCm: 45 })])
+  const r = checkTankmates([f('neon', { tempC: { min: 20, max: 26 }, ph: { min: 5, max: 7 }, tankCm: 60 }), f('galaxy', { tempC: { min: 22, max: 25 }, tankCm: 45 })], translator('vi'))
   expect(r.params.find(p => p.field === 'tempC')).toEqual({ field: 'tempC', missing: [], shared: { min: 22, max: 25 } })
   expect(r.params.find(p => p.field === 'ph')).toEqual({ field: 'ph', missing: ['galaxy'], shared: { min: 5, max: 7 } })
   expect(r.params.find(p => p.field === 'gh')).toEqual({ field: 'gh', missing: ['neon', 'galaxy'] })
   expect(r.minTankCm).toBe(60)
 })
 test('tankmates: no overlap → no shared range', () => {
-  const r = checkTankmates([f('a', { tempC: { min: 15, max: 21 } }), f('b', { tempC: { min: 26, max: 30 } })])
+  const r = checkTankmates([f('a', { tempC: { min: 15, max: 21 } }), f('b', { tempC: { min: 26, max: 30 } })], translator('vi'))
   expect(r.params[0]!.shared).toBeUndefined()
 })
 test('tankmates: big fish ≥ 3× a small one is flagged, in size order', () => {
-  const r = checkTankmates([f('neon', { sizeCm: 3 }), f('oscar', { sizeCm: 30 }), f('rasbora', { sizeCm: 9 })])
+  const r = checkTankmates([f('neon', { sizeCm: 3 }), f('oscar', { sizeCm: 30 }), f('rasbora', { sizeCm: 9 })], translator('vi'))
   expect(r.eats.map(e => `${e.big}>${e.small}`)).toEqual(['oscar>rasbora', 'oscar>neon', 'rasbora>neon'])
 })
 test('volume: 60×30×36 cm', () => {
@@ -48,7 +49,7 @@ test('tankmates: behaviour notes from traits', () => {
     f('neon', { temperament: 'peaceful', schoolMin: 8 }),
     f('barb', { temperament: 'semi-aggressive', finNipper: true }),
     f('oscar', { temperament: 'predator' }),
-  ])
+  ], translator('vi'))
   expect(r.notes.map(n => n.level)).toEqual(['warn', 'warn', 'bad', 'info'])
   expect(r.notes[0]!.text).toContain('barb hơi dữ, có thể rượt đuổi neon')
   expect(r.notes[3]!.text).toBe('Nuôi neon theo đàn từ 8 con.')

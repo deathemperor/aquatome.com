@@ -1,13 +1,20 @@
-<button type="button" class="units" data-units-toggle aria-label="cm · °C, đổi sang inch và °F">cm · °C</button>
+---
+import { i18n } from '../lib/i18n'
+const { t } = i18n(Astro.url)
+---
+<button type="button" class="units" data-units-toggle aria-label={t('cm · °C, đổi sang inch và °F')}>cm · °C</button>
 <script>
   import { applyUnits } from '../scripts/units'
+  // ct() from scripts/ct.ts, written out here: a script with no shared import is inlined into every page (no extra request).
+  const dict = JSON.parse(document.getElementById('aq-i18n')?.textContent || '{}') as Record<string, string>
+  const ct = (s: string, v?: Record<string, string | number>) => (dict[s] ?? s).replace(/\{(\w+)\}/g, (m, k: string) => (v && k in v ? String(v[k]) : m))
   const get = () => (localStorage.getItem('units') === 'imperial' ? 'imperial' : 'metric')
-  if (get() === 'imperial') applyUnits('imperial')
+  if (get() === 'imperial') applyUnits('imperial', ct)
   document.addEventListener('click', e => {
     if (!(e.target as Element).closest('[data-units-toggle]')) return
     const next = get() === 'metric' ? 'imperial' : 'metric'
     localStorage.setItem('units', next)
-    applyUnits(next)
+    applyUnits(next, ct)
   })
 </script>
 <style>

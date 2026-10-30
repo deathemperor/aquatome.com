@@ -2,9 +2,11 @@
 import type { Localized, PlantEntity } from '@aq/schema'
 import { PLANT_LABELS } from '../lib/format'
 import { smallSrc } from '../lib/img'
+import { i18n } from '../lib/i18n'
 interface Props { p: Localized<PlantEntity> }
 const { p } = Astro.props
 const ph = p.photos[0]
+const { t } = i18n(Astro.url)
 ---
 <article class="pc">
   <a href={`/vi/cay/${p.t.slug}/`}>
@@ -12,7 +14,7 @@ const ph = p.photos[0]
     <h3>{p.t.name}</h3>
     <p class="sci">{p.scientificName}</p>
   </a>
-  <p class="meta">Ánh sáng {PLANT_LABELS.light[p.light]?.toLowerCase()}, CO₂ {PLANT_LABELS.co2[p.co2]?.toLowerCase()}</p>
+  <p class="meta">{t('Ánh sáng {light}, CO₂ {co2}', { light: t(PLANT_LABELS.light[p.light]!).toLowerCase(), co2: t(PLANT_LABELS.co2[p.co2]!).toLowerCase() })}</p>
 </article>
 <style>
   .pc a { text-decoration: none; color: inherit; display: block; }

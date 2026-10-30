@@ -2,6 +2,9 @@
 import Browse from '../../../layouts/Browse.astro'
 import { GALLON_L, SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../../scripts/volume'
 import { WATER_SHARE } from '../../../scripts/calc'
+import { i18n } from '../../../lib/i18n'
+
+const { t, locale } = i18n(Astro.url)
 
 // Top view of each shape; the wall side (flat back) is at the top.
 const ICON: Record<ShapeId, string> = {
@@ -22,78 +25,79 @@ const ids = Object.keys(SHAPES) as ShapeId[]
 
 // Sizes shops here sell ready-made (length × width × height, cm).
 const SIZES: [number, number, number][] = [[30, 20, 20], [40, 25, 25], [50, 30, 30], [60, 30, 36], [70, 35, 40], [80, 40, 45], [90, 45, 45], [100, 50, 50], [120, 50, 55], [150, 60, 60]]
-const fmt = (n: number, d = 0) => new Intl.NumberFormat('vi-VN', { maximumFractionDigits: d }).format(n)
+const fmt = (n: number, d = 0) => new Intl.NumberFormat(locale, { maximumFractionDigits: d }).format(n)
 const rows = SIZES.map(([l, w, h]) => {
-  const v = shapeVolume('chu-nhat', { l, w, h }) as { litres: number }
+  const v = shapeVolume('chu-nhat', { l, w, h }, t) as { litres: number }
   const glass = glassThickness(l, h).order ?? 19
   const water = v.litres * WATER_SHARE
   return { l, w, h, litres: v.litres, water, glass, kg: water + glassKg(l, w, h, glass) + v.litres * 0.15 * 1.6 }
 })
 const r60 = rows.find(r => r.l === 60)!
 const faq = [
-  { q: 'Bể 60 cm chứa bao nhiêu lít nước?', a: `Bể 60 × 30 × 36 cm có thể tích ${fmt(r60.litres, 1)} lít. Sau khi trải nền, đặt đá lũa và chừa mép, bể chứa khoảng ${fmt(r60.water)} lít nước.` },
-  { q: 'Tính thể tích bể cá thế nào?', a: 'Lấy diện tích đáy nhân chiều cao, đo bằng cm, rồi chia 1.000 để ra lít. Bể chữ nhật: dài × rộng × cao ÷ 1.000. Bể trụ tròn: 3,14 × bán kính × bán kính × cao ÷ 1.000.' },
-  { q: '1 gallon bằng bao nhiêu lít?', a: `1 gallon Mỹ bằng ${fmt(GALLON_L, 2)} lít. Thông số bộ lọc và sưởi của hãng Mỹ thường ghi theo gallon.` },
-  { q: 'Bể cá cần kính dày bao nhiêu?', a: 'Tùy chiều cao mực nước và chiều dài tấm kính. Bể 60 × 36 cm dùng kính 5 mm, bể 100 × 50 cm cần kính 10 mm, bể 120 cm cao 60 cm cần kính 12 mm. Kính đáy nên dày bằng hoặc hơn kính trước.' },
+  { q: t('Bể 60 cm chứa bao nhiêu lít nước?'), a: t('Bể 60 × 30 × 36 cm có thể tích {litres} lít. Sau khi trải nền, đặt đá lũa và chừa mép, bể chứa khoảng {water} lít nước.', { litres: fmt(r60.litres, 1), water: fmt(r60.water) }) },
+  { q: t('Tính thể tích bể cá thế nào?'), a: t('Lấy diện tích đáy nhân chiều cao, đo bằng cm, rồi chia 1.000 để ra lít. Bể chữ nhật: dài × rộng × cao ÷ 1.000. Bể trụ tròn: 3,14 × bán kính × bán kính × cao ÷ 1.000.') },
+  { q: t('1 gallon bằng bao nhiêu lít?'), a: t('1 gallon Mỹ bằng {litres} lít. Thông số bộ lọc và sưởi của hãng Mỹ thường ghi theo gallon.', { litres: fmt(GALLON_L, 2) }) },
+  { q: t('Bể cá cần kính dày bao nhiêu?'), a: t('Tùy chiều cao mực nước và chiều dài tấm kính. Bể 60 × 36 cm dùng kính 5 mm, bể 100 × 50 cm cần kính 10 mm, bể 120 cm cao 60 cm cần kính 12 mm. Kính đáy nên dày bằng hoặc hơn kính trước.') },
 ]
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
 ---
-<Browse title="Tính thể tích bể cá: lít, gallon, độ dày kính" heading="Bể bao nhiêu lít?" intro="Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…" crumbs={[['/vi/cong-cu/', 'Công cụ']]} description="Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng." jsonld={jsonld}>
+<Browse title={t('Tính thể tích bể cá: lít, gallon, độ dày kính')} heading={t('Bể bao nhiêu lít?')} intro={t('Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.')} jsonld={jsonld}>
   <form id="vf" class="calc">
     <fieldset class="shapes">
-      <legend>Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)</legend>
+      <legend>{t('Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)')}</legend>
       {ids.map((id, i) => (
         <label class="shape">
           <input type="radio" name="hinh" value={id} checked={i === 0} />
           <svg viewBox="0 0 60 40" aria-hidden="true" set:html={ICON[id]} />
-          <span>{SHAPES[id].name}</span>
+          <span>{t(SHAPES[id].name)}</span>
         </label>
       ))}
     </fieldset>
     <div class="row">
-      <label>Đơn vị
+      <label>{t('Đơn vị')}
         <select name="unit"><option value="cm">cm</option><option value="in">inch</option></select>
       </label>
       <div id="vf-fields" class="row">
-        {SHAPES['chu-nhat'].fields.map(f => <label>{f.label} <input name={f.key} type="number" inputmode="decimal" min="1" step="any" value={({ l: 60, w: 30, h: 36 } as Record<string, number>)[f.key]} /></label>)}
+        {SHAPES['chu-nhat'].fields.map(f => <label>{t(f.label)} <input name={f.key} type="number" inputmode="decimal" min="1" step="any" value={({ l: 60, w: 30, h: 36 } as Record<string, number>)[f.key]} /></label>)}
       </div>
-      <label>Mực nước (không bắt buộc) <input name="fill" type="number" inputmode="decimal" min="1" step="any" placeholder="đầy bể" /></label>
+      <label>{t('Mực nước (không bắt buộc)')} <input name="fill" type="number" inputmode="decimal" min="1" step="any" placeholder={t('đầy bể')} /></label>
     </div>
   </form>
   <div id="vf-out" class="out" aria-live="polite"></div>
-  <p class="note">Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng {fmt(WATER_SHARE * 100)}% thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.</p>
+  <p class="note">{t('Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng {p}% thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.', { p: fmt(WATER_SHARE * 100) })}</p>
 
   <section aria-labelledby="sizes-h">
-    <h2 id="sizes-h">Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm</h2>
+    <h2 id="sizes-h">{t('Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm')}</h2>
     <div class="scroll">
       <table>
-        <thead><tr><th scope="col">Dài × rộng × cao (cm)</th><th scope="col">Thể tích</th><th scope="col">Nước thực tế</th><th scope="col">Kính</th><th scope="col">Nặng khi đầy</th></tr></thead>
+        <thead><tr><th scope="col">{t('Dài × rộng × cao (cm)')}</th><th scope="col">{t('Thể tích')}</th><th scope="col">{t('Nước thực tế')}</th><th scope="col">{t('Kính')}</th><th scope="col">{t('Nặng khi đầy')}</th></tr></thead>
         <tbody>
           {rows.map(r => (
             <tr>
               <th scope="row"><a href={`?hinh=chu-nhat&l=${r.l}&w=${r.w}&h=${r.h}`}>{r.l} × {r.w} × {r.h}</a></th>
-              <td>{fmt(r.litres)} lít</td><td>~{fmt(r.water)} lít</td><td>{r.glass} mm</td><td>~{fmt(Math.round(r.kg / 5) * 5)} kg</td>
+              <td>{t('{n} lít', { n: fmt(r.litres) })}</td><td>~{t('{n} lít', { n: fmt(r.water) })}</td><td>{r.glass} mm</td><td>~{fmt(Math.round(r.kg / 5) * 5)} kg</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="note">Cân nặng gồm nước, kính và khoảng 15% thể tích là nền (cát, phân nền), chưa tính tủ. Bể từ 100 lít nên đặt trên tủ chuyên dụng, sàn chịu lực.</p>
+    <p class="note">{t('Cân nặng gồm nước, kính và khoảng 15% thể tích là nền (cát, phân nền), chưa tính tủ. Bể từ 100 lít nên đặt trên tủ chuyên dụng, sàn chịu lực.')}</p>
   </section>
 
   <section aria-labelledby="faq-h">
-    <h2 id="faq-h">Hỏi nhanh</h2>
+    <h2 id="faq-h">{t('Hỏi nhanh')}</h2>
     {faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
   </section>
 </Browse>
 <script>
   import { SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../../scripts/volume'
   import { WATER_SHARE } from '../../../scripts/calc'
+  import { cpath, ct } from '../../../scripts/ct'
 
   const form = document.getElementById('vf') as HTMLFormElement
   const fields = document.getElementById('vf-fields')!
   const out = document.getElementById('vf-out')!
-  const fmt = (n: number, d = 0) => new Intl.NumberFormat('vi-VN', { maximumFractionDigits: d }).format(n)
+  const fmt = (n: number, d = 0) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: d }).format(n)
   const el = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null
 
   // State in the URL (?hinh=…&l=…, in cm) so a result can be shared; the inch choice is remembered with the site's units.
@@ -109,7 +113,7 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
 
   const shape = () => (new FormData(form).get('hinh') as ShapeId) ?? 'chu-nhat'
   function drawFields(values: Record<string, string>) {
-    fields.innerHTML = SHAPES[shape()].fields.map(f => `<label>${f.label} <input name="${f.key}" type="number" inputmode="decimal" min="0" step="any" value="${values[f.key] ?? ''}" /></label>`).join('')
+    fields.innerHTML = SHAPES[shape()].fields.map(f => `<label>${ct(f.label)} <input name="${f.key}" type="number" inputmode="decimal" min="0" step="any" value="${values[f.key] ?? ''}" /></label>`).join('')
   }
   const current = () => Object.fromEntries([...fields.querySelectorAll('input')].map(i => [i.name, i.value]))
   const cmValues = Object.fromEntries([...params].filter(([k]) => k !== 'hinh').map(([k, v]) => [k, String(Number(v) / unit())]))
@@ -126,8 +130,8 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     url.search = new URLSearchParams({ hinh: id, ...Object.fromEntries(Object.entries(d).map(([a, b]) => [a, String(Math.round(b * 10) / 10)])) }).toString()
     history.replaceState(null, '', url)
     const missing = SHAPES[id].fields.find(f => !(d[f.key]! > 0))
-    if (missing) { out.innerHTML = `<p class="hint">Nhập ${missing.label.toLowerCase()}.</p>`; return }
-    const v = shapeVolume(id, d)
+    if (missing) { out.innerHTML = `<p class="hint">${ct('Nhập {field}.', { field: ct(missing.label).toLowerCase() })}</p>`; return }
+    const v = shapeVolume(id, d, ct)
     if ('error' in v) { out.innerHTML = `<p class="bad">${v.error}</p>`; return }
     const water = (v.filled ?? v.litres) * WATER_SHARE
     const box = id === 'chu-nhat' || id === 'lap-phuong'
@@ -135,11 +139,11 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     const glass = box ? glassThickness(Math.max(l, w), d.fill ?? h) : null
     const glassMass = glass?.order ? glassKg(l, w, h, glass.order) : null
     const lines = [
-      `<p class="big"><strong>${fmt(v.litres, 1)} lít</strong> <span>(${fmt(v.gallons, 1)} gallon Mỹ)</span></p>`,
-      v.filled !== undefined ? `<p>Tới mực nước: <strong>${fmt(v.filled, 1)} lít</strong>.</p>` : '',
-      `<p>Nước thực tế sau khi trải nền, đặt đá lũa: khoảng <strong>${fmt(water)} lít</strong> (${fmt(water)} kg nước).</p>`,
-      glass ? (glass.order ? `<p>Kính trước tối thiểu ${fmt(glass.min, 1)} mm → đặt kính <strong>${glass.order} mm</strong>${glassMass ? `, kính nặng khoảng ${fmt(glassMass)} kg` : ''}.</p>` : `<p class="bad">Kính cần dày hơn 19 mm (tối thiểu ${fmt(glass.min, 1)} mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính.</p>`) : '',
-      box ? `<p><a href="/vi/cong-cu/?l=${Math.round(l)}&w=${Math.round(w)}&h=${Math.round(h)}#suoi">Cần sưởi bao nhiêu W cho bể này →</a></p>` : '',
+      `<p class="big"><strong>${ct('{n} lít', { n: fmt(v.litres, 1) })}</strong> <span>(${ct('{n} gallon Mỹ', { n: fmt(v.gallons, 1) })})</span></p>`,
+      v.filled !== undefined ? `<p>${ct('Tới mực nước: <strong>{n} lít</strong>.', { n: fmt(v.filled, 1) })}</p>` : '',
+      `<p>${ct('Nước thực tế sau khi trải nền, đặt đá lũa: khoảng <strong>{n} lít</strong> ({n} kg nước).', { n: fmt(water) })}</p>`,
+      glass ? (glass.order ? `<p>${ct('Kính trước tối thiểu {min} mm → đặt kính <strong>{order} mm</strong>', { min: fmt(glass.min, 1), order: glass.order })}${glassMass ? ct(', kính nặng khoảng {kg} kg', { kg: fmt(glassMass) }) : ''}.</p>` : `<p class="bad">${ct('Kính cần dày hơn 19 mm (tối thiểu {min} mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính.', { min: fmt(glass.min, 1) })}</p>`) : '',
+      box ? `<p><a href="${cpath(`/vi/cong-cu/?l=${Math.round(l)}&w=${Math.round(w)}&h=${Math.round(h)}#suoi`)}">${ct('Cần sưởi bao nhiêu W cho bể này →')}</a></p>` : '',
     ]
     out.innerHTML = lines.join('')
   }

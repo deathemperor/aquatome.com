@@ -1,8 +1,9 @@
 import { expect, test } from 'vitest'
 import { SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../src/scripts/volume'
+import { translator } from '../src/lib/i18n'
 
 const litres = (id: ShapeId, d: Record<string, number>) => {
-  const r = shapeVolume(id, d)
+  const r = shapeVolume(id, d, translator('vi'))
   if ('error' in r) throw new Error(r.error)
   return r
 }
@@ -30,7 +31,7 @@ test('every shape: area × height, in litres', () => {
 test('every shape lists its fields and computes from them alone', () => {
   for (const [id, s] of Object.entries(SHAPES) as [ShapeId, (typeof SHAPES)[ShapeId]][]) {
     const d = Object.fromEntries(s.fields.map(f => [f.key, f.key === 'f' || f.key === 'e' || f.key === 'b' || f.key === 'w2' ? 20 : 40]))
-    const r = shapeVolume(id, d)
+    const r = shapeVolume(id, d, translator('vi'))
     expect('error' in r ? r.error : r.litres, id).toBeGreaterThan(0)
   }
 })
@@ -44,10 +45,10 @@ test('a water line below the rim fills only that far; gallons are US', () => {
 })
 
 test('impossible tanks get a reason, not a number', () => {
-  expect(shapeVolume('luc-giac', { l: 40, w: 30, f: 50, h: 40 })).toEqual({ error: expect.stringContaining('Kính trước') })
-  expect(shapeVolume('chu-nhat', { l: 60, w: 30, h: 36, fill: 40 })).toEqual({ error: expect.stringContaining('Mực nước') })
-  expect(shapeVolume('chu-nhat', { l: 60, w: 0, h: 36 })).toEqual({ error: expect.stringContaining('Rộng') })
-  expect(shapeVolume('chu-l', { l1: 100, w1: 40, l2: 30, w2: 30, h: 50 })).toEqual({ error: expect.any(String) })
+  expect(shapeVolume('luc-giac', { l: 40, w: 30, f: 50, h: 40 }, translator('vi'))).toEqual({ error: expect.stringContaining('Kính trước') })
+  expect(shapeVolume('chu-nhat', { l: 60, w: 30, h: 36, fill: 40 }, translator('vi'))).toEqual({ error: expect.stringContaining('Mực nước') })
+  expect(shapeVolume('chu-nhat', { l: 60, w: 0, h: 36 }, translator('vi'))).toEqual({ error: expect.stringContaining('Rộng') })
+  expect(shapeVolume('chu-l', { l1: 100, w1: 40, l2: 30, w2: 30, h: 50 }, translator('vi'))).toEqual({ error: expect.any(String) })
 })
 
 test('glass weight of an open-top box: bottom + four sides × thickness × 2.5 kg/L', () => {

@@ -1,25 +1,27 @@
 ---
 import { resolveDataCard, type SpeciesEntity } from '@aq/schema'
 import { vnClimate, VN_WATER } from '../lib/climate'
+import { i18n } from '../lib/i18n'
 interface Props { card: SpeciesEntity['dataCard'] }
 const temp = resolveDataCard(Astro.props.card.tempC ?? [])
 const notes = temp ? vnClimate(temp.value) : []
 const c = (n: number) => `${n}`.replace('.', ',')
+const { t } = i18n(Astro.url)
 ---
 {notes.length > 0 && (
   <aside class="vn" aria-labelledby="vn-h">
-    <h2 id="vn-h">Nuôi ở Việt Nam</h2>
+    <h2 id="vn-h">{t('Nuôi ở Việt Nam')}</h2>
     <ul>
       {notes.map(n => {
-        const parts = n.text.split('{t}')
+        const parts = t(n.text).split('{t}')
         return (
           <li data-ok={String(n.ok)}>
-            <strong>{n.label}:</strong> {parts.map((p, i) => <>{p}{i < n.temps.length && <span data-c={`${n.temps[i]},${n.temps[i]}`}>{c(n.temps[i]!)}°C</span>}</>)}
+            <strong>{t(n.label)}:</strong> {parts.map((p, i) => <>{p}{i < n.temps.length && <span data-c={`${n.temps[i]},${n.temps[i]}`}>{c(n.temps[i]!)}°C</span>}</>)}
           </li>
         )
       })}
     </ul>
-    <p class="assume">Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng <span data-c={`${VN_WATER.northWinter},${VN_WATER.northWinter}`}>{VN_WATER.northWinter}°C</span>, miền Nam đêm mát tháng 12–1 khoảng <span data-c={`${VN_WATER.southCool},${VN_WATER.southCool}`}>{VN_WATER.southCool}°C</span>, mùa hè tới <span data-c={`${VN_WATER.summer},${VN_WATER.summer}`}>{VN_WATER.summer}°C</span>. Đo nhiệt độ bể của bạn để chắc chắn.</p>
+    <p class="assume">{t('Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng')} <span data-c={`${VN_WATER.northWinter},${VN_WATER.northWinter}`}>{VN_WATER.northWinter}°C</span>{t(', miền Nam đêm mát tháng 12–1 khoảng')} <span data-c={`${VN_WATER.southCool},${VN_WATER.southCool}`}>{VN_WATER.southCool}°C</span>{t(', mùa hè tới')} <span data-c={`${VN_WATER.summer},${VN_WATER.summer}`}>{VN_WATER.summer}°C</span>{t('. Đo nhiệt độ bể của bạn để chắc chắn.')}</p>
   </aside>
 )}
 <style>

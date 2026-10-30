@@ -3,10 +3,12 @@ import Browse from '../../../layouts/Browse.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 ---
-<Browse title="Cây thủy sinh" heading="Cây thủy sinh" intro={`${c.plants.length} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.`} credits={creditsFor(c.plants.map(p => p.photos[0]))}>
-  {c.plants.length === 0 ? <p>Chưa có cây nào được xuất bản.</p> : <div class="grid">{c.plants.map(p => <PlantCard p={p} />)}</div>}
+<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(c.plants.map(p => p.photos[0]))}>
+  {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <div class="grid">{c.plants.map(p => <PlantCard p={p} />)}</div>}
 </Browse>
 <style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }</style>

@@ -1,10 +1,12 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
-const c = await getContent()
-const terms = [...c.glossary].sort((a, b) => a.t.name.localeCompare(b.t.name, 'vi'))
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const terms = [...c.glossary].sort((a, b) => a.t.name.localeCompare(b.t.name, lang))
 ---
-<Browse title="Thuật ngữ" heading="Thuật ngữ" intro="Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.">
+<Browse title={t('Thuật ngữ')} heading={t('Thuật ngữ')} intro={t('Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.')}>
   <dl class="terms">
     {terms.map(g => <div><dt><a href={`/vi/thuat-ngu/${g.t.slug}/`}>{g.t.name}</a> <span lang="en">{g.en}</span></dt><dd>{g.t.definition}</dd></div>)}
   </dl>

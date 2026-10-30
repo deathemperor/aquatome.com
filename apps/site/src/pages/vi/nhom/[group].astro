@@ -5,15 +5,17 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { groupLabel } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
+import { i18n, langOf } from '../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   const groups = [...new Set(c.species.map(s => s.group))]
   return groups.map(group => ({ params: { group }, props: { species: c.species.filter(s => s.group === group) } }))
 }
 const { group } = Astro.params
 const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
+const { t } = i18n(Astro.url)
 ---
-<Browse title={groupLabel(group!)} heading={groupLabel(group!)} crumbs={[['/vi/ca/', 'Loài cá']]} intro={`${species.length} loài trong nhóm ${groupLabel(group!).toLowerCase()}.`} credits={creditsFor(species.map(s => s.photos[0]))}>
-  <SpeciesGrid species={species} heading="Danh sách loài" />
+<Browse title={t(groupLabel(group!))} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))}>
+  <SpeciesGrid species={species} heading={t('Danh sách loài')} />
 </Browse>

@@ -5,7 +5,7 @@ import { GALLERY_MIN } from '../lib/gallery'
 import { videoChannels } from '../lib/video'
 
 export const GET: APIRoute = async ({ site }) => {
-  const c = await getContent()
+  const c = await getContent('vi')
   const paths = [
     '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', ...(c.series.length ? ['/vi/video/'] : []), '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/moi-cap-nhat/', '/vi/phan-loai/', '/vi/nguon-goc/',
     '/vi/cong-cu/', '/vi/cong-cu/the-tich-be/', '/vi/gioi-thieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',

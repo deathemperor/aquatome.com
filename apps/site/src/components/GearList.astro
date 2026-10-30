@@ -2,8 +2,10 @@
 import { goLink } from '../lib/format'
 import type { GearRow } from '../lib/gear'
 import { clock } from '../lib/video'
+import { i18n } from '../lib/i18n'
 interface Props { rows: GearRow[]; youtubeId?: string; heading: string; entity?: string }
 const { rows, youtubeId, heading, entity } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 {rows.length > 0 && (
   <section class="wrap gear" aria-labelledby="gear-h">
@@ -13,7 +15,7 @@ const { rows, youtubeId, heading, entity } = Astro.props
         <li>
           <span class="cat">{r.page ? <a href={r.page}>{r.label}</a> : r.label}</span>
           <span class="name">{r.product ? <a href={r.product}>{r.name}</a> : r.name}</span>
-          {r.t !== undefined && youtubeId ? <button type="button" class="seek" data-t={r.t} data-vp-for={youtubeId} aria-label={`Xem đoạn ${clock(r.t)} trong video`}>{clock(r.t)}</button> : <span />}
+          {r.t !== undefined && youtubeId ? <button type="button" class="seek" data-t={r.t} data-vp-for={youtubeId} aria-label={t('Xem đoạn {time} trong video', { time: clock(r.t) })}>{clock(r.t)}</button> : <span />}
           <span class="shops">
             <a href={goLink('shopee', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
             <a href={goLink('lazada', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
@@ -22,7 +24,7 @@ const { rows, youtubeId, heading, entity } = Astro.props
         </li>
       ))}
     </ul>
-    <p class="note">Tên và mốc thời gian lấy từ video. Liên kết tiếp thị: trang có thể nhận hoa hồng khi bạn mua qua liên kết.</p>
+    <p class="note">{t('Tên và mốc thời gian lấy từ video. Liên kết tiếp thị: trang có thể nhận hoa hồng khi bạn mua qua liên kết.')}</p>
   </section>
 )}
 <style>

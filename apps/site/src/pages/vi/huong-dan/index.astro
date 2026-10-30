@@ -4,13 +4,15 @@ import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 // Video guides have their own index (/vi/video/), grouped by series.
 const guides = c.guides.filter(g => g.kind !== 'discovery' && !g.video)
 const videos = c.guides.some(g => g.video)
 ---
-<Browse title="Hướng dẫn" heading="Hướng dẫn" intro="Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một." credits={creditsFor(guides.map(g => guideImage(c, g)))}>
-  {videos && <p class="vid">Có cả <a href="/vi/video/">video hướng dẫn</a>: bài viết kèm video gốc, phụ đề tiếng Việt.</p>}
-  {guides.length === 0 ? <p>Chưa có hướng dẫn nào được xuất bản.</p> : <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>}
+<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
+  {videos && <p class="vid">{t('Có cả')} <a href="/vi/video/">{t('video hướng dẫn')}</a>{t(': bài viết kèm video gốc, phụ đề tiếng Việt.')}</p>}
+  {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>}
 </Browse>
 <style>.vid { margin: 0 0 var(--space-5); } .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }</style>

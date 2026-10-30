@@ -5,16 +5,18 @@ import { getContent } from '../lib/content'
 import { smallSrc } from '../lib/img'
 import { guideImage } from '../lib/mentions'
 import { clock } from '../lib/video'
+import { i18n } from '../lib/i18n'
 interface Props { g: Localized<GuideEntity> }
 const { g } = Astro.props
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const ph = guideImage(c, g)
 ---
 <a class="gc" href={`/vi/huong-dan/${g.t.slug}/`}>
-  <div class:list={['img', { video: g.video }]}>{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang="vi">{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
-  <p class="kind">{GUIDE_KIND_LABELS[g.kind]}</p>
+  <div class:list={['img', { video: g.video }]}>{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang={lang}>{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
+  <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])}</p>
   <h3>{g.t.name}</h3>
-  <p class="src">{g.video ? `Theo video của ${g.video.channel}` : `Dịch từ ${c.sources[g.source]?.name ?? g.source}`}</p>
+  <p class="src">{g.video ? t('Theo video của {name}', { name: g.video.channel }) : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source })}</p>
 </a>
 <style>
   .gc { display: block; text-decoration: none; color: inherit; }

@@ -1,15 +1,20 @@
 ---
 /** Light / dark / follow the system: saved in localStorage aq_theme; Base applies it before first paint. */
+import { i18n } from '../lib/i18n'
+const { t } = i18n(Astro.url)
 ---
-<button type="button" class="theme" data-theme-toggle hidden aria-label="Giao diện: tự động theo máy. Bấm để đổi">
+<button type="button" class="theme" data-theme-toggle hidden aria-label={t('Giao diện: tự động theo máy. Bấm để đổi')}>
   <svg class="i-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
   <svg class="i-dark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
   <svg class="i-light" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
 </button>
 <script>
+  // ct() from scripts/ct.ts, written out here: a script with no shared import is inlined into every page (no extra request).
+  const dict = JSON.parse(document.getElementById('aq-i18n')?.textContent || '{}') as Record<string, string>
+  const ct = (s: string, v?: Record<string, string | number>) => (dict[s] ?? s).replace(/\{(\w+)\}/g, (m, k: string) => (v && k in v ? String(v[k]) : m))
   const ORDER = ['auto', 'dark', 'light'] as const
   type Mode = (typeof ORDER)[number]
-  const LABEL: Record<Mode, string> = { auto: 'tự động theo máy', dark: 'tối', light: 'sáng' }
+  const LABEL: Record<Mode, string> = { auto: ct('tự động theo máy'), dark: ct('tối'), light: ct('sáng') }
   const read = (): Mode => { try { const t = localStorage.getItem('aq_theme'); return t === 'dark' || t === 'light' ? t : 'auto' } catch { return 'auto' } }
   function show(mode: Mode) {
     if (mode === 'auto') document.documentElement.removeAttribute('data-theme')
@@ -17,8 +22,8 @@
     for (const b of document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')) {
       b.hidden = false
       b.dataset.mode = mode
-      b.setAttribute('aria-label', `Giao diện: ${LABEL[mode]}. Bấm để đổi`)
-      b.title = `Giao diện: ${LABEL[mode]}`
+      b.setAttribute('aria-label', ct('Giao diện: {mode}. Bấm để đổi', { mode: LABEL[mode] }))
+      b.title = ct('Giao diện: {mode}', { mode: LABEL[mode] })
     }
   }
   show(read())

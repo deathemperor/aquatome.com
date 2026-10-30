@@ -6,7 +6,7 @@ const ph = (n: string) => ({ url: `https://m/${n}.webp`, width: 800, height: 600
 const body = Array.from({ length: 8 }, (_, i) => i === 2 ? `<p>p${i} <a href="/vi/ca/x/" class="ml">Cá X</a></p>` : `<p>p${i}</p>`).join('')
 
 test('a mentioned species gets its photo right after the paragraph that names it; own photos spread out, never adjacent', () => {
-  const out = placeFigures(body, [{ photo: ph('x'), label: 'Cá X', href: '/vi/ca/x/' }, { photo: ph('missing'), label: 'Y', href: '/vi/ca/y/' }], [ph('a'), ph('b')].map(photo => ({ photo })))
+  const out = placeFigures('vi', body, [{ photo: ph('x'), label: 'Cá X', href: '/vi/ca/x/' }, { photo: ph('missing'), label: 'Y', href: '/vi/ca/y/' }], [ph('a'), ph('b')].map(photo => ({ photo })))
   const nodes = parse(out).childNodes
   const kids = nodes.map(n => (n as { rawTagName?: string }).rawTagName ?? '')
   const named = nodes.findIndex(n => n.toString().includes('>Cá X</a></p>') || n.toString().startsWith('<p>p2'))
@@ -19,5 +19,5 @@ test('a mentioned species gets its photo right after the paragraph that names it
 })
 
 test('text without blocks is returned unchanged', () => {
-  expect(placeFigures('plain', [], [{ photo: ph('a') }])).toBe('plain')
+  expect(placeFigures('vi', 'plain', [], [{ photo: ph('a') }])).toBe('plain')
 })

@@ -5,26 +5,28 @@ import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
 import { guideImage } from '../../../../lib/mentions'
 import { seriesGuides, videoChannels, type Channel } from '../../../../lib/video'
+import { i18n, langOf } from '../../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return videoChannels(c).map(ch => ({ params: { slug: ch.slug }, props: { ch } }))
 }
 const { ch } = Astro.props as { ch: Channel }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 ---
-<Browse title={`Video của ${ch.name}`} heading={`Video của ${ch.name}`} crumbs={[['/vi/video/', 'Video']]}
-  intro={`Bài hướng dẫn AquaTome viết từ video của kênh ${ch.name}, kèm video gốc.`}
+<Browse title={t('Video của {name}', { name: ch.name })} heading={t('Video của {name}', { name: ch.name })} crumbs={[['/vi/video/', t('Video')]]}
+  intro={t('Bài hướng dẫn AquaTome viết từ video của kênh {name}, kèm video gốc.', { name: ch.name })}
   noindex={!ch.guides.some(g => g.t.quality.indexable)} credits={creditsFor(ch.guides.map(g => guideImage(c, g)))}>
-  <p class="meta"><a href={ch.url} rel="noopener">Kênh {ch.name} trên YouTube</a></p>
+  <p class="meta"><a href={ch.url} rel="noopener">{t('Kênh {name} trên YouTube', { name: ch.name })}</a></p>
   {ch.series.length > 0 && (
     <section aria-labelledby="s-h">
-      <h2 id="s-h">Loạt bài</h2>
-      <ul class="series">{ch.series.map(s => <li><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a> <span>{seriesGuides(c, s).length} bài</span></li>)}</ul>
+      <h2 id="s-h">{t('Loạt bài')}</h2>
+      <ul class="series">{ch.series.map(s => <li><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a> <span>{t('{n} bài', { n: seriesGuides(c, s).length })}</span></li>)}</ul>
     </section>
   )}
   <section aria-labelledby="all-h">
-    <h2 id="all-h">Tất cả bài ({ch.guides.length})</h2>
+    <h2 id="all-h">{t('Tất cả bài ({n})', { n: ch.guides.length })}</h2>
     <div class="grid">{ch.guides.map(g => <GuideCard g={g} />)}</div>
   </section>
 </Browse>

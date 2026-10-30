@@ -11,56 +11,58 @@ import { creditsFor } from '../../lib/credits'
 import { smallSrc } from '../../lib/img'
 import { homeVideos } from '../../lib/video'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, STEP_GUIDES } from '../../lib/home'
+import { i18n } from '../../lib/i18n'
 
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const guideById = (id: string) => c.guides.find(g => g.id === id)
 const cycle = guideById(STEP_GUIDES.cycle)
 const water = guideById(STEP_GUIDES.water)
 // Three first steps; a step whose guide isn't published links nowhere and is dropped.
 const steps = [
-  cycle && { n: 1, title: 'Chạy chu trình nitơ', text: 'Nuôi vi sinh trong bể vài tuần trước khi thả cá, để chất thải của cá không thành chất độc.', href: `/vi/huong-dan/${cycle.t.slug}/` },
-  { n: 2, title: 'Chọn cá hợp bể', text: 'Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.', href: '/vi/ca/?difficultyMax=3' },
-  water && { n: 3, title: 'Thay nước định kỳ', text: 'Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.', href: `/vi/huong-dan/${water.t.slug}/` },
+  cycle && { n: 1, title: t('Chạy chu trình nitơ'), text: t('Nuôi vi sinh trong bể vài tuần trước khi thả cá, để chất thải của cá không thành chất độc.'), href: `/vi/huong-dan/${cycle.t.slug}/` },
+  { n: 2, title: t('Chọn cá hợp bể'), text: t('Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.'), href: '/vi/ca/?difficultyMax=3' },
+  water && { n: 3, title: t('Thay nước định kỳ'), text: t('Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.'), href: `/vi/huong-dan/${water.t.slug}/` },
 ].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
 const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const videos = homeVideos(c)
-const featured = featuredSpecies(c)
-const groups = groupTiles(c)
+const featured = featuredSpecies(lang, c)
+const groups = groupTiles(lang, c)
 const plants = easyPlants(c)
 const equipment = c.equipment
 const credits = [HERO, ...creditsFor([
   ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...videos.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
 ])]
 ---
-<Base title="AquaTome — Cẩm nang cá cảnh & thủy sinh" description="Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt." credits={credits}>
+<Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="(min-width: 900px) 40vw, 100vw" fetchpriority="high" />
   <Nav slot="header" />
 
   <section class="tank" aria-labelledby="tank-h">
     <div class="wrap tank-in">
       <div class="lead">
-        <h1 id="tank-h">Hiểu cá trước khi thả cá.</h1>
-        <p class="sub">Cho biết bể của bạn, AquaTome chỉ ra loài nào sống khỏe trong đó.</p>
+        <h1 id="tank-h">{t('Hiểu cá trước khi thả cá.')}</h1>
+        <p class="sub">{t('Cho biết bể của bạn, AquaTome chỉ ra loài nào sống khỏe trong đó.')}</p>
         <form id="tank" class="form" action="/vi/ca/">
-          <label>Chiều dài bể <span><input name="tankCm" type="number" inputmode="numeric" value="60" min="20" max="300" required /> cm</span></label>
-          <label>Nhiệt độ nước <span><input name="tempC" type="number" inputmode="numeric" value="26" min="10" max="35" required /> °C</span></label>
+          <label>{t('Chiều dài bể')} <span><input name="tankCm" type="number" inputmode="numeric" value="60" min="20" max="300" required /> cm</span></label>
+          <label>{t('Nhiệt độ nước')} <span><input name="tempC" type="number" inputmode="numeric" value="26" min="10" max="35" required /> °C</span></label>
           <label>pH <span><input name="ph" type="number" inputmode="decimal" step="0.1" value="7" min="3" max="9" required /></span></label>
-          <button type="submit">Xem loài hợp bể</button>
+          <button type="submit">{t('Xem loài hợp bể')}</button>
         </form>
         <form class="search" action="/vi/ca/" role="search">
-          <label for="q">Hoặc tìm theo tên</label>
-          <span><input id="q" name="q" type="search" placeholder="cá neon, betta, Corydoras…" /><button type="submit">Tìm</button></span>
+          <label for="q">{t('Hoặc tìm theo tên')}</label>
+          <span><input id="q" name="q" type="search" placeholder={t('cá neon, betta, Corydoras…')} /><button type="submit">{t('Tìm')}</button></span>
         </form>
       </div>
       <figure class="photo">
-        <img src={HERO.url} srcset={`${HERO.url} 960w, ${HERO.large} 1600w`} sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="900" alt="Bể thủy sinh trồng cây, có lũa và đá" fetchpriority="high" />
+        <img src={HERO.url} srcset={`${HERO.url} 960w, ${HERO.large} 1600w`} sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="900" alt={t('Bể thủy sinh trồng cây, có lũa và đá')} fetchpriority="high" />
       </figure>
     </div>
   </section>
 
   {steps.length > 1 && (
     <section class="wrap block" aria-labelledby="steps-h">
-      <h2 id="steps-h" class="h">Bể đầu tiên: ba việc cần làm</h2>
+      <h2 id="steps-h" class="h">{t('Bể đầu tiên: ba việc cần làm')}</h2>
       <ol class="steps">
         {steps.map(s => <li><a href={s.href}><span class="n">{s.n}</span><b>{s.title}</b><span class="t">{s.text}</span></a></li>)}
       </ol>
@@ -68,20 +70,20 @@ const credits = [HERO, ...creditsFor([
   )}
 
   <section class="wrap block" aria-labelledby="featured-h">
-    <div class="head"><h2 id="featured-h" class="h">Loài quen thuộc</h2><a href="/vi/ca/">Tất cả {c.species.length} loài →</a></div>
+    <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: c.species.length })}</a></div>
     {featured.length === 0
-      ? <p class="empty">Chưa có hồ sơ loài nào được xuất bản.</p>
+      ? <p class="empty">{t('Chưa có hồ sơ loài nào được xuất bản.')}</p>
       : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} />)}</div>}
   </section>
 
   {groups.length > 0 && (
     <section class="wrap block" aria-labelledby="groups-h">
-      <h2 id="groups-h" class="h">Theo nhóm</h2>
+      <h2 id="groups-h" class="h">{t('Theo nhóm')}</h2>
       <ul class="groups">
         {groups.map(g => (
           <li><a href={`/vi/nhom/${g.group}/`}>
             <span class="gp">{g.photo && <img src={smallSrc(g.photo)} width={g.photo.width} height={g.photo.height} alt="" loading="lazy" />}</span>
-            <b>{g.label}</b> <span class="cnt">{g.count} loài</span>
+            <b>{t(g.label)}</b> <span class="cnt">{t('{n} loài', { n: g.count })}</span>
           </a></li>
         ))}
       </ul>
@@ -90,28 +92,28 @@ const credits = [HERO, ...creditsFor([
 
   {guides.length > 0 && (
     <section class="wrap block" aria-labelledby="guides-h">
-      <div class="head"><h2 id="guides-h" class="h">Hướng dẫn cơ bản</h2><a href="/vi/huong-dan/">Tất cả hướng dẫn →</a></div>
+      <div class="head"><h2 id="guides-h" class="h">{t('Hướng dẫn cơ bản')}</h2><a href="/vi/huong-dan/">{t('Tất cả hướng dẫn →')}</a></div>
       <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>
     </section>
   )}
 
   {videos.length > 0 && (
     <section class="wrap block" aria-labelledby="videos-h">
-      <div class="head"><h2 id="videos-h" class="h">Video hướng dẫn</h2><a href="/vi/video/">Tất cả video →</a></div>
+      <div class="head"><h2 id="videos-h" class="h">{t('Video hướng dẫn')}</h2><a href="/vi/video/">{t('Tất cả video →')}</a></div>
       <div class="grid">{videos.map(g => <GuideCard g={g} />)}</div>
     </section>
   )}
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <h2 id="plants-h" class="h">Cây dễ trồng, không cần CO₂</h2>
+      <h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO₂')}</h2>
       <div class="grid">{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
 
   {equipment.length > 0 && (
     <section class="wrap block" aria-labelledby="equip-h">
-      <h2 id="equip-h" class="h">Mua thiết bị: chọn thế nào</h2>
+      <h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2>
       <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}>{e.name}</a></li>)}</ul>
     </section>
   )}

@@ -1,14 +1,16 @@
 ---
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import SpeciesCard from './SpeciesCard.astro'
+import { i18n } from '../lib/i18n'
 /** `heading`: a visually hidden h2 for pages that have none, so card h3s don't skip a level. */
 interface Props { species: Localized<SpeciesEntity>[]; heading?: string }
 const { species, heading } = Astro.props
+const { t } = i18n(Astro.url)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
 {species.length === 0
-  ? <p class="empty">Chưa có loài nào ở đây.</p>
+  ? <p class="empty">{t('Chưa có loài nào ở đây.')}</p>
   : <>{heading && <h2 class="visually-hidden">{heading}</h2>}<div class="grid">{species.map((s, i) => <div data-slug={s.t.slug}><SpeciesCard s={s} eager={i < EAGER} /></div>)}</div></>}
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }

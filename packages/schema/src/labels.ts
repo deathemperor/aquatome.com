@@ -1,6 +1,6 @@
-import type { Lang, SectionKey } from './types'
+import type { SectionKey } from './types'
 
-export const SECTION_LABELS: Record<Lang, Record<SectionKey, string>> = {
+export const SECTION_LABELS: { vi: Record<SectionKey, string> } = {
   vi: {
     quickFacts: 'Thông tin nhanh', beforeYouBuy: 'Trước khi mua', distribution: 'Phân bố', habitat: 'Môi trường sống',
     aquariumSize: 'Kích thước bể', maintenance: 'Chăm sóc', waterConditions: 'Thông số nước', equipment: 'Thiết bị gợi ý',

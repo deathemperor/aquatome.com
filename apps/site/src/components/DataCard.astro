@@ -2,10 +2,13 @@
 import { resolveDataCard, type DataCardField, type Range } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
-import { FIELD_LABELS, FIELD_ORDER, isRange, range } from '../lib/format'
+import { FIELD_LABELS, FIELD_ORDER, fmt, isRange } from '../lib/format'
+import { i18n } from '../lib/i18n'
 /** Species cite source ids (sources.json); breeds cite their own sources by position. */
 interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>> }
 const { card, sources } = Astro.props
+const { t, lang } = i18n(Astro.url)
+const { range } = fmt(lang)
 // Sources disagree: show the range they all accept (the safe target for a beginner), each source's own figure one tap away.
 const agreed = (vals: { value: number | { min: number; max: number } }[]) => {
   if (vals.length < 2 || !vals.every(v => isRange(v.value))) return null
@@ -33,7 +36,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
 <dl class="card">
   {rows.map(r => (
     <div data-field={r.field} data-conflict={r.conflict ? 'true' : undefined}>
-      <dt>{FIELD_LABELS[r.field]}</dt>
+      <dt>{t(FIELD_LABELS[r.field])}</dt>
       <dd>
         {r.field === 'difficulty' && typeof r.value === 'number'
           ? <><Difficulty value={r.value} /> <span class="n">{r.value}/8</span></>
@@ -41,7 +44,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
         {(r.field === 'tempC' || r.field === 'ph') && isRange(r.value) && <span class="bar"><RangeBar kind={r.field === 'ph' ? 'ph' : 'temp'} min={r.value.min} max={r.value.max} /></span>}
         {r.conflict && (
           <details class="srcs">
-            <summary>{r.agreed ? 'Mức mọi nguồn cùng khuyên' : 'Mỗi nguồn ghi một mức'}</summary>
+            <summary>{r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức')}</summary>
             <ul>{r.bySource.map(v => <li>{names([v.source])}: <span {...unitAttrs(r.field, v.value)}>{range(v.value)}{unit(r.field)}</span></li>)}</ul>
           </details>
         )}

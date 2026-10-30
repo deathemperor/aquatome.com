@@ -14,27 +14,29 @@ import { getContent } from '../../../lib/content'
 import { slugify } from '@aq/schema/slug'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
+import { i18n, langOf } from '../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.plants.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
 }
 const { p } = Astro.props as { p: Localized<PlantEntity> }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
-  ['Độ khó', PLANT_LABELS.difficulty[p.difficulty]!],
-  ['Ánh sáng', PLANT_LABELS.light[p.light]!],
-  ['CO₂', PLANT_LABELS.co2[p.co2]!],
-  ['Tốc độ mọc', PLANT_LABELS.growth[p.growth]!],
-  ['Vị trí', p.placement.map(x => PLANT_LABELS.placement[x]).join(', ')],
+  [t('Độ khó'), t(PLANT_LABELS.difficulty[p.difficulty]!)],
+  [t('Ánh sáng'), t(PLANT_LABELS.light[p.light]!)],
+  ['CO₂', t(PLANT_LABELS.co2[p.co2]!)],
+  [t('Tốc độ mọc'), t(PLANT_LABELS.growth[p.growth]!)],
+  [t('Vị trí'), p.placement.map(x => t(PLANT_LABELS.placement[x]!)).join(', ')],
 ]
 import RedirectNote from '../../../components/RedirectNote.astro'
 ---
-<Base title={plantTitle(p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. Cách trồng và chăm sóc.`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
   <Nav slot="header" />
-  <nav class="wrap crumb" aria-label="Đường dẫn"><a href="/vi/cay/">Cây thủy sinh</a></nav>
+  <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
@@ -45,10 +47,10 @@ import RedirectNote from '../../../components/RedirectNote.astro'
     </div>
   </header>
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
-  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading="Bài viết nhắc đến cây này" />
-  <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading="Có trong video hướng dẫn" />
+  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
+  <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
   <div class="wrap two">
-    <ProductSlots slots={slots} heading="Mua cây này" entity={`plant:${p.id}`} />
+    <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
     <Comments entity={`plant:${p.id}`} />
   </div>
 </Base>

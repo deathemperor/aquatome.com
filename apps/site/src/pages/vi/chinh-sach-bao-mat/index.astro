@@ -1,64 +1,66 @@
 ---
 import Doc from '../../../layouts/Doc.astro'
 import { CONTACT_EMAIL } from '../../../lib/site'
+import { i18n } from '../../../lib/i18n'
+const { t } = i18n(Astro.url)
 const mail = `mailto:${CONTACT_EMAIL}`
 ---
-<Doc title="Chính sách bảo mật" updated="29/10/2026" intro="AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.">
+<Doc title={t('Chính sách bảo mật')} updated="29/10/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
   <p><a href="#english" lang="en">English version below.</a></p>
 
-  <h2>1. Chúng tôi là ai</h2>
-  <p>AquaTome (aquatome.com) là trang cẩm nang cá cảnh và thủy sinh. Liên hệ về dữ liệu cá nhân: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+  <h2>{t('1. Chúng tôi là ai')}</h2>
+  <p>{t('AquaTome (aquatome.com) là trang cẩm nang cá cảnh và thủy sinh. Liên hệ về dữ liệu cá nhân:')} <a href={mail}>{CONTACT_EMAIL}</a>.</p>
 
-  <h2>2. Dữ liệu chúng tôi xử lý</h2>
-  <h3>Bình luận</h3>
-  <p>Khi bình luận, bạn nhập tên hiển thị và nội dung. Hai thông tin này được lưu và hiển thị công khai ngay nếu qua bộ lọc tự động; bình luận bị bộ lọc giữ lại sẽ chờ duyệt. Bình luận vi phạm bị gỡ khi kiểm duyệt hằng ngày. Chúng tôi không yêu cầu email hay tài khoản và không lưu địa chỉ IP của bạn. Để chống spam, chúng tôi lưu một mã băm một chiều của địa chỉ IP kèm ngày (không thể đảo ngược ra IP) trong 24 giờ để giới hạn số bình luận mỗi ngày.</p>
-  <h3>Ảnh bạn đọc</h3>
-  <p>Khi gửi ảnh cá lên trang loài, bạn chọn ảnh, nhập tên hiển thị và xác nhận ảnh do bạn chụp. Trình duyệt thu nhỏ ảnh và xóa thông tin kèm theo (vị trí GPS, đời máy) trước khi gửi. Ảnh gốc chờ duyệt được lưu riêng, không công khai; mỗi đêm hệ thống kiểm tra tự động (ảnh có người, đúng loài, phù hợp) bằng máy tính của chúng tôi và mô hình AI Claude của Anthropic, rồi đăng bản đã nén kèm tên bạn hoặc xóa ảnh. Ảnh gốc bị xóa ngay sau bước này. Không cần email hay tài khoản; khi gửi, bạn nhận một link riêng để tự gỡ ảnh bất cứ lúc nào.</p>
-  <h3>Kiểm tra chống spam (Cloudflare Turnstile)</h3>
-  <p>Ô bình luận và ô gửi ảnh dùng Cloudflare Turnstile để phân biệt người thật với bot. Turnstile tải trên các trang có các ô này và xử lý một số tín hiệu từ trình duyệt theo <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">chính sách bảo mật của Cloudflare</a>.</p>
-  <h3>Thống kê ẩn danh</h3>
-  <p>Để biết trang nào hữu ích, trang gửi các sự kiện ẩn danh: đường dẫn trang, trang web dẫn bạn tới (nếu có), quốc gia, mức cuộn trang, thời gian đọc, lượt bấm liên kết mua hàng và một mã phiên ngẫu nhiên. Mã phiên nằm trong bộ nhớ phiên của trình duyệt và tự xóa khi bạn đóng tab. Sự kiện không chứa IP, tên hay thông tin nhận dạng và được lưu tối đa 3 tháng.</p>
-  <h3>Liên kết mua hàng</h3>
-  <p>Khi bạn bấm liên kết tới Shopee, Lazada hoặc Tiki, chúng tôi chỉ đếm số lượt bấm theo ngày, trang và sản phẩm. Liên kết đi qua mạng tiếp thị liên kết ACCESSTRADE (go.isclix.com), nơi ghi nhận lượt bấm và có thể đặt cookie để tính hoa hồng, theo <a href="https://accesstrade.vn/chinh-sach-bao-mat/" rel="noopener">chính sách của ACCESSTRADE</a>. Sau khi chuyển sang trang bán hàng, dữ liệu của bạn do sàn đó xử lý theo chính sách của họ.</p>
-  <h3>Máy chủ</h3>
-  <p>Trang chạy trên Cloudflare. Như mọi máy chủ web, Cloudflare nhận địa chỉ IP và thông tin trình duyệt để phân phối trang và chống tấn công, theo <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">chính sách của Cloudflare</a>.</p>
+  <h2>{t('2. Dữ liệu chúng tôi xử lý')}</h2>
+  <h3>{t('Bình luận')}</h3>
+  <p>{t('Khi bình luận, bạn nhập tên hiển thị và nội dung. Hai thông tin này được lưu và hiển thị công khai ngay nếu qua bộ lọc tự động; bình luận bị bộ lọc giữ lại sẽ chờ duyệt. Bình luận vi phạm bị gỡ khi kiểm duyệt hằng ngày. Chúng tôi không yêu cầu email hay tài khoản và không lưu địa chỉ IP của bạn. Để chống spam, chúng tôi lưu một mã băm một chiều của địa chỉ IP kèm ngày (không thể đảo ngược ra IP) trong 24 giờ để giới hạn số bình luận mỗi ngày.')}</p>
+  <h3>{t('Ảnh bạn đọc')}</h3>
+  <p>{t('Khi gửi ảnh cá lên trang loài, bạn chọn ảnh, nhập tên hiển thị và xác nhận ảnh do bạn chụp. Trình duyệt thu nhỏ ảnh và xóa thông tin kèm theo (vị trí GPS, đời máy) trước khi gửi. Ảnh gốc chờ duyệt được lưu riêng, không công khai; mỗi đêm hệ thống kiểm tra tự động (ảnh có người, đúng loài, phù hợp) bằng máy tính của chúng tôi và mô hình AI Claude của Anthropic, rồi đăng bản đã nén kèm tên bạn hoặc xóa ảnh. Ảnh gốc bị xóa ngay sau bước này. Không cần email hay tài khoản; khi gửi, bạn nhận một link riêng để tự gỡ ảnh bất cứ lúc nào.')}</p>
+  <h3>{t('Kiểm tra chống spam (Cloudflare Turnstile)')}</h3>
+  <p>{t('Ô bình luận và ô gửi ảnh dùng Cloudflare Turnstile để phân biệt người thật với bot. Turnstile tải trên các trang có các ô này và xử lý một số tín hiệu từ trình duyệt theo')} <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">{t('chính sách bảo mật của Cloudflare')}</a>.</p>
+  <h3>{t('Thống kê ẩn danh')}</h3>
+  <p>{t('Để biết trang nào hữu ích, trang gửi các sự kiện ẩn danh: đường dẫn trang, trang web dẫn bạn tới (nếu có), quốc gia, mức cuộn trang, thời gian đọc, lượt bấm liên kết mua hàng và một mã phiên ngẫu nhiên. Mã phiên nằm trong bộ nhớ phiên của trình duyệt và tự xóa khi bạn đóng tab. Sự kiện không chứa IP, tên hay thông tin nhận dạng và được lưu tối đa 3 tháng.')}</p>
+  <h3>{t('Liên kết mua hàng')}</h3>
+  <p>{t('Khi bạn bấm liên kết tới Shopee, Lazada hoặc Tiki, chúng tôi chỉ đếm số lượt bấm theo ngày, trang và sản phẩm. Liên kết đi qua mạng tiếp thị liên kết ACCESSTRADE (go.isclix.com), nơi ghi nhận lượt bấm và có thể đặt cookie để tính hoa hồng, theo')} <a href="https://accesstrade.vn/chinh-sach-bao-mat/" rel="noopener">{t('chính sách của ACCESSTRADE')}</a>. {t('Sau khi chuyển sang trang bán hàng, dữ liệu của bạn do sàn đó xử lý theo chính sách của họ.')}</p>
+  <h3>{t('Máy chủ')}</h3>
+  <p>{t('Trang chạy trên Cloudflare. Như mọi máy chủ web, Cloudflare nhận địa chỉ IP và thông tin trình duyệt để phân phối trang và chống tấn công, theo')} <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">{t('chính sách của Cloudflare')}</a>.</p>
 
-  <h2>3. Cookie và bộ nhớ trình duyệt</h2>
+  <h2>{t('3. Cookie và bộ nhớ trình duyệt')}</h2>
   <ul>
-    <li><strong>units</strong> (bộ nhớ trình duyệt): ghi nhớ bạn chọn đơn vị °C/cm hay °F/inch.</li>
-    <li><strong>aq_tank</strong> (bộ nhớ trình duyệt): chiều dài, nhiệt độ và pH bể bạn nhập ở trang chủ, để lần sau không phải nhập lại. Không gửi đi đâu.</li>
-    <li><strong>aq_theme</strong> (bộ nhớ trình duyệt): giao diện sáng hoặc tối bạn chọn. Không có thì trang theo cài đặt của máy. Không gửi đi đâu.</li>
-    <li><strong>ts_sid</strong> (bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê ẩn danh, xóa khi đóng tab.</li>
-    <li><strong>Cookie quảng cáo của Google</strong>: xem mục 4.</li>
+    <li><strong>units</strong> {t('(bộ nhớ trình duyệt): ghi nhớ bạn chọn đơn vị °C/cm hay °F/inch.')}</li>
+    <li><strong>aq_tank</strong> {t('(bộ nhớ trình duyệt): chiều dài, nhiệt độ và pH bể bạn nhập ở trang chủ, để lần sau không phải nhập lại. Không gửi đi đâu.')}</li>
+    <li><strong>aq_theme</strong> {t('(bộ nhớ trình duyệt): giao diện sáng hoặc tối bạn chọn. Không có thì trang theo cài đặt của máy. Không gửi đi đâu.')}</li>
+    <li><strong>ts_sid</strong> {t('(bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê ẩn danh, xóa khi đóng tab.')}</li>
+    <li><strong>{t('Cookie quảng cáo của Google')}</strong>{t(': xem mục 4.')}</li>
   </ul>
 
-  <h2>4. Quảng cáo Google AdSense</h2>
-  <p>AquaTome hiển thị quảng cáo của Google. Các nhà cung cấp bên thứ ba, trong đó có Google, dùng cookie để hiển thị quảng cáo dựa trên những lần bạn truy cập trước đây vào trang này hoặc các trang khác. Cookie quảng cáo của Google cho phép Google và đối tác hiển thị quảng cáo phù hợp với bạn.</p>
+  <h2>{t('4. Quảng cáo Google AdSense')}</h2>
+  <p>{t('AquaTome hiển thị quảng cáo của Google. Các nhà cung cấp bên thứ ba, trong đó có Google, dùng cookie để hiển thị quảng cáo dựa trên những lần bạn truy cập trước đây vào trang này hoặc các trang khác. Cookie quảng cáo của Google cho phép Google và đối tác hiển thị quảng cáo phù hợp với bạn.')}</p>
   <ul>
-    <li>Bạn có thể tắt quảng cáo được cá nhân hóa tại <a href="https://adssettings.google.com/" rel="noopener">Cài đặt quảng cáo của Google</a>.</li>
-    <li>Bạn có thể từ chối cookie của các nhà cung cấp bên thứ ba khác tại <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>.</li>
-    <li>Tìm hiểu thêm: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Cách Google sử dụng dữ liệu khi bạn dùng trang web của đối tác</a>.</li>
+    <li>{t('Bạn có thể tắt quảng cáo được cá nhân hóa tại')} <a href="https://adssettings.google.com/" rel="noopener">{t('Cài đặt quảng cáo của Google')}</a>.</li>
+    <li>{t('Bạn có thể từ chối cookie của các nhà cung cấp bên thứ ba khác tại')} <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>.</li>
+    <li>{t('Tìm hiểu thêm:')} <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">{t('Cách Google sử dụng dữ liệu khi bạn dùng trang web của đối tác')}</a>.</li>
   </ul>
-  <p>Nếu bạn ở Khu vực Kinh tế Châu Âu, Vương quốc Anh hoặc Thụy Sĩ, Google sẽ hỏi bạn đồng ý trước khi dùng cookie quảng cáo. Bạn có thể đổi lựa chọn bất cứ lúc nào qua nút “Cài đặt quyền riêng tư và cookie” ở cuối trang.</p>
+  <p>{t('Nếu bạn ở Khu vực Kinh tế Châu Âu, Vương quốc Anh hoặc Thụy Sĩ, Google sẽ hỏi bạn đồng ý trước khi dùng cookie quảng cáo. Bạn có thể đổi lựa chọn bất cứ lúc nào qua nút “Cài đặt quyền riêng tư và cookie” ở cuối trang.')}</p>
 
-  <h2>5. Video YouTube</h2>
-  <p>Video chỉ tải khi bạn bấm phát: trình phát từ youtube-nocookie.com và tập lệnh điều khiển trình phát của YouTube (youtube.com/iframe_api), dùng để bật phụ đề tiếng Việt và nhảy tới từng đoạn. Trước đó trang chỉ hiển thị ảnh xem trước lấy từ máy chủ ảnh của YouTube.</p>
+  <h2>{t('5. Video YouTube')}</h2>
+  <p>{t('Video chỉ tải khi bạn bấm phát: trình phát từ youtube-nocookie.com và tập lệnh điều khiển trình phát của YouTube (youtube.com/iframe_api), dùng để bật phụ đề tiếng Việt và nhảy tới từng đoạn. Trước đó trang chỉ hiển thị ảnh xem trước lấy từ máy chủ ảnh của YouTube.')}</p>
 
-  <h2>6. Thời gian lưu</h2>
+  <h2>{t('6. Thời gian lưu')}</h2>
   <ul>
-    <li>Bình luận đã duyệt: lưu trong thời gian hiển thị trên trang.</li>
-    <li>Bình luận chờ duyệt: lưu đến khi được duyệt hoặc gỡ.</li>
-    <li>Bình luận bị gỡ: xóa vĩnh viễn sau 30 ngày.</li>
-    <li>Ảnh bạn đọc: ảnh gốc đến lần kiểm duyệt kế tiếp (thường dưới một ngày); ảnh đã đăng lưu trong thời gian hiển thị, xóa ngay khi bạn hoặc chúng tôi gỡ.</li>
-    <li>Mã băm chống spam: 24 giờ.</li>
-    <li>Thống kê ẩn danh: tối đa 3 tháng.</li>
+    <li>{t('Bình luận đã duyệt: lưu trong thời gian hiển thị trên trang.')}</li>
+    <li>{t('Bình luận chờ duyệt: lưu đến khi được duyệt hoặc gỡ.')}</li>
+    <li>{t('Bình luận bị gỡ: xóa vĩnh viễn sau 30 ngày.')}</li>
+    <li>{t('Ảnh bạn đọc: ảnh gốc đến lần kiểm duyệt kế tiếp (thường dưới một ngày); ảnh đã đăng lưu trong thời gian hiển thị, xóa ngay khi bạn hoặc chúng tôi gỡ.')}</li>
+    <li>{t('Mã băm chống spam: 24 giờ.')}</li>
+    <li>{t('Thống kê ẩn danh: tối đa 3 tháng.')}</li>
   </ul>
 
-  <h2>7. Quyền của bạn</h2>
-  <p>Theo Luật Bảo vệ dữ liệu cá nhân năm 2025 và Nghị định 356/2025/NĐ-CP, bạn có quyền được biết, xem, sửa, xóa dữ liệu của mình và rút lại sự đồng ý. Vì chúng tôi không lưu email hay tài khoản, hãy gửi tới <a href={mail}>{CONTACT_EMAIL}</a> đường dẫn trang, tên hiển thị và nội dung bình luận để chúng tôi tìm và xử lý.</p>
+  <h2>{t('7. Quyền của bạn')}</h2>
+  <p>{t('Theo Luật Bảo vệ dữ liệu cá nhân năm 2025 và Nghị định 356/2025/NĐ-CP, bạn có quyền được biết, xem, sửa, xóa dữ liệu của mình và rút lại sự đồng ý. Vì chúng tôi không lưu email hay tài khoản, hãy gửi tới')} <a href={mail}>{CONTACT_EMAIL}</a> {t('đường dẫn trang, tên hiển thị và nội dung bình luận để chúng tôi tìm và xử lý.')}</p>
 
-  <h2>8. Thay đổi</h2>
-  <p>Khi chính sách thay đổi, chúng tôi cập nhật trang này và ngày ở đầu trang.</p>
+  <h2>{t('8. Thay đổi')}</h2>
+  <p>{t('Khi chính sách thay đổi, chúng tôi cập nhật trang này và ngày ở đầu trang.')}</p>
 
   <hr />
 

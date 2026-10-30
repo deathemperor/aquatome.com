@@ -1,21 +1,23 @@
 ---
 // Name-only discussion. Loaded client-side from the Worker (not part of the indexed HTML); stays hidden until the API answers.
+import { i18n } from '../lib/i18n'
 interface Props { entity: string }
 const { entity } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 <section class="comments" data-comments data-entity={entity} aria-labelledby="comments-h" hidden>
-  <h2 id="comments-h">Thảo luận</h2>
+  <h2 id="comments-h">{t('Thảo luận')}</h2>
   <ol class="list" data-list></ol>
-  <p class="empty" data-empty>Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.</p>
-  <p class="notice" data-ts-fail hidden>Không tải được kiểm tra chống spam nên chưa gửi được bình luận. Hãy thử tải lại trang.</p>
-  <p class="notice" data-verify hidden>Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.</p>
+  <p class="empty" data-empty>{t('Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.')}</p>
+  <p class="notice" data-ts-fail hidden>{t('Không tải được kiểm tra chống spam nên chưa gửi được bình luận. Hãy thử tải lại trang.')}</p>
+  <p class="notice" data-verify hidden>{t('Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.')}</p>
   <form data-form hidden>
-    <label>Tên<input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
-    <label>Bình luận<textarea name="body" required minlength="2" maxlength="2000" rows="4"></textarea></label>
+    <label>{t('Tên')}<input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
+    <label>{t('Bình luận')}<textarea name="body" required minlength="2" maxlength="2000" rows="4"></textarea></label>
     <div data-turnstile></div>
-    <button type="submit">Gửi bình luận</button>
+    <button type="submit">{t('Gửi bình luận')}</button>
     <p class="msg" data-msg role="status" aria-live="polite"></p>
-    <p class="rules">Chỉ cần tên. Bình luận được kiểm duyệt; quảng cáo và thông tin cá nhân sẽ bị gỡ.</p>
+    <p class="rules">{t('Chỉ cần tên. Bình luận được kiểm duyệt; quảng cáo và thông tin cá nhân sẽ bị gỡ.')}</p>
   </form>
 </section>
 <script>

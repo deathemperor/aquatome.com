@@ -7,13 +7,15 @@ import { guideImage } from '../../../lib/mentions'
 import { smallSrc } from '../../../lib/img'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { clock, hours, seriesGuides, seriesSeconds } from '../../../lib/video'
+import { i18n, langOf } from '../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.series.map(s => ({ params: { slug: s.vi.slug }, props: { s } }))
 }
 const { s } = Astro.props as { s: Series }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const guides = seriesGuides(c, s)
 const site = Astro.site!
 const jsonld = [{
@@ -22,9 +24,9 @@ const jsonld = [{
 }]
 const indexable = guides.some(g => g.t.quality.indexable)
 ---
-<Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', 'Video']]} noindex={!indexable} jsonld={jsonld}
+<Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', t('Video')]]} noindex={!indexable} jsonld={jsonld}
   image={guides[0] && guideImage(c, guides[0])?.url} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
-  <p class="meta">{guides.length} bài · {hours(seriesSeconds(c, s))} video · theo playlist “<a href={`https://www.youtube.com/playlist?list=${s.playlistId}`} rel="noopener">{s.title}</a>” của kênh <a href={s.channelUrl} rel="noopener">{s.channel}</a></p>
+  <p class="meta">{t('{n} bài', { n: guides.length })} · {t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })} · {t('theo playlist “')}<a href={`https://www.youtube.com/playlist?list=${s.playlistId}`} rel="noopener">{s.title}</a>{t('” của kênh')} <a href={s.channelUrl} rel="noopener">{s.channel}</a></p>
   <ol class="parts">
     {guides.map((g, i) => {
       const ph = guideImage(c, g)
@@ -35,7 +37,7 @@ const indexable = guides.some(g => g.t.quality.indexable)
             <span class="img">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading={i < 4 ? 'eager' : 'lazy'} />}{g.t.cover && <span class="cover">{g.t.cover}</span>}<span class="dur">{clock(g.video.durationSec)}</span></span>
             <span class="txt">
               <strong>{g.t.name}</strong>
-              <small>{GUIDE_KIND_LABELS[g.kind]}{g.video.chapters.length > 1 && ` · ${g.video.chapters.length} đoạn`}</small>
+              <small>{t(GUIDE_KIND_LABELS[g.kind])}{g.video.chapters.length > 1 && ` · ${t('{n} đoạn', { n: g.video.chapters.length })}`}</small>
               {g.t.summary?.[0] && <span class="first">{g.t.summary[0]}</span>}
             </span>
           </a>

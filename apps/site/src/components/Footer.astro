@@ -1,29 +1,31 @@
 ---
 import { groupCredits, type Credit } from '../lib/credits'
+import { i18n } from '../lib/i18n'
 interface Props { credits?: Credit[] }
 const { credits = [] } = Astro.props
+const { t } = i18n(Astro.url)
 const groups = groupCredits(credits)
 ---
 <footer class="foot">
   <div class="wrap">
-    <p>Nội dung dịch từ các nguồn được cấp phép, hoặc AquaTome tự viết dựa trên video YouTube (video phát bằng trình phát của YouTube); mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Ảnh thuộc về tác giả, dùng theo giấy phép ghi kèm.</p>
-    <nav class="links" aria-label="Thông tin">
-      <a href="/vi/gioi-thieu/">Giới thiệu</a> · <a href="/vi/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/vi/lien-he/">Liên hệ</a> · <a href="/vi/moi-cap-nhat/">Mới cập nhật</a>
-      {credits.length > 0 && <> · <button type="button" class="credits-btn" popovertarget="photo-credits">Nguồn ảnh ({credits.length})</button></>}
+    <p>{t('Nội dung dịch từ các nguồn được cấp phép, hoặc AquaTome tự viết dựa trên video YouTube (video phát bằng trình phát của YouTube); mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Ảnh thuộc về tác giả, dùng theo giấy phép ghi kèm.')}</p>
+    <nav class="links" aria-label={t('Thông tin')}>
+      <a href="/vi/gioi-thieu/">{t('Giới thiệu')}</a> · <a href="/vi/chinh-sach-bao-mat/">{t('Chính sách bảo mật')}</a> · <a href="/vi/lien-he/">{t('Liên hệ')}</a> · <a href="/vi/moi-cap-nhat/">{t('Mới cập nhật')}</a>
+      {credits.length > 0 && <> · <button type="button" class="credits-btn" popovertarget="photo-credits">{t('Nguồn ảnh ({n})', { n: credits.length })}</button></>}
     </nav>
   </div>
   {credits.length > 0 && (
     <div id="photo-credits" class="credits" popover aria-labelledby="photo-credits-h">
       <div class="head">
-        <h2 id="photo-credits-h">Nguồn ảnh trên trang này</h2>
-        <button type="button" popovertarget="photo-credits" popovertargetaction="hide" aria-label="Đóng">×</button>
+        <h2 id="photo-credits-h">{t('Nguồn ảnh trên trang này')}</h2>
+        <button type="button" popovertarget="photo-credits" popovertargetaction="hide" aria-label={t('Đóng')}>×</button>
       </div>
       <ul>
         {groups.map(g => (
           <li>
             {g.urls.length === 1 ? <a href={g.urls[0]} rel="noopener">{g.author}</a> : <strong>{g.author}</strong>}
-            <span class="lic"> · {g.licence}{g.urls.length > 1 && ` · ${g.urls.length} ảnh`}</span>
-            {g.urls.length > 1 && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={`${g.author}, ảnh ${i + 1}`}>{i + 1}</a>)}</span>}
+            <span class="lic"> · {g.licence}{g.urls.length > 1 && ` · ${t('{n} ảnh', { n: g.urls.length })}`}</span>
+            {g.urls.length > 1 && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={t('{author}, ảnh {n}', { author: g.author, n: i + 1 })}>{i + 1}</a>)}</span>}
           </li>
         ))}
       </ul>

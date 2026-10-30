@@ -13,21 +13,23 @@ import { smallSrc } from '../../../lib/img'
 import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
 import { creatorsUse } from '../../../lib/gear'
 import { productHref } from '../../../lib/products'
-export async function getStaticPaths() {
-  return categories(await getContent()).map(u => ({ params: { category: u.category }, props: { u } }))
+import { i18n, langOf } from '../../../lib/i18n'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  return categories(await getContent(langOf(routePattern))).map(u => ({ params: { category: u.category }, props: { u } }))
 }
 const { u } = Astro.props as { u: CategoryUse }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const g = c.equipment.find(x => x.category === u.category)
-const label = g?.name ?? categoryLabel(u.category)
+const label = g?.name ?? t(categoryLabel(u.category))
 const entity = `equipment:${u.category}`
 const guides = guidesMentioning(c, entity).slice(0, 6)
 // Brands and models the video guides use for this kind of kit (engine video-items).
-const used = creatorsUse(c, u.category)
+const used = creatorsUse(lang, c, u.category)
 // Products with their own page (engine product), per type of this kit.
 const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
-const types = g ? typeUses(c, g) : []
-const users = speciesUsing(c, u.category)
+const types = g ? typeUses(lang, c, g) : []
+const users = speciesUsing(lang, c, u.category)
 const TOP = 12
 const plantsPage = u.category === 'cay-thuy-sinh'
 // The CO2 page lists the plants that use it, required first.
@@ -43,35 +45,35 @@ const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
 const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
 ---
-<Browse title={g ? `${label}: chọn loại nào, dùng cho loài nào` : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', 'Thiết bị']]} jsonld={faq} image={g?.hero.url} credits={credits}>
+<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits}>
   {g && (
     <header class="hero">
       <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
       <div>
         <p class="lead">{g.lead}</p>
-        <ul class="chips">{users.length > 0 && <li>{users.length} loài cá cần</li>}{plants.length > 0 && <li>{plants.length} loài cây</li>}<li>{g.types.length} loại</li>{guides.length > 0 && <li>{guides.length} bài viết</li>}</ul>
+        <ul class="chips">{users.length > 0 && <li>{t('{n} loài cá cần', { n: users.length })}</li>}{plants.length > 0 && <li>{t('{n} loài cây', { n: plants.length })}</li>}<li>{t('{n} loại', { n: g.types.length })}</li>{guides.length > 0 && <li>{t('{n} bài viết', { n: guides.length })}</li>}</ul>
         <div class="intro" set:html={intro} />
       </div>
     </header>
   )}
 
   {types.length > 0 && <>
-    <h2 class="h">Các loại {label.toLowerCase()}</h2>
+    <h2 class="h">{t('Các loại {label}', { label: label.toLowerCase() })}</h2>
     <div class="types">
-      {types.map(t => (
-        <article class:list={['type', { bare: !t.photo }]} id={t.id}>
-          {t.photo && <div class="ph"><img src={smallSrc(t.photo)} width={t.photo.width} height={t.photo.height} alt={t.name} loading="lazy" /></div>}
+      {types.map(ty => (
+        <article class:list={['type', { bare: !ty.photo }]} id={ty.id}>
+          {ty.photo && <div class="ph"><img src={smallSrc(ty.photo)} width={ty.photo.width} height={ty.photo.height} alt={ty.name} loading="lazy" /></div>}
           <div class="body">
-            <h3>{t.name}</h3>
-            <p set:html={link(t.desc)} />
-            <p class="pick"><strong>Chọn thế nào:</strong> {t.pick}</p>
-            {picks(t.id).length > 0 && <p class="picks">Đã tìm hiểu kỹ: {picks(t.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
-            <p class="buy">Mua <em>{t.buy}</em>: {shops.map(s => <a href={goLink(s, t.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>
-            {t.keywords.length > 1 && <p class="more">Hay tìm: {t.keywords.filter(k => k !== t.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
-            {t.species.length > 0 && (
-              <ul class="who" aria-label={`Loài dùng ${t.name.toLowerCase()}`}>
-                {t.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
-                {t.species.length > 6 && <li class="n">+{t.species.length - 6} loài</li>}
+            <h3>{ty.name}</h3>
+            <p set:html={link(ty.desc)} />
+            <p class="pick"><strong>{t('Chọn thế nào:')}</strong> {ty.pick}</p>
+            {picks(ty.id).length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {picks(ty.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
+            <p class="buy">{t('Mua')} <em>{ty.buy}</em>: {shops.map(s => <a href={goLink(s, ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>
+            {ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
+            {ty.species.length > 0 && (
+              <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
+                {ty.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
+                {ty.species.length > 6 && <li class="n">{t('+{n} loài', { n: ty.species.length - 6 })}</li>}
               </ul>
             )}
           </div>
@@ -82,46 +84,46 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
 
   {g && (
     <div class="two">
-      <section><h2 class="h">Cách chọn</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
-      <section><h2 class="h">Sai lầm thường gặp</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
+      <section><h2 class="h">{t('Cách chọn')}</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
+      <section><h2 class="h">{t('Sai lầm thường gặp')}</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
     </div>
   )}
 
   {used.length > 0 && (
     <section class="creators">
-      <h2 class="h">Dân chơi dùng gì trong video</h2>
+      <h2 class="h">{t('Dân chơi dùng gì trong video')}</h2>
       <ul>{used.slice(0, 10).map(x => (
-        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{x.guides.length} video</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
+        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{t('{n} video', { n: x.guides.length })}</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
       ))}</ul>
     </section>
   )}
 
   {plants.length > 0 && <>
-    <h2 class="h">{plantsPage ? 'Cây thủy sinh trên AquaTome' : 'Cây cần CO2'}</h2>
+    <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
     <div class="plants">{plants.map(p => <PlantCard p={p} />)}</div>
   </>}
   {!plantsPage && users.length > 0 && <>
-    <h2 class="h">Loài cá cần {label.toLowerCase()}</h2>
+    <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
     <SpeciesGrid species={users.slice(0, TOP)} />
     {users.length > TOP && (
-      <details class="all"><summary>Xem tất cả {users.length} loài</summary>
+      <details class="all"><summary>{t('Xem tất cả {n} loài', { n: users.length })}</summary>
         <ul class="used">{users.slice(TOP).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.t.name}</a></li>)}</ul>
       </details>
     )}
   </>}
 
   {g && g.faq.length > 0 && <>
-    <h2 class="h">Hỏi đáp</h2>
+    <h2 class="h">{t('Hỏi đáp')}</h2>
     <div class="faq">{g.faq.map(f => <details><summary>{f.q}</summary><p set:html={link(f.a)} /></details>)}</div>
   </>}
 
   {guides.length > 0 && <>
-    <h2 class="h">Bài viết liên quan</h2>
+    <h2 class="h">{t('Bài viết liên quan')}</h2>
     <div class="guides">{guides.map(x => <GuideCard g={x} />)}</div>
   </>}
 
-  <details class="all"><summary>Tất cả gợi ý mua ({keywords.length})</summary>
-    <ProductSlots slots={[{ category: u.category, keywords }]} heading="Gợi ý mua" entity={entity} />
+  <details class="all"><summary>{t('Tất cả gợi ý mua ({n})', { n: keywords.length })}</summary>
+    <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
   </details>
 </Browse>
 <style>

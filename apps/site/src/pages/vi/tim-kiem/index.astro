@@ -1,7 +1,9 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
+import { i18n } from '../../../lib/i18n'
+const { t } = i18n(Astro.url)
 ---
-<Browse title="Tìm kiếm" heading="Tìm kiếm" noindex>
+<Browse title={t('Tìm kiếm')} heading={t('Tìm kiếm')} noindex>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <div id="search"></div>
   <script is:inline src="/pagefind/pagefind-ui.js"></script>

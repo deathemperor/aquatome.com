@@ -1,11 +1,13 @@
 ---
 import Browse from './Browse.astro'
+import { i18n } from '../lib/i18n'
 interface Props { title: string; intro?: string; updated?: string }
 const { title, intro, updated } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 <Browse title={title} heading={title} intro={intro}>
   <div class="doc">
-    {updated && <p class="updated">Cập nhật: {updated}</p>}
+    {updated && <p class="updated">{t('Cập nhật: {date}', { date: updated })}</p>}
     <slot />
   </div>
 </Browse>

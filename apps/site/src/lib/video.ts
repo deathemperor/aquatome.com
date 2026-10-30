@@ -1,6 +1,7 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
 import type { Content, GuideEntity, Localized, Photo, Series } from '@aq/schema'
+import { translator, type Lang } from './i18n'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
 export const isVideo = (g: Localized<GuideEntity>): g is VideoGuide => !!g.video
@@ -37,10 +38,11 @@ export const seriesOf = (c: Content, g: Localized<GuideEntity>) => (g.video?.ser
 export const seriesSeconds = (c: Content, s: Series) => seriesGuides(c, s).reduce((n, g) => n + g.video.durationSec, 0)
 
 /** Running time in words: "48 phút", "5 giờ 10 phút". */
-export function hours(sec: number): string {
+export function hours(lang: Lang, sec: number): string {
+  const t = translator(lang)
   const h = Math.floor(sec / 3600)
   const m = Math.round((sec % 3600) / 60)
-  return h ? `${h} giờ${m ? ` ${m} phút` : ''}` : `${m} phút`
+  return h ? (m ? t('{h} giờ {m} phút', { h, m }) : t('{h} giờ', { h })) : t('{m} phút', { m })
 }
 
 /** Video guides for the homepage: the first parts of each series (largest first), then their next parts. */
@@ -57,18 +59,19 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
  * Each section's pictures after its first paragraph (or list): the open-licence photo, then stills from the video
  * whose buttons play the video from that moment (VideoPlayer's click handler).
  */
-export function illustrate(html: string, v: NonNullable<GuideEntity['video']>): string {
+export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity['video']>): string {
   if (!v.figures?.length) return html
+  const t = translator(lang)
   const root = parse(html)
   const byHeading = new Map(v.figures.map(f => [f.heading, f]))
   for (const h of root.querySelectorAll('h3')) {
     const f = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
     if (!f) continue
     const photo = f.photo
-      ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')} <span class="by">Ảnh: <a href="${esc(f.photo.sourceUrl)}" rel="noopener">${esc(f.photo.author)}</a>, ${esc(f.photo.licence)}</span></figcaption></figure>`
+      ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')} <span class="by">${t('Ảnh:')} <a href="${esc(f.photo.sourceUrl)}" rel="noopener">${esc(f.photo.author)}</a>, ${esc(f.photo.licence)}</span></figcaption></figure>`
       : ''
     const moments = f.moments.length
-      ? `<div class="moments"><p class="mh">Trong video</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">Xem video từ</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
+      ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
       : ''
     const after = h.nextElementSibling && ['P', 'UL', 'OL'].includes(h.nextElementSibling.tagName) ? h.nextElementSibling : h
     after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)

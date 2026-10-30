@@ -18,76 +18,78 @@ import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { guidesMentioning, linkTargets } from '../../../lib/mentions'
 import { BREED_KIND, basedOn, breedGallery, breedsOf, careCard, type Breed } from '../../../lib/breeds'
 import { dmy } from '../../../lib/products'
-export async function getStaticPaths() {
-  const c = await getContent()
+import { i18n, langOf } from '../../../lib/i18n'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.breeds.map(b => ({ params: { breed: b.t.slug }, props: { b } }))
 }
 const { b } = Astro.props as { b: Breed }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const key = `breed:${b.id}`
 const parent = basedOn(c, b)
 const species = new Map(c.species.map(s => [s.id, s]))
 const { card, sources } = careCard(b)
 const gallery = breedGallery(c, b)
 const strip = gallery.slice(0, GALLERY_STRIP)
-const lines = breedsOf(c, b.id)
+const lines = breedsOf(lang, c, b.id)
 // Its own text links the species, glossary terms and other pages it names, never itself.
 const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
 const mentioning = guidesMentioning(c, key)
 const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: 'vi', dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
+  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: lang, dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Loài cá', item: new URL('/vi/ca/', Astro.site).href },
+    { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
     ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: new URL(parent.href, Astro.site).href }] : []),
     { '@type': 'ListItem', position: parent ? 3 : 2, name: b.t.name, item: url },
   ] },
   ...(b.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: b.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ]
-const title = `${b.t.name}: nguồn gốc, cách nuôi, chọn mua`
+const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
 ---
 <Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
   <Nav slot="header" />
-  <nav class="wrap crumb" aria-label="Đường dẫn">
-    <a href="/vi/ca/">Loài cá</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
+  <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
+    <a href="/vi/ca/">{t('Loài cá')}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
   </nav>
   <header class="wrap top">
     {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} /> : <div />}
     <div>
-      <p class="where">{BREED_KIND[b.kind]}{parent && b.kind === 'variety' && <>, dòng của <a href={parent.href}>{parent.name}</a></>}</p>
+      <p class="where">{t(BREED_KIND[b.kind])}{parent && b.kind === 'variety' && <>{t(', dòng của')} <a href={parent.href}>{parent.name}</a></>}</p>
       <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${b.t.name} ${b.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{b.t.name}</h1>
       <RedirectNote from={b.t.redirectFrom} />
       {b.parents.length > 0 && (
-        <p class="parents">Lai từ: {b.parents.map((p, i) => {
+        <p class="parents">{t('Lai từ:')} {b.parents.map((p, i) => {
           const s = p.species ? species.get(p.species) : undefined
-          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : p.name}{!p.certain && <span class="unsure"> (chưa chắc chắn)</span>}</>
+          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : p.name}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
         })}</p>
       )}
-      {b.t.altNames.length > 0 && <p class="alt">Tên khác: {b.t.altNames.join(', ')}</p>}
+      {b.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
       <DataCard card={card} sources={sources} />
-      <p class="srcline">AquaTome tổng hợp từ {b.sources.length} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {dmy(b.updatedAt)}.</p>
+      <p class="srcline">{t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })}</p>
     </div>
   </header>
 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined} name={b.t.name} />}
-  {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>Tóm tắt</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
+  {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>{t('Tóm tắt')}</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 
-  <BreedList breeds={lines} heading="Các dòng" />
+  <BreedList breeds={lines} heading={t('Các dòng')} />
 
   {b.t.faq?.length ? (
     <section class="wrap faq" aria-labelledby="faq-h">
-      <h2 id="faq-h">Hỏi đáp</h2>
+      <h2 id="faq-h">{t('Hỏi đáp')}</h2>
       {b.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
     </section>
   ) : null}
 
-  <GuideLinks guides={mentioning.filter(g => !g.video)} heading="Bài viết nhắc đến" />
-  <VideoGuideGrid guides={mentioning.filter(g => g.video)} heading="Có trong video hướng dẫn" />
+  <GuideLinks guides={mentioning.filter(g => !g.video)} heading={t('Bài viết nhắc đến')} />
+  <VideoGuideGrid guides={mentioning.filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
   <ReaderPhotos entity={key} name={b.t.name} />
 
   <section class="wrap sources" aria-labelledby="src-h">
-    <h2 id="src-h">Nguồn</h2>
+    <h2 id="src-h">{t('Nguồn')}</h2>
     <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
   </section>
   <div class="wrap"><Comments entity={key} /></div>
