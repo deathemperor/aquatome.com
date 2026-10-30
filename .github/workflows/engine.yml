@@ -61,6 +61,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Videos on species pages (YouTube Data API search, 10,000 units/day).
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          # Gallery photos from Unsplash (demo key: 50 requests an hour).
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

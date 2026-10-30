@@ -87,6 +87,8 @@ if part photos; then
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
   pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
+  # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
+  pnpm engine unsplash --limit "${UNSPLASH_LIMIT:-6}" || log "unsplash: failed"
 fi
 if part pages sf photos; then
   # Commons and iNaturalist photos (new galleries, new pages) copied to our bucket: their hosts set third-party cookies.

@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 const { s, photos } = Astro.props as { s: Localized<SpeciesEntity> | Localized<BreedEntity>; photos: Photo[] }
 const sci = 'scientificName' in s ? s.scientificName : undefined
-const from = [...new Set(photos.map(p => (/inaturalist\.org/.test(p.sourceUrl) ? 'iNaturalist' : 'Wikimedia Commons')))].join(' và ')
+const from = [...new Set(photos.map(p => (/inaturalist\.org/.test(p.sourceUrl) ? 'iNaturalist' : /unsplash\.com/.test(p.sourceUrl) ? 'Unsplash' : 'Wikimedia Commons')))].join(', ').replace(/, ([^,]*)$/, ' và $1')
 const page = `/vi/ca/${s.t.slug}/`
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `Ảnh ${s.t.name}${sci ? ` (${sci})` : ''}`,
