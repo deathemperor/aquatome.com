@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'youtube'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'youtube', 'aquatome'] as const
 export const LANGS = ['vi'] as const
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -64,6 +64,8 @@ export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
   source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(Photo), mentions: z.array(z.string()), updatedAt: z.string(),
   video: VideoRef.optional(),
+  /** Guides AquaTome writes itself from web research (source 'aquatome'): the pages the facts came from. */
+  refs: z.array(z.object({ url: z.string(), title: z.string() })).optional(),
 })
 /** A YouTube playlist whose videos became guides, in the creator's order (content/series/<id>.json). */
 export const SeriesSchema = z.object({
