@@ -6,12 +6,12 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "video": {
     "youtubeId": "K972tk73JpU",
     "title": "10 MISTAKES THAT WILL GIVE YOU ALGAE! MAKE SURE YOU AVOID MAKING THEM!",
     "channel": "MJ Aquascaping",
-    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
     "durationSec": 694,
     "publishedAt": "2022-05-20",
     "chapters": [
@@ -69,87 +69,6 @@
       "width": 1280,
       "height": 720
     },
-    "figures": [
-      {
-        "heading": "CO2 và đèn: chỗ dễ sai nhất",
-        "moments": [
-          {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Drop checker có dung dịch màu xanh lá, báo mức CO2 vừa đủ."
-          },
-          {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t64.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bộ dụng cụ CO2 bằng ống kính gắn ở bể thủy sinh."
-          }
-        ]
-      },
-      {
-        "heading": "Set bể mới vào lúc nào cho đúng",
-        "moments": [
-          {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t198.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai bể thủy sinh đặt cạnh cửa sổ, cây xanh tươi."
-          }
-        ]
-      },
-      {
-        "heading": "Châm phân thế nào để không nuôi rêu hại",
-        "moments": [
-          {
-            "t": 307,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t307.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ba chai phân nước vi lượng, đa lượng và kali đặt trên kệ cạnh bể."
-          },
-          {
-            "t": 367,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t367.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh đá và cây xanh tốt, sạch rêu hại."
-          }
-        ]
-      },
-      {
-        "heading": "Thay nước bao nhiêu là đủ",
-        "moments": [
-          {
-            "t": 625,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t625.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh mới setup với phân nền, đá lớn và cây con."
-          },
-          {
-            "t": 635,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t635.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lớp phân nền phủ cây con và hòn đá trong bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/K972tk73JpU/p4-bV9GaXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p4-bV9GaXNoZXMuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
-          "caption": "Bể cá có nền sỏi sáng và nước trong, hai con cá chép bơi gần đáy."
-        }
-      }
-    ],
     "taxa": [
       "Rotala sp."
     ],
@@ -162,12 +81,143 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 212
+        "t": 200
       },
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 476
+        "t": 490
+      }
+    ],
+    "figures": [
+      {
+        "heading": "CO2 thiếu mà không hay biết (sai lầm 1 và 9)",
+        "moments": [
+          {
+            "t": 59,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t59.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Drop checker gắn trong bể, dung dịch màu xanh lá báo CO2 ổn."
+          },
+          {
+            "t": 64,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t64.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh cây xanh tốt với bộ dụng cụ CO2 bằng kính."
+          }
+        ]
+      },
+      {
+        "heading": "Chọn sai thời điểm và chỗ đặt bể mới (sai lầm 2 và 3)",
+        "moments": [
+          {
+            "t": 198,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t198.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Hai bể thủy sinh đặt cạnh cửa sổ, nơi nắng chiếu vào."
+          }
+        ]
+      },
+      {
+        "heading": "Phân nước: thừa vi lượng hay thiếu nitrate đều sinh rêu (sai lầm 5 và 6)",
+        "moments": [
+          {
+            "t": 307,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t307.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Ba chai phân nước: vi lượng, đa lượng và kali đặt cạnh bể."
+          },
+          {
+            "t": 347,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t347.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh trồng cây trên nền aquasoil với đá và cỏ."
+          }
+        ]
+      },
+      {
+        "heading": "Nhét quá nhiều phân nền viên (sai lầm 7)",
+        "moments": [
+          {
+            "t": 461,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t461.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Lớp nền aquasoil có rất nhiều viên phân nền rải trên mặt."
+          }
+        ]
+      },
+      {
+        "heading": "Bật đèn quá mạnh (sai lầm 8)",
+        "moments": [
+          {
+            "t": 516,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t516.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh đèn sáng mạnh, cây xanh rực và thảm cỏ phủ kín."
+          },
+          {
+            "t": 521,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t521.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Góc khác của bể dưới đèn mạnh, cây đỏ và thảm cỏ xanh sáng."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K972tk73JpU/p5-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p5-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh trồng cây rậm rạp dưới đèn LED gắn phía trên."
+        }
+      },
+      {
+        "heading": "Bỏ thay nước, nhất là ở bể mới (sai lầm 10)",
+        "moments": [
+          {
+            "t": 625,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t625.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể mới set với aquasoil, đá và thảm cây còn thưa."
+          },
+          {
+            "t": 635,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t635.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Góc bể thủy sinh mới với lũa đá và cây con mới mọc."
+          }
+        ]
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [
+          {
+            "t": 74,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t74.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh dài với đèn phía trên, cây xanh và đá phủ kín."
+          },
+          {
+            "t": 555,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t555.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bộ thiết bị CO2 và ống lọc đặt trong tủ bể."
+          }
+        ]
       }
     ]
   }

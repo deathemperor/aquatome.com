@@ -6,36 +6,15 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "video": {
     "youtubeId": "J_PR999bgtw",
     "title": "7 Reasons Why You Have Black Beard Algae",
     "channel": "MJ Aquascaping",
-    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
     "durationSec": 383,
     "publishedAt": "2022-11-09",
-    "chapters": [
-      {
-        "start": 0,
-        "title": "Causes of black brush algae"
-      },
-      {
-        "start": 88,
-        "title": "Additional BBA triggers"
-      },
-      {
-        "start": 195,
-        "title": "Debunking common myths"
-      },
-      {
-        "start": 277,
-        "title": "Liquid carbon limitations"
-      },
-      {
-        "start": 318,
-        "title": "Algae management tips"
-      }
-    ],
+    "chapters": [],
     "series": {
       "id": "PLrlvf56gZy-howinG2d8o7Bbxn0P6awUj",
       "position": 1
@@ -45,19 +24,39 @@
       "width": 1280,
       "height": 720
     },
-    "taxa": [],
+    "taxa": [
+      "Eleocharis parvula",
+      "Eleocharis vivipara",
+      "Riccardia sp.",
+      "Juncus repens",
+      "Cryptocoryne parva",
+      "Cryptocoryne lutea",
+      "Cryptocoryne walkeri"
+    ],
     "gear": [
       {
         "category": "khac",
         "brand": "Seachem",
         "model": "Excel",
-        "t": 287
+        "t": 270
+      },
+      {
+        "category": "co2",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "BBA là gì và vì sao khó trị",
-        "moments": [],
+        "heading": "Ba nguyên nhân chính gây BBA",
+        "moments": [
+          {
+            "t": 162,
+            "url": "https://media.aquatome.com/video/J_PR999bgtw/t162.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thủy sinh trồng nhiều cây, rêu hại dễ xuất hiện khi mất cân bằng."
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/J_PR999bgtw/p0-JkX2FsZ2FlLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p0-JkX2FsZ2FlLnBuZw-480.webp",
@@ -66,90 +65,47 @@
           "licence": "CC BY 3.0",
           "author": "Emboli",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Búi rêu đen xám bám dày quanh cây thủy sinh trong bể."
+          "caption": "Tảo BBA mọc thành chùm đen xơ xác trên lá cây trong bể."
         }
       },
       {
-        "heading": "Ba nguyên nhân chính gây BBA",
+        "heading": "BBA có lây từ cá mới hay dụng cụ không",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/J_PR999bgtw/p1-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p1-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, sạch sẽ, có đàn neon bơi giữa cây."
-        }
-      },
-      {
-        "heading": "Bốn nguyên nhân phụ dễ bị bỏ qua",
-        "moments": [
-          {
-            "t": 137,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/t137.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh rêu hại sẫm màu bám trên thân lũa trong bể tối."
-          },
-          {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/t162.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh có đèn trên cao, cây xanh tốt và lũa."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/J_PR999bgtw/p2-AxOF9hXzAyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p2-AxOF9hXzAyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/J_PR999bgtw/p3-FyYW50aW5lLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p3-FyYW50aW5lLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Lamiot",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_02.jpg",
-          "caption": "Bể thủy sinh cây thân xanh tươi, mọc dày dưới ánh sáng mạnh."
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine.jpg",
+          "caption": "Cá nhỏ bơi giữa cây nhựa đỏ trong bể, minh họa cá mới thả vào."
         }
       },
       {
-        "heading": "Đọc vị trí BBA mọc để đoán thủ phạm",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/J_PR999bgtw/p3-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p3-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Tảo BBA đen xù mọc bám trên lá cây thủy sinh trong bể."
-        }
-      },
-      {
-        "heading": "Carbon nước làm được gì và không làm được gì",
+        "heading": "Carbon lỏng dùng vào việc gì",
         "moments": [
           {
             "t": 280,
             "url": "https://media.aquatome.com/video/J_PR999bgtw/t280.webp",
             "width": 320,
             "height": 180,
-            "caption": "Chai carbon nước đặt cạnh đám cây thủy sinh xanh mướt."
+            "caption": "Chai carbon lỏng đặt trước đám cây thủy sinh xanh tốt."
           }
         ]
       },
       {
-        "heading": "Tác giả xử lý BBA thế nào",
+        "heading": "Bắt đầu từ đâu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/J_PR999bgtw/p6-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p6-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu BBA mọc thành chùm xám đen bám trên lá cây trong bể."
+          "url": "https://media.aquatome.com/video/J_PR999bgtw/p5-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/J_PR999bgtw/p5-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh có lũa, đá và cây lá, dễ quan sát chỗ rêu bám."
         }
       }
     ]

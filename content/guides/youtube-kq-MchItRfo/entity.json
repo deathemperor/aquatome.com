@@ -30,19 +30,20 @@
     "taxa": [
       "Helanthium tenellum",
       "Pogostemon helferi",
-      "Cryptocoryne walkeri",
+      "Cryptocoryne petchii",
       "Limnophila sp.",
       "Ludwigia sp.",
       "Hygrophila pinnatifida",
       "Rotala rotundifolia",
       "Taxiphyllum sp.",
       "Hyphessobrycon amandae",
+      "Melanotaenia praecox",
       "Neocaridina davidi"
     ],
     "gear": [
       {
         "category": "be-ca",
-        "type": "chuan",
+        "type": "nano",
         "brand": "sera",
         "model": "Scaper's Cube",
         "t": 0
@@ -51,19 +52,19 @@
         "category": "loc",
         "type": "thung",
         "brand": "JBL",
-        "model": "GreenLine e902",
-        "t": 540
+        "model": "greenline e902",
+        "t": 554
       },
       {
         "category": "den",
+        "type": "thuy-sinh",
         "brand": "sera",
-        "model": "x-change LED",
-        "t": 0
+        "model": "x-change led"
       },
       {
         "category": "co2",
         "type": "mini",
-        "t": 540
+        "t": 554
       },
       {
         "category": "phan-nen",
@@ -77,127 +78,101 @@
         "brand": "Aquaart.pl",
         "model": "fertiliser capsules",
         "t": 298
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 177
       }
     ],
     "figures": [
       {
-        "heading": "Tháo bố cục cũ theo thứ tự nào",
+        "heading": "Chuẩn bị gì trước khi dỡ bể",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t59.webp",
+            "t": 49,
+            "url": "https://media.aquatome.com/video/kq-MchItRfo/t49.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rút bớt nước trong hồ, cây thủy sinh vẫn còn nguyên bố cục."
-          },
-          {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây còn khỏe được để riêng trong khay nước để dùng lại."
+            "caption": "Bể thủy sinh cũ với cây đỏ và cây xanh, lũa đá còn nguyên."
           }
         ]
       },
       {
-        "heading": "Chuẩn bị vật liệu cho bố cục mới",
+        "heading": "Dỡ bố cục cũ và dọn bể theo thứ tự nào",
         "moments": [
           {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t216.webp",
+            "t": 108,
+            "url": "https://media.aquatome.com/video/kq-MchItRfo/t108.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể trống đã dọn sạch, sẵn sàng đổ phân nền."
+            "caption": "Lũa và đá đã gỡ ra, để riêng trên tấm khăn."
           },
           {
-            "t": 221,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t221.webp",
+            "t": 113,
+            "url": "https://media.aquatome.com/video/kq-MchItRfo/t113.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đổ phân nền đen vào bể trống để làm lớp nền trồng cây."
+            "caption": "Cây thủy sinh nhổ ra được để riêng trong xô."
           }
         ]
       },
       {
-        "heading": "Dựng lũa đá thế nào cho hợp bể cao",
+        "heading": "Vì sao thay cát bằng phân nền",
         "moments": [
           {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t285.webp",
+            "t": 152,
+            "url": "https://media.aquatome.com/video/kq-MchItRfo/t152.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cụm lũa và đá dồn vào giữa bể, xung quanh chừa trống."
-          },
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t290.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục đảo với lũa vươn cao trên cụm đá, nhìn từ góc khác."
+            "caption": "Bể cũ với lớp nền cát đang được hút dọn và xả nước."
           }
         ]
       },
       {
-        "heading": "Bố trí cây theo từng tầng",
+        "heading": "Bố trí cây trong bể mới",
         "moments": [
           {
             "t": 497,
             "url": "https://media.aquatome.com/video/kq-MchItRfo/t497.webp",
             "width": 160,
             "height": 90,
-            "caption": "Thảm tiền cảnh xanh mướt trải quanh đá và lũa trong bể mới."
+            "caption": "Thảm Helanthium tenellum phía trước, đá và lũa ở giữa bể."
           },
           {
             "t": 541,
             "url": "https://media.aquatome.com/video/kq-MchItRfo/t541.webp",
             "width": 160,
             "height": 90,
-            "caption": "Các cụm cây hậu cảnh xanh và đỏ mọc lên phía sau bể."
+            "caption": "Cây thân đỏ bên trái và cụm cây xanh phía sau bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/kq-MchItRfo/p4-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/kq-MchItRfo/p4-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/kq-MchItRfo/p5-sdW1fa3owMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/kq-MchItRfo/p5-sdW1fa3owMi5qcGc-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh trồng cây nhiều tầng, thấp ở trước, cao và lên màu đỏ ở sau."
+          "height": 686,
+          "licence": "CC BY-SA 4.0",
+          "author": "Krzysztof Ziarnek, Kenraiz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helanthium_tenellum_kz02.jpg",
+          "caption": "Thảm Helanthium tenellum mọc xanh mướt ở tiền cảnh bể thủy sinh."
         }
       },
       {
-        "heading": "Đổ nước và thả cá lại cần lưu ý gì",
+        "heading": "Đổ nước và thả cá lại",
         "moments": [
           {
-            "t": 457,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t457.webp",
+            "t": 556,
+            "url": "https://media.aquatome.com/video/kq-MchItRfo/t556.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đang đổ nước vào bể thủy sinh đã trồng cây xong."
-          },
-          {
-            "t": 551,
-            "url": "https://media.aquatome.com/video/kq-MchItRfo/t551.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lũa và cây trong bể sau khi đổ đầy nước."
+            "caption": "Bể đã đổ đầy nước, lũa và cây thủy sinh mới trồng bên trong."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/kq-MchItRfo/p5-xdWFyaXVtLi5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/kq-MchItRfo/p5-xdWFyaXVtLi5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/kq-MchItRfo/p6-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/kq-MchItRfo/p6-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "Public domain",
-          "author": "T.Seiichi",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamogeton_dentatus_in_aquarium..JPG",
-          "caption": "Bể mới đổ nước, phân nền còn đục và cây vừa trồng xong."
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô nước và ống dẫn."
         }
       }
     ]

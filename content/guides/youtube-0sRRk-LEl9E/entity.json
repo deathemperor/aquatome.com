@@ -6,12 +6,12 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "video": {
     "youtubeId": "0sRRk-LEl9E",
     "title": "AQUARIUM ALGAE GUIDE Ep #2 Brown Algae - Diatoms",
     "channel": "MJ Aquascaping",
-    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
     "durationSec": 464,
     "publishedAt": "2021-01-22",
     "chapters": [
@@ -49,16 +49,38 @@
       "width": 1280,
       "height": 720
     },
+    "taxa": [
+      "Otocinclus sp."
+    ],
+    "gear": [
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 295
+      }
+    ],
     "figures": [
       {
-        "heading": "Thả con gì để ăn rêu nâu",
+        "heading": "Silicate từ đâu vào bể",
+        "moments": [
+          {
+            "t": 143,
+            "url": "https://media.aquatome.com/video/0sRRk-LEl9E/t143.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Đá bố cục trong bể thủy sinh, nguồn có thể đưa silicate vào bể."
+          }
+        ]
+      },
+      {
+        "heading": "Cá chuột Otocinclus, lựa chọn đáng cân nhắc",
         "moments": [
           {
             "t": 252,
             "url": "https://media.aquatome.com/video/0sRRk-LEl9E/t252.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá nhỏ bám trên cây thủy sinh xanh trong bể."
+            "caption": "Cận cảnh bể thủy sinh với cây xanh và một con cá nhỏ bơi giữa cỏ."
           }
         ],
         "photo": {
@@ -69,35 +91,35 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fremen",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
-          "caption": "Cá chuột Otocinclus với sọc đen dọc thân, nhìn nghiêng rõ nét trong bể."
+          "caption": "Cá chuột Otocinclus với dải sọc đen đặc trưng dọc thân, nhìn rõ từ bên hông."
         }
       },
       {
-        "heading": "Dark start: tránh giai đoạn rêu nâu ngay từ đầu",
+        "heading": "Dark start: giảm khả năng gặp rêu nâu từ đầu",
         "moments": [
           {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/0sRRk-LEl9E/t395.webp",
+            "t": 390,
+            "url": "https://media.aquatome.com/video/0sRRk-LEl9E/t390.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể vừa set xong với lũa và nền, đã đổ nước nhưng chưa trồng cây."
+            "caption": "Bể vừa set xong với lũa và đá, đã đổ đầy nước, chưa trồng cây."
           }
-        ],
+        ]
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/0sRRk-LEl9E/p5-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/0sRRk-LEl9E/p5-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/0sRRk-LEl9E/p6-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/0sRRk-LEl9E/p6-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
-          "height": 447,
-          "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh xanh sạch rêu với lũa và cây phủ kín sau khi lên ổn định."
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
+          "caption": "Cá Otocinclus bám trên khúc lũa trong bể, sẵn sàng dọn rêu."
         }
       }
-    ],
-    "taxa": [
-      "Otocinclus sp."
-    ],
-    "gear": []
+    ]
   }
 }
