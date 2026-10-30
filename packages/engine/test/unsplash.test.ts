@@ -15,7 +15,7 @@ async function site() {
   const r = await mkdtemp(join(tmpdir(), 'aq-unsplash-'))
   for (const [kind, id, e] of [['species', 'paracheirodon-innesi', { scientificName: 'Paracheirodon innesi' }], ['species', 'danio-rerio', { scientificName: 'Danio rerio' }], ['breeds', 'koi', {}]] as const) {
     await mkdir(join(r, 'content', kind, id), { recursive: true })
-    await writeFile(join(r, 'content', kind, id, 'entity.json'), JSON.stringify({ ...e, photos: [] }))
+    await writeFile(join(r, 'content', kind, id, 'entity.json'), JSON.stringify({ ...e, photos: kind === 'breeds' ? [old] : [] }))
     await writeFile(join(r, 'content', kind, id, 'vi.json'), JSON.stringify({ name: `vi ${id}` }))
   }
   await mkdir(join(r, 'content/gallery'), { recursive: true })
@@ -69,4 +69,25 @@ test('stops before a gallery could run out of requests', async () => {
   const r = await unsplashPhotos(root, async u => { calls.push(u); return { json: { results: [hit('a')] }, remaining: u.includes('/search/') ? 8 : 7 } }, deps([]), { limit: 5 })
   expect(calls.filter(u => u.includes('/search/'))).toHaveLength(1)
   expect(r.stopped).toMatch(/rate limit/)
+})
+
+test('a breed with no photo comes first and takes the best 4 as its own; the rest start its gallery', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/breeds/koi-betta'), { recursive: true })
+  await writeFile(join(root, 'content/breeds/koi-betta/entity.json'), JSON.stringify({ id: 'koi-betta', photos: [] }))
+  const queries: string[] = []
+  const hits = ['a', 'b', 'c', 'd', 'e', 'f'].map(id => hit(id))
+  const api: UnsplashApi = async u => {
+    if (u.includes('/search/')) { queries.push(new URL(u).searchParams.get('query')!); return { json: { results: hits }, remaining: 40 } }
+    return { json: {}, remaining: 30 }
+  }
+  const d = { ...deps([]), faces: async (files: string[]) => files.map(() => 0), look: async () => ({ keep: hits.map((_, i) => ({ n: i + 1, caption: `c${i + 1}` })), best: [6] }) }
+  await unsplashPhotos(root, api, d, { limit: 1 })
+  expect(queries).toEqual(['koi betta'])
+  const e = JSON.parse(await readFile(join(root, 'content/breeds/koi-betta/entity.json'), 'utf8'))
+  expect(e.photos.map((p: { author: string }) => p.author)).toEqual(['Ann f', 'Ann a', 'Ann b', 'Ann c']) // the best leads
+  expect(e.photos[0].caption).toBe('c6')
+  const g = JSON.parse(await readFile(join(root, 'content/gallery/koi-betta.json'), 'utf8'))
+  expect(g).toMatchObject({ id: 'koi-betta', seen: 6, updatedAt: '2026-10-30' })
+  expect(g.photos.map((p: { author: string }) => p.author)).toEqual(['Ann d', 'Ann e'])
 })
