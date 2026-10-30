@@ -10,10 +10,10 @@ const c = await getContent()
 const traits = await getTraits()
 const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, 'vi'))
 ---
-<Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, tính thể tích bể và công suất sưởi.">
+<Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể và công suất sưởi.">
   <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
-    <h2 id="tm-h">Nuôi chung được không?</h2>
-    <p class="lead">Chọn 2–6 loài để so nhiệt độ, pH, độ cứng, kích thước và tính cách. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.</p>
+    <h2 id="tm-h">Nuôi chung được không? Thả bao nhiêu con?</h2>
+    <p class="lead">Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.</p>
     <form id="tm-form" class="row">
       <label class="grow">Thêm loài
         <input id="tm-input" list="tm-list" placeholder="Gõ tên Việt hoặc tên khoa học" autocomplete="off" />
@@ -23,6 +23,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
     <datalist id="tm-list">{index.map(i => <option value={i.name}>{i.scientificName}</option>)}</datalist>
     <ul id="tm-chosen" class="chips" aria-live="polite"></ul>
     <div id="tm-out" aria-live="polite"></div>
+    <div id="st-out" aria-live="polite"></div>
   </section>
 
   <section class="tool" id="the-tich" aria-labelledby="vol-h">
@@ -31,6 +32,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
       <label>Dài (cm) <input name="l" type="number" inputmode="numeric" min="10" max="400" value="60" /></label>
       <label>Rộng (cm) <input name="w" type="number" inputmode="numeric" min="10" max="200" value="30" /></label>
       <label>Cao (cm) <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
+      <label>Lọc (lít/giờ, không bắt buộc) <input name="flow" type="number" inputmode="numeric" min="0" max="20000" placeholder="vd. 600" /></label>
     </form>
     <p id="vol-out" class="out" aria-live="polite"></p>
     <p class="note">Bể lục giác, trụ tròn, bể góc, chữ L, hoặc cần biết kính dày bao nhiêu: <a href="/vi/cong-cu/the-tich-be/">tính theo 12 kiểu bể →</a></p>
@@ -53,6 +55,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   import type { SpeciesIndexItem } from '../../../scripts/filter'
   import { checkTankmates, TEMPERAMENT_LABELS } from '../../../scripts/tankmates'
   import { heaterWatts, tankVolume } from '../../../scripts/calc'
+  import { stocking } from '../../../scripts/stocking'
 
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
@@ -61,16 +64,25 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   const LABEL = { tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)' } as const
   const unit = (f: keyof typeof LABEL) => (f === 'tempC' ? '°C' : '')
   const rng = (r: { min: number; max: number }) => (r.min === r.max ? fmt(r.min) : `${fmt(r.min)}–${fmt(r.max)}`)
+  const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
 
-  // Tank-mates: chosen species live in the URL (?ca=slug,slug) so a result can be shared.
+  // Tank-mates: chosen species and their numbers live in the URL (?ca=slug:6,slug:2) so a result can be shared.
   const params = new URLSearchParams(location.search)
-  let chosen: SpeciesIndexItem[] = (params.get('ca') ?? '').split(',').map(s => items.find(i => i.slug === s)).filter((i): i is SpeciesIndexItem => !!i).slice(0, 6)
+  const counts = new Map<string, number>()
+  let chosen: SpeciesIndexItem[] = (params.get('ca') ?? '').split(',').map(s => {
+    const [slug, n] = s.split(':')
+    const hit = items.find(i => i.slug === slug)
+    if (hit && Number(n) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
+    return hit
+  }).filter((i): i is SpeciesIndexItem => !!i).slice(0, 6)
+  const count = (c: SpeciesIndexItem) => counts.get(c.slug) ?? c.schoolMin ?? 1
   function renderTankmates() {
     const url = new URL(location.href)
-    if (chosen.length) url.searchParams.set('ca', chosen.map(c => c.slug).join(',')); else url.searchParams.delete('ca')
+    if (chosen.length) url.searchParams.set('ca', chosen.map(c => `${c.slug}:${count(c)}`).join(',')); else url.searchParams.delete('ca')
     history.replaceState(null, '', url)
-    $('tm-chosen').innerHTML = chosen.map((c, i) => `<li><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a> <button type="button" data-rm="${i}" aria-label="Bỏ ${esc(c.name)}">×</button></li>`).join('')
-    if (chosen.length < 2) { $('tm-out').innerHTML = '<p class="hint">Thêm ít nhất 2 loài.</p>'; return }
+    $('tm-chosen').innerHTML = chosen.map((c, i) => `<li><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a> <input type="number" inputmode="numeric" min="1" max="200" value="${count(c)}" data-qty="${i}" aria-label="Số con ${esc(c.name)}" /> <button type="button" data-rm="${i}" aria-label="Bỏ ${esc(c.name)}">×</button></li>`).join('')
+    renderStocking()
+    if (chosen.length < 2) { $('tm-out').innerHTML = chosen.length ? '' : '<p class="hint">Thêm loài cá bạn định nuôi.</p>'; return }
     const r = checkTankmates(chosen)
     const cell = (c: SpeciesIndexItem, f: keyof typeof LABEL) => (c[f] ? `${rng(c[f]!)}${unit(f)}` : '—')
     const rows = chosen.map(c => `<tr><th scope="row"><a href="/vi/ca/${c.slug}/">${esc(c.name)}</a></th>${r.params.map(p => `<td>${cell(c, p.field)}</td>`).join('')}<td>${c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—'}</td><td>${c.temperament ? TEMPERAMENT_LABELS[c.temperament] : '—'}</td></tr>`)
@@ -95,18 +107,49 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
     input.value = ''
     renderTankmates()
   })
+  $('tm-chosen').addEventListener('input', e => {
+    const q = (e.target as Element).closest<HTMLInputElement>('[data-qty]')
+    const n = Math.round(Number(q?.value))
+    if (q && n > 0) { counts.set(chosen[Number(q.dataset.qty)]!.slug, Math.min(200, n)); renderTankmates() }
+  })
   $('tm-chosen').addEventListener('click', e => {
     const b = (e.target as Element).closest<HTMLButtonElement>('[data-rm]')
     if (b) { chosen.splice(Number(b.dataset.rm), 1); renderTankmates() }
   })
+
+  // Stocking: the chosen fish against the tank size and filter in the calculator below.
+  const LEVEL = {
+    light: ['Còn thưa', 'thả thêm được.'], ok: ['Vừa phải', 'bể ổn định với lọc và thay nước thường lệ.'],
+    full: ['Đã đầy', 'cần lọc tốt và thay nước đều mỗi tuần.'], over: ['Quá tải', 'bớt cá hoặc dùng bể lớn hơn.'],
+  } as const
+  function renderStocking() {
+    const v = $<HTMLFormElement>('vol-form')
+    const [l, w, ht, flow] = [num(v, 'l'), num(v, 'w'), num(v, 'h'), num(v, 'flow')]
+    if (!chosen.length || !(l > 0 && w > 0 && ht > 0)) { $('st-out').innerHTML = ''; return }
+    const vol = tankVolume(l, w, ht)
+    const r = stocking(chosen.map(c => ({ name: c.name, count: count(c), sizeCm: c.sizeCm, schoolMin: c.schoolMin, tankCm: c.tankCm })), vol.water, { tankCm: l, filterLph: flow, grossLitres: vol.litres })
+    const [label, advice] = LEVEL[r.level]
+    const notes = [
+      ...r.school.map(s => `${esc(s.name)} sống theo đàn: nên nuôi từ ${s.min} con (đang chọn ${s.count}).`),
+      ...r.tooShort.map(s => `${esc(s.name)} cần bể dài từ ${fmt(s.tankCm)} cm.`),
+      ...(r.unknown.length ? [`Chưa có kích thước của ${r.unknown.map(esc).join(', ')}: chưa tính vào mật độ.`] : []),
+      ...(r.turnover === undefined ? [] : r.turnover < 4 ? [`Lọc chạy ${fmt(r.turnover)} lần thể tích bể mỗi giờ: hơi yếu, nên 4–10 lần.`] : r.turnover > 10 ? [`Lọc chạy ${fmt(r.turnover)} lần thể tích bể mỗi giờ: dòng mạnh, cá bơi yếu như betta, cá đuôi dài dễ bị cuốn.`] : []),
+    ]
+    $('st-out').innerHTML = `<h3>Mật độ cá</h3>`
+      + `<div class="meter ${r.level}" role="img" aria-label="${fmt(r.percent, 0)}%"><span style="width:${Math.min(100, r.percent / 1.5)}%"></span><i style="left:${100 / 1.5}%"></i></div>`
+      + `<p><strong>${fmt(r.percent, 0)}% · ${label}</strong>: ${advice} Bể ${fmt(l)} × ${fmt(w)} × ${fmt(ht)} cm, khoảng ${fmt(vol.water, 0)} lít nước.</p>`
+      + (r.perFish.length > 1 ? `<ul class="shares">${r.perFish.map(f => `<li>${esc(f.name)}: ${fmt(f.share * 100, 0)}%</li>`).join('')}</ul>` : '')
+      + (notes.length ? `<ul class="warn">${notes.map(n => `<li>${n}</li>`).join('')}</ul>` : '')
+      + `<p class="note">Ước theo kích thước cá trưởng thành (cá lớn thải nhiều hơn hẳn cá nhỏ), cho bể có lọc. Cây thủy sinh nhiều, thay nước thường xuyên thì nuôi được dày hơn một chút.</p>`
+  }
   renderTankmates()
 
   // Calculators: recompute on every input; ?l=&w=&h= (cm) fills the tank size (links from the tank volume page).
   for (const k of ['l', 'w', 'h']) { const v = params.get(k); if (v) ($<HTMLFormElement>('vol-form').elements.namedItem(k) as HTMLInputElement).value = v }
-  const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
   function renderCalc() {
     const v = $<HTMLFormElement>('vol-form'), h = $<HTMLFormElement>('heat-form')
     const [l, w, ht] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
+    renderStocking()
     if (!(l > 0 && w > 0 && ht > 0)) { $('vol-out').textContent = 'Nhập đủ dài, rộng, cao.'; $('heat-out').textContent = ''; return }
     const vol = tankVolume(l, w, ht)
     $('vol-out').innerHTML = `<strong>${fmt(vol.litres, 0)} lít</strong> theo kích thước, thực tế khoảng <strong>${fmt(vol.water, 0)} lít nước</strong> (≈ ${fmt(vol.water, 0)} kg, chưa tính kính, nền và đá).`
@@ -142,6 +185,16 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   :global(#tm-out .na), :global(#tm-out .hint) { color: var(--c-ink-faint); }
   :global(#tm-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
   :global(#tm-out .info) { padding-left: 1.2em; }
+  :global(.chips input) { width: 3.6rem; font: inherit; font-size: 0.9rem; padding: 0.1rem 0.3rem; border: 1px solid var(--c-rule); border-radius: 6px; background: var(--c-paper); color: var(--c-ink); }
+  :global(#st-out h3) { font-size: var(--step-1); margin: var(--space-4) 0 var(--space-2); }
+  :global(#st-out .meter) { position: relative; height: 0.7rem; border-radius: 999px; background: var(--c-plate); border: 1px solid var(--c-rule); max-width: 32rem; }
+  :global(#st-out .meter span) { display: block; height: 100%; border-radius: 999px; background: var(--c-moss); }
+  :global(#st-out .meter.full span) { background: #c9a227; }
+  :global(#st-out .meter.over span) { background: var(--c-cardinal); }
+  :global(#st-out .meter i) { position: absolute; top: -0.25rem; bottom: -0.25rem; width: 2px; background: var(--c-ink); }
+  :global(#st-out .shares) { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); padding: 0; list-style: none; color: var(--c-ink-soft); font-size: 0.9rem; }
+  :global(#st-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
+  :global(#st-out .note) { font-size: var(--step--1); color: var(--c-ink-soft); }
   @media (max-width: 640px) {
     :global(#tm-out th), :global(#tm-out td) { padding: var(--space-2); }
     :global(#tm-out tbody th) { min-width: 7rem; }

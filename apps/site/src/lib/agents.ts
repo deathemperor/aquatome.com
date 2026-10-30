@@ -8,7 +8,7 @@ const SECTIONS = [
   ['/vi/cay/', 'Cây', 'aquarium plant profiles'],
   ['/vi/huong-dan/', 'Hướng dẫn', 'guides: tank setup, care, breeding, planting'],
   ['/vi/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
-  ['/vi/cong-cu/', 'Công cụ', 'tools: tank-mates checker, tank volume and heater wattage calculators'],
+  ['/vi/cong-cu/', 'Công cụ', 'tools: tank-mates and stocking checker, tank volume and heater wattage calculators'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
   ['/vi/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
 ] as const
@@ -60,10 +60,11 @@ Request the page URL with \`Accept: text/markdown\` to get Markdown instead of H
 \`description\`; the body starts with a fact list (\`- **Nhiệt độ:** 23–26°C\`, \`pH\`, \`Độ cứng (dGH)\`, \`Kích thước\`, \`Độ khó\`),
 then sections such as "Nước cần thế nào?" (water), "Nuôi ở Việt Nam" (keeping it in Vietnam's climate) and the credited source.
 
-## Check tank mates
+## Check tank mates and stocking
 
-Link a person to ${u('/vi/cong-cu/')}?ca=<slug>,<slug> (up to 6 slugs) to see whether species can share a tank:
-overlapping temperature, pH and hardness, size and temperament.
+Link a person to ${u('/vi/cong-cu/')}?ca=<slug>:<count>,<slug>:<count> (up to 6 species; the count is optional) to see
+whether species can share a tank (overlapping temperature, pH and hardness, size and temperament) and how full the tank
+would be. Add &l=<cm>&w=<cm>&h=<cm> for the tank size (default 60 × 30 × 36 cm).
 
 ## Rules
 
