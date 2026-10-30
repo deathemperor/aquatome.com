@@ -1,6 +1,7 @@
 name: engine
 # The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
-# framework, and the page fetcher drives a real (headed) Chrome. Commits content and deploys (scripts/engine-cycle.sh).
+# framework, and the page fetcher drives a real (headed) Chrome. Three parallel jobs (scripts/engine-cycle.sh <part>), each
+# testing, committing and deploying its own content, so a failure in one loses only that part's work.
 on:
   schedule:
     - cron: '23 */3 * * *'
@@ -17,9 +18,22 @@ concurrency:
   cancel-in-progress: false
 permissions:
   contents: write
+  actions: write # each job starts deploy.yml
 jobs:
   cycle:
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - part: pages
+            os: macos-latest
+          - part: photos
+            os: macos-latest
+          # Only the model: no Chrome, no Vision.
+          - part: rewrite
+            os: ubuntu-latest
+    name: ${{ matrix.part }}
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 355
     env:
       ENGINE_ARGS: ${{ inputs.engine_args }}
@@ -36,15 +50,17 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
-      - run: brew install yt-dlp
-      - run: scripts/engine-cycle.sh
+      - if: runner.os == 'macOS'
+        run: brew install yt-dlp
+      - run: scripts/engine-cycle.sh ${{ matrix.part }}
         env:
+          GH_TOKEN: ${{ github.token }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Videos on species pages (YouTube Data API search, 10,000 units/day).
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: engine-test-log
+          name: engine-test-log-${{ matrix.part }}
           path: /tmp/thuysinh-engine-test.log
           if-no-files-found: ignore
