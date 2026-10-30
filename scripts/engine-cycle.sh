@@ -3,7 +3,7 @@
 # The steps come in four parts that GitHub runs as parallel jobs (engine.yml), each publishing its own work, so one
 # failing part loses only its own: pages (new pages from every source but Seriously Fish, with their photos screened and
 # stored), sf (the same for Seriously Fish, whose ~1,800-page backlog would otherwise take most of the pages job),
-# photos (upkeep of the photos on every page), rewrite (older Vietnamese). No argument: all four, one after another.
+# photos (upkeep of the photos on every page), rewrite (older Vietnamese, and Indonesian and Thai species pages). No argument: all four, one after another.
 # Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
 set -euo pipefail
 # The job's PATH first (GitHub Actions: setup-node's Node), then the owner's Mac tool dirs (launchd).
@@ -105,6 +105,13 @@ fi
 if part rewrite; then
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
+  # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
+  for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-8}" || log "localize $lang: failed"; done
+  # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
+  if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
+    && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
+    pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
+  fi
 fi
 if [ -z "$(git status --porcelain -- content sources)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
@@ -120,11 +127,12 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
   fi
   log "no content changes"; exit 0
 fi
-# Real content must build (the test suite builds fixtures), then the suite must pass.
-if ! { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
+# Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
+# Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
+if ! { I18N_LENIENT=1 pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
   log "build/tests failed, not publishing (see /tmp/thuysinh-engine-test.log)"; exit 1
 fi
-git add content sources engine-state docs/review
+git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 push || exit 1
 deploy || log "deploy: could not start it (the next push or merge deploys this content too)"
