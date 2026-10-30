@@ -6,9 +6,11 @@ import { LlmError, type Llm } from './claude'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
+import { TARGETS, type TargetLang } from './localize'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
+const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }
 type CareField = 'tempC' | 'ph' | 'gh' | 'sizeCm' | 'tankCm'
@@ -74,11 +76,22 @@ const WRITE_SCHEMA = {
   },
 }
 type Written = { name: string; altNames: string[]; parentNames?: string[]; summary: string[]; body: string; faq: { q: string; a: string }[] }
+const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
 const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 const BOUNDS: Record<CareField, [number, number]> = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000] }
+
+/** Research → what a page may use: only web links are kept as sources (`at`: a source's position among them), and a fact
+ * whose source was dropped goes with it, so every claim on the page is cited. */
+function webFacts(r: BreedFacts) {
+  const web = r.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
+  const at = (i: number) => (web[i] ? web.slice(0, i).filter(Boolean).length : -1)
+  const cited = <T extends { source: number }>(xs: T[]) => xs.filter(x => at(x.source) >= 0)
+  const facts: BreedFacts = { ...r, viNames: cited(r.viNames), parents: cited(r.parents), origin: cited(r.origin), looks: cited(r.looks), lines: cited(r.lines), care: cited(r.care), keeping: cited(r.keeping), breeding: cited(r.breeding), health: cited(r.health), buying: cited(r.buying), controversy: cited(r.controversy) }
+  return { web, at, facts }
+}
 
 /** Scientific name → species id, from the species pages we have. */
 async function speciesIds(content: string): Promise<Map<string, string>> {
@@ -114,13 +127,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   if (!kept) { await mkdir(join(root, 'engine-state/breeds'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
 
-  // Only web links are kept as sources; every fact's source number follows its source to the new position.
-  const web = researched.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
-  const at = (i: number) => (web[i] ? web.slice(0, i).filter(Boolean).length : -1)
-  // A fact whose source was dropped goes with it: every claim on the page is cited.
-  const cited = <T extends { source: number }>(xs: T[]) => xs.filter(x => at(x.source) >= 0)
-  const r = researched
-  const facts: BreedFacts = { ...r, viNames: cited(r.viNames), parents: cited(r.parents), origin: cited(r.origin), looks: cited(r.looks), lines: cited(r.lines), care: cited(r.care), keeping: cited(r.keeping), breeding: cited(r.breeding), health: cited(r.health), buying: cited(r.buying), controversy: cited(r.controversy) }
+  const { web, at, facts } = webFacts(researched)
   const ids = await speciesIds(content)
   // "Vieja melanurus (syn. Vieja synspila)": the name before any synonym note.
   const sci = (name?: string) => name?.replace(/\s*\(.*$/, '').trim() || undefined
@@ -193,6 +200,55 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
   }
   return { id, slug: vi.slug, score: review.score, notes: review.notes, photos: `${photos.length} of ${seen}` }
+}
+
+/**
+ * A breed page in another site language, written afresh from the same research (engine-state/breeds/<id>.json) rather
+ * than translated: the Vietnamese names stay on the Vietnamese page, the rest is written for that country's hobbyists and
+ * checked against the facts like the Vietnamese one (one rewrite with the checker's notes). content/breeds/<id>/<lang>.json;
+ * skipped once done unless redo, and a redo keeps the address. Thai pages are addressed by an English slug the writer gives.
+ */
+export async function localizeBreed(root: string, llm: Llm, id: string, lang: TargetLang, o: { model?: string; redo?: boolean } = {}) {
+  const dir = join(root, 'content/breeds', id)
+  const file = join(dir, `${lang}.json`)
+  if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
+  const { facts } = webFacts(JSON.parse(await readFile(join(root, 'engine-state/breeds', `${id}.json`), 'utf8')) as BreedFacts)
+  const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
+  const T = TARGETS[lang]
+  const forWriter = { name: facts.enNames[0] ?? id, kind: facts.kind, enNames: facts.enNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }
+  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS ---\n${JSON.stringify(forWriter, null, 1)}`
+  const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium fish profiles from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
+  const check = async (x: Written) => {
+    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
+  }
+  let w = await write()
+  let review = await check(w)
+  if (review.score < QUALITY_THRESHOLD || review.notes.length) {
+    const again = await write(review.notes)
+    const r = await check(again)
+    if (r.score > review.score) { w = again; review = r }
+  }
+  // Breeds share /ca/ with the species: an address neither has in this language.
+  const taken = new Set<string>()
+  for (const kind of ['species', 'breeds']) for (const x of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
+    if (kind === 'breeds' && x === id) continue
+    const t = JSON.parse(await readFile(join(root, 'content', kind, x, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+    if (t.slug) taken.add(t.slug)
+  }
+  const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
+  const name = w.name.trim()
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
+  // The Vietnamese page's own names are not names in this language.
+  const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
+  const t = TranslationSchema.parse({
+    slug, name, altNames: [...new Set(w.altNames.map(n => n.trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
+    sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
+    quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+  })
+  await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  return { id, slug, score: review.score, notes: review.notes }
 }
 
 /**

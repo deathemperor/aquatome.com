@@ -109,7 +109,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
 export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */
@@ -128,6 +128,9 @@ export function served(lang: Lang, viPath: string): boolean {
   const path = viPath.replace(/[?#].*$/, '')
   return ps.some(p => p.test(path))
 }
+
+/** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
+export const isVietnamese = (s: string) => /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i.test(s)
 
 /** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
 export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)

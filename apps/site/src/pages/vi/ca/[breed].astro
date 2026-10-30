@@ -18,7 +18,8 @@ import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { guidesMentioning, linkTargets } from '../../../lib/mentions'
 import { BREED_KIND, basedOn, breedGallery, breedsOf, careCard, type Breed } from '../../../lib/breeds'
 import { dmy } from '../../../lib/products'
-import { i18n, langOf } from '../../../lib/i18n'
+import { i18n, isVietnamese, langOf } from '../../../lib/i18n'
+import { alternatesOf } from '../../../lib/alternates'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.breeds.map(b => ({ params: { breed: b.t.slug }, props: { b } }))
@@ -47,8 +48,9 @@ const jsonld = [
   ...(b.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: b.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ]
 const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
+const alternates = await alternatesOf('breeds', b.id)
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
@@ -62,7 +64,7 @@ const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.na
       {b.parents.length > 0 && (
         <p class="parents">{t('Lai từ:')} {b.parents.map((p, i) => {
           const s = p.species ? species.get(p.species) : undefined
-          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : p.name}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
+          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : (b.t.parents?.[i] ?? p.name)}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
         })}</p>
       )}
       {b.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
@@ -86,13 +88,13 @@ const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.na
 
   <GuideLinks guides={mentioning.filter(g => !g.video)} heading={t('Bài viết nhắc đến')} />
   <VideoGuideGrid guides={mentioning.filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
-  <ReaderPhotos entity={key} name={b.t.name} />
+  {lang === 'vi' && <ReaderPhotos entity={key} name={b.t.name} />}
 
   <section class="wrap sources" aria-labelledby="src-h">
     <h2 id="src-h">{t('Nguồn')}</h2>
-    <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
+    <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(s.title) ? 'vi' : undefined}>{s.title}</a>{lang !== 'vi' && isVietnamese(s.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
   </section>
-  <div class="wrap"><Comments entity={key} /></div>
+  {lang === 'vi' && <div class="wrap"><Comments entity={key} /></div>}
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
