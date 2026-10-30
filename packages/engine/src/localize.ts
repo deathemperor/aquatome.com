@@ -10,6 +10,7 @@ const WRITE = readFileSync(new URL('./prompts/localize.md', import.meta.url), 'u
 const REVIEW = readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8')
 const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.meta.url), 'utf8')
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
+const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
 
 /** Site languages besides Vietnamese, and how each is written. */
 export const TARGETS = {
@@ -217,6 +218,51 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
   for (const { f, t } of all) {
     const kept = t.altNames.filter(linkable)
     if (kept.length !== t.altNames.length) await writeFile(f, `${JSON.stringify({ ...t, altNames: kept }, null, 2)}\n`)
+  }
+  return report
+}
+
+const PLACES_SCHEMA = { type: 'object', required: ['places'], properties: { places: { type: 'array', items: { type: 'object', required: ['id', 'name'], properties: { id: { type: 'string' }, name: { type: 'string' } } } } } }
+const VIETNAMESE = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i
+
+/**
+ * Place names (continents, countries, rivers, regions) in another site language, in batches, each batch checked once by
+ * a reviewer. content/places/<id>/<lang>.json (addressed by the place's id, as in Vietnamese). A place left without a
+ * name, or given a Vietnamese one, is not written (asked again next time); places already done are skipped unless redo.
+ */
+export async function localizePlaces(root: string, llm: Llm, lang: TargetLang, o: { redo?: boolean; model?: string; batch?: number } = {}) {
+  const dir = join(root, 'content/places')
+  const todo: { id: string; line: string }[] = []
+  for (const id of (await readdir(dir)).sort()) {
+    if (!o.redo && (await readFile(join(dir, id, `${lang}.json`), 'utf8').then(() => true, () => false))) continue
+    const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string }
+    const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
+    todo.push({ id, line: `### ${id} (${e.kind}${e.parent ? `, in ${e.parent}` : ''}): ${vi.name ?? id}` })
+  }
+  const report = { done: [] as string[], failed: [] as string[], stopped: '', reviews: [] as string[] }
+  const size = o.batch ?? 100
+  for (let i = 0; i < todo.length; i += size) {
+    const batch = todo.slice(i, i + size)
+    try {
+      const w = await llm<{ places: { id: string; name: string }[] }>({ system: `You name places in ${TARGETS[lang].lang}. Reply only with JSON.`, schema: PLACES_SCHEMA, model: o.model, prompt: `${fill(PLACES, lang)}\n\n--- PLACES ---\n${batch.map(x => x.line).join('\n')}` })
+      const named = new Map(w.places.map(p => [p.id, p.name.trim()]))
+      const r = await llm<{ score: number; notes: string[] }>({
+        system: `You check ${TARGETS[lang].lang} place names. Reply only with JSON.`, schema: REVIEW_SCHEMA,
+        prompt: `Score 0–1 how correct these ${TARGETS[lang].lang} place names are, as an atlas in ${TARGETS[lang].country} writes them (1.0 all right; below 0.75 any wrong place, or a name not in ${TARGETS[lang].lang}). notes: the wrong ones, quoted.\n\n${batch.map(x => `${x.line} → ${named.get(x.id) || '(none)'}`).join('\n')}`,
+      })
+      const score = Math.min(1, Math.max(0, Number(r.score) || 0))
+      report.reviews.push(`${batch[0]!.id}…: ${score}${r.notes?.length ? `\n  - ${r.notes.slice(0, 10).join('\n  - ')}` : ''}`)
+      for (const x of batch) {
+        const name = named.get(x.id) ?? ''
+        if (!name || VIETNAMESE.test(name)) { report.failed.push(`${x.id}: no name`); continue }
+        const t = TranslationSchema.parse({ slug: x.id, name, altNames: [], sections: {}, quality: { score, indexable: score >= QUALITY_THRESHOLD } })
+        await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
+        report.done.push(x.id)
+      }
+    } catch (err) {
+      if (err instanceof LlmError) { report.stopped = (err as Error).message; break }
+      report.failed.push(...batch.map(x => `${x.id}: ${(err as Error).message.slice(0, 200)}`))
+    }
   }
   return report
 }

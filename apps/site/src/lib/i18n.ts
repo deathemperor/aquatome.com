@@ -109,7 +109,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
 export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */
@@ -121,7 +121,8 @@ export function served(lang: Lang, viPath: string): boolean {
   if (lang === 'vi') return true
   let ps = patterns.get(lang)
   if (!ps) {
-    ps = PAGES[lang].map(f => new RegExp(`^/vi/${segments(f).map(s => (s.startsWith('[...') ? '.+' : s.startsWith('[') ? '[^/]+' : s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) + '/').join('')}$`))
+    // A [...rest] segment also matches nothing: the section's own index (/vi/nguon-goc/).
+    ps = PAGES[lang].map(f => new RegExp(`^/vi/${segments(f).map(s => (s.startsWith('[...') ? '(?:.+/)?' : `${s.startsWith('[') ? '[^/]+' : s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/`)).join('')}$`))
     patterns.set(lang, ps)
   }
   const path = viPath.replace(/[?#].*$/, '')

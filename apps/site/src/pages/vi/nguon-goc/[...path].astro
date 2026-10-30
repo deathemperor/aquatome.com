@@ -5,6 +5,7 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesWhere } from '../../../lib/alternates'
 
 const { t } = i18n(Astro.url)
 const INTROS: Record<string, string> = {
@@ -13,13 +14,17 @@ const INTROS: Record<string, string> = {
 const TITLES: Record<string, string> = { vietnam: t('Cá Việt Nam') }
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
-  const c = await getContent(langOf(routePattern))
-  const tops = c.places.filter(p => p.kind === 'continent')
+  const lang = langOf(routePattern)
+  const c = await getContent(lang)
   const of = (id: string) => c.species.filter(s => s.places.includes(id))
+  // The other languages' species pages are still being made: there, only places with a fish that has a page in the
+  // language (no empty pages, no links to them). Vietnamese keeps every place it has always had.
+  const places = lang === 'vi' ? c.places : c.places.filter(p => of(p.id).length > 0)
+  const tops = places.filter(p => p.kind === 'continent')
   const index = { params: { path: undefined }, props: { place: undefined, species: [] as Localized<SpeciesEntity>[], kids: tops } }
-  const continents = tops.map(p => ({ params: { path: p.id }, props: { place: p, species: of(p.id), kids: c.places.filter(x => x.parent === p.id && x.kind === 'country'), parent: undefined } }))
-  const countries = c.places.filter(p => p.kind === 'country' && p.parent).map(p => ({
-    params: { path: `${p.parent}/${p.id}` }, props: { place: p, species: of(p.id), kids: c.places.filter(x => x.parent === p.id), parent: c.places.find(x => x.id === p.parent) },
+  const continents = tops.map(p => ({ params: { path: p.id }, props: { place: p, species: of(p.id), kids: places.filter(x => x.parent === p.id && x.kind === 'country'), parent: undefined } }))
+  const countries = places.filter(p => p.kind === 'country' && p.parent).map(p => ({
+    params: { path: `${p.parent}/${p.id}` }, props: { place: p, species: of(p.id), kids: places.filter(x => x.parent === p.id), parent: places.find(x => x.id === p.parent) },
   }))
   return [index, ...continents, ...countries]
 }
@@ -27,9 +32,11 @@ const { place, species, kids, parent } = Astro.props as { place?: Localized<Plac
 const name = place ? TITLES[place.id] ?? place.t.name : t('Nguồn gốc')
 const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', t('Nguồn gốc')], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, parent.t.name] as [string, string]] : [])] : []
 const intro = place ? INTROS[place.id] ?? t('{n} loài có nguồn gốc từ {place}.', { n: species.length, place: place.t.name }) : t('Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.')
+// The same place in another language: named there (the index always is).
+const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.map(s => s.photos[0]))}>
+<Browse title={name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
   )}

@@ -6,6 +6,7 @@ import { getContent } from '../../../lib/content'
 import { groupLabel } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesWhere } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -15,7 +16,8 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { group } = Astro.params
 const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
 const { t } = i18n(Astro.url)
+const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => s.group === group))
 ---
-<Browse title={t(groupLabel(group!))} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))}>
+<Browse title={t(groupLabel(group!))} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
   <SpeciesGrid species={species} heading={t('Danh sách loài')} />
 </Browse>

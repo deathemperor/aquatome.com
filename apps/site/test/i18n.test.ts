@@ -52,9 +52,9 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(served('id', '/vi/ca/x/?q=1')).toBe(true)
   expect(served('id', '/vi/ca/x/anh/')).toBe(false)
   expect(served('th', '/vi/cong-cu/the-tich-be/')).toBe(true)
-  expect(served('th', '/vi/phan-loai/a/b/')).toBe(false)
-  expect(localizeLinks('<a href="/vi/phan-loai/a/" class="x">Cyprinidae</a> <a href="/vi/ca/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>', 'id', ''))
-    .toBe('Cyprinidae <a href="/id/ikan/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>')
+  expect(served('th', '/vi/thiet-bi/loc/')).toBe(false)
+  expect(localizeLinks('<a href="/vi/thiet-bi/loc/" class="x">Filter</a> <a href="/vi/ca/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>', 'id', ''))
+    .toBe('Filter <a href="/id/ikan/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>')
   expect(toVi('/id/ikan/x/foto/')).toBe('/vi/ca/x/anh/')
   expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
@@ -74,4 +74,12 @@ test('every UI translation keeps its {placeholders} and Pagefind [PLACEHOLDERS]'
     const lost = Object.entries(dict).filter(([vi, tr]) => marks(vi).join() !== marks(tr).join()).map(([vi]) => vi)
     expect(lost, lang).toEqual([])
   }
+})
+
+test('a [...rest] page is served at its index too', async () => {
+  const { served } = await import('../src/lib/i18n')
+  expect(served('id', '/vi/nguon-goc/')).toBe(true)
+  expect(served('id', '/vi/nguon-goc/asia/indonesia/')).toBe(true)
+  expect(served('th', '/vi/phan-loai/')).toBe(true)
+  expect(served('id', '/vi/thiet-bi/')).toBe(false)
 })

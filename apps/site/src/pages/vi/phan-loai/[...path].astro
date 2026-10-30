@@ -5,6 +5,7 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesWhere } from '../../../lib/alternates'
 
 type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -28,6 +29,8 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 }
 const { node, kids } = Astro.props as { node: Node; kids: Node[] }
 const { t } = i18n(Astro.url)
+// The same taxon in another language: some species of it has a page there.
+const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => node.path.every((x, i) => x === [s.order, s.family, s.genus][i]!.toLowerCase())))
 const level = [t('Phân loại'), t('Bộ'), t('Họ'), t('Chi')][node.path.length]!
 const first = node.species[0]!
 const crumbNames = [first.order, first.family]
@@ -35,8 +38,9 @@ const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t('Phân loại')], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
-<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')}>
-  {node.path.length === 3 && <span slot="heading" class="sci">{node.name}</span>}
+<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
+  {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
+  <span slot="heading" class:list={{ sci: node.path.length === 3 }}>{node.path.length ? node.name : t('Phân loại')}</span>
   {kids.length > 0 && (
     <ul class="kids">
       {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}

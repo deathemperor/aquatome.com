@@ -28,6 +28,7 @@ export const GET: APIRoute = async ({ site }) => {
     if (served(lang, '/vi/ca/x/')) paths.push(...t.species.filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
     if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
+    for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) if (served(lang, index)) paths.push(localizePath(lang, index))
     if (served(lang, '/vi/thuat-ngu/x/')) paths.push(...t.glossary.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/thuat-ngu/${g.t.slug}/`)))
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map(p => `  <url><loc>${new URL(p, site).href}</loc></url>`).join('\n')}\n</urlset>\n`
