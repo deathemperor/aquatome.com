@@ -22,24 +22,25 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 355
     env:
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
-      CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
       ENGINE_ARGS: ${{ inputs.engine_args }}
       ENGINE_MAX_MINUTES: ${{ inputs.max_minutes || '150' }}
       VIDEO_MAX_MINUTES: '45'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup
-        with:
-          engine: 'true'
+      - uses: ./.github/actions/engine-config
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
       - run: brew install yt-dlp
       - run: scripts/engine-cycle.sh
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       - if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: engine-test-log
           path: /tmp/thuysinh-engine-test.log

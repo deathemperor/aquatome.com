@@ -1,28 +1,14 @@
 name: setup
-description: Node + pnpm + dependencies; for engine jobs also the Claude CLI and the owner's config files the scripts read.
-inputs:
-  engine:
-    description: Install the Claude CLI and write ~/.config/thuysinh from the job's env (CLOUDFLARE_API_TOKEN, AB_DASH_TOKEN, CF_ACCOUNT_ID).
-    default: 'false'
+description: Node + pnpm + dependencies. Sees no secrets.
 runs:
   using: composite
   steps:
-    - uses: pnpm/action-setup@v4
+    - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
       with:
         version: 12.4.1
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version-file: .nvmrc
         cache: pnpm
     - run: pnpm install --frozen-lockfile
       shell: bash
-    - if: inputs.engine == 'true'
-      shell: bash
-      run: |
-        npm install -g @anthropic-ai/claude-code
-        umask 077 && mkdir -p ~/.config/thuysinh
-        printf '%s' "$CLOUDFLARE_API_TOKEN" > ~/.config/thuysinh/cf-token
-        printf '%s' "$AB_DASH_TOKEN" > ~/.config/thuysinh/ab-dash-token
-        printf '%s' "$CF_ACCOUNT_ID" > ~/.config/thuysinh/cf-account
-        git config user.name 'aquatome-engine'
-        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

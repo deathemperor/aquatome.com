@@ -1,0 +1,14 @@
+name: engine-config
+description: Claude CLI, the owner's ~/.config/thuysinh files the scripts read (from this step's env), git identity. No third-party code.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        npm install -g @anthropic-ai/claude-code
+        umask 077 && mkdir -p ~/.config/thuysinh
+        printf '%s' "$CLOUDFLARE_API_TOKEN" > ~/.config/thuysinh/cf-token
+        printf '%s' "$AB_DASH_TOKEN" > ~/.config/thuysinh/ab-dash-token
+        printf '%s' "$CF_ACCOUNT_ID" > ~/.config/thuysinh/cf-account
+        git config user.name 'aquatome-engine'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
