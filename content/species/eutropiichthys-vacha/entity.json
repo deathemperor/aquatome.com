@@ -1,0 +1,165 @@
+{
+  "id": "eutropiichthys-vacha",
+  "scientificName": "Eutropiichthys vacha",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Eutropiichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "mahanadi",
+    "nepal",
+    "bhutan",
+    "bangladesh",
+    "pakistan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Size: 25 cm (10 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 6.5–7.2</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "html": "<p>Asia: Northern India, south to the Mahanadi River, Bangladesh, Nepal and Pakistan. Type locality: larger fresh water rivers of the Gangetic provinces. Eutropiichthys vacha was described from the larger freshwater rivers of the Gangetic provinces (Hamilton 1822) in India, Nepal, Bhutan and Bangladesh (Ferraris and Vari 2007).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "html": "<p>This species inhabits fluviatile habitats, particularly in larger rivers with a sandy or muddy bottom (H.H. Ng 2009). Because it is heavily utilized as a food fish, overfishing is a potential major threat, and published data for parts of its range suggest overfishing is a major cause of local population declines (Mishra et al. 2009). Other threats are unknown, since there is no information on the biology of this species. IUCN Bangladesh (2000) identify habitat loss as a major threat, but this does not appear to be supported by empirical data. IUCN Red List: Least Concern, although close monitoring of harvest levels is needed (IUCN 2010).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "html": "<p>These catfish are constant swimmers and get stressed immediately after catching. Keeping them alive is a challenge as they are extremely fragile and sensitive fish. Unless they are trapped and caught it is nearly impossible to get them and keep them alive. If they survive, it can be a fun species to keep (Mishra, A. 2022).</p><p>Etymology: the genus name Eutropiichthys: Greek, eutropheia = well fed + Greek, ichthys = fish. The specific name vacha: local Gangetic name for ailiid catfishes in India, including this one.</p><p>Remarks: Eutropiichthys vacha is still listed in FishBase as belonging to the Schilbeidae family, but the Catalog of Fishes currently places it in the Ailiidae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "html": "<p>Ferraris, C.J. and R.P. Vari, 2007. Revision of the Catfishes of the genus Eutropiichthys, with the description of two new species (Siluriformes: Schilbidae). Copeia 2007(4):866-885.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (02/2019).</p><p>Mishra, A. pers comm 2022.</p><p>Ng, H.H. 2010. Eutropiichthys vacha. The IUCN Red List of Threatened Species 2010.</p><p>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/261ce2a86725c3f6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/261ce2a86725c3f6-480.webp",
+      "width": 500,
+      "height": 162,
+      "licence": "dùng với sự cho phép",
+      "author": "Mostafa Hossain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "caption": "Eutropiichthys vacha",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f70d0b44c71cf739.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f70d0b44c71cf739-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "caption": "Eutropiichthys vacha",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ec05e1323c4e1dfa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ec05e1323c4e1dfa-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
+      "caption": "Eutropiichthys vacha: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hTZ4e7P59nk",
+      "title": "Eutropiichthys vacha",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PGzrDNzbcmM",
+      "title": "Eutropiichthys vacha",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8g4x3e3PivY",
+      "title": "Ailia coila, Clupisoma bastari, Eutropiichthys vacha, Mahanadi river, Odisha",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9bw9lh0FTPw",
+      "title": "Vis, orde meervalachtigen, familie Glasmeervallen fish mystus Schilbe Siluriformes Eutropiichthys",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước dòng chảy mạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

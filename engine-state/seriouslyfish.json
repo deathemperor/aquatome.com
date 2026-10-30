@@ -2200,11 +2200,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/badis-badis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T03:58:56.065Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/badis-badis"
+    ],
+    "updatedAt": "2026-10-30T13:14:56.423Z",
+    "hash": "b91e7d1a4bc40aa2e3faf09d319b3e3a1d11afa87cddb989cfd753202f3c32d7",
+    "processedHash": "b91e7d1a4bc40aa2e3faf09d319b3e3a1d11afa87cddb989cfd753202f3c32d7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/badis-blosyrus": {
     "entityIds": [],
@@ -2340,11 +2343,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/balantiocheilos-melanopterus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:36.110Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/balantiocheilos-melanopterus"
+    ],
+    "updatedAt": "2026-10-30T13:17:45.239Z",
+    "hash": "e9a80359e7036cd8e6962452a7457003487d5b946b7eed38becf8619b9522160",
+    "processedHash": "e9a80359e7036cd8e6962452a7457003487d5b946b7eed38becf8619b9522160",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/balitoropsis-zollingeri": {
     "entityIds": [],
@@ -2424,11 +2430,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/barbonymus-altus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:36.154Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barbonymus-altus"
+    ],
+    "updatedAt": "2026-10-30T13:22:01.917Z",
+    "hash": "f6cd07bb7841e8854feca13c6d617c5c67f613726d002c1a3d39de6be417f1f4",
+    "processedHash": "f6cd07bb7841e8854feca13c6d617c5c67f613726d002c1a3d39de6be417f1f4",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbonymus-gonionotus": {
     "entityIds": [],
@@ -2473,11 +2482,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/baryancistrus-beggini": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:11.180Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/baryancistrus-beggini"
+    ],
+    "updatedAt": "2026-10-30T13:23:45.146Z",
+    "hash": "d25fa25a988d8e6db8756a1f283947e4f5eb73147e5ac5010d2df0a22bfba816",
+    "processedHash": "d25fa25a988d8e6db8756a1f283947e4f5eb73147e5ac5010d2df0a22bfba816",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/baryancistrus-chrysolomus": {
     "entityIds": [],
@@ -2508,11 +2520,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/batasio-feruminatus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:36.191Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/batasio-feruminatus"
+    ],
+    "updatedAt": "2026-10-30T13:25:40.751Z",
+    "hash": "a2d61dcfb438b41c39f2cad52f2bca8ad98b4b36787ad28021fbde1c9c1158a3",
+    "processedHash": "a2d61dcfb438b41c39f2cad52f2bca8ad98b4b36787ad28021fbde1c9c1158a3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/batasio-fluviatilis": {
     "entityIds": [],
@@ -2571,11 +2586,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/belontia-hasselti": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:21.208Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/belontia-hasselti"
+    ],
+    "updatedAt": "2026-10-30T13:27:19.613Z",
+    "hash": "fbe182a21a584a8488b39e2762c31807147c8616b5fef83f05cbfedd8116ecc7",
+    "processedHash": "fbe182a21a584a8488b39e2762c31807147c8616b5fef83f05cbfedd8116ecc7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/belontia-signata": {
     "entityIds": [],

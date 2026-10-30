@@ -127,14 +127,26 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/3d92116deb4f32e4.webp",
-      "width": 960,
-      "height": 678,
-      "licence": "CC BY-SA 4.0",
-      "author": "Rjcastillo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aulonocara_baenschi_20241123.jpg",
-      "caption": "Aulonocara baenschi, Rio de Janeiro Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/3d92116deb4f32e4-480.webp"
+      "url": "https://media.aquatome.com/seriouslyfish/e54c394dd7c45f9d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e54c394dd7c45f9d-480.webp",
+      "width": 1024,
+      "height": 685,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-baenschi",
+      "caption": "Adult male specimen from Benga.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1014c8ba25e9a3fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1014c8ba25e9a3fd-480.webp",
+      "width": 640,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-baenschi",
+      "caption": "Young adult male specimen; population unspecified.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],

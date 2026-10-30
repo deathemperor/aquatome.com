@@ -1,0 +1,128 @@
+{
+  "id": "eutropiichthys-cetosus",
+  "scientificName": "Eutropiichthys cetosus",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Eutropiichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "kaladan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "html": "<p>Family: Ailiidae. Adult size: 13.0 cm. Temperature: 23-26°C. pH: 6.5-7.2. IUCN Red List: Not Evaluated.</p><p>Eutropiichthys cetosus is still listed in FishBase as belonging to the Schilbeidae family but is updated in The Catalog of Fishes as a member of the Ailiidae family.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "html": "<p>Asia: Kaladan River drainage in southern Mizoram, India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "html": "<p>Found in a clear, slow and moderate flowing river with a depth of 1-4 m.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "html": "<p>Dorsal spines (total): 2; dorsal soft rays (total): 7; anal soft rays: 48-54; vertebrae: 49-52. Eutropiichthys cetosus is distinguished from all congeners, except E. burmannicus, by having more gill rakers (25-35 vs. 15-20) on the first gill arch. It differs from E. burmannicus by a moderately rounded snout in lateral view (vs. distinctly pointed) and slightly trilobed in dorsal view (vs. acutely angular), a deeper head relative to its length (68.7-77.1% HL vs. 65.4-67.5% HL), fewer branched pectoral-fin rays (13-15 vs. 15-17), and a more slender body (depth at dorsal-fin origin 19.2-23.5% SL vs. 23.7-25.3% SL; depth at anal-fin origin 17.5-23.5% SL vs. 23.2-26.3% SL). (Ng et al 2014).</p><p>Etymology: the genus name Eutropiichthys comes from Greek eutropheia = well fed + Greek ichthys = fish. The specific name cetosus derives from the Latin adjective cetus, a large sea animal (commonly a whale), alluding to the numerous gill rakers of this species, reminiscent of baleen in baleen whales.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2024).</p><p>Ng, H.H., Lalramliana, S. Lalronunga and Lalnuntluanga, 2014. Eutropiichthys cetosus, a new riverine catfish (Teleostei: Schilbeidae) from Northeastern India. J. Threat. Taxa 6(8):6073-6081.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/44d7ce72dfdb3faf.webp",
+      "thumb": "https://media.aquatome.com/scotcat/44d7ce72dfdb3faf-480.webp",
+      "width": 500,
+      "height": 206,
+      "licence": "dùng với sự cho phép",
+      "author": "Heok / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "caption": "Eutropiichthys cetosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cdad74f66ceab1ed.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cdad74f66ceab1ed-480.webp",
+      "width": 500,
+      "height": 160,
+      "licence": "dùng với sự cho phép",
+      "author": "Heok / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "caption": "Eutropiichthys cetosus: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/77f175bcb96382cc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/77f175bcb96382cc-480.webp",
+      "width": 500,
+      "height": 172,
+      "licence": "dùng với sự cho phép",
+      "author": "Heo / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm",
+      "caption": "Eutropiichthys cetosus: ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

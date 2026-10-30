@@ -1,0 +1,56 @@
+{
+  "id": "anubias-gracilis",
+  "scientificName": "Anubias gracilis",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "none",
+  "growth": "slow",
+  "placement": [
+    "midground",
+    "background",
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasgracilis(101DCLP)/30574",
+      "html": "<ul><li><strong>Origin:</strong> Africa</li><li><strong>Growth rate:</strong> Slow</li><li><strong>Height:</strong> 10 - 20+ cm</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasgracilis(101DCLP)/30574",
+      "html": "<p>Western Africa is home to several species of Anubias, including this one. The triangular leaves of 5-10 cm on long leaf-stems make Anubias gracilis one of the most elegant. It is hardy and tolerant, a very good beginner's plant. The plant can grow on rock or wood or planted on the bottom. If planted in the bottom, the rhizome, from which leaves and roots appear, must not be covered. If it is, the whole plant will rot and die. Anubias gracilis can be allowed to grow out of the water, but will attain a significant size this way.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/046d3389aa8fc333.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_gracilis_x_A._barteri_var._glabra_kz01.jpg",
+      "caption": "Anubias gracilis x A. barteri var. glabra in Wrocław University Botanical Garden",
+      "thumb": "https://media.aquatome.com/commons/046d3389aa8fc333-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias gracilis",
+        "ráy anubias",
+        "cây thủy sinh bám lũa"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng yếu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

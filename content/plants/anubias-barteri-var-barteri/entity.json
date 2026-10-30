@@ -1,0 +1,81 @@
+{
+  "id": "anubias-barteri-var-barteri",
+  "scientificName": "Anubias barteri var. barteri",
+  "difficulty": 1,
+  "light": "low",
+  "co2": "optional",
+  "growth": "slow",
+  "placement": [
+    "midground",
+    "background",
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasbarterivar.barteri(101A)/4551",
+      "html": "<ul><li>Type: Rhizomatous</li><li>Origin: Africa</li><li>Growth rate: Slow</li><li>Height: 20-30+ cm (average height after two months in the tank)</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasbarterivar.barteri(101A)/4551",
+      "html": "<p>Anubias barteri var. barteri from West Africa is an undemanding plant. It grows somewhat larger than Anubias barteri var. nana but is grown in the same conditions. It is 25-45 cm tall and the creeping rhizome is 10-15 cm or more. Anubias barteri varies considerably in terms of size and leaf shape.</p><p>Like other Anubias species, it is best planted in a shady spot to minimize algae growth on the leaves. If planted on the bottom, the rhizome must not be covered because it tends to rot.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasbarterivar.barteri(101A)/4551",
+      "html": "<p>It is also suitable for terrariums and paludariums. Herbivorous fish do not eat the very tough and robust leaves.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/15f69c8f1993b4aa.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "Bartłomiej Marciniak",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_varegacja_v2.jpg",
+      "caption": "anubias z mutacją varegacji",
+      "thumb": "https://media.aquatome.com/commons/15f69c8f1993b4aa-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/eb3109ff112ceecd.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY 4.0",
+      "author": "Abhik.Mazumdar.73",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascapist_Planting_Anubias_on_Driftwood.jpg",
+      "caption": "Aquascapist Planting Anubias on Driftwood",
+      "thumb": "https://media.aquatome.com/commons/eb3109ff112ceecd-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2dd2721ca073d2b8.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Bartłomiej Marciniak",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_variegation_leaves_aquarium.jpg",
+      "caption": "This image represents an mutation of a plant (anubias), it's leaves lack a pigment called chlorofile",
+      "thumb": "https://media.aquatome.com/commons/2dd2721ca073d2b8-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias barteri",
+        "anubias thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng thấp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

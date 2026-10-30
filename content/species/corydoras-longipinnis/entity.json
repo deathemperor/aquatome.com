@@ -1,0 +1,85 @@
+{
+  "id": "corydoras-longipinnis",
+  "scientificName": "Corydoras longipinnis",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "lNumber": "CW003",
+  "places": [
+    "south-america",
+    "argentina",
+    "rio-dulce"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
+      "html": "<ul><li>Scientific name: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Common names: CW003, Long-finned Cory, Langfinnet Pansermalle (Denmark)</li><li>Size: 61 mm (2.4 in) SL</li><li>Etymology: the specific epithet refers to its long fins (pinnis = fin).</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
+      "html": "<p>South America: Río Dulce in Argentina. Type locality: Río Dulce, some 20 kilometers downstream from Termas de Río Hondo, Santiago del Estero Province, Argentina, about 27°29'29''S, 64°41'58''W.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
+      "html": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/7218f0974f18df0b.webp",
+      "width": 960,
+      "height": 681,
+      "licence": "CC BY-SA 4.0",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_longipinnis_60517860.jpg",
+      "caption": "Long-finned Corydora (Corydoras longipinnis)",
+      "thumb": "https://media.aquatome.com/commons/7218f0974f18df0b-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nuôi cá chuột"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nuôi cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

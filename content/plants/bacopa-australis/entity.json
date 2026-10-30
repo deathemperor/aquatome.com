@@ -1,0 +1,56 @@
+{
+  "id": "bacopa-australis",
+  "scientificName": "Bacopa australis",
+  "difficulty": 1,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "midground",
+    "background"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
+      "html": "<ul><li>Type: stem plant</li><li>Origin: South America</li><li>Height: 5–30+ cm</li><li>Light demand: medium</li><li>CO2: medium</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
+      "html": "<p>Bacopa australis was discovered in southern Brazil (australis = southern), and it is not from Australia, as might otherwise be assumed from its name. Stems become 10-30 cm tall and 2-4 cm wide. Like the other Bacopa species, Bacopa australis is also easy to grow in an aquarium. Under certain conditions it creeps across the bottom to form an elegant and decorative light green cushion. When Bacopa australis grows in a good light, the leaves become reddish. It is easily propagated by taking side shoots and planting them in the substrate.</p>"
+    }
+  ],
+  "photos": [],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh Bacopa australis",
+        "cây thân bacopa"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh",
+        "đèn bể thủy sinh ánh sáng trung bình"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh"
+      ]
+    },
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

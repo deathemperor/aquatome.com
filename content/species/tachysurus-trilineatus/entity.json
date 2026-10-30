@@ -1,0 +1,140 @@
+{
+  "id": "tachysurus-trilineatus",
+  "scientificName": "Tachysurus trilineatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Tachysurus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "dongjiang"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 16,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<ul><li>Common name: Highway Catfish</li><li>Described by Zheng, 1979</li><li>Size: 76 mm (3 in) SL</li><li>Temperature: 16.0–23.0°C</li><li>pH: 6.4–7.6</li><li>IUCN Red List: Not Evaluated</li><li>Etymology: the specific epithet comes from the Latin tres, meaning three, and linea, meaning line, in reference to the colour pattern.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China. Type locality: mountain stream in Luofu Shan, Boluo Xian, Guangdong Province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Found in hillstreams with moderate to swift current and a predominantly rocky bottom.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<ul><li>Temperature: 16.0–23.0°C (60.8–73.4°F)</li><li>pH: 6.4–7.6</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Unreported. There is but a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p><p>Easily distinguished by its elongate body, long adipose fin and attractive colouration. Xanthic and albino forms exist.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1028",
+      "html": "<p>Acta Zootaxonomica Sinica v. 4 (no. 2), pp 182 (English p. 183), Fig. 1</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "lf9Gp5uJBug",
+      "title": "Tachysurus Trilineatus aka Chinese Highway Catfish (stealth mode)🐠",
+      "durationSec": 1131,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yWIDV2nJORU",
+      "title": "Highway Catfish/Tachysurus Trilineatus",
+      "durationSec": 183,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BeQ0-GhcO8g",
+      "title": "Feeding Tachysurus trilineatus - fry",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iUAGB-kf6Fw",
+      "title": "Feeding Tachysurus trilineatus - fry and dad",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng dòng chảy mạnh",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "thức ăn cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "pyrrhulina-australis",
+  "scientificName": "Pyrrhulina australis",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Pyrrhulina",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_australis_en/",
+      "html": "<p>Pyrrhulina australis has pretty yellow caudal fins with a sky-blue seam, and a shining blue spot on the operculum. The body coloration changes with mood. Most often the fish display a dark horizontal band over the body, but this can also be completely invisible. Sometimes reddish spots appear on the scales. The maximum length of the species is about 5-6 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_australis_en/",
+      "html": "<p>Imported from Paraguay.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_australis_en/",
+      "html": "<p>Males grow larger than females and have enlarged fins.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cfdbde9155d65469.webp",
+      "thumb": "https://media.aquatome.com/glaser/cfdbde9155d65469-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_australis_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "XOhBJGKaItQ",
+      "title": "pyrrhulina australis with eggs",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5ZXf3RXcecc",
+      "title": "Pyrrhulina australis spawning",
+      "durationSec": 276,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-g5nrbpK8-g",
+      "title": "Pyrrhulina australis puesta - breeding",
+      "durationSec": 140,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o8jz3YrIz_Y",
+      "title": "Pyrrhulina australis en reproduccion",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

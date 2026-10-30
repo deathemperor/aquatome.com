@@ -1,0 +1,192 @@
+{
+  "id": "batasio-feruminatus",
+  "scientificName": "Batasio feruminatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Batasio",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "ataran",
+    "thailand",
+    "salween"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Batasio feruminatus is a small bagrid catfish from the Ataran River system in southern Myanmar, to which it is possibly endemic. Some Ataran tributaries extend across the border into Thailand. Like its congeners it is an obligate inhabitant of shallow, fast-flowing, highly-oxygenated headwater streams. B. feruminatus alone in the genus has both an oblique dark bar in front of the dorsal fin and a thin black midlateral stripe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Described from a stream named 'Chon Son', located between the settlements of Phadaw and Kyondaw, Kayin state, southern Myanmar and within the Ataran River system, to which the species is possibly endemic.</p><p>The Ataran forms the headwaters of part of the larger Salween drainage, and some of its tributaries extend across the nearby border into Thailand, where it's known as the Kasat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Batasio spp. are obligate inhabitants of headwater streams and the upper reaches of smaller rivers characterised by shallow, fast-flowing, highly-oxygenated stretches of riffles and runs broken up by pools or cascades in some cases.</p><p>Images of the Ataran correspondingly depict flowing sections of forest-shaded, seemingly well-oxygenated headwaters containing clear water, a mixed sand/rock substrate and lots of submerged driftwood/leaf litter.</p><p>Other fish species inhabiting the Ataran include Acanthocobitis pictilis, Botia kubotai, Schistura vinciguerrae, S. robertsi, Garra sp. 'redtail', and Mastacembelus armatus plus unidentified Devario, Scaphiodonichthys, Tor, Neolissochilus, Garra and Schistura spp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>A tank with base dimensions of 90 × 30 cm (36 × 12 in) or equivalent should be the smallest considered. Volume is approximately 81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Should not prove difficult to maintain under the correct conditions but largely unsuitable for the 'general' community aquarium. It is recommended to keep it in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks, gravel and some large water-worn boulders.</p><p>This can be further furnished with driftwood branches, roots and tough aquatic plants such as Microsorum, Bolbitis or Anubias spp., which can be grown attached to the décor.</p><p>Like many species that naturally inhabit running waters it's likely intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.</p><p>It's also essential to provide sufficient levels of dissolved oxygen and water movement using a combination of canister filters, powerheads, etc., particularly if the aim is for the fish to breed. Weekly water changes of 30-50% should also be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<ul><li>Temperature: 16–24°C (61–75°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Likely to feed small aquatic crustaceans, worms, insect larvae and other zooplankton in nature, and the captive diet should therefore comprise largely of small live and/or frozen chironomid larvae (bloodworm), Tubifex, Artemia, mosquito larvae, etc.</p><p>Some success has also been had using prepared, sinking foods though newly-imported wild specimens may refuse them initially.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Batasio spp. aren't especially competitive and should not be kept with much larger or more aggressive fishes. Peaceful schooling cyprinids are ideal tankmates, or if geography isn't an issue many characids and livebearers should also work.</p><p>Akysid or sisorid catfishes from genera such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are suitable, and some members of the families Cobitidae and Nemacheilidae should also be ok but proper research is essential as some can be excessively aggressive/territorial or simply grow too large.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Unknown. In some congeners males are reported to possess a clearly visibly, elongate genital papilla anterior to the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>Success has been achieved with at least two other members of the genus. Spawning can apparently be triggered by performing one or more large, 50-70%, water changes with cool water once the fish appear to be in spawning condition. The eggs are scattered randomly and take approximately 2 days to hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<p>This species can be told apart from congeners by the following combination of characters: adipose-fin base in contact with base of last-dorsal fin ray (vs. separated by a distance of 4.4-23% SL in other species); presence of an oblique dark bar anterior to the dorsal fin; presence of a thin, black midlateral stripe; relatively long adipose-fin base (39.7-41.6% SL vs. 14.5-35.1).</p><p>Other species may possess either the oblique predorsal or midlateral bars, but B. feruminatus uniquely has both.</p><p>Members of the genus Batasio are characterised by the following combination of characters; laterally-compressed body shape; presence of large sensory pores on the head; a narrow mental region; a pair of prominent posterior processes on the anterior portion of the vomer; a transversely elongated, bar-like entopterygoid; metapterygoid in close contact with quadrate but not connected to the hyomandibular.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "html": "<ul><li>Darshan, A. , N. Anganthoibi, and W. Vishwanath (2011). Batasio convexirostrum, a new species of catfish (Teleostei: Bagridae) from Koladyne basin, India. Zootaxa 2901, 52-58</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fdfff65b39d18e50.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fdfff65b39d18e50-480.webp",
+      "width": 700,
+      "height": 420,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "caption": "Specimen from the portion of the Ataran River located in Thailand, where it's known as the Kasat...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/302f0ae3d735463f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/302f0ae3d735463f-480.webp",
+      "width": 700,
+      "height": 435,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/batasio-feruminatus",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 90x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy tạo dòng cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

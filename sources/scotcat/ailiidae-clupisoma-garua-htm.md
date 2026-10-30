@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/ailiidae/clupisoma_garua.htm
 title: Clupisoma garua (Hamilton, 1822)
-fetchedAt: 2026-10-30T00:28:58.818Z
+fetchedAt: 2026-10-30T11:38:54.718Z
 hash: 8503bf95a4f27dd5e8d605267921bcfca4b4b338e9c449e200f41d7586875299
 ---
 

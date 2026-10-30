@@ -1,0 +1,100 @@
+{
+  "id": "clupisoma-longianale",
+  "scientificName": "Clupisoma longianale",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Clupisoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "html": "<p>This is only the third species in the nine Clupisoma genera recorded that is found in China. The other two are Clupisoma nujiangense and Clupisoma sinense. Family: Ailiidae. Common name: none. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "html": "<p>Asia: Mekong River, Lancangjiang River. Type locality: Puer county, Xiaoganlanba, Yunnan, China.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "html": "<p>Oviparous, eggs are unguarded with distinct pairing of the adults.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "html": "<p>Etymology: The genus name Clupisoma: clupea, herring; soma, body, referring to the herring-shaped body. The specific name longianale: longus, long; analis, anal, referring to longer anal fin compared to C. sinense.</p><p>Remarks: Clupisoma longianale is still listed in Fishbase as being Clupisoma longianalis but it is updated in The Catalog of Fishes as the current name of Clupisoma longianale.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "html": "<p>Chen, X.-Y., C.J. Ferraris Jr. and J.-X. Yang, 2005. A new species of catfish of the genus Clupisoma (Siluriformes: Schilbidae) from the Salween River, Yunnan, China. Copeia 2005(3):566-570.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (02/2019).</p><p>Hwang, H.C., I.Y. Chen and P.C. Yueh, 1988. The freshwater fishes of China in colored illustrations. Vol. 2. Shanghai Sciences and Technology Press, Shanghai, China. 201 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e1917410c9e07a3e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e1917410c9e07a3e-480.webp",
+      "width": 500,
+      "height": 221,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm",
+      "caption": "Clupisoma longianale",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

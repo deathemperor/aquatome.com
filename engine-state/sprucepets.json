@@ -59,6 +59,24 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/classic-goldfish-names-4773705": {
+    "entityIds": [],
+    "updatedAt": "2026-10-30T12:07:58.904Z",
+    "hash": "af808d62046dae06a98f3f362144a8cffefb93b896bff54a7b613c6b79e07abb",
+    "processedHash": "af808d62046dae06a98f3f362144a8cffefb93b896bff54a7b613c6b79e07abb",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/clown-loach-1378616": {
+    "entityIds": [
+      "species/chromobotia-macracanthus"
+    ],
+    "updatedAt": "2026-10-30T12:12:51.056Z",
+    "hash": "d5a8435bfd0169ac9038d1f18bce7729b62f7983a867b99ff2813f2614323462",
+    "processedHash": "d5a8435bfd0169ac9038d1f18bce7729b62f7983a867b99ff2813f2614323462",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/common-fish-names-beginning-with-m-1378548": {
     "entityIds": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
@@ -79,6 +97,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/discus-symphysodon-3988902": {
+    "entityIds": [
+      "species/symphysodon-discus"
+    ],
+    "updatedAt": "2026-10-30T12:08:10.798Z",
+    "hash": "e022592a45744fa1449983930ec72a6357cd9c762fbf506607b4f55f763ff888",
+    "processedHash": "e022592a45744fa1449983930ec72a6357cd9c762fbf506607b4f55f763ff888",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226": {
     "entityIds": [
       "species/hyphessobrycon-amandae"
@@ -96,6 +124,16 @@
     "updatedAt": "2026-10-29T06:29:35.391Z",
     "hash": "42c0d9611fcacffbffcbac57c520669945f6d205a4405c0c3dddf69641ed36be",
     "processedHash": "42c0d9611fcacffbffcbac57c520669945f6d205a4405c0c3dddf69641ed36be",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/fish-species-heated-fish-tanks-4797120": {
+    "entityIds": [
+      "guides/sprucepets-fish-species-heated-fish-tanks-4797120"
+    ],
+    "updatedAt": "2026-10-30T12:05:28.470Z",
+    "hash": "64384fcf5a4666ee8ced0c3e8a058ec5213678b04a7bc717addce6f2e9ba1591",
+    "processedHash": "64384fcf5a4666ee8ced0c3e8a058ec5213678b04a7bc717addce6f2e9ba1591",
     "status": "processed",
     "attempts": 0
   },
@@ -149,6 +187,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/killifishes-or-egg-laying-tooth-carps-4107831": {
+    "entityIds": [
+      "guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831"
+    ],
+    "updatedAt": "2026-10-30T12:15:46.025Z",
+    "hash": "6b0d8db833668b03a3e4e093644e43f4801366fcf4e8b3d2b625bad9e1b2ae1e",
+    "processedHash": "6b0d8db833668b03a3e4e093644e43f4801366fcf4e8b3d2b625bad9e1b2ae1e",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/large-fish-for-freshwater-aquariums-7570272": {
     "entityIds": [
       "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272"
@@ -186,6 +234,16 @@
     "updatedAt": "2026-10-29T15:06:46.827Z",
     "hash": "00c39b1a1e44bb8ffe3bda259ab7b704a3b4b5a0de56271766a9a49d1af16aa7",
     "processedHash": "00c39b1a1e44bb8ffe3bda259ab7b704a3b4b5a0de56271766a9a49d1af16aa7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/pearl-danio-1378466": {
+    "entityIds": [
+      "species/danio-albolineatus"
+    ],
+    "updatedAt": "2026-10-30T12:09:37.119Z",
+    "hash": "cb0e6497ac862902152e618dc73f9eb2529d5c4c9492b21ac3b5d12b14478fe7",
+    "processedHash": "cb0e6497ac862902152e618dc73f9eb2529d5c4c9492b21ac3b5d12b14478fe7",
     "status": "processed",
     "attempts": 0
   },
@@ -256,6 +314,16 @@
     "updatedAt": "2026-10-29T06:42:56.082Z",
     "hash": "26a744824021967484e51445ba12230df6cfecf58a11a7f235d8b92c18bb52a1",
     "processedHash": "26a744824021967484e51445ba12230df6cfecf58a11a7f235d8b92c18bb52a1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870": {
+    "entityIds": [
+      "species/tanichthys-albonubes"
+    ],
+    "updatedAt": "2026-10-30T12:03:12.537Z",
+    "hash": "00995cbb54bdf9aead1d0120902a292a0a1823f74788a24da1748c19003a72fb",
+    "processedHash": "00995cbb54bdf9aead1d0120902a292a0a1823f74788a24da1748c19003a72fb",
     "status": "processed",
     "attempts": 0
   }

@@ -30,18 +30,24 @@
     "attempts": 0
   },
   "https://www.scotcat.com/ailiidae/clupisoma_garua.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-10-30T00:28:46.156Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): Failed to authenticate. API Error: 401 Invalid bearer token"
+    "entityIds": [
+      "species/clupisoma-garua"
+    ],
+    "updatedAt": "2026-10-30T11:38:42.062Z",
+    "hash": "8503bf95a4f27dd5e8d605267921bcfca4b4b338e9c449e200f41d7586875299",
+    "processedHash": "8503bf95a4f27dd5e8d605267921bcfca4b4b338e9c449e200f41d7586875299",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/ailiidae/clupisoma_longianale.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-10-30T00:29:02.494Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): Failed to authenticate. API Error: 401 Invalid bearer token"
+    "entityIds": [
+      "species/clupisoma-longianale"
+    ],
+    "updatedAt": "2026-10-30T11:40:37.510Z",
+    "hash": "709d0c3fe459b38fa9dcf260e8003f2c57f69aabde6c523d366cd48f7a1bae5c",
+    "processedHash": "709d0c3fe459b38fa9dcf260e8003f2c57f69aabde6c523d366cd48f7a1bae5c",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm": {
     "entityIds": [
@@ -60,6 +66,36 @@
     "updatedAt": "2026-10-30T00:49:31.353Z",
     "hash": "b5a8b08969a302b9ed6b98901a5d8138d1c33b37574139e64ec8a8666ec89a2b",
     "processedHash": "b5a8b08969a302b9ed6b98901a5d8138d1c33b37574139e64ec8a8666ec89a2b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm": {
+    "entityIds": [
+      "species/eutropiichthys-burmannicus"
+    ],
+    "updatedAt": "2026-10-30T11:41:23.159Z",
+    "hash": "4651549a8c2c91f3fdbd4f97d4f56c5cceeaf51f05aa90c041ff89faf2d6c93d",
+    "processedHash": "4651549a8c2c91f3fdbd4f97d4f56c5cceeaf51f05aa90c041ff89faf2d6c93d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/eutropiichthys_cetosus.htm": {
+    "entityIds": [
+      "species/eutropiichthys-cetosus"
+    ],
+    "updatedAt": "2026-10-30T11:42:21.629Z",
+    "hash": "4113d1509b8108ff1231fcd94f5c5104007d8b69fb8dc5f89be932107f5c9aa2",
+    "processedHash": "4113d1509b8108ff1231fcd94f5c5104007d8b69fb8dc5f89be932107f5c9aa2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm": {
+    "entityIds": [
+      "species/eutropiichthys-vacha"
+    ],
+    "updatedAt": "2026-10-30T11:44:02.678Z",
+    "hash": "e903f4efe5967038c3fb99073618eabded74edda4981e1378a8941f0f91d8304",
+    "processedHash": "e903f4efe5967038c3fb99073618eabded74edda4981e1378a8941f0f91d8304",
     "status": "processed",
     "attempts": 0
   },

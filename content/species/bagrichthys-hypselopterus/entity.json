@@ -1,0 +1,121 @@
+{
+  "id": "bagrichthys-hypselopterus",
+  "scientificName": "Bagrichthys hypselopterus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Bagrichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<ul><li><strong>Scientific name:</strong> Bagrichthys hypselopterus (Bleeker, 1852)</li><li><strong>Common name:</strong> Black Lancer Catfish</li><li><strong>Type locality:</strong> Palembang, Sumatra, Indonesia.</li><li><strong>Synonym:</strong> Bagrus hypselopterus</li><li><strong>Size:</strong> 400 mm or 15.7\" SL.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>Members of the highly specialized and unusually-shaped bagrid catfish genus Bagrichthys Bleeker, 1858, live in large muddy rivers throughout Southeast Asia and are characterised by their elongate and laterally compressed caudal peduncle, the dorsally-directed serrations on the posterior edge of the dorsal-fin spine, gill membranes united but free from the isthmus, and a long adipose fin without a free posterior margin (Roberts, 1989).</p><p>It is very unlikely this fish has ever been available to the aquarium hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>pH: 6.0 - 7.0</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>In the wild, the fish are detritivorous.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>Males have an elongate genital papilla and longer barbels.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0605645206a8c833.webp",
+      "width": 960,
+      "height": 570,
+      "licence": "Public domain",
+      "author": "P. Bleeker",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrichthys_hypselopterus.jpg",
+      "caption": "Bagrichthys hypselopterus",
+      "thumb": "https://media.aquatome.com/commons/0605645206a8c833-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "v0S8VrS2YA8",
+      "title": "Bagrichthys hypselopterus - Emperor Lancer",
+      "durationSec": 264,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i5m-ZN_ERR4",
+      "title": "Emperor Lancer Catfish, Bagrichthys hypselopterus",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UPOSFEKj_qs",
+      "title": "BAGRICHTHYS HYPSELOTERUS",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VtsE8d8R0gE",
+      "title": "BAGRYCHTHYS HYPSELOPTERUS CATFISH",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-10-30"
+}

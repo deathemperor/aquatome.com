@@ -1,0 +1,93 @@
+{
+  "id": "denticetopsis-praecox",
+  "scientificName": "Denticetopsis praecox",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 4.3,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<ul><li>Scientific name: Denticetopsis praecox (Ferraris &amp; Brown, 1991)</li><li>Synonym: Pseudocetopsis praecox</li><li>Size: 53 mm (2.1\") SL</li><li>IUCN Red List: Not Evaluated</li><li>pH: 4.3 - 5.0</li></ul><p>Among the smallest species in the family, maturing between 30-40 mm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>South America: upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma, Río Baria drainage, Territory Fed. Amazonas, southern Venezuela, 0°55'N, 66°10'W, elevation 120 meters.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>Known from cobble-pebble bottom river habitats.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>Males are smaller and have filament extensions to the dorsal and often pectoral fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>Readily distinguished from other members of the genus by its colour pattern consisting of a dark brown back, speckled to dark sides, light belly, pale fins and a large dark spot on the basal half of the dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
+      "html": "<p>Copeia 1991 (no. 1), pp 162, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test pH thấp"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi cuội nền bể",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

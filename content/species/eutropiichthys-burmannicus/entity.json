@@ -1,0 +1,116 @@
+{
+  "id": "eutropiichthys-burmannicus",
+  "scientificName": "Eutropiichthys burmannicus",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Eutropiichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "thailand",
+    "salween"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Size: 35 cm (14 in)</li><li>Temperature: 23-26°C (73-79°F)</li><li>pH: 6.5-7.2</li><li>Synonym: Eutropiichthys vacha burmannicus</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "html": "<p>Asia: Irrawaddy, lower Salween and smaller intervening rivers: Myanmar. The species is known from the Irrawaddy River drainage in Myanmar eastwards to the Salween River drainage in western Thailand. It was described from an unknown locality in Myanmar (Day 1877).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "html": "<p>It inhabits the main channel of large rivers, as well as their larger tributaries. The substrate in such habitats is generally sand or mud (H.H. Ng).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "html": "<p>Etymology: The genus name Eutropiichthys: Greek, eutropheia = well fed + Greek, ichthys = fish. The specific name burmannicus: from Burma (Myanmar).</p><p>Eutropiichthys burmannicus is still listed in FishBase as belonging to the Schilbeidae family, but the Catalog of Fishes now places it in the Ailiidae family.</p><p>IUCN Red List: specific threats to the species are not known and there is no information on its ecology and population (though there are reports that it is uncommon in fish markets). It has a wide distribution in both the Salween and Irrawaddy drainages and is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "html": "<ul><li>Ferraris, C.J. and R.P. Vari, 2007. Revision of the Catfishes of the genus Eutropiichthys, with the description of two new species (Siluriformes: Schilbidae). Copeia 2007(4):866-885.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (02/2019).</li><li>Ng, H.H. 2010. Eutropiichthys burmannicus. The IUCN Red List of Threatened Species 2010.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/7d261282eeefc7e8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7d261282eeefc7e8-480.webp",
+      "width": 500,
+      "height": 204,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_burmannicus.htm",
+      "caption": "Eutropiichthys burmannicus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

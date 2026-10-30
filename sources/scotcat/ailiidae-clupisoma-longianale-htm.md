@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/ailiidae/clupisoma_longianale.htm
 title: Clupisoma longianale (Huang, 1981)
-fetchedAt: 2026-10-30T00:29:11.521Z
+fetchedAt: 2026-10-30T11:40:42.675Z
 hash: 709d0c3fe459b38fa9dcf260e8003f2c57f69aabde6c523d366cd48f7a1bae5c
 ---
 

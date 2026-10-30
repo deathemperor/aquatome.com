@@ -1,0 +1,202 @@
+{
+  "id": "pseudomugil-furcatus",
+  "scientificName": "Pseudomugil furcatus",
+  "order": "Atheriniformes",
+  "family": "Pseudomugilidae",
+  "genus": "Pseudomugil",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<ul><li>Adults reach approximately 4–5 cm (≈ 1.6–2.0″) total length.</li><li>Captive-bred fish are hardy and well suited to community aquaria.</li><li>IUCN Red List: Not Evaluated (localized habitat pressure from logging and sedimentation).</li></ul>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Pseudomugil furcatus is a small, darting rainbowfish native to rainforest streams and clearwater tributaries of Papua New Guinea. Known for their forked tail, vivid yellow fins, and bright electric-blue eyes, these fish display energetic, constant movement, especially males, who perform rapid fin-flaring and chasing displays to impress females. In the wild, they inhabit shallow, vegetation-rich streams with gentle flow, strong light penetration, and dense microfauna.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Clean, well-oxygenated water is essential for long-term color and activity.</p><ul><li>pH 6.0 – 7.5</li><li>GH 4 – 12 °d</li><li>KH 2 – 8 °d</li><li>TDS 80 – 200 ppm</li><li>Temperature: 22 – 28 °C (72 – 82 °F); males show the best color and activity in the mid-range (24–26 °C).</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Provide gentle flow, floating plants, and open midwater space for schooling and display behavior. They thrive in planted setups with open swimming space and stable, clean water conditions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Micro-predatory omnivore. Offer:</p><ul><li>Baby brine shrimp</li><li>Daphnia</li><li>Cyclops</li><li>Microworms</li><li>High-quality micro-pellets and fine flakes</li></ul><p>Frequent small feedings encourage natural display behavior and intense coloration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Peaceful and best kept in groups of 8–12+ to promote natural social structure and reduce stress. Suitable tankmates include:</p><ul><li>Boraras species</li><li>Sundadanio</li><li>Small rasboras</li><li>Pygmy corydoras (C. pygmaeus, C. hastatus, C. habrosus)</li><li>Licorice gouramis (Parosphromenus)</li></ul><p>Avoid nippy or aggressive fish that may damage their delicate fins. Keep them in sufficiently large groups to reduce sparring intensity and encourage natural shoaling dynamics.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>An egg-scattering species that spawns frequently under good conditions. Males flare brightly colored fins and court females with fluttering display movements. Eggs are deposited in fine-leaved plants, mosses, or spawning mops and adhere to surfaces. Adults do not guard eggs and may consume them; dedicated breeding setups increase success. Eggs hatch in 7–14 days depending on temperature, with fry initially requiring infusoria or rotifers before transitioning to baby brine shrimp.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
+      "html": "<p>Captive-bred Pseudomugil furcatus are more adaptable and resilient than wild counterparts. Maintain excellent water quality, stable parameters, and frequent small feedings to support their high activity level.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bd4395e23920c110.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Dirk Godlinski",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_m_Aquarium_DG.jpg",
+      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - male - in aquarium.",
+      "thumb": "https://media.aquatome.com/commons/bd4395e23920c110-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5a8b6e5464fdc145.webp",
+      "width": 960,
+      "height": 533,
+      "licence": "CC BY-SA 3.0",
+      "author": "Guérin Nicolas (messages)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_(Wroclaw_zoo).JPG",
+      "caption": "Picture taken in the zoo of Wrocław (Poland): Pseudomugil furcatus (Nichols, 1955)",
+      "thumb": "https://media.aquatome.com/commons/5a8b6e5464fdc145-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/611c6ee961d347d2.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Forktail_worakarn.jpg",
+      "caption": "Forktail Blue-eye",
+      "thumb": "https://media.aquatome.com/commons/611c6ee961d347d2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f53f3542abf5b499.webp",
+      "width": 960,
+      "height": 636,
+      "licence": "CC BY-SA 3.0",
+      "author": "Dirk Godlinski",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_f_Aquarium_DG.jpg",
+      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - female - in aquarium.",
+      "thumb": "https://media.aquatome.com/commons/f53f3542abf5b499-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Oqlz5PZJMgc",
+      "title": "The Forktail Blue-Eye - Pseudomugil furcatus - keeping and breeding tips",
+      "durationSec": 552,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WnTTVNLYTKM",
+      "title": "Forktail Blue Eye Rainbowfish (Pseudomugil furcatus)  Freshwater Aquarium Fish Profile & Care Guide",
+      "durationSec": 270,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YH66pm7MQh4",
+      "title": "Care Guide for Furcata Rainbowfish - Aquarium Co-Op",
+      "durationSec": 342,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hl5tmZdNMoM",
+      "title": "Blue Eye Forktail Breeding: Easy and Addictive!",
+      "durationSec": 1231,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nano 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia mới nở",
+        "thức ăn viên nhỏ cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc nhỏ dòng chảy nhẹ",
+        "lọc bọt xốp"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

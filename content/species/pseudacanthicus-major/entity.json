@@ -1,0 +1,130 @@
+{
+  "id": "pseudacanthicus-major",
+  "scientificName": "Pseudacanthicus major",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudacanthicus",
+  "group": "catfish",
+  "lNumber": "L186",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>Pseudacanthicus major Chamon &amp; Costa e Silva, 2018. Common names: L186, Giant Cactus Pleco. Size: 600 mm (23.6\") SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>South America: Amazon, Lower Amazon, Tocantins. Type locality: Rio Areias near the confluence with rio Tocantins, Porto Nacional, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>Temperature: 23.0-27.0°C (73.4-80.6°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>Adequate cover is required for this genus. Multiple structures of wood, caves and overhangs are ideal. High intensity lighting does not bother them, and many will 'sun themselves' on top of the furnishings if comfortable in their environment. Long sight lines can promote aggression; placing structures at different distances from the front glass is an effective solution.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>Carnivore although not a predator; prawns and chopped mussel appear favourites and promote good growth. High quality pellet foods are well received and greatly reduce the volume of waste produced. Some vegetable matter should also be provided to balance the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>The temptation with large tough loricariids is to keep them with other large tough fish such as Oscars. This works well with most omnivorous or mainly vegetarian plecos. Pseudacanthicus, despite their defensive protection, can be bullied by faster moving fish of similar size. They are carnivores and only eat vegetables when their preferred food is unavailable. The amount of waste depends on diet but is considerably less than a Panaque or Pterygoplichthys of similar size.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>The German common name for this genus is 'Cactus Pleco'. Pseudacanthicus is a member of the Acanthicus clade, distinguished by longitudinal rows of keels along the body sides, eight or more dorsal-fin rays, seven to eight infraorbitals, five anal-fin branched rays and hypertrophied odontodes along the snout margin. Within the group, Pseudacanthicus is distinguished by two small plates in the posterior area of the compound pterotic and narrow premaxillae with a small number of elongate, curved teeth.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1023",
+      "html": "<p>Zootaxa 4387 (no. 3), pp 500, Figs. 1-2, 3A-B.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "sDafhWMdKWo",
+      "title": "pseudacanthicus major,  hand feeding",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uL3KX3A1lSk",
+      "title": "Feeding the Cactus Plecos ~ Pseudacanthicus (plecos and L numbers)",
+      "durationSec": 1335,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "37ehrypNVFg",
+      "title": "l186",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá lau kính"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

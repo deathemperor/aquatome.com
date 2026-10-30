@@ -1,0 +1,107 @@
+{
+  "id": "centromochlus-romani",
+  "scientificName": "Centromochlus romani",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Centromochlus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "san-juan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1031",
+      "html": "<ul><li><strong>Scientific name:</strong> Duringlanis romani (Mees, 1988)</li><li><strong>Common names:</strong> Roman's Woodcat, Driftwood Catfish</li><li><strong>Size:</strong> 31 mm (1.2\") SL</li><li><strong>Temperature:</strong> 24.0-28.0°C</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1031",
+      "html": "<p>San Juan River basin, Venezuela, Caribbean waters. Type locality: Río Guarapiche, affluent of R. San Juan, near Monagas, Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1031",
+      "html": "<p>See the Catfish of the Month article, January 2010. There are 2 breeding reports.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1031",
+      "html": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 91 (no. 4), pp 412, Figs. 3-4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "SqRjcRn2rEo",
+      "title": "Centromochlus romani",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cCkDJKG5xNA",
+      "title": "Centromochlus romani",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KILhSvuYd6E",
+      "title": "Duringlanis romani feeding",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ASU35DiwaZU",
+      "title": "Duringlanis romani cuddle puddle! #viral #fish",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá nhỏ thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini",
+        "máy sưởi 50W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
