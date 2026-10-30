@@ -33,6 +33,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
       <label>Cao (cm) <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
     </form>
     <p id="vol-out" class="out" aria-live="polite"></p>
+    <p class="note">Bể lục giác, trụ tròn, bể góc, chữ L, hoặc cần biết kính dày bao nhiêu: <a href="/vi/cong-cu/the-tich-be/">tính theo 12 kiểu bể →</a></p>
   </section>
 
   <section class="tool" id="suoi" aria-labelledby="heat-h">
@@ -100,7 +101,8 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   })
   renderTankmates()
 
-  // Calculators: recompute on every input.
+  // Calculators: recompute on every input; ?l=&w=&h= (cm) fills the tank size (links from the tank volume page).
+  for (const k of ['l', 'w', 'h']) { const v = params.get(k); if (v) ($<HTMLFormElement>('vol-form').elements.namedItem(k) as HTMLInputElement).value = v }
   const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
   function renderCalc() {
     const v = $<HTMLFormElement>('vol-form'), h = $<HTMLFormElement>('heat-form')

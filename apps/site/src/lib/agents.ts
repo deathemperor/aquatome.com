@@ -9,6 +9,7 @@ const SECTIONS = [
   ['/vi/huong-dan/', 'Hướng dẫn', 'guides: tank setup, care, breeding, planting'],
   ['/vi/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
   ['/vi/cong-cu/', 'Công cụ', 'tools: tank-mates checker, tank volume and heater wattage calculators'],
+  ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
   ['/vi/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
 ] as const
 
