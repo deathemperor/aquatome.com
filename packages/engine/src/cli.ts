@@ -17,6 +17,7 @@ import { mirrorPhotos } from './mirror-photos'
 import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
+import { SOURCES } from './sources'
 import { loadState } from './state'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
@@ -54,7 +55,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' } } })
 
 /** Photo fetching and screening for galleries and breed pages. */
 const galleryDeps = (): GalleryDeps => ({
@@ -76,9 +77,12 @@ async function covers(o: { redo?: boolean; limit?: number }) {
 }
 
 if (cmd === 'run') {
-  const sources = values.sources?.split(',').map(s => s.trim()) as SourceId[] | undefined
-  const bad = sources?.filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
-  if (bad?.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
+  const list = (v?: string) => v?.split(',').map(s => s.trim()) as SourceId[] | undefined
+  const except = list(values.except)
+  const bad = [...list(values.sources) ?? [], ...except ?? []].filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
+  if (bad.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
+  // --except: every source but these (the engine's Seriously Fish job runs that backlog on its own).
+  const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s)))
   if (values.force && !values.only) throw new Error('--force re-translates only the pages matched by --only')
   const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
   const fetcher = new ChromeFetcher({ profileDir })
@@ -292,6 +296,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine status')
   process.exitCode = 1
 }
