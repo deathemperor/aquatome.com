@@ -66,3 +66,12 @@ test('licence: the stored permission note is translated, licence names are not',
   expect(licenceLabel(translator('vi'), 'dùng với sự cho phép')).toBe('dùng với sự cho phép')
   expect(licenceLabel(translator('th'), 'CC BY 4.0')).toBe('CC BY 4.0')
 })
+
+test('every UI translation keeps its {placeholders} and Pagefind [PLACEHOLDERS]', async () => {
+  const marks = (s: string) => [...s.matchAll(/\{\w+\}|\[[A-Z_]+\]/g)].map(m => m[0]).sort()
+  for (const lang of ['id', 'th']) {
+    const dict = (await import(`../src/i18n/${lang}.json`)).default as Record<string, string>
+    const lost = Object.entries(dict).filter(([vi, tr]) => marks(vi).join() !== marks(tr).join()).map(([vi]) => vi)
+    expect(lost, lang).toEqual([])
+  }
+})

@@ -2,12 +2,12 @@
 import Base from './Base.astro'
 import Nav from '../components/Nav.astro'
 import type { Credit } from '../lib/credits'
-import { i18n } from '../lib/i18n'
-interface Props { title: string; heading: string; intro?: string; crumbs?: [string, string][]; noindex?: boolean; credits?: Credit[]; description?: string; jsonld?: object[]; image?: string }
-const { title, heading, intro, crumbs = [], noindex, credits, description, jsonld, image } = Astro.props
+import { i18n, type Lang } from '../lib/i18n'
+interface Props { title: string; heading: string; intro?: string; crumbs?: [string, string][]; noindex?: boolean; credits?: Credit[]; description?: string; jsonld?: object[]; image?: string; alternates?: Partial<Record<Lang, string>> }
+const { title, heading, intro, crumbs = [], noindex, credits, description, jsonld, image, alternates } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<Base title={`${title} — AquaTome`} description={description ?? intro} noindex={noindex} credits={credits} jsonld={jsonld} image={image}>
+<Base title={`${title} — AquaTome`} description={description ?? intro} noindex={noindex} credits={credits} jsonld={jsonld} image={image} alternates={alternates}>
   <Nav slot="header" />
   <div class="wrap page">
     {crumbs.length > 0 && <nav class="crumb" aria-label={t('Đường dẫn')}>{crumbs.map(([href, label], i) => <>{i > 0 && ' / '}<a href={href}>{label}</a></>)}</nav>}

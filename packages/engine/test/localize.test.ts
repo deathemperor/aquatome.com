@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { localizeSpecies } from '../src/localize'
+import { localizeGlossary, localizeSpecies } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -81,4 +81,53 @@ test('text from a source that does not allow translation is never sent or writte
   const t = JSON.parse(await readFile(join(root, 'content/species', id, 'id.json'), 'utf8').catch(() => '{"sections":{}}'))
   expect(Object.keys(t.sections).some(k => k.endsWith(':seriouslyfish'))).toBe(false)
   expect(e.sections.some(s => s.source === 'seriouslyfish')).toBe(true) // the fixture page does have such text
+})
+
+test('plant pages: written beside the plant, their own state file, the hint has no family when the plant has none', async () => {
+  const root = await site()
+  const id = 'cryptocoryne-wendtii'
+  const prompts: string[] = []
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Cryptocoryne Wendtii', altNames: [], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: '<p>x</p>' })) } as T
+  }
+  const r = await localizeSpecies(root, llm, 'id', [id], { now, kind: 'plants' })
+  expect(r.done).toHaveLength(1)
+  expect(JSON.parse(await readFile(join(root, 'content/plants', id, 'id.json'), 'utf8')).slug).toBe('cryptocoryne-wendtii')
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/localize-id-plants.json'), 'utf8')))).toEqual([id])
+  await expect(readFile(join(root, 'engine-state/localize-id.json'), 'utf8')).rejects.toThrow()
+  expect(prompts[0]).toContain('The species: Cryptocoryne wendtii, sold in Vietnam as "')
+  expect(prompts[0]).not.toContain('undefined')
+  expect(prompts[0]).toContain('a cultivar or variety keeps its cultivar or variety name')
+  expect(prompts[0]).not.toContain('never for one strain')
+  // A second plant with the same name is addressed by its scientific name, also when the first is in the run (skipped, done).
+  await localizeSpecies(root, llm, 'id', [id, 'anubias-barteri-nana'], { now, kind: 'plants' })
+  const sci = JSON.parse(await readFile(join(root, 'content/plants/anubias-barteri-nana/entity.json'), 'utf8')).scientificName as string
+  expect(JSON.parse(await readFile(join(root, 'content/plants/anubias-barteri-nana/id.json'), 'utf8')).slug).toBe(sci.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+})
+
+test('glossary: every term from its Vietnamese definition; Thai addressed by the English term; a term left out is not written', async () => {
+  const root = await site()
+  const prompts: string[] = []
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1]).filter(i => i !== 'gh')
+    return { terms: ids.map(i => ({ id: i, name: `คำ ${i}`, altNames: ['pasir', `คำ ${i}`, i!.toUpperCase().replaceAll('-', ''), 'WC', `two words ${i}`], definition: `ความหมาย ${i}` })) } as T
+  }
+  const r = await localizeGlossary(root, llm, 'th')
+  expect(r.done.sort()).toEqual(['ca-dan', 'chu-trinh-nito', 'ph'])
+  expect(r.failed).toEqual(['gh: left out'])
+  expect(prompts[0]).toContain('Thang đo độ chua')
+  expect(prompts[0]).toContain('General hardness')
+  const t = JSON.parse(await readFile(join(root, 'content/glossary/chu-trinh-nito/th.json'), 'utf8'))
+  // Other names the site would link in running text: an everyday single word is dropped, and so is one two terms share.
+  expect(t).toMatchObject({ slug: 'nitrogen-cycle', name: 'คำ chu-trinh-nito', altNames: ['CHUTRINHNITO', 'two words chu-trinh-nito'], definition: 'ความหมาย chu-trinh-nito', quality: { score: 0.9, indexable: true } })
+  await expect(readFile(join(root, 'content/glossary/gh/th.json'), 'utf8')).rejects.toThrow()
+  // Done once: only the missing term is asked again.
+  prompts.length = 0
+  await localizeGlossary(root, llm, 'th')
+  expect([...prompts[0]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])).toEqual(['gh'])
 })
