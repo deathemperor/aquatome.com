@@ -3,9 +3,9 @@
   "name": "Biofilm",
   "altNames": [],
   "sections": {},
-  "definition": "Lapisan lendir tipis berisi bakteri, alga, dan mikroorganisme yang menutupi batu, driftwood, dan kaca akuarium. Banyak spesies seperti ikan penempel batu, hillstream loach, dan udang hias terus-menerus memakan lapisan ini; akuarium dengan banyak biofilm alami membuat mereka jauh lebih sehat dibandingkan hanya diberi pelet.",
+  "definition": "Lapisan lendir tipis berisi bakteri, alga, dan mikroorganisme yang melapisi batu, driftwood, dan kaca akuarium. Banyak spesies seperti hillstream loach dan udang hias terus-menerus mengais lapisan ini. Akuarium dengan banyak biofilm alami membuat mereka jauh lebih sehat dibandingkan hanya diberi pelet.",
   "quality": {
-    "score": 0.7,
-    "indexable": false
+    "score": 0.9,
+    "indexable": true
   }
 }

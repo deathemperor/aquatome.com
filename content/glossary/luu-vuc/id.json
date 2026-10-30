@@ -6,9 +6,9 @@
     "drainage basin"
   ],
   "sections": {},
-  "definition": "Seluruh wilayah daratan tempat air hujan mengalir ke satu sistem sungai yang sama, termasuk sungai utama dan anak-anak sungainya. Habitat ikan sering dijelaskan berdasarkan daerah aliran sungai (misalnya DAS Mekong) karena populasi ikan dalam satu DAS biasanya lebih mirip satu sama lain dibandingkan dengan populasi di DAS tetangganya.",
+  "definition": "Seluruh wilayah daratan yang air hujannya mengalir ke satu sistem sungai yang sama, termasuk sungai utama dan anak-anak sungainya. Habitat ikan sering dijelaskan berdasarkan daerah aliran sungai (misalnya DAS Mekong) karena populasi ikan dalam satu DAS biasanya lebih mirip satu sama lain dibandingkan dengan DAS di sebelahnya.",
   "quality": {
-    "score": 0.7,
-    "indexable": false
+    "score": 0.9,
+    "indexable": true
   }
 }
