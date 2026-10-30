@@ -15,6 +15,24 @@ case "$PART" in all|pages|photos|rewrite) ;; *) echo "usage: $0 [pages|photos|re
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # GitHub: a push made with GITHUB_TOKEN starts no workflow, so start deploy.yml for it (one deploy at a time, the newest waiting).
 deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
+# Push this part's commit on top of whatever landed during the run (code, the other parts' content).
+push() {
+  for _ in 1 2 3; do
+    if ! git pull -q --rebase; then
+      log "another part changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
+      git rebase --abort 2>/dev/null || true
+      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
+      if git pull -q --rebase -X theirs; then
+        { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+      else
+        git rebase --abort 2>/dev/null || true
+      fi
+    fi
+    git push -q && return 0
+    sleep 30
+  done
+  log "push failed three times"; return 1
+}
 
 # Single instance: a PID file, so a crashed or killed cycle doesn't block the schedule forever.
 PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
@@ -79,6 +97,11 @@ if part rewrite; then
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
 fi
 if [ -z "$(git status --porcelain -- content sources)" ]; then
+  # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
+  # cycle redoes that work. The site doesn't read them, so no build and no deploy.
+  if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then
+    git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" && push || exit 1
+  fi
   # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.
   HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/thuysinh/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
@@ -93,10 +116,6 @@ if ! { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
 fi
 git add content sources engine-state docs/review
 git commit -q -m "content: engine $PART $(date -u +%F)"
-# Code and the other parts' content may have landed during the run (it can take hours): replay this commit on top.
-for _ in 1 2 3; do
-  if git pull -q --rebase && git push -q; then deploy; log "cycle done"; exit 0; fi
-  git rebase --abort 2>/dev/null || true
-  sleep 30
-done
-log "push failed three times"; exit 1
+push || exit 1
+deploy || log "deploy: could not start it (the next push or merge deploys this content too)"
+log "cycle done"
