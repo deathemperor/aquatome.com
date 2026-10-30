@@ -1,6 +1,6 @@
 /**
  * The site's UI text in another language: the strings a build found missing (I18N_MISSING_OUT) → Opus → merged into
- * apps/site/src/i18n/<lang>.json. A translation that loses a {placeholder} or an HTML tag is rejected and asked again.
+ * apps/site/src/i18n/<lang>.json. A translation that loses a {placeholder} (or Pagefind's [SEARCH_TERM]) or an HTML tag is rejected and asked again.
  *
  *   I18N_MISSING_OUT=/tmp/missing.json pnpm --filter site build   # then:
  *   pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/missing.json
@@ -12,7 +12,7 @@ import { TARGETS, type TargetLang } from '../src/localize'
 
 const DICT_DIR = join(import.meta.dirname, '../../../apps/site/src/i18n')
 const missing = JSON.parse(await readFile(process.argv[2]!, 'utf8')) as Partial<Record<TargetLang, string[]>>
-const marks = (s: string) => [...s.matchAll(/\{\w+\}|<\/?[a-z][a-z0-9]*/gi)].map(m => m[0]).sort().join(' ')
+const marks = (s: string) => [...s.matchAll(/\{\w+\}|\[[A-Z_]+\]|<\/?[a-z][a-z0-9]*/gi)].map(m => m[0]).sort().join(' ')
 const SCHEMA = { type: 'object', required: ['items'], properties: { items: { type: 'array', items: { type: 'object', required: ['vi', 'out'], properties: { vi: { type: 'string' }, out: { type: 'string' } } } } } }
 
 for (const [lang, strings] of Object.entries(missing) as [TargetLang, string[]][]) {
@@ -27,7 +27,7 @@ for (const [lang, strings] of Object.entries(missing) as [TargetLang, string[]][
         prompt: `These are interface strings of AquaTome, an aquarium-hobby handbook website (fish species pages, tank-volume, stocking, heater, substrate and fertiliser calculators, privacy and about pages), written in Vietnamese. Translate each into ${TARGETS[lang].lang} for hobbyists in ${TARGETS[lang].country}.
 
 Rules:
-- Keep every {placeholder} exactly as written, and every HTML tag; keep symbols, units, numbers, arrows (→) and Latin names.
+- Keep every {placeholder} and [PLACEHOLDER] exactly as written, and every HTML tag; keep symbols, units, numbers, arrows (→) and Latin names.
 - Short, natural interface wording, the hobby terms ${TARGETS[lang].country} aquarists use. ${TARGETS[lang].style}
 - Some strings are pieces of one sentence split around a link or a value (they may start with a comma or end mid-sentence): translate each piece so the pieces still read right when joined in the same order.
 - "tiếng Việt" / "Vietnamese" that means the language the page is in (captions, the site's language) → ${TARGETS[lang].lang}. Facts about Vietnam itself (its laws, climate, shops, regions) stay facts about Vietnam.

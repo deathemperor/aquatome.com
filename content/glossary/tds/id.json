@@ -1,0 +1,13 @@
+{
+  "slug": "tds",
+  "name": "TDS",
+  "altNames": [
+    "total dissolved solids"
+  ],
+  "sections": {},
+  "definition": "TDS adalah jumlah total zat padat yang terlarut dalam air, dinyatakan dalam ppm (bagian per sejuta) dan diukur dengan TDS meter digital berbentuk pena. Dari TDS kita bisa cepat tahu apakah air lunak atau keras, dan TDS juga membantu memantau pencampuran air RO; air hujan atau air RO memiliki TDS mendekati 0, sedangkan air keran biasanya beberapa ratus ppm.",
+  "quality": {
+    "score": 0.92,
+    "indexable": true
+  }
+}

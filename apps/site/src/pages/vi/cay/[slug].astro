@@ -15,6 +15,7 @@ import { slugify } from '@aq/schema/slug'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesOf } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -33,8 +34,9 @@ const facts: [string, string][] = [
   [t('Vị trí'), p.placement.map(x => t(PLANT_LABELS.placement[x]!)).join(', ')],
 ]
 import RedirectNote from '../../../components/RedirectNote.astro'
+const alternates = await alternatesOf('plants', p.id)
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} credits={creditsFor(p.photos.slice(1))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor(p.photos.slice(1))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">
@@ -49,10 +51,13 @@ import RedirectNote from '../../../components/RedirectNote.astro'
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
   <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
-  <div class="wrap two">
-    <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
-    <Comments entity={`plant:${p.id}`} />
-  </div>
+  {/* Shops and comments are Vietnam's (Shopee/Lazada links, Vietnamese readers). */}
+  {lang === 'vi' && (
+    <div class="wrap two">
+      <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
+      <Comments entity={`plant:${p.id}`} />
+    </div>
+  )}
 </Base>
 <style>
   .crumb { font-size: 0.85rem; padding-top: var(--space-4); }

@@ -7,9 +7,10 @@ const { t } = i18n(Astro.url)
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <div id="search"></div>
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
-  <script is:inline>
+  <script is:inline define:vars={{ placeholder: t('Tìm loài cá, cây, hướng dẫn'), zero_results: t('Không tìm thấy kết quả cho [SEARCH_TERM]') }}>
     window.addEventListener('DOMContentLoaded', () => {
-      const ui = new PagefindUI({ element: '#search', showSubResults: false, showImages: true, translations: { placeholder: 'Tìm loài cá, cây, hướng dẫn', zero_results: 'Không tìm thấy kết quả cho [SEARCH_TERM]' } })
+      // Pagefind searches the index of the page's language (from <html lang>).
+      const ui = new PagefindUI({ element: '#search', showSubResults: false, showImages: true, translations: { placeholder, zero_results } })
       const q = new URLSearchParams(location.search).get('q')
       if (q) ui.triggerSearch(q)
     })

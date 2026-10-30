@@ -8,12 +8,14 @@ import { sanitizeHtml } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8')
 const REVIEW = readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8')
+const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.meta.url), 'utf8')
+const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 
 /** Site languages besides Vietnamese, and how each is written. */
 export const TARGETS = {
   id: {
     lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia',
-    style: `Style: natural, plain Bahasa Indonesia, friendly but not slangy, addressing the reader neutrally (no "gue/lo"). Use the words Indonesian aquarists use: akuarium, ikan hias, tanaman air, aquascape, filter, suhu, pH, kesadahan (GH), ganti air, siklus nitrogen, karantina, pakan. Decimal comma (1,5), ranges with an en dash (22–26 °C). Live and frozen foods as Indonesian shops name them: cacing darah (bloodworm), cacing sutra (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet, pakan serpihan (flakes). Bubble nest: sarang busa.`,
+    style: `Style: natural, plain Bahasa Indonesia, friendly but not slangy, addressing the reader neutrally (no "gue/lo"). Use the words Indonesian aquarists use: akuarium, ikan hias, tanaman air, aquascape, filter, suhu, pH, kesadahan (GH), ganti air, siklus nitrogen, karantina, pakan. Decimal comma (1,5), ranges with an en dash (22–26 °C). Live and frozen foods as Indonesian shops name them: cacing darah (bloodworm), cacing sutra (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet, pakan serpihan (flakes). Bubble nest: sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up "loach sungai".`,
   },
   th: {
     lang: 'Thai', country: 'Thailand',
@@ -61,19 +63,22 @@ async function review(llm: Llm, lang: TargetLang, parts: { id: string; en: strin
 }
 
 /**
- * Species pages in another site language: each section translated from its English source (entity.json), with the
- * names hobbyists in that country use, scored against the English (one retry on the reviewer's notes; the better one
- * is kept, indexable at the usual threshold). content/species/<id>/<lang>.json; engine-state/localize-<lang>.json
- * keeps each page's name confidence and the source date it was made from. Pages already done are skipped unless redo.
+ * Species (or plant) pages in another site language: each section translated from its English source (entity.json),
+ * with the names hobbyists in that country use, scored against the English (one retry on the reviewer's notes; the
+ * better one is kept, indexable at the usual threshold). content/<kind>/<id>/<lang>.json; engine-state/localize-<lang>.json
+ * (plants: localize-<lang>-plants.json) keeps each page's name confidence and the source date it was made from. Pages
+ * already done are skipped unless redo.
  */
-export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string>; /** Stop after this many pages made. */ limit?: number } = {}) {
-  const dir = join(root, 'content/species')
-  const stateFile = join(root, `engine-state/localize-${lang}.json`)
+export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string>; /** Stop after this many pages made. */ limit?: number; kind?: 'species' | 'plants' } = {}) {
+  const kind = o.kind ?? 'species'
+  const dir = join(root, 'content', kind)
+  const stateFile = join(root, `engine-state/localize-${lang}${kind === 'plants' ? '-plants' : ''}.json`)
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { at: string; from: string; name: string; confidence: string; score: number; notes?: string[] }>
   const taken = new Set<string>()
-  for (const kind of ['species', 'breeds']) for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
-    const t = JSON.parse(await readFile(join(root, 'content', kind, id, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
-    if (t.slug && !ids.includes(id)) taken.add(t.slug)
+  // Addresses are per section: species and breeds share /ca/, plants have /cay/.
+  for (const k of kind === 'plants' ? ['plants'] : ['species', 'breeds']) for (const id of await readdir(join(root, 'content', k)).catch(() => [] as string[])) {
+    const t = JSON.parse(await readFile(join(root, 'content', k, id, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+    if (t.slug) taken.add(t.slug) // a page's own address in here is harmless: a page with a file keeps its address
   }
   // Only text whose source allows translation (its permission scope says so) is translated.
   const sourceInfo = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8')) as Record<string, { permission?: { scope: string[] } }>
@@ -87,16 +92,21 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
     if (report.done.length >= (o.limit ?? Infinity)) break
     const file = join(dir, id, `${lang}.json`)
     try {
-      const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string; family: string; sections: Section[]; updatedAt: string }
+      const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string; family?: string; sections: Section[]; updatedAt: string }
       // Done, and made from the English as it is now: nothing to do. A page whose English changed since is made again.
       const done = await readFile(file, 'utf8').then(() => true, () => false)
       if (!o.redo && done && (state[id]?.from ?? '') >= e.updatedAt) { report.skipped.push(id); continue }
       const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
       if (!parts.length) { report.skipped.push(`${id}: no English`); continue }
-      // The species' English name (Wikipedia's title for it) points the translator at the trade name; the page's own text
-      // may be about one strain or hybrid of it, so the name is asked for the species.
+      // The species' English name (Wikipedia's title for it) points the translator at the trade name. A fish page's text
+      // may be about one strain or hybrid of it, so the name is asked for the species; a plant page is about exactly the
+      // cultivar or variety it names (Anubias barteri 'Mini Coin' has its own page), so that keeps its name.
       const english = (await o.english?.(e.scientificName).catch(() => undefined)) ?? e.scientificName
-      const species = `${e.scientificName} (family ${e.family})${english !== e.scientificName ? `, in English "${english}"` : ''}. The names are for the species as a whole, never for one strain, colour form or hybrid the text may describe`
+      // A plant's Vietnamese page names the trade form ("Bucephalandra Silver" where the scientific name is just "sp.").
+      const vi = kind === 'plants' ? (JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }).name : undefined
+      const species = `${e.scientificName}${e.family ? ` (family ${e.family})` : ''}${english !== e.scientificName ? `, in English "${english}"` : ''}${vi ? `, sold in Vietnam as "${vi}"` : ''}. ${kind === 'plants'
+        ? 'The names are for exactly this plant: a cultivar or variety keeps its cultivar or variety name (as sellers write it, e.g. "Anubias Mini Coin"), never just the species name'
+        : 'The names are for the species as a whole, never for one strain, colour form or hybrid the text may describe'}`
       let w = await write(llm, lang, species, parts, [], o.model)
       let r = await review(llm, lang, parts, w.parts)
       if (r.score < QUALITY_THRESHOLD) {
@@ -106,9 +116,10 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       }
       const name = w.name.trim()
       // A page keeps its address once made (a redo never moves it); Thai script has no Latin slug, so Thai pages are
-      // addressed by the scientific name.
+      // addressed by the scientific name, and so is the second of two pages with one name.
       const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
-      const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? e.scientificName : name, e.scientificName, taken)
+      const named = lang !== 'th' && slugify(name) ? pickSlug(name, '', new Set()) : ''
+      const slug = prev?.slug ?? (named && !taken.has(named) ? named : pickSlug(e.scientificName, lang, taken))
       taken.add(slug)
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
       const t = TranslationSchema.parse({
@@ -126,5 +137,86 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
     }
   }
   await save()
+  return report
+}
+
+const GLOSSARY_SCHEMA = {
+  type: 'object', required: ['terms'],
+  properties: { terms: { type: 'array', items: { type: 'object', required: ['id', 'name', 'altNames', 'definition'], properties: { id: { type: 'string' }, name: { type: 'string' }, altNames: { type: 'array', items: { type: 'string' } }, definition: { type: 'string' } } } } },
+}
+type Term = { id: string; name: string; altNames: string[]; definition: string }
+
+/**
+ * Glossary terms in another site language, written from the Vietnamese entry (AquaTome's own text) and the English
+ * term, in batches; each batch scored (one retry on the reviewer's notes). content/glossary/<id>/<lang>.json; Thai
+ * terms are addressed by the English term. A term the reply leaves out is not written (asked again next time); terms
+ * already done are skipped unless redo, and a redo keeps the address.
+ */
+export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang, o: { redo?: boolean; model?: string; batch?: number; /** Only these terms. */ only?: string[] } = {}) {
+  const dir = join(root, 'content/glossary')
+  const taken = new Set<string>()
+  const todo: { id: string; en: string; latin?: string; vi: { name: string; definition?: string }; slug?: string }[] = []
+  for (const id of (await readdir(dir)).sort()) {
+    const prev = JSON.parse(await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { slug: string } | null
+    if (prev) taken.add(prev.slug)
+    if ((prev && !o.redo) || (o.only && !o.only.includes(id))) continue
+    const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { en: string; latin?: string }
+    const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8')) as { name: string; definition?: string }
+    todo.push({ id, en: e.en, latin: e.latin, vi, slug: prev?.slug })
+  }
+  const report = { done: [] as string[], failed: [] as string[], stopped: '', /** Each batch's score and the reviewer's notes. */ reviews: [] as string[] }
+  // Small batches: a batch is scored by its worst entry, so one bad term holds back only a few good ones.
+  const size = o.batch ?? 8
+  for (let i = 0; i < todo.length; i += size) {
+    const batch = todo.slice(i, i + size)
+    const terms = batch.map(x => `### ${x.id}\nEnglish: ${x.en}${x.latin ? ` (${x.latin})` : ''}\nVietnamese: ${x.vi.name}: ${x.vi.definition ?? ''}`).join('\n\n')
+    const write = (notes: string[]) => llm<{ terms: Term[] }>({
+      system: `You write an aquarium-handbook glossary in ${TARGETS[lang].lang}. Reply only with JSON.`, schema: GLOSSARY_SCHEMA, model: o.model,
+      prompt: [fill(GLOSSARY, lang), ...(notes.length ? [`A reviewer scored the previous entries low. Fix these:\n${notes.map(n => `- ${n}`).join('\n')}`] : []), `--- TERMS ---\n${terms}`].join('\n\n'),
+    })
+    const review = async (w: { terms: Term[] }) => {
+      const pairs = batch.map(x => { const t = w.terms.find(y => y.id === x.id); return `### ${x.id}\nEN: ${x.en}\nVI: ${x.vi.name}: ${x.vi.definition ?? ''}\n${lang.toUpperCase()}: ${t ? `${t.name}: ${t.definition}` : '(left out)'}` }).join('\n\n')
+      const r = await llm<{ score: number; notes: string[] }>({ system: `You are a strict Vietnamese→${TARGETS[lang].lang} reviewer of an aquarium glossary. Reply only with JSON.`, prompt: `${fill(GLOSSARY_REVIEW, lang)}\n\n${pairs}`, schema: REVIEW_SCHEMA })
+      return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
+    }
+    try {
+      let w = await write([])
+      let r = await review(w)
+      if (r.score < QUALITY_THRESHOLD) {
+        const again = await write(r.notes)
+        const r2 = await review(again)
+        if (r2.score > r.score) { w = again; r = r2 }
+      }
+      report.reviews.push(`${batch[0]!.id}…: ${r.score}${r.notes.length ? `\n  - ${r.notes.join('\n  - ')}` : ''}`)
+      for (const x of batch) {
+        const got = w.terms.find(t => t.id === x.id)
+        const name = got?.name.trim() ?? ''
+        const definition = got?.definition.replace(/<[^>]+>/g, '').trim() ?? ''
+        if (!name || !definition) { report.failed.push(`${x.id}: left out`); continue }
+        const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, lang === 'id' ? 'istilah' : 'term', taken)
+        taken.add(slug)
+        const t = TranslationSchema.parse({
+          slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 4), sections: {}, definition,
+          quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD },
+        })
+        await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
+        report.done.push(x.id)
+      }
+    } catch (err) {
+      if (err instanceof LlmError) { report.stopped = (err as Error).message; break }
+      report.failed.push(...batch.map(x => `${x.id}: ${(err as Error).message.slice(0, 200)}`))
+    }
+  }
+  // The site links a term's names wherever they appear in running text: other names are kept only when they can't be
+  // an everyday word (several words, or an abbreviation such as NH3, dGH) and no other term has them.
+  const files = (await readdir(dir)).map(id => join(dir, id, `${lang}.json`))
+  const all = (await Promise.all(files.map(f => readFile(f, 'utf8').then(s => ({ f, t: JSON.parse(s) as { name: string; altNames: string[] } }), () => null)))).filter(x => x !== null)
+  const uses = new Map<string, number>()
+  for (const { t } of all) for (const n of new Set([t.name, ...t.altNames].map(n => n.toLowerCase()))) uses.set(n, (uses.get(n) ?? 0) + 1)
+  const linkable = (n: string) => (/\s/.test(n.trim()) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && uses.get(n.toLowerCase()) === 1
+  for (const { f, t } of all) {
+    const kept = t.altNames.filter(linkable)
+    if (kept.length !== t.altNames.length) await writeFile(f, `${JSON.stringify({ ...t, altNames: kept }, null, 2)}\n`)
+  }
   return report
 }

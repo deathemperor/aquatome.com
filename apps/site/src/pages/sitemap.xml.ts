@@ -21,12 +21,14 @@ export const GET: APIRoute = async ({ site }) => {
     ...[...c.species, ...c.breeds].filter(s => s.t.quality.indexable && (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => `/vi/ca/${s.t.slug}/anh/`),
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
   ]
-  // Other languages: their fixed pages and their indexable species pages.
+  // Other languages: their fixed pages and their indexable species, plant and glossary pages.
   for (const lang of ['id', 'th'] as const) {
     const t = await getContent(lang)
     paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
     if (served(lang, '/vi/ca/x/')) paths.push(...t.species.filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
+    if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
+    if (served(lang, '/vi/thuat-ngu/x/')) paths.push(...t.glossary.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/thuat-ngu/${g.t.slug}/`)))
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map(p => `  <url><loc>${new URL(p, site).href}</loc></url>`).join('\n')}\n</urlset>\n`
   return new Response(body, { headers: { 'content-type': 'application/xml' } })

@@ -10,7 +10,7 @@ Translation rules:
 
 {{STYLE}}
 
-Also give the species' names as hobbyists and fish shops in {{COUNTRY}} use them:
+Also give the species' names as hobbyists and aquarium shops in {{COUNTRY}} use them:
 - name: the main name, written as people there write it. An established local name when there is one; otherwise the trade name sellers there use (often the English one, written the local way). Never a made-up word-for-word translation.
 - altNames: other names in use there (other local names, the English trade name). Up to 5. No Vietnamese.
 - nameConfidence: high (you are sure hobbyists there use it), medium, or low.

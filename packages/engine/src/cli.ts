@@ -41,7 +41,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStorybo
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
 import { ArchiveFetcher } from './archive'
-import { localizeSpecies, TARGETS, type TargetLang } from './localize'
+import { localizeGlossary, localizeSpecies, TARGETS, type TargetLang } from './localize'
 import { POPULAR } from './wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -354,13 +354,15 @@ if (cmd === 'run') {
 } else if (cmd === 'localize') {
   // Species pages in Indonesian or Thai, translated from their English sources: --only ids; --top N of the most-read;
   // else every species, most-read first, making at most --limit pages (default 10). Pages done and current are skipped.
+  // --kind plants: plant pages instead, every plant (there is no reading-rank for plants).
   const lang = values.lang as TargetLang
-  if (!(lang in TARGETS)) throw new Error('usage: pnpm engine localize --lang id|th [--only id,id | --top N] [--limit N] [--redo]')
-  const species = await readdir(join(ROOT, 'content/species'))
-  const ranked = [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...[...species].sort()])].filter(id => species.includes(id))
+  const kind = values.kind === 'plants' ? 'plants' : 'species'
+  if (!(lang in TARGETS) || (values.kind && values.kind !== kind)) throw new Error('usage: pnpm engine localize --lang id|th [--kind plants] [--only id,id | --top N] [--limit N] [--redo]')
+  const all = await readdir(join(ROOT, 'content', kind))
+  const ranked = kind === 'plants' ? [...all].sort() : [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...[...all].sort()])].filter(id => all.includes(id))
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? (values.top ? ranked.slice(0, Number(values.top)) : ranked)
   const limit = values.only || values.top ? undefined : Number(values.limit ?? 10)
-  const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit })
+  const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit, kind })
   console.log(`localize ${lang}: ${r.done.length} done, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.done, ...r.failed].join('\n')}`)
 } else if (cmd === 'localize-guides') {
   // AquaTome's own guides in Indonesian or Thai, written from their saved research (--only ids; --redo).
@@ -375,6 +377,12 @@ if (cmd === 'run') {
     if (!('skipped' in r)) made++
     console.log(JSON.stringify(r))
   }
+} else if (cmd === 'localize-glossary') {
+  // Glossary terms in Indonesian or Thai, from the Vietnamese entries: every term not yet done (--redo: all of them; --only ids).
+  const lang = values.lang as TargetLang
+  if (!(lang in TARGETS)) throw new Error('usage: pnpm engine localize-glossary --lang id|th [--only ids] [--redo]')
+  const r = await localizeGlossary(ROOT, claudeCli, lang, { redo: values.redo, model: 'opus', only: values.only?.split(',').map(s => s.trim()).filter(Boolean) })
+  console.log(`localize-glossary ${lang}: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
 } else if (cmd === 'status') {
   const rows: Record<string, Record<string, number>> = {}
   for (const id of SOURCE_IDS) {
@@ -384,6 +392,6 @@ if (cmd === 'run') {
   }
   console.table(rows)
 } else {
-  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine localize --lang id|th [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine faces | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine status')
   process.exitCode = 1
 }

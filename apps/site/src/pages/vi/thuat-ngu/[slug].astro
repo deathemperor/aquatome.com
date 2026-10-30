@@ -4,14 +4,16 @@ import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
 import { glossaryTitle } from '../../../lib/meta'
 import { i18n, langOf } from '../../../lib/i18n'
+import { alternatesOf } from '../../../lib/alternates'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
 }
 const { g } = Astro.props as { g: Localized<GlossaryEntity> }
 const { t, lang } = i18n(Astro.url)
+const alternates = await alternatesOf('glossary', g.id)
 ---
-<Browse title={glossaryTitle(lang, g.t.name)} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable}>
+<Browse title={glossaryTitle(lang, g.t.name)} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates}>
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && <>, <span class="sci">{g.latin}</span></>}</p>
   <p class="def">{g.t.definition}</p>
 </Browse>

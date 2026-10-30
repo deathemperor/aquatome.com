@@ -1,0 +1,14 @@
+{
+  "slug": "konduktivitas",
+  "name": "Konduktivitas",
+  "altNames": [
+    "daya hantar listrik",
+    "EC"
+  ],
+  "sections": {},
+  "definition": "Kemampuan air menghantarkan listrik, diukur dalam mikrosiemens per cm (µS/cm), dan meningkat seiring jumlah garam mineral terlarut. Banyak sumber menggambarkan habitat ikan dengan konduktivitas: sungai air hitam di Amazon bisa di bawah 30 µS/cm, sedangkan air keran biasanya beberapa ratus.",
+  "quality": {
+    "score": 0.75,
+    "indexable": true
+  }
+}
