@@ -29,7 +29,7 @@ import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } fr
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps } from './gallery'
 import { makeBreed } from './breeds'
 import { backfillVideoItems } from './video-items'
-import { throttled, VIDEO_GAP_MS, videoGuides, ytDlp, ytFinder, ytStoryboard } from './youtube'
+import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
 import { ArchiveFetcher } from './archive'
@@ -44,6 +44,10 @@ const http = async (url: string) => {
 
 /** Media bucket credentials: env, else the owner's ~/.config/thuysinh files (never printed). */
 const conf = (env: string, file: string) => process.env[env] ?? readFileSync(join(homedir(), '.config/thuysinh', file), 'utf8').trim()
+// YouTube Data API key: env, else ~/.config/thuysinh/youtube-api-key; also what findVideos reads (species page videos).
+process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(), '.config/thuysinh/youtube-api-key'), 'utf8').trim() || undefined } catch { return undefined } })()
+/** Video metadata through the API when there is a key (yt-dlp then only fetches captions), else all through yt-dlp. */
+const youtube = () => (process.env.YOUTUBE_API_KEY ? ytApi(process.env.YOUTUBE_API_KEY) : ytDlp)
 const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
@@ -176,7 +180,7 @@ if (cmd === 'run') {
 } else if (cmd === 'videos') {
   // Original Vietnamese guides from educational YouTube playlists (engine-state/youtube-playlists.json, or --playlist ID,ID).
   const r = await videoGuides(
-    { yt: ytDlp, llm: claudeCli, root: ROOT, now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) },
+    { yt: youtube(), llm: claudeCli, root: ROOT, now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) },
     {
       playlists: values.playlist?.split(',').map(s => s.trim()).filter(Boolean), limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined,
       // Writing eval (scripts/eval-writing.ts, 2026-10-29): the Vietnamese style guide, written by Opus, read most natural (18–0).
@@ -257,7 +261,7 @@ if (cmd === 'run') {
   // queue size, which English fills first); --force: even with a full queue.
   const channels = values.channels?.split(',').map(s => s.trim()).filter(Boolean)
   const only = values.lang ? { channels: [], queries: QUERIES_BY_LANG[values.lang] ?? [] } : channels ? { channels, queries: [] } : {}
-  const deps = { find: ytFinder, llm: claudeCli, root: ROOT, now: () => new Date() }
+  const deps = { find: { ...ytFinder, playlist: (id: string) => youtube().playlist(id) }, llm: claudeCli, root: ROOT, now: () => new Date() }
   const r = await discoverPlaylists(deps, { maxNew: values.limit ? Number(values.limit) : undefined, force: values.force || !!values.lang, ...only })
   console.log(r.skipped ? `playlists: skipped (${r.skipped})` : `playlists: ${r.candidates} candidates, ${r.added.length} added, ${r.rejected} rejected, ${r.errors.length} errors`)
   for (const a of r.added) console.log(`added: ${a}`)

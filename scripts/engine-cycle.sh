@@ -24,15 +24,18 @@ if [ -n "$(git status --porcelain -- content sources)" ]; then
   log "uncommitted content from an earlier failed cycle — fix it (see /tmp/thuysinh-engine-test.log) before new runs"; exit 1
 fi
 git checkout -q main && git pull -q --ff-only
+# content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
+git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
+# SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
 # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
 # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
-[ -n "${ENGINE_ARGS:-}" ] || pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
+[ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 # Species and kit in guides written before that step existed (one transcript fetch each, stops when YouTube throttles).
-[ -n "${ENGINE_ARGS:-}" ] || pnpm engine video-items --limit 20 || log "video-items: failed"
+[ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine video-items --limit 20 || log "video-items: failed"
 # YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
-[ -n "${ENGINE_ARGS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
+[ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
 # Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
 pnpm engine photos --limit 60 || log "photos: backfill failed"
 # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).

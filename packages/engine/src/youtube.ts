@@ -15,6 +15,7 @@ import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
+import { seconds } from './videos'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -22,8 +23,8 @@ export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confi
 export type VideoMeta = {
   id: string; title: string; channel: string; channelUrl: string; durationSec: number; publishedAt?: string
   chapters: { start: number; title: string }[]; embeddable: boolean; description: string; thumb: { url: string; width: number; height: number }
-  /** YouTube lists an English caption track (manual or automatic). */
-  captions: boolean
+  /** YouTube lists a caption track in the spoken language (manual or automatic); undefined: not known (metadata from the API). */
+  captions?: boolean
   /** Spoken language (ISO base code, e.g. 'en', 'vi'); YouTube's guess, 'en' when unknown. */
   lang?: string
 }
@@ -87,9 +88,13 @@ export function toLines(segments: { start: number; text: string }[]): string {
   return lines.join('\n')
 }
 
-/** yt-dlp; metadata and captions only unless `download` (audio for transcription). */
+/**
+ * yt-dlp; metadata and captions only unless `download` (audio for transcription). YT_COOKIES_FROM (e.g. "chrome:Profile 2")
+ * signs the requests in as that browser profile's YouTube account, which YouTube throttles far less than an anonymous client.
+ */
+const cookies = () => (process.env.YT_COOKIES_FROM ? ['--cookies-from-browser', process.env.YT_COOKIES_FROM] : [])
 const run = (args: string[], cwd?: string, download = false) => new Promise<string>((resolve, reject) =>
-  execFile('yt-dlp', ['--no-warnings', ...(download ? [] : ['--skip-download']), ...args], { cwd, maxBuffer: 64 * 1024 * 1024, timeout: 120_000 }, (e, out, err) =>
+  execFile('yt-dlp', ['--no-warnings', ...cookies(), ...(download ? [] : ['--skip-download']), ...args], { cwd, maxBuffer: 64 * 1024 * 1024, timeout: 120_000 }, (e, out, err) =>
     e ? reject(new Error(`yt-dlp: ${(err || e.message).trim().split('\n').pop()}`)) : resolve(out)))
 
 const watch = (id: string) => `https://www.youtube.com/watch?v=${id}`
@@ -155,6 +160,61 @@ export const ytDlp: YouTube = {
       await rm(dir, { recursive: true, force: true }) // the audio never outlives the transcript
     }
   }),
+}
+
+type ApiThumbs = Record<string, { url: string; width: number; height: number } | undefined>
+type ApiVideo = { snippet: { title: string; channelTitle: string; channelId: string; publishedAt?: string; description?: string; defaultAudioLanguage?: string; defaultLanguage?: string; thumbnails?: ApiThumbs }; contentDetails: { duration: string }; status: { embeddable?: boolean; privacyStatus?: string } }
+type ApiList<T> = { items?: T[]; nextPageToken?: string }
+
+/** Chapters the way YouTube reads them from a description: timestamped lines, the first at 0:00, at least three. */
+export function chaptersFrom(description: string): { start: number; title: string }[] {
+  const out = description.split('\n').flatMap(l => {
+    const m = /^\s*(?:(\d{1,2}):)?(\d{1,2}):(\d{2})\s*[-–—:|]?\s*(\S.*)$/.exec(l)
+    return m ? [{ start: Number(m[1] ?? 0) * 3600 + Number(m[2]) * 60 + Number(m[3]), title: m[4]!.trim() }] : []
+  })
+  return out.length >= 3 && out[0]!.start === 0 && out.every((c, i) => !i || c.start > out[i - 1]!.start) ? out : []
+}
+
+/**
+ * Metadata through the YouTube Data API: a key, 1 quota unit per call, never rate-limited like yt-dlp. Captions (and audio
+ * for videos without any) still come through yt-dlp, which only has to make that one request per video now.
+ */
+export function ytApi(key: string, get: (url: string) => Promise<unknown> = async u => {
+  const r = await fetch(u)
+  if (!r.ok) throw new Error(`YouTube API: HTTP ${r.status}`)
+  return r.json()
+}): YouTube {
+  const api = <T,>(path: string, q: Record<string, string>) => get(`https://www.googleapis.com/youtube/v3/${path}?${new URLSearchParams({ ...q, key })}`) as Promise<ApiList<T>>
+  return {
+    async playlist(id) {
+      const p = (await api<{ snippet: { title: string; channelTitle: string; channelId: string } }>('playlists', { part: 'snippet', id })).items?.[0]
+      if (!p) throw new Error(`playlist ${id}: not found`)
+      const videos: { id: string; title: string }[] = []
+      let pageToken = ''
+      do {
+        const r = await api<{ snippet: { title: string; resourceId?: { videoId?: string } } }>('playlistItems', { part: 'snippet', playlistId: id, maxResults: '50', ...(pageToken ? { pageToken } : {}) })
+        for (const it of r.items ?? []) if (it.snippet.resourceId?.videoId && !/^(Private|Deleted) video$/.test(it.snippet.title)) videos.push({ id: it.snippet.resourceId.videoId, title: it.snippet.title })
+        pageToken = r.nextPageToken ?? ''
+      } while (pageToken)
+      return { id, title: p.snippet.title, channel: p.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${p.snippet.channelId}`, videos }
+    },
+    async video(id) {
+      const v = (await api<ApiVideo>('videos', { part: 'snippet,contentDetails,status', id })).items?.[0]
+      if (!v) throw new Error(`video ${id}: unavailable`)
+      const t = v.snippet.thumbnails ?? {}
+      const thumb = t.maxres ?? t.standard ?? t.high ?? t.medium ?? { url: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`, width: 320, height: 180 }
+      return {
+        id, title: v.snippet.title, channel: v.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${v.snippet.channelId}`,
+        durationSec: seconds(v.contentDetails.duration), ...(v.snippet.publishedAt ? { publishedAt: v.snippet.publishedAt.slice(0, 10) } : {}),
+        description: v.snippet.description ?? '', chapters: chaptersFrom(v.snippet.description ?? ''),
+        embeddable: v.status.embeddable !== false && (v.status.privacyStatus === 'public' || v.status.privacyStatus === 'unlisted'),
+        lang: base(v.snippet.defaultAudioLanguage ?? v.snippet.defaultLanguage) ?? 'en',
+        thumb: { url: thumb.url, width: thumb.width, height: thumb.height },
+      }
+    },
+    transcript: ytDlp.transcript,
+    transcribe: ytDlp.transcribe,
+  }
 }
 
 /** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
@@ -299,10 +359,13 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const m = await yt.video(vid)
       // No captions in the spoken language: our own transcript of the audio (when Whisper is installed).
       const lang = m.lang ?? 'en'
-      const ownTranscript = !m.captions && SOURCE_LANGS.includes(lang) && !!yt.transcribe
-      const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !SOURCE_LANGS.includes(lang) ? `spoken in ${lang}` : !m.captions && !ownTranscript ? 'no captions' : null
-      const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid, lang) : await yt.transcript(vid, lang)
-      if (!skip && !transcript && ownTranscript) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; return false }
+      const ownTranscript = m.captions === false && SOURCE_LANGS.includes(lang) && !!yt.transcribe
+      const skip = !m.embeddable ? 'not embeddable' : m.durationSec < 120 ? 'too short' : !SOURCE_LANGS.includes(lang) ? `spoken in ${lang}` : m.captions === false && !ownTranscript ? 'no captions' : null
+      // Captions not known (API metadata): ask for them; yt-dlp answering without a file means there are none, so our own transcript.
+      const unknown = m.captions === undefined && !skip
+      const captions = skip || ownTranscript ? null : await yt.transcript(vid, lang)
+      const transcript = skip ? null : ownTranscript ? await yt.transcribe!(vid, lang) : captions ?? (unknown && yt.transcribe && SOURCE_LANGS.includes(lang) ? await yt.transcribe(vid, lang) : null)
+      if (!skip && !transcript && (ownTranscript || unknown)) { await set(vid, { status: 'skipped', entityIds: [], error: 'no captions; transcription unavailable' }); report.skipped.push(`${vid}: no captions; transcription unavailable`); failedInARow = 0; return false }
       // Listed but not downloaded (rate limit, network): an error, retried later — not a skip.
       if (!skip && !transcript) throw new Error('English captions listed but not downloaded')
       const why = skip ?? (transcript!.length < 1500 ? 'captions too short' : null)
@@ -332,7 +395,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const entity = GuideSchema.parse({
         id, kind: d.kind, source: 'youtube', sourceUrl: watch(vid), html: '', photos: [], updatedAt: now,
         mentions: [...new Set([...(prev.entity?.mentions ?? []), ...await resolveTaxa(contentRoot, taxa ?? [])])],
-        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
+        video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
       const name = d.viTitle.trim()
       const vi = TranslationSchema.parse({

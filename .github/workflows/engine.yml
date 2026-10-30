@@ -24,7 +24,8 @@ jobs:
     env:
       ENGINE_ARGS: ${{ inputs.engine_args }}
       ENGINE_MAX_MINUTES: ${{ inputs.max_minutes || '150' }}
-      VIDEO_MAX_MINUTES: '45'
+      # YouTube throttles GitHub's IPs: the video steps run on the owner's Mac (scripts/video-cycle.sh).
+      SKIP_VIDEOS: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
