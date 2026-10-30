@@ -2,7 +2,7 @@ import type { Content } from '@aq/schema'
 import { getContent } from './content'
 import { LANGS, localizePath, served, toVi, type Lang } from './i18n'
 
-const SECTION = { species: 'ca', plants: 'cay', glossary: 'thuat-ngu', guides: 'huong-dan' } as const
+const SECTION = { species: 'ca', breeds: 'ca', plants: 'cay', glossary: 'thuat-ngu', guides: 'huong-dan' } as const
 type Page = { id: string; t: { slug: string; quality: { indexable: boolean } } }
 
 /** A species, plant, glossary or guide page in each language that has it and lets search engines index it, for hreflang. */

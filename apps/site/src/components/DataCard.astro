@@ -3,7 +3,7 @@ import { resolveDataCard, type DataCardField, type Range } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { FIELD_LABELS, FIELD_ORDER, fmt, isRange } from '../lib/format'
-import { i18n } from '../lib/i18n'
+import { i18n, isVietnamese } from '../lib/i18n'
 /** Species cite source ids (sources.json); breeds cite their own sources by position. */
 interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>> }
 const { card, sources } = Astro.props
@@ -45,7 +45,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
         {r.conflict && (
           <details class="srcs">
             <summary>{r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức')}</summary>
-            <ul>{r.bySource.map(v => <li>{names([v.source])}: <span {...unitAttrs(r.field, v.value)}>{range(v.value)}{unit(r.field)}</span></li>)}</ul>
+            <ul>{r.bySource.map(v => <li>{isVietnamese(names([v.source])) ? <><span lang="vi">{names([v.source])}</span>{lang !== 'vi' && <> ({t('tiếng Việt')})</>}</> : names([v.source])}: <span {...unitAttrs(r.field, v.value)}>{range(v.value)}{unit(r.field)}</span></li>)}</ul>
           </details>
         )}
       </dd>

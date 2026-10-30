@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { langOf, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
+import { isVietnamese, langOf, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
 
 test('a page file mounted in each language', () => {
   expect(routeIn('vi', 'index.astro')).toBe('/vi')
@@ -82,4 +82,9 @@ test('a [...rest] page is served at its index too', async () => {
   expect(served('id', '/vi/nguon-goc/asia/indonesia/')).toBe(true)
   expect(served('th', '/vi/phan-loai/')).toBe(true)
   expect(served('id', '/vi/thiet-bi/')).toBe(false)
+})
+
+test('a Vietnamese source title is told apart from Spanish or Portuguese ones', () => {
+  for (const s of ['Cá Ping Pong (Pearlscale Goldfish) – Sen A', 'Cá betta (cá xiêm) - Hoàng Hà Mobile', 'Vẻ đẹp của dòng cá Betta Halfmoon', 'Cá dĩa', 'Tép Blue Dream - Blue Velvet Shrimp']) expect(isVietnamese(s), s).toBe(true)
+  for (const s of ['Tereso Hernández Morales', 'Río Orinoco', 'São Paulo', 'Seriously Fish', 'Balloon Molly - Aquariadise']) expect(isVietnamese(s), s).toBe(false)
 })

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { breedPhotos, makeBreed, type BreedFacts } from '../src/breeds'
+import { breedPhotos, localizeBreed, makeBreed, type BreedFacts } from '../src/breeds'
 import type { GalleryDeps } from '../src/gallery'
 
 const facts: BreedFacts = {
@@ -142,4 +142,24 @@ test('breed-photos: a page with no photo gets them from a word search on Commons
   await writeFile(join(r, 'content/breeds/crowntail-betta/entity.json'), JSON.stringify({ id: 'crowntail-betta', kind: 'variety', photos: [] }))
   await breedPhotos(r, d, {})
   expect(searches).toEqual([]) // tried today
+})
+
+test('localizeBreed: the page in Thai written afresh from the same facts, without the Vietnamese names; parents named in Thai; skipped once done', async () => {
+  const r = await root()
+  const hybrid: BreedFacts = { ...facts, kind: 'hybrid', basedOn: undefined, commons: undefined, parents: [{ name: 'Goldfish', scientificName: 'Carassius auratus', certain: true, source: 0 }, { name: 'Crucian carp', certain: false, source: 2 }] }
+  const vi: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá lai X', altNames: [], parentNames: [], summary: ['s'], body: '<p>b</p>', faq: [] }) as T
+  await makeBreed(r, { research: (async () => hybrid) as Llm, llm: vi, gallery: gallery([]) }, { name: 'X hybrid' })
+  const prompts: string[] = []
+  const th: Llm = async <T,>(a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if ('score' in (a.schema as { properties: object }).properties) return { score: 0.9, notes: [] } as T
+    return { name: 'ปลาลูกผสม X', slug: 'x-hybrid-fish', altNames: ['X hybrid', 'Cá lai X', 'ปลาลูกผสม X'], parentNames: ['ปลาทอง (Carassius auratus)', 'ปลาไน'], summary: ['ส'], body: '<p>บ</p><script>x</script>', faq: [{ q: 'ถาม', a: 'ตอบ' }] } as T
+  }
+  const out = await localizeBreed(r, th, 'x-hybrid', 'th')
+  expect(out).toMatchObject({ id: 'x-hybrid', slug: 'x-hybrid-fish', score: 0.9 })
+  expect(prompts[0]).toContain('Thai')
+  expect(prompts[0]).not.toContain('Cá vàng Ranchu') // the Vietnamese names stay on the Vietnamese page
+  const t = JSON.parse(await readFile(join(r, 'content/breeds/x-hybrid/th.json'), 'utf8'))
+  expect(t).toMatchObject({ slug: 'x-hybrid-fish', name: 'ปลาลูกผสม X', altNames: ['X hybrid'], parents: ['ปลาทอง (Carassius auratus)', 'ปลาไน'], body: '<p>บ</p>', quality: { score: 0.9, indexable: true } })
+  expect(await localizeBreed(r, th, 'x-hybrid', 'th')).toEqual({ id: 'x-hybrid', skipped: 'done' })
 })

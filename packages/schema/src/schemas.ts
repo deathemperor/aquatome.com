@@ -137,6 +137,8 @@ export const TranslationSchema = z.object({
   summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),
   /** Video guides: the words on the video's thumbnail in Vietnamese (≤ 5 words), shown as our label over it (the image itself is never altered). */
   cover: z.string().optional(),
+  /** Hybrids in another language: each parent's display name, in the order of the entity's parents. */
+  parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
   /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
