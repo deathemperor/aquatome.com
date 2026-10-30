@@ -26,3 +26,10 @@ test('a source cannot be published without a permission record', () => {
   expect(() => SourcesSchema.parse({ glaser: { name: 'G', homepage: 'h', publish: true } })).toThrow(/permission/)
   expect(SourcesSchema.parse({ glaser: { name: 'G', homepage: 'h', publish: false } }).glaser?.publish).toBe(false)
 })
+test('the real sources.json parses, Facebook source included with a permission record', async () => {
+  const { readFile } = await import('node:fs/promises')
+  const raw = JSON.parse(await readFile(new URL('../../../content/sources.json', import.meta.url), 'utf8'))
+  const s = SourcesSchema.parse(raw)
+  expect(s['facebook-jim']).toMatchObject({ name: 'Jim Cumming (Facebook)', publish: true })
+  expect(s['facebook-jim']?.permission?.scope).toContain('photos')
+})
