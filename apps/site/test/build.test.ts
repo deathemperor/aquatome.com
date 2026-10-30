@@ -289,6 +289,11 @@ describe('video guide', () => {
     expect(dom.querySelector('.credit')?.text).toContain('Bài viết của AquaTome, dựa trên video của MJ Aquascaping')
     expect(dom.querySelector('figcaption a[href="https://www.youtube.com/watch?v=vl1Lx9iWDYU"]')).not.toBeNull()
   })
+  test('the thumbnail is fast to show: phones get the 640 px one, and the connection opens from the head', () => {
+    expect(dom.querySelector('.facade picture source[media="(max-width: 480px)"]')?.getAttribute('srcset')).toBe('https://i.ytimg.com/vi/vl1Lx9iWDYU/sddefault.jpg')
+    expect(dom.querySelector('.facade picture img')?.getAttribute('src')).toBe('https://i.ytimg.com/vi/vl1Lx9iWDYU/maxresdefault.jpg')
+    expect(dom.querySelector('head link[rel="preconnect"][href="https://i.ytimg.com"]')).not.toBeNull()
+  })
   test('chapters in Vietnamese seek the video; summary and FAQ shown', () => {
     const marks = dom.querySelectorAll('.chapters button[data-t]')
     expect(marks.map(b => b.getAttribute('data-t'))).toEqual(['0', '31', '91'])
@@ -528,6 +533,12 @@ describe('man-made fish (breeds)', () => {
     expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
     expect(page('/vi/ca/').dom.querySelector('section.breeds a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
+  })
+  test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
+    const img = page('/vi/ca/').dom.querySelector('section.breeds img')!
+    expect(img.getAttribute('src')).toContain('/500px-')
+    expect(img.getAttribute('loading')).toBe('eager')
+    expect(page('/vi/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })
   test('sitemap: indexable breed pages only', () => {
     const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')

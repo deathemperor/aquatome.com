@@ -19,8 +19,8 @@
   --c-select: #e8d5b5;
   color-scheme: light;
 
-  --f-display: 'Newsreader Variable', Georgia, serif;
-  --f-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  --f-display: 'Newsreader Variable', 'Newsreader Fallback', 'Newsreader Fallback Noto', Georgia, serif;
+  --f-body: 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Be Vietnam Pro Fallback Roboto', system-ui, sans-serif;
 
   --step--1: 0.8125rem;
   --step-0: 1rem;
@@ -81,3 +81,13 @@
     color-scheme: dark;
   }
 }
+
+/*
+ * Stand-ins shaped like the web fonts (average letter width, ascent, descent from @capsizecss/metrics), so text keeps
+ * its size and line breaks when Be Vietnam Pro and Newsreader arrive and nothing below it moves. Arial/Georgia on
+ * Apple and Windows, Roboto/Noto Serif on Android.
+ */
+@font-face { font-family: 'Be Vietnam Pro Fallback'; src: local('Arial'); size-adjust: 110.36%; ascent-override: 90.61%; descent-override: 24.01%; line-gap-override: 0%; }
+@font-face { font-family: 'Be Vietnam Pro Fallback Roboto'; src: local('Roboto'); size-adjust: 110.61%; ascent-override: 90.41%; descent-override: 23.96%; line-gap-override: 0%; }
+@font-face { font-family: 'Newsreader Fallback'; src: local('Georgia'); size-adjust: 96.12%; ascent-override: 76.47%; descent-override: 27.57%; line-gap-override: 0%; }
+@font-face { font-family: 'Newsreader Fallback Noto'; src: local('Noto Serif'), local('NotoSerif'); size-adjust: 89.09%; ascent-override: 82.51%; descent-override: 29.75%; line-gap-override: 0%; }

@@ -14,7 +14,7 @@ const index = c.species.map(s => toIndexItem(s))
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
-  <BreedList breeds={[...c.breeds].sort((a, b) => a.t.name.localeCompare(b.t.name, 'vi'))} heading="Cá lai và các dòng cá cảnh" bare />
+  <BreedList breeds={[...c.breeds].sort((a, b) => a.t.name.localeCompare(b.t.name, 'vi'))} heading="Cá lai và các dòng cá cảnh" bare eager={4} />
   {/* Open on wide screens; on phones it starts closed unless a filter is in the address (see the inline script). */}
   <details class="fbox" id="filter-box" open>
   <summary>Lọc theo bể và nước</summary>

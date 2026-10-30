@@ -1,6 +1,6 @@
 /* Field-handbook overrides on top of component styles (formerly skin B). :not(#_) (always true, ID-weight) beats Astro's scoped styles. */
 :root:not(#_) body { font-size: 1.0625rem; }
-:root:not(#_) .prose, :root:not(#_) .intro { font-family: 'Newsreader Variable', Georgia, serif; font-size: 1.125rem; line-height: 1.65; }
+:root:not(#_) .prose, :root:not(#_) .intro { font-family: var(--f-display); font-size: 1.125rem; line-height: 1.65; }
 :root:not(#_) h1, :root:not(#_) h2, :root:not(#_) h3 { font-variation-settings: normal; font-weight: 450; }
 :root:not(#_) .nav, :root:not(#_) .nav.overlay { position: static; background: var(--c-paper); color: var(--c-ink); border-bottom: 1px solid var(--c-rule); }
 :root:not(#_) .nav .logo { color: var(--c-ink); font-family: var(--f-display); }
