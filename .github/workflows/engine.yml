@@ -1,9 +1,9 @@
 name: engine
-# The content engine, every 6 hours (was launchd on the owner's Mac). macOS: face screening uses Apple's Vision
+# The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
 # framework, and the page fetcher drives a real (headed) Chrome. Commits content and deploys (scripts/engine-cycle.sh).
 on:
   schedule:
-    - cron: '23 */6 * * *'
+    - cron: '23 */3 * * *'
   workflow_dispatch:
     inputs:
       engine_args:
