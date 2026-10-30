@@ -71,7 +71,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <nav class="crumb" aria-label="Đường dẫn">{v ? <><a href="/vi/video/">Video</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
       <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · {v && <>video {clock(v.durationSec)} · </>}đọc khoảng {minutes} phút{series && pos >= 0 && <> · phần {pos + 1}/{inSeries.length}</>}</p>
       <h1>{g.t.name}</h1>
-      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} />
+      <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={g.refs} />
       {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
@@ -91,6 +91,12 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
       <section class="faq" aria-labelledby="faq-h">
         <h2 id="faq-h">Câu hỏi thường gặp</h2>
         {g.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </section>
+    )}
+    {g.refs && g.refs.length > 0 && (
+      <section class="refs" id="nguon" aria-labelledby="ref-h">
+        <h2 id="ref-h">Nguồn tham khảo</h2>
+        <ol>{g.refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank">{r.title}</a></li>)}</ol>
       </section>
     )}
   </article>
@@ -136,6 +142,10 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   .faq details { border-bottom: 1px solid var(--c-rule); }
   .faq summary { cursor: pointer; padding: var(--space-3) 0; font-weight: 600; min-height: 44px; box-sizing: border-box; }
   .faq details p { margin: 0 0 var(--space-3); line-height: 1.7; }
+  .refs { grid-column: 1; margin-top: var(--space-6); font-size: 0.9rem; color: var(--c-ink-soft); }
+  .refs h2 { font: 600 0.8rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); }
+  .refs ol { padding-left: 1.4em; margin: 0; }
+  .refs li { padding-block: 2px; overflow-wrap: anywhere; }
   /* Video guides: a section's open-licence photo, then stills that play the video from that moment. */
   .prose :global(.vfigs) { margin: var(--space-5) 0; }
   .prose :global(.vphoto) { margin: 0 0 var(--space-4); }

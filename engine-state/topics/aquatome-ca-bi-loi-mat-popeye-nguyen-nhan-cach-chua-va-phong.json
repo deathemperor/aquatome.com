@@ -1,0 +1,357 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus",
+    "Betta splendens",
+    "Cyprinus carpio"
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikivet.net/Pop-eye",
+      "title": "Exopthalmos - Fish (WikiVet)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/popeye-disease-in-fish",
+      "title": "Popeye Disease In Fish (Chewy Education)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.vin.com/doc/?id=3981721",
+      "title": "The Application of Ophthalmic Techniques for Diagnosing Eye Diseases in Fishes (Noga & Nasisse, IAAAM 1987)",
+      "kind": "paper"
+    },
+    {
+      "url": "https://cabaymau.vn/ca-bi-loi-mat/",
+      "title": "Cá bị lồi mắt: Nguyên nhân, dấu hiệu nhận biết và cách xử lý hiệu quả (Cá Bảy Màu)",
+      "kind": "article"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/benh-sung-mat-popeye-o-ca-betta-la-gi-phong-ngua-ra-sao--n134529.html",
+      "title": "Bệnh Sưng Mắt (Popeye) Ở Cá Betta Là Gì? Phòng Ngừa Ra Sao? (Thế Giới Cá Cảnh)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Exophthalmos (pop-eye) is the most common eye problem in fish and can come from many diseases, injuries and infections.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Any fish can be affected, whether farmed or ornamental.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Popeye is swelling of one or both eyes that makes them bulge. It is also called exophthalmia.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Pop-eye is usually a consequence of a disease affecting the whole body.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Popeye itself rarely kills, but affected fish can die of secondary problems such as septicemia or Hexamita infection.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "The affected eye or eyes look larger and bulge out from the head.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The outer surface of the eye may look white or cloudy because the cornea is damaged.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Popeye can affect one eye (unilateral) or both eyes (bilateral).",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Sick fish may become lethargic, hide, refuse food and rub against objects. The eye may be cloudy or show white or red spots.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "If the fish also has a swollen belly, raised scales and lies on the bottom or at the surface, suspect dropsy. Bulging eyes can be one of its first signs.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "In betta, look for a white ring or white spots around the eye, discoloration usually of one eye, poor appetite and resting on the bottom.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Diagnosis is made by looking at the fish. Finding the underlying disease may need bacteriology, parasitology, serology or other tests.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "The main mechanism is tissue fluid leaking behind the eyeball. The pressure pushes the eye outward, and opportunistic bacteria often follow.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Popeye is most often caused by long-term poor water quality, such as overcrowding or too few water changes.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Popeye in one eye may come from physical injury: rough handling, collisions, a failed attack by a predator or aggression from other fish.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Listed infectious causes include tuberculosis, Aeromonas, Pseudomonas, vibriosis, enteric redmouth, Ichthyosporidium, flukes living under the retina, and several viruses (IPN, IHN, VHS, channel catfish virus).",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Listed non-infectious causes include gas bubble disease, kidney disease and ammonia toxicity.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Gas emboli (gas bubble disease) are named as one cause of pop-eye.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Parasites such as Ichthyophthirius multifiliis and anchor worm can damage eye tissue and open the way for secondary bacteria.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "High ammonia or nitrite, unstable pH, weak filtration and overstocking are listed as water-quality causes.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Male betta are especially prone to eye injury from sharp decor, the glass or fighting.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "For betta, listed causes are sharp rocks or hard decorations, incompatible aggressive tankmates, and parasitic, fungal or bacterial infection.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Move the sick fish to a quarantine tank and change the water.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water and aim for zero ammonia and nitrite. For most freshwater fish, keep pH around 6.5–7.5.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Moving the fish to a different tank may let it recover from ammonia toxicity.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Dim the light or cover the tank during treatment, and avoid changing many things at once.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Treatment depends heavily on the cause, and for some causes there is none.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Bacterial causes may respond to antibiotics.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Treatment usually fails once the eyeball (globe) is badly damaged.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Mild gas bubble disease may resolve once the excess gas is removed.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Epsom salt at 1 to 3 teaspoons per 5 gallons is suggested, ideally in a quarantine tank rather than the display tank.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Antibacterials similar to fin-rot treatments can stop corneal damage from progressing. Once popeye has developed, antibiotics for internal infection are recommended, preferably given in food.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Swelling can take weeks or months to go down, and the cornea may heal more slowly than the swelling.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For popeye from injury in betta: an Epsom salt bath of 'one spoon per gallon' for about 10–15 minutes. Move the fish back to fresh water at once if it goes limp or struggles to breathe.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Never treat betta with salt for more than 10 days.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For infected betta: one source gives Ampicillin at 'one tablet per 10 gallons' in a quarantine tank. Change the quarantine water twice a week and re-dose after each change.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For bacterial causes: erythromycin, tetracycline or kanamycin at the maker's dose, as a 5–10 minute bath daily for several days, with better aeration and water changes.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For parasitic causes: formalin, low-dose salt or malachite green in a separate tank. A 1–3% salt bath for 5–10 minutes daily is suggested.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium salt at about 1 teaspoon per 10 L is mentioned as possibly helpful.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Fish blind in one eye usually cope. Sight-hunting carnivores may need to be kept away from aggressive tankmates and hand-fed with forceps.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Severe eye damage may never fully heal. In extreme cases the eye can decay and fall out.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "See a specialist if the fish has not improved after 3–5 days of home treatment, or if the eye is fully protruding, the fish refuses food, or it lies on the bottom or swims on its side.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For farmed tilapia and catfish, antibiotics in feed must be followed by the withdrawal period before harvest.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Nitrate above 20 mg/l suggests overstocking, overfeeding or too few water changes.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid coarse nets. Use the net to herd fish into a container rather than catching them directly with it.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Don't keep skittish fish with boisterous or aggressive species.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Turn the room lights on before the aquarium lights, and turn the aquarium lights off before the room lights, so fish don't panic and crash.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed a balanced, vitamin-rich diet and keep water quality high.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Biosecurity rules control infectious causes, and tank design can prevent injuries.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 20–30% of the water weekly, choose smooth decor, give hiding places, feed only what is eaten in 2–3 minutes, and quarantine new fish for 7–14 days.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Give a single betta at least 5–10 L of water.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "For betta: avoid sharp decor and overcrowding, keep filtration good, monitor temperature, pH, ammonia, nitrite and nitrate, and don't overfeed.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Medicating without finding the cause, overusing antibiotics or chemicals, and switching treatments before the fish has time to respond.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Doing one very large water change at once, and keeping sick fish with healthy ones.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating with Epsom salt in the main display tank instead of a quarantine tank.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Keeping betta in salt for more than 10 days.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "For betta, let tap water stand overnight to remove chlorine before using it.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Specialist veterinary clinics in Hà Nội, TP.HCM and Đà Nẵng can test water and look at fresh samples under a microscope.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese hobby articles call popeye 'lồi mắt' or 'sưng mắt'. Popeye with dropsy is called 'bệnh thủy tiên' (phù thủng).",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Indian almond leaves (lá bàng) are recommended as a 'natural antibiotic' for betta, without cited evidence.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "For koi ponds: isolate sick fish, use bottom-dwelling microbial products and feed a diet rich in protein, vitamins and minerals. For tilapia and catfish ponds, use lime to stabilize pH.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Popeye from injury is not contagious. Popeye from parasites, fungus or bacteria spreads easily.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Goldfish and large cichlids are singled out as prone because they are messy fish often kept in dirty conditions.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "In carp, koi and goldfish, bulging eyes often come with hemorrhagic disease caused by Aeromonas bacteria.",
+      "source": 3
+    }
+  ]
+}

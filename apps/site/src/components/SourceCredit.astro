@@ -1,10 +1,11 @@
 ---
 import type { GuideEntity, SourceId, SourceInfo } from '@aq/schema'
-interface Props { source: SourceId; url: string; sources: Partial<Record<SourceId, SourceInfo>>; video?: GuideEntity['video'] }
-const { source, url, sources, video } = Astro.props
+interface Props { source: SourceId; url: string; sources: Partial<Record<SourceId, SourceInfo>>; video?: GuideEntity['video']; refs?: GuideEntity['refs'] }
+const { source, url, sources, video, refs } = Astro.props
 const name = sources[source]?.name ?? source
 ---
-{video
+{source === 'aquatome' ? <p class="credit">AquaTome tổng hợp từ <a href="#nguon">{refs?.length ?? 0} nguồn</a> rồi tự viết</p>
+  : video
   ? <p class="credit">Bài viết của AquaTome, dựa trên video của <a href={video.channelUrl} rel="noopener">{video.channel}</a></p>
   : <p class="credit">Theo <a href={url} rel="noopener">{name}</a></p>}
 <style>

@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import type { Photo, SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos } from './run'
-import { sourceById } from './sources'
+import { SOURCES, sourceById } from './sources'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 
 export type BackfillDeps = {
@@ -55,8 +55,9 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       const own = kind === 'guides' ? (e.source && e.sourceUrl && e.source !== 'youtube' ? [{ source: e.source, sourceUrl: e.sourceUrl }] : []) : (e.sections ?? [])
       const scotcat = kind === 'species' && !own.some(r => r.source === 'scotcat') ? scotcatUrl(e.scientificName, e.family) : undefined
       const refs = scotcat ? [...own, { source: 'scotcat' as const, sourceUrl: scotcat }] : own
-      // Sources read through the Internet Archive are left out: the archive keeps no usable copies of their photos.
-      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => sourceById(s).via !== 'archive' && (!tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS))
+      // Only sources the engine reads (not our own guides, Facebook or video), and not those read through the Internet
+      // Archive: the archive keeps no usable copies of their photos.
+      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && (!tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS))
       if (!urls.length) continue
       pages++
       const before = e.photos.length
