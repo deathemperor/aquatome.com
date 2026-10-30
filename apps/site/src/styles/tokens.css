@@ -19,8 +19,8 @@
   --c-select: #e8d5b5;
   color-scheme: light;
 
-  --f-display: 'Newsreader Variable', 'Newsreader Fallback', 'Newsreader Fallback Noto', Georgia, serif;
-  --f-body: 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Be Vietnam Pro Fallback Roboto', system-ui, sans-serif;
+  --f-display: 'Newsreader Variable', 'Newsreader Fallback', 'Newsreader Fallback Noto', Georgia, 'Noto Serif Thai', 'Noto Sans Thai', Thonburi, 'Leelawadee UI', serif;
+  --f-body: 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Be Vietnam Pro Fallback Roboto', 'Noto Sans Thai', Thonburi, 'Leelawadee UI', system-ui, sans-serif; /* Thai: the system's own Thai face, glyph by glyph */
 
   --step--1: 0.8125rem;
   --step-0: 1rem;

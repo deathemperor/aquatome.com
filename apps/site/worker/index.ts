@@ -99,19 +99,30 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 
 const ADMIN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
 
+/** The site language a browser ranks highest among ours (Accept-Language, q order); Vietnamese when none. */
+export function rootLang(header: string | null): 'vi' | 'id' | 'th' {
+  const ranked = (header ?? '').split(',').map((part, i) => {
+    const [tag, ...params] = part.trim().toLowerCase().split(';')
+    const q = Number(params.find(p => p.trim().startsWith('q='))?.split('=')[1] ?? 1)
+    return { base: tag!.split('-')[0]!.replace(/^in$/, 'id'), q: Number.isFinite(q) ? q : 0, i }
+  }).filter(x => x.q > 0).sort((a, b) => b.q - a.q || a.i - b.i)
+  const hit = ranked.find(x => x.base === 'vi' || x.base === 'id' || x.base === 'th')
+  return (hit?.base as 'vi' | 'id' | 'th' | undefined) ?? 'vi'
+}
+
 export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
   // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike (see isHidden for how soon).
-  if (url.pathname.startsWith('/vi/')) {
+  if (/^\/(vi|id|th)\//.test(url.pathname)) {
     const p = pagePath(url.pathname)
     if (p && isHidden(env.AB, p, env.HIDDEN_PAGES, wait)) return finish(gonePage(), env)
   }
   // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
-  if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
+  if (/^\/(vi|id|th)\//.test(mdPath) && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
     const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
     if (md.ok) {
       const text = await md.text()
@@ -122,8 +133,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     }
   }
   if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
-  // Vietnamese is the only language for now: the root is a permanent redirect, not a meta-refresh page.
-  if (url.pathname === '/') return finish(new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK } }), env)
+  // The root: a browser that prefers Indonesian or Thai goes to that language (302, by Accept-Language); everyone else,
+  // crawlers included, to /vi/ for good.
+  if (url.pathname === '/') {
+    const lang = rootLang(req.headers.get('accept-language'))
+    return finish(lang === 'vi'
+      ? new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK } })
+      : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language', 'cache-control': 'private, no-store' } }), env)
+  }
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)

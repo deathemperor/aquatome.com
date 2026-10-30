@@ -171,6 +171,11 @@ test('agent discovery: API catalog as linkset+json; homepage redirect and /vi/ c
   expect(body.linkset[0]).toMatchObject({ anchor: 'https://x.test/', 'service-desc': [{ href: 'https://x.test/openapi.json' }] })
   const root = await handle(get('/'), e)
   expect(root.status).toBe(301)
+  // Indonesian and Thai browsers land on their language.
+  const id = await handle(get('/', { ...browser, 'accept-language': 'en-US,en;q=0.9,id;q=0.8' }), e)
+  expect([id.status, id.headers.get('location'), id.headers.get('vary')]).toEqual([302, '/id/', 'Accept-Language'])
+  expect((await handle(get('/?x=1', { ...browser, 'accept-language': 'th-TH' }), e)).headers.get('location')).toBe('/th/?x=1')
+  expect((await handle(get('/', { ...browser, 'accept-language': 'en-US' }), e)).headers.get('location')).toBe('/vi/')
   expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
   expect((await handle(get('/vi/'), e)).headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/vi/ca/'), e)).headers.get('link')).toBeNull()

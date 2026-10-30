@@ -14,6 +14,8 @@ const { lang, t } = i18n(Astro.url)
 const c = await getContent(lang)
 const traits = await getTraits()
 const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, lang))
+// The heater's default room temperature: unheated tank water in a northern Vietnamese winter; elsewhere a neutral 20 °C to change.
+const room = lang === 'vi' ? VN_WATER.northWinter : 20
 ---
 <Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.')}>
   <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
@@ -59,10 +61,10 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
 
   <section class="tool" id="suoi" aria-labelledby="heat-h">
     <h2 id="heat-h">{t('Cần sưởi bao nhiêu W?')}</h2>
-    <p class="lead">{t('Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {c}°C).', { c: VN_WATER.northWinter })}</p>
+    <p class="lead">{lang === 'vi' ? t('Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {c}°C).', { c: room }) : t('Dùng kích thước bể ở trên. Nhập nhiệt độ nước bể lúc lạnh nhất ở chỗ bạn (mặc định {c}°C).', { c: room })}</p>
     <form id="heat-form" class="row">
       <label>{t('Nhiệt độ cần (°C)')} <input name="target" type="number" inputmode="numeric" min="15" max="35" value="26" /></label>
-      <label>{t('Nhiệt độ phòng (°C)')} <input name="room" type="number" inputmode="numeric" min="0" max="40" value={VN_WATER.northWinter} /></label>
+      <label>{t('Nhiệt độ phòng (°C)')} <input name="room" type="number" inputmode="numeric" min="0" max="40" value={room} /></label>
     </form>
     <p id="heat-out" class="out" aria-live="polite"></p>
     <p class="note">{t('Ước tính cho bể kính có nắp. Bể không nắp, đặt gần cửa sổ hoặc trong phòng có gió cần sưởi lớn hơn; bể dài trên 120 cm nên chia hai sưởi ở hai đầu.')}</p>

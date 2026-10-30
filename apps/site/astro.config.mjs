@@ -1,3 +1,4 @@
+import { writeFileSync } from 'node:fs'
 import { defineConfig } from 'astro/config'
 import { missing, PAGES, routeIn } from './src/lib/i18n.ts'
 
@@ -10,9 +11,11 @@ function i18nRoutes() {
         for (const [lang, files] of Object.entries(PAGES)) for (const file of files) injectRoute({ pattern: routeIn(lang, file), entrypoint: `./src/pages/vi/${file}` })
       },
       // A page that showed Vietnamese text to another language's reader fails the build, listing the strings to translate.
+      // I18N_MISSING_OUT=<file>: write them there instead (input for packages/engine/scripts/translate-ui.ts).
       'astro:build:done': () => {
-        const gaps = [...missing].filter(([, s]) => s.size).map(([lang, s]) => `${lang}: ${[...s].map(x => JSON.stringify(x)).join(', ')}`)
-        if (gaps.length) throw new Error(`Untranslated UI text (add to src/i18n/<lang>.json):\n${gaps.join('\n')}`)
+        const gaps = [...missing].filter(([, s]) => s.size)
+        if (process.env.I18N_MISSING_OUT) return writeFileSync(process.env.I18N_MISSING_OUT, JSON.stringify(Object.fromEntries(gaps.map(([l, s]) => [l, [...s].sort()])), null, 1))
+        if (gaps.length) throw new Error(`Untranslated UI text (add to src/i18n/<lang>.json):\n${gaps.map(([lang, s]) => `${lang}: ${[...s].map(x => JSON.stringify(x)).join(', ')}`).join('\n')}`)
       },
     },
   }

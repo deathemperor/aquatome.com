@@ -1,15 +1,15 @@
 ---
 import UnitsToggle from './UnitsToggle.astro'
 import ThemeToggle from './ThemeToggle.astro'
-import { i18n } from '../lib/i18n'
+import { i18n, served, toVi } from '../lib/i18n'
 /** current: the section to mark when the URL doesn't say (video guides live under /vi/huong-dan/). */
 interface Props { overlay?: boolean; current?: string }
 const { overlay = false, current } = Astro.props
-const { t } = i18n(Astro.url)
-const links = [
+const { t, lang } = i18n(Astro.url)
+const links = ([
   ['/vi/ca/', t('Loài cá')], ['/vi/cay/', t('Cây')], ['/vi/huong-dan/', t('Hướng dẫn')], ['/vi/video/', t('Video')], ['/vi/thiet-bi/', t('Thiết bị')], ['/vi/kham-pha/', t('Khám phá')], ['/vi/cong-cu/', t('Công cụ')],
-]
-const path = current ?? Astro.url.pathname
+] as const).filter(([href]) => served(lang, href))
+const path = current ?? toVi(Astro.url.pathname)
 ---
 <header class:list={['nav', { overlay }]}>
   <div class="wrap row">
@@ -19,7 +19,7 @@ const path = current ?? Astro.url.pathname
         {links.map(([href, label]) => <li><a href={href} aria-current={path.startsWith(href!) ? 'page' : undefined}>{label}</a></li>)}
       </ul>
     </nav>
-    <a class="find" href="/vi/tim-kiem/">{t('Tìm')}</a>
+    {served(lang, '/vi/tim-kiem/') && <a class="find" href="/vi/tim-kiem/">{t('Tìm')}</a>}
     <UnitsToggle />
     <ThemeToggle />
     <slot />
