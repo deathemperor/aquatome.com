@@ -9,7 +9,7 @@ import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, saf
 import { parseEvent, toDataPoint } from './events'
 import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
-import { gonePage, loadHidden, pagePath, updateHidden, type Hidden } from './hidden'
+import { gonePage, isHidden, loadHidden, pagePath, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
@@ -25,6 +25,8 @@ export interface Env {
   AB_DASH_TOKEN?: string
   AE_API_TOKEN?: string
   CF_ACCOUNT_ID?: string
+  /** Hidden pages when deployed (scripts/deploy.sh), space-separated: what an isolate goes by until it has read KV. */
+  HIDDEN_PAGES?: string
   /** Affiliate catalog, click counts and comments; optional until D1 is provisioned (links go to search, comments stay off). */
   DB?: D1Database
   /** Reader photos: raw uploads (private) and the public media bucket (media.aquatome.com) the screened copies go to. */
@@ -102,18 +104,15 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
-  // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike, within a minute of hiding. The lookup
-  // runs while the page itself is fetched: on a cold edge each is a round trip. Server-Timing shows both.
-  const timing: string[] = []
-  const timed = <T>(name: string, work: Promise<T>) => { const t = Date.now(); return work.finally(() => { timing.push(`${name};dur=${Date.now() - t}`) }) }
-  const p = url.pathname.startsWith('/vi/') ? pagePath(url.pathname) : null
-  const hidden = p ? timed('hidden', loadHidden(env.AB).catch(() => ({}) as Hidden)) : undefined // KV down: serve the page
-  const gone = async () => !!p && !!(await hidden)?.[p]
+  // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike (see isHidden for how soon).
+  if (url.pathname.startsWith('/vi/')) {
+    const p = pagePath(url.pathname)
+    if (p && isHidden(env.AB, p, env.HIDDEN_PAGES, wait)) return finish(gonePage(), env)
+  }
   // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no cookie.
   const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
   if (mdPath.startsWith('/vi/') && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
-    const [md, isGone] = await Promise.all([env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url))), gone()])
-    if (isGone) return finish(gonePage(), env)
+    const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
     if (md.ok) {
       const text = await md.text()
       return finish(new Response(text, { headers: {
@@ -179,18 +178,19 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     return new Response(renderReaders(readers), { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' } })
   }
 
-  // HTML is never cached by the browser (a hidden page must turn 410 within a minute): no revalidation against the static ETag.
+  // HTML is never cached by the browser (a hidden page must turn 410 soon): no revalidation against the static ETag.
   const plain = new Request(req)
   plain.headers.delete('if-none-match')
   plain.headers.delete('if-modified-since')
-  const [res, isGone] = await Promise.all([timed('asset', env.ASSETS.fetch(plain)), gone()])
-  if (isGone) return finish(gonePage(), env)
+  const t = Date.now()
+  const res = await env.ASSETS.fetch(plain)
+  const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
   if (res.status === 404 && url.pathname.startsWith('/vi/')) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
-  const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': timing.join(', ') }
+  const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': `asset;dur=${assetMs}` }
   // The design A/B test is over: clear its cookie from returning visitors.
   if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
   if (url.pathname === '/vi/') extra.Link = DISCOVERY_LINK

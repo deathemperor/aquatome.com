@@ -70,7 +70,7 @@ function hiddenHtml(h: Hidden): string {
   const rows = Object.entries(h).sort(([, a], [, b]) => b.at.localeCompare(a.at)).map(([path, v]) =>
     `<tr><th><a href="${esc(path)}">${esc(path)}</a></th><td>${esc(v.note ?? '')}</td><td>${esc(v.at.slice(0, 16).replace('T', ' '))}</td><td><form method="post" action="/_ab/hidden"><input type="hidden" name="url" value="${esc(path)}"><button name="action" value="unhide">Hiện lại</button></form></td></tr>`).join('')
   return `<h2 id="an-trang">Ẩn trang</h2>
-<p>Trang bị ẩn trả về 410 (đã gỡ) trong khoảng 1 phút, kể cả bản Markdown; lần build sau (≤6 giờ) nó biến khỏi danh sách, sitemap và tìm kiếm. Hiện lại: nếu đã qua một lần build, trang quay lại ở lần build tiếp theo.</p>
+<p>Trang bị ẩn trả về 410 (đã gỡ), kể cả bản Markdown: thường sau 1–2 phút, chậm nhất là lần build sau (≤3 giờ), khi nó cũng biến khỏi danh sách, sitemap và tìm kiếm. Hiện lại: nếu đã qua một lần build, trang quay lại ở lần build tiếp theo.</p>
 <form method="post" action="/_ab/hidden"><input name="url" required size="60" placeholder="https://aquatome.com/vi/ca/..."> <input name="note" size="30" placeholder="Lý do (tuỳ chọn)"> <button name="action" value="hide">Ẩn</button></form>
 <table><thead><tr><th>Trang</th><th>Lý do</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="4">Chưa ẩn trang nào.</td></tr>'}</tbody></table>`
 }

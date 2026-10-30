@@ -225,15 +225,20 @@ test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>; unk
   expect((await handle(new Request('https://aquatome.com/vi/ca/khong-co/'), e)).status).toBe(404)
 })
 
-test('a page is fetched while the hidden-page lookup is still out; Server-Timing shows both', async () => {
-  let release!: () => void
-  const kv = new Promise<null>(r => { release = () => r(null) })
-  const { e, seen } = env({ AB: { get: () => kv, put: async () => {} } as unknown as KVNamespace })
-  const pending = handle(get('/vi/ca/z/'), e)
-  await new Promise(r => setTimeout(r, 0))
-  expect(seen.map(r => new URL(r.url).pathname)).toEqual(['/vi/ca/z/'])
-  release()
-  const r = await pending
-  expect(r.status).toBe(200)
-  expect(r.headers.get('server-timing')).toMatch(/^(hidden;dur=\d+, asset;dur=\d+|asset;dur=\d+, hidden;dur=\d+)$/)
+test('a page view never waits on KV: the list baked in at deploy answers until the live one is in, then the live one wins', async () => {
+  let release!: (v: string | null) => void
+  const kv = new Promise<string | null>(r => { release = r })
+  const AB = { get: async (_k: string, o?: unknown) => { const v = await kv; return v && (o === 'json' || (typeof o === 'object' && (o as { type?: string })?.type === 'json')) ? JSON.parse(v) : v }, put: async () => {} }
+  const { e } = env({ AB: AB as unknown as KVNamespace, HIDDEN_PAGES: '/vi/ca/x/ /vi/ca/old/' } as Partial<Env>)
+  const refreshes: Promise<unknown>[] = []
+  const go = (path: string) => handle(get(path), e, p => { refreshes.push(p) })
+  expect((await go('/vi/ca/x/')).status).toBe(410) // KV still out: the deploy-time list
+  const page = await go('/vi/ca/y/')
+  expect(page.status).toBe(200)
+  expect(page.headers.get('server-timing')).toMatch(/^asset;dur=\d+$/)
+  expect(refreshes).toHaveLength(1) // one background read, however many views
+  release(JSON.stringify({ '/vi/ca/new/': { at: '2026-10-30T00:00:00Z' } }))
+  await Promise.all(refreshes)
+  expect((await go('/vi/ca/new/')).status).toBe(410) // hidden since the deploy
+  expect((await go('/vi/ca/x/')).status).toBe(200) // shown again since the deploy
 })

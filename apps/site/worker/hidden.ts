@@ -21,6 +21,23 @@ export async function loadHidden(kv: KVNamespace, fresh = false): Promise<Hidden
   return value
 }
 
+/**
+ * Is this page taken down? Answers at once, never waiting on KV (a cold read is 0.2–0.4 s): from this isolate's copy,
+ * re-read in the background once it is a minute old; before the first read is in, from the list baked in at deploy
+ * (`baked`, space-separated paths). So a page hidden since the last deploy can still show on a fresh isolate's first
+ * views; the engine redeploys within its 3-hour cycle when the list changed.
+ */
+const reading = new WeakMap<KVNamespace, Promise<unknown>>()
+export function isHidden(kv: KVNamespace, path: string, baked: string | undefined, wait: (p: Promise<unknown>) => void): boolean {
+  const m = memo.get(kv)
+  if ((!m || Date.now() - m.at >= 60_000) && !reading.has(kv)) {
+    const p = loadHidden(kv).catch(() => {}).finally(() => reading.delete(kv))
+    reading.set(kv, p)
+    wait(p)
+  }
+  return m ? path in m.value : (baked ?? '').split(' ').includes(path)
+}
+
 /** Dashboard form: action=hide|unhide, url, optional note. Returns an error message or null. */
 export async function updateHidden(kv: KVNamespace, form: FormData, now: Date): Promise<string | null> {
   const path = pagePath(String(form.get('url') ?? ''))
