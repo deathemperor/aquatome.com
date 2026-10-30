@@ -351,12 +351,20 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     await saveState(root, 'youtube', state)
   }
   /**
-   * New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day).
-   * redo: only the guides already written (their transcripts are cached; new videos wait for an ordinary run).
+   * redo: the guides on the site (whatever a later attempt left in the state), each once, in the playlist that is its
+   * series (a video in several playlists is not moved, and other playlists get no series page). Their transcripts are
+   * cached; new videos wait for an ordinary run.
    */
-  const due = (id: string) => {
+  const written = new Map<string, string | undefined>()
+  if (opts.redo) for (const dir of (await readdir(join(contentRoot, 'guides')).catch(() => [] as string[])).filter(d => d.startsWith('youtube-'))) {
+    const v = (await readJson<GuideEntity>(join(contentRoot, 'guides', dir, 'entity.json')))?.video
+    if (v) written.set(v.youtubeId, v.series?.id)
+  }
+  const redone = new Set<string>()
+  /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
+  const due = (id: string, playlist?: string) => {
+    if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
-    if (opts.redo) return s?.status === 'processed'
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
   }
   let failedInARow = 0
@@ -422,6 +430,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
       await set(vid, { status: 'processed', entityIds: [id] })
       report.written.push(`${id} (${score.toFixed(2)})`)
+      redone.add(vid)
       failedInARow = 0
     } catch (e) {
       if (e instanceof LlmError) { report.errors.push(`${vid}: ${e.message}`); report.stoppedEarly = true; return true } // usage limit or CLI down: stop, retry next run
@@ -437,7 +446,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   for (const pl of opts.playlists ?? await readPlaylists(root)) {
     let p: Playlist
     try { p = await yt.playlist(pl) } catch (e) { report.errors.push(`playlist ${pl}: ${(e as Error).message}`); continue }
-    if (!p.videos.some(v => due(v.id))) continue
+    if (!p.videos.some(v => due(v.id, p.id))) continue
     let series: Series
     try { series = await ensureSeries(contentRoot, llm, p) } catch (e) {
       if (e instanceof LlmError) { report.errors.push(`playlist ${pl}: ${e.message}`); report.stoppedEarly = true; return report }
@@ -445,7 +454,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       continue
     }
     for (const [i, { id: vid }] of p.videos.entries()) {
-      if (!due(vid)) continue
+      if (!due(vid, p.id)) continue
       if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
       if (await one(vid, series, i)) return report
       await deps.sleep(VIDEO_GAP_MS)
