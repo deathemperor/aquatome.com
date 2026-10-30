@@ -7,6 +7,11 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 cd "$(dirname "$0")/.."
 log() { echo "$(date -u +%FT%TZ) $*"; }
+# Backstop for the GitHub engine: its cron dropped every slot on 2026-10-30, so start it when nothing ran for 3 hours.
+last="$(gh run list -R deathemperor/aquatome.com -w engine -L 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || true)"
+if [ -n "$last" ] && [ $(( $(date -u +%s) - $(date -ju -f %Y-%m-%dT%H:%M:%SZ "$last" +%s) )) -gt 10800 ]; then
+  gh workflow run engine -R deathemperor/aquatome.com && log "engine: started on GitHub (last run $last)" || log "engine: could not start it"
+fi
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
 PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then log "another engine job (pid $(cat "$PIDFILE")) is running"; exit 0; fi
