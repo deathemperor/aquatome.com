@@ -130,7 +130,8 @@ export function served(lang: Lang, viPath: string): boolean {
 }
 
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
-export const isVietnamese = (s: string) => /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i.test(s)
+// Letters only Vietnamese uses, or its words for fish and shrimp ("Cá Ping Pong – …", "Tép Blue Dream"): plain á, é… alone are Spanish and Portuguese too.
+export const isVietnamese = (s: string) => /[ăĩũạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]|(?<!\p{L})(cá|tép)(?!\p{L})/iu.test(s)
 
 /** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
 export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)
