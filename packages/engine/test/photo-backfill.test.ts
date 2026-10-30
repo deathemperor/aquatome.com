@@ -60,3 +60,41 @@ test('archive-read sources are left out; ScotCat photos come from their own page
   const e = JSON.parse(await readFile(join(root, 'content', 'species', 'hoplisoma-sterbai', 'entity.json'), 'utf8'))
   expect(e.photos[0]).toMatchObject({ author: 'Helen Burns / ScotCat', source: 'scotcat' })
 })
+
+test('catfish from other sources get ScotCat photos at its guessed factsheet address; a 404 waits a month; 10 s between ScotCat requests', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const SF = 'https://www.seriouslyfish.com/species/x/'
+  const sp = (id: string, scientificName: string, family: string) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName, family, photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: SF }] })))
+  await sp('hoplisoma-sterbai', 'Hoplisoma sterbai', 'Callichthyidae')
+  await sp('hoplisoma-paleatum', 'Hoplisoma paleatum', 'Callichthyidae')
+  await sp('apistogramma-borellii', 'Apistogramma borellii', 'Cichlidae') // not a catfish: no guess
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ scotcat: { name: 'ScotCat' } }))
+  const SC = 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai.htm'
+  let clock = Date.parse('2026-10-29T12:00:00Z')
+  const gets: [string, number][] = []
+  const deps = {
+    get: async (u: string) => {
+      gets.push([u, clock])
+      if (u === SF) return { status: 200, html: '<main><h1>x</h1></main>' }
+      if (u === SC) return { status: 200, html: '<div class="top-padding-10">Hoplisoma sterbai</div><a href="hoplisoma_sterbai1.htm"><img src="../Thumbnails/c_sterbai.jpg" width="100"></a>' }
+      if (u.endsWith('hoplisoma_sterbai1.htm')) return { status: 200, html: '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Helen Burns</strong>' }
+      return { status: 404, html: 'Not found' }
+    },
+    bytes: async (u: string) => new TextEncoder().encode(u),
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 500, height: 316 }) },
+    now: () => new Date(clock),
+    sleep: async (ms: number) => { clock += ms },
+  }
+  const r = await backfillPhotos(root, deps)
+  const scotcat = gets.filter(([u]) => u.includes('scotcat'))
+  expect(scotcat.map(([u]) => u)).toEqual(['https://www.scotcat.com/callichthyidae/hoplisoma_paleatum.htm', SC, 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm'])
+  for (let i = 1; i < scotcat.length; i++) expect(scotcat[i]![1] - scotcat[i - 1]![1]).toBeGreaterThanOrEqual(10_000)
+  expect(r.errors).toEqual([])
+  const e = JSON.parse(await readFile(join(root, 'content', 'species', 'hoplisoma-sterbai', 'entity.json'), 'utf8'))
+  expect(e.photos[0]).toMatchObject({ author: 'Helen Burns / ScotCat', source: 'scotcat', sourceUrl: SC })
+  expect(e.sections).toEqual([{ source: 'seriouslyfish', sourceUrl: SF }]) // a photo, not a ScotCat section
+  gets.length = 0
+  await backfillPhotos(root, deps)
+  expect(gets.filter(([u]) => u.includes('scotcat'))).toEqual([]) // the 404 is not asked again this month
+})
