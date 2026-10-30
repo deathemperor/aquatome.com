@@ -14,11 +14,12 @@ const INTROS: Record<string, string> = {
 const TITLES: Record<string, string> = { vietnam: t('Cá Việt Nam') }
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
-  const c = await getContent(langOf(routePattern))
+  const lang = langOf(routePattern)
+  const c = await getContent(lang)
   const of = (id: string) => c.species.filter(s => s.places.includes(id))
-  // Only places with a fish that has a page in this language (every place in Vietnamese; fewer in the others, whose
-  // species pages are still being made): no empty pages, no links to them.
-  const places = c.places.filter(p => of(p.id).length > 0)
+  // The other languages' species pages are still being made: there, only places with a fish that has a page in the
+  // language (no empty pages, no links to them). Vietnamese keeps every place it has always had.
+  const places = lang === 'vi' ? c.places : c.places.filter(p => of(p.id).length > 0)
   const tops = places.filter(p => p.kind === 'continent')
   const index = { params: { path: undefined }, props: { place: undefined, species: [] as Localized<SpeciesEntity>[], kids: tops } }
   const continents = tops.map(p => ({ params: { path: p.id }, props: { place: p, species: of(p.id), kids: places.filter(x => x.parent === p.id && x.kind === 'country'), parent: undefined } }))
