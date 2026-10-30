@@ -12,5 +12,8 @@ else
   rm -f .hidden.json.tmp; echo "warning: hidden-page list unavailable, using the last one fetched"
 fi
 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build
-pnpm exec wrangler deploy
+# The same list goes into the Worker: what it answers from until it has read the live one (worker/hidden.ts isHidden).
+HIDDEN_PAGES="$(node -e 'try { process.stdout.write(Object.keys(JSON.parse(require("fs").readFileSync(".hidden.json", "utf8"))).join(" ")) } catch {}')"
+[ "${#HIDDEN_PAGES}" -le 5000 ] || { echo "warning: hidden-page list over 5 KB, not baked in"; HIDDEN_PAGES=; } # a Worker variable's limit
+pnpm exec wrangler deploy ${HIDDEN_PAGES:+--var "HIDDEN_PAGES:$HIDDEN_PAGES"}
 [ -f .hidden.json ] && shasum < .hidden.json | cut -c1-40 > "$HOME/.config/thuysinh/hidden-deployed" || true
