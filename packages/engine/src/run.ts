@@ -18,7 +18,7 @@ import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
 import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
-import { candidates, resolveWanted, wantedFirst, wantedIn, type Wanted } from './wanted'
+import { candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 
 export type Deps = {
   fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
@@ -129,7 +129,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const words = new Set((await readFile('/usr/share/dict/words', 'utf8').catch(() => '')).split('\n').map(w => w.trim().toLowerCase()))
     const have = new Set([...(await s.ids('species')), ...(await s.ids('plants'))])
     const before = Object.keys(gbifNames).length
-    const w = await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, n => gbifMatch(n, http, gbifNames), n => n in gbifNames)
+    const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, n => gbifMatch(n, http, gbifNames), n => n in gbifNames), have)
     if (Object.keys(gbifNames).length !== before) {
       await mkdir(join(root, 'engine-state'), { recursive: true })
       await writeJson(gbifNamesFile, Object.fromEntries(Object.entries(gbifNames).sort()))

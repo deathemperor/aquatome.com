@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { binomials, resolveWanted, wantedFirst, wantedIn } from '../src/wanted'
+import { binomials, POPULAR, resolveWanted, wantedFirst, wantedIn, withPopular } from '../src/wanted'
 
 const english = new Set(['max', 'size', 'standard', 'length', 'appear', 'basin', 'clade', 'the', 'fish'])
 const isWord = (w: string) => english.has(w)
@@ -31,4 +31,16 @@ test('source addresses name the species: Seriously Fish and Glaser styles, synon
   expect(wantedIn('https://www.seriouslyfish.com/species/synodontis-eupterus/', w)).toBeUndefined()
   const found = [{ url: 'https://x/species/a-b/' }, { url: 'https://x/species/colisa-lalia/' }, { url: 'https://x/species/c-d/' }]
   expect(wantedFirst(found, w).map(f => f.url)).toEqual(['https://x/species/colisa-lalia/', 'https://x/species/a-b/', 'https://x/species/c-d/'])
+})
+
+test('popular fish we lack are wanted even unmentioned; wanted pages go popular first, then most-mentioned, then discovery order', () => {
+  const w = withPopular(new Map([['a-b', { name: 'A b', names: ['a-b'], mentionedIn: ['guides/x'] }], ['c-d', { name: 'C d', names: ['c-d'], mentionedIn: ['guides/x', 'guides/y'] }]]), new Set(['betta-splendens']), ['Danio rerio', 'Betta splendens', 'Pterophyllum scalare'])
+  expect([...w.keys()]).toEqual(['a-b', 'c-d', 'danio-rerio', 'pterophyllum-scalare']) // had betta: not wanted
+  const found = ['e-f', 'a-b', 'pterophyllum-scalare', 'c-d', 'danio-rerio'].map(s => ({ url: `https://x/species/${s}/` }))
+  expect(wantedFirst(found, w, ['Danio rerio', 'Betta splendens', 'Pterophyllum scalare']).map(f => f.url.split('/')[4])).toEqual(['danio-rerio', 'pterophyllum-scalare', 'c-d', 'a-b', 'e-f'])
+})
+
+test('the popular list names real binomials, no repeats', () => {
+  expect(POPULAR.every(n => /^[A-Z][a-z]+ [a-z]+$/.test(n))).toBe(true)
+  expect(new Set(POPULAR).size).toBe(POPULAR.length)
 })

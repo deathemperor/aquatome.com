@@ -79,9 +79,41 @@ export function wantedIn(url: string, wanted: Wanted): string | undefined {
   return undefined
 }
 
-/** Wanted pages first (in discovery order), then everything else. */
-export function wantedFirst<T extends { url: string }>(found: T[], wanted: Wanted): T[] {
+/**
+ * The fish Vietnamese hobbyists and shops keep most, most popular first. Wanted whether or not a page mentions them,
+ * and fetched before any other wanted page, so the pages readers look for come first.
+ */
+export const POPULAR = [
+  'Pterophyllum scalare', 'Symphysodon aequifasciatus', 'Symphysodon discus', 'Xiphophorus maculatus', 'Xiphophorus hellerii',
+  'Poecilia sphenops', 'Poecilia latipinna', 'Cyprinus rubrofuscus', 'Cyprinus carpio', 'Scleropages formosus', 'Osteoglossum bicirrhosum',
+  'Danio rerio', 'Paracheirodon innesi', 'Gymnocorymbus ternetzi', 'Puntigrus tetrazona', 'Trichopodus trichopterus', 'Trichopodus leerii',
+  'Trichogaster lalius', 'Helostoma temminkii', 'Mikrogeophagus ramirezi', 'Epalzeorhynchos bicolor', 'Epalzeorhynchos frenatum',
+  'Balantiocheilos melanopterus', 'Pterygoplichthys pardalis', 'Ancistrus dolichopterus', 'Corydoras aeneus', 'Corydoras paleatus',
+  'Corydoras sterbai', 'Corydoras panda', 'Hemigrammus bleheri', 'Hyphessobrycon eques', 'Hyphessobrycon herbertaxelrodi',
+  'Hemigrammus erythrozonus', 'Pethia conchonius', 'Puntius titteya', 'Danio margaritatus', 'Boraras brigittae', 'Poecilia wingei',
+  'Oryzias latipes', 'Macropodus opercularis', 'Pelvicachromis pulcher', 'Labidochromis caeruleus', 'Thorichthys meeki', 'Heros severus',
+  'Rocio octofasciata', 'Andinoacara rivulatus', 'Channa barca', 'Channa andrao', 'Channa pulchra', 'Channa bleheri', 'Channa micropeltes',
+  'Datnioides microlepis', 'Datnioides pulcher', 'Chitala ornata', 'Pangasianodon hypophthalmus', 'Phractocephalus hemioliopterus',
+  'Carinotetraodon travancoricus', 'Dichotomyctere nigroviridis', 'Toxotes jaculatrix', 'Monodactylus argenteus', 'Phenacogrammus interruptus',
+  'Caridina cantonensis', 'Pomacea diffusa', 'Vittina natalensis',
+]
+
+/** `wanted` plus the popular species we have no page for yet. */
+export function withPopular(wanted: Wanted, have: Set<string>, popular = POPULAR): Wanted {
+  const out: Wanted = new Map(wanted)
+  for (const name of popular) {
+    const slug = slugify(name)
+    if (!have.has(slug) && !out.has(slug)) out.set(slug, { name, names: [slug], mentionedIn: [] })
+  }
+  return out
+}
+
+/** Wanted pages first (popular species in list order, then the most-mentioned, then discovery order), then everything else. */
+export function wantedFirst<T extends { url: string }>(found: T[], wanted: Wanted, popular = POPULAR): T[] {
   if (!wanted.size) return found
-  const hit = found.filter(f => wantedIn(f.url, wanted))
-  return hit.length ? [...hit, ...found.filter(f => !hit.includes(f))] : found
+  const order = popular.map(slugify)
+  const rank = (slug: string): [number, number] => { const i = order.indexOf(slug); return i >= 0 ? [0, i] : [1, -wanted.get(slug)!.mentionedIn.length] }
+  const hit = found.map((f, i) => ({ f, i, slug: wantedIn(f.url, wanted) })).filter((h): h is { f: T; i: number; slug: string } => !!h.slug)
+  hit.sort((a, b) => { const [x, y] = [rank(a.slug), rank(b.slug)]; return x[0] - y[0] || x[1] - y[1] || a.i - b.i })
+  return hit.length ? [...hit.map(h => h.f), ...found.filter(f => !hit.some(h => h.f === f))] : found
 }
