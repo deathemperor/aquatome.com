@@ -53,9 +53,10 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(served('id', '/vi/ca/x/anh/')).toBe(true)
   expect(served('id', '/vi/video/x/')).toBe(false)
   expect(served('th', '/vi/cong-cu/the-tich-be/')).toBe(true)
-  expect(served('th', '/vi/thiet-bi/loc/')).toBe(false)
-  expect(localizeLinks('<a href="/vi/thiet-bi/loc/" class="x">Filter</a> <a href="/vi/ca/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>', 'id', ''))
-    .toBe('Filter <a href="/id/ikan/">Fish</a> <a href="/vi/thiet-bi/" hreflang="vi">vi</a>')
+  expect(served('th', '/vi/thiet-bi/loc/')).toBe(true)
+  expect(served('th', '/vi/video/x/')).toBe(false)
+  expect(localizeLinks('<a href="/vi/video/x/" class="x">Video</a> <a href="/vi/ca/">Fish</a> <a href="/vi/video/" hreflang="vi">vi</a>', 'id', ''))
+    .toBe('Video <a href="/id/ikan/">Fish</a> <a href="/vi/video/" hreflang="vi">vi</a>')
   expect(toVi('/id/ikan/x/foto/')).toBe('/vi/ca/x/anh/')
   expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
@@ -82,7 +83,7 @@ test('a [...rest] page is served at its index too', async () => {
   expect(served('id', '/vi/nguon-goc/')).toBe(true)
   expect(served('id', '/vi/nguon-goc/asia/indonesia/')).toBe(true)
   expect(served('th', '/vi/phan-loai/')).toBe(true)
-  expect(served('id', '/vi/thiet-bi/')).toBe(false)
+  expect(served('id', '/vi/video/')).toBe(false)
 })
 
 test('a Vietnamese source title is told apart from Spanish or Portuguese ones', () => {

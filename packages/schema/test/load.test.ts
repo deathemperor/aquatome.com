@@ -105,3 +105,19 @@ test('another language has only the equipment guides translated into it', async 
   expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).equipment.map(e => e.name)).toEqual(['Filter'])
   expect((await loadAll({ root: dir, lang: 'th', publicBuild: false })).equipment).toEqual([])
 })
+
+test('another language has only the places one of its fish comes from; Vietnamese has every place', async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-places-'))
+  await cp(root, dir, { recursive: true })
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['asia'] }))
+  await writeFile(join(dir, 'species/alpha/id.json'), await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  for (const id of ['asia', 'europe']) {
+    await mkdir(join(dir, 'places', id), { recursive: true })
+    await writeFile(join(dir, 'places', id, 'entity.json'), JSON.stringify({ id, kind: 'continent' }))
+    for (const l of ['vi', 'id']) await writeFile(join(dir, 'places', id, `${l}.json`), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  }
+  expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).places.map(p => p.id).sort()).toEqual(['asia', 'europe'])
+  expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
+})

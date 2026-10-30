@@ -143,7 +143,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   return {
     species, plants, guides, changelog, equipment, series, galleries, products, breeds,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
-    places: await loadKind(root, 'places', PlaceSchema, lang),
+    // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
+    // page is empty and no link points at one it lacks. Vietnamese has every place.
+    places: (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
     sources,
   }
 }
