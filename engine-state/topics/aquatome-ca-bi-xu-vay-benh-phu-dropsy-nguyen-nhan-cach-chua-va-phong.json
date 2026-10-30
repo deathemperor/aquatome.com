@@ -1,0 +1,370 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus",
+    "Colisa lalia",
+    "Poecilia sphenops",
+    "Mikrogeophagus ramirezi",
+    "Pachypanchax playfairi",
+    "Betta splendens"
+  ],
+  "sources": [
+    {
+      "url": "https://www.petmd.com/fish/conditions/urinary/dropsy-fish",
+      "title": "Dropsy in Fish: Symptoms, Causes, and Treatment (Jessie Sanders, DVM, DABVP Fish Practice)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/dropsy-edema-malawi-bloat-and-similar-syndromes",
+      "title": "Dropsy (Edema), Malawi Bloat And Similar Syndromes",
+      "kind": "article"
+    },
+    {
+      "url": "https://blog.tetra.net/en-en/?p=1771",
+      "title": "Dropsy – what is it and how can it be treated? (Tetra)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/health-and-wellness/dealing-with-dropsy",
+      "title": "Dealing With Dropsy",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Dropsy_in_fish",
+      "title": "Dropsy in fish (Wikipedia)",
+      "kind": "other"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/huong-dan-cuu-vot-ca-betta-truoc-khi-qua-muon.html",
+      "title": "Hướng dẫn cứu vớt cá betta trước khi quá muộn (Mytour)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Dropsy is fluid building up inside the fish's body, which causes visible swelling and raised scales.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dropsy is a symptom of an underlying problem, not a disease in itself.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Fish normally get rid of excess water through the kidneys and gills. When these fail, fluid collects in the tissues.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Kidney failure, gill damage that lets in more water than the kidneys can remove, or liver damage that raises pressure in the portal veins can each lead to ascites.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Dropsy itself is not contagious, but the bacteria, parasites or viruses behind it can be.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The sick fish is almost certainly a reservoir of the pathogen.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Dropsy is not contagious, but other fish of the same species in the same tank may be at risk.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Signs include a swollen body, scales sticking out like a pinecone, bulging eyes, a thickened tail area and difficulty closing the mouth.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Later the fish stops eating or has trouble swimming. Symptoms usually appear within a few weeks of the original problem and can get worse quickly.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Other signs include pale gills, clamped fins, a curved spine, pale feces and swelling near the vent.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "The fish may stop eating, hang back at feeding time and stop interacting with tankmates about a day or two before the swelling appears.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Protruding scales or bony plates are an advanced sign that indicates major organ failure.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Tumours, which usually cause one-sided swelling, and egg-carrying females can look like dropsy but lack the other signs of disease.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Only a post-mortem can confirm excess fluid in the body cavity.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A ripe or pregnant female has a rounded belly but flat scales, and she feeds and behaves normally.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Egg-binding causes swelling in females without protruding scales and is fatal if untreated. A vet can treat it with oxytocin.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Constipation causes no protruding scales. It may show stringy feces and swimming trouble and is common in fancy goldfish.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Males of Pachypanchax playfairi naturally raise their scales during spawning.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Chronic stress from poor water conditions is the most common cause.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes are poor nutrition, bacterial or viral infections, severe parasite infestations, liver disease and tumours.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "The most common cause is opportunistic bacterial infection triggered by poor environmental conditions.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Stress weakens immunity and lets opportunistic bacteria such as Aeromonas hydrophila cause dropsy.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "In new tanks, high ammonia or nitrite before the nitrogen cycle is complete is a common cause.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "In older tanks, chronically low pH from too little maintenance is a common cause.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Aggressive tankmates add stress, and older fish seem more affected than young fish of the same species.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Dwarf Gourami Iridovirus can cause dropsy and affects only the dwarf gourami (Colisa lalia) among aquarium fish.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Sudden changes in water conditions and prolonged stress are listed as triggers.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water and think back over recent events, such as new fish, plants or invertebrates, handling, or equipment failure.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Move the sick fish to a separate tank with its own equipment, matching the main tank's water chemistry and temperature. Keep decor minimal but give it a simple hiding place.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Quarantine the sick fish, because the underlying cause may be contagious. Quarantine works best when the illness is caught early.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Treatment depends on the cause and may include antibiotics, fixing water conditions, raising salinity for freshwater fish under veterinary guidance, and supportive care.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For bacterial dropsy in larger fish such as cichlids and goldfish, antibiotics such as erythromycin or minocycline can be used.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Alongside antibiotics, use Epsom salt at 1 teaspoon per 5 to 10 gallons and raise the temperature to 82–86°F.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Adding table salt to 3 g/l cuts the osmotic inflow of water by about one third.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt helps when kidney failure is the cause but has little effect if the liver or spleen is damaged.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Soft-water species tolerate salt less well, so check a species' tolerance before salting.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Species differ in how much salt they tolerate.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A vet can identify the pathogen by sampling or biopsy and choose an antibiotic it is susceptible to. This is costly and is usually used only for valuable fish such as koi or broodstock discus.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Without a vet, the options are isolation, better water quality and possibly a broad-spectrum antiseptic.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "In the early stage, the general consensus is antibacterial medication and/or salt baths.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Bathing the fish in water with aquarium salt or Epsom salt may relieve fluid pressure through osmosis.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Malawi bloat is treated with metronidazole. Medicated food works if the fish still eats. Adding up to 50 mg per gallon to the water is much less effective.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Caught early, dropsy in betta can be treated with aquarium salt plus medicine, but choosing the wrong medicine can make things worse, so ask an aquatic vet.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Some fish improve within days to weeks, especially if treated early, and the swelling usually goes down gradually.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Once scales protrude, significant damage has usually been done, and the prognosis is generally poor.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Small fish such as tetras and guppies have little chance of recovery and are best euthanized.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "No medication is known to cure dropsy once swelling begins. After the scales rise, the author recommends humane euthanasia.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Humane euthanasia may be advised if the fish stops eating or can no longer swim properly.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Once a fish shows these symptoms, reversal and cure are unlikely.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep water quality good and test it at least monthly.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed a balanced, species-appropriate diet and replace food containers every six months.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid overcrowding, watch for aggression and quarantine new fish before adding them.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Use food before its expiry date and store it somewhere cool and dry.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Do regular water changes, filter maintenance and substrate siphoning, and match water parameters, tankmates and diet to the species.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Rams, small barbs (cherry, checker, gold), dwarf gouramis, mollies and goldfish are especially sensitive, and beginners should avoid them.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Rift Valley cichlids need zero ammonia and nitrite, with nitrate no higher than 20 mg/l.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Treat tap water with a dechlorinator before it goes into the tank, and change 25–50% of the water twice a week.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not add over-the-counter medications without veterinary advice, because they can harm the tank's beneficial bacteria.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Chilling or freezing a fish to euthanize it prolongs its suffering, especially in goldfish and koi.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes include adding fish before the nitrogen cycle is complete and skipping maintenance so the pH drops over time.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Plain salt is often wrongly added to Malawi and Tanganyika tanks. It does not harden water or raise pH, and bloat seems more common where salt is used.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Malawi bloat is linked to diets low in greens and fiber and high in protein and fat, as well as to water quality and inappropriate salt use.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Older advice was to destroy affected fish; newer advice suggests trying salt baths and antibiotics.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnamese, the betta condition is described as a swollen belly with scales standing up like a pinecone (vảy xù như quả thông).",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Diagnosis can involve a physical exam, a review of the tank, water testing, blood or fluid analysis, gill or skin microscopy, and ultrasound or CT imaging.",
+      "source": 0
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/what-you-need-to-know-about-dechlorinating/",
+      "title": "What you need to know about dechlorinating (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.seachem.com/prime.php",
+      "title": "Seachem Prime product page",
+      "kind": "maker"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA171",
+      "title": "UF/IFAS FA171 Teach Aquaculture Curriculum: Chlorine—Friend or Foe?",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.fostercity.org/sites/default/files/fileattachments/public_works/page/4761/chloramine-fish-fact-sheet.pdf",
+      "title": "Foster City chloramine fish fact sheet",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.fs.usda.gov/t-d/pubs/html/05231301/05231301.html",
+      "title": "USDA Forest Service: Vitamin C dechlorination",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.siouxfalls.gov/files/assets/public/v/1/planning-and-development/utility/water/chloramines_fish.pdf",
+      "title": "Sioux Falls: Chloramines and fish",
+      "kind": "other"
+    },
+    {
+      "url": "https://luatminhkhue.vn/tieu-chuan-nuoc-trong-sinh-hoat-cua-bo-y-te-moi-nhat.aspx",
+      "title": "Tiêu chuẩn nước sinh hoạt của Bộ Y tế (QCVN 01-1/BYT)",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquifarm.com/sodium-thiosulfate-for-fish-tank/",
+      "title": "Sodium Thiosulfate For Fish Tank (Aquifarm)",
+      "kind": "article"
+    },
+    {
+      "url": "https://chiaki.vn/dung-dich-khu-clo-dieu-hoa-nuoc-moi-fresh-booster-cho-ho-ca-be-ca-chai-100ml",
+      "title": "Dung dịch khử clo Fresh Booster (trang bán hàng VN)",
+      "kind": "other"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Water utilities add chlorine or chloramine to tap water to kill harmful microorganisms.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Chloramine is a longer-lasting relative of chlorine and is harder to spot.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "For fish and other aquatic life, even a slight trace of chlorine can be fatal.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Chloramine forms when chlorine and ammonia are combined, and it is very toxic to fish and other aquatic organisms.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Chloramine is toxic to both freshwater and saltwater fish.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Chlorine kills the beneficial filter bacteria, which can cause pollution spikes and make fish sick.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Chlorine can damage delicate gill membranes, and sensitive species can die from it.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Most liquid dechlorinators contain sodium thiosulphate, which turns chlorine into chloride.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Most dechlorinators neutralize chlorine in about two minutes and chloramine in about five.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Some dechlorinators cannot neutralize chloramine at all, so check the label.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Without a dechlorinator, chlorine can be driven off by heavy aeration in a bucket for at least 12 hours.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A UF/IFAS classroom activity compares two methods: sodium thiosulfate neutralizer, which should leave no measurable chlorine, and vigorous aeration for 24 hours.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime dose: 1 capful (5 mL) per 200 L (50 US gal) of new water. Each cap thread is about 1 mL for smaller volumes.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says Prime removes chlorine and chloramine, detoxifies heavy metals at tap-water levels, and does not change pH.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "With very high chloramine levels, Seachem says a double dose of Prime is safe.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says to use a half dose of Prime if water is above 30 °C (86 °F) and chlorine or ammonia is low.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says Prime binds ammonia, nitrite and nitrate into a non-toxic form but does not remove them. The biofilter still has to process them.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Pure sodium thiosulfate neutralizes the chlorine part of chloramine but leaves the ammonia, so ammonia needs to be monitored or bound with another product.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "About 2.5 parts ascorbic acid (vitamin C) neutralize 1 part chlorine.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "At the concentrations used for dechlorination, vitamin C is not toxic to aquatic life.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "A vitamin C solution breaks down within one to two days, so mix it fresh.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Chloramine in water for fish should be kept below 0.1 mg/L.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Add the dechlorinator to the new water before it goes into the tank. If you dose straight into the tank, dose for the whole tank volume.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Follow the dosing instructions of the brand you use.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skipping dechlorination is a mistake. Claims that it is unnecessary come from a lack of understanding.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Boiling the water, adding salt or letting it stand in an open container does not remove chloramine.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Nessler-based liquid ammonia test kits give false readings after Prime is used. Seachem suggests its own ammonia kit or waiting, because Prime dissipates within about 24 hours.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says the worry that dechlorinator additives coat or smother fish gills is unfounded.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says dechlorinators are harmless to fish except at 'ludicrous' doses.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Practical Fishkeeping says to treat 'stress relief' claims on dechlorinators with caution.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "A sulfur smell and occasional small black specks in Prime are normal, and the product does not expire if stored properly.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnam's drinking-water standard (QCVN 01-1/BYT) requires free residual chlorine of 0.2–1.0 mg/L at suppliers that disinfect with chlorine, so tap water reaching the home still contains chlorine.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "QCVN 01-1:2018/BYT (Thông tư 41/2018/TT-BYT) has been replaced by QCVN 01-1:2024/BYT (Thông tư 52/2024/TT-BYT), which keeps free residual chlorine at 0.2–1.0 mg/L.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, dechlorinating solutions such as Fresh Booster are sold as a way to avoid aging tap water in the sun ('phơi nước') or aerating it to drive off chlorine.",
+      "source": 8
+    }
+  ]
+}

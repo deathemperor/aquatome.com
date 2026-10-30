@@ -1,0 +1,340 @@
+{
+  "found": true,
+  "species": [
+    "Saprolegnia spp.",
+    "Pangasianodon hypophthalmus",
+    "Pangasius bocourti",
+    "Oreochromis niloticus",
+    "Clarias spp.",
+    "Hypancistrus spp."
+  ],
+  "sources": [
+    {
+      "url": "https://fishdoc.co.uk/?p=428",
+      "title": "Fish fungus – Saprolegnia cotton wool fungus (FishDoc)",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.engormix.com/aquaculture/aquaculture-health/aquaculture-health-management-fungal_a34057/",
+      "title": "Saprolegniasis (UF Florida Cooperative Extension Fact Sheet VM 97, Klinger & Francis-Floyd), republished on Engormix",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/the-a-z-of-fish-health-part-4-s-z/",
+      "title": "The A-Z of Fish Health, Part 4: S-Z (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/dealing-with-fish-egg-fungus/",
+      "title": "Dealing with fish egg 'fungus' (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://tepbac.com/disease/full/101/benh-nam-thuy-mi-tren-ca",
+      "title": "Bệnh nấm thuỷ mi trên cá (Tepbac)",
+      "kind": "article"
+    },
+    {
+      "url": "https://thuysanvietnam.com.vn/phong-benh-nam-thuy-mi-cho-ca-nuoi/",
+      "title": "Phòng bệnh nấm thủy mi cho cá nuôi (Tạp chí Thủy sản Việt Nam)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariadise.com/columnaris/",
+      "title": "Columnaris (Aquariadise)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Saprolegnia is a filamentous water mould (oomycete) that normally feeds on dead organic matter but can attack damaged or stressed fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Saprolegniasis is caused mainly by Saprolegnia species, called water molds, which are common in fresh and brackish water.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Saprolegnia is a common cause of fungal infection in freshwater fish and fish eggs.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Even superficial skin or gill damage infected by fungus can be fatal if left untreated, so early diagnosis matters.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The mould secretes enzymes that break down fish tissue so it can absorb nutrients.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Infection is often first seen as fluffy, cotton-like tufts, white to gray or brown, on skin, fins, gills, eyes or eggs.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Tufts can turn brown or green as they trap sediment or algae; out of water they look like a slimy, matted mass.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Typically only one fish in the tank is affected.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Under the microscope, a scraping shows branching hyphae; the hyphae are broad and non-septate.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Affected fish may become sluggish, eat less and rub against tank walls or the pond bottom.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Columnaris is a bacterial infection that owners often mistake for fungus; its lesions are greyish or white patches that lack the body's shine and can turn brown or yellow, and mouth lesions may look like mould or cotton.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Saprolegnia often occurs together with columnaris bacteria or external parasites.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Infection is usually secondary to skin or gill damage from parasites, bacteria, viruses or injury.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Saprolegnia rarely attacks healthy, unstressed fish; risk factors include unhygienic water, overcrowding, skin injuries, poor diet and water temperatures below the fish's tolerance range.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Poor water quality (low circulation, low dissolved oxygen, high ammonia), high organic load and dead eggs are linked to infections.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Saprolegnia can grow at 32° to 95°F but prefers 59° to 86°F.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Primary infection of healthy fish happens less often and usually at low temperatures, possibly because immunity is reduced.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Spores resist drying and chemicals and are present in all ponds and tanks; fish mucus is thought to normally stop growth.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "On eggs, Saprolegnia has difficulty colonising live eggs; unfertilised, damaged and dead eggs are infected first and it spreads from them to healthy neighbours.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Find and correct the reason the fungus took hold, because it rarely affects healthy fish.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Treat or correct predisposing factors at the same time as treating the fungus.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Once Saprolegnia is identified, evaluate and correct sanitation.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Topical treatment: clean the lesion with strong malachite green solution (100 mg/litre), then apply a waterproof cream.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt as a long-term bath at 1–5 g/litre, indefinitely.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Malachite green bath at 0.10 mg/litre, given as three treatments at three-day intervals.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium salt at 1–3 grams per litre, for salt-tolerant fish only.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Proprietary fungus remedies may contain malachite green or formalin; newer options include bronopol (Pyceze) and Pimenta extract (Pimafix).",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Common treatments are potassium permanganate, formalin and povidone iodine solutions.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Overtreatment can further damage fish tissue and lead to recurring infections.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For eggs, methylene blue is the most widely used dye; the author suggests up to 3 ppm (3 mg per litre) through incubation.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For eggs, hydrogen peroxide (35%) at about 1 ml per 3.5 litres on day one, repeated on day two because it breaks down quickly; it is harsh.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt works against water moulds from about 3 ppt and suits fish adapted to hard, alkaline or brackish water; some fish will not tolerate even slightly raised salinity.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Carbon filtration absorbs treatments and treatments can harm the biological filter, so treat eggs in a separate container.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Chemicals react with organic matter, which lowers their effective dose.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Catfish can be extremely sensitive to salt.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Columnaris is treated with antibacterials such as acriflavine or Terramycin, not antifungals.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Bath in NaCl 2–3% for 15–30 minutes, or malachite green 0.1 ppm.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For sick farmed fish, bathe in formalin at 200–250 ml/m³ for about 30 minutes.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "With eggs, remove unfertilised eggs quickly, and also remove eggs next to visibly infected ones.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Change salinity slowly, both when raising it and when lowering it.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep water quality and circulation good, avoid crowding (especially during spawning) to reduce injuries, and feed well.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Spores are almost always present, so prevention means managing conditions rather than eliminating spores.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep water clean, avoid overcrowding and remove decomposing organic matter.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Environmental management is essential to resolve chronic problems.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Before stocking, bathe young fish in 2–3% salt water for 5–10 minutes; avoid dense stocking.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Add vitamin C to feed at 200–300 g per 100 kg of feed.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep water quality good and avoid injuring fish.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating with chemicals but ignoring the underlying cause; fungus cannot be fully eliminated from a system.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving carbon filtration running during treatment removes the medication.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Trying to save eggs already covered in established fuzz; they cannot be saved and should be removed.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using cooler water against columnaris (a fungus look-alike) does not halt the disease.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam the disease is reported in cá tra, cá basa, cá rô phi and cá trê, and is common in freshwater fish.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "The disease thrives in the cold season or when water temperature swings irregularly.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "The disease tends to occur when water temperature drops.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "For ponds: after each crop, remove mud and apply lime at 7–10 kg/100 m²; lime twice monthly at 1.5–2 kg/100 m³ and before rain.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says it is wrong to call Saprolegnia a true fungus; it is an oomycete.",
+      "source": 3
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says the mould does not mainly kill healthy eggs; it takes hold on dead or unfertilised eggs first.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Malachite green is now used less because of restrictions in several regions, though some preparations still contain it.",
+      "source": 3
+    }
+  ]
+}

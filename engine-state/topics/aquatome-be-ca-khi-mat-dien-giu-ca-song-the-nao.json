@@ -1,0 +1,416 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus",
+    "Cyprinus carpio"
+  ],
+  "sources": [
+    {
+      "url": "https://cvm.ncsu.edu/news/dealing-with-aquariums-and-ponds-during-power-outages/",
+      "title": "Dealing with aquariums and ponds during power outages (NC State College of Veterinary Medicine)",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage (Chewy)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-long-can-fish-go-without-power",
+      "title": "How Long Can Fish Go Without Power? (Chewy, with Ivan Alfonso, DVM)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://nt-labs.com/knowledge-hub/how-to-deal-with-an-aquarium-during-a-power-cut/",
+      "title": "How to deal with an aquarium during a power cut (NT Labs)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1670/lam-sao-de-ca-khong-bi-chet-khi-cup-dien.html",
+      "title": "Làm Sao Để Cá Không Bị Chết Khi Cúp Điện (Aquarium Care)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/lam-gi-khi-cup-dien.185054/",
+      "title": "Làm gì khi cúp điện (Diễn đàn cá cảnh)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://visinhcakoi.com/khi-cup-dien-xu-ly-nhu-the-nao/",
+      "title": "Khi Cúp Điện Xử Lý Như Thế Nào (Vi sinh cá Koi)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.pressreader.com/sri-lanka/sunday-times-sri-lanka/20220410/281956021316621",
+      "title": "Life sucked out of aquarium trade (Sunday Times Sri Lanka)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "When power fails, the filter, aeration and heater all stop. The main dangers are falling oxygen, rising ammonia and temperature swings.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "How long fish last without power has no single answer. It depends on oxygen, temperature, stocking level, species and tank size.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Warm water holds less oxygen, and fish use more oxygen as the temperature rises.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Planted tanks make oxygen while lit, but the plants use up oxygen in the dark.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Larger tanks hold their temperature longer than small ones.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Water quality gets worse the longer fish sit in unfiltered water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A Sri Lankan trade source said fish can take a few hours without power, but past about seven hours oxygen falls sharply and filters stop working.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of low oxygen: gasping at the surface, fast gill movement, crowding near the surface or moving water, unusual lethargy and slower swimming.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rough timeline: at 0–2 hours there are few or no signs. At 2–4 hours activity slows. At 4–8 hours fish may become lethargic and gasp at the surface.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Sluggish fish, or fish gasping at the surface, point to low oxygen.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "A canister filter left off can go anoxic in as little as four to six hours.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "During a long outage, ammonia and hydrogen sulfide build up inside the filter. When power returns, the filter pushes them back into the tank.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Without the filter running, beneficial bacteria work poorly and ammonia rises. This can kill fish.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Uneaten food adds needless nitrogen to the water.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "First check whether the cause is a grid outage or just a loose plug.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Unplug the filter as soon as the power fails.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Unplug the filter fully so that dirty, toxic water is not suddenly pumped back into the tank when power returns.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "With overflow filters, especially older ones, unplug when the power goes off. Otherwise tank water can siphon out.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not feed during an outage. Most fish can survive days or even weeks without food.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Skip feeding during the outage. Most fish can go about a week without food.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Avoid disturbing the fish. In the dark they use less oxygen.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "To add oxygen without equipment, fill a jug with tank water and pour it back in to break the surface.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Pour water from a scoop held high to make bubbles. Start before the fish begin gasping: weakened fish need more oxygen to recover.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "In hot weather, stir the water with a whisk to add oxygen, and clear anything floating on the surface to improve gas exchange.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Run a battery air pump with an airstone. Cooler water holds more oxygen, and surface agitation helps gas exchange.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "To keep heat in, close the lid and wrap the tank in towels or styrofoam.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In cold conditions, insulate the tank with a blanket, sleeping bag or newspapers, and watch a thermometer.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Insulate with blankets or Styrofoam, but do not block ventilation.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the tank is overheating, shade it from direct sun.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "To cool a tank slowly, keep the lid open and float ice in a sealed plastic bag. Replace it as it melts.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Most tropical fish can stand the low 60s or high 50s °F for several hours. Start warming the water once it reaches the mid-50s °F.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "If the water is too cold and fish cannot be moved, add warm dechlorinated water gradually. A 10 percent change every hour or two should not harm fish.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Tropical and temperate fish often tolerate the high 80s or low 90s °F for a day or more.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Test for ammonia. If it goes above 1 ppm, change 10 to 30 percent of the water.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "If the outage runs several hours, heat water on a gas hob, pour it into sealed plastic bottles and float them in the tank.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Warm the water with hot-water bottles placed in the tank, without raising the temperature too fast, which can shock fish.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "If the power has been off more than two hours, test ammonia and nitrite. Make a partial water change if they are high, and keep it small if the temperature difference is large.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "If you are away from home during the outage, change 25–50% of the water to reduce built-up toxins.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For filter sponges: drain the filters, rinse clogged sponges in a bucket of tank water, and keep them damp in an airtight bag or container with little or no water. Sponges left sitting in still water will drown the bacteria.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Rinse filter media in tank water and put it back in the aquarium to keep the beneficial bacteria.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Keep biological media such as bio balls and ceramic rings under water so the bacteria survive.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Fish packed sparsely in bags (about 5 inches of fish per gallon) can survive at least 36 hours if the outside temperature is suitable. Fill each bag one-third water and two-thirds air, or better, pure oxygen.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For ponds, lower the water until it is about 10 cm above the fish's backs, so more water surface meets the air.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Keep oxygen tablets in stock and add them to the pond from time to time to supply oxygen.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Action timeline: under 2 hours, just monitor. At 2–4 hours, stir the surface regularly. At 4–8 hours, keep stirring and keep the room closed. At 8–24 hours, get a battery air pump. Past 24 hours, use battery pumps or borrow a generator.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Short outages under two hours are generally fine without a filter. Fish should make it overnight if aeration or circulation is provided.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "If the outage lasts more than a week, ask a fish store, ideally one that still has power, to hold the fish temporarily.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To restart a filter: empty the old water from the filter body, rinse it, put the media back, prime it with new water, then plug it in. Clean the impeller, because dirty impellers often fail to restart.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "If the power was off more than two hours, do not restart a canister filter straight away, because the water inside may have no oxygen left.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Clean the filter and its parts before turning it back on after a long outage.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "After power returns, check the heaters and test ammonia, nitrite and pH. Change water as needed.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Wait 24 hours after power returns, or until water quality is normal, before feeding. Then feed less than usual.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Watch the fish for a few weeks afterwards. Ich can appear up to two weeks after a temperature shock.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep backup supplies: a battery air pump, spare airstones and airline tubing, batteries, a flashlight, water test kits, and towels or styrofoam sheets.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keeping fewer fish slows the oxygen drop and ammonia rise when the filter stops.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "A UPS can run the filter for a long time, and most switch to battery automatically when power fails.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Heater wattage matters for backup power: a 10-watt heater draws far less than a 100-watt one.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "A generator or extension cord can power the heater and filter, and moving fish somewhere warmer is another option.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Buy a rechargeable or battery air pump before you need it. The example given is the Hailea CP-60.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Never pour hot water straight into the tank. It creates hot spots that can burn fish and changes water chemistry.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not run the heater from a UPS. Its high wattage drains the battery fast.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving the filter plugged in, so polluted water rushes back into the tank when power returns, can stress or kill fish.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Moving fish between tanks or ponds should be a last resort, because it raises the risk of disease and aggression.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Keepers report that trusting the box or the seller about battery-pump run time, and not testing a newly bought pump, are common mistakes.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Keepers report that cheap battery air pumps can fail: one valve broke after 3–4 months, and one pump stopped working after nearly 2 years.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Rechargeable battery air pumps sell in Vietnam for about 50,000–1,500,000 VND, and some come with a charger.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Ho Chi Minh City, a keeper bought a battery air pump for about 400k VND (Cao Quý on Trần Hưng Đạo, or Aqua on CMT8). A new battery costs about 150k, against about 350k for a new pump.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Keepers report that a seller claimed about 10 hours of battery run time while a shop owner said only about 5. One pump ran over 10 hours when new but only about 2 hours after half a year.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "If you have no UPS, one keeper suggests siphoning out and replacing 20–50% of the water after about 1 hour without power, and not feeding.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A keeper advises turning up aeration after power returns, because the filter bacteria need more oxygen then.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Temperate pond fish such as goldfish and koi usually do fine if conditions are left alone.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "For an undergravel filter, keep the water about 1/4 to 1/2 above the substrate and drain all the water from the filter to remove toxins.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "To move a tank, you can pour out up to 70 percent of the water to cut weight. A gallon weighs about 8 pounds.",
+      "source": 0
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "found": true,
+  "species": [
+    "Ictalurus punctatus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Merck Veterinary Manual – Environmental Diseases in Aquatic Systems (professional)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/all-other-pets/fish/disorders-and-diseases-of-fish",
+      "title": "Merck Veterinary Manual – Disorders and Diseases of Fish (pet owner)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://journals.flvc.org/edis/article/download/119872/134728/235240",
+      "title": "UF/IFAS EDIS FA16 – Ammonia in Aquatic Systems",
+      "kind": "university"
+    },
+    {
+      "url": "https://tal.ifas.ufl.edu/extension-and-outreach/disease-diagnostic-laboratory/how-to-collect-and-prepare-samples/",
+      "title": "UF Tropical Aquaculture Lab – How to collect and prepare samples",
+      "kind": "university"
+    },
+    {
+      "url": "https://nt-labs.com/knowledge-hub/how-to-deal-with-an-aquarium-during-a-power-cut/",
+      "title": "NT Labs – How to deal with an aquarium during a power cut",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/scottish-water-step-up-chloramination/",
+      "title": "Practical Fishkeeping – Scottish Water step up chloramination",
+      "kind": "article"
+    },
+    {
+      "url": "https://vietnamnet.vn/en/more-than-200-tonnes-of-fish-die-as-oxygen-levels-plunge-at-tri-an-lake-2522116.html",
+      "title": "VietnamNet – More than 200 tonnes of fish die as oxygen levels plunge at Tri An lake",
+      "kind": "article"
+    },
+    {
+      "url": "https://plo.vn/hang-chuc-tan-ca-nuoi-be-tren-song-cai-vung-chet-dot-ngot-post560371.html",
+      "title": "PLO – Hàng chục tấn cá nuôi bè trên sông Cái Vừng chết đột ngột",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/1-6-aquarium-fast-fish-deaths",
+      "title": "AquariumScience.org – Aquarium fast fish deaths",
+      "kind": "article"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA055",
+      "title": "UF/IFAS EDIS FA-55 – Submission of Fish for Diagnostic Evaluation",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.petplace.com/article/fish/general/submitting-fish-specimens-for-diagnostic-evaluation",
+      "title": "PetPlace – Submitting Fish Specimens for Diagnostic Evaluation",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.tankflare.com/diseases/oxygen-depletion",
+      "title": "Tankflare – Oxygen depletion",
+      "kind": "article"
+    },
+    {
+      "url": "https://phys.org/news/2024-05-mass-fish-die-vietnam-roasts.pdf",
+      "title": "Phys.org – Mass fish die-off as Vietnam roasts (2024)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Low dissolved oxygen and high ammonia are the two water-quality problems most likely to kill fish directly.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Poor water quality is the most common cause of disease brought on by the environment, so water testing is essential.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia is the most important water-quality parameter after oxygen.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fish crowding at the surface and gulping air ('piping') can mean low oxygen, but high nitrite and gill disease cause the same sign.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Oxygen-shortage deaths usually show up early in the morning, when oxygen is lowest, and large fish are hit harder than small ones.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite poisoning turns the gills and blood chocolate-brown ('brown blood disease').",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Fish poisoned by nitrite can look starved of oxygen even in well-oxygenated water and may gasp at the surface or stay near airlines or water inflows.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Ammonia poisoning causes lethargy, refusal to eat, and spinning or convulsive swimming.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Too much CO2 makes fish lethargic and disoriented at the surface with their backs showing, and low oxygen makes it worse.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Gas supersaturation causes popeye, gas bubbles in the fins and corneas, and fine bubbles on the glass.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Long-term low-level chlorine exposure causes ragged fins, excess mucus, cloudy corneas, gill damage and lethargy.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Hydrogen sulfide smells like rotten eggs.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "If fish keep gasping after oxygen has been restored, test for ammonia or look for gill disease.",
+      "source": 11
+    },
+    {
+      "section": "causes",
+      "fact": "Dissolved oxygen above 5 mg/L is best. Fish are stressed below 5 mg/L, and deaths can occur at 4 mg/L or less depending on species, size and exposure time.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Un-ionized ammonia (NH3) above 0.05 mg/L damages the gills, and 2 mg/L NH3 kills many fish.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia becomes more toxic as pH and temperature rise, and pH has the larger effect.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Nitrite becomes toxic above 0.1 mg/L NO2.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Chlorine harms fish from 0.02 mg/L and kills them from 0.04 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Power or thermostat failure can cause sudden deaths.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "New tank syndrome is an ammonia spike that usually appears 1 to 3 weeks after a new tank is stocked, before the biofilter is working.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Old tank syndrome is a sudden pH drop, often below 6.0, that kills the biofilter bacteria. Ammonia is often above 10 mg/L, and the cause is topping up without removing old water.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Copper above 0.2 mg/L Cu2+ causes sudden death. One source is water that has stood in copper pipes.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Hydrogen sulfide kills fish quickly at 0.5 mg/L. It comes from poorly cleaned sediment or from well water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Accidentally adding hydrated lime can push pH above 10 and kill every fish.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Gas supersaturation (usually nitrogen) comes from pumps that suck in air (cavitate), leaks on the intake side, well water, or cold water heated too quickly.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "CO2 is toxic above 12 mg/L.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Feed with Aspergillus flavus mold contains aflatoxin, which can kill many fish.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Nitrifying bacteria need oxygen and alkalinity. If oxygen runs short they stop working or die, and ammonia and nitrite then build up.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Stray electrical voltage in the water can irritate fish, kill them or fracture their spines.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For high ammonia, change at least 50% of the water and stop or cut back feeding.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If total ammonia is above 5 mg/L and pH is below 7, move the fish to a clean system with matching pH and temperature.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For old tank syndrome, move the fish to a separate holding tank and clean and restart the whole system. Plain water changes are not enough, because raising the pH can make the ammonia toxic.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "For too much CO2 or gas supersaturation, aerate hard and fix the mechanical source.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If your equipment cannot raise oxygen, buy an air pump as an emergency.",
+      "source": 11
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, scoop tank water with a jug and pour it back onto the surface to break the surface and restore gas exchange. How often depends on how many fish are in the tank.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, take the filters out and drain them. Keep the damp sponges in a sealed bag or box with little or no water, because the bacteria drown if the sponges sit submerged in still water.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "If a power cut lasts several hours and the water cools, float bottles of warm water in the tank. Never pour hot water straight into the tank.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt at 1–3 ppt in freshwater cuts nitrite uptake and can stop deaths during a sudden nitrite spike, alongside a water change and filter maintenance.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Adding calcium chloride at 10 mg/L chloride for each 1 mg/L nitrite reduces nitrite's toxic effect on fish.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not use copper sulfate when alkalinity is below 50 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Removing chloramine releases ammonia, so use a conditioner that also binds ammonia and test free and total chlorine before and after treating.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Test dissolved oxygen (mg/L and % saturation), total ammonia, nitrite, nitrate, pH, alkalinity, hardness, temperature and salinity.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "If the tank is filled from municipal tap water, test free and total chlorine.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Check for too much CO2: aerate a bucket of the tank water for 1 hour. A pH rise of more than 1 unit points to excess CO2.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Look for sources of copper, zinc and hydrogen sulfide, and check for gas supersaturation.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "For a lab diagnosis, labs generally want 4–6 live, sick fish that show the main signs. Fish found dead are rarely useful.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Send fish to the lab as soon as the problem appears and before any treatment, because antibiotics or chemicals can hide the cause.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Carry fish in water from their own tank with nothing added except oxygen, and also send about one quart of tank water in a sealed container with no air inside.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Test dissolved oxygen, CO2 and H2S on site if you can, because these values change during transport.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fish that are close to death may not survive the trip to the lab and should be humanely killed before transport. In very hot or cold weather, add an ice pack or heat pack to the cooler.",
+      "source": 9
+    },
+    {
+      "section": "prevention",
+      "fact": "When handling or moving fish, change the temperature by no more than 1°F (about 1°C) per hour.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Remove old water at every water change instead of only topping up, and spray incoming water from above to aerate it.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Throw out moldy food, store dry food somewhere cool and dry, and replace it every 2 months.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish and sick fish.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Before using tap water, run the tap for a while or use activated carbon to avoid copper from water standing in the pipes.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep a battery air pump for power cuts. A UPS can run the filter for a long time, but do not run the heater from it because it drains the battery.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Freezing dead fish for diagnosis destroys their tissue structure and makes it hard or impossible to find bacteria and parasites.",
+      "source": 10
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating with chemicals or antibiotics before collecting samples can hide the cause of death.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Pouring hot water straight into the tank during a power cut creates hot spots that can burn fish.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says boiling, standing, aerating or spraying tap water does not remove chloramine.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "At Tri An lake (Dong Nai), more than 200 tonnes of caged fish died. Dissolved oxygen was only 1.58–2.4 mg/L, ammonia was 1.2–1.25 times over the limit, and tests ruled out SVCV, KHV and Edwardsiella ictaluri.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "In the mass death of caged fish on the Cái Vừng river, dissolved oxygen was only about 0.5–1.0 mg/L when the water was still.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "In 2024, hundreds of thousands of fish died in a Dong Nai reservoir. Locals and media blamed a severe heat wave and how the lake was managed.",
+      "source": 12
+    },
+    {
+      "section": "other",
+      "fact": "AquariumScience.org says poor ammonia, nitrite or nitrate readings cannot kill fish quickly, so it blames rapid mass deaths on sudden shocks such as low oxygen, heat or chlorine. Merck disagrees: it says 2 mg/L NH3 is lethal to many fish.",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "Channel catfish are very sensitive to nitrite, while bass and bluegill (centrarchids) tolerate it well.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Warmer water holds less oxygen. At 25°C and sea level, fully saturated freshwater holds 8.27 mg/L.",
+      "source": 0
+    }
+  ]
+}

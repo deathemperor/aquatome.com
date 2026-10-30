@@ -1,0 +1,355 @@
+{
+  "found": true,
+  "species": [
+    "Pseudotropheus greshaki"
+  ],
+  "sources": [
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/quarantine-tank",
+      "title": "Aquarium Co-Op – How to Set Up a Quarantine Tank",
+      "kind": "maker"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/disease_prevention_and_control/disease_prevention.html",
+      "title": "ANGFA Rainbowfish – Disease Prevention",
+      "kind": "article"
+    },
+    {
+      "url": "https://thevetdesk.com/pet-health-wellness/fish/quarantine-new-fish-properly",
+      "title": "The Vet Desk (PangoVet) – How to Quarantine New Fish Properly (DVM-reviewed)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.uvm.edu/~jdion/fish/quarantine.html",
+      "title": "The Quarantine Tank (hobbyist page hosted at uvm.edu)",
+      "kind": "article"
+    },
+    {
+      "url": "https://chamca.vn/cach-setup-ho-cach-ly/",
+      "title": "Chăm Cá – Khi nào nên cách ly & cách setup hồ cách ly",
+      "kind": "article"
+    },
+    {
+      "url": "https://therium.vn/3-kinh-nghiem-duong-ca-moi-mua-tu-cua-hang",
+      "title": "Therium – 3 kinh nghiệm dưỡng cá mới mua từ cửa hàng",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquaculture/production-medicine-and-biosecurity-in-aquaculture",
+      "title": "Merck Veterinary Manual – Production Medicine and Biosecurity in Aquaculture",
+      "kind": "vet"
+    },
+    {
+      "url": "https://vin.com/doc/?id=3976325",
+      "title": "Fish Quarantine: Current Practices in Public Zoos and Aquaria (VIN)",
+      "kind": "paper"
+    },
+    {
+      "url": "https://fishtanksdirect.com/blog/how-long-should-you-quarantine-new-fish/",
+      "title": "Fish Tanks Direct – How Long Should You Quarantine New Fish?",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "A quarantine tank is a separate aquarium where new fish are held alone so they can adjust and recover from stress, be watched for disease and be treated in isolation.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "New fish can carry parasites or pathogens that are not visible yet, so even healthy-looking new fish should be quarantined.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Water from retail stores is not necessarily clean and may carry many kinds of pathogens.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Quarantining new fish at temperatures that let important diseases develop helps show whether specific pathogens are present.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "In a survey of public zoos and aquaria, 95% of institutions had a minimum fish quarantine of 30 days or more.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Store fish often come from many different batches, so healthy and sick fish get mixed and can infect each other.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "During quarantine, watch for loss of appetite, lethargy, rapid breathing, white spots and ulcers.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Set up and run the quarantine tank before fish arrive. Its filter must be fully cycled and the tank well aerated.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Use a separate tank, not a divider or breeder box inside the main tank.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Setup: a tank or clear tub with a lid, a sponge filter or other low-flow filter, a heater and thermometer, no substrate, a few hides, and water conditioner.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "A bare bottom makes cleaning easier and lets you inspect the fish's waste.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the quarantine tank simple, with a pre-cycled sponge filter and a reliable heater. It should be no larger than about 50 litres.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Suggested size: 20–40 litres for a few small fish, or 60–80 litres for large fish or several fish. A tank that is too big makes water control and dosing harder.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Keep a spare filter cycling all the time, for example as a second filter in another tank, so the quarantine tank has a working filter right away.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Use plastic pipes, ceramic caves or soft plastic plants as hides. Avoid rocks and sharp objects that could injure weak fish.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Before arrival, find out the temperature, pH and hardness of the source water and match the quarantine tank to it. Then change parameters in small steps until they match the main tank.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Acclimate new fish for about 30–60 minutes.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Keep lights and disturbance low to reduce stress.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Suggested 14-day plan: days 1–3 watch behaviour and feeding; days 4–7 treat if disease appears; days 8–10 improve nutrition; days 11–14 start acclimating to main-tank water if the fish are healthy.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Change about 20–30% of the water every 2–3 days, using dechlorinated water at a similar temperature.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Do weekly partial water changes, and change water more often if the fish are being medicated.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Move fish to the main tank only when they eat normally, swim actively and show no symptoms. Mix main-tank water into the quarantine tank over 30–60 minutes, then watch them for several days after release.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Move fish only after the full quarantine passes without disease. If disease appears, treat it and restart the timer.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "For extra certainty, add two healthy fish from the main tank to the quarantine tank as sentinels and check that they stay well.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine period: at least 30 days, enough for most parasite and bacterial problems to show up. Some species or diseases need longer.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine period: at least 4 weeks, often 4–6 weeks or more. Fish should be disease-free for at least four weeks before moving to a community tank.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine period: 2 to 4 weeks, and longer is better.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine should not be shorter than two weeks, since that is roughly how long diseases and parasites take to show.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine period: 14–21 days.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine most new fish for 4–6 weeks after the last symptom or death.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Quarantine rainbowfish at 22–25°C.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Keep tropical species at about 25–28°C in the quarantine tank. A stable temperature matters more than an exact number.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For fish from online sellers, chain stores or untested sources: per 10 gallons, add 1 packet Maracyn, 1 packet ParaCleanse and 1 teaspoon (5 ml) Ich-X, then soak for 7 days without feeding.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For fish from a trusted local store or breeder: watch and feed for a couple of days and treat only if symptoms appear. ParaCleanse can be used as a preventive dose per its label.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op says its quarantine trio is safe for scaleless fish, fry, shrimp, snails, live plants and beneficial bacteria.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Remove activated carbon and turn off any UV sterilizer before medicating.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium salt is not safe for aquatic plants, snails or some fish such as anchor catfish. Use a separate container for salt treatment.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "After a day or two, treat external parasites with an antiparasitic such as PraziPro or ParaGuard as the label directs. Internal parasites need a broad-spectrum medication, ideally prescribed by a vet.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium salt is toxic to live plants. It does not evaporate, so repeated doses without water changes can push salinity to unsafe levels.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip: 1 part bleach to 20 parts water for 90 seconds for delicate plants, 120 seconds for most plants, or 150 seconds for hardy plants such as Anubias and Java fern.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Feed little during treatment to keep the water clean.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Use nets, siphons and buckets only for the quarantine tank, and wash your hands after working on it.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Stop splashing and contact between tanks, because aerosols can carry pathogens. Glass covers help.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the quarantine glass and bottom clean, since biofilm can hide large numbers of microorganisms.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "If possible, keep the quarantine tank in a separate room.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the quarantine tank empty between uses so it is ready for new arrivals or sick fish.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using a filter that has not cycled lets ammonia and nitrite rise during quarantine.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Keeping permanent residents in the quarantine tank leaves no tank free for emergencies.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Moving fish back before they have fully recovered, or making sudden temperature or pH changes.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding during treatment, or using untreated tap water or water at a very different temperature for water changes.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming fish that look healthy are free of disease. No new fish is guaranteed to be clean.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Giving full treatments to fish that are already sick or weak can stress them fatally. Ask an aquatic vet in that case.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "ANGFA says the 40-day quarantine taken from human and warm-blooded animal practice does not map directly onto fish, because fish take on the water temperature and incubation times change with it.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "ANGFA says UV sterilisers and ozone do not kill all pathogens or stop disease spreading within a system.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "ANGFA says quarantine lowers risk but does not remove it, because some diseases have long incubation periods and carriers may show no symptoms.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese tap water contains a lot of chlorine. Before adding fish, dechlorinate with an effervescent vitamin C tablet (viên C sủi) or a water conditioner from a fish shop.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese keeper's article suggests keeping new fish apart for only 2–3 days while giving preventive medicine. That is much shorter than the 2–6 weeks other sources recommend.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Common Vietnamese preventive methods: a bath in lightly salted water with a little xanh methylen (methylene blue), lá bàng (Indian almond leaves), and Jindi vàng for fungus and bacterial infection, dosed per the package. The article gives no exact doses.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Float the closed bag in the tank for about 30 minutes to equalise temperature, keep the tank dark for the first few hours, and keep the water level a little lower so fish do not jump out.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "The quarantine tank can also hold sick, injured, bullied or breeding fish. One author kept a female Pseudotropheus greshaki there because returning her to the main tank caused new injuries.",
+      "source": 3
+    }
+  ]
+}

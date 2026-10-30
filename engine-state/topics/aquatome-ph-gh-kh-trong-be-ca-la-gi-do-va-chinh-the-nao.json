@@ -1,0 +1,378 @@
+{
+  "found": true,
+  "species": [
+    "Symphysodon spp.",
+    "Caridina cantonensis",
+    "Neocaridina davidi",
+    "Carassius auratus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/kh",
+      "title": "The Fish Keeper's Guide to pH, GH, and KH - Aquarium Co-Op",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.vin.com/doc/?id=8896487",
+      "title": "Water Quality Assessment in Aquatic Vet Medicine (WSAVA 2018 Congress Proceedings, VIN)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://senaquatic.vn/ph-kh-va-gh-lien-quan-nhu-the-nao",
+      "title": "pH, KH và GH liên quan như thế nào? - Senaquatic",
+      "kind": "article"
+    },
+    {
+      "url": "https://shrimpfarm.vn/tong-hop-cac-chi-so-tds-ph-gh-kh-trong-be-tep-canh/",
+      "title": "Tổng hợp các chỉ số TDS, pH, GH, KH trong bể tép cảnh - Jack Shrimp Farm",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/cach-ha-ph-be-ca-an-toan/",
+      "title": "Cách hạ pH bể cá an toàn - aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/aquarium-ph-crash-guide/",
+      "title": "pH Crash in Your Aquarium: Causes, Signs and Emergency Fixes - Gensou",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "pH measures hydrogen ion concentration on a 0–14 scale, where 7.0 is neutral.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The pH scale is logarithmic, so each one-unit step is a tenfold change in acidity.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "KH (carbonate hardness) measures carbonates and bicarbonates. It buffers the water against sudden pH changes.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "GH (general hardness) measures calcium and magnesium. These minerals matter for fish bones and muscles, shrimp molting, snail shells and plant growth.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "1 dKH equals 17.9 ppm.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most freshwater fish do well at pH 6.5–8.0. Typical KH is 4–8 dKH (70–140 ppm) and typical GH is 4–8 dGH (70–140 ppm).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Discus and Caridina crystal shrimp suit 0–3 dKH (0–50 ppm) and about 3 dGH (50 ppm) or less. African cichlids suit more than 10 dKH (above 180 ppm).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Livebearers, goldfish and African cichlids prefer higher GH.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A WSAVA vet proceedings paper gives an ideal alkalinity of 100–250 mg/L and an ideal hardness of 100–250 mg/L for most freshwater fish. Discus prefer softer water and African cichlids harder water.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Natural freshwater ranges from slightly below pH 6.0 to about 8.5. Most freshwater fish adapt to gradual change within that range, but rapid pH changes harm them.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "High hardness usually comes with high alkalinity and high pH.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Below pH 6.5, most ammonia exists as the nontoxic ammonium ion. Above 6.5, accumulated ammonia can quickly become toxic, and higher temperature raises its toxicity further.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Below pH 6.5, nitrifying bacteria slow down. Above 7.5, more free ammonia forms, which is very toxic to shrimp.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Recommended GH for shrimp: Caridina 3–4, Neocaridina 4–8, Sulawesi 6–8.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Recommended TDS for shrimp: Caridina about 80–120 ppm, Neocaridina about 180–250 ppm, Sulawesi about 200 ppm.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Recommended KH by tank type: community 3–8 dKH, planted CO2 tanks 2–5 dKH, Caridina tanks on active substrate 0–1 dKH, African cichlid tanks 8–15 dKH.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "This source puts the pH most freshwater fish live well in at about 5.5–7.5. If pH sits at 7.5–8 and is stable, it says no adjustment is needed.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Fish in a pH crash may swim frantically, become lethargic or breathe rapidly.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of low GH: poor appetite, slow growth, lethargy, faded color, mineral deficiency in plants, molting trouble in shrimp, and thin or pitted snail shells.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "pH crash signs: gasping at the surface and erratic swimming; faded color, clamped fins and appetite loss; in critical cases, lying on the bottom, excess mucus and sudden deaths.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Caridina shrimp such as Crystal Red and Taiwan Bee often die before fish show distress, so dead shrimp are an early warning of a pH crash.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "A pH reading below 6.0 confirms a crash.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Large pH swings usually mean KH is too low to buffer the water.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Biological filtration consumes carbonates, so alkalinity falls over time. Low alkalinity can cause sudden, deadly pH shifts.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "At about 0–1 dKH the water has no buffer left. Nitrification, CO2 injection, active substrates and organic acids all use up KH.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "A CO2 overdose, for example from a stuck solenoid or a cylinder dumping at end of tank, can drop pH from 6.8 to below 5.5 within an hour.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Active substrates (aquasoil) usually stop buffering after 12–24 months.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Some substrates change pH, so the effect of a substrate should be checked before using it.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a pH crash, turn off CO2 and increase surface agitation and aeration.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do a 20–30% water change with dechlorinated water, not 50% or more at once, and let pH rise no faster than about 0.3–0.5 units per hour.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "If pH is still low, test hourly and do 15–20% water changes about an hour apart. Aim for recovery over roughly 4–8 hours.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Emergency KH dose: about 1 teaspoon (roughly 5 g) of baking soda per 100 L, dissolved in tank water and added slowly. It raises KH by about 2–3 dKH. Do not add more than this at once.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Commercial KH buffers include Seachem Alkaline Buffer and SL Aqua KH Builder. Add gradually and test after each dose.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Crushed coral raises pH, KH and GH. Use about 1 lb per 10 gallons in the substrate, or put it in a filter bag. Replace every 6–12 months.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "At pH 8.0, crushed coral raises KH while pH changes less. At lower pH, it raises both pH and KH.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Calcium carbonate raises both GH and KH. To raise GH alone, add calcium and magnesium salts that contain no carbonates or bicarbonates.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Wonder Shells or Seachem Equilibrium can also raise hardness.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "To lower pH, KH and GH, do fewer water changes so the tank acidifies, or mix in RO/DI water gradually.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "To fix low alkalinity, add carbonates or do water changes with higher-alkalinity water.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "CO2 injection lowers pH without changing KH.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Crushed dolomite or coral in the substrate raises pH by releasing calcium carbonate.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "pH-down chemicals do not last because KH pulls pH back. Package doses are only accurate with RO water. The lasting fix is to lower KH with a different water source or RO water.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "RO water removes about 90–99% of impurities and has a pH near 7. Minerals must be added back to suit the species.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For shrimp, use RO/DI water and add a calcium-and-magnesium-only remineralizer. Example from one farm: 9 ml of Nutrafin shrimp minerals in a 50 L tank gives about 100 ppm TDS.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Driftwood releases tannins that lower pH and tint the water brown. This tint does not harm fish or plants.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "1) Test pH, KH and GH, and look up what each species needs.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "2) Find and remove whatever is pushing pH off target before you adjust it.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "3) Correct KH first. To lower pH lastingly, reduce KH. To stabilize pH, raise KH.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "4) Change values slowly, then retest after each water change or dose. Keep a log to track trends.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Do partial water changes of about 25% with dechlorinated water, weekly in new tanks and 1–2 times a month in established ones.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Test KH monthly, or every two weeks if you run CO2 or active substrate. Act when KH trends down, before it reaches zero.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "In CO2 and planted tanks, keep KH above roughly 2–3 dKH. Replace active substrate at around 12–24 months.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not let KH fall to 2 dKH or below, because pH swings become dangerous.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Where tap water is already hard, extra water changes may be enough to keep hardness up.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming pH must be held perfectly constant. Some daily fluctuation is normal; sudden spikes are the real danger.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming high GH means enough calcium. The water may be high in magnesium and low in calcium, so test calcium separately if symptoms persist.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing pH suddenly or doing one very large water change.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dosing pH chemicals by guesswork without retesting, and trusting litmus paper or cheap, uncalibrated pH pens. This source says liquid test reagents are more accurate.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Boiling leaves before use reduces their effect. Soak them for a few days instead, and take carbon out of the filter.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers lower pH with dried leaves: Indian almond (lá bàng), banana, guava, mango and longan leaves, at about 1 leaf per 30 L.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Almond leaves can bring pH down to about 6.0 if enough are used. A leaf can take about 2 months to break down unless shrimp eat it.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Without an RO unit, one farm suggests 20 L purified-water jugs or 5 L bottled spring water. Do not use mineral water, and always measure TDS first.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Local shrimp keepers commonly use a TDS pen (for example Xiaomi) to track mineral levels.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Flowerhorn (cá két) and other cichlids (cá ali) like high pH, while Amazon blackwater fish like low pH.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "A Vietnamese article says fish waste can raise pH. A reviewer of that article notes that waste and organic decay normally lower pH.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Water tests come as strips, dry tablets, liquid reagent kits, electronic meters and spectrophotometers. Spectrophotometers are more accurate.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Multi-test strips can measure pH, KH and GH together. Test during maintenance, when breeding or when troubleshooting.",
+      "source": 0
+    }
+  ]
+}

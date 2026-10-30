@@ -1,0 +1,423 @@
+{
+  "found": true,
+  "species": [
+    "Ictalurus punctatus",
+    "Oncorhynchus mykiss",
+    "Sciaenops ocellatus",
+    "Gnathonemus petersii"
+  ],
+  "sources": [
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Merck Veterinary Manual – Environmental Diseases in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-answers/what-should-i-do-if-i-detect-ammonia/",
+      "title": "Practical Fishkeeping – What should I do if I detect ammonia?",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.globalseafood.org/advocate/nitrite-toxicity-affected-by-species-susceptibility-environmental-conditions/",
+      "title": "Global Seafood Alliance – Nitrite toxicity affected by species susceptibility, environmental conditions",
+      "kind": "article"
+    },
+    {
+      "url": "https://bioaqua.vn/doc-tinh-nitrit-bi-tac-dong-boi-tinh-nhay-cam-cua-loai-va-cac-dieu-kien-moi-truong/",
+      "title": "Bioaqua.vn – Độc tính nitrit bị tác động bởi tính nhạy cảm của loài và các điều kiện môi trường",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.seachem.com/prime.php",
+      "title": "Seachem – Prime product page",
+      "kind": "maker"
+    },
+    {
+      "url": "https://guppynhatminh.com/muoi-hot-khong-the-thieu-cho-ca-canh/",
+      "title": "Guppy Nhật Minh – Muối hột không thể thiếu cho cá cảnh",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Total ammonia nitrogen (TAN) is made up of toxic un-ionized ammonia (NH3) and much less toxic ammonium (NH4+).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The share of toxic NH3 goes up as pH and temperature rise. pH has the bigger effect.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most test kits measure TAN, not NH3, so the NH3 fraction has to be calculated from pH and temperature.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Freshwater fish usually tolerate TAN below 1 mg/L. Saltwater fish usually tolerate TAN below 0.5 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Un-ionized ammonia below 0.05 mg/L is generally not considered harmful. A calculated NH3 of 0.05 mg/L or more can damage gills.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "About 2 mg/L of un-ionized ammonia is lethal to many fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Merck says a TAN of 1.0 is not a major concern in most home aquariums unless pH is above 8.5.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrite above 0.1 mg/L is listed as toxic, especially in freshwater with little chloride.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most nitrite kits report nitrite-nitrogen. Multiply the reading by 3.3 to get NO2.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrite turns hemoglobin into methemoglobin, which cannot carry oxygen. Fish can suffocate even in water with plenty of oxygen. This is called 'brown blood disease'.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrite crosses the gills into the blood and forms methemoglobin (met-hemocyanin in invertebrates), which cannot bind oxygen.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Low dissolved oxygen makes nitrite's effect on breathing worse.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Nitrite becomes more toxic as temperature rises. The sea bass LC50 fell from 274 mg/L at 17°C to 154 mg/L at 27°C.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia is more toxic at higher pH and in warmer water, and ammonia problems often come together with nitrite problems.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Estimated safe long-term nitrite-nitrogen levels are 0.5000–2.5000 mg/L for freshwater warmwater fish and invertebrates, and 0.0125–0.5000 mg/L for freshwater coldwater fish.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Ammonia poisoning causes lethargy, poor appetite or refusal to eat, darker coloration, and sometimes sudden mass deaths.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Acute ammonia toxicity can cause spinning, disorientation and convulsive swimming.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Under the microscope, ammonia-damaged gills show cell hyperplasia, enlarged chloride cells and fused lamellae.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite poisoning turns the gills chocolate-brown and the blood abnormally dark. The color change may only show once methemoglobin levels are high.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Fish with nitrite poisoning look for oxygen: they gather in well-oxygenated spots or gulp at the surface (piping).",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Merck lists high nitrite as one cause of gulping at the surface, along with low oxygen and gill disease. Testing the water tells these causes apart.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite toxicity also causes gill lesions and swelling (edema) in skeletal muscle.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia builds up from overfeeding, a failed or dead biofilter, or ammonia or chloramine in the source water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "New tank syndrome: NH3 rises in the first 2–3 weeks and NO2 may rise later because the filter bacteria are not established yet.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Treating chloramine tap water with sodium thiosulfate releases ammonia, so repeated water changes can raise ammonia, especially when the biofilter is new or damaged.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Old tank syndrome comes from too few water changes. Organic acids lower pH (usually below 6) and use up alkalinity, while TAN can go above 20 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Antimicrobials and other chemicals can damage the biofilter.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Common causes of an ammonia spike are uneaten food or dead fish, overfeeding, overstocking, rinsing filter media under the tap or replacing it with new media, and adding fish to a tank whose filter is not yet mature.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "As soon as high NH3 is found, change at least 50% of the water.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the source water for ammonia and chloramine first, because a water change can add more ammonia.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If TAN is above 5 mg/L and pH is below 7, move the fish to a clean system with matching temperature and pH. Otherwise the ammonia can suddenly turn toxic when pH rises.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Stop feeding, or cut feeding sharply, until the problem is fixed.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Change 50–75% of the water with dechlorinated tap water of similar temperature and chemistry. This dilutes ammonia quickly, but the effect may not last.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Add aeration with air stones, a venturi, or filter outlets aimed at the surface, because ammonia irritates the gills.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "When ammonia is found, also test nitrite, pH and temperature.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Fish with brown blood disease recover quickly once moved to water low in nitrite.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt (chloride) can stop deaths during a sudden nitrite spike in many freshwater fish because chloride competes with nitrite for uptake at the gills.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Many ponds and aquariums keep a residual salt level of 1–3 ppt (1 g/L = 1 ppt), which makes nitrite poisoning less likely.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Chloride at least 20 times the nitrite-nitrogen concentration should counteract nitrite toxicity in channel catfish and probably most freshwater species.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Channel catfish farmers usually keep chloride at 50–100 mg/L with sodium chloride to prevent brown blood disease.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Adding sodium chloride is described as not feasible in brackish or marine systems.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "A Vietnamese hobbyist article says about 20 ppm chloride can prevent nitrite poisoning.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "A Vietnamese hobbyist article gives 1–3 g of salt per litre for long-term soaking, and says to use plain salt, not iodized salt.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "For old tank syndrome, Merck advises aggressive water changes plus an over-the-counter ammonia neutralizer, so the ammonia does not suddenly turn toxic as pH rises.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Zeolite filter media or an ammonia-neutralizing liquid can give short-term relief.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime binds ammonia, nitrite and nitrate into a non-toxic form that biofilter bacteria can still use. It does not remove them.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Prime's standard dose is 5 mL (1 capful) per 200 L. Each cap thread is about 1 mL.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Prime's binding lasts up to 48 hours. Redose every 24–48 hours, or every 24 hours if ammonia or nitrite keeps rising.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For nitrite emergencies, or when ammonia or nitrite is above 2 ppm, Seachem says up to 5 times the normal Prime dose may be used.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem advises a half dose of Prime when water is above 30 °C and chlorine or ammonia levels are low.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "A Vietnamese hobbyist article says tetras and elephantnose fish do not tolerate high-salt water.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: test ammonia and nitrite, and also pH and temperature.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: increase aeration.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: change 50–75% of the water with dechlorinated water of matching temperature.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: find and fix the cause, such as a dead fish, overfeeding, overstocking or a damaged filter.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: add an ammonia remover or neutralizer for short-term relief, and optionally a bacterial supplement.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 6: keep testing and doing partial water changes until levels are back to normal. Ammonia can rebound and nitrite problems can follow.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "In a new tank, test TAN and nitrite every day and change water often until the biofilter matures. It usually takes about 6 weeks.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "The biofilter is mature when TAN and nitrite peak and then fall, followed by a rise in nitrate.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not overstock or overfeed, especially in new tanks. Use commercial nitrifying bacteria, feed the bacteria with fish food or ammonium chloride before adding fish, or add fish slowly.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep alkalinity at least 100 mg/L in freshwater, and keep oxygen in the filter bed.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a dechlorinator made for chloramine, which also binds the ammonia it releases. Test both free and total chlorine.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep dissolved oxygen above 3 mg/L for warmwater species and above 5 mg/L for coldwater species. This also helps bacteria turn nitrite into nitrate.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Test nitrite regularly. Cheap test kits give fairly accurate results.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Rinsing filter media under tap water or replacing old media with new media can cause an ammonia spike.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Repeated water changes with chloramine-treated tap water and an ordinary dechlorinator can keep raising ammonia.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Reading a nitrite-nitrogen kit result as NO2 underestimates nitrite. The reading must be multiplied by 3.3.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Prime only binds ammonia and nitrite for up to 48 hours. If it is not redosed, they are released back into the water.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese aquaculture page describes nitrite poisoning as 'bệnh máu nâu' (brown blood disease) and says it is more common in freshwater than in brackish or marine water.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese hobbyists use plain coarse salt ('muối hột') against nitrite. Iodized salt should not be used.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Because nitrite gets more toxic as temperature rises, the hot season raises the risk. LC50 values fall at higher temperatures, for example from 17°C to 27°C in sea bass.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Channel catfish are very sensitive to nitrite. Centrarchids (bass and bluegill) are fairly resistant.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Marine fish are not fully protected: red drum have developed brown blood disease from nitrite.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Coldwater species are much more sensitive to nitrite. Rainbow trout LC50s (0.24–11.0 mg/L) are four or more times lower than those of channel catfish (7.1–44.0 mg/L).",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Freshwater prawns are highly sensitive to nitrite, with a 96-h LC50 of 8.6 mg/L nitrite-nitrogen.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Seachem says it does not fully understand how Prime detoxifies nitrite and nitrate, and that customer reports support the effect.",
+      "source": 4
+    }
+  ]
+}

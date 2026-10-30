@@ -1,0 +1,524 @@
+{
+  "found": true,
+  "species": [
+    "Lernaea cyprinacea",
+    "Argulus foliaceus",
+    "Argulus japonicus",
+    "Carassius auratus",
+    "Cyprinus carpio"
+  ],
+  "sources": [
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA185",
+      "title": "UF/IFAS FA185 – Lernaea (Anchorworm) Infestations in Fish (Steckler & Yanong)",
+      "kind": "university"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA184",
+      "title": "UF/IFAS FA184 – Argulus (Fish Louse) Infections in Fish",
+      "kind": "university"
+    },
+    {
+      "url": "https://en.wikivet.net/Fish_Louse",
+      "title": "WikiVet – Fish Louse",
+      "kind": "vet"
+    },
+    {
+      "url": "https://fishdoc.co.uk/?p=257",
+      "title": "Fishdoc – Argulus, The Fish Louse",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.vin.com/doc/?id=5377957",
+      "title": "Hadfield, Jones & Clayton – Argulus outbreak treated with diflubenzuron (National Aquarium), VIN",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.nt-labs.com/browse-products/outdoor/koi-care/koi-care-argusol/",
+      "title": "NT Labs Koi Care Argusol",
+      "kind": "maker"
+    },
+    {
+      "url": "https://snnmt.thanhhoa.gov.vn/chan-nuoi-thu-y-150696/benh-trung-mo-neo-va-bien-phap-phong-dieu-tri-benh-tren-ca-nuoi-ca-canh-698721",
+      "title": "Sở NN&MT Thanh Hóa – Bệnh trùng mỏ neo và biện pháp phòng, điều trị trên cá nuôi, cá cảnh",
+      "kind": "other"
+    },
+    {
+      "url": "https://dylanvina.com/trung-mo-neo-tren-ca-nuoc-ngot-lernaeosis-nguyen-nhan-trieu-chung-va-cach-phong-tri-hieu-qua",
+      "title": "Dylan Vina – Trùng mỏ neo trên cá nước ngọt (Lernaeosis)",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=20063",
+      "title": "Gensou – Anchor Worm in Fish: Identification and Removal",
+      "kind": "article"
+    },
+    {
+      "url": "https://koisale.com/pages/koi-goldfish-health/fish-parasites-p3.html",
+      "title": "Koisale – Fish Parasites P3 (koi & goldfish health)",
+      "kind": "article"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4675570",
+      "title": "Prevalence of Argulus on ornamental fish (goldfish, koi) in Iran – PMC",
+      "kind": "paper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Trùng mỏ neo (Lernaea) không phải giun mà là giáp xác chân chèo (copepoda) ký sinh; thường gặp nhất là Lernaea cyprinacea.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Chỉ con cái ký sinh vĩnh viễn trên cá; con đực sống tự do và chết sau khi giao phối.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Con cái chui xuống dưới da cá và phát triển thành con trưởng thành ở đó.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "Trùng mỏ neo là ký sinh trùng phổ biến trên cá vàng và cá koi, nhất là vào mùa hè.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "Con cái trưởng thành có thể sống trên vật chủ khoảng 30 ngày.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Vòng đời trùng mỏ neo: trứng nở thành Nauplius sống tự do, lột xác thành Metanauplius phải ký sinh tạm thời; giao phối ở giai đoạn ấu trùng 5, sau đó con cái bám vĩnh viễn và sinh sản liên tục.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Ở 25–30°C trứng trùng mỏ neo nở trong 1–3 ngày.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Trong nước ấm, vòng đời trùng mỏ neo có thể hoàn tất trong 18–25 ngày.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Chỉ 2–3 con trùng mỏ neo cũng đủ làm cá nhỏ mất thăng bằng và chết; bệnh gây chết nhiều ở cá hương, cá giống.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá (Argulus) là giáp xác thuộc lớp Branchiura, họ hàng với tôm và bọ nước, dài 5–10 mm, là một trong những ký sinh trùng cá lớn nhất.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá có vòng đời trực tiếp, chỉ cần một vật chủ là cá.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Vòng đời rận cá trung bình 30–60 ngày, tùy loài và nhiệt độ nước.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Vòng đời rận cá kéo dài 30–100 ngày tùy nhiệt độ.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Trứng Argulus japonicus nở sau 10 ngày ở 35°C nhưng cần 61 ngày ở 15°C.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá cái rời cá để đẻ trứng lên cây và vật chìm trong nước, rồi quay lại vật chủ.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Rận trưởng thành sống được vài ngày không cần vật chủ; ấu trùng tìm cá khoảng 4 ngày sau khi nở.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá có thể mang vi khuẩn Aeromonas, nấm Saprolegnia và là vật trung gian truyền virus SVC (bệnh xuất huyết mùa xuân ở cá chép).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá ít gặp ở cá cảnh thủy sinh nhưng đặc biệt phổ biến trên cá vàng và koi; có thể vào bể theo cá bắt tự nhiên hoặc cá nuôi ao.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "Rận cá đã được ghi nhận trên cá vàng và cá koi bán ở cửa hàng cá cảnh.",
+      "source": 10
+    },
+    {
+      "section": "signs",
+      "fact": "Trùng mỏ neo trông như sợi chỉ trắng, xanh lục hoặc trong suốt dài khoảng 5–20 mm thò ra từ thân cá, đầu cắm vào thịt; con cái trưởng thành có thể mang hai túi trứng ở đuôi.",
+      "source": 8
+    },
+    {
+      "section": "signs",
+      "fact": "Trùng mỏ neo dài 8–16 mm, đầu hình mỏ neo cắm sâu vào cơ thể cá.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Chỗ trùng mỏ neo bám thường đỏ, viêm hoặc loét; hay gặp ở gốc vây, sau nắp mang, vùng miệng, mang.",
+      "source": 8
+    },
+    {
+      "section": "signs",
+      "fact": "Cá nhiễm trùng mỏ neo bơi bất thường, mất thăng bằng, gầy yếu, giảm ăn; trùng bám ở miệng khiến cá không bắt mồi được; cá hương có thể cong thân.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Cá nhiễm trùng mỏ neo ngứa, bơi loạn, cọ mình vào thành bể; giai đoạn nặng lờ đờ, bỏ ăn và chết.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Nhiễm trùng mỏ neo nặng làm cá suy kiệt và dễ nhiễm khuẩn, nấm thứ phát.",
+      "source": 9
+    },
+    {
+      "section": "signs",
+      "fact": "Rận cá trông như đốm tối, dẹt, hình bầu dục trên da cá; khó thấy trừ khi nó di chuyển, dễ thấy hơn trên vây.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rận cá thường ẩn ở chỗ khuất sau vây hoặc quanh đầu; trong bể có thể thấy rận bơi từ cá này sang cá khác.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Phân biệt: trùng mỏ neo là sợi dài cắm cố định vào thịt, còn rận cá là đĩa dẹt bò và bơi nhanh được trên thân cá.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Cá bị rận cọ mình, giật mình (flashing), về sau lờ đờ, có vết đỏ khu trú tại chỗ rận hút.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Rận có thể rời cá rất nhanh khi cá bị vớt lên khỏi nước, nên cần kiểm tra nhanh.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Vết rận hút có thể bị nhiễm Pseudomonas, Aeromonas thứ phát, lan vào mang.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Sau nhiễm rận, cá stress dễ bị thêm đốm trắng và Costia.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Trùng mỏ neo du nhập chủ yếu qua cá mới không được cách ly và kiểm tra.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Nước lấy từ ao cá bệnh chứa nhiều ấu trùng trùng mỏ neo sống tự do và có thể lây bệnh.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Trùng mỏ neo phát triển mạnh nhất ở 20–30°C, bùng phát khi giao mùa do nhiệt độ biến động; sống được ở 12–33°C, khoảng 33°C thì dễ chết.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Một bể bị rận tràn lan dù không thêm cá hay cây mới; nguồn nghi là bo bo (Daphnia) sống cho ăn.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Trong một ổ dịch ở thủy cung, nguồn rận nghi là cá chẽm (barramundi) thả vào 12 tuần trước.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Số lượng rận cá thường tăng mạnh vào mùa hè và mùa thu.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Với cá lớn, gắp trùng mỏ neo bằng nhíp rồi theo dõi kỹ vết thương.",
+      "source": 9
+    },
+    {
+      "section": "firstAid",
+      "fact": "Có thể gắp rận cá bằng nhíp, nhưng cách này không diệt được rận và trứng trong môi trường.",
+      "source": 9
+    },
+    {
+      "section": "firstAid",
+      "fact": "Chỉ cần thấy một con rận cũng nên điều trị ngay và theo dõi bệnh thứ phát.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Sau khi gắp trùng, chấm vết thương bằng Betadine pha loãng màu trà nhạt hoặc một giọt xanh methylene.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Bước 1: tiệt trùng nhíp mũi nhỏ, chuẩn bị khăn ẩm, chậu nước bể và thuốc sát trùng.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Bước 2: vớt cá nhẹ nhàng, đặt lên khăn ẩm, tìm điểm trùng cắm vào da.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Bước 3: kẹp trùng càng sát da càng tốt, không kẹp giữa hay cuối thân trùng.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Bước 4: kéo chậm, đều, thẳng; không xoắn hay giật; kiểm tra phần đầu mỏ neo ra nguyên vẹn.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Bước 5: sát trùng vết thương ngay, thả cá vào chậu nước bể rồi về bể chính hoặc bể bệnh; mỗi con chỉ nên thao tác khoảng 2–3 phút.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Nguồn Thanh Hóa khuyên cách ly và gây mê cá trước khi gắp trùng, sau đó hồi sức cho cá.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Dù dùng cách nào cũng phải xử lý toàn hệ thống để diệt mọi giai đoạn, kể cả giai đoạn sống ngoài vật chủ.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Vì trùng mỏ neo cái sống khoảng 30 ngày trên cá, cần điều trị kéo dài vài tuần.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Với cá thực phẩm chịu được độ mặn, muối 4,8 g/L kéo dài đến khoảng 30 ngày là lựa chọn được UF/IFAS nêu; hiệu quả của muối với Lernaea được ghi nhận là không ổn định.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Ngâm kéo dài với organophosphate như trichlorfon có hiệu quả với cá cảnh nhiễm trùng mỏ neo; cần hỏi chuyên gia sức khỏe cá về tính hợp pháp.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Thuốc trong nước chủ yếu diệt ấu trùng trùng mỏ neo vì con trưởng thành được mô cá che chắn; con trưởng thành phải gắp tay.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Diflubenzuron (Dimilin) ức chế tổng hợp kitin, ngăn ấu trùng lột xác; nhắc lại sau 7–10 ngày và kéo dài điều trị 3–4 tuần.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Lufenuron có cơ chế tương tự Dimilin; trichlorfon chỉ là lựa chọn cuối cùng vì khó dùng liều an toàn trong bể nhỏ.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Thuốc ức chế kitin (Dimilin, lufenuron) gây chết giáp xác: phải chuyển tôm ra chỗ khác trước khi trị; ốc nhìn chung an toàn với đa số thuốc trị trùng mỏ neo.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Muối hồ cá khoảng 1 thìa canh/20 lít trong bể bệnh; tránh dùng muối cho cá da trơn không vảy.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Koisale nêu trị trùng mỏ neo bằng tắm muối 3% rồi ngâm kéo dài muối 0,2%.",
+      "source": 9
+    },
+    {
+      "section": "treatment",
+      "fact": "Ngâm kéo dài muối 0,02–0,2% có thể giúp kiểm soát tái nhiễm rận cá.",
+      "source": 9
+    },
+    {
+      "section": "treatment",
+      "fact": "Nguồn Thanh Hóa: ngâm muối 0,3% (300 g/100 L) khoảng 1 tuần, nâng nhiệt độ nước lên 32°C để diệt trứng; khử trùng bể cùng nồng độ trong 7 ngày.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Nguồn Thanh Hóa: Dimilin 1 g/m³, dùng 4 lần trong 15 ngày, thay 20% nước trước mỗi lần; có thể làm cá lờ đờ.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Nguồn Thanh Hóa: tắm thuốc tím 0,6 g/8 L nước khoảng 5 phút — liều này đậm hơn nhiều so với 10–25 g/m³ của các nguồn khác.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Nguồn Thanh Hóa: lá xoan tươi 3 kg/m³ cho vào túi lưới; cứ 3 ngày thay 30–50% nước và thêm lá mới, tổng khoảng 14 ngày.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Tắm thuốc tím (KMnO₄) 10–25 g/m³ trong 1 giờ, hoặc dùng lá xoan 0,3–0,5 kg/m³ để trị trùng mỏ neo.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Bổ sung vitamin C và men tiêu hóa, giảm mật độ, cải thiện nước để tăng sức đề kháng khi trị trùng mỏ neo.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Với rận cá, tăng độ mặn là lựa chọn đầu tiên; nếu thất bại thì dùng thuốc diệt ngoại ký sinh như organophosphate hoặc chất ức chế kitin.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Organophosphate thường cần 3 lần xử lý để diệt hết các giai đoạn rận; không được phép dùng cho cá ở Anh.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Thuốc trị rận phải tác động lên cả rận trưởng thành, rận non và trứng, trên cá lẫn trong môi trường.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Ở Mỹ không có thuốc nào được FDA phê duyệt để trị rận Argulus; Dylox 80 (trichlorfon) đã ngừng sản xuất.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Một ổ dịch rận ở thủy cung được trị bằng diflubenzuron (Dimilin 25W) 0,01 mg/L ngâm kéo dài, thay 50% nước và châm lại mỗi 7 ngày trong khoảng 6 tuần; hết rận từ tuần thứ 3, không tái phát trong 8 tháng.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Trong ổ dịch đó, nhiệt độ được nâng từ 82–84°F lên 86°F để đẩy nhanh vòng đời rận; formalin và organophosphate bị loại vì độc với một số loài trong bể.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Chất ức chế kitin (như Dimilin) được mô tả là hiệu quả, an toàn với cá vì ngăn rận lột xác.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "NT Labs Argusol (diflubenzuron 291,2 mg/100 ml) trị rận cá và trùng mỏ neo: 10 ml cho 364 lít, để 7 ngày, thay nước một phần rồi lặp lại; tối đa 4 liều.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Argusol: không dùng dưới 10°C hoặc trên 30°C; tắt đèn UV 10 ngày, sục khí mạnh; không dùng khi trời nóng ẩm hoặc giông, không trộn thuốc khác.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Cá mới phải được cách ly nghiêm ngặt và kiểm tra để tránh mang trùng mỏ neo vào hệ thống.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Kiểm tra cá giống trước khi thả; nếu có trùng mỏ neo thì tắm thuốc tím.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Thay nước định kỳ, giảm hữu cơ và bùn đáy, tăng sục khí, giảm mật độ, khử trùng dụng cụ và ao trước vụ mới.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Tắm muối định kỳ 2–3% trong 15–20 phút để diệt trứng trùng; mua cá ở nơi uy tín và cách ly cá mới.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Thức ăn sống như bo bo có thể mang rận cá vào bể.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Kẹp giữa thân trùng làm đứt, để lại đầu mỏ neo trong thịt cá.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Chờ trùng mỏ neo tự rụng là sai: chúng vẫn tiếp tục hút và nhả trứng.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Chỉ trị cá mà không xử lý bể khiến ấu trùng tái nhiễm.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Để tôm trong bể khi dùng thuốc ức chế kitin, dùng muối cho cá không vảy, hoặc quá liều thuốc tím là các lỗi thường gặp.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Chỉ gắp rận bằng nhíp mà không xử lý môi trường sẽ để lại rận gây tái nhiễm.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Ở Việt Nam trùng mỏ neo phân bố rộng ở thủy vực nước ngọt; nhiều trại cá giống thiệt hại nặng.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Lá xoan là biện pháp dân gian/khuyến nông phổ biến ở Việt Nam để diệt ấu trùng trùng mỏ neo.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Thuốc tím và Dimilin là các tên thuốc được khuyến nông Việt Nam (Thanh Hóa) nêu để trị trùng mỏ neo.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Nhiệt độ phù hợp nhất cho trùng mỏ neo (20–30°C) trùng với nhiệt độ nước bể thường gặp ở Việt Nam; bệnh bùng phát khi giao mùa.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Argusol khuyến cáo không dùng trên 30°C, điều cần lưu ý cho bể/hồ ngoài trời vào mùa nóng.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Gọi là 'trùng'/'giun' mỏ neo nhưng thực ra là giáp xác, không phải giun (Gensou).",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "Thuốc ức chế kitin như diflubenzuron về nguyên lý gây hại cho giáp xác; báo cáo ổ dịch ở thủy cung không có dữ liệu theo dõi riêng cho động vật không xương sống.",
+      "source": 4
+    }
+  ]
+}

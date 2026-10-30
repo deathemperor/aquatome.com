@@ -1,0 +1,492 @@
+{
+  "found": true,
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Warm water holds less dissolved oxygen, so overheating can starve fish of oxygen.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Cooler water holds more dissolved oxygen: about 7.4 mg/L at 90°F versus about 11.9 mg/L at 45°F.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "In warmer water, fish and other organisms are more active and use oxygen faster.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Warm-water fish generally need about 5 mg/L of dissolved oxygen for good health. Levels below 2 mg/L stress fish and raise the risk of illness or death.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen is usually lowest just before dawn (4 to 6 am).",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Most freshwater fish can usually handle about 30 °C for a few days, especially if the rise is gradual.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "JBL says heat becomes dangerous to fish and plants only after several weeks at high levels, not a few days.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Critical temperatures vary by species. For example, neon tetras struggle before rams do.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Nitrifying bacteria work best at 25–30°C.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Gouramis, bettas and Amazonian fish from sluggish lowland waters regularly face the low 30s°C and are more heat-tolerant.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Cool-water species such as goldfish, goodeid livebearers and axolotls are the most at risk in hot weather.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Aquazone gives these ranges: Betta 24–30°C, Neon Tetra 20–26°C, Java fern and Anubias 22–28°C.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "A Vietnamese plant site says Anubias tolerates about 30–32°C, Bucephalandra about 28–30°C and Vallisneria up to about 30°C.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "The same site says Cryptocoryne wendtii and C. beckettii tolerate heat fairly well but are sensitive to sudden changes.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Heat often slows or stops aquarium plant growth.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of overheating include gasping at the surface, rapid gill movement, lethargy, hanging near filter outlets, loss of appetite and erratic swimming.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fish gulping air at the surface is a common sign of low dissolved oxygen before a fish kill.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Direct sunlight, nearby heating vents and heat-producing appliances such as ovens, dryers and gaming consoles can overheat a tank.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Lights, pumps and a closed cover can push tank water above room temperature, even when the room is at 28 °C.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "A pump with a dirty impeller can reach about 40°C and add heat to the water.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Metal halide lights run hottest. Several T5 tubes in a closed hood can also overheat a tank. LEDs run cooler.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "A heater stuck on can quickly become disastrous during a heatwave, so check it.",
+      "source": 8
+    },
+    {
+      "section": "causes",
+      "fact": "In stacked racks, heat rises, so the top and bottom tanks can differ by several degrees.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Measure the water temperature with a thermometer before acting.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "If fish are suffering from low oxygen, the most important step is to turn on an aerator.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "Add an air stone or angle the filter outlet to ripple the surface. This raises oxygen and increases evaporative cooling.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Turn off the aquarium lights to cut added heat. Plants can manage a day or two without light.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "In an emergency, float a sealed frozen bottle in the tank, but only where there is good water flow.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "A Vietnamese plant site suggests wrapping a frozen water bottle in a towel before using it for emergency cooling.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do a small water change with cool, dechlorinated water, aiming to lower the tank by only a couple of degrees.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not lower the temperature by more than 5°C/9°F in 24 hours. Rapid changes can cause stress and whitespot.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "A Vietnamese source advises lowering the temperature by no more than 3–4°C within 4 hours.",
+      "source": 9
+    },
+    {
+      "section": "treatment",
+      "fact": "During a heatwave, keep water changes to 25%, the same as your usual amount.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Opening the cover allows evaporation that cools the water by about 1–2 °C.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Cutting lighting time by 50% lowers the temperature by about 1 °C.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Cross-flow cooling fans on the tank edge, angled at the surface, can cool by 2–4 °C.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "A Vietnamese plant site recommends cutting lighting to about 6–8 hours a day in summer, possibly split into two periods.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Practical Fishkeeping says a fan across the surface cools the water only a little.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Insulating the back and sides, and the front in severe heat, with Styrofoam or reflective foil can drop the temperature by a few degrees.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "When insulating, leave the top open for gas exchange.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "A chiller is the most reliable way to cool a tank. It costs several hundred dollars to over $1,000, depending on tank size.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Chillers are very expensive and use a lot of electricity.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Shrimp in marine tanks do not tolerate rapid temperature rises.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: Close curtains or blinds and keep the tank out of direct sunlight.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: Switch off non-essential equipment such as underwater lights, substrate heaters and unneeded pumps.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: Remove the lid or use a mesh lid, and lower the water level a few inches so jumping fish cannot escape.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: Add surface agitation with an air stone or sponge filter.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: Aim a fan, such as a USB fan, at the water surface.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 6: Feed only a minimum to reduce oxygen demand and pollution.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 7: Top up evaporated water, using RO water if possible.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 8: If overheating keeps happening, install a chiller.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a digital thermometer with an alarm for high and low temperatures.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "A digital thermometer with an external display and min/max readings is recommended.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "A fan controller set to a target temperature turns the fans off once that temperature is reached.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Switch to LED lighting. Consider a sponge filter on an air pump instead of a powerful canister filter.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep cool-water fish in the bottom tanks of a rack.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Check and clean pump impellers so they do not add heat.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Add an airstone before storms, because low air pressure lowers oxygen.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "In heat, reduce fertiliser and regularly check Fe, NO3, K and Mg.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "An air pump with battery backup keeps aeration running.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Place the tank away from windows, direct sun and heat sources, or use a curtain or screen. Check the temperature daily.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Running the room air conditioner on automatic helps keep the room temperature stable.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "For a Vietnamese summer, choose heat-tolerant plants such as Anubias, Bucephalandra, Vallisneria, Cryptocoryne, Crinum calamistratum and Echinodorus.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "In summer, avoid growing cold-loving plants such as mosses.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "In summer, add aeration or surface flow, especially at night.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not add ice cubes or cooling packs, or do cold water changes. They cause rapid, stressful temperature swings.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Water that is too cold and oxygen-rich can form gas bubbles in fish blood, causing embolisms.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "A frozen bottle without good flow creates hot and cold zones that can shock fish.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not unplug or turn down the heater. If you forget to turn it back on, fish may get cold shock.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not use PC fans. They do not cover the surface, cannot be aimed, are unsuited to water and can cause electrical faults or injury if splashed.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not hang mains-powered fans over the tank.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not reduce surface movement during heat.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Opening lids without a mesh cover lets jumping fish escape.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Cooler water changes depend on cold tap water, which may not be cold on the hottest days.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "A homemade chiller made from hose coiled in ice water performed poorly and needs close monitoring.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Pushing fridge-chilled cobbles into the substrate has minimal cooling effect.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not pour cold water straight into the tank.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops sell clip-on cooling fans (quạt tản nhiệt / quạt làm mát bể cá) sized by tank length. One seller lists 1 fan for tanks under 40 cm and 2 fans for 40–60 cm.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese source gives 23–26°C as ideal for most planted tanks. It says under 29–30°C is acceptable in summer for healthy tropical fish and plants.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese sources suggest weekly changes of 10–15% or 30–40% with slightly cooler water, done slowly.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese sources describe chillers as the most thorough but costly option, mostly for high-end tanks.",
+      "source": 9
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: all tropical fish handle heat. Practical Fishkeeping says many tropical fish do not tolerate summer heat waves.",
+      "source": 3
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: dropping ice in the tank is a good fix. Aquarium Co-Op, JBL and Practical Fishkeeping all advise against it because it causes volatile temperature swings.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Low-oxygen sensitivity is species-specific. Most fish are distressed at 2–4 mg/L of dissolved oxygen, and deaths usually occur below 2 mg/L.",
+      "source": 7
+    }
+  ],
+  "species": [
+    "Carassius auratus",
+    "Paracheirodon innesi",
+    "Mikrogeophagus ramirezi",
+    "Betta splendens",
+    "Ambystoma mexicanum",
+    "Anubias",
+    "Bucephalandra",
+    "Vallisneria",
+    "Cryptocoryne wendtii",
+    "Cryptocoryne beckettii",
+    "Crinum calamistratum",
+    "Echinodorus",
+    "Microsorum pteropus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/5-ways-to-cool-aquarium-water",
+      "title": "5 Easy Methods for Cooling Aquarium Water During a Heat Wave - Aquarium Co-Op",
+      "kind": "article"
+    },
+    {
+      "url": "https://jbl.de/en/blog/detail/810/summer-heat-but-not-in-the-aquarium-please?country=gi",
+      "title": "Summer heat but not in the aquarium please - JBL",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/how-to-cool-your-aquarium-in-a-heatwave/",
+      "title": "How to cool your aquarium in a heatwave - Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/what-should-i-do-if-theres-a-heatwave/",
+      "title": "What should I do if there's a heatwave? - Practical Fishkeeping",
+      "kind": "article"
+    },
+    {
+      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/dissolved-oxygen/",
+      "title": "Dissolved oxygen - UF/IFAS Center for Aquatic and Invasive Plants",
+      "kind": "university"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-kiem-soat-nhiet-do-trong-be-ca-thuy-sinh",
+      "title": "Cách Kiểm Soát Nhiệt Độ Trong Bể Cá Thủy Sinh - AquaZone",
+      "kind": "article"
+    },
+    {
+      "url": "https://thuysinh24h.com/cay-thuy-sinh-chiu-nong",
+      "title": "Top 8 Cây Thủy Sinh Chịu Nóng & Giải Pháp Chăm Sóc Bể Cá Mùa Hè - thuysinh24h",
+      "kind": "article"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/SS525",
+      "title": "UF/IFAS EDIS SS525 - Dissolved oxygen / low DO in fish systems",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/what-should-i-do-if-theres-a-heatwave/",
+      "title": "Practical Fishkeeping heatwave advice (search summary: 5°C/24 h, heater check)",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-lua-chon-va-su-dung-quat-lam-mat-cho-be-ca-thuy-sinh",
+      "title": "Vietnamese search results on aquarium cooling fans and chillers (AquaZone, ngoctangarden, cuahangthuysinh)",
+      "kind": "article"
+    }
+  ]
+}
