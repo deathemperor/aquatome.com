@@ -1,0 +1,219 @@
+{
+  "id": "oryzias-latipes",
+  "scientificName": "Oryzias latipes",
+  "order": "Beloniformes",
+  "family": "Adrianichthyidae",
+  "genus": "Oryzias",
+  "group": "other",
+  "places": [
+    "asia",
+    "japan",
+    "south-korea",
+    "taiwan",
+    "china",
+    "hainan",
+    "hong-kong",
+    "laos",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam. Long used as a model organism in genomic and experimental biology, it was the first vertebrate animal to mate in space, in the mid-1990s. The ornamental 'golden' variant is more often seen than the natural form, and a transgenic 'glowing' form is illegal to buy, sell or own within the European Union.</p><ul><li>Max size: 36 mm SL (1.4 in)</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 16–22°C</li><li>pH: 6.5–8.5</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Described from 'Japan' and current understanding considers it restricted to an area corresponding, more or less, to the boundaries of the East and South China seas and southern Sea of Japan.</p><p>It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.</p><p>Parenti (2008) notes that some populations previously identified as O. latipes from mainland China, Laos and Vietnam may actually represent O. sinensis based on adult size and/or positioning of the first pleural rib.</p><p>It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Tends to occur in coastal waters but is adaptable and has been collected in a range of habitat-types, from strongly brackish, tidally-influenced mangrove swamps to acidic, freshwater forest streams, rice paddies, agricultural canals, major river basins, pools and oxbows.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or more (about 41 litres) is recommended for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Best maintained in a heavily planted set-up, ideally with a dark substrate, patches of dense vegetation, and some open areas.</p><p>Other décor can consist of twisted roots and pieces of bogwood, while surface vegetation is also appreciated by the fish.</p><p>When maintained under such conditions they're more likely to display their best colours, and planted aquaria also offer fry a more favourable chance of survival alongside the adults.</p><p>Try to establish the origin of your fish if wild-collected as some populations will do best in freshwater whereas others may require the addition of marine salt.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<ul><li>Temperature: 16–22°C</li><li>pH: 6.5–8.5</li><li>Hardness: 5–25 dGH</li></ul><p>Temperature: This temperate to subtropical species is subject to seasonal temperature fluctuations in nature and is most comfortable between 16–22 °C.</p><p>Permanent exposure to warm conditions is likely to result in a shortened lifespan and in many countries/well-insulated homes it is best-maintained without artificial heating year-round.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>A micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should be offered daily meals of small live and frozen fare such as Daphnia, Artemia, chopped bloodworm, etc., along with good quality, suitably-sized flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Generally peaceful but doesn't make an ideal addition to many communities due to its environmental requirements.</p><p>Should you wish to maintain it alongside other fishes diminutive species enjoying similar conditions such as some Dermogenys, Pseudomugi and Brachygobius spp. constitute the best options, while many neritid snails are also suitable.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It's mostly non-aggressive towards congeners, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Adult males possess elongated, filamentous rays in the convex-shaped dorsal and anal fins and bony contact organs on the medial pectoral-fin rays and posterior anal-fin rays of which both the latter are convex in shape, and have a slightly slimmer body shape than females.</p><p>Some females possess extended pelvic-fin rays reaching almost to the anal-fin origin, and the dorsal and anal fins are not convex.</p><p>The genital papilla in males forms a short tube whereas in females it is bilobed, and males also possess two or three enlarged posterior teeth on the premaxilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphyllum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependent to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults' tank. Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<p>Commonly known as 'Japanese rice fish' or simply 'rice fish', O. latipes is well-known to science having been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>It's also been a popular aquarium fish for many years, though is less widely-available than it once was, with the ornamental 'golden' variant more often seen than the natural.</p><p>Also available in some markets is a transgenically modified, 'glowing' form which was originally produced by the National University of Taiwan in an attempt to mutate a fish that would literally glow in such a way that specific genes would be more easily-viewable under a microscope.</p><p>The latter is now available in a number of colours, including yellow, green, red and purple and does indeed glow in the dark. The substances causing this effect are proteins extracted from a particular jellyfish (green and yellow forms) or coral species (red form).</p><p>As things stand they're illegal to buy, sell or own within the European Union although several instances of smuggling have been recorded, the punishment for which is a hefty fine. Care for both gold and glowing forms is essentially identical to that described above.</p><p>O. latipes has a truncate, rather than lunate or emarginate, caudal-fin which distinguishes it from the congeners O. bonneorum, O. nebulosus, O. nigrimas, O. orthognathus, and O. sarasinorum, and in this respect appears to be a member of a large, unnamed clade or 'species group' containing the remaining species.</p><p>Within that grouping it appears to be most closely-related to O. curvinotus, O. luzonensis, O. mekongensis, O. sinensis and O. songkhramensis, these all possessing anal-fin rays of approximately equal length giving the fin a 'parallelogram' shape.</p><p>This group also possess biarmed chromosomes as opposed to the monoarmed or fused chromosome-types observed in all other congeners.</p><p>It is further distinguishable from congeners by the following combination of characters: mesethmoid ossification indented anteriorly in some individuals; presence of bony contact organs on pectoral fins in males; 28-32 scales in the lateral series; 5-7 dorsal-fin rays; 17-22 anal-fin rays; 9-11 pectoral-fin rays; some populations with yellowish marginal bands on both caudal-fin lobes.</p><p>Members of the family Adrianichthyidae are often referred to collectively as 'ricefishes' and were traditionally considered to be members of the family Cyprinodontiformes and thus closely-related to toothcarps.</p><p>This misconception is sometimes still upheld despite the fact that Rosen and Parenti reclassified them within the cyprinodontiform sister group Beloniformes as long ago as 1981.</p><p>The best-known member of the family is the medaka or Japanese ricefish, Oryzias latipes, which has been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>There are currently just two genera included in the family, Oryzias and Adrianichthys, with the historically-recognised groupings Xenopoecilus and Horaichthys having been synonymised with Oryzias by Parenti (2008).</p><p>Of the three species previously included in the paraphyletic Xenopoecilus, X. oophorus and X. poptae were moved into Adrianichthys with the third, X. sarasinorum currently recognised as Oryzias sarasinorum.</p><p>In addition the formerly monotypic Indian species Horaichthys setnai is currently classified as O. setnai.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and W. Magtoon (1986). Description and karyotype of a new ricefish, Oryzias mekongensis from Thailand. Copeia 1986 (2), 473-478</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/60dfa43df1902793.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/60dfa43df1902793-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "caption": "Wild form of the species from South korea.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cd1733ecc32ffad3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cd1733ecc32ffad3-480.webp",
+      "width": 622,
+      "height": 577,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "caption": "This image shows a selectively-bred 'golden' fish (top), transgenically modifed 'glowing' form (middle) and albino (bottom).",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5ef06ca703a18172.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5ef06ca703a18172-480.webp",
+      "width": 794,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "caption": "Specimen from Hamamatsu, western Shizuoka Prefecture, Japan.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7ecd5e07b2eaaecd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7ecd5e07b2eaaecd-480.webp",
+      "width": 794,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
+      "caption": "Another individual from Hamamatsu.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá nhỏ",
+        "rong đuôi chó",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền thủy sinh màu tối"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

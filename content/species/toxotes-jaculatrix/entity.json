@@ -1,0 +1,185 @@
+{
+  "id": "toxotes-jaculatrix",
+  "scientificName": "Toxotes jaculatrix",
+  "order": "Perciformes",
+  "family": "Toxotidae",
+  "genus": "Toxotes",
+  "group": "other",
+  "places": [
+    "asia",
+    "india",
+    "myanmar",
+    "thailand",
+    "china",
+    "japan",
+    "ryukyu-islands",
+    "malaysia",
+    "philippines",
+    "oceania",
+    "palau",
+    "indonesia",
+    "solomon-islands",
+    "papua-new-guinea",
+    "vanuatu",
+    "australia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>The banded archerfish, Toxotes jaculatrix, is an archerfish recorded from India through Southeast Asia to the Pacific islands and northern Australia. The most commonly available archerfish, it is sometimes sold as T. jaculator. It shoots jets of water at insects on overhanging vegetation. Its main habitats are brackish mangrove swamps and estuaries, and it is believed to migrate to full seawater to breed.</p><ul><li>Max size: 300 mm SL (12 in)</li><li>Aquarium size: 120 × 60 cm (48 × 24 in)</li><li>Temperature: 25–30°C (77–86°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 20–30 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>This species has a very wide natural range. It's been recorded from India, Myanmar, Thailand, China, the Ryukyu Islands, Malaysia, the Philippines, Micronesia, Palau, Indonesia, the Solomon Islands, Papua New Guinea, Vanuatu and northern Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Inhabits various biotopes, including freshwater rivers, streams, lakes and ponds. It's primary habitats though are brackish mangrove swamps and estuaries. It tends to be found in shady areas where there is dense growth of marginal and/or overhanging vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Standard length: 300 mm SL (12 in). Aquarium base: 120 × 60 cm (48 × 24 in). 120 × 60 × 60 cm (48 × 24 × 24 in) - ~432 litres (~114 US gal) for an adult fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Two types of setup may be considered for archerfish. The first would be a normal brackish aquarium setup containing mangrove roots and brackish tolerant plants. Waterflow should be slow. Another means of keeping archerfish is in a biotope setup, using a tall tank half-filled with water and an area of dry land and plants in the upper area of the tank. This has the benefit of encouraging natural feeding behaviour (see below). Water conditions in the biotope should be the same as mentioned above. Lighting should be suited to the types of plants used.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<ul><li>Temperature: 25–30°C (77–86°F)</li><li>pH: 7.0–8.0 (prefers the upper end of this range)</li><li>Hardness: 20–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Wild fish mostly feed on both terrestrial and aquatic invertebrates of various types, although small fish are also taken occasionally. The archer fish is famous for its feeding behaviour. It has the ability to shoot jets of water from its mouth at insects on overhanging vegetation. The insect then falls in the water and is eaten! If using the paludarium setup described above, it is possible to replicate this behaviour by introducing crickets or fruitflies into the planted area in the upper part of the tank. As they venture out along the plant leaves, they will eventually be picked off by the archer fish. The fish also accepts floating foods such as flake and pellets and will also relish frozen food such as bloodworm and brineshrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Generally peaceful although may eat much smaller fish. Can also be aggressive to conspecifics but this can be mitigated by keeping them in groups of 4 or 5 specimens. Can be kept with other larger sized brackish fish such as scats, monos and green chromides.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>Not known</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>No reports of breeding in the hobby. It is believed that this fish migrates to full seawater to breed. These conditions are difficult to replicate in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "html": "<p>The Banded Archer fish is one of a fascinating group of fish that have evolved this very distinctive feeding pattern. The family contains six species, of which Toxotes jaculatrix is the most commonly available (sometimes sold incorrectly as T. jaculator). Occasionally, the similarly marked Toxotes chatareus is offered for sale in the UK although much less frequently. There are reports that juvenile archers can be kept in fresh water but it is recommended that a brackish setup is always used. Eaten as a food fish in many of its native countries.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/094c8dbffb2d550c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/094c8dbffb2d550c-480.webp",
+      "width": 601,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
+      "caption": "Toxotes chatareus adult",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá nước lợ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên nổi cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

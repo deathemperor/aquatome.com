@@ -1,0 +1,199 @@
+{
+  "id": "trichopodus-leerii",
+  "scientificName": "Trichopodus leerii",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Trichopodus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand",
+    "malaysia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps. One of the most peaceful gouramis, it is hardy and fairly long-lived, surviving 8 years or more in the aquarium. Wild fish are rare in the hobby, and most on sale are mass-produced in the Far East and Eastern Europe.</p><ul><li>Max size: 120 mm SL (5 in)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.0</li><li>Hardness: 2–30 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Found in Thailand, Malaysia and the islands of Borneo and Sumatra. There are now also introduced populations living in both Singapore and Colombia. Wild fish are rare in the hobby these days, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Inhabits lowland swamps, often in coastal regions.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Standard length 120 mm SL (5 in). Aquarium base 90 × 30 cm (36 × 12 in). Volume approx. 81 litres (21 US gal); 90 × 30 × 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>A planted setup with some floating vegetation and open areas for swimming.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.0</li><li>Hardness: 2–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Unfussy and will accept most foods offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>One of the most peaceful gouramis and an excellent community fish. Males are territorial with one another however and can also be quite hard on the females when they want to breed, so ensure there are adequate hiding places in the aquarium. Do not keep the pearl gourami with aggressive or very vigorous fish or it will become withdrawn.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Mature males are much more colourful than females, developing a stunning orange or red colouration around the throat area. They also have extensions to the dorsal and anal fins. Females are blander and plumper.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>Easy. Bubblenester. The breeding tank should contain water of no more than 15–20 cm (6–8\") in depth with lots of floating plants. Filtration should be gentle and air-powered filters are ideal. Condition the fish with live food. When the female becomes plump with eggs the male will construct a large bubblenest of up to 25 cm (10\") diameter amongst the floating plants. He will then begin to display to the female. As the female approaches the nest the fish can be seen touching each other with their modified ventral fins. Spawning occurs under the nest in the typical anabantoid embrace. The eggs float upwards and the male shepherds them into the nest. Several more spawnings occur and between 200-300 eggs may be produced. When there are no more eggs the female is chased away. It is best to remove her at this point or she may be seriously harmed. The male then tends to the nest until the eggs hatch, usually in around 20-30 hours. The fry become free swimming in another 4-5 days, at which point the male should also be removed. They should be fed infusoria or liquid fry food for the first week, after which they are large enough to accept brine shrimp nauplii, microworm and powdered flake. The fry grow very slowly and care must be exercised when doing water changes as they are very susceptible to changes in water temperature for the first 3 months or so.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "html": "<p>A very hardy, beautiful species which is highly recommended to the beginner. A male in full breeding dress is one of the most stunning fish available in the hobby. T. leerii is also fairly long-lived and may survive for 8 years or more in the aquarium. These fish will also consume the aquarium pest hydra.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2d90d8379b5f5942.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2d90d8379b5f5942-480.webp",
+      "width": 716,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
+      "caption": "Adult female of Trichogaster leerii.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "WEDd8-RD_mo",
+      "title": "The Complete Guide To Keeping And Breeding The Pearl Gourami  (Trichopodus leerii)",
+      "durationSec": 1357,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ky-sMNCMRuM",
+      "title": "Gourami perlé - Trichopodus leerii ✔",
+      "durationSec": 298,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "vE2clcjULSk",
+      "title": "Majestic male pearl gourami - Goldie 😍",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dgG8T-DMh3k",
+      "title": "Pearl Gourami (Trichopodus leerii)",
+      "durationSec": 59,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá thủy sinh 90x30"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá sặc",
+        "thức ăn cá cảnh dạng mảnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "bèo cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

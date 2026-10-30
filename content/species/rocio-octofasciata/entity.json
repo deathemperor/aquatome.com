@@ -1,0 +1,210 @@
+{
+  "id": "rocio-octofasciata",
+  "scientificName": "Rocio octofasciata",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Rocio",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "mexico",
+    "actopan",
+    "belize",
+    "hondo",
+    "guatemala",
+    "motagua",
+    "honduras",
+    "ulua"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>The Jack Dempsey cichlid, Rocio octofasciata, is native to the Atlantic slope of Central America in Mexico, Belize, Guatemala and Honduras. Its name apparently comes from the American heavyweight boxer, for its 'strong facial features' and pugnacious nature. Tankmates must be too large to be viewed as prey. A bright blue strain, the 'electric blue Jack Dempsey', tends to stay smaller and may be less aggressive.</p><ul><li>Max size: 200 mm SL (8 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Native to the Atlantic slope of Central America in Mexico, Belize, Guatemala, and Honduras with its known range extending southwards from the Río Actopan in Veracruz state, Mexico to the ríos Motagua, Chamelecón and Ulúa in Cortés and Yoro departments, western Honduras.</p><p>Type locality was originally given as 'Mexico' by Regan (1903) but the label on the jar containing the specimens actually reads 'Río de Sarabia (Cosamaloapan, according to the original label), Coatzacoalcos drainage, Veracruz, Mexico' as per Schmitter-Soto (2007a).</p><p>Feral populations have become established in several countries including the United States, Russia, Australia and Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Most often recorded in coastal drainages and slower-moving, lower reaches of rivers but otherwise something of an ecological generalist having been recorded in river channels, man-made canals, drainage ditches, lakes and ponds.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>An aquarium with minimum base dimensions of 120 × 45 cm (48 × 18 in) or equivalent is recommended for a single adult pair. Volume: approximately 243 litres (64 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Ideally a soft, sandy substrate should be used though it's not essential, and one or two flattish, water-worn rocks can also be included to provide potential spawning sites.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>If you wish to include live plants, species which can be grown attached to the décor or float on the surface constitute the best choices since those rooted into the substrate are likely to be uprooted by the digging behaviour of the fish.</p><p>Water quality is of the utmost importance since these cichlids are susceptible to deteriorating water quality and should never be introduced to a biologically immature aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<ul><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Wild specimens are likely omnivorous but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for example.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh fruit, vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Can be kept in a well-chosen community arrangement alongside tankmates that are too large to be viewed as prey although a very large tank will be needed should you wish to keep it with other cichlids.</p><p>Young specimens can be maintained together but usually begin to display aggressive behaviour towards one another as they become sexually mature.</p><p>If a pair forms they are usually peaceful towards one another but hostile to other conspecifics and similarly-shaped fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Biparental substrate spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<p>Jack Dempsey (1895-1983) was an American heavyweight boxer, world champion for much of the 1920s and a cultural icon of the time, thus his name was apparently used for R. octofasciata due to its 'strong facial features' and pugnacious nature.</p><p>A bright blue variant normally referred to as 'electric blue Jack Dempsey' or simply 'EBJD' is of unclear origin but it appears to be an ornamental strain fixed from a natural mutation. Care is as per the natural form although the blue fish tend to remain smaller and some reports suggest them to be less aggressive.</p><p>R. octofasciata has a confusing taxonomic history and its generic placement is still questioned by some authors. It's been referred to Heros, Archocentrus, Cichlasoma, Nandopsis and 'Cichlasoma' in the past before eventually being placed in the new genus Rocio in 2007.</p><p>Rocio currently contain three species with R. ocotal endemic to Laguna Ocotal, an isolated, highland water body in the Lacantún-Usumacinta drainage, Chiapas state, Mexico, and R. gemmata known only from a handful of cenotes and small inland lakes in northern Quintana Roo state, eastern Yucatán Peninsula, Mexico.</p><p>R. octofasciata is told apart from these congeners by the following combination of characters: pelvic fins almost always reaching anal-fin origin; distally one scale row between longest dorsal-fin rays; dentary pores always 4; total gill-rakers on first arch 9–12; lateral blotch squarish; no pored scales on caudal-fin, other than one or two on extended lateral line; abdomen not reddish in life; maxilla reaching only a horizontal line from inferiormost rim of orbit, rather than a vertical line from anteriormost rim of orbit; orbital diameter 21–25% of head length and less than 80% of snout length; cheek-scale rows modally 6 (4-7); scales from vent to interpelvic scale 10–13; dorsal and anal fins usually bearing filaments; spots on side of body smaller than scales and aligned in ca. 15 regular series.</p><p>The genus Rocio is diagnosed by the following combination of characters: caudal-fin rounded or (sub)truncate; outer teeth on upper jaw gradually increasing in size anteriorly with symphysial teeth abruptly larger; frenum present in lower lip or absent; total gill-rakers on first arch 7–15; pharyngeal plate about as wide as long, or wider; lateral stripe extending from snout to a blotch on mid-body; eight bars on sides; ocellated spot on caudal-fin, dorsal to lateral line; lower jaw usually extending beyond upper jaw.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "html": "<ul><li>Regan, C. T. (1903). Descriptions de poissons nouveaux faisant partie de la collection du Musée d'Histoire Naturelle de Genève. Revue Suisse de Zoologie 11(2), 413-418</li><li>Pashkov, A. N. and D. D. Zvorykin (2009). Some Morphoecological Specific Features of Cichlasomine Rocio octofasciata (Perciformes, Cichlidae) from the Population in Lake Staraya Kuban. Journal of Ichthyology 49(5, 383-389</li><li>Matamoros, W. A., J. F. Schaefer and B. R. Kreiser (2009). Annotated checklist of the freshwater fishes of continental and insular Honduras. Zootaxa 2307, 1-38</li><li>Schmitter-Soto, J. J. (2007). A systematic revision of the genus Archocentrus (Perciformes: Cichlidae), with the description of two new genera and six new species. Zootaxa 1603, 1-76</li><li>Schmitter-Soto, J. J. (2007). Phylogeny of species formerly assigned to the genus Archocentrus (Perciformes: Cichlidae). Zootaxa 1618, 1-50</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2486918000969294.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2486918000969294-480.webp",
+      "width": 848,
+      "height": 563,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/925e12090f3038a3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/925e12090f3038a3-480.webp",
+      "width": 842,
+      "height": 495,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "caption": "Young adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626-480.webp",
+      "width": 848,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "caption": "Juvenile of the 'electric blue' strain.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8b9eb231fd6b1f4a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8b9eb231fd6b1f4a-480.webp",
+      "width": 737,
+      "height": 486,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
+      "caption": "Young individual feeding on filamentous algae.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 240 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn",
+        "máy lọc bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "pangio-anguillaris",
+  "scientificName": "Pangio anguillaris",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Pangio",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas",
+    "malaysia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<ul><li>Max size: 120 mm SL (5 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 0–8 dGH</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p><p>Traded as 'eel loach', Pangio anguillaris is a cobitid loach from Borneo, Sumatra, Peninsular Malaysia and the Chao Phraya and Mekong basins. It has an extremely elongated, worm-like body with 69-71 vertebrae and no nasal barbels, and is most commonly available as bycatch among shipments of other fishes. The species as currently recognised appears to represent a complex of closely-related taxa.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Described from the Kapuas river basin, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) and since recorded from the Batang Hari river system, Sumatra, Peninsular Malaysia, the Chao Phraya river in Thailand and Mekong in Thailand, Laos, Cambodia and Vietnam.</p><p>This patchy distribution suggests additional populations are likely to exist although the species as currently-recognised appears to represent a complex of closely-related taxa (Kottelat and Lim,1993; Tan and Kottelat, 2009; Bohlen et al., 2011).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of streams or calm habitats such as swamps, oxbows and backwaters.</p><p>These are often heavily-vegetated or scattered with submerged roots, branches and leaf litter with substrates composed of soft mud, sand or silt within which the fish conceal themselves.</p><p>In the highly diverse Danau Sentarum National Park and Kapuas Lakes area, Kalimantan Barat P. anguillaris occurs sympatrically with numerous other species including Cyclocheilichthys janthochir, 'Puntius' anchisporus, 'P.' kuchingensis, 'P.' lineatus, 'P.' rhomboocellatus, 'P.' trifasciatus, Brevibora dorsiocellata, Rasbora cephalotaenia, R. sarawakensis, Trigonopoma gracile, T. pauciperforatum, Barbucca diabolica, Nemacheilus saravacensis, N. spiniferus, Kottelatlimia pristes, Pangio malayana, P. oblonga, P. semicincta, P. shelfordii, Chaca bankanensis, Hemirhamphodon pogonognathus, Betta dimidiata, B. pinguis, and Luciocephalus pulcher.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>An aquarium with base measurements of at least 60 × 30 cm (24 × 12 in) or equivalent is recommended (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Use a soft, sandy substrate since this species likes to dig and tends to spend some of its time completely buried. When coarser gravel is used it may become stressed or damage itself, and feeding behaviour can be inhibited.</p><p>A few driftwood roots and branches, placed in such a way that plenty of shady spots are formed, can be used to add structure to the display and addition of dried leaf litter would provide additional cover and aid in simulating natural conditions.</p><p>Fairly dim lighting is also preferable and aquatic plants such as Microsorum, Taxiphyllum, and Cryptocoryne spp. can be added.</p><p>Gentle filtration providing a little surface agitation is adequate and high flow rates best avoided. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<ul><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 0–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Chiefly a micropredator sifting mouthfuls of substrate through the mouth and gills from which insect larvae, small crustaceans and suchlike are extracted with a proportion of the natural diet also likely to comprise organic detritus and plant material from the gut contents of prey.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of live and frozen Daphnia, Artemia, bloodworm, micro worm, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Pangio spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>In nature they're often found in large aggregations and in captivity will often pack themselves into a single nook, cranny or cave when at rest, so a group of at least 5-6 specimens should be the minimum purchased.</p><p>Diminutive, peaceful species from similar environments including genera such as Boraras, Sundadanio, smaller Rasbora, Trichopsis, Sphaerichthys, Kottelatlimia, etc. constitute the best tankmates.</p><p>Some sand-dwelling loaches from the family Nemacheilidae are also suitable but proper research is essential as some can be excessively territorial, aggressive or otherwise competitive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Adult females are typically heavier-bodied and a little larger then males, while in adult males the first pectoral-fin ray is branched and thickened and the pectoral fins themselves are upturned and longer than those of females.</p><p>Mature males of some populations develop what appears to be a nuchal hump on the head.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>Has not been bred in captivity as far as is known. According to Rainboth (1996) spawning occurs in shallow water with abundant vegetation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "html": "<p>One of a handful of Pangio spp. traded under the generic name 'eel loach', though it's most commonly available as bycatch among shipments of other fishes.</p><p>Wild populations tend to differ in colour pattern to some extent, with some exhibiting a more intense lateral stripe while others display an irregular pattern of fine dark spots on the body, for example.</p><p>It's included in the P. anguillaris group of closely-related species within the genus and is most easily told apart from other members by its extremely elongated body with 69-71 vertebrae (vs. 54-56 in P. lumbriciformis), lack of nasal barbels (vs. present in P. bitaimac and P. lidi) and lack of cheek scales (vs. present in P. doriae).</p><p>Kottelat and Lim (1993) suggested that the P. anguillaris group is one of four such assemblages within the genus alongside the P. kuhlii, P. oblonga and P. shelfordii groups, and this unofficial system was followed until Bohlen et al. (2011) published a molecular phylogenetic analysis including 18 recognised species plus a number of undescribed ones.</p><p>Their results suggest the existence of three, rather than four, major lineages within the genus; the P. anguillaris and P. shelfordii groups represent two of them with Kottelat and Lim's P. kuhlii and P. oblonga groups together forming the third.</p><p>Within this third lineage are three sublineages formed by P. filinaris, an apparently undescribed fish from the Temburong River in Brunei referred to as P. cf. oblonga IV, and all other species in the group, respectively.</p><p>The type locality of P. anguillaris is in central Borneo but the specimens used in the study were collected in Thailand and Laos and formed two distinct groups. It's therefore likely that unidentified species exist in this species group, and possible that none of those analysed actually represented P. anguillaris.</p><p>Other species in the P. anguillaris group include P. bitaimac, P. doriae, P. lidi, P. lumbriciformis and possibly P. signicauda. They're most obviously separated from those of the P. shelfordii and P. kuhlii-oblonga groups by their high vertebral count and vermiform (worm-like), usually patternless, greyish-coloured bodies.</p><p>Pangio is among the most speciose cobitid genera and widespread throughout South and Southeast Asia with species diversity thought to be considerably greater than currently recognised.</p><p>Pangio species are often generically referred to as 'kuhli' or 'coolie' loaches in the aquarium hobby, the latter a variation of the former which was itself derived from the surname of German naturalist Heinrich Kuhl (1797-1821). Ichthyologists tend to refer to them as 'eel loaches'.</p><p>They're distinguished from other cobitids by their long, slender body shape, relatively high number of vertebrae and the position of the dorsal-fin which is situated well behind the origin of the pelvic fins (vs. in front of, above or only slightly behind).</p><p>Several described members were previously included in the genus Acanthophthalmus which Kottelat (1987) demonstrated to be a synonym of Cobitis, and he chose the replacement name Pangio in preference to its simultaneous synonym Apua (Blyth, 1860).</p><p>Myers (1929) placed P. anguillaris as type species of Cobitophis, a grouping containing the very elongate species, while Perugia (1892) originally described P. doriae in the genus Eucirrhichthys. The former was synonymised with Acanthophthalmus by Nalbant (1963) and the latter by Roberts (1989).</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).</p><p>In the most recent study Pangio was found to be more closely affiliated with Acantopsis, Acanthopsoides and Kottelatlimia than Lepidocephalichthys as had been previously hypothesised.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/afc83692f321ebbf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/afc83692f321ebbf-480.webp",
+      "width": 700,
+      "height": 293,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "caption": "Specimen from an unspecified location in Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e602ee01a8423c7b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e602ee01a8423c7b-480.webp",
+      "width": 800,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "caption": "Two males showing head growths typical of mature specimens.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d0882447ab05111f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d0882447ab05111f-480.webp",
+      "width": 800,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "caption": "Adult males possess thickened rays in the pectoral fins and some individuals develop what appears to be some form of nuchal hump, both characters clearly visible here.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/21a82a58800f2f15.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/21a82a58800f2f15-480.webp",
+      "width": 800,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-anguillaris",
+      "caption": "Some populations exhibit differences in colour pattern.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chạch",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

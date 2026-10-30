@@ -1,0 +1,207 @@
+{
+  "id": "poecilia-wingei",
+  "scientificName": "Poecilia wingei",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Poecilia",
+  "group": "livebearers",
+  "places": [
+    "south-america",
+    "venezuela",
+    "paria-peninsula"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Endler's livebearer, Poecilia wingei, is a small livebearer from the Campoma and Buena Vista lagoons in northeastern Venezuela. It hybridises with the guppy, P. reticulata, to produce fertile offspring, but Schories et al. (2009) confirmed it as a valid species. The fish are thought to be extinct at Laguna de Patos, the type locality, after the lake became polluted, and much of the species' natural variability has been lost through inbreeding in the hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Occurs in fresh waters in the Campoma and Buena Vista lagoons unto Carupano, in northeastern Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Laguna de Patos (the type locality for the species) was originally a brackish lake which was formed by being cut off from the ocean by a sandbar. Over time the water has been altered by runoff and is now freshwater. When P. wingei was rediscovered the lake contained very warm, hard water which was very green due to high concentrations of algae. The fish are now thought to be extinct here as a garbage dump has been built adjacent to the lake and the water has since become polluted.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>A tank measuring 45 × 30 × 30 cm (18 × 12 × 12 in) - ~41 litres (~11 US gal) is big enough to house quite a substantial colony of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>A planted setup is strongly recommended as are floating plants. Water flow is not a problem for these fish as they are very active and should not be kept in aquaria smaller than that suggested above. If kept in a species setup powerful filtration is not necessary as these fish appear to produce very little waste.</p><p>This is a moderately hard water fish and while it may manage in soft and/or acidic conditions, long-term maintenance should be in moderately hard or harder water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 15–35 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>An omnivorous species, feeding on a variety of zoobenthos and detritus in the wild. Will eat most foods offered but should have some vegetation in the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Not suitable for a general community due to their small size and should be kept alone if breeding is to be attempted. Good tankmates are other small peaceful species such as dwarf corydoras, small rainbowfish such as Iratherina werneri or Pseudomugil sp. and peaceful tetras. While males are peaceful towards one another, females may act quite territorially and so several should be kept in order to disperse potential bullying. Should not be kept with guppies as they will crossbreed.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Males are smaller and are far more colourful than females. Females are also much plumper being almost perpetually gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>Very easy. Endler's will breed in the community tank and are incredibly prolific. If you're not interested in breeding them, buy only male fish. Otherwise breeding is much the same as for many other livebearers. Several females should be kept to every male in order to dissipate vigorous harassment by males. Areas of dense planting will also help. Males constantly display to females, spreading their fins and quivering in front of them. They can produce new broods every 23-24 days. Brood size can be anything from 5-25 depending on the female's age and size. The adult fish will rarely eat their young but the best method of raising them is still to remove the gravid female to a separate tank and allow her to give birth there before returning her to the main aquarium. The use of breeding nets or traps is not recommended as their small size is not suitable for raising fry. The fry are quite large and will accept brine shrimp nauplii or powdered flake from birth. They grow very quickly if fed 2-3 times per day, with males exhibiting adult colouration in only 3-5 weeks and females being able to produce young at 2 months of age.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<p>There has been much discussion in the past as to whether this species and P. reticulata are in fact conspecific. The two are proven to hybridise and produce fertile offspring. However, Schories et al. (2009) determined that P. wingei is now unequivocally defined by the molecular phylogeny as a valid species. A third distinct \"guppy\" species, Poecilia (Acanthophacelus) obscura, is described from Trinidad (Schories et al, 2009). Schories et al. propose that the three \"guppy\" species be placed in the sub-genus Acanthophacelus that is considered to be generically different from all other taxa in the Poeciliinae subfamily.</p><p>Endler's Livebearer was actually discovered in 1937 by Franklyn F. Bond before being rediscovered by John Endler in 1975 in Laguna de Patos, Cumana, northeastern Venezuela. It was found coexisting, but not interbreeding with, a wild form of P. reticulata. Both species are native to this area of Venezuela, but P. reticulata was much less common in areas where P. wingei was thriving. This is thought to be partially related to habitat type, as guppies are usually found in colder, running water.</p><p>Dr. Endler reported the possibility of another collection site at a point where a certain peninsula joins the mainland. He tried to find it but the directions he was given were incorrect, so there is still the chance that this species exists in nature.</p><p>P. wingei is very close in appearance to some populations of wild guppy, although much of its natural variability has been lost through inbreeding in the hobby. Several morphs are still available however.</p><p>Endler's are still relatively rare in the hobby though they are commonly available through dedicated breeders and are occasionally seen on sale in stores.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
+      "html": "<ul><li>Schories, S., M. K. Meyer and M. Schartl (2009). Description of Poecilia (Acanthophacelus) obscura n. sp., (Teleostei: Poeciliidae), a new guppy species from western Trinidad, with remarks on P. wingei and the status of the Endler's Guppy. Zootaxa No. 2266, 35-50</li><li>Poeser, F. N., M. Kempkes and I. J. H. Isbrücker (2005). Description of Poecilia (Acanthophacelus) wingei n. sp. from the Paría Peninsula, Venezuela, including notes on Acanthophacelus Eigenmann, 1907 and other subgenera of Poecilia Bloch and Schneider, 1801 (Teleostei, Cyprinodontiformes, Poecilidae). Contributions to Zoology, 97-115</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0604b7e0eeea9d79.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dgrummon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wingei_compared_to_Reticulata.jpg",
+      "caption": "Side by Side comparison of Campoma Bridge Poecilia Wingei vs Poecilia Reticulata",
+      "thumb": "https://media.aquatome.com/commons/0604b7e0eeea9d79-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/889d6007f3a606a9.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dgrummon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_28_Poecilia_Wingei.jpg",
+      "caption": "Campoma Bridge number 28 Poecilia Wingei",
+      "thumb": "https://media.aquatome.com/commons/889d6007f3a606a9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c223819f3c9b569e.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dgrummon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_8_Poecilia_Wingei.jpg",
+      "caption": "Campoma Bridge number 8 Poecilia Wingei",
+      "thumb": "https://media.aquatome.com/commons/c223819f3c9b569e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fee654493691fdbb.webp",
+      "width": 960,
+      "height": 531,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_wingei_male_%22black_ba%22r.JPG",
+      "caption": "Poecilia wingei male, var. \"black bar\"",
+      "thumb": "https://media.aquatome.com/commons/fee654493691fdbb-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể thủy sinh mini 40 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "artemia ấu trùng"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

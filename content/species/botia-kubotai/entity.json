@@ -1,0 +1,220 @@
+{
+  "id": "botia-kubotai",
+  "scientificName": "Botia kubotai",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Botia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "myanmar",
+    "ataran",
+    "thailand",
+    "tak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li><li>Difficulty: moderate, because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The polka-dot loach, Botia kubotai, is a botiid loach that appears to be endemic to headwaters of the Salween basin in Myanmar and Thailand. It was traded before it was described and is still sold as 'angelicus', 'Burmese border loach' and 'marbled loach', among other names. Juveniles are often confused with B. histrionica, but the dark bars in B. kubotai split at a young age.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.</p><p>The type specimens were collected from the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) River basin, Kayin/Karen State, Myanmar and another population was later discovered in the Hanthayaw River (Suriya in Thai), Tak Province, Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>No mention of habitat is made in the description paper but the images seen from both rivers depict relatively slow-flowing sections of forest-shaded, seemingly well-oxygenated headwaters with clear water, a mixed sand and rock substrate plus lots of submerged driftwood and leaf litter. Presumably this represents a typical biotope.</p><p>In the Hanthayaw aquatic plants include Pogostemon helferi and a species of Cryptocoryne while sympatric fish species comprised Acanthocobitis pictilis, Syncrossus berdmorei, Pangio fusca, Crossocheilus burmanicus, Chanda pulcinella, Systomus orphoides, Pethia stoliczkana, Microdevario kubotai, Hampala salweenensis, Poropuntius scapanognathus, Glyptothorax dorsalis, Batasio dayi, B. feruminatus, Akysis vespa, Amblyceps caecutiens and Tetraodon cutcutia.</p><p>In the Ataran other fishes recorded include Schistura vinciguerrae, S. robertsi, Garra sp. 'redtail' and Mastacembelus armatus plus unidentified members of Devario, Scaphiodonichthys, Tor, Neolissochilus, Garra and Schistura.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>Standard length: 150 mm SL (6 in). Aquarium base: 120 × 45 cm (48 × 18 in). Volume: ~243 litres (~64 US gal).</p><p>Base dimensions of 120 × 45 cm (48 × 18 in) or equivalent should be the minimum considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as botiids are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>While Botia spp. appear to be chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs, insects, worms, and other invertebrates.</p><p>They're largely unfussy feeders but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while most botiids also prey on aquatic snails they should never be considered the answer to an infestation since they're not obligate molluscivores.</p><p>Once settled into an aquarium they're bold feeders and often rise into midwater at meal times.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>Not especially aggressive but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers they will do well alongside most other Botia and in very large tanks, Chromobotia macracanthus. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>Botia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said, they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>Sexually mature females are normally fuller-bodied than males with a rounded snout, whereas males have an elongated snout with noticeably fleshier lips.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>In 2008 SF member Mark Duffill recovered a single, young (~40 mm / 1.6 in SL) specimen from a large community aquarium containing several adults alongside various other loach and cyprinid species. Water parameters were within the ranges suggested above and the adults were fed a varied diet.</p><p>The majority of botiid loaches have not been bred in aquaria though some, including B. kubotai, are being produced on a commercial basis via the use of hormones.</p><p>Unfortunately this practice has been taken to a different level in recent years with a number of hybrids appearing on the market, even including an apparent cross between a form of B. histrionica and Chromobotia macracanthus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<p>This species was available in the hobby prior to being described and is still sold under various trade names including Botia 'angelicus', 'marbled loach', 'Burmese border loach', 'cloud Botia', 'leopard loach', 'gold-striped loach' and 'angelicus loach'.</p><p>Following Grant (2007) it's included in the B. histrionica complex of closely-related species within the genus alongside B. histrionica and B. udomritthiruji.</p><p>According to Kottelat (2004) it's distinguished from other members of this grouping by 'its unique body colour pattern with three black stripes and five black bars leaving four pairs of elongate yellow blotches; with increasing age, the bars and stripes widen, the yellow blotches become more slender and rows of small yellow stripes are added in the stripes and in the bars'.</p><p>This so-called anastomosis, or breaking-up of the body pattern is typical of most Botia spp. and can cause problems with identification. Young specimens of B. kubotai in particular are often confused with those exhibiting a similar juvenile pattern, particularly B. histrionica.</p><p>However the horizontal dark bars on the flanks in B. kubotai typically split at quite a young age and/or develop horizontally-orientated 'peaks' whereas those in B. histrionica are solid. There also seems to be more than one colour form of the species as some shipments of adults contain very dark fish with only small spots on the body, while others are lighter with larger, oval-shaped spots.</p><p>Some behavioural routines exhibited by Botia spp. have been recorded often enough that they've been assigned non-scientific terms for ease of reference.</p><p>For example during dominance battles (these occur most frequently when the fish have been introduced to a new tank, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon that's come to be known as 'greying out'.</p><p>Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>'Shadowing' is an interesting behaviour in which younger individuals swim flank-to-flank with older, mimicking their every movement. Some keepers report that more than one smaller fish may shadow a larger simultaneously, with even three or four on each side!</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, these increasing in volume when the fish are excited.</p><p>A further curiosity is the so-called 'loachy dance' which involves an entire group swimming in a constant, restless fashion around the sides of the tank, usually utilising the full length and height.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>Botia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus.</p><p>It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "html": "<ul><li>Grant, S. (2007). Fishes of the genus Botia Gray, 1831, in the Indian region (Teleostei: Botiidae). Ichthyofile Number 2, 1-106</li><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Nalbant, T. T. (2002). Sixty million years of evolution. Part one: family Botiidae (Pisces: Ostariophysi: Cobitoidea). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 44, 309-333</li><li>Šlechtová, V., J. Bohlen, J. Freyhof and P. Ráb (2006). Molecular phylogeny of the Southeast Asian freshwater fish family Botiidae (Teleostei: Cobitoidea) and the origin of polyploidy in their evolution. Molecular Phylogenetics and Evolution 39(2), 529-541</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bbaab36716364bb3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bbaab36716364bb3-480.webp",
+      "width": 870,
+      "height": 653,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "caption": "Individual with typical subadult patterning.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ab08fd880a5eb9ab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ab08fd880a5eb9ab-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "caption": "Underwater scene in the Hanthayaw/Suriya river.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7bdc469c948960aa.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7bdc469c948960aa-480.webp",
+      "width": 771,
+      "height": 339,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "caption": "An adult female in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/225f03cd313f9ba8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/225f03cd313f9ba8-480.webp",
+      "width": 800,
+      "height": 474,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-kubotai",
+      "caption": "A superbly-conditioned adult male; these appear to have a more elongated head/fleshier lips than females.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá heo",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông bể cá",
+        "sỏi mịn bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

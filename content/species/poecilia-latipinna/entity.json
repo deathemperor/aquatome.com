@@ -1,0 +1,221 @@
+{
+  "id": "poecilia-latipinna",
+  "scientificName": "Poecilia latipinna",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Poecilia",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "united-states",
+    "carolina",
+    "mexico",
+    "veracruz"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 76
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>The sailfin molly, Poecilia latipinna, is a livebearer native to southern North America and Mexico, from Carolina to Veracruz. Bred into many colour morphs and crossed with P. sphenops, it can live perfectly well in fresh water provided it is not soft or acidic. Dark rectangular spots in the dorsal fin separate it from the similar P. velifera, and introduced populations in many countries often outcompete native species.</p><ul><li>Max size: 125 mm SL (5 in)</li><li>Aquarium size: 76 × 38 cm (30 × 15 in)</li><li>Temperature: 21–26°C (70–79°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 15–35 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Native to Southern North America and Mexico, from Carolina to Veracruz. Introduced populations have also become established in numerous countries as far ranging as Kenya and New Zealand. Wild fish are rare in the hobby these days, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Typically found in heavily vegetated coastal streams, ponds, swamps, canals and ditches. It's particularly associated with brackish habitats where algae and other phytoplankton is present in large quantities.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Standard length 125 mm SL (5 in). Aquarium base 76 × 38 cm (30 × 15 in). Volume ~87 litres (~23 US gal); 76 × 38 × 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>A densely planted aquarium with some open space for swimming. It should be noted that these are highly vegetarian fish so any soft-leaved plants may be destroyed. Allowing some common green algae will provide additional food for the fish.</p><p>This species must be maintained in moderately hard or harder water, with a basic pH. When kept in soft or acidic water, the fish weakens fairly rapidly, frequently indicated by shimmying, fungus, and/or clamped fins. Salt is not necessary, as it is the \"hard\" minerals (calcium, magnesium) that are crucial to the long-term health of this species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<ul><li>Temperature: 21–26°C (70–79°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 15–35 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Wild fish are almost exclusively herbivorous, feeding on algae and other plant material. Today's tank-bred fish are far-removed from their ancestors and will accept most foods offered but some vegetable matter such as blanched spinach or vegetable flake should be included in the diet. If insufficient greenstuff is provided male dorsal fin development may be impaired.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Generally suitable for a hard water community although may pick on smaller fish as it matures. Males can be aggressive to one another, particularly when spawning. Suggested tankmates include other livebearers, some catfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Males possess a gonopodium and a large, long, sail-like dorsal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>Easy. It is recommended to maintain this species in trios of 2 females to a single male as males can be quite vigorous in their pursuit of mates. Reproduces in the usual livebearer fashion. Gestation is a little longer than in some species taking around 2 months, after which up to 50 young may be produced. These are relatively large and will accept brine shrimp nauplii, micoworm or powdered flake from birth. The breeding tank should be heavily planted if the fry are to survive predation by the parents and other fish. The best method is to remove gravid females to a separate tank until they give birth. Interestingly wild-type fish are much less likely to eat their offspring than the domestic forms.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "html": "<p>The wild fish can exhibit several different types of patterning. P. latipinna has been selectively bred into many different colour morphs for the aquarium trade, and has also been crossbred with other molly species, particularly P. sphenops. They will also interbreed readily in the aquarium and in order to avoid this it is suggested to keep only one species of molly per tank. There also exists a 'balloon' variety of this fish in which the body is malformed and rounded, giving a balloon-like appearance. This condition can cause swimbladder and digestive problems and may bring about premature death.</p><p>This species is often referred to as a brackish species but can live perfectly well in freshwater provided it is not soft and/or acidic.</p><p>P. latipinna may be distinguished from the similar P. velifera by the presence of dark rectangular spots in the dorsal fin. In P. velifera these are lighter-coloured and round.</p><p>This is another of the livebearer species to have been introduced in many countries where it often outcompetes native species and upsets the ecological balance.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cae6ae3780bc6dda.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cae6ae3780bc6dda-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "caption": "Poecilia latipinna \"golden lyretail\" male",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6da6b3e0eab588f4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6da6b3e0eab588f4-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "caption": "Poecilia latipinna \"salt and pepper\" female",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/277603d9564abd70.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/277603d9564abd70-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-latipinna",
+      "caption": "Poecilia latipinna \"silver\" male",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "wlnpbnTszus",
+      "title": "Black Molly Fish Care Guide – Everything You Need to Know! (Poecilia Latipinna)",
+      "durationSec": 424,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "D_w_ZrwsdHQ",
+      "title": "Aquarium Fish For Beginner's, Sailfin Molly's(Poecilia latipinna)Platy,Black - Silver Molly's & Two",
+      "durationSec": 303,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2-OvXtDvuV8",
+      "title": "This MOLLY has sails! And fins!",
+      "durationSec": 43,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "rMC9av_3RJY",
+      "title": "Molly Care & Breeding Guide",
+      "durationSec": 368,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 100 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá molly",
+        "thức ăn thực vật dạng vảy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

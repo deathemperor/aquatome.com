@@ -1,0 +1,190 @@
+{
+  "id": "trichopodus-trichopterus",
+  "scientificName": "Trichopodus trichopterus",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Trichopodus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "vietnam",
+    "mekong",
+    "cambodia",
+    "laos",
+    "thailand",
+    "china",
+    "myanmar",
+    "malaysia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>The three-spot gourami, Trichopodus trichopterus, is a labyrinth fish found mostly in the Mekong basin of Southeast Asia and southern China. The natural form is blue-grey with three spots, but gold, opaline, cosby, marbled and silver forms bred for the trade are seen far more often. One of the hardiest fish in the trade, it is recommended for community tanks with reservations, since some individuals become very spiteful as they mature.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.5</li><li>Hardness: 3–35 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>Occurs mostly in the River Mekong basin in southern China, Vietnam, Laos, Cambodia, Thailand, Myanmar and Malaysia. It's also found in parts of northern Indonesia. Has been introduced into numerous countries, including the Philippines, Taiwan, Papua New Guinea, the islands of Reunion, the Seychelles, Namibia, the Dominican Republic and Colombia. Don't expect to find any wild specimens on sale, though. The vast majority of the ones in the hobby are commercially-bred in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>Across its natural range it's typically found in languid, heavily-vegetated, lowland waters including ponds, ditches, swamps and marshes. Around the central to lower Mekong many populations are known to migrate into flooded areas of forest or grassland during the wet season, returning to the main river systems when the floodwaters begin to recede.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>Standard length: 150 mm SL (6 in SL). Aquarium base: 90 × 30 cm (36 × 12 in). Volume: ~81 litres (~21 US gal), 90 × 30 × 30 cm (36 × 12 × 12 in).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>A planted aquarium with some floating cover and open areas for swimming suits this species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.5</li><li>Hardness: 3–35 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>Wild fish are fairly generalised omnivores, munching on both terrestrial and aquatic plants as well as algae, small invertebrates, other items of zooplankton and detritus. Unfussy and will accept most foods offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>While often recommended as a community fish this is not always so. Some individuals can become very spiteful as they mature, while others remain peaceful. Males are territorial and will squabble amongst themselves, becoming very aggressive when breeding. It is best kept with robust fish such as barbs, larger characins, loricariids, loaches and other medium/large gouramis.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>The male is larger and develops a pointed dorsal fin. The female is smaller and rounder in the belly.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>Easy. Bubblenester. The breeding tank should contain water of no more than 6-8\" in depth with lots of floating plants. Filtration should be gentle and air-powered filters are ideal. It is recommended to provide 2 or 3 females for the male as he can be quite hard on unwilling females. Condition the fish with live food. When a female becomes plump with eggs the male will construct a large bubblenest amongst the floating plants. He also utilises small pieces of plant within the nest. He will then begin to display to the female. As the female approaches the nest the fish can be seen touching each other with their modified ventral fins. Spawning occurs under the nest in the typical anabantoid embrace. The eggs float upwards and the male shepherds them into the nest. Several more spawnings occur and between 500-1200 eggs may be produced. When there are no more eggs the female is chased away. It is best to remove the female(s) at this point or she may be seriously harmed. The male then tends to the nest until the eggs hatch, usually in around 20-30 hours. The fry become free swimming in another 4-5 days, at which point the male should also be removed. They should be fed infusoria or liquid fry food for the first week, after which they are large enough to accept brine shrimp nauplii, microworm and powdered flake. The fry must be watched carefully and separated as different growth rates become apparent or much cannibalism will occur.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "html": "<p>This species is available in many different colour forms and varieties, all of which have been selectively bred for the aquarium trade. These are seen much more often than the natural form, which is the blue-grey three spotted fish. They include gold, opaline, cosby, marbled and silver forms. T. trichopterus is one of the hardiest fish commonly available in the trade and can adapt to many different water conditions. However it is recommended to the beginner with reservations regarding it's temperament.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1965a804c65f0e10.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1965a804c65f0e10-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "caption": "Trichogaster trichopterus var. \"Opaline\"",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6f61394e80067abb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6f61394e80067abb-480.webp",
+      "width": 600,
+      "height": 402,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
+      "caption": "Trichogaster trichopterus \"Opal\" form",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 100 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc khí cho bể cá",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá sặc",
+        "thức ăn cá cảnh dạng mảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

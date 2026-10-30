@@ -1,0 +1,207 @@
+{
+  "id": "danio-rerio",
+  "scientificName": "Danio rerio",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Danio",
+  "group": "danios",
+  "places": [
+    "asia",
+    "india",
+    "ganges",
+    "bangladesh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies. Peaceful, hardy and inexpensive, it has been mass-produced for many years and quality stock can be hard to find. The spotted 'leopard danio' is a spontaneous mutation of the striped form that also occurs in the wild.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>Described from the Kosi River, a tributary of the Ganges system in Uttar Pradesh state, northern India.</p><p>It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.</p><p>The primary reason for this is that many older records almost certainly represent misidentification of other species. In Myanmar, for example, the last record of D. rerio was in 1926, but in the years since several new, similar-looking fishes have been discovered and described to science, with others still to follow.</p><p>Agriculture, industry, modern fishing methods involving industrial reagents and other forms of habitat degradation may also have adversely affected its range.</p><p>At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.</p><p>This area is subjected to seasonal rainfall between the months of June and September due to the southwestern summer monsoon meaning habitats vary considerably depending on the time of year.</p><p>Wild caught fish have virtually disappeared from the aquarium trade since it's more cost-effective to produce on a commercial basis.</p><p>As a result it's become one of the most heavily-farmed species in the hobby, now available in several artificial forms (see 'Notes'), and invariably very cheap to buy. If you want wild specimens some specialist retailers carry them sporadically.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>A 2007 survey by Engeszer et al. recorded D. rerio at 28 sites in north-eastern India and found that in half of them water flow was either slow or non-existent.</p><p>The most common substrate-type was silt, submerged/overhanging vegetation was typical and generally the fish were more abundant in marginal/seasonally-inundated pools and mature rice paddies than stream or river channels.</p><p>When they were observed in flowing streams with rocky substrates they tended to school in marginal zones with overhanging vegetation. The water in most habitats was clear or relatively clear, only occasionally turbid.</p><p>Sympatric species across the localities included Opsarius barna, B. bendelisis, Danio dangila, Devario assamensis, D. devario, Laubuca laubuca, Esomus danricus, Pethia conchonius, P. shalynius, Oreichthys sp. 'sail fin', Lepidocephalichthys annandalei, L. guntea, Badis blosyrus, Dario dario, Colisa chuna, Ctenops nobilis, Aplocheilus panchax plus unidentified members of Oryzias and Lepidocephalichthys. Potential predators comprised various Channa species, Mastacembelus armatus, Mystus bleekeri, Xenentodon cancila and Notopterus notopterus.</p><p>The authors' final hypothesis as to the life cycle of the zebra danio was that adults spend dryer months of the year in permanent streams and minor rivers. There they inhabit calmer, shaded areas before migrating into seasonally-inundated tributaries, marginal pools and rice paddies during the monsoon to spawn.</p><p>The latter are typified by dense growths of flooded vegetation and silty substrates, and the young fish remain there until the flood waters begin to recede.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>An active species so even a small group needs an aquarium with minimum base dimensions of 90 × 30 cm (36 × 12 in). Volume: approximately 81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong given its natural habitat preferences though it does seem to appreciate a degree of water movement.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p><strong>Temperature:</strong> The temperature range in its native waters was recorded to be 24.6–38.6°C during the month of July but presumably drops somewhat during winter. For general maintenance a value of 18–25°C should suffice meaning a heater may not always be required.</p><p><strong>pH:</strong> 6.0–8.0</p><p><strong>Hardness:</strong> 5–20 dGH</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>Stomach analyses of wild specimens have shown it to be a micropredator, feeding on aquatic crustaceans and other invertebrates such as mosquito larvae.</p><p>In the aquarium it is unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and bloodworm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>This species is very peaceful indeed and can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches.</p><p>As always when selecting a compatible community of fishes thorough research is essential, and its small adult size must be a consideration.</p><p>It is a schooling species by nature and should be maintained in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display while males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>Sexually mature females are usually rounder-bellied, slightly less colourful and a little larger than males.</p><p>The differences are especially clear when the fish are in spawning condition as the males intensify in colour and the females fill with eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>An excellent choice for those new to breeding fishes in aquaria. Like many small cyprinids it is an egg-scattering spawner that exhibits no parental care.</p><p>When the fish are in good condition they should spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention, but if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and half-filled with water.</p><p>These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well; alternatively filling much of the tank with Java moss or other fine-leaved plant can also yield good results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container.</p><p>Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods.</p><p>The pair should spawn the following morning. The easiest and quickest way to tell is simply to look at the female. If the fish have spawned she will be noticeably slimmer.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation is temperature-dependant to an extent but usually takes between 24 and 36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron diameter) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "html": "<p>D. rerio is one of the most popular and ubiquitous fishes in the aquarium hobby, and its popularity is well deserved since it is peaceful, hardy and inexpensive.</p><p>Unfortunately it has been mass-produced in huge numbers for many years, thus inbreeding has occurred on a large scale and quality stock can be hard to find.</p><p>Alongside morphological deformities common ailments include 'neon tetra disease' (NTD), caused by the microsporidian parasite Pleistophora hyphessobryconis and basically untreatable once it reaches an advanced stage.</p><p>Symptoms include restlessness, increased respiration, white patches on the skin, and an individual separating itself from the group. The spores (larval stage) of the parasite enter the fish through the mouth and burrow through the walls of the gut before settling in the muscles. There they produce cysts which cause rapid degeneration of the muscle tissue and development of the characteristic white patches.</p><p>Once the disease takes hold mortality rates can rapidly become very high. No medication is available, and the only way to 'treat' the tank is to physically remove any fish displaying symptoms.</p><p>Similar symptoms are caused by a severe form of the pathogenic bacterium Flavobacterium columnare, and this is sometimes mistaken for NTD (Michel, Messiaen, and Bernardet, 2002).</p><p>Another common problem is microsporidiosis, caused by the parasite Pseudoloma neurofilia (Matthews et al. 2001), with external symptoms including chronic emaciation and curvature of the spine having led to the vernacular term 'skinny disease'. Its life-cycle is similar to that of F. columnare in that it is ingested orally, but the main site of infection is the central nervous system, and it can be tricky to diagnose since infestations have been recorded in seemingly healthy individuals.</p><p>The 'leopard danio' is a spotted morph of D. rerio which was described as Brachydanio frankei (Meinken, 1963), but is now generally referred to as D. rerio var. frankei. Its origin was considered something of a mystery for a number of decades, with the most accepted theory being that it was produced via selective breeding, but it is now known to be a spontaneous mutation of the striped form which also occurs in the wild (Spence et al., 2008). There do exist several ornamental strains, however, including a xanthistic 'golden' form and a long-finned variety.</p><p>More recently, transgenically-modified 'Glofish' which fluoresce constantly have appeared on the market.</p><p>These were originally produced by the National University of Singapore in an attempt to mutate a fish so that it would literally glow in the presence of certain environmental toxins and are available in a number of colours, including yellow, green and red.</p><p>The substances causing this effect are proteins extracted from a particular jellyfish (green and yellow forms) or coral species (red form). An American company quickly purchased the rights to market Glofish in the United States where they've achieved a fair level of popularity.</p><p>As things stand they're illegal to buy, sell or own within the European Union although several instances of smuggling have been recorded, the punishment for which is a hefty fine.</p><p>D. rerio is a commonly-used model organism in scientific research, particularly the fields of vertebrate ontogeny and gene function, and is one of the few fishes to have been launched into space!</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm (3.5 in) SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/12c62a0d7e2f0be9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/12c62a0d7e2f0be9-480.webp",
+      "width": 720,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588-480.webp",
+      "width": 819,
+      "height": 648,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "caption": "The 'leopard danio' (aka 'B. rerio var. frankei') is an ornamental form of the species.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/32795a286bf2ef56.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/32795a286bf2ef56-480.webp",
+      "width": 720,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "caption": "Long-finned, ornamental form of B. rerio var. frankei",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5fc2aade73269657.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5fc2aade73269657-480.webp",
+      "width": 720,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "caption": "This ornamental strain is known as 'Russian long-fin blue'and appears to be derived from the leopard form.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 90x30"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh nổi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút",
+        "lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

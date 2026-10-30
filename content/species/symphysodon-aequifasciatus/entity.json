@@ -1,0 +1,207 @@
+{
+  "id": "symphysodon-aequifasciatus",
+  "scientificName": "Symphysodon aequifasciatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Symphysodon",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins",
+    "colombia",
+    "putumayo",
+    "peru",
+    "solimoes"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil. It ranges down the Rio Solimões and the main Amazon from the Rio Putumayo to the Tocantins drainage, keeping to slow-moving tributaries and forest pools where it schools in deep, sheltered water around tree roots and rocks. Wild fish reach around 14 cm, and discus are very shy, skittish fish that need plenty of cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil. Introduced populations also exist in the neighbouring countries of Guyana and Suriname.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>It's not often seen in the main river channels, being mostly found in slow-moving tributaries and forest pools. Here it lives in schools in deep, sheltered areas around tree roots and rocks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>Although Discus only grow to around 6\" (14 cm), they can grow to be as tall as they are long. A breeding pair should have plenty of space both horizontally and vertically, so a tank around 120 cm x 45 cm x 45 cm (255 litres) is recommended for a few juvenile fish or a pair of breeding adults.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>Many Discus fanatics choose to go down the heavily planted route which can be particularly beneficial to Symphysodon aequifasciatus due to the amount of cover afforded by such a setup. Discus are very shy, skittish fish and require as much cover as possible to feel comfortable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<ul><li>Temperature: 26–30°C</li><li>pH: 5.0–7.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
+      "html": "<p>Wild fish feed mainly on zooplankton, insects and other small invertebrates.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/e6935fc1e0ed7998.webp",
+      "width": 960,
+      "height": 802,
+      "licence": "Public domain",
+      "author": "Patrick Farrelly",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg",
+      "caption": "Symphysodon aequifasciata",
+      "thumb": "https://media.aquatome.com/commons/e6935fc1e0ed7998-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6942d0add13a965d.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labroidei_-_Symphysodon_aequifasciatus_-_3.jpg",
+      "caption": "Blue discus or brown discus (Symphysodon aequifasciatus) at the Sea Life Centre in Hannover, Germany.",
+      "thumb": "https://media.aquatome.com/commons/6942d0add13a965d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7e01b29c05234c5c.webp",
+      "width": 960,
+      "height": 874,
+      "licence": "CC BY-SA 4.0",
+      "author": "Alter welt",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paletka_(Symphysodon_aequifasciatus).jpg",
+      "caption": "Symphysodon aequifasciatus",
+      "thumb": "https://media.aquatome.com/commons/7e01b29c05234c5c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e14c4dff68d20bd1.webp",
+      "width": 960,
+      "height": 727,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_03.jpg",
+      "caption": "Symphysodon aequifasciatus Pellegrin, 1904, Blue Discus; Karlsruhe Zoo, Karlsruhe, Germany.",
+      "thumb": "https://media.aquatome.com/commons/e14c4dff68d20bd1-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CPYU9iNNSEY",
+      "title": "Symphysodon aequifasciatus pair",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CGhQ82AwQQ8",
+      "title": "Symphysodon aequifasciatus - Green discus",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sbGBoZIFLbU",
+      "title": "Symphysodon aequifasciatus - Wild Discus from Brasil - Nhamunda and Maica",
+      "durationSec": 224,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tNu0qJYGWTk",
+      "title": "My Discus Planted Aquarium",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể nuôi cá đĩa"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "sưởi chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đĩa",
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

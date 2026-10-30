@@ -1,0 +1,205 @@
+{
+  "id": "scleropages-formosus",
+  "scientificName": "Scleropages formosus",
+  "order": "Osteoglossiformes",
+  "family": "Osteoglossidae",
+  "genus": "Scleropages",
+  "group": "other",
+  "places": [
+    "asia",
+    "vietnam",
+    "mekong",
+    "cambodia",
+    "thailand",
+    "malaysia",
+    "peninsular-malaysia",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The Asian arowana, Scleropages formosus, is an osteoglossid from the Mekong system, eastern Thailand, Peninsular Malaysia, Sumatra and Borneo. Highly valued in the aquarium trade since the 1970s and listed on Appendix I of CITES since 1975, it is now extirpated across much of its range. It occurs in several colour forms, such as the 'super red' of the upper Kapuas, and three were described as species in 2003, though the majority view treats all of them as S. formosus pending review.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.</p><p>It has also been introduced in Singapore but does not occur in Taiwan as sometimes stated.</p><p>Type locality is 'Lake Mahoeroenge, a small lake connected by a narrrow canal to the river Pekoempau, Borneo'.</p><p>See the 'Notes' section for additional information regarding this species' distribution.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>Inhabits natural lakes, swamps, flooded forests, and slowly-moving, deep parts of rivers with overhanging vegetative cover.</p><p>Some forms inhabit blackwater systems where the influence of ancient peat and other organic material causes the water to become stained brown.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>Relatively unfussy and often maintained in completely bare set-ups.</p><p>It does best if there is a high proportion of dissolved oxygen meaning external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria and weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is also essential as Scleropages spp. are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>An obligate predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>A paternal mouthbrooder that is typically bred in outdoor pools for commercial purposes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<p>This species is distinguished from its Australian congeners S. jardinii and S. leichardti by possessing a lower number of lateral line scales (21-26 vs 32-36), and from S. inscriptus by lacking angulated linear markings on the head and body.</p><p>It occurs naturally in a number of colour forms of which three were elevated to distinct species status in 2003, but the current majority view is that all represent S. formosus pending a detailed review. Kottelat (2013) mentions that the red form may turn out to be a species in its own right.</p><p>The variants include the 'green' form which is widespread throughout the species' range, the 'super red' or 'chilli red' form (described as S. legendrei in 2003) which occurs only in the upper Kapuas river in Indonesian Borneo, the 'cross back golden' or 'blue Malayan' form which occurs in Pahang State and Bukit Merah Lake in Peninsular Malaysia, and the 'red tail golden' form from Pekanbaru and Jambi on Sumatra (described as S. aureus in 2003). The latter form is given the name 'crossback' because the golden pigmentation eventually crosses all the way over the dorsum of the fish as it matures.</p><p>In addition, two silvery-coloured forms known as the 'grey tail silver' or 'Pinoh arowana', and 'yellow tail silver', are collected from the Schwaner mountain range between west and central Kalimantan provinces, and central and south Kalimantan provinces in Indonesian Borneo, respectively. These populations were described as S. macrocephalus in 2003.</p><p>It has been highly valued species in the aquarium trade since the 1970s and has been listed on Appendix I of CITES since 1975. There are a number of registered CITES breeders in Asia who export fish legally, each of which should be microchipped and accompanied by official documentation. In certain countries, such as the United States, it is not legal to trade although a black market continues to exist.</p><p>Hybrids between the various colour forms are also common, the most common of which is known as the 'Banjar Red' and is a cross between the 'super red' and 'yellowtail silver' forms.</p><p>It is particularly popular in eastern Asia due to a perceived resemblance to the dragon, which is believed to symbolise wealth, prosperity, luck and strength. The green form is generally considered the least desirable, due to its relatively plain colouration, while the 'gold crossback' and 'super red' varieties are the most coveted because the brilliant gold colouration is said to bring good fortune and wealth.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "html": "<ul><li>Müller, S. and H. Schlegel (1840). Beschrijving van een' nieuwen Zoetwater-visch van Borneo, Osteoglossum formosum. Verhandelingen over de natuurlijke geschiedenis der Nederlandsche overzeesche bezittingen, Leiden, 1-7</li><li>Pouyaud, L., Sudarto and G. G. Teugels (2003). The different colour varieties of the Asian arowana Scleropages formosus (Osteoglossidae) are distinct species: morphologic and genetic evidences. Cybium 27(4), 287-305</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Roberts, T. R. (2012). Scleropages inscriptus, a new fish species from the Tananthayi or Tenasserim River basin, Malay Peninsula of Myanmar (Osteoglossidae: Osteoglossiformes). Aqua 18(2), 113-118</li><li>van Oijen, M. J. P. and S. E. T. van der Meij (2013). The types of Osteoglossum formosum Müller &amp; Schlegel, 1840 (Teleostei, Osteoglossidae). Zootaxa 3722(3), 361-371</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a493c0ea695fe621.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a493c0ea695fe621-480.webp",
+      "width": 800,
+      "height": 477,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "caption": "Young adult of the 'red tail golden' form from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9ae1d5b5b62eee83.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9ae1d5b5b62eee83-480.webp",
+      "width": 800,
+      "height": 515,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "caption": "Adult individual of the 'super red' form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d0e9c485cdd2ced4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d0e9c485cdd2ced4-480.webp",
+      "width": 800,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "caption": "Frontal detail of the 'super red' form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/25eed079586f976a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/25eed079586f976a-480.webp",
+      "width": 800,
+      "height": 475,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-formosus",
+      "caption": "Adult specimen; 'red tail golden' form.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 2m",
+        "bể cá rồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá rồng",
+        "viên cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
