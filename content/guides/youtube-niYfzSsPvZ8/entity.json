@@ -1,0 +1,89 @@
+{
+  "id": "youtube-niYfzSsPvZ8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=niYfzSsPvZ8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "niYfzSsPvZ8",
+    "title": "EP:3 Complete Aquascaping Beginners Guide - Substrate & Hardscape",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 825,
+    "publishedAt": "2025-01-08",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-gG6PogcPrQahHdKhBOmHq8",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/niYfzSsPvZ8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Dennerle",
+        "model": "Aquasoil",
+        "t": 32
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 32
+      },
+      {
+        "category": "khac",
+        "brand": "Dennerle",
+        "model": "Scaper's Tank 55L",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nên dùng nền gì cho bể cây",
+        "moments": [
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t40.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các bao phân nền aquasoil ADA xếp trên kệ cửa hàng."
+          },
+          {
+            "t": 224,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t224.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Phân nền dạng hạt được san thành lớp dày trong bể cây."
+          }
+        ]
+      },
+      {
+        "heading": "Cần mua bao nhiêu phân nền",
+        "moments": [
+          {
+            "t": 234,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t234.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Lớp phân nền đổ dốc nhẹ, phía trước mỏng, phía sau dày hơn."
+          },
+          {
+            "t": 248,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t248.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể trống với lớp phân nền trải đều ở đáy."
+          }
+        ]
+      }
+    ]
+  }
+}

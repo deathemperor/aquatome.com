@@ -1,0 +1,80 @@
+{
+  "id": "youtube-glJgch3u4g8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=glJgch3u4g8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "glJgch3u4g8",
+    "title": "How To Aquascape - Episode 4: FILTRATION",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 455,
+    "publishedAt": "2020-04-02",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-jsZGD1DJYM4Wsd2zNSm8Xd",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/glJgch3u4g8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 103
+      },
+      {
+        "category": "loc",
+        "t": 103
+      },
+      {
+        "category": "loc",
+        "brand": "JBL",
+        "t": 390
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 235
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao bể cần lọc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/glJgch3u4g8/p0-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/glJgch3u4g8/p0-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Miếng mút lọc xốp màu đen, nơi vi sinh có lợi bám vào."
+        }
+      },
+      {
+        "heading": "Ba loại vật liệu lọc làm gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/glJgch3u4g8/p3-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/glJgch3u4g8/p3-sXzA2MDIyNy5qcGc-480.webp",
+          "width": 960,
+          "height": 614,
+          "licence": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
+          "caption": "Mút lọc, sứ lọc dạng ống và sỏi xốp dùng làm vật liệu lọc."
+        }
+      }
+    ]
+  }
+}

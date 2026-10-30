@@ -1,0 +1,80 @@
+{
+  "id": "youtube-eVpPzjUQo-4",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=eVpPzjUQo-4",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "eVpPzjUQo-4",
+    "title": "How To Aquascape - Episode 2: LIGHTING!",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 243,
+    "publishedAt": "2020-03-29",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-jsZGD1DJYM4Wsd2zNSm8Xd",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/eVpPzjUQo-4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 30
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nên dùng loại đèn nào cho bể thủy sinh",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/eVpPzjUQo-4/p0-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/eVpPzjUQo-4/p0-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh cây xanh tươi được chiếu sáng bằng đèn LED gắn trên bể."
+        }
+      },
+      {
+        "heading": "Chọn mua đèn thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/eVpPzjUQo-4/p4-hcmFzX2xlZC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/eVpPzjUQo-4/p4-hcmFzX2xlZC5qcGc-480.webp",
+          "width": 960,
+          "height": 577,
+          "licence": "CC BY-SA 4.0",
+          "author": "Gustavo Sivila",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acuario_iluminado_con_l%C3%A1mparas_led.jpg",
+          "caption": "Bể thủy sinh nuôi cá nhỏ, có ba đèn LED gắn phía trên."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/eVpPzjUQo-4/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/eVpPzjUQo-4/p5-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh mới set với lũa, cát trắng và cây lá xanh."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "youtube-iFDXqeBOxQk",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=iFDXqeBOxQk",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "iFDXqeBOxQk",
+    "title": "TOP 10 AQUASCAPING TIPS FOR BEGINNERS (in order of importance)",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 1043,
+    "publishedAt": "2021-12-01",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Intro"
+      },
+      {
+        "start": 75,
+        "title": "Tip#10"
+      },
+      {
+        "start": 159,
+        "title": "Tip#9"
+      },
+      {
+        "start": 250,
+        "title": "Tip#8"
+      },
+      {
+        "start": 343,
+        "title": "Tip#7"
+      },
+      {
+        "start": 397,
+        "title": "Tip#6"
+      },
+      {
+        "start": 455,
+        "title": "Tip#5"
+      },
+      {
+        "start": 544,
+        "title": "Tip#4"
+      },
+      {
+        "start": 646,
+        "title": "Tip#3"
+      },
+      {
+        "start": 760,
+        "title": "Tip#2"
+      },
+      {
+        "start": 871,
+        "title": "Tip#1"
+      }
+    ],
+    "series": {
+      "id": "PLrlvf56gZy-guXb--pBvqVYxFP2mJBQjR",
+      "position": 27
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/iFDXqeBOxQk/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Microsorum pteropus",
+      "Otocinclus sp.",
+      "Caridina multidentata"
+    ],
+    "gear": [
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 560
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 95
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 65
+      },
+      {
+        "category": "khac",
+        "brand": "Flux Aqua",
+        "model": "light screens",
+        "t": 996
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm sao để bể chạy ổn định mỗi ngày",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/t30.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thủy sinh chạy ổn định với đá phủ rêu và thảm cỏ xanh."
+          },
+          {
+            "t": 39,
+            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/t39.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh bể thủy sinh, cây mọc đều và ống CO2 ở góc bể."
+          }
+        ]
+      },
+      {
+        "heading": "Đèn là chân ga: cân bằng đèn, CO2 và phân",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riccia_fluitans-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Bể nông dưới đèn LED, rêu và cây thủy sinh lên xanh tốt."
+        }
+      },
+      {
+        "heading": "Gặp rêu hại thì làm gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p7-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p7-mdHdvb2RfMy5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
+          "caption": "Cá otocinclus bám trên khúc lũa, giúp dọn rêu hại trong bể thủy sinh."
+        }
+      }
+    ]
+  }
+}

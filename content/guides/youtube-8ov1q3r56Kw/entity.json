@@ -1,0 +1,71 @@
+{
+  "id": "youtube-8ov1q3r56Kw",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=8ov1q3r56Kw",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "8ov1q3r56Kw",
+    "title": "How To Aquascape - The Series Episode 1: AQUARIUMS!",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 301,
+    "publishedAt": "2020-03-27",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-jsZGD1DJYM4Wsd2zNSm8Xd",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/8ov1q3r56Kw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 60
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 60
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Người mới nên chọn bể kích thước bao nhiêu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8ov1q3r56Kw/p1-ha3Zhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8ov1q3r56Kw/p1-ha3Zhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 737,
+          "licence": "Public domain",
+          "author": "User Aleš Tošovský",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
+          "caption": "Bể cây thủy sinh cỡ vừa với đá, lũa và nền sỏi gọn gàng."
+        }
+      },
+      {
+        "heading": "Thảm lót dưới đáy bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8ov1q3r56Kw/p4-0tMTYwMTM1LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8ov1q3r56Kw/p4-0tMTYwMTM1LmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ermell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ebing_Kunststoffmatten-20160429-RM-160135.jpg",
+          "caption": "Những cuộn thảm cao su xanh dày, loại có thể cắt làm tấm lót đáy bể."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "youtube-D8ZPJeMEXiY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=D8ZPJeMEXiY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "D8ZPJeMEXiY",
+    "title": "How To Aquascape - Episode 5: CO2",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 349,
+    "publishedAt": "2020-04-08",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-jsZGD1DJYM4Wsd2zNSm8Xd",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/D8ZPJeMEXiY/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 33
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 65
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Một bộ CO2 chuyên dụng gồm những gì",
+        "moments": [
+          {
+            "t": 69,
+            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/t69.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh van giảm áp trên bình CO2 và dây dẫn khí."
+          },
+          {
+            "t": 74,
+            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/t74.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bình CO2 nén gắn van giảm áp với hai đồng hồ đo."
+          }
+        ]
+      },
+      {
+        "heading": "Nên chọn bình chuyên dụng hay tự chế",
+        "moments": [
+          {
+            "t": 103,
+            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/t103.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Các bình CO2 đặt cạnh nhau dưới sàn, gần bể thủy sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Đưa CO2 vào nước bằng cách nào",
+        "moments": [
+          {
+            "t": 206,
+            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/t206.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Sủi CO2 đặt trong bể, gắn trên thành kính giữa thảm cỏ."
+          }
+        ]
+      },
+      {
+        "heading": "Châm bao nhiêu là đủ và đo thế nào",
+        "moments": [
+          {
+            "t": 256,
+            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/t256.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Ống drop checker gắn trong bể thủy sinh để đo lượng CO2."
+          }
+        ]
+      },
+      {
+        "heading": "Bể có nhất thiết phải có CO2 không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/p5-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/D8ZPJeMEXiY/p5-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây rậm xanh, không cần châm CO2 vẫn lên khá ổn."
+        }
+      }
+    ]
+  }
+}
