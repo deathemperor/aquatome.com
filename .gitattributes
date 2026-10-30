@@ -1,2 +1,5 @@
 content/changelog.json merge=changelog
 engine-state/_photo-*.json merge=jsonmap
+engine-state/_wanted.json merge=jsonmap
+engine-state/_gbif-names.json merge=jsonmap
+engine-state/_sources.json merge=jsonmap

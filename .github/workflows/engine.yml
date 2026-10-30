@@ -1,6 +1,6 @@
 name: engine
 # The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
-# framework, and the page fetcher drives a real (headed) Chrome. Three parallel jobs (scripts/engine-cycle.sh <part>), each
+# framework, and the page fetcher drives a real (headed) Chrome. Four parallel jobs (scripts/engine-cycle.sh <part>), each
 # testing, committing and deploying its own content, so a failure in one loses only that part's work.
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       engine_args:
-        description: 'Extra args for `pnpm engine run` (e.g. --sources scotcat --limit 2); set = a short run without the video/photo steps'
+        description: 'Extra args for `pnpm engine run` (e.g. --sources scotcat --limit 2); set = a short run (pages job only) without the video/photo steps'
         default: ''
       max_minutes:
         description: 'Minutes for page processing'
@@ -26,6 +26,9 @@ jobs:
       matrix:
         include:
           - part: pages
+            os: macos-latest
+          # Seriously Fish's backlog, beside the other sources instead of sharing the pages job's time with them.
+          - part: sf
             os: macos-latest
           - part: photos
             os: macos-latest

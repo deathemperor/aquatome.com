@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # One content-engine cycle: sync → engine steps → build + test → commit + push → deploy.
-# The steps come in three parts that GitHub runs as parallel jobs (engine.yml), each publishing its own work, so one
-# failing part loses only its own: pages (new pages, with their photos screened and stored), photos (upkeep of the
-# photos on every page), rewrite (older Vietnamese). No argument: all three, one after another.
+# The steps come in four parts that GitHub runs as parallel jobs (engine.yml), each publishing its own work, so one
+# failing part loses only its own: pages (new pages from every source but Seriously Fish, with their photos screened and
+# stored), sf (the same for Seriously Fish, whose ~1,800-page backlog would otherwise take most of the pages job),
+# photos (upkeep of the photos on every page), rewrite (older Vietnamese). No argument: all four, one after another.
 # Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
 set -euo pipefail
 # The job's PATH first (GitHub Actions: setup-node's Node), then the owner's Mac tool dirs (launchd).
@@ -11,8 +12,10 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
 log() { echo "$(date -u +%FT%TZ) $*"; }
 PART="${1:-all}"
-case "$PART" in all|pages|photos|rewrite) ;; *) echo "usage: $0 [pages|photos|rewrite]" >&2; exit 2 ;; esac
+case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
+# A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
+if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
 # GitHub: a push made with GITHUB_TOKEN starts no workflow, so start deploy.yml for it (one deploy at a time, the newest waiting).
 deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
@@ -52,11 +55,11 @@ fi
 git checkout -q main && git pull -q --ff-only
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
-# The pages and photos parts both add to the photo caches in engine-state.
+# The parts all add to the photo caches and the run records in engine-state.
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 if part pages; then
-  pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:-}
+  pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
@@ -68,11 +71,14 @@ if part pages; then
   # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
   pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
 fi
+if part sf && [ -z "${ENGINE_ARGS:-}" ]; then
+  pnpm engine run --sources seriouslyfish --max-minutes "${ENGINE_MAX_MINUTES:-300}"
+fi
 if part photos; then
   # Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
   pnpm engine photos --limit 60 || log "photos: backfill failed"
 fi
-if part pages photos; then
+if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
@@ -82,7 +88,7 @@ if part photos; then
   # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
   pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
 fi
-if part pages photos; then
+if part pages sf photos; then
   # Commons and iNaturalist photos (new galleries, new pages) copied to our bucket: their hosts set third-party cookies.
   pnpm engine mirror-photos --limit "${MIRROR_LIMIT:-200}" || log "mirror-photos: failed"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
