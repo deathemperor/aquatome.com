@@ -50,13 +50,22 @@ test('every English part translated; local name; Thai addressed by scientific na
   expect(JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8')).slug).toBe('kept-address')
 })
 
-test('a part the model leaves out fails that page; nothing written', async () => {
+test('a part left out (shop talk, a byline) is dropped and shown to the reviewer; nothing left fails the page', async () => {
   const root = await site()
   const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
-  const llm = async <T,>() => ({ name: 'Ikan Uji', altNames: [], nameConfidence: 'low', parts: [] }) as T
-  const r = await localizeSpecies(root, llm, 'id', [id], { now })
-  expect(r.failed[0]).toMatch(/left out part/)
+  const nothing = async <T,>() => ({ name: 'Ikan Uji', altNames: [], nameConfidence: 'low', parts: [] }) as T
+  expect((await localizeSpecies(root, nothing, 'id', [id], { now })).failed[0]).toMatch(/left out every part/)
   await expect(readFile(join(root, 'content/species', id, 'id.json'), 'utf8')).rejects.toThrow()
+  let reviewed = ''
+  const firstOnly = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) { reviewed = a.prompt; return { score: 0.9, notes: [] } as T }
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Ikan Uji', altNames: [], nameConfidence: 'low', parts: [{ id: ids[0], text: '<p>ok</p>' }] } as T
+  }
+  await localizeSpecies(root, firstOnly, 'id', [id], { now })
+  const t = JSON.parse(await readFile(join(root, 'content/species', id, 'id.json'), 'utf8'))
+  expect(Object.keys(t.sections)).toHaveLength(1)
+  expect(reviewed).toContain('(left out)')
 })
 
 test('text from a source that does not allow translation is never sent or written', async () => {

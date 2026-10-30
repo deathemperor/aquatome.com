@@ -43,17 +43,19 @@ async function write(llm: Llm, lang: TargetLang, species: string, parts: { id: s
     `--- PARTS ---\n${parts.map(p => `### ${p.id}\n${p.en}`).join('\n\n')}`,
   ].join('\n\n')
   const r = await llm<Written>({ system: `You translate aquarium-handbook pages into ${TARGETS[lang].lang}. Reply only with JSON.`, prompt, schema: SCHEMA, model })
+  // A part may come back empty: the rules drop sales talk and bylines, and some parts are nothing else. The reviewer
+  // sees it marked as left out, so a part with real content dropped scores low; a page with nothing left fails.
   const out = new Map<string, string>()
   for (const p of parts) {
-    const text = r.parts.find(x => x.id === p.id)?.text.trim()
-    if (!text) throw new Error(`translation left out part ${p.id}`)
-    out.set(p.id, /<[a-z]/i.test(p.en) ? sanitizeHtml(text) : text.replace(/<[^>]+>/g, '').trim())
+    const text = r.parts.find(x => x.id === p.id)?.text.trim() ?? ''
+    out.set(p.id, !text ? '' : /<[a-z]/i.test(p.en) ? sanitizeHtml(text) : text.replace(/<[^>]+>/g, '').trim())
   }
+  if (![...out.values()].some(Boolean)) throw new Error('translation left out every part')
   return { ...r, parts: out }
 }
 
 async function review(llm: Llm, lang: TargetLang, parts: { id: string; en: string }[], done: Map<string, string>) {
-  const pairs = parts.map((p, i) => `### ${i + 1}\nEN:\n${p.en}\n${lang.toUpperCase()}:\n${done.get(p.id)}`).join('\n\n')
+  const pairs = parts.map((p, i) => `### ${i + 1}\nEN:\n${p.en}\n${lang.toUpperCase()}:\n${done.get(p.id) || '(left out)'}`).join('\n\n')
   const r = await llm<{ score: number; notes: string[] }>({ system: `You are a strict English→${TARGETS[lang].lang} translation reviewer. Reply only with JSON.`, prompt: `${fill(REVIEW, lang)}\n\n${pairs.slice(0, 80_000)}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
@@ -111,7 +113,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
       const t = TranslationSchema.parse({
         slug, name, altNames: [...new Set(w.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5),
-        sections: Object.fromEntries(parts.map(p => [p.id, w.parts.get(p.id)!])),
+        sections: Object.fromEntries(parts.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])),
         quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) },
       })
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
