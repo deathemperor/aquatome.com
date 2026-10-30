@@ -5,12 +5,13 @@ import { toIndexItem } from '../../../lib/species-index'
 import { jsonForScript } from '../../../lib/json'
 import { VN_WATER } from '../../../lib/climate'
 import { getTraits } from '../../../lib/traits'
+import { SUBSTRATES } from '../../../scripts/calc'
 
 const c = await getContent()
 const traits = await getTraits()
 const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, 'vi'))
 ---
-<Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể và công suất sưởi.">
+<Browse title="Công cụ" heading="Công cụ" intro="Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua và công suất sưởi.">
   <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
     <h2 id="tm-h">Nuôi chung được không? Thả bao nhiêu con?</h2>
     <p class="lead">Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.</p>
@@ -38,6 +39,20 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
     <p class="note">Bể lục giác, trụ tròn, bể góc, chữ L, hoặc cần biết kính dày bao nhiêu: <a href="/vi/cong-cu/the-tich-be/">tính theo 12 kiểu bể →</a></p>
   </section>
 
+  <section class="tool" id="nen" aria-labelledby="sub-h">
+    <h2 id="sub-h">Cần bao nhiêu nền?</h2>
+    <p class="lead">Dùng dài và rộng bể ở trên. Nền dốc từ trước ra sau trông sâu hơn và giữ rễ cây tốt hơn.</p>
+    <form id="sub-form" class="row">
+      <label>Loại nền
+        <select name="kind">{Object.entries(SUBSTRATES).map(([k, s]) => <option value={k}>{s.name}</option>)}</select>
+      </label>
+      <label>Dày phía trước (cm) <input name="front" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="4" /></label>
+      <label>Dày phía sau (cm) <input name="back" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="8" /></label>
+    </form>
+    <p id="sub-out" class="out" aria-live="polite"></p>
+    <p class="note">Bể thủy sinh: phân nền 4–5 cm phía trước, 7–10 cm phía sau; có thể lót 1–2 cm đá nham thạch bên dưới cho thoáng rễ (chọn “Đá nham thạch” để tính riêng lớp lót). Cát cho cá chuột, cá đáy: 3–5 cm là đủ.</p>
+  </section>
+
   <section class="tool" id="suoi" aria-labelledby="heat-h">
     <h2 id="heat-h">Cần sưởi bao nhiêu W?</h2>
     <p class="lead">Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {VN_WATER.northWinter}°C).</p>
@@ -54,7 +69,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
 <script>
   import type { SpeciesIndexItem } from '../../../scripts/filter'
   import { checkTankmates, TEMPERAMENT_LABELS } from '../../../scripts/tankmates'
-  import { heaterWatts, tankVolume } from '../../../scripts/calc'
+  import { heaterWatts, substrate, tankVolume, type SubstrateKind } from '../../../scripts/calc'
   import { stocking } from '../../../scripts/stocking'
 
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
@@ -153,12 +168,18 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
     if (!(l > 0 && w > 0 && ht > 0)) { $('vol-out').textContent = 'Nhập đủ dài, rộng, cao.'; $('heat-out').textContent = ''; return }
     const vol = tankVolume(l, w, ht)
     $('vol-out').innerHTML = `<strong>${fmt(vol.litres, 0)} lít</strong> theo kích thước, thực tế khoảng <strong>${fmt(vol.water, 0)} lít nước</strong> (≈ ${fmt(vol.water, 0)} kg, chưa tính kính, nền và đá).`
+    const sf = $<HTMLFormElement>('sub-form')
+    const [front, back] = [num(sf, 'front'), num(sf, 'back')]
+    if (front >= 0 && back >= 0 && front + back > 0) {
+      const sub = substrate(l, w, front, back, (sf.elements.namedItem('kind') as HTMLSelectElement).value as SubstrateKind)
+      $('sub-out').innerHTML = `<strong>${fmt(sub.litres)} lít</strong> (khoảng ${fmt(sub.kg)} kg) → mua <strong>${sub.bags.map(b => `${b.n} bao ${b.size} ${b.unit}`).join(' + ')}</strong>.`
+    } else $('sub-out').textContent = 'Nhập độ dày nền.'
     const heat = heaterWatts(l, w, ht, num(h, 'target'), num(h, 'room'))
     $('heat-out').innerHTML = heat.heater === 0 ? 'Phòng đã đủ ấm, không cần sưởi.'
       : heat.heater === null ? `Cần khoảng ${fmt(heat.watts, 0)} W: dùng nhiều sưởi cộng lại.`
       : `Cần khoảng ${fmt(heat.watts, 0)} W → chọn sưởi <strong>${heat.heater} W</strong>.`
   }
-  for (const id of ['vol-form', 'heat-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
+  for (const id of ['vol-form', 'sub-form', 'heat-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
   renderCalc()
 </script>
 <style>
@@ -169,7 +190,7 @@ const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) =
   .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
   .row label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
   .row .grow { flex: 1 1 18rem; }
-  .row input { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
+  .row input, .row select { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
   .row button { font: 500 1rem var(--f-body); padding: 0.5rem 1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
   .out { font-size: 1.05rem; }
   :global(.chips) { list-style: none; padding: 0; margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-2); }

@@ -17,3 +17,28 @@ export function heaterWatts(lengthCm: number, widthCm: number, heightCm: number,
   const pick = HEATER_SIZES.find(s => s >= watts)
   return { watts, heater: watts === 0 ? 0 : pick ?? null }
 }
+
+/** Substrates sold here: bulk density (kg per litre) and the bag sizes shops stock. */
+export const SUBSTRATES = {
+  soil: { name: 'Phân nền (aqua soil)', kgPerL: 1.0, bags: [{ size: 9, unit: 'lít' }, { size: 3, unit: 'lít' }] },
+  sand: { name: 'Cát', kgPerL: 1.6, bags: [{ size: 10, unit: 'kg' }, { size: 5, unit: 'kg' }] },
+  gravel: { name: 'Sỏi', kgPerL: 1.5, bags: [{ size: 10, unit: 'kg' }, { size: 5, unit: 'kg' }] },
+  lava: { name: 'Đá nham thạch lót nền', kgPerL: 0.9, bags: [{ size: 5, unit: 'kg' }, { size: 1, unit: 'kg' }] },
+} as const
+export type SubstrateKind = keyof typeof SUBSTRATES
+
+/**
+ * Substrate for a bed sloping from `frontCm` deep at the glass to `backCm` at the back: litres, kg, and bags (fewest
+ * big bags, then small ones for the rest, never short).
+ */
+export function substrate(lengthCm: number, widthCm: number, frontCm: number, backCm: number, kind: SubstrateKind) {
+  const s = SUBSTRATES[kind]
+  const litres = (lengthCm * widthCm * (frontCm + backCm)) / 2 / 1000
+  const kg = litres * s.kgPerL
+  const need = s.bags[0].unit === 'lít' ? litres : kg
+  const [big, small] = s.bags
+  let nBig = Math.floor(need / big.size)
+  let nSmall = Math.ceil((need - nBig * big.size) / small.size - 1e-9)
+  if (nSmall * small.size >= big.size) { nBig++; nSmall = 0 }
+  return { litres, kg, bags: [{ ...big, n: nBig }, { ...small, n: nSmall }].filter(b => b.n > 0) }
+}
