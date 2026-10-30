@@ -55,6 +55,8 @@ const v = g.video
 const description = excerpt(g.t.body ?? '')
 // A guide in another language cites only the sources its own facts come from.
 const refs = g.t.refs ?? g.refs
+// A cited page in Vietnamese keeps its title, marked as Vietnamese on the other languages' pages.
+const viTitle = (s: string) => /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i.test(s)
 const jsonld: object[] = []
 if (v) {
   jsonld.push({
@@ -106,7 +108,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
     {refs && refs.length > 0 && (
       <section class="refs" id="nguon" aria-labelledby="ref-h">
         <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
-        <ol>{refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank">{r.title}</a></li>)}</ol>
+        <ol>{refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={viTitle(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && viTitle(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
       </section>
     )}
   </article>
