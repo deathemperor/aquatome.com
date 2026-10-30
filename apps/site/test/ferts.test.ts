@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { SALTS, gramsFor, ppm } from '../src/scripts/ferts'
+import { EI_DOSES, EI_WEEK, MAIN, SALTS, gramsFor, ppm } from '../src/scripts/ferts'
 
 test('mass fractions agree with the molar masses', () => {
   expect(SALTS.kno3.gives.NO3 + SALTS.kno3.gives.K).toBeCloseTo(1, 3) // K + NO3 is the whole salt
@@ -16,8 +16,13 @@ test('ppm straight in, and from a solution', () => {
 })
 
 test('grams for a target, and none when the salt has no such ion', () => {
-  // EI-sized dose: 7.5 ppm NO3 in 75 L → 0.92 g KNO3 (about ½ teaspoon, as EI recipes give for 20 gallons).
+  // 7.5 ppm NO3 in 75 L → 0.92 g KNO3 (about ½ teaspoon, as EI recipes give for 20 gallons).
   expect(gramsFor('kno3', 'NO3', 7.5, 75)).toBeCloseTo(0.917, 2)
   expect(gramsFor('kh2po4', 'PO4', 1.3, 75)).toBeCloseTo(0.14, 2)
   expect(gramsFor('kno3', 'Fe', 1, 75)).toBeUndefined()
+})
+
+test('every salt has a main ion it actually gives; EI per dose is the week split in three', () => {
+  for (const [id, ion] of Object.entries(MAIN)) expect((SALTS[id as keyof typeof SALTS].gives as Record<string, number>)[ion]).toBeGreaterThan(0)
+  expect(EI_WEEK.NO3! / EI_DOSES).toBeCloseTo(6.67, 2)
 })
