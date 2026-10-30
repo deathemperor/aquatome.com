@@ -89,6 +89,9 @@ export const EquipmentSchema = z.object({
  * iNaturalist, screened (a living fish, clearly shown, no people), best first, each with a short Vietnamese caption.
  */
 /** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
+/** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
+export const CaptionsSchema = z.record(z.string(), z.string())
+
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */

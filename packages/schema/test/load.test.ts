@@ -72,3 +72,21 @@ test('a breed whose address is already a species page stops the build', async ()
   await writeFile(join(dir, 'breeds/clash-2/entity.json'), JSON.stringify({ id: 'clash-2', kind: 'hybrid', parents: [], care: {}, photos: [], sources: [], updatedAt: '2026-10-30' }))
   await expect(loadAll({ root: dir, lang: 'vi', publicBuild: false })).rejects.toThrow(/already a breed page/)
 })
+
+test('Vietnamese photo captions are shown translated in another language, or left off until they are', async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-captions-'))
+  await cp(root, dir, { recursive: true })
+  await writeFile(join(dir, 'species/alpha/id.json'), await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  const photo = { url: 'https://x/1.jpg', width: 4, height: 3, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://x/1' }
+  await mkdir(join(dir, 'gallery'))
+  await writeFile(join(dir, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 3, updatedAt: '2026-10-31', photos: [
+    { ...photo, caption: 'Cá alpha đực trong bể thủy sinh' }, { ...photo, caption: 'Cá alpha cái' }, { ...photo, caption: 'Male, aquarium trade' },
+  ] }))
+  await mkdir(join(dir, 'captions'))
+  await writeFile(join(dir, 'captions/id.json'), JSON.stringify({ 'Cá alpha đực trong bể thủy sinh': 'Ikan alpha jantan di akuarium' }))
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.galleries.alpha!.map(p => p.caption)).toEqual(['Ikan alpha jantan di akuarium', undefined, 'Male, aquarium trade'])
+  const vi = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
+  expect(vi.galleries.alpha!.map(p => p.caption)).toEqual(['Cá alpha đực trong bể thủy sinh', 'Cá alpha cái', 'Male, aquarium trade'])
+})

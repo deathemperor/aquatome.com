@@ -6,7 +6,8 @@ import { creditsFor } from '../../../../lib/credits'
 import { GALLERY_MIN, licenceUrl } from '../../../../lib/gallery'
 import { breedGallery } from '../../../../lib/breeds'
 import { smallSrc } from '../../../../lib/img'
-import { i18n, langOf, licenceLabel } from '../../../../lib/i18n'
+import { i18n, langOf, licenceLabel, localizePath, toVi, type Lang } from '../../../../lib/i18n'
+import { alternatesOf } from '../../../../lib/alternates'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   // Species and man-made fish (breeds) alike; a breed has no scientific name.
@@ -18,6 +19,8 @@ const { t } = i18n(Astro.url)
 const sci = 'scientificName' in s ? s.scientificName : undefined
 const from = [...new Set(photos.map(p => (/inaturalist\.org/.test(p.sourceUrl) ? 'iNaturalist' : /unsplash\.com/.test(p.sourceUrl) ? 'Unsplash' : 'Wikimedia Commons')))].join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
 const page = `/vi/ca/${s.t.slug}/`
+// The same photos in every language: the gallery is there wherever its fish's page is.
+const alternates = Object.fromEntries(Object.entries(await alternatesOf(sci ? 'species' : 'breeds', s.id)).map(([l, p]) => [l, localizePath(l as Lang, `${toVi(p)}anh/`)]))
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name: s.t.name })}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
@@ -26,7 +29,7 @@ const jsonld = [{
   })),
 }]
 ---
-<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name: s.t.name, n: photos.length })} heading={t('Ảnh {name}', { name: s.t.name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name: s.t.name, sci: sci ? ` (${sci})` : '' })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor(photos)}>
+<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name: s.t.name, n: photos.length })} heading={t('Ảnh {name}', { name: s.t.name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name: s.t.name, sci: sci ? ` (${sci})` : '' })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)}>
   <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{t('{n} ảnh từ {from}, giấy phép mở.', { n: photos.length, from })} <a href={page}>{t('Cách nuôi {name} →', { name: s.t.name })}</a></p>
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (

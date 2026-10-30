@@ -2,7 +2,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { isAllowedLicence } from './licence'
-import { BreedSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { isVietnamese } from './text'
+import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
@@ -61,8 +62,17 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
   const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
+  // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
+  // one not translated yet is left off, so the photo's alt text falls back to the page's name.
+  const captionsFile = join(root, 'captions', `${lang}.json`)
+  const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
+  const caption = (p: Photo): Photo => {
+    if (lang === 'vi' || !p.caption || !isVietnamese(p.caption)) return p
+    const { caption: vi, ...rest } = p
+    return captions[vi] ? { ...rest, caption: captions[vi] } : rest
+  }
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
-  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence)))
+  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence))).map(caption)
   const cleanCard = (card: SpeciesEntity['dataCard']): SpeciesEntity['dataCard'] =>
     Object.fromEntries(
       Object.entries(card)

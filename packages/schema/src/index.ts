@@ -1,6 +1,7 @@
 export * from './schemas'
 export type * from './types'
 export { slugify } from './slug'
+export { isVietnamese } from './text'
 export { STAPLE_SPECIES } from './staples'
 export { resolveDataCard } from './datacard'
 export { isAllowedLicence, filterPhotos } from './licence'
