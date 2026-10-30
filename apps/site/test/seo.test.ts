@@ -15,6 +15,15 @@ test('every vi page has exactly one canonical and a vi hreflang', () => {
     expect(html, f).toContain('hreflang="vi"')
   }
 })
+test('every page has one non-empty h1', () => {
+  // Every language's pages (not the redirects: /, /go/…).
+  const bad = ['vi', 'id', 'th'].flatMap(l => (existsSync(join(DIST, l)) ? htmlFiles(join(DIST, l)) : [])).filter(f => {
+    const h1 = readFileSync(f, 'utf8').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g) ?? []
+    return h1.length !== 1 || !h1[0]!.replace(/<[^>]+>/g, '').trim()
+  })
+  expect(bad.map(f => f.slice(DIST.length))).toEqual([])
+})
+
 test('sitemap lists indexable pages and omits noindex ones', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
   expect(xml).toContain('/vi/ca/ca-neon-vua/')

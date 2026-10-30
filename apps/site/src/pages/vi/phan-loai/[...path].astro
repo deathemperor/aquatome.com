@@ -39,7 +39,8 @@ const crumbs: [string, string][] = node.path.length
   : []
 ---
 <Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
-  {node.path.length === 3 && <span slot="heading" class="sci">{node.name}</span>}
+  {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
+  <span slot="heading" class:list={{ sci: node.path.length === 3 }}>{node.path.length ? node.name : t('Phân loại')}</span>
   {kids.length > 0 && (
     <ul class="kids">
       {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}
