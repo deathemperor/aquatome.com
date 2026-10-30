@@ -109,6 +109,24 @@ test('no English track is a skip; a broken rewrite keeps the first draft', async
   expect((await read(root2, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
 })
 
+test('a guide that still names the creator or the video gets one editor pass; the writer is not given the channel', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const named = { ...draft('Bản đầu'), body: `<p>Bể được set trong video chỉ dùng cây in vitro.</p><p>${LONG}</p>` }
+  const { d, calls } = deps(root, { drafts: [named, draft('Bản sửa')] })
+  await videoGuides(d, { playlists: ['PL1'] })
+  const vi = await read(root, 'content/guides/youtube-a1/vi.json')
+  expect(vi.name).toBe('Bản sửa')
+  expect(vi.body).not.toContain('trong video')
+  expect(calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toHaveLength(1)
+  expect(calls.prompts.find(p => p.includes('Bản ghi:'))).not.toContain('Kênh:')
+  expect(calls.prompts.find(p => p.includes('TRANSCRIPT:'))).toContain('must not name')
+
+  // A clean guide is not edited.
+  const clean = deps(await mkdtemp(join(tmpdir(), 'yt-')))
+  await videoGuides(clean.d, { playlists: ['PL1'] })
+  expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
+})
+
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const first = deps(root)

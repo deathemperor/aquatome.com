@@ -4,12 +4,14 @@ const ALLOWED = new Set(['p', 'ul', 'ol', 'li', 'strong', 'em', 'h3', 'table', '
 const DROP_WITH_CONTENT = new Set(['script', 'style', 'iframe', 'object', 'embed', 'noscript', 'template', 'svg', 'math'])
 const BLOCK = new Set(['p', 'ul', 'ol', 'h3', 'table'])
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+/** "Tác giả: Martin Thoene. Chỉnh sửa lần cuối…": the source article's byline. Pages never name the author; the source is credited under the page. */
+const BYLINE = /^\s*tác giả\s*:/i
 
 function render(node: Node): string {
   if (node.nodeType === NodeType.TEXT_NODE) return esc(node.text)
   if (!(node instanceof HTMLElement)) return ''
   const tag = node.rawTagName?.toLowerCase() ?? ''
-  if (DROP_WITH_CONTENT.has(tag)) return ''
+  if (DROP_WITH_CONTENT.has(tag) || (tag === 'p' && BYLINE.test(node.text))) return ''
   const inner = node.childNodes.map(render).join('')
   if (tag === 'br') return '<br>'
   return ALLOWED.has(tag) ? `<${tag}>${inner}</${tag}>` : inner
