@@ -1,9 +1,9 @@
 name: engine
-# The content engine, every 6 hours (was launchd on the owner's Mac). macOS: face screening uses Apple's Vision
+# The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
 # framework, and the page fetcher drives a real (headed) Chrome. Commits content and deploys (scripts/engine-cycle.sh).
 on:
   schedule:
-    - cron: '23 */6 * * *'
+    - cron: '23 */3 * * *'
   workflow_dispatch:
     inputs:
       engine_args:
@@ -39,6 +39,8 @@ jobs:
       - run: scripts/engine-cycle.sh
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Videos on species pages (YouTube Data API search, 10,000 units/day).
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

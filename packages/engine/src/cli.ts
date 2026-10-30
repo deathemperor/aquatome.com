@@ -90,6 +90,8 @@ if (cmd === 'run') {
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     for (const e of report.errors) console.log(`error: ${e}`)
     console.log(`changed: ${report.changed.length}`)
+    // A rejected Claude credential stops every page: fail the cycle so the scheduler (GitHub Actions) reports it.
+    if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log('error: Claude rejected the credential — replace CLAUDE_CODE_OAUTH_TOKEN'); process.exitCode = 1 }
   } finally {
     await fetcher.close()
   }
