@@ -79,3 +79,14 @@ test('an owner-fixed name and its redirects survive every source; a name Serious
   const b = mergeSpecies(fixed, page(), ctx('seriouslyfish'))
   expect(b.vi).toMatchObject({ name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: 'ca-neon-vua-super-red', name: 'Cá neon vua Super Red' }] })
 })
+
+test('a source page giving one part twice (two quick-facts blocks): one section with both texts, in English and in Vietnamese', () => {
+  const r = mergeSpecies({}, page({ sections: [
+    { key: 'quickFacts', en: '<p>Wild caught.</p>', vi: '<p>Cá bắt tự nhiên.</p>' },
+    { key: 'diet', en: '<p>Worms.</p>', vi: '<p>Giun.</p>' },
+    { key: 'quickFacts', en: '<p>Max 3 cm.</p>', vi: '<p>Tối đa 3 cm.</p>' },
+  ] }), ctx('glaser'))
+  expect(r.entity.sections.filter(s => s.key === 'quickFacts').map(s => s.html)).toEqual(['<p>Wild caught.</p>\n<p>Max 3 cm.</p>'])
+  expect(r.vi.sections['quickFacts:glaser']).toBe('<p>Cá bắt tự nhiên.</p>\n<p>Tối đa 3 cm.</p>')
+  expect(r.vi.sections['diet:glaser']).toBe('<p>Giun.</p>')
+})

@@ -3,22 +3,25 @@
   "name": "Cá betta livida",
   "altNames": [
     "Cá betta hoang dã livida",
-    "Betta Livida"
+    "Betta Livida",
+    "Betta livida hoang dã",
+    "Betta livida"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Kích thước tối đa: 1,2 - 1,5 inch (khoảng 3 - 3,8 cm).</p>",
-    "behaviour:bwaquatics": "<p>Hung dữ ở mức vừa phải; cá đực có thể bảo vệ lãnh thổ khi chọn nơi sinh sản. Tuy nhiên, do kích thước nhỏ, bạn có thể nuôi nhiều cặp miễn là có đủ không gian và chỗ ẩn nấp. Cần lường trước hiện tượng cắn vây.</p>",
-    "aquariumSize:bwaquatics": "<p>Khuyến nghị 1 cặp cho mỗi 5 gallon (khoảng 19 lít).</p>",
-    "waterConditions:bwaquatics": "<ul><li>TDS: 60 - 100</li><li>pH: 5,0 - 6,5</li><li>Nhiệt độ: 24 - 28°C (75 - 82°F)</li></ul>",
-    "diet:bwaquatics": "<p>Ăn thịt. Người bán hiện cho ăn trùn chỉ đen sống, trùn huyết đông lạnh và thức ăn viên.</p>",
-    "reproduction:bwaquatics": "<p>Làm tổ bọt.</p>",
-    "beforeYouBuy:bwaquatics": "<p>Hãy chuẩn bị sẵn môi trường sống trước khi mua.</p>"
+    "quickFacts:bwaquatics": "<ul><li>Cá bắt ngoài tự nhiên ở Indonesia.</li><li>Thuộc nhóm Betta coccina.</li><li>Sách Đỏ IUCN: Nguy cấp (nguy cơ tuyệt chủng ngoài tự nhiên rất cao).</li><li>Kích thước tối đa: 3 - 4 cm.</li><li>TDS: 60 - 100.</li><li>pH: 5,0 - 6,5.</li><li>Nhiệt độ: 24 - 28°C.</li><li>Sinh sản: làm tổ bọt.</li></ul>",
+    "beforeYouBuy:bwaquatics": "<p>Bạn nên set sẵn bể cho cá trước khi mua về.</p>",
+    "habitat:bwaquatics": "<p>Betta livida thuộc nhóm Betta coccina. Thân cá màu đỏ sẫm, điểm những chấm ánh kim màu vàng hoặc xanh lục. Một số con có thêm một đốm xanh lục sẫm ở giữa thân. Cũng như phần lớn các loài trong nhóm coccina, mắt cá có màu xanh lam phản quang.</p>",
+    "aquariumSize:bwaquatics": "<p>Mỗi cặp nên có khoảng 19 lít nước.</p>",
+    "waterConditions:bwaquatics": "<ul><li>TDS: 60 - 100</li><li>pH: 5,0 - 6,5</li><li>Nhiệt độ: 24 - 28°C</li></ul>",
+    "diet:bwaquatics": "<p>Đây là loài ăn thịt. Thức ăn cho cá gồm giun đen sống, trùng huyết đông lạnh và cám viên.</p>",
+    "behaviour:bwaquatics": "<p>Cá có tính hung hăng ở mức vừa phải. Lúc chọn chỗ sinh sản, cá đực có thể giữ lãnh thổ. Vì cá nhỏ nên bạn vẫn nuôi chung được nhiều cặp, miễn là bể đủ rộng và có đủ chỗ trốn. Chuyện cá cắn vây nhau thì nên tính trước là sẽ có.</p>",
+    "reproduction:bwaquatics": "<p>Cá làm tổ bọt.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.9
+      "bwaquatics": 0.85
     }
   }
 }

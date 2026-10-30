@@ -31,13 +31,19 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 3.8
+        "value": 3.5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "bwaquatics",
+        "value": 20
       }
     ]
   },
@@ -46,19 +52,19 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Wild caught Betta livida from Indonesia, from the Betta coccina complex. It has a dark red body with specks of metallic yellow/green. Some have a dark green spot in the center of the body. Like most coccinas, they have reflective blue eyes.</p><p>IUCN Red List: Endangered (a very high risk of extinction in the wild).</p>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Maximum size: 1.2 - 1.5 inches (about 3 - 3.8 cm).</p>"
+      "html": "<ul><li>Wild-caught from Indonesia.</li><li>Belongs to the Betta coccina complex.</li><li>IUCN Red List: Endangered (a very high risk of extinction in the wild).</li><li>Maximum size: 3 - 4 cm (1.2 - 1.5 inches).</li><li>TDS: 60 - 100.</li><li>pH: 5.0 - 6.5.</li><li>Temperature: 24 - 28°C (75 - 82°F).</li><li>Breeding: bubble nester.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+      "html": "<p>Have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Betta livida belongs to the Betta coccina complex. It has a dark red body with specks of metallic yellow/green. Some have a dark green spot in the centre of the body. Like most coccinas, they have reflective blue eyes.</p>"
     },
     {
       "key": "aquariumSize",
@@ -76,41 +82,41 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space and cover. Expect fin nipping.</p>"
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. Because of their small size, multiple pairs can be kept as long as there is enough space and cover. Expect fin nipping.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Bubblenester.</p>"
+      "html": "<p>Bubble nester.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/047d9aa6c478e0e9.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/047d9aa6c478e0e9-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/047d9aa6c478e0e9-480.webp"
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/c099ab4003e5cf50.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/c099ab4003e5cf50-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/c099ab4003e5cf50-480.webp"
+      "source": "bwaquatics"
     }
   ],
   "videos": [],
@@ -145,5 +151,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }
