@@ -44,6 +44,8 @@ pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
 # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
 pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
+# Commons and iNaturalist photos (new galleries, new pages) copied to our bucket: their hosts set third-party cookies.
+pnpm engine mirror-photos --limit "${MIRROR_LIMIT:-200}" || log "mirror-photos: failed"
 # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
 pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 # Pictures report (docs/review/content-audit.md): pages without a photo, a card thumb, or pictures inside the text.

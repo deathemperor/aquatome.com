@@ -162,9 +162,10 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
     const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8')) as { scientificName: string; photos: Photo[] }
     const vi = JSON.parse(await readFile(join(content, 'species', id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
     try {
-      const seen = new Set(e.photos.map(p => p.url))
+      // A page photo by its URL or its source page (the same photo after it moved to our bucket).
+      const seen = new Set(e.photos.flatMap(p => [p.url, p.sourceUrl]))
       const cands = [...await commonsCandidates(e.scientificName, d.http), ...await inatCandidates(e.scientificName, d.http, d.sleep)]
-        .filter(c => !rejected[c.url] && !seen.has(c.url) && !seen.has(c.key) && (seen.add(c.key), true))
+        .filter(c => !rejected[c.url] && !seen.has(c.url) && !seen.has(c.sourceUrl) && !seen.has(c.key) && (seen.add(c.key), true))
       const photos = (await screen(cands.slice(0, Math.round((o.max ?? 300) * 1.5)), e.scientificName, vi.name ?? e.scientificName, d)).slice(0, o.max ?? 300)
       await mkdir(join(content, 'gallery'), { recursive: true })
       await writeFile(file, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: cands.length, updatedAt: today }), null, 2)}\n`)

@@ -116,3 +116,10 @@ test('a photo that does not decode is skipped instead of breaking the contact sh
   const report = await galleries(r, deps({ get: async () => (n++ === 0 ? new Uint8Array([0xff, 0xd8, 0xff, 0x00, 0x01]) : new Uint8Array(await jpeg)), faces: async f => f.map(() => 0), look: async () => ({ keep: [{ n: 1, caption: 'x' }], best: [] }) }), { limit: 5 })
   expect(report.done).toEqual(['betta-splendens: 1 of 2'])
 })
+
+test('gallery: the page\'s photo is recognised after it moved to our bucket (same source page, new URL)', async () => {
+  const r = await root()
+  await writeFile(join(r, 'content/species/betta-splendens/entity.json'), JSON.stringify({ scientificName: 'Betta splendens', photos: [{ url: 'https://media.aquatome.com/inaturalist/5.webp', sourceUrl: 'https://www.inaturalist.org/photos/5' }] }))
+  const report = await galleries(r, deps(), { limit: 5 })
+  expect(report.done).toEqual(['betta-splendens: 1 of 2'])
+})
