@@ -2,7 +2,8 @@
 # One content-engine cycle on the home machine: sync → run engine → build + test → commit + push → deploy.
 # Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
 set -euo pipefail
-export PATH="$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+# The job's PATH first (GitHub Actions: setup-node's Node), then the owner's Mac tool dirs (launchd).
+export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
 log() { echo "$(date -u +%FT%TZ) $*"; }
@@ -17,7 +18,7 @@ TOKEN_FILE="$HOME/.config/thuysinh/cf-token"
 [ -s "$TOKEN_FILE" ] || { log "missing $TOKEN_FILE — not running"; exit 1; }
 
 # shellcheck disable=SC1091
-. "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
+[ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
 log "cycle start"
 if [ -n "$(git status --porcelain -- content sources)" ]; then
   log "uncommitted content from an earlier failed cycle — fix it (see /tmp/thuysinh-engine-test.log) before new runs"; exit 1
