@@ -1,0 +1,169 @@
+{
+  "id": "betta-raja",
+  "scientificName": "Betta raja",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<ul><li>Betta pugnax complex</li><li>IUCN Red List: Least Concern</li><li>Mouthbrooder type betta</li><li>Temperament: territorial; can be kept in pairs with adequate space</li><li>Max size: 4+ inches (over 10 cm)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>Originates from Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>The natural habitat consists of calm, blackwater streams with overhanging plants and vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>These bettas can get very big, so it is recommended to house them in tanks of 10 gallons or larger.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS, but they are more tolerant of water conditions)</li><li>pH: 6.5 - 7.5</li><li>Temperature: 75-85 °F (24-29 °C); much better coloration at warmer temperatures above 78 °F (26 °C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>Territorial. They can be maintained in a pair or a group, given adequate space.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>Males are generally larger, with more iridescence on the cheek plates.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/936fdf355ef3efab.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/936fdf355ef3efab-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/8c735f8acc7e74a4.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/8c735f8acc7e74a4-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/e5265b9318e02f8d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/e5265b9318e02f8d-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/cfba98f96600e944.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/cfba98f96600e944-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40 lít",
+        "bể cá betta 40cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini",
+        "máy sưởi 50W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc xốp cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

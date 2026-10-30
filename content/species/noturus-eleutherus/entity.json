@@ -1,0 +1,140 @@
+{
+  "id": "noturus-eleutherus",
+  "scientificName": "Noturus eleutherus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "ohio-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 14,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Noturus eleutherus Jordan, 1877. Common name: Mountain Madtom. Size: 13 cm (5.1\") SL. Robust body with a fairly deep caudal peduncle and a dark brown bar at the base of the caudal fin. The pectoral spine is long, with 6-10 prominent sawlike teeth on the rear edge and large teeth on the front edge. Brown or gray above, usually with dark mottling and usually 4 vague saddles; light below.</p><p>This species is highly endangered.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>North America: Ohio River basin from northwestern Pennsylvania to eastern Illinois, and south to Tennessee and northern Georgia in the USA; White and St. Francis River drainages in Missouri and Arkansas; Mississippi River in western Tennessee; Ouachita River and Red River drainages in the USA.</p><p>Type locality: Big Pigeon River, tributary of French Broad River, Tennessee, U.S.A.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Occurs in clear, cool, rocky riffles, runs and flowing pools of creeks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Temperature: 14-22°C (57.2-71.6°F). pH 6.2-7.0. Highly oxygenated water is a must.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Provide sand mixed with peat moss, PVC pipes, flat rocks and vegetation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Readily feeds on live and frozen foods. Will also adapt to flake and prepared foods for the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Suitable for a coldwater community tank. Ideal tankmates include small to midsized North American native fishes such as darters and shiners.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Breeding male with swollen lips, enlarged cephalic epaxial muscles, and a large bulbous genital papilla. Female with a papilla with a deep median groove ending in a small bump.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Spawning occurs in the months of May-August. It is difficult in the aquarium, however it has been done when wild-caught specimens are added to aquariums with warmer temperatures than the river or drainage system they were captured from. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1078",
+      "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 371.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước tạo dòng chảy",
+        "máy sục khí oxy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "than bùn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cá dạng mảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

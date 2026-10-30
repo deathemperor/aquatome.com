@@ -1,0 +1,127 @@
+{
+  "id": "betta-compuncta",
+  "scientificName": "Betta compuncta",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "melak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 7.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>From the Betta unimaculata complex. IUCN Red List: N/A. Wild-caught Betta compuncta from Melak.</p><ul><li>Maximum size: 3+ inches</li><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (prefers cooler temperatures, but higher temperatures induce coloration and breeding behaviour)</li><li>Breeding: Mouthbrooder</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed on live, frozen and dried foods, such as blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Like many species in this complex, the largest bettas can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Light brown to tan base body with light blue iridescence on the opercular cheeks and lower jaws, body and tails; females have less iridescence. Fully grown adult males have longer ventral fins and larger bodies.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/75941f9dfd640c7c.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/75941f9dfd640c7c-480.webp",
+      "width": 1200,
+      "height": 1500,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/272f1acbd8c624bd.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/272f1acbd8c624bd-480.webp",
+      "width": 1200,
+      "height": 1500,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/fdaf270b6d017dda.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/fdaf270b6d017dda-480.webp",
+      "width": 1200,
+      "height": 1500,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

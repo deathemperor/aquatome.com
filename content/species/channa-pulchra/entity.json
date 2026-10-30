@@ -1,0 +1,127 @@
+{
+  "id": "channa-pulchra",
+  "scientificName": "Channa pulchra",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar",
+    "rakhine"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "html": "<p>Channa pulchra occurs in Burma (Rakhine State), geographically close to Channa ornatipinnis. Unlike C. ornatipinnis, C. pulchra is also found in lower-lying biotopes where the water temperature apparently never drops below 20°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "html": "<p>C. pulchra develops strong intraspecific aggressiveness at temperatures below 25°C. Kept at 25-28°C they are comparatively (!) peaceful snakeheads. The aquarium strains and imports are apparently recruited from the relatively peaceful, considerably easier to handle warm-water forms.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "html": "<p>Both C. pulchra and C. ornatipinnis grow to a similar size, but differ considerably in their aquarium biology: C. ornatipinnis is a cold-water fish and becomes very aggressive within the species at temperatures above 20°C, whereas C. pulchra develops such aggressiveness at temperatures below 25°C. At 25-28°C C. pulchra are comparatively peaceful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "html": "<p>Like C. ornatipinnis, C. pulchra is not a mouthbrooder, but cares for the buoyant eggs on the water surface or in shelters. At 25-28°C they reproduce very readily.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "html": "<p>The differences between C. pulchra and C. ornatipinnis are easy to recognize. The black spots on the head of C. pulchra are very small, like speckles, whereas they are large and solid in C. ornatipinnis. The strikingly striped pectoral fins are black with very thin white bands in C. ornatipinnis; in C. pulchra the white bands are much wider, almost as wide as the black ones. Both species reach about 20-25 cm.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/2e0f79cc8a73b7bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/2e0f79cc8a73b7bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/35756db5ad443678.webp",
+      "thumb": "https://media.aquatome.com/glaser/35756db5ad443678-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1fcefe15b8f169ff.webp",
+      "thumb": "https://media.aquatome.com/glaser/1fcefe15b8f169ff-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dbc5aaf41ade7f47.webp",
+      "thumb": "https://media.aquatome.com/glaser/dbc5aaf41ade7f47-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-pulchra-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lóc cảnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

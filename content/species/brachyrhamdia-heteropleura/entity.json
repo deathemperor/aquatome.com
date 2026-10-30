@@ -1,0 +1,78 @@
+{
+  "id": "brachyrhamdia-heteropleura",
+  "scientificName": "Brachyrhamdia heteropleura",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Brachyrhamdia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo",
+    "suriname",
+    "corantijn",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1063",
+      "html": "<ul><li>Scientific name: Brachyrhamdia heteropleura (Eigenmann, 1912)</li><li>Family: Heptapteridae</li><li>Type locality: Rupununi Pan, Guyana.</li><li>Synonym: Pimelodus heteropleurus</li><li>Size: 43 mm (1.7 inches) SL.</li><li>IUCN Red List: Least Concern (last assessed 2020).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1063",
+      "html": "<p>South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1063",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 176, Pl. 16 (fig. 2).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "nền cát mịn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

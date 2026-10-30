@@ -1,0 +1,111 @@
+{
+  "id": "heros-severus",
+  "scientificName": "Heros severus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Heros",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "brazil",
+    "amazon",
+    "colombia",
+    "orinoco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/",
+      "html": "<p>Heros severus is the type species of the genus Heros, yet it is the most uncharacteristic representative of the group. This is mainly due to its reproductive behaviour, which is mouthbreeding and untypical for Heros, as all the others are substrate breeders. Its coloration also differs from the other members of the genus. Adults reach up to 25 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/",
+      "html": "<p>Brazil, Colombia, Venezuela; Amazon, Orinoco.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/",
+      "html": "<p>Heros severus should be kept in soft to medium hard water with a pH around neutral. Hard water is tolerated as well, although the coloration may then fade. The fish might also be more prone to disease or show signs of deterioration.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/",
+      "html": "<p>Vegetarian components should be added to the menu, and they are known to devour aquatic plants as well. Live and frozen food is taken eagerly, and even dry foods such as large flakes or sticks are readily accepted.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/",
+      "html": "<p>Reproduction is by mouthbreeding, which is untypical for the genus Heros, whose other members are substrate breeders.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/5d3b17435622d33f.webp",
+      "thumb": "https://media.aquatome.com/glaser/5d3b17435622d33f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_wild_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/923e7a20a0694c03.webp",
+      "thumb": "https://media.aquatome.com/glaser/923e7a20a0694c03-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_wild_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d787de493779222f.webp",
+      "thumb": "https://media.aquatome.com/glaser/d787de493779222f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_wild_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

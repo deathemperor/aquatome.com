@@ -1,0 +1,70 @@
+{
+  "id": "fissidens-fontanus",
+  "scientificName": "Fissidens fontanus",
+  "difficulty": 2,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "slow",
+  "placement": [
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Fissidensfontanus(002F)/4390",
+      "html": "<ul><li>Type: Moss</li><li>Height: 3 - 5+ cm</li><li>Light demand: Medium</li><li>CO2: Medium</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Fissidensfontanus(002F)/4390",
+      "html": "<p>This featherlike Fissidens-moss with tight deep green down comes from North America. It grows relatively slow and requires much more light than other mosses. Suitable for attaching to wood pieces or rocks both vertically and horizontally in the aquarium.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/81db0ee988f0156a.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY 4.0",
+      "author": "(c) Christen Warkoczewski, some rights reserved (CC BY)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_Pocket_Moss_iNaturalist.jpg",
+      "caption": "Photo of Water Pocket Moss uploaded from iNaturalist.",
+      "thumb": "https://media.aquatome.com/commons/81db0ee988f0156a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2b2afd251f08b1a2.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Njmeyer03",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F.fontanus.jpg",
+      "caption": "Fissidens fontanus in the field",
+      "thumb": "https://media.aquatome.com/commons/2b2afd251f08b1a2-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu Fissidens",
+        "rêu thủy sinh gắn lũa"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh",
+        "đèn bể thủy sinh"
+      ]
+    },
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -1,0 +1,160 @@
+{
+  "id": "clarias-camerunensis",
+  "scientificName": "Clarias camerunensis",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Clarias",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "togo",
+    "democratic-republic-of-the-congo",
+    "congo",
+    "ghana",
+    "cameroon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 46.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Clarias camerunensis Lönnberg, 1895. Type locality: Cameroon. Maximum size 46.6 cm SL (18.3\").</p><p>IUCN Red List: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Africa: coastal rivers from Togo to the lower and central Congo system. Reported from Ghana.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<ul><li>pH: 6.0 - 8.0</li><li>Temperature: 20.0-27.0°C (68-80.6°F)</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Open spaces for swimming and some cover is required.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Omnivorous and predatory. Will eat virtually anything that can be considered edible.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Must be housed with lively, robust large fish. Suggested tankmates: large Cyprinids (Silver Sharks, Tinfoil or Spanner Barbs for example) or Central American Cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>The genital papilla, which is to the right of the anus as you look at the fish with its head to the left, is elongated and pointed in males while it is round and relatively larger (and larger than the anus) in females. In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Not reported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Etymology: Clarias comes from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water. The species is named after its type locality (Cameroon).</p><p>Identification: Clarias species have an elongated body; a soft-rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft-rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; a depressed head covered largely by firmly sutured, surface-sculptured bony plates forming a protective helmet; four pairs of flagellate barbels; and air-breathing organs derived from the 2nd and 4th epibranchials within a superbranchial chamber. Dorsal rays 69-87; anal rays 52-70; vertebrae 56-61. Head rectangular dorsally; snout extremely broadly rounded; eyes more laterally placed. Toothplate extremely broad. Pectoral spine slender, with strong downward serrations on the outer side. Suprabranchial organ well developed.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1054",
+      "html": "<p>Öfversigt af Kongliga Vetenskaps-akademiens Forhandlingar v. 52 (no. 3), pp 182.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/01f3be8742dfcba7.webp",
+      "width": 960,
+      "height": 271,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_camerunensis.jpg",
+      "caption": "Clarias camerunensis",
+      "thumb": "https://media.aquatome.com/commons/01f3be8742dfcba7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/37d469ab53d2e656.webp",
+      "width": 960,
+      "height": 283,
+      "licence": "Public domain",
+      "author": "David Starr Jordan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_51853_African_Catfish,_Chlarias_breveceps_Boulenger_Congo_River_Family_Chlaridae.jpeg",
+      "caption": "African Catfish, Chlarias breveceps Boulenger. Congo River. Family Chlaridae Subject: Clarias Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/37d469ab53d2e656-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3196fa411310211f.webp",
+      "width": 960,
+      "height": 1490,
+      "licence": "Public domain",
+      "author": "G.A.Boulenger (text)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PZSL1907Page1078.png",
+      "caption": "Lateral view (below), head from above (above left), premaxillary and vomerine dentition (above right, premaxillary on top).",
+      "thumb": "https://media.aquatome.com/commons/3196fa411310211f-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

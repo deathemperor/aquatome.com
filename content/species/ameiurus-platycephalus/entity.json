@@ -1,0 +1,163 @@
+{
+  "id": "ameiurus-platycephalus",
+  "scientificName": "Ameiurus platycephalus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ameiurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "roanoke"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<ul><li>Scientific name: Ameiurus platycephalus (Girard, 1859)</li><li>Common name: Flat Bullhead</li><li>Size: 290 mm (11.4\") SL</li><li>Type locality: Savannah River drainage, near Anderson, South Carolina, U.S.A.</li><li>IUCN Red List: Least Concern (last assessed 2011)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>North America: Atlantic Piedmont and Coastal Plain from the Roanoke River drainage in Virginia, USA to the Altamaha River drainage in Georgia, USA.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Occurs in mud-, sand-, or rock-bottomed pools of small to large rivers. Also found in lakes, impoundments and ponds.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<ul><li>pH: 6.6 - 7.8</li><li>Temperature: 18.0-26.0°C (64.4-78.8°F)</li></ul><p>Generally tolerant of water with low dissolved oxygen levels.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Open sand and rocks. Needs larger logs to hide under during the day.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>A nocturnal feeder that feeds on mollusks, leeches, crayfish and tiny fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Social with virtually anything they cannot swallow.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Females are much fuller bodied during the breeding season, which occurs in early spring.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Not reported in the aquarium hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Identification: flat head, relatively straight snout profile. Relatively short anal fin, rounded in outline, 21-24 rays. Large dark blotch at dorsal fin base. Gold yellow to dark brown above, dark mottling on side, dull cream below, dusky fins, narrow black edge on median fins; 11-13 rakers on 1st gill arch.</p><p>Etymology: Ameiurus means \"curtailed\", referring to the lack of a deep notch in the caudal fin. Platys means flat and cephalus, head.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1077",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 11 (nos. 60-77), pp 161.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/76f9c4f1abdf88e9.webp",
+      "width": 959,
+      "height": 509,
+      "licence": "Public domain",
+      "author": "Hugh McCormick Smith",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_34271_Ameiurus_platycephalus_(Girard)_Mud_cat_(SC).jpeg",
+      "caption": "Ameiurus platycephalus (Girard). Mud cat (S.C.) Subject: Catfishes, Ameiurus platycephalus Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/76f9c4f1abdf88e9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/19537e354b9a1be9.webp",
+      "width": 960,
+      "height": 349,
+      "licence": "Public domain",
+      "author": "Hugh McCormick Smith",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_51343_Brown_Cat-Fish_Ameiurus_platycephalus.jpeg",
+      "caption": "Brown Cat-Fish. Ameiurus platycephalus Subject: Ictaluridae, Catfishes Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/19537e354b9a1be9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/96588d6544abb077.webp",
+      "width": 960,
+      "height": 1682,
+      "licence": "Public domain",
+      "author": "Evermann, Barton Warren; Jordan, David Starr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_North_and_Middle_America_(Pl._XXVII)_(7983307506).jpg",
+      "caption": "U. S. NATIONAL MUSEUM BULLETIN NO. 47, PL. XXVII \"\"\"\"\"\"^-'S^i'^-^' '\\: G3 ■m.tst'Aii^^i^!:;J^--!:i^-i 's'sSsS'-AKsy-n.... 61. Ameiurus platycephalus. (P. 142.) 62. Leptops olivaris. (P. 143.) 63. NoTU",
+      "thumb": "https://media.aquatome.com/commons/96588d6544abb077-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200 lít",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lũa trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

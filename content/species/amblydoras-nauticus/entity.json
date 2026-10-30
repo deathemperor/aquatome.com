@@ -42,6 +42,10 @@
       {
         "source": "seriouslyfish",
         "value": 7.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 7.5
       }
     ],
     "tankCm": [
@@ -65,10 +69,28 @@
       "html": "<p>The marbled talking catfish, Amblydoras nauticus, is a small doradid catfish from Peru, described from Nauta in the Peruvian Amazon. It is often still sold as A. hancockii, a name now considered a synonym of Platydoras hancockii. Hardy and tolerant of a wide range of water conditions, it is secretive and rarely seen by day. It makes audible sounds by grinding its pectoral spines in their sockets and by resonating the swim bladder, and its spines tangle easily in nets.</p><ul><li>Max size: 75 mm SL (3.0 in SL)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<ul><li>Scientific name: Amblydoras nauticus (Cope, 1874)</li><li>Type locality: Nauta, Peru.</li><li>Synonyms: Anadoras nauticus, Zathorax nauticus</li><li>Etymology: Amblydoras comes from the Greek amblys, meaning blunt, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the non-serrated dorsal spine.</li><li>Size: 75 mm (3\") SL.</li><li>IUCN Red List: Least Concern (last assessed 2014).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>Reasonably easy to identify, although young fish can look quite variable. Some degree of sexual dichromatism exists, and the males bear a resemblance to the larger Anadoras grypus. Very often sold under the incorrect name of Amblydoras hancockii.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amblydoras-nauticus",
       "html": "<p>Type locality is Nauta, Peru, and the species may be endemic to the Peruvian Amazon region.</p><p>Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>South America: Upper Amazon River basin.</p>"
     },
     {
       "key": "habitat",
@@ -95,10 +117,28 @@
       "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>This species is not fussy regarding water parameters.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>Does not harm plants; all that is really required is a dark place in which the catfish can find refuge. Care must be taken that this is nowhere near the heater element, as these fish will wedge themselves between the heater and the aquarium wall and may burn themselves.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amblydoras-nauticus",
       "html": "<p>Proprietory catfish pellets, algae wafers and granular varieties will all be accepted, but live and frozen foods should also form a regular part of the diet. It's a good idea to add food to the aquarium just before lights out as it mainly feeds during hours of darkness.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>A nocturnal scavenger. Younger fish tend to be a little more active during the day, but the best way to ensure this fish is properly fed is to introduce sinking food into the tank after dark. Most foods are accepted gluttonously. Individuals will gorge themselves on food to the point of appearing fit to burst.</p>"
     },
     {
       "key": "behaviour",
@@ -107,10 +147,22 @@
       "html": "<p>Peaceful, but may eat very small fishes. Best kept in a South American biotope-style arrangement with medium-sized tetras, peaceful cichlids and catfishes such as other doradids, Corydoras spp. and Loricariids.</p><p>It's non-aggressive towards conspecifics and actually prefers the company of its own kind, so buy a group of at least 3 of these if you can.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>A perfect community tank resident. As with all doradids, it does well with its conspecifics and other members of the same family. Can be kept with anything from tetras to medium-sized cichlids.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amblydoras-nauticus",
       "html": "<p>The male apparently has a spotted underside while the female does not. Females also tend to develop a rounder body shape as they mature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>Some keepers report that the underside of the female is creamy white, while the male is freckled. Males are more slender than the wider females (when viewed from above or below).</p>"
     },
     {
       "key": "reproduction",
@@ -119,23 +171,35 @@
       "html": "<p>Not yet achieved in captivity. Apparently, it builds a bubblenest among surface vegetation in nature, which is subsequently guarded by the male.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>In the aquarium, this species is an egg scatterer. But reports exist of reproduction in the wild involving a bubble nest built in plants, which the male guards. Exceedingly small (&lt; 10 mm SL) young Amblydoras were collected in semi-aquatic reeds and partially submerged shrubs. No adults were collected in water about 45 cm deep. Youngsters were everywhere, and one swipe of the net could turn up ten or more young. There is but a single breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amblydoras-nauticus",
       "html": "<p>This species was previously thought to be, and is often still sold as, A. hancockii, a name currently considered synonymous with Platydoras hancockii (Valenciennes 1840). It's also known by the vernacular names of blue-eyed catfish or Hancock's doradid, and in many ways is an ideal beginners' catfish, being hardy and tolerant of a wide range of water conditions.</p><p>Its main drawback is its secretive nature and it will rarely be seen during daylight hours. If you want to see it more often, consider installing a red light above the tank. The fish cannot see red lightwaves, so if you switch this on at night you should be able to observe it foraging for food.</p><p>The 'talking catfish' moniker is derived from the fishes ability to produce sounds when communicating with conspecifics or threatened. It can produce these in 2 ways. The first is by locking the pectoral fins into their sockets to an extent. The fish can then grind the spines on the pectorals against the socket, producing a 'buzzing' sound.</p><p>The second is by rapidly contracting and relaxing a muscle that's attached to the back of the skull at one end and the front of the swim bladder at the other. This causes the swimbladder to resonate and produces a slightly deeper sound. The noises are clearly audible and can sometimes be heard through the aquarium glass, or when the fish is netted.</p><p>A word on netting these cats; the spines on the body and fins can easily become entangled in the mesh of aquarium nets, so take care if you need to move it for any reason. The sharp pectoral spines can also cause an eye-watering wound if you happen to be impaled by them.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 26, pp 133.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/30013ecc858854fb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/30013ecc858854fb-480.webp",
       "width": 800,
       "height": 544,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amblydoras-nauticus",
       "caption": "This species is often traded as A. hancockii, a name currently regarded synonymous with Platydoras hancockii.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/30013ecc858854fb-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/053c308bd1656071.webp",
@@ -213,5 +277,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

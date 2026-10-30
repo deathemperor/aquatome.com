@@ -7,7 +7,8 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "kalimantan"
   ],
   "dataCard": {
     "tempC": [
@@ -15,7 +16,7 @@
         "source": "bwaquatics",
         "value": {
           "min": 24,
-          "max": 29
+          "max": 28
         }
       }
     ],
@@ -23,21 +24,30 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 4,
+          "max": 6.2
         }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 5.8
+        "value": 5.5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
-        "value": 4
+        "value": 7
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 0,
+          "max": 3
+        }
       }
     ]
   },
@@ -45,66 +55,110 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<ul><li>One of two species in the Betta dimidiata complex.</li><li>IUCN Red List: Vulnerable.</li><li>F1 (first generation from wild-caught bettas).</li><li>Max size: 2.3 inches.</li><li>Breeding: mouthbrooder.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Betta dimidiata (“Two-Tone Betta”) is a distinctive and rarely seen wild betta. IUCN Red List: Vulnerable (threatened by ongoing habitat loss in lowland forest streams). Adults reach approximately 5–5.5 cm (≈ 2.0–2.2″) total length.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>These fish are wild-caught; please proceed with caution. Be sure to have the habitat ready before purchase. Only aquarists with solid experience maintaining peat-swamp blackwater species should attempt to keep it.</p>"
     },
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<p>This betta is found in the West Kalimantan area of Indonesia.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Native to Kalimantan, Borneo (Indonesia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Soft, acidic blackwater streams and forest pools. Its name refers to the characteristic “halved” or two-toned color pattern formed by contrasting darker and lighter zones along the body.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match other wild bettas, but they are more tolerant of water conditions.)</li><li>pH: 5.0 - 7.0</li><li>Temperature: 75-85°F (much better coloration at warmer temperatures above 78°F)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Soft, acidic blackwater is ideal.</p><ul><li>pH 4.0 – 6.2</li><li>GH ≤ 3 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 24 – 28 °C (75 – 82 °F); steady temperatures are important for overall health and breeding stability.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Provide plentiful leaf litter, driftwood tangles, and botanicals to create a dark, tannin-rich environment. Floating plants and dim lighting help reduce stress and promote natural behavior. Gentle or near-zero flow is preferred.</p>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<p>Carnivorous. We currently feed them live blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Carnivorous micropredator. Offer a varied diet of live or frozen foods such as mosquito larvae, daphnia, bloodworms, grindal worms, and brine shrimp. They may accept some high-quality micro-pellets once settled, but live foods consistently produce better coloration, vitality, and readiness for spawning.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<p>Fairly peaceful and can be kept in groups. Males will show off and flare at each other from time to time but no real harm is done. We recommend a pair per 5 gallon tank.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Best kept as a pair or a carefully monitored small group with substantial cover. Generally peaceful, though males can become territorial during breeding or if space is limited. Tankmates, if any, should be tiny, calm, softwater-tolerant species such as Boraras or Sundadanio. A species-only setup is often preferable due to this betta’s sensitivity and quiet nature.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<p>Dark gray/brown body with long flowing fins. A translucent blue edge can be seen on the fins, more pronounced on the anal fin.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Males typically exhibit subtle iridescence, warm earthy tones, and elegant fin extensions, while females remain smaller and more muted.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "html": "<p>Mouthbrooder.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>Betta dimidiata is a paternal mouthbrooder. The male and female perform gentle courtship embraces, after which the male collects the eggs and incubates them in his mouth. Incubation typically lasts 10–14 days, depending on temperature. The brooding male should not be disturbed, as stress may cause premature release of the eggs or fry. Newly released fry can begin eating baby brine shrimp, microworms, or moina immediately.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "html": "<p>As wild-caught Betta dimidiata, these fish are highly sensitive to sudden changes in pH, hardness, or temperature. Acclimate slowly and maintain ultra-stable, tannin-rich, softwater conditions. Provide abundant cover—roots, botanicals, caves, and thick leaf litter—to reduce stress and encourage natural behavior. A mature blackwater aquarium with minimal disturbance is essential for long-term success. This species is vulnerable in the wild.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/bwaquatics/5d5afa6a3b64028e.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/5d5afa6a3b64028e-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/a35d27d02637046f.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/a35d27d02637046f-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/fae1003633f0d3c7.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/fae1003633f0d3c7-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/fae1003633f0d3c7-480.webp"
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/d19090e526be2eb2.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/d19090e526be2eb2-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/d19090e526be2eb2-480.webp"
+      "source": "bwaquatics"
     }
   ],
   "videos": [],
@@ -137,5 +191,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

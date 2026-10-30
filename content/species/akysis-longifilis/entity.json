@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "sittaung"
+    "sittaung",
+    "sittang"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +19,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
       }
     ],
     "ph": [
@@ -26,6 +34,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.7,
+          "max": 7.2
         }
       }
     ],
@@ -42,18 +57,30 @@
       {
         "source": "seriouslyfish",
         "value": 5.3
+      },
+      {
+        "source": "scotcat",
+        "value": 5.5
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 30
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 2
       }
     ]
   },
@@ -65,10 +92,22 @@
       "html": "<p>The Sittaung stream catfish, Akysis longifilis, is a small akysid catfish known from the Sittaung River system in southern Myanmar. One of the few members of the family exported for the hobby, it has noticeably long nasal and maxillary barbels and two saddle-shaped light markings between the dorsal and caudal fins. The sympatric A. portellus is very similar, and differs mainly in its shorter adipose fin base and smaller mouth.</p><ul><li>Max size: 53 mm SL (2.1 in SL)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate; needs a well-established tank and stable water</li><li>Temperament: peaceful; needs to be in a group</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 5.5 cm (2¼ in)</li><li>Temperature: 18-23°C (63-73°F)</li><li>pH: 6.7-7.2</li><li>IUCN Red List: Not Evaluated</li><li>Described by Ng, 2006</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
       "html": "<p>The type series was collected from Pyu stream, a minor tributary of the Sittaung (aka Sittang) River system in Bago (formerly Pegu) Region, southern Myanmar. We've been unable to establish any firm details regarding additional localities to date but the species' appearance in the aquarium trade suggests it may have a wider distribution within the Sittaung drainage.</p><p>A. portellus also occurs in the Sittaung with its type locality just 90 km downstream from that of A. longifilis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>Asia: Sittang River drainage, southern Myanmar (Burma).</p>"
     },
     {
       "key": "habitat",
@@ -81,6 +120,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
       "html": "<p>Volume: ~41 litres (~11 US gal)</p><p>A tank with base dimensions of 45 × 30 cm (18 × 12 in) is more than sufficient, even for a group.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. They can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes and caves.</p>"
     },
     {
       "key": "maintenance",
@@ -101,10 +146,22 @@
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
       "html": "<p>Not especially competitive and should not be kept with much larger or more aggressive fishes. Miniature schooling cyprinids such as Boraras, Microdevario or smaller Danio/Rasbora species make good tankmates and if geography isn't an issue many similarly-sized characins and livebearers should also work.</p><p>Other similarly-sized akysid catfishes plus smaller sisorids such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, many balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are also suitable. Some members of the families Botiidae, Cobitidae and Nemacheilidae are ok but proper research is essential as some can be excessively aggressive/territorial or simply grow too large, and it's also proven to co-exist peacefully with freshwater shrimp.</p><p>It's nonaggressive towards conspecifics and can be kept singly or in a group as preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>They will either bury themselves in the sand or hide in caves and pipes. They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
     },
     {
       "key": "dimorphism",
@@ -125,13 +182,47 @@
       "html": "<p>This species is among the few members of the family to have been exported for the aquarium hobby. It can be differentiated from all other Akysis species by the following combination of characters: base of adipose fin measures 25.7-31.1% of standard length (SL); depth of body at anus 9.7-13.6% SL; length of caudal peduncle 18.3-23.2% SL; depth of caudal peduncle 5.6-7.2% SL; width of head 21.1-24.7% SL; length of nasal barbels 67.4-96.4% of head length (HL); length of maxillary barbels 123.2-159.6% HL; number of vertebrae 33-35; absence of serrations on posterior edge of pectoral fin spine; caudal fin forked; colour pattern on body with light saddle-shaped spots.</p><p>Among other Akysis species from southern Myanmar, A. longifilis can be distinguished by its noticeably long nasal and maxillary barbels and also colour pattern since it possesses two saddle-shaped light markings in the post dorsal area (between the dorsal and caudal fins).</p><p>In A. pictus this region is occupied by a single, long, saddle-shaped marking while in A. vespa there are two vertical bars. The most similar species is the sympatric A. portellus, which differs only in the length of the adipose fin base (25.7-31.1% in A. longifilis vs. 17.1-19.2% SL in A. portellus), mouth size (12.9-14.7% vs. 9.5-11.1% HL) lack of brown markings in the pelvic and anal fins (vs. presence, though based on images this character may not be 100% reliable with some individuals of A. longifilis appearing to lack these markings and some of A. portellus possessing them) and having a more rounded head shape when viewed from above.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects Ng and Kottelat (1998)[8] split the genus as originally accepted into the A. variegatus and A. pseudobagarius species groups, but all those of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>Description: Vertebrae: 33-35. Akysis longifilis is a member of the A. variegatus species group and differs from most congeners in the group in having a smooth (vs. serrated) posterior edge of the pectoral spine. It differs from A. vespa, A. variegatus, A. pictus, A. prashadi, A. brachybarbatus and A. fuliginatus in barbel length, caudal peduncle and adipose-fin base proportions; from A. varius and A. fuliginatus in having a forked (vs. truncate) caudal fin; and it has light saddle-shaped spots on the body.</p><p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name longifilis: from the Latin \"longus\" (long) and \"filum\" (filament), referring to the long barbels of this species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2007). Akysis pulvinatus, a new species of catfish (Siluriformes: Akysidae) from southern Thailand. Zootaxa 1608, 51-58</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and M. Kottelat (2004). Akysis vespa a new species of catfish (Siluriformes: Akysidae) from the Ataran River drainage (Myanmar). Ichthyological Exploration of Freshwaters 15(3), 193-200</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
+      "html": "<p>Ng, H. H., 2006 Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150: 19–30. Scotcat Factsheet No. 138. Dec. 2007.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/476973bbbfbb4c4f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/476973bbbfbb4c4f-480.webp",
+      "width": 1000,
+      "height": 292,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
+      "caption": "Relatively slim (male?) specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/296afb1d21a9c7f2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/296afb1d21a9c7f2-480.webp",
+      "width": 1000,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
+      "caption": "Relatively deep-bodied (female?) specimen.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/scotcat/782840a1650de0a3.webp",
       "thumb": "https://media.aquatome.com/scotcat/782840a1650de0a3-480.webp",
@@ -164,28 +255,6 @@
       "sourceUrl": "https://www.scotcat.com/akysidae/akysis_longifilis.htm",
       "caption": "Akysis longifilis",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/476973bbbfbb4c4f.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/476973bbbfbb4c4f-480.webp",
-      "width": 1000,
-      "height": 292,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
-      "caption": "Relatively slim (male?) specimen.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/296afb1d21a9c7f2.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/296afb1d21a9c7f2-480.webp",
-      "width": 1000,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-longifilis",
-      "caption": "Relatively deep-bodied (female?) specimen.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -220,5 +289,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

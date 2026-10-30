@@ -1,0 +1,161 @@
+{
+  "id": "akysis-heterurus",
+  "scientificName": "Akysis heterurus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "batang-hari"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 5.0-6.0 cm</li><li>Temperature: 18-22°C</li><li>pH: 6.5-7.5</li><li>Imported into the U.K. under the name Parakysis verrucosus.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>Asia: Batang Hari River basin, eastern Sumatra. Type locality: Sumatra: Jambi, Sg. Alai at 19.5 km Muara Bungo-Muara Tebo road.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>Akysid catfishes are known from across a large area of Southeast Asia. Roberts (1989) described them as small to minute fishes with cryptic colouration, tiny eyes, and completely covered with unculiferous plaques or tubercles. In some genera some of the tubercles on the body are enlarged and arranged in distinctive longitudinal rows, the number of which may be diagnostic. Fishes of the genus Akysis are very small, cryptically coloured species generally found in fast-flowing streams with a sandy or rocky bottom and, until recently, they have been poorly studied, mainly due to the paucity of material in museum collections.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>They can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes, and caves.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. They will either bury themselves in the sand or hide in caves and pipes. They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia, and sinking pellets (although they seem to prefer live or frozen food).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name heterurus: heteros, different; oura, tail, referring to truncate (vs. forked) caudal fin, \"distinctly different\" from its congeners.</p><p>IUCN Red List: This species is known from the Batang Hari drainage in central Sumatra. There are not enough point collections to accurately estimate Extent of Occurrence (EOO), Area of Occupancy (AOO), or number of locations. Localised and regional threats exist, but their direct impact on habitat quality and population status are largely unknown. Therefore, this species is assessed as Data Deficient until more information becomes available (IUCN 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Ng, H.H. 2019. Akysis heterurus. The IUCN Red List of Threatened Species 2019.</li><li>Ng, H.H. and Siebert D.J. A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733: 1–8 (2004).</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/8520383fe83cd290.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8520383fe83cd290-480.webp",
+      "width": 500,
+      "height": 272,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "caption": "Akysis heterurus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/37701d7d74dc9111.webp",
+      "thumb": "https://media.aquatome.com/scotcat/37701d7d74dc9111-480.webp",
+      "width": 500,
+      "height": 308,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "caption": "Akysis heterurus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4c09666602d4b14e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4c09666602d4b14e-480.webp",
+      "width": 500,
+      "height": 278,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_heterurus.htm",
+      "caption": "Akysis heterurus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 30cm",
+        "bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá trê"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn chìm cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

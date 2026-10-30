@@ -1,0 +1,133 @@
+{
+  "id": "rineloricaria-eigenmanni",
+  "scientificName": "Rineloricaria eigenmanni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<ul><li><strong>Scientific name:</strong> Rineloricaria eigenmanni (Pellegrin, 1908)</li><li><strong>Common name:</strong> Common Whiptail Catfish</li><li><strong>Type locality:</strong> Sarare, Venezuela</li><li><strong>Size:</strong> 102 mm (4 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li><li><strong>Etymology:</strong> Greek rhinos = nose + Latin lorica, loricare = cuirass or corslet of leather. Named in honour of Dr. Carl H. Eigenmann, Professor of Ichthyology in Indiana (1863-1927).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>South America: Orinoco drainage basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Habitat photo: Venezuelan llanos in the dry season.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<ul><li>pH: 6.0 - 7.4</li><li>Temperature: 24.0-29.0°C (75.2-84.2°F)</li><li>Needs neutral, soft water to initiate spawning.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Rounded stones, sticks, and leaves over sand. The fish should be provided with half-pipe type refuges, which are also often used as spawning sites.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Adaptable omnivores, these fish will eat most foods from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Peaceful and not territorial, will not harm even the smallest fry.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Males grow short spines on the top of their heads and on the pectoral fins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>This is a very common species. Easily identified by the combination of barred fins and the dark lines on the ventral sides of the tail.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
+      "html": "<p>Bulletin de la Société Zoologique de France v. 33 (no. 6/7), pp 125.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho cá lau kính"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

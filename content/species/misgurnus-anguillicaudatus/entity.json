@@ -8,7 +8,12 @@
   "places": [
     "asia",
     "myanmar",
-    "china"
+    "china",
+    "japan",
+    "south-korea",
+    "vietnam",
+    "russia",
+    "sakhalin"
   ],
   "dataCard": {
     "tempC": [
@@ -18,24 +23,61 @@
           "min": 15,
           "max": 25
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 4,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "loachesonline",
         "value": 25
+      },
+      {
+        "source": "sprucepets",
+        "value": 30
       }
     ],
     "tankCm": [
       {
         "source": "loachesonline",
         "value": 122
+      },
+      {
+        "source": "sprucepets",
+        "value": 100
       }
     ],
     "difficulty": [
       {
         "source": "loachesonline",
         "value": 2
+      },
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 0,
+          "max": 12
+        }
       }
     ]
   },
@@ -47,10 +89,22 @@
       "html": "<ul><li>Family: Cobitidae</li><li>Temperature: 15–25°C</li><li>Adult size: up to 25 cm (10 inches), slightly larger wild specimens reported</li><li>Minimum tank length: 91 cm (36\") for juveniles, at least 122 cm (48\") for adults</li><li>Very easy to care for; peaceful and hardy; keep in small groups</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<ul><li>Family: Cobitidae</li><li>Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin</li><li>Adult size: 12 inches (30 cm)</li><li>Social: peaceful, suitable for a community tank</li><li>Lifespan: 10 years</li><li>Tank level: bottom dweller</li><li>Minimum tank size: 40 gallons (about 150 litres)</li><li>Diet: omnivore, eats most foods</li><li>Breeding: egglayer, difficult to breed</li><li>Care: easy to intermediate</li><li>pH 6.0-8.0; hardness up to 12 dGH; temperature 4-25 °C (40-77 °F)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p>Native to Myanmar, much of North-eastern Asia, and down towards central China. This loach, a member of the family Cobitidae, can be found in a huge number of water systems.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia. However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan. This ever-widening distribution is due to several factors, including aquarium releases and farms where the fish are raised as a food source and for use as angling bait.</p>"
     },
     {
       "key": "habitat",
@@ -59,10 +113,22 @@
       "html": "<p>Habitats range from flowing rivers and streams to the quieter waters of swamps, ponds and rice-fields. These intriguing 'eel-shaped' loaches find sanctuary in silt- or mud-rich substrates, where they meander about through the leaf litter and rest with just their heads protruding from the often dense cover.</p><p>In the wild, Weather Loaches are found living within a surprisingly large temperature range, depending on location.</p>"
     },
     {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>The ability of the weather loach to thrive in less than optimal situations dates back to its natural habitat in China and Japan. There they live in shallow rivers, paddies, and even in ditches. Because they possess the ability to use their intestine to derive oxygen from the air, they can survive when oxygen levels drop very low.</p><p>During dry spells when water sources disappear, the weather loach survives by burrowing in the mud to protect its skin from drying out. If burrowing does not offer sufficient protection during particularly severe conditions, the weather loach is capable of secreting a protective mucus to prevent it from drying out.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p>Adults can reach a length of up to 25 cm (10\"), with slightly larger wild specimens reported. This size dictates the proportions of the aquarium: a minimum of 36\" (91 cm) long when juvenile, and at least 48\" (122 cm) long when adult. The tank should also be as wide (front to back) as possible, so that the fish have a large 'footprint' in which to explore, and well covered, to prevent these expert jumpers from escaping.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Minimum tank size: 40 gallons (about 150 litres). Average aquarium specimens reach five to eight inches (about 13-20 cm), though reports exist of fish reaching 20 inches (about 50 cm).</p>"
     },
     {
       "key": "maintenance",
@@ -71,10 +137,22 @@
       "html": "<p>Although this species is often considered relatively forgiving of less-than-ideal water conditions, that is no excuse to let things slip. As with all loaches, good filtration and a frequent partial water change regime are the key to the fish's wellbeing.</p><p>Plants tolerant of temperate conditions can be grown in the Weather Loach aquarium, but the fish tend to mischievously uproot them while digging. Placing small rock piles or pieces of bogwood around the stems can help prevent this. Alternatively, use species such as Anubias, Java Fern and Java Moss, which can be tied onto bogwood pieces and trained to grow on them.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Although this species is adaptable to almost any conditions, colder water is preferable. The weather loach enjoys hiding places such as rocks and other landscaping materials, or even something as simple as a plastic tube left in the tank. Keep filter inlet tubes well covered, as they will swim up an uncovered tube.</p><p>Because the weather loach sifts through the substrate quite vigorously, it will often uproot plants that are not well-rooted. Potted plants are a good option. The substrate should be fairly fine to prevent the loach from damaging itself when it roots for food or buries itself. Sand or fine grain gravel are good choices. Lighting should be subdued, or plenty of cover provided so shady hiding spots can be found.</p><p>It is wise to always keep the tank well covered, as they may jump out.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p>In the aquarium they should be kept at a steady sub-tropical temperature, somewhere within the range 15–25°C. They have been known to tolerate both lower and higher extremes, but they feel most comfortable within this range.</p><p>Provide a smooth, soft substrate such as aquatic sand. If gravel must be used, ensure it is a very fine grade and smooth to the touch, as anything sharp could damage their 'scale-less' skin and delicate barbels.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<ul><li>pH 6.0-8.0</li><li>Hardness up to 12 dGH</li><li>Temperature 4-25 °C (40-77 °F)</li></ul>"
     },
     {
       "key": "equipment",
@@ -89,10 +167,22 @@
       "html": "<p>Weather Loaches accept many foods, but be sure to offer them a good variety. Some specimens will even eat small snails that may be present in the aquarium, searching them out with their five pairs of sensory barbels.</p><p>Sinking pellets and frozen foods such as mosquito larvae and Daphnia are taken very eagerly, and the fish may even feed from your hand.</p>"
     },
     {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Weather loaches are great vacuum cleaners, sucking up virtually anything that falls to the bottom of the tank and spitting out what they don't care for. They are particularly fond of fish eggs. In the wild, their diet consists of insect larvae, small crustaceans and molluscs, and detritus. They will also readily eat fresh vegetables. Peas are a prized delicacy but should be skinned before being placed in the tank.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p>The peacefulness and hardiness of this species make it an ideal aquarium candidate. They should be maintained in small groups so that they can interact socially, and so that the fishkeeper gets to observe their playful antics.</p><p>This species seems to enjoy human contact: when someone is carrying out maintenance in the aquarium, they often actively seek out the fishkeeper's hands, which in their opinion are worthy of much investigation. They are never aggressive towards the hands, just incredibly curious.</p><p>Although they can be very active, they tend to rest for the best part of the day and 'come to life' in the evening and during the night, so several hiding places should be provided.</p><p>They can be kept safely with most temperate community fishes, but avoid any species that could be easily spooked by the loaches' sudden, unpredictable darting around the aquarium. Anything aggressive should also be avoided, as should really tiny fish or fry. Good choices include Lake Tebera Rainbowfish (Melanotaenia herbertaxelrodi), Variatus Platies (Xiphophorus variatus), Golden Barbs (Puntius semifasciolatus var.), Rosy Barbs (Puntius conchonius), Red Phantom Tetras (Hyphessobrycon sweglesi) and Argentine Bloodfins (Aphyocharax anisitsi). Weather Loaches can also be kept with many varieties of goldfish, although it is not a good idea to mix goldfish with the smaller temperate community species mentioned above.</p><p>Weather Loaches are named for their apparent sensitivity to changes in barometric pressure. These 'living barometers' are said to show a dramatic increase in activity, for instance, when a storm is approaching. Many fishkeepers (particularly in parts of the US where more volatile weather prevails) maintain that this is the case: as pressure drops, the loaches become restless, swimming frantically around the aquarium and sometimes jumping and splashing.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Weather loaches are peaceful and may be kept with virtually any other peaceful fish. They need not be kept in a school but will tolerate others of their own kind. They will quickly gobble up eggs, and should not be kept in a tank with breeding fish.</p><p>When storms approach, the previously calm weather loach begins swimming wildly about. It is believed that changes in barometric pressure, particularly low pressures before storms, account for this behaviour.</p><p>They love burrowing, and a loach may be found buried beneath the substrate. It is not unusual to see one resting on its pectoral fins, following your movements with its eyes.</p>"
     },
     {
       "key": "dimorphism",
@@ -101,16 +191,40 @@
       "html": "<p>To sex Weather Loaches, look at the pectoral fins. Mature males have a thicker and longer second ray, giving these fins an almost triangular appearance. The females' pectoral fins are rounder by comparison, and females are often fuller in the belly region.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Females are generally a bit larger and fuller-bodied than males. Adult males have enlarged pectoral fins and may also have swellings behind the dorsal fin, which can be seen when viewed from above.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p>Reports of captive spawning of Weather Loaches are few and far between. In the wild they spawn annually, after going through extreme seasonal changes. Rare aquarium spawnings have occurred when mature pairs were subjected to higher than normal temperatures, given very frequent water changes, and conditioned with live or frozen foods. A sudden dramatic increase in flow appears to be the final piece of the puzzle that triggered spawning. Large batches of small adhesive eggs were reported to have been laid near the outlets of filters and powerheads.</p><p>Loaches are notoriously difficult to breed, and many alleged spawnings have never been backed up with proof. Anyone who has any degree of success should take photographs and as many notes as possible, as this will be invaluable to other loach enthusiasts.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Breeding is fairly difficult, primarily due to a lack of knowledge about their spawning habits. They are a cold-water fish and require several months of cold temperatures to induce spawning. Spawning occurs in the spring to early summer, before water temperatures become too warm.</p><p>Spawning follows a courtship ritual that includes sinuous movements back and forth by the breeding pair, sometimes lasting several hours. The fertilized eggs hatch in approximately three days. For the first week, the fry feed on infusoria, after which they may be fed freshly-hatched brine shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "html": "<p><strong>Appearance.</strong> The standard colouration is a yellowy-brown body mottled with dark green-grey to dark brown speckles, and a lighter belly. A small and often indistinct dark blotch is present on the upper end of the body, at the junction with the caudal fin. A rarer 'gold' variety also exists and is much sought after by aquarists. These range from overall yellow to orange or pinkish and sometimes have faintly coloured markings or blotches. The vast majority of these gold variants are not true albinos, as they have dark eyes, although the occasional albino turns up in batches of the gold variety. The variants mix absolutely fine together in the aquarium.</p><p><strong>Adaptations.</strong> Weather Loaches have evolved to live in many 'temporary' locations in the wild, such as ponds, streams and man-made rice fields, where water often becomes stagnant and very low in oxygen, and in some areas may even dry up. They developed several ways of coping with such conditions, the most noteworthy being the ability to breathe atmospheric air. Their modified intestinal tract can extract oxygen from gulps of air taken from above the water's surface, while air is expelled from the vent. This adaptation allows the species to survive in harsh aquatic environments where other fish would not fare so well.</p><p>Their ability to produce a layer of mucus to keep themselves moist is also useful out of water, for instance in a temporary pool that dries up, or if they escape from an uncovered aquarium. Coupled with air-breathing, many a panicking aquarist has been mightily relieved to find that a Weather Loach found on the floor (where it may have been for several hours) made a 'miraculous recovery' after being returned to the aquarium. These creatures have also been known to cross short stretches of land between waterways in damp or wet weather.</p><p><strong>Introductions and accidental releases.</strong> Misgurnus anguillicaudatus has been carelessly introduced to the waterways of non-native countries, where it has firmly established itself. At least one country, Australia, reports adverse ecological impact following introduction during the 1980s. The species has also been released in Italy, the Philippines, parts of the USA including Hawaii, and Germany, where breeding populations are now well established. It is not considered a threat to water systems in the UK because temperatures drop too low for it in winter, which is why it is still available in UK shops. However, a similar species, Misgurnus fossilis, was banned from import into the UK a few years ago, as an accidental release was considered a threat because of its ability to tolerate lower temperatures.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<p>Weather loaches have six sensitive barbels around the mouth. The body is elongated and olive-coloured, sprinkled with many spots. Because of their adaptable diet, there is concern about their impact on aquatic insect populations where they have been introduced; wild populations have been found in California, Florida, Hawaii, Idaho, Illinois, Michigan, and Tennessee, in some cases from use as bait. They are sold live in markets in Korea, where they are used to make soup.</p>"
+    },
+    {
+      "key": "references",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "html": "<ul><li>Oriental Weatherfish (Misgurnus Anguillicaudatus) - Species Profile. U.S. Geological Survey.</li><li>Belle, Christina C. et al. Genetic Species Identification In Weatherfish And First Molecular Confirmation Of Oriental Weatherfish Misgurnus Anguillicaudatus (Cantor, 1842) In Central Europe. Knowledge &amp; Management Of Aquatic Ecosystems, no. 418, 2017, p. 31. EDP Sciences, doi:10.1051/kmae/2017025</li></ul>"
     }
   ],
   "photos": [
@@ -124,6 +238,28 @@
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
       "caption": "Misgurnus anguillicaudatus",
       "source": "loachesonline"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/9a8faf0d4ecbc8f9.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/9a8faf0d4ecbc8f9-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "caption": "Weather loach",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/c447a884b38b0db4.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/c447a884b38b0db4-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
+      "caption": "Clown loach",
+      "source": "sprucepets"
     }
   ],
   "videos": [

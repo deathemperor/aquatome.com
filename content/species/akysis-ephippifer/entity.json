@@ -1,0 +1,139 @@
+{
+  "id": "akysis-ephippifer",
+  "scientificName": "Akysis ephippifer",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 3.5 cm</li><li>Temperature: 18-24°C</li><li>pH: 6.5-7.5</li><li>IUCN Red List: Data Deficient (IUCN 2012), but needs updating.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<p>Asia: Thailand; Phitsanulork Province, Upper Chao Phraya. Type locality: Cambodia: Stung Santréa, 40 km from Pomnac.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. They can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes, and caves. They will either bury themselves in the sand or hide in caves and pipes. They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia, and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 5-6; anal soft rays: 9-11; vertebrae: 33. Distinguished from all its congeners by the combination of: round head when viewed dorsally; 1+3 gill rakers on the first branchial arch and 4-5 serrae on the posterior edge of the pectoral spine; depth of caudal peduncle 7.3-14.1% SL; length of maxillary barbel 61-121% HL; length of inner mandibular barbel 33-74% HL; and emarginate caudal fin.</p><p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name ephippifer: ephippium, saddle; fero, to bear, referring to the saddle-shaped markings on the body.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org</li><li>Ng, H.H. 2012. Akysis ephippifer. The IUCN Red List of Threatened Species 2012.</li><li>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c42c0b873dbd3add.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c42c0b873dbd3add-480.webp",
+      "width": 500,
+      "height": 273,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "caption": "Akysis sp. ephippifer",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8311dfc2d47c9776.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8311dfc2d47c9776-480.webp",
+      "width": 500,
+      "height": 218,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
+      "caption": "Akysis ephippifer",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá mini 30cm",
+        "bể cá nhỏ 30x30"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

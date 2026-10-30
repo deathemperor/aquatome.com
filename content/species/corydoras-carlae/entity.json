@@ -1,0 +1,120 @@
+{
+  "id": "corydoras-carlae",
+  "scientificName": "Corydoras carlae",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "iguazu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<ul><li><strong>Scientific name:</strong> Hoplisoma carlae (Nijssen &amp; Isbrücker, 1983)</li><li><strong>Common names:</strong> Carla's Cory</li><li><strong>Size:</strong> 42 mm (1.7\") SL</li><li><strong>Etymology:</strong> Named to honour Mrs. Carla Lindenaar-Sparrius.</li><li><strong>IUCN Red List:</strong> Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<ul><li>pH: 6.0 - 8.0</li><li>Temperature: 22.0-26.0°C (71.6-78.8°F)</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>Ideally, and close to mandatory, substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel or sharp sand. This will increase the risk of damage to the fish's barbels when it tries to dig. Substrate should be bordered with driftwood and aquatic plants leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, tall or floating plants are all that is required to settle a group of these fishes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fishes for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>Females grow larger and are more full-bodied, this is best observed from above the fish. Males will typically have more pointed as opposed to more rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 3), pp 76, Figs. 5, 10c.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát thủy sinh mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

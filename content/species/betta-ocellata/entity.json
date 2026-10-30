@@ -1,0 +1,126 @@
+{
+  "id": "betta-ocellata",
+  "scientificName": "Betta ocellata",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "malinau"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 7.6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: N/A</li><li>Wild-caught Betta ocellata from Malinau.</li><li>Maximum size: 3+ inches (about 7.6 cm).</li><li>Breeding: Mouthbrooder.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<ul><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Carnivorous. Currently fed live, frozen and dried foods, including blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Light brown to tan base body with light blue iridescence on the opercular cheeks and lower jaws, body and tails; females are less iridescent. Fully grown adult males have longer ventral fins and larger bodies.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/3a98e5ad4bc44c96.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/3a98e5ad4bc44c96-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

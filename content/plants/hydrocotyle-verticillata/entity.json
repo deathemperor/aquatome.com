@@ -1,0 +1,102 @@
+{
+  "id": "hydrocotyle-verticillata",
+  "scientificName": "Hydrocotyle verticillata",
+  "difficulty": 2,
+  "light": "high",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "foreground",
+    "floating"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyleverticillata(039)/4457",
+      "html": "<ul><li>Type: Stem plant</li><li>Origin: South America</li><li>Growth rate: Medium</li><li>Height: 3 - 10+ cm</li><li>Light demand: High</li><li>CO2: Medium</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyleverticillata(039)/4457",
+      "html": "<p>Optimum growth is only achieved in strong light and soft, slightly acidic water. It does not need to be rooted, but can be used as a floating plant.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyleverticillata(039)/4457",
+      "html": "<p>Unlike other Hydrocotyle species, this plant retains its trailing growth form. Verticillata originates from America and becomes 3-7 cm tall. Hydrocotyle verticillata is definitely a foreground plant, but also suitable for garden ponds. If the soil is kept moist, you may even use it as an indoor plant.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/96029aeaf5ba0663.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 3.0",
+      "author": "Forest & Kim Starr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr_980601-1501_Hydrocotyle_verticillata.jpg",
+      "caption": "Hydrocotyle verticillata (habit). Location: Maui, Kepaniwai",
+      "thumb": "https://media.aquatome.com/commons/96029aeaf5ba0663-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d2566b399ce7c811.webp",
+      "width": 960,
+      "height": 1344,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocotyle_verticillata_kz01.jpg",
+      "caption": "Hydrocotyle verticillata in Wrocław University Botanical Garden",
+      "thumb": "https://media.aquatome.com/commons/d2566b399ce7c811-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c3ac433f4b78bf02.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Araliaceae_Hydrocotyle_verticillata_1.jpg",
+      "caption": "Hydrocotyle verticillata WHORLED PENNYWORT",
+      "thumb": "https://media.aquatome.com/commons/c3ac433f4b78bf02-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5401ef9dc4762f5f.webp",
+      "width": 960,
+      "height": 1593,
+      "licence": "Public domain",
+      "author": "Correll, Donovan Stewart; Correll, Helen B.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquatic_and_wetland_plants_of_southwestern_United_States_(Page_1216)_BHL3347680.jpg",
+      "caption": "Aquatic and wetland plants of southwestern United States, by Donovan S. Correll and Helen B. Correll.",
+      "thumb": "https://media.aquatome.com/commons/5401ef9dc4762f5f-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rau má nước Hydrocotyle",
+        "cây thủy sinh tiền cảnh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng mạnh"
+      ]
+    },
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

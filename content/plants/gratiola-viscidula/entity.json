@@ -1,0 +1,55 @@
+{
+  "id": "gratiola-viscidula",
+  "scientificName": "Gratiola viscidula",
+  "difficulty": 2,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "slow",
+  "placement": [
+    "foreground",
+    "midground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Gratiolaviscidula(042TC)/18390",
+      "html": "<ul><li>Type: stem plant</li><li>Origin: North America</li><li>Growth rate: slow</li><li>Height: 3 - 10+ cm</li><li>Light demand: medium</li><li>CO2: medium</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Gratiolaviscidula(042TC)/18390",
+      "html": "<p>Gratiola viscidula originates from Northern America and is relatively new to the aquatic hobby. The somewhat 'thorny' appearance of the submersed form makes it very distinct and easily recognizable. It is quite easy to grow and prefers good light. By regular trimming it can be kept very low, almost carpeting, but will also present itself well as a fore/mid-ground cushion-plant. Each stem is approximately 1-2 cm wide and can become 10+ cm tall. The stem willingly branches and spreads giving a very dense appearance to the plant.</p>"
+    }
+  ],
+  "photos": [],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây Gratiola viscidula",
+        "cây thủy sinh thân tiền cảnh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn thủy sinh ánh sáng trung bình"
+      ]
+    },
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 bể thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

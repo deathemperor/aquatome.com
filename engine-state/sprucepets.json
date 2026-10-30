@@ -9,6 +9,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733": {
+    "entityIds": [
+      "species/caridina-multidentata"
+    ],
+    "updatedAt": "2026-10-30T19:43:11.442Z",
+    "hash": "5f4d06af726ef37b9c30d6ac02489cabce3cafd56ee40ed1d78bf18263b54cd0",
+    "processedHash": "5f4d06af726ef37b9c30d6ac02489cabce3cafd56ee40ed1d78bf18263b54cd0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/angelfish-gallery-4121742": {
     "entityIds": [
       "guides/sprucepets-angelfish-gallery-4121742"
@@ -16,6 +26,16 @@
     "updatedAt": "2026-10-29T06:51:20.986Z",
     "hash": "c01832cdcc1d238a2c2cda22ea7c03afa5230a42b206a99a46174bc3d36915f7",
     "processedHash": "c01832cdcc1d238a2c2cda22ea7c03afa5230a42b206a99a46174bc3d36915f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/aquarium-catfish-breeds-5115234": {
+    "entityIds": [
+      "guides/sprucepets-aquarium-catfish-breeds-5115234"
+    ],
+    "updatedAt": "2026-10-30T19:32:27.157Z",
+    "hash": "ad0decf0e63d48fca265dfb64990d4cfcb93154d28c787ba92bebf27ab07ea9c",
+    "processedHash": "ad0decf0e63d48fca265dfb64990d4cfcb93154d28c787ba92bebf27ab07ea9c",
     "status": "processed",
     "attempts": 0
   },
@@ -56,6 +76,16 @@
     "updatedAt": "2026-10-28T16:03:15.029Z",
     "hash": "74a5cc55fd7a3dc05d184401ce17da787b41e7b0afbc93c6dc342a3fd2ae5b54",
     "processedHash": "74a5cc55fd7a3dc05d184401ce17da787b41e7b0afbc93c6dc342a3fd2ae5b54",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/cardinal-tetra-1378417": {
+    "entityIds": [
+      "species/paracheirodon-axelrodi"
+    ],
+    "updatedAt": "2026-10-30T19:40:13.404Z",
+    "hash": "e041d4d46d0ef0801fe712b315d071484e6d578963ae408259a3bdb32c02ddab",
+    "processedHash": "e041d4d46d0ef0801fe712b315d071484e6d578963ae408259a3bdb32c02ddab",
     "status": "processed",
     "attempts": 0
   },
@@ -137,6 +167,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/fish-anatomy-4102466": {
+    "entityIds": [
+      "guides/sprucepets-fish-anatomy-4102466"
+    ],
+    "updatedAt": "2026-10-30T19:36:27.966Z",
+    "hash": "8428b3d2f35a7608496e39b4285df120bf03b745c041daa2223c3170ab76af40",
+    "processedHash": "8428b3d2f35a7608496e39b4285df120bf03b745c041daa2223c3170ab76af40",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/fish-species-heated-fish-tanks-4797120": {
     "entityIds": [
       "guides/sprucepets-fish-species-heated-fish-tanks-4797120"
@@ -197,6 +237,14 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.thesprucepets.com/hoplarchus-psittacus-1378430": {
+    "entityIds": [],
+    "updatedAt": "2026-10-30T19:29:31.806Z",
+    "hash": "49584e97aa8b83a37c75badcdb313252922cc4c663a9759dc94eea7bf193385e",
+    "processedHash": "49584e97aa8b83a37c75badcdb313252922cc4c663a9759dc94eea7bf193385e",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.thesprucepets.com/killifishes-or-egg-laying-tooth-carps-4107831": {
     "entityIds": [
       "guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831"
@@ -254,6 +302,16 @@
     "updatedAt": "2026-10-29T15:06:46.827Z",
     "hash": "00c39b1a1e44bb8ffe3bda259ab7b704a3b4b5a0de56271766a9a49d1af16aa7",
     "processedHash": "00c39b1a1e44bb8ffe3bda259ab7b704a3b4b5a0de56271766a9a49d1af16aa7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734": {
+    "entityIds": [
+      "species/carinotetraodon-travancoricus"
+    ],
+    "updatedAt": "2026-10-30T19:38:52.580Z",
+    "hash": "a03330d81614e2e5a106f57256d4883dcf8cc0180d5dbea01872a8f7b7aedc47",
+    "processedHash": "a03330d81614e2e5a106f57256d4883dcf8cc0180d5dbea01872a8f7b7aedc47",
     "status": "processed",
     "attempts": 0
   },
@@ -354,6 +412,16 @@
     "updatedAt": "2026-10-29T06:30:32.603Z",
     "hash": "87e0528b8f0079058be9d604cd06abf74edb43dd7ea4d9260373ac7186df202f",
     "processedHash": "87e0528b8f0079058be9d604cd06abf74edb43dd7ea4d9260373ac7186df202f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.thesprucepets.com/weather-loach-1378619": {
+    "entityIds": [
+      "species/misgurnus-anguillicaudatus"
+    ],
+    "updatedAt": "2026-10-30T19:44:38.101Z",
+    "hash": "9318f460087bd3f5e9675c3e30feb75bfc70dd8322736a834dcc18b876c3a234",
+    "processedHash": "9318f460087bd3f5e9675c3e30feb75bfc70dd8322736a834dcc18b876c3a234",
     "status": "processed",
     "attempts": 0
   },

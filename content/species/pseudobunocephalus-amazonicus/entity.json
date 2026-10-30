@@ -1,0 +1,80 @@
+{
+  "id": "pseudobunocephalus-amazonicus",
+  "scientificName": "Pseudobunocephalus amazonicus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pseudobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "bolivia",
+    "mamore"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1057",
+      "html": "<p>Pseudobunocephalus amazonicus (Mees, 1989). Size: 45 mm SL (1.8\").</p><p>Type locality: creek near Todos Santos, upper course of Río Mamoré, Cochabamba, Bolivia.</p><p>Compatibility: peaceful.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1057",
+      "html": "<p>South America: upper and middle Amazon River basin. Recorded from the Amazon, Middle Amazon (Solimões), Madeira, Mamoré and Upper Amazon.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1057",
+      "html": "<p>Can be kept singly or in groups given adequate refuge for each individual. Young fish like to hide vertically in bushy plants. Older fish will burrow in sand or fine, rounded gravel as well as under stones or bogwood.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1057",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1057",
+      "html": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 92 (no. 2), pp 241, Fig. 21.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "sỏi tròn mịn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bụi rậm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

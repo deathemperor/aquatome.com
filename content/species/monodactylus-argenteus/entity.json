@@ -1,0 +1,163 @@
+{
+  "id": "monodactylus-argenteus",
+  "scientificName": "Monodactylus argenteus",
+  "order": "Perciformes",
+  "family": "Monodactylidae",
+  "genus": "Monodactylus",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand",
+    "indonesia",
+    "java"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>Moonies are magnificent brackish water fish. They grow to a length of 15-20 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>The fish currently offered are from Indonesia and were caught near Java.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>Monodactylus argenteus should be kept in aquariums as large as possible, because they grow to a length of 15-20 cm and are very eager to swim.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>In pure fresh water they should be kept only temporarily, if possible, because they are very sensitive there. If it has to be freshwater, then the pH value must not drop below 7 and the nitrate value must not rise above 50 mg/l, nitrite is harmful even in very small amounts. In brackish or seawater (from 10-15 g salt/liter), however, they are robust animals. The temperature should be between 24 and 28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>A strong current and a good oxygen supply are further prerequisites to enjoy the animals for many years.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>They eat all usual dry, frozen and live food, if it fits into their mouth. Since these fish have a high metabolism, feeding several times a day in small portions is recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>Juvenile specimens can be very incompatible with conspecifics, but this varies from individual to individual and there are also very compatible animals. It is best to keep them in a group of 10-12 (or more) so that any aggression is dispersed.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>The sexes cannot be distinguished externally.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "html": "<p>The fish spawn at night. They are free spawners without brood care.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/e8cbd68c7ebc9537.webp",
+      "thumb": "https://media.aquatome.com/glaser/e8cbd68c7ebc9537-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/03c67ebe021642bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/03c67ebe021642bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d71e8db560f47292.webp",
+      "thumb": "https://media.aquatome.com/glaser/d71e8db560f47292-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2af3a7c7df4a596b.webp",
+      "thumb": "https://media.aquatome.com/glaser/2af3a7c7df4a596b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c0ea3f581a8475e5.webp",
+      "thumb": "https://media.aquatome.com/glaser/c0ea3f581a8475e5-480.webp",
+      "width": 850,
+      "height": 895,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/monodactylus_argenteus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn nước lợ",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

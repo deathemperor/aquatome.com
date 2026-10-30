@@ -1,0 +1,158 @@
+{
+  "id": "trichopsis-pumila",
+  "scientificName": "Trichopsis pumila",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Trichopsis",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>The Sparkling Gourami (Trichopsis pumila) is one of the smallest anabantoid species at all – and one of the prettiest! It is charming and totally peaceful and reaches a maximum length of only 3-4 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>Origin: Thailand.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>It is perfectly suitable for a community tank with other tiny, peaceful species of fish. The tank should be well planted.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>The water temperature can be between 22 and 26°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>Some dead leaves (best choice is beech, but Indian almond or oak may also be used) and some caves (half coconut shells or something like that) should not be missing.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>These fish bear their name “sparkling” with good reason; at least the males do, the females do not sparkle at all. The males can produce silent croaking sounds, usually associated with mating behaviour or displaying. The sound is comparable with that produced by a flapper, but much less noisy, and one has to listen carefully to hear it. The sound is produced by bones that stretch over sinews on the swim bladder – one can say these fish play the guitar!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>Males sparkle; females do not sparkle at all.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>T. pumila prefers to build small bubble nests (maximum size about as large as a hazelnut) in caves or under broad plant leaves about 10-15 cm above the bottom of the tank.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/1ac2e57b5920c962.webp",
+      "thumb": "https://media.aquatome.com/glaser/1ac2e57b5920c962-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/75fddb6f276af280.webp",
+      "thumb": "https://media.aquatome.com/glaser/75fddb6f276af280-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9bd623f5adc870b4.webp",
+      "thumb": "https://media.aquatome.com/glaser/9bd623f5adc870b4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/163f41119a3214e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/163f41119a3214e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá rộng",
+        "rêu thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

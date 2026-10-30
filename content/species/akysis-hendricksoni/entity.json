@@ -10,7 +10,8 @@
     "malaysia",
     "terengganu",
     "thailand",
-    "golok"
+    "golok",
+    "sungai-golok"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +21,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -28,6 +36,13 @@
         "value": {
           "min": 6,
           "max": 7.2
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
         }
       }
     ],
@@ -44,18 +59,30 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 5
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 30
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 2
       }
     ]
   },
@@ -67,10 +94,22 @@
       "html": "<ul><li><strong>Max size:</strong> 50 mm SL (2.0 in SL)</li><li><strong>Aquarium size:</strong> 45 × 30 cm (18 × 12 in)</li><li><strong>Temperature:</strong> 16.5–24°C (62–75°F)</li><li><strong>pH:</strong> 6.0–7.2</li><li><strong>Hardness:</strong> 2–12 dGH</li></ul><p>Hendrickson's stream catfish, Akysis hendricksoni, is a small akysid catfish from much of Peninsular Malaysia and the extreme south of Thailand. One of the few members of the family exported for the hobby, it grows to around 50 mm SL and spends some of its time buried in sand with only the eyes showing. Colour pattern varies with locality, and like many fishes from running water it is intolerant of organic pollutants and needs spotless water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 5.0 cm (2 in)</li><li>Temperature: 18-22°C (63-71°F)</li><li>pH: 6.5-7.5</li><li>Described by Alfred, 1961</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "html": "<p>Described from the 'Trengganu River at Kuala Brang, Trengganu, Malaysia' which corresponds to the the town now known as Kuala Berang on the Sungai (river) Terengganu, Terengganu state, northeastern Peninsular Malaysia.</p><p>Additional records exist from the Endau, Sabak Bernam and Golok (aka Kolok) river drainages meaning the species is distributed throughout much of Peninsular Malaysia and into the extreme south of Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>Asia: Sungai Golok, Sungai, Terengganu, Sabak Bernam and Endau basins, peninsular Malaysia and Thailand. Type locality: Terengganu River at Kuala Brang, Terengganu, Malaya.</p><p>This species is known from the Endau River drainage in southern Peninsular Malaysia northwards to the Mae Nam Kolok (Sungai Golok) drainage in southern Peninsular Thailand. The range includes at least one national park. Extent of Occurrence (EOO) is estimated to be 45,700 km². Total population size and trend are unknown, but recent collections indicate that it is still abundant where it occurs. Regional and localised threats include deforestation resulting from logging and land conversion for agriculture. However, there is no evidence of major range-wide population decline. It is therefore assessed as Least Concern (IUCN 2019).</p>"
     },
     {
       "key": "habitat",
@@ -85,10 +124,22 @@
       "html": "<ul><li>Standard length: 50 mm SL (2.0 in SL)</li><li>Aquarium base: 45 × 30 cm (18 × 12 in)</li><li>Volume: ~41 litres (~11 US gal)</li></ul><p>A tank with base dimensions of 45 × 30 cm (18 × 12 in) is more than sufficient, even for a group.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>They can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes and caves.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding. It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter can also be employed with dried beech, oak or Ketapang leaves all suitable.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank. Weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. They will either bury themselves in the sand or hide in caves and pipes.</p>"
     },
     {
       "key": "waterConditions",
@@ -109,10 +160,22 @@
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "html": "<p>Not especially competitive and should not be kept with much larger or more aggressive fishes. Miniature schooling cyprinids such as Boraras, Microdevario or smaller Danio/Rasbora species make good tankmates and if geography isn't an issue many similarly-sized characins and livebearers should also work.</p><p>Other similarly-sized akysid catfishes plus smaller sisorids such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, many balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are also suitable. Some members of the families Botiidae, Cobitidae and Nemacheilidae are ok but proper research is essential as some can be excessively aggressive/territorial or simply grow too large.</p><p>It's also proven to co-exist peacefully with freshwater shrimp.</p><p>It's nonaggressive towards conspecifics and can be kept singly or in a group as preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>They are not usually active during the day but will spring into action and eat voraciously if food is put in the tank.</p>"
     },
     {
       "key": "dimorphism",
@@ -133,45 +196,101 @@
       "html": "<p>This species is among the few members of the family to have been exported for the aquarium hobby. It can be differentiated from all other Akysis species by the following combination of characters: head length 17.7-26.5% of standard length (SL); head width 25.4-28.7% SL; body depth at anus 13.0-17.0% SL; caudal peduncle depth 8.1-10.1% SL; interorbital distance 43.0-64.0% of head length (HL); nasal barbel length 55.0-79.0% HL; maxillary barbel length 102.0-167.0% HL; possession of 4-6 serrae on posterior edge of pectoral fin spine; caudal fin deeply emarginate.</p><p>Colour patterning in this species has been observed to vary depending on collection locality. For example, in specimens from northeastern and western Peninsular Malaysia possess a small, yellowish marking on the predorsal region, but in those from southern Thailand this marking is larger and forms a 'V' shape which extends onto the sides of the body.</p><p>Individuals from southern Peninsular Malaysia exhibit a more extensive yellow marking at the tip of the snout, and in some smaller specimens the lighter body markings are almost completely reduced.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects the genus as originally considered was split into the A. variegatus and A. pseudobagarius species groups by Ng and Kottelat (1998)[8], but all species of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>Description: dorsal soft rays (total): 6-7; anal soft rays: 8-10; vertebrae: 31-34. Distinguished from its congeners by 4-6 serrae on the posterior edge of the pectoral spine; head length 17.7-26.5% SL; head width 25.4-28.7% SL; body depth at anus 13.0-17.0% SL; depth of caudal peduncle 8.1-10.1% SL; interorbital distance 43-64% HL; length of nasal barbel 55-79% HL; length of maxillary barbel 102-167% HL; and caudal fin deeply emarginate.</p><p>Etymology: the genus name Akysis: A = without; kysis = bladder, referring to the lack of a swimbladder. The specific name hendricksoni honours John R. Hendrickson (1921-2002), Vice-Chancellor of the East-West Center, University of Hawaii, who was Alfred's first teacher in ichthyology; he also helped collect the type.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "html": "<ul><li>Alfred, E. R. (1966). A new catfish of the genus Akysis from Malaya. Copeia 1966 (3), 467-470</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (12/2019).</p><p>Ng, H.H. 2019. Akysis hendricksoni. The IUCN Red List of Threatened Species 2019.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/291413b7dea432b6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/291413b7dea432b6-480.webp",
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "caption": "Specimen from the Endau drainage.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/291413b7dea432b6-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/f896ee09c96ad693.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f896ee09c96ad693-480.webp",
       "width": 700,
       "height": 354,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "caption": "Specimen from southern Thailand.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f896ee09c96ad693-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/352a0d2ef4bf6907.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/352a0d2ef4bf6907-480.webp",
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-hendricksoni",
       "caption": "Habitat in the Endau river system, southern Peninsular Malaysia.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/352a0d2ef4bf6907-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4fa6738d51859c38.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4fa6738d51859c38-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "caption": "Akysis hendricksoni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/14ac5e0dc36effa7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/14ac5e0dc36effa7-480.webp",
+      "width": 500,
+      "height": 261,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "caption": "Akysis hendricksoni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1efd1b068a08bb6a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1efd1b068a08bb6a-480.webp",
+      "width": 500,
+      "height": 238,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "caption": "Akysis hendricksoni: male",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/098db927413d1992.webp",
+      "thumb": "https://media.aquatome.com/scotcat/098db927413d1992-480.webp",
+      "width": 500,
+      "height": 229,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_hendricksoni.htm",
+      "caption": "Akysis hendricksoni: female",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -206,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

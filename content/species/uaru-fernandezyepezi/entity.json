@@ -1,0 +1,93 @@
+{
+  "id": "uaru-fernandezyepezi",
+  "scientificName": "Uaru fernandezyepezi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Uaru",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "atabapo",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 29,
+          "max": 29
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/uaru-fernandezyepezi/",
+      "html": "<ul><li>Origin: Colombia / Venezuela</li><li>Available size: 6-8 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/uaru-fernandezyepezi/",
+      "html": "<p>The home of this extremely rare cichlid is in the border area of Colombia and Venezuela, where it occurs in the area of the Rio Atabapo.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/uaru-fernandezyepezi/",
+      "html": "<p>Their requirements are similar to those of the Altum angels: the water hardness should be low, the temperature high (around 29°C) and the pH value significantly in the acidic range. High temperatures and a low germ count improve the environment.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/uaru-fernandezyepezi/",
+      "html": "<p>For the first time, some offspring of Uaru fernandezyepezi were offered (April 2008). From the same region come other challenging fishes such as the Altum angels.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/cb9cf2e435e0a7cc.webp",
+      "width": 800,
+      "height": 526,
+      "licence": "CC BY 1.0",
+      "author": "Ivan Mikolji / www.fishfromvenezuela.com",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uaru_fernandezyepezi.jpg",
+      "caption": "Uaru fernandezyepezi",
+      "thumb": "https://media.aquatome.com/commons/cb9cf2e435e0a7cc-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá 300w",
+        "sưởi thủy sinh chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

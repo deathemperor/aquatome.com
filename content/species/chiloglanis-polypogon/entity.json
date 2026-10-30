@@ -1,0 +1,126 @@
+{
+  "id": "chiloglanis-polypogon",
+  "scientificName": "Chiloglanis polypogon",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Chiloglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "cameroon",
+    "cross-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<ul><li>Scientific name: Chiloglanis polypogon Roberts, 1989</li><li>Common name: African Suckermouth Catfish</li><li>Size: 55 mm (2.2\") SL</li><li>IUCN Red List: Near Threatened (last assessed 2019)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Africa: Cross River, Cameroon. Type locality: high gradient stream along the road from Mamfe to Bamenda, 88-94 kilometres southwest of Bamenda, Cross basin, Cameroon, western Africa.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<ul><li>pH: 6.4 - 7.0</li><li>Temperature: 22.0-26.0°C (71.6-78.8°F)</li><li>A good current is strongly recommended.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Provide plenty of rocks for hiding. The tank does not need to be well-planted.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Will eat a wide variety of prepared and frozen foods. Supplement with algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Peaceful both with conspecifics and other fish, and therefore suitable for the community tank. Good with many small- to mid-sized community fish. Ideal tankmates include fast-water Synodontis (such as S. brichardi and S. soloni), fast-water African characins and cyprinids like Nannocharax and Garra.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Males have an elongate genital papilla. Some other Chiloglanis species can be easily sexed, as males have enlarged anal and caudal fins of different shapes from the females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Not known in aquarium, although other species have been successfully bred in natural enclosures. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Pronunciation: Kee low glan iss - paw lee poe gone.</p><p>Etymology: Chiloglanis comes from the Greek cheilos, meaning lip, and glanis, meaning catfish, in reference to the oral morphology. The name polypogon (noun in apposition, from the Greek \"poly\", multiple, and \"pogon\", beard) refers to the numerous mental barbels.</p><p>Identification: The second largest catfish genus in Africa after Synodontis. They are characterized by jaws and lips modified into a sucker or oral disc used for adhering to and feeding upon objects in fast-flowing waters. Generally small, at 100 mm SL or less. Species with forked caudal fins can show sexual dimorphism, which is usually species-specific. Other characteristics in this hard-to-identify genus are the size of the adipose fin, the position of the adipose fin relative to the pelvic fins, and the size of barbels, eyes and dorsal fin. Only a handful of species are identified by colouration. They can be distinguished from other African suckermouth catfish (genera Euchilichthys and Atopochilus) by their circular suckermouth disc, which is more elliptical in the other two genera. They can be distinguished from South American suckermouth catfishes by the lack of body armour plates.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 4) v. 46 (no. 6), pp 168, Figs. 1b, 2b, 3c-d, 6a-b, 8.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá dòng chảy mạnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá da trơn",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

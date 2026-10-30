@@ -1,0 +1,155 @@
+{
+  "id": "akysis-brachybarbatus",
+  "scientificName": "Akysis brachybarbatus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Family: Akysidae. Common name: Tuberculate catfish. Size: 3.5 cm. Temperature: 18-24°C. pH: 6.5-7.5. Described by Chen, 1981.</p><p>The body is relatively stout. The mouth is terminal; the tip of the snout is not in front of the lower jaw, or only slightly in front of it. There is a space between the anterior nostril and the base of the nasal barbel that is about equal to the diameter of the anterior nostril. The anterior and posterior nostrils are relatively small (with a diameter less than that of the eye), and the anterior nostril is located at the end of a short tube. The caudal fin is emarginate or truncate.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Asia: Southeast Asia: Lancangjiang [Mekong] River (Yunnan, China). Type locality: Nanrui River, Mekong River, Menglian County, Yunnan, China. The species is native to the lower Lancang Jiang basin in Menglian County and Mengla County, Yunnan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Likes to live in clear pools with a gravel bottom and usually swims in the current under rocks or beneath floating weeds to search for food.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. Use a sand bottom, small pipes and caves. They will either bury themselves in the sand or hide in caves and pipes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Etymology: the genus name Akysis: A = without; kysis = bladder, referring to the lack of a swimbladder. The specific name brachybarbatus: brachýs, short; barbatus (L.), bearded, referring to shorter nasal barbels compared with the similar A. maculipinnis.</p><p>It has a relatively widespread extent of occurrence (EOO) of 33,874 km2, but a restricted area of occupancy (AOO) of 640 km2 due to its particular habitat preference. Its habitat is in continuing decline as a result of siltation caused by deforestation and associated erosion. There are 4-6 locations based on this threat. The species is assessed as Vulnerable (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "html": "<p>Cao, L. &amp; Chen, X.-Y. 2023. Akysis brachybarbatus. The IUCN Red List of Threatened Species 2023.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (12/2019).</p><p>iNaturalist 2024.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4e070bdcfbd6f117.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4e070bdcfbd6f117-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "CAFS / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "caption": "Akysis brachybarbatus: line drawing",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/29f95bd124ba8bac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/29f95bd124ba8bac-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Liu Guangyu / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_brachybarbatus.htm",
+      "caption": "Akysis brachybarbatus: Xishuangbanna Dai, CN-YN, CN",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nuôi cá",
+        "nền cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá mini 30cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

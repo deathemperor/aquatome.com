@@ -1,0 +1,130 @@
+{
+  "id": "vandellia-cirrhosa",
+  "scientificName": "Vandellia cirrhosa",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Vandellia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "amazon"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>Vandellia cirrhosa Valenciennes, 1846. Common name: Candiru. Size: 170 mm (6.7\") SL. Identification: transparent to yellowish body, fleshy dorsal fin without a strong spine.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>South America: Amazon River basin and Orinoco.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>pH 6.0 - 7.0.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>It doesn't appear to like bright conditions, so floating plants should be offered. When not actively swimming around in search of its next victim, the fish will rest on the bottom, particularly after feeding.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>Despite recorded attempts to feed this fish chopped fish gills, blood (via a dropper) and conventional foods, it appears this fish is specialised to the point that it can only feed from live fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>In nature they sense the passing of larger fish by the dissolved waste in the water streaming out of their gills. This attracts the parasite to the gill cavity where it feeds, dropping off to lie on the substrate when sated and visibly full to bursting with blood. For obvious reasons this fish should be kept alone; smaller fish are not ignored by this fish and can be killed outright by one parasitic visitation. Suggested tankmates: food and other Vandellia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>The fish of this genus are the true vampire-style parasites of the otherwise ill-named parasitic catfish family. Legends abound and surround this fish as it can mistake the urination of partially submerged mammals (including humans) for the exhalent gills of fishes and enter the urogenital openings of the very unfortunate mammal. A fascinating piece of trivia is that this fish is often referred to as the only vertebrate parasite of man.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
+      "html": "<p>Histoire naturelle des poissons v. 18, pp 386, Pl. 547.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/244eac9920d713b9.webp",
+      "width": 960,
+      "height": 1508,
+      "licence": "CC BY 4.0",
+      "author": "Ronaldo Souza da Silva et. al.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_species_collected_from_sandy_beaches_of_the_Acre_river_Brazil_(4_of_5).png",
+      "caption": "Fish species collected on the beaches of Acre river, Acre, Brazil.40) Centromochlus perugiae;41) Tympanopleura piperata;42) Leptodoras acipenserinus;43) Nemadoras sp.;44) Oxydoras niger;45) Imparfinis",
+      "thumb": "https://media.aquatome.com/commons/244eac9920d713b9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6ebcd2ed06a45315.webp",
+      "width": 960,
+      "height": 528,
+      "licence": "CC0",
+      "author": "Ivan Sazima & Jansen Zuanon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vandellia_cirrhosa.png",
+      "caption": "A closeup of a feeding candiru as it begins to swell with blood",
+      "thumb": "https://media.aquatome.com/commons/6ebcd2ed06a45315-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/677a9b005d471470.webp",
+      "width": 960,
+      "height": 403,
+      "licence": "Public domain",
+      "author": "François-Louis Laporte, comte de Castelnau",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vandellia.jpg",
+      "caption": "Vandellia plazaii (now syn. of Vandellia cirrhosa) & Vandellia cirrhosa",
+      "thumb": "https://media.aquatome.com/commons/677a9b005d471470-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/236a97a83fff33ca.webp",
+      "width": 960,
+      "height": 709,
+      "licence": "Public domain",
+      "author": "François-Louis Laporte, comte de Castelnau",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F_de_Castelnau-poissonsPl28.jpg",
+      "caption": "From top to bottom: Vandellia plazaii Cast. = Vandellia cirrhosa Valenciennes, 1846 Vandellia cirrhosa Cuv. Val. = Vandellia cirrhosa Valenciennes, 1846 Pristigaster phaeton Cuv. Val. = Pristigaster c",
+      "thumb": "https://media.aquatome.com/commons/236a97a83fff33ca-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-30"
+}

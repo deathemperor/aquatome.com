@@ -1,0 +1,172 @@
+{
+  "id": "platystacus-cotylephorus",
+  "scientificName": "Platystacus cotylephorus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Platystacus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "guyana",
+    "essequibo",
+    "brazil",
+    "amapa"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 31.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<ul><li>Scientific name: Platystacus cotylephorus Bloch, 1794</li><li>Size: 318 mm (12.5\") SL</li><li>Temperature: 22–25°C</li><li>pH: 6.0–8.2</li><li>Type locality: none</li></ul><p>The mottled colouration is very variable, almost to the point that no two individuals look exactly the same.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers). Found in Venezuela Caribbean waters, Guyana waters, coastal rivers of the Guianas, Amapá State waters and Pará State waters.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Temperature 22–25°C. pH 6.0–8.2. Although the fish tolerates lower pH, it should really be kept as near to neutral as possible. Water should be medium hard.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>A large sandy bottom with leaf cover is ideal; fish of all ages will bury in the sand. Larger fish will bury in gravel.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>A nocturnal scavenger. Will eat most food after lights out. Can be tempted to eat frozen foods during the day.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Will eat small fish and shrimps but is otherwise entirely docile.</p><p>Suggested tankmates: small to medium sized hardy fish, preferably from the Amazon, that do not mind the higher pH and hardness this species prefers. Care should be taken to avoid fish that will pick at the unmoving, partly buried catfish.</p><p>This species can produce bark-like sounds by quickly moving the pectoral fins. These sounds are probably used to locate each other during mating periods and certainly when being attacked.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Females appear more brown than black with very little or no mottling. Males by contrast are darker and show high-contrast mottling. Mature males have larger pectoral fins than equally aged females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Not reported in the home aquarium, but evidence exists of the method of reproduction. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
+      "html": "<p>Naturgeschichte der ausländischen Fische v. 8, pp 54, Pl. 372.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c7cb091292e3e63a.webp",
+      "width": 960,
+      "height": 654,
+      "licence": "Public domain",
+      "author": "Berger, Daniel; Berger, F. G.; Bloch, Marcus Elieser; Bodenehr, G.; Bodenehr, George; Buchhandlung der Realschule; Darchow, C.; Gursch, C. F.; Hesse; Krüger; Rosenberg, F. C. W.; Schmidt, A. F.; Schmidt, F. G.; Schmidt, Friedrich Wilhelm; Schmidt, Johann Gottlieb; Schmidt, Ludwig",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D._Marcus_Elieser_Bloch%27s,_aus%C3%BCbenden_Arztes_zu_Berlin_..._Oeconomische_Naturgeschichte_der_Fische_Deutschlands_(20929387835).jpg",
+      "caption": "D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands ...",
+      "thumb": "https://media.aquatome.com/commons/c7cb091292e3e63a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7f4d34259f7d3333.webp",
+      "width": 960,
+      "height": 817,
+      "licence": "Public domain",
+      "author": "Strack, F.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturgeschichte_in_Bildern_mit_erl%C3%A4uterndem_Text_(Taf._CXVIII)_(6059226530).jpg",
+      "caption": "/^J/^' cxvin",
+      "thumb": "https://media.aquatome.com/commons/7f4d34259f7d3333-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/084583952c57c175.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_-_Peitschenwels.jpg",
+      "caption": "Banded banjo",
+      "thumb": "https://media.aquatome.com/commons/084583952c57c175-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2d833d8483277784.webp",
+      "width": 960,
+      "height": 676,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_01.jpg",
+      "caption": "The Banded banjo in the aquaqrium",
+      "thumb": "https://media.aquatome.com/commons/2d833d8483277784-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá đáy cát"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nuôi cá trê",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}
