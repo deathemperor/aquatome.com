@@ -35,11 +35,16 @@ test('search index is built and pages carry an accent-free search alias', () => 
 test('sitemap omits noindex glossary terms', () => {
   expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/vi/thuat-ngu/gh/')
 })
-test('AdSense: ads.txt, account meta and loader on every page', () => {
+test('AdSense: ads.txt, account meta, and a loader that waits for the reader\'s first scroll, tap or key', () => {
   expect(readFileSync(join(DIST, 'ads.txt'), 'utf8')).toBe('google.com, pub-3032018142512489, DIRECT, f08c47fec0942fa0\n')
   const { dom } = page('/vi/ca/')
   expect(dom.querySelector('meta[name="google-adsense-account"]')?.getAttribute('content')).toBe('ca-pub-3032018142512489')
-  expect(dom.querySelector('script[src*="adsbygoogle.js?client=ca-pub-3032018142512489"]')).not.toBeNull()
+  // Not fetched with the page (Google's test cookie is a third-party cookie)…
+  expect(dom.querySelector('script[src*="googlesyndication"]')).toBeNull()
+  // …but on the first interaction.
+  const loader = dom.querySelector('script[data-ads]')?.text ?? ''
+  expect(loader).toContain('adsbygoogle.js?client=ca-pub-3032018142512489')
+  for (const e of ['scroll', 'pointerdown', 'keydown']) expect(loader).toContain(`'${e}'`)
 })
 test('security.txt: contact, a future Expires and its canonical URL', () => {
   const txt = readFileSync(join(DIST, '.well-known', 'security.txt'), 'utf8')
