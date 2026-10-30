@@ -1,13 +1,15 @@
 ---
 import type { Photo } from '@aq/schema'
+import { i18n } from '../lib/i18n'
 interface Props { photos: Photo[]; alt: string }
 const { photos, alt } = Astro.props
 const [main] = photos // the rest are placed between sections (Sections.astro)
+const { t } = i18n(Astro.url)
 ---
 {main && (
   <figure class="gallery">
     <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" /></div>
-    <figcaption>Ảnh: <a href={main.sourceUrl} rel="noopener">{main.author}</a>, {main.licence}</figcaption>
+    <figcaption>{t('Ảnh:')} <a href={main.sourceUrl} rel="noopener">{main.author}</a>, {main.licence}</figcaption>
   </figure>
 )}
 <style>

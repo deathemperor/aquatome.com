@@ -13,6 +13,8 @@ import { jsonForScript } from '../lib/json'
 import { ADSENSE_CLIENT } from '../lib/site'
 import { OWNER_SCRIPT } from '../../worker/owner'
 import type { Credit } from '../lib/credits'
+import { i18n, OG_LOCALE, type Lang } from '../lib/i18n'
+import CLIENT from '../i18n/client.json'
 
 interface Props {
   title: string
@@ -22,12 +24,17 @@ interface Props {
   credits?: Credit[]
   /** Share preview image (absolute URL). */
   image?: string
+  /** This page in other languages (paths), for hreflang; the Vietnamese one is also x-default. */
+  alternates?: Partial<Record<Lang, string>>
 }
-const { title, description, noindex = false, jsonld = [], credits, image } = Astro.props
+const { title, description, noindex = false, jsonld = [], credits, image, alternates = {} } = Astro.props
+const { lang, t } = i18n(Astro.url)
 const canonical = new URL(Astro.url.pathname, Astro.site).href
+const langs = Object.entries({ ...alternates, [lang]: Astro.url.pathname }).map(([l, p]) => [l, new URL(p!, Astro.site).href] as const)
+const xDefault = langs.find(([l]) => l === 'vi')?.[1] ?? canonical
 ---
 <!doctype html>
-<html lang="vi">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,17 +49,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <meta property="og:site_name" content="AquaTome" />
-    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:image" content={image ?? new URL('/logo.png', Astro.site).href} />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-    <link rel="alternate" hreflang="vi" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {langs.map(([l, href]) => <link rel="alternate" hreflang={l} href={href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
     {jsonld.map(j => <script type="application/ld+json" set:html={jsonForScript(j)} />)}
     <slot name="head" />
+    {/* Other languages: the translations of the UI text browser scripts write (src/scripts/ct.ts). */}
+    {lang !== 'vi' && <script type="application/json" id="aq-i18n" set:html={jsonForScript(Object.fromEntries(CLIENT.map(s => [s, t(s)])))} />}
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     {/* AdSense (and Google's consent message for EEA/UK/CH visitors) — production only. Loaded on the reader's first scroll of the page (not captured: a strip that snaps itself while loading doesn't count), tap or key, not with the page: Google's test cookie is a third-party cookie (Lighthouse Best Practices), and the page's own text and pictures get the connection first. */}

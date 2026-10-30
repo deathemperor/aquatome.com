@@ -5,13 +5,15 @@ import GuideCard from '../../../components/GuideCard.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const discovery = c.guides.filter(g => g.kind === 'discovery')
 const recent = [...c.species].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).slice(0, 8)
 ---
-<Browse title="Khám phá" heading="Khám phá" intro="Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước." credits={creditsFor([...discovery.map(g => guideImage(c, g)), ...recent.map(s => s.photos[0])])}>
+<Browse title={t('Khám phá')} heading={t('Khám phá')} intro={t('Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước.')} credits={creditsFor([...discovery.map(g => guideImage(c, g)), ...recent.map(s => s.photos[0])])}>
   {discovery.length > 0 && <div class="grid">{discovery.map(g => <GuideCard g={g} />)}</div>}
-  <h2 class="h">Mới cập nhật</h2>
+  <h2 class="h">{t('Mới cập nhật')}</h2>
   <SpeciesGrid species={recent} />
 </Browse>
 <style>

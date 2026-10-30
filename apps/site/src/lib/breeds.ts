@@ -1,4 +1,5 @@
 import type { BreedEntity, Content, Localized, Photo } from '@aq/schema'
+import type { Lang } from './i18n'
 
 export type Breed = Localized<BreedEntity>
 export const BREED_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Cá lai', variety: 'Dòng cá cảnh', transgenic: 'Cá biến đổi gen' }
@@ -13,8 +14,8 @@ export function basedOn(c: Content, b: Breed): { name: string; href: string } | 
 export const breedGallery = (c: Content, b: Breed): Photo[] => [...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]
 
 /** Lines, colour forms and hybrids made from a species (or from another breed), for its page. */
-export const breedsOf = (c: Content, id: string): Breed[] =>
-  c.breeds.filter(b => b.basedOn === id || b.parents.some(p => p.species === id)).sort((a, b) => a.t.name.localeCompare(b.t.name, 'vi'))
+export const breedsOf = (lang: Lang, c: Content, id: string): Breed[] =>
+  c.breeds.filter(b => b.basedOn === id || b.parents.some(p => p.species === id)).sort((a, b) => a.t.name.localeCompare(b.t.name, lang))
 
 /** The care card in the species card's shape: each value cites its source by position, named by the source's title. */
 export function careCard(b: Breed) {

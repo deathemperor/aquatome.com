@@ -1,9 +1,11 @@
 ---
 import { BREED_KIND, type Breed } from '../lib/breeds'
 import { smallSrc } from '../lib/img'
+import { i18n } from '../lib/i18n'
 /** Its pictures must be in the page's credits (each breed's first photo). `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page). */
 interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number }
 const { breeds, heading, bare, eager = 0 } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 {breeds.length > 0 && (
   <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
@@ -11,8 +13,8 @@ const { breeds, heading, bare, eager = 0 } = Astro.props
     <ul>
       {breeds.map((x, i) => (
         <li><a href={`/vi/ca/${x.t.slug}/`}>
-          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>Chưa có ảnh</span>}
-          <span class="n">{x.t.name}</span><span class="k">{BREED_KIND[x.kind]}</span>
+          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{t('Chưa có ảnh')}</span>}
+          <span class="n">{x.t.name}</span><span class="k">{t(BREED_KIND[x.kind])}</span>
         </a></li>
       ))}
     </ul>

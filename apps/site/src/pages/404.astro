@@ -1,6 +1,8 @@
 ---
 import Browse from '../layouts/Browse.astro'
+import { i18n } from '../lib/i18n'
+const { t } = i18n(Astro.url)
 ---
-<Browse title="Không tìm thấy trang" heading="Không tìm thấy trang" noindex intro="Trang này không tồn tại hoặc đã được chuyển đi.">
-  <p><a href="/vi/ca/">Xem tất cả loài</a> hoặc <a href="/vi/tim-kiem/">tìm kiếm</a>.</p>
+<Browse title={t('Không tìm thấy trang')} heading={t('Không tìm thấy trang')} noindex intro={t('Trang này không tồn tại hoặc đã được chuyển đi.')}>
+  <p><a href="/vi/ca/">{t('Xem tất cả loài')}</a> {t('hoặc')} <a href="/vi/tim-kiem/">{t('tìm kiếm')}</a>.</p>
 </Browse>

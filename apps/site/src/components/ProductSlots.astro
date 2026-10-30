@@ -1,8 +1,10 @@
 ---
 import type { ProductSlot } from '@aq/schema'
 import { categoryLabel, goLink } from '../lib/format'
+import { i18n } from '../lib/i18n'
 interface Props { slots: ProductSlot[]; heading?: string; entity?: string }
-const { slots, heading = 'Thiết bị phù hợp', entity } = Astro.props
+const { t } = i18n(Astro.url)
+const { slots, heading = t('Thiết bị phù hợp'), entity } = Astro.props
 ---
 {slots.length > 0 && (
   <section class="products" aria-labelledby="products-h">
@@ -10,7 +12,7 @@ const { slots, heading = 'Thiết bị phù hợp', entity } = Astro.props
     <ul>
       {slots.flatMap(s => s.keywords.map(k => (
         <li>
-          <span class="cat">{categoryLabel(s.category)}</span>
+          <span class="cat">{t(categoryLabel(s.category))}</span>
           <span class="kw">{k}</span>
           <span class="shops">
             <a href={goLink('shopee', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
@@ -20,7 +22,7 @@ const { slots, heading = 'Thiết bị phù hợp', entity } = Astro.props
         </li>
       )))}
     </ul>
-    <p class="note">Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.</p>
+    <p class="note">{t('Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.')}</p>
   </section>
 )}
 <style>

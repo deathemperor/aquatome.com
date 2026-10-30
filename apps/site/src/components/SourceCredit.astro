@@ -1,13 +1,15 @@
 ---
 import type { GuideEntity, SourceId, SourceInfo } from '@aq/schema'
+import { i18n } from '../lib/i18n'
 interface Props { source: SourceId; url: string; sources: Partial<Record<SourceId, SourceInfo>>; video?: GuideEntity['video']; refs?: GuideEntity['refs'] }
 const { source, url, sources, video, refs } = Astro.props
 const name = sources[source]?.name ?? source
+const { t } = i18n(Astro.url)
 ---
-{source === 'aquatome' ? <p class="credit">AquaTome tổng hợp từ <a href="#nguon">{refs?.length ?? 0} nguồn</a> rồi tự viết</p>
+{source === 'aquatome' ? <p class="credit">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: refs?.length ?? 0 })}</a> {t('rồi tự viết')}</p>
   : video
-  ? <p class="credit">Bài viết của AquaTome, dựa trên video của <a href={video.channelUrl} rel="noopener">{video.channel}</a></p>
-  : <p class="credit">Theo <a href={url} rel="noopener">{name}</a></p>}
+  ? <p class="credit">{t('Bài viết của AquaTome, dựa trên video của')} <a href={video.channelUrl} rel="noopener">{video.channel}</a></p>
+  : <p class="credit">{t('Theo')} <a href={url} rel="noopener">{name}</a></p>}
 <style>
   .credit { font-size: var(--step--1); color: var(--c-ink-faint); margin: 0; }
   .credit a { color: var(--c-ink-soft); }

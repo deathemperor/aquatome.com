@@ -21,27 +21,29 @@ import { nextGuides } from '../../../lib/home'
 import VideoPlayer from '../../../components/VideoPlayer.astro'
 import { clock, illustrate, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
 import { slugify } from '@aq/schema/slug'
+import { i18n, langOf } from '../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.guides.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
 }
 const { g } = Astro.props as { g: Localized<GuideEntity> }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const m = mentionIndex(c).guides.get(g.id)!
 const body = m.html
 const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
 const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
 const ph = guideImage(c, g)
-const gear = g.video ? gearRows(c, g.video) : []
+const gear = g.video ? gearRows(lang, c, g.video) : []
 // Pictures inside the text: each species/plant photo after the paragraph that first names it, the guide's other photos spread out.
 const shown = (url?: string) => url !== undefined && url !== ph?.url
-const placed = placeFigures(body,
+const placed = placeFigures(lang, body,
   [...species.map(s => ({ photo: s.photos[0], label: s.t.name, href: `/vi/ca/${s.t.slug}/` })), ...plants.map(p => ({ photo: p.photos[0], label: p.t.name, href: `/vi/cay/${p.t.slug}/` }))]
     .filter((f): f is typeof f & { photo: NonNullable<typeof f.photo> } => shown(f.photo?.url)).slice(0, 6),
   g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
 const { html: toc0, toc } = withToc(placed)
-const prose = g.video ? illustrate(toc0, g.video) : toc0
+const prose = g.video ? illustrate(lang, toc0, g.video) : toc0
 const minutes = readingMinutes(body)
 const series = seriesOf(c, g)
 const inSeries = series ? seriesGuides(c, series) : []
@@ -60,7 +62,7 @@ if (v) {
   })
 }
 if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })
-const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/huong-dan/', 'Hướng dẫn']
+const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 ---
 <Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...species.map(s => s.photos[0]), ...plants.map(p => p.photos[0])])}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
@@ -68,54 +70,54 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', 'Khám phá'] : ['/vi/hu
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
-      <nav class="crumb" aria-label="Đường dẫn">{v ? <><a href="/vi/video/">Video</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
-      <p class="kind">{GUIDE_KIND_LABELS[g.kind]} · {v && <>video {clock(v.durationSec)} · </>}đọc khoảng {minutes} phút{series && pos >= 0 && <> · phần {pos + 1}/{inSeries.length}</>}</p>
+      <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
+      <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={g.refs} />
       {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
-          <h2 id="sum-h">Tóm tắt nhanh</h2>
+          <h2 id="sum-h">{t('Tóm tắt nhanh')}</h2>
           <ul>{g.t.summary.map(x => <li>{x}</li>)}</ul>
         </section>
       )}
     </header>
     {toc.length >= 3 && (
       <nav class="toc" aria-labelledby="toc-h">
-        <h2 id="toc-h">Trong bài này</h2>
+        <h2 id="toc-h">{t('Trong bài này')}</h2>
         <ol>{toc.map(t => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
       </nav>
     )}
     <div class="prose" set:html={prose} />
     {g.t.faq && g.t.faq.length > 0 && (
       <section class="faq" aria-labelledby="faq-h">
-        <h2 id="faq-h">Câu hỏi thường gặp</h2>
+        <h2 id="faq-h">{t('Câu hỏi thường gặp')}</h2>
         {g.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </section>
     )}
     {g.refs && g.refs.length > 0 && (
       <section class="refs" id="nguon" aria-labelledby="ref-h">
-        <h2 id="ref-h">Nguồn tham khảo</h2>
+        <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
         <ol>{g.refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank">{r.title}</a></li>)}</ol>
       </section>
     )}
   </article>
   {next.length > 0 && (
     <section class="wrap related" aria-labelledby="next-h">
-      <h2 id="next-h">{series && pos + 1 < inSeries.length ? 'Phần tiếp theo' : 'Bài tiếp theo'}</h2>
+      <h2 id="next-h">{series && pos + 1 < inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo')}</h2>
       <div class="grid">{next.map(x => <GuideCard g={x} />)}</div>
     </section>
   )}
   {(species.length > 0 || plants.length > 0) && (
     <section class="wrap related" aria-labelledby="rel-h">
-      <h2 id="rel-h">Loài và cây trong bài</h2>
+      <h2 id="rel-h">{t('Loài và cây trong bài')}</h2>
       <div class="grid">{species.map(s => <SpeciesCard s={s} />)}{plants.map(p => <PlantCard p={p} />)}</div>
     </section>
   )}
-  {gear.length > 0 ? <GearList rows={gear} youtubeId={g.video?.youtubeId} heading="Thiết bị trong video" entity={`guide:${g.t.slug}`} /> : m.equipment.length > 0 && (
+  {gear.length > 0 ? <GearList rows={gear} youtubeId={g.video?.youtubeId} heading={t('Thiết bị trong video')} entity={`guide:${g.t.slug}`} /> : m.equipment.length > 0 && (
     <section class="wrap related" aria-labelledby="eq-h">
-      <h2 id="eq-h">Thiết bị nhắc đến</h2>
-      <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{categoryLabel(cat)}</a></li>)}</ul>
+      <h2 id="eq-h">{t('Thiết bị nhắc đến')}</h2>
+      <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{t(categoryLabel(cat))}</a></li>)}</ul>
     </section>
   )}
   <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>

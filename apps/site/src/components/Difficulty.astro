@@ -1,10 +1,12 @@
 ---
 /** Difficulty in words (1–3 Dễ, 4–5 Vừa, 6–8 Khó); the 1–8 number stays in the label for screen readers and tooltips. */
+import { i18n } from '../lib/i18n'
 interface Props { value: number }
 const { value } = Astro.props
-const [word, cls] = value <= 3 ? ['Dễ', 'easy'] : value <= 5 ? ['Vừa', 'mid'] : ['Khó', 'hard']
+const { t } = i18n(Astro.url)
+const [word, cls] = value <= 3 ? [t('Dễ'), 'easy'] : value <= 5 ? [t('Vừa'), 'mid'] : [t('Khó'), 'hard']
 ---
-<span class:list={['diff', cls]} aria-label={`Độ khó ${value}/8: ${word.toLowerCase()}`} title={`Độ khó ${value}/8`}>{word}</span>
+<span class:list={['diff', cls]} aria-label={t('Độ khó {value}/8: {word}', { value, word: word.toLowerCase() })} title={t('Độ khó {value}/8', { value })}>{word}</span>
 <style>
   .diff { display: inline-block; padding: 0 0.45em; border: 1px solid currentColor; font: 600 0.75rem var(--f-body); line-height: 1.5; letter-spacing: 0.02em; }
   .easy { color: var(--c-moss); }

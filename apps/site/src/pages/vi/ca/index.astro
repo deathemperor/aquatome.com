@@ -8,38 +8,41 @@ import { creditsFor } from '../../../lib/credits'
 import { jsonForScript } from '../../../lib/json'
 import { listOrder } from '../../../lib/home'
 import BreedList from '../../../components/BreedList.astro'
+import { i18n } from '../../../lib/i18n'
 
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const index = c.species.map(s => toIndexItem(s))
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
-<Browse title="Tất cả loài" heading="Tất cả loài" intro={`${c.species.length} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.`} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
-  <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, 'vi'))} heading="Cá lai và các dòng cá cảnh" bare eager={4} />
+<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
+  <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
   {/* Open on wide screens; on phones it starts closed unless a filter is in the address (see the inline script). */}
   <details class="fbox" id="filter-box" open>
-  <summary>Lọc theo bể và nước</summary>
+  <summary>{t('Lọc theo bể và nước')}</summary>
   <form class="filters" id="species-filter" role="search">
-    <label>Tên <input name="q" type="search" placeholder="neon, Corydoras…" /></label>
-    <label>Nhóm
-      <select name="group"><option value="">Tất cả</option>{groups.map(g => <option value={g}>{groupLabel(g)}</option>)}</select>
+    <label>{t('Tên')} <input name="q" type="search" placeholder={t('neon, Corydoras…')} /></label>
+    <label>{t('Nhóm')}
+      <select name="group"><option value="">{t('Tất cả')}</option>{groups.map(g => <option value={g}>{t(groupLabel(g))}</option>)}</select>
     </label>
-    <label>Bể dài (cm) <input name="tankCm" type="number" inputmode="numeric" min="10" max="400" /></label>
-    <label>Nhiệt độ (°C) <input name="tempC" type="number" inputmode="numeric" min="5" max="40" /></label>
+    <label>{t('Bể dài (cm)')} <input name="tankCm" type="number" inputmode="numeric" min="10" max="400" /></label>
+    <label>{t('Nhiệt độ (°C)')} <input name="tempC" type="number" inputmode="numeric" min="5" max="40" /></label>
     <label>pH <input name="ph" type="number" inputmode="decimal" step="0.1" min="3" max="10" /></label>
-    <label>Độ khó tối đa
-      <select name="difficultyMax"><option value="">Bất kỳ</option><option value="3">Dễ</option><option value="5">Dễ và vừa</option></select>
+    <label>{t('Độ khó tối đa')}
+      <select name="difficultyMax"><option value="">{t('Bất kỳ')}</option><option value="3">{t('Dễ')}</option><option value="5">{t('Dễ và vừa')}</option></select>
     </label>
-    <button type="submit">Lọc</button>
+    <button type="submit">{t('Lọc')}</button>
   </form>
   </details>
   <script is:inline>(()=>{var d=document.getElementById('filter-box');if(matchMedia('(max-width: 640px)').matches&&!location.search)d.open=false})()</script>
   <p class="count" id="species-count" aria-live="polite"></p>
-  <SpeciesGrid species={listOrder(c)} heading="Danh sách loài" />
+  <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} />
   <p class="more"><button type="button" id="species-more" hidden></button></p>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
   import { filterSpecies, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
+  import { ct } from '../../../scripts/ct'
   const PAGE = 24
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
   const form = document.getElementById('species-filter') as HTMLFormElement
@@ -53,13 +56,13 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
     document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { const ok = keep.has(el.dataset.slug!); el.hidden = !ok || n >= shown; if (ok) n++ })
     const left = keep.size - Math.min(shown, keep.size)
     more.hidden = left <= 0
-    more.textContent = `Xem thêm ${Math.min(left, PAGE)} loài (còn ${left})`
+    more.textContent = ct('Xem thêm {n} loài (còn {left})', { n: Math.min(left, PAGE), left })
   }
   function run(params: URLSearchParams) {
     for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
     keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
     shown = PAGE
-    count.textContent = keep.size === items.length ? '' : keep.size === 0 ? 'Không có loài nào khớp. Thử nới điều kiện lọc.' : `${keep.size} loài phù hợp`
+    count.textContent = keep.size === items.length ? '' : keep.size === 0 ? ct('Không có loài nào khớp. Thử nới điều kiện lọc.') : ct('{n} loài phù hợp', { n: keep.size })
     render()
   }
   more.addEventListener('click', () => { shown += PAGE; render() })

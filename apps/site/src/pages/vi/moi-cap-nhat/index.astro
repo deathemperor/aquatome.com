@@ -1,7 +1,9 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
-const c = await getContent()
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const KIND = { species: ['ca', 'Loài'], plant: ['cay', 'Cây'], guide: ['huong-dan', 'Hướng dẫn'] } as const
 const pools = { species: c.species, plant: c.plants, guide: c.guides }
 const entries = c.changelog.flatMap(e => {
@@ -10,15 +12,15 @@ const entries = c.changelog.flatMap(e => {
 })
 const fmt = (d: string) => d.split('-').reverse().join('/')
 ---
-<Browse title="Mới cập nhật" heading="Mới cập nhật" intro="Các trang vừa được thêm hoặc cập nhật theo nguồn gốc.">
-  {entries.length === 0 ? <p>Chưa có cập nhật nào.</p> : (
+<Browse title={t('Mới cập nhật')} heading={t('Mới cập nhật')} intro={t('Các trang vừa được thêm hoặc cập nhật theo nguồn gốc.')}>
+  {entries.length === 0 ? <p>{t('Chưa có cập nhật nào.')}</p> : (
     <ol class="log" data-changelog>
       {entries.map(e => (
         <li>
           <time datetime={e.date}>{fmt(e.date)}</time>
-          <span class="kind">{KIND[e.kind][1]}</span>
+          <span class="kind">{t(KIND[e.kind][1])}</span>
           <a href={e.href}>{e.name}</a>
-          <span class="act">{e.action === 'new' ? 'Mới' : 'Cập nhật'} · {c.sources[e.source]?.name ?? e.source}</span>
+          <span class="act">{e.action === 'new' ? t('Mới') : t('Cập nhật')} · {c.sources[e.source]?.name ?? e.source}</span>
         </li>
       ))}
     </ol>

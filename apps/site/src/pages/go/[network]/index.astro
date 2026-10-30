@@ -1,5 +1,6 @@
 ---
 // Fallback when the site is served without the Worker (local preview): send the visitor to the marketplace search.
+import { i18n } from '../../../lib/i18n'
 export function getStaticPaths() {
   return [
     { params: { network: 'shopee' }, props: { base: 'https://shopee.vn/search?keyword=', name: 'Shopee' } },
@@ -8,14 +9,15 @@ export function getStaticPaths() {
   ]
 }
 const { base, name } = Astro.props
+const { t, lang } = i18n(Astro.url)
 ---
 <!doctype html>
-<html lang="vi">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Đang chuyển tới {name}…</title>
+    <title>{t('Đang chuyển tới {name}…', { name })}</title>
     <script is:inline define:vars={{ base }}>location.replace(base + encodeURIComponent(new URLSearchParams(location.search).get('k') || ''))</script>
   </head>
-  <body><p>Đang chuyển tới {name}… <a href={base}>Mở {name}</a></p></body>
+  <body><p>{t('Đang chuyển tới {name}…', { name })} <a href={base}>{t('Mở {name}', { name })}</a></p></body>
 </html>

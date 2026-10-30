@@ -1,6 +1,7 @@
 import { STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
+import type { Lang } from './i18n'
 
 
 /** Plants every beginner can grow: shown first. */
@@ -13,32 +14,32 @@ const LEAD_GUIDES = ['aquariumcoop-blogs-aquarium-fish-tank-cycling', 'aquariumc
 export const cleanPhoto = (photos: Photo[]) => photos.find(p => p.source !== 'glaser') ?? photos[0]
 
 /** Photos first, then the fullest profiles. */
-export const richest = (a: Localized<SpeciesEntity>, b: Localized<SpeciesEntity>) =>
-  Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || b.sections.length - a.sections.length || a.t.name.localeCompare(b.t.name, 'vi')
+export const richest = (lang: Lang) => (a: Localized<SpeciesEntity>, b: Localized<SpeciesEntity>) =>
+  Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || b.sections.length - a.sections.length || a.t.name.localeCompare(b.t.name, lang)
 
 /** Well-known species with an unwatermarked photo, topped up with the richest other profiles. */
-export function featuredSpecies(c: Content, n = 8): Localized<SpeciesEntity>[] {
+export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
   const clean = (s: Localized<SpeciesEntity>) => s.photos.some(p => p.source !== 'glaser')
   const ok = (s: Localized<SpeciesEntity>) => clean(s) && s.t.quality.indexable
   const byId = new Map(c.species.map(s => [s.id, s]))
   // Staples need only a clean photo: readers look for them first, even while a translation is below the indexing bar.
   const staples = STAPLE_SPECIES.flatMap(id => { const s = byId.get(id); return s && clean(s) ? [s] : [] })
-  const rest = c.species.filter(s => ok(s) && !staples.includes(s)).sort(richest)
+  const rest = c.species.filter(s => ok(s) && !staples.includes(s)).sort(richest(lang))
   return [...staples, ...rest].slice(0, n)
 }
 
 /** The full species list in reading order: the featured species first, then the best-documented. */
-export function listOrder(c: Content): Localized<SpeciesEntity>[] {
-  const first = featuredSpecies(c, Infinity)
-  return [...first, ...c.species.filter(s => !first.includes(s)).sort(richest)]
+export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
+  const first = featuredSpecies(lang, c, Infinity)
+  return [...first, ...c.species.filter(s => !first.includes(s)).sort(richest(lang))]
 }
 
 /** Each species group with a page: its size and a picture of its best-documented member. */
-export function groupTiles(c: Content): { group: string; label: string; count: number; photo?: Photo }[] {
+export function groupTiles(lang: Lang, c: Content): { group: string; label: string; count: number; photo?: Photo }[] {
   return Object.entries(GROUP_LABELS)
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
-      const ranked = [...members].sort(richest)
+      const ranked = [...members].sort(richest(lang))
       const best = ranked.find(s => s.photos.some(p => p.source !== 'glaser')) ?? ranked.find(s => s.photos.length)
       return { group, label, count: members.length, photo: best && cleanPhoto(best.photos) }
     })

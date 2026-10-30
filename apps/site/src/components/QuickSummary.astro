@@ -1,19 +1,21 @@
 ---
 import type { Summary } from '@aq/schema'
+import { i18n } from '../lib/i18n'
 interface Props { summary: Summary }
 const { summary } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 <section class="wrap qs" aria-labelledby="qs-h">
   <div class="box">
-    <h2 id="qs-h">Tóm tắt nhanh</h2>
+    <h2 id="qs-h">{t('Tóm tắt nhanh')}</h2>
     <p>{summary.summary}</p>
     {summary.mistakes.length > 0 && (
       <>
-        <h3>Lỗi hay gặp</h3>
+        <h3>{t('Lỗi hay gặp')}</h3>
         <ul>{summary.mistakes.map(m => <li>{m}</li>)}</ul>
       </>
     )}
-    <p class="by">AquaTome tóm tắt từ các nguồn bên dưới.</p>
+    <p class="by">{t('AquaTome tóm tắt từ các nguồn bên dưới.')}</p>
   </div>
 </section>
 <style>

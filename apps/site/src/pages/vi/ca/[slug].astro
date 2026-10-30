@@ -24,21 +24,23 @@ import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { slugify } from '@aq/schema/slug'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
+import { i18n, langOf } from '../../../lib/i18n'
 
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.species.map(s => ({ params: { slug: s.t.slug }, props: { s } }))
 }
 const { s } = Astro.props as { s: Localized<SpeciesEntity> }
-const c = await getContent()
+const { lang, t } = i18n(Astro.url)
+const c = await getContent(lang)
 const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
 const country = places.find(p => p.kind === 'country')
 const url = new URL(Astro.url.pathname, Astro.site).href
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: 'vi', dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
+  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Loài cá', item: new URL('/vi/ca/', Astro.site).href },
+    { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
     { '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href },
     { '@type': 'ListItem', position: 3, name: s.t.name, item: url } ] },
 ]
@@ -46,12 +48,12 @@ const firstSource = s.sections[0]
 const summary = await approvedSummary(s.id)
 const gallery = c.galleries[s.id] ?? []
 const strip = gallery.length >= GALLERY_MIN ? gallery.slice(0, GALLERY_STRIP) : []
-const breeds = breedsOf(c, s.id)
+const breeds = breedsOf(lang, c, s.id)
 ---
-<Base title={speciesTitle(s.t.name, s.scientificName)} description={speciesDescription(s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
   <Nav slot="header" />
-  <nav class="wrap crumb" aria-label="Đường dẫn">
-    <a href="/vi/ca/">Loài cá</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
+  <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
+    <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
   </nav>
   <header class="wrap top">
     <PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} />
@@ -60,20 +62,20 @@ const breeds = breedsOf(c, s.id)
       <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
-      {s.t.altNames.length > 0 && <p class="alt">Tên khác: {s.t.altNames.join(', ')}</p>}
+      {s.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <DataCard card={s.dataCard} sources={c.sources} />
-      {firstSource && <p class="srcline">Dịch và tổng hợp từ {[...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')}. Cập nhật {s.updatedAt}.</p>}
+      {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
       <VnClimate card={s.dataCard} />
-      <p class="srcline"><a href={`/vi/cong-cu/?ca=${s.t.slug}#nuoi-chung`}>Kiểm tra nuôi chung với loài khác →</a></p>
+      <p class="srcline"><a href={`/vi/cong-cu/?ca=${s.t.slug}#nuoi-chung`}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>
     </div>
   </header>
 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
   {summary && <QuickSummary summary={summary} />}
   <Sections sections={s.sections} t={s.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} />
-  <BreedList breeds={breeds} heading={`Các dòng và cá lai từ ${s.t.name}`} />
-  <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading="Bài viết nhắc đến loài này" />
-  <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading="Có trong video hướng dẫn" />
+  <BreedList breeds={breeds} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
+  <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến loài này')} />
+  <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
 
   <VideoFacade videos={s.videos} />
   <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />

@@ -1,22 +1,24 @@
 ---
 // Readers' own photos of this species. Loaded client-side from the Worker; stays hidden until the API answers.
+import { i18n } from '../lib/i18n'
 interface Props { entity: string; name: string }
 const { entity, name } = Astro.props
+const { t } = i18n(Astro.url)
 ---
 <section class="wrap rp" data-reader-photos data-entity={entity} aria-labelledby="rp-h" hidden>
-  <h2 id="rp-h">Ảnh bạn đọc</h2>
+  <h2 id="rp-h">{t('Ảnh bạn đọc')}</h2>
   <ul class="list" data-list></ul>
-  <p class="empty" data-empty>Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.</p>
+  <p class="empty" data-empty>{t('Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.', { name })}</p>
   <details class="send">
-    <summary>Gửi ảnh {name} của bạn</summary>
+    <summary>{t('Gửi ảnh {name} của bạn', { name })}</summary>
     <form data-form hidden>
-      <label>Ảnh <input name="file" type="file" accept="image/jpeg,image/png,image/webp" required /></label>
-      <label>Tên hiển thị <input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
-      <label class="check"><input name="consent" type="checkbox" required /> <span>Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.</span></label>
+      <label>{t('Ảnh')} <input name="file" type="file" accept="image/jpeg,image/png,image/webp" required /></label>
+      <label>{t('Tên hiển thị')} <input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
+      <label class="check"><input name="consent" type="checkbox" required /> <span>{t('Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.')}</span></label>
       <div data-turnstile></div>
-      <button type="submit">Gửi ảnh</button>
+      <button type="submit">{t('Gửi ảnh')}</button>
       <p class="msg" data-msg role="status" aria-live="polite"></p>
-      <p class="rules">Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.</p>
+      <p class="rules">{t('Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.')}</p>
     </form>
   </details>
 </section>

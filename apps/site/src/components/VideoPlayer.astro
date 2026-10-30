@@ -1,41 +1,46 @@
 ---
 import type { GuideEntity } from '@aq/schema'
 import { clock, videoPhoto, watchUrl } from '../lib/video'
+import { i18n } from '../lib/i18n'
 interface Props { video: NonNullable<GuideEntity['video']>; chapters?: string[]; cover?: string }
 const { video: v, chapters = [], cover } = Astro.props
+const { t } = i18n(Astro.url)
 const thumb = videoPhoto(v)
 // Vietnamese chapter titles when the writer gave one per chapter, else the creator's own.
 const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length === v.chapters.length ? chapters[i]! : c.title }))
 ---
 <figure class="vp" data-vp={v.youtubeId}>
   <div class="frame">
-    <button type="button" class="facade" data-t="0" aria-label={`Phát video “${v.title}”${v.transcribed ? '' : ', phụ đề tiếng Việt'}`}>
+    <button type="button" class="facade" data-t="0" aria-label={v.transcribed ? t('Phát video “{title}”', { title: v.title }) : t('Phát video “{title}”, phụ đề tiếng Việt', { title: v.title })}>
       {/* Phones get the 640 px thumbnail (a third of the 1280 px one's bytes); every video with a 1280 px one has it. */}
       <picture>{thumb.width >= 1280 && <source media="(max-width: 480px)" srcset={`https://i.ytimg.com/vi/${v.youtubeId}/sddefault.jpg`} />}<img src={thumb.url} width={thumb.width} height={thumb.height} alt="" fetchpriority="high" /></picture>
       <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
       {cover && <span class="cover" aria-hidden="true">{cover}</span>}
-      {!v.transcribed && <span class="cc" aria-hidden="true">Phụ đề tiếng Việt</span>}
+      {!v.transcribed && <span class="cc" aria-hidden="true">{t('Phụ đề tiếng Việt')}</span>}
     </button>
   </div>
   <figcaption>
-    Video gốc: <a href={watchUrl(v.youtubeId)} rel="noopener">{v.title}</a>, kênh <a href={v.channelUrl} rel="noopener">{v.channel}</a> · {clock(v.durationSec)}
+    {t('Video gốc:')} <a href={watchUrl(v.youtubeId)} rel="noopener">{v.title}</a>{t(', kênh')} <a href={v.channelUrl} rel="noopener">{v.channel}</a> · {clock(v.durationSec)}
   </figcaption>
 </figure>
 {marks.length > 1 && (
   <details class="chapters" open={marks.length <= 12}>
-    <summary>Các đoạn trong video ({marks.length})</summary>
+    <summary>{t('Các đoạn trong video ({n})', { n: marks.length })}</summary>
     <ol>
       {marks.map(m => <li><button type="button" data-t={m.start} data-vp-for={v.youtubeId}><span class="t">{clock(m.start)}</span> {m.title}</button></li>)}
     </ol>
   </details>
 )}
 <script>
+  // No imports: a script with none is inlined into the page. Each language's own name, as in lib/i18n LANG_NAME.
+  const LANG_NAME: Record<string, string> = { vi: 'Tiếng Việt', id: 'Bahasa Indonesia', th: 'ภาษาไทย' }
   type Player = {
     seekTo(s: number, allow: boolean): void; playVideo(): void
     getOption(m: string, k: string): unknown; setOption(m: string, k: string, v: unknown): void
   }
   type YTApi = { Player: new (el: HTMLElement, o: object) => Player; PlayerState: { PLAYING: number } }
   const w = window as unknown as { YT?: YTApi; onYouTubeIframeAPIReady?: () => void }
+  const lang = document.documentElement.lang
 
   let api: Promise<YTApi> | undefined
   const loadApi = () => (api ??= new Promise<YTApi>((resolve, reject) => {
@@ -48,12 +53,12 @@ const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length
     document.head.append(s)
   }))
 
-  /** Vietnamese captions: the creator's Vietnamese track if there is one, else YouTube's translation of the original track. */
+  /** Captions in the page's language (Vietnamese on /vi/): the creator's own track in it if there is one, else YouTube's translation of the original track. */
   function vietnamese(p: Player) {
     const list = (p.getOption('captions', 'tracklist') as { languageCode?: string }[] | undefined) ?? []
-    if (list.some(t => t.languageCode === 'vi')) return p.setOption('captions', 'track', { languageCode: 'vi' })
+    if (list.some(t => t.languageCode === lang)) return p.setOption('captions', 'track', { languageCode: lang })
     const base = list.find(t => t.languageCode?.startsWith('en')) ?? list[0] ?? (p.getOption('captions', 'track') as { languageCode?: string } | undefined)
-    p.setOption('captions', 'track', { languageCode: base?.languageCode || 'en', translationLanguage: { languageCode: 'vi', languageName: 'Tiếng Việt' } })
+    p.setOption('captions', 'track', { languageCode: base?.languageCode || 'en', translationLanguage: { languageCode: lang, languageName: LANG_NAME[lang] } })
   }
 
   /** One player per video, stored as soon as it is being made, so a second click waits for it instead of making another. */
@@ -66,7 +71,7 @@ const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length
       let captioned = false
       new YT.Player(slot, {
         host: 'https://www.youtube-nocookie.com', videoId: id,
-        playerVars: { autoplay: 1, start: t, rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: 'vi', hl: 'vi' },
+        playerVars: { autoplay: 1, start: t, rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: lang, hl: lang },
         events: {
           onReady: (e: { target: Player }) => { e.target.playVideo(); resolve(e.target) },
           onStateChange: (e: { target: Player; data: number }) => {
@@ -79,7 +84,7 @@ const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length
     }), () => {
       // The control script was blocked (ad blocker, offline): a plain embed still plays, with captions on.
       const f = document.createElement('iframe')
-      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&start=${t}&rel=0&cc_load_policy=1&cc_lang_pref=vi&hl=vi`
+      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&start=${t}&rel=0&cc_load_policy=1&cc_lang_pref=${lang}&hl=${lang}`
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
       f.title = fig.querySelector('.facade')?.getAttribute('aria-label') ?? 'Video'
       frame.replaceChildren(f)

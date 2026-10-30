@@ -1,9 +1,10 @@
 import { expect, test } from 'vitest'
 import { commentHtml } from '../src/scripts/comments'
+import { translator } from '../src/lib/i18n'
 import { page } from './dist'
 
 test('comment renderer makes any payload inert', () => {
-  const html = commentHtml({ id: '"><x', name: '<img src=x onerror=alert(1)>', body: '<script>alert(1)</script>\n\nhttps://evil.test', helpful: true, createdAt: '2026-10-29T03:00:00Z' })
+  const html = commentHtml({ id: '"><x', name: '<img src=x onerror=alert(1)>', body: '<script>alert(1)</script>\n\nhttps://evil.test', helpful: true, createdAt: '2026-10-29T03:00:00Z' }, translator('vi'), 'vi')
   expect(html).not.toMatch(/<img|<script|<a /)
   expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;')
   expect(html).toContain('&lt;script&gt;')

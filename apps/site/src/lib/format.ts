@@ -1,10 +1,16 @@
 import type { DataCardField, Range } from '@aq/schema'
+import { LOCALE, type Lang } from './i18n'
 
-const nf = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 1 })
-export const num = (n: number) => nf.format(n)
 export const isRange = (v: Range | number): v is Range => typeof v === 'object'
-export const range = (v: Range | number) => (isRange(v) ? (v.min === v.max ? num(v.min) : `${num(v.min)}–${num(v.max)}`) : num(v))
+/** Numbers as the page's language writes them (vi, id: 1.234,5; th: 1,234.5). */
+export function fmt(lang: Lang) {
+  const nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 })
+  const num = (n: number) => nf.format(n)
+  const range = (v: Range | number) => (isRange(v) ? (v.min === v.max ? num(v.min) : `${num(v.min)}–${num(v.max)}`) : num(v))
+  return { num, range }
+}
 
+/** Labels here are Vietnamese: a page shows them through t(). */
 export const FIELD_LABELS: Record<DataCardField, string> = {
   tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)', sizeCm: 'Kích thước', tankCm: 'Bể tối thiểu', difficulty: 'Độ khó',
 }

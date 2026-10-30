@@ -5,19 +5,21 @@ import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
 import { getContent } from '../../../lib/content'
 import { categoryLabel } from '../../../lib/format'
 import { dmy, priceRange, vnd, videosUsing, type Product } from '../../../lib/products'
-export async function getStaticPaths() {
-  const c = await getContent()
+import { i18n, langOf } from '../../../lib/i18n'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   return c.products.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
 }
 const { p } = Astro.props as { p: Product }
-const c = await getContent()
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const eq = c.equipment.find(e => e.category === p.category)
 const typeName = eq?.types.find(t => t.id === p.type)?.name
 const label = (k: string) => p.t.labels?.[k] ?? k
 const range = priceRange(p)
 const keys = [...new Set(p.variants.flatMap(v => v.specs.map(s => s.key)))]
 const name = `${p.brand} ${p.model}`
-const buy = [{ category: p.category, label: categoryLabel(p.category), name, keyword: name }]
+const buy = [{ category: p.category, label: t(categoryLabel(p.category)), name, keyword: name }]
 const vids = videosUsing(c, p)
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Product', name, brand: { '@type': 'Brand', name: p.brand }, model: p.model, description: p.t.summary?.join(' '),
@@ -25,22 +27,22 @@ const jsonld = [
   ...(p.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ]
 ---
-<Browse title={`${p.t.name}: nên mua không, chọn cỡ nào`} heading={p.t.name} description={p.t.summary?.join(' ')} crumbs={[['/vi/thiet-bi/', 'Thiết bị'], ...(eq ? [[`/vi/thiet-bi/${p.category}/`, eq.name] as [string, string]] : [])]} noindex={!p.t.quality.indexable} jsonld={jsonld}>
-  <p class="kind">{typeName ?? categoryLabel(p.category)} · {p.brand}</p>
-  {p.t.summary?.length ? <div class="verdict"><h2>Nhận xét nhanh</h2>{p.t.summary.map(s => <p>{s}</p>)}</div> : null}
+<Browse title={t('{name}: nên mua không, chọn cỡ nào', { name: p.t.name })} heading={p.t.name} description={p.t.summary?.join(' ')} crumbs={[['/vi/thiet-bi/', t('Thiết bị')], ...(eq ? [[`/vi/thiet-bi/${p.category}/`, eq.name] as [string, string]] : [])]} noindex={!p.t.quality.indexable} jsonld={jsonld}>
+  <p class="kind">{typeName ?? t(categoryLabel(p.category))} · {p.brand}</p>
+  {p.t.summary?.length ? <div class="verdict"><h2>{t('Nhận xét nhanh')}</h2>{p.t.summary.map(s => <p>{s}</p>)}</div> : null}
 
   <div class="facts">
     {range && (
       <section class="prices" aria-labelledby="price-h">
-        <h2 id="price-h">Giá tham khảo</h2>
-        <p class="range">{range.min === range.max ? vnd(range.min) : `${vnd(range.min)} – ${vnd(range.max)}`}</p>
-        <ul>{p.market!.prices.map(x => <li><a href={x.url} rel="nofollow noopener" target="_blank">{x.shop}</a>{x.variant && <span class="v">{label(x.variant)}</span>}<span class="p">{vnd(x.price)}</span></li>)}</ul>
-        <p class="note">Giá trên trang của từng shop, xem ngày {dmy(range.at)}. Giá có thể đã đổi.</p>
+        <h2 id="price-h">{t('Giá tham khảo')}</h2>
+        <p class="range">{range.min === range.max ? vnd(lang, range.min) : `${vnd(lang, range.min)} – ${vnd(lang, range.max)}`}</p>
+        <ul>{p.market!.prices.map(x => <li><a href={x.url} rel="nofollow noopener" target="_blank">{x.shop}</a>{x.variant && <span class="v">{label(x.variant)}</span>}<span class="p">{vnd(lang, x.price)}</span></li>)}</ul>
+        <p class="note">{t('Giá trên trang của từng shop, xem ngày {date}. Giá có thể đã đổi.', { date: dmy(range.at) })}</p>
       </section>
     )}
     {p.specs.length > 0 && (
       <section aria-labelledby="spec-h">
-        <h2 id="spec-h">Thông số</h2>
+        <h2 id="spec-h">{t('Thông số')}</h2>
         <table class="specs"><tbody>{p.specs.map(s => <tr><th scope="row">{label(s.key)}</th><td>{label(s.value)}</td></tr>)}</tbody></table>
       </section>
     )}
@@ -48,9 +50,9 @@ const jsonld = [
 
   {p.variants.length > 1 && (
     <section aria-labelledby="var-h">
-      <h2 id="var-h">Các phiên bản</h2>
+      <h2 id="var-h">{t('Các phiên bản')}</h2>
       <div class="scroll"><table class="variants">
-        <thead><tr><th scope="col">Phiên bản</th>{keys.map(k => <th scope="col">{label(k)}</th>)}</tr></thead>
+        <thead><tr><th scope="col">{t('Phiên bản')}</th>{keys.map(k => <th scope="col">{label(k)}</th>)}</tr></thead>
         <tbody>{p.variants.map(v => <tr><th scope="row">{label(v.name)}</th>{keys.map(k => { const x = v.specs.find(s => s.key === k)?.value; return <td>{x ? label(x) : '–'}</td> })}</tr>)}</tbody>
       </table></div>
     </section>
@@ -60,17 +62,17 @@ const jsonld = [
 
   {p.t.faq?.length ? (
     <section class="faq" aria-labelledby="faq-h">
-      <h2 id="faq-h">Hỏi đáp</h2>
+      <h2 id="faq-h">{t('Hỏi đáp')}</h2>
       {p.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
     </section>
   ) : null}
 
-  <GearList rows={buy} heading="Mua ở đâu" entity={`product:${p.id}`} />
-  <VideoGuideGrid guides={vids} heading="Có trong video hướng dẫn" />
+  <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
+  <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
 
   <section class="sources" aria-labelledby="src-h">
-    <h2 id="src-h">Nguồn</h2>
-    <p>AquaTome tổng hợp từ thông số của hãng, trang các shop thủy sinh và đánh giá của người chơi, rồi tự viết lại. Cập nhật {dmy(p.updatedAt)}.</p>
+    <h2 id="src-h">{t('Nguồn')}</h2>
+    <p>{t('AquaTome tổng hợp từ thông số của hãng, trang các shop thủy sinh và đánh giá của người chơi, rồi tự viết lại. Cập nhật {date}.', { date: dmy(p.updatedAt) })}</p>
     <ol>{p.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
   </section>
 </Browse>

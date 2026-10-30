@@ -7,7 +7,7 @@ import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, Glossa
 
 export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
-export const MARKET: Record<Lang, string> = { vi: 'vn' }
+export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th' }
 
 export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
 export type Localized<E> = E & { t: Translation }

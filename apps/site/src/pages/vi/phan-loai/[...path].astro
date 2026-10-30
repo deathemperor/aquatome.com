@@ -4,10 +4,11 @@ import Browse from '../../../layouts/Browse.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { i18n, langOf } from '../../../lib/i18n'
 
 type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
-export async function getStaticPaths() {
-  const c = await getContent()
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
   const nodes = new Map<string, Node>()
   const add = (path: string[], name: string, s: Localized<SpeciesEntity>) => {
     const k = path.join('/')
@@ -26,21 +27,22 @@ export async function getStaticPaths() {
   return [...nodes.values()].map(n => ({ params: { path: n.path.join('/') || undefined }, props: { node: n, kids: children(n) } }))
 }
 const { node, kids } = Astro.props as { node: Node; kids: Node[] }
-const level = ['Phân loại', 'Bộ', 'Họ', 'Chi'][node.path.length]!
+const { t } = i18n(Astro.url)
+const level = [t('Phân loại'), t('Bộ'), t('Họ'), t('Chi')][node.path.length]!
 const first = node.species[0]!
 const crumbNames = [first.order, first.family]
 const crumbs: [string, string][] = node.path.length
-  ? [['/vi/phan-loai/', 'Phân loại'], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
+  ? [['/vi/phan-loai/', t('Phân loại')], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
-<Browse title={node.path.length ? `${level} ${node.name}` : 'Phân loại'} heading={node.name} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? `${level} ${node.name}: ${node.species.length} loài.` : 'Duyệt loài theo bộ, họ và chi.'}>
+<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')}>
   {node.path.length === 3 && <span slot="heading" class="sci">{node.name}</span>}
   {kids.length > 0 && (
     <ul class="kids">
-      {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{k.species.length} loài</span></li>)}
+      {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}
     </ul>
   )}
-  {node.path.length > 0 && <SpeciesGrid species={node.species} heading="Danh sách loài" />}
+  {node.path.length > 0 && <SpeciesGrid species={node.species} heading={t('Danh sách loài')} />}
 </Browse>
 <style>
   .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); columns: 3 14rem; }

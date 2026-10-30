@@ -1,4 +1,5 @@
 import { escapeHtml, loadTurnstile } from './comments'
+import { ct } from './ct'
 
 export type ShownPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string }
 const MAX_BYTES = 8 * 1024 * 1024
@@ -6,7 +7,7 @@ const MAX_SIDE = 2000
 
 /** One gallery tile: the thumb links to the full photo; the reader's name as credit. Every user string escaped. */
 export function photoHtml(p: ShownPhoto): string {
-  return `<li><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><img src="${escapeHtml(p.thumb)}" width="${p.width}" height="${p.height}" alt="Ảnh của ${escapeHtml(p.name)}" loading="lazy"></a><span>${escapeHtml(p.name)}</span></li>`
+  return `<li><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><img src="${escapeHtml(p.thumb)}" width="${p.width}" height="${p.height}" alt="${ct('Ảnh của {name}', { name: escapeHtml(p.name) })}" loading="lazy"></a><span>${escapeHtml(p.name)}</span></li>`
 }
 
 /**
@@ -30,12 +31,12 @@ export async function shrink(file: File): Promise<Blob | null> {
 }
 
 const ERRORS: Record<string, string> = {
-  turnstile: 'Không qua được kiểm tra chống spam, vui lòng thử lại.',
-  rate: 'Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.',
-  'not an image': 'Chỉ nhận ảnh JPEG, PNG hoặc WebP.',
-  'too large': 'Ảnh quá lớn (tối đa 8 MB).',
-  'bad name': 'Tên chỉ gồm chữ, 1–40 ký tự, không chứa đường link.',
-  consent: 'Vui lòng xác nhận ảnh do bạn chụp.',
+  turnstile: ct('Không qua được kiểm tra chống spam, vui lòng thử lại.'),
+  rate: ct('Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.'),
+  'not an image': ct('Chỉ nhận ảnh JPEG, PNG hoặc WebP.'),
+  'too large': ct('Ảnh quá lớn (tối đa 8 MB).'),
+  'bad name': ct('Tên chỉ gồm chữ, 1–40 ký tự, không chứa đường link.'),
+  consent: ct('Vui lòng xác nhận ảnh do bạn chụp.'),
 }
 
 /** Gallery + form; hidden unless the API answers (no buckets / no JS → nothing dead on the page). */
@@ -56,19 +57,19 @@ export async function mountReaderPhotos(section: HTMLElement) {
   if (!ts) return
   form.hidden = false
   let token = ''
-  const widget = ts.render(section.querySelector<HTMLElement>('[data-turnstile]')!, { sitekey: data.sitekey, language: 'vi', callback: t => (token = t), 'expired-callback': () => (token = '') })
+  const widget = ts.render(section.querySelector<HTMLElement>('[data-turnstile]')!, { sitekey: data.sitekey, language: document.documentElement.lang, callback: t => (token = t), 'expired-callback': () => (token = '') })
 
   form.addEventListener('submit', async e => {
     e.preventDefault()
     const f = new FormData(form)
     const file = f.get('file')
-    if (!(file instanceof File) || !file.size) { msg.textContent = 'Chọn một ảnh trước đã.'; return }
-    if (!token) { msg.textContent = 'Vui lòng đợi kiểm tra chống spam hoàn tất rồi gửi lại.'; return }
+    if (!(file instanceof File) || !file.size) { msg.textContent = ct('Chọn một ảnh trước đã.'); return }
+    if (!token) { msg.textContent = ct('Vui lòng đợi kiểm tra chống spam hoàn tất rồi gửi lại.'); return }
     const button = form.querySelector('button')!
     button.disabled = true
-    msg.textContent = 'Đang chuẩn bị ảnh…'
+    msg.textContent = ct('Đang chuẩn bị ảnh…')
     const blob = await shrink(file)
-    if (!blob) { msg.textContent = 'Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.'; button.disabled = false; return }
+    if (!blob) { msg.textContent = ct('Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.'); button.disabled = false; return }
     if (blob.size > MAX_BYTES) { msg.textContent = ERRORS['too large']!; button.disabled = false; return }
     const body = new FormData()
     body.set('e', entity)
@@ -76,7 +77,7 @@ export async function mountReaderPhotos(section: HTMLElement) {
     body.set('consent', f.get('consent') ? '1' : '')
     body.set('token', token)
     body.set('file', blob, 'photo.jpg')
-    msg.textContent = 'Đang gửi…'
+    msg.textContent = ct('Đang gửi…')
     const r = await fetch('/_p', { method: 'POST', body }).catch(() => null)
     const out = (await r?.json().catch(() => null)) as { deleteUrl?: string; error?: string } | null
     button.disabled = false
@@ -85,9 +86,9 @@ export async function mountReaderPhotos(section: HTMLElement) {
     if (r?.status === 201 && out?.deleteUrl) {
       form.reset()
       const link = new URL(out.deleteUrl, location.origin).href
-      msg.innerHTML = `Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.<br>Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần): <a href="${escapeHtml(link)}">${escapeHtml(link)}</a>`
+      msg.innerHTML = `${ct('Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.')}<br>${ct('Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):')} <a href="${escapeHtml(link)}">${escapeHtml(link)}</a>`
     } else {
-      msg.textContent = ERRORS[out?.error ?? ''] ?? 'Không gửi được ảnh, vui lòng thử lại.'
+      msg.textContent = ERRORS[out?.error ?? ''] ?? ct('Không gửi được ảnh, vui lòng thử lại.')
     }
   })
 }
