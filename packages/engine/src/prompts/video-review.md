@@ -1,10 +1,10 @@
 Review a Vietnamese guide that AquaTome wrote from a YouTube video, against the video's transcript (automatic captions or transcription, which mis-hear words: judge by what the creator clearly meant).
 
-The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, attributing opinions to the creator, and dropping sponsor or channel promotion are all correct.
+The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, and dropping sponsor or channel promotion are all correct. The guide sits under the video, so it must not mention the creator, the channel or the video ("theo tác giả", "tác giả cho rằng", "Theo MJ Aquascaping", "trong video này"): opinions keep their hedge in the wording instead.
 
 Score 0–1:
 - 1.0: every fact and piece of advice matches the video or is standard, uncontroversial aquarium knowledge; the video's main teaching points are covered; organised as a guide in the writer's own words; natural Vietnamese with the usual hobby terms.
-- 0.75: small gaps or some awkward phrasing; facts right. Vietnamese that reads like a translation or machine writing counts as awkward: note-style clauses joined by semicolons, "liên quan" for causes, calques such as "nên đừng…", "điều này giúp…", "đóng vai trò".
+- 0.75: small gaps or some awkward phrasing; facts right. Vietnamese that reads like a translation or machine writing counts as awkward: note-style clauses joined by semicolons, "liên quan" for causes, calques such as "nên đừng…", "điều này giúp…", "đóng vai trò"; any mention of the creator, channel or video.
 - below 0.75: wrong, contradicted or invented facts, numbers, products or advice; the creator's guesses or hedged opinions stated as firm facts; a main point of the video missing; long passages that translate the transcript sentence by sentence; English left in place; hard-to-read Vietnamese.
 
 notes: up to 10 short, concrete fixes (in English) a writer should apply — quote the problem phrase. Empty if none.

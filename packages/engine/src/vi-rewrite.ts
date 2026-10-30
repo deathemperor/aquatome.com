@@ -15,14 +15,14 @@ const TASK = {
 
 /** One piece of a page: the English source (when there is one) and the Vietnamese on the site now. */
 export type Part = { id: string; en?: string; vi: string }
-export type RewriteOpts = { mode: keyof typeof TASK; model?: string; glossary?: string[]; notes?: string[]; /** The source site's name, for "Theo …" attribution. */ source?: string }
+export type RewriteOpts = { mode: keyof typeof TASK; model?: string; glossary?: string[]; notes?: string[]; /** The source site's name (so the writer knows whose "we" it is and leaves it out). */ source?: string }
 
 /** New Vietnamese for each part, in the site's style guide. Never names, slugs or numbers outside the text. */
 export async function rewriteVi(llm: Llm, parts: Part[], o: RewriteOpts): Promise<Map<string, string>> {
   const body = parts.map(p => [`### ${p.id}`, ...(p.en ? [`EN:\n${p.en}`] : []), ...(o.mode === 'fix' || !p.en ? [`VI:\n${p.vi}`] : [])].join('\n')).join('\n\n')
   const prompt = [
     RULES.replace('{{TASK}}', TASK[o.mode]), STYLE,
-    ...(o.source ? [`Nguồn của nội dung: ${o.source}. Chỗ bài gốc xưng "tôi"/"chúng tôi" thì viết "Theo ${o.source}…" hoặc viết trung tính, không viết "tác giả bài gốc".`] : []),
+    ...(o.source ? [`Nguồn của nội dung: ${o.source}. Chỗ bài gốc xưng "tôi"/"chúng tôi" thì viết trung tính, không nhắc ${o.source} hay "tác giả".`] : []),
     ...(o.glossary?.length ? [`Bảng thuật ngữ trên site: ${o.glossary.join(', ')}`] : []),
     ...(o.notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${o.notes.map(n => `- ${n}`).join('\n')}`] : []),
     `--- NỘI DUNG ---\n${body}`,
