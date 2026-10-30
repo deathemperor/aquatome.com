@@ -1,12 +1,17 @@
-import { cp, mkdtemp, readFile } from 'node:fs/promises'
+import { cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { localizeSpecies } from '../src/localize'
 
-async function site() {
+/** The fixture site, its sources allowed to be translated except `deny`. */
+async function site(deny: string[] = []) {
   const root = await mkdtemp(join(tmpdir(), 'loc-'))
   await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), join(root, 'content'), { recursive: true })
+  const file = join(root, 'content/sources.json')
+  const sources = JSON.parse(await readFile(file, 'utf8')) as Record<string, object>
+  for (const k of Object.keys(sources)) sources[k] = { ...sources[k], permission: { date: '2026-10-31', file: 'test', scope: deny.includes(k) ? ['text'] : ['text', 'translation'] } }
+  await writeFile(file, JSON.stringify(sources))
   return root
 }
 const now = () => new Date('2026-10-31T00:00:00Z')
@@ -33,9 +38,13 @@ test('every English part translated; local name; Thai addressed by scientific na
   expect(t.altNames).toEqual(['Test fish'])
   expect(Object.keys(t.sections).sort()).toEqual(e.sections.filter(s => s.html.trim()).map(s => `${s.key}:${s.source}`).sort())
   expect(t.quality).toMatchObject({ score: 0.9, indexable: true })
+  // English changed since (state says it was made from an older one): made again.
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  const st = JSON.parse(await readFile(stateFile, 'utf8'))
+  await writeFile(stateFile, JSON.stringify({ ...st, [id]: { ...st[id], from: '2000-01-01' } }))
+  expect((await localizeSpecies(root, llm, 'th', [id], { now })).done).toHaveLength(1)
   // Done once: skipped next time; a redo keeps the address.
   expect((await localizeSpecies(root, llm, 'th', [id], { now })).skipped).toEqual([id])
-  const { writeFile } = await import('node:fs/promises')
   await writeFile(join(root, 'content/species', id, 'th.json'), JSON.stringify({ ...t, slug: 'kept-address' }))
   await localizeSpecies(root, llm, 'th', [id], { now, redo: true })
   expect(JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8')).slug).toBe('kept-address')
@@ -48,4 +57,19 @@ test('a part the model leaves out fails that page; nothing written', async () =>
   const r = await localizeSpecies(root, llm, 'id', [id], { now })
   expect(r.failed[0]).toMatch(/left out part/)
   await expect(readFile(join(root, 'content/species', id, 'id.json'), 'utf8')).rejects.toThrow()
+})
+
+test('text from a source that does not allow translation is never sent or written', async () => {
+  const root = await site(['seriouslyfish'])
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  const e = JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Ikan Uji', altNames: [], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: '<p>x</p>' })) } as T
+  }
+  await localizeSpecies(root, llm, 'id', [id], { now })
+  const t = JSON.parse(await readFile(join(root, 'content/species', id, 'id.json'), 'utf8').catch(() => '{"sections":{}}'))
+  expect(Object.keys(t.sections).some(k => k.endsWith(':seriouslyfish'))).toBe(false)
+  expect(e.sections.some(s => s.source === 'seriouslyfish')).toBe(true) // the fixture page does have such text
 })

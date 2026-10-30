@@ -64,7 +64,7 @@ async function review(llm: Llm, lang: TargetLang, parts: { id: string; en: strin
  * is kept, indexable at the usual threshold). content/species/<id>/<lang>.json; engine-state/localize-<lang>.json
  * keeps each page's name confidence and the source date it was made from. Pages already done are skipped unless redo.
  */
-export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string> } = {}) {
+export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { redo?: boolean; model?: string; now?: () => Date; english?: (sci: string) => Promise<string>; /** Stop after this many pages made. */ limit?: number } = {}) {
   const dir = join(root, 'content/species')
   const stateFile = join(root, `engine-state/localize-${lang}.json`)
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { at: string; from: string; name: string; confidence: string; score: number; notes?: string[] }>
@@ -73,13 +73,23 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
     const t = JSON.parse(await readFile(join(root, 'content', kind, id, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
     if (t.slug && !ids.includes(id)) taken.add(t.slug)
   }
+  // Only text whose source allows translation (its permission scope says so) is translated.
+  const sourceInfo = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8')) as Record<string, { permission?: { scope: string[] } }>
+  const translatable = (source: string) => !!sourceInfo[source]?.permission?.scope.includes('translation')
+  const save = async () => {
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+  }
   const report = { done: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
   for (const id of ids) {
+    if (report.done.length >= (o.limit ?? Infinity)) break
     const file = join(dir, id, `${lang}.json`)
-    if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) { report.skipped.push(id); continue }
     try {
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string; family: string; sections: Section[]; updatedAt: string }
-      const parts = e.sections.filter(s => s.html.trim()).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      // Done, and made from the English as it is now: nothing to do. A page whose English changed since is made again.
+      const done = await readFile(file, 'utf8').then(() => true, () => false)
+      if (!o.redo && done && (state[id]?.from ?? '') >= e.updatedAt) { report.skipped.push(id); continue }
+      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
       if (!parts.length) { report.skipped.push(`${id}: no English`); continue }
       // The species' English name (Wikipedia's title for it) points the translator at the trade name; the page's own text
       // may be about one strain or hybrid of it, so the name is asked for the species.
@@ -98,7 +108,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
       const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? e.scientificName : name, e.scientificName, taken)
       taken.add(slug)
-      const sources = [...new Set(e.sections.map(s => s.source))]
+      const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
       const t = TranslationSchema.parse({
         slug, name, altNames: [...new Set(w.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5),
         sections: Object.fromEntries(parts.map(p => [p.id, w.parts.get(p.id)!])),
@@ -106,13 +116,13 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       })
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
       state[id] = { at: (o.now?.() ?? new Date()).toISOString().slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes }
+      await save() // after every page: a stopped batch doesn't redo what it finished
       report.done.push(`${id}: ${name} (${w.nameConfidence}, ${r.score})`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message}`; break }
       report.failed.push(`${id}: ${(err as Error).message.slice(0, 200)}`)
     }
   }
-  await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+  await save()
   return report
 }
