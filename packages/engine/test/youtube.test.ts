@@ -141,6 +141,13 @@ test('redo rewrites each written guide once, in the series it is in, even after 
   expect(await readFile(join(root, 'content/series/PL2.json'), 'utf8').catch(() => 'none')).toBe('none')
 })
 
+test('--only limits a run to the videos named', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { videos: { a1: {}, a2: {} } }).d, { playlists: ['PL1'] })
+  const r = await videoGuides(deps(root, { videos: { a1: {}, a2: {} } }).d, { playlists: ['PL1'], redo: true, only: ['a2'] })
+  expect(r.written).toEqual(['youtube-a2 (0.90)'])
+})
+
 test('redo rewrites only guides already written: a video not done yet waits for an ordinary run', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })

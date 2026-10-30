@@ -339,8 +339,8 @@ export type VideoReport = { written: string[]; skipped: string[]; errors: string
  * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
  * and rewritten once with the reviewer's notes if it scores low (then published unindexed, like translations).
  */
-/** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. */
-export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
+/** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids. */
+export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
   const { yt, llm, root } = deps
   const contentRoot = join(root, 'content')
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
@@ -363,6 +363,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   const redone = new Set<string>()
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string, playlist?: string) => {
+    if (opts.only && !opts.only.includes(id)) return false
     if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
