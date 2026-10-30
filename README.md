@@ -59,7 +59,8 @@ host thuysinh.infinitus.run 301 to it. The engine cycle runs this after each con
 - Translation: `claude -p --model sonnet` on the owner's subscription with a lean prompt; a second pass scores it. Scores under 0.75 get one re-translation with the reviewer's notes, and are noindexed if still low.
 - Photos: the best few photos on each source page are copied to R2 `thuysinh-media` (≤1200 px WebP, `https://media.aquatome.com`) and credited to the source page. They follow the source's publish flag. Wikimedia Commons (open licences) is the fallback.
 - Credentials (never committed): `~/.config/thuysinh/cf-token` and `~/.config/thuysinh/cf-account`, or `CLOUDFLARE_API_TOKEN` / `CF_ACCOUNT_ID`. Optional: `YOUTUBE_API_KEY` for videos.
-- Schedule: `scripts/install-engine-schedule.sh` installs the launchd agent `run.thuysinh.engine`, which runs every 6 h from a dedicated clone. It calls `scripts/engine-cycle.sh` (pull → run → test → commit + push → deploy staging). Log: `~/Library/Logs/thuysinh-engine.log`.
+- Schedule: GitHub Actions `engine.yml` runs `scripts/engine-cycle.sh` (pull → run → test → commit + push → deploy) every 6 h on a macOS runner (face screening uses Apple Vision; the fetcher drives a headed Chrome). Manual run: `gh workflow run engine.yml -f engine_args="--sources scotcat --limit 2"`. `moderate.yml` moderates comments and reader photos nightly; `deploy.yml` deploys every merge to main; `ci.yml` tests PRs. Secrets: `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`), `CLOUDFLARE_API_TOKEN`, `AB_DASH_TOKEN`; variable `CF_ACCOUNT_ID`.
+- On a Mac instead: `scripts/install-engine-schedule.sh` installs the launchd agent `run.thuysinh.engine` (same script, every 6 h, from a dedicated clone; log `~/Library/Logs/thuysinh-engine.log`). Don't run both.
 
 ## Affiliate
 
