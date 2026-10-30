@@ -546,3 +546,9 @@ describe('man-made fish (breeds)', () => {
     expect(sm).not.toContain('/vi/ca/ca-la-han/')
   })
 })
+
+test('the logo link is named by its visible text (no aria-label that differs from it)', () => {
+  const a = page('/vi/').dom.querySelector('a.logo')!
+  expect(a.hasAttribute('aria-label')).toBe(false)
+  expect(a.text.replace(/\s+/g, ' ').trim()).toBe('AquaTome Cẩm nang cá cảnh & thủy sinh')
+})
