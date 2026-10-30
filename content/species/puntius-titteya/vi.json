@@ -1,31 +1,31 @@
 {
-  "slug": "ca-anh-dao",
-  "name": "Cá anh đào (Cherry barb)",
-  "altNames": [
-    "Cá Cherry barb Super Red",
-    "Cá thơm anh đào",
-    "Cá Cherry barb",
-    "Cherry barb",
-    "Super Red Cherry barb"
-  ],
-  "sections": {
-    "quickFacts:glaser": "<p>Cá Cherry barb (cá thơm anh đào), Barbus titteya, là loài cá cảnh được ưa chuộng suốt nhiều thập kỷ. Ngay ngoài tự nhiên, màu sắc của loài này vốn đã khá đa dạng. Dòng đột biến có tên Super Red được tạo ra nhờ chọn lọc giống.</p>",
-    "distribution:glaser": "<p>Loài này là loài đặc hữu của đảo Sri Lanka.</p>",
-    "beforeYouBuy:glaser": "<p>Hiện chúng tôi có thể cung cấp những cá thể rất đẹp từ một cơ sở nhân giống ở Đức. Dành cho khách hàng của chúng tôi: loài cá này có mã 372634 trong danh mục hàng tồn kho. Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn.</p>",
-    "notes:glaser": "<p>Văn bản &amp; ảnh: Frank Schäfer</p>"
-  },
-  "quality": {
-    "score": 0.85,
-    "indexable": true,
-    "bySource": {
-      "glaser": 0.85
-    }
-  },
-  "nameFixed": true,
-  "redirectFrom": [
-    {
-      "slug": "ca-cherry-barb-super-red",
-      "name": "Cá Cherry barb Super Red"
-    }
-  ]
+ "slug": "ca-anh-dao",
+ "name": "Cá anh đào",
+ "altNames": [
+  "Cá Cherry barb Super Red",
+  "Cá thơm anh đào",
+  "Cá Cherry barb",
+  "Cherry barb",
+  "Super Red Cherry barb"
+ ],
+ "sections": {
+  "quickFacts:glaser": "<p>Cá Cherry barb (cá thơm anh đào), Barbus titteya, là loài cá cảnh được ưa chuộng suốt nhiều thập kỷ. Ngay ngoài tự nhiên, màu sắc của loài này vốn đã khá đa dạng. Dòng đột biến có tên Super Red được tạo ra nhờ chọn lọc giống.</p>",
+  "distribution:glaser": "<p>Loài này là loài đặc hữu của đảo Sri Lanka.</p>",
+  "beforeYouBuy:glaser": "<p>Hiện chúng tôi có thể cung cấp những cá thể rất đẹp từ một cơ sở nhân giống ở Đức. Dành cho khách hàng của chúng tôi: loài cá này có mã 372634 trong danh mục hàng tồn kho. Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn.</p>",
+  "notes:glaser": "<p>Văn bản &amp; ảnh: Frank Schäfer</p>"
+ },
+ "quality": {
+  "score": 0.85,
+  "indexable": true,
+  "bySource": {
+   "glaser": 0.85
+  }
+ },
+ "nameFixed": true,
+ "redirectFrom": [
+  {
+   "slug": "ca-cherry-barb-super-red",
+   "name": "Cá Cherry barb Super Red"
+  }
+ ]
 }

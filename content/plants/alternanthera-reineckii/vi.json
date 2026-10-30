@@ -1,22 +1,29 @@
 {
-  "slug": "cay-alternanthera-reineckii-hong",
-  "name": "Cây alternanthera reineckii hồng",
-  "altNames": [
-    "Alternanthera reineckii 'Pink'",
-    "Alternanthera hồng",
-    "Rau dền nước hồng",
-    "Pink Alternanthera"
-  ],
-  "sections": {
-    "quickFacts:tropica": "<ul><li>Nguồn gốc: Nam Mỹ (các giống trồng xuất hiện hoặc được lai tạo khi nuôi trồng)</li><li>Tốc độ lớn: trung bình</li><li>Chiều cao: 20 - 30+ cm sau hai tháng trồng trong bể</li><li>Nhu cầu ánh sáng: trung bình</li><li>CO2: trung bình (6-14 mg/L)</li><li>Bán ở dạng cây trồng trong chậu 5 cm</li></ul>",
-    "maintenance:tropica": "<p>Thân cây có thể cao 25-50 cm. Đèn tốt thì lá sẽ lên màu đỏ. Cây này nhân giống dễ. Bạn chỉ cần bấm ngọn rồi cắm phần ngọn xuống nền. Bấm ngọn xong, cây mẹ cũng rậm hơn vì nó đâm thêm nhiều nhánh bên.</p>",
-    "notes:tropica": "<p>Mặt dưới lá của Alternanthera reineckii 'Pink' có màu hồng, nổi bật hẳn giữa đám cây xanh trong bể. Hiệu ứng này rõ nhất khi bạn trồng cây thành cụm.</p>"
-  },
-  "quality": {
-    "score": 0.85,
-    "indexable": true,
-    "bySource": {
-      "tropica": 0.85
-    }
+ "slug": "cay-huyet-tam-lan",
+ "name": "Cây Huyết tâm lan",
+ "altNames": [
+  "Alternanthera reineckii 'Pink'",
+  "Alternanthera hồng",
+  "Rau dền nước hồng",
+  "Pink Alternanthera"
+ ],
+ "sections": {
+  "quickFacts:tropica": "<ul><li>Nguồn gốc: Nam Mỹ (các giống trồng xuất hiện hoặc được lai tạo khi nuôi trồng)</li><li>Tốc độ lớn: trung bình</li><li>Chiều cao: 20 - 30+ cm sau hai tháng trồng trong bể</li><li>Nhu cầu ánh sáng: trung bình</li><li>CO2: trung bình (6-14 mg/L)</li><li>Bán ở dạng cây trồng trong chậu 5 cm</li></ul>",
+  "maintenance:tropica": "<p>Thân cây có thể cao 25-50 cm. Đèn tốt thì lá sẽ lên màu đỏ. Cây này nhân giống dễ. Bạn chỉ cần bấm ngọn rồi cắm phần ngọn xuống nền. Bấm ngọn xong, cây mẹ cũng rậm hơn vì nó đâm thêm nhiều nhánh bên.</p>",
+  "notes:tropica": "<p>Mặt dưới lá của Alternanthera reineckii 'Pink' có màu hồng, nổi bật hẳn giữa đám cây xanh trong bể. Hiệu ứng này rõ nhất khi bạn trồng cây thành cụm.</p>"
+ },
+ "quality": {
+  "score": 0.85,
+  "indexable": true,
+  "bySource": {
+   "tropica": 0.85
   }
+ },
+ "nameFixed": true,
+ "redirectFrom": [
+  {
+   "slug": "cay-alternanthera-reineckii-hong",
+   "name": "Cây alternanthera reineckii hồng"
+  }
+ ]
 }
