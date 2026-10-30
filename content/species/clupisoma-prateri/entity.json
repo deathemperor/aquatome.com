@@ -1,0 +1,128 @@
+{
+  "id": "clupisoma-prateri",
+  "scientificName": "Clupisoma prateri",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Clupisoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "html": "<ul><li>Family: Ailiidae</li><li>Size: 22.0 cm SL</li><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Common names: none</li><li>Synonyms: none</li></ul><p>Formerly in the Schilbeidae family.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "html": "<p>Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.</p><p>IUCN Red List: Clupisoma prateri is known from the lower and middle reaches of the Irrawaddy River, the Sittang, Bago, and the Salween river drainages in Myanmar. Whilst there is limited insufficient information regarding the distribution of this species, it is present within a number of river basins and there are currently no known major threats. It is assessed as Least Concern at present, but further information is required on the construction and impacts of large hydropower dams on the rivers within Myanmar, and the species should be reassessed in the light of further information (IUCN 2010).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "html": "<p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 7; anal spines: 0; anal soft rays: 41–46; vertebrae: 48–50.</p><p>A species of Clupisoma in which the pectoral spine extends at least to the base of the pelvic fin, the abdomen is markedly keeled from the level of the pectoral-fin origin to the anus, the pectoral fin has 12 or 13 segmented rays, the anal fin has 37 to 41 branched rays, and the first gill arch has at least 20 rakers. The body is silvery, except for a dorsal greenish band that extends only slightly ventral of the middorsal line of the body.</p><p>D. II, 7; A. iv-v, 37-41; Pt. I, 12-13; Pv. i, 5.</p><p>Barbels in four pairs: one pair of nasal barbels, one pair of axillary barbels, two pairs of mental barbels, and one pair of inner mental barbels.</p><p>Etymology: The genus name Clupisoma: clupea, herring; soma, body, referring to the herring-shaped body. The specific name prateri: in honour of Stanley Henry Prater (1890–1960), curator, Bombay Natural History Society, for helping Hora procure fresh material of Indian fishes for his studies.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "html": "<p>Ferraris, C.J. Jr. 2004 A new species of the Asian schilbid catfish genus Clupisoma from Myanmar, with a redescription of Clupisoma prateri Hora (Osteichthyes: Siluriformes: Schilbidae). Zootaxa 437:1-10.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Ng, H.H. 2010. Clupisoma prateri. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/df97156c924c314c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/df97156c924c314c-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "caption": "Clupisoma prateri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4d8db5de026c6ffc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d8db5de026c6ffc-480.webp",
+      "width": 500,
+      "height": 339,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "caption": "Clupisoma prateri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/710329f4c8eae730.webp",
+      "thumb": "https://media.aquatome.com/scotcat/710329f4c8eae730-480.webp",
+      "width": 500,
+      "height": 366,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200 lít",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

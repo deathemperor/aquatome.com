@@ -1,0 +1,102 @@
+{
+  "id": "eutropiichthys-britzi",
+  "scientificName": "Eutropiichthys britzi",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Eutropiichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm",
+      "html": "<ul><li>Family: Ailiidae (still listed in FishBase as Schilbeidae)</li><li>Size: 23.0 cm (9¼ in)</li><li>Temperature: 23-26°C (73-79°F)</li><li>pH: 6.5-7.2</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm",
+      "html": "<p>Asia: Irrawaddy and Sittang River systems, Myanmar.</p><p>Eutropiichthys britzi is widely distributed in the Irrawaddy River in northern Myanmar and is also present in the Sittang River drainage.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm",
+      "html": "<p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 6-7; anal soft rays: 50-59; vertebrae: 52-54. Diagnosed from other species of the genus by the combination of the following characters: gill rakers on the first gill arch 15-19; branched pectoral-fin rays 15-17; accessory premaxillary tooth patch extending posteriorly nearly to the terminus of the gape; branched anal-fin rays 46-54; posterior limit of the gape located under orbit; fleshy flap along the anterior margin of the posterior naris extending medial of the medial margin of the naris by a distance equal to, or greater than, the transverse dimension of the posterior naris; length of the pectoral-fin spine 16.8-18% SL; lateral margin of the pectoral spine rough; snout in lateral view somewhat rounded; and dorsal view slightly trilobed.</p><p>Etymology: The genus name Eutropiichthys: Greek, eutropheia = well fed + Greek, ichthys = fish. The specific name britzi: named for Ralf Britz, who collected some of the specimens used for the description of this species, and in recognition of his many contributions to the knowledge of diverse groups of fishes and to the fishes of Myanmar.</p><p>Remarks: Eutropiichthys britzi is still listed in FishBase as being in the Schilbeidae family but it is updated in Eschmeyer's Catalog of Fishes as the current status of being in the Ailiidae family.</p><p>IUCN Red List: Although there is insufficient information about its biology there are no confirmed threats impacting this species. Hence, it is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm",
+      "html": "<p>Ferraris, C.J. and R.P. Vari, 2007. Revision of the Catfishes of the genus Eutropiichthys, with the description of two new species (Siluriformes: Schilbidae). Copeia 2007(4):866-885.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</p><p>Ng, H.H. 2010. Eutropiichthys britzi. The IUCN Red List of Threatened Species 2010.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c48c2d192b87d227.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c48c2d192b87d227-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm",
+      "caption": "Eutropiichthys britzi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

@@ -60,16 +60,15 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-ohxFuNlRd2c — Hết rêu hại nhờ cân bằng ánh sáng, CO2 và dinh dưỡng
 - guides/youtube-vl1Lx9iWDYU — Hạn chế rêu hại trong bể thủy sinh: 28 mẹo thực tế
 
-## Photos without a card thumbnail (6)
+## Photos without a card thumbnail (5)
 
 - species/acanthodoras-cataphractus — Cá trê nói chuyện nâu sô-cô-la
-- species/ariopsis-seemanni — Cá da trơn cá mập Colombia
 - species/barbodes-semifasciolatus — Cá barb vàng (Gold barb)
 - species/camposcia-retusa — Cua trang trí
 - species/periclimenes-yucatanicus — Tép hải quỳ đốm
 - plants/limnophila-sessiliflora — Cây rau om nước (Limnophila sessiliflora)
 
-## Only one photo (no pictures inside the text) (102)
+## Only one photo (no pictures inside the text) (108)
 
 - species/acanthopsoides-robertsi — Cá chạch mặt ngựa lùn
 - species/acnodon-normani — Cá pacu cừu
@@ -87,6 +86,7 @@ borrow one from a species or plant they mention on the site.
 - species/amblypharyngodon-chulabhornae — Cá carplet công chúa
 - species/amblyrhynchichthys-micracanthus — Cá mè lúi Amblyrhynchichthys micracanthus
 - species/amphilophus-citrinellus — Cá midas
+- species/ancistrus-cirrhosus — Cá lau kiếng bristlenose
 - species/andinoacara-pulcher — Cá Blue Acara
 - species/aphanius-dispar — Cá killifish Ả Rập
 - species/aphyocharax-anisitsi — Cá tetra vây máu
@@ -95,11 +95,15 @@ borrow one from a species or plant they mention on the site.
 - species/aphyosemion-bualanum — Cá killifish Bouala lyretail
 - species/aphyosemion-congicum — Cá killi Congo
 - species/aphyosemion-gabunense — Cá killi đuôi đàn lia Gabon (Gabon lyretail)
+- species/apistogramma-hongsloi — Cá Apisto hongsloi
 - species/aplocheilus-lineatus — Cá sọc panchax
+- species/ariopsis-seemanni — Cá da trơn cá mập Colombia
 - species/aristochromis-christyi — Cá rô phi săn mồi Aristochromis christyi
+- species/asterophysus-batrachus — Cá trê nuốt (Gulper Catfish)
 - species/astyanax-bimaculatus — Cá tetra hai chấm
 - species/astyanax-leopoldi — Cá tetra Leopold
 - species/atractosteus-spatula — Cá sấu hỏa tiễn
+- species/aulonocara-baenschi — Cá hoàng đế vàng
 - species/barilius-bakeri — Cá Barilius bakeri
 - species/betta-brownorum — Cá betta brownorum
 - species/betta-burdigala — Cá betta Burdigala
@@ -119,6 +123,7 @@ borrow one from a species or plant they mention on the site.
 - species/darienheros-calobrensis — Cá cichlid đốm đỏ
 - species/devario-malabaricus — Cá danio Malabar
 - species/esomus-caudiocellatus — Cá bay Esomus đuôi đốm
+- species/eutropiichthys-britzi — Cá nheo Eutropiichthys britzi
 - species/homaloptera-parclitella — Cá chạch suối Homaloptera parclitella
 - species/labeo-boga — Cá Labeo boga
 - species/neocaridina-davidi — Tép red cherry

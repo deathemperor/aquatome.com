@@ -43,6 +43,26 @@
     "attempts": 1,
     "error": "claude failed (1): Failed to authenticate. API Error: 401 Invalid bearer token"
   },
+  "https://www.scotcat.com/ailiidae/clupisoma_prateri.htm": {
+    "entityIds": [
+      "species/clupisoma-prateri"
+    ],
+    "updatedAt": "2026-10-30T00:47:02.628Z",
+    "hash": "c897e0752bab0085c3d77383804298bfb922bcc87c2df8087985f8562ef7f726",
+    "processedHash": "c897e0752bab0085c3d77383804298bfb922bcc87c2df8087985f8562ef7f726",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ailiidae/eutropiichthys_britzi.htm": {
+    "entityIds": [
+      "species/eutropiichthys-britzi"
+    ],
+    "updatedAt": "2026-10-30T00:49:31.353Z",
+    "hash": "b5a8b08969a302b9ed6b98901a5d8138d1c33b37574139e64ec8a8666ec89a2b",
+    "processedHash": "b5a8b08969a302b9ed6b98901a5d8138d1c33b37574139e64ec8a8666ec89a2b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
