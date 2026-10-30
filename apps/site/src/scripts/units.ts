@@ -14,6 +14,6 @@ export function applyUnits(units: 'metric' | 'imperial', root: ParentNode = docu
   })
   root.querySelectorAll<HTMLButtonElement>('[data-units-toggle]').forEach(b => {
     b.textContent = units === 'metric' ? 'cm · °C' : 'in · °F'
-    b.setAttribute('aria-label', units === 'metric' ? 'Đổi sang inch và °F' : 'Đổi sang cm và °C')
+    b.setAttribute('aria-label', units === 'metric' ? 'cm · °C, đổi sang inch và °F' : 'in · °F, đổi sang cm và °C')
   })
 }

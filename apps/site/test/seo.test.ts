@@ -45,6 +45,17 @@ test('AdSense: ads.txt, account meta, and a loader that waits for the reader\'s 
   const loader = dom.querySelector('script[data-ads]')?.text ?? ''
   expect(loader).toContain('adsbygoogle.js?client=ca-pub-3032018142512489')
   for (const e of ['scroll', 'pointerdown', 'keydown']) expect(loader).toContain(`'${e}'`)
+  // Only the page's own scroll counts: a strip that scrolls itself while loading (scroll-snap) must not load ads.
+  const on: { type: string; capture: boolean; fn: () => void }[] = [], off: typeof on = [], head: unknown[] = []
+  const capture = (o: unknown) => typeof o === 'boolean' ? o : !!(o as { capture?: boolean })?.capture
+  new Function('addEventListener', 'removeEventListener', 'document', loader)(
+    (type: string, fn: () => void, o: unknown) => on.push({ type, fn, capture: capture(o) }),
+    (type: string, fn: () => void, o: unknown) => off.push({ type, fn, capture: capture(o) }),
+    { createElement: () => ({}), head: { appendChild: (s: unknown) => head.push(s) } })
+  expect(on.find(l => l.type === 'scroll')?.capture).toBe(false)
+  on[0]!.fn()
+  expect(head).toHaveLength(1)
+  expect(off.map(l => `${l.type}:${l.capture}`).sort()).toEqual(on.map(l => `${l.type}:${l.capture}`).sort())
 })
 test('security.txt: contact, a future Expires and its canonical URL', () => {
   const txt = readFileSync(join(DIST, '.well-known', 'security.txt'), 'utf8')
