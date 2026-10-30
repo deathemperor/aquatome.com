@@ -350,10 +350,14 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     state[id] = { ...s, attempts: s.status === 'error' ? (state[id]?.attempts ?? 0) + 1 : 0, updatedAt: deps.now().toISOString() }
     await saveState(root, 'youtube', state)
   }
-  /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
+  /**
+   * New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day).
+   * redo: only the guides already written (their transcripts are cached; new videos wait for an ordinary run).
+   */
   const due = (id: string) => {
     const s = state[id]
-    return !s || (opts.redo && s.status === 'processed') || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
+    if (opts.redo) return s?.status === 'processed'
+    return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
   }
   let failedInARow = 0
 
