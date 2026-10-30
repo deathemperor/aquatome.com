@@ -26,3 +26,10 @@ test('beacon is on every page, small, sends no skin, and tracks sponsored clicks
   expect(js).not.toContain('skin')
   expect(dom.querySelector('a[rel~="sponsored"]')).not.toBeNull()
 })
+
+test('Vietnamese letters come from the vietnamese font files: their faces are declared after latin-ext, so latin-ext is not downloaded', () => {
+  const css = bundledCss()
+  for (const [ext, vi] of [['be-vietnam-pro-latin-ext-400-normal', 'be-vietnam-pro-vietnamese-400-normal'], ['be-vietnam-pro-latin-ext-600-normal', 'be-vietnam-pro-vietnamese-600-normal'], ['newsreader-latin-ext-wght-normal', 'newsreader-vietnamese-wght-normal'], ['newsreader-latin-ext-wght-italic', 'newsreader-vietnamese-wght-italic']]) {
+    expect(css.lastIndexOf(vi), vi).toBeGreaterThan(css.lastIndexOf(ext))
+  }
+})
