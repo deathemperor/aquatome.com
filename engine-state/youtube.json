@@ -24,18 +24,20 @@
     "updatedAt": "2026-10-30T04:06:57.693Z"
   },
   "5uUPuLt0j2s": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:48:32.149Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-5uUPuLt0j2s"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:07:27.968Z"
   },
   "Ejng2T-a2Gk": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: [youtube] Ejng2T-a2Gk: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  htt",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:46:41.274Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-Ejng2T-a2Gk"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:02:36.476Z"
   },
   "J_PR999bgtw": {
     "status": "processed",
@@ -46,11 +48,12 @@
     "updatedAt": "2026-10-30T03:48:13.958Z"
   },
   "JlH-zeUbQB0": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:46:51.527Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-JlH-zeUbQB0"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:05:05.261Z"
   },
   "K972tk73JpU": {
     "status": "processed",
@@ -58,7 +61,7 @@
       "youtube-K972tk73JpU"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-30T04:15:54.932Z"
+    "updatedAt": "2026-10-30T05:36:55.661Z"
   },
   "Nbl2XlDFhY4": {
     "status": "processed",
@@ -76,11 +79,12 @@
     "updatedAt": "2026-10-30T01:11:20.139Z"
   },
   "YXhZnSTaUW0": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:43:34.292Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-YXhZnSTaUW0"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:33:58.953Z"
   },
   "bQwIesUyAHY": {
     "status": "skipped",
@@ -90,11 +94,12 @@
     "updatedAt": "2026-10-30T01:11:59.387Z"
   },
   "dTkvCEn1xHA": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:53:59.773Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-dTkvCEn1xHA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:39:37.578Z"
   },
   "hL920TrlANg": {
     "status": "processed",
@@ -129,10 +134,11 @@
     "updatedAt": "2026-10-30T03:46:53.453Z"
   },
   "vl1Lx9iWDYU": {
-    "status": "error",
-    "entityIds": [],
-    "error": "yt-dlp: ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests",
-    "attempts": 1,
-    "updatedAt": "2026-10-29T16:42:20.021Z"
+    "status": "processed",
+    "entityIds": [
+      "youtube-vl1Lx9iWDYU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T05:30:55.743Z"
   }
 }

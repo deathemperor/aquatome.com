@@ -6,36 +6,15 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "video": {
     "youtubeId": "5uUPuLt0j2s",
     "title": "Hair Algae in Aquarium! THE ALGAE GUIDE EPISODE #6",
     "channel": "MJ Aquascaping",
-    "channelUrl": "https://www.youtube.com/@MJAquascaping",
-    "durationSec": 579,
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 580,
     "publishedAt": "2021-02-19",
-    "chapters": [
-      {
-        "start": 0,
-        "title": "Introduction to hair algae"
-      },
-      {
-        "start": 63,
-        "title": "Causes of algae outbreaks"
-      },
-      {
-        "start": 211,
-        "title": "Removing algae manually"
-      },
-      {
-        "start": 311,
-        "title": "Preventing algae recurrence"
-      },
-      {
-        "start": 425,
-        "title": "Case studies and conclusion"
-      }
-    ],
+    "chapters": [],
     "series": {
       "id": "PLrlvf56gZy-howinG2d8o7Bbxn0P6awUj",
       "position": 8
@@ -53,8 +32,14 @@
       {
         "category": "khac",
         "brand": "Seachem",
+        "model": "Excel",
+        "t": 227
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
         "model": "Easy Carbo",
-        "t": 257
+        "t": 227
       },
       {
         "category": "co2",
@@ -64,116 +49,72 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 451
+        "t": 452
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 484
+        "category": "be-ca",
+        "type": "nano",
+        "t": 38
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao rêu tóc mọc",
+        "heading": "Rêu tóc gồm những loại nào",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t0.webp",
+            "t": 5,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t5.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cận cảnh cụm cây thủy sinh xanh tốt, lá đỏ và lá xanh đan xen."
+            "caption": "Cận cảnh bụi cây trong hồ thủy sinh, rêu sợi thường mọc lẫn trong lá."
           },
           {
             "t": 40,
             "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t40.webp",
             "width": 160,
             "height": 90,
-            "caption": "Thảm cỏ thủy sinh xanh phía trước với cây thân đỏ ở phía sau."
+            "caption": "Thảm cây thủy sinh xanh dày, nơi rêu hại dạng sợi dễ bám vào."
           }
         ]
       },
       {
-        "heading": "Chỉnh thời gian chiếu đèn",
-        "moments": [
-          {
-            "t": 193,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t193.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân mọc dày, lá xòe rộng dưới đèn chiếu sáng."
-          }
-        ]
+        "heading": "Vì sao rêu tóc mọc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p1-uYV9ydWJyYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p1-uYV9ydWJyYS5qcGc-480.webp",
+          "width": 960,
+          "height": 727,
+          "licence": "CC BY 2.0",
+          "author": "Carnat Joel",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brackish_water_tank_for_Halocaridina_rubra.jpg",
+          "caption": "Bể thủy sinh nhỏ bị rêu tóc xanh mọc um tùm trên đá và cây."
+        }
       },
       {
-        "heading": "Dọn rêu thế nào",
+        "heading": "Gỡ rêu tóc ra khỏi bể",
         "moments": [
           {
             "t": 247,
             "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t247.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng dụng cụ xoắn gỡ rêu tóc trên thảm cỏ trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Ngăn rêu quay lại",
-        "moments": [
-          {
-            "t": 346,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t346.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh lá dài và drop checker trong bể, có cá bơi gần đó."
-          }
-        ]
-      },
-      {
-        "heading": "Hai ví dụ thực tế của tác giả",
-        "moments": [
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t485.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cụm rêu fissidens xanh dày bám trên đá, cây lá dài xung quanh."
-          },
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t505.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể scape nhỏ với hai khối đá lớn, đang được chiếu đèn."
+            "caption": "Dùng dụng cụ xoay gỡ rêu hại ra khỏi thảm cỏ trong bể."
           }
         ]
       },
       {
         "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 262,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t262.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tép Amano bám trên lá cây thủy sinh xanh tốt trong bể."
-          },
-          {
-            "t": 267,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t267.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh tép Amano đang gặm rêu hại trên lá cây."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p5-YW4sMjAwNykuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p5-YW4sMjAwNykuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p6-YW4sMjAwNykuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p6-YW4sMjAwNykuanBn-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY-SA 3.0",
           "author": "Seotaro",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina_multidentata(Hamamatsu,Shizuoka,Japan,2007).jpg",
-          "caption": "Tép Amano bò trên nền sỏi trong bể, cạnh khúc lũa."
+          "caption": "Tép Amano bò trên nền sỏi trong bể, sẵn sàng ăn rêu tóc."
         }
       }
     ]

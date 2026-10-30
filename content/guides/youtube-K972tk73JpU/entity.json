@@ -81,7 +81,7 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 200
+        "t": 197
       },
       {
         "category": "den",
@@ -91,133 +91,100 @@
     ],
     "figures": [
       {
-        "heading": "CO2 thiếu mà không hay biết (sai lầm 1 và 9)",
+        "heading": "CO2: đừng đoán, hãy đo",
         "moments": [
-          {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Drop checker gắn trong bể, dung dịch màu xanh lá báo CO2 ổn."
-          },
           {
             "t": 64,
             "url": "https://media.aquatome.com/video/K972tk73JpU/t64.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh cây xanh tốt với bộ dụng cụ CO2 bằng kính."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn sai thời điểm và chỗ đặt bể mới (sai lầm 2 và 3)",
-        "moments": [
+            "caption": "Bể thủy sinh có gắn dụng cụ CO2 bên trong, cây mọc dày."
+          },
           {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t198.webp",
+            "t": 74,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t74.webp",
             "width": 160,
             "height": 90,
-            "caption": "Hai bể thủy sinh đặt cạnh cửa sổ, nơi nắng chiếu vào."
+            "caption": "Toàn cảnh bể thủy sinh cây xanh tốt dưới đèn."
           }
         ]
       },
       {
-        "heading": "Phân nước: thừa vi lượng hay thiếu nitrate đều sinh rêu (sai lầm 5 và 6)",
+        "heading": "Châm phân thế nào để không nuôi rêu",
         "moments": [
           {
             "t": 307,
             "url": "https://media.aquatome.com/video/K972tk73JpU/t307.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ba chai phân nước: vi lượng, đa lượng và kali đặt cạnh bể."
+            "caption": "Các chai phân nước vi lượng và kali đặt cạnh bể thủy sinh."
           },
           {
-            "t": 347,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t347.webp",
+            "t": 367,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t367.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh trồng cây trên nền aquasoil với đá và cỏ."
+            "caption": "Bể thủy sinh nền phân với đá và cây xanh tốt, sạch rêu hại."
           }
         ]
       },
       {
-        "heading": "Nhét quá nhiều phân nền viên (sai lầm 7)",
+        "heading": "Đèn mạnh có làm cây lên nhanh hơn không",
         "moments": [
           {
-            "t": 461,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t461.webp",
+            "t": 506,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t506.webp",
             "width": 160,
             "height": 90,
-            "caption": "Lớp nền aquasoil có rất nhiều viên phân nền rải trên mặt."
-          }
-        ]
-      },
-      {
-        "heading": "Bật đèn quá mạnh (sai lầm 8)",
-        "moments": [
+            "caption": "Bể thủy sinh cây rậm, lên màu đẹp, gần như không có rêu hại."
+          },
           {
             "t": 516,
             "url": "https://media.aquatome.com/video/K972tk73JpU/t516.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh đèn sáng mạnh, cây xanh rực và thảm cỏ phủ kín."
-          },
-          {
-            "t": 521,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t521.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc khác của bể dưới đèn mạnh, cây đỏ và thảm cỏ xanh sáng."
+            "caption": "Bể dùng đèn mạnh, nước xanh, cây đỏ và thảm cỏ mọc dày."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/K972tk73JpU/p5-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p5-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/K972tk73JpU/p4-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p4-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
           "height": 666,
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh trồng cây rậm rạp dưới đèn LED gắn phía trên."
+          "caption": "Bể thủy sinh cây xanh um dưới đèn LED gắn phía trên."
         }
       },
       {
-        "heading": "Bỏ thay nước, nhất là ở bể mới (sai lầm 10)",
+        "heading": "Thay nước: bể cũ và bể mới khác nhau thế nào",
         "moments": [
           {
             "t": 625,
             "url": "https://media.aquatome.com/video/K972tk73JpU/t625.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể mới set với aquasoil, đá và thảm cây còn thưa."
+            "caption": "Bể mới setup với lũa, phân nền và thảm cỏ đang mọc."
           },
           {
-            "t": 635,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t635.webp",
+            "t": 639,
+            "url": "https://media.aquatome.com/video/K972tk73JpU/t639.webp",
             "width": 160,
             "height": 90,
-            "caption": "Góc bể thủy sinh mới với lũa đá và cây con mới mọc."
+            "caption": "Giá kệ nhiều bể nhỏ để chăm sóc và thay nước cùng một ngày."
           }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 74,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t74.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh dài với đèn phía trên, cây xanh và đá phủ kín."
-          },
-          {
-            "t": 555,
-            "url": "https://media.aquatome.com/video/K972tk73JpU/t555.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bộ thiết bị CO2 và ống lọc đặt trong tủ bể."
-          }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K972tk73JpU/p5-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/K972tk73JpU/p5-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng bơi trong bể nền sỏi màu, nước trong sau khi chăm kỹ."
+        }
       }
     ]
   }

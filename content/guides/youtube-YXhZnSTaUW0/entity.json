@@ -10,12 +10,12 @@
     "bucephalandra-sp",
     "microsorum-pteropus"
   ],
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "video": {
     "youtubeId": "YXhZnSTaUW0",
     "title": "Kill ALGAE Fast And Easy! 10 TIPS IN 10 MINUTES!",
     "channel": "MJ Aquascaping",
-    "channelUrl": "https://www.youtube.com/@MJAquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
     "durationSec": 633,
     "publishedAt": "2022-08-10",
     "chapters": [
@@ -73,45 +73,79 @@
       "width": 1280,
       "height": 720
     },
-    "figures": [
+    "taxa": [
+      "Otocinclus sp.",
+      "Clithon sp.",
+      "Caridina multidentata",
+      "Crossocheilus oblongus",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Microsorum pteropus",
+      "Limnophila sessiliflora",
+      "Hygrophila polysperma"
+    ],
+    "gear": [
       {
-        "heading": "Giảm đèn: vì sao nhiều bể bị rêu",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t45.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nhỏ sáng đèn trong không gian tối, cây xanh tươi."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YXhZnSTaUW0/p0-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/YXhZnSTaUW0/p0-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh trồng cây xanh tốt, có đèn LED đặt phía trên."
-        }
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 16
       },
       {
-        "heading": "Cây thả nổi và cây mọc nhanh giúp gì",
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 83
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Excel",
+        "t": 321
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 450
+      },
+      {
+        "category": "khac",
+        "brand": "Oase",
+        "t": 481
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 258
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Đèn bao nhiêu là đủ",
+        "moments": [
+          {
+            "t": 35,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t35.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Mở hộp một chiếc đèn thủy sinh mới, kèm tờ hướng dẫn."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao nên trồng bèo nổi và cây lớn nhanh",
         "moments": [
           {
             "t": 94,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t94.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh cây mọc dày xanh tốt, ít rêu hại."
+            "caption": "Bể thủy sinh cây um tùm, xanh tốt trên kệ."
           },
           {
             "t": 104,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t104.webp",
             "width": 160,
             "height": 90,
-            "caption": "Lớp cây thả nổi phủ kín mặt nước, che bớt ánh sáng cho bể."
+            "caption": "Lớp bèo nổi phủ mặt nước cùng cây thân mọc dày dưới đèn."
           }
         ],
         "photo": {
@@ -122,25 +156,25 @@
           "licence": "CC BY-SA 4.0",
           "author": "Mechsnipe",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocotyle_Leucocephala_floating_in_water_surface.jpg",
-          "caption": "Lá cây thả nổi phủ kín mặt nước, che bớt ánh sáng cho bể."
+          "caption": "Bèo nổi lá xanh mướt phủ kín mặt nước, rễ buông xuống bể."
         }
       },
       {
-        "heading": "Đội dọn rêu nên nuôi con gì",
+        "heading": "Nuôi đội dọn rêu nào",
         "moments": [
-          {
-            "t": 153,
-            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t153.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa và đá trong bể sạch rêu hại, cây mọc xanh phía sau."
-          },
           {
             "t": 163,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t163.webp",
             "width": 160,
             "height": 90,
-            "caption": "Một con ốc nhỏ bò giữa thảm cây thủy sinh xanh mướt."
+            "caption": "Một con ốc nhỏ bò giữa thảm cây thủy sinh xanh tốt."
+          },
+          {
+            "t": 183,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t183.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Con ốc bám gần lũa phủ rêu trong bể thủy sinh."
           }
         ],
         "photo": {
@@ -151,122 +185,103 @@
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otocinclus bám trên thanh lũa phủ rêu trong bể thủy sinh."
+          "caption": "Cá otocinclus bám trên khúc lũa trong bể thủy sinh, sẵn sàng dọn rêu."
         }
       },
       {
-        "heading": "Bón phân thế nào để không nuôi rêu",
+        "heading": "Châm phân nước bao nhiêu",
         "moments": [
+          {
+            "t": 262,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t262.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Rải phân nền dạng hạt xuống lớp nền để dồn dinh dưỡng xuống đất."
+          },
           {
             "t": 292,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t292.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể cây thảm xanh sạch rêu hại, bón ít phân nước."
-          },
-          {
-            "t": 302,
-            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t302.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thảm cây dày khỏe trên lớp phân nền."
+            "caption": "Bể trồng dày, cây xanh khỏe, sạch, không thấy rêu hại."
           }
         ]
       },
       {
-        "heading": "Carbon lỏng và blackout: khi rêu đã nặng",
+        "heading": "Dùng carbon lỏng thế nào cho an toàn",
         "moments": [
-          {
-            "t": 341,
-            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t341.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai carbon lỏng đặt cạnh bể thủy sinh nhiều cây."
-          },
           {
             "t": 351,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t351.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng cọ nhỏ bôi carbon lỏng trực tiếp lên chỗ rêu hại trên lũa."
+            "caption": "Dùng cọ nhỏ quét dung dịch carbon lỏng thẳng lên chỗ rêu hại trên lũa."
+          },
+          {
+            "t": 356,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t356.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh có lũa phủ rêu và cây, thảm cỏ xanh mướt."
           }
         ]
       },
       {
-        "heading": "Chỉnh CO2 và nhiệt độ",
+        "heading": "Tắt đèn hoàn toàn (blackout) làm sao",
+        "moments": [
+          {
+            "t": 391,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t391.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Phủ kín mặt bể bằng tấm bạt đen để chặn hết ánh sáng."
+          },
+          {
+            "t": 406,
+            "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t406.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Rêu hại bám dày trên thảm cây trong bể, cần xử lý."
+          }
+        ]
+      },
+      {
+        "heading": "Ổn định CO2 ra sao",
         "moments": [
           {
             "t": 470,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t470.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh nhỏ có ống thủy tinh và cây có màu đỏ cam."
+            "caption": "Bể thủy sinh cây rậm với ống lọc và dụng cụ trong bể."
           },
           {
             "t": 509,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t509.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh cây rậm, xanh tốt, không có rêu hại."
+            "caption": "Bể thủy sinh cây xanh tốt, cho thấy bể CO2 ổn định."
           }
         ]
       },
       {
-        "heading": "Thay nước đúng cách",
+        "heading": "Bắt đầu từ đâu",
         "moments": [
           {
             "t": 554,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t554.webp",
             "width": 160,
             "height": 90,
-            "caption": "Tay đưa ống si-phông xuống nền, chuẩn bị hút chất thải."
+            "caption": "Tay khua nền và cây trong bể thủy sinh để lấy chất bẩn ra."
           },
           {
             "t": 564,
             "url": "https://media.aquatome.com/video/YXhZnSTaUW0/t564.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đưa ống hút sát nền để hút cặn bẩn trong bể thủy sinh."
+            "caption": "Dùng ống hút đáy làm sạch nền giữa các bụi cây."
           }
         ]
-      }
-    ],
-    "taxa": [
-      "Otocinclus sp.",
-      "Clithon sp.",
-      "Caridina multidentata",
-      "Crossocheilus oblongus",
-      "Limnophila sessiliflora",
-      "Hygrophila polysperma",
-      "Anubias sp.",
-      "Bucephalandra sp.",
-      "Microsorum pteropus"
-    ],
-    "gear": [
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "t": 31
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "noi",
-        "t": 62
-      },
-      {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "Carbo",
-        "t": 321
-      },
-      {
-        "category": "co2",
-        "t": 450
-      },
-      {
-        "category": "khac",
-        "brand": "Oase",
-        "t": 481
       }
     ]
   }
