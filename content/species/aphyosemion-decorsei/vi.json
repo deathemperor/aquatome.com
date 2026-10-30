@@ -1,19 +1,26 @@
 {
-  "slug": "ca-duoi-dan-lia-decorse",
-  "name": "Cá đuôi đàn lia Decorse",
-  "altNames": [
-    "Decorse's lyretail"
-  ],
-  "sections": {
-    "quickFacts:seriouslyfish": "<p>Cá đuôi đàn lia Decorse (Aphyosemion decorsei) là một loài cá killifish đến từ vùng trung lưu của lưu vực sông Ubangi ở Cộng hòa Trung Phi. Ubangi là một nhánh lớn của sông Congo. Nơi thu mẫu định danh (type locality) là Bessou thuộc tỉnh Lobaye, và vùng phân bố của loài này nhiều khả năng mở rộng sang phía bắc Cộng hòa Congo và Cộng hòa Dân chủ Congo.</p><ul><li>Kích thước tối đa: 50 mm chiều dài chuẩn (SL) (2,0 inch SL)</li></ul>",
-    "distribution:seriouslyfish": "<p>Nơi thu mẫu định danh (type locality) là khu dân cư Bessou, tỉnh Lobaye, Cộng hòa Trung Phi, nằm trong lưu vực sông Ubangi (còn viết là Oubangui). Ubangi là một nhánh lớn của sông Congo, và loài này dường như chỉ giới hạn ở đoạn trung lưu của sông, do đó nhiều khả năng phân bố đến phía bắc Cộng hòa Congo và Cộng hòa Dân chủ Congo.</p>",
-    "notes:seriouslyfish": "<p><strong>Từ nguyên.</strong> Aphyosemion: từ tiếng Hy Lạp aphúe (Gr. ἀφύη), nghĩa là 'cá nhỏ', và semeion (Gr. σημεῖον), nghĩa là 'biểu ngữ, lá cờ', ám chỉ vây đuôi \"được trang trí, thường có hình cây đàn lia\" ở cá đực của các loài trong chi này.</p><p>decorsei: đặt theo tên bác sĩ quân y và nhà tự nhiên học người Pháp Gaston-Jules Decorse (1873-1907), người đã giúp thu thập loạt mẫu chuẩn và các loài cá khác từ sông Ubangi ở Cộng hòa Trung Phi.</p>"
-  },
-  "quality": {
-    "score": 0.9,
-    "indexable": true,
-    "bySource": {
-      "seriouslyfish": 0.9
-    }
+ "slug": "ca-killi-decorse",
+ "name": "Cá killi Decorse",
+ "altNames": [
+  "Decorse's lyretail"
+ ],
+ "sections": {
+  "quickFacts:seriouslyfish": "<p>Cá đuôi đàn lia Decorse (Aphyosemion decorsei) là một loài cá killifish đến từ vùng trung lưu của lưu vực sông Ubangi ở Cộng hòa Trung Phi. Ubangi là một nhánh lớn của sông Congo. Nơi thu mẫu định danh (type locality) là Bessou thuộc tỉnh Lobaye, và vùng phân bố của loài này nhiều khả năng mở rộng sang phía bắc Cộng hòa Congo và Cộng hòa Dân chủ Congo.</p><ul><li>Kích thước tối đa: 50 mm chiều dài chuẩn (SL) (2,0 inch SL)</li></ul>",
+  "distribution:seriouslyfish": "<p>Nơi thu mẫu định danh (type locality) là khu dân cư Bessou, tỉnh Lobaye, Cộng hòa Trung Phi, nằm trong lưu vực sông Ubangi (còn viết là Oubangui). Ubangi là một nhánh lớn của sông Congo, và loài này dường như chỉ giới hạn ở đoạn trung lưu của sông, do đó nhiều khả năng phân bố đến phía bắc Cộng hòa Congo và Cộng hòa Dân chủ Congo.</p>",
+  "notes:seriouslyfish": "<p><strong>Từ nguyên.</strong> Aphyosemion: từ tiếng Hy Lạp aphúe (Gr. ἀφύη), nghĩa là 'cá nhỏ', và semeion (Gr. σημεῖον), nghĩa là 'biểu ngữ, lá cờ', ám chỉ vây đuôi \"được trang trí, thường có hình cây đàn lia\" ở cá đực của các loài trong chi này.</p><p>decorsei: đặt theo tên bác sĩ quân y và nhà tự nhiên học người Pháp Gaston-Jules Decorse (1873-1907), người đã giúp thu thập loạt mẫu chuẩn và các loài cá khác từ sông Ubangi ở Cộng hòa Trung Phi.</p>"
+ },
+ "quality": {
+  "score": 0.9,
+  "indexable": true,
+  "bySource": {
+   "seriouslyfish": 0.9
   }
+ },
+ "nameFixed": true,
+ "redirectFrom": [
+  {
+   "slug": "ca-duoi-dan-lia-decorse",
+   "name": "Cá đuôi đàn lia Decorse"
+  }
+ ]
 }

@@ -1,20 +1,27 @@
 {
-  "slug": "ca-hampala",
-  "name": "Cá Hampala",
-  "altNames": [
-    "Cá hampala vảy lớn",
-    "Hampala barb"
-  ],
-  "sections": {
-    "quickFacts:glaser": "<p>Trong nhóm cá barb, số loài săn mồi chỉ đếm trên đầu ngón tay. Giống như mọi loài trong họ Cyprinidae, cá barb không có răng ở hàm. Răng của chúng chỉ nằm trong họng. Vì vậy, một con barb muốn ngoạm giữ được con cá mồi không phải chuyện dễ. Các loài barb thuộc giống Hampala là một trong số ít ngoại lệ. Giống này hiện có 6-7 loài được công nhận. H. macrolepidota là loài phân bố rộng nhất trong giống, rộng hơn hẳn các loài còn lại. Cá có thể dài tối đa khoảng 70 cm, còn ngoài tự nhiên chúng thường chỉ dài trung bình 20-30 cm.</p>",
-    "behaviour:glaser": "<p>Đây là loài cá sống theo đàn. Chúng rất hiền với mọi bạn cùng bể có kích thước tương đương.</p>",
-    "diet:glaser": "<p>Cá dễ ăn và chịu ăn mọi loại thức ăn cá thông thường.</p>"
-  },
-  "quality": {
-    "score": 0.85,
-    "indexable": true,
-    "bySource": {
-      "glaser": 0.85
-    }
+ "slug": "ca-ngua-nam",
+ "name": "Cá ngựa nam",
+ "altNames": [
+  "Cá hampala vảy lớn",
+  "Hampala barb"
+ ],
+ "sections": {
+  "quickFacts:glaser": "<p>Trong nhóm cá barb, số loài săn mồi chỉ đếm trên đầu ngón tay. Giống như mọi loài trong họ Cyprinidae, cá barb không có răng ở hàm. Răng của chúng chỉ nằm trong họng. Vì vậy, một con barb muốn ngoạm giữ được con cá mồi không phải chuyện dễ. Các loài barb thuộc giống Hampala là một trong số ít ngoại lệ. Giống này hiện có 6-7 loài được công nhận. H. macrolepidota là loài phân bố rộng nhất trong giống, rộng hơn hẳn các loài còn lại. Cá có thể dài tối đa khoảng 70 cm, còn ngoài tự nhiên chúng thường chỉ dài trung bình 20-30 cm.</p>",
+  "behaviour:glaser": "<p>Đây là loài cá sống theo đàn. Chúng rất hiền với mọi bạn cùng bể có kích thước tương đương.</p>",
+  "diet:glaser": "<p>Cá dễ ăn và chịu ăn mọi loại thức ăn cá thông thường.</p>"
+ },
+ "quality": {
+  "score": 0.85,
+  "indexable": true,
+  "bySource": {
+   "glaser": 0.85
   }
+ },
+ "nameFixed": true,
+ "redirectFrom": [
+  {
+   "slug": "ca-hampala",
+   "name": "Cá Hampala"
+  }
+ ]
 }

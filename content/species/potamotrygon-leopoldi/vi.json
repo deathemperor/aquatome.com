@@ -1,23 +1,30 @@
 {
-  "slug": "ca-duoi-potamotrygon-leopoldi-black-diamond",
-  "name": "Cá đuối Potamotrygon leopoldi Black Diamond",
-  "altNames": [
-    "Cá đuối Black Diamond",
-    "Cá đuối nước ngọt Black Diamond",
-    "Black Diamond stingray",
-    "Black Diamond"
-  ],
-  "sections": {
-    "quickFacts:glaser": "<p>Black Diamond là một biến thể của Potamotrygon leopoldi có nguồn gốc từ thượng nguồn Rio Xingu ở Brazil. Những chú cá đuối này đạt kích thước tối đa khoảng 40-60 cm chiều rộng đĩa.</p>",
-    "beforeYouBuy:glaser": "<p>Có sẵn cá Black Diamond sinh sản tại Đức, được chọn theo cặp. Cá có mã 282412 trong danh sách hàng. Aquarium Glaser chỉ cung cấp cho thương mại bán buôn.</p>",
-    "behaviour:glaser": "<p>Nọc độc của những loài cá đuối này khá mạnh. Potamotrygon không bao giờ đốt người nuôi vì hung hăng, và chúng trở nên rất thuần. Tuy nhiên, ngay cả những con thuần nhất cũng có thể bị hoảng sợ ngẫu nhiên, và khi đó chúng có thể đốt.</p>",
-    "notes:glaser": "<p>Những lưu ý này không nên là lý do để không nuôi cá đuối. Bất cứ ai có bể đủ rộng đều nên thử nuôi chúng ít nhất một lần trong đời.</p>"
-  },
-  "quality": {
-    "score": 0.85,
-    "indexable": true,
-    "bySource": {
-      "glaser": 0.85
-    }
+ "slug": "ca-duoi-black-diamond",
+ "name": "Cá đuối Black Diamond",
+ "altNames": [
+  "Cá đuối Black Diamond",
+  "Cá đuối nước ngọt Black Diamond",
+  "Black Diamond stingray",
+  "Black Diamond"
+ ],
+ "sections": {
+  "quickFacts:glaser": "<p>Black Diamond là một biến thể của Potamotrygon leopoldi có nguồn gốc từ thượng nguồn Rio Xingu ở Brazil. Những chú cá đuối này đạt kích thước tối đa khoảng 40-60 cm chiều rộng đĩa.</p>",
+  "beforeYouBuy:glaser": "<p>Có sẵn cá Black Diamond sinh sản tại Đức, được chọn theo cặp. Cá có mã 282412 trong danh sách hàng. Aquarium Glaser chỉ cung cấp cho thương mại bán buôn.</p>",
+  "behaviour:glaser": "<p>Nọc độc của những loài cá đuối này khá mạnh. Potamotrygon không bao giờ đốt người nuôi vì hung hăng, và chúng trở nên rất thuần. Tuy nhiên, ngay cả những con thuần nhất cũng có thể bị hoảng sợ ngẫu nhiên, và khi đó chúng có thể đốt.</p>",
+  "notes:glaser": "<p>Những lưu ý này không nên là lý do để không nuôi cá đuối. Bất cứ ai có bể đủ rộng đều nên thử nuôi chúng ít nhất một lần trong đời.</p>"
+ },
+ "quality": {
+  "score": 0.85,
+  "indexable": true,
+  "bySource": {
+   "glaser": 0.85
   }
+ },
+ "nameFixed": true,
+ "redirectFrom": [
+  {
+   "slug": "ca-duoi-potamotrygon-leopoldi-black-diamond",
+   "name": "Cá đuối Potamotrygon leopoldi Black Diamond"
+  }
+ ]
 }
