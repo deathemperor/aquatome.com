@@ -1,0 +1,79 @@
+{
+  "category": "co2",
+  "name": "CO2",
+  "lead": "CO2 adalah \"makanan\" bagi tanaman air. Tidak wajib, tetapi CO2 yang membedakan akuarium tanaman yang sekadar bertahan hidup dengan akuarium tanaman yang lebat dan berwarna indah.",
+  "intro": "<p>Tanaman air mengambil karbon dari CO2 yang terlarut. Air akuarium secara alami hanya mengandung sedikit CO2, sehingga tanaman tumbuh lambat. Menambahkan CO2 membantu tanaman batang (stem plant) tumbuh cepat, tanaman merah keluar warnanya, dan tanaman karpet/latar depan menyebar menutupi dasar.</p><p>Akuarium dengan tanaman yang mudah (moss, pakis, anubias) dan lampu redup tidak memerlukan CO2. Begitu memakai lampu yang terang, kekurangan CO2 menjadi penyebab utama tumbuhnya alga.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/5982720117a7f264.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/5982720117a7f264-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/which-aquatic-fertilizer-is-right-for-you",
+    "caption": "Which Planted Tank Fertilizer Is Right for You? - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "mini",
+      "name": "CO2 mini, CO2 DIY (rakitan sendiri)",
+      "match": "mini",
+      "desc": "<p>Tabung kecil yang memakai ragi atau asam sitrat dan baking soda, atau tabung CO2 sekali pakai. Murah untuk mencoba.</p>",
+      "pick": "Cocok untuk akuarium di bawah 60 liter. Keluaran gasnya tidak stabil, harus sering diganti atau diisi ulang.",
+      "buy": "bình co2 mini thủy sinh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/1a3816d7ce9ad26c.webp",
+        "thumb": "https://media.aquatome.com/commons/1a3816d7ce9ad26c-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "Public domain",
+        "author": "Harry3",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:BioCo2_Flaschen.jpg",
+        "caption": "BioCo2 Flaschen.jpg"
+      }
+    },
+    {
+      "id": "binh",
+      "name": "Set CO2 tabung isi ulang",
+      "match": "bình|bộ|co2",
+      "desc": "<p>Tabung bertekanan yang bisa diisi ulang, regulator, solenoid valve (mati mengikuti jadwal lampu), bubble counter, dan diffuser. Stabil dan paling murah dalam jangka panjang.</p>",
+      "pick": "Tabung 2–4 kg bisa dipakai beberapa bulan untuk akuarium 60–120 cm. Sambungkan solenoid ke timer: nyalakan CO2 1 jam sebelum lampu menyala, matikan bersamaan dengan lampu.",
+      "buy": "bộ co2 thủy sinh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/25eb70a02ce839fb.webp",
+        "thumb": "https://media.aquatome.com/commons/25eb70a02ce839fb-480.webp",
+        "width": 960,
+        "height": 1280,
+        "licence": "CC BY-SA 4.0",
+        "author": "Pmerino",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reactor_co2.JPG",
+        "caption": "Reactor co2.JPG"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Mulai dari 1 gelembung/detik untuk akuarium 60 liter, naikkan bertahap selama beberapa hari sambil mengamati ikan.</p>",
+    "<p>Gunakan drop checker: hijau berarti pas, biru berarti kurang, kuning berarti berlebih.</p>",
+    "<p>Biarkan permukaan air sedikit beriak untuk menjaga oksigen bagi ikan, tetapi jangan diaduk kuat sampai CO2 banyak terbuang.</p>"
+  ],
+  "mistakes": [
+    "<p>Menyalakan CO2 sepanjang malam: tanaman tidak memakainya, dan ikan bisa sesak napas menjelang pagi.</p>",
+    "<p>Menaikkan CO2 terlalu cepat: ikan yang megap-megap di permukaan air adalah tanda harus segera dikurangi.</p>",
+    "<p>Menambah CO2 tanpa menambah cahaya dan pupuk: tanaman tidak bisa memakai semuanya, jadi tidak ada manfaatnya.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Apakah akuarium tanaman wajib memakai CO2?",
+      "a": "<p>Tidak. Akuarium berlampu redup dengan moss, pakis, anubias, dan bucephalandra bisa tumbuh baik tanpa CO2.</p>"
+    },
+    {
+      "q": "Apakah CO2 berbahaya bagi ikan dan udang?",
+      "a": "<p>Pada dosis yang tepat (drop checker hijau), tidak. Dosis berlebih membuat ikan sesak napas, jadi matikan CO2 saat lampu mati.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.94,
+    "indexable": true
+  }
+}

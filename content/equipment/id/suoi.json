@@ -1,0 +1,82 @@
+{
+  "category": "suoi",
+  "name": "Heater",
+  "lead": "Ikan tropis butuh air hangat yang stabil. Saat suhu turun, akuarium tanpa heater paling rawan kehilangan ikan.",
+  "intro": "<p>Sebagian besar ikan hias hidup di suhu 24–28 °C. Di daerah dingin atau dataran tinggi, suhu air akuarium bisa turun di bawah 18 °C. Ikan tropis yang kedinginan akan berhenti makan, terserang penyakit bintik putih (white spot), lalu mati perlahan.</p><p>Heater dengan pengatur suhu (termostat) akan mati sendiri saat suhu yang disetel sudah tercapai, sehingga suhu air tetap stabil siang dan malam. Termometer wajib dipakai bersamanya: jangan sepenuhnya percaya pada angka di kenop heater.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-choose-the-right-aquarium-heater",
+    "caption": "How to Choose the Right Aquarium Heater - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "lam-lanh",
+      "name": "Chiller (pendingin air)",
+      "match": "lạnh|chiller",
+      "desc": "<p>Kebalikan dari heater: menurunkan suhu untuk ikan subtropis/air dingin, ikan sungai pegunungan, dan aquascape saat cuaca panas.</p>",
+      "pick": "Hanya perlu jika memelihara jenis yang tahan maksimal 24 °C; kipas yang meniup permukaan air adalah cara lebih murah untuk menurunkan suhu 1–3 °C.",
+      "buy": "máy làm lạnh bể cá"
+    },
+    {
+      "id": "mini",
+      "name": "Heater mini (25–50 W)",
+      "match": "mini|50w|nhỏ|betta",
+      "desc": "<p>Heater pendek berdaya kecil untuk akuarium di bawah 40 liter, akuarium cupang, dan akuarium udang. Banyak jenis yang sudah preset di sekitar 26 °C.</p>",
+      "pick": "Sekitar 1–1,5 W per liter air. Untuk akuarium kecil, pilih yang berselubung plastik agar tidak mudah pecah.",
+      "buy": "sưởi bể cá mini"
+    },
+    {
+      "id": "chinh-nhiet",
+      "name": "Heater dengan pengatur suhu (100–300 W)",
+      "match": "chỉnh nhiệt|điều chỉnh|ổn nhiệt|100w|200w|300w|công suất|lớn|chống vỡ|bảo vệ|sưởi",
+      "desc": "<p>Heater batang celup dengan kenop atau layar untuk menyetel suhu. Jenis paling umum untuk akuarium 40–300 liter.</p>",
+      "pick": "Sekitar 1 W per liter (akuarium 100 liter: 100 W). Akuarium di atas 200 liter sebaiknya memakai dua heater kecil di kedua ujung: jika satu rusak, yang lain tetap menjaga suhu.",
+      "buy": "sưởi bể cá có chỉnh nhiệt",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/defabaf9ea68ada4.webp",
+        "thumb": "https://media.aquatome.com/commons/defabaf9ea68ada4-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 3.0",
+        "author": "Ewkaa",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+        "caption": "Grzałka do akwarium"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Daya: sekitar 1 W per liter air; untuk ruangan dingin atau akuarium tanpa tutup, tambahkan 30–50%.</p>",
+    "<p>Pasang heater dekat output filter agar air hangat terdorong ke seluruh akuarium.</p>",
+    "<p>Beli sekalian termometer dan cek setelah 24 jam; setel bertahap per 0,5 °C.</p>",
+    "<p>Ikan yang suka menggali atau ikan besar: pilih heater dengan pelindung (cage) agar ikan tidak terluka bakar dan heater tidak pecah.</p>"
+  ],
+  "mistakes": [
+    "<p>Mengangkat heater dari air saat masih panas atau menyalakan heater sebelum terendam: kacanya bisa retak.</p>",
+    "<p>Membiarkan badan heater menyembul di atas permukaan air saat ganti air.</p>",
+    "<p>Menyetel 30 °C \"supaya ikan sehat\": air panas menyimpan lebih sedikit oksigen; naikkan suhu hanya saat mengobati penyakit, sambil memasang aerasi.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Apakah di daerah yang hangat tetap perlu heater?",
+      "a": "<p>Biasanya tidak, kecuali akuarium diletakkan di ruangan ber-AC atau memelihara jenis yang butuh suhu di atas 28 °C seperti discus. Di daerah yang dingin atau dataran tinggi, sebaiknya tetap pakai heater.</p>"
+    },
+    {
+      "q": "Akuarium 60 cm pakai heater berapa W?",
+      "a": "<p>Akuarium 60 cm sekitar 54–60 liter: heater 50–75 W, atau 100 W untuk ruangan dingin.</p>"
+    },
+    {
+      "q": "Apakah heater boros listrik?",
+      "a": "<p>Heater hanya bekerja saat suhu air di bawah suhu yang disetel. Heater 100 W biasanya menyala beberapa jam sehari saat cuaca dingin.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.88,
+    "indexable": true
+  }
+}

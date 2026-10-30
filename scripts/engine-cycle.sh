@@ -109,7 +109,7 @@ if part rewrite; then
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-8}" || log "localize $lang: failed"; done
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
   for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
-  # Plants, glossary terms, place names, AquaTome's own guides, breed pages and photo captions in both: only what is new or whose source changed.
+  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
   for lang in id th; do
     pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
     pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
@@ -117,6 +117,7 @@ if part rewrite; then
     pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}" || log "localize-guides $lang: failed"
     pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}" || log "localize-breeds $lang: failed"
     pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
+    pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
   done
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
   if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \

@@ -104,7 +104,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const equipDir = join(root, 'equipment')
   const equipment: EquipmentGuide[] = []
   for (const f of (await readdir(equipDir).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
-    const e = await readJson(join(equipDir, f), EquipmentSchema)
+    // Another language has the guides translated so far (content/equipment/<lang>/<category>.json).
+    const file = lang === 'vi' ? join(equipDir, f) : join(equipDir, lang, f)
+    if (lang !== 'vi' && !(await exists(file))) continue
+    const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
     equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
   }
@@ -140,7 +143,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   return {
     species, plants, guides, changelog, equipment, series, galleries, products, breeds,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
-    places: await loadKind(root, 'places', PlaceSchema, lang),
+    // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
+    // page is empty and no link points at one it lacks. Vietnamese has every place.
+    places: (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
     sources,
   }
 }

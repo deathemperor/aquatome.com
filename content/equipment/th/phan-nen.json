@@ -1,0 +1,104 @@
+{
+  "category": "phan-nen",
+  "name": "วัสดุปูพื้นตู้และใบไม้",
+  "lead": "พื้นตู้เป็นที่ที่ปลาหน้าดินหาอาหาร ไม้น้ำหยั่งราก และจุลินทรีย์อาศัยอยู่ ควรเลือกให้เข้ากับชนิดปลาและไม้น้ำที่เลี้ยง",
+  "intro": "<p>ปลาหมู ปลาแพะ (Corydoras) และปลาหน้าดินอีกหลายชนิดใช้หนวดและปากคุ้ยหาอาหารในพื้นตู้ กรวดคมทำให้หนวดถลอกและติดเชื้อได้ ปลากลุ่มนี้จึงต้องการทรายละเอียดเม็ดกลม</p><p>ตู้ไม้น้ำต้องใช้ดินปลูกที่มีธาตุอาหาร หรือใช้วัสดุปูพื้นที่ไม่มีธาตุอาหารร่วมกับปุ๋ยฝังราก ใบหูกวางแห้งที่วางไว้ที่พื้นตู้ทำให้น้ำเป็นสีชาและเป็นกรดอ่อน ๆ คล้ายลำธารในป่าซึ่งเป็นถิ่นอาศัยของปลากัดและปลาซิว</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/499597be352de181.webp",
+    "thumb": "https://media.aquatome.com/commons/499597be352de181-480.webp",
+    "width": 960,
+    "height": 574,
+    "licence": "CC BY 3.0",
+    "author": "Green Yoshi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+    "caption": "Gravel at the bottom of an aquarium."
+  },
+  "types": [
+    {
+      "id": "la",
+      "name": "ใบหูกวางแห้งและใบไม้แห้ง",
+      "match": "lá",
+      "desc": "<p>ใบหูกวาง (Terminalia catappa) ปล่อยแทนนินที่ทำให้น้ำเป็นสีชา เป็นกรดอ่อน ๆ และช่วยต้านเชื้อแบคทีเรียได้เล็กน้อย ใบที่ย่อยสลายแล้วยังเป็นที่หลบซ่อนและเป็นแหล่งอาหารจากจุลินทรีย์ให้กุ้งและลูกปลา</p>",
+      "pick": "ใช้ 1–2 ใบต่อน้ำ 40 ลิตร แช่น้ำหรือลวกน้ำเดือดก่อนใช้ เพื่อให้ใบจมและสะอาด",
+      "buy": "lá bàng khô",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/499ea329d52dd7cf.webp",
+        "thumb": "https://media.aquatome.com/commons/499ea329d52dd7cf-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 3.0 us",
+        "author": "Forest and Kim Starr",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-080607-7241-Terminalia_catappa-leaves-Medical_clinic_Sand_Island-Midway_Atoll_(24287654284).jpg",
+        "caption": "Terminalia catappa (False kamani, tropical almond) Leaves at Medical clinic Sand Island, Midway Atoll, Hawaii. June 07, 2008 #080607-7241 Image Use Policy"
+      }
+    },
+    {
+      "id": "cat",
+      "name": "ทรายละเอียด",
+      "match": "cát",
+      "desc": "<p>ทรายแม่น้ำหรือทรายควอตซ์เม็ดกลม ขนาด 0.5–1 มม. ปลอดภัยกับปลาหน้าดินที่ชอบคุ้ยพื้นและปลาหมูที่ชอบมุดทราย</p>",
+      "pick": "ล้างจนน้ำใส ปูหนา 3–5 ซม. ถ้าหนากว่านี้จะเกิดจุดอับอากาศได้ง่าย",
+      "buy": "cát mịn bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/58a7f552440fdefe.webp",
+        "thumb": "https://media.aquatome.com/commons/58a7f552440fdefe-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 3.0",
+        "author": "Ahmed1251985",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horseface_loach_under_aquarium_gravel.jpg",
+        "caption": "this image shows a horseface loach under aquarium gravel"
+      }
+    },
+    {
+      "id": "phan",
+      "name": "ดินปลูกไม้น้ำ (aqua soil)",
+      "match": "phân|đất|soil|nền thủy sinh|nền dinh dưỡng",
+      "desc": "<p>ดินเผาที่มีธาตุอาหารสูง ช่วยรักษาค่า pH ให้เป็นกรดอ่อน ๆ ทำให้ไม้น้ำที่มีรากเติบโตได้ดี หรือใช้ปุ๋ยฝังรากกับวัสดุปูพื้นที่ไม่มีธาตุอาหารแทนก็ได้</p>",
+      "pick": "ปูหนา 5–8 ซม. ที่ฉากหลัง แล้วค่อย ๆ บางลงมาทางด้านหน้า เปลี่ยนใหม่หลัง 1–2 ปีเมื่อธาตุอาหารหมด",
+      "buy": "phân nền thủy sinh"
+    },
+    {
+      "id": "soi",
+      "name": "กรวดและหิน",
+      "match": "sỏi|đá|nền",
+      "desc": "<p>กรวดกลมและหินกรวดแม่น้ำ เหมาะกับตู้ลำธาร ตู้ปลาหมอสี และปลาที่ไม่คุ้ยพื้น ดูดตะกอนได้ง่าย และไม่ถูกดูดเข้าระบบกรอง</p>",
+      "pick": "หลีกเลี่ยงกรวดขอบคมสำหรับปลาหน้าดิน หินปูนและเศษปะการังทำให้น้ำกระด้างและเป็นด่าง จึงเหมาะกับปลาหมอสีจากทะเลสาบแอฟริกาเท่านั้น",
+      "buy": "sỏi nền bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/499597be352de181.webp",
+        "thumb": "https://media.aquatome.com/commons/499597be352de181-480.webp",
+        "width": 960,
+        "height": 574,
+        "licence": "CC BY 3.0",
+        "author": "Green Yoshi",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+        "caption": "Gravel at the bottom of an aquarium."
+      }
+    }
+  ],
+  "choose": [
+    "<p>เลี้ยงปลาหมู ปลาแพะ หรือปลาหน้าดินที่ชอบคุ้ยพื้น: เลือกทรายละเอียดเม็ดกลม</p>",
+    "<p>ตู้ไม้น้ำที่ปลูกไม้น้ำมีราก (คริปต์ อเมซอนซอร์ด ไม้ปูพื้น): ใช้ดินปลูกไม้น้ำ หรือวัสดุปูพื้นที่ไม่มีธาตุอาหารร่วมกับปุ๋ยฝังราก</p>",
+    "<p>ปลาที่ชอบน้ำอ่อนและเป็นกรด: ใส่ใบหูกวางเพิ่ม และหลีกเลี่ยงหินปูน</p>"
+  ],
+  "mistakes": [
+    "<p>ไม่ล้างทรายก่อนใช้: น้ำในตู้ขุ่นขาวไปหลายวัน</p>",
+    "<p>ใช้กรวดคมกับปลาแพะหรือปลาหมู: หนวดถลอกและติดเชื้อ</p>",
+    "<p>ดูดตะกอนลึกเกินไปจนถึงชั้นดินปลูก: ทำให้เม็ดดินแตกและน้ำขุ่น</p>"
+  ],
+  "faq": [
+    {
+      "q": "ใบหูกวางเป็นอันตรายกับปลาหรือไม่",
+      "a": "<p>ไม่เป็นอันตราย หากใช้ในปริมาณพอเหมาะ น้ำเป็นสีชาถือเป็นเรื่องปกติ ถ้าต้องการให้น้ำใสขึ้นให้เปลี่ยนน้ำหรือใส่ถ่านกัมมันต์เพิ่ม</p>"
+    },
+    {
+      "q": "ทรายกับกรวด อย่างไหนดีกว่ากัน",
+      "a": "<p>ทรายเหมาะกับปลาหน้าดินที่ชอบคุ้ยพื้น กรวดกลมเหมาะกับตู้ลำธารและปลาขนาดใหญ่ ส่วนตู้ไม้น้ำควรใช้ดินปลูกไม้น้ำ</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.93,
+    "indexable": true
+  }
+}

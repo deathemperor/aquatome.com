@@ -1,0 +1,107 @@
+{
+  "category": "cay-thuy-sinh",
+  "name": "ไม้น้ำ",
+  "lead": "ไม้น้ำที่มีชีวิตช่วยดูดซับไนเตรต และเป็นที่หลบซ่อนให้ปลาขี้ตกใจและลูกปลา หลายชนิดปลูกง่าย ไม่ต้องใช้ไฟแรงหรือ CO2",
+  "intro": "<p>ไม้น้ำแย่งสารอาหารกับตะไคร่ และเป็นที่หลบซ่อนพร้อมพื้นผิวหาอาหารให้กุ้งและลูกปลา สำหรับตู้ปลาที่ไม่ได้เน้นปลูกไม้น้ำ กลุ่มไม้เกาะขอนไม้ (มอส เฟิร์น อนูเบียส บูเซป) และไม้ลอยน้ำปลูกง่ายที่สุด ไม่ต้องใช้ดินปลูก และอยู่ได้ในแสงอ่อน</p><p>ดูไม้น้ำแต่ละชนิดได้ในหมวด ไม้น้ำ เพื่อดูเรื่องแสง CO2 และวิธีปลูก</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+    "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "reu",
+      "name": "มอส",
+      "match": "rêu|marimo|moss",
+      "desc": "<p>จาวามอส ไต้หวันมอส และมาริโมะ ใช้ผูกติดกับหินหรือขอนไม้ เป็นที่หาอาหารของกุ้งและที่วางไข่ของปลา</p>",
+      "pick": "ใช้แสงอ่อน ไม่ต้องใช้ CO2 ควรตัดแต่งเป็นระยะเพื่อไม่ให้ด้านล่างเน่า",
+      "buy": "rêu java",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+        "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "gan-lua",
+      "name": "ไม้เกาะขอน",
+      "match": "buce|anubias|dương xỉ|bolbitis|gắn|lũa|keo",
+      "desc": "<p>เฟิร์นใบหอก (จาวาเฟิร์น) อนูเบียส บูเซป และโบลบิติส มีเหง้ายึดเกาะกับหินหรือขอนไม้ ไม่ต้องฝังลงพื้น</p>",
+      "pick": "ผูกด้วยด้ายหรือติดด้วยกาวเจลสำหรับตู้ปลา โตช้าแต่อายุยืน เหมาะกับตู้ที่มีปลาชอบขุดคุ้ยด้วย",
+      "buy": "cây thủy sinh gắn lũa",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
+        "caption": "Java Fern (Microsorum pteropus) an Easy Aquatic Plant. - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "noi",
+      "name": "ไม้ลอยน้ำ",
+      "match": "nổi",
+      "desc": "<p>แหน จอก ใบบัวบกน้ำ และสาหร่ายพุงชะโดแบบปล่อยลอย ดูดซับไนเตรตได้เร็ว และช่วยลดแสงให้ปลาที่ชอบที่ร่ม</p>",
+      "pick": "ควรให้ปกคลุมผิวน้ำประมาณครึ่งหนึ่ง เพื่อให้ไม้น้ำด้านล่างยังได้รับแสง",
+      "buy": "cây thủy sinh nổi"
+    },
+    {
+      "id": "trong-nen",
+      "name": "ไม้ปลูกพื้น",
+      "match": "cây|rong|cỏ|vallisneria|cabomba|ceratophyllum|limnophila|sen|kiếm|xương bồ|alternanthera",
+      "desc": "<p>วาลิสเนอเรีย (Vallisneria) อเมซอนซอร์ด สาหร่ายพุงชะโด และไม้ก้าน ต้องใช้ดินปลูกที่มีสารอาหารหรือปุ๋ยเม็ดฝังโคน</p>",
+      "pick": "เริ่มจากวาลิสเนอเรียและสาหร่ายพุงชะโด ซึ่งโตเร็วและทนแสงน้อย",
+      "buy": "cây thủy sinh dễ trồng",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+        "caption": "Vallisneria – The One Plant Wonder - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    }
+  ],
+  "choose": [
+    "<p>ตู้ที่ไม่ได้เน้นไม้น้ำ: เลือกมอส เฟิร์น อนูเบียส และไม้ลอยน้ำ ไม่ต้องใช้ CO2</p>",
+    "<p>ตู้ที่มีปลากินไม้น้ำ (ปลาทอง ปลานิล ปลาหมอสีหลายชนิด): เลือกอนูเบียสและเฟิร์น เพราะใบเหนียวและมีรสขม</p>",
+    "<p>ถ้าต้องการไม้แดงหรือไม้ปูพื้นหน้าตู้: ต้องเตรียมไฟแรง ปุ๋ยฝัง และ CO2</p>"
+  ],
+  "mistakes": [
+    "<p>ฝังเหง้าของอนูเบียสหรือบูเซปลงในพื้น ทำให้เหง้าเน่า</p>",
+    "<p>ใส่ไม้น้ำใหม่ลงตู้โดยไม่ล้างและไม่กักโรค ทำให้หอยและตะไคร่ติดเข้ามาในตู้</p>"
+  ],
+  "faq": [
+    {
+      "q": "ไม้น้ำชนิดไหนปลูกง่ายที่สุด",
+      "a": "<p>จาวามอส เฟิร์นใบหอก อนูเบียส วาลิสเนอเรีย และสาหร่ายพุงชะโด</p>"
+    },
+    {
+      "q": "ไม้น้ำต้องใช้ CO2 ไหม",
+      "a": "<p>กลุ่มไม้น้ำปลูกง่ายไม่ต้องใช้ CO2 จะจำเป็นสำหรับตู้ไฟแรง ไม้แดง และไม้ปูพื้น</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.87,
+    "indexable": true
+  }
+}

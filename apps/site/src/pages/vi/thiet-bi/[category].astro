@@ -6,7 +6,8 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
-import { categories, normKeyword, speciesUsing, typeUses, type CategoryUse } from '../../../lib/equipment'
+import { categoriesIn, normKeyword, speciesUsing, typeUses, type CategoryUse } from '../../../lib/equipment'
+import { alternatesWhere } from '../../../lib/alternates'
 import { categoryLabel, goLink } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { smallSrc } from '../../../lib/img'
@@ -15,7 +16,8 @@ import { creatorsUse } from '../../../lib/gear'
 import { productHref } from '../../../lib/products'
 import { i18n, langOf } from '../../../lib/i18n'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
-  return categories(await getContent(langOf(routePattern))).map(u => ({ params: { category: u.category }, props: { u } }))
+  const lang = langOf(routePattern)
+  return categoriesIn(lang, await getContent(lang)).map(u => ({ params: { category: u.category }, props: { u } }))
 }
 const { u } = Astro.props as { u: CategoryUse }
 const { t, lang } = i18n(Astro.url)
@@ -44,8 +46,11 @@ const shops = ['shopee', 'lazada', 'tiki'] as const
 const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
 const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
+// Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
+const vn = lang === 'vi'
+const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
 ---
-<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits}>
+<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
   {g && (
     <header class="hero">
       <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
@@ -68,8 +73,8 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
             <p set:html={link(ty.desc)} />
             <p class="pick"><strong>{t('Chọn thế nào:')}</strong> {ty.pick}</p>
             {picks(ty.id).length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {picks(ty.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
-            <p class="buy">{t('Mua')} <em>{ty.buy}</em>: {shops.map(s => <a href={goLink(s, ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>
-            {ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
+            {vn && <p class="buy">{t('Mua')} <em>{ty.buy}</em>: {shops.map(s => <a href={goLink(s, ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>}
+            {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
             {ty.species.length > 0 && (
               <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
                 {ty.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
@@ -89,7 +94,7 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
     </div>
   )}
 
-  {used.length > 0 && (
+  {vn && used.length > 0 && (
     <section class="creators">
       <h2 class="h">{t('Dân chơi dùng gì trong video')}</h2>
       <ul>{used.slice(0, 10).map(x => (
@@ -122,9 +127,11 @@ const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
     <div class="guides">{guides.map(x => <GuideCard g={x} />)}</div>
   </>}
 
-  <details class="all"><summary>{t('Tất cả gợi ý mua ({n})', { n: keywords.length })}</summary>
-    <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
-  </details>
+  {vn && (
+    <details class="all"><summary>{t('Tất cả gợi ý mua ({n})', { n: keywords.length })}</summary>
+      <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
+    </details>
+  )}
 </Browse>
 <style>
   .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-6); align-items: start; margin-bottom: var(--space-6); }

@@ -1,0 +1,76 @@
+{
+  "category": "test-nuoc",
+  "name": "Test kit air",
+  "lead": "Air jernih belum tentu air bersih. Test kit menunjukkan kadar amonia, nitrit, pH, dan kesadahan sebelum ikan sempat sakit.",
+  "intro": "<p>Amonia dan nitrit tidak berwarna dan tidak berbau, tetapi dalam jumlah kecil saja sudah bisa membuat insang ikan terbakar dan ikan mati. Akuarium baru, akuarium yang baru ditambah ikan, dan akuarium yang ada ikan matinya adalah saat paling perlu melakukan tes.</p><p>pH, GH (kesadahan umum), dan KH (kesadahan karbonat) menentukan spesies mana yang cocok dengan air keran di rumah Anda. Ikan dari hutan Amazon menyukai air lunak yang sedikit asam, sedangkan cichlid Danau Malawi membutuhkan air keras dan basa.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/047302cd5cfe7c68.webp",
+    "thumb": "https://media.aquatome.com/commons/047302cd5cfe7c68-480.webp",
+    "width": 960,
+    "height": 619,
+    "licence": "CC BY 2.5",
+    "author": "w:pl:Wikipedysta:Lukas3",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+    "caption": "Aquarium-NitrogenCycle.png"
+  },
+  "types": [
+    {
+      "id": "man",
+      "name": "Refraktometer salinitas",
+      "match": "mặn|tỷ trọng|nước biển",
+      "desc": "<p>Mengukur salinitas hanya dengan satu tetes air. Diperlukan untuk akuarium air payau (ikan buntal, ikan gobi) dan akuarium air laut.</p>",
+      "pick": "Kalibrasi dengan air suling sebelum setiap pemakaian.",
+      "buy": "khúc xạ kế đo độ mặn"
+    },
+    {
+      "id": "tds",
+      "name": "TDS meter",
+      "match": "tds|ro",
+      "desc": "<p>Mengukur total padatan terlarut, menunjukkan apakah air \"berat\" atau \"ringan\". Berguna bagi pemelihara udang hias dan ikan air lunak.</p>",
+      "pick": "Tidak bisa menggantikan tes GH/KH, tetapi murah dan cepat untuk memantau air ganti mingguan.",
+      "buy": "bút đo tds"
+    },
+    {
+      "id": "test",
+      "name": "Test kit pH, GH, KH, amonia, nitrit, nitrat",
+      "match": "ph|gh|kh|nitrat|no2|nh3|test|dung dịch|đồng|kit",
+      "desc": "<p>Berupa strip celup yang cepat atau test kit cairan tetes dengan pencocokan warna. Cairan tetes lebih akurat, strip lebih praktis.</p>",
+      "pick": "Minimal perlu tes amonia, nitrit, dan pH. Jika memelihara udang hias atau ikan air lunak, tambahkan GH dan KH.",
+      "buy": "bộ test nước bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/925fb88907449688.webp",
+        "thumb": "https://media.aquatome.com/commons/925fb88907449688-480.webp",
+        "width": 960,
+        "height": 136,
+        "licence": "CC BY 4.0",
+        "author": "R. Henrik Nilsson",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_single_6_in_1_water_testing_strip_by_Tetra_GmbH_Germany.jpg",
+        "caption": "2022 single 6 in 1 water testing strip by Tetra GmbH Germany.jpg"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Akuarium baru: tes amonia dan nitrit 2–3 kali seminggu sampai keduanya menunjukkan 0 selama setidaknya satu minggu.</p>",
+    "<p>Akuarium yang sudah stabil: tes setiap bulan dan setiap kali ikan menunjukkan perilaku yang tidak biasa.</p>",
+    "<p>Tes air keran sekali untuk mengetahui spesies apa yang cocok dengan air di rumah Anda sebelum membeli ikan.</p>"
+  ],
+  "mistakes": [
+    "<p>Memakai strip tes yang sudah kedaluwarsa atau lembap: hasilnya tidak akurat.</p>",
+    "<p>Hanya mengetes pH: pH yang baik tidak memberi tahu apa pun soal amonia dan nitrit.</p>",
+    "<p>Terus-menerus mengatur pH dengan bahan kimia: ikan lebih tahan pada pH yang stabil daripada pH yang \"tepat\" tetapi naik-turun.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Kapan perlu mengetes air sebelum memasukkan ikan ke akuarium baru?",
+      "a": "<p>Lakukan tes sejak hari pertama dan masukkan ikan setelah amonia dan nitrit menunjukkan 0, biasanya setelah filter berjalan 3–6 minggu.</p>"
+    },
+    {
+      "q": "Mana yang lebih baik, strip tes atau test kit cairan tetes?",
+      "a": "<p>Cairan tetes lebih akurat dan lebih murah jika dihitung per tes. Strip tes lebih cepat, cocok untuk pemula dan pengecekan cepat.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

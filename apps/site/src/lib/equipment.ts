@@ -18,6 +18,9 @@ export function categories(c: Content): CategoryUse[] {
   return [...map.values()].sort((a, b) => a.category.localeCompare(b.category))
 }
 
+/** The categories with a page in a language: all of them in Vietnamese; elsewhere those whose guide is translated. */
+export const categoriesIn = (lang: Lang, c: Content) => categories(c).filter(u => lang === 'vi' || c.equipment.some(e => e.category === u.category))
+
 /** "Lọc thùng  100W" and "lọc thùng 100w" are one suggestion. */
 export const normKeyword = (k: string) => k.toLowerCase().replace(/\s+/g, ' ').trim()
 

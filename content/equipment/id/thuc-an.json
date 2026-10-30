@@ -1,0 +1,104 @@
+{
+  "category": "thuc-an",
+  "name": "Pakan ikan",
+  "lead": "Pakan yang beragam membuat ikan lebih sehat dan warnanya lebih cerah. Kombinasikan pakan kering dengan pakan beku atau pakan hidup beberapa kali seminggu.",
+  "intro": "<p>Tidak ada jenis ikan yang sebaiknya hanya diberi satu jenis pakan. Pelet berkualitas menjadi pakan utama. Artemia, cacing sutra, dan kutu air, baik beku maupun hidup, menambah protein serta merangsang nafsu makan dan pemijahan.</p><p>Pilih ukuran pakan yang pas dengan mulut ikan dan sesuai lapisan tempat ikan makan. Pelet terapung untuk ikan permukaan, pelet tenggelam untuk ikan dasar seperti corydoras, loach, dan sapu-sapu. Ikan pemakan alga perlu tambahan pakan nabati.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/fe9a60556ef04213.webp",
+    "thumb": "https://media.aquatome.com/commons/fe9a60556ef04213-480.webp",
+    "width": 960,
+    "height": 819,
+    "licence": "CC BY-SA 3.0",
+    "author": "Taken by User:Pinpin - fr:Utilisateur:Pinpin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
+    "caption": "Aquarium - dried food2.jpg"
+  },
+  "types": [
+    {
+      "id": "dong-lanh",
+      "name": "Pakan beku",
+      "match": "đông lạnh",
+      "desc": "<p>Cacing sutra, artemia, kutu air, dan jentik nyamuk yang dibekukan. Kaya protein, lebih bebas bibit penyakit dibanding pakan hidup, dan tahan lama.</p>",
+      "pick": "Cairkan dalam sedikit air akuarium, lalu tiriskan airnya sebelum diberikan. Berikan 2–3 kali seminggu.",
+      "buy": "artemia đông lạnh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/45e295d097a20478.webp",
+        "thumb": "https://media.aquatome.com/commons/45e295d097a20478-480.webp",
+        "width": 960,
+        "height": 639,
+        "licence": "CC BY 3.0",
+        "author": "Matthias Tilly",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tubifex01.jpg",
+        "caption": "Tubifex in fishtank-ground"
+      }
+    },
+    {
+      "id": "gel",
+      "name": "Pakan gel dan sayuran",
+      "match": "gel|repashy|rau|dưa|bí|tảo|spirulina",
+      "desc": "<p>Pakan gel racikan sendiri, pelet spirulina, dan sayuran rebus seperti mentimun atau labu. Untuk sapu-sapu, ikan pemakan alga, udang hias, dan ikan omnivora.</p>",
+      "pick": "Masukkan sayuran pada malam hari, lalu angkat setelah 12–24 jam agar air tidak kotor.",
+      "buy": "thức ăn spirulina cho cá"
+    },
+    {
+      "id": "song",
+      "name": "Pakan hidup",
+      "match": "sống|artemia|trùn|daphnia|bo bo|giun|lăng quăng",
+      "desc": "<p>Artemia yang ditetaskan dari telur, kutu air, cacing sutra, dan cacing. Merangsang ikan yang pilih-pilih makanan dan ikan yang sedang dipersiapkan untuk memijah.</p>",
+      "pick": "Menetaskan artemia sendiri adalah sumber pakan hidup paling bersih untuk burayak. Jika membeli cacing sutra hidup, bilas dengan air bersih berkali-kali sebelum diberikan.",
+      "buy": "trứng artemia",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/da03950efbfdce2b.webp",
+        "thumb": "https://media.aquatome.com/commons/da03950efbfdce2b-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 2.0",
+        "author": "Saul Dolgin",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_brine_shrimp.jpg",
+        "caption": "Original description: live brine shrimp which will be fed to my tropical fish"
+      }
+    },
+    {
+      "id": "kho",
+      "name": "Pakan kering (pelet, pakan serpihan, pelet tenggelam)",
+      "match": "viên|mảnh|khô|cám|chìm|thức ăn",
+      "desc": "<p>Pelet terapung, pelet lambat tenggelam, pakan serpihan, dan pelet tenggelam untuk ikan dasar. Praktis, gizinya lengkap, dan tahan lama.</p>",
+      "pick": "Pilih butiran yang lebih kecil dari mata ikan. Ikan dasar perlu pelet tenggelam yang diberikan setelah lampu dimatikan.",
+      "buy": "cám cá cảnh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/f3f5f548f5c24a16.webp",
+        "thumb": "https://media.aquatome.com/commons/f3f5f548f5c24a16-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 2.0",
+        "author": "USFWS Mountain-Prairie",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Food_pellets.jpg",
+        "caption": "Fish Food pellets.jpg"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Beri pakan sebanyak yang habis dimakan ikan dalam 2 menit, 1–2 kali sehari. Tidak memberi pakan sehari dalam seminggu juga tidak masalah.</p>",
+    "<p>Ikan dasar dan ikan nokturnal: masukkan pelet tenggelam setelah lampu dimatikan agar tidak direbut ikan lapisan tengah.</p>",
+    "<p>Burayak: artemia yang baru menetas, kuning telur halus, atau pakan bubuk khusus, diberikan sedikit-sedikit tetapi sering.</p>"
+  ],
+  "mistakes": [
+    "<p>Memberi pakan terlalu banyak: sisa pakan membusuk, amonia naik, dan air menjadi keruh.</p>",
+    "<p>Hanya memberi satu jenis pelet selama bertahun-tahun.</p>",
+    "<p>Memberi cacing sutra hidup tanpa diolah lebih dulu: mudah membawa bibit penyakit ke akuarium.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Berapa kali sehari ikan hias perlu diberi pakan?",
+      "a": "<p>Ikan dewasa 1–2 kali, sedangkan anakan 3–4 kali dengan porsi sedikit setiap kali. Jika ditinggal pergi 2–3 hari, ikan yang sehat masih bisa bertahan tanpa makan.</p>"
+    },
+    {
+      "q": "Apakah pakan beku lebih baik daripada pakan hidup?",
+      "a": "<p>Pakan beku lebih aman dari bibit penyakit dan lebih praktis. Pakan hidup merangsang naluri berburu, cocok untuk ikan yang pilih-pilih makanan dan ikan yang akan bertelur.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.95,
+    "indexable": true
+  }
+}
