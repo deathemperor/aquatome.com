@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { localizeGlossary, localizeSpecies } from '../src/localize'
+import { localizeGlossary, localizePlaces, localizeSpecies } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -130,4 +130,24 @@ test('glossary: every term from its Vietnamese definition; Thai addressed by the
   prompts.length = 0
   await localizeGlossary(root, llm, 'th')
   expect([...prompts[0]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])).toEqual(['gh'])
+})
+
+test('place names: every place named in the language; a name with Vietnamese letters or none is not written', async () => {
+  const root = await site()
+  const prompts: string[] = []
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)/gm)].map(m => m[1]!)
+    return { places: ids.map(i => ({ id: i, name: i === 'china' ? 'Trung Quốc' : i === 'peru' ? '' : `ประเทศ ${i}` })) } as T
+  }
+  const r = await localizePlaces(root, llm, 'th')
+  expect(r.failed.sort()).toEqual(['china: no name', 'peru: no name'])
+  expect(prompts[0]).toContain('### rio-negro (river, in brazil): Rio Negro')
+  const t = JSON.parse(await readFile(join(root, 'content/places/brazil/th.json'), 'utf8'))
+  expect(t).toMatchObject({ slug: 'brazil', name: 'ประเทศ brazil', quality: { score: 0.9, indexable: true } })
+  // Done once: only the two left are asked again.
+  prompts.length = 0
+  await localizePlaces(root, llm, 'th')
+  expect([...prompts[0]!.matchAll(/^### (\S+)/gm)].map(m => m[1]).sort()).toEqual(['china', 'peru'])
 })

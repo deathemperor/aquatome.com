@@ -32,8 +32,8 @@ const PLACE_VI: Record<string, string[]> = {
   asia: ['châu Á', 'Đông Nam Á'], africa: ['châu Phi'], 'south-america': ['Nam Mỹ'], 'north-america': ['Bắc Mỹ'], europe: ['châu Âu'],
   oceania: ['châu Đại Dương'], 'central-america': ['Trung Mỹ'], mekong: ['sông Mê Kông', 'Mê Kông', 'Mekong'], 'red-river': ['sông Hồng'],
 }
-/** English place names that are also ordinary words or too short to link safely. */
-const PLACE_STOP = new Set(['Kong', 'Tone', 'Meta', 'Negro', 'Nan', 'Han', 'Chad', 'Java', 'Jordan', 'Guinea', 'Turkey', 'Tak', 'Yom'])
+/** Place names that are also ordinary words or too short to link safely (English; Indonesian: "tapi" but, "perak" silver). */
+const PLACE_STOP = new Set(['Kong', 'Tone', 'Meta', 'Negro', 'Nan', 'Han', 'Chad', 'Java', 'Jordan', 'Guinea', 'Turkey', 'Tak', 'Yom', 'Tapi', 'Perak', 'Golok'])
 
 const multiWord = (n: string) => n.trim().split(/\s+/).length >= 2 // single words ("cá", "betta") are too generic to link
 /** Group names ("cá neon", "cá chạch suối") begin several other species' names: linking them would point a group at one species. */
