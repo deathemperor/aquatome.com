@@ -63,8 +63,10 @@ const alternates = await alternatesOf('breeds', b.id)
       <RedirectNote from={b.t.redirectFrom} />
       {b.parents.length > 0 && (
         <p class="parents">{t('Lai từ:')} {b.parents.map((p, i) => {
-          const s = p.species ? species.get(p.species) : undefined
-          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : (b.t.parents?.[i] ?? p.name)}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
+          // A parent the breed's sources name only by its scientific name in brackets is still that species.
+          const sci = /\(([A-Z][a-z]+ [a-z]+)\)\s*$/.exec(p.name)?.[1]
+          const s = species.get(p.species ?? (sci ? slugify(sci) : ''))
+          return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : (b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name))}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
         })}</p>
       )}
       {b.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}

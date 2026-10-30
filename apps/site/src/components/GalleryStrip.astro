@@ -2,11 +2,12 @@
 import type { Photo } from '@aq/schema'
 import { GALLERY_STRIP } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
-import { i18n } from '../lib/i18n'
-/** `href`: the gallery page; without one (too few photos for a page) each thumb opens its photo. */
+import { i18n, served } from '../lib/i18n'
+/** `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo. */
 interface Props { photos: Photo[]; href?: string; name: string }
-const { photos, href, name } = Astro.props
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const href = Astro.props.href && served(lang, Astro.props.href) ? Astro.props.href : undefined
+const { photos, name } = Astro.props
 const shown = photos.slice(0, GALLERY_STRIP)
 ---
 <section class="wrap strip" aria-labelledby="gal-h">
