@@ -21,11 +21,12 @@ export const GET: APIRoute = async ({ site }) => {
     ...[...c.species, ...c.breeds].filter(s => s.t.quality.indexable && (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => `/vi/ca/${s.t.slug}/anh/`),
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
   ]
-  // Other languages: their fixed pages and their indexable species, plant and glossary pages.
+  // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant and glossary pages.
   for (const lang of ['id', 'th'] as const) {
     const t = await getContent(lang)
     paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
     if (served(lang, '/vi/ca/x/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))
+    if (served(lang, '/vi/ca/x/anh/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable && (t.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/anh/`)))
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
     if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
     for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) if (served(lang, index)) paths.push(localizePath(lang, index))
