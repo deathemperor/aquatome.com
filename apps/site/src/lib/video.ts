@@ -68,7 +68,7 @@ export function illustrate(html: string, v: NonNullable<GuideEntity['video']>): 
       ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')} <span class="by">Ảnh: <a href="${esc(f.photo.sourceUrl)}" rel="noopener">${esc(f.photo.author)}</a>, ${esc(f.photo.licence)}</span></figcaption></figure>`
       : ''
     const moments = f.moments.length
-      ? `<div class="moments"><p class="mh">Trong video</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}" aria-label="Xem video từ ${clock(m.t)}: ${esc(m.caption)}"><img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"><span class="mt">▶ ${clock(m.t)}</span><span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
+      ? `<div class="moments"><p class="mh">Trong video</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">Xem video từ</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
       : ''
     const after = h.nextElementSibling && ['P', 'UL', 'OL'].includes(h.nextElementSibling.tagName) ? h.nextElementSibling : h
     after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)

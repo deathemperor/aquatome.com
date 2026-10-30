@@ -310,6 +310,10 @@ describe('video guide', () => {
     expect(m?.getAttribute('data-t')).toBe('95')
     expect(m?.getAttribute('data-vp-for')).toBe('vl1Lx9iWDYU')
     expect(m?.querySelector('.mc')?.text).toBe('Bể mới set với <đá> và cây.')
+    // Named by what it shows (voice control: "click 1:35"), with a spoken-only prefix; ▶ is decoration.
+    expect(m?.hasAttribute('aria-label')).toBe(false)
+    expect(m?.querySelector('.visually-hidden')?.text).toBe('Xem video từ')
+    expect(m?.querySelector('.mt [aria-hidden="true"]')?.text).toBe('▶')
     expect(html).not.toContain('<đá>')
   })
   test('VideoObject with chapter clips and FAQPage JSON-LD', () => {
