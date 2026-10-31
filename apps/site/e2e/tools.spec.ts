@@ -64,7 +64,8 @@ test('tank-mates: a name with no match says so and keeps what was typed', async 
 test('tank-mates: an incompatible pair answers in one sentence first, then the warnings, then a table that fits', async ({ page }) => {
   await page.goto(TM)
   // A whole name typed out, common or scientific, is added without a pick. Two species both the fixture and aquatome.com
-  // have (aquatome.com has two species called "Cá đĩa": the scientific name is the one only this one has).
+  // have. The scientific name picks this discus on both: aquatome.com calls it "Cá đĩa nâu" (its "Cá đĩa" is
+  // Symphysodon discus), the fixture "Cá đĩa".
   for (const name of ['Symphysodon aequifasciatus', 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)
     await page.locator('#tm-input').press('Enter')
@@ -72,7 +73,7 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   const verdict = page.locator('#tm-verdict')
   // The first reason; the others depend on each site's figures (the fixture's temperatures don't overlap).
-  await expect(verdict).toHaveText(/^Không nên nuôi chung: Cá đĩa có thể ăn Cá neon xanh[;.]/)
+  await expect(verdict).toHaveText(/^Không nên nuôi chung: Cá đĩa( nâu)? có thể ăn Cá neon xanh[;.]/)
   const top = async (sel: string) => (await page.locator(sel).first().boundingBox())!.y
   expect(await top('#tm-verdict')).toBeLessThan(await top('#tm-detail .warn'))
   expect(await top('#tm-detail .warn')).toBeLessThan(await top('#tm-detail table'))
