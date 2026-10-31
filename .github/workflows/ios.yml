@@ -1,0 +1,21 @@
+name: ios
+# The iOS app (apps/ios): its Chihiros protocol code is checked against the vectors the site uses (protocols/).
+on:
+  pull_request:
+    paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
+  push:
+    branches: [main]
+    paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  kit:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: swift test
+        working-directory: apps/ios/AquaTomeKit
