@@ -32,10 +32,10 @@ const SECTIONS: Record<Exclude<Lang, 'vi'>, Record<string, string>> = {
     'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products',
   },
 }
-/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/. */
-const SUB: Record<Exclude<Lang, 'vi'>, { 'the-tich-be': string; kenh: string; anh: string }> = {
-  id: { 'the-tich-be': 'volume-akuarium', kenh: 'kanal', anh: 'foto' },
-  th: { 'the-tich-be': 'tank-volume', kenh: 'channel', anh: 'photos' },
+/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/. */
+const SUB: Record<Exclude<Lang, 'vi'>, { 'the-tich-be': string; 'den-chihiros': string; kenh: string; anh: string }> = {
+  id: { 'the-tich-be': 'volume-akuarium', 'den-chihiros': 'lampu-chihiros', kenh: 'kanal', anh: 'foto' },
+  th: { 'the-tich-be': 'tank-volume', 'den-chihiros': 'chihiros-light', kenh: 'channel', anh: 'photos' },
 }
 
 /** "/vi/ca/x/anh/" → "/id/ikan/x/foto/". Anything after the path (?query, #hash) is kept as it is. */
@@ -48,6 +48,7 @@ export function localizePath(lang: Lang, path: string): string {
   const section = seg[2]
   if (section && SECTIONS[lang][section]) seg[2] = SECTIONS[lang][section]!
   if (section === 'cong-cu' && seg[3] === 'the-tich-be') seg[3] = SUB[lang]['the-tich-be']
+  if (section === 'cong-cu' && seg[3] === 'den-chihiros') seg[3] = SUB[lang]['den-chihiros']
   if (section === 'video' && seg[3] === 'kenh' && seg.length > 5) seg[3] = SUB[lang].kenh
   if (section === 'ca' && seg[4] === 'anh' && seg.length === 6) seg[4] = SUB[lang].anh
   return seg.join('/') + tail
@@ -78,6 +79,7 @@ export function toVi(path: string): string {
   seg[1] = 'vi'
   seg[2] = back(SECTIONS[lang], seg[2]) ?? seg[2]!
   if (seg[2] === 'cong-cu' && seg[3] === SUB[lang]['the-tich-be']) seg[3] = 'the-tich-be'
+  if (seg[2] === 'cong-cu' && seg[3] === SUB[lang]['den-chihiros']) seg[3] = 'den-chihiros'
   if (seg[2] === 'video' && seg[3] === SUB[lang].kenh && seg.length > 5) seg[3] = 'kenh'
   if (seg[2] === 'ca' && seg[4] === SUB[lang].anh && seg.length === 6) seg[4] = 'anh'
   return seg.join('/')
@@ -109,7 +111,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
 export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */

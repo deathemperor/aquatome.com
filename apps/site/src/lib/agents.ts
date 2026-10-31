@@ -10,6 +10,7 @@ const SECTIONS = [
   ['/vi/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
   ['/vi/cong-cu/', 'Công cụ', 'tools: tank-mates and stocking checker, tank volume and heater wattage calculators'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
+  ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
   ['/vi/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
 ] as const
 

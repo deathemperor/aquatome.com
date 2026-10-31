@@ -85,6 +85,11 @@ const room = lang === 'vi' ? VN_WATER.northWinter : 20
     <p class="note">{t('Mức EI (Estimative Index) mỗi tuần: NO₃ {no3} ppm, PO₄ {po4} ppm, K {k} ppm, Mg {mg} ppm, Fe {fe} ppm, chia 3 lần châm, thay 50% nước mỗi tuần. Đó là mức cho bể nhiều cây, đèn mạnh, có CO₂; bể ít cây, không CO₂ cần ít hơn nhiều. Châm phân đa lượng và vi lượng khác ngày.', { no3: EI_WEEK.NO3!, po4: EI_WEEK.PO4!, k: EI_WEEK.K!, mg: EI_WEEK.Mg!, fe: fmt(lang).num(EI_WEEK.Fe!) })}</p>
   </section>
 
+  <section class="tool" id="den" aria-labelledby="light-h">
+    <h2 id="light-h">{t('Đèn Chihiros: hẹn giờ, độ sáng')}</h2>
+    <p class="lead">{t('Kết nối đèn Chihiros qua Bluetooth ngay trên trình duyệt: đặt lịch bật tắt mỗi ngày, chỉnh độ sáng từng màu, chỉnh giờ cho đèn.')} <a href="/vi/cong-cu/den-chihiros/">{t('Mở trang điều khiển đèn →')}</a></p>
+  </section>
+
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>

@@ -1,0 +1,294 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { getContent } from '../../../lib/content'
+import { SUPPORTED } from '../../../scripts/chihiros'
+import { i18n } from '../../../lib/i18n'
+
+const { lang, t } = i18n(Astro.url)
+const c = await getContent(lang)
+// Guides to link when this language has them.
+const guide = (id: string) => c.guides.find(g => g.id === id)
+const hours = guide('youtube-H-A6KwMSa9s')
+const algae = guide('aquatome-reu-hai-trong-be-thuy-sinh-nhan-biet-tung-loai-reu-va-cach-diet')
+const choose = guide('aquariumcoop-blogs-aquarium-how-to-pick-the-best-planted-aquarium-light')
+
+// Planted-tank starting points: 6–8 hours a day at a fixed time, less and dimmer while a tank is new or fighting algae.
+const PRESETS = [
+  { name: t('Bể mới trồng'), sub: t('{h} tiếng, {p}%', { h: 6, p: 40 }), on: '13:00', off: '19:00', level: 40 },
+  { name: t('Bể đã ổn định'), sub: t('{h} tiếng, {p}%', { h: 8, p: 70 }), on: '12:00', off: '20:00', level: 70 },
+  { name: t('Bể đang bị rêu'), sub: t('{h} tiếng, {p}%', { h: 6, p: 50 }), on: '14:00', off: '20:00', level: 50 },
+]
+const faq = [
+  { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
+  { q: t('Đèn Chihiros nào dùng được?'), a: t('Các đèn Bluetooth có tên bắt đầu bằng DY: {list}. Chưa hỗ trợ X300, Z Light Tiny, Egg và Commander 1 vì các đèn này chia kênh màu khác.', { list: SUPPORTED.join(', ') }) },
+  { q: t('Nên bật đèn bể thủy sinh mấy tiếng mỗi ngày?'), a: t('Khoảng 6 đến 8 tiếng, cùng một khung giờ mỗi ngày. Bể mới trồng nên bắt đầu 6 tiếng, đèn 40–50%, rồi tăng dần khi cây đã bén rễ. Bật quá 8 tiếng, hoặc đèn mạnh mà thiếu CO₂ và phân, dễ lên rêu.') },
+  { q: t('Đèn có bị hỏng hay mất cài đặt không?'), a: t('Trang chỉ gửi lệnh chỉnh độ sáng, giờ và lịch, không đụng tới firmware. Ghi lịch mới sẽ thay lịch cũ trên đèn; muốn quay lại cài đặt cũ thì đặt lại bằng ứng dụng My Chihiros.') },
+  { q: t('Không thấy đèn trong danh sách?'), a: t('Bật Bluetooth trên máy và lại gần đèn. Đóng ứng dụng My Chihiros trên các điện thoại khác: mỗi lúc đèn chỉ nhận một kết nối. Trên Android, cho phép Chrome dùng thiết bị ở gần (hoặc vị trí, với Android cũ).') },
+]
+const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+---
+<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={t('Hẹn giờ bật tắt, chỉnh độ sáng từng màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
+  <section class="connect" aria-labelledby="conn-h">
+    <h2 id="conn-h" class="visually-hidden">{t('Kết nối')}</h2>
+    <p id="ch-unsupported" class="bad" hidden>{t('Trình duyệt này không kết nối được Bluetooth. Dùng Chrome hoặc Edge trên điện thoại Android hay máy tính; trên iPhone, iPad dùng trình duyệt Bluefy.')}</p>
+    <div class="row">
+      <button id="ch-connect" type="button">{t('Kết nối đèn')}</button>
+      <button id="ch-disconnect" type="button" class="quiet" hidden>{t('Ngắt kết nối')}</button>
+    </div>
+    <p id="ch-status" class="status" aria-live="polite">{t('Chưa kết nối. Bật đèn, bật Bluetooth trên máy rồi bấm “Kết nối đèn” và chọn đèn trong danh sách.')}</p>
+  </section>
+
+  <section aria-labelledby="sched-h">
+    <h2 id="sched-h">{t('Hẹn giờ bật tắt mỗi ngày')}</h2>
+    <p class="lead">{t('Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.')}</p>
+    <div class="presets" role="group" aria-label={t('Lịch mẫu')}>
+      {PRESETS.map(p => <button type="button" class="preset" data-on={p.on} data-off={p.off} data-level={p.level}><strong>{p.name}</strong><span>{p.on}–{p.off} · {p.sub}</span></button>)}
+    </div>
+    <p class="note">
+      {t('Bể mới trồng (2–4 tuần đầu) bật ít giờ, đèn nhẹ để rêu khó bám. Bể bị rêu: giảm giờ và độ sáng trong 1–2 tuần, kèm thay nước, vệ sinh.')}
+      {hours && <a href={`/vi/huong-dan/${hours.t.slug}/`}>{t('Nên bật đèn mấy tiếng →')}</a>}
+      {algae && <a href={`/vi/huong-dan/${algae.t.slug}/`}>{t('Nhận biết và diệt rêu hại →')}</a>}
+    </p>
+    <form id="ch-sched" class="calc">
+      <div class="row">
+        <label>{t('Bật lúc')} <input name="on" type="time" value="12:00" required /></label>
+        <label>{t('Tắt lúc')} <input name="off" type="time" value="20:00" required /></label>
+        <label>{t('Sáng dần, tối dần (phút)')} <input name="ramp" type="number" inputmode="numeric" min="0" max="150" value="30" /></label>
+      </div>
+      <div id="ch-levels" class="row"></div>
+      <p id="ch-hours" class="out" aria-live="polite"></p>
+      <div class="row"><button id="ch-write" type="submit" disabled>{t('Ghi lịch vào đèn')}</button></div>
+    </form>
+    <p class="note">{t('Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.')}</p>
+  </section>
+
+  <section aria-labelledby="manual-h">
+    <h2 id="manual-h">{t('Chỉnh tay')}</h2>
+    <p class="lead">{t('Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.')}</p>
+    <div id="ch-sliders" class="sliders"><p class="hint">{t('Kết nối đèn để chỉnh tay.')}</p></div>
+  </section>
+
+  <section aria-labelledby="clock-h">
+    <h2 id="clock-h">{t('Giờ của đèn')}</h2>
+    <p class="lead">{t('Lịch chạy theo đồng hồ trong đèn. Nếu đèn bật tắt lệch giờ, chẳng hạn sau khi mất điện, bấm nút dưới để chỉnh lại.')}</p>
+    <div class="row"><button id="ch-clock" type="button" disabled>{t('Chỉnh giờ đèn theo máy này')}</button></div>
+  </section>
+
+  <section aria-labelledby="faq-h">
+    <h2 id="faq-h">{t('Hỏi nhanh')}</h2>
+    {faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    <p class="note">
+      {choose && <><a href={`/vi/huong-dan/${choose.t.slug}/`}>{t('Chọn đèn cho bể thủy sinh →')}</a> </>}
+      <a href="/vi/san-pham/chihiros-wrgb-ii/">{t('Đèn Chihiros WRGB II →')}</a>
+    </p>
+    <p class="note">{t('AquaTome không liên quan tới hãng Chihiros. Các lệnh Bluetooth theo ghi chép mã nguồn mở')} <a href="https://github.com/TheMicDiet/chihiros-led-control" rel="noopener">chihiros-led-control</a> {t('(giấy phép MIT).')}</p>
+  </section>
+</Browse>
+<script>
+  import { MODE, NAME_PREFIX, UART, askStatus, firmwareOf, hoursLit, modelOf, nextId, setLevel, setMode, setSchedule, setTime, type Channel, type Model, type Schedule } from '../../../scripts/chihiros'
+  import { ct } from '../../../scripts/ct'
+
+  // The few Web Bluetooth pieces used here (TypeScript's DOM types don't include it).
+  type Char = EventTarget & { value?: DataView; properties: { writeWithoutResponse: boolean }; writeValueWithoutResponse(b: Uint8Array): Promise<void>; writeValueWithResponse(b: Uint8Array): Promise<void>; startNotifications(): Promise<Char> }
+  type Device = EventTarget & { name?: string; gatt?: { connect(): Promise<{ getPrimaryService(uuid: string): Promise<{ getCharacteristic(uuid: string): Promise<Char> }> }>; disconnect(): void } }
+  const bt = (navigator as Navigator & { bluetooth?: { requestDevice(o: object): Promise<Device> } }).bluetooth
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const form = $<HTMLFormElement>('ch-sched')
+  const status = $('ch-status')
+  const connectBtn = $<HTMLButtonElement>('ch-connect')
+  const dropBtn = $<HTMLButtonElement>('ch-disconnect')
+  const writeBtn = $<HTMLButtonElement>('ch-write')
+  const clockBtn = $<HTMLButtonElement>('ch-clock')
+  const fmt = (n: number) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: 1 }).format(n)
+  const NAME: Record<Channel, string> = { red: ct('Đỏ'), green: ct('Xanh lá'), blue: ct('Xanh dương'), white: ct('Trắng') }
+  const say = (s: string, bad = false) => { status.textContent = s; status.classList.toggle('bad', bad) }
+  const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
+
+  let device: Device | undefined
+  let tx: Char | undefined
+  // Before connecting, the schedule form shows the red/green/blue layout most Chihiros lights have.
+  let model: Model = { name: '', channels: ['red', 'green', 'blue'] }
+  let levels = [70, 70, 70, 70]
+  let firmware: number | undefined
+  let id = 0
+  let manual = false
+  let queue: Promise<unknown> = Promise.resolve()
+
+  /** Writes go one at a time (the light drops frames sent too close together; Chrome refuses overlapping GATT writes). */
+  function send(make: (id: number) => Uint8Array, gap = 80): Promise<void> {
+    const run = async () => {
+      if (!tx) throw new Error('not connected')
+      id = nextId(id)
+      const f = make(id)
+      await (tx.properties.writeWithoutResponse ? tx.writeValueWithoutResponse(f) : tx.writeValueWithResponse(f))
+      await wait(gap)
+    }
+    const p = queue.then(run)
+    queue = p.catch(() => {})
+    return p
+  }
+
+  function drawLevels() {
+    $('ch-levels').innerHTML = model.channels.map((c, i) => `<label>${ct('{colour} (%)', { colour: NAME[c] })} <input name="lv${i}" type="number" inputmode="numeric" min="0" max="100" value="${levels[i]}" /></label>`).join('')
+  }
+  function drawSliders() {
+    $('ch-sliders').innerHTML = tx
+      ? model.channels.map((c, i) => `<label><span>${NAME[c]}</span><input type="range" min="0" max="100" step="1" value="${levels[i]}" data-ch="${i}" /><output>–</output></label>`).join('')
+      : `<p class="hint">${ct('Kết nối đèn để chỉnh tay.')}</p>`
+  }
+
+  const minutes = (t: string) => { const [h, m] = t.split(':').map(Number) as [number, number]; return h * 60 + m }
+  function schedule(): Schedule | { error: string } {
+    const on = (form.elements.namedItem('on') as HTMLInputElement).value
+    const off = (form.elements.namedItem('off') as HTMLInputElement).value
+    const ramp = Number((form.elements.namedItem('ramp') as HTMLInputElement).value || 0)
+    if (!on || !off) return { error: ct('Nhập giờ bật và giờ tắt.') }
+    const lit = (off === '00:00' ? 1440 : minutes(off)) - minutes(on)
+    if (lit <= 0) return { error: ct('Giờ tắt phải sau giờ bật, trong cùng một ngày.') }
+    if (!(ramp >= 0 && ramp <= 150)) return { error: ct('Sáng dần, tối dần từ 0 đến 150 phút.') }
+    if (ramp * 2 > lit) return { error: ct('Sáng dần, tối dần dài hơn nửa thời gian bật đèn.') }
+    return { on, off, ramp, levels: levels.slice(0, model.channels.length) }
+  }
+  function render() {
+    model.channels.forEach((_, i) => { const v = (form.elements.namedItem(`lv${i}`) as HTMLInputElement | null)?.value; if (v !== undefined && v !== '') levels[i] = Math.max(0, Math.min(100, Number(v))) })
+    const s = schedule()
+    const out = $('ch-hours')
+    out.classList.toggle('bad', 'error' in s)
+    if ('error' in s) { out.textContent = s.error; return }
+    const h = hoursLit(s.on, s.off)
+    out.textContent = ct('Đèn sáng {h} tiếng mỗi ngày.', { h: fmt(h) }) + (h > 8 ? ` ${ct('Trên 8 tiếng dễ lên rêu.')}` : '')
+  }
+  function ready() {
+    const old = firmware !== undefined && firmware < 20
+    writeBtn.disabled = !tx || old
+    clockBtn.disabled = !tx
+    connectBtn.hidden = !!tx
+    dropBtn.hidden = !tx
+    drawLevels(); drawSliders(); render()
+  }
+
+  async function connect() {
+    let d: Device
+    try {
+      d = await bt!.requestDevice({ filters: [{ namePrefix: NAME_PREFIX }], optionalServices: [UART.service] })
+    } catch (e) {
+      // NotFoundError: the picker was closed without choosing.
+      if ((e as Error).name !== 'NotFoundError') say(ct('Không mở được Bluetooth: {why}', { why: (e as Error).message }), true)
+      return
+    }
+    const m = modelOf(d.name ?? '')
+    if (!m) { say(ct('Đèn {name} chưa được hỗ trợ trên trang này.', { name: d.name ?? '?' }), true); return }
+    say(ct('Đang kết nối…'))
+    try {
+      const svc = await (await d.gatt!.connect()).getPrimaryService(UART.service)
+      const rx = await svc.getCharacteristic(UART.notify)
+      tx = await svc.getCharacteristic(UART.write)
+      firmware = undefined
+      rx.addEventListener('characteristicvaluechanged', () => { const v = rx.value; if (v) firmware = firmwareOf(new Uint8Array(v.buffer, v.byteOffset, v.byteLength)) ?? firmware })
+      await rx.startNotifications()
+      d.addEventListener('gattserverdisconnected', gone, { once: true })
+      device = d; model = m; id = 0; manual = false
+      await send(askStatus)
+      for (let i = 0; i < 15 && firmware === undefined; i++) await wait(100)
+      say(firmware === undefined
+        ? ct('Đã kết nối {model} ({name}). Không đọc được phiên bản firmware.', { model: m.name, name: d.name ?? '' })
+        : firmware < 20
+          ? ct('Đã kết nối {model} ({name}), firmware {fw}: bản này chưa hẹn giờ được từ trang, cập nhật firmware bằng ứng dụng My Chihiros.', { model: m.name, name: d.name ?? '', fw: firmware })
+          : ct('Đã kết nối {model} ({name}), firmware {fw}.', { model: m.name, name: d.name ?? '', fw: firmware }))
+    } catch (e) {
+      tx = undefined
+      d.gatt?.disconnect()
+      say(ct('Không kết nối được: {why}. Đóng ứng dụng My Chihiros trên các máy khác rồi thử lại.', { why: (e as Error).message }), true)
+    }
+    ready()
+  }
+  function gone() {
+    tx = undefined; device = undefined
+    say(ct('Đèn đã ngắt kết nối.'))
+    ready()
+  }
+
+  // Manual levels: while a write is under way, only each channel's latest level waits to go next.
+  const pending = new Map<number, number>()
+  let flushing = false
+  async function flush() {
+    if (flushing) return
+    flushing = true
+    try {
+      while (pending.size) {
+        if (!manual) { await send(i => setMode(MODE.manual, i)); manual = true }
+        const batch = [...pending]
+        pending.clear()
+        for (const [c, l] of batch) await send(i => setLevel(c, l, i))
+      }
+    } catch { say(ct('Không gửi được lệnh tới đèn.'), true) } finally { flushing = false }
+  }
+
+  if (!bt) { $('ch-unsupported').hidden = false; connectBtn.disabled = true }
+  connectBtn.addEventListener('click', connect)
+  dropBtn.addEventListener('click', () => device?.gatt?.disconnect())
+  form.addEventListener('input', render)
+  form.addEventListener('submit', async e => {
+    e.preventDefault()
+    const s = schedule()
+    if ('error' in s || !tx) return
+    if (!confirm(ct('Lịch đang lưu trên đèn sẽ bị xóa và thay bằng lịch này. Ghi lịch?'))) return
+    writeBtn.disabled = true
+    try {
+      // Clock first (the schedule runs on it), clear the old scenes, switch to the schedule, then the new setting.
+      await send(i => setTime(new Date(), i), 300)
+      await send(i => setMode(MODE.sceneReset, i), 300)
+      await send(i => setMode(MODE.scene, i), 300)
+      await send(i => setSchedule(s, model.channels.length, i), 300)
+      manual = false
+      say(ct('Đã ghi lịch: bật {on}, tắt {off}. Đèn chạy theo lịch từ bây giờ.', { on: s.on, off: s.off }))
+    } catch { say(ct('Không gửi được lệnh tới đèn.'), true) }
+    ready()
+  })
+  for (const b of document.querySelectorAll<HTMLButtonElement>('.preset')) b.addEventListener('click', () => {
+    ;(form.elements.namedItem('on') as HTMLInputElement).value = b.dataset.on!
+    ;(form.elements.namedItem('off') as HTMLInputElement).value = b.dataset.off!
+    levels = levels.map(() => Number(b.dataset.level))
+    drawLevels(); render()
+  })
+  $('ch-sliders').addEventListener('input', e => {
+    const r = e.target as HTMLInputElement
+    if (r.type !== 'range') return
+    ;(r.nextElementSibling as HTMLOutputElement).value = `${r.value}%`
+    pending.set(Number(r.dataset.ch), Number(r.value))
+    flush()
+  })
+  clockBtn.addEventListener('click', async () => {
+    try { await send(i => setTime(new Date(), i)); say(ct('Đã chỉnh giờ đèn: {time}.', { time: new Date().toLocaleTimeString(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }) })) } catch { say(ct('Không gửi được lệnh tới đèn.'), true) }
+  })
+  ready()
+</script>
+<style>
+  section { padding-top: var(--space-5); max-width: 56rem; }
+  section h2 { font-size: var(--step-2); }
+  .connect { padding-top: 0; }
+  .lead { max-width: var(--measure); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
+  .calc :global(.row label) { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .calc :global(.row input) { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 7.5rem; }
+  button { font: 500 1rem var(--f-body); padding: 0.55rem 1.1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  button.quiet { background: none; color: var(--c-ink); border: 1px solid var(--c-rule); }
+  .presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: var(--space-2); margin: var(--space-3) 0 var(--space-2); }
+  .preset { display: grid; gap: 0.15rem; text-align: left; background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-rule); padding: var(--space-2) var(--space-3); }
+  .preset span { font-size: var(--step--1); color: var(--c-ink-soft); font-weight: 400; }
+  .preset:hover { border-color: var(--c-ink); }
+  .sliders { display: grid; gap: var(--space-2); max-width: 32rem; margin: var(--space-3) 0; }
+  .sliders :global(label) { display: grid; grid-template-columns: 6rem 1fr 3.5rem; align-items: center; gap: var(--space-3); }
+  .sliders :global(input) { width: 100%; accent-color: var(--c-ink); }
+  .sliders :global(output) { text-align: right; font-variant-numeric: tabular-nums; }
+  .status { max-width: var(--measure); }
+  .out { max-width: var(--measure); font-size: 1.05rem; }
+  .bad, .out.bad { color: var(--c-cardinal); }
+  .hint, .sliders :global(.hint) { color: var(--c-ink-faint); }
+  .note { color: var(--c-ink-soft); font-size: var(--step--1); max-width: var(--measure); }
+  .note a { margin-right: var(--space-2); }
+  details { border-bottom: 1px solid var(--c-rule); padding: var(--space-2) 0; max-width: var(--measure); }
+  summary { cursor: pointer; font-weight: 600; }
+</style>

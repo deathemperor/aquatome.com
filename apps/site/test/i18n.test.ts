@@ -7,6 +7,7 @@ test('a page file mounted in each language', () => {
   expect(routeIn('id', 'ca/[slug].astro')).toBe('/id/ikan/[slug]')
   expect(routeIn('th', 'ca/[slug]/anh.astro')).toBe('/th/fish/[slug]/photos')
   expect(routeIn('id', 'cong-cu/the-tich-be.astro')).toBe('/id/alat/volume-akuarium')
+  expect(routeIn('th', 'cong-cu/den-chihiros.astro')).toBe('/th/tools/chihiros-light')
   expect(routeIn('th', 'video/kenh/[slug].astro')).toBe('/th/video/channel/[slug]')
   expect(routeIn('id', 'nguon-goc/[...path].astro')).toBe('/id/asal/[...path]')
   expect(routeIn('id', 'ca/index.astro')).toBe('/id/ikan')
@@ -59,6 +60,8 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
     .toBe('Video <a href="/id/ikan/">Fish</a> <a href="/vi/video/" hreflang="vi">vi</a>')
   expect(toVi('/id/ikan/x/foto/')).toBe('/vi/ca/x/anh/')
   expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
+  expect(toVi('/id/alat/lampu-chihiros/')).toBe('/vi/cong-cu/den-chihiros/')
+  expect(localizePath('id', '/vi/cong-cu/den-chihiros/#lich')).toBe('/id/alat/lampu-chihiros/#lich')
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
 })
 
