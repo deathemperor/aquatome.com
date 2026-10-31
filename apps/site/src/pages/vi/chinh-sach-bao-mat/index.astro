@@ -24,13 +24,23 @@ const mail = `mailto:${CONTACT_EMAIL}`
   <p>{t('Khi bạn bấm liên kết tới Shopee, Lazada hoặc Tiki, chúng tôi chỉ đếm số lượt bấm theo ngày, trang và sản phẩm. Liên kết đi qua mạng tiếp thị liên kết ACCESSTRADE (go.isclix.com), nơi ghi nhận lượt bấm và có thể đặt cookie để tính hoa hồng, theo')} <a href="https://accesstrade.vn/chinh-sach-bao-mat/" rel="noopener">{t('chính sách của ACCESSTRADE')}</a>. {t('Sau khi chuyển sang trang bán hàng, dữ liệu của bạn do sàn đó xử lý theo chính sách của họ.')}</p>
   <h3>{t('Máy chủ')}</h3>
   <p>{t('Trang chạy trên Cloudflare. Như mọi máy chủ web, Cloudflare nhận địa chỉ IP và thông tin trình duyệt để phân phối trang và chống tấn công, theo')} <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">{t('chính sách của Cloudflare')}</a>.</p>
+  <h3 id="tai-khoan">{t('Tài khoản (không bắt buộc)')}</h3>
+  <p>{t('Ở trang Bể của tôi, bạn có thể đăng nhập để đồng bộ các bể giữa các trình duyệt và ứng dụng AquaTome trên iPhone. Không đăng nhập thì mọi thứ vẫn dùng được và bể chỉ nằm trên máy của bạn.')}</p>
+  <ul>
+    <li>{t('Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn, lịch đèn bạn lưu.')}</li>
+    <li>{t('Không lưu: họ tên, số điện thoại, địa chỉ email, địa chỉ IP. Địa chỉ email bạn nhập chỉ dùng để gửi một email chứa mã đăng nhập.')}</li>
+    <li>{t('Bên xử lý: Cloudflare (máy chủ, cơ sở dữ liệu, gửi email đăng nhập, Turnstile chống bot ở ô email); Google hoặc Apple, khi bạn chọn đăng nhập bằng họ. Tập lệnh đăng nhập của Google, Apple và Turnstile chỉ tải sau khi bạn bấm “Đăng nhập để đồng bộ”; riêng tập lệnh của Apple cũng tải khi bạn mở mục “Xóa tài khoản” của một tài khoản đăng nhập bằng Apple.')}</li>
+    <li>{t('Tải dữ liệu và xóa tài khoản: ngay ở trang Bể của tôi khi đã đăng nhập. Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập, phiên và mọi bể trong tài khoản; nếu tài khoản đăng nhập bằng Apple, quyền đăng nhập bằng Apple của AquaTome cũng được thu hồi.')}</li>
+  </ul>
 
   <h2>{t('3. Cookie và bộ nhớ trình duyệt')}</h2>
   <ul>
     <li><strong>units</strong> {t('(bộ nhớ trình duyệt): ghi nhớ bạn chọn đơn vị °C/cm hay °F/inch.')}</li>
     <li><strong>aq_tank</strong> {t('(bộ nhớ trình duyệt): chiều dài, nhiệt độ và pH bể bạn nhập ở trang chủ, để lần sau không phải nhập lại. Không gửi đi đâu.')}</li>
     <li><strong>aq_theme</strong> {t('(bộ nhớ trình duyệt): giao diện sáng hoặc tối bạn chọn. Không có thì trang theo cài đặt của máy. Không gửi đi đâu.')}</li>
-    <li><strong>aq.tanks</strong> {t('(bộ nhớ trình duyệt): các bể bạn lưu ở trang Bể của tôi và trang đèn Chihiros: tên bể, kích thước, nền, cá, cây, ghi chú, đèn (tên Bluetooth, lịch, mức sáng). Không gửi đi đâu; xóa bể ngay trên trang hoặc xóa dữ liệu trình duyệt để xóa hết.')}</li>
+    <li><strong>aq.tanks</strong> {t('(bộ nhớ trình duyệt): các bể bạn lưu ở trang Bể của tôi và trang đèn Chihiros: tên bể, kích thước, nền, cá, cây, ghi chú, đèn (tên Bluetooth, lịch, mức sáng). Chỉ gửi lên máy chủ khi bạn đăng nhập để đồng bộ (mục Tài khoản); xóa bể ngay trên trang hoặc xóa dữ liệu trình duyệt để xóa hết.')}</li>
+    <li><strong>__Host-aq_session</strong> {t('(cookie, 180 ngày kể từ lần dùng cuối): giữ bạn đăng nhập. Chỉ đặt khi bạn đăng nhập, xóa khi đăng xuất.')}</li>
+    <li><strong>aq.signin</strong> {t('(bộ nhớ trình duyệt, 15 phút): khi bạn xin mã đăng nhập qua email, để link trong email hoàn tất đăng nhập trên đúng trình duyệt này.')}</li>
     <li><strong>aq_lang</strong> {t('(cookie, 1 năm): ngôn ngữ bạn chọn ở menu ngôn ngữ, để aquatome.com mở đúng ngôn ngữ đó lần sau. Chỉ đặt khi bạn chọn.')}</li>
     <li><strong>ts_sid</strong> {t('(bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê ẩn danh, xóa khi đóng tab.')}</li>
     <li><strong>{t('Cookie quảng cáo của Google')}</strong>{t(': xem mục 4.')}</li>
@@ -56,10 +66,12 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <li>{t('Ảnh bạn đọc: ảnh gốc đến lần kiểm duyệt kế tiếp (thường dưới một ngày); ảnh đã đăng lưu trong thời gian hiển thị, xóa ngay khi bạn hoặc chúng tôi gỡ.')}</li>
     <li>{t('Mã băm chống spam: 24 giờ.')}</li>
     <li>{t('Thống kê ẩn danh: tối đa 3 tháng.')}</li>
+    <li>{t('Tài khoản và các bể trong tài khoản: đến khi bạn xóa bể hoặc xóa tài khoản. Phiên đăng nhập: 180 ngày (ứng dụng: 365 ngày) kể từ lần dùng cuối, hoặc đến khi đăng xuất. Mã đăng nhập qua email: 15 phút.')}</li>
+    <li>{t('Bản sao lưu tự động của cơ sở dữ liệu: tối đa 30 ngày, sau đó dữ liệu đã xóa mất hẳn.')}</li>
   </ul>
 
   <h2>{t('7. Quyền của bạn')}</h2>
-  <p>{t('Theo Luật Bảo vệ dữ liệu cá nhân năm 2025 và Nghị định 356/2025/NĐ-CP, bạn có quyền được biết, xem, sửa, xóa dữ liệu của mình và rút lại sự đồng ý. Vì chúng tôi không lưu email hay tài khoản, hãy gửi tới')} <a href={mail}>{CONTACT_EMAIL}</a> {t('đường dẫn trang, tên hiển thị và nội dung bình luận để chúng tôi tìm và xử lý.')}</p>
+  <p>{t('Theo Luật Bảo vệ dữ liệu cá nhân năm 2025 và Nghị định 356/2025/NĐ-CP, bạn có quyền được biết, xem, sửa, xóa dữ liệu của mình và rút lại sự đồng ý. Nếu có tài khoản, bạn tự tải dữ liệu, sửa bể và xóa tài khoản ngay ở trang Bể của tôi.')} {t('Bình luận và ảnh không gắn với email hay tài khoản: hãy gửi tới')} <a href={mail}>{CONTACT_EMAIL}</a> {t('đường dẫn trang, tên hiển thị và nội dung bình luận để chúng tôi tìm và xử lý.')}</p>
 
   <h2>{t('8. Thay đổi')}</h2>
   <p>{t('Khi chính sách thay đổi, chúng tôi cập nhật trang này và ngày ở đầu trang.')}</p>
@@ -78,12 +90,22 @@ const mail = `mailto:${CONTACT_EMAIL}`
       <li><strong>Shop links:</strong> clicks to Shopee, Lazada or Tiki are counted per day, page and product. The link passes through the ACCESSTRADE affiliate network (go.isclix.com), which records the click and may set a cookie to attribute the commission (<a href="https://accesstrade.vn/chinh-sach-bao-mat/" rel="noopener">ACCESSTRADE privacy policy</a>). The shop's own policy applies once you reach it.</li>
       <li><strong>Hosting:</strong> Cloudflare receives IP addresses and browser data to deliver and protect the site (<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare privacy policy</a>).</li>
     </ul>
+    <h3 id="accounts">Accounts (optional)</h3>
+    <p>On the My tanks page you can sign in to sync your tanks between browsers and the AquaTome iPhone app. Everything works without signing in, and then your tanks stay on your device only.</p>
+    <ul>
+      <li><strong>Stored on our server</strong> (Cloudflare D1 database): a random account ID; the user ID Apple or Google issues, if you sign in with them; for email, only a keyed hash of the address; sign-in sessions (as hashes only); and the tanks, lights and light schedules you save.</li>
+      <li><strong>Not stored:</strong> name, phone number, email address, IP address. An email address you enter is used only to send one email with a sign-in code.</li>
+      <li><strong>Processors:</strong> Cloudflare (hosting, database, sending the sign-in email, Turnstile bot check on the email form); Google or Apple when you choose to sign in with them. The Google, Apple and Turnstile sign-in scripts load only after you press “Sign in to sync”; Apple's script also loads when you open “Delete account” for an account that signs in with Apple.</li>
+      <li><strong>Export and deletion:</strong> on the My tanks page while signed in. Deleting the account at once deletes the account, its sign-in methods, sessions and every tank in it; for an account that signs in with Apple, AquaTome's Sign in with Apple access is revoked too.</li>
+    </ul>
     <h3>Cookies and storage</h3>
     <ul>
       <li><strong>units</strong> (local storage): your °C/cm or °F/inch choice.</li>
       <li><strong>aq_tank</strong> (local storage): the tank length, temperature and pH you enter on the home page, so the form is filled next time. Never sent anywhere.</li>
       <li><strong>aq_theme</strong> (local storage): the light or dark look you chose; without it the site follows your device. Never sent anywhere.</li>
-      <li><strong>aq.tanks</strong> (local storage): the tanks you save on the My tanks and Chihiros light pages: tank name, size, substrate, fish, plants, notes, lights (Bluetooth name, schedules, levels). Never sent anywhere; delete a tank on the page, or clear your browser data to remove them all.</li>
+      <li><strong>aq.tanks</strong> (local storage): the tanks you save on the My tanks and Chihiros light pages: tank name, size, substrate, fish, plants, notes, lights (Bluetooth name, schedules, levels). Sent to our server only when you sign in to sync (see Accounts); delete a tank on the page, or clear your browser data to remove them all.</li>
+      <li><strong>__Host-aq_session</strong> (cookie, 180 days from last use): keeps you signed in. Set only when you sign in; cleared when you sign out.</li>
+      <li><strong>aq.signin</strong> (local storage, 15 minutes): when you ask for an email sign-in code, so the link in the email finishes signing in in this same browser.</li>
       <li><strong>aq_lang</strong> (cookie, 1 year): the language you picked in the language menu, so aquatome.com opens in it next time. Set only when you pick one.</li>
       <li><strong>ts_sid</strong> (session storage): random session ID for anonymous statistics.</li>
       <li>Google advertising cookies: see below.</li>
@@ -93,8 +115,8 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <h3>Videos</h3>
     <p>YouTube videos load only after you press play: the player from youtube-nocookie.com and YouTube's player-control script (youtube.com/iframe_api), used to turn on Vietnamese captions and jump to chapters. Before that only a preview image from YouTube's image server is shown.</p>
     <h3>Retention</h3>
-    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months.</p>
+    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months. Accounts and the tanks in them: until you delete the tank or the account. Sign-in sessions: 180 days (app: 365 days) from last use, or until you sign out. Email sign-in codes: 15 minutes. Automatic database backups: up to 30 days, after which deleted data is gone for good.</p>
     <h3>Your rights</h3>
-    <p>You can ask to access, correct or delete your comments, or withdraw consent, under Vietnam's Personal Data Protection Law (2025) and Decree 356/2025/ND-CP and, where it applies, the GDPR. Because we store no email or account, include the page URL, display name and comment text in your request to <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+    <p>You can access, correct or delete your data, or withdraw consent, under Vietnam's Personal Data Protection Law (2025) and Decree 356/2025/ND-CP and, where it applies, the GDPR. With an account, export your data, edit your tanks and delete the account yourself on the My tanks page. Comments and photos are not tied to an email or account: include the page URL, display name and comment text in your request to <a href={mail}>{CONTACT_EMAIL}</a>.</p>
   </section>
 </Doc>

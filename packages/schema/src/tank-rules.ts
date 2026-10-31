@@ -1,3 +1,4 @@
+import type { TankStore } from './tanks'
 /**
  * The rules of saved tanks that need no schema: merging, stamping, tombstones, litres. No zod here, so a browser page
  * that only edits its store doesn't load the validator. Re-exported by ./tanks.ts; contract: docs/my-tanks-sync.md.
@@ -51,4 +52,12 @@ export function mergeRecords<R extends Rec>(kept: readonly R[], incoming: readon
   const out = new Map<string, R>()
   for (const r of [...kept, ...incoming]) { const k = out.get(r.id); out.set(r.id, k ? newer(k, r) : r) }
   return [...out.values()].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+}
+
+/** The store's format version (`v`). */
+export const STORE_VERSION = 1
+
+/** Two stores as one: tanks and devices each merged by `mergeRecords`; any other key of `kept` stays. */
+export function mergeStores(kept: TankStore, incoming: TankStore): TankStore {
+  return { ...kept, v: STORE_VERSION, tanks: mergeRecords(kept.tanks, incoming.tanks), devices: mergeRecords(kept.devices, incoming.devices) }
 }
