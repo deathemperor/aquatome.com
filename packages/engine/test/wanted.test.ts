@@ -66,6 +66,9 @@ test('a wanted species a source keeps under a synonym, another ending, a misspel
   const fresh: Wanted = new Map([['hyphessobrycon-eques', { name: 'Hyphessobrycon eques', names: ['hyphessobrycon-eques'], mentionedIn: [] }]])
   await addSourceNames(urls, fresh, gbif, () => false, 0)
   expect(fresh.get('hyphessobrycon-eques')!.names).toEqual(['hyphessobrycon-eques'])
+  // Past the budget, an answer already cached is still used.
+  await addSourceNames(urls, fresh, gbif, n => n === 'Megalamphodus eques', 0)
+  expect(fresh.get('hyphessobrycon-eques')!.names).toEqual(['hyphessobrycon-eques', 'megalamphodus-eques'])
 })
 
 test('shop names under the name GBIF accepts, as pages are kept; a name GBIF cannot place stays', async () => {

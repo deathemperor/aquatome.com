@@ -112,7 +112,7 @@ export async function addSourceNames(urls: string[], wanted: Wanted, gbif: (name
     if (named.has(pair) || genus.length < 3 || epithet.length < 3) continue
     for (const slug of byStem.get(stem(epithet)) ?? []) {
       const name = `${genus[0]!.toUpperCase()}${genus.slice(1)} ${epithet}`
-      if (!known(name) && budget-- <= 0) return
+      if (!known(name) && budget-- <= 0) continue // cached answers are still used
       const t = await gbif(name).catch(() => null)
       if (t ? slugify(t.canonicalName) !== slug : !NEWER_GENERA[slug.split('-')[0]!]?.includes(genus)) continue
       wanted.get(slug)!.names.push(pair)
