@@ -41,11 +41,11 @@ public struct Snapshot: Sendable, Equatable {
   /// The saved schedule as a curve, unused slots left out.
   public let points: [Point]
 
-  /// Parses a snapshot reply; nil for any other reply.
+  /// Parses a snapshot reply; nil for any other reply, and for one whose clock isn't a time (a garbled reply).
   public init?(_ reply: [UInt8]) {
-    guard reply.count >= 25, reply[0] == 0x5b, reply[5] == 0xfe else { return nil }
+    guard reply.count >= 25, let clock = Reply.clock(reply) else { return nil }
     firmware = Int(reply[1])
-    clock = Clock(weekday: Int(reply[6]), time: TimeOfDay(hour: Int(reply[7]), minute: Int(reply[8])))
+    self.clock = clock
     // Triples from byte 25 up to the last byte (a trailer). Trailing all-zero triples are unused slots; a leading one is
     // a real point (00:00 at 0%, a schedule that starts at midnight).
     var points = stride(from: 25, to: reply.count - 3, by: 3).map { i in

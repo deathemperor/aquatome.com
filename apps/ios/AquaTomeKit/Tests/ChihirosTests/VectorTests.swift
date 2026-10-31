@@ -143,6 +143,10 @@ extension Snapshot.Clock {
 
 @Test func theLightsClockFromItsStatusReply() {
   for c in v.clockOf { #expect(Reply.clock(bytes(c.reply)) == c.clock.map(Snapshot.Clock.init), "\(c.note)") }
+  // A snapshot whose clock isn't a time (hour 25) is garbled: not read as one, where the site shows no clock.
+  var garbled = bytes(v.snapshot[0].reply)
+  garbled[7] = 25
+  #expect(Snapshot(garbled) == nil)
 }
 
 @Test func clockDriftOverAWeek() {

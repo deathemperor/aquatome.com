@@ -19,6 +19,8 @@ final class LightsModel {
   private(set) var model: Model?
   private(set) var firmware: Int?
   private(set) var snapshot: Snapshot?
+  /// When the light sent `snapshot`: its clock is compared with the phone's at that moment, not whenever the screen redraws.
+  private var snapshotAt = Date()
   private(set) var isBusy = false
   private(set) var isManual = false
   /// The schedule the light held before this app last replaced it, to put back.
@@ -51,8 +53,8 @@ final class LightsModel {
   var saved: Schedule? { snapshot?.schedule(channels: channels.count) }
   var canWrite: Bool { isConnected && !isBusy && form.problem == nil && (firmware ?? 0) >= 20 }
   /// Minutes the light's clock is off from the phone's; nil if it isn't set (after a power cut).
-  var clockOff: Int? { snapshot?.clock.drift(from: Date()).map(abs) }
-  var clockNeedsSync: Bool { snapshot.map { !$0.clock.isSet || ($0.clock.drift(from: Date()).map(abs) ?? 0) > 2 } ?? false }
+  var clockOff: Int? { snapshot?.clock.drift(from: snapshotAt).map(abs) }
+  var clockNeedsSync: Bool { snapshot.map { !$0.clock.isSet || ($0.clock.drift(from: snapshotAt).map(abs) ?? 0) > 2 } ?? false }
 
   // MARK: Finding and connecting
 
@@ -220,6 +222,7 @@ final class LightsModel {
 
   private func show(_ snap: Snapshot) {
     snapshot = snap
+    snapshotAt = Date()
     firmware = snap.firmware
   }
 
