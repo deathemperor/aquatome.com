@@ -47,13 +47,18 @@ function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = 
     const r = await call('POST', '/api/v1/auth/google', { body: { idToken: `${sub}|${nonce}|${o.email ?? ''}`, nonce, client: o.client ?? 'web' }, cookie: o.cookie, bearer: o.bearer, origin: o.client === 'app' ? null : undefined })
     return { ...r, cookie: cookieOf(r), token: r.json?.token as string | undefined }
   }
-  const emailIn = async (email: string, o: { cookie?: string } = {}) => {
-    expect((await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: 'id' } })).status).toBe(204)
-    const token = /#dang-nhap=([A-Za-z0-9_-]+)/.exec(mails.at(-1)!.text)![1]!
-    const r = await call('POST', '/api/v1/auth/email/verify', { body: { token }, cookie: o.cookie })
-    return { ...r, cookie: cookieOf(r), token }
+  /** Asks for a code (signed in or not) and returns the flow secret and the mailed code. */
+  const ask = async (email: string, o: { cookie?: string; lang?: string } = {}) => {
+    const r = await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: o.lang ?? 'id' }, cookie: o.cookie })
+    expect(r.status).toBe(200)
+    return { flow: r.json.flow as string, code: /#ma=(\d{6})/.exec(mails.at(-1)!.text)![1]! }
   }
-  return { db, env, deps, mails, call, google, emailIn, cookieOf, setNow: (d: Date) => { now = d } }
+  const emailIn = async (email: string, o: { cookie?: string } = {}) => {
+    const { flow, code } = await ask(email, o)
+    const r = await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: o.cookie })
+    return { ...r, cookie: cookieOf(r), flow, code }
+  }
+  return { db, env, deps, mails, call, google, ask, emailIn, cookieOf, setNow: (d: Date) => { now = d } }
 }
 
 test('off: the page learns accounts are off; everything else is not there', async () => {
@@ -111,7 +116,7 @@ test('CSRF: changes need this site\'s origin, or no cookie at all (the app)', as
   expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: 'store=x', type: 'application/x-www-form-urlencoded' })).status).toBe(400)
   // A browser sign-in (it sets a cookie) from another site, or with no origin: refused.
   expect((await call('POST', '/api/v1/auth/nonce', { body: {}, origin: 'https://evil.test' })).status).toBe(403)
-  expect((await call('POST', '/api/v1/auth/email/verify', { body: { token: 'x'.repeat(43) }, origin: null })).status).toBe(403)
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow: 'x'.repeat(43), code: '123456' }, origin: null })).status).toBe(403)
   // The app: no origin, no cookie.
   expect((await google('g-2', { client: 'app' })).status).toBe(200)
   // Still signed in after the refused attempts.
@@ -135,28 +140,63 @@ test('a provider with no client id configured is off', async () => {
   expect((await call('POST', '/api/v1/auth/apple', { body: { idToken: `a|${nonce}`, nonce } })).status).toBe(503)
 })
 
-test('email link: Turnstile, a one-time link in the reader\'s language, used once, for 15 minutes', async () => {
-  const { call, mails, emailIn, setNow } = setup()
+test('email: Turnstile, a one-time code in the reader\'s language, with a link to the page, used once, for 15 minutes', async () => {
+  const { call, mails, ask, emailIn, setNow } = setup()
   expect((await call('POST', '/api/v1/auth/email/start', { body: { email: 'nope', turnstile: 't' } })).status).toBe(400)
   const r = await emailIn('  Reader@Example.com ')
   expect(r.status).toBe(200)
-  expect(mails[0]).toMatchObject({ to: 'reader@example.com', subject: 'Masuk ke AquaTome' })
-  expect(mails[0]!.text).toContain(`${ORIGIN}/id/alat/akuarium-saya/#dang-nhap=`)
-  expect((await call('POST', '/api/v1/auth/email/verify', { body: { token: r.token } })).json.error).toBe('bad_link') // used
+  expect(mails[0]).toMatchObject({ to: 'reader@example.com', subject: `${r.code} adalah kode masuk AquaTome` })
+  expect(mails[0]!.text).toContain(`${ORIGIN}/id/alat/akuarium-saya/#ma=${r.code}`)
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow: r.flow, code: r.code } })).json.error).toBe('bad_code') // used
   // The same address later: the same account.
   expect((await emailIn('reader@example.com')).json.user.id).toBe(r.json.user.id)
-  // A link older than 15 minutes.
-  await call('POST', '/api/v1/auth/email/start', { body: { email: 'late@example.com', turnstile: 't' } })
-  const late = /#dang-nhap=([A-Za-z0-9_-]+)/.exec(mails.at(-1)!.text)![1]
+  // A code older than 15 minutes.
+  const late = await ask('late@example.com')
   setNow(new Date(NOW.getTime() + 16 * 60_000))
-  expect((await call('POST', '/api/v1/auth/email/verify', { body: { token: late } })).json.error).toBe('bad_link')
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: late })).json.error).toBe('bad_code')
+})
+
+test('email: five wrong codes and the flow is gone', async () => {
+  const { call, ask } = setup()
+  const { flow, code } = await ask('reader@example.com')
+  const wrong = String((Number(code) + 1) % 1_000_000).padStart(6, '0')
+  for (let i = 0; i < 5; i++) expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code: wrong } })).status).toBe(401)
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code } })).json.error).toBe('bad_code')
+})
+
+test('email: a code someone else asked for neither signs this browser in nor joins this account (CSRF)', async () => {
+  const { call, ask, google } = setup()
+  const attacker = await ask('attacker@example.com')
+  const victim = await google('g-victim')
+  // The attacker's link carries only the code: the victim's browser doesn't hold the attacker's flow.
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow: 'v'.repeat(43), code: attacker.code }, cookie: victim.cookie })).status).toBe(401)
+  // Even with the attacker's flow, a code asked for signed out never joins the signed-in account.
+  const r = await call('POST', '/api/v1/auth/email/verify', { body: attacker, cookie: victim.cookie })
+  expect(r.json.user.id).not.toBe(victim.json.user.id)
+  expect((await call('GET', '/api/v1/session', { cookie: victim.cookie })).json.user).toBeNull() // that session ended
+  const methods = (await call('GET', '/api/v1/session', { cookie: (await google('g-victim')).cookie })).json.user.methods
+  expect(methods.map((m: { kind: string }) => m.kind)).toEqual(['google'])
+})
+
+test('email: adding an address to the account works only for the account that asked', async () => {
+  const { call, ask, google } = setup()
+  const a = await google('g-a')
+  const b = await google('g-b')
+  const forA = await ask('a@example.com', { cookie: a.cookie })
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: forA, cookie: b.cookie })).status).toBe(401)
+  const forA2 = await ask('a@example.com', { cookie: a.cookie })
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: forA2 })).status).toBe(401)
+  const forA3 = await ask('a@example.com', { cookie: a.cookie })
+  const added = await call('POST', '/api/v1/auth/email/verify', { body: forA3, cookie: a.cookie })
+  expect(added.json.user.methods.map((m: { kind: string }) => m.kind)).toEqual(['google', 'email'])
+  expect(added.headers.get('set-cookie')).toBeNull()
 })
 
 test('email link: refused without Turnstile, and limited per address', async () => {
   expect((await setup({}, { turnstile: false }).call('POST', '/api/v1/auth/email/start', { body: { email: 'a@example.com', turnstile: 't' } })).status).toBe(403)
   const { call, mails } = setup()
   const send = () => call('POST', '/api/v1/auth/email/start', { body: { email: 'a@example.com', turnstile: 't' } })
-  for (let i = 0; i < 3; i++) expect((await send()).status).toBe(204)
+  for (let i = 0; i < 3; i++) expect((await send()).status).toBe(200)
   expect((await send()).status).toBe(429)
   expect(mails).toHaveLength(3)
   expect((await setup({}, {}).call('POST', '/api/v1/auth/email/start', { body: { email: 'a@example.com' } })).status).toBe(403)

@@ -36,12 +36,16 @@ CREATE TABLE sessions (
 CREATE INDEX sessions_user ON sessions (user_id);
 CREATE INDEX sessions_expiry ON sessions (expires_at);
 
--- One-time values with a short life: email links, sign-in nonces, passkey challenges. id: SHA-256 of what the client holds.
+-- One-time values with a short life: email sign-ins, sign-in nonces, passkey challenges. id: SHA-256 of the secret the
+-- client that started it holds. Email: value = the address's hash, code = SHA-256 of the emailed code with that secret,
+-- user_id = the account that was signed in when it started (adding email to it), attempts = wrong codes so far.
 CREATE TABLE auth_challenges (
   id TEXT PRIMARY KEY,
   kind TEXT NOT NULL CHECK (kind IN ('email', 'nonce', 'passkey-login', 'passkey-register')),
   value TEXT NOT NULL,
   user_id TEXT,
+  code TEXT,
+  attempts INTEGER NOT NULL DEFAULT 0,
   expires_at TEXT NOT NULL
 );
 CREATE INDEX auth_challenges_expiry ON auth_challenges (expires_at);

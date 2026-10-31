@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome accounts and saved tanks",
     "version": "1.0.0",
-    "description": "Optional accounts for \"Bể của tôi\": sign in (Apple, Google, email link; passkeys next), sync saved tanks between the site and the iOS app, export and delete the account.\n\nRecords and merge rules: docs/my-tanks-sync.md; schemas: protocols/tanks.schema.json; cases: protocols/tanks-vectors.json.\n\nOff unless the server has ACCOUNTS=on (or preview, for the owner): then GET /api/v1/session says {\"accounts\": false} and every other path is 404 accounts_off.\n\nEvery POST body is JSON with Content-Type: application/json. Changes from a browser must come from https://aquatome.com pages (Origin / Sec-Fetch-Site); the app sends no Origin and no cookie, and authenticates with Authorization: Bearer <token>. A bearer token is only valid as a bearer token, a cookie only as a cookie.\n\nErrors are {\"error\": \"<code>\"} with the status listed. 429 rate_limited can come from any sign-in path."
+    "description": "Optional accounts for \"Bể của tôi\": sign in (Apple, Google, email code; passkeys next), sync saved tanks between the site and the iOS app, export and delete the account.\n\nRecords and merge rules: docs/my-tanks-sync.md; schemas: protocols/tanks.schema.json; cases: protocols/tanks-vectors.json.\n\nOff unless the server has ACCOUNTS=on (or preview, for the owner): then GET /api/v1/session says {\"accounts\": false} and every other path is 404 accounts_off.\n\nEvery POST body is JSON with Content-Type: application/json. Changes from a browser must come from https://aquatome.com pages (Origin / Sec-Fetch-Site); the app sends no Origin and no cookie, and authenticates with Authorization: Bearer <token>. A bearer token is only valid as a bearer token, a cookie only as a cookie.\n\nErrors are {\"error\": \"<code>\"} with the status listed. 429 rate_limited can come from any sign-in path."
   },
   "servers": [
     {
@@ -541,8 +541,17 @@
     },
     "/api/v1/auth/email/start": {
       "post": {
-        "summary": "Email a one-time sign-in link (15 minutes)",
-        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The link is https://aquatome.com/<language page>#dang-nhap=<token> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/); the page, or the app through a universal link, posts the token to /api/v1/auth/email/verify. The address is not stored. Limits: 3 links an hour per address, 10 an hour per network.",
+        "summary": "Email a 6-digit sign-in code (15 minutes, once)",
+        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The reply's `flow` is a secret only this browser or app may hold: keep it (web: localStorage, so a link opened in another tab of the same browser works; app: memory) and never put it in a URL. The mail holds the code and a link https://aquatome.com/<language page>#ma=<code> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/), which the page (or the app, through a universal link) fills in. Signed in when asking: the address is added to that account. The address is not stored. Limits: 3 codes an hour per address, 10 an hour per network.",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -575,8 +584,23 @@
           }
         },
         "responses": {
-          "204": {
-            "description": "Sent."
+          "200": {
+            "description": "Sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "flow"
+                  ],
+                  "properties": {
+                    "flow": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Error: bad_email, bad_request",
@@ -633,7 +657,8 @@
     },
     "/api/v1/auth/email/verify": {
       "post": {
-        "summary": "Sign in with the token from an email link (once)",
+        "summary": "Sign in with the emailed code and the flow secret from /email/start",
+        "description": "Wrong codes count: after 5, or 15 minutes, or once used, the flow is gone (401 bad_code; ask again). A flow started while signed in only works for that same account and adds the address to it; one started signed out signs in (ending any other session on this browser).",
         "security": [
           {},
           {
@@ -650,11 +675,16 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "token"
+                  "flow",
+                  "code"
                 ],
                 "properties": {
-                  "token": {
+                  "flow": {
                     "type": "string"
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "^\\d{6}$"
                   },
                   "client": {
                     "type": "string",
@@ -692,7 +722,7 @@
             }
           },
           "401": {
-            "description": "Error: bad_link (used, expired or unknown)",
+            "description": "Error: bad_code (wrong, used, expired, too many tries, or started by another account)",
             "content": {
               "application/json": {
                 "schema": {

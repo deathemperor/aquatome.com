@@ -1,5 +1,5 @@
 import { readCapped, siteverify as realSiteverify } from '../comments/api'
-import { consume, emailHash, emailLink, normalEmail, type Lang, type SendMail } from './email'
+import { checkEmail, consume, emailHash, normalEmail, startEmail, type Lang, type SendMail } from './email'
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
@@ -145,17 +145,21 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       const hash = await emailHash(k, email)
       const ok = (await allow(db, k, `mail-ip|${ipOf(req)}`, 10, HOUR_MS, now)) && (await allow(db, k, `mail-to|${hash}`, 3, HOUR_MS, now)) && (await allow(db, k, `mail-day|${now.toISOString().slice(0, 10)}`, 2000, 24 * HOUR_MS, now))
       if (!ok) return fail('rate_limited', 429)
-      const mail = await emailLink(db, k, email, lang, url.origin, now)
-      return (await deps.sendMail!(mail)) ? none() : fail('mail_failed', 502)
+      const { flow, mail } = await startEmail(db, k, email, lang, url.origin, session?.userId, now)
+      return (await deps.sendMail!(mail)) ? json({ flow }) : fail('mail_failed', 502)
     }
 
     if (path === '/api/v1/auth/email/verify') {
-      if (typeof body.token !== 'string') return fail('bad_request', 400)
-      const link = await consume(db, 'email', body.token, now)
-      if (!link) return fail('bad_link', 401)
+      if (typeof body.flow !== 'string' || typeof body.code !== 'string') return fail('bad_request', 400)
+      const started = await checkEmail(db, body.flow, body.code, now)
+      if (!started) return fail('bad_code', 401)
+      // Started while signed in: adds the address to that account, and only for that account. Started signed out: a sign-in.
+      if (started.userId && started.userId !== session?.userId) return fail('bad_code', 401)
+      const adding = started.userId ? session : undefined
       try {
-        const userId = await signInWith(db, { kind: 'email', subject: link.value, emailHash: link.value, ...(session ? { signedIn: session.userId } : {}) }, now)
-        return done(env, userId, client, session, now)
+        const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(adding ? { signedIn: adding.userId } : {}) }, now)
+        if (!adding && session) await db.prepare(`DELETE FROM sessions WHERE id = ?`).bind(session.id).run()
+        return done(env, userId, client, adding, now)
       } catch (e) {
         if (e instanceof InUse) return fail('credential_in_use', 409)
         throw e
