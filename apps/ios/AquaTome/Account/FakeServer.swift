@@ -18,6 +18,8 @@ final class FakeServer {
   }
 
   func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
+    // As URLSession: a request from a cancelled task fails.
+    if Task.isCancelled { throw URLError(.cancelled) }
     let out = try await fake.send(r)
     try? fake.snapshot.data().write(to: file, options: .atomic)
     return out

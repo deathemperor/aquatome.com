@@ -12,11 +12,10 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể phòng khách", first: true)
     signIn(app)
     XCTAssertTrue(app.staticTexts["account-status"].label.contains("Apple"), app.staticTexts["account-status"].label)
-    // Added while signed in: it goes to the account a moment later.
+    // Added while signed in: it goes to the account a moment later, by itself.
+    let before = syncs(app)
     add(app, "Bể tép")
-    let synced = expectation(description: "the second tank synced")
-    synced.isInverted = true
-    wait(for: [synced], timeout: 3)
+    XCTAssertTrue(waitForSyncs(app, before + 1), "the change wasn't synced")
     app.terminate()
 
     app = launch()
@@ -33,6 +32,7 @@ final class AccountFlowTests: XCTestCase {
     signIn(app)
     tap(app, "sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(element(app, "account-header").exists, "no account section in the list")
     XCTAssertEqual(message(app), "Đã đăng xuất. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(app.buttons.matching(identifier: "tank").count, 1)
 
@@ -58,7 +58,7 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
     add(app, "Bể", first: true)
     XCTAssertFalse(element(app, "apple-sign-in").waitForExistence(timeout: 2), "sign-in offered with accounts off")
-    XCTAssertFalse(app.staticTexts["Đồng bộ giữa các thiết bị"].exists)
+    XCTAssertFalse(element(app, "account-header").exists)
   }
 
   func testAStoreFromANewerAppIsNotOfferedForSync() {
@@ -88,9 +88,19 @@ final class AccountFlowTests: XCTestCase {
     e.tap()
   }
 
+  /// Signs in, and waits for the sync that follows.
   private func signIn(_ app: XCUIApplication) {
     tap(app, "apple-sign-in")
     XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
+    XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
+  }
+
+  /// Syncs done since launch (the status line's value in a debug build).
+  private func syncs(_ app: XCUIApplication) -> Int { Int(app.staticTexts["account-status"].value as? String ?? "") ?? 0 }
+
+  private func waitForSyncs(_ app: XCUIApplication, _ n: Int) -> Bool {
+    let done = expectation(for: NSPredicate { _, _ in self.syncs(app) >= n }, evaluatedWith: nil)
+    return XCTWaiter().wait(for: [done], timeout: 10) == .completed
   }
 
   private func message(_ app: XCUIApplication) -> String {

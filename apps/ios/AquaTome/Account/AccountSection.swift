@@ -20,13 +20,13 @@ struct AccountSection: View {
         SignInButton()
         AccountMessage()
       } header: {
-        Text("Đồng bộ giữa các thiết bị")
+        Text("Đồng bộ giữa các thiết bị").accessibilityIdentifier("account-header")
       } footer: {
         Fine()
       }
     case .signedIn(let user):
       Section {
-        Text(status(user)).accessibilityIdentifier("account-status")
+        Text(status(user)).accessibilityIdentifier("account-status").accessibilityValue(syncsForTests)
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
@@ -46,6 +46,15 @@ struct AccountSection: View {
         Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
       }
     }
+  }
+
+  /// The UI tests wait for a sync by this count; nothing for VoiceOver in a release build.
+  private var syncsForTests: String {
+    #if DEBUG
+    String(account.syncs)
+    #else
+    ""
+    #endif
   }
 
   private func status(_ user: AccountUser) -> String {

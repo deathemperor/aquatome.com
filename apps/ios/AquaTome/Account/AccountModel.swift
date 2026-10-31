@@ -25,6 +25,8 @@ final class AccountModel {
   /// Signing in, out, or deleting the account.
   private(set) var working = false
   private(set) var syncing = false
+  /// Syncs done since launch (the UI tests wait on it).
+  private(set) var syncs = 0
 
   private let tanks: TanksModel
   private let api: AccountsClient
@@ -41,6 +43,11 @@ final class AccountModel {
     self.api = api
     self.apple = apple
     self.keychain = keychain
+    // The Keychain outlives the app: a reinstall starts signed out, as a first install does.
+    if !UserDefaults.standard.bool(forKey: "account.installed") {
+      keychain.delete()
+      UserDefaults.standard.set(true, forKey: "account.installed")
+    }
     token = keychain.read()
   }
 
@@ -51,8 +58,12 @@ final class AccountModel {
 
   /// At launch, and when the app comes to the front: who is signed in, then a sync.
   func refresh() async {
+    let asked = token
     do {
-      switch try await api.session(token: token) {
+      let answer = try await api.session(token: asked)
+      // Signed in, out, or deleted meanwhile: the answer is about a session that has gone.
+      guard token == asked, !working else { return }
+      switch answer {
       case .off:
         state = .off
       case .on(_, _, let u?):
@@ -90,22 +101,27 @@ final class AccountModel {
 
   /// Sends the phone's store and takes back the account's. One at a time: a change during a sync is sent after it.
   func sync(first: Bool = false) async {
-    guard case .signedIn(let who) = state, let token, canSync else { return }
+    guard user != nil, let sent = token, canSync else { return }
     if syncing { again = true; return }
     syncing = true
+    // A sync waiting to start isn't needed now (one that is running has left `later`).
     later?.cancel()
+    later = nil
     let before = tanks.tanks.count
     do {
-      let r = try await api.sync(tanks.store, token: token)
-      // Signed out, or the account deleted, while it was on its way: its answer is stale.
-      guard user?.id == who.id else { syncing = false; return }
+      let r = try await api.sync(tanks.store, token: sent)
+      // Signed out, the account deleted, or someone else signed in while it was on its way: its answer is stale.
+      guard token == sent else { throw CancellationError() }
       try tanks.commitSynced(r.applied(to: tanks.store))
       synced = tanks.store
       syncedAt = Date()
+      syncs += 1
       let added = tanks.tanks.count - before
       if !r.refused.isEmpty { say(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản."), bad: true) }
       else if first && added > 0 { say(String(localized: "Đã thêm \(added) bể từ tài khoản.")) }
       else if message?.bad == true { message = nil }
+    } catch _ where token != sent {
+      // Stale, as above: nothing to say about a session that has gone.
     } catch AccountError.signedOut {
       forget()
       say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
@@ -126,6 +142,8 @@ final class AccountModel {
     later = Task {
       try? await Task.sleep(for: .seconds(1.5))
       guard !Task.isCancelled else { return }
+      // Running now: nothing may cancel it (a request in a cancelled task fails as cancelled).
+      later = nil
       await sync()
     }
   }
