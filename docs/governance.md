@@ -121,6 +121,10 @@ The layers above still check the result.
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
   shows the range they all accept.
+- **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
+  for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
+  otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
+  said 5 cm and pH 3,5–7,5 where its card said 3,5 cm and pH 4,6–6,2.
 
 ## Rules for every change (people and agents)
 
@@ -152,7 +156,7 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 | --- | --- | --- |
 | **Shared vectors**: device frames and replies, and saved-tank records and merges, against `protocols/*-vectors.json`, which the site's tests read too | the app and the site sending different bytes, a reply misread, tanks checked or merged differently | `swift test` in `apps/ios/AquaTomeKit` (job `kit`) |
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
-| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: search the handbook (no accents, other names, one kind, a page opens, the Chihiros tool), find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`) |
+| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: search the handbook (no accents, other names, one kind, a page opens, the Chihiros tool), find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 

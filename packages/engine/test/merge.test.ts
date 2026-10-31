@@ -119,3 +119,22 @@ test('a source page giving one part twice (two quick-facts blocks): one section 
   expect(r.vi.sections['quickFacts:glaser']).toBe('<p>Cá bắt tự nhiên.</p>\n<p>Tối đa 3 cm.</p>')
   expect(r.vi.sections['diet:glaser']).toBe('<p>Giun.</p>')
 })
+
+// A species page shows each figure once, in its data card (design critique 2026-10-31: Cá chạch bùn listed "Họ: Cobitidae"
+// twice, and its quick facts repeated sizes the card showed otherwise). Quick facts keep what the card doesn't carry.
+test('quick facts: the figures this page gives the card, and the family, are dropped in English and Vietnamese; a list of nothing else goes', () => {
+  const r = mergeSpecies({}, page({ sections: [
+    { key: 'quickFacts', en: '<ul><li>Family: Cobitidae</li><li>Temperature: 23–29°C</li><li>Adult size: 3.5 cm</li><li>Life expectancy: 4 years</li></ul>', vi: '<ul><li>Họ: Cobitidae</li><li>Nhiệt độ: 23–29°C</li><li>Kích thước: 3,5 cm</li><li>Tuổi thọ: 4 năm</li></ul>' },
+  ] }), ctx('glaser'))
+  expect(r.entity.sections.find(s => s.key === 'quickFacts')?.html).toBe('<ul><li>Life expectancy: 4 years</li></ul>')
+  expect(r.vi.sections['quickFacts:glaser']).toBe('<ul><li>Tuổi thọ: 4 năm</li></ul>')
+  // A figure the page has no card value for (pH here) is its only copy: it stays.
+  const only = mergeSpecies({}, page({ sections: [
+    { key: 'quickFacts', en: '<ul><li>Family: Cobitidae</li><li>Temperature: 23–29°C</li></ul>', vi: '<ul><li>Họ: Cobitidae</li><li>Nhiệt độ: 23–29°C</li></ul>' },
+    { key: 'diet', en: '<ul><li>pH: 6–7</li></ul>', vi: '<ul><li>pH: 6–7</li></ul>' },
+  ] }), ctx('glaser'))
+  expect(only.entity.sections.map(s => s.key)).toEqual(['diet'])
+  expect(Object.keys(only.vi.sections)).toEqual(['diet:glaser'])
+  const ph = mergeSpecies({}, page({ sections: [{ key: 'quickFacts', en: '<ul><li>pH: 6–7</li></ul>', vi: '<ul><li>pH: 6–7</li></ul>' }] }), ctx('glaser'))
+  expect(ph.vi.sections['quickFacts:glaser']).toBe('<ul><li>pH: 6–7</li></ul>')
+})

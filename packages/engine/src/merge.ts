@@ -1,4 +1,4 @@
-import { PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
+import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import type { Taxon } from './gbif'
 import type { ProcessedPage } from './process'
 
@@ -40,6 +40,15 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   for (const s of page.sections) {
     const p = parts.get(s.key)
     parts.set(s.key, p ? { ...p, en: `${p.en}\n${s.en}`, vi: `${p.vi}\n${s.vi}` } : s)
+  }
+  // Quick facts keep only what the data card doesn't: a figure this page gives the card is on the card (with each
+  // source's own figure one tap away), and the page's header names the family. A list of nothing else goes.
+  const q = parts.get('quickFacts')
+  if (q) {
+    const card = Object.fromEntries(Object.entries(page.dataCard).map(([f, value]) => [f, [{ source: ctx.source, value }]]))
+    const en = dropCardRepeats(q.en, q.en, ctx.source, card)
+    if (en) parts.set('quickFacts', { ...q, en, vi: dropCardRepeats(q.en, q.vi, ctx.source, card) })
+    else parts.delete('quickFacts')
   }
   const added: Section[] = [...parts.values()].map(s => ({ key: s.key, source: ctx.source, sourceUrl: ctx.url, html: s.en }))
   const sections = [...kept, ...added].map((s, i) => [s, i] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)

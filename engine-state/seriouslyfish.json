@@ -2840,10 +2840,10 @@
   },
   "https://www.seriouslyfish.com/species/betta-macrostoma": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:56.271Z",
+    "updatedAt": "2026-10-31T16:54:23.399Z",
     "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "attempts": 2,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
   },
   "https://www.seriouslyfish.com/species/betta-mahachaiensis": {
     "entityIds": [],

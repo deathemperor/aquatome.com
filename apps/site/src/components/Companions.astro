@@ -5,19 +5,24 @@ import { TEMPERAMENT_LABELS } from '../scripts/tankmates'
 import type { AvoidReason } from '../lib/companions'
 import { cleanPhoto } from '../lib/home'
 import { smallSrc } from '../lib/img'
+import { fmt } from '../lib/format'
 import { i18n } from '../lib/i18n'
 /** "Nuôi chung" under the data card: the tank-mates tool's data for this species and its verdicts on the best-known others. */
 interface Props {
   self: SpeciesIndexItem
   good: { s: Localized<SpeciesEntity> }[]
-  avoid: { s: Localized<SpeciesEntity>; reason: AvoidReason }[]
+  avoid: { s: Localized<SpeciesEntity>; item: SpeciesIndexItem; reason: AvoidReason }[]
   tool: string
 }
 const { self, good, avoid, tool } = Astro.props
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const { num } = fmt(lang)
+// Why to keep it away, in a few words: the clash as the tank-mates tool sees it, with the other fish's adult size
+// where the size is the reason ({size}: a length the units toggle converts).
 const why: Record<AvoidReason, string> = {
-  eatsIt: t('Có thể ăn {name}', { name: self.name }), eatenByIt: t('Có thể bị {name} ăn', { name: self.name }),
-  predator: t(TEMPERAMENT_LABELS.predator), aggressive: t(TEMPERAMENT_LABELS.aggressive), semiAggressive: t(TEMPERAMENT_LABELS['semi-aggressive']), finNipper: t('Hay cắn vây'),
+  eatsIt: t('Lớn tới {size}, có thể ăn {name}', { name: self.name }), eatenByIt: t('Chỉ dài {size}, có thể bị {name} ăn', { name: self.name }),
+  predator: t('Cá săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
+  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name: self.name }), finNipper: t('Hay cắn vây cá khác'),
 }
 const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos); return p && smallSrc(p) }
 ---
@@ -38,7 +43,7 @@ const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos);
   {avoid.length > 0 && (
     <div class="row avoid">
       <h3>{t('Tránh')}</h3>
-      <ul>{avoid.map(({ s, reason }) => <li><a href={`/vi/ca/${s.t.slug}/`}>{thumb(s) && <img src={thumb(s)} alt="" width="32" height="32" loading="lazy" decoding="async" />}<span class="nm">{s.t.name}<span class="why">{why[reason]}</span></span></a></li>)}</ul>
+      <ul>{avoid.map(({ s, item, reason }) => <li><a href={`/vi/ca/${s.t.slug}/`}>{thumb(s) && <img src={thumb(s)} alt="" width="32" height="32" loading="lazy" decoding="async" />}<span class="nm">{s.t.name}<span class="why" data-reason={reason}>{why[reason].split('{size}').map((part, i) => <>{i > 0 && <span data-cm={`${item.sizeCm},${item.sizeCm}`}>{num(item.sizeCm!)} cm</span>}{part}</>)}</span></span></a></li>)}</ul>
     </div>
   )}
   <p class="how">{(good.length > 0 || avoid.length > 0) && <span>{t('Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.')} </span>}<a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>

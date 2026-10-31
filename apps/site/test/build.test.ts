@@ -47,9 +47,31 @@ describe('species page', () => {
     const [good, avoid] = box.querySelectorAll('.row')
     expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-boraras-do/'])
     expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/vi/ca/ca-apisto-cacatuoides/')
-    expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ')
+    expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ, có thể rượt đuổi Cá neon vua')
     expect(box.querySelector('a[href="/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
     expect(box.getAttribute('data-pagefind-ignore')).not.toBeNull()
+  })
+  // The card is the page's one copy of each figure (design critique 2026-10-31: the text said 5 cm, "Trung bình", pH 3,5–7,5
+  // where the card said 3,5 cm, Dễ, pH 4,6–6,2).
+  test('quick facts: what the card already gives is left out, the rest stays', () => {
+    const glaser = dom.querySelector('section[data-section="quickFacts"] .prose[data-source="glaser"]')!
+    const items = glaser.querySelectorAll('li')
+    expect(items.length).toBe(1) // no family, no temperature
+    expect(items[0]!.text).toMatch(/^Nguồn gốc: Rio Negro, Brazil\d$/) // and its source's mark
+    expect(page('/vi/ca/ca-neon-xanh/').dom.querySelector('section[data-section="quickFacts"]')).toBeNull() // nothing but the card's
+  })
+  test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
+    const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
+    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C).')
+    expect(note.getAttribute('data-source')).toBe('seriouslyfish')
+    expect(note.getAttribute('data-pagefind-ignore')).not.toBeNull()
+    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['24,30', '24,27']) // °F toggle too
+    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('seriouslyfish') // above its own block
+    expect(dom.querySelectorAll('p.off').length).toBe(1) // pH 4–6 is the card's own figure: nothing to say
+  })
+  test('the phone\'s key facts mark a value the sources disagree on, as the card does', () => {
+    expect(dom.querySelectorAll('.keyfacts [data-conflict]').map(x => x.getAttribute('data-field'))).toEqual(['tempC'])
+    expect(dom.querySelector('.keyfacts [data-field="tempC"] dt .mark')?.text).toBe('Các nguồn ghi khác nhau')
   })
   test('videos are click-to-load facades', () => {
     expect(html).not.toContain('<iframe')
@@ -100,7 +122,9 @@ test('"Nuôi chung" shows only what the data supports: no temperament, no "hợp
   expect(box.querySelector('.traits')).toBeNull()
   expect(box.querySelectorAll('.row').length).toBe(1)
   expect(box.querySelector('.row h3')?.text).toBe('Tránh')
-  expect(box.querySelector('.row .why')?.text).toBe('Có thể ăn Cá galaxy') // the apisto: 9 cm against 2,5 cm
+  const why = box.querySelector('.row .why')!
+  expect(why.text).toBe('Lớn tới 9 cm, có thể ăn Cá galaxy') // the apisto: 9 cm against 2,5 cm, said on the chip
+  expect(why.querySelector('[data-cm]')?.getAttribute('data-cm')).toBe('9,9') // the inch toggle converts it
 })
 
 test('low-quality page is noindex', () => {
