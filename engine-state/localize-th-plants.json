@@ -659,6 +659,55 @@
       "\"ถ้าโตจนใหญ่พอ จะแตกใบใหญ่อยู่ใต้ผิวน้ำแทน\" is slightly vague; make it clear the large leaves form just under the surface (\"ใบขนาดใหญ่ใต้ผิวน้ำพอดี\")."
     ]
   },
+  "echinodorus-grisebachii": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอนซอร์ด",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"anchor\" (a bundle held by a lead/metal strip, also called a weight) is rendered as \"ตัวถ่วง\"; this is acceptable, but \"ต้นไม้ที่ได้มาเป็นกำ\" adds the idea of purchase. Use more neutral wording such as \"ไม้น้ำที่มัดเป็นกำ\".",
+      "Item 2: \"Plant the individual plants with some distance into the bottom substrate\" is translated as \"เว้นระยะห่างกันพอสมควร\". This changes the meaning, because the source says to plant them some distance deep into the substrate. Change it to \"ปักลงในพื้นปลูกให้ลึกพอสมควร\".",
+      "Item 3: \"20-50 cm\" is correct, but item 1 says \"20–30+ cm\". The translation \"20–30 ซม. ขึ้นไป\" is fine, so there is nothing to fix there.",
+      "Item 1: \"Rosulate\" is expanded with an explanatory bracket, which adds content. Use a shorter term such as \"ไม้น้ำแบบกอ (Rosulate)\".",
+      "Item 3: \"มือใหม่และผู้ที่มีประสบการณ์แล้ว\" is slightly clumsy. Use \"ผู้เล่นมือใหม่และมือเก่า\"."
+    ]
+  },
+  "echinodorus-grisebachii-tropica": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอนทรอปิก้า",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้ทรงกอ (ใบเรียงเป็นวงรอบโคน)\": 'Rosulate' is rendered with a loose descriptive phrase. Use the more standard hobby term, such as \"ไม้กอ/ไม้ใบเรียงเป็นกุหลาบ (rosette)\".",
+      "\"ฟาร์มไม้น้ำของ Tropica\": 'nursery' is fine, but \"discovered\" is better as \"พบ/ถูกคัดพบ\" for a cultivar. \"ไม้น้ำตระกูลซอร์ด\" is also not standard. Use \"เอคินโดรัส/ไม้ตระกูลซอร์ด\" or \"สวอร์ด\".",
+      "\"ผิวใบย่นนูนเล็กน้อย\": 'slightly bullate' means blistered or bumpy leaf surface. \"ย่นนูน\" suggests wrinkled. Use \"ผิวใบนูนเป็นตุ่มเล็กน้อย\"."
+    ]
+  },
+  "echinodorus-ozelot": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอน โอซีล็อต",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Origin: Cultivar\" rendered as \"แหล่งที่มา\" is slightly odd; \"ที่มา\" or \"แหล่งกำเนิด\" is more natural. Minor.",
+      "Item 2: \"ไม่ต้องการการดูแลมาก\" is slightly clumsy; \"ดูแลง่าย\" is more natural. Minor."
+    ]
+  },
+  "echinodorus-ozelot-green": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอน โอซีลอต กรีน",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ไม้น้ำทรงกอ (rosulate)\" is acceptable, but \"ไม้น้ำทรงกอ/ทรงพุ่มกุหลาบ\" or a plain \"โรซูเลต\" would be more standard for hobbyists.",
+      "Item 2: \"พื้นตู้ที่มีธาตุอาหารสมบูรณ์\" is a little loose for \"nutritious bottom\". \"วัสดุรองพื้นที่อุดมด้วยธาตุอาหาร\" is more natural.",
+      "Item 2: \"จุดสีเข้มตัดกับใบสีอ่อนได้ชัดเจนกว่า\" is vague about what the contrast is compared with. \"จุดสีเข้มตัดกับสีใบที่อ่อนกว่าได้ชัดเจน\" reads more naturally."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",

@@ -2,19 +2,28 @@
   "slug": "cherry-barb",
   "name": "Cherry Barb",
   "altNames": [
-    "Barb Cherry",
-    "Cherry Barbs",
-    "Barbir Cherry"
+    "Puntius cherry",
+    "Barb cherry",
+    "Cherry"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Cherry barb, <em>Barbus titteya</em>, sudah puluhan tahun menjadi salah satu ikan hias favorit di akuarium. Di alam pun, warna spesies ini sudah cukup bervariasi. Varian mutasi yang disebut Super Red dikembangkan lewat pembiakan selektif.</p>",
-    "distribution:glaser": "<p>Ikan ini endemik di Pulau Sri Lanka.</p>"
+    "quickFacts:glaser": "<p>Cherry barb, Barbus titteya, sudah jadi ikan hias favorit di akuarium selama puluhan tahun. Di alam pun warnanya sudah cukup bervariasi. Varian yang disebut Super Red dikembangkan lewat pembiakan selektif.</p>",
+    "quickFacts:sprucepets": "<ul><li>Famili: Cyprinidae</li><li>Asal: Sri Lanka</li><li>Ukuran dewasa: sekitar 5 cm</li><li>Harapan hidup: 4–6 tahun</li><li>Sifat: damai</li><li>Area berenang: bagian atas dan tengah</li><li>Ukuran akuarium minimal: sekitar 95 liter</li><li>Pakan: omnivora</li><li>Pemijahan: bertelur</li><li>Perawatan: mudah</li></ul>",
+    "distribution:glaser": "<p>Ikan ini endemik di Pulau Sri Lanka.</p>",
+    "distribution:sprucepets": "<p>Cherry barb berasal dari Sri Lanka dan hidup di daerah aliran sungai Kelani dan Nilwala. Warnanya yang cerah membuatnya populer di perdagangan ikan hias, sehingga individu yang paling berwarna banyak ditangkap secara berlebihan.</p>",
+    "maintenance:sprucepets": "<p>Karena tergolong ikan pemalu, cherry barb suka punya banyak tempat sembunyi di akuariumnya. Sebaiknya ikan ini dimasukkan ke akuarium paling awal, supaya bisa beradaptasi dulu dan tidak perlu berebut tempat sembunyi.</p><p>Karena ikan ini suka hidup berkelompok, mungkin perlu disediakan banyak tempat sembunyi agar cukup untuk beberapa ekor sekaligus. Akuarium tanaman atau aquascape dengan kualitas air yang baik dan banyak tempat sembunyi sangat cocok untuk cherry barb.</p><p>Perawatan cherry barb relatif mudah asalkan perawatan rutin tetap dijalankan. Di akuarium tanaman, pastikan sisa tanaman yang mati rutin dibuang dan perhatikan perubahan pH antara siang dan malam.</p>",
+    "waterConditions:sprucepets": "<ul><li>pH: 6,0–7,0</li><li>Kesadahan: 4–10 dKH</li><li>Suhu: 23–27 °C</li></ul>",
+    "diet:sprucepets": "<p>Sebagai omnivora, cherry barb mau menerima berbagai macam pakan. Pelet standar untuk ikan tropis sudah cukup memenuhi sebagian besar kebutuhan gizinya. Sesekali bisa ditambah sayuran segar dan pakan beku sebagai camilan. Kebanyakan cherry barb hasil budidaya sudah sangat terbiasa dengan pelet dan tidak terlalu pilih-pilih soal jenisnya.</p>",
+    "behaviour:sprucepets": "<p>Cherry barb paling baik dipelihara dalam kelompok kecil, jadi pastikan ada cukup ruang untuk 5–6 ekor. Teman satu akuarium yang cocok antara lain jenis barb lain seperti rosy barb atau black ruby barb, serta jenis tetra seperti neon tetra atau buenos aires tetra, yang menambah warna cerah di akuarium. Banyak ikan komunitas yang damai juga cocok dicampur dengan cherry barb, tetapi pastikan parameter airnya sesuai.</p><p>Ikan kecil ini cenderung pemalu bila bersama ikan yang lebih besar dan agresif, jadi pelihara dalam kelompok dan pilih teman satu akuariumnya dengan cermat.</p>",
+    "dimorphism:sprucepets": "<p>Warna merah yang menjadi ciri khasnya lebih sering muncul pada cherry barb jantan saat musim memijah. Kebanyakan cherry barb berwarna dasar cokelat muda sampai cokelat tua dengan semburat merah atau oranye. Semua cherry barb punya garis sisik yang lebih gelap di bagian tengah tubuh, tepat di sepanjang gurat sisinya.</p><p>Saat memijah, cherry barb jantan berubah menjadi merah cerah. Betina cenderung lebih pucat dengan garis gurat sisi yang lebih gelap. Betina sering terlihat sangat gemuk saat telurnya matang, sedangkan jantan cenderung tetap ramping. Jantan dan betina bisa terlihat sangat mirip bila sedang tidak berminat memijah.</p>",
+    "reproduction:sprucepets": "<p>Cherry barb mudah berkembang biak di akuarium, bahkan pemula pun sering berhasil memijahkannya. Untuk memancing cherry barb agar mau memijah, suhu air akuarium perlu dinaikkan. Pastikan pakan diberikan dalam jumlah cukup untuk mendukung pembedaan kelamin dan perkembangan sel telur serta sperma. Selama masa ini, ikan jantan akan terlihat berwarna merah lebih cerah. Bila jumlah jantan banyak dan betinanya hanya sedikit, persaingan bisa jadi sangat ketat. Usahakan jumlah betina lebih banyak daripada jantan dalam kelompok agar persaingan tetap terbatas.</p><p>Cherry barb akan meletakkan telurnya di berbagai bagian tanaman di akuarium. Lalu jantan mengikuti di belakang betina dan membuahi telur di luar tubuh. Dalam beberapa hari, burayak akan menetas dan mulai berenang. Perlu diwaspadai bahwa ikan lain dan invertebrata akan berusaha memakan burayak. Bila memungkinkan, pindahkan tanaman yang berisi telur ke akuarium pemijahan terpisah sebelum menetas. Dengan begitu burayak juga bisa diberi pakan yang lebih baik agar tumbuh dengan baik.</p>"
   },
   "quality": {
-    "score": 0.93,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "glaser": 0.93
+      "glaser": 0.95,
+      "sprucepets": 0.95
     }
   }
 }

@@ -722,6 +722,47 @@
     "score": 0.95,
     "notes": []
   },
+  "echinodorus-grisebachii": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Amazon Sword",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
+  },
+  "echinodorus-grisebachii-tropica": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus Tropica",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Asal: Kultivar\" is slightly awkward; \"Asal-usul: Kultivar\" or \"Origin: Kultivar\" reads more naturally.",
+      "Item 2: \"nursery Tropica\" could be \"pembibitan/nursery Tropica\" (minor).",
+      "Item 2: \"obovate\" is rendered as \"bulat telur terbalik\", which is fine, but \"sempit\" and \"bulat telur terbalik\" together may be clearer as \"lanset-bulat telur terbalik\" (minor)."
+    ]
+  },
+  "echinodorus-ozelot": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Ozelot'",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 1: \"Roset\" is acceptable, but \"rata-rata tinggi\" is slightly awkward; \"tinggi rata-rata\" is more natural."
+    ]
+  },
+  "echinodorus-ozelot-green": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus Ozelot Green",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Roset\" for rosulate is fine, but consider \"Rosula\"; minor only if needed.",
+      "\"Substrat yang kaya nutrisi\": fine; no real issue."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",
