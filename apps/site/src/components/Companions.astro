@@ -1,0 +1,73 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import type { SpeciesIndexItem } from '../scripts/filter'
+import { TEMPERAMENT_LABELS } from '../scripts/tankmates'
+import type { AvoidReason } from '../lib/companions'
+import { cleanPhoto } from '../lib/home'
+import { smallSrc } from '../lib/img'
+import { i18n } from '../lib/i18n'
+/** "Nuôi chung" under the data card: the tank-mates tool's data for this species and its verdicts on the best-known others. */
+interface Props {
+  self: SpeciesIndexItem
+  good: { s: Localized<SpeciesEntity> }[]
+  avoid: { s: Localized<SpeciesEntity>; reason: AvoidReason }[]
+  tool: string
+}
+const { self, good, avoid, tool } = Astro.props
+const { t } = i18n(Astro.url)
+const why: Record<AvoidReason, string> = {
+  eatsIt: t('Có thể ăn {name}', { name: self.name }), eatenByIt: t('Có thể bị {name} ăn', { name: self.name }),
+  predator: t(TEMPERAMENT_LABELS.predator), aggressive: t(TEMPERAMENT_LABELS.aggressive), semiAggressive: t(TEMPERAMENT_LABELS['semi-aggressive']), finNipper: t('Hay cắn vây'),
+}
+const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos); return p && smallSrc(p) }
+---
+<section class="mates" aria-labelledby="mates-h" data-pagefind-ignore>
+  <h2 id="mates-h">{t('Nuôi chung')}</h2>
+  {(self.temperament || self.schoolMin) && (
+    <dl class="traits">
+      {self.temperament && <div><dt>{t('Tính cách')}</dt><dd><span class:list={['tag', self.temperament]}>{t(TEMPERAMENT_LABELS[self.temperament])}</span></dd></div>}
+      {self.schoolMin && <div><dt>{t('Đàn tối thiểu')}</dt><dd>{t('{n} con', { n: self.schoolMin })}</dd></div>}
+    </dl>
+  )}
+  {good.length > 0 && (
+    <div class="row">
+      <h3>{t('Hợp với')}</h3>
+      <ul>{good.map(({ s }) => <li><a href={`/vi/ca/${s.t.slug}/`}>{thumb(s) && <img src={thumb(s)} alt="" width="32" height="32" loading="lazy" decoding="async" />}<span class="nm">{s.t.name}</span></a></li>)}</ul>
+    </div>
+  )}
+  {avoid.length > 0 && (
+    <div class="row avoid">
+      <h3>{t('Tránh')}</h3>
+      <ul>{avoid.map(({ s, reason }) => <li><a href={`/vi/ca/${s.t.slug}/`}>{thumb(s) && <img src={thumb(s)} alt="" width="32" height="32" loading="lazy" decoding="async" />}<span class="nm">{s.t.name}<span class="why">{why[reason]}</span></span></a></li>)}</ul>
+    </div>
+  )}
+  <p class="how">{(good.length > 0 || avoid.length > 0) && <span>{t('Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.')} </span>}<a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>
+</section>
+<style>
+  .mates { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--c-rule); }
+  h2 { font-size: var(--step-1); margin-bottom: var(--space-3); }
+  .traits { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); margin: 0 0 var(--space-3); }
+  .traits dt { font-size: 0.75rem; color: var(--c-ink-faint); }
+  .traits dd { margin: 2px 0 0; font: 450 var(--step-0)/1.4 var(--f-display); }
+  .tag { display: inline-block; padding: 0 0.45em; border: 1px solid currentColor; font: 600 0.75rem/1.5 var(--f-body); letter-spacing: 0.02em; vertical-align: 0.1em; }
+  .peaceful { color: var(--c-moss); }
+  .semi-aggressive { color: var(--c-ink-soft); }
+  .aggressive, .predator { color: var(--c-cardinal); }
+  .row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); align-items: start; padding-block: var(--space-2); }
+  h3 { font: 500 0.8125rem/2.75rem var(--f-body); color: var(--c-ink-soft); }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  li a { display: flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; padding: 0.3rem 0.9rem 0.3rem 0.3rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink); text-decoration: none; line-height: 1.25; transition: border-color 0.15s ease-out; }
+  li a:hover { border-color: var(--c-ink-soft); color: var(--c-ink); }
+  li a:not(:has(img)) { padding-left: 0.9rem; }
+  img { flex: none; width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover; background: var(--c-rule); }
+  .nm { font-size: 0.9rem; display: grid; }
+  .why { font-size: 0.75rem; color: var(--c-cardinal); }
+  .avoid li a { border-color: color-mix(in srgb, var(--c-cardinal) 40%, var(--c-rule)); }
+  .avoid li a:hover { border-color: var(--c-cardinal); }
+  .how { margin: var(--space-2) 0 0; font-size: 0.85rem; color: var(--c-ink-soft); }
+  .how a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  @media (max-width: 480px) {
+    .row { grid-template-columns: 1fr; gap: var(--space-1); }
+    h3 { line-height: 1.4; }
+  }
+</style>

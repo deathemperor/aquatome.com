@@ -34,7 +34,7 @@ const figAfter = new Map(figures.slice(0, Math.max(0, groups.length - 1)).map((f
 ---
 <div class="wrap body">
   {groups.map((sec, i) => (<>
-    <section data-section={sec.key} data-pagefind-ignore={sec.key === 'references' ? 'index' : undefined}>
+    <section data-section={sec.key} id={`muc-${sec.key}`} data-pagefind-ignore={sec.key === 'references' ? 'index' : undefined}>
       <h2>{tr(QUESTION_LABELS[sec.key])}</h2>
       {sec.blocks.map(b => (
         <div class="prose" data-source={b.source} set:html={b.vi} />

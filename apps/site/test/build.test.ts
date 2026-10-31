@@ -9,12 +9,47 @@ describe('species page', () => {
     expect(dom.querySelector('a[href="https://www.seriouslyfish.com/species/paracheirodon-axelrodi"]')).not.toBeNull()
   })
   test('sources disagree on temperature: the range they all accept, each source one tap away', () => {
-    const t = dom.querySelector('[data-field="tempC"][data-conflict="true"]')!
+    const t = dom.querySelector('.card [data-field="tempC"][data-conflict="true"]')!
     expect(t.querySelector('.v')?.text).toBe('24–27°C') // Seriously Fish 24–30, Glaser 23–27
-    expect(t.querySelector('.srcs summary')?.text).toBe('Mức mọi nguồn cùng khuyên')
-    expect(t.querySelectorAll('.srcs li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
-    expect(t.querySelectorAll('.srcs li span').map(s => s.getAttribute('data-c'))).toEqual(['24,30', '23,27']) // °F toggle too
+    // Only the cell the sources disagree on is marked; one toggle per card holds every value's sources.
+    expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
+    expect(dom.querySelectorAll('.card .mark').length).toBe(1)
+    expect(dom.querySelectorAll('.datacard details').length).toBe(1)
+    expect(dom.querySelector('.datacard summary .label')?.text).toBe('Nguồn và độ tin cậy')
+    const by = dom.querySelector('.trust [data-src-field="tempC"]')!
+    expect(by.querySelector('p')?.text).toBe('Mức mọi nguồn cùng khuyên')
+    expect(by.querySelectorAll('li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
+    expect(by.querySelectorAll('li span').map(s => s.getAttribute('data-c'))).toEqual(['24,30', '23,27']) // °F toggle too
+    expect(dom.querySelector('.trust [data-src-field="ph"] li')?.text).toBe('Seriously Fish')
     expect(html).not.toContain('nguồn khác nhau')
+  })
+  test('the name and four key facts come before the photo, from the data card\'s own values', () => {
+    const top = dom.querySelector('header.top')!
+    const order = top.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
+    expect(order).toEqual(['id', 'photo', 'facts'])
+    const facts = top.querySelectorAll('.id .keyfacts > div')
+    expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
+    expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27') // the card's resolved range, °F toggle too
+    expect(facts[2]!.querySelector('[data-cm]')?.text).toBe('60 cm')
+    expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
+  })
+  test('jump row: the main parts this page has, in page order, each to its section', () => {
+    const links = dom.querySelectorAll('nav.jump a')
+    expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
+      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'],
+    ])
+    for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
+  })
+  test('"Nuôi chung" block: temperament, group size, species to keep with it and away from it, the checker pre-filled', () => {
+    const box = dom.querySelector('.facts .mates')!
+    expect(box.querySelector('.tag')?.text).toBe('Hiền')
+    expect(box.querySelector('.traits')?.text).toContain('8 con')
+    const [good, avoid] = box.querySelectorAll('.row')
+    expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-boraras-do/'])
+    expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/vi/ca/ca-apisto-cacatuoides/')
+    expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ')
+    expect(box.querySelector('a[href="/vi/cong-cu/?ca=ca-neon-vua:8#nuoi-chung"]')).not.toBeNull()
+    expect(box.getAttribute('data-pagefind-ignore')).not.toBeNull()
   })
   test('videos are click-to-load facades', () => {
     expect(html).not.toContain('<iframe')
@@ -57,6 +92,15 @@ test('missing sections produce no empty headings', () => {
   const { dom } = page('/vi/ca/ca-boraras-do/')
   expect(dom.querySelector('section[data-section="dimorphism"]')).toBeNull()
   expect(dom.querySelector('[data-field="gh"]')).toBeNull()
+  expect(dom.querySelector('nav.jump')).toBeNull() // none of the main parts to jump to
+})
+
+test('"Nuôi chung" shows only what the data supports: no temperament, no "hợp với"; a clash still listed', () => {
+  const box = page('/vi/ca/ca-galaxy/').dom.querySelector('.mates')! // no behaviour traits for this one
+  expect(box.querySelector('.traits')).toBeNull()
+  expect(box.querySelectorAll('.row').length).toBe(1)
+  expect(box.querySelector('.row h3')?.text).toBe('Tránh')
+  expect(box.querySelector('.row .why')?.text).toBe('Có thể ăn Cá galaxy') // the apisto: 9 cm against 2,5 cm
 })
 
 test('low-quality page is noindex', () => {
@@ -528,7 +572,7 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('.crumb a[href="/vi/ca/ca-dia/"]')).toBeTruthy()
     // Two sources disagree on temperature: the range both accept, each source named by its title.
     expect(dom.querySelector('[data-field="tempC"] .v')!.textContent).toBe('28–30°C')
-    expect(dom.querySelector('[data-field="tempC"] .srcs')!.textContent).toContain('Trại cá đĩa A')
+    expect(dom.querySelector('.trust [data-src-field="tempC"]')!.textContent).toContain('Trại cá đĩa A')
     expect(dom.querySelector('.sources a[href="https://breeder.example/pigeon"]')!.getAttribute('rel')).toContain('nofollow')
     const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
     expect(ld.some((x: { '@type': string }) => x['@type'] === 'FAQPage')).toBe(true)
