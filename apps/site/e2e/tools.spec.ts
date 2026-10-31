@@ -63,14 +63,16 @@ test('tank-mates: a name with no match says so and keeps what was typed', async 
 
 test('tank-mates: an incompatible pair answers in one sentence first, then the warnings, then a table that fits', async ({ page }) => {
   await page.goto(TM)
-  // A whole name typed out is added without a pick.
-  for (const name of ['Cá đĩa', 'Cá galaxy']) {
+  // A whole name typed out, common or scientific, is added without a pick. Two species both the fixture and aquatome.com
+  // have (aquatome.com has two species called "Cá đĩa": the scientific name is the one only this one has).
+  for (const name of ['Symphysodon aequifasciatus', 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)
     await page.locator('#tm-input').press('Enter')
   }
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   const verdict = page.locator('#tm-verdict')
-  await expect(verdict).toHaveText('Không nên nuôi chung: Cá đĩa có thể ăn Cá galaxy; nhiệt độ không có khoảng chung.')
+  // The first reason; the others depend on each site's figures (the fixture's temperatures don't overlap).
+  await expect(verdict).toHaveText(/^Không nên nuôi chung: Cá đĩa có thể ăn Cá neon xanh[;.]/)
   const top = async (sel: string) => (await page.locator(sel).first().boundingBox())!.y
   expect(await top('#tm-verdict')).toBeLessThan(await top('#tm-detail .warn'))
   expect(await top('#tm-detail .warn')).toBeLessThan(await top('#tm-detail table'))
@@ -78,12 +80,12 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
   const box = page.locator('#tm-detail .scroll')
   expect(await box.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true)
   await expect(page.locator('#tm-detail td:visible')).toHaveCount(15)
-  await expect(page).toHaveURL(/ca=ca-dia:\d+,ca-galaxy:\d+/)
+  await expect(page).toHaveURL(/ca=ca-dia(-nau)?:\d+,ca-neon-xanh:\d+/)
 })
 
 test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {
-  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-galaxy#nuoi-chung')
-  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-galaxy:\d+$/)
+  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-dia#nuoi-chung')
+  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-dia:\d+$/)
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   await expect(page.locator('#tm-chosen input').first()).toHaveValue('10')
 })
