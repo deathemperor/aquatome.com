@@ -32,8 +32,8 @@ A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings`
 each build by itself:
 
 - on every push to main that changes `apps/ios/` or `protocols/`
-- on Mondays at 09:00 Vietnam time, when main moved since the last upload (or that build is 60 days old: TestFlight
-  builds expire after 90)
+- on Mondays at 09:00 Vietnam time, when `apps/ios/`, `protocols/` or the workflow changed since the last upload (or
+  that build is 60 days old: TestFlight builds expire after 90)
 - by hand (Actions → testflight → Run workflow)
 
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret

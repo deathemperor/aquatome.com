@@ -7,7 +7,8 @@ on:
     branches: [main]
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/testflight.yml']
   schedule:
-    # Mondays 09:00 in Vietnam: uploads when main moved since the last upload (or that build nears TestFlight's 90 days).
+    # Mondays 09:00 in Vietnam: uploads when the app changed since the last upload (or that build nears TestFlight's 90
+    # days). Main itself moves every few hours with content, so the check compares the app's paths, not commits.
     - cron: '0 2 * * 1'
   workflow_dispatch:
   pull_request:
@@ -25,6 +26,9 @@ jobs:
     outputs:
       upload: ${{ steps.decide.outputs.upload }}
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - id: decide
         env:
           GH_TOKEN: ${{ github.token }}
@@ -40,8 +44,10 @@ jobs:
           done
           sha=$(echo "$last" | cut -d, -f2)
           days=$(( ($(date +%s) - $(date -d "$(echo "$last" | cut -d, -f3 | grep . || echo 1970-01-01T00:00:00Z)" +%s)) / 86400 ))
-          if [ "$sha" = "$GITHUB_SHA" ] && [ "$days" -lt 60 ]; then
-            echo "main is where it was at the upload $days days ago: nothing new"
+          # A failed fetch or diff uploads (a spare build is harmless; a missing one isn't).
+          if [ -n "$sha" ] && [ "$days" -lt 60 ] && git fetch -q --depth=1 origin "$sha" &&
+            git diff --quiet "$sha" "$GITHUB_SHA" -- apps/ios protocols .github/workflows/testflight.yml; then
+            echo "the app is unchanged since the upload $days days ago: nothing new"
             echo upload=no >> "$GITHUB_OUTPUT"
           else
             echo upload=yes >> "$GITHUB_OUTPUT"
@@ -61,6 +67,8 @@ jobs:
       DESTINATION: ${{ github.event_name == 'pull_request' && 'export' || 'upload' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: App Store Connect key
         env:
           P8: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
