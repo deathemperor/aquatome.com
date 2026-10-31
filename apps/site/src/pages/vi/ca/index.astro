@@ -12,7 +12,8 @@ import { i18n } from '../../../lib/i18n'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const index = c.species.map(s => toIndexItem(s))
+// Only what the filter reads (no gh, sizeCm): the index is a quarter of the page.
+const index = c.species.map(s => { const { gh, sizeCm, ...i } = toIndexItem(s); return i })
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
@@ -43,7 +44,8 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
       <button type="button" class="clear" id="species-clear">{t('Xóa lọc')}</button>
     </div>
   </div>
-  <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} />
+  {/* The first page as cards; every other species as a link the script makes a card of when it shows (its PAGE). */}
+  <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} full={24} />
   <p class="more"><button type="button" id="species-more" hidden></button></p>
   {/* Species no known figure rules out but missing one the filter asks about: after the sure matches, closed. */}
   <details class="unsure" id="species-unsure" hidden>
@@ -56,21 +58,24 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
 <script>
   import { filterSpecies, keepBreed, queryFromParams, unsureSpecies, type SpeciesIndexItem } from '../../../scripts/filter'
   import { ct } from '../../../scripts/ct'
+  import { buildCard } from '../../../scripts/species-card'
   const PAGE = 24
   const $ = (id: string) => document.getElementById(id)!
   const items: SpeciesIndexItem[] = JSON.parse($('species-index').textContent!)
+  const bySlug = new Map(items.map(i => [i.slug, i]))
   const form = $('species-filter') as HTMLFormElement
   const count = $('species-count')
   const chips = $('species-chips')
   const unsure = $('species-unsure') as HTMLDetailsElement
   const breeds = document.querySelector<HTMLElement>('section.breeds')
-  // Every card in reading order, taken once: each run deals them out again, so the order never drifts.
+  // Every species in reading order (a card, or a link until it first shows), taken once: each run deals them out
+  // again, so the order never drifts.
   const cards = [...document.querySelectorAll<HTMLElement>('[data-slug]')]
   const grid = cards[0]?.parentElement ?? document.createElement('div')
   // The unsure group's grid: a bare copy of the list's, so it carries the same (scoped) grid styles.
   const unsureGrid = grid.cloneNode(false) as HTMLElement
   unsure.querySelector('.more')!.before(unsureGrid)
-  // All cards stay in the HTML (crawlers follow every link); readers see each list a page of 24 at a time.
+  // Every species is in the HTML (crawlers follow every link); readers see each list a page of 24 at a time.
   const lists = [
     { grid, more: $('species-more') as HTMLButtonElement, keep: new Set<string>(), shown: PAGE },
     { grid: unsureGrid, more: $('unsure-more') as HTMLButtonElement, keep: new Set<string>(), shown: PAGE },
@@ -78,7 +83,17 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   const listOf = (el: HTMLElement) => lists.findIndex(l => l.keep.has(el.dataset.slug!))
   function render() {
     const n = lists.map(() => 0)
-    for (const el of cards) { const k = listOf(el); el.hidden = k < 0 || n[k]!++ >= lists[k]!.shown }
+    cards.forEach((el, j) => {
+      const k = listOf(el)
+      const show = k >= 0 && n[k]!++ < lists[k]!.shown
+      // A species the HTML only links to becomes a card the first time it shows.
+      if (show && el instanceof HTMLAnchorElement) {
+        const card = buildCard($('species-card') as HTMLTemplateElement, el, bySlug.get(el.dataset.slug!)!)
+        el.replaceWith(card)
+        el = cards[j] = card
+      }
+      el.hidden = !show
+    })
     for (const l of lists) {
       const left = l.keep.size - Math.min(l.shown, l.keep.size)
       l.more.hidden = left <= 0

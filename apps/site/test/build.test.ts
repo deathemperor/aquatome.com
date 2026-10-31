@@ -357,9 +357,11 @@ test('home leads with the tank form (to the species filter) and three first step
   expect(dom.querySelector('#fresh-h')).toBeNull() // "Mới trên AquaTome" moved off the home page
 })
 
-test('species list: every card in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
+test('species list: a page of cards and a card template in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
   const { dom, html } = page('/vi/ca/')
   expect(dom.querySelector('#species-more')).toBeTruthy()
+  // The script builds every species past the first page from this template (scripts/species-card.ts).
+  expect(dom.querySelector('template#species-card .sc .diff')).toBeTruthy()
   expect(html.indexOf('id="species-filter"')).toBeLessThan(html.indexOf('id="breeds-h"')) // the search comes before the breed cards
   expect(dom.querySelector('details#filter-box[open] form#species-filter')).toBeTruthy()
   expect(dom.querySelectorAll('select[name="difficultyMax"] option').map(o => o.text)).toEqual(['Bất kỳ', 'Dễ', 'Dễ và vừa'])

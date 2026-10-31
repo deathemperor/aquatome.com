@@ -6,21 +6,22 @@ import { fmt, isRange } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 import { i18n } from '../lib/i18n'
-interface Props { s: Localized<SpeciesEntity>; eager?: boolean }
-const { s, eager = false } = Astro.props
+/** `template`: every part, with stand-in figures and no picture, for the fish list's script to fill in (scripts/species-card.ts). */
+interface Props { s: Localized<SpeciesEntity>; eager?: boolean; template?: boolean }
+const { s, eager = false, template = false } = Astro.props
 // `t` below is the temperature range: the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const p = cleanPhoto(s.photos)
-const temp = resolveDataCard(s.dataCard.tempC ?? [])
-const ph = resolveDataCard(s.dataCard.ph ?? [])
-const diff = resolveDataCard(s.dataCard.difficulty ?? [])
+const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(s.dataCard.tempC ?? [])
+const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(s.dataCard.ph ?? [])
+const diff = template ? { value: 1 } : resolveDataCard(s.dataCard.difficulty ?? [])
 const t = temp && isRange(temp.value) ? temp.value : undefined
 const h = ph && isRange(ph.value) ? ph.value : undefined
 ---
 <article class="sc">
   <a href={`/vi/ca/${s.t.slug}/`}>
-    <div class="plate">{p && <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
+    <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p && <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
     <h3>{s.t.name}</h3>
     <p class="sci">{s.scientificName}</p>
   </a>
