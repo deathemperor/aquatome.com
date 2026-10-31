@@ -34,9 +34,12 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
 
 test('wide tables on a phone show that they scroll sideways', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
-  await page.goto('/vi/cong-cu/the-tich-be/')
-  const box = page.locator('.scroll').first()
-  const { wide, hint } = await box.evaluate(el => ({ wide: el.scrollWidth > el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
-  expect(wide, 'the ready-made tank table is wider than a phone').toBe(true)
-  expect(hint, 'a shadow at the edge that has more to see').toContain('gradient')
+  // A tool's table, and a comparison table in a guide's text.
+  for (const [path, sel] of [['/vi/cong-cu/the-tich-be/', '.scroll'], ['/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', '.prose table']]) {
+    await page.goto(path)
+    const box = page.locator(sel).first()
+    const { wide, hint } = await box.evaluate(el => ({ wide: el.scrollWidth > el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
+    expect(wide, `${path}: the table is wider than a phone`).toBe(true)
+    expect(hint, `${path}: a shadow at the edge that has more to see`).toContain('gradient')
+  }
 })
