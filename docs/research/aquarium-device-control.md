@@ -322,6 +322,10 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
     - `00 00` is off and `00 01` is on, confirmed twice.
     - `02 07` carries brightness and colour in 6 parameter bytes. These look like three pairs, e.g. `ff ff`, `7f 7f`, `80 80`, but the mapping to sliders is not pinned down yet.
   - The echo repeats bytes 0–19 with byte 1 set to `06`, then adds 6 bytes that differ in every copy.
+- **Control works from a Mac (2026-10-31).** The Mac replayed a recorded "off", then "on", by advertising the same 12-UUID list through CoreBluetooth (`CBPeripheralManager`). The owner saw the light switch off and back on.
+  - The light accepted old sequence numbers.
+  - It sent no echo for these repeats. Our guess is that it relays only messages it hasn't seen before.
+  - Still open: whether a message with a new sequence number or new settings is accepted. That would show there is no integrity check, so the app could build any command rather than only replaying recorded ones.
 - The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
 - What this means for the app:
   - A website can't control this light, because Web Bluetooth can't broadcast.
