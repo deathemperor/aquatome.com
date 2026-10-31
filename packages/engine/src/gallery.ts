@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { LlmError, type Llm } from './claude'
 import { contactSheet } from './video-images'
 import { shopIds } from './shops'
+import { authorText } from './wiki-author'
 
 /** A photo found for a species, before screening: `key` identifies it across runs (Commons title, iNaturalist photo id). */
 export type Candidate = Photo & { key: string }
@@ -51,7 +52,7 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
       const url = ii.thumburl.replace(/\?.*$/, '') // without Commons' utm tracking query
       out.push({
         key: p.title, url, thumb: thumbOf(url) ?? url, width: ii.thumbwidth, height: ii.thumbheight, licence,
-        author: text(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
+        author: authorText(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
       })
     }
   }
