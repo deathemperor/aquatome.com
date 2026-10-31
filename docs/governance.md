@@ -11,7 +11,7 @@ that would have caught it).
 | 1 | **Gate**: build tests + browser checks | broken pages, journeys that stop working, layout and translation slips | every PR (`ci.yml`), every deploy (`deploy.yml`, engine content too) | live |
 | 2 | **Production watch**: the same checks against aquatome.com | page-specific content problems, deploy surprises | after each deploy and nightly (`watch.yml`); a failure opens or updates an issue | live |
 | 3 | **AI page review**: Claude looks at phone and computer screenshots against a rubric | problems no rule describes ("the results are five screens down") | nightly on key pages + 6 a day (`watch.yml`); on PRs that change site code, as a comment | live |
-| 4 | **Fix loop**: an agent turns a recorded problem into a failing check, then a fix, as a draft PR | the backlog layers 2 and 3 record | for issues with the label | next |
+| 4 | **Fix loop**: an agent turns a recorded problem into a failing check, then a fix, as a draft PR | what layers 2 and 3 record | each new `site-check` issue; any issue labelled `autofix` (`fix.yml`) | live |
 
 ### 1. Gate (live)
 
@@ -64,6 +64,24 @@ that would have caught it).
 - Calibrated on the real bug: with the old `/vi/ca/?q=chach` code back, it reported "search results pushed below an
   unrelated section" as high, with the fix that shipped. On the fixed site, the 11 key pages had no high findings.
 - Its first run found 2 small problems on the Chihiros page (fixed with it) and 3 content notes.
+
+### 4. Fix loop (live)
+
+- Started by:
+  - `site-watch.mjs`, when it opens a `site-check` issue (up to 3 a run)
+  - the `autofix` label on any issue, a review note for example
+  - running `fix.yml` by hand with an issue number
+- `fix.yml`, step by step:
+  1. Checks out main without a stored token, and builds the fixture site.
+  2. Gives Claude (`FIX_MODEL`, default opus) the issue and `scripts/site-fix-prompt.md`. Claude must reproduce the
+     problem with a check that fails, fix the cause (the engine rule too, for content problems), never weaken a check,
+     and run the gate. It has no GitHub token, and the issue text is a report to verify, not instructions.
+  3. The workflow runs `pnpm test`, `pnpm typecheck` and `pnpm --filter site e2e` **itself**.
+  4. `scripts/site-fix-publish.mjs` acts on the result:
+     - all passed: a **draft PR** that fixes the issue, with CI started on it
+     - otherwise: a comment on the issue saying why, plus the `needs-person` label
+- **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
+  run closes the issue.
 
 ## Rules for every change (people and agents)
 

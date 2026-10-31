@@ -1,0 +1,62 @@
+name: fix
+# Layer 4 of docs/governance.md: one recorded problem (an issue) → Claude reproduces it as a failing check and fixes it →
+# this workflow runs every check itself → a draft PR that fixes the issue, with CI started on it. Merging stays a review.
+# Started by scripts/site-watch.mjs when it opens a site-check issue, by the "autofix" label, or by hand.
+on:
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Issue number'
+        required: true
+  issues:
+    types: [labeled]
+concurrency:
+  group: fix-${{ github.event.issue.number || inputs.issue }}
+  cancel-in-progress: false
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write # starts ci.yml on the fix branch (a PR opened by this workflow's token starts no workflow)
+jobs:
+  fix:
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      ISSUE: ${{ github.event.issue.number || inputs.issue }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false # the agent below must not find a token in .git/config
+      - uses: ./.github/actions/setup
+      - run: pnpm --filter site exec playwright install --with-deps chromium && npm install -g @anthropic-ai/claude-code
+      - name: issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$ISSUE" =~ ^[0-9]+$ ]] || { echo "not an issue number: $ISSUE"; exit 1; }
+          gh issue view "$ISSUE" -R "$GITHUB_REPOSITORY" --json number,title,body,labels \
+            --jq '"# #\(.number) \(.title)\n\nLabels: \([.labels[].name] | join(", "))\n\n\(.body)"' > ISSUE.md
+          pnpm test > /tmp/fixture-build.log 2>&1 || true # the agent starts from a built fixture site
+      - name: agent
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
+          claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
+            --setting-sources '' --strict-mcp-config --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+          node -e 'const r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"));const o=r.structured_output??{status:"needs-person",summary:"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          rm -f ISSUE.md
+      - name: verify
+        id: verify
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "changed=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+          pnpm test && pnpm typecheck && pnpm --filter site e2e && echo "ok=1" >> "$GITHUB_OUTPUT" || echo "ok=0" >> "$GITHUB_OUTPUT"
+      - name: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHANGED: ${{ steps.verify.outputs.changed }}
+          OK: ${{ steps.verify.outputs.ok }}
+        run: node scripts/site-fix-publish.mjs

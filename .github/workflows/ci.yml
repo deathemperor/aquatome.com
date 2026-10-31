@@ -1,6 +1,7 @@
 name: ci
 on:
   pull_request:
+  workflow_dispatch: # fix.yml starts it on its branches (their PRs, opened with the workflow token, start nothing)
   push:
     branches: [main]
     paths-ignore: ['content/**', 'sources/**', 'engine-state/**', 'docs/**']

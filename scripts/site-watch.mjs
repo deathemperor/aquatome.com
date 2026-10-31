@@ -37,7 +37,7 @@ function ensureLabel() {
   try { act('label', 'create', LABEL, '--color', 'B60205', '--description', 'A browser check failed on aquatome.com (scripts/site-watch.mjs)') } catch { /* exists */ }
 }
 /** Create the issue, or record the new failure on the open one (an edit, not a comment: no mail every night). */
-function failing(issues, { fp, path, title, details, runUrl }) {
+function failing(issues, { fp, path, title, details, runUrl, autofix = false }) {
   const seen = `**Last failed:** ${today()}, [run](${runUrl})`
   const open = issues.get(fp)
   if (open) {
@@ -47,7 +47,11 @@ function failing(issues, { fp, path, title, details, runUrl }) {
   const body = [marker(fp, path), `${seen}`, '', details, '', 'Closes by itself when the check passes again (docs/governance.md, layer 2). Fixing it: reproduce with the check, keep the check, fix the page.'].join('\n')
   const url = act('issue', 'create', '--title', title, '--label', LABEL, '--body', body).trim()
   console.log(`opened ${url}: ${title}`)
+  // Layer 4: hand a new page problem to fix.yml (a few per run; an issue opened with this token starts no workflow).
+  const n = url.match(/\/issues\/(\d+)$/)?.[1]
+  if (n && autofix && dispatched < 3) { act('workflow', 'run', 'fix', '-f', `issue=${n}`); dispatched++ }
 }
+let dispatched = 0
 function passing(issues, fp, runUrl, what) {
   const open = issues.get(fp)
   if (!open) return
@@ -118,7 +122,7 @@ if (cmd === 'prepare') {
     const path = /^(page|review) /.test(c.title) ? c.title.replace(/^(page|review) /, '').replace(/ @\w+$/, '') : undefined
     if (c.failed.length) {
       const details = [`**Check:** \`${c.key}\``, `**Fails on:** ${c.failed.join(', ')}${path ? ` · [open the page](https://aquatome.com${path})` : ''}`, '', '```', ...c.errors, '```'].join('\n')
-      failing(issues, { fp, path, title: `Site check failed: ${c.title.replace(/ @\w+$/, '')}`, details, runUrl })
+      failing(issues, { fp, path, title: `Site check failed: ${c.title.replace(/ @\w+$/, '')}`, details, runUrl, autofix: true })
     } else if (c.passed.length) passing(issues, fp, runUrl, 'Passed on ' + c.passed.join(' and '))
     if (c.notes.length) notes(c, runUrl)
   }
