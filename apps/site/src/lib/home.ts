@@ -1,4 +1,4 @@
-import { STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { POPULAR, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
 import type { Lang } from './i18n'
@@ -17,15 +17,28 @@ export const cleanPhoto = (photos: Photo[]) => photos.find(p => p.source !== 'gl
 export const richest = (lang: Lang) => (a: Localized<SpeciesEntity>, b: Localized<SpeciesEntity>) =>
   Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || b.sections.length - a.sections.length || a.t.name.localeCompare(b.t.name, lang)
 
+const clean = (s: Localized<SpeciesEntity>) => s.photos.some(p => p.source !== 'glaser')
+const ok = (s: Localized<SpeciesEntity>) => clean(s) && s.t.quality.indexable
+
 /** Well-known species with an unwatermarked photo, topped up with the richest other profiles. */
 export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
-  const clean = (s: Localized<SpeciesEntity>) => s.photos.some(p => p.source !== 'glaser')
-  const ok = (s: Localized<SpeciesEntity>) => clean(s) && s.t.quality.indexable
   const byId = new Map(c.species.map(s => [s.id, s]))
   // Staples need only a clean photo: readers look for them first, even while a translation is below the indexing bar.
   const staples = STAPLE_SPECIES.flatMap(id => { const s = byId.get(id); return s && clean(s) ? [s] : [] })
   const rest = c.species.filter(s => ok(s) && !staples.includes(s)).sort(richest(lang))
   return [...staples, ...rest].slice(0, n)
+}
+
+/** The reader's own country for each language: its native fish get a place on the home page. */
+const HOME_PLACE: Record<Lang, string> = { vi: 'vietnam', id: 'indonesia', th: 'thailand' }
+
+/** The language's country, its native fish with a clean photo and an indexable page, and how many its origin page lists. Well-known fish lead: the staples, then the popular list's, in its order. */
+export function nativeSpecies(lang: Lang, c: Content) {
+  const place = c.places.find(p => p.id === HOME_PLACE[lang])
+  const all = place ? c.species.filter(s => s.places.includes(place.id)) : []
+  const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
+  const rank = (s: Localized<SpeciesEntity>) => (known.includes(s.id) ? known.indexOf(s.id) : known.length)
+  return { place, species: all.filter(ok).sort((a, b) => rank(a) - rank(b) || richest(lang)(a, b)), count: all.length }
 }
 
 /** The full species list in reading order: the featured species first, then the best-documented. */
