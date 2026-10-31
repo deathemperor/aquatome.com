@@ -87,21 +87,22 @@ jobs:
             CURRENT_PROJECT_VERSION=${{ github.run_number }} CODE_SIGNING_ALLOWED=NO
           codesign --force --sign - --entitlements apps/ios/Config/AquaTome.entitlements --generate-entitlement-der \
             "$RUNNER_TEMP/AquaTome.xcarchive/Products/Applications/AquaTome.app"
-      - name: Sign and upload to TestFlight
+      # Signed for the App Store into a local .ipa first, every time: only a local export writes the summary the
+      # entitlement check reads (run 41221088161 uploaded, then found no summary).
+      - name: Sign
         run: |
           options="$RUNNER_TEMP/ExportOptions.plist"
           plutil -create xml1 "$options"
           plutil -insert method -string app-store-connect "$options"
-          plutil -insert destination -string "$DESTINATION" "$options"
+          plutil -insert destination -string export "$options"
           plutil -insert signingStyle -string automatic "$options"
           plutil -insert teamID -string "$TEAM_ID" "$options"
           plutil -insert manageAppVersionAndBuildNumber -bool NO "$options"
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/AquaTome.xcarchive" -exportOptionsPlist "$options" \
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
             -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
-          echo "Build ${{ github.run_number }}: $DESTINATION done" >> "$GITHUB_STEP_SUMMARY"
       # The signed app has every entitlement the project asks for (Sign in with Apple): an export that dropped one
-      # would ship an app whose sign-in fails.
+      # would ship an app whose sign-in fails. Checked before anything is uploaded.
       - name: Entitlements kept
         run: |
           python3 - "$RUNNER_TEMP/export/DistributionSummary.plist" apps/ios/Config/AquaTome.entitlements <<'EOF'
@@ -112,6 +113,17 @@ jobs:
           if missing: sys.exit(f'entitlements missing from the signed app: {missing}')
           print('entitlements kept:', ', '.join(wanted))
           EOF
+      # The same export, sent to App Store Connect (pull requests stop at the check above).
+      - name: Upload to TestFlight
+        if: env.DESTINATION == 'upload'
+        run: |
+          options="$RUNNER_TEMP/ExportOptions.plist"
+          plutil -replace destination -string upload "$options"
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/AquaTome.xcarchive" -exportOptionsPlist "$options" \
+            -exportPath "$RUNNER_TEMP/upload" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
+            -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
+      - name: Summary
+        run: echo "Build ${{ github.run_number }} ($DESTINATION) done" >> "$GITHUB_STEP_SUMMARY"
       # Apple processes an upload before testers get it, and refuses some only then (by email): wait for its answer.
       - name: Wait for App Store Connect
         env:
