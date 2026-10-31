@@ -77,7 +77,7 @@ fi
 if part photos; then
   # Photos the picker used to miss on pages with fewer than 3 (each source page re-read at most monthly).
   pnpm engine photos --limit 60 || log "photos: backfill failed"
-  # Nonn Panitvong's FishBase photos (used with permission) on species pages made since the last cycle.
+  # Nonn Panitvong's FishBase and iNaturalist photos (used with permission) on species pages made since the last cycle.
   pnpm engine fishbase-photos || log "fishbase-photos: failed"
   # Jan D. Bastmeijer's own photos (used with permission) on Cryptocoryne pages that have none of his yet.
   pnpm engine crypts-photos || log "crypts-photos: failed"
