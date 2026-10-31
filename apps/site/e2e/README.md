@@ -14,6 +14,7 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `invariants.spec.ts`: what every page must do, on one or two pages of each kind (`pages.ts` groups the build's pages
   by language, section and depth).
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
+- `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/vi/ca/?q=neon,/vi/` reviews other pages once.
 - `fixtures.ts`: blocks every request that isn't the site itself (ads, analytics, photo hosts), and collects script
   errors in `errors`.
 - `E2E_DIST`: another build folder to serve.

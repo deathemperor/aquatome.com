@@ -47,8 +47,8 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     </div>
     <p class="note">
       {t('Bể mới trồng (2–4 tuần đầu) bật ít giờ, đèn nhẹ để rêu khó bám. Bể bị rêu: giảm giờ và độ sáng trong 1–2 tuần, kèm thay nước, vệ sinh.')}
-      {hours && <a href={`/vi/huong-dan/${hours.t.slug}/`}>{t('Nên bật đèn mấy tiếng →')}</a>}
-      {algae && <a href={`/vi/huong-dan/${algae.t.slug}/`}>{t('Nhận biết và diệt rêu hại →')}</a>}
+      {hours && <>{' '}<a href={`/vi/huong-dan/${hours.t.slug}/`}>{t('Nên bật đèn mấy tiếng →')}</a></>}
+      {algae && <>{' '}<a href={`/vi/huong-dan/${algae.t.slug}/`}>{t('Nhận biết và diệt rêu hại →')}</a></>}
     </p>
     <form id="ch-sched" class="calc">
       <div class="row">
@@ -276,6 +276,8 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
   .calc :global(.row label) { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
   .calc :global(.row input) { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 7.5rem; }
+  /* A 12-hour clock (browsers set to English) shows AM/PM beside the time picker's icon: room for both. */
+  .calc :global(.row input[type=time]) { width: 9.5rem; }
   button { font: 500 1rem var(--f-body); padding: 0.55rem 1.1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
   button:disabled { opacity: 0.45; cursor: not-allowed; }
   button.quiet { background: none; color: var(--c-ink); border: 1px solid var(--c-rule); }

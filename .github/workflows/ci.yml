@@ -7,6 +7,9 @@ on:
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
+permissions:
+  contents: read
+  pull-requests: write # the AI review's comment
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,6 +22,26 @@ jobs:
       # Browser checks on the fixture build `pnpm test` left in apps/site/dist (apps/site/e2e/README.md).
       - run: pnpm --filter site exec playwright install --with-deps chromium
       - run: pnpm --filter site e2e
+      # The AI page review (docs/governance.md, layer 3) on PRs that change the site's code: advisory, as a PR comment.
+      # Only for this repository's branches (a fork's PR never sees the token).
+      - id: review
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if gh pr diff "$PR" --name-only | grep -q '^apps/site/src/'; then
+            npm install -g @anthropic-ai/claude-code
+            cd apps/site && E2E_REVIEW=1 E2E_JSON=review-results.json pnpm e2e --grep @review --project=phone || true
+            echo ran=1 >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.review.outputs.ran == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/site-watch.mjs pr-comment apps/site/review-results.json "$PR" "$RUN_URL"
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
