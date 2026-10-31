@@ -4,7 +4,7 @@ Written by `pnpm engine gallery` (2026-10-31). Targets: packages/engine/src/gall
 
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |
-| staple | 100 | 12 | 0 | 3 | 9 |
+| staple | 100 | 12 | 0 | 4 | 8 |
 | shop | 60 | 115 | 75 | 24 | 166 |
 | popular | 40 | 20 | 0 | 0 | 20 |
 | covered | 30 | 39 | 3 | 1 | 41 |

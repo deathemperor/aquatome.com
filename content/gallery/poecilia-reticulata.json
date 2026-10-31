@@ -2,14 +2,14 @@
   "id": "poecilia-reticulata",
   "photos": [
     {
-      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/296283368/large.jpeg",
-      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/296283368/medium.jpeg",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/296283368",
-      "caption": "Cá bảy màu đực sặc sỡ hồng xanh bơi trong hộp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813812/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813812/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813812",
+      "caption": "Cá bảy màu đực bơi trong bể nuôi",
       "best": true,
       "kind": "male"
     },
@@ -62,6 +62,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/296283368/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/296283368/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/296283368",
+      "caption": "Cá bảy màu đực sặc sỡ hồng xanh bơi trong hộp",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251261522/large.jpg",
       "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251261522/medium.jpg",
       "width": 1024,
@@ -110,14 +122,26 @@
       "kind": "habitat"
     },
     {
-      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232474459/large.jpg",
-      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/232474459/medium.jpg",
-      "width": 767,
-      "height": 1024,
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/355435593/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/355435593/medium.jpg",
+      "width": 1024,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Aryan K",
-      "sourceUrl": "https://www.inaturalist.org/photos/232474459",
-      "caption": "Nhóm cá bảy màu nhỏ bơi trong nước giữa rong",
+      "author": "Lee Ismail",
+      "sourceUrl": "https://www.inaturalist.org/photos/355435593",
+      "caption": "Cá bảy màu đực đuôi sẫm bơi trong ao có rêu ngoài tự nhiên",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813824/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813824/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813824",
+      "caption": "Cá bảy màu bơi cùng nhau trong bể nuôi",
       "best": true,
       "kind": "group"
     },
@@ -134,14 +158,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178149617/large.jpg",
-      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/178149617/medium.jpg",
-      "width": 1024,
-      "height": 563,
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232474459/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/232474459/medium.jpg",
+      "width": 767,
+      "height": 1024,
       "licence": "CC BY",
-      "author": "Celso Henrique Varela Rios",
-      "sourceUrl": "https://www.inaturalist.org/photos/178149617",
-      "caption": "Đàn cá bảy màu đực nhiều màu dưới đáy đá",
+      "author": "Aryan K",
+      "sourceUrl": "https://www.inaturalist.org/photos/232474459",
+      "caption": "Nhóm cá bảy màu nhỏ bơi trong nước giữa rong",
       "best": true,
       "kind": "group"
     },
@@ -156,6 +180,18 @@
       "caption": "Cá bảy màu đực đuôi đỏ trong suối nước nông",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178149617/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/178149617/medium.jpg",
+      "width": 1024,
+      "height": 563,
+      "licence": "CC BY",
+      "author": "Celso Henrique Varela Rios",
+      "sourceUrl": "https://www.inaturalist.org/photos/178149617",
+      "caption": "Đàn cá bảy màu đực nhiều màu dưới đáy đá",
+      "best": true,
+      "kind": "group"
     },
     {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61324482/large.jpeg",
@@ -928,6 +964,18 @@
       "kind": "female"
     },
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813846/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/340813846/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Rafael S. Marcondes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340813846",
+      "caption": "Nhóm cá bảy màu trong bể nuôi",
+      "best": false,
+      "kind": "group"
+    },
+    {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179011812/large.jpeg",
       "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179011812/medium.jpeg",
       "width": 768,
@@ -938,6 +986,18 @@
       "caption": "Ba cá bảy màu trong nước nông đáy cát",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330429036/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/330429036/medium.jpeg",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Diego Gómez Hoyos",
+      "sourceUrl": "https://www.inaturalist.org/photos/330429036",
+      "caption": "Cá bảy màu trên nền trắng, thân vàng sọc nâu",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/296283535/large.jpeg",
@@ -1036,7 +1096,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 465,
+  "seen": 485,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }
