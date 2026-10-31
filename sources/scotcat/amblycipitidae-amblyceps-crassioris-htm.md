@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amblycipitidae/amblyceps_crassioris.htm
 title: Amblyceps crassioris Balaji & Praveenraj, 2023
-fetchedAt: 2026-10-31T06:54:15.178Z
+fetchedAt: 2026-10-31T14:58:57.226Z
 hash: 9085bcda11ffefe8161f6c15493a86ff7a7cff6a50690c96da6f44fe056786d6
 ---
 

@@ -121,6 +121,10 @@ The layers above still check the result.
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
   shows the range they all accept.
+- **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
+  for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
+  otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
+  said 5 cm and pH 3,5–7,5 where its card said 3,5 cm and pH 4,6–6,2.
 
 ## Rules for every change (people and agents)
 
@@ -152,8 +156,9 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 | --- | --- | --- |
 | **Shared vectors**: device frames and replies, and saved-tank records and merges, against `protocols/*-vectors.json`, which the site's tests read too | the app and the site sending different bytes, a reply misread, tanks checked or merged differently | `swift test` in `apps/ios/AquaTomeKit` (job `kit`) |
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
-| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`) |
+| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: search the handbook (no accents, other names, one kind, a page opens, the Chihiros tool), add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a store from a newer app or one it can't read left alone, adding again after a failed save, find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+| **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU time and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `app`); on a PR, `--tightens-only` against main's budgets |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 
 Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
@@ -166,5 +171,8 @@ Rules (as for the site):
 2. **A new device behaviour seen on hardware goes into `FakeLight` and the vectors**, so the tests know it too.
 3. **Never weaken a check to get a green run.**
 4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
+5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
+   new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
+   old reason, or removed.
 
 Next: layer 3 reviews simulator screenshots against the site's rubric.

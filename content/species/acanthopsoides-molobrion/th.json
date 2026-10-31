@@ -1,10 +1,11 @@
 {
   "slug": "acanthopsoides-molobrion",
-  "name": "ปลารากกล้วยแคระ",
+  "name": "ปลารากกล้วยแคระ molobrion",
   "altNames": [
     "Dwarf Horse-faced Loach",
     "Dwarf Horseface Loach",
-    "รากกล้วยแคระ"
+    "รากกล้วยแคระ",
+    "ปลารากกล้วยแคระ"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>ขนาดโตเต็มที่: 50 มม. (SL)</li><li>ขนาดตู้ปลา: 60 × 30 ซม.</li><li>อุณหภูมิ: 20–24 °C</li><li>ค่า pH: 5.5–7.0</li><li>ความกระด้าง (GH): 1–10 dGH</li><li>ความยากในการเลี้ยง: ง่าย</li><li>นิสัย: รักสงบ ต้องเลี้ยงเป็นฝูง</li></ul>",
@@ -27,5 +28,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -34,12 +34,12 @@ test('shop list: the seed shop\'s items are mapped first; marketplaces are off l
   expect(JSON.parse(await readFile(join(root, 'engine-state/shop-lists/vi.json'), 'utf8'))).toMatchObject({ lang: 'vi', updatedAt: '2026-10-31' })
 })
 
-test('shop species: sure enough to rank by (0.6), list order, each once; new pages are fetched for them before the most-kept fish', async () => {
+test('shop species: sure enough to rank by (0.6), list order, each once; new pages are fetched for them, from 0.5, before the most-kept fish', async () => {
   const root = await site()
-  await list(root, 'vi', [item('Cánh buồm', 'Gymnocorymbus ternetzi', 0.9), item('Táo đỏ', 'Glossolepis incisus', 0.5), item('Neon vua', 'Paracheirodon axelrodi', 0.9), item('Neon vua short', 'Paracheirodon axelrodi', 0.9)])
+  await list(root, 'vi', [item('Cánh buồm', 'Gymnocorymbus ternetzi', 0.9), item('Táo đỏ', 'Glossolepis incisus', 0.5), item('Ốc táo', 'Pomacea diffusa', 0.4), item('Neon vua', 'Paracheirodon axelrodi', 0.9), item('Neon vua short', 'Paracheirodon axelrodi', 0.9)])
   await list(root, 'th', [item('ปลาหางนกยูง', 'Poecilia reticulata', 0.9)])
   expect(await shopIds(root, ['vi', 'th'])).toEqual(['gymnocorymbus-ternetzi', 'paracheirodon-axelrodi', 'poecilia-reticulata'])
-  expect((await popularFirst(root)).slice(0, 4)).toEqual(['Gymnocorymbus ternetzi', 'Paracheirodon axelrodi', 'Poecilia reticulata', 'Pterophyllum scalare'])
+  expect((await popularFirst(root)).slice(0, 5)).toEqual(['Gymnocorymbus ternetzi', 'Glossolepis incisus', 'Paracheirodon axelrodi', 'Poecilia reticulata', 'Pterophyllum scalare'])
 })
 
 test('translation order: the country\'s shop species come right after the staples, before the most-kept fish', async () => {

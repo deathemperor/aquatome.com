@@ -348,25 +348,32 @@
     "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T06:53:39.150Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+    "entityIds": [
+      "species/amblyceps-caecutiens"
+    ],
+    "updatedAt": "2026-10-31T14:54:52.051Z",
+    "hash": "dbc4445ba95c61fa8dfe2a5465610fb2806be1c8ba5039d15a8e62f8f7269f8d",
+    "processedHash": "dbc4445ba95c61fa8dfe2a5465610fb2806be1c8ba5039d15a8e62f8f7269f8d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T06:53:50.991Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+    "entityIds": [
+      "species/amblyceps-cerinum"
+    ],
+    "updatedAt": "2026-10-31T14:56:31.387Z",
+    "hash": "65c50c1a2795767f08cf83477399a5f1dafcbfd777d39d3507361db237fa780f",
+    "processedHash": "65c50c1a2795767f08cf83477399a5f1dafcbfd777d39d3507361db237fa780f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/amblyceps_crassioris.htm": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T06:54:03.482Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+    "updatedAt": "2026-10-31T14:58:45.824Z",
+    "hash": "9085bcda11ffefe8161f6c15493a86ff7a7cff6a50690c96da6f44fe056786d6",
+    "processedHash": "9085bcda11ffefe8161f6c15493a86ff7a7cff6a50690c96da6f44fe056786d6",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm": {
     "entityIds": [
@@ -478,6 +485,36 @@
     "hash": "3781a51336c44dedc049c77f1cb1258fdda191ddc7fd96902de4d6a188ff88ea",
     "processedHash": "3781a51336c44dedc049c77f1cb1258fdda191ddc7fd96902de4d6a188ff88ea",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm": {
+    "entityIds": [
+      "species/liobagrus-kingi"
+    ],
+    "updatedAt": "2026-10-31T15:00:14.901Z",
+    "hash": "aa37f38e30ec85e6c2744fe76a580a9392925f972ec5c5caaca05cada8b352b3",
+    "processedHash": "aa37f38e30ec85e6c2744fe76a580a9392925f972ec5c5caaca05cada8b352b3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm": {
+    "entityIds": [
+      "species/liobagrus-marginatoides"
+    ],
+    "updatedAt": "2026-10-31T15:02:27.381Z",
+    "hash": "882ab4874109fc83095c3fc122a5fac8736ee018908c21e02861da3196ed9f90",
+    "processedHash": "882ab4874109fc83095c3fc122a5fac8736ee018908c21e02861da3196ed9f90",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_marginatus.htm": {
+    "entityIds": [
+      "species/liobagrus-marginatus"
+    ],
+    "updatedAt": "2026-10-31T15:04:03.728Z",
+    "hash": "f35975f7fd1541681fdb2e9fcd6fd895580721240fc1c8c976d52e62315dfd9a",
+    "processedHash": "f35975f7fd1541681fdb2e9fcd6fd895580721240fc1c8c976d52e62315dfd9a",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D6D4B73584B15A8A6860D3E7 /* Chihiros in Frameworks */ = {isa = PBXBuildFile; productRef = A2DDA224B9ED12DAA9E354FB /* Chihiros */; };
 		1F08F722D3A9F6FC05B39415 /* ChihirosBLE in Frameworks */ = {isa = PBXBuildFile; productRef = AE7C91A6B567172C9EEFC53C /* ChihirosBLE */; };
+		5E1A0B7C3D2F4E6A8B9C0D1E /* Handbook in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2B1C8D4E3A5F7B9C0D1E2F /* Handbook */; };
+		7A3C2D9E5F4B6A8C0D1E2F3A /* Tanks in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4D3E0F6A5C7B9D1E2F3A4B /* Tanks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 			files = (
 				D6D4B73584B15A8A6860D3E7 /* Chihiros in Frameworks */,
 				1F08F722D3A9F6FC05B39415 /* ChihirosBLE in Frameworks */,
+				5E1A0B7C3D2F4E6A8B9C0D1E /* Handbook in Frameworks */,
+				7A3C2D9E5F4B6A8C0D1E2F3A /* Tanks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +113,8 @@
 			packageProductDependencies = (
 				A2DDA224B9ED12DAA9E354FB /* Chihiros */,
 				AE7C91A6B567172C9EEFC53C /* ChihirosBLE */,
+				6F2B1C8D4E3A5F7B9C0D1E2F /* Handbook */,
+				8B4D3E0F6A5C7B9D1E2F3A4B /* Tanks */,
 			);
 			productName = AquaTome;
 			productReference = 81918909E83595C8F4212CCC /* AquaTome.app */;
@@ -415,6 +421,14 @@
 		AE7C91A6B567172C9EEFC53C /* ChihirosBLE */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ChihirosBLE;
+		};
+		6F2B1C8D4E3A5F7B9C0D1E2F /* Handbook */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Handbook;
+		};
+		8B4D3E0F6A5C7B9D1E2F3A4B /* Tanks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tanks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

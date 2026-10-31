@@ -3,6 +3,7 @@ import { appleRevoker, type RevokeApple } from './apple'
 import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, type Lang, type SendMail } from './email'
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
 import { cloudflareMailer, type EmailBinding } from './mailer'
+import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } from './passkey'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
@@ -30,6 +31,10 @@ export type AccountsEnv = {
   APPLE_SIGNIN_KEY?: string
   APPLE_SIGNIN_KEY_ID?: string
   APPLE_TEAM_ID?: string
+  /** Passkeys (worker/accounts/passkey.ts): "on" to offer them. */
+  PASSKEYS?: string
+  /** This site's host: a passkey's relying party, answered only on it. */
+  CANONICAL_HOST?: string
 }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail; revokeApple?: RevokeApple }
@@ -64,9 +69,13 @@ function providers(env: Live, deps: AccountDeps) {
     google: g ? { clientId: g } : null,
     apple: a ? { clientId: a } : null,
     email: Boolean(deps.sendMail && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY),
-    passkey: false,
+    passkey: env.PASSKEYS === 'on',
   }
 }
+
+/** Passkeys' relying party: this site's own host and origin, when they are on and the request came to it. */
+const rpOf = (env: Live, url: URL): Rp | undefined =>
+  env.PASSKEYS === 'on' && (!env.CANONICAL_HOST || url.hostname === env.CANONICAL_HOST) ? { id: url.hostname, origin: url.origin } : undefined
 
 async function userView(db: D1Database, userId: string) {
   const u = await db.prepare(`SELECT created_at FROM users WHERE id = ?`).bind(userId).first<{ created_at: string }>()
@@ -150,7 +159,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     if (!body) return fail('bad_request', 400)
     const client: Client = body.client === 'app' ? 'app' : 'web'
     // A browser sign-in sets a cookie: it must come from this site's pages.
-    const signsIn = path === '/api/v1/auth/google' || path === '/api/v1/auth/apple' || path === '/api/v1/auth/email/verify'
+    const signsIn = path === '/api/v1/auth/google' || path === '/api/v1/auth/apple' || path === '/api/v1/auth/email/verify' || path === '/api/v1/auth/passkey'
     if (signsIn && client === 'web' && !sameSiteOk(req, true)) return fail('cross_site', 403)
     if (!(await allow(db, env.ACCOUNT_HMAC_KEY, `auth|${ipOf(req)}`, 60, HOUR_MS / 6, now))) return fail('rate_limited', 429)
 
@@ -163,6 +172,15 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       const nonce = randomToken(16)
       await db.prepare(`INSERT INTO auth_challenges (id, kind, value, expires_at) VALUES (?, 'nonce', '', ?)`).bind(await sha256(nonce), new Date(now.getTime() + HOUR_MS / 6).toISOString()).run()
       return json({ nonce })
+    }
+
+    // A passkey signs in on its own once it was added to an account (POST /api/v1/account/passkey).
+    if (path === '/api/v1/auth/passkey/options' || path === '/api/v1/auth/passkey') {
+      const rp = rpOf(env, url)
+      if (!rp) return fail('provider_off', 503)
+      if (path === '/api/v1/auth/passkey/options') return json(await loginOptions(db, rp, now))
+      const userId = await checkPasskey(db, rp, body.response, now)
+      return userId ? done(env, userId, client, undefined, session, now) : fail('bad_passkey', 401)
     }
 
     // `link: true`: add this sign-in method to the account signed in here, only when asked for (a shared computer).
@@ -227,6 +245,20 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   if (!session) return fail('signed_out', 401)
 
   if (route === 'GET /api/v1/tanks') return json({ store: await loadStore(db, session.userId), serverTime: now.toISOString() })
+
+  // Adding a passkey to the account signed in: its options (a challenge for this account), then the new passkey.
+  if (route === 'POST /api/v1/account/passkey/options' || route === 'POST /api/v1/account/passkey') {
+    const rp = rpOf(env, url)
+    if (!rp) return fail('provider_off', 503)
+    if (!(await allow(db, env.ACCOUNT_HMAC_KEY, `passkey-add|${session.userId}`, 20, HOUR_MS, now))) return fail('rate_limited', 429)
+    if (route === 'POST /api/v1/account/passkey/options') return json(await registrationOptions(db, rp, session.userId, now))
+    const body = await bodyOf(req, 16_384)
+    if (body === 'too_large') return fail('too_large', 413)
+    if (!body) return fail('bad_request', 400)
+    const added = await addPasskey(db, rp, session.userId, body.response, now)
+    if (added !== 'ok') return added === 'in_use' ? fail('credential_in_use', 409) : fail('bad_passkey', 400)
+    return json({ user: await userView(db, session.userId) })
+  }
   if (route === 'POST /api/v1/tanks/sync') {
     if (!(await allow(db, env.ACCOUNT_HMAC_KEY, `sync|${session.userId}`, 600, HOUR_MS, now))) return fail('rate_limited', 429)
     const body = await bodyOf(req, 4_000_000)

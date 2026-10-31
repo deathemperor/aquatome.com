@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
+import { nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { shopIds } from './shops'
@@ -68,6 +68,16 @@ const SCHEMA = {
 type Written = { name: string; altNames: string[]; nameConfidence: 'high' | 'medium' | 'low'; parts: { id: string; text: string }[] }
 const REVIEW_SCHEMA = { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
 
+/**
+ * A page's name in the language: an owner-fixed name stays; else the translator's, unless another page in the language
+ * already has it (two fish under one name can't be told apart, nor picked by name in the tank-mates checker), then the
+ * page's name so far, then its scientific name. `taken`: the other pages' names as nameKey keys.
+ */
+export function localName(proposed: string, prev: { name: string; nameFixed?: boolean } | null, taken: Set<string>, scientificName: string): string {
+  if (prev?.nameFixed) return prev.name
+  return [proposed, prev?.name ?? ''].map(n => n.trim()).find(n => n && !taken.has(nameKey(n))) ?? scientificName
+}
+
 /** One page's English parts → the language's text and names; HTML stays HTML, plain stays plain, every part present. */
 async function write(llm: Llm, lang: TargetLang, species: string, parts: { id: string; en: string }[], notes: string[], model?: string) {
   const prompt = [
@@ -106,10 +116,12 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
   const stateFile = join(root, `engine-state/localize-${lang}${kind === 'plants' ? '-plants' : ''}.json`)
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { at: string; from: string; name: string; confidence: string; score: number; notes?: string[] }>
   const taken = new Set<string>()
-  // Addresses are per section: species and breeds share /ca/, plants have /cay/.
+  const names = new Map<string, string>() // `kind/id` → nameKey of its name in this language
+  // Addresses are per section: species and breeds share /ca/, plants have /cay/. Names are kept apart the same way.
   for (const k of kind === 'plants' ? ['plants'] : ['species', 'breeds']) for (const id of await readdir(join(root, 'content', k)).catch(() => [] as string[])) {
-    const t = JSON.parse(await readFile(join(root, 'content', k, id, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+    const t = JSON.parse(await readFile(join(root, 'content', k, id, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string; name?: string }
     if (t.slug) taken.add(t.slug) // a page's own address in here is harmless: a page with a file keeps its address
+    if (t.name) names.set(`${k}/${id}`, nameKey(t.name))
   }
   // Only text whose source allows translation (its permission scope says so) is translated.
   const sourceInfo = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8')) as Record<string, { permission?: { scope: string[] } }>
@@ -145,19 +157,23 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
         const r2 = await review(llm, lang, parts, again.parts)
         if (r2.score > r.score) { w = again; r = r2 }
       }
-      const name = w.name.trim()
       // A page keeps its address once made (a redo never moves it); Thai script has no Latin slug, so Thai pages are
       // addressed by the scientific name, and so is the second of two pages with one name.
-      const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
+      const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; altNames: string[]; nameFixed?: boolean } | null
+      const name = localName(w.name, prev, new Set([...names].filter(([k]) => k !== `${kind}/${id}`).map(([, n]) => n)), e.scientificName)
       const named = lang !== 'th' && slugify(name) ? pickSlug(name, '', new Set()) : ''
       const slug = prev?.slug ?? (named && !taken.has(named) ? named : pickSlug(e.scientificName, lang, taken))
       taken.add(slug)
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
+      // The translator's name, when another page has it, stays findable as another name; an owner-fixed page keeps its own.
+      const fresh = [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5)
       const t = TranslationSchema.parse({
-        slug, name, altNames: [...new Set(w.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5),
+        slug, name, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...fresh])].filter(n => n !== name),
         sections: Object.fromEntries(parts.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])),
         quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) },
+        ...(prev?.nameFixed ? { nameFixed: true } : {}),
       })
+      names.set(`${kind}/${id}`, nameKey(name))
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
       state[id] = { at: (o.now?.() ?? new Date()).toISOString().slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes }
       await save() // after every page: a stopped batch doesn't redo what it finished

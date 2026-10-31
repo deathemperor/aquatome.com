@@ -1,6 +1,22 @@
 {
   "sourceLanguage": "vi",
   "strings": {
+    "%@ lít": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ liter"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ลิตร"
+          }
+        }
+      }
+    },
     "%@–%@ · %lld%% · sáng dần %lld phút": {
       "localizations": {
         "id": {
@@ -29,6 +45,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$lld ชั่วโมง, %2$lld%%"
+          }
+        }
+      }
+    },
+    "%lld trang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld halaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld หน้า"
+          }
+        }
+      }
+    },
+    "%lld đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ %lld ดวง"
           }
         }
       }
@@ -113,6 +161,22 @@
         }
       }
     },
+    "Bể của tôi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium saya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ของฉัน"
+          }
+        }
+      }
+    },
     "Bể mới trồng": {
       "localizations": {
         "id": {
@@ -125,6 +189,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ไม้น้ำเพิ่งปลูก"
+          }
+        }
+      }
+    },
+    "Bể này đã bị xóa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium ini sudah dihapus."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้นี้ถูกลบแล้ว"
           }
         }
       }
@@ -161,6 +241,70 @@
         }
       }
     },
+    "Cao": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tinggi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สูง"
+          }
+        }
+      }
+    },
+    "Chưa chọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dipilih"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้เลือก"
+          }
+        }
+      }
+    },
+    "Chưa có bể nào": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีตู้ปลา"
+          }
+        }
+      }
+    },
+    "Chưa có kích thước.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada ukuran."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีขนาด"
+          }
+        }
+      }
+    },
     "Chưa có lịch": {
       "localizations": {
         "id": {
@@ -173,6 +317,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่มีตาราง"
+          }
+        }
+      }
+    },
+    "Chưa lưu lịch nào cho đèn này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada jadwal tersimpan untuk lampu ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้บันทึกตารางเวลาสำหรับไฟนี้"
+          }
+        }
+      }
+    },
+    "Chưa lưu được thay đổi. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perubahan belum tersimpan. Coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังบันทึกการเปลี่ยนแปลงไม่สำเร็จ ลองอีกครั้ง"
           }
         }
       }
@@ -225,6 +401,102 @@
         }
       }
     },
+    "Các bể lưu trên máy này, không cần tài khoản.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium tersimpan di perangkat ini, tanpa perlu akun."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลาบันทึกไว้ในเครื่องนี้ ไม่ต้องมีบัญชี"
+          }
+        }
+      }
+    },
+    "Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium di perangkat ini disimpan oleh versi aplikasi yang lebih baru. Perbarui AquaTome untuk melihat dan mengubahnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลาในเครื่องนี้บันทึกด้วยแอปเวอร์ชันที่ใหม่กว่า อัปเดต AquaTome เพื่อดูและแก้ไข"
+          }
+        }
+      }
+    },
+    "Cát": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทราย"
+          }
+        }
+      }
+    },
+    "Cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Công cụ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครื่องมือ"
+          }
+        }
+      }
+    },
+    "Dài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยาว"
+          }
+        }
+      }
+    },
     "Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.": {
       "localizations": {
         "id": {
@@ -237,6 +509,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เฟิร์มแวร์ของโคมไฟนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดตเฟิร์มแวร์ด้วยแอป My Chihiros"
+          }
+        }
+      }
+    },
+    "Ghi chú": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Catatan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมายเหตุ"
           }
         }
       }
@@ -317,6 +605,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาปิดต้องอยู่หลังเวลาเปิด ภายในวันเดียวกัน"
+          }
+        }
+      }
+    },
+    "Hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คู่มือ"
           }
         }
       }
@@ -433,6 +737,70 @@
         }
       }
     },
+    "Không trải nền": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanpa substrat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ปูพื้น"
+          }
+        }
+      }
+    },
+    "Không tải được cẩm nang. Kiểm tra kết nối mạng rồi kéo xuống để thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panduan tidak dapat dimuat. Periksa koneksi internet, lalu tarik ke bawah untuk mencoba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không tải được trang. Kiểm tra kết nối mạng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuat. Periksa koneksi internet."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต"
+          }
+        }
+      }
+    },
+    "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium yang tersimpan di perangkat ini tidak dapat dibaca. Datanya tetap utuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านข้อมูลตู้ปลาที่บันทึกไว้ในเครื่องนี้ไม่ได้ ข้อมูลยังอยู่ครบ"
+          }
+        }
+      }
+    },
     "Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.": {
       "localizations": {
         "id": {
@@ -445,6 +813,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลากเพื่อเปลี่ยนความสว่างทันที โคมไฟจะเปลี่ยนเป็นโหมดปรับเองและไม่ทำตามตารางเวลา จนกว่าจะบันทึกตารางใหม่"
+          }
+        }
+      }
+    },
+    "Kích thước lòng bể (cm)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukuran dalam akuarium (cm)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขนาดภายในตู้ (cm)"
           }
         }
       }
@@ -465,6 +849,54 @@
         }
       }
     },
+    "Loài cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์ปลา"
+          }
+        }
+      }
+    },
+    "Loại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jenis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ประเภท"
+          }
+        }
+      }
+    },
+    "Lưu bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกตู้"
+          }
+        }
+      }
+    },
     "Lịch": {
       "localizations": {
         "id": {
@@ -477,6 +909,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตาราง"
+          }
+        }
+      }
+    },
+    "Lịch thay nước, phân bón, CO₂…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jadwal ganti air, pupuk, CO₂…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตารางเปลี่ยนน้ำ ปุ๋ย CO₂…"
           }
         }
       }
@@ -529,6 +977,22 @@
         }
       }
     },
+    "Mở trong trình duyệt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka di browser"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดในเบราว์เซอร์"
+          }
+        }
+      }
+    },
     "Ngắt kết nối": {
       "localizations": {
         "id": {
@@ -541,6 +1005,86 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตัดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "Nhập đủ dài, rộng, cao (từ 1 đến 1.000 cm), hoặc để trống cả ba.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isi panjang, lebar, dan tinggi (1–1.000 cm), atau kosongkan ketiganya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรอกความยาว ความกว้าง และความสูงให้ครบ (1–1,000 cm) หรือเว้นว่างทั้งสามช่อง"
+          }
+        }
+      }
+    },
+    "Nền": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Substrat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วัสดุปูพื้น"
+          }
+        }
+      }
+    },
+    "Nền khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Substrat lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วัสดุปูพื้นอื่น"
+          }
+        }
+      }
+    },
+    "Phân nền (aqua soil)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aqua soil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดินปลูกไม้น้ำ (aqua soil)"
+          }
+        }
+      }
+    },
+    "Rộng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lebar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กว้าง"
           }
         }
       }
@@ -593,6 +1137,118 @@
         }
       }
     },
+    "Sỏi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kerikil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรวด"
+          }
+        }
+      }
+    },
+    "Sửa": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แก้ไข"
+          }
+        }
+      }
+    },
+    "Thuật ngữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Istilah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำศัพท์"
+          }
+        }
+      }
+    },
+    "Thêm bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มตู้"
+          }
+        }
+      }
+    },
+    "Thêm bể đầu tiên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah akuarium pertama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มตู้แรก"
+          }
+        }
+      }
+    },
+    "Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan akuarium pertama untuk mencatat ukuran, substrat, dan catatan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มตู้แรกเพื่อบันทึกขนาด วัสดุปูพื้น และบันทึก"
+          }
+        }
+      }
+    },
+    "Thông tin bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ข้อมูลตู้"
+          }
+        }
+      }
+    },
     "Trên 8 tiếng dễ lên rêu.": {
       "localizations": {
         "id": {
@@ -625,6 +1281,54 @@
         }
       }
     },
+    "Tên bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อตู้"
+          }
+        }
+      }
+    },
+    "Tìm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหา"
+          }
+        }
+      }
+    },
+    "Tìm loài cá, cây, hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari ikan, tanaman, panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหาชนิดปลา ไม้น้ำ คู่มือ"
+          }
+        }
+      }
+    },
     "Tìm đèn": {
       "localizations": {
         "id": {
@@ -641,6 +1345,38 @@
         }
       }
     },
+    "Tải bản sao (JSON)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh salinan (JSON)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดสำเนา (JSON)"
+          }
+        }
+      }
+    },
+    "Tất cả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทั้งหมด"
+          }
+        }
+      }
+    },
     "Tắt lúc": {
       "localizations": {
         "id": {
@@ -653,6 +1389,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปิดเวลา"
+          }
+        }
+      }
+    },
+    "Ví dụ: Bể 60 phòng khách": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contoh: Akuarium 60 ruang tamu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เช่น ตู้ 60 ห้องนั่งเล่น"
           }
         }
       }
@@ -689,6 +1441,70 @@
         }
       }
     },
+    "Xóa": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบ"
+          }
+        }
+      }
+    },
+    "Xóa bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบตู้"
+          }
+        }
+      }
+    },
+    "Xóa bể “%@” cùng %lld đèn đã lưu trên bể?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akuarium “%1$@” beserta %2$lld lampu yang tersimpan di dalamnya?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบตู้ “%1$@” พร้อมไฟ %2$lld ดวงที่บันทึกไว้ในตู้นี้หรือไม่"
+          }
+        }
+      }
+    },
+    "Xóa bể “%@”?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akuarium “%@”?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบตู้ “%@” หรือไม่"
+          }
+        }
+      }
+    },
     "chưa đặt": {
       "localizations": {
         "id": {
@@ -705,6 +1521,22 @@
         }
       }
     },
+    "sáng dần %lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "terang bertahap %lld menit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่อยๆ สว่างขึ้น %lld นาที"
+          }
+        }
+      }
+    },
     "Đang chạy trên đèn": {
       "localizations": {
         "id": {
@@ -717,6 +1549,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ที่โคมไฟใช้อยู่"
+          }
+        }
+      }
+    },
+    "Đang dùng bản đã lưu trên máy (%lld trang).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memakai salinan yang tersimpan di ponsel (%lld halaman)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังใช้สำเนาที่บันทึกไว้ในเครื่อง (%lld หน้า)"
           }
         }
       }
@@ -749,6 +1597,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังค้นหาโคมไฟ…"
+          }
+        }
+      }
+    },
+    "Đang xem bản đã lưu (ngoại tuyến).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melihat salinan tersimpan (offline)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังดูสำเนาที่บันทึกไว้ (ออฟไลน์)"
+          }
+        }
+      }
+    },
+    "Đá nham thạch": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batu lava"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หินลาวา"
           }
         }
       }
@@ -813,6 +1693,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อ %1$@ (%2$@) แล้ว firmware %3$lld: เวอร์ชันนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดต firmware ด้วยแอป My Chihiros"
+          }
+        }
+      }
+    },
+    "Đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ"
           }
         }
       }

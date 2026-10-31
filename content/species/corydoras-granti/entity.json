@@ -1,0 +1,159 @@
+{
+  "id": "corydoras-granti",
+  "scientificName": "Corydoras granti",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "lNumber": "C020",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Hoplisoma granti (Tencatt, Lima &amp; Britto, 2019). Size: 55 mm (2.2 in) SL. Type locality: Igarapé Ya-Mirim (= Iazinho), a tributary of the Rio Cauaburi, itself a tributary of the Rio Negro, São Gabriel da Cachoeira, Amazonas, Brazil. Named in honor of Steven Grant, who analyzed the differences among the arc-striped corys and recognized C020 as a distinct species. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>The colour pattern forms an even arch of dark stripe from the snout to the lower back. Sometimes the cleithrum has an iridescent gold or bronze colour. Corydoras granti is very similar to Corydoras arcuatus and is often sold by pet stores under the name C. arcuatus. C. granti has a shorter, more rounded snout, whereas C. arcuatus has a longer straight snout. The posterior margin of the pectoral fin spine of C. granti has serrations pointing toward the spine tip, whereas on C. arcuatus they point toward the origin of the spine (toward the body). Fully grown, C. granti is a smaller species than C. arcuatus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Widespread throughout the Upper Amazon region.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Ideally, and close to mandatory, the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel or sharp sand, which increases the risk of damage to the fish's barbels when it digs. The substrate should be bordered with driftwood and aquatic plants, leaving an open area to search for food and swim. Shade provided by overhanging rockwork, arching bogwood, and tall or floating plants is all that is required to settle a group of these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworms, white worms, grindal worms (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Females are larger and fuller bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Has been bred in captivity. There is only a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Specimens of C. granti are often sold under the name C. arcuatus. The name C. granti was first published in a description of a Corydoras similar to C. nattereri (Grant, S. 1996, Northern Area Catfish Group). Grant later described the usage as tongue-in-cheek (\"jokey\"), so it was presumably not evaluated as a nomen nudum.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=12",
+      "html": "<p>Journal of Fish Biology v. 95 (no. 2), pp [9], Figs. 3b, 4d, 5b, 9-11, 13, 15a. Grant, S. 2014. Journal of the Catfish Study Group (UK), 15(4), 24-29.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/7b331451e6563e46.webp",
+      "width": 960,
+      "height": 539,
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplisoma_granti.jpg",
+      "caption": "Hoplisoma granti (Tencatt, Lima & Britto, 2019). Formerly named Corydoras granti, which is now considered a taxonomical synonym and shouldn't be used.",
+      "thumb": "https://media.aquatome.com/commons/7b331451e6563e46-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/795f9633c377626d.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hopgrant.jpg",
+      "caption": "Hoplisoma granti",
+      "thumb": "https://media.aquatome.com/commons/795f9633c377626d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/393f084185c1d97e.webp",
+      "width": 850,
+      "height": 357,
+      "licence": "CC BY 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hopgrant_clipped.png",
+      "caption": "Hoplisoma granti",
+      "thumb": "https://media.aquatome.com/commons/393f084185c1d97e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9ec271e286ea1936.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:C_granti.jpg",
+      "caption": "Corydoras granti",
+      "thumb": "https://media.aquatome.com/commons/9ec271e286ea1936-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùy sinh bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

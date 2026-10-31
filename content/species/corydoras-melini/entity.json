@@ -1,0 +1,107 @@
+{
+  "id": "corydoras-melini",
+  "scientificName": "Corydoras melini",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "colombia",
+    "meta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<ul><li>Scientific name: Hoplisoma melini (Lönnberg &amp; Rendahl, 1930)</li><li>Common name: False Bandit Cory</li><li>Size: 50 mm (2 in) SL</li><li>Temperature: 22.0–26.0°C (71.6–78.8°F)</li><li>Breeding: has been bred in the aquarium</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>South America: Upper Negro and Meta River basins. Type locality: Luaretê (0°35'N, 69°13'W) at the confluence of Rio Papurí and Rio Uaupés, Rio Negro system, Amazonas, Brazil.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>Ideally, and close to mandatory, the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel or sharp sand, as this increases the risk of damage to the fish's barbels when it digs. The substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, and tall or floating plants is all that is required to settle a group of these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>Readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>Has been bred in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=118",
+      "html": "<p>Arkiv för Zoologi v. 22 A (no. 5), pp 1, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

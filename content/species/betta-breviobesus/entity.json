@@ -1,0 +1,114 @@
+{
+  "id": "betta-breviobesus",
+  "scientificName": "Betta breviobesus",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 5.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Listed in the IBC as part of the Betta picta complex. IUCN Red List: Unknown. The body is grayish brown with blue iridescence on the fins. The male also has iridescent blue cheeks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Found in Kalimantan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Still pools and small streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>A pair per 19 litres (5 gallons) is recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<ul><li>TDS: 60–200 (kept in soft water with low TDS, but tolerant of a variety of water conditions)</li><li>pH: 5.0–7.0</li><li>Temperature: 24–29°C (75–85°F); much better coloration at warmer temperatures above 26°C (78°F)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Fairly peaceful and can be kept in groups. Males show off and flare at each other from time to time, but no real harm is done.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-taeniata-wild-type-bettas",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể nuôi betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho betta"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

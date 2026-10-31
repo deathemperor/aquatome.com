@@ -1,3 +1,4 @@
+import { nameKey } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { ensurePlaces, mergePlant, mergeSpecies, writeGuide } from '../src/merge'
 import type { ProcessedPage } from '../src/process'
@@ -87,9 +88,25 @@ test('an owner-fixed name and its redirects survive every source; a name Serious
 
 test("Seriously Fish's name doesn't replace one when another fish already has it (#228)", () => {
   const a = mergeSpecies({}, page({ viName: 'Cá neon vua Super Red' }), ctx('glaser'))
-  const sf = mergeSpecies(a, page(), { ...ctx('seriouslyfish'), takenNames: new Set(['cá neon vua']) })
+  const sf = mergeSpecies(a, page(), { ...ctx('seriouslyfish'), takenNames: new Set([nameKey('cá neon vua')]) })
   expect(sf.vi.name).toBe('Cá neon vua Super Red')
   expect(sf.vi.altNames).not.toContain('Cá neon vua Super Red')
+})
+
+test("a new species doesn't start under another fish's name, even written another way: its scientific name, the source's name kept as another name", () => {
+  const r = mergeSpecies({}, page({ viName: 'Cá Neon-Vua' }), { ...ctx('glaser'), takenNames: new Set([nameKey('Cá neon vua')]) })
+  expect(r.vi.name).toBe('Cá Paracheirodon axelrodi')
+  expect(r.vi.slug).toBe('ca-paracheirodon-axelrodi')
+  expect(r.vi.altNames).toContain('Cá Neon-Vua')
+  // A free name is taken as it is.
+  expect(mergeSpecies({}, page(), { ...ctx('glaser'), takenNames: new Set([nameKey('Cá neon xanh')]) }).vi).toMatchObject({ name: 'Cá neon vua', slug: 'ca-neon-vua' })
+})
+
+test("a new plant doesn't start under another plant's name", () => {
+  const plant = { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'] } as const
+  const p = mergePlant({}, page({ kind: 'plant', scientificName: 'Anubias barteri var. nana', viName: 'Anubias nana', plant: { ...plant, placement: ['epiphyte'] } }), { source: 'tropica', url: 'https://t/p', now: '2026-10-28', takenSlugs: new Set(), takenNames: new Set([nameKey('Anubias nana')]) })
+  expect(p?.vi.name).toBe('Anubias barteri var. nana')
+  expect(p?.vi.altNames).toContain('Anubias nana')
 })
 
 test('a source page giving one part twice (two quick-facts blocks): one section with both texts, in English and in Vietnamese', () => {
@@ -101,4 +118,23 @@ test('a source page giving one part twice (two quick-facts blocks): one section 
   expect(r.entity.sections.filter(s => s.key === 'quickFacts').map(s => s.html)).toEqual(['<p>Wild caught.</p>\n<p>Max 3 cm.</p>'])
   expect(r.vi.sections['quickFacts:glaser']).toBe('<p>Cá bắt tự nhiên.</p>\n<p>Tối đa 3 cm.</p>')
   expect(r.vi.sections['diet:glaser']).toBe('<p>Giun.</p>')
+})
+
+// A species page shows each figure once, in its data card (design critique 2026-10-31: Cá chạch bùn listed "Họ: Cobitidae"
+// twice, and its quick facts repeated sizes the card showed otherwise). Quick facts keep what the card doesn't carry.
+test('quick facts: the figures this page gives the card, and the family, are dropped in English and Vietnamese; a list of nothing else goes', () => {
+  const r = mergeSpecies({}, page({ sections: [
+    { key: 'quickFacts', en: '<ul><li>Family: Cobitidae</li><li>Temperature: 23–29°C</li><li>Adult size: 3.5 cm</li><li>Life expectancy: 4 years</li></ul>', vi: '<ul><li>Họ: Cobitidae</li><li>Nhiệt độ: 23–29°C</li><li>Kích thước: 3,5 cm</li><li>Tuổi thọ: 4 năm</li></ul>' },
+  ] }), ctx('glaser'))
+  expect(r.entity.sections.find(s => s.key === 'quickFacts')?.html).toBe('<ul><li>Life expectancy: 4 years</li></ul>')
+  expect(r.vi.sections['quickFacts:glaser']).toBe('<ul><li>Tuổi thọ: 4 năm</li></ul>')
+  // A figure the page has no card value for (pH here) is its only copy: it stays.
+  const only = mergeSpecies({}, page({ sections: [
+    { key: 'quickFacts', en: '<ul><li>Family: Cobitidae</li><li>Temperature: 23–29°C</li></ul>', vi: '<ul><li>Họ: Cobitidae</li><li>Nhiệt độ: 23–29°C</li></ul>' },
+    { key: 'diet', en: '<ul><li>pH: 6–7</li></ul>', vi: '<ul><li>pH: 6–7</li></ul>' },
+  ] }), ctx('glaser'))
+  expect(only.entity.sections.map(s => s.key)).toEqual(['diet'])
+  expect(Object.keys(only.vi.sections)).toEqual(['diet:glaser'])
+  const ph = mergeSpecies({}, page({ sections: [{ key: 'quickFacts', en: '<ul><li>pH: 6–7</li></ul>', vi: '<ul><li>pH: 6–7</li></ul>' }] }), ctx('glaser'))
+  expect(ph.vi.sections['quickFacts:glaser']).toBe('<ul><li>pH: 6–7</li></ul>')
 })

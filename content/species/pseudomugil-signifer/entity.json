@@ -1,0 +1,117 @@
+{
+  "id": "pseudomugil-signifer",
+  "scientificName": "Pseudomugil signifer",
+  "order": "Atheriniformes",
+  "family": "Pseudomugilidae",
+  "genus": "Pseudomugil",
+  "group": "rainbowfish",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<ul><li>Schooling rainbowfish, yellowish orange with white accents on the fins and blue eyes.</li><li>Colours are best when breeding.</li><li>Size: 1.5 - 2.5 inches (about 4 - 6 cm).</li><li>Kept at around 22-25°C (72-77°F) and pH of roughly 6.5-7.</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Pseudomugil species can hybridize, so you may want to keep them with other types of small rainbowfish or tetras and rasboras of similar size. They also do well with Neocaridina and Caridina shrimps.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/4781ff3b56346870.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/4781ff3b56346870-480.webp",
+      "width": 982,
+      "height": 717,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "E4rqyNR-f3s",
+      "title": "Pacific Blue Eye Rainbowfish (Pseudomugil signifer) Freshwater Aquarium Fish Profile & Care Guide",
+      "durationSec": 394,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oc-vZjWNchM",
+      "title": "Biotope Australia, Pacific Blue-eyes (Pseudomugil signifer).",
+      "durationSec": 122,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UTjPCX6IZ7U",
+      "title": "Pseudomugil signifer in planted tank",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1V-8Ezsueo0",
+      "title": "Pacific blue-eye Pseudomugil signifer Wild Biotope Twin Bridges Fernvale Queensland Australia",
+      "durationSec": 290,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 60 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

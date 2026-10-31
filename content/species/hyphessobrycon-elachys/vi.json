@@ -1,10 +1,10 @@
 {
   "slug": "ca-tetra-vay-buom-hyphessobrycon",
-  "name": "Cá tetra vây buồm",
+  "name": "Cá tetra elachys",
   "altNames": [
-    "Cá tetra elachys",
     "Veilfin tetra",
-    "Cá nana"
+    "Cá nana",
+    "Cá tetra vây buồm"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá tetra vây buồm (Hyphessobrycon elachys) đến từ Paraguay và là một trong những loài tetra nhỏ nhất. Cá chỉ dài 1,5-2 cm. Đây là chiều dài chuẩn, tức là không tính vây đuôi.</p>",
@@ -20,5 +20,6 @@
     "bySource": {
       "glaser": 0.82
     }
-  }
+  },
+  "nameFixed": true
 }

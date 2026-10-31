@@ -1,0 +1,120 @@
+{
+  "id": "amblyceps-caecutiens",
+  "scientificName": "Amblyceps caecutiens",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "bago"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 7.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 7.5 cm (3 in)</li><li>Temperature: 18-22°C (63-71°F)</li><li>pH: 6.5-7.5</li><li>Common name: none</li><li>Synonym: Amblyceps mucronatum</li></ul><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6-7; anal soft rays: 14-15; vertebrae: 40-41. Length of adipose fin base 14.6-15.8% SL (versus 18.5-33.5 in other Indochinese species); body depth at anus 9.8-10.7% SL (versus 11.2-16.9 in other Indochinese species); eyes small, dorsolaterally situated and subcutaneous, diameter 2-3.4% HL (versus 4.3-8.5 in other Indochinese species). Caudal fin lobes somewhat rounded posteriorly, with the upper lobe longer than lower. Mouth and gape terminal with lower jaw slightly longer than upper and weakly projecting forwards; lips fleshy and slightly fimbriated, with well-developed rictal fold below anterior border of eye, consisting of large and membranous upper lobe joined at corner of mouth with lower lobe.</p><p>Etymology: The specific name caecutiens is an adjective, derived from the pointed posterior end of the adipose fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "html": "<p>Asia: Bago River basin, Myanmar. Type locality: Maulmein and Pegu [Myanmar].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "html": "<p>Inhabits streams with moderate to swift current, among stones and gravel.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "html": "<p>IUCN Red List: Although there is little information on the population and trend of this species throughout its range, data from limited field work suggests that this species is still relatively abundant, at least in the Salween River drainage in western Thailand. However, there is some taxonomic uncertainty that needs to be resolved, in as far as the conspecificity of the Mekong population is concerned. Given this taxonomic uncertainty and the limited knowledge available as to the global population size and trend, this species cannot be accurately assessed for now so is Data Deficient, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2016).</li><li>Ng, H.H. and M. Kottelat, 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwater.</li><li>Ng, H.H. 2010. Amblyceps caecutiens. The IUCN Red List of Threatened Species 2010.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6a2e5bfa6463e9c1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6a2e5bfa6463e9c1-480.webp",
+      "width": 500,
+      "height": 139,
+      "licence": "dùng với sự cho phép",
+      "author": "Phanara Thach / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "caption": "Amblyceps caecutiens",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b09d6ba979cd10ef.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b09d6ba979cd10ef-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm",
+      "caption": "Amblyceps caecutiens",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền hồ cá",
+        "đá cuội trang trí hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

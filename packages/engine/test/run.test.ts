@@ -39,7 +39,8 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
     return structuredClone(opts.page ?? species) as T
   }
   const http = async (url: string) => {
-    if (url.includes('gbif')) return JSON.parse(fx('gbif/paracheirodon-axelrodi.json'))
+    // GBIF knows the one species these pages are about; other names (the popular list's) it can't place.
+    if (url.includes('gbif')) return JSON.parse(fx(url.includes('Paracheirodon%20axelrodi') ? 'gbif/paracheirodon-axelrodi.json' : 'gbif/none.json'))
     calls.commons++
     return JSON.parse(fx('commons/paracheirodon-axelrodi.json'))
   }

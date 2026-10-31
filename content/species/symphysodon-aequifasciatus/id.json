@@ -1,10 +1,11 @@
 {
   "slug": "symphysodon-aequifasciatus",
-  "name": "Discus",
+  "name": "Discus coklat",
   "altNames": [
     "Ikan discus",
     "Diskus",
-    "Ikan diskus"
+    "Ikan diskus",
+    "Discus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Discus, Symphysodon aequifasciatus, adalah ikan cichlid dari Amazon di Kolombia, Peru, dan Brasil. Sebarannya mengikuti Rio Solimões dan aliran utama Amazon, mulai dari Rio Putumayo sampai daerah aliran Sungai Tocantins. Ikan ini lebih suka anak-anak sungai berarus lambat dan kolam-kolam di dalam hutan. Di sana mereka hidup bergerombol di perairan dalam yang terlindung, di sekitar akar pohon dan bebatuan. Discus tangkapan alam bisa mencapai sekitar 14 cm. Discus sangat pemalu dan gampang kaget, jadi butuh banyak tempat berlindung.</p>",
@@ -23,5 +24,6 @@
       "seriouslyfish": 0.6,
       "glaser": 0.6
     }
-  }
+  },
+  "nameFixed": true
 }

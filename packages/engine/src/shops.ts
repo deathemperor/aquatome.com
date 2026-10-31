@@ -21,6 +21,8 @@ const COUNTRY: Record<ShopLang, { country: string; lang: string; nameForm: strin
 }
 /** Below this a mapping still orders the work; only at NAME_MIN does its name go on a page. */
 const RANK_MIN = 0.6
+/** A new page is fetched first from here: a wrong guess costs one page fetched early (apple snails, 0.55, are a shop staple). */
+const QUEUE_MIN = 0.5
 const NAME_MIN = 0.8
 /** Shop names a page gets at most (its other names are already long). */
 const MAX_NEW = 2
@@ -59,10 +61,10 @@ export async function makeShopList(root: string, research: Llm, lang: ShopLang, 
 }
 
 /** The species shops in these languages' countries sell (scientific names, list order, each once): sure enough to rank by. */
-export async function shopScientific(root: string, langs: ShopLang[]): Promise<string[]> {
+export async function shopScientific(root: string, langs: ShopLang[], min = RANK_MIN): Promise<string[]> {
   const out = new Map<string, string>()
   for (const lang of langs) for (const i of (await readShopList(root, lang))?.items ?? []) {
-    if (i.scientificName && i.confidence >= RANK_MIN && !out.has(slugify(i.scientificName))) out.set(slugify(i.scientificName), i.scientificName)
+    if (i.scientificName && i.confidence >= min && !out.has(slugify(i.scientificName))) out.set(slugify(i.scientificName), i.scientificName)
   }
   return [...out.values()]
 }
@@ -71,7 +73,7 @@ export async function shopScientific(root: string, langs: ShopLang[]): Promise<s
 export const shopIds = async (root: string, langs: ShopLang[]) => (await shopScientific(root, langs)).map(slugify)
 
 /** What the engine fetches new pages for first (wanted.ts): every country's shop species, then the most-kept fish. */
-export const popularFirst = async (root: string) => [...new Set([...await shopScientific(root, ['vi', 'id', 'th']), ...POPULAR])]
+export const popularFirst = async (root: string) => [...new Set([...await shopScientific(root, ['vi', 'id', 'th'], QUEUE_MIN), ...POPULAR])]
 
 /**
  * Shop names onto the language's species pages as other names: only sure mappings, the surest first, at most MAX_NEW a

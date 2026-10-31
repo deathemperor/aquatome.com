@@ -1,0 +1,141 @@
+{
+  "id": "amblyceps-cerinum",
+  "scientificName": "Amblyceps cerinum",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "html": "<p>Amblyceps cerinum Ng &amp; Wright, 2010. Family: Amblycipitidae. Size: 10.0 cm. Temperature: 18-22°C. pH: 6.5-7.5. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "html": "<p>Asia: India, Brahmaputra River drainage, northern West Bengal. Type locality: Raidak I River at Shipra, just outside Buxa Tiger Reserve, ca. 8 kilometers toward Barobisha on Siliguri-Guwahati road, 26°31'12\"N, 89°43'25\"E, West Bengal, India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "html": "<p>This fish was frequently found under cobble. Its type locality is a shallow, swift-flowing stream with a substrate of cobble and sand.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "html": "<p>Dorsal soft rays (total): 5-6. Amblyceps cerinum differs from its congeners except A. apangi, A. murraystuarti, and A. torrentis in having a truncate caudal fin (vs. forked or strongly emarginate). It differs from A. apangi in having a longer adipose-fin base 32.4–38.3% SL (vs. 24.3–32.0), more slender caudal peduncle 9.2–11.2% SL (vs. 11.3–15.4), greater number of post-Weberian vertebrae 41–44 (vs. 38), and the lateral line terminating just posterior to the vertical through the dorsal-fin insertion (vs. extending to the end of the caudal peduncle). It differs from A. murraystuarti in having a more slender body 9.2–11.2% SL (vs. 11.6–15.0), longer caudal peduncle 21.9–24.5% SL (vs. 19.6–22.6), and the posterior end of the adipose fin not broadly confluent with the dorsal procurrent caudal-fin rays and separated from them by a distinct notch (vs. adipose fin broadly confluent with dorsal procurrent caudal-fin rays and not separated by a distinct notch). It differs from A. torrentis in having a more slender body 9.2–11.9% SL (vs. 15.3–17.3% SL), slender caudal peduncle 9.2–11.2% SL (vs. 13.8–15.6), the upper jaw longer than the lower jaw (vs. jaws equal), and an incomplete lateral line terminating at the posterior base of the dorsal fin (vs. a complete lateral line terminating at the base of the caudal fin).</p><p>Etymology: the specific name cerinum comes from the Latin adjective 'cerinus', meaning wax-coloured; it refers to the yellowish coloration of this species in life.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010). Ng, H.H. and J.J. Wright, 2010. Amblyceps cerinum, a new catfish (Teleostei: Amblycipitidae) from northeastern India. Zootaxa, 2672:50-60.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d5bbed32aba6fc34.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d5bbed32aba6fc34-480.webp",
+      "width": 500,
+      "height": 251,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "caption": "Amblyceps cerinum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9ce217336827e604.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9ce217336827e604-480.webp",
+      "width": 500,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "caption": "Amblyceps cerinum: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/50ac443e39af70ff.webp",
+      "thumb": "https://media.aquatome.com/scotcat/50ac443e39af70ff-480.webp",
+      "width": 500,
+      "height": 319,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "caption": "Amblyceps cerinum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5c4557b846330e20.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5c4557b846330e20-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm",
+      "caption": "Amblyceps cerinum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi cuội trang trí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

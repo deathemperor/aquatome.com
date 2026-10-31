@@ -1,0 +1,181 @@
+{
+  "id": "aspidoras-fuscoguttatus",
+  "scientificName": "Aspidoras fuscoguttatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Aspidoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "upper-parana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.5,
+          "max": 6.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 12,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<ul><li><strong>Scientific name:</strong> Aspidoras fuscoguttatus Nijssen &amp; Isbrücker, 1976</li><li><strong>Common names:</strong> Darkspotted Catfish</li><li><strong>Type locality:</strong> Rio Paraná system, Córrego Corguinho, estrada da Três Lagoas, 20°46'S, 51°43'W, Mato Grosso, Brazil.</li><li><strong>Etymology:</strong> Aspidoras: from the Greek aspis, meaning shield, and doras, meaning skin, in reference to the bony plates. The specific epithet refers to its dark (fuscus = dark or swarthy) and dappled (guttatus = dappled or speckled) appearance.</li><li><strong>Size:</strong> 38 mm SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>South America: Upper Paraná River basin (La Plata, Paraná, Upper Paraná, Grande, Uberaba) and São Francisco, Upper São Francisco, Paraopeba.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<ul><li>pH: 5.5 - 6.8</li><li>Temperature: 22.0-25.0°C (71.6-77°F)</li><li>dH: 12</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>Ideally the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel, which increases the risk of damage to the fish's barbels when it digs. The substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rockwork, arching bogwood, and tall or floating plants is all that is required to settle these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>Readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1070",
+      "html": "<p>Bijdragen tot de Dierkunde v. 46 (no. 1), pp 118, Fig. 10.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c2622e267565fa31.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 3.0",
+      "author": "Juan Felipe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aspidoras_fuscoguttatus.jpg",
+      "caption": "Aspidoras fuscoguttatus",
+      "thumb": "https://media.aquatome.com/commons/c2622e267565fa31-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/313576c5702b81a5.webp",
+      "width": 960,
+      "height": 744,
+      "licence": "CC BY 4.0",
+      "author": "[Photographs: Bruno F. dos Santos] Tencatt LFC, Bichuette ME (2017) Aspidoras mephisto, new species: The first troglobitic Callichthyidae (Teleostei: Siluriformes) from South America. PLoS ONE 12(3): e0171309.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aspidoras_(10.1371-journal.pone.0171309)_Figure_13.tiff",
+      "caption": "Fig 13. Preadipose azygous plates (arrows) of (a), Aspidoras mephisto, holotype, MNRJ 48268, 45.6 mm SL, and (b) Aspidoras fuscoguttatus, DZSJRP 14959, 35.1 mm SL, showing the clearly smaller plates i",
+      "thumb": "https://media.aquatome.com/commons/313576c5702b81a5-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "sg4ISoLTdMU",
+      "title": "Aspidoras fuscoguttatus! Grown to selling size! #aquarium #corydoras",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gmg06FucMjk",
+      "title": "Aspidoras fuscoguttatus and Corydoras davidsandsi looking for food",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ndTBaIn5wZo",
+      "title": "Aspidoras fuscoguttatus aquarium fish",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Snewc1YQ_M4",
+      "title": "Aspidoras Fuscoguttatus Catfish",
+      "durationSec": 237,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -463,14 +463,16 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "สาหร่ายพุงชะโด",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.6,
     "notes": [
-      "\"Ceratophyllum demersum ต้นนี้\" — the added \"ต้นนี้\" is slightly unnatural; just use the name (or \"สาหร่ายหางกระรอก\"). Minor.",
-      "\"ไม้น้ำแบบต้น (ไม้ข้อ)\" — fine to keep, but \"ไม้ลำต้น\" or \"ไม้ข้อ\" alone would be more natural. Minor."
+      "Items 2-6, 8: \"สาหร่ายพุงชะโด\" is the wrong Thai name for hornwort. พุงชะโด normally means Utricularia (bladderwort), a different plant. Use the name Thai hobbyists use for Ceratophyllum, such as \"สาหร่ายหางกระรอก\", and use it consistently.",
+      "Item 1: \"ไม้ต้น (stem plant)\" is awkward. Use the usual hobby term \"ไม้ลำต้น\" or similar.",
+      "Item 8: \"คุณภาพน้ำ\" for \"water parameters\" is a bit loose. \"ค่าน้ำ\" is more natural.",
+      "Item 8: \"คาร์บอนน้ำ\" for \"liquid carbon\" is a literal rendering. Use \"ลิควิดคาร์บอน\", which is the term hobbyists use."
     ]
   },
   "ceratopteris-thalictroides": {
@@ -811,6 +813,44 @@
     "confidence": "medium",
     "score": 0.9,
     "notes": []
+  },
+  "eleocharis-pusilla": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eleocharis Mini",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "#3: \"even lower growth\" means slower/lower growing; \"เตี้ยกว่า...เสียอีก\" is acceptable but reads as height only. Consider \"โตช้า/เตี้ยกว่า\" for fidelity.",
+      "#2: \"ปลูกทำพรมได้อย่างเชื่อถือได้ที่สุด\" is awkward; use \"ปลูกเป็นพรมได้แน่นอน/ได้ผลดีที่สุด\".",
+      "#2: \"เวอร์ชันมินิ\" is a stiff term; use \"แบบมินิ\" or \"สายพันธุ์มินิ\".",
+      "#1: \"สายพันธุ์ปลูกคัดเลือก (cultivar)\" is clumsy; use \"สายพันธุ์ปลูกเลี้ยง (cultivar)\" or \"พันธุ์ผสม/พันธุ์คัดเลือก\".",
+      "#3: \"มอบให้ Tropica\" is fine, but \"Aquarium plant from tissue culture in closed cup\" would be more natural as \"ไม้น้ำเนื้อเยื่อแบบถ้วยปิด\"."
+    ]
+  },
+  "eriocaulon-cinereum": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "อีริโอคอลอน ซีเนเรียม",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 8: \"ธาตุอาหารรอง\" for \"micronutrients\" is imprecise, since in Thai it usually means secondary nutrients (Ca, Mg, S). Use \"ธาตุอาหารเสริม\" or \"จุลธาตุ\" (and \"มหธาตุ\" for macro).",
+      "Item 7: \"ค่าขอบเขต\" for \"borderline\" is awkward. Use \"อยู่ที่ระดับสูงสุดที่ทนได้\" or \"ค่าก้ำกึ่ง\".",
+      "Item 7: \"น้ำอ่อนถึงกระด้างปานกลาง\" is fine, but \"ไม่ค่อยทนน้ำเย็น\" is softer than the English \"does not tolerate cold water well\". It is acceptable, but consider \"ทนน้ำเย็นได้ไม่ดี\"."
+    ]
+  },
+  "eriocaulon-sp-vietnam": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eriocaulon Vietnam",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ในน้ำอ่อนที่มีค่า pH เป็นกรดอ่อน ๆ\" adds \"pH\" which the source doesn't state; say \"น้ำอ่อนที่เป็นกรดเล็กน้อย\".",
+      "\"เรียงตัวเป็นกอทรงดอกกุหลาบ (rosette)\" is slightly awkward; \"เป็นกอรัศมีวงกลมที่โคนต้น\" or \"โรเซ็ตต์\" is more natural.",
+      "\"การเติม CO2 จะช่วยให้เติบโตได้ดีที่สุด\" is a bit stiff; \"ควรเติม CO2 เพื่อให้เติบโตได้ดีที่สุด\" is more natural."
+    ]
   },
   "hygrophila-polysperma": {
     "at": "2026-10-30",

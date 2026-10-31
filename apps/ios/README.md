@@ -2,6 +2,11 @@
 
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
+Three tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
+the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
+substrate, notes) on the phone with no account, in the same store the site uses, and shares a copy as JSON; **Đèn**
+controls the lights. The handbook's Chihiros tool opens the Đèn tab.
+
 ## The app
 
 ```text
@@ -38,8 +43,21 @@ each build by itself:
 
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):
-no certificate or profile is in the repository. The build number is the workflow's run number. A pull request that
-changes the project, `Config/` or the workflow signs and exports without uploading.
+no certificate or profile is in the repository. Only the export signs: the archive is built unsigned and carries its
+entitlements in an ad-hoc signature, because signing the archive on a fresh runner makes a new development certificate
+each time, until Apple's cap stops the build. The job signs a local copy first and checks it has every entitlement in
+`Config/AquaTome.entitlements`; only then does it export again to App Store Connect. The build number is the workflow's run number. A pull request that changes the project,
+`Config/` or the workflow signs and exports without uploading.
+
+## Performance budgets
+
+`AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
+(`-large-handbook`: the app's CPU time and peak memory). Job `app` runs them on the CI simulator, archives the app
+unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
+that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
+costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
+Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
+`.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
 ## AquaTomeKit
 
@@ -51,6 +69,8 @@ changes the project, `Config/` or the workflow signs and exports without uploadi
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit

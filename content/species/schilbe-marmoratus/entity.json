@@ -1,0 +1,109 @@
+{
+  "id": "schilbe-marmoratus",
+  "scientificName": "Schilbe marmoratus",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Schilbe",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo",
+    "angola",
+    "shiloango"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Schilbe marmoratus Boulenger, 1911. Type locality: Sankuru River at Kondu [Kondue], Kasai, Democratic Republic of Congo. Maximum size 220 mm (8.7\") SL. Distinguished by its mottled coloration and lack of an adipose fin. The specific epithet comes from the Latin marmor, meaning marble, in reference to the mottled coloration. IUCN Red List status: Least Concern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Known from the Shiloango and Congo River drainages.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>pH 5.8 - 7.2. Temperature 20.0-27.0°C (68-80.6°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Provide plenty of driftwood and vegetation for it to hide in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Not a fussy eater. Will take all manner of prepared and live/frozen foods. Will definitely eat smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>This is a fairly peaceful species that coexists well with other fishes as long as they are not too small to be eaten.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1206",
+      "html": "<p>Bulletins Mensuels / Société des naturalistes Luxembourgeois v. 21, pp 222.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
