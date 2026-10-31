@@ -1,0 +1,422 @@
+{
+  "found": true,
+  "species": [
+    "Artemia franciscana",
+    "Betta splendens",
+    "Poecilia reticulata"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fao.org/4/AC378E/AC378E10.htm",
+      "title": "FAO – Hatching of Artemia (brine shrimp) eggs and feeding of nauplii",
+      "kind": "other"
+    },
+    {
+      "url": "http://www.fao.org/4/w3732e/w3732e0n.htm",
+      "title": "FAO Manual on the Production and Use of Live Food for Aquaculture – Artemia cyst use (hatching, decapsulation)",
+      "kind": "other"
+    },
+    {
+      "url": "http://www.fao.org/4/w3732e/w3732e0m.htm",
+      "title": "FAO Manual on the Production and Use of Live Food for Aquaculture – Artemia biology",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/faqs/brine-shrimp-hatching-recipe",
+      "title": "Aquarium Co-op – What recipe do you use to hatch baby brine shrimp?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://khainhat.vn/cach-ap-artemia-bung-du-den-95-cho-nguoi-moi-bat-dau-choi-ca-canh/",
+      "title": "Khải Nhật – Cách ấp Artemia bung dù đến 95% cho người mới",
+      "kind": "article"
+    },
+    {
+      "url": "https://kythuatnuoitrong.edu.vn/huong-dan-cach-ap-au-trung-artemia-nhanh-tai-nha-22.html",
+      "title": "Kỹ thuật nuôi trồng – Hướng dẫn cách ấp ấu trùng artemia nhanh tại nhà",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-cach-ap-artemia.575/",
+      "title": "Diễn đàn cá cảnh – Hướng dẫn cách ấp artemia",
+      "kind": "forum"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA023",
+      "title": "UF/IFAS EDIS FA023 – Brine shrimp for ornamental fish (via search summary)",
+      "kind": "university"
+    },
+    {
+      "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/2251",
+      "title": "Tạp chí Khoa học ĐH Cần Thơ – Nguyễn Văn Hòa, Phạm Nguyễn Huyền Trinh: sinh sản Artemia franciscana",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.uoguelph.ca/ib/sites/uoguelph.ca.ib/files/public/artemiacultureSOP2004.pdf",
+      "title": "University of Guelph – Artemia culture SOP",
+      "kind": "university"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/10675-what-happens-to-brineshrimp-eggs/",
+      "title": "Aquarium Co-op forum – What happens to brine shrimp eggs",
+      "kind": "forum"
+    },
+    {
+      "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/4766/4410/13934",
+      "title": "Tạp chí Khoa học ĐH Cần Thơ – ấp trứng Artemia Vĩnh Châu (via search summary)",
+      "kind": "paper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Freshly hatched Artemia nauplii, rinsed free of salt, are a live food for newly hatched fish fry.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dry Artemia cysts stay metabolically inactive while dry. Once soaked in salt water they hydrate and the embryo resumes development.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Instar I nauplii are about 400-500 µm long and do not feed. They live on their yolk reserves.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Nauplii molt to instar II after about 8 h and then start feeding on particles of about 1-50 µm.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "The cyst's outer membrane usually bursts after about 20 h ('breaking'). An 'umbrella' stage follows, then the free-swimming nauplius is released.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "When aeration stops, the nauplii gather as a reddish layer just above the bottom. Unhatched eggs sink and empty shells rise within 5-8 minutes.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "After 12-15 h embryos start to emerge and hang under the shell. By 24 h nauplii swim freely.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Nauplii are attracted to light and swim toward it.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Use a transparent jar or pot of 1-4 litres with a diameter of no more than 13-16 cm.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "A conical-bottom container aerated from the bottom works best. Cylindrical or square containers develop dead spots.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "An upside-down 2-litre plastic bottle can serve as a home hatching cone.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Salt water: about 30 g NaCl per litre (28-30 ppt), roughly 1 tablespoon of kitchen salt per litre of tap water.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-op recipe: about 2 litres of water, 2 tablespoons of aquarium salt (or marine salt for soft water) and up to 1 tablespoon of eggs.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-op adds 1-2 drops of dechlorinator if the tap water contains chloramine.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Without seawater, dissolve 30 g of non-iodized coarse salt in 1 litre of water. Dechlorinate tap water first by aerating it.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Low-salt alternative (Wilkerson): 2 teaspoons of cheap coarse salt in 2 litres of dechlorinated tap water, aerated about 1 hour before adding eggs.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Optimal hatching salinity is generally 5-35 g/l. Lower salinity speeds hatching.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Cyst density: 1-3 teaspoons of cysts per litre.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Cyst density: up to 5 g/l for volumes under 20 l, and at most 2 g/l for larger volumes.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Use about 1 g of eggs per litre. For a 2-litre bottle, roughly 1/4 teaspoon of eggs is enough.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Temperature: keep the water at 25-28°C. Below 25°C cysts hatch more slowly.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Incubation temperature: 22-30°C.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the hatchery at 74-82°F (23-28°C) using room heat, a small incandescent or halogen lamp, or a small heater, and wait longer if it is cool.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Keep pH above 8, ideally 8-8.5. Add sodium bicarbonate if needed: up to 2 g/l on the FAO worksheet, or up to 1 g/l in another section of the same manual.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Light: about 2000 lux at the water surface, especially in the first hours after the cysts are fully hydrated.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "A lamp placed about 20 cm above the water surface can supply the light.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Aerate continuously and strongly enough to keep the eggs from settling.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep dissolved oxygen above 2 mg/l, preferably 5 mg/l.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Put a rigid plastic tube at the lowest point of the container instead of an airstone. Ease the airflow once eggs swell so bubbles don't carry them out.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "In the standard test (33 g/l, 25°C) the first nauplii appear after 12-16 h. 90% should have hatched within 24 h.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Hatching is complete after 20-24 hours, depending on temperature.",
+      "source": 9
+    },
+    {
+      "section": "steps",
+      "fact": "Harvest: stop aeration, remove the airstone and carefully siphon the nauplii layer near the bottom without taking eggs or shells.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Harvest: turn off the pump and shine a light near the bottom outlet to draw the shrimp there, then open the valve.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Skim floating shells off with a fine net, then siphon the nauplii with a tube about 3 mm in diameter.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Filter siphoned nauplii through a 100-150 µm plankton net and rinse out the salt before feeding fry.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-op notes you can feed the nauplii with their salt water if the tank has live plants that need minerals or hard-water fish.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Start a new batch around day 2, since one batch is used up in 2-3 days of feeding.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Decapsulation: first hydrate cysts for about 1 h in water under 100 g/l, with aeration, at 25°C.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Decapsulation dose: 0.5 g active hypochlorite per g of cysts, plus 0.15 g NaOH per g of cysts with liquid bleach to keep pH above 10. Final volume is 14 ml per g of cysts.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Keep decapsulation at 15-20°C and never above 40°C, because the reaction gives off heat. Add ice if needed. It takes about 3-15 min, until the shell dissolves.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Liquid bleach turns cysts orange during decapsulation, while bleaching powder turns them grey.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "After decapsulation, rinse until no chlorine smell remains. Neutralize with a dip of under 1 min in 0.1% sodium thiosulfate (or 0.1 N HCl).",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Disinfection without decapsulation: about 200 ppm hypochlorite for 30 min. This does not kill all germs in the shell.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Decapsulated cysts keep their hatchability for a few days at 0-4°C.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Store dry cysts cool, ideally under vacuum or nitrogen, because oxygen damages them.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid repeated wetting and drying of cysts. Protect cysts from direct sunlight, since UV lowers hatchability.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Frozen cysts should sit at least one week at room temperature before use.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Unhatched eggs stored cold can be used for 6 months to 1 year.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Harvest when about 90% have hatched to get nauplii with the most energy. Late harvest gives a mix of instar I, II and III.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Shells or unhatched eggs eaten by small fish can block the gut and kill them. Decapsulation removes this risk.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Insufficient aeration or dead spots in square or cylindrical containers lowers hatching.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Temperatures above 33°C stop cyst metabolism irreversibly.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Putting too many cysts per litre lowers the hatch rate.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Hatching in shade or with too little light lowers the hatch rate.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Too much aeration causes foaming.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving cysts too long in hypochlorite or letting decapsulation exceed 40°C kills the embryos. Leftover chlorine is also harmful.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using an airstone instead of a rigid tube, or aerating hard after eggs swell, blows eggs out of the bottle.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding nauplii too late: for very small fry use nauplii under about 30 h old. After about 24 h the yolk is used up.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Forum members cite too much or too little salt, harvesting too late and using old eggs as causes of poor results.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Use non-iodized coarse salt (muối hột), not iodized table salt.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Power cuts can endanger incubation, because aeration must run continuously.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese guides recommend muối hột (non-iodized coarse/sea salt) for keepers without natural seawater, especially in the South.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese guide says O.S.I. eggs imported from the US (Century, Phoenix, Crystal, Petrel brands) hatch in about 12 h, with up to 95% hatching ('bung dù').",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Harvest at about 8 h (about 500 µm, orange-red) for 3-day-old betta fry. Older nauplii suit larger fry and small fish such as guppies, neon tetras and angelfish.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A 1.5 L plastic soft-drink bottle (chai Pepsi) can be used as a home hatching bottle.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese hobbyists often split bulk egg packs between several people because small packs are rarely sold. A fine harvest net can be sewn from white cloth.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vĩnh Châu (Sóc Trăng) and Bạc Liêu are Vietnam's main Artemia cyst producing areas. A Cần Thơ University study hatched Vĩnh Châu cysts at 30‰, 3 g/L, with continuous aeration and neon lights.",
+      "source": 11
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnam's tropical heat needs watching: Artemia survival dropped sharply at 34°C in a Cần Thơ University study.",
+      "source": 8
+    },
+    {
+      "section": "myths",
+      "fact": "Some hobbyists doubt that shells cause gut blockage in fry. One forum user puts the risk at roughly 1 in 1,000 fry, but UF/IFAS treats it as a real risk.",
+      "source": 10
+    },
+    {
+      "section": "other",
+      "fact": "Hatch rate and speed vary between batches because of how cysts were harvested, processed and stored. Test each new batch before relying on it.",
+      "source": 2
+    }
+  ]
+}

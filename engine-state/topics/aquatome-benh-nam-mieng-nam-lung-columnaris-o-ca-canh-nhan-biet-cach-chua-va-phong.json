@@ -1,0 +1,389 @@
+{
+  "found": true,
+  "species": [
+    "Flavobacterium columnare",
+    "Poecilia reticulata",
+    "Poecilia sphenops",
+    "Paracheirodon innesi",
+    "Betta splendens",
+    "Carassius auratus",
+    "Cyprinus rubrofuscus",
+    "Xiphophorus maculatus",
+    "Danio rerio",
+    "Pangasianodon hypophthalmus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.chewy.com/education/fish/general/aquarium-fish-mouth-fungus",
+      "title": "Aquarium fish mouth fungus (Chewy Education)",
+      "kind": "article"
+    },
+    {
+      "url": "https://laboklin.com/qk6o",
+      "title": "Columnaris disease in koi and aquarium fish (Laboklin)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Columnaris",
+      "title": "Columnaris (Wikipedia)",
+      "kind": "article"
+    },
+    {
+      "url": "https://saigoncacanh.com/ca-bi-nam-mieng-troc-moi-columnaris-sgcc/",
+      "title": "Cá Bị Nấm Miệng, Tróc Môi (Columnaris): Dấu Hiệu & Phác Đồ Điều Trị - Sài Gòn Cá Cảnh",
+      "kind": "article"
+    },
+    {
+      "url": "https://koilover.com.vn/blogs/kien-thuc-va-ky-thuat/hoi-chung-benh-thoi-vay-thoi-mang-thoi-mieng-do-columnaris-1-3299",
+      "title": "Hội chứng bệnh thối vây - thối mang - thối miệng do Columnaris (Koilover)",
+      "kind": "article"
+    },
+    {
+      "url": "https://vienthuysan2.org.vn/benh-trang-duoi-thoi-duoi-tren-ca-tra-giong/",
+      "title": "Bệnh trắng đuôi, thối đuôi trên cá tra giống - Viện Nghiên Cứu Nuôi Trồng Thuỷ Sản 2",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.srac.msstate.edu/pdfs/Fact Sheets/479b Columnaris Disease- A Bacterial Infection Caused by Flavobacterium columnare.pdf",
+      "title": "SRAC 479b Columnaris Disease: A Bacterial Infection Caused by Flavobacterium columnare",
+      "kind": "university"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "'Mouth fungus' is not a fungal disease. It is a bacterial infection that needs antibacterial treatment.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The cause is Flavobacterium columnare, formerly called Flexibacter columnaris, so the disease is also called columnaris.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "F. columnare is a Gram-negative, rod-shaped bacterium that moves by gliding and has no flagella.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "In principle columnaris can affect all freshwater fish. It has been found in neon tetra, platy, zebrafish and koi.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "In the acute form, skin lesions spread within hours, and up to 50% of a population may die within 36 hours.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "In the chronic form, white lesions grow slowly and fish die only after a long course.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The disease is highly contagious, and young fish are especially vulnerable.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "If left untreated, the bacteria can eat away the lip cartilage, so the fish starves or the infection spreads through the body.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Most cases develop slowly, but some strains act much faster and can kill within a few days.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Look for short off-white to grey tufts, mostly on the head, face, gills and jaws, sometimes on the body and fins.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "True fungus looks different: long, white, fluffy threads like cotton wool. Columnaris tufts are short.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Columnaris is easily confused with fin rot, but its short tufts are distinctive.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "In fish with scales, lesions may start at the fin margins and spread inward into a saddle shape, which is why it is called 'saddleback disease'.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "In scaleless fish, the skin lesions are bluish-grey and dead, with a reddish margin.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Fin edges break down until the fin rays are exposed.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Gill filaments break down from the tips toward the gill arches, which cuts oxygen uptake and causes rapid breathing.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Saddleback lesions start at the base of the dorsal fin and spread from there.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Acute cases can kill fish before any signs show on the surface.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Mouth form: swollen lips with a white-grey, cotton-like film at the edges of the mouth. Later the jaw erodes and deep red ulcers stop the fish from closing its mouth.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Sick fish become lethargic, hide in corners or lie on the bottom, and stop eating.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "In koi, gill rot caused by columnaris must be told apart from KHV, which also erodes the gills.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Under the microscope, fin tissue shows bacteria attached at one end and swaying, forming column- or haystack-like clusters. PCR is faster and more sensitive than culture.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "The bacteria are normally present in aquaria and are opportunists. They invade wounds from fighting or fin-nipping.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia or nitrite above zero is strongly associated with outbreaks. Stress and a poor diet also weaken immunity.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Infection is favoured by poor water quality, high ammonia, high pH and low oxygen.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "In culture the bacterium grows at 18–30 °C, and not below 14 °C or above 33 °C. Pond outbreaks peak in summer.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "The bacterium is more virulent at 85–90 °F. At high temperatures, fish can die within hours.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Risk rises with a high bioload, overcrowding and low dissolved oxygen. The bacteria may survive in water for up to 32 days when hardness is 50 ppm or more.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Higher-risk fish include injured or nipped fish, cichlids that wrestle with their jaws, livebearers kept in soft acidic water, bettas kept unheated, and goldfish in unfiltered or overstocked tanks.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "The bacteria thrive in water above 15°C, and infection spreads faster the warmer the water. Uneaten food and organic matter feed the outbreak.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Stress on the fish population drives outbreaks, and reducing stress lowers how often columnaris occurs.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Treat immediately, because the disease can move fast.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Move the sick fish to a separate tank or tub with strong aeration.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "As a first step, give a medicated bath and lower the water temperature to about 24 °C (75 °F).",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Use antibiotics effective against Gram-negative bacteria, such as kanamycin. The source gives no dose.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Phenoxyethanol at 100 mg/l for 7 days.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Nifurpirinol (furanace) at 0.2 mg/l for up to 5 days. It can harm the filter bacteria.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt is of little use as a treatment. Up to 1 oz per US gallon may help prevent infection, but only in salt-tolerant fish such as guppies and mollies.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Choose antibiotics based on a susceptibility test (antibiogram) and always fix husbandry at the same time.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Because the bacterium prefers alkaline water, lowering pH to 6.8 may support treatment.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Tetracyclines and quinolones are used. Medicated feed with oxytetracycline works for internal infection, but resistance is emerging.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Potassium permanganate, copper sulfate and hydrogen peroxide can be used externally, but they are toxic at high concentrations.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Hobby protocol from Vietnam: Furan-2 or ciprofloxacin plus salt at 3‰ (3 g per litre) for 4–5 days, with a 50% water change and fresh medicine every day.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Ulcers can be dabbed for a few seconds with a cotton swab soaked in povidone-iodine or diluted hydrogen peroxide. Then return the fish to the medicated water.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For early koi gill rot, one koi site gives a salt bath of 100 g per 4.5 litres (1 gallon) for 10 minutes. This is a very strong bath, so check it before use.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Pond treatment for koi: chloramine-T at 1 g per 4,500 litres (1,000 gallons). It is risky in soft water.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Pond treatment for koi: potassium permanganate at 1.5 g/1,000 litres, said to suit soft water better. The page's gallon figure does not match the litre figure.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For severe mouth infections in koi, take a swab for testing and pick the antibiotic from the result. It is often injected because the fish cannot eat.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Potassium permanganate is listed as an external treatment for columnaris.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "1) Isolate the fish in a well-aerated tank. 2) Give the medicated salt bath with daily 50% water changes and re-dosing for 4–5 days. 3) Dab the ulcers. 4) When healed, change 30% of the water weekly and lower the salt gradually.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "During recovery, feed fine powdered food, newly hatched Artemia or other soft food that is easy to swallow.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Cycle the tank before adding fish, keep it filtered, avoid overstocking and feed a balanced, vitamin-rich diet.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep compatible species, and keep fish that fight or nip apart.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Siphon out debris and change water on a steady schedule.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Leave no uneaten food, keep dissolved oxygen up and control ammonia and nitrite. Watch fish closely when the temperature rises.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "A live attenuated vaccine exists for catfish.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Relying on salt as the main treatment is a mistake.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting uneaten food rot on the bottom and overcrowding the tank both help the disease spread.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using chloramine-T in soft water can harm koi.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnamese the disease is commonly called 'nấm miệng'. The fish most often affected in Vietnamese home tanks are guppies (cá bảy màu), mollies and neon tetras.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Products used in Vietnam include Furan-2, ciprofloxacin, coarse salt (muối hột) and povidone-iodine.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "During Hanoi heat waves, air can pass 38–40°C and pond water can reach 30–34°C. This is the most dangerous period of the year, with low oxygen.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In striped catfish (cá tra), the related disease called 'trắng đuôi' (white tail) occurs all year but is most common at the start of the rainy season.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Calling it a fungus is wrong. Chewy, Sài Gòn Cá Cảnh and others say it is a bacterial disease.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "The name 'cotton wool disease' causes confusion with true fungus.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Tea-tree oil may help prevent infection in an injured fish that has been isolated.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "One Vietnamese koi site says the cotton-wool 'mouth rot' it describes is probably caused by Aeromonas hydrophila, not columnaris.",
+      "source": 4
+    }
+  ]
+}
