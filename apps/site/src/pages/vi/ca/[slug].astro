@@ -30,6 +30,7 @@ import { searchAliases } from '../../../lib/search'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
+import { foldNearEmpty } from '../../../lib/sections'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -61,8 +62,10 @@ const breeds = breedsOf(lang, c, s.id)
 const mates = await companionsOf(lang, c, s.id)
 const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
 const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
+// A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
+const text = foldNearEmpty(s.sections, s.t, t)
 // The jump row: the parts readers look for, in page order (the photo strip comes before the text).
-const written = (key: SectionKey) => s.sections.some(x => x.key === key && s.t.sections[`${key}:${x.source}`])
+const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
 const jumps = [
   ...(strip.length > 0 ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
@@ -95,7 +98,7 @@ const jumps = [
 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
-  <Sections sections={s.sections} t={s.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} card={s.dataCard} />
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} card={s.dataCard} />
   <BreedList breeds={breeds} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />

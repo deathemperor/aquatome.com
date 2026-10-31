@@ -112,6 +112,34 @@ The layers above still check the result.
 
 - **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
   one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+- **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
+  kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
+  - **deep** means it has an in-depth source, or it reaches the bar on its own:
+    - in-depth sources write species profiles: Seriously Fish, Loaches Online, ScotCat, Aquarium Breeder, The Spruce
+      Pets, Aquarium Co-op, 2Hr Aquarist. PlanetCatfish counts only for a full profile (its own sections cover 3 care
+      topics), not a stub.
+    - the bar: 1,500 characters of text (references aside) covering 3 of the 5 care topics (tank, water, food,
+      behaviour, breeding).
+    - it is measured on the source text, so a page gets the same verdict in every language. A section of 5 words or
+      fewer covers no topic.
+  - The build judges every species page (`loadAll`), so a page that gains an in-depth source, by an engine run or two
+    jobs' work merged, goes back in search by itself. The engine records the verdict when it merges a source into a page.
+  - Out of search means out of the sitemap, the home page's lists and other languages' alternates. A thin page stays in
+    the site's own search, the fish list and the app's index: its translation passed, it is only short.
+  - A heading with 5 words or fewer under it ("Mouthbrooder.") is shown as a line of the quick facts, or left out when
+    they already say it or all it says is "Unknown.".
+  - Thin species' profiles on in-depth sources are fetched before new species, most popular first. They are found by the
+    name in the address (Seriously Fish, Loaches Online, ScotCat), same genus. Failing that, Seriously Fish's own search
+    is used: a newer genus hides the page (Corydoras panda is Hoplisoma panda there). Searches are cached for a month in
+    `engine-state/_depth-search.json`, 20 a run. PlanetCatfish addresses are numbers, so its pages match only once read.
+  - `pnpm engine status` and each run's report (`engine-state/last-run.json`) count thin pages by the sources they're
+    made from and list the most popular ones.
+  - Found by the owner: Betta macrostoma's page was one shop listing whose whole breeding section was "Mouthbrooder.",
+    while Seriously Fish had a full profile the engine had failed to fetch.
+- **Retries.** A page that failed through no fault of its own (the browser closed, the network, Claude's usage limit)
+  runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
+  row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
+  above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

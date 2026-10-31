@@ -47,3 +47,10 @@ test('fish and plants carry their content id (the page folder), so a saved tank 
     expect(index(lang!).items.some(i => i.path === path), path).toBe(true)
   }
 })
+
+test('a thin page (out of search engines) is still in the app: its translation passed, it is only short', () => {
+  expect(page('/vi/ca/ca-ong-tien/').html).toMatch(/noindex/)
+  expect(index('vi').items.find(i => i.id === 'pterophyllum-scalare')?.path).toBe('/vi/ca/ca-ong-tien/')
+  // A low score still keeps a page out (Cá boraras đỏ: 0.5).
+  expect(index('vi').items.some(i => i.id === 'boraras-brigittae')).toBe(false)
+})
