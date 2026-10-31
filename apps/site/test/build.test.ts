@@ -257,8 +257,9 @@ test('home leads with the tank form (to the species filter) and three first step
 })
 
 test('species list: every card in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
-  const { dom } = page('/vi/ca/')
+  const { dom, html } = page('/vi/ca/')
   expect(dom.querySelector('#species-more')).toBeTruthy()
+  expect(html.indexOf('id="species-filter"')).toBeLessThan(html.indexOf('id="breeds-h"')) // the search comes before the breed cards
   expect(dom.querySelector('details#filter-box[open] form#species-filter')).toBeTruthy()
   expect(dom.querySelectorAll('select[name="difficultyMax"] option').map(o => o.text)).toEqual(['Bất kỳ', 'Dễ', 'Dễ và vừa'])
   expect(dom.querySelectorAll('[data-slug]').length).toBeGreaterThan(0)

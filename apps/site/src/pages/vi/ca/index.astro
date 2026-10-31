@@ -16,7 +16,6 @@ const index = c.species.map(s => toIndexItem(s))
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
-  <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
   {/* Open on wide screens; on phones it starts closed unless a filter is in the address (see the inline script). */}
   <details class="fbox" id="filter-box" open>
   <summary>{t('Lọc theo bể và nước')}</summary>
@@ -35,19 +34,21 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   </form>
   </details>
   <script is:inline>(()=>{var d=document.getElementById('filter-box');if(matchMedia('(max-width: 640px)').matches&&!location.search)d.open=false})()</script>
+  <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
   <p class="count" id="species-count" aria-live="polite"></p>
   <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} />
   <p class="more"><button type="button" id="species-more" hidden></button></p>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
-  import { filterSpecies, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
+  import { filterSpecies, keepBreed, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
   import { ct } from '../../../scripts/ct'
   const PAGE = 24
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
   const form = document.getElementById('species-filter') as HTMLFormElement
   const count = document.getElementById('species-count')!
   const more = document.getElementById('species-more') as HTMLButtonElement
+  const breeds = document.querySelector<HTMLElement>('section.breeds')
   let keep = new Set<string>()
   let shown = PAGE
   // All cards stay in the HTML (crawlers follow every link); readers see them a page of 24 at a time.
@@ -60,7 +61,14 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   }
   function run(params: URLSearchParams) {
     for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
-    keep = new Set(filterSpecies(items, queryFromParams(params)).map(i => i.slug))
+    const q = queryFromParams(params)
+    keep = new Set(filterSpecies(items, q).map(i => i.slug))
+    // A search leads with its results: the breed cards above the list stay only when they match it.
+    if (breeds) {
+      let n = 0
+      breeds.querySelectorAll('li').forEach(li => { li.hidden = !keepBreed(li.querySelector('.n')!.textContent!, q); if (!li.hidden) n++ })
+      breeds.hidden = n === 0
+    }
     shown = PAGE
     count.textContent = keep.size === items.length ? '' : keep.size === 0 ? ct('Không có loài nào khớp. Thử nới điều kiện lọc.') : ct('{n} loài phù hợp', { n: keep.size })
     render()
