@@ -299,8 +299,15 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 
 **The owner's Love Ecology light uses the "Fish lamp" app.** The app is by [Shenzhen Miaoxiang Intelligent](https://apps.apple.com/mo/app/fish-lamp/id6738646596), which makes several "control lights over Bluetooth" apps. Its App Store label says it collects no data and has no account.
 - So it is not Tuya: Tuya devices need a cloud account.
-- The light is always on, yet no device in the scans matches it. Either it was connected to the owner's iPhone (a connected light stops advertising), or the phone controls it by broadcasting and the light never advertises.
-- Not yet tested.
+- **It is controlled by broadcast, not by connecting.** We confirmed this on 2026-10-31 while the owner changed the brightness in the app.
+  - The iPhone sent each command as a list of 12 16-bit service UUIDs, the first one `0x004E`. iOS apps can't send manufacturer data, so broadcast apps hide their bytes in UUID lists.
+  - Within a second, something at the tank's signal strength sent the same bytes back as manufacturer data under company ID 78 (`0x004E`). It sent about 4 copies, each from a new random address, with a few bytes changed and 6 extra bytes at the end. It is most likely the light relaying or acknowledging the command.
+  - When idle, the light sends nothing. That is why 15 minutes of scanning beside it found nothing.
+- The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
+- What this means for the app:
+  - A website can't control this light, because Web Bluetooth can't broadcast.
+  - A native app can: on iOS with the same UUID-list trick, on Android with manufacturer data. An ESP32 relay box could do it too.
+  - The light never reports its state back.
 
 **An unidentified Tuya BLE device** was also near the tank. It advertises as `TY` (service data `a201`, company ID `0x07D0`) with a strong signal. Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`), so control would need its local key from a Tuya cloud project.
 
