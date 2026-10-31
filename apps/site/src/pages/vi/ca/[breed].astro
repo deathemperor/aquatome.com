@@ -1,6 +1,7 @@
 ---
 import { linkTerms } from '@aq/schema'
 import { slugify } from '@aq/schema/slug'
+import { searchAliases } from '../../../lib/search'
 import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import DataCard from '../../../components/DataCard.astro'
@@ -60,7 +61,7 @@ const alternates = await alternatesOf('breeds', b.id)
     {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} /> : <div />}
     <div>
       <p class="where">{t(BREED_KIND[b.kind])}{parent && b.kind === 'variety' && <>{t(', dòng của')} <a href={parent.href}>{parent.name}</a></>}</p>
-      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${b.t.name} ${b.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{b.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(b.t)}>{b.t.name}</h1>
       <RedirectNote from={b.t.redirectFrom} />
       {b.parents.length > 0 && (
         <p class="parents">{t('Lai từ:')} {b.parents.map((p, i) => {
@@ -70,7 +71,7 @@ const alternates = await alternatesOf('breeds', b.id)
           return <>{i > 0 && ', '}{s ? <a href={`/vi/ca/${s.t.slug}/`}>{s.t.name} <span class="sci">({s.scientificName})</span></a> : (b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name))}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
         })}</p>
       )}
-      {b.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
+      {b.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
       <DataCard card={card} sources={sources} />
       <p class="srcline">{t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })}</p>
     </div>
@@ -93,7 +94,7 @@ const alternates = await alternatesOf('breeds', b.id)
   <VideoGuideGrid guides={mentioning.filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
   {lang === 'vi' && <ReaderPhotos entity={key} name={b.t.name} />}
 
-  <section class="wrap sources" aria-labelledby="src-h">
+  <section class="wrap sources" aria-labelledby="src-h" data-pagefind-ignore>
     <h2 id="src-h">{t('Nguồn')}</h2>
     <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(s.title) ? 'vi' : undefined}>{s.title}</a>{lang !== 'vi' && isVietnamese(s.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
   </section>
