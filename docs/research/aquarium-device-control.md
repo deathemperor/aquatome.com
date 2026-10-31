@@ -327,6 +327,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - It sent no echo for these repeats. Our guess is that it relays only messages it hasn't seen before.
   - **Messages we build are ignored.** We took the same off/on messages and changed only the sequence byte to unused values. Both were scrambled correctly, and the light did nothing.
     - Byte 0 XOR `0x1A` is a counter that goes up by 1 per command. Replays with older counters still worked, so the light isn't simply rejecting old counters.
+    - We also built off/on with the very next counter after the app's last one. The light ignored those too, so it isn't a "counter within a window" rule either.
     - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 match no standard CRC-16.
   - So for now this light supports **replay only**: an app could record a user's own commands from Fish lamp and play them back.
   - Building arbitrary commands would mean finding the signature, most likely by reverse-engineering the app. That is a bigger job, with the ToS risk in 3.7. It is not worth it for v1.
