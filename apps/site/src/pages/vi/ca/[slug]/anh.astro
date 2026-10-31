@@ -51,6 +51,7 @@ const jsonld = [{
   </dialog>
   <script>
     import { ct } from '../../../../scripts/ct'
+    import { noCookies } from '../../../../lib/no-cookies'
     const grid = document.querySelector<HTMLElement>('[data-gallery]')
     const lb = document.querySelector<HTMLDialogElement>('dialog.lb')
     if (grid && lb) {
@@ -62,6 +63,7 @@ const jsonld = [{
       const show = (i: number) => {
         at = (i + links.length) % links.length
         const a = links[at]!.dataset
+        img.crossOrigin = noCookies(a.full!) ? 'anonymous' : null
         img.src = a.full!; img.width = Number(a.w); img.height = Number(a.h); img.alt = a.cap || ''
         cap.textContent = a.cap ? `${a.cap} ` : ''
         by.innerHTML = ''

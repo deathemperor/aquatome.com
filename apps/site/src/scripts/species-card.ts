@@ -1,5 +1,6 @@
 import { difficultyLevel, fmt } from '../lib/format'
 import { langOf } from '../lib/i18n'
+import { noCookies } from '../lib/no-cookies'
 import { barStyle } from '../lib/range-bar'
 import { ct } from './ct'
 import type { SpeciesIndexItem } from './filter'
@@ -16,7 +17,7 @@ export function buildCard(template: HTMLTemplateElement, link: HTMLAnchorElement
   card.dataset.slug = i.slug
   $('a').setAttribute('href', link.getAttribute('href')!)
   const { img, w, h } = link.dataset
-  if (img) for (const [k, v] of [['src', img], ['width', w!], ['height', h!]]) $('img').setAttribute(k!, v!)
+  if (img) for (const [k, v] of [['src', img], ['width', w!], ['height', h!], ...noCookies(img) ? [['crossorigin', 'anonymous']] : []]) $('img').setAttribute(k!, v!)
   else $('img').remove()
   $('h3').textContent = i.name
   $('.sci').textContent = i.scientificName
