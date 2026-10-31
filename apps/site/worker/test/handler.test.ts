@@ -173,10 +173,17 @@ test('agent discovery: API catalog as linkset+json; homepage redirect and /vi/ c
   expect(root.status).toBe(301)
   // Indonesian and Thai browsers land on their language.
   const id = await handle(get('/', { ...browser, 'accept-language': 'en-US,en;q=0.9,id;q=0.8' }), e)
-  expect([id.status, id.headers.get('location'), id.headers.get('vary')]).toEqual([302, '/id/', 'Accept-Language'])
+  expect([id.status, id.headers.get('location'), id.headers.get('vary')]).toEqual([302, '/id/', 'Accept-Language, Cookie'])
   expect((await handle(get('/?x=1', { ...browser, 'accept-language': 'th-TH' }), e)).headers.get('location')).toBe('/th/?x=1')
   const vi = await handle(get('/', { ...browser, 'accept-language': 'en-US' }), e)
-  expect([vi.headers.get('location'), vi.headers.get('vary')]).toEqual(['/vi/', 'Accept-Language']) // a cached 301 must not reach Indonesian or Thai browsers
+  expect([vi.headers.get('location'), vi.headers.get('vary')]).toEqual(['/vi/', 'Accept-Language, Cookie']) // a cached 301 must not reach Indonesian or Thai browsers
+  expect(vi.headers.get('cache-control')).toBe('max-age=3600')
+  // The language picked in the menu wins over the browser's, and is never a cached 301.
+  const picked = await handle(get('/', { ...browser, 'accept-language': 'id', cookie: 'ts=1; aq_lang=th' }), e)
+  expect([picked.status, picked.headers.get('location')]).toEqual([302, '/th/'])
+  const pickedVi = await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=vi' }), e)
+  expect([pickedVi.status, pickedVi.headers.get('location'), pickedVi.headers.get('cache-control')]).toEqual([302, '/vi/', 'private, no-store'])
+  expect((await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=fr; xaq_lang=vi' }), e)).headers.get('location')).toBe('/th/')
   expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
   expect((await handle(get('/vi/'), e)).headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/vi/ca/'), e)).headers.get('link')).toBeNull()

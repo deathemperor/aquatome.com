@@ -1,6 +1,7 @@
 ---
 import UnitsToggle from './UnitsToggle.astro'
 import ThemeToggle from './ThemeToggle.astro'
+import LangMenu from './LangMenu.astro'
 import { i18n, served, toVi } from '../lib/i18n'
 /** current: the section to mark when the URL doesn't say (video guides live under /vi/huong-dan/). */
 interface Props { overlay?: boolean; current?: string }
@@ -22,6 +23,7 @@ const path = current ?? toVi(Astro.url.pathname)
     {served(lang, '/vi/tim-kiem/') && <a class="find" href="/vi/tim-kiem/">{t('Tìm')}</a>}
     <UnitsToggle />
     <ThemeToggle />
+    <LangMenu />
     <slot />
   </div>
 </header>

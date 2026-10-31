@@ -129,6 +129,18 @@ export function served(lang: Lang, viPath: string): boolean {
   return ps.some(p => p.test(path))
 }
 
+/**
+ * Where the language menu takes a reader: this page in that language when it has one (`here`), else the nearest page
+ * above it that the language has (a fish without a Thai page: the Thai fish list), else that language's home.
+ */
+export function switchTo(lang: Lang, viPath: string, here: string | undefined, hasParams: boolean): string {
+  if (here) return here
+  // A page with a slug has no counterpart under the same path: start from its section.
+  let p = !/^\/vi\/(.+\/)?$/.test(viPath) ? '/vi/' : hasParams ? viPath.replace(/^(\/vi\/[^/]+\/).*$/, '$1') : viPath
+  while (p !== '/vi/' && !served(lang, p)) p = p.replace(/[^/]+\/$/, '')
+  return localizePath(lang, p)
+}
+
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
 export { isVietnamese } from '@aq/schema/text'
 

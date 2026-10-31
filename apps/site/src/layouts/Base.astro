@@ -38,6 +38,8 @@ const langs = LANGS.flatMap(l => {
   return p ? [[l, new URL(p, Astro.site).href] as const] : []
 })
 const xDefault = langs.find(([l]) => l === 'vi')?.[1] ?? canonical
+// For the language menu in the header (Nav renders inside the header slot, after this runs).
+Astro.locals.langs = langs
 ---
 <!doctype html>
 <html lang={lang}>

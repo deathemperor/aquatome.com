@@ -558,3 +558,15 @@ test('the logo link is named by its visible text (no aria-label that differs fro
   expect(a.hasAttribute('aria-label')).toBe(false)
   expect(a.text.replace(/\s+/g, ' ').trim()).toBe('AquaTome Cẩm nang cá cảnh & thủy sinh')
 })
+
+test('every page has the language menu; a fish without other-language pages offers their fish lists', () => {
+  for (const path of ['/vi/', '/vi/ca/ca-neon-vua/', '/vi/video/', '/id/', '/th/']) {
+    const links = page(path).dom.querySelectorAll('header [data-lang-menu] a[data-lang]')
+    expect(links.map(a => a.getAttribute('data-lang')), path).toEqual(['vi', 'id', 'th'])
+  }
+  const fish = page('/vi/ca/ca-neon-vua/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
+  expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
+  // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
+  const id = page('/id/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
+  expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+})
