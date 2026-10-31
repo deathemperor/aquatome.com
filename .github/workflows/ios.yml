@@ -27,6 +27,16 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # Some runners don't list the simulator yet when the job starts: xcodebuild then stops at once with "Unable to find
+      # a device matching the provided destination specifier", on the same image a passing run used (twice on
+      # 2026-10-31). Wait for it, up to two minutes; the list goes in the log if it never shows.
+      - run: |
+          for i in $(seq 1 24); do
+            xcrun simctl list devices available -j | jq -e '[.devices | to_entries[] | select(.key | endswith("iOS-26-5")) | .value[] | select(.name == "iPhone 17")] | length > 0' >/dev/null && exit 0
+            sleep 5
+          done
+          xcrun simctl list devices available
+          exit 1
       # The main flows (apps/ios/AquaTomeUITests) on the simulator's fake light, which answers like the real one.
       - run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
