@@ -70,8 +70,9 @@ Astro.locals.langs = langs
     <slot name="head" />
     {/* Other languages: the translations of the UI text browser scripts write (src/scripts/ct.ts). */}
     {lang !== 'vi' && <script type="application/json" id="aq-i18n" set:html={jsonForScript(Object.fromEntries(CLIENT.map(s => [s, t(s)])))} />}
-    <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {/* AdSense (and Google's consent message for EEA/UK/CH visitors) — production only. Loaded on the reader's first scroll of the page (not captured: a strip that snaps itself while loading doesn't count), tap or key, not with the page: Google's test cookie is a third-party cookie (Lighthouse Best Practices), and the page's own text and pictures get the connection first. */}
     {!isStaging() && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
     {!isStaging() && <script is:inline data-ads set:html={`(function(){var ev=['scroll','pointerdown','keydown','touchstart'],o=function(e){return{capture:e!=='scroll',passive:true}},go=function(){ev.forEach(function(e){removeEventListener(e,go,o(e))});var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}';document.head.appendChild(s)};ev.forEach(function(e){addEventListener(e,go,o(e))})})()`} />}

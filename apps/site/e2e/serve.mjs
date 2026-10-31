@@ -5,7 +5,7 @@ import { extname, join, resolve } from 'node:path'
 
 const [dir = 'dist', port = '4419'] = process.argv.slice(2)
 const root = resolve(dir)
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8', '.md': 'text/markdown; charset=utf-8' }
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.webp': 'image/webp', '.png': 'image/png', '.ico': 'image/x-icon', '.jpg': 'image/jpeg', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8', '.md': 'text/markdown; charset=utf-8' }
 createServer((req, res) => {
   let f = join(root, decodeURIComponent(new URL(req.url ?? '/', 'http://x').pathname))
   if (existsSync(f) && statSync(f).isDirectory()) f = join(f, 'index.html')
