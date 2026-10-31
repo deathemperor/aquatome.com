@@ -121,6 +121,10 @@ The layers above still check the result.
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
   shows the range they all accept.
+- **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
+  for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
+  otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
+  said 5 cm and pH 3,5–7,5 where its card said 3,5 cm and pH 4,6–6,2.
 
 ## Rules for every change (people and agents)
 
