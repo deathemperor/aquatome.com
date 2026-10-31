@@ -1,7 +1,8 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
+import { Ajv2020 } from 'ajv/dist/2020.js'
 import { z } from 'zod'
-import { Device, DeviceRecord, MAX_TANKS, Tank, TankRecord, TankStore, mergeRecords, mergeStores, newer, tankLitres, tombstone } from '../src/index'
+import { Device, DeviceRecord, KNOWN, Tank, TankRecord, TankStore, Tombstone, mergeRecords, mergeStores, newer, stamp, tankLitres, tombstone } from '../src/index'
 
 // Shared with the iOS app's tests: both must accept, reject and merge the same records.
 type Kind = 'tank' | 'device' | 'tankRecord' | 'store'
@@ -10,6 +11,9 @@ type Vectors = {
   valid: { note: string; kind: Kind; value: unknown }[]
   invalid: { note: string; kind: Kind; value: unknown; path: (string | number)[] }[]
   merge: { note: string; kept: Rec[]; incoming: Rec[]; expected: Rec[] }[]
+  mergeStores: { note: string; kept: TankStore; incoming: TankStore; expected: TankStore }[]
+  stamp: { note: string; now: string; prev: string | null; updatedAt: string }[]
+  known: typeof KNOWN
   litres: { note: string; tank: Parameters<typeof tankLitres>[0]; litres: number | null }[]
 }
 const VECTORS = new URL('../../../protocols/tanks-vectors.json', import.meta.url)
@@ -47,23 +51,25 @@ test('two copies that differ only in updatedAt merge the same way in either orde
   expect(newer(b, a)).toBe(b)
 })
 
-test('stores merge tanks and devices each on their own', () => {
-  const [tankCase, deviceCase] = [v.valid.find(c => c.kind === 'tank')!, v.valid.find(c => c.kind === 'device')!]
-  const t = tankCase.value as Tank
-  const d = deviceCase.value as Device
-  const deleted = tombstone(t.id, '2026-11-01T00:00:00.000Z')
-  const out = mergeStores({ v: 1, tanks: [t], devices: [] }, { v: 1, tanks: [deleted], devices: [d] })
-  expect(out).toEqual({ v: 1, tanks: [deleted], devices: [d] })
-  expect(TankStore.parse(out)).toEqual(out)
-  expect(DeviceRecord.parse(deleted)).toEqual(deleted)
+test.each(v.mergeStores)('merge stores: $note', ({ kept, incoming, expected }) => {
+  expect(mergeStores(kept, incoming)).toEqual(expected)
+  expect(TankStore.parse(expected)).toEqual(expected)
 })
 
-test('tombstones do not count towards the tank limit', () => {
-  const t = v.valid.find(c => c.kind === 'tank')!.value as Tank
-  const tanks = Array.from({ length: MAX_TANKS }, (_, i) => ({ ...t, id: `00000000-0000-4000-8000-${String(500 + i).padStart(12, '0')}` }))
-  const dead = Array.from({ length: 5 }, (_, i) => tombstone(`00000000-0000-4000-8000-${String(900 + i).padStart(12, '0')}`, t.updatedAt))
-  expect(TankStore.safeParse({ v: 1, tanks: [...tanks, ...dead], devices: [] }).success).toBe(true)
+test.each(v.stamp)('stamp: $note', ({ now, prev, updatedAt }) => {
+  expect(stamp(new Date(now), prev ?? undefined)).toBe(updatedAt)
 })
+
+test('a tombstone is stamped after the copy it deletes, and parses as a tank or device record', () => {
+  const t = v.valid.find(c => c.kind === 'tank')!.value as Tank
+  const dead = tombstone(t, new Date(Date.parse(t.updatedAt) - 60_000))
+  expect(dead).toEqual({ id: t.id, updatedAt: stamp(new Date(t.updatedAt), t.updatedAt), deletedAt: dead.updatedAt })
+  expect(newer<TankRecord>(t, dead)).toBe(dead)
+  expect(TankRecord.parse(dead)).toEqual(dead)
+  expect(DeviceRecord.parse(dead)).toEqual(dead)
+})
+
+test('the known values in the vectors are the schema\'s', () => { expect(v.known).toEqual(KNOWN) })
 
 test.each(v.litres)('litres: $note', ({ tank, litres }) => {
   if (litres === null) expect(tankLitres(tank)).toBeUndefined()
@@ -73,12 +79,13 @@ test.each(v.litres)('litres: $note', ({ tank, litres }) => {
 /** The JSON Schema the iOS thread and the API contract use, from the zod schemas (UPDATE_SCHEMA=1 rewrites the file). */
 function jsonSchema(): string {
   const registry = z.registry<{ id: string }>()
-  for (const [id, s] of Object.entries({ Tank, Device, Tombstone: TankRecord.options[0], TankRecord, DeviceRecord, TankStore })) registry.add(s, { id })
+  for (const [id, s] of Object.entries({ Tank, Device, Tombstone, TankRecord, DeviceRecord, TankStore })) registry.add(s, { id })
   const out = z.toJSONSchema(registry, { target: 'draft-2020-12', io: 'input', unrepresentable: 'any', uri: id => `#/$defs/${id}` })
-  const defs = Object.fromEntries(Object.entries(out.schemas).map(([k, s]) => { const { $schema: _, ...rest } = s as Record<string, unknown>; return [k, rest] }))
+  // Plain pointers: a $id with a fragment isn't allowed in 2020-12.
+  const defs = Object.fromEntries(Object.entries(out.schemas).map(([k, s]) => { const { $schema: _, $id: __, ...rest } = s as Record<string, unknown>; return [k, rest] }))
   const doc = {
     $schema: 'https://json-schema.org/draft/2020-12/schema',
-    $comment: 'Generated from packages/schema/src/tanks.ts by packages/schema/test/tanks.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). Rules a JSON Schema cannot say (schedule times, ramp, store limits): see the source and protocols/tanks-vectors.json.',
+    $comment: `Generated from packages/schema/src/tanks.ts by packages/schema/test/tanks.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). Looser than the contract where JSON Schema can't say it: ${[...new Set(Object.values(LOOSER))].join('; ')}. protocols/tanks-vectors.json has a case for each.`,
     $defs: defs,
   }
   return `${JSON.stringify(doc, null, 2)}\n`
@@ -88,4 +95,24 @@ test('protocols/tanks.schema.json is up to date', () => {
   const next = jsonSchema()
   if (process.env.UPDATE_SCHEMA === '1') writeFileSync(SCHEMA_FILE, next)
   expect(readFileSync(SCHEMA_FILE, 'utf8'), 'run UPDATE_SCHEMA=1 pnpm --filter @aq/schema test').toBe(next)
+})
+
+/** Invalid cases this JSON Schema accepts, and why (the $comment lists them; the test below keeps the list exact). */
+const LOOSER: Record<string, string> = {
+  'February 30': 'timestamps must be real instants',
+  'month 13': 'timestamps must be real instants',
+  'hour 24': 'timestamps must be real instants',
+  'off before on': 'a schedule\'s off time must be after its on time, the same day (00:00 = midnight at the end)',
+  'a ramp longer than half the time lit': 'the ramp is at most half the time lit',
+  'a store with the same tank twice': 'one record per id in each list',
+}
+
+test('the JSON Schema accepts every valid case and refuses the invalid ones it can express', () => {
+  const ajv = new Ajv2020({ strict: false, allErrors: true })
+  const doc = JSON.parse(readFileSync(SCHEMA_FILE, 'utf8')) as { $defs: Record<string, object> }
+  ajv.addSchema(doc, 'tanks')
+  const check = (kind: Kind, value: unknown) => ajv.validate({ $ref: `tanks#/$defs/${({ tank: 'Tank', device: 'Device', tankRecord: 'TankRecord', store: 'TankStore' })[kind]}` }, value)
+  for (const c of v.valid) expect(check(c.kind, c.value), c.note).toBe(true)
+  const accepted = v.invalid.filter(c => check(c.kind, c.value)).map(c => c.note)
+  expect(accepted.sort()).toEqual(Object.keys(LOOSER).sort())
 })

@@ -1,9 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "Generated from packages/schema/src/tanks.ts by packages/schema/test/tanks.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). Rules a JSON Schema cannot say (schedule times, ramp, store limits): see the source and protocols/tanks-vectors.json.",
+  "$comment": "Generated from packages/schema/src/tanks.ts by packages/schema/test/tanks.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). Looser than the contract where JSON Schema can't say it: timestamps must be real instants; a schedule's off time must be after its on time, the same day (00:00 = midnight at the end); the ramp is at most half the time lit; one record per id in each list. protocols/tanks-vectors.json has a case for each.",
   "$defs": {
     "Tank": {
-      "$id": "#/$defs/Tank",
       "type": "object",
       "properties": {
         "id": {
@@ -12,8 +11,8 @@
         },
         "name": {
           "type": "string",
-          "minLength": 1,
-          "maxLength": 80
+          "maxLength": 80,
+          "pattern": "\\S"
         },
         "dims": {
           "type": "object",
@@ -39,7 +38,7 @@
             "w",
             "h"
           ],
-          "additionalProperties": false
+          "additionalProperties": {}
         },
         "litres": {
           "type": "number",
@@ -119,7 +118,6 @@
       "additionalProperties": {}
     },
     "Device": {
-      "$id": "#/$defs/Device",
       "type": "object",
       "properties": {
         "id": {
@@ -152,8 +150,8 @@
         },
         "nickname": {
           "type": "string",
-          "minLength": 1,
-          "maxLength": 80
+          "maxLength": 80,
+          "pattern": "\\S"
         },
         "schedules": {
           "maxItems": 20,
@@ -167,8 +165,8 @@
               },
               "name": {
                 "type": "string",
-                "minLength": 1,
-                "maxLength": 80
+                "maxLength": 80,
+                "pattern": "\\S"
               },
               "on": {
                 "type": "string",
@@ -235,7 +233,7 @@
             "levels",
             "at"
           ],
-          "additionalProperties": false
+          "additionalProperties": {}
         },
         "clockSyncedAt": {
           "type": "string",
@@ -257,14 +255,12 @@
         "id",
         "tankId",
         "kind",
-        "schedules",
         "createdAt",
         "updatedAt"
       ],
       "additionalProperties": {}
     },
     "Tombstone": {
-      "$id": "#/$defs/Tombstone",
       "type": "object",
       "properties": {
         "id": {
@@ -285,10 +281,9 @@
         "updatedAt",
         "deletedAt"
       ],
-      "additionalProperties": false
+      "additionalProperties": {}
     },
     "TankRecord": {
-      "$id": "#/$defs/TankRecord",
       "anyOf": [
         {
           "$ref": "#/$defs/Tombstone"
@@ -299,7 +294,6 @@
       ]
     },
     "DeviceRecord": {
-      "$id": "#/$defs/DeviceRecord",
       "anyOf": [
         {
           "$ref": "#/$defs/Tombstone"
@@ -310,7 +304,6 @@
       ]
     },
     "TankStore": {
-      "$id": "#/$defs/TankStore",
       "type": "object",
       "properties": {
         "v": {
