@@ -5,6 +5,10 @@
 //   site-watch.mjs prepare <site> <dir>      sitemap → <dir>/e2e-pages.json; pages of open issues → <dir>/e2e-recheck.json
 //   site-watch.mjs report <results.json> <run-url>
 //   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url>
+//   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR
+//
+// The AI review (e2e/review.spec.ts, layer 3): a "high" finding fails its check and becomes a site-check issue like any
+// other; "medium" ones are notes, kept in one issue per page (label page-review), refreshed each review, closed by hand.
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
@@ -33,7 +37,7 @@ function ensureLabel() {
   try { act('label', 'create', LABEL, '--color', 'B60205', '--description', 'A browser check failed on aquatome.com (scripts/site-watch.mjs)') } catch { /* exists */ }
 }
 /** Create the issue, or record the new failure on the open one (an edit, not a comment: no mail every night). */
-function failing(issues, { fp, path, title, details, runUrl }) {
+function failing(issues, { fp, path, title, details, runUrl, autofix = false }) {
   const seen = `**Last failed:** ${today()}, [run](${runUrl})`
   const open = issues.get(fp)
   if (open) {
@@ -43,12 +47,30 @@ function failing(issues, { fp, path, title, details, runUrl }) {
   const body = [marker(fp, path), `${seen}`, '', details, '', 'Closes by itself when the check passes again (docs/governance.md, layer 2). Fixing it: reproduce with the check, keep the check, fix the page.'].join('\n')
   const url = act('issue', 'create', '--title', title, '--label', LABEL, '--body', body).trim()
   console.log(`opened ${url}: ${title}`)
+  // Layer 4: hand a new page problem to fix.yml (a few per run; an issue opened with this token starts no workflow).
+  const n = url.match(/\/issues\/(\d+)$/)?.[1]
+  if (n && autofix && dispatched < 3) { act('workflow', 'run', 'fix', '-f', `issue=${n}`); dispatched++ }
 }
+let dispatched = 0
 function passing(issues, fp, runUrl, what) {
   const open = issues.get(fp)
   if (!open) return
   act('issue', 'close', String(open.number), '--comment', `${what} again on ${today()} ([run](${runUrl})).`)
   console.log(`closed #${open.number}`)
+}
+
+const NOTES = 'page-review'
+/** The AI review's medium findings on a page: one issue per page, its list replaced by the latest review's. */
+function notes(c, runUrl) {
+  const path = c.title.replace(/^review /, '').replace(/ @\w+$/, '')
+  const fp = fingerprint(`notes:${path}`)
+  try { act('label', 'create', NOTES, '--color', 'FBCA04', '--description', 'Notes from the AI page review (e2e/review.spec.ts)') } catch { /* exists */ }
+  let open = []
+  try { open = JSON.parse(gh('issue', 'list', '--label', NOTES, '--state', 'open', '--limit', '300', '--json', 'number,body')) } catch { /* none */ }
+  const hit = open.find(i => i.body.includes(`fp=${fp}`))
+  const body = [marker(fp, path), `**Last reviewed:** ${today()}, [run](${runUrl}) · [open the page](https://aquatome.com${path})`, '', ...c.notes.map(n => `- ${n}`), '', 'Notes, not failures: fix what is real, then close this issue (the next review reopens a new one if it still sees a problem).'].join('\n')
+  if (hit) return act('issue', 'edit', String(hit.number), '--body', body), console.log(`#${hit.number} notes refreshed: ${path}`)
+  console.log(`opened ${act('issue', 'create', '--title', `Review notes: ${path}`, '--label', NOTES, '--body', body).trim()}`)
 }
 
 const strip = s => s.replace(/\x1b\[[0-9;]*m/g, '')
@@ -58,9 +80,10 @@ function checks(report) {
   const walk = suite => {
     for (const spec of suite.specs ?? []) {
       const key = `${spec.file}: ${spec.title}`
-      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [] }
+      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [], notes: [], highs: [] }
       for (const t of spec.tests) {
         if (t.status === 'skipped') continue
+        for (const a of t.annotations ?? []) (a.type === 'review high' ? c.highs : a.type === 'review medium' ? c.notes : []).push(a.description)
         if (t.status === 'unexpected') {
           c.failed.push(t.projectName)
           const err = t.results.at(-1)?.error?.message
@@ -95,18 +118,28 @@ if (cmd === 'prepare') {
   passing(issues, fingerprint('no-results'), runUrl, 'The checks ran')
   for (const c of checks(JSON.parse(readFileSync(file, 'utf8')))) {
     const fp = fingerprint(c.key)
-    const path = c.title.startsWith('page ') ? c.title.slice(5).replace(/ @\w+$/, '') : undefined
+    // The page a check is about (a page check, or a review): rechecked every run until it passes (prepare).
+    const path = /^(page|review) /.test(c.title) ? c.title.replace(/^(page|review) /, '').replace(/ @\w+$/, '') : undefined
     if (c.failed.length) {
-      const details = [`**Check:** \`${c.key}\``, `**Fails on:** ${c.failed.join(', ')}${path ? ` · [open the page](https://aquatome.com${path})` : ''}`, '', '```', ...c.errors, '```'].join('\n')
-      failing(issues, { fp, path, title: `Site check failed: ${c.title.replace(/ @\w+$/, '')}`, details, runUrl })
+      // A review's failure is its serious findings; any other check's is its error.
+      const what = c.highs.length ? [...new Set(c.highs)].map(h => `- ${h}`) : ['```', ...c.errors, '```']
+      const details = [`**Check:** \`${c.key}\``, `**Fails on:** ${c.failed.join(', ')}${path ? ` · [open the page](https://aquatome.com${path})` : ''}`, '', ...what].join('\n')
+      failing(issues, { fp, path, title: `Site check failed: ${c.title.replace(/ @\w+$/, '')}`, details, runUrl, autofix: true })
     } else if (c.passed.length) passing(issues, fp, runUrl, 'Passed on ' + c.passed.join(' and '))
+    if (c.notes.length) notes(c, runUrl)
   }
 } else if (cmd === 'deploy-failed') {
   ensureLabel()
   failing(openIssues(), { fp: fingerprint('deploy'), title: 'Deploy failed', details: 'The last deploy did not finish: aquatome.com still shows the version before it. Open the run, fix the failing step, then run deploy again.', runUrl: args[0] })
 } else if (cmd === 'deploy-ok') {
   passing(openIssues(), fingerprint('deploy'), args[0], 'A deploy finished')
+} else if (cmd === 'pr-comment') {
+  const [file, pr, runUrl] = args
+  const reviewed = existsSync(file) ? checks(JSON.parse(readFileSync(file, 'utf8'))).filter(c => c.title.startsWith('review ')) : []
+  const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
+  const body = [`### AI page review (advisory)`, '', reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : 'The review did not run.', '', ...(lines.length ? lines : ['Nothing serious found.']), '', `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
+  try { act('pr', 'comment', pr, '--edit-last', '--body', body) } catch { act('pr', 'comment', pr, '--body', body) }
 } else {
-  console.error('usage: site-watch.mjs prepare <site> <dir> | report <results.json> <run-url> | deploy-failed <run-url> | deploy-ok <run-url>')
+  console.error('usage: site-watch.mjs prepare <site> <dir> | report <results.json> <run-url> | deploy-failed <run-url> | deploy-ok <run-url> | pr-comment <results.json> <pr> <run-url>')
   process.exit(2)
 }
