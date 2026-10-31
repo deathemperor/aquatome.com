@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { filterSpecies, type SpeciesIndexItem } from '../src/scripts/filter'
+import { filterSpecies, keepBreed, type SpeciesIndexItem } from '../src/scripts/filter'
 
 const items: SpeciesIndexItem[] = [
   { slug: 'ca-neon-xanh', name: 'Cá neon xanh', scientificName: 'Paracheirodon innesi', group: 'tetras', difficulty: 2, tempC: { min: 20, max: 26 }, ph: { min: 5, max: 7 }, tankCm: 60 },
@@ -27,4 +27,12 @@ test('species missing a field are kept rather than hidden', () => {
 })
 test('empty query returns everything', () => {
   expect(slugs({})).toHaveLength(3)
+})
+
+test('breeds: all with no query, a name search keeps the matches, any water filter hides them', () => {
+  expect(keepBreed('Betta Koi (Koi betta)', {})).toBe(true)
+  expect(keepBreed('Betta Koi (Koi betta)', { text: 'chach' })).toBe(false)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', { text: 'la han' })).toBe(true)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', { text: 'la han', tempC: 26 })).toBe(false)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', { group: 'cichlid' })).toBe(false)
 })

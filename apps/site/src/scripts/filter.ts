@@ -21,6 +21,13 @@ export function filterSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): Speci
     (!text || slugify(`${i.name} ${i.scientificName}`).includes(text)))
 }
 
+/** Breeds carry no water data: with a filter set, one stays only when the filter is a name search that matches it. */
+export function keepBreed(name: string, q: SpeciesQuery): boolean {
+  const { text, ...rest } = q
+  if (Object.values(rest).some(v => v !== undefined)) return false
+  return !text || slugify(name).includes(slugify(text))
+}
+
 export function queryFromParams(p: URLSearchParams): SpeciesQuery {
   const n = (k: string) => { const v = p.get(k); return v === null || v === '' || Number.isNaN(Number(v)) ? undefined : Number(v) }
   return { difficultyMax: n('difficultyMax'), tempC: n('tempC'), ph: n('ph'), tankCm: n('tankCm'), group: p.get('group') || undefined, text: p.get('q') || undefined }
