@@ -26,10 +26,17 @@ function said(facts: string, html: string): boolean {
   return words.length > 0 && words.filter(w => have.includes(w)).length / words.length >= 0.75
 }
 
+/** One more list item at the end of a block: inside its last list, else in a list of its own. */
+const appendItem = (html: string | undefined, item: string) => {
+  const end = html?.lastIndexOf('</ul>') ?? -1
+  return !html ? `<ul>${item}</ul>` : end >= 0 ? `${html.slice(0, end)}${item}${html.slice(end)}` : `${html}<ul>${item}</ul>`
+}
+
 /**
  * A heading with only a few words under it, all sources together ("Sinh sản ra sao?" over "Mouthbrooder.") doesn't stand
  * as a section of its own: the fact joins its source's quick facts (so its source mark stays right), or is left out when
  * they already say it. Which headings fold is decided on the source text (@aq/schema depth.ts), the same in every language.
+ * The English quick facts get the same item, so the two lists still match item for item (@aq/schema card-facts).
  */
 export function foldNearEmpty(sections: Section[], t: Translation, label: (vi: string) => string): { sections: Section[]; t: Translation } {
   const fold = nearEmptyKeys(sections)
@@ -41,11 +48,12 @@ export function foldNearEmpty(sections: Section[], t: Translation, label: (vi: s
     delete vi[`${s.key}:${s.source}`]
     const facts = `quickFacts:${s.source}`
     if (!html || !plainText(html) || UNKNOWN.test(plainText(s.html)) || said(vi[facts] ?? '', html)) continue
-    const item = `<li><strong>${label(SECTION_LABELS.vi[s.key])}:</strong> ${html.replace(BLOCK, ' ').replace(/\s+/g, ' ').trim()}</li>`
-    const prev = vi[facts]
-    const end = prev?.lastIndexOf('</ul>') ?? -1
-    vi[facts] = !prev ? `<ul>${item}</ul>` : end >= 0 ? `${prev.slice(0, end)}${item}${prev.slice(end)}` : `${prev}<ul>${item}</ul>`
-    if (!out.some(x => x.key === 'quickFacts' && x.source === s.source)) out.unshift({ key: 'quickFacts', source: s.source, sourceUrl: s.sourceUrl, html: '' })
+    const flat = (h: string) => h.replace(BLOCK, ' ').replace(/\s+/g, ' ').trim()
+    vi[facts] = appendItem(vi[facts], `<li><strong>${label(SECTION_LABELS.vi[s.key])}:</strong> ${flat(html)}</li>`)
+    const i = out.findIndex(x => x.key === 'quickFacts' && x.source === s.source)
+    const en = `<li>${s.key}: ${flat(s.html)}</li>`
+    if (i >= 0) out[i] = { ...out[i]!, html: appendItem(out[i]!.html, en) }
+    else out.unshift({ key: 'quickFacts', source: s.source, sourceUrl: s.sourceUrl, html: `<ul>${en}</ul>` })
   }
   return { sections: out, t: { ...t, sections: vi } }
 }
