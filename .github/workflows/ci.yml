@@ -14,7 +14,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup
@@ -23,6 +23,11 @@ jobs:
       # Browser checks on the fixture build `pnpm test` left in apps/site/dist (apps/site/e2e/README.md).
       - run: pnpm --filter site exec playwright install --with-deps chromium
       - run: pnpm --filter site e2e
+      # Lighthouse (PageSpeed's test) on the same build, alone: next to other checks its timings measure them. Budgets:
+      # apps/site/e2e/lighthouse.spec.ts.
+      - run: pnpm --filter site e2e --grep @lighthouse --workers=1
+        env:
+          E2E_LIGHTHOUSE: '1'
       # The AI page review (docs/governance.md, layer 3) on PRs that change the site's code: advisory, as a PR comment.
       # Only for this repository's branches (a fork's PR never sees the token).
       - id: review
@@ -49,3 +54,15 @@ jobs:
           name: e2e-report
           path: apps/site/e2e-report
           if-no-files-found: ignore
+  # TEMPORARY (removed before merge): Lighthouse on the real build on GitHub's runners, to set the budgets.
+  calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - run: pnpm --filter site exec playwright install --with-deps chromium
+      - working-directory: apps/site
+        run: |
+          I18N_LENIENT=1 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build > /dev/null
+          E2E_LIGHTHOUSE=1 pnpm exec playwright test --grep @lighthouse --workers=1 || true
