@@ -90,3 +90,15 @@ test('a Vietnamese source title is told apart from Spanish or Portuguese ones', 
   for (const s of ['Cá Ping Pong (Pearlscale Goldfish) – Sen A', 'Cá betta (cá xiêm) - Hoàng Hà Mobile', 'Vẻ đẹp của dòng cá Betta Halfmoon', 'Cá dĩa', 'Tép Blue Dream - Blue Velvet Shrimp']) expect(isVietnamese(s), s).toBe(true)
   for (const s of ['Tereso Hernández Morales', 'Río Orinoco', 'São Paulo', 'Seriously Fish', 'Balloon Molly - Aquariadise']) expect(isVietnamese(s), s).toBe(false)
 })
+
+test('language menu: this page in that language, else the nearest page the language has, else its home', async () => {
+  const { switchTo } = await import('../src/lib/i18n')
+  expect(switchTo('id', '/vi/ca/ca-neon-vua/', '/id/ikan/neon-kardinal/', true)).toBe('/id/ikan/neon-kardinal/')
+  expect(switchTo('th', '/vi/ca/ca-neon-vua/', undefined, true)).toBe('/th/fish/') // no Thai page for this fish
+  expect(switchTo('id', '/vi/ca/x/anh/', undefined, true)).toBe('/id/ikan/')
+  expect(switchTo('id', '/vi/video/kenh/abc/', undefined, true)).toBe('/id/') // no video section in Indonesian
+  expect(switchTo('th', '/vi/moi-cap-nhat/', undefined, false)).toBe('/th/')
+  expect(switchTo('vi', '/vi/ca/ca-neon-vua/', undefined, true)).toBe('/vi/ca/')
+  expect(switchTo('id', '/404', undefined, false)).toBe('/id/') // not a /vi/…/ path (the 404 page)
+  expect(switchTo('th', '/vi/ca', undefined, false)).toBe('/th/')
+})

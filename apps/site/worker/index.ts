@@ -110,6 +110,12 @@ export function rootLang(header: string | null): 'vi' | 'id' | 'th' {
   return (hit?.base as 'vi' | 'id' | 'th' | undefined) ?? 'vi'
 }
 
+/** The language a reader picked in the language menu (cookie aq_lang, LangMenu.astro), if any. */
+export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefined {
+  const v = /(?:^|;\s*)aq_lang=(vi|id|th)(?:;|$)/.exec(cookie ?? '')?.[1]
+  return v as 'vi' | 'id' | 'th' | undefined
+}
+
 export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
@@ -133,13 +139,16 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     }
   }
   if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
-  // The root: a browser that prefers Indonesian or Thai goes to that language (302, by Accept-Language); everyone else,
-  // crawlers included, to /vi/ for good.
+  // The root: the language the reader picked in the language menu, else a browser that prefers Indonesian or Thai goes
+  // to that language (302, by Accept-Language); everyone else, crawlers included, to /vi/ for good. The 301 is cached
+  // for an hour only, so a reader who later picks another language isn't stuck on a redirect their browser kept.
   if (url.pathname === '/') {
-    const lang = rootLang(req.headers.get('accept-language'))
-    return finish(lang === 'vi'
-      ? new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language' } })
-      : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language', 'cache-control': 'private, no-store' } }), env)
+    const chosen = chosenLang(req.headers.get('cookie'))
+    const lang = chosen ?? rootLang(req.headers.get('accept-language'))
+    const vary = 'Accept-Language, Cookie'
+    return finish(lang === 'vi' && !chosen
+      ? new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'max-age=3600' } })
+      : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
