@@ -18,6 +18,7 @@ import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
 import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
+import { popularFirst } from './shops'
 import { candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 
 export type Deps = {
@@ -125,11 +126,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
   const gbifNames: Record<string, Taxon | null> = (await readJson(gbifNamesFile)) ?? {}
+  // Shops' species first, then the most-kept fish (shops.ts).
+  const popular = await popularFirst(root)
   const wanted = await soft('wanted species', async () => {
     const words = new Set((await readFile('/usr/share/dict/words', 'utf8').catch(() => '')).split('\n').map(w => w.trim().toLowerCase()))
     const have = new Set([...(await s.ids('species')), ...(await s.ids('plants'))])
     const before = Object.keys(gbifNames).length
-    const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, n => gbifMatch(n, http, gbifNames), n => n in gbifNames), have)
+    const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, n => gbifMatch(n, http, gbifNames), n => n in gbifNames), have, popular)
     if (Object.keys(gbifNames).length !== before) {
       await mkdir(join(root, 'engine-state'), { recursive: true })
       await writeJson(gbifNamesFile, Object.fromEntries(Object.entries(gbifNames).sort()))
@@ -268,7 +271,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       found = kept
     }
     counts.discovered = found.length
-    found = wantedFirst(found, wanted)
+    found = wantedFirst(found, wanted, popular)
     for (const f of found) { const w = wantedIn(f.url, wanted); if (w && !onSource[w]) onSource[w] = f.url }
     await setSourceBlock(root, id, undefined)
     const state = await loadState(root, id)

@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -98,7 +98,7 @@ test('gallery: a recent gallery is left alone; rejected photos never come back; 
   expect(stopped.stopped).toMatch(/usage limit/)
 })
 
-test('gallery order: the staples first, the most-kept fish, then the species most sources write about', async () => {
+test('gallery order: the staples first, what shops sell, the most-kept fish, then the species most sources write about', async () => {
   const r = await root()
   const add = async (id: string, sources: string[]) => {
     await mkdir(join(r, 'content/species', id), { recursive: true })
@@ -109,6 +109,11 @@ test('gallery order: the staples first, the most-kept fish, then the species mos
   await add('danio-margaritatus', ['seriouslyfish'])
   const report = await galleries(r, deps(), { limit: 3 })
   expect(report.done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'danio-margaritatus', 'zzz-three-sources'])
+  // A species fish shops sell (shops.ts) comes before the most-kept fish.
+  await mkdir(join(r, 'engine-state/shop-lists'), { recursive: true })
+  await writeFile(join(r, 'engine-state/shop-lists/th.json'), JSON.stringify({ lang: 'th', items: [{ trade: 'x', name: 'x', scientificName: 'Aaa one source', confidence: 0.9, evidence: '' }], sources: [], updatedAt: '' }))
+  await rm(join(r, 'content/gallery'), { recursive: true, force: true })
+  expect((await galleries(r, deps(), { limit: 3 })).done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'aaa-one-source', 'danio-margaritatus'])
 })
 
 test('a photo that does not decode is skipped instead of breaking the contact sheet', async () => {
