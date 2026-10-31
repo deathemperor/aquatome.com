@@ -1,0 +1,343 @@
+{
+  "found": true,
+  "species": [
+    "Symphysodon spp.",
+    "Carassius auratus",
+    "Astronotus ocellatus",
+    "Scleropages formosus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/faqs/how-do-i-clean-an-aquarium-filter-without-killing-bacteria",
+      "title": "How do I clean an aquarium filter without killing bacteria? (Aquarium Co-op)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/how-should-i-clean-the-sponge-in-my-filter",
+      "title": "How should I clean the sponge in my filter? (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.jbl.de/pl-pl/blog/detail/637",
+      "title": "Filter maintenance made easy – It's time to clean the aquarium (JBL)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.sera.de/us/service/faq/faq-detail/does-a-power-outage-cause-harm",
+      "title": "Does a power outage cause harm? (sera FAQ)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://thuysinh24.com/ve-sinh-loc-thung/",
+      "title": "Vệ sinh lọc thùng đúng cách: bao lâu một lần và quy trình chuẩn (Thủy Sinh 24)",
+      "kind": "article"
+    },
+    {
+      "url": "https://chothuysinh.com/lam-the-nao-de-ve-sinh-loc-thung/",
+      "title": "Làm thế nào để vệ sinh lọc thùng bể cá đúng cách (Chợ Thủy Sinh)",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/6-9-tap-water-rinsing",
+      "title": "6.9 Tap water rinsing (AquariumScience.org)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Filter media traps fine debris and also holds the beneficial bacteria that turn fish toxins into less harmful nitrate.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Biological media such as ceramic rings and sintered glass is where most of the beneficial bacteria live.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Kneading media in aquarium water leaves some bacteria and organic material in it, so the filter keeps working biologically.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Cleaning the filter too hard or too often can set off a mini-cycle, and fish can get sick and die as they do in a new tank.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "A filter needs cleaning when its outflow drops by more than 50% from normal.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Other signs the filter needs cleaning: water stays cloudy and smelly right after a water change, small bubbles keep coming from the outlet, or the unit makes unusual noise.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Weak or broken-up flow, cloudy or smelly water, sluggish or stressed fish, and odd noises from a clogged impeller or trapped air all mean it is time to clean.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Brown media is normal because it carries beneficial bacteria. It is not on its own a reason to clean.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Bacteria are lost mainly through vigorous cleaning under running water. Cleaning a newly established sponge under running water removed almost all of its bacteria, while cleaning it in a pail of water left a lot behind.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "A strong water jet cleans too thoroughly and can harm the filter's bacteria.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Big temperature swings can harm the bacteria inside the filter.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Siphon 3–5 L of tank water into a clean bucket to use for rinsing.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Unplug the filter, close the in/out valves and let the water drain out of the hoses.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Take the compartments apart in order: mechanical, then chemical, then biological.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Coarse sponge pads are the dirtiest part. You can wring them hard in old tank water or dechlorinated water.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Squeeze and rinse foam or sponge in tank water until it is no longer very dark. Replace it if it is falling apart.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Swish biological media gently in the water. Do not scrub it.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Replace used-up chemical media completely instead of cleaning it.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Replace activated carbon if it has been in use for more than 4–6 weeks.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Wipe the housing, check the impeller and remove sludge, then put the media back in the right order and switch the filter on.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Swap the dirty water in the filter canister for aquarium water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Clean the impeller, its axis and the impeller well with a brush, and check the blades for damage.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Clean hoses with a flexible hose brush. Just running water through them is not enough, because biofilm builds up inside.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Fill the canister with water before closing the lid so no air gets trapped. Prime self-priming models (Fluval, SunSun) with the built-in pump, and tilt the filter gently to push out air.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Watch the tank for 2–3 days after cleaning.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "After cleaning, feed about 30% less for 3 days. If you have a test kit, ammonia should read 0 ppm after 3 days.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Filters usually recover in 24–48 hours. If a lot of bacteria was lost, the tank can take 3–7 days to settle.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "After restarting, one Vietnamese store guide suggests adding 5–10 ml of a bacteria product (it names BioDigest and Stability) and feeding less for 24–48 hours.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "JBL says adding its FilterStart to the media and PROCLEAN BAC to the water after cleaning helps protect the bacteria.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Purigen is an exception among chemical media: it can be cleaned with diluted bleach.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Short power cuts of up to about one hour are unlikely to cause damage.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a longer power cut, pull the filter's plug if you notice in time.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "When the power comes back on an external filter, catch the first water that comes out (5 to 10 times the filter's volume) in a bucket and throw it away.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "When the power comes back on an internal filter, wash the media well in a half-filled bucket of aquarium water and throw the washing water away.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Bacteria in a stopped filter get no fresh water and can produce pollutants such as nitrite. Test the water standing in the filter for nitrite before restarting.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "As a rule of thumb, clean the filter every 1 to 3 months. The right interval depends on filter size, how much media it holds and how much you feed.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean canister filters every 4–8 weeks: 6–8 weeks for lightly stocked planted tanks, 4–6 for normal tropical tanks, 3–4 for goldfish or big fish such as oscar and arowana, and 2–3 for discus.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Heavily stocked tanks, or tanks with big eaters such as goldfish, dragon fish or mini koi, need filter cleaning about every 3–4 weeks.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "If you have two sponges, clean them on alternate weeks.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Leave at least 1 week between a filter cleaning and a water change. Do not do both on the same day.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "When you replace media, keep at least 50% of the old media.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "With light rinsing, ceramic rings and bio balls can last 5–10 years. Replace them only if broken or if the surface has gone smooth and lost its pores.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Rinsing media under tap water: the article says it kills nitrifying bacteria.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Never wash filter media under the tap. Rinse it in tank water siphoned into a bucket.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not use soap or detergents on the filter.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not use water from the shower or bathtub, because its temperature and pH can harm the bacteria.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not wash cotton wool or fleece. Washing makes them denser and cuts flow, so replace them instead.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes include cleaning every 2 weeks just because the media looks brown, scrubbing biological media and replacing all the media at once.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving the filter off for a long time is a mistake, because the beneficial bacteria need oxygen and steady flow.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not repair a worn impeller. It can become unbalanced and damage the impeller well, so replace it.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "AquariumScience.org calls it a myth that tap-water chlorine kills filter bacteria. It reports that chlorine at 2–4 times normal tap levels had no measurable effect, and blames the losses on vigorous cleaning under running water. This is a hobby site's test, not peer-reviewed.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping disagrees with manufacturers who tell you to rinse media under the tap. It calls this a very bad idea.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "JBL says older literature recommends cleaning the filter in parts, but that most filters can be fully cleaned in one go if the media is kneaded in aquarium water.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese guide warns against rinsing media in tap water that contains chlorine or chloramine.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Filters common in Vietnam include Eheim Classic, SunSun HW-304B and Fluval FX6. Larger filters go longer between cleanings than small or homemade ones.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tanks under 100 L get dirty faster than 200–500 L tanks. Bright or planted tanks grow algae faster and may need filter cleaning sooner.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Hoses can be soaked for 10–15 minutes in warm water with white vinegar or diluted salt (about 1 teaspoon per litre), then rinsed.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Replace white filter floss when it turns yellow, tears or cakes heavily, which is usually after about 2–3 cleanings.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Activated carbon, zeolite and Purigen should be replaced after 2–3 months.",
+      "source": 5
+    }
+  ]
+}

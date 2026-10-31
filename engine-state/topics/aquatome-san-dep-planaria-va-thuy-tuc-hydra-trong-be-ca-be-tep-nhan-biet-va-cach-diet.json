@@ -1,0 +1,517 @@
+{
+  "found": true,
+  "species": [
+    "Hydra viridissima",
+    "Hydra vulgaris",
+    "Hydra oligactis",
+    "Neocaridina davidi",
+    "Caridina cantonensis",
+    "Melanoides tuberculata",
+    "Trichogaster chuna",
+    "Trichopsis pumila"
+  ],
+  "sources": [
+    {
+      "url": "https://gensou.sg/how-to-treat-planaria-shrimp-tank/",
+      "title": "How to Treat Planaria in a Shrimp Tank Safely (Gensou, Singapore)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.superiorshrimpaquatics.com/blogs/news/eliminating-planaria-in-your-aquarium-a-comprehensive-guide",
+      "title": "Eliminating Planaria in Your Aquarium: A Comprehensive Guide (Superior Shrimp & Aquatics)",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/how-to-deal-with-hydra-in-shrimp-tank/",
+      "title": "How to Deal With Hydra in a Shrimp Tank: Safe Removal (Gensou)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/hydra-in-aquarium",
+      "title": "How to Get Rid of Hydra in Your Aquarium (Aquarium Co-Op)",
+      "kind": "article"
+    },
+    {
+      "url": "https://shrimpscience.com/articles/hydra-in-shrimp-tank",
+      "title": "Hydra in shrimp tank (ShrimpScience)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.pvas.com/post/using-fenbendazole-to-control-hydra",
+      "title": "Using Fenbendazole to Control Hydra (PVAS)",
+      "kind": "article"
+    },
+    {
+      "url": "https://tepcanh.com/tim-hieu-ve-san-trong-be-nuoi-tep-canh/",
+      "title": "Tìm hiểu về sán trong bể nuôi tép cảnh (tepcanh.com)",
+      "kind": "article"
+    },
+    {
+      "url": "https://bucepviet.vn/5-nguyen-tac-vang-diet-san-ho-ca-bi-quyet-giup-ho-thuy-sinh-luon-khoe-manh-va-trong-sach",
+      "title": "5 nguyên tắc vàng diệt sán hồ cá (BucepViet)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Planaria are free-living flatworms about 5–15 mm long. They glide along surfaces and are mostly active at night.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Planaria eat shrimp eggs and shrimplets of 1–3 mm, and may attack weak or freshly moulted shrimp.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Planaria attack baby shrimp, sick shrimp and shrimp that have just moulted, and they also compete with shrimp for food and space.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Hydra are freshwater cnidarians, related to jellyfish, corals and sea anemones. They have a stalk or foot and a mouth ringed by tentacles with stinging cells.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Hydra can regenerate from fragments and reproduce by budding, or sexually by eggs.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Adult shrimp are generally safe from hydra, but newborn shrimplets of about 2–3 mm are easy targets. A hydra infestation can sharply cut survival in a breeding tank within days.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Baby shrimp are vulnerable to hydra because their shells are still soft and they fit in a hydra's mouth. Old or sick adult shrimp may occasionally be stung.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Hydra are not dangerous to humans because their stinging cells are too weak.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Aquarium Co-Op's author, writing from experience, says hydra do not greatly reduce populations of baby fish and shrimp.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Planaria have an arrow- or triangle-shaped head with two dark eyespots.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Planaria are flat, unsegmented and glide smoothly. Detritus worms are round in cross-section, segmented, wriggle actively and are harmless decomposers.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Head shape alone is not a reliable way to identify planaria. Combine several features and get a clear close-up photo before treating.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Planaria can be white, off-white or rust/brown-red, so color alone does not identify them.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Rhabdocoela flatworms have rounded heads and tails, are harmless to shrimp, and often gather on the glass when the lights are off.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Rhabdocoela (tiny, round-headed) and detritus worms are harmless and do not need treatment.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Planaria are basically white, but their color can change with the food they eat.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "A warning sign of planaria is berried female shrimp that never produce surviving young.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Hydra look like small translucent stalks with tentacles, usually 5–15 mm long, attached to glass, plants, hardscape and equipment.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Hydra grow up to about 1 cm (0.4 in) and are translucent white, green or light brown.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "ShrimpScience says fully grown hydra reach about 3 cm and look like a stick with jellyfish-like tentacles. They are usually white but can be lime green.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Green hydra (Hydra viridissima) get their color from symbiotic Chlorella algae.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Gensou names the two common aquarium hydra as green hydra (H. vulgaris) and brown hydra (H. oligactis).",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Planaria enter tanks on contaminated plants, substrate and driftwood, in live food such as blackworms and tubifex, and on shared nets, siphons or water from infested tanks.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding is the main driver of planaria population explosions.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "At 28–32 °C, a few planaria can become hundreds within weeks.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Excess organic matter, overfeeding and poor substrate maintenance favor planaria. Their egg capsules are nearly invisible on plants and decorations.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Leftover high-protein food encourages planaria. Plants, fish or water bought from shops that already carry them, and poor-quality substrate, can bring them in.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Hydra arrive on new plants and driftwood and in water from fish bags. Overfeeding feeds the copepods, daphnia and detritus worms that hydra eat.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Hydra can lie dormant for months, then bloom when baby brine shrimp are fed heavily.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding powdered food favors hydra, and sharing nets or equipment between tanks spreads them.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Cutting back feeding and doing water changes is shrimp-safe and always the first step against planaria, but it is not enough for an established infestation.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "A few hydra are not an emergency, but numbers should be kept low.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "If shrimp show severe stress during planaria treatment, do a 50% water change immediately.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "No Planaria (areca/betel nut extract): 1 scoop (included) per 50 L, or as the product label instructs. It is shrimp-safe at the recommended dose.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Gensou's planaria guide says snails are generally safe with No Planaria, but suggests starting at half dose if valuable snails are present.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Gensou's hydra guide says snails are highly sensitive to No Planaria, so remove nerite, ramshorn and Malaysian trumpet snails first.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Some Caridina keepers see mild stress with No Planaria. Gensou suggests a 20% lower dose for crystal red and Taiwan bee shrimp.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Shrimp-safe does not mean snail-safe. Follow the exact label of No Planaria and remove snails first.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Fenbendazole for planaria: 0.1 g pure fenbendazole per 100 L, or about 0.45 g Safeguard granules (22.2%) per 100 L, pre-mixed in warm dechlorinated water. It is lethal to snails.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Fenbendazole for hydra: 0.1 g per 40 L dissolved in warm water. Hydra die within 48–72 hours, and it is shrimp-safe at the correct dose.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "After 72 hours of fenbendazole, do a 50% water change, put the carbon back and siphon out dead hydra. Repeat the dose a week later for survivors.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op uses Safe-Guard goat dewormer (10% fenbendazole, 100 mg/ml) at 1 drop per gallon, shaken well. It works within 24 hours. After 3 days, do a 50% water change and redose if needed.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op reports that, in its experience, the Safe-Guard dose was safe for snails, shrimp, fish, plants and beneficial bacteria (anecdotal).",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "PVAS says half a drop per gallon of SafeGuard fenbendazole liquid is enough for hydra. High concentrations can kill fish, so err on the low side.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Wait at least 3 days and do a 50% water change before repeating a fenbendazole dose.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Panacur C (fenbendazole) is a dog dewormer used off-label. Its label does not establish an aquarium dose or safety for shrimp and snails, so Superior Shrimp advises seeking aquatic veterinary advice.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "After fenbendazole, ShrimpScience's author lost Malaysian trumpet snails, and ramshorn snails kept dying for months. It took about a year before the tank was safe for snails again.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Hydra treatments usually harm snails, because snails are biologically similar to hydra.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Other hydra and planaria products named include Planaria Zero and SL-Aqua Bio Protector Z1.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt is not a viable planaria treatment in shrimp tanks.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Bait traps reduce planaria numbers but cannot wipe out an infestation alone. They also miss eggs and planaria living under the substrate.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Planaria trap: put raw meat, shrimp or fish in a small container covered by fine mesh with a central hole. Set it overnight and remove it in the morning.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Loaches and puffers eat planaria but are not compatible with shrimp tanks.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Honey gourami and sparkling gourami eat hydra over a few days, but sparkling gouramis will also eat shrimplets.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Physa pond snails sometimes eat hydra, but results are inconsistent, so use them only as a supplement.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op says ramshorn, pond and spixi snails eat hydra and are too slow to catch fry or shrimp.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Spixi snails eat hydra but do not clear them quickly.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Starving hydra by reducing food (target feeding, feeding dishes, water changes, gravel vacuuming) makes most of them die off.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Manual removal of hydra: siphon them with a syringe and airline tubing. Removing only some lets them regrow within days.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Planaria protocol, day 0: change 20% of the water, remove activated carbon and chemical media, measure the real water volume, remove snails (if using fenbendazole), turn off UV, dose, and add a little more surface agitation.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Days 1–2: dead planaria show up as white curled worms. Shrimp may be less active but should still move and feed.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Day 3: give a second dose at the same concentration. Days 5–6: give an optional third dose, recommended for heavy infestations.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Day 7: do a 50% water change matching temperature and TDS, vacuum dead worms, put the carbon back and turn UV on again.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "After treatment, test ammonia and nitrite daily for a week. Planaria eggs can take up to two weeks to hatch, so check nightly with a torch.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Treatment counts as successful if no planaria are seen for two consecutive weeks, starting from week 4.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "After hydra treatment, use carbon or Purigen to remove leftover medication. Test ammonia, nitrite and TDS for a week, and wait at least two weeks before adding new livestock.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new plants for 1–2 weeks and inspect them, or use tissue-culture plants.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Alum dip for new plants: 1 tablespoon potassium alum per litre for 2–3 hours, then rinse thoroughly.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what shrimp eat within two hours and remove leftovers promptly.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed solid foods such as pellets or algae wafers instead of powdered food, and use a feeding dish.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Boil and scrub new hardscape, and do not share nets or equipment between tanks.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Get live food from well-maintained cultures and do not transfer the culture water or debris.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "No quarantine period or peroxide dip is guaranteed to remove every worm or egg capsule.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving carbon in the filter while dosing, which lowers effectiveness.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Stopping after one or two doses, which lets surviving eggs hatch later.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Working out the dose without subtracting the water displaced by substrate, hardscape and equipment.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Ignoring hardscape displacement causes overdosing: dosing for 40 L when the tank holds 30 L is about a 30% overdose.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming every small white worm is planaria, and treating before confirming identification.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using a dosing schedule from another brand or an old guide, or converting a dog dose into a tank dose.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using a live snail to test whether treatment residue is gone.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Scraping hydra off by hand is not advised, because broken fragments regrow.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving dead worms in the tank after treatment, which risks ammonia spikes.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shrimp keepers use the Z1 planaria remover, which tepcanh.com says does not harm shrimp or plants but does affect snails.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese folk remedies for planaria include starfruit (khế), dried areca nut (cau khô), soap pod (bồ kết) and lemongrass (sả). tepcanh.com notes these are unverified.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Products sold in Vietnam include Genchem No Planaria and Bio S Planaria Killer. BucepViet advises using half the recommended No Planaria dose in shrimp tanks.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "BucepViet advises changing 50% of the water with RO water 48 hours after medicating a shrimp tank, and adding beneficial bacteria about 2 days after treatment.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Raising the temperature to 30–32 °C against worms should not be done in shrimp tanks.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "In tropical water of 28–32 °C, organic matter breaks down fast, so careful feeding matters more.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Superior Shrimp says ramshorn snails are not a proven treatment for planaria or a barrier against them.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "ShrimpScience says green hydra cannot be starved easily, because their algae feed them.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Superior Shrimp says frozen food is not a guarantee against bringing in aquatic pests.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Superior Shrimp says a quick dip, a fixed waiting period or clear water does not prove eggs are gone or that the tank is safe for snails.",
+      "source": 1
+    }
+  ]
+}

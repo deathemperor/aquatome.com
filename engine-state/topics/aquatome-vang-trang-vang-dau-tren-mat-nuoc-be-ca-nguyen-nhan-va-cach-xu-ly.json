@@ -1,0 +1,440 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens"
+  ],
+  "sources": [
+    {
+      "url": "https://www.gcshop-sg.com/blogs/care-hub-aquarium-basics/aquarium-basics-oily-surface-foam-or-bubbles-that-won-t-break",
+      "title": "Aquarium Basics: Oily Surface, Foam, or Bubbles That Won't Break?",
+      "kind": "article"
+    },
+    {
+      "url": "https://fishyhub.com/sg/blogs/blog-detail/oily-film-on-aquarium-water",
+      "title": "Why Is My Aquarium Surface Oily? Biofilm Causes and Simple Fixes",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/moi-dieu-ban-can-biet-ve-loc-vang-ho-ca/",
+      "title": "Mọi điều bạn cần biết về lọc váng hồ cá - aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://thuysinhduonglam.com/goc-chia-se/xu-ly-vang-mat-nuoc-ho-thuy-sinh.html",
+      "title": "Xử lý váng mặt nước hồ thủy sinh - Thủy sinh Dương Lâm",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.hanoizoo.com/ho-ca-bi-dong-vang/",
+      "title": "Hồ Cá Bị Đóng Váng: Nguyên Nhân & Biện Pháp Xử Lý",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/2058/nguyen-nhan-va-cach-khac-phuc-vang-be-thuy-sinh.html",
+      "title": "Nguyên Nhân Và Cách Khắc Phục Váng Bể Thủy Sinh - Aquarium Care",
+      "kind": "article"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/surface-scum-keeps-coming-back.2389/post-25154",
+      "title": "UKAPS forum: Surface scum keeps coming back",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.gwapa.org/forum/viewtopic.php?p=42717",
+      "title": "GWAPA forum: Help with surface film (eisenbacteria?)",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Surface film is a thin, oily-looking layer of proteins, fats and bacterial matter at the air-water surface; it shows up when surface movement drops.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Váng is described as a white, oily film made of organic waste, fats and microbes.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "The film is a mix of dust, debris, leftover food, fish waste, bacteria and algae, held together by polysaccharides.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "A thin film usually does not harm fish directly, but a thick layer can block gas exchange and leave fish short of oxygen in crowded tanks.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Váng lowers dissolved oxygen and traps CO2 by blocking gas exchange at the surface.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Váng can block light, which weakens plants and can start a cycle where weak plants release more waste.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Oxygen loss from váng hits fish and shrimp harder than plants.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A light film is not immediately dangerous, but over time it cuts gas exchange and can stress labyrinth fish such as bettas and gouramis.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Film is a thin layer on still water; foam is a bubbly layer that is most visible near the filter outlet.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Bubbles that will not pop suggest waste or protein buildup changing the surface tension.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Foam that appears right after dosing points to a recently added medication or additive.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Film that comes back quickly means the root cause is still there.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Laying a paper towel on the surface lifts the film off, which helps confirm it is surface film.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Signs that come with váng include cloudy or yellowish water, fish refusing food and wilting plant leaves.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "One keeper said a whitish film that does not re-merge when broken up may be iron bacteria rather than protein film.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "In the GWAPA thread nobody confirmed a film as iron bacteria, and nobody gave a visual or test-based way to tell it from protein film.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Weak surface movement is a cause, including a filter outlet aimed too low.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "A clogged sponge or dirty intake reduces flow and lets film build up.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding or oily foods add organic matter that feeds the film.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Covered tanks with poor gas exchange are prone to surface film.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Recent use of medication, water conditioner or other additives can cause film or foam.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "In a new tank, bacterial colonies produce byproducts in the first 1-4 weeks that add to the film.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Rotting leaves and stems release oils and organic compounds that form film.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Lotion, soap or cooking oil on hands, and household cleaners used near the tank, can contaminate the surface.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Weak plants cause váng, whether they are newly planted or struggling with light, nutrient or CO2 problems. Decaying lower leaves, dead fish or shrimp, and leftover food also add to it.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "A UKAPS team member says stressed plants release lipids and carbohydrates that bacteria feed on, so surface scum means the plants are struggling.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "A keeper reported that CO2-injected tanks are more prone to scum because rising CO2 bubbles are sticky and carry debris to the surface.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Stagnant water, weak flow and heavy stocking make váng more likely.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Listed causes include badly used substrate, rotting plants, fish waste and weak beneficial bacteria, plus dust, strong sunlight, high temperature and unsuitable or excess food.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Beneficial bacteria can be weakened by antibiotics or chlorinated tap water, which encourages váng.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Fast-dissolving or low-grade fish food is called the top cause of váng for beginners.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "A filter too weak for the tank volume lets organic matter build up.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "One keeper linked film to changes in filter media, bioload or plumbing, or to removing plants.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "If fish are gasping at the surface, increase aeration at once and test for ammonia and nitrite.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For quick removal, blot the surface with paper towels, skim it with a net, or run a surface skimmer.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "To use paper towels, lay a sheet on the surface, peel it back, and repeat with fresh sheets until the film is gone.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Spraying 3% hydrogen peroxide on the film is given as a temporary fix; wear eye protection and keep it off skin, eyes and clothing.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Angle the outlet or spray bar slightly upward so gentle ripples cross the whole surface.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A surface skimmer is the most direct fix for film that keeps coming back.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "An air stone helps where surface movement or oxygen is low, and a small circulation pump can clear dead zones.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Reduce organic load: feed less, remove uneaten food, do a partial water change, lightly vacuum dirty substrate, and clean mechanical media before flow drops.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Change about 10–15% of the water each week and siphon the bottom.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Change 20–30% of the water weekly in new or problem tanks and 10–20% weekly in stable tanks, and dechlorinate new water.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Change about 20–30% of the water at a time, 2–3 times a week, while treating váng.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Filter flow should be about 3–5 times the tank volume per hour, for example 300–500 L/h for a 100 L tank.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Run a surface skimmer while plants recover, and use it to make gentle flow and cut dead spots.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "In planted tanks, the UKAPS team says the root fix is better plant nutrition and more CO2; airstones and fans are only stopgaps.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Keepers reported that a nightly airstone on a timer clears scum and also drives off CO2 while the lights are off.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Keepers reported that Eheim surface extractors work well, and a Hydor Koralia circulation pump cleared scum by sweeping it deeper into the tank.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "One keeper said the film cleared by itself in two to three weeks.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Skimmers come built into hang-on filters or as separate external units. Separate units pull harder and suit large tanks.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: find the cause (flow, feeding, decaying matter, recent additives) before using chemicals.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: remove the film with paper towels, a net or a skimmer.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: change water and siphon debris without deep-cleaning the substrate, since that removes beneficial bacteria.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: remove leftover food, old leaves, dying plants and dead fish, shrimp or snails.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: increase surface movement, using a hang-on filter or by pointing the main filter outlet at the surface.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 6: rinse filter media only in water taken from the tank.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish eat in 2-3 minutes, then remove leftovers with a net or turkey baster.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed small amounts several times a day, keep stocking right for the tank size, and use a lid with ventilation slits to keep dust out.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep hands free of soap, lotion and oil before putting them in the tank, and avoid using household cleaners near an open tank.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid direct sunlight on the tank and keep the water circulating so there are no dead spots.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep flow up by cleaning the filter regularly; a keeper advised cleaning or replacing the internal filter sponge weekly.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Scooping the film away again and again without fixing the flow is a mistake.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not clean all filter media at once.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not add chemicals before checking circulation and waste buildup.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Persistent foam with stressed fish, bad smell or cloudy water is a water-quality problem, not just a cosmetic one.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "A skimmer only removes film that has already formed; it does not fix overfeeding, poor cleaning or a weak main filter.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skimmers built into the main filter can draw in air, cause bubbling in the main filter and weaken its flow.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Avoid unnecessary medications, which harm beneficial bacteria.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnamese the film is called váng, and a surface skimmer is called lọc váng.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Untreated tap water contains chlorine that harms beneficial bacteria and encourages váng; dechlorinate new water.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Warm water speeds up the decay of dead leaves on the bottom, which feeds váng.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "High temperature and strong sunlight are listed as outside causes of váng.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop recommends its BIO SPEED bacteria product for váng but gives no dose.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "The film is not always oil: one guide says it is mostly proteins and bacterial biofilm, though oils from food or hand lotion can add to it.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Keepers disagree on skimmers: one said skimming clears the film, while another, based on his reading, said skimmers would not help.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "A new tank's biofilter may take 2–6 weeks to settle, and váng can appear during that time.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Planted tanks often have film because keepers keep the surface still to hold in CO2.",
+      "source": 6
+    }
+  ]
+}

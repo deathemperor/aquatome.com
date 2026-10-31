@@ -1,0 +1,437 @@
+{
+  "found": true,
+  "species": [
+    "Melanoides tuberculata",
+    "Pangio kuhlii",
+    "Carassius auratus"
+  ],
+  "sources": [
+    {
+      "url": "https://thevetdesk.com/ask-the-vet/fish/why-does-my-fish-tank-smell",
+      "title": "Why Does My Fish Tank Smell? (Dr. Luqman Javed, DVM)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariadise.com/bad-tank-smells/",
+      "title": "Bad tank smells - Aquariadise",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/why-aquarium-smells-bad/",
+      "title": "Why Does My Aquarium Smell Bad? Causes and Fixes - Gensou",
+      "kind": "article"
+    },
+    {
+      "url": "https://cabaymau.vn/nuoc-be-ca-co-mui-tanh/",
+      "title": "Nước bể cá có mùi tanh: Nguyên nhân và cách xử lý triệt để - Cá Bảy Màu",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/7-nguyen-nhan-khien-cho-be-ca-cua-ban-co-mui-hoi-va-cach-khac-phuc/",
+      "title": "7 nguyên nhân khiến bể cá có mùi hôi tanh - Aquasetup",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage - Chewy",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "A faint earthy smell is normal, both in new tanks that are cycling and in healthy established tanks.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Only a slight earthy smell when the lid is lifted is normal. An overpowering odour means there is a problem.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A strong smell you can notice from across the room, or a sudden change in smell, should be investigated.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "One dead fish can cause an ammonia spike that sets off a chain of further deaths.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "A strong fishy smell, sometimes with an oily film on the water surface, points to rotting organic matter such as a dead fish or snail.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The fishy or rotting smell is strongest near the source and can become overwhelming within 24-48 hours of a death.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A rotten-egg or sulfur smell points to hydrogen sulfide from oxygen-free pockets in the substrate.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Gas bubbles or a strong odour released when the substrate is stirred are a sign of trapped gas.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "A musty or swampy smell together with dark green or blue-green slimy films on the substrate, plants and glass points to cyanobacteria.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A sewage or dirty-water smell suggests the biofilter is overloaded. Raised ammonia and nitrite test readings confirm it.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A chemical or plastic smell usually comes from new equipment, decorations or substrate that was not rinsed well.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A strong smell combined with sluggish fish, fish gasping at the surface, refusing food or dying in numbers means ammonia or nitrite may already be above safe levels.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Rotting plants show soft, discoloured, slimy leaves.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "A dead fish, snail or shrimp, often hidden behind rocks, decorations or caves, is a common cause of a strong fishy smell.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Small fish can get stuck against the filter intake strainer and rot there unnoticed.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Uneaten food rotting on the substrate causes smell. Food pellets or flakes that are too big can be spat back out through the gills and end up on the bottom.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "A failed or clogged filter leaves stagnant, poorly oxygenated water in which waste builds up.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overstocking causes a persistent smell from polluted water.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Heavy-waste fish such as goldfish, mollies and swordtails, kept in large numbers or with weak filtration, increase odour.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Decaying leaves and stems, especially those trapped under decor, foul the water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Algae dying off after a bloom can release sulfur gases with a sewage-like or rotten-egg smell.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Deep, undisturbed sand beds more than 5 cm deep form oxygen-free pockets that produce hydrogen sulfide.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Seachem Prime can cause a rotten-egg smell, especially when overdosed.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Algae, film and stuck food on the glass and lid can add a fishy smell.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Tap water that has not been dechlorinated or that contains impurities is listed as a cause of smell.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Canister filters, which are not open to the air, can go anoxic in as little as 4-6 hours without power. How much risk this carries depends on how dirty the filter was.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Count all fish, shrimp and snails, check every hiding spot, and remove any dead body at once.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "After removing a dead fish, do a 50% water change.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "For a sewage smell, do a 50% water change and vacuum the substrate straight away, then do 25% water changes daily until test readings are normal.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the smell is strong, the vet article suggests larger water changes every couple of hours.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Stop feeding for 1-2 days while the smell is being dealt with.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Change 30-50% of the water with dechlorinated water no more than 2°C different in temperature. If ammonia or nitrite is high, change another 20-30% daily for 2-3 days.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Use activated carbon in the filter and replace it every 2-4 weeks.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Activated carbon in a filter bag should be replaced after 1-2 weeks. It only removes smell temporarily and does not replace beneficial bacteria.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Activated carbon is said to stay effective for about 6 months to 1 year. If the root cause is not fixed, the smell comes back.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Activated carbon must be replaced a few times a year to keep working.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For hydrogen sulfide, gently stir the affected substrate with a chopstick or finger during a water change, releasing the gas a little at a time.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Hydrogen sulfide is toxic to fish even in small amounts. Releasing a large gas pocket all at once can push levels to dangerous points.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For cyanobacteria, remove as much as possible during water changes and increase flow. Persistent cases can be treated with a 3-day blackout or erythromycin.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Soak decorations in 1-2% salt water for 10-15 minutes, rinse and put them back. Do not use cleaning chemicals.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "EM microbial product is suggested at 5-10 ml per 10 litres, shaken before use. Nitrifying bacteria products should be dosed as the label says.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Overdosing medications or water treatments can kill plants, invertebrates and beneficial bacteria. Treat sick fish in a separate tank.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: Remove dead fish, dead shrimp, rotting leaves and leftover food, including from gaps in rocks and wood.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: Change 30-50% of the water slowly while siphoning the substrate.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: Rinse the filter in tank water you have drained out, gently and without scrubbing, to keep the bacteria.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: Test ammonia, nitrite, nitrate, pH and hardness.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: Add nitrifying bacteria and increase aeration or pump flow to remove dead spots.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "An alternative order: clean the glass, siphon the substrate, trim dead leaves, rinse decorations and the filter inlet and outlet, change 10-15% of the water, rinse the filter in old tank water, then add activated carbon.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish eat in a few minutes, twice daily, with one fasting day each week.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed an amount the fish finish in 2-3 minutes and remove leftovers after 5 minutes.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Crumble food for small fish and fry.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 20-30% of the water weekly, vacuum the substrate, and rinse filter media in tank water every couple of weeks.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Water change schedule: under 50 L, 20-30% every 5-7 days. 50-150 L, 20-30% every 10-14 days. Over 150 L, 20% every 2-3 weeks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Filter flow should be 3-5 times the tank volume per hour, for example 300-500 L/h for a 100 L tank.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Target readings: ammonia 0, nitrite 0, nitrate below 40 mg/L.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep sand less than 4 cm deep, or use a coarser substrate that lets water flow through.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Burrowing animals such as kuhli loaches or Malaysian trumpet snails help aerate the substrate.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do a daily headcount of fish, shrimp and snails.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Trim plants and remove dead or fallen leaves weekly.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Check the filter daily and use a lid to keep the earthy smell in.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Rinse new equipment and decorations thoroughly before putting them in the tank.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Research a fish's adult size before buying. Most shop fish are juveniles that will grow.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing all the water at once removes beneficial bacteria and shocks the fish.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Rinsing the filter in tap water kills beneficial bacteria because of the chlorine.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Pouring vinegar straight into a tank with fish causes a sudden pH change. Use vinegar only on items taken out of the tank.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming one cleaning fixed the problem when a dead animal is still hidden, for example a shrimp stuck in the filter.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using room air fresheners or air filters only masks the smell. The cause must be fixed.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding, overstocking and skipping regular cleaning are the most common errors.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Stirring a deep sand bed hard all at once can release a dangerous burst of hydrogen sulfide.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tap water often contains chlorine, chloramine and heavy metals, so it must be treated before it goes into the tank.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Locally suggested helpers include dried Indian almond leaves (lá bàng, soak 2-3 days first; the water turns tea-coloured), and plants such as ráy, lưỡi mèo, vallisneria and tiền tố ngậm ngải.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Coconut-shell activated carbon is commonly sold for aquarium filters.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "During power cuts, open the filter and rinse the media in tank water. Before restarting, empty and rinse the filter body so settled debris is not pumped back into the tank, and clean the impeller.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "After power returns, test ammonia, nitrite and pH, expect to do water changes, and skip feeding for about 24 hours.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Aquariadise says plants alone do not prevent smell: dead or decaying plants are themselves a cause of odour.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquariadise says activated carbon alone does not solve odour. It adds to filtration and maintenance and does not replace them.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquariadise calls the 'one gallon per inch' stocking rule only a rough guide. Adult size, schooling needs and territorial behaviour matter more.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Driftwood and botanical leaves can give a slight tannin smell, which is normal.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Cleanup crews (fish, snails, shrimp) should be added only in moderation, because they produce waste too.",
+      "source": 3
+    }
+  ]
+}
