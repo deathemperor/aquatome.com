@@ -11,7 +11,7 @@ test('a mentioned species gets its photo right after the paragraph that names it
   const kids = nodes.map(n => (n as { rawTagName?: string }).rawTagName ?? '')
   const named = nodes.findIndex(n => n.toString().includes('>Cá X</a></p>') || n.toString().startsWith('<p>p2'))
   expect(nodes[named + 1]!.toString()).toContain('x.webp') // right after the paragraph that names it
-  expect(out).toContain('<a href="/vi/ca/x/">Cá X</a> · Ảnh:')
+  expect(out).toContain('<a href="/vi/ca/x/">Cá X</a><a class="cite pic" href="https://s"') // the credit is a © mark, its author and licence in the card
   expect(out).not.toContain('missing.webp') // not named in the text → not placed
   expect(kids.filter(k => k === 'figure')).toHaveLength(3)
   expect(kids.some((k, i) => k === 'figure' && kids[i + 1] === 'figure')).toBe(false)

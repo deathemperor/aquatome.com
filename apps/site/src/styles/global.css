@@ -37,3 +37,18 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
    than a phone scrolls inside itself, with the shadows above, instead of pushing the whole page sideways. */
 .prose table { display: block; max-width: 100%; border-collapse: collapse; margin-block: var(--space-4); font-size: 0.95rem; line-height: 1.5; }
 .prose th, .prose td { text-align: left; vertical-align: top; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--c-rule); }
+
+/* Source marks (lib/cite.ts): a small numbered or © mark at the end of a block or caption. Hover, focus or tap shows the
+   source in the glossary card (scripts/glossary-tip.ts). The ::before widens the tap target without moving the text. */
+.cite {
+  position: relative; display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; padding: 0 0.3em; margin-left: 0.25em;
+  border-radius: 999px; vertical-align: 0.45em; font: 600 0.62rem/1 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: 0;
+  color: var(--c-moss); background: color-mix(in srgb, var(--c-moss) 12%, transparent); text-decoration: none;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
+}
+.cite::before { content: ''; position: absolute; inset: -0.9rem -0.5rem; }
+.cite:hover, .cite:focus-visible, .cite[aria-describedby] { color: var(--c-paper); background: var(--c-moss); }
+.cite-line { margin: 0; }
+/* A photo's mark: the © alone (the glyph is already a ring), quiet until pointed at. */
+.cite.pic { min-width: 0; padding: 0; background: none; vertical-align: baseline; font-size: 0.85rem; font-weight: 500; color: var(--c-ink-faint); }
+.cite.pic:hover, .cite.pic:focus-visible, .cite.pic[aria-describedby] { background: none; color: var(--c-moss); }
