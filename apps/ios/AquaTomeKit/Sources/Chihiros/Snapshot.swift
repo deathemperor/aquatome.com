@@ -15,11 +15,15 @@ public struct Snapshot: Sendable, Equatable {
       let c = cal.dateComponents([.weekday, .hour, .minute], from: date)
       self.init(weekday: (c.weekday! + 5) % 7 + 1, time: TimeOfDay(hour: c.hour!, minute: c.minute!))
     }
-    /// Minutes between this clock and `date`'s time of day, the short way round midnight; nil if the clock isn't set.
-    public func minutesOff(from date: Date, timeZone: TimeZone = .current) -> Int? {
+    /// Minutes this clock is ahead of `date` (negative: behind), the short way round the week; nil when a power cut reset
+    /// it (it isn't any real time then).
+    public func drift(from date: Date, timeZone: TimeZone = .current) -> Int? {
       guard isSet else { return nil }
-      let d = abs(Clock(date: date, timeZone: timeZone).time.minutes - time.minutes)
-      return min(d, 1440 - d)
+      let week = 7 * 1440
+      let here = Clock(date: date, timeZone: timeZone)
+      let d = (((weekday - 1) * 1440 + time.minutes) - ((here.weekday - 1) * 1440 + here.time.minutes)) % week
+      let ahead = (d + week) % week
+      return ahead > week / 2 ? ahead - week : ahead
     }
     /// Whether the clock has been set since the light last lost power.
     public var isSet: Bool { weekday != 0 }
@@ -37,11 +41,11 @@ public struct Snapshot: Sendable, Equatable {
   /// The saved schedule as a curve, unused slots left out.
   public let points: [Point]
 
-  /// Parses a snapshot reply; nil for any other reply.
+  /// Parses a snapshot reply; nil for any other reply, and for one whose clock isn't a time (a garbled reply).
   public init?(_ reply: [UInt8]) {
-    guard reply.count >= 25, reply[0] == 0x5b, reply[5] == 0xfe else { return nil }
+    guard reply.count >= 25, let clock = Reply.clock(reply) else { return nil }
     firmware = Int(reply[1])
-    clock = Clock(weekday: Int(reply[6]), time: TimeOfDay(hour: Int(reply[7]), minute: Int(reply[8])))
+    self.clock = clock
     // Triples from byte 25 up to the last byte (a trailer). Trailing all-zero triples are unused slots; a leading one is
     // a real point (00:00 at 0%, a schedule that starts at midnight).
     var points = stride(from: 25, to: reply.count - 3, by: 3).map { i in

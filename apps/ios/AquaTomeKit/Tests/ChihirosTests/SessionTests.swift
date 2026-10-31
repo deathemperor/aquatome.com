@@ -128,6 +128,7 @@ extension Snapshot {
   cal.timeZone = zone
   let now = cal.date(from: DateComponents(year: 2026, month: 10, day: 31, hour: 23, minute: 58))!
   #expect(Snapshot.Clock(date: now, timeZone: zone) == Snapshot.Clock(weekday: 6, time: TimeOfDay(hour: 23, minute: 58)))
-  #expect(Snapshot.Clock(weekday: 7, time: TimeOfDay(hour: 0, minute: 3)).minutesOff(from: now, timeZone: zone) == 5)
-  #expect(Snapshot.Clock(weekday: 0, time: TimeOfDay(hour: 0, minute: 0)).minutesOff(from: now, timeZone: zone) == nil)
+  // Sunday 00:03 is 5 minutes after Saturday 23:58, across midnight.
+  #expect(Snapshot.Clock(weekday: 7, time: TimeOfDay(hour: 0, minute: 3)).drift(from: now, timeZone: zone) == 5)
+  #expect(Snapshot.Clock(weekday: 0, time: TimeOfDay(hour: 0, minute: 0)).drift(from: now, timeZone: zone) == nil)
 }
