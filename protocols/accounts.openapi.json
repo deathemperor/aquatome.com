@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome accounts and saved tanks",
     "version": "1.0.0",
-    "description": "Optional accounts for \"Bể của tôi\": sign in (Apple, Google, email code; passkeys next), sync saved tanks between the site and the iOS app, export and delete the account.\n\nRecords and merge rules: docs/my-tanks-sync.md; schemas: protocols/tanks.schema.json; cases: protocols/tanks-vectors.json.\n\nOff unless the server has ACCOUNTS=on (or preview, for the owner): then GET /api/v1/session says {\"accounts\": false} and every other path is 404 accounts_off.\n\nEvery POST body is JSON with Content-Type: application/json. Changes from a browser must come from https://aquatome.com pages (Origin / Sec-Fetch-Site); the app sends no Origin and no cookie, and authenticates with Authorization: Bearer <token>. A bearer token is only valid as a bearer token, a cookie only as a cookie.\n\nErrors are {\"error\": \"<code>\"} with the status listed. 429 rate_limited can come from any sign-in path."
+    "description": "Optional accounts for \"Bể của tôi\": sign in (Apple, Google, email code, or a passkey added to the account), sync saved tanks between the site and the iOS app, export and delete the account.\n\nRecords and merge rules: docs/my-tanks-sync.md; schemas: protocols/tanks.schema.json; cases: protocols/tanks-vectors.json.\n\nOff unless the server has ACCOUNTS=on (or preview, for the owner): then GET /api/v1/session says {\"accounts\": false} and every other path is 404 accounts_off.\n\nEvery POST body is JSON with Content-Type: application/json. Changes from a browser must come from https://aquatome.com pages (Origin / Sec-Fetch-Site); the app sends no Origin and no cookie, and authenticates with Authorization: Bearer <token>. A bearer token is only valid as a bearer token, a cookie only as a cookie.\n\nErrors are {\"error\": \"<code>\"} with the status listed. 429 rate_limited can come from any sign-in path."
   },
   "servers": [
     {
@@ -237,7 +237,8 @@
                           "type": "boolean"
                         },
                         "passkey": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Passkeys are on (PASSKEYS=on): offer \"sign in with a passkey\" and, signed in, \"add a passkey\"."
                         }
                       }
                     },
@@ -779,6 +780,143 @@
         }
       }
     },
+    "/api/v1/auth/passkey/options": {
+      "post": {
+        "summary": "A challenge to sign in with a passkey",
+        "description": "Any passkey of this site the device holds (discoverable credentials: no allowCredentials). User verification required. The challenge is valid 5 minutes, once. The relying party is aquatome.com; the app uses it through its webcredentials association (/.well-known/apple-app-site-association).",
+        "security": [
+          {}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PublicKeyCredentialRequestOptionsJSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "WebAuthn options as JSON (@simplewebauthn/server; navigator.credentials.get/create via PublicKeyCredential.parse*OptionsFromJSON, or ASAuthorization on iOS)."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off (passkeys are not on, or this is not the site's own host)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/passkey": {
+      "post": {
+        "summary": "Sign in with a passkey",
+        "description": "The signed answer to a challenge from /auth/passkey/options. Only a passkey added to an account (POST /api/v1/account/passkey) signs in; a passkey the server does not know, a wrong signature, origin or relying party, no user verification, a used or expired challenge, or a signature counter that goes back are all 401 bad_passkey. Signs in like the other methods (ending any other session on this client).",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "response"
+                ],
+                "properties": {
+                  "response": {
+                    "type": "object",
+                    "description": "AuthenticationResponseJSON (PublicKeyCredential.toJSON())."
+                  },
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signed in, as for the other methods.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedIn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: bad_passkey",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off (passkeys are not on, or this is not the site's own host)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/auth/logout": {
       "post": {
         "summary": "End this session (the token or cookie stops working); signed out already is fine",
@@ -1295,6 +1433,206 @@
           },
           "502": {
             "description": "Error: apple_revoke_failed (Apple refused the code or the revoke: ask again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/passkey/options": {
+      "post": {
+        "summary": "A challenge to add a passkey to the account signed in",
+        "description": "Registration options for this account: resident key and user verification required, no attestation, ES256 or RS256, and the account's passkeys as excludeCredentials. The user handle is the account id; the name shown in passkey managers is \"AquaTome\" and the start of that random id. Valid 5 minutes, once, for this account only. 20 per hour per account (with POST /api/v1/account/passkey).",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PublicKeyCredentialCreationOptionsJSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "WebAuthn options as JSON (@simplewebauthn/server; navigator.credentials.get/create via PublicKeyCredential.parse*OptionsFromJSON, or ASAuthorization on iOS)."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off (passkeys are not on, or this is not the site's own host)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/passkey": {
+      "post": {
+        "summary": "Add a passkey to the account signed in",
+        "description": "The new passkey, made from options this account asked for. Kept: its credential id, public key, signature counter and transports (no attestation, nothing biometric). After this, the passkey signs in to this account on its own.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "response"
+                ],
+                "properties": {
+                  "response": {
+                    "type": "object",
+                    "description": "RegistrationResponseJSON (PublicKeyCredential.toJSON())."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Added. The account, with the passkey among its methods.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "user"
+                  ],
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request, bad_passkey (not this account's challenge, used or expired, or the answer does not verify)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: credential_in_use",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too_large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off (passkeys are not on, or this is not the site's own host)",
             "content": {
               "application/json": {
                 "schema": {

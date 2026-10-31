@@ -553,7 +553,7 @@
   "Lục giác": "Segi enam",
   "Lục giác lưng phẳng": "Segi enam belakang rata",
   "Lưu bể": "Simpan akuarium",
-  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn, lịch đèn bạn lưu.": "Disimpan di server (database Cloudflare D1): satu ID akun acak; ID pengguna dari Apple atau Google, jika Anda masuk dengan akun mereka; untuk email, hanya hash berkunci dari alamatnya; sesi masuk (hanya hash yang disimpan); serta akuarium, lampu, dan jadwal lampu yang Anda simpan.",
+  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; với passkey, mã nhận diện và khóa công khai của nó (vân tay, khuôn mặt hay mã PIN không bao giờ rời khỏi máy của bạn); các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn, lịch đèn bạn lưu.": "Disimpan di server (database Cloudflare D1): ID akun acak; ID pengguna dari Apple atau Google, jika Anda masuk dengan akun tersebut; untuk email, hanya hash berkunci dari alamatnya; untuk passkey, ID dan kunci publiknya (sidik jari, wajah, atau PIN Anda tidak pernah keluar dari perangkat Anda); sesi login (hanya hash-nya yang disimpan); serta akuarium, lampu, dan jadwal lampu yang Anda simpan.",
   "Lưu trên trình duyệt này.": "Disimpan di browser ini.",
   "Mã 6 số trong email": "Kode 6 digit di email",
   "Mã băm chống spam: 24 giờ.": "Hash antispam: 24 jam.",
@@ -903,5 +903,11 @@
   "Đã lưu vào “{name}”.": "Tersimpan di “{name}”.",
   "Lưu": "Simpan",
   "Lưu vào Bể của tôi": "Simpan ke Akuarium Saya",
-  "Xem trong Bể của tôi →": "Lihat di Akuarium Saya →"
+  "Xem trong Bể của tôi →": "Lihat di Akuarium Saya →",
+  "Chưa thêm được passkey: thử lại.": "Passkey belum berhasil ditambahkan: coba lagi.",
+  "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy.": "Passkey sudah ditambahkan. Lain kali, ketuk “Masuk dengan passkey”, lalu buka kunci dengan Face ID, sidik jari, atau PIN perangkat.",
+  "Đăng nhập bằng passkey": "Masuk dengan passkey",
+  "Máy này đã có passkey của tài khoản này.": "Perangkat ini sudah memiliki passkey untuk akun ini.",
+  "Passkey này không mở được tài khoản nào: đăng nhập cách khác.": "Passkey ini tidak terhubung ke akun mana pun: masuk dengan cara lain.",
+  "Thêm passkey": "Tambahkan passkey"
 }

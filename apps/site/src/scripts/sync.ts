@@ -1,4 +1,5 @@
 import type { TankStore } from '@aq/schema'
+import type { AuthenticationResponseJSON, PublicKeyCredentialCreationOptionsJSON, PublicKeyCredentialRequestOptionsJSON, RegistrationResponseJSON } from '@simplewebauthn/browser'
 import { mergeStores } from '@aq/schema/tank-rules'
 
 /**
@@ -45,6 +46,15 @@ export const emailStart = (email: string, turnstile: string, lang: string, f: Fe
 
 export const emailVerify = (flow: string, code: string, f: Fetch = fetch) =>
   call<{ user: User }>(f, 'POST', '/api/v1/auth/email/verify', { flow, code, client: 'web' })
+
+/** Passkeys: a challenge to sign in with any passkey of this site, then the browser's signed answer. */
+export const passkeyLoginOptions = (f: Fetch = fetch) => call<PublicKeyCredentialRequestOptionsJSON>(f, 'POST', '/api/v1/auth/passkey/options', {})
+export const signInWithPasskey = (response: AuthenticationResponseJSON, f: Fetch = fetch) =>
+  call<{ user: User }>(f, 'POST', '/api/v1/auth/passkey', { response, client: 'web' })
+
+/** Adding a passkey to the account signed in: its options, then the new passkey. */
+export const passkeyAddOptions = (f: Fetch = fetch) => call<PublicKeyCredentialCreationOptionsJSON>(f, 'POST', '/api/v1/account/passkey/options', {})
+export const addPasskey = (response: RegistrationResponseJSON, f: Fetch = fetch) => call<{ user: User }>(f, 'POST', '/api/v1/account/passkey', { response })
 
 export const signOut = (f: Fetch = fetch) => call<object>(f, 'POST', '/api/v1/auth/logout', {})
 
