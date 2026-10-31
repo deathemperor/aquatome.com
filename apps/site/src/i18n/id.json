@@ -513,7 +513,6 @@
   "Kiểm tra nuôi chung với loài khác →": "Cek kecocokan dengan spesies lain →",
   "Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)": "Bentuk akuarium (dilihat dari atas, sisi yang menempel dinding di bagian atas)",
   "Kiểu màu": "Gaya warna",
-  "Kính": "Kaca",
   "Kính cần dày hơn 19 mm (tối thiểu {min} mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính.": "Kaca perlu lebih tebal dari 19 mm (minimal {min} mm): akuarium seukuran ini butuh kaca laminasi atau penguat, sebaiknya serahkan perhitungannya kepada tukang akuarium.",
   "Kính hông": "Kaca samping",
   "Kính trước": "Kaca depan",
@@ -589,7 +588,6 @@
   "Muối phân": "Garam pupuk",
   "Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):": "Ingin menghapus foto nanti? Simpan tautan pribadi ini (hanya ditampilkan sekali):",
   "Muốn xem các bể này trên máy khác hoặc trong ứng dụng AquaTome trên iPhone? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên trình duyệt này.": "Ingin melihat akuarium ini di perangkat lain atau di aplikasi AquaTome di iPhone? Masuk untuk menyinkronkan. Tidak wajib: tanpa masuk, akuarium tetap tersimpan di browser ini.",
-  "Nặng khi đầy": "Berat saat penuh",
   "Nền": "Substrat",
   "Nên bật đèn bể thủy sinh mấy tiếng mỗi ngày?": "Berapa jam lampu aquascape sebaiknya dinyalakan setiap hari?",
   "Nền khác": "Substrat lain",
@@ -631,7 +629,6 @@
   "Nội dung được làm thế nào": "Cara konten dibuat",
   "Nửa trụ": "Setengah silinder",
   "Nước cần thế nào?": "Kondisi air seperti apa?",
-  "Nước thực tế": "Volume air sebenarnya",
   "Nước thực tế sau khi trải nền, đặt đá lũa: khoảng <strong>{n} lít</strong> ({n} kg nước).": "Volume air sebenarnya setelah substrat, batu, dan kayu dipasang: sekitar <strong>{n} liter</strong> ({n} kg air).",
   "Nước trong, mát": "Air jernih, sejuk",
   "Nuôi {name} theo đàn từ {n} con.": "Pelihara {name} dalam kelompok minimal {n} ekor.",
@@ -713,7 +710,6 @@
   "Thả nổi": "Mengapung",
   "thả thêm được.": "masih bisa ditambah ikan.",
   "Thảo luận": "Diskusi",
-  "Thể tích": "Volume",
   "Thêm": "Tambah",
   "Thêm (ppm)": "Tambahan (ppm)",
   "Thêm bể": "Tambah akuarium",
@@ -896,5 +892,9 @@
   "Đã đủ 6 loài: bỏ bớt một loài để thêm.": "Sudah 6 spesies: hapus satu spesies untuk menambah yang lain.",
   "độ cứng": "kesadahan",
   "độ cứng không có khoảng chung": "rentang kesadahan tidak ada yang sama",
-  "Cần để ý, và chưa đủ dữ liệu để chắc": "Perlu diawasi, dan datanya belum cukup untuk memastikan"
+  "Cần để ý, và chưa đủ dữ liệu để chắc": "Perlu diawasi, dan datanya belum cukup untuk memastikan",
+  "Kính (mm)": "Kaca (mm)",
+  "Nặng khi đầy (kg)": "Berat saat penuh (kg)",
+  "Nước thực tế (lít)": "Air terisi (liter)",
+  "Thể tích (lít)": "Volume (liter)"
 }
