@@ -18,6 +18,6 @@ const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
 const { t } = i18n(Astro.url)
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => s.group === group))
 ---
-<Browse title={t(groupLabel(group!))} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
+<Browse title={t('{group}: {n} loài, cách nuôi', { group: t(groupLabel(group!)), n: species.length })} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
   <SpeciesGrid species={species} heading={t('Danh sách loài')} />
 </Browse>
