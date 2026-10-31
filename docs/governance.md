@@ -141,6 +141,7 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`) |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+| **Signing**: the app archived, signed and exported as for the App Store | a build TestFlight would refuse (signing, icon, entitlements) | `testflight.yml`, on a PR that changes the project or the workflow; on main it uploads |
 
 Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
 against a real light from a Mac with `light-harness` (`apps/ios/README.md`), ending with `restore`. What the light
