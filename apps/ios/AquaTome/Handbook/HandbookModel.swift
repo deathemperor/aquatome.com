@@ -72,9 +72,12 @@ final class HandbookModel {
   private func refresh() { results = search.find(query, kind: kind) }
 
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
+  /// Performance tests use `-large-handbook`: as many fish as the site has, still without the network.
   static func defaultSource() -> Source {
     #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return .fixed(.fixture) }
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-large-handbook") { return .fixed(.large) }
+    if args.contains("-fixed-handbook") { return .fixed(.fixture) }
     #endif
     return .site
   }
@@ -98,5 +101,11 @@ extension HandbookIndex {
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
   ])
+
+  /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,
+  /// with no pictures (those come from the network).
+  static let large = HandbookIndex(lang: "vi", items: fixture.items + (1...800).map { n in
+    .init(kind: .fish, contentId: "loai-\(n)", name: "Cá thử \(n)", sub: "Genus species\(n)", aka: ["Fish \(n)"], path: "/vi/ca/ca-thu-\(n)/")
+  })
 }
 #endif

@@ -49,6 +49,16 @@ each time, until Apple's cap stops the build. The job signs a local copy first a
 `Config/AquaTome.entitlements`; only then does it export again to App Store Connect. The build number is the workflow's run number. A pull request that changes the project,
 `Config/` or the workflow signs and exports without uploading.
 
+## Performance budgets
+
+`AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
+(`-large-handbook`: the app's CPU time and peak memory). Job `app` runs them on the CI simulator, archives the app
+unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
+that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
+costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
+Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
+`.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:

@@ -24,7 +24,7 @@ jobs:
         working-directory: apps/ios/AquaTomeKit
   app:
     runs-on: macos-26
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # Some runners don't list the simulator yet when the job starts: xcodebuild then stops at once with "Unable to find
@@ -45,7 +45,7 @@ jobs:
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
-          -retry-tests-on-failure -test-iterations 2
+          -retry-tests-on-failure -test-iterations 2 -skip-testing:AquaTomeUITests/PerformanceTests
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
       - name: Tests that passed only on a retry
         if: always()
@@ -64,9 +64,40 @@ jobs:
           '
       # Every string the app shows is translated into Indonesian and Thai.
       - run: python3 apps/ios/scripts/check-strings.py build/dd
+      # What the app costs a reader (apps/ios/perf-budgets.json): launch, the work and memory of a long list, its size.
+      # Measured apart from the flows above, so a flow's retry never touches a measurement. Budgets are checked in
+      # code, not in an Xcode .xcbaseline: a baseline belongs to one machine model, and on hosted runners it would
+      # stop applying, silently, the day the machines change.
+      - name: Performance tests
+        run: >-
+          xcodebuild test-without-building -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -derivedDataPath build/dd -resultBundlePath build/perf.xcresult CODE_SIGNING_ALLOWED=NO
+          -only-testing:AquaTomeUITests/PerformanceTests
+      # The app's size as it goes to the App Store: an archive (Release, for iPhones, stripped), unsigned here.
+      - name: Archive
+        run: >-
+          xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release
+          -destination 'generic/platform=iOS' -archivePath build/AquaTome.xcarchive -derivedDataPath build/release
+          CODE_SIGNING_ALLOWED=NO
+      - name: Performance budgets
+        run: python3 apps/ios/scripts/check-perf.py build/perf.xcresult build/AquaTome.xcarchive/Products/Applications/AquaTome.app
+      # A budget only tightens: this pull request's budgets against main's.
+      - name: Budgets only tighten
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch -q --depth=1 origin "$GITHUB_BASE_REF"
+          if git cat-file -e FETCH_HEAD:apps/ios/perf-budgets.json 2>/dev/null; then
+            git show FETCH_HEAD:apps/ios/perf-budgets.json > "$RUNNER_TEMP/budgets-main.json"
+            python3 apps/ios/scripts/check-perf.py --tightens-only "$RUNNER_TEMP/budgets-main.json"
+          else
+            echo "main has no budgets yet"
+          fi
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-ui-tests
-          path: build/ui.xcresult
+          path: |
+            build/ui.xcresult
+            build/perf.xcresult
           if-no-files-found: ignore
