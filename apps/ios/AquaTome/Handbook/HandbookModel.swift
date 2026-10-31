@@ -19,6 +19,8 @@ final class HandbookModel {
   private(set) var results: [HandbookIndex.Item] = []
 
   private var search = HandbookSearch([])
+  /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
+  private var pages: [String: HandbookIndex.Item] = [:]
   private let source: Source
   /// The site's copy has been read this run: showing the tab again doesn't fetch it again (pull to refresh does).
   private var fetched = false
@@ -35,6 +37,9 @@ final class HandbookModel {
   }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
+
+  /// The page of a fish or plant on a tank, once the index is here.
+  func page(_ contentId: String) -> HandbookIndex.Item? { pages[contentId] }
 
   /// When the tab shows: the index, unless this run already has the site's copy.
   func appear() async {
@@ -64,6 +69,7 @@ final class HandbookModel {
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
+    pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     count = ix.items.count
     status = s
     refresh()
@@ -100,6 +106,7 @@ extension HandbookIndex {
     .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/"),
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
+    .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/"),
   ])
 
   /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,

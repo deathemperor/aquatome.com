@@ -102,6 +102,18 @@ final class TanksFlowTests: XCTestCase {
     XCTAssertEqual(app.staticTexts["facts"].label, "100 × 40 × 30 cm · 120 lít", "the old size's litres stayed")
   }
 
+  func testListsATanksFishAndPlantsAndOpensTheirPages() {
+    let app = launch("-seed-tanks", "life")
+    app.buttons["tank"].firstMatch.tap()
+    let neon = app.buttons.matching(identifier: "life").matching(NSPredicate(format: "label CONTAINS 'Cá neon'")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't named from the handbook")
+    XCTAssertTrue(neon.label.contains("× 12"), neon.label)
+    XCTAssertTrue(text(app, "Rotala đỏ").exists, "the plant isn't listed")
+    XCTAssertTrue(text(app, "loai-chua-co-trang").exists, "a fish the handbook doesn't have isn't shown as it is")
+    neon.tap()
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "its page didn't open")
+  }
+
   func testDeletesATank() {
     let app = launch()
     add(app, "Bể tạm")

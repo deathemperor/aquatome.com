@@ -34,6 +34,13 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["scan"].waitForExistence(timeout: 5), "the Lights tab")
   }
 
+  func testTheMyTanksToolOpensTheTanksTab() {
+    let app = launch()
+    search(app, "be cua toi")
+    item(app, "Bể của tôi").tap()
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the tanks tab, not the site's page")
+  }
+
   func testAPageOpensInTheApp() {
     let app = launch()
     item(app, "Cá neon").tap()

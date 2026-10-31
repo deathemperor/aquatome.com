@@ -1,14 +1,18 @@
+import Handbook
 import SwiftUI
 import Tanks
 
 /// "Bể của tôi": the reader's tanks and the lights on them, as on the site's page (/vi/cong-cu/be-cua-toi/).
 struct TanksView: View {
   @Environment(TanksModel.self) private var tanks
+  @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
+  /// The app opens a tank here from a page's link to it.
+  @Binding var path: NavigationPath
   @State private var adding = false
 
   var body: some View {
-    NavigationStack {
+    NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
         // Signed in, the list stays, for the account's buttons.
@@ -42,6 +46,7 @@ struct TanksView: View {
       }
       .navigationTitle("Bể của tôi")
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
+      .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
@@ -90,6 +95,7 @@ func facts(_ t: Tank) -> [String] {
 private struct TankDetail: View {
   let id: String
   @Environment(TanksModel.self) private var tanks
+  @Environment(HandbookModel.self) private var handbook
   @Environment(\.dismiss) private var dismiss
   @State private var editing = false
   @State private var confirmDelete = false
@@ -103,6 +109,13 @@ private struct TankDetail: View {
           Text(f.isEmpty ? String(localized: "Chưa có kích thước.") : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
+        // As the site lists them: fish (with how many), then plants, each opening its page.
+        if !t.species.isEmpty {
+          Section("Cá và tép") { ForEach(t.species, id: \.id) { s in LifeRow(id: s.id, count: s.count) } }
+        }
+        if !t.plants.isEmpty {
+          Section("Cây") { ForEach(t.plants, id: \.self) { id in LifeRow(id: id, count: nil) } }
+        }
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }
@@ -111,6 +124,8 @@ private struct TankDetail: View {
         }
       }
       .navigationTitle(t.name)
+      // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
+      .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
       .confirmationDialog(
@@ -124,6 +139,26 @@ private struct TankDetail: View {
       }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
+    }
+  }
+}
+
+/// A fish or plant on a tank: its name from the handbook (the id until the index is here), linked to its page.
+private struct LifeRow: View {
+  let id: String
+  let count: Int?
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let label = HStack {
+      Text(handbook.page(id)?.name ?? id)
+      Spacer()
+      if let count { Text(verbatim: "× \(count)").foregroundStyle(.secondary).monospacedDigit() }
+    }
+    if let page = handbook.page(id) {
+      NavigationLink(value: page) { label }.accessibilityIdentifier("life")
+    } else {
+      label.accessibilityIdentifier("life")
     }
   }
 }

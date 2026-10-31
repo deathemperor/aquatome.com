@@ -4,8 +4,14 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
 the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
-substrate, notes) on the phone with no account, in the same store the site uses, and shares a copy as JSON; **Đèn**
-controls the lights, and each light connected is kept on a tank with the schedules written to it (as the site does). The handbook's Chihiros tool opens the Đèn tab.
+substrate, notes, the fish and plants on it, each opening its page) on the phone with no account, in the same store the
+site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
+schedules written to it (as the site does).
+
+The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
+the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
+those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
+just saved.
 
 Signing in (Sign in with Apple) syncs the tanks with an aquatome.com account, as the site's page does: the token is in
 the Keychain, on this phone only. A debug build on the simulator (every UI and performance test) gets a stand-in
@@ -74,7 +80,7 @@ Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
 
 ```sh
