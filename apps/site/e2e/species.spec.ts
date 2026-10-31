@@ -23,24 +23,29 @@ test('species page on a phone: the name and the four key facts are on the first 
   for (const f of ['tempC', 'ph', 'tankCm', 'difficulty']) expect(await onFirstScreen(`main [data-field="${f}"]`), f).toBe(true)
 })
 
-// A long species page: a sticky row of its main parts. A tap brings that part's heading into view (not under the row) and
-// marks its chip; on a phone the row scrolls sideways so the marked chip stays in sight.
+// A long species page: a sticky row of its main parts. A tap brings that part into view (not under the row) and marks its
+// chip; on a phone the row scrolls sideways so the marked chip stays in sight. Read from the page, not from the content,
+// so it holds on aquatome.com too (production watch).
 test('species page: the jump row takes the reader to a part and marks where they are', async ({ page }, info) => {
   await page.goto('/vi/ca/ca-neon-vua/')
   const row = page.locator('nav.jump')
-  const chip = row.locator('a', { hasText: 'Thức ăn' })
+  const chips = row.locator('a')
+  expect(await chips.count(), 'parts to jump to').toBeGreaterThanOrEqual(2)
+  for (const h of await chips.evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
+  const below = async (target: string) => (await page.locator(target).boundingBox())!.y - ((await row.boundingBox())!.y + (await row.boundingBox())!.height)
+
+  const chip = chips.nth(1)
+  const href = (await chip.getAttribute('href'))!
   if (info.project.name === 'phone') await chip.tap(); else await chip.click()
-  const heading = page.locator('#muc-diet h2')
-  await expect(heading).toBeInViewport()
+  await expect(page.locator(href)).toBeInViewport()
   await expect(chip).toHaveAttribute('aria-current', 'true')
   await expect(row.locator('a[aria-current]')).toHaveCount(1)
   await expect(row).toBeInViewport()
-  await expect.poll(async () => (await heading.boundingBox())!.y - ((await row.boundingBox())!.y + (await row.boundingBox())!.height), { message: 'heading below the row' }).toBeGreaterThanOrEqual(0)
-  for (const h of await row.locator('a').evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
+  await expect.poll(() => below(href), { message: 'the part starts below the row' }).toBeGreaterThanOrEqual(0)
 
   if (info.project.name !== 'phone') return
-  await page.locator('#muc-reproduction').evaluate(el => el.scrollIntoView()) // as a reader scrolls: the heading up to the top
-  const last = row.locator('a', { hasText: 'Sinh sản' })
+  const last = chips.last()
+  await page.locator((await last.getAttribute('href'))!).evaluate(el => el.scrollIntoView()) // as a reader scrolls: the part up to the top
   await expect(last).toHaveAttribute('aria-current', 'true')
   await expect.poll(async () => {
     const [r, c] = [(await row.boundingBox())!, (await last.boundingBox())!]
@@ -49,22 +54,31 @@ test('species page: the jump row takes the reader to a part and marks where they
 })
 
 // One "Nguồn và độ tin cậy" toggle per data card (it used to be one per value, 17 px tall); only the values the sources
-// disagree on are marked.
-test('species data card: one sources toggle, the disagreeing value marked, each source\'s figure inside', async ({ page }, info) => {
+// disagree on are marked, and the toggle shows each source's own figure for them. Cá neon vua's sources disagree (see the
+// first check), on the fixture and on aquatome.com.
+test('species data card: one sources toggle, the disagreeing values marked, each source\'s figure inside', async ({ page }, info) => {
   await page.goto('/vi/ca/ca-neon-vua/')
   const card = page.locator('.facts .datacard')
   const summary = card.locator('summary')
   await expect(summary).toHaveCount(1)
-  await expect(card.locator('.card [data-conflict]')).toHaveCount(1)
-  await expect(card.locator('.card [data-field="tempC"] .mark')).toBeVisible()
   expect((await summary.boundingBox())!.height, 'toggle height').toBeGreaterThanOrEqual(44)
-  const temp = card.locator('.trust [data-src-field="tempC"]')
-  await expect(temp).toBeHidden()
+  const marked = card.locator('.card [data-conflict]')
+  const n = await marked.count()
+  expect(n, 'values the sources disagree on').toBeGreaterThanOrEqual(1)
+  await expect(card.locator('.card .mark')).toHaveCount(n)
+  const field = (await marked.first().getAttribute('data-field'))!
+  const by = card.locator(`.trust [data-src-field="${field}"]`)
+  await expect(by).toBeHidden()
   const press = () => (info.project.name === 'phone' ? summary.tap() : summary.click())
   await press()
-  await expect(temp).toBeVisible()
-  await expect(temp.locator('[data-c="24,30"]')).toHaveText('24–30°C')
-  await expect(temp).toContainText('Seriously Fish')
+  await expect(by).toBeVisible()
+  await expect(by.locator('p')).toHaveText(/^(Mức mọi nguồn cùng khuyên|Mỗi nguồn ghi một mức)$/)
+  const items = by.locator('li')
+  expect(await items.count(), 'one line per source').toBeGreaterThanOrEqual(2)
+  for (const li of await items.all()) {
+    await expect(li).toHaveText(/^\S.*: \S/) // "<source>: <its figure>"
+    if (['tempC', 'sizeCm', 'tankCm'].includes(field)) await expect(li.locator('[data-c], [data-cm]')).toHaveCount(1) // °F / inch toggle
+  }
   await press()
-  await expect(temp).toBeHidden()
+  await expect(by).toBeHidden()
 })
