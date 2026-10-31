@@ -97,3 +97,27 @@ func session(_ light: FakeLight) -> LightSession { LightSession(name: "DYSL30A1B
   let ids = light.sent.map { UInt16($0[3]) << 8 | UInt16($0[4]) }
   #expect(ids == ids.sorted())
 }
+
+@MainActor @Test func aScheduleStartingAtMidnightKeepsItsFirstPoint() throws {
+  // The light stores 00:00 at 0% as `00 00 00`, the same bytes as an unused slot: only trailing ones are unused.
+  let s = Schedule(on: TimeOfDay(hour: 0, minute: 0), off: TimeOfDay(hour: 8, minute: 0), ramp: 30, levels: [60, 60, 60])
+  let snap = try #require(Snapshot(lightHolding: s))
+  #expect(snap.points.count == 4)
+  #expect(snap.holds(s, channels: 3))
+  #expect(snap.schedule(channels: 3) == s)
+}
+
+@MainActor @Test func rampsThatMeetInTheMiddleReadBack() throws {
+  let s = Schedule(on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 13, minute: 0), ramp: 30, levels: [50, 50, 50])
+  let snap = try #require(Snapshot(lightHolding: s))
+  #expect(snap.holds(s, channels: 3))
+  #expect(snap.schedule(channels: 3) == s)
+}
+
+extension Snapshot {
+  /// What the fake light reports after `s` is written.
+  @MainActor init?(lightHolding s: Schedule) {
+    let light = FakeLight(schedule: s, channels: 3)
+    self.init(FakeLight.snapshot(firmware: 24, clock: light.clock, points: light.points))
+  }
+}

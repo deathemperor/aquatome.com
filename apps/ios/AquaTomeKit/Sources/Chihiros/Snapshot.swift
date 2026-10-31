@@ -27,11 +27,18 @@ public struct Snapshot: Sendable, Equatable {
     guard reply.count >= 25, reply[0] == 0x5b, reply[5] == 0xfe else { return nil }
     firmware = Int(reply[1])
     clock = Clock(weekday: Int(reply[6]), time: TimeOfDay(hour: Int(reply[7]), minute: Int(reply[8])))
-    // Triples from byte 25 up to the last byte (a trailer); an all-zero triple is an unused slot.
-    points = stride(from: 25, to: reply.count - 3, by: 3).compactMap { i in
-      let (h, m, l) = (Int(reply[i]), Int(reply[i + 1]), Int(reply[i + 2]))
-      return h == 0 && m == 0 && l == 0 ? nil : Point(time: TimeOfDay(hour: h, minute: m), level: l)
+    // Triples from byte 25 up to the last byte (a trailer). Trailing all-zero triples are unused slots; a leading one is
+    // a real point (00:00 at 0%, a schedule that starts at midnight).
+    var points = stride(from: 25, to: reply.count - 3, by: 3).map { i in
+      Point(time: TimeOfDay(hour: Int(reply[i]), minute: Int(reply[i + 1])), level: Int(reply[i + 2]))
     }
+    while let last = points.last, last.time.minutes == 0, last.level == 0 { points.removeLast() }
+    // A curve that starts at 00:00 is closed with a copy of that point at 24:00 (seen on a WRGB II Slim): the same point.
+    if points.count > 1, let first = points.first, let last = points.last, first.time.minutes == 0, last.time.hour == 24,
+       last.time.minute == 0, last.level == first.level {
+      points.removeLast()
+    }
+    self.points = points
   }
 
   /// The saved curve as one everyday schedule, as this app writes it: dark → ramp up → steady → ramp down → dark
@@ -44,7 +51,7 @@ public struct Snapshot: Sendable, Equatable {
     case 2 where p[0].level > 0 && p[1].level == 0 && p[0].time < p[1].time:
       shape = (p[0].time, p[1].time, 0, p[0].level)
     case 4 where p[0].level == 0 && p[3].level == 0 && p[1].level > 0 && p[1].level == p[2].level
-      && p[0].time < p[1].time && p[1].time < p[2].time && p[2].time < p[3].time
+      && p[0].time < p[1].time && p[1].time <= p[2].time && p[2].time < p[3].time
       && p[1].time.minutes - p[0].time.minutes == p[3].time.minutes - p[2].time.minutes:
       shape = (p[0].time, p[3].time, p[1].time.minutes - p[0].time.minutes, p[1].level)
     default:

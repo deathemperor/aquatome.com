@@ -300,6 +300,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - Snapshot bytes 6–8 are the clock as **ISO weekday, hour, minute** (a copy sits at 22–24). Points are 8 slots of `hh mm level` from byte 25; byte 49 is a trailer. Bytes 9–21 didn't change across the tests; their meaning is unknown.
   - The curve keeps **one level: the first channel's**. 40/50/60 was stored as 40, and 60/50/40 as 60. Other channels' schedule levels can't be read back.
   - With no ramp, the curve is **two points**: `on level`, `off 0`.
+  - A schedule that starts at 00:00 stores `00 00 00` first (the same bytes as an unused slot), and the light adds a closing point `24:00 0%` after the off point. Only trailing all-zero slots are unused.
   - Right after a schedule write, the snapshot sometimes still shows the **cleared** curve (all zero). A second read a moment later shows the new one. The app reads again until it does.
   - Connecting again right after a disconnect was once dropped at once; the next try worked.
 

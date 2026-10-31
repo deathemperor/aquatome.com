@@ -18,6 +18,9 @@ public final class LightSession {
     public var statusTimeout: Duration
     /// Extra status reads after a schedule write, `scheduleGap` apart, until the light reports it.
     public var readbackTries: Int
+    public init(gap: Duration, scheduleGap: Duration, statusTimeout: Duration, readbackTries: Int) {
+      self.gap = gap; self.scheduleGap = scheduleGap; self.statusTimeout = statusTimeout; self.readbackTries = readbackTries
+    }
     public static let light = Pacing(gap: .milliseconds(80), scheduleGap: .milliseconds(300), statusTimeout: .seconds(3), readbackTries: 10)
     public static let none = Pacing(gap: .zero, scheduleGap: .zero, statusTimeout: .seconds(1), readbackTries: 3)
   }
@@ -67,11 +70,12 @@ public final class LightSession {
       if let firmware = self.firmware, firmware < 20 { throw SessionError.firmwareTooOld(firmware) }
       let channels = self.model.channels.count
       let gap = self.pacing.scheduleGap
+      // From here the light leaves manual mode, even if a later frame fails: the next manual level switches back first.
+      self.isManual = false
       try await self.send({ Frame.setTime(now, id: $0) }, gap: gap)
       try await self.send({ Frame.setMode(Mode.sceneReset, id: $0) }, gap: gap)
       try await self.send({ Frame.setMode(Mode.scene, id: $0) }, gap: gap)
       try await self.send({ Frame.setSchedule(s, channels: channels, id: $0) }, gap: gap)
-      self.isManual = false
       var snap = try await self.readStatus()
       for _ in 0..<self.pacing.readbackTries where !snap.holds(s, channels: channels) {
         try await Task.sleep(for: gap)

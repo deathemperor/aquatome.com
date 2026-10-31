@@ -83,6 +83,9 @@ public final class FakeLight: LightLink {
   public nonisolated static func snapshot(firmware: Int, clock: Snapshot.Clock, points: [Snapshot.Point]) -> [UInt8] {
     let c = [UInt8(clock.weekday), UInt8(clock.time.hour), UInt8(clock.time.minute)]
     var b: [UInt8] = [0x5b, UInt8(firmware), 0x30, 0x00, 0x01, 0xfe] + c + Array(repeating: 0, count: 13) + c
+    // The real light closes a curve that starts at 00:00 with the same point at 24:00.
+    var points = points
+    if points.count > 1, let first = points.first, first.time.minutes == 0 { points.append(.init(time: TimeOfDay(hour: 24, minute: 0), level: first.level)) }
     for p in points.prefix(8) { b += [UInt8(p.time.hour), UInt8(p.time.minute), UInt8(p.level)] }
     return b + Array(repeating: 0, count: 50 - b.count)
   }

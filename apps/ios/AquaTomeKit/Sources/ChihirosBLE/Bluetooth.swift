@@ -14,6 +14,8 @@ public enum BluetoothError: Error, Equatable {
   /// Connected, but the light has no Nordic UART service: not a light this app can drive.
   case noUART
   case failed(String)
+  /// Another connection attempt, or another step on this link, is under way.
+  case busy
 }
 
 /// A light seen while scanning. `id` is CoreBluetooth's per-phone identifier, not the light's address.
@@ -21,6 +23,7 @@ public struct FoundLight: Sendable, Hashable, Identifiable {
   public let id: UUID
   public let name: String
   public let rssi: Int
+  public init(id: UUID, name: String, rssi: Int) { self.id = id; self.name = name; self.rssi = rssi }
 }
 
 /// The phone's Bluetooth: scans for Chihiros lights (names starting with "DY") and connects to them.
@@ -28,7 +31,8 @@ public struct FoundLight: Sendable, Hashable, Identifiable {
 @MainActor
 public final class Bluetooth: NSObject {
   private var central: CBCentralManager!
-  private var stateWaiter: CheckedContinuation<Void, Error>?
+  private var stateWaiters: [CheckedContinuation<Void, Error>] = []
+  private var stateRound = 0
   private var peripherals: [UUID: CBPeripheral] = [:]
   private var scanSink: AsyncStream<FoundLight>.Continuation?
   private var connecting: (id: UUID, done: CheckedContinuation<Void, Error>)?
@@ -40,15 +44,17 @@ public final class Bluetooth: NSObject {
     central = CBCentralManager(delegate: self, queue: nil)
   }
 
-  /// Waits for Bluetooth to be on; throws if it is off, refused or missing.
-  public func ready(timeout: Duration = .seconds(5)) async throws {
+  /// Waits for Bluetooth to be on; throws if it is off, refused or missing. The first use shows the permission
+  /// prompt, so the wait is long enough for someone to read it.
+  public func ready(timeout: Duration = .seconds(60)) async throws {
     if let e = Self.error(for: central.state) { throw e }
     if central.state == .poweredOn { return }
-    attempt += 1
-    let n = attempt
     try await withCheckedThrowingContinuation { (c: CheckedContinuation<Void, Error>) in
-      stateWaiter = c
-      Task { try? await Task.sleep(for: timeout); if self.attempt == n { self.finishStateWait(BluetoothError.timeout) } }
+      stateWaiters.append(c)
+      if stateWaiters.count == 1 {
+        let round = stateRound
+        Task { try? await Task.sleep(for: timeout); if self.stateRound == round { self.finishStateWait(BluetoothError.timeout) } }
+      }
     }
   }
 
@@ -70,7 +76,10 @@ public final class Bluetooth: NSObject {
 
   /// Connects and sets up the light's UART (notifications on), ready for frames.
   public func connect(_ light: FoundLight, timeout: Duration = .seconds(15)) async throws -> BLELink {
+    // One connection attempt at a time (a double tap would otherwise strand the first caller).
+    guard connecting == nil else { throw BluetoothError.busy }
     try await ready()
+    guard connecting == nil else { throw BluetoothError.busy }
     guard let p = peripherals[light.id] ?? central.retrievePeripherals(withIdentifiers: [light.id]).first else { throw BluetoothError.notFound }
     peripherals[light.id] = p
     stopScan()
@@ -96,9 +105,10 @@ public final class Bluetooth: NSObject {
   func cancel(_ p: CBPeripheral) { central.cancelPeripheralConnection(p) }
 
   private func finishStateWait(_ error: Error?) {
-    guard let c = stateWaiter else { return }
-    stateWaiter = nil
-    if let error { c.resume(throwing: error) } else { c.resume() }
+    let waiters = stateWaiters
+    stateWaiters = []
+    stateRound += 1
+    for c in waiters { if let error { c.resume(throwing: error) } else { c.resume() } }
   }
 
   private func finishConnect(_ id: UUID, _ error: Error?) {
@@ -198,6 +208,7 @@ public final class BLELink: NSObject, LightLink {
 
   /// One step at a time: start it, then wait for its delegate callback (or the timeout).
   private func run(_ timeout: Duration, _ begin: @escaping () -> Void) async throws {
+    guard step == nil else { throw BluetoothError.busy }
     stepNumber += 1
     let n = stepNumber
     try await withCheckedThrowingContinuation { (c: CheckedContinuation<Void, Error>) in
