@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { askStatus, firmwareOf, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setSchedule, setTime, type Schedule } from '../src/scripts/chihiros'
+import { askStatus, clockDrift, clockOf, firmwareOf, levelAt, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setSchedule, setTime, type Schedule } from '../src/scripts/chihiros'
 
 // Shared with the iOS app's tests, so both implementations send the same bytes.
 type Case<T> = T & { note?: string }
@@ -16,6 +16,9 @@ type Vectors = {
   modelOf: Case<{ name: string; model: string | null; channels?: string[] }>[]
   firmwareOf: Case<{ reply: string; firmware: number | null }>[]
   hoursLit: Case<{ on: string; off: string; hours: number }>[]
+  clockOf: Case<{ reply: string; clock: { weekday: number; hour: number; minute: number } | null }>[]
+  clockDrift: Case<{ clock: { weekday: number; hour: number; minute: number }; local: string; minutes: number | null }>[]
+  levelAt: Case<{ schedule: Pick<Schedule, 'on' | 'off' | 'ramp'>; minute: number; level: number }>[]
 }
 const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/chihiros-vectors.json', import.meta.url), 'utf8'))
 
@@ -54,4 +57,13 @@ test('models by name prefix, longest first', () => {
 test('status replies and hours of light', () => {
   for (const c of v.firmwareOf) expect(firmwareOf(bytes(c.reply)) ?? null).toBe(c.firmware)
   for (const c of v.hoursLit) expect(hoursLit(c.on, c.off)).toBe(c.hours)
+})
+
+test("the light's clock from its long status reply, and how far it is from this machine's", () => {
+  for (const c of v.clockOf) expect(clockOf(bytes(c.reply)) ?? null, c.note).toEqual(c.clock)
+  for (const c of v.clockDrift) expect(clockDrift(c.clock, new Date(c.local)) ?? null, c.note).toBe(c.minutes)
+})
+
+test('the sunrise/sunset curve: off, rising over the ramp, full, falling to off', () => {
+  for (const c of v.levelAt) expect(levelAt(c.schedule, c.minute), c.note ?? `${c.schedule.on}–${c.schedule.off} at ${c.minute}`).toBeCloseTo(c.level, 5)
 })
