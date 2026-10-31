@@ -59,6 +59,18 @@ export function putDevice(s: TankStore, d: Partial<Device> & Pick<Device, 'tankI
   return next
 }
 
+/**
+ * The record of a light this page is connected to, as the store has it now. Another tab may have forgotten the light,
+ * or deleted its tank, since the page met it: then it is met again, a new record on a tank that exists. Writing the old
+ * copy back would put it on a deleted tank: listed nowhere, impossible to forget, still counted.
+ */
+export function currentLight(s: TankStore, d: Device, tankName: string, env: Env = browser()): Device {
+  const now = (d.bleName ? deviceByBleName(s, d.bleName) : undefined) ?? liveDevices(s).find(x => x.id === d.id)
+  if (now) return now
+  const { kind, brand, model, bleName } = d
+  return putDevice(s, { tankId: ensureTank(s, tankName, env).id, kind, brand, model, bleName }, env)
+}
+
 const same = (a: Pick<SavedSchedule, 'on' | 'off' | 'ramp' | 'levels'>, b: typeof a) =>
   a.on === b.on && a.off === b.off && a.ramp === b.ramp && a.levels.join() === b.levels.join()
 
