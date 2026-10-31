@@ -1,0 +1,37 @@
+{
+  "$comment": "What the app may cost a reader, measured by AquaTomeUITests/PerformanceTests and checked by scripts/check-perf.py (ios.yml, job app) against the median of each test's runs, on the CI simulator (iPhone 17, iOS 26.5, Debug build). A budget only tightens: one raised says why in its reason (docs/governance.md, Mobile apps rule 5). The first values are the first CI run's medians plus headroom, rounded.",
+  "budgets": [
+    {
+      "name": "Launch to the first screen answering touches",
+      "test": "PerformanceTests/testLaunch()",
+      "metric": "com.apple.dt.XCTMetric_ApplicationLaunch-ApplicationFirstFramePresentationResponsive.duration",
+      "unit": "s",
+      "max": 8,
+      "reason": "provisional: twice a local run (3.6 s on an M-series Mac), until the first CI run"
+    },
+    {
+      "name": "CPU work flinging through 800 fish",
+      "test": "PerformanceTests/testFlingingThroughTheFish()",
+      "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.instructions_retired",
+      "unit": "kI",
+      "max": 8000000,
+      "reason": "provisional: twice a local run (3.9 billion instructions), until the first CI run"
+    },
+    {
+      "name": "Memory at its peak while flinging through 800 fish",
+      "test": "PerformanceTests/testFlingingThroughTheFish()",
+      "metric": "com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak",
+      "unit": "kB",
+      "max": 140000,
+      "reason": "provisional: twice a local run (70 MB), until the first CI run"
+    },
+    {
+      "name": "App size, as archived for the App Store (all files, before Apple's encryption and thinning)",
+      "test": "bundle",
+      "metric": "AquaTome.app",
+      "unit": "kB",
+      "max": 1200,
+      "reason": "provisional: twice a local archive (0.56 MB), until the first CI run"
+    }
+  ]
+}

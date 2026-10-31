@@ -154,6 +154,7 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: search the handbook (no accents, other names, one kind, a page opens, the Chihiros tool), find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+| **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU work and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `app`); on a PR, `--tightens-only` against main's budgets |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 
 Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
@@ -166,5 +167,8 @@ Rules (as for the site):
 2. **A new device behaviour seen on hardware goes into `FakeLight` and the vectors**, so the tests know it too.
 3. **Never weaken a check to get a green run.**
 4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
+5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
+   new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
+   old reason, or removed.
 
 Next: layer 3 reviews simulator screenshots against the site's rubric.
