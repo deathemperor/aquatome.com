@@ -44,7 +44,10 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   expect(dom.querySelector('#species-index')).toBeNull()
   // The other languages' cards keep their links (a link to a page a language lacks loses its href).
   expect(page('/th/tools/').dom.querySelector('.tools a[href="/th/tools/tank-mates/"]')).not.toBeNull()
-  expect(page('/id/alat/').dom.querySelector('script:not([src])')?.text ?? '').not.toContain('/vi/')
+  // The redirect for old links points at each language's own page.
+  const redirect = (path: string) => page(path).dom.querySelectorAll('script:not([src])').map(s => s.text).find(s => s.includes('location.replace'))
+  expect(redirect('/id/alat/')).toContain("location.replace('/id/alat/kecocokan-ikan/'")
+  expect(redirect('/th/tools/')).toContain("location.replace('/th/tools/tank-mates/'")
   const idx = JSON.parse(page('/vi/cong-cu/nuoi-chung/').dom.querySelector('#species-index')!.text) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number; img?: string; aka?: string[]; pop?: number }[]
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
   expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8, aka: ['Cardinal tetra'], pop: 3 })
