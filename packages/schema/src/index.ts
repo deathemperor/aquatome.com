@@ -13,5 +13,5 @@ export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FU
 export { loadAll, MARKET, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { linkTerms, type LinkTarget } from './link-terms'
-export { MEDIA_HOST, THUMB_WIDTH, thumbOf } from './thumb'
+export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
 export * from './tanks'

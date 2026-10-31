@@ -2,6 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { tankIsVolume } from './card-facts'
+import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese } from './text'
@@ -75,7 +76,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return captions[vi] ? { ...rest, caption: captions[vi] } : rest
   }
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
-  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence))).map(caption)
+  // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
+  // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
+  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] =>
     Object.fromEntries(

@@ -164,3 +164,15 @@ test('a tank length that is its source\'s tank volume is left off the card', asy
   const alpha = (await loadAll({ root: store, lang: 'vi', publicBuild: false })).species.find(s => s.id === 'alpha')!
   expect(alpha.dataCard.tankCm).toEqual([{ source: 'seriouslyfish', value: 60 }])
 })
+
+test('a public build shows no photo from a host that sets third-party cookies; a local one does', async () => {
+  const store = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, store, { recursive: true })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.photos.push({ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg', width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:A.jpg' })
+  await writeFile(file, JSON.stringify(e))
+  const urls = async (publicBuild: boolean) => (await loadAll({ root: store, lang: 'vi', publicBuild })).species.find(s => s.id === 'alpha')!.photos.map(p => p.url)
+  expect(await urls(true)).not.toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
+  expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
+})
