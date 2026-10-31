@@ -15,21 +15,24 @@ type Budget = {
   lcp: number; tbt: number; cls: number // largest paint (ms), blocking time (ms), layout shift
   js: number; dom: number // the site's own scripts (KB, uncompressed: the same locally and live), page elements
 }
-// Accessibility, best practices, SEO, layout shift, script weight and page size come out the same on every run: their
-// budget is where they are. Performance and the two timings move a few points between runs and machines: their budget
-// leaves room, and a failing run is measured again (retries) before it counts.
+// Accessibility, best practices, SEO, layout shift (Google's "good" line), script weight and page size come out the same
+// on every run: their budget is where they are, or a little above. Performance and the two timings move a few points
+// between runs and machines: their budget leaves room under the lowest page (2026-10-31, on GitHub's runners, the real
+// build: phone 77–89, computer 98–100), and a failing run is measured again twice before it counts.
 const BUDGET: Record<'phone' | 'desktop', Budget> = {
-  phone: { performance: 50, accessibility: 100, 'best-practices': 100, seo: 100, lcp: 6000, tbt: 600, cls: 0.1, js: 200, dom: 3000 },
-  desktop: { performance: 70, accessibility: 100, 'best-practices': 100, seo: 100, lcp: 3000, tbt: 300, cls: 0.1, js: 200, dom: 3000 },
+  phone: { performance: 70, accessibility: 100, 'best-practices': 100, seo: 100, lcp: 5000, tbt: 200, cls: 0.1, js: 50, dom: 1500 },
+  desktop: { performance: 90, accessibility: 100, 'best-practices': 100, seo: 100, lcp: 1500, tbt: 100, cls: 0.1, js: 50, dom: 1500 },
 }
-// Pages that start below the general budget: held where they are until they're fixed, then removed from here.
+// Pages that start below the general budget (by path, else by kind): held where they are until they're fixed, then
+// removed from here.
 const KNOWN: Record<string, Partial<Budget>> = {
-  // Every species card at once: ~15,000 elements on aquatome.com (more with each species added), most of the blocking
-  // time.
-  'vi/ca/2': { performance: 40, lcp: 12000, tbt: 1200, dom: 20000 },
+  // Every species card at once: ~15,400 elements on aquatome.com (more with each species added): phone 54, LCP 9.5 s.
+  'vi/ca/2': { performance: 45, lcp: 12000, tbt: 800, dom: 20000 },
   // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its footer
-  // jumps when the results arrive; the search index's script is ~200 KB.
-  'vi/tim-kiem/2': { seo: 55, cls: 0.42, js: 210 },
+  // jumps when the results arrive (CLS 0.41); the search index's script is ~200 KB.
+  'vi/tim-kiem/2': { performance: 55, seo: 55, cls: 0.45, js: 210 },
+  // The tank list is drawn after the page loads, from this browser's storage: CLS 0.10–0.17 on a phone.
+  '/vi/cong-cu/be-cua-toi/': { cls: 0.2 },
 }
 
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.
@@ -43,7 +46,7 @@ for (const path of pages) {
     test.skip(!ON, 'E2E_LIGHTHOUSE=1 turns Lighthouse on')
     test.setTimeout(180_000)
     const form = info.project.name === 'desktop' ? 'desktop' : 'phone'
-    const budget = { ...BUDGET[form], ...KNOWN[templateOf(path.replace(/\?.*/, ''))] }
+    const budget = { ...BUDGET[form], ...(KNOWN[path] ?? KNOWN[templateOf(path.replace(/\?.*/, ''))]) }
     const own = new URL(baseURL!).origin
     const port = 9222 + info.parallelIndex
     const browser = await chromium.launch({ channel: 'chromium', args: [`--remote-debugging-port=${port}`] })

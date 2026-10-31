@@ -54,15 +54,3 @@ jobs:
           name: e2e-report
           path: apps/site/e2e-report
           if-no-files-found: ignore
-  # TEMPORARY (removed before merge): Lighthouse on the real build on GitHub's runners, to set the budgets.
-  calibrate:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: ./.github/actions/setup
-      - run: pnpm --filter site exec playwright install --with-deps chromium
-      - working-directory: apps/site
-        run: |
-          I18N_LENIENT=1 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build > /dev/null
-          E2E_LIGHTHOUSE=1 pnpm exec playwright test --grep @lighthouse --workers=1 || true
