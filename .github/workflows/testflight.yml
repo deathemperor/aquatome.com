@@ -1,0 +1,101 @@
+name: testflight
+# The iOS app, signed and uploaded to TestFlight, whose internal group "Owner" gets every build by itself. Signing is
+# Xcode's automatic, cloud-managed signing with the App Store Connect API key: no certificate or profile in the
+# repository. A pull request that changes signing signs and exports without uploading.
+on:
+  push:
+    branches: [main]
+    paths: ['apps/ios/**', 'protocols/**', '.github/workflows/testflight.yml']
+  schedule:
+    # Mondays 09:00 in Vietnam: uploads when the app changed since the last upload (or that build nears TestFlight's 90
+    # days). Main itself moves every few hours with content, so the check compares the app's paths, not commits.
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+  pull_request:
+    paths: ['.github/workflows/testflight.yml', 'apps/ios/AquaTome.xcodeproj/**', 'apps/ios/Config/**']
+concurrency:
+  # One upload at a time, and never one stopped halfway.
+  group: ${{ github.event_name == 'pull_request' && format('testflight-pr-{0}', github.event.pull_request.number) || 'testflight' }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+  actions: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      upload: ${{ steps.decide.outputs.upload }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != schedule ]; then echo upload=yes >> "$GITHUB_OUTPUT"; exit 0; fi
+          # The last run on main whose upload job succeeded: its commit and when.
+          last=""
+          for run in $(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/testflight.yml/runs?branch=main&status=success&per_page=50" \
+            --jq '.workflow_runs[] | select(.event != "pull_request") | "\(.id),\(.head_sha),\(.created_at)"'); do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/${run%%,*}/jobs" \
+              --jq '.jobs[] | select(.name == "upload" and .conclusion == "success") | .id' | grep -q .; then last=$run; break; fi
+          done
+          sha=$(echo "$last" | cut -d, -f2)
+          days=$(( ($(date +%s) - $(date -d "$(echo "$last" | cut -d, -f3 | grep . || echo 1970-01-01T00:00:00Z)" +%s)) / 86400 ))
+          # A failed fetch or diff uploads (a spare build is harmless; a missing one isn't).
+          if [ -n "$sha" ] && [ "$days" -lt 60 ] && git fetch -q --depth=1 origin "$sha" &&
+            git diff --quiet "$sha" "$GITHUB_SHA" -- apps/ios protocols .github/workflows/testflight.yml; then
+            echo "the app is unchanged since the upload $days days ago: nothing new"
+            echo upload=no >> "$GITHUB_OUTPUT"
+          else
+            echo upload=yes >> "$GITHUB_OUTPUT"
+          fi
+  upload:
+    needs: check
+    # Secrets don't reach a fork's pull request: those have nothing to sign with.
+    if: >-
+      needs.check.outputs.upload == 'yes' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: macos-26
+    timeout-minutes: 45
+    env:
+      KEY_ID: ${{ vars.APP_STORE_CONNECT_KEY_ID }}
+      ISSUER_ID: ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
+      TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+      DESTINATION: ${{ github.event_name == 'pull_request' && 'export' || 'upload' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: App Store Connect key
+        env:
+          P8: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+        run: |
+          umask 077
+          printf '%s\n' "$P8" > "$RUNNER_TEMP/asc.p8"
+      # The build number is this workflow's run number, so it always goes up.
+      - name: Archive
+        run: >-
+          xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release
+          -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/AquaTome.xcarchive"
+          DEVELOPMENT_TEAM="$TEAM_ID" CURRENT_PROJECT_VERSION=${{ github.run_number }}
+          -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8"
+          -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
+      - name: Sign and upload to TestFlight
+        run: |
+          options="$RUNNER_TEMP/ExportOptions.plist"
+          plutil -create xml1 "$options"
+          plutil -insert method -string app-store-connect "$options"
+          plutil -insert destination -string "$DESTINATION" "$options"
+          plutil -insert signingStyle -string automatic "$options"
+          plutil -insert teamID -string "$TEAM_ID" "$options"
+          plutil -insert manageAppVersionAndBuildNumber -bool NO "$options"
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/AquaTome.xcarchive" -exportOptionsPlist "$options" \
+            -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
+            -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
+          echo "Build ${{ github.run_number }}: $DESTINATION done" >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove the key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/asc.p8"

@@ -146,7 +146,9 @@ final class LightFlowTests: XCTestCase {
 
   private func wait(_ app: XCUIApplication, _ id: String, _ p: NSPredicate, _ what: String, file: StaticString, line: UInt) {
     let e = scrolledTo(app, id)
-    if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: 10) != .completed {
+    // Checked once more after the wait: on a loaded CI runner a snapshot can take the whole timeout, and the screen was
+    // already right ("expected X, got X", PR #212).
+    if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: 10) != .completed, !p.evaluate(with: e) {
       XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”", file: file, line: line)
     }
   }

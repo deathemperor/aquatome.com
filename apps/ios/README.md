@@ -26,6 +26,21 @@ A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings`
 `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
 (`apps/site/src/i18n/{id,th}.json`).
 
+## TestFlight
+
+`.github/workflows/testflight.yml` signs the app and uploads it to TestFlight, where the internal group "Owner" gets
+each build by itself:
+
+- on every push to main that changes `apps/ios/` or `protocols/`
+- on Mondays at 09:00 Vietnam time, when `apps/ios/`, `protocols/` or the workflow changed since the last upload (or
+  that build is 60 days old: TestFlight builds expire after 90)
+- by hand (Actions → testflight → Run workflow)
+
+Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
+`APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):
+no certificate or profile is in the repository. The build number is the workflow's run number. A pull request that
+changes the project, `Config/` or the workflow signs and exports without uploading.
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:
