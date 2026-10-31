@@ -31,15 +31,23 @@ test('tank-mates: "neon" suggests the neon tetras and adds nothing until one is 
   await expect(page.locator('#tm-chosen li')).toHaveCount(1)
   await expect(page.locator('#tm-chosen li').first()).toContainText('Cá neon xanh')
   await expect(input).toHaveValue('')
-  // A tap on a suggestion adds that one.
+  // A tap on a suggestion adds that one (a real tap on a phone: touch events, not a mouse click).
   await input.fill('neon')
-  await options.filter({ hasText: 'Cá neon vua' }).click()
+  const vua = options.filter({ hasText: 'Cá neon vua' })
+  if (test.info().project.name === 'phone') await vua.tap(); else await vua.click()
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   await expect(page).toHaveURL(/ca=ca-neon-xanh:\d+,ca-neon-vua:\d+/)
   // Escape closes the list.
   await input.fill('ca')
   await input.press('Escape')
   await expect(input).toHaveAttribute('aria-expanded', 'false')
+  // Once picked or cleared, the box has no suggestions: ↓ doesn't bring back the last query's list.
+  await input.press('Escape')
+  await expect(input).toHaveValue('')
+  await input.press('ArrowDown')
+  await expect(input).toHaveAttribute('aria-expanded', 'false')
+  await input.press('Enter')
+  await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   expect(errors).toEqual([])
 })
 
@@ -82,7 +90,7 @@ test('tank-mates: links to the old place on the tools page open the checker with
 
 test('tools page: a card for every tool; the calculators below by anchor', async ({ page }) => {
   await page.goto('/vi/cong-cu/')
-  await expect(page.locator('.tools a')).toHaveCount(6)
+  await expect(page.locator('.tools a')).toHaveCount(7)
   await page.locator('.tools a[href="#suoi"]').click()
   await expect(page.locator('#suoi')).toBeInViewport()
   await page.locator('.tools a[href="/vi/cong-cu/nuoi-chung/"]').click()

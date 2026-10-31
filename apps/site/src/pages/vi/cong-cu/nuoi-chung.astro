@@ -120,10 +120,13 @@ const index: MateItem[] = c.species.map(s => {
     say(q && !shown.length ? ct('Không thấy “{q}”. Thử tên khoa học.', { q }) : '')
     sr(shown.length ? ct('{n} gợi ý. Dùng phím mũi tên để chọn.', { n: shown.length }) : '')
   }
+  // An emptied box has no suggestions: ↓ must not bring back the last query's list.
+  function clearList() { shown = []; list.innerHTML = ''; setActive(-1) }
   function pick(s: MateItem) {
     if (chosen.some(c => c.slug === s.slug)) return say(ct('{name} đã có trong danh sách.', { name: s.name }))
     chosen.push(s)
     input.value = ''
+    clearList()
     openList(false)
     say('')
     sr(ct('Đã thêm {name}.', { name: s.name }))
@@ -142,7 +145,7 @@ const index: MateItem[] = c.species.map(s => {
       e.preventDefault()
       pick(shown[active]!)
     } else if (e.key === 'Escape') {
-      if (!list.hidden) { e.preventDefault(); openList(false) } else if (input.value) { input.value = ''; say('') }
+      if (!list.hidden) { e.preventDefault(); openList(false) } else if (input.value) { input.value = ''; clearList(); say('') }
     }
   })
   // A tap on a suggestion keeps the focus in the box (no blur closing the list first).

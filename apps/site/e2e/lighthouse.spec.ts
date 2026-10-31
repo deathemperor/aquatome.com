@@ -36,7 +36,8 @@ const KNOWN: Record<string, Partial<Budget>> = {
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.
 const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/3', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
 const known = sourcePages()
-const pages = [...KINDS.flatMap(k => known.find(p => templateOf(p) === k) ?? []), '/vi/tim-kiem/?q=neon']
+// Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
+const pages = [...KINDS.flatMap(k => known.find(p => templateOf(p) === k) ?? []), '/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/']
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {

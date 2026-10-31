@@ -39,7 +39,7 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   expect(dom.querySelector('nav a[href="/vi/cong-cu/"]')).not.toBeNull()
   // Pages of their own, and the calculators below by anchor (each anchor has its section).
   const cards = dom.querySelectorAll('.tools a').map(a => a.getAttribute('href')!)
-  expect(cards).toEqual(['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#nen', '#suoi', '#phan-bon', '/vi/cong-cu/den-chihiros/'])
+  expect(cards).toEqual(['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#nen', '#suoi', '#phan-bon', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/'])
   for (const h of cards.filter(h => h.startsWith('#'))) expect(dom.querySelector(h), h).not.toBeNull()
   expect(dom.querySelector('#species-index')).toBeNull()
   // The other languages' cards keep their links (a link to a page a language lacks loses its href).
@@ -105,6 +105,8 @@ test('tank-mates verdict: no, with care, not enough data, yes', () => {
   expect(no).toMatchObject({ level: 'no', head: 'Không nên nuôi chung', reasons: ['Cá đĩa có thể ăn Cá neon vua, Cá galaxy', 'nhiệt độ không có khoảng chung'] })
   expect(v([f('a', full), f('b', { ...full, temperament: 'semi-aggressive', finNipper: true })])).toMatchObject({ level: 'care', reasons: ['b có thể rượt đuổi a', 'b hay cắn vây'] })
   expect(v([f('a', full), f('b', { ...full, gh: undefined, temperament: undefined })])).toMatchObject({ level: 'unsure', reasons: ['chưa có độ cứng, tính cách của b'] })
+  // A warning and missing data together: never "Nuôi chung được" (a fin-nipper next to a fish with no data).
+  expect(v([f('a', { sizeCm: 10 }), f('b', { ...full, temperament: 'semi-aggressive', finNipper: true })])).toMatchObject({ level: 'unsure', head: 'Cần để ý, và chưa đủ dữ liệu để chắc', reasons: expect.arrayContaining(['b hay cắn vây', 'chưa có nhiệt độ, pH, độ cứng, tính cách của a']) })
   expect(v([f('a', full), f('b', full)])).toMatchObject({ level: 'yes', head: 'Nuôi chung được', gaps: [] })
   // A predator rules it out even when the water fits.
   expect(v([f('a', full), f('b', { ...full, temperament: 'predator' })]).reasons).toEqual(['b là cá săn mồi'])

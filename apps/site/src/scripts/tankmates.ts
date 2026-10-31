@@ -79,6 +79,8 @@ export function verdictOf(fish: SpeciesIndexItem[], r: TankmateReport, ct: T): V
     return lack.length ? [ct('chưa có {fields} của {name}', { fields: lack.join(', '), name: f.name })] : []
   })
   if (no.length) return { level: 'no', head: ct('Không nên nuôi chung'), reasons: no, gaps }
+  // Missing data never reads as "can share": with warnings and gaps both, neither half alone is the answer.
+  if (care.length && gaps.length) return { level: 'unsure', head: ct('Cần để ý, và chưa đủ dữ liệu để chắc'), reasons: [...care, ...gaps], gaps }
   if (care.length) return { level: 'care', head: ct('Nuôi chung được, nhưng cần để ý'), reasons: care, gaps }
   if (gaps.length) return { level: 'unsure', head: ct('Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc'), reasons: gaps, gaps }
   return { level: 'yes', head: ct('Nuôi chung được'), reasons: [ct('nước có khoảng chung, kích thước và tính cách hợp nhau')], gaps }
