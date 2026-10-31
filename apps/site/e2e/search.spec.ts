@@ -89,6 +89,24 @@ for (const [path, all] of [['/vi/tim-kiem/', '/vi/ca/'], ['/id/cari/', '/id/ikan
   })
 }
 
+test('a search of several words far apart on a page still lists it (only one place shows in its excerpt)', async ({ page }) => {
+  for (const q of ['betta bể nhỏ', 'cá neon bể nhỏ', 'cá neon nước mềm']) {
+    await page.goto(`/vi/tim-kiem/?q=${encodeURIComponent(q)}`)
+    await expect(page.locator('[data-hits] li').first(), q).toBeVisible()
+    await expect(page.locator('[data-none]'), q).toBeHidden()
+  }
+})
+
+test('tapping "Xem thêm kết quả" twice quickly loads the next page once', async ({ page }) => {
+  await page.goto('/vi/tim-kiem/?q=c')
+  const more = page.locator('[data-more]')
+  await expect(more).toBeVisible()
+  await more.evaluate(b => { (b as HTMLButtonElement).click(); (b as HTMLButtonElement).click() })
+  await expect(page.locator('[data-hits] li')).not.toHaveCount(10)
+  const hrefs = await page.$$eval('[data-hits] li a', as => as.map(a => a.getAttribute('href')))
+  expect(new Set(hrefs).size, 'each result once').toBe(hrefs.length)
+})
+
 test('an empty site search shows the field and a hint, not a count or a no-results message', async ({ page }) => {
   await page.goto('/vi/tim-kiem/')
   await expect(page.locator('input[type=search]')).toBeFocused()

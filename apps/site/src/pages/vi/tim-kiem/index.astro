@@ -12,6 +12,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
     <input id="sq" name="q" type="search" placeholder={t('Tìm loài cá, cây, hướng dẫn')} autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" />
     <button type="button" class="clear" hidden>{t('Xóa')}</button>
   </form>
+  <div class="results">
   <p class="status" role="status" aria-live="polite" data-status></p>
   <p class="hint" data-hint>{t('Tìm theo tên thường gọi, tên khác hoặc tên khoa học.')}</p>
   <div class="none" data-none hidden>
@@ -20,11 +21,12 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
   </div>
   <ol class="hits" data-hits></ol>
   <button type="button" class="more" data-more hidden>{t('Xem thêm kết quả')}</button>
+  </div>
   <script>
     import { ct } from '../../../scripts/ct'
 
     // Pagefind's browser API (built into /pagefind/ after `astro build`), the parts used here.
-    type Doc = { url: string; excerpt: string; meta: Record<string, string | undefined> }
+    type Doc = { url: string; excerpt: string; content: string; locations: number[]; meta: Record<string, string | undefined> }
     type Hit = { data: () => Promise<Doc> }
     type Pagefind = { options: (o: object) => Promise<void>; search: (q: string) => Promise<{ results: Hit[] }> }
 
@@ -49,7 +51,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
       return pf
     })())
 
-    const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/g, 'd').toLowerCase()
+    const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd').toLowerCase()
     const words = (s: string) => fold(s).split(/[^\p{L}\p{N}]+/u).filter(Boolean)
     /**
      * How much of a query word the known words spell out, left to right (0 to 1). Pagefind answers a word it has never
@@ -67,11 +69,21 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
       }
       return i / term.length
     }
-    // More than half of every query word: a stemmed match ("renangnya" → "renang") passes, a fragment does not.
-    const spells = (terms: string[], known: string[]) => terms.every(t => covered(t, known) > 0.5)
+    // A query word was found when the words matched spell out more than half of it ("renangnya" → "renang"), or one of
+    // them, four letters or more, sits inside it: a stem under a prefix ("pergantian" → "ganti"). A fragment ("xy" of
+    // "xyzzyq") is neither.
+    const found = (t: string, known: string[]) => covered(t, known) > 0.5 || known.some(w => w.length >= 4 && t.includes(w))
+    const spells = (terms: string[], known: string[]) => terms.every(t => found(t, known))
     const metaWords = (d: Doc) => words(`${d.meta.title ?? ''} ${d.meta.aka ?? ''}`)
-    /** The words this result matched on: the ones Pagefind marked in its excerpt, plus the page's names and description. */
-    const matched = (d: Doc) => [...d.excerpt.matchAll(/<mark>(.*?)<\/mark>/g)].flatMap(m => { const w = words(m[1]!); return [w.join(''), ...w] }).concat(metaWords(d), words(d.meta.description ?? ''))
+    /**
+     * The words this result matched on, wherever they are on the page (Pagefind's `locations`: positions in `content`,
+     * split as Pagefind splits it), not only in the excerpt, which shows one place: "cá betta bể nhỏ" marks "betta"
+     * there and "nhỏ" three paragraphs down. Plus the page's names and description.
+     */
+    const matched = (d: Doc) => {
+      const at = d.content.includes('\u200B') ? d.content.split('\u200B') : d.content.split(/[\r\n\s]+/g)
+      return d.locations.flatMap(i => { const w = words(at[i] ?? ''); return [w.join(''), ...w] }).concat(metaWords(d), words(d.meta.description ?? ''))
+    }
 
     function item(d: Doc, terms: string[]): HTMLLIElement {
       const li = document.createElement('li')
@@ -150,7 +162,13 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
     input.addEventListener('input', () => { clear.hidden = !input.value; clearTimeout(timer); timer = setTimeout(() => search(input.value), 250) })
     form.addEventListener('submit', e => { e.preventDefault(); clearTimeout(timer); search(input.value); input.blur() })
     clear.addEventListener('click', () => { input.value = ''; search(''); input.focus() })
-    more.addEventListener('click', () => { const from = list.childElementCount; show(from).then(() => (list.children[from] as HTMLElement | undefined)?.querySelector('a')?.focus()) })
+    // One page at a time: a second tap while the first page loads would load the same results again.
+    more.addEventListener('click', () => {
+      if (more.disabled) return
+      more.disabled = true
+      const from = list.childElementCount
+      show(from).then(() => (list.children[from] as HTMLElement | undefined)?.querySelector('a')?.focus()).finally(() => { more.disabled = false })
+    })
 
     const q = new URLSearchParams(location.search).get('q') ?? ''
     input.value = q
@@ -168,6 +186,8 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
   .clear { flex: none; min-height: 44px; min-width: 44px; padding-inline: var(--space-3); border: 0; background: none; font: 600 0.95rem var(--f-body); color: var(--c-moss); cursor: pointer; }
   .clear:hover { color: var(--c-ink); }
 
+  /* A screen tall before the results arrive: the footer starts below the fold, so their arrival moves nothing in view. */
+  .results { min-height: 100dvh; }
   .status { margin: var(--space-4) 0 0; font-weight: 600; font-size: 0.95rem; color: var(--c-ink); min-height: 1.5em; }
   .status:empty { min-height: 0; }
   .status.is-none { font: 400 var(--step-2)/1.25 var(--f-display); margin-top: var(--space-6); overflow-wrap: anywhere; }
