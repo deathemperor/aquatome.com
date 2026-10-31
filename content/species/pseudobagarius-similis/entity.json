@@ -1,0 +1,109 @@
+{
+  "id": "pseudobagarius-similis",
+  "scientificName": "Pseudobagarius similis",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Pseudobagarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "vietnam",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 5.0 cm (2 in)</li><li>Temperature: 22-27°C (71-81°F)</li><li>pH: 6.0-7.5</li><li>Synonym: Akysis similis</li><li>IUCN Red List: Data Deficient. There is insufficient information about the geographic distribution and population size of this species for an accurate assessment. Earlier assessments as Vulnerable (Vidthayanon, 2005) lacked empirical data to justify them and need updating (IUCN 2012).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
+      "html": "<p>Asia: Mekong basin in southern Viet Nam. Type locality: Vietnam: Kihn Thuy Cai canal, 10 km E of Vinh Long, at mouth of canal into Mekong.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 6; anal soft rays: 9-10; vertebrae: 31-32. Distinguished from all its congeners by the following unique combination of characters: slender body (body depth at anus 8.2-10.3% SL; depth of caudal peduncle 3.5-4.5% SL); extremely narrow head (head width 17.5-20.2% SL); small and close-set eyes (eye diameter 6-10% HL; interorbital distance 20-26% HL); short nasal barbels (11-17% HL); the presence of 6-8 serrae along the posterior edge of the pectoral spine and 8-9 branchiostegal rays; and caudal fin strongly forked with pointed lobes.</p><p>Etymology: The genus name Pseudobagarius is tautonymous with Akysis pseudobagarius, proposed for members of the \"pseudobagarius group\" of Akysis; pseudo-, false, referring to striking (but phylogenetically false) resemblance to the sisorid genus Bagarius. The specific name similis: resembling, referring to close resemblance to P. pseudobagarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Kano Y, Adnan MSB, Grudpan C, Grudpan J, Magtoon W, Musikasinthorn P, Natori Y, Ottomanski S, Praxaysonbath B, Phongsa K, Rangsiruji A, Shibukawa K, Shimatani Y, So N, Suvarnaraksha A, Thach P, Thanh PN, Tran DD, Utsugi K, Yamashita T (2013) An online database on freshwater fish diversity and distribution in Mainland Southeast Asia. Ichthyological Research 60: 293-295.</li><li>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</li><li>Ng, H.H. 2012. Pseudobagarius similis. The IUCN Red List of Threatened Species 2012.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bf6de3ba8e4c141e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bf6de3ba8e4c141e-480.webp",
+      "width": 500,
+      "height": 145,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
+      "caption": "Pseudobagarius similis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc bể cá 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá điều chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi mịn nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

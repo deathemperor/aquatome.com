@@ -1,0 +1,109 @@
+{
+  "id": "amblyceps-arunachalense",
+  "scientificName": "Amblyceps arunachalense",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 13.0 cm (5¼ in) total length</li><li>Temperature: 18-22°C (63-71°F)</li><li>pH: 6.5-7.5</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "html": "<p>Asia: Brahmaputra River basin, Arunachal Pradesh and Mizoram, India. Type locality: Arunachal Pradesh, India. Amblyceps arunachalense was described from the Dikrong River in Arunachal Pradesh, northeastern India (Nath and Dey 1989). It is known only from the Dikrong and Subansiri rivers, and subsequent surveys in other areas have not revealed its presence elsewhere.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "html": "<p>This species inhabits fast-flowing streams and rivers with a sandy or rocky bottom.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "html": "<p>This species was considered a junior synonym of A. mangois (Hamilton 1822) by Ng (2005) before Vishwanath and Linthoingambi (2007) revalidated the species.</p><p><strong>Description:</strong> Body long, slender, gradually becoming compressed posteriorly. Head short, almost rounded. Mouth terminal with lower jaw longer than upper. Lips with double folds. Teeth in upper jaw as a narrow band with posterior extensions on both sides, separated by a very narrow gap; those in lower jaw in a semicircular band, separated in the middle. Prominent fold of skin present posterior to opercular flap. Fleshy rim of posterior naris an incomplete tube with a posterior notch, while that of the anterior naris is a complete tube. Eyes small and subcutaneous. Barbels: four pairs, compressed throughout their length; nasal barbel when adpressed extends up to the dorsal end of head. Maxillary extends up to the middle of the pectoral fin base. Outer mandibular extends beyond the posterior end of the pectoral fin base. Inner mandibular extends up to the isthmus.</p><p><strong>Colouration:</strong> Body grey, fins plain.</p><p><strong>Etymology:</strong> The specific name refers to its type locality of Arunachal Pradesh, India.</p><p><strong>Conservation:</strong> Assessed for the IUCN Red List of Threatened Species most recently in 2009 and listed as Endangered under criteria B1ab(iii). The construction of the Dikrong River Hydel dam will bisect the currently known Dikrong River population, resulting in two separate populations above and below the dam. The estimated range of the species based on its present known distribution is less than 150 km². Although the species is deemed very rare in part of its range (Tamang et al. 2007), the population size and trend for its entire range remain unknown. Based on its restricted distribution and potential threats to the habitat as well as the population, it is assessed as Endangered, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "html": "<ul><li>Chaudhry, S. &amp; Ng, H.H. 2010. Amblyceps arunchalensis. The IUCN Red List of Threatened Species 2010.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, version (06/2023).</li><li>Vishwanath, W &amp; and Linthoingambi, I. 2007. Redescription of Catfishes Amblyceps arunachalensis Nath &amp; Day and Amblyceps Apangi Nath &amp; Day (Teleostei: Abblycipitidae). Zoos' Print Journal 22(4): 2662-2664.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5854a9531e31a733.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5854a9531e31a733-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Arnob Bora / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm",
+      "caption": "Amblyceps arunachalense",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc thùng",
+        "bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông",
+        "sỏi đá nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

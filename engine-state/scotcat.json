@@ -317,6 +317,57 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm": {
+    "entityIds": [
+      "species/pseudobagarius-similis"
+    ],
+    "updatedAt": "2026-10-31T06:50:12.398Z",
+    "hash": "e5b8ad04b3b8eadc00725ad2086e7089bd2bc607f21fc3c276eddd6423c1067d",
+    "processedHash": "e5b8ad04b3b8eadc00725ad2086e7089bd2bc607f21fc3c276eddd6423c1067d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/pseudobagarius_subtilis.htm": {
+    "entityIds": [
+      "species/pseudobagarius-subtilis"
+    ],
+    "updatedAt": "2026-10-31T06:51:28.566Z",
+    "hash": "c0879cca3da77621b1cb7e236a956b29407fd1ff40cf86bbfa4ccba4b29ae59e",
+    "processedHash": "c0879cca3da77621b1cb7e236a956b29407fd1ff40cf86bbfa4ccba4b29ae59e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_arunachalense.htm": {
+    "entityIds": [
+      "species/amblyceps-arunachalense"
+    ],
+    "updatedAt": "2026-10-31T06:52:25.950Z",
+    "hash": "f6ef6f0f346a8d041946c17b504a102b5fc935f6850c47e6f62662a8a0415eb6",
+    "processedHash": "f6ef6f0f346a8d041946c17b504a102b5fc935f6850c47e6f62662a8a0415eb6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T06:53:39.150Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T06:53:50.991Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_crassioris.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T06:54:03.482Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",

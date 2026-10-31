@@ -1,0 +1,52 @@
+{
+  "id": "pseudobagarius-subtilis",
+  "scientificName": "Pseudobagarius subtilis",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Pseudobagarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_subtilis.htm",
+      "html": "<p>Pseudobagarius subtilis (Ng &amp; Kottelat, 1998). Family: Akysidae. Synonym: Akysis subtilis. Size: 4.0 cm.</p><p>Description: Dorsal soft rays (total): 6; anal soft rays: 9; vertebrae: 35-36. Distinguished from all its congeners by the following unique combination of characters: slender body (body depth at anus 11.9-13.5% SL); depth of caudal peduncle 5.5-5.8% SL; extremely narrow head (head width 17.5-18.7% SL); small and close-set eyes (eye diameter 7-9% HL; interorbital distance 33-38% HL); short nasal barbels (23-30% HL); 35-36 total vertebrae; 1+3 gill rakers on the first branchial arch; 5-6 serrae on the posterior edge of the pectoral spine; 8 branchiostegal rays; caudal fin strongly forked with pointed lobes.</p><p>Colouration: Body brown with 2 dark patches along the dorsum at the base of the dorsal and adipose fins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_subtilis.htm",
+      "html": "<p>Asia: Known only from the Mekong basin in Laos and Thailand.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_subtilis.htm",
+      "html": "<p>Etymology: The genus name Pseudobagarius is tautonymous with Akysis pseudobagarius, proposed for members of the \"pseudobagarius group\" of Akysis; pseudo- means false, referring to the striking (but phylogenetically false) resemblance to the sisorid genus Bagarius. The specific name subtilis is derived from the Latin subtilis (slender), referring to its relatively long and slender body.</p><p>Remarks: This species was described as a species of Akysis in the A. pseudobagarius group from the Mekong River in northeastern Thailand (Ng and Kottelat 1998). Ferraris (2007) subsequently assigned this species and all other members of the A. pseudobagarius group to the genus Pseudobagarius.</p><p>IUCN Red List: As this species is only known from the type series (five specimens), there is insufficient information about its geographic distribution and population size for an accurate assessment. It is assessed as Data Deficient, but needs updating (IUCN 2012).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_subtilis.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (12/2019).</li><li>Ng, H.H. 2012. Pseudobagarius subtilis. The IUCN Red List of Threatened Species 2012.</li><li>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

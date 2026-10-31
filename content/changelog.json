@@ -36,6 +36,27 @@
   },
   {
     "date": "2026-10-31",
+    "kind": "species",
+    "id": "amblyceps-arunachalense",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "pseudobagarius-subtilis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "pseudobagarius-similis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
     "kind": "guide",
     "id": "youtube-HuWHarbSQUk",
     "source": "youtube",
@@ -3475,27 +3496,6 @@
     "date": "2026-10-30",
     "kind": "species",
     "id": "chiloglanis-polypogon",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudobunocephalus-amazonicus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "vandellia-cirrhosa",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "clarias-camerunensis",
     "source": "planetcatfish",
     "action": "new"
   }
