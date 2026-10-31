@@ -1,11 +1,12 @@
 ---
 // Name-only discussion. Loaded client-side from the Worker (not part of the indexed HTML); stays hidden until the API answers.
+// Each language has its own discussion: "species:x" on /vi/, "id:species:x" on /id/ (readers rarely share a language).
 import { i18n } from '../lib/i18n'
 interface Props { entity: string }
 const { entity } = Astro.props
-const { t } = i18n(Astro.url)
+const { lang, t } = i18n(Astro.url)
 ---
-<section class="comments" data-comments data-entity={entity} aria-labelledby="comments-h" hidden>
+<section class="comments" data-comments data-entity={lang === 'vi' ? entity : `${lang}:${entity}`} aria-labelledby="comments-h" hidden>
   <h2 id="comments-h">{t('Thảo luận')}</h2>
   <ol class="list" data-list></ol>
   <p class="empty" data-empty>{t('Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.')}</p>

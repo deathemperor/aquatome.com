@@ -96,7 +96,7 @@ const alternates = await alternatesOf('breeds', b.id)
     <h2 id="src-h">{t('Nguồn')}</h2>
     <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(s.title) ? 'vi' : undefined}>{s.title}</a>{lang !== 'vi' && isVietnamese(s.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
   </section>
-  {lang === 'vi' && <div class="wrap"><Comments entity={key} /></div>}
+  <div class="wrap"><Comments entity={key} /></div>
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
