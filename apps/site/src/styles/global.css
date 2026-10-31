@@ -21,10 +21,10 @@ html { scrollbar-color: var(--c-ink-soft) var(--c-paper); }
 figure.inl { margin: var(--space-6) 0; max-width: var(--measure, 70ch); }
 figure.inl img { display: block; width: 100%; height: auto; border-radius: var(--radius-media); background: var(--c-plate); }
 figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-2); }
-
-/* A box that scrolls sideways (wide tables on a phone): a shadow at each edge that has more to see. The paper-coloured
-   covers scroll with the content and hide the shadows at the ends (background-attachment: local vs scroll). */
-.scroll {
+/* A box that scrolls sideways (wide tables on a phone, tables in article text): a shadow at each edge that has more to
+   see. The paper-coloured covers scroll with the content and hide the shadows at the ends (background-attachment: local
+   vs scroll). */
+.scroll, .prose table {
   overflow-x: auto;
   background:
     linear-gradient(to right, var(--c-paper) 30%, transparent) left / 2.5rem 100% no-repeat local,
@@ -32,3 +32,8 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
     radial-gradient(farthest-side at 0 50%, color-mix(in srgb, var(--c-ink) 22%, transparent), transparent) left / 0.9rem 100% no-repeat scroll,
     radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--c-ink) 22%, transparent), transparent) right / 0.9rem 100% no-repeat scroll;
 }
+
+/* Tables inside article text (the engine writes comparison tables into guides, species and plant sections): a table wider
+   than a phone scrolls inside itself, with the shadows above, instead of pushing the whole page sideways. */
+.prose table { display: block; max-width: 100%; border-collapse: collapse; margin-block: var(--space-4); font-size: 0.95rem; line-height: 1.5; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--c-rule); }
