@@ -1,0 +1,336 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Carassius auratus"
+  ],
+  "sources": [
+    {
+      "url": "https://www.msdvetmanual.com/all-other-pets/fish/selection-of-fish",
+      "title": "Selection of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.liveaquaria.com/blogs/aquarium-setup/proper-selection-and-care-of-new-fish",
+      "title": "Aquarium Fish Health: Proper Selection and Care of New Fish",
+      "kind": "maker"
+    },
+    {
+      "url": "https://fishprofiles.com/articles/How_To_Buy_Healthy_Fish/43/",
+      "title": "How To Buy Healthy Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/how-to-pick-healthy-fish-at-shop/",
+      "title": "How to Pick Healthy Fish at the Shop: Red Flags to Watch For",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/meo-giup-ca-betta-song-lau-hon.html",
+      "title": "Bí quyết giúp cá betta sống lâu hơn (có hình ảnh) – Mytour",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Learn about the species and the aquarium type before buying, using a vet, books, hobby magazines, the internet and local pet stores.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Before buying, learn the fish's scientific name, water needs, temperament and compatibility, diet and maximum adult size.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "If you don't know how to care for a fish, ask the store to put it on hold while you research it.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Bring a written profile of your tank when shopping: size, age, equipment, inhabitants, water parameters and medications used.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Healthy fish have smooth, unblemished scales, fins and skin, with fins intact rather than torn or bloody.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Healthy fish have bright, clear eyes and swim normally and steadily.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of illness include erratic swimming such as circling or drifting, listlessness, cloudy eyes, ragged or bloody fins, and blemished skin or scales.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Choose fish that are alert and active but not hyperactive or skittish.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "A healthy fish has a full stomach that is not bloated, breathes steadily without effort, and looks clean and colourful with no unnatural spots or excess slime.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Choose fish that are eating and accepting food.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Warning signs include poor coloration, listlessness, visible parasites, wounds, swimming upside down or in loops, buoyancy problems and extreme nervousness.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Avoid fish that bump into decorations or the tank walls.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Know what normal behaviour looks like for each species, since that makes health easier to judge.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fins should be fully extended, with no fraying, tears or white edges.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "The body should have no white spots, cotton-like growths, red streaks or raised scales.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Eyes should be clear and symmetrical, not cloudy or bulging.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "The belly should be neither sunken nor bloated.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Pale colour for the species can mean stress, poor diet or illness.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Avoid fish that hover listlessly, sit still on the substrate, drift near the surface, dart erratically, spiral or lose their balance.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Schooling species should swim together in a loose group.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Breathing should be rhythmic with both gill covers moving; rapid or laboured breathing, gasping at the surface, or one gill cover staying shut are warning signs.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Red or inflamed gills can mean infection or ammonia damage.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Do not buy fish showing white spots on the body or fins (ich, highly contagious) or cotton-like patches (fungal infection).",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Do not buy fish with a bent or curved spine, which can mean a genetic defect or tuberculosis.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Do not buy fish with dropsy (scales raised like a pinecone), which is hard to treat and often fatal.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Do not buy fish with missing eyes, severe fin damage or visible parasites.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Betta warning signs include body injuries, silver marks or white spots, poor appetite, rubbing on rocks or plants, lying on the bottom, swimming upside down or tilted, white faeces and faded colour.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Some natural betta varieties have silver markings, so look carefully before reading them as disease.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Make sure the store's tank is clean and that the other fish in it also look healthy.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Watch a fish for at least 2 to 3 minutes before deciding; healthy fish react to you at the glass.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Check the water and leftover food in the betta's container as signs of how well it has been cared for.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Questions to ask: how is this group or fish doing, have they had health problems before, are they eating well and what are they fed?",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Ask when the fish arrived; buy fish that have been in the shop for 1 to 2 weeks and are eating well.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Ask what the fish are fed and how often, and ask to see them eat before you buy.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Ask what water parameters the fish are kept in so you can prepare your quarantine tank.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Don't hesitate to ask the store questions; if the answers are unsatisfying, research the fish yourself before buying.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Get fish home as quickly as possible; for a long trip, ask for a larger bag or extra water.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Acclimate new fish gradually to the temperature and water chemistry of the new tank to reduce stress.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new arrivals, even healthy-looking ones, for at least 2 to 3 weeks, watching for illness and checking they eat well.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine every new purchase for at least 3 to 4 weeks, and longer if any problems appear.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish for 2 to 4 weeks in a 20 to 40 litre tank with a sponge filter, heater and hiding places.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Treating for common parasites with praziquantel during quarantine is optional.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "A quarantine tank also lets you treat a sick fish separately, so healthy fish in the main tank are not exposed to medication.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Set up the aquarium properly and run it for a while before adding any fish.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "If one fish in a tank looks sick, don't buy any fish from that tank.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "If a sick store tank seems to recover, wait at least two weeks after the symptoms are gone before buying from it.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "If several fish in one tank are struggling to breathe, avoid the whole tank.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Check whether tanks have their own filtration or share one system, since shared water can spread disease between tanks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid a shop that smells of decay, where most tanks look cloudy, or where dead fish float in display tanks.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Look for stores that change water weekly, monitor their fish and treat or quarantine sick animals.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "A reputable store with experienced staff can advise on local tap water conditions and which species live well together.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Buy bettas from a shop or seller that cares for its fish well; fish in poorly kept stores may be stressed, sick or in dirty water.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "A betta that looks healthy can still catch illness from tankmates, so check the other fish in the same tank.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Store size or a large selection does not mean the fish are well cared for.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Seeing no dead fish does not prove a store is good, because staff remove carcasses.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Buying a visibly diseased fish because you think you can treat it risks contaminating your whole tank.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Fish that refuse food or attack tankmates are better left in the store unless you can give them special care.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "A young betta is usually smaller, with fins not fully developed, but this is not a strict rule.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Buy one betta rather than several at once.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Getting to know one or two store employees can make it easier to get honest answers about the fish.",
+      "source": 2
+    }
+  ]
+}
