@@ -49,7 +49,7 @@ const firstSource = s.sections[0]
 const summary = await approvedSummary(s.id)
 const gallery = c.galleries[s.id] ?? []
 const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP) : []
-// Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes and comments) stay on /vi/.
+// Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
 const vn = lang === 'vi'
 const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
 const alternates = await alternatesOf('species', s.id)
@@ -83,14 +83,14 @@ const breeds = breedsOf(lang, c, s.id)
   <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
 
   <VideoFacade videos={videos} />
-  {vn && <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />}
+  <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
 
-  {vn && (
+  {vn ? (
     <div class="wrap two">
       <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
       <Comments entity={`species:${s.id}`} />
     </div>
-  )}
+  ) : <div class="wrap"><Comments entity={`species:${s.id}`} /></div>}
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }

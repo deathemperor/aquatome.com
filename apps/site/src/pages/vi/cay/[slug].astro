@@ -51,13 +51,13 @@ const alternates = await alternatesOf('plants', p.id)
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
   <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
-  {/* Shops and comments are Vietnam's (Shopee/Lazada links, Vietnamese readers). */}
-  {lang === 'vi' && (
+  {/* Shops are Vietnam's (Shopee/Lazada links); every language has its own discussion. */}
+  {lang === 'vi' ? (
     <div class="wrap two">
       <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
       <Comments entity={`plant:${p.id}`} />
     </div>
-  )}
+  ) : <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>}
 </Base>
 <style>
   .crumb { font-size: 0.85rem; padding-top: var(--space-4); }

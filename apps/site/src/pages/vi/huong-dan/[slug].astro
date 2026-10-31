@@ -128,7 +128,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <ul class="chips">{m.equipment.map(cat => <li><a href={`/vi/thiet-bi/${cat}/`}>{t(categoryLabel(cat))}</a></li>)}</ul>
     </section>
   )}
-  {lang === 'vi' && <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>}
+  <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
 </Base>
 <style>
   .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }

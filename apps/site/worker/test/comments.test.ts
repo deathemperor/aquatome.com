@@ -27,6 +27,8 @@ test('shape: name 1–40, body 2–2000, known entity type', () => {
   // Video guides are named after the YouTube id: capitals and underscores.
   expect(parseComment({ e: 'guide:youtube-J_PR999bgtw', name: 'A', body: 'hi' })).toEqual({ entityRef: 'guide:youtube-J_PR999bgtw', name: 'A', body: 'hi' })
   expect(parseComment({ e: 'guide:a/b', name: 'A', body: 'hi' })).toBe('bad entity')
+  expect(parseComment({ e: 'th:species:x', name: 'A', body: 'hi' })).toEqual({ entityRef: 'th:species:x', name: 'A', body: 'hi' }) // the Thai page's own discussion
+  expect(parseComment({ e: 'fr:species:x', name: 'A', body: 'hi' })).toBe('bad entity')
   expect(parseComment({ e: 'species:x', name: '', body: 'hi' })).toMatch(/name/)
   expect(parseComment({ e: 'species:x', name: 'x'.repeat(41), body: 'hi' })).toMatch(/name/)
   expect(parseComment({ e: 'species:x', name: 'A', body: 'h' })).toMatch(/comment/)
@@ -45,6 +47,10 @@ test('rules truth table', () => {
   expect(checkRules(c('Cách sexing cá betta? Unisex?'), ok)).toEqual({ ok: true })
   expect(checkRules(c('xem sex free'), ok)).toMatchObject({ held: 'blocked term: sex' })
   expect(checkRules(c('Nha\u0300 ca\u0301i'), ok)).toMatchObject({ held: expect.stringMatching(/blocked/) }) // decomposed Vietnamese
+  expect(checkRules(c('Situs slot gacor terpercaya'), ok)).toMatchObject({ held: 'blocked term: slot gacor' })
+  expect(checkRules(c('เว็บพนันออนไลน์'), ok)).toMatchObject({ held: expect.stringMatching(/blocked/) })
+  expect(checkRules(c('beli di toko.id dan shopee.co.id'), ok)).toEqual({ held: 'more than one link' })
+  expect(checkRules(c('Ikan saya sehat di suhu 26°C.'), ok)).toEqual({ ok: true })
 })
 
 test('clean comment appears at once; held comment is never public', async () => {
