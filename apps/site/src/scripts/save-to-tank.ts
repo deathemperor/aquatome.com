@@ -45,6 +45,8 @@ export function initSaveToTank(o: SaveTo): { show(on: boolean): void } {
     e.preventDefault()
     const s = store.load()
     const kept = store.liveTanks(s).find(t => t.id === pick.value)
+    // As on "Bể của tôi" (MAX_TANKS in packages/schema/src/tanks.ts; not imported, it brings zod with it).
+    if (!kept && store.liveTanks(s).length >= 50) { msg.replaceChildren(ct('Đã đủ 50 bể: xóa bớt bể cũ để thêm.')); return }
     const tank = store.putTank(s, { name: kept?.name ?? (name.value.trim() || o.name()), ...o.fields(kept) }, kept?.id)
     store.save(s)
     name.value = ''

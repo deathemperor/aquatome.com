@@ -146,8 +146,10 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     const water = (v.filled ?? v.litres) * WATER_SHARE
     const box = id === 'chu-nhat' || id === 'lap-phuong'
     const [l, w, h] = id === 'lap-phuong' ? [d.l!, d.l!, d.l!] : [d.l!, d.w!, d.h!]
-    last = { shape: id, litres: v.litres, ...(box ? { dims: { l: r1(l), w: r1(w), h: r1(h) } } : {}) }
-    save.show(true)
+    // Only what an account takes (packages/schema/src/tanks.ts: sides up to 1000 cm, 0.1–100,000 litres).
+    const fits = box ? Math.max(l, w, h) <= 1000 : r1(v.litres) > 0 && v.litres <= 100_000
+    last = fits ? { shape: id, litres: v.litres, ...(box ? { dims: { l: r1(l), w: r1(w), h: r1(h) } } : {}) } : undefined
+    save.show(fits)
     const glass = box ? glassThickness(Math.max(l, w), d.fill ?? h) : null
     const glassMass = glass?.order ? glassKg(l, w, h, glass.order) : null
     const lines = [

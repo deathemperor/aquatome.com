@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { expect, test } from './fixtures'
+import { expect, test, VIETNAMESE } from './fixtures'
 
 // "Lưu vào Bể của tôi" on the tools: what a tool worked out goes onto a tank in this browser (localStorage aq.tanks).
 type Stored = { tanks: { id: string; name: string; dims?: Record<string, number>; litres?: number; species: { id: string; count?: number }[]; deletedAt?: string }[] }
@@ -75,8 +75,10 @@ test('tank-mates: the chosen fish and their numbers go onto a tank; saving again
   expect(tanks[0]!.species.map(x => x.id)).toEqual(['paracheirodon-innesi', 'symphysodon-aequifasciatus'])
   expect(tanks[0]!.species[0]!.count).toBe(20)
 
-  // No fish chosen: nothing to save.
-  await page.goto('/vi/cong-cu/nuoi-chung/')
+  // The fish taken off again: nothing left to save.
+  await page.locator('#tm-chosen [data-rm]').first().click()
+  await page.locator('#tm-chosen [data-rm]').first().click()
+  await expect(page.locator('#tm-chosen li')).toHaveCount(0)
   await expect(save).toBeHidden()
   expect(errors).toEqual([])
 })
@@ -87,5 +89,40 @@ test('Indonesian volume page: saved the same way, and the link goes to the Indon
   await save.locator('button[type=submit]').click()
   await expect(save.locator('[role=status] a')).toHaveAttribute('href', /^\/id\/alat\/akuarium-saya\/#be-/)
   expect(await live(page)).toHaveLength(1)
+  // A round tank's suggested name is in Indonesian too: it becomes the tank's name.
+  await page.goto('/id/alat/volume-akuarium/?hinh=tru&d=40&h=50')
+  await expect(save.locator('input[name=name]')).toHaveAttribute('placeholder', /62,8/)
+  expect(await save.locator('input[name=name]').getAttribute('placeholder')).not.toMatch(VIETNAMESE)
+  expect(errors).toEqual([])
+})
+
+test('nothing the account would refuse is saved: sizes past its limits, a 51st tank, a count of 0', async ({ page, errors }) => {
+  const save = page.locator('.save-tank')
+  // A side over 10 m (mm typed as cm), more than 100,000 litres, or under 0.1 litre: worked out, but not saved.
+  for (const q of ['hinh=chu-nhat&l=1200&w=30&h=36', 'hinh=tru&d=600&h=400', 'hinh=tru&d=3&h=3']) {
+    await page.goto(`/vi/cong-cu/the-tich-be/?${q}`)
+    await expect(page.locator('#vf-out .big')).toBeVisible()
+    await expect(save).toBeHidden()
+  }
+  // Tank-mates: a size past the limit makes a tank without a size; 0.4 fish is no number at all.
+  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:0.4&l=1500&w=30&h=36')
+  await save.locator('button[type=submit]').click()
+  await expect(save.locator('[role=status]')).toContainText('Đã lưu vào')
+  const [tank] = await live(page)
+  expect(tank!.dims).toBeUndefined()
+  expect(tank!.species[0]!.count).toBeGreaterThanOrEqual(1)
+
+  // 50 tanks, as on "Bể của tôi": no new one, but a saved one still takes the save.
+  const at = '2026-10-30T08:00:00.000Z'
+  const tanks = Array.from({ length: 50 }, (_, n) => ({ id: `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`, name: `Bể ${n + 1}`, species: [], plants: [], createdAt: at, updatedAt: at }))
+  await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 1, tanks, devices: [] }))
+  await page.goto('/vi/cong-cu/the-tich-be/')
+  await save.locator('button[type=submit]').click()
+  await expect(save.locator('[role=status]')).toContainText('Đã đủ 50 bể')
+  expect(await live(page)).toHaveLength(50)
+  await save.locator('select').selectOption({ label: 'Bể 1' })
+  await save.locator('button[type=submit]').click()
+  await expect(save.locator('[role=status]')).toContainText('Đã lưu vào “Bể 1”')
+  expect((await live(page))[0]!.dims).toEqual({ l: 60, w: 30, h: 36 })
   expect(errors).toEqual([])
 })

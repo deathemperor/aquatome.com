@@ -85,7 +85,7 @@ const index: MateItem[] = c.species.map(s => {
   const chosen: MateItem[] = (params.get('ca') ?? '').split(',').map(s => {
     const [slug, n] = s.split(':')
     const hit = items.find(i => i.slug === slug)
-    if (hit && Number(n) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
+    if (hit && Math.round(Number(n)) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
     return hit
   }).filter((i): i is MateItem => !!i).filter((i, k, a) => a.indexOf(i) === k).slice(0, 6)
   const count = (c: MateItem) => counts.get(c.slug) ?? c.schoolMin ?? 1
@@ -267,7 +267,8 @@ const index: MateItem[] = c.species.map(s => {
   const size = () => {
     const v = $<HTMLFormElement>('vol-form')
     const [l, w, h] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
-    return l > 0 && w > 0 && h > 0 ? { l, w, h } : undefined
+    // Sides an account takes (up to 1000 cm); past that, a new tank gets no size.
+    return [l, w, h].every(x => x > 0 && x <= 1000) ? { l, w, h } : undefined
   }
   const save = initSaveToTank({
     name: () => { const d = size(); return d ? ct('Bể {l} × {w} × {h}', { l: fmt(d.l), w: fmt(d.w), h: fmt(d.h) }) : ct('Bể mới') },
