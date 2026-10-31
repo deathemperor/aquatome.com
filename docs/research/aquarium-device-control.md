@@ -281,6 +281,33 @@ Left out of the top 12 (low SEA evidence and/or reef-only): Red Sea, AI Hydra, E
 4. Confirm the Chihiros CO2 controller frames on real hardware (only documented in an unlicensed repo).
 5. Check the clock-sync behaviour after a power cut on each light. On-device schedules depend on the clock.
 
+### Hands-on results (2026-10-31)
+
+The owner's lights, tested from a MacBook with Python and [bleak](https://github.com/hbldh/bleak) (CoreBluetooth). No phone was involved. Device addresses are left out of this doc on purpose.
+
+**Chihiros WRGB II Slim** (advertises as `DYSL30`, firmware 24). Two-way control works.
+- The Mac finds it, connects, and gets replies on the Nordic UART service (write `6e400002`, notify `6e400003`).
+- The framing in [protocol.md](https://github.com/TheMicDiet/chihiros-led-control/blob/main/docs/protocol.md) is correct: `[cmd, 0x01, len+5, msgHi, msgLo, mode, params…, XOR]`.
+- The light answered status (`5a/04 [1]`), per-channel brightness (`5a/07 [ch, level]`), mode (`5a/05`: 11 manual, 18 scene, 3 curve) and clock (`5a/09 [yy, mm, isoweekday, h, m, s]`).
+- The `0xfe` status snapshot carries the light's clock at bytes 6–8. It read zero after a power cut until a clock sync. This answers test 5: the on-device schedule runs on a clock that a power cut resets.
+- Lesson for the app: the snapshot does not hold the per-channel manual levels. Our test left the light in manual mode at 70 on R/G/B, and the levels set before the test could not be read back. The app must save the user's settings itself before it changes anything.
+
+**Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007). Identified, but no commands were sent.
+- Chip: Beken `BK-BLE-1.0`. Service `fff0`: `fff2` write, `fff1` notify.
+- They also expose a firmware-update (OAD) service, `f000ffc0`. The app must never write to it.
+- The model code (test 3) is still unread. Per alokauz, these lights can't report their state.
+
+**The owner's Love Ecology light uses the "Fish lamp" app.** The app is by [Shenzhen Miaoxiang Intelligent](https://apps.apple.com/mo/app/fish-lamp/id6738646596), which makes several "control lights over Bluetooth" apps. Its App Store label says it collects no data and has no account.
+- So it is not Tuya: Tuya devices need a cloud account.
+- The light is always on, yet no device in the scans matches it. Either it was connected to the owner's iPhone (a connected light stops advertising), or the phone controls it by broadcasting and the light never advertises.
+- Not yet tested.
+
+**An unidentified Tuya BLE device** was also near the tank. It advertises as `TY` (service data `a201`, company ID `0x07D0`) with a strong signal. Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`), so control would need its local key from a Tuya cloud project.
+
+What this changes:
+- Test 1 is still open: Chrome on Android hasn't been tried.
+- Test 2 is half done. The Mac's Bluetooth stack reaches both brands without a phone. Chrome's Web Bluetooth on macOS uses the same stack, but it hasn't been tried.
+
 ---
 
 ## 5. Recommended v1
