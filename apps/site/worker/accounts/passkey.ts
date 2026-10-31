@@ -21,6 +21,7 @@ export type Rp = { id: string; origin: string }
  */
 export const APP_SITE_ASSOCIATION = { webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } }
 const ALGS = [-7, -257] // ES256, RS256
+const TRANSPORTS = new Set<string>(['ble', 'cable', 'hybrid', 'internal', 'nfc', 'smart-card', 'usb'])
 const TTL_MS = 5 * 60_000
 
 type Row = { subject: string; user_id: string; public_key: string; counter: number; transports: string | null }
@@ -72,13 +73,15 @@ export async function addPasskey(db: D1Database, rp: Rp, userId: string, respons
   } catch {
     return 'bad_passkey'
   }
-  const { id, publicKey, counter, transports } = info.credential
-  const at = now.toISOString()
+  const { id, publicKey, counter } = info.credential
+  // As the browser sent them: only the names WebAuthn knows are kept.
+  const transports = info.credential.transports?.filter(t => TRANSPORTS.has(t))
   try {
     await db.prepare(`INSERT INTO credentials (id, user_id, kind, subject, public_key, counter, transports, created_at) VALUES (?, ?, 'passkey', ?, ?, ?, ?, ?)`)
-      .bind(crypto.randomUUID(), userId, id, isoBase64URL.fromBuffer(publicKey), counter, transports?.length ? JSON.stringify(transports) : null, at).run()
-  } catch {
-    return 'in_use' // UNIQUE (kind, subject)
+      .bind(crypto.randomUUID(), userId, id, isoBase64URL.fromBuffer(publicKey), counter, transports?.length ? JSON.stringify(transports) : null, now.toISOString()).run()
+  } catch (e) {
+    if (String(e).includes('UNIQUE')) return 'in_use' // UNIQUE (kind, subject): on an account already
+    throw e
   }
   return 'ok'
 }
@@ -99,6 +102,7 @@ export async function checkPasskey(db: D1Database, rp: Rp, response: unknown, no
   if (!row) return undefined
   // A passkey made for this account carries its id as the user handle.
   if (r.response.userHandle && r.response.userHandle !== isoBase64URL.fromUTF8String(row.user_id)) return undefined
+  let newCounter: number
   try {
     const v = await verifyAuthenticationResponse({
       response: r, expectedChallenge: challenge, expectedOrigin: rp.origin, expectedRPID: rp.id, requireUserVerification: true,
@@ -106,9 +110,10 @@ export async function checkPasskey(db: D1Database, rp: Rp, response: unknown, no
       credential: { id: row.subject, publicKey: isoBase64URL.toBuffer(row.public_key), counter: row.counter, ...(row.transports ? { transports: transportsOf(row.transports) } : {}) },
     })
     if (!v.verified) return undefined
-    await db.prepare(`UPDATE credentials SET counter = ?, last_used_at = ? WHERE kind = 'passkey' AND subject = ?`).bind(v.authenticationInfo.newCounter, now.toISOString(), row.subject).run()
+    newCounter = v.authenticationInfo.newCounter
   } catch {
     return undefined
   }
+  await db.prepare(`UPDATE credentials SET counter = ?, last_used_at = ? WHERE kind = 'passkey' AND subject = ?`).bind(newCounter, now.toISOString(), row.subject).run()
   return row.user_id
 }

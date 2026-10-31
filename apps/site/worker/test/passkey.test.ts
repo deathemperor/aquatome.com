@@ -40,10 +40,10 @@ async function authenticator(o: { rpId?: string; counter?: number } = {}) {
     id,
     setCounter: (n: number) => { counter = n },
     /** navigator.credentials.create(), as RegistrationResponseJSON. Flags: user present (1) and verified (4). */
-    async create(options: { challenge: string; user: { id: string } }, opt: { origin?: string; flags?: number } = {}) {
+    async create(options: { challenge: string; user: { id: string } }, opt: { origin?: string; flags?: number; transports?: string[] } = {}) {
       handle = options.user.id
       const attestationObject = isoCBOR.encode(new Map<string, unknown>([['fmt', 'none'], ['attStmt', new Map()], ['authData', await authData(true, opt.flags ?? 0x05)]]) as never)
-      return { id, rawId: id, type: 'public-key', clientExtensionResults: {}, response: { clientDataJSON: b64(client('webauthn.create', options.challenge, opt.origin ?? ORIGIN)), attestationObject: b64(attestationObject), transports: ['internal'] } }
+      return { id, rawId: id, type: 'public-key', clientExtensionResults: {}, response: { clientDataJSON: b64(client('webauthn.create', options.challenge, opt.origin ?? ORIGIN)), attestationObject: b64(attestationObject), transports: opt.transports ?? ['internal'] } }
     },
     /** navigator.credentials.get(), as AuthenticationResponseJSON. */
     async get(options: { challenge: string }, opt: { origin?: string; flags?: number; userHandle?: string } = {}) {
@@ -133,16 +133,18 @@ test('a passkey is refused: another origin or site, no user verification, a repl
   expect((await signIn(a, { flags: 0x01 })).json).toEqual({ error: 'bad_passkey' })
   expect((await signIn(a, { userHandle: isoBase64URL.fromUTF8String('someone-else') })).json).toEqual({ error: 'bad_passkey' })
 
-  // A challenge answers once.
+  // A challenge answers once: a synced passkey's counter stays 0, so only that stops a replay.
+  const synced = await authenticator()
+  expect((await add(cookie, synced)).status).toBe(200)
   const options = (await call('POST', '/api/v1/auth/passkey/options', { body: {} })).json
-  const response = await a.get(options)
+  const response = await synced.get(options)
   expect((await call('POST', '/api/v1/auth/passkey', { body: { response } })).status).toBe(200)
   expect((await call('POST', '/api/v1/auth/passkey', { body: { response } })).json).toEqual({ error: 'bad_passkey' })
   // A passkey nobody added, and rubbish: refused, nothing thrown.
   expect((await signIn(await authenticator())).json).toEqual({ error: 'bad_passkey' })
   expect((await call('POST', '/api/v1/auth/passkey', { body: { response: { id: 'x', response: { clientDataJSON: 'not base64!' } } } })).json).toEqual({ error: 'bad_passkey' })
   expect((await call('POST', '/api/v1/auth/passkey', { body: {} })).json).toEqual({ error: 'bad_passkey' })
-  expect((await db.prepare(`SELECT counter FROM credentials WHERE kind = 'passkey'`).first<{ counter: number }>())!.counter).toBe(7)
+  expect((await db.prepare(`SELECT counter FROM credentials WHERE subject = ?`).bind(a.id).first<{ counter: number }>())!.counter).toBe(6)
 })
 
 test("adding a passkey: only to the account that asked for the challenge; one passkey one account; signed out, cross-site, or off: refused", async () => {
@@ -164,6 +166,24 @@ test("adding a passkey: only to the account that asked for the challenge; one pa
   expect((await accounts(cross, new URL(cross.url), env, NOW, { verifyIdToken: async () => undefined, siteverify: async () => true })).status).toBe(403)
   // Another host (the workers.dev address): no relying party there.
   expect((await call('POST', '/api/v1/auth/passkey/options', { body: {}, host: 'aquatome.example.workers.dev' })).json).toEqual({ error: 'provider_off' })
+})
+
+/** This database, with statements containing `match` failing as D1 does when it is down. */
+const failing = (db: D1Database, match: string) => new Proxy(db, {
+  get: (t, k) => k === 'prepare' ? (sql: string) => { if (sql.includes(match)) throw new Error('D1 down'); return t.prepare(sql) } : Reflect.get(t, k),
+})
+
+test('a database failure is a server error, not "in use" or "bad passkey"; only known transports are kept', async () => {
+  const { google, add, signIn, env, db } = setup()
+  const cookie = await google('g-1')
+  env.DB = failing(db, 'INSERT INTO credentials')
+  await expect(add(cookie, await authenticator())).rejects.toThrow('D1 down')
+  env.DB = db
+  const a = await authenticator()
+  expect((await add(cookie, a, { transports: ['internal', 'hybrid', 'x'.repeat(500)] })).status).toBe(200)
+  expect((await db.prepare(`SELECT transports FROM credentials WHERE subject = ?`).bind(a.id).first<{ transports: string }>())!.transports).toBe('["internal","hybrid"]')
+  env.DB = failing(db, 'UPDATE credentials SET counter')
+  await expect(signIn(a)).rejects.toThrow('D1 down')
 })
 
 test('passkeys off: not offered, every passkey path answers provider_off', async () => {
