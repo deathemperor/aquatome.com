@@ -4,6 +4,10 @@ import { expect, test } from './fixtures'
 // with no temperature, pH or tank figure, because missing data counted as a match (2026-10-31). Read from the page, not
 // from the test content, so they hold on aquatome.com too (production watch): each list shows 24 cards at a time.
 const PAGE = 24
+// The fish list keeps every card in its HTML (~800 on aquatome.com, ~16k elements). A failure trace's DOM snapshot
+// copies all of it before and after each step: 15 s of this journey instead of 2, past the 30 s limit on the phone in
+// the production watch (#246). The trace keeps its screenshots and steps; only the DOM copies are left out.
+test.use({ trace: { mode: 'retain-on-failure', snapshots: false } })
 test('home tank form: sure matches first, species without the figures in a closed group, chips to drop filters', async ({ page }) => {
   await page.goto('/vi/')
   await page.locator('#tank button[type=submit]').click()
