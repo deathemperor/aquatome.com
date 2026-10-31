@@ -10,7 +10,8 @@ test('tank volume: the default tank, then a new length, with the result shareabl
 
 test('tank-mates: two species give a comparison table', async ({ page }) => {
   await page.goto('/vi/cong-cu/')
-  for (const name of ['Cá neon vua', 'Cá galaxy']) {
+  // Names in both the fixture content and aquatome.com.
+  for (const name of ['Cá neon vua', 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)
     await page.locator('#tm-form button[type=submit]').click()
   }

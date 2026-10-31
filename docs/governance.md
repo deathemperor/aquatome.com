@@ -9,7 +9,7 @@ that would have caught it).
 | # | Layer | Catches | Runs | Status |
 | --- | --- | --- | --- | --- |
 | 1 | **Gate**: build tests + browser checks | broken pages, journeys that stop working, layout and translation slips | every PR (`ci.yml`), every deploy (`deploy.yml`, engine content too) | live |
-| 2 | **Production watch**: the same checks against aquatome.com | page-specific content problems, deploy surprises | after each deploy and nightly; a failure opens or updates an issue | next |
+| 2 | **Production watch**: the same checks against aquatome.com | page-specific content problems, deploy surprises | after each deploy and nightly (`watch.yml`); a failure opens or updates an issue | live |
 | 3 | **AI page review**: Claude looks at phone screenshots against a rubric | problems no rule describes ("the results are five screens down") | on PRs for the page kinds they touch; nightly on a rotating sample | next |
 | 4 | **Fix loop**: an agent turns a recorded problem into a failing check, then a fix, as a draft PR | the backlog layers 2 and 3 record | for issues with the label | next |
 
@@ -31,6 +31,20 @@ that would have caught it).
 - Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run the page checks on the **real** build
   before uploading (`deploy.sh` with `E2E_GATE=1`).
 - Not gated yet: `deploy.sh` run on the owner's Mac (the video cycle). Layer 2 watches production for what slips through.
+
+### 2. Production watch (live)
+
+- `watch.yml` runs the same browser checks against aquatome.com after every finished deploy and at 05:00 (Vietnam).
+- It checks a **different sample each day** (`E2E_SEED` = day of the year, from the sitemap), so in time it covers every
+  page, not one or two per kind.
+- Every page with an **open problem is checked again each run**, until it passes.
+- `scripts/site-watch.mjs` turns results into issues labelled `site-check`, one per problem (a page, or a journey):
+  - a new failure opens an issue
+  - a repeat failure updates its "Last failed" line (no mail every night)
+  - a pass closes the issue with a note
+- A **failed deploy** opens a "Deploy failed" issue. Engine runs start deploys with the workflow token, so nobody would
+  hear about it otherwise. The next deploy that finishes closes it.
+- The watch blocks the site's own visit beacon, so its page loads don't count as readers.
 
 ## Rules for every change (people and agents)
 

@@ -28,9 +28,10 @@ test('typing a name and pressing Lọc filters the list and keeps the search in 
   // On a phone the filters start folded.
   const box = page.locator('#filter-box')
   if (!(await box.evaluate(d => (d as HTMLDetailsElement).open))) await box.locator('summary').click()
-  await page.locator('input[name=q]').fill('galaxy')
+  await page.locator('input[name=q]').fill('neon vua')
   await page.locator('#species-filter button[type=submit]').click()
-  await expect(page).toHaveURL(/\?q=galaxy/)
+  await expect(page).toHaveURL(/\?q=neon\+vua/)
   const cards = await visibleCards(page)
-  expect(cards.map(c => fold(c.text).includes('galaxy'))).toEqual(cards.map(() => true))
+  expect(cards.length).toBeGreaterThan(0)
+  expect(cards.map(c => fold(c.text).includes('neon vua'))).toEqual(cards.map(() => true))
 })

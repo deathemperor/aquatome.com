@@ -10,7 +10,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 4 : undefined, // GitHub's runners have 4 cores; Playwright's CI default is 1
-  reporter: process.env.CI ? [['github'], ['list'], ['html', { open: 'never', outputFolder: 'e2e-report' }]] : 'list',
+  // E2E_JSON: results as JSON too, for scripts/site-watch.mjs (production checks).
+  reporter: [...(process.env.CI ? [['github'], ['list'], ['html', { open: 'never', outputFolder: 'e2e-report' }]] as const : [['list']] as const), ...(process.env.E2E_JSON ? [['json', { outputFile: process.env.E2E_JSON }]] as const : [])],
   use: { baseURL: live ?? `http://127.0.0.1:${PORT}`, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   projects: [
     { name: 'phone', use: { ...devices['Pixel 7'] } },
