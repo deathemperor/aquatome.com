@@ -64,6 +64,11 @@ public struct TimeOfDay: Sendable, Hashable, Comparable, CustomStringConvertible
     guard p.count == 2, let h = Int(p[0]), let m = Int(p[1]), (0..<24).contains(h), (0..<60).contains(m) else { return nil }
     self.init(hour: h, minute: m)
   }
+  /// From minutes since midnight, wrapping around the day.
+  public init(minutes: Int) {
+    let m = (minutes % 1440 + 1440) % 1440
+    self.init(hour: m / 60, minute: m % 60)
+  }
   public var minutes: Int { hour * 60 + minute }
   public var description: String { String(format: "%02d:%02d", hour, minute) }
   public static func < (a: TimeOfDay, b: TimeOfDay) -> Bool { a.minutes < b.minutes }

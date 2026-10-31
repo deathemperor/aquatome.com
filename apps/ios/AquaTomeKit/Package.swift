@@ -7,10 +7,15 @@ let package = Package(
   platforms: [.iOS(.v17), .macOS(.v14)],
   products: [
     .library(name: "Chihiros", targets: ["Chihiros"]),
+    .library(name: "ChihirosBLE", targets: ["ChihirosBLE"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
     .target(name: "Chihiros"),
+    // The same over CoreBluetooth.
+    .target(name: "ChihirosBLE", dependencies: ["Chihiros"]),
+    // A Mac command line that drives a real light through ChihirosBLE (the iOS simulator has no Bluetooth).
+    .executableTarget(name: "light-harness", dependencies: ["Chihiros", "ChihirosBLE"]),
     .testTarget(name: "ChihirosTests", dependencies: ["Chihiros"]),
   ]
 )
