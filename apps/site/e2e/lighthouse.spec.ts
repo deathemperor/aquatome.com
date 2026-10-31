@@ -1,7 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
-import { LIVE, onePerKind, sourcePages, templateOf } from './pages'
+import { indexed, LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
 // Lighthouse (what PageSpeed Insights runs) on one page of each kind readers open most: the phone run is PageSpeed's
 // mobile test, the computer run its desktop one. A score or a number past its budget fails the check, so a change that
@@ -43,7 +43,9 @@ const KNOWN: Record<string, Partial<Budget>> = {
 // guide lists too: their filters and chips must not shift the page as it loads.
 const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-dan/2', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
 // Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
-const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'])
+// A kind's first page that search engines are offered: a noindex page (a thin species or plant) fails SEO by design
+// (deploy 41244864797 sampled ammannia-gracilis, new and thin, on a local build).
+const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'], p => indexed(p))
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {
