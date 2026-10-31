@@ -1,0 +1,116 @@
+{
+  "id": "amblyceps-serratum",
+  "scientificName": "Amblyceps serratum",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "cambodia",
+    "stung-treng"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 4.5 cm</li><li>Temperature: 18-22°C</li><li>pH: 6.5-7.5</li><li>IUCN Red List: Data Deficient (IUCN 2012). There is insufficient information about the geographic distribution and population size of this species for an accurate assessment.</li></ul><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6-7; anal soft rays: 10-11; vertebrae: 34-36. Presence of 4-5 serrations along the posterior edge of the pectoral spine; iii-iv,7-8 anal-fin rays (total 10-11), and a more deeply forked caudal fin with regularly tapering lobes. Differs further from other Indochinese congeners in possessing fewer vertebrae (34-36 vs. 38-41); a deeper body (depth at anus 15.2-16.9% SL vs. 9.8-15.1) and equal upper and lower jaws (vs. longer and weakly-projecting lower jaw).</p><p>Etymology: The specific name serratum means toothed like a saw, referring to the serrated pectoral spine.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "html": "<p>Asia: Mekong River drainage of central and southern Laos and Cambodia. Type locality: Cambodia, Stung Treng province: shallow channel across S end of Kaoh Han, 14 km NE of Stung Treng (13º37'N, 106º03'E).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "html": "<p>Collected from a side arm of the main river in Xe Bangfai, among a gravel bed in the floodplain, in shallow water (less than 30 cm) and in Xe Pon, among stones and boulders in rapids.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2017).</p><p>Ng, H.H. and M. Kottelat, 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</p><p>Ng, H.H. 2012. Amblyceps serratum. The IUCN Red List of Threatened Species 2012.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e27a81c997ca38ce.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e27a81c997ca38ce-480.webp",
+      "width": 500,
+      "height": 144,
+      "licence": "dùng với sự cho phép",
+      "author": "Bounthob Praxaysombath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "caption": "Amblyceps serratum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2517d1c31677b761.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2517d1c31677b761-480.webp",
+      "width": 500,
+      "height": 150,
+      "licence": "dùng với sự cho phép",
+      "author": "Bounthob Praxaysombath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm",
+      "caption": "Amblyceps serratum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc dòng chảy mạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

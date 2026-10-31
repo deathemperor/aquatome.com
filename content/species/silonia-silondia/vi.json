@@ -3,7 +3,8 @@
   "name": "Cá da trơn Silond",
   "altNames": [
     "Cá nheo Silond",
-    "Silond catfish"
+    "Silond catfish",
+    "Cá da trơn silond"
   ],
   "sections": {
     "quickFacts:scotcat": "<ul><li>Họ: Ailiidae</li><li>Tên thường gọi: Silond catfish</li><li>Kích thước: 160 cm SL</li><li>Nhiệt độ: 23-26°C</li><li>pH: 6,5-7,2</li></ul>",
@@ -13,13 +14,18 @@
     "maintenance:scotcat": "<p>Loài cá này có thể lớn rất to. Hàm răng của chúng trông khá dữ tợn, và cá càng lớn thì răng càng lộ rõ. Thêm nữa, cá họ Ailiidae vốn thuộc nhóm nhạy cảm, nên nuôi sống chúng trong bể gia đình là chuyện rất khó (Mishra, A).</p>",
     "diet:scotcat": "<p>Cá lớn có rất nhiều răng cong trong hàm và ăn cá khác. Cá nhỏ hơn thì ăn động vật không xương sống.</p>",
     "reproduction:scotcat": "<p>Đây là loài đẻ trứng, và cá bố mẹ không canh giữ trứng. Cá sinh sản vào mùa mưa. Người ta cho rằng chúng di cư ngược dòng lên vùng các nhánh sông ở thượng nguồn để đẻ.</p>",
-    "references:scotcat": "<ul><li>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Devi, R. &amp; Boguskaya, N. 2009. Silonia silondia. The IUCN Red List of Threatened Species 2009.</li><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (07/2008).</li><li>Mishra, A. pers comm. 2022.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    "references:scotcat": "<ul><li>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Devi, R. &amp; Boguskaya, N. 2009. Silonia silondia. The IUCN Red List of Threatened Species 2009.</li><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (07/2008).</li><li>Mishra, A. pers comm. 2022.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Silonia silondia (Hamilton, 1822)</li><li>Nơi thu mẫu chuẩn: vùng cửa sông Hằng, Ấn Độ.</li><li>Kích thước: 183 cm SL (chiều dài chuẩn, không tính đuôi).</li><li>Nhiệt độ: 23,0–26,0°C.</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần gần nhất năm 2007).</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở châu Á, gồm Pakistan, Ấn Độ, Bangladesh, Nepal và có thể cả Myanmar.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>An account of the fishes found in the river Ganges, pp 160, 375, Pl. 7 (fig 50).</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "planetcatfish": 0.8
     }
   }
 }

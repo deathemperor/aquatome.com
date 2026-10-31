@@ -1,0 +1,90 @@
+{
+  "id": "ancistrus-formoso",
+  "scientificName": "Ancistrus formoso",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "formoso"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>Ancistrus formoso Sabino &amp; Trajano, 1997. Common name: Blind Cave Bristlenose. Maximum size 79 mm (3.1\") SL. Type locality: Buraco do Ducho cave, Serra da Bodoquena, Município de Bonito, Mato Grosso do Sul, Brazil. IUCN Red List: Vulnerable (last assessed 2018).</p><p>Mature males and sometimes females have soft tentacles (bushy fleshy growths) on the snout, which is unique to the genus Ancistrus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>Ancistrus should be fed mainly on vegetarian foods. Prepared foods include algae wafers and spirulina-based sinking food. Vegetables such as courgette/zucchini and (English) cucumber are an excellent addition to the diet, along with the odd small amount of more meaty foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>A good complement to most aquariums; they are not aggressive to other species. Males may fight over territory if kept in too small a tank. Suitable with most community fish that aren't overly big or aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>Males develop soft tentacles on the head. Females sometimes do too, but never to the extent seen in the male.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>All Ancistrus species are cave-breeders, where the male looks after the eggs and young fry. There is no breeding report for this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1081",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 24 (no. 3-4), pp 74, Figs. 3-4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Q9SSrQVR3ck",
+      "title": "Cascudo-cego que vive em caverna",
+      "durationSec": 56,
+      "lang": "pt-BR"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá dọn bể",
+        "thức ăn spirulina cá chìm"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

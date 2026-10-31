@@ -1,0 +1,140 @@
+{
+  "id": "liobagrus-chenghaiensis",
+  "scientificName": "Liobagrus chenghaiensis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "minjiang"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Common name: Chengdu Torrent Catfish</li><li>Size: 4.5 cm</li><li>Temperature: 18-22°C</li><li>pH: 6.5-7.5</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "html": "<p>China: Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "html": "<p>The new species is nocturnal and benthic and inhabits the bottom of upstream running waters with pebble substrates, together with L. aff. kingi and L. pseudostyani, while L. marginatus inhabits the main stream of the Minjiang River.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "html": "<p>A new torrent catfish species, Liobagrus chengduensis sp. nov., is described from the Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China. It can be distinguished from all other congeneric species by a unique combination of the following characters: 3–4 serrations on posterior edge of pectoral-fin spine; anal fin with 15–16 rays; upper jaw obviously shorter than lower jaw; caudal fin rounded, with 42–44 rays; vertebral column with 36–37 post-Weberian elements; anus close to pelvic-fin insertion; adipose fin posteriorly continuous with caudal fin, with marked incision at confluence.</p><p>Colouration: Body generally brownish yellow; all fins lacking well-defined light-colored margins, with color fading towards edge.</p><p>Etymology: The species is named after Chengdu City, its type locality. The proposed English common name is Chengdu Torrent Catfish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "html": "<p>Zhong-Guang Chen, Yan-Shu Guo, Jia-Yun Wu, An-Xiang Wen. Liobagrus chengduensis, a new species of torrent catfish (Teleostei: Siluriformes: Amblycipitidae) from the upper Changjiang River basin in southwest China. Zoological Research, 2022, 43(4): 679-682.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4523bd6e60dc26e9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4523bd6e60dc26e9-480.webp",
+      "width": 500,
+      "height": 266,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhong-Guang Chen et al. / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "caption": "Liobagrus chengduensis: holotype in life",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/62e31e69fae40d11.webp",
+      "thumb": "https://media.aquatome.com/scotcat/62e31e69fae40d11-480.webp",
+      "width": 500,
+      "height": 156,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhong-Guang Chen et al. / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "caption": "Liobagrus chengduensis: paratype",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d7c7b88a8db356b9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d7c7b88a8db356b9-480.webp",
+      "width": 500,
+      "height": 179,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhong-Guang Chen e / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "caption": "Liobagrus chengduensis: Dorsal view-paratype",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/891a47ce27d30bde.webp",
+      "thumb": "https://media.aquatome.com/scotcat/891a47ce27d30bde-480.webp",
+      "width": 500,
+      "height": 176,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhong-Guang Chen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm",
+      "caption": "Liobagrus chengduensis: Ventral view-paratype",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác tạo dòng chảy",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi cuội nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

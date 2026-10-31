@@ -10,12 +10,20 @@
     "india",
     "bangladesh",
     "myanmar",
-    "nepal"
+    "nepal",
+    "pakistan"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 23,
           "max": 26
@@ -35,6 +43,10 @@
       {
         "source": "scotcat",
         "value": 160
+      },
+      {
+        "source": "planetcatfish",
+        "value": 183
       }
     ],
     "difficulty": [
@@ -52,10 +64,22 @@
       "html": "<ul><li>Family: Ailiidae</li><li>Common name: Silond catfish</li><li>Size: 160 cm SL (63 in)</li><li>Temperature: 23-26°C (73-79°F)</li><li>pH: 6.5-7.2</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1109",
+      "html": "<ul><li>Scientific name: Silonia silondia (Hamilton, 1822)</li><li>Type locality: Gangetic estuaries, India.</li><li>Size: 183 cm (72 inches) SL.</li><li>Temperature: 23.0–26.0°C.</li><li>IUCN Red List: Least Concern (last assessed 2007).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
       "html": "<p>Asia: Northern India, Bangladesh, Myanmar and Nepal. Type locality: Gangetic estuaries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1109",
+      "html": "<p>Asia: Pakistan, India, Bangladesh, Nepal and probably Myanmar.</p>"
     },
     {
       "key": "habitat",
@@ -82,6 +106,12 @@
       "html": "<p>Oviparous, eggs are unguarded. Spawns in the rainy season and is said to migrate upstream to the area of the upper tributaries.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1109",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
@@ -92,6 +122,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/silonia_silondia.htm",
       "html": "<ul><li>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Devi, R. &amp; Boguskaya, N. 2009. Silonia silondia. The IUCN Red List of Threatened Species 2009.</li><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (07/2008).</li><li>Mishra, A. pers comm. 2022.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1109",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 160, 375, Pl. 7 (fig 50).</p>"
     }
   ],
   "photos": [
@@ -167,5 +203,5 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -1,0 +1,121 @@
+{
+  "id": "amblyceps-tenuispinis",
+  "scientificName": "Amblyceps tenuispinis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "ghazipur"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 6.5 cm (2½ in)</li><li>Temperature: 18-22°C (63-71°F)</li><li>pH: 6.5-7.5</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>Asia: Ghazipur, India. Type locality: Ghazipur [India].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>This species inhabits fast-flowing streams and rivers with a sandy or rocky bottom.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>In their natural habitat their diet consists of aquatic insects and larvae. In an aquarium they like worm foods such as frozen bloodworm and whiteworm. They feed very much like the Tatia species from South America, feeding frantically on the move, twisting and turning to take the food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>Best kept with larger danios such as the Giant Danio (Danio aequipinnatus), barbs and rasboras. Any medium-sized fish that like water movement in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>Etymology: the specific name tenuispinis: tenuis, thin; spinis, spine, referring to the short and slender dorsal and pectoral-fin spines.</p><p>IUCN Red List: Data Deficient. The population size and trend are unknown, and there is very little information on the biology of this species and potential impacts of threats. The taxonomic identity of the species also remains in doubt.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org, version (06/2023).</p><p>Ng, H.H. and M. Kottelat, 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</p><p>Pal, M. &amp; Ng, H.H. 2010. Amblyceps tenuispinis. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c1346bf1f0784eaa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c1346bf1f0784eaa-480.webp",
+      "width": 500,
+      "height": 194,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm",
+      "caption": "Amblyceps tenuispinis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cá đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

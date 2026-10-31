@@ -1,0 +1,134 @@
+{
+  "id": "parosphromenus-anjunganensis",
+  "scientificName": "Parosphromenus anjunganensis",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Parosphromenus",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Conservation status: Endangered. Parosphromenus anjunganensis stands out from other Parosphromenus species with its prominent red fins outlined with a white band. It is a small freshwater fish belonging to the family Osphronemidae.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Best kept in small groups of 3-6 in a 5 to 10 gallon (about 19-38 litre) tank with small blackwater fish such as Boraras or mouthbrooding bettas like Albimarginata and Channoides.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<ul><li>Temperature: 22 – 28 °C</li><li>pH: 3.0 – 6.5</li><li>Hardness: 18 – 72 ppm (about 1 – 4 dGH)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>They are omnivores, feeding on a variety of small invertebrates and insect larvae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>These fish are generally peaceful and shy, preferring to hide among vegetation or other structures in their environment.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6e90d83754a1541f.webp",
+      "width": 960,
+      "height": 679,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ubs6u!d-pongsakorn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_anjunganensis_Map.jpg",
+      "caption": "Parosphromenus anjunganensis Map",
+      "thumb": "https://media.aquatome.com/commons/6e90d83754a1541f-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZAHleM9yyQ8",
+      "title": "Blackwater ENDEMIC Fish from West Kalimantan, Angel Licorice Gourami ( Parosphromenus anjunganensis)",
+      "durationSec": 222,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oAQ0qmUXLaw",
+      "title": "Parosphromenus anjunganensis, angel licorice gourami",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1cmnw_1grCU",
+      "title": "I 've got Parosphronemus anjunganensis and Sphaerichthys a.k.a Choco Gourami.. Yeay!",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo đông lạnh",
+        "thức ăn cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test nước bể cá"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể nước đen",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,190 @@
+{
+  "id": "noturus-insignis",
+  "scientificName": "Noturus insignis",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "delaware-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 14,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Scientific name: Noturus insignis (Richardson, 1836). Type locality: vicinity of Philadelphia, Pennsylvania, USA. Size: 150 mm (5.9\") SL.</p><p>Identification: yellow to slate gray above; white or light below; yellow or light gray fins. Upper jaw projects beyond lower jaw. 15-21 anal rays.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>North America: Atlantic Slope from St. Lawrence River and southeastern Lake Ontario drainages in New York to upper Altamaha River drainage in Georgia, USA; upper Kanawha (New) River system in Virginia and North Carolina, USA; upper Monongahela River system in the USA.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Inhabits rocky riffles and runs of clear, fast creeks and small to medium rivers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>pH 6.2 - 7.0. Temperature 14.0-22.0°C (57.2-71.6°F). Highly oxygenated water not necessary but preferred.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Provide sand mixed with peat moss, PVC pipes, flat rocks and vegetation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Readily feeds on live and frozen foods. Will also adapt to flake and prepared foods for the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Suitable for a coldwater community tank. Ideal tankmates include small to midsized North American native fishes such as darters and shiners.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Breeding male with swollen lips, enlarged cephalic epaxial muscles, and large bulbous genital papilla. Female with papilla with deep median groove ending in a small bump.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Spawning occurs in the months of May-August. It is difficult in the aquarium, however it has been done when wild caught specimens are added to aquariums with warmer temperatures than the river or drainage system they are captured from. Nests are sited beneath flat rocks in gentle runs and in slow water above and below riffles. Eggs number 54-200 per clutch and are guarded by the male.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1080",
+      "html": "<p>Fauna Boreali-Americana Part 3, pp 132.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/97b67c856b94c5fe.webp",
+      "width": 960,
+      "height": 327,
+      "licence": "Public domain",
+      "author": "Ellen Edmonson and Hugh Chrisp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Margined_madtom.jpeg",
+      "caption": "Noturus insignis",
+      "thumb": "https://media.aquatome.com/commons/97b67c856b94c5fe-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c405d85f8fbc98f2.webp",
+      "width": 960,
+      "height": 313,
+      "licence": "CC BY 2.0",
+      "author": "Smithsonian Environmental Research Center",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Noturus_insignis_(S0279)_(12597211954).jpg",
+      "caption": "margined madtom, Noturus insignis, 117mm SL. Otter Point Creek, Bush River, Harford County, MD - 06/22/12. Caught by Maryland Biological Stream Survey (MBSS). Photo by Robert Aguilar, Smithsonian Envi",
+      "thumb": "https://media.aquatome.com/commons/c405d85f8fbc98f2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/74308576308e4432.webp",
+      "width": 960,
+      "height": 298,
+      "licence": "Public domain",
+      "author": "Internet Archive Book Images",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20662403032).jpg",
+      "caption": "Stone Catfish (Schilbeodes insignis =Noturus insignis) Title: The complete aquarium book; the care and breeding of goldfish and tropical fishes Identifier: completeaquarium00inne (find matches) Year: ",
+      "thumb": "https://media.aquatome.com/commons/74308576308e4432-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "0dluqcYX7c4",
+      "title": "Margined Madtom",
+      "durationSec": 144,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "hvdYxpX3VUw",
+      "title": "Life of the Margined Madtom Catfish",
+      "durationSec": 324,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "A9U0tj88s2E",
+      "title": "Kritters with Kayla - Margined Madtom",
+      "durationSec": 190,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "xxdw12voL1I",
+      "title": "40 breeder Community tank 1-16-2018",
+      "durationSec": 68,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,178 @@
+{
+  "id": "sperata-seenghala",
+  "scientificName": "Sperata seenghala",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Sperata",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "afghanistan",
+    "pakistan",
+    "indus",
+    "india",
+    "krishna",
+    "nepal",
+    "bangladesh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Sperata seenghala (Sykes, 1839). Common name: Giant River-catfish. Type locality: Deccan, India. Maximum size 150 cm SL. Temperature 20–25°C, pH 6.0–7.0.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Provide ample driftwood for shelter.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Readily feeds on live or frozen foods, smaller fishes, shrimps, and prepared foods such as pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Not suitable with smaller tankmates, as it will eat them. Territorial with conspecifics, so best kept alone.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Males are more slender and have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Not reported in aquaria. Spawning is said to occur before the beginning of the southwest monsoon season in India. Individuals spawn at irregular intervals throughout the reproductive season and females can produce more than 1.2 million ova. It has been suggested that the males incubate the eggs in highly vascularized, spongy skin on the ventral surface of their abdomen and then feed the newly-hatched fry with a milky-white exudate from the abdominal wall.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Identification: eye situated completely in anterior half of head, more precaudal vertebrae (21-23) than congeners, length of supraoccipital spine less than interneural shield. Etymology: the genus is named after MA Sperat; the specific epithet comes from the Bihari (and Oriya) names of the fish (seenghala or singara). IUCN: Least Concern.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1120",
+      "html": "<p>Proceedings of the Zoological Society of London 1838 (pt 6) (for 27 Nov. 1838), pp 164.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9d7d40cfc99a92da.webp",
+      "width": 960,
+      "height": 185,
+      "licence": "CC BY-SA 3.0",
+      "author": "Staticd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_seenghala.jpg",
+      "caption": "catfish approx 30 cm long. serrated dorsal and pectoral spines. 7 dorsal rays(+1 spine); anal rays approx 9-12; pectoral rays approx 5-8; snout rectangular, flattened, 4 pairs of barbels (2 chin+ 1 ma",
+      "thumb": "https://media.aquatome.com/commons/9d7d40cfc99a92da-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5fd830679d8e6368.webp",
+      "width": 960,
+      "height": 420,
+      "licence": "Public domain",
+      "author": "J. Swaine (artist)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystoma_seenghala_Sykes.jpg",
+      "caption": "Sperata seenghala (Sykes, 1839) (syn. Platystoma seenghala)",
+      "thumb": "https://media.aquatome.com/commons/5fd830679d8e6368-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ddb86dd6cb53067c.webp",
+      "width": 960,
+      "height": 575,
+      "licence": "CC BY-SA 3.0",
+      "author": "Staticd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_seenghala_head_dorsal_view.jpg",
+      "caption": "dorsal view of head of Sperata seenghala. note that the pectoral spines have been removed.",
+      "thumb": "https://media.aquatome.com/commons/ddb86dd6cb53067c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8b63483a7f99b918.webp",
+      "width": 960,
+      "height": 328,
+      "licence": "Public domain",
+      "author": "Francis Day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_seenghala_Day_99.jpg",
+      "caption": "Giant river-catfish (Sperata seenghala (Sykes, 1839)). The original plates showed the fishes facing right and have been flipped here. Macrones seenghala",
+      "thumb": "https://media.aquatome.com/commons/8b63483a7f99b918-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Tmc4jTNIqvk",
+      "title": "インディアン・シャベルノーズキャット学名：Sperata seenghala",
+      "durationSec": 87,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i3y5gZQO0ZY",
+      "title": "🐟 The Singhar Catfish: A River Predator Explained",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

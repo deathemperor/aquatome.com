@@ -1,0 +1,103 @@
+{
+  "id": "denticetopsis-seducta",
+  "scientificName": "Denticetopsis seducta",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "iquitos",
+    "brazil",
+    "amazonas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
+      "html": "<ul><li>Scientific name: Denticetopsis seducta Vari, Ferraris &amp; de Pinna, 2005</li><li>Common name: Red Dwarf Whale Catfish</li><li>Size: 51 mm (2 in) SL</li><li>IUCN Red List: Least Concern (last assessed 2020)</li><li>Breeding: no breeding report</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
+      "html": "<p>South America: Upper Amazon and Middle Amazon (Solimoes). Type locality: Caño \"Sabalito,\" a small creek on terra firma about 40 kilometers south of Iquitos, Loreto, Peru. Also recorded at Reserva Florestal Adolfo Ducke, Amazonas State, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
+      "html": "<ul><li>pH: 5.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
+      "html": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 218, Fig. 53.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "OfQpavrnX-A",
+      "title": "「巧克力鮫鯨」-夜行性的生物白天在幹嘛？躺著。沒錯就是躺著！《三和水族》",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "l0_aFthNeXc",
+      "title": "#Peru祕魯#Denticetopsis_seducta #巧克力鮫鯨#wild_fish#悠遊魚坊yoyofishroom",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

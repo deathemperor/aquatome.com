@@ -1,0 +1,160 @@
+{
+  "id": "sphaerichthys-vaillanti",
+  "scientificName": "Sphaerichthys vaillanti",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Sphaerichthys",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Sphaerichthys vaillanti is a species of freshwater fish belonging to the family Osphronemidae and the genus Sphaerichthys. These fish are generally shy and introverted, especially when you first receive them. In this species, the females are the more striking and beautiful ones when they color up.</p><ul><li>Difficulty: Intermediate to expert</li><li>Temperament: Peaceful</li><li>Temperature: 24-28°C (75-82°F)</li><li>pH: 4.0-6.5</li><li>Hardness: Soft to moderately soft (0-10 dGH)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Be sure to have the habitat ready before purchase. The fish are wild caught, found and collected in Indonesia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Minimum of 75 litres (20 gallons), but larger tanks are preferable for better water stability.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Perform regular partial water changes of 20-30% every two weeks. Samurai gouramis are sensitive to water quality and require a well-maintained aquarium. Proper diet and regular water testing are essential for their health and longevity.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Substrate: Use a dark substrate to mimic the fish's natural habitat and add plants and driftwood to provide hiding places.</p><p>Filtration: Use a gentle filter with low flow to avoid stressing the fish.</p><p>Lighting: Low to moderate lighting is recommended, as the fish prefer dimly lit environments.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Samurai gouramis are peaceful fish, so they can be kept with other peaceful fish of similar size and water parameters. Avoid keeping them with aggressive or fin-nipping fish. Avoid big, fast-moving fish like tetras and rasboras, as they will eat most of the food.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "html": "<p>Similar to the chocolate gouramis, they are mouthbrooders and the females hold the eggs.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/8701c1dfe780dff0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/8701c1dfe780dff0-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "2RrQVvB-jG0",
+      "title": "Meet the Feisty Samurai Gourami - Sphaerichthys vaillanti. Also Known as Vaillants Chocolate Gourami",
+      "durationSec": 220,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WPaK-__XbrU",
+      "title": "Picking up a group of samurai gourami (Sphaerichtys vaillanti) and why you should quarantine fish!",
+      "durationSec": 1158,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AQelO_e7tUc",
+      "title": "Species Spotlight: The Rainbow Nano Gourami, AKA Samurai Gourami Vaillanti.  Sphaerichthys vaillanti",
+      "durationSec": 1191,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6i5Ff0ObyY4",
+      "title": "Sphaerichthys vaillanti couple before laying eggs",
+      "durationSec": 78,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80 lít",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng dòng chảy nhẹ",
+        "lọc treo êm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền tối cho bể thủy sinh",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH",
+        "bộ test nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

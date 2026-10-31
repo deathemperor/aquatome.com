@@ -1,0 +1,85 @@
+{
+  "id": "entomocorus-benjamini",
+  "scientificName": "Entomocorus benjamini",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Entomocorus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "bolivia",
+    "madeira"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
+      "html": "<ul><li><strong>Scientific name:</strong> Entomocorus benjamini Eigenmann, 1917</li><li><strong>Family:</strong> Auchenipteridae</li><li><strong>Common names:</strong> Sleeper Catfish, Schlafwels (Germany)</li><li><strong>Type locality:</strong> San Joaquin, Bolivia</li><li><strong>Size:</strong> 70 mm (2.8\") SL</li><li><strong>Temperature:</strong> 24.0–27.0°C (75.2–80.6°F)</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
+      "html": "<p>South America: upper Madeira River basin (Amazon, Middle Amazon (Solimoes), Madeira).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
+      "html": "<p>Etymology: Entomocorus comes from the Greek entome, meaning notch, and kopus, meaning helmet - \"notched helmet\". The species is named after Marcus Benjamin, Editor of the publications of the United States National Museum.</p><p>Pronunciation: ent tow MOCK oh russ.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
+      "html": "<p>Annals of the Carnegie Museum v. 11 (nos 3-4) (art. 14), pp 403, Pl. 41.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -406,6 +406,80 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_serratum.htm": {
+    "entityIds": [
+      "species/amblyceps-serratum"
+    ],
+    "updatedAt": "2026-10-31T12:10:28.034Z",
+    "hash": "c395ae7d9ccefb2720b42ea0d9ace1c953ac674d400fbc3bc9496ab51b2f4a16",
+    "processedHash": "c395ae7d9ccefb2720b42ea0d9ace1c953ac674d400fbc3bc9496ab51b2f4a16",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_tenuispinis.htm": {
+    "entityIds": [
+      "species/amblyceps-tenuispinis"
+    ],
+    "updatedAt": "2026-10-31T12:12:03.739Z",
+    "hash": "7a7e3d30c2e83df11d08dcb563439575cafbc9a17be05073fcb0422309feaebd",
+    "processedHash": "7a7e3d30c2e83df11d08dcb563439575cafbc9a17be05073fcb0422309feaebd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm": {
+    "entityIds": [
+      "species/amblyceps-yunnanense"
+    ],
+    "updatedAt": "2026-10-31T12:12:54.151Z",
+    "hash": "afcb4464e7b1e584fb1ba01ef205f7c6efe5c310ffd085243cb3152f1d18e9c4",
+    "processedHash": "afcb4464e7b1e584fb1ba01ef205f7c6efe5c310ffd085243cb3152f1d18e9c4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm": {
+    "entityIds": [
+      "species/liobagrus-anguillicauda"
+    ],
+    "updatedAt": "2026-10-31T12:14:15.263Z",
+    "hash": "adc0aa6a1296b676e09e18f70c9bbb5ed67770e63dc49b34b68e46c0a06dbebf",
+    "processedHash": "adc0aa6a1296b676e09e18f70c9bbb5ed67770e63dc49b34b68e46c0a06dbebf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_brevispina.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:15:27.789Z",
+    "hash": "805d60b4318eb633aa85639ac048813d0887d1dd2795373355f9e26ffcf58d1d",
+    "processedHash": "805d60b4318eb633aa85639ac048813d0887d1dd2795373355f9e26ffcf58d1d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_chengduensis.htm": {
+    "entityIds": [
+      "species/liobagrus-chenghaiensis"
+    ],
+    "updatedAt": "2026-10-31T12:16:27.267Z",
+    "hash": "ed1d65c72b0ae8647cbeaa8f856efc6c054183e9e2421343fcc85e5186425b76",
+    "processedHash": "ed1d65c72b0ae8647cbeaa8f856efc6c054183e9e2421343fcc85e5186425b76",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_chenhaojuni.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:18:40.616Z",
+    "hash": "1245a45ef43e897a69f1a14c61713de490b1a4196ebb779478f7576c4d74b4ed",
+    "processedHash": "1245a45ef43e897a69f1a14c61713de490b1a4196ebb779478f7576c4d74b4ed",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_geumgangensis.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:19:59.139Z",
+    "hash": "3781a51336c44dedc049c77f1cb1258fdda191ddc7fd96902de4d6a188ff88ea",
+    "processedHash": "3781a51336c44dedc049c77f1cb1258fdda191ddc7fd96902de4d6a188ff88ea",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",

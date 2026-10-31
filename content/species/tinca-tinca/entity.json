@@ -1,0 +1,173 @@
+{
+  "id": "tinca-tinca",
+  "scientificName": "Tinca tinca",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Tinca",
+  "group": "barbs",
+  "places": [
+    "europe",
+    "asia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>The Tench, a species initially native in Europe and western Asia, is a perfect pond and aquarium fish. Currently there are two sports of the Tench, the wild coloured – also called Green Tench – and the golden sport. Among the latter are many three-coloured specimens, which are very rare. Common names: Tench or Green Tench (for the wild coloured sport), Golden Tench (for the golden or three-coloured sports).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>The Tench is initially native in Europe and western Asia. Nowadays it has a worldwide distribution, because it is also a very delicious food fish.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>Due to its low oxygen requirement the Tench inhabits muddy waters in the wild.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>The Tench can reach a length of about 40 cm (the largest one reported had 70 cm). Specimens of 8-10 cm fit perfectly for coldwater aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>The Tench is very tolerant regarding the water temperature: it is totally winter hardy on the one hand and has no problems at all in summer, when the temperature rises up to 26°C on the other.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>Among all fish species native in Europe the Tench is specialized most in feeding on small molluscs. Thus it can be used in any pond or tank where snails become too numerous. However, in the absence of snails the Tench also feeds readily on any usual type of fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>Against other fish, may they belong to the own species or not, the Tench is completely peaceful.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>Males can be distinguished from the females by the shape of the ventral fins, which are much larger in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>The Tench is an egg-scatterer that does not take care for its eggs at all.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "html": "<p>Lexicon: Tinca: this name was already in use in ancient Rome for the Tench.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/df96a2a2b2872a82.webp",
+      "thumb": "https://media.aquatome.com/glaser/df96a2a2b2872a82-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/65bac70f3ce0b479.webp",
+      "thumb": "https://media.aquatome.com/glaser/65bac70f3ce0b479-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/39cc1eafd154fcd5.webp",
+      "thumb": "https://media.aquatome.com/glaser/39cc1eafd154fcd5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tinca_tinca_gold_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "AerF6Km8GAc",
+      "title": "Tinca tinca.MOV",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eJIR92awp14",
+      "title": "テンチ(Tinca tinca)F1 Baby Japanese Aquarium",
+      "durationSec": 122,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JGTTa6oY21E",
+      "title": "[HD] My Tench in the Cold water fish tank / Schleie im Aquarium [5/5]",
+      "durationSec": 98,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "va2e1c4zhwU",
+      "title": "My Tench in fishtank / Schleie im Aquarium [2/2]",
+      "durationSec": 108,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nước lạnh",
+        "hồ cá ngoài trời"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc hồ cá",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nước lạnh",
+        "thức ăn cá koi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

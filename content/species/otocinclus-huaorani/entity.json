@@ -1,0 +1,112 @@
+{
+  "id": "otocinclus-huaorani",
+  "scientificName": "Otocinclus huaorani",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "napo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
+      "html": "<ul><li><strong>Scientific name:</strong> Otocinclus huaorani Schaefer, 1997</li><li><strong>Common names:</strong> Ecuador Oto, Huarani Otocinclus</li><li><strong>Size:</strong> 32 mm (1.3\") SL</li><li><strong>Temperature:</strong> 26.0–30.0°C (78.8–86°F)</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2014)</li><li><strong>Etymology:</strong> Greek ous, oto = ear + Latin cinclus = latticework, in allusion to the holes of the head in the ears. The specific epithet is based on the Huaorani people who are native to the Upper Napo River area in Ecuador.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
+      "html": "<p>South America: western upper Amazon and Orinoco River basins. Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
+      "html": "<p>Females are larger and broader especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 148, pp 74, Fig. 46.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "uRy9ImOI6wY",
+      "title": "Otocinclus huaorani",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "W98krfrPXwc",
+      "title": "otici",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AKdz9bmsefg",
+      "title": "Otocinclus huaorani (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3krhUG7dv0M",
+      "title": "Three batches of otocinclus huaorani added to the stream tank.",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá otocinclus",
+        "viên rau củ cho cá dọn tảo"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

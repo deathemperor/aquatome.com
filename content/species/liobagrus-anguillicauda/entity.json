@@ -1,0 +1,103 @@
+{
+  "id": "liobagrus-anguillicauda",
+  "scientificName": "Liobagrus anguillicauda",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "fujian"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm",
+      "html": "<p><strong>Family:</strong> Amblycipitidae</p><p><strong>Size:</strong> 8.5 cm</p><p><strong>Temperature:</strong> 18-22°C</p><p><strong>pH:</strong> 6.5-7.5</p><p><strong>IUCN Red List:</strong> Least Concern (IUCN 2024). This species has a wide distribution in Anhui, Jiangxi and Fujian Provinces, China. It is common and has a stable population trend.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm",
+      "html": "<p>East Asia: Streams of southeast China. Type locality: Chungan Hsien, nw. Fukien Prov., China.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm",
+      "html": "<p>Description: Head depressed, flattish on top with a trough in the center, tail compressed; bones of head and nape deeply buried. Lips flaring, wrinkled; the upper jaw slightly the longer; eye superolateral, beneath the skin, placed over the end of the maxillary; maxillary barbel slightly shorter than the outer mental, which is situated immediately behind corner of mouth; the former, when laid back, does not reach gill-cleft by a distance greater than the diameter of the eye; gill openings wide; the membranes joining where they meet the isthmus. Dorsal origin slightly nearer snout than to tips of ventrals; ventrals placed well behind the dorsal; dorsal and pectoral spines small, smooth, sheathed in the skin of the fins; adipose low, a mere keel in front; confluent with precurrent caudal rays behind; caudal rounded, subtruncate. Body, and especially fins, with the exception of the caudal, covered with lax skin; lateral line not evident.</p><p>Colouration: Purplish grey; paler below; the end of caudal somewhat darker, its margin pale.</p><p>Etymology: anguilla (L.), eel; cauda (L.), tail, allusion not explained, perhaps referring to adipose fin confluent with caudal fin, similar to confluent dorsal-caudal fins of anguillid eels.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm",
+      "html": "<ul><li>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Cao, L., Li, F. &amp; Zhang, E. 2024. Liobagrus anguillicauda. The IUCN Red List of Threatened Species 2024.</li><li>Chen Z-G, Guo Y-S, Dai Y-T, Huang X-C, Huang J-H, Jiang J, Ouyang S, Wen A-X, Wu X-P (2024) A new species of Liobagrus Hilgendorf, 1878 (Teleostei, Siluriformes, Amblycipitidae) from the lower Changjiang River basin in southeast China. Zoosystematics and Evolution 100(2): 555-563.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2024. FishBase. www.fishbase.org (02/2024).</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a7cf35a29d0afda8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a7cf35a29d0afda8-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "Chen et al 2024 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_anguillicauda.htm",
+      "caption": "Liobagrus anguillicauda",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

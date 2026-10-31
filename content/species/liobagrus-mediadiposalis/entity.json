@@ -1,0 +1,97 @@
+{
+  "id": "liobagrus-mediadiposalis",
+  "scientificName": "Liobagrus mediadiposalis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "south-korea",
+    "china",
+    "japan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 17,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<ul><li><strong>Scientific name:</strong> Liobagrus mediadiposalis Mori, 1936</li><li><strong>Common names:</strong> South Torrent Catfish, Jagasari (Korean)</li><li><strong>Type locality:</strong> Rakuto River at Bun-kei, Chosen, Korea.</li><li><strong>Pronunciation:</strong> lie oh BAG russ</li><li><strong>Size:</strong> 133 mm or 5.2 in SL.</li><li><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2023.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<p>Southern Asia: China, Japan and Korea waters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<ul><li>pH: 6.5 - 7.5</li><li>Temperature: 17.0-25.0°C (62.6-77°F)</li></ul><p>These fish reside in the temperate zone and undergo a wide range of temperatures throughout the year. They may tolerate higher and lower temperatures for a short period of time. Torrent-like conditions are not necessary, though the water should have some flow. The filter outflow is generally adequate.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<p>Etymology: From the Greek, leios, meaning smooth, and bagrus, a name usually used for catfishes; in reference to the smooth head. Named after the genus Amblyceps, which refers to its blunt head.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
+      "html": "<p>Dobutsugaku Zasshi = Zoological Magazine Tokyo v. 48 (nos 8-10), pp 673, Pl. 24 (fig. 3).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

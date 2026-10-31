@@ -1,0 +1,137 @@
+{
+  "id": "parosphromenus-juelinae",
+  "scientificName": "Parosphromenus juelinae",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Parosphromenus",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Parosphromenus juelinae is a small freshwater fish species belonging to the family Osphronemidae.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Best kept in small groups of 3-6 in a 5 to 10 gallon tank, with small blackwater fish such as Boraras or mouthbrooding bettas like Albimarginata and Channoides.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<ul><li>Temperature: 22 – 28 °C</li><li>pH: 3.0 – 6.5</li><li>Hardness: 18 – 72 ppm</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>They are omnivores, feeding on a variety of small invertebrates and insect larvae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>These fish are generally peaceful and shy, preferring to hide among the vegetation or other structures in their environment.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Conservation status: Parosphromenus juelinae is not listed by the International Union for Conservation of Nature (IUCN), but due to habitat loss and degradation caused by deforestation, land use change and pollution, it is suspected to be in a similar situation to other Parosphromenus that are listed as Endangered or Critically Endangered.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/bf748fd3e2ce3c1c.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/bf748fd3e2ce3c1c-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/a4338c8b80c39475.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/a4338c8b80c39475-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Uxx7bGGPjNY",
+      "title": "P. juelinae",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 30 lít",
+        "bể nhỏ nuôi cá paro"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt khí nhẹ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi mini 25W",
+        "sưởi bể nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo pH",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

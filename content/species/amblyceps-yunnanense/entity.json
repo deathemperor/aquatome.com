@@ -1,0 +1,113 @@
+{
+  "id": "amblyceps-yunnanense",
+  "scientificName": "Amblyceps yunnanense",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "mengnai"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 7.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 7.5 cm</li><li>Temperature: 18-22°C</li><li>pH: 6.5-7.5</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "html": "<p>Asia: River Mengnai, Yunnan Province, China. Described from specimens collected from a tributary of the upper Irrawaddy in western Yunnan Province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "html": "<p>Inhabits streams with moderate to swift current, among stones and gravel.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "html": "<p>Amblyceps yunnanensis, a new species (2016), was described from specimens collected from a tributary of the upper Irrawaddy in western Yunnan Province, China. It differs from all its congeners by the following combination of features: skin smooth with a complete lateral line; adipose fin originating at the vertical level of the anterior quarter of the anal-fin base, in the form of a low and smooth edge; dorsal fin with one very weak spine; pectoral fins without spines; caudal fin truncated without pinnate-like rays.</p><p>Etymology: the specific name yunnanensis uses the suffix -ensis, denoting place: western Yunnan Province, China, the type locality.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2018).</p><p>Xiaoyan Zhang, Yan Long, Heng Xiao and Ziming Chen \"First record of the catfish genus Amblyceps Blyth, 1858 from China with the description of a new species (Osteichthyes: Amblycipitidae),\" Folia Zoologica 65(2), (1 July 2016).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/95a9b4b728e66258.webp",
+      "thumb": "https://media.aquatome.com/scotcat/95a9b4b728e66258-480.webp",
+      "width": 500,
+      "height": 247,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "caption": "Amblyceps yunnanensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0ead6636e6962f65.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0ead6636e6962f65-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_yunnanensis.htm",
+      "caption": "Amblyceps yunnanensis: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nước cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

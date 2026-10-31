@@ -1,0 +1,219 @@
+{
+  "id": "scatophagus-argus",
+  "scientificName": "Scatophagus argus",
+  "order": "Perciformes",
+  "family": "Scatophagidae",
+  "genus": "Scatophagus",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<ul><li>Maximum size: approx. 30 cm</li><li>Temperature: 25–30°C</li><li>pH and hardness: best in brackish water (10–20 g sea salt/litre), pH not below 7, preferably above 8</li><li>Diet: omnivorous</li><li>Social behaviour: juveniles in schools, adults in social groups, peaceful toward fish of other species</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>At least three different species of argus fish (scats) of the genus Scatophagus live in the Asian part of the Indian Ocean: the green scat, the red scat, and the Hooghly scat. From a scientific standpoint, all three are currently classified as a single species, known as Scatophagus argus. While this is incorrect, this is not the appropriate place to discuss such matters. Suffice it to say: the \"true\" Scatophagus argus is the Red Scat; the others should actually be given different names.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>All scats are so-called euryhaline fish, meaning they can move back and forth between saltwater and freshwater at any time. In the wild, even fully grown argus fish are occasionally found in freshwater. However, scats prefer to live in the transitional zone between saltwater and freshwater, known as brackish water. In an aquarium, it is very important that the pH level does not drop below 7. Furthermore, scats are very sensitive to nitrite and nitrate in freshwater.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>The name \"Scatophagus\" literally means \"shit-eater\" because they like to linger near open-air latrines and feed on the waste left behind by Homo sapiens. However, you should not feed them feces in the aquarium. They are omnivores that also enjoy eating soft plant matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>Young scats live in schools; once sexually mature, they become quarrelsome with one another, especially the males. Be careful when handling them: the spines on their dorsal fins are poisonous, and a sting is very painful!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>Males can be recognized by their very steep forehead; among fish of the same age, males are always significantly larger than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "html": "<p>Sexual maturity begins at a total length of approximately 8 cm. Argus fish are open-water spawners that do not care for their young.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/8ffcc1c14495ad82.webp",
+      "thumb": "https://media.aquatome.com/glaser/8ffcc1c14495ad82-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5099ab21ab36c035.webp",
+      "thumb": "https://media.aquatome.com/glaser/5099ab21ab36c035-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c3b43e10418ba2b8.webp",
+      "thumb": "https://media.aquatome.com/glaser/c3b43e10418ba2b8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/51a063ad4c5751d7.webp",
+      "thumb": "https://media.aquatome.com/glaser/51a063ad4c5751d7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/scatophagus-argus-green/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b16b1da359853c8b.webp",
+      "thumb": "https://media.aquatome.com/glaser/b16b1da359853c8b-480.webp",
+      "width": 850,
+      "height": 1230,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-argus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b0c3c06442ded11e.webp",
+      "thumb": "https://media.aquatome.com/glaser/b0c3c06442ded11e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-argus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1e73779667f2bd48.webp",
+      "thumb": "https://media.aquatome.com/glaser/1e73779667f2bd48-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-argus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c3b5a599f2f60dc4.webp",
+      "thumb": "https://media.aquatome.com/glaser/c3b5a599f2f60dc4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-argus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "dRq3R7MrMXY",
+      "title": "Spotted Scat Care Guide | Perfect Fish for Brackish Aquariums",
+      "durationSec": 477,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IH_ZwG2ozE4",
+      "title": "Green Scat Care and Information - Freshwater Scat (Scatophagus argus)",
+      "durationSec": 183,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1IZDyIrc378",
+      "title": "クロホシマンジュウダイ　Butterfish　Scatophagus argus",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rKYZvKS1yXE",
+      "title": "BRACKISH AQUARIUM - tetraodon nigroviridis, toxotes jaculatrix and scatophagus argus",
+      "durationSec": 375,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp",
+        "thức ăn thực vật cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

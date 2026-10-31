@@ -1,0 +1,186 @@
+{
+  "id": "ameiurus-brunneus",
+  "scientificName": "Ameiurus brunneus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ameiurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "apalachicola"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<ul><li><strong>Scientific name:</strong> Ameiurus brunneus Jordan, 1877</li><li><strong>Common names:</strong> Snail Bullhead; Sortfinnet Dværgmalle (Denmark)</li><li><strong>Type locality:</strong> South Fork of Ocmulgee River, at Flat Shoals, DeKalb County, Georgia, U.S.A.</li><li><strong>Synonyms:</strong> Amiurus brunneus, Ictalurus brunneus</li><li><strong>Pronunciation:</strong> Ai MEE you russ - brew nay us</li><li><strong>Etymology:</strong> Ameiurus: 'curtailed' refers to the lack of a deep notch in the caudal fin. Juveniles and sub-adults are brown in colour, hence the specific name.</li><li><strong>Size:</strong> 290 mm (11.4\") SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2011).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>North America: Atlantic Slope from Dan River system in southern Virginia south to Altamaha River drainage in Georgia, and middle St. Johns River drainage in Florida, USA; Gulf Slope in Apalachicola River drainage in Georgia, Alabama and Florida, USA. Recently reported from upper Coosa River system in Georgia, USA.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Inhabits rocky riffles, runs and flowing pools of swift streams. Rarely found in backwaters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<ul><li>pH: 6.6 - 7.8</li><li>Temperature: 18.0-26.0°C</li><li>Needs highly oxygenated water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>A sand substrate with stones and a large piece of driftwood to hide under during the day is very desirable.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Omnivorous. Diet includes fish, aquatic invertebrates and some green matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Social with most anything they cannot swallow; to be on the safe side, do not house with any fish less than half its own size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Females are much fuller bodied during the breeding season, which occurs in early spring.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Not reported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Identification: flat head with a concave snout profile. Short anal fin, rounded in outline, 17–20 rays. Large dark blotch at the dorsal fin base. Yellow green to olive above, dusky yellow on the sides, and whitish blue to white below.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1050",
+      "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 366.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0b8736b239c74125.webp",
+      "width": 960,
+      "height": 314,
+      "licence": "CC0",
+      "author": "Sandra J. Raredon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NMNH-usnm_17861_Ameiurus_brunneus_lype_xray_lateral.jpg",
+      "caption": "An x-ray of a preserved museum specimen of the snail bullhead, Ameiurus brunneus, in a lateral view. This specimen, USNM 17861, was collected in July 1876 by D.S. Jordan from the Ocmulgee River in Geo",
+      "thumb": "https://media.aquatome.com/commons/0b8736b239c74125-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f9a13d324d631212.webp",
+      "width": 960,
+      "height": 686,
+      "licence": "CC BY 4.0",
+      "author": "iNaturalist user skitterbug",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snailbullhead.jpg",
+      "caption": "A snail bullhead (Ameiurus brunneus) photographed near Canton, Georgia",
+      "thumb": "https://media.aquatome.com/commons/f9a13d324d631212-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "NEjJHacoWw8",
+      "title": "Snail Bullhead Catfish of the Savannah River",
+      "durationSec": 129,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mBw2sJ-NPRU",
+      "title": "Quick healing, correction: snail bullhead lost alpha status, damaged by yellow bullhead, not tilapia",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "34xDugPZlYw",
+      "title": "Snail bullhead shows yellow who's the boss; pleco pricks and shoves Louie the SA lungfish",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "C63iw7wpEeo",
+      "title": "Lost 6 bullheads at 4-6yo, high temp or pathogen/columnaris? 2nd snail bullhead 14\"/35cm wasted away",
+      "durationSec": 172,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 150cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lũa trang trí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nheo",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,140 @@
+{
+  "id": "hemibagrus-variegatus",
+  "scientificName": "Hemibagrus variegatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Hemibagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "tenasserim"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Hemibagrus variegatus Ng &amp; Ferraris, 2000. Type locality: Tenasserim River, Myanmar. Size: 121 mm (4.8 in) SL.</p><p>Etymology: from the Greek hemi- meaning half and bagrus, the catfish genus. The specific epithet comes from the Latin variegatus, meaning of different colors, in reference to the color pattern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Asia: known only from the Tenasserim river drainage in southern Myanmar.</p><p>IUCN Red List category: Data Deficient (last assessed 2011).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>pH 6.0 - 7.2. Temperature 18.0-24.0°C (64.4-75.2°F). Prefers well-oxygenated water with a current.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Provide rocks and driftwood as hiding spaces.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Readily eats all manner of live and prepared foods. Will eat smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Territorial and aggressive. Should be kept by itself, as tankmates that are too big to be eaten will be viciously attacked.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Members of the genus Hemibagrus are bagrid catfishes that can attain standard lengths of up to 800 mm and are found in large rivers throughout the Indian subcontinent, Southeast and East Asia. Members of this genus have depressed heads, rugose head shields not covered by skin, a slender occipital process and moderately long adipose fins.</p><p>This species is easily distinguished by its mottled color pattern and moderately long adipose fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1126",
+      "html": "<p>Proceedings of the California Academy of Sciences v. 52 (no. 11), pp 139, Fig. 12.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "opvNhE23wLg",
+      "title": "Hemibagrus variegatus",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_l08V7RB99I",
+      "title": "Hemibagrus variegatus feeding",
+      "durationSec": 23,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

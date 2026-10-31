@@ -2,12 +2,12 @@
   "id": "ceratophyllum-demersum",
   "scientificName": "Ceratophyllum demersum",
   "difficulty": 1,
-  "light": "low",
-  "co2": "optional",
+  "light": "medium",
+  "co2": "none",
   "growth": "fast",
   "placement": [
-    "background",
-    "floating"
+    "floating",
+    "background"
   ],
   "sections": [
     {
@@ -17,52 +17,121 @@
       "html": "<ul><li>Type: Stem plant</li><li>Origin: Cosmopolitan</li><li>Height: 5 - 30+ cm</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>Hornwort is a popular aquatic plant for both fish tanks and outdoor ponds because of its fluffy-looking stems, extremely fast growth, and ability to consume excess nutrients from the water. Ceratophyllum demersum is known by many common names, such as rigid hornwort, hornwart (a frequent misspelling), and coontail. It grows very tall in the wild and will easily reach the top of an aquarium or pond. Normally it is found floating at the water surface, but when planted in the substrate, it looks like a fluffy underwater bush with many long branches or side stems. The bright green leaves are thin and rigid, similar to pine needles. Much like water sprite and java moss, hornwort has dense foliage that provides excellent protection for baby fish and shrimp.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>Hornwort can survive in a diverse variety of climates and is found on every continent except Antarctica. It prefers still or slow-moving bodies of fresh water that contain lots of organic nutrients in the water column.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>This aquatic plant can live in a huge temperature range from around 10-30°C (50-85°F), so it suits tropical aquariums, cold water tanks with no heater, and outdoor ponds (where it can often survive the winter depending on climate).</p><p>Hornwort grows best as a floating plant, where it has greater access to light and carbon dioxide from the air. Some people plant it into the substrate or attach it to hardscape, but because it never grows proper roots, the attached end tends to rot away.</p><p>Prune hornwort if it starts growing out of control so that it won't block the light for other plants or limit gas exchange at the surface if fish are kept. It prefers gentle flow, so make sure the needles don't get sucked into the filter intake.</p><p>It can grow under low to high light and does not require carbon dioxide (CO2) injection. Because it grows so quickly, it's best used as a background plant in larger tanks. The fast growth also means it will quickly drain the aquarium of nutrients, so regular dosing of liquid fertilizer in the water column may be needed to ensure other plants get enough.</p><p><strong>Does hornwort clean water?</strong> Fast-growing plants like hornwort are good at \"cleaning\" aquarium water because they consume waste compounds (e.g., ammonia, nitrates and phosphates from fish waste and excess food) and use them to grow more leaves. With enough light and nutrients, hornwort can grow 3-10 cm (1-4 inches) per week.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>Aquarium snails are detritivores and do not eat healthy plants but rather dying leaves and other organic debris. In general, plant-eating animals (such as goldfish, koi, African cichlids and turtles) do not eat hornwort. Possible reasons are the slightly serrated leaves, hard texture, or taste. The leaves have small bumps that give a slightly spiky texture.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>In the wild, hornwort can form little buds that drop to the ground during the cold season and sprout when the weather warms. In aquariums, the most common method of propagation is to cut off a side shoot or trim off the top of a tall stem. Any segment of hornwort will quickly become a new plant if left to float at the surface or planted in the ground.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
       "html": "<p>Ceratophyllum demersum was found in a smaller tributary in Bolivia during an expedition to Rio Guapore, a boundary river between Brazil and Bolivia. Ceratophyllum has no roots as such, but it is nevertheless possible to plant it in the bottom of an aquarium and stems can become up to 80 cm tall and 5 cm wide.</p><p>Ceratophyllum demersum differs because its leaves are closer together and it has lateral shoots, which gives it an attractive, compact appearance. The plant also distinguishes itself because it is hardier and its stalks do not break as easily as those of other Ceratophyllum-varieties.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "html": "<p>Hornwort sheds needles whenever there is a major change in water parameters or it is kept in an unfavorable environment, such as strong currents, not enough light (especially at the base of planted stems), lack of nutrients, or dosing of certain chemicals like liquid carbon. This most often happens when first added to a tank. Don't throw away the plant; wait for it to recover and it will quickly grow new leaves and shoots. Gravel vacuum the fallen leaves to prevent excess nutrients building up.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/9ca9ba82c3a8bfc8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9ca9ba82c3a8bfc8-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "caption": "How to Care for Hornwort in Aquariums and Ponds - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/69248380d1a57ad6.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/69248380d1a57ad6-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "caption": "close up of hornwort leaves",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/7fb52e5b1003c968.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/7fb52e5b1003c968-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/hornwort-care",
+      "caption": "floating coontail weed in water",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/23aacf8f0f7153af.webp",
+      "thumb": "https://media.aquatome.com/commons/23aacf8f0f7153af-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "Javier martin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_2010-8-14_RioMontoro_SierraMadrona.jpg",
-      "caption": "Ceratophyllum demersum habit, Sierra Madrona, Spain",
-      "thumb": "https://media.aquatome.com/commons/23aacf8f0f7153af-480.webp"
+      "caption": "Ceratophyllum demersum habit, Sierra Madrona, Spain"
     },
     {
       "url": "https://media.aquatome.com/commons/cb6cc3983f3afa30.webp",
+      "thumb": "https://media.aquatome.com/commons/cb6cc3983f3afa30-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "S.Tanaka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_var.demersum..JPG",
-      "caption": "マツモと呼ばれる水草。\"Hornwort\" from Japan. In Japanese called “kingyo-mo”(kingyo: goldfish; mo: waterweed). A very popular aquatic plant in Japan.Almost aquarium cultivate to with goldfish. It is one's private",
-      "thumb": "https://media.aquatome.com/commons/cb6cc3983f3afa30-480.webp"
+      "caption": "マツモと呼ばれる水草。\"Hornwort\" from Japan. In Japanese called “kingyo-mo”(kingyo: goldfish; mo: waterweed). A very popular aquatic plant in Japan.Almost aquarium cultivate to with goldfish. It is one's private"
     },
     {
       "url": "https://media.aquatome.com/commons/cb512fcc7af2d6d5.webp",
+      "thumb": "https://media.aquatome.com/commons/cb512fcc7af2d6d5-480.webp",
       "width": 960,
       "height": 762,
       "licence": "CC BY-SA 3.0",
       "author": "Bernd Haynold",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_240907.jpg",
-      "caption": "Ceratophyllum demersum, Schwäbisch-Fränkische Waldberge, Germany",
-      "thumb": "https://media.aquatome.com/commons/cb512fcc7af2d6d5-480.webp"
+      "caption": "Ceratophyllum demersum, Schwäbisch-Fränkische Waldberge, Germany"
     },
     {
       "url": "https://media.aquatome.com/commons/bc471a9b7b09ce62.webp",
+      "thumb": "https://media.aquatome.com/commons/bc471a9b7b09ce62-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "Анна Митрошенкова",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_145100458.jpg",
-      "caption": "coontail (Ceratophyllum demersum)",
-      "thumb": "https://media.aquatome.com/commons/bc471a9b7b09ce62-480.webp"
+      "caption": "coontail (Ceratophyllum demersum)"
     }
   ],
   "productSlots": [
@@ -86,5 +155,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

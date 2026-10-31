@@ -1,0 +1,15 @@
+---
+url: https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/bedotia-geayi-2/
+title: Bedotia geayi - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T13:52:27.634Z
+hash: 69c1be1c93277df4d8c6a6c2de5c7a18425ba0f9a175faf1cc6b8e54c0c66f40
+---
+
+This is the only almost always available aquarium fish that comes from the large, geologically old island of Madagascar. All other freshwater fishes from this island, which unfortunately are often threatened with extinction due to massive environmental changes, are only suitable for specialists.
+The beautiful Madagascar rainbow (Bedotia geayi) grows to a length of 10-12 cm and is about 10 years old, but in nature it always remains smaller and no free-living specimen is likely to live to such an age. Although Bedotia are only distantly related to the Australian rainbowfishes, they are very similar to them in terms of behavior. Males and females differ with respect to the coloration of the fins. Sexual maturity begins at an age of less than one year, then the animals are usually 4-6 cm long. The animals photographed for this post are such young, just sexually mature specimens.
+You have to be a bit careful with very large specimens, they have a relatively large mouth, in which a half-grown guppy may well disappear. So you should only combine fish with them that are at least half the size of the Bedotia to be on the safe side.
+Regarding the chemical composition of the water and the food, the animals are completely undemanding, any tap water suitable as drinking water and any commercial ornamental fish food meet their requirements. In nature they are forest dwellers, often colonizing very soft and acidic water.
+For a long time B. madagascariensis was synonymous with B. geayi, which is why the latter name is widely used in the hobby (these animals were first introduced to France in 1953 and have never disappeared from aquaristics since). The easiest difference for aquarists to recognize between B. madagascariensis and B. geayi (whose ranges are separated by several hundred kilometers) is the caudal fin pattern. In B. madagascariensis both sexes have a continuous black band in the caudal fin (clearly in front of the edge of the caudal fin – the technical term for this is “submarginal” – and the red zone in the male), which is missing in B. geayi. Also, the males of B. geayi have a red chin spot, while those of B. madagascariensis do not.
+The first imported animals for aquaristics were actually B. madagascariensis, the “real” B. geayi was introduced much later. Nowadays both species are available in the hobby (we include a picture of B. madagascariensis here for comparison) and are usually not distinguished in the trade. Basically it doesn’t matter, only if you want to breed you have to be careful not to accidentally create unnecessary hybrids. Since both Bedotia species have to be classified as endangered in nature, it is important to keep the aquarium populations pure.
+For our customers: the animals have code 373313 on our stock list. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

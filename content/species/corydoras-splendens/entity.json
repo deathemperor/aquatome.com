@@ -26,6 +26,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "planetcatfish",
+        "value": 9.9
       }
     ],
     "tempC": [
@@ -42,6 +46,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -49,6 +60,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5,
+          "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
           "max": 8
         }
       }
@@ -89,6 +107,12 @@
       "html": "<p>The emerald 'brochis', Brochis splendens, long known as Corydoras splendens, is an armoured catfish recorded throughout much of the Amazon basin in Brazil, Peru, Ecuador and Colombia. It is sometimes called the 'common brochis', and juveniles are sometimes traded as 'hi-fin cory' for their enlarged dorsal fin. Its 10 to 12 dorsal-fin rays separate it from B. britskii and B. multiradiata, the other two species long kept in Brochis, and certain populations are thought likely to represent distinct species.</p><ul><li>Max size: 80 mm SL (3.1 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 20–28°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<ul><li>Scientific name: Brochis splendens (Castelnau, 1855)</li><li>Type locality: Rio Tocantins, Brazil</li><li>Size: 99 mm (3.9\") SL</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
@@ -99,6 +123,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
       "html": "<p>This species is one of the more widespread than other members of the genus and has been recorded throughout much of the Amazon basin in Brazil, Peru, Ecuador and Colombia.</p><p>It is thought that certain populations may turn out to represent distinct species in the future, and this may involve revalidation of some of the synonyms above.</p><p>Type locality is given simply as 'Rio Tocantins, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>South America: Amazon.</p>"
     },
     {
       "key": "habitat",
@@ -137,6 +167,18 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>Will adapt to most conditions providing the water is of reasonable quality. Is happier than most fish in low-oxygen conditions. Larger fish prefer deeper water, but this species is less unsettled by life in shallower water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>Ideally substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel, as this will increase the risk of damage to the fish's barbels when it tries to dig. Substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, and tall or floating plants is all that is required to settle these fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
@@ -147,6 +189,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
       "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
     },
     {
       "key": "behaviour",
@@ -161,10 +209,22 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 6-8 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
       "html": "<p>Adult females are noticeably rounder, higher-bodied, and grow slightly larger than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=114",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males will typically have more pointed rather than rounded fin tips as they mature.</p>"
     },
     {
       "key": "reproduction",

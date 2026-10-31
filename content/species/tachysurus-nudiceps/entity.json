@@ -1,0 +1,122 @@
+{
+  "id": "tachysurus-nudiceps",
+  "scientificName": "Tachysurus nudiceps",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Tachysurus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "japan",
+    "lake-biwa"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
+      "html": "<p>Tachysurus nudiceps (Sauvage, 1883). Type locality: Lake Biwa, Japan. Size: 150 mm (5.9 inches) SL.</p><p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
+      "html": "<p>Asia: Japan (Lake Biwa).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
+      "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 7, pp 145.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c0d3d113b0bf72c7.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "CC BY 2.5",
+      "author": "opencage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tachysurus_nudiceps_(2007).jpg",
+      "caption": "Gigi catfish Pseudobagrus nudiceps (=Syn. Tachysurus nudiceps) (Sauvage, 1883)",
+      "thumb": "https://media.aquatome.com/commons/c0d3d113b0bf72c7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f898f8225ecde318.webp",
+      "width": 960,
+      "height": 1350,
+      "licence": "Public domain",
+      "author": "Ishizaki Yūshi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_RMNH.ART.324_-_Pterois_lunulata_-_Brotula_multibarbata_-_Plotosus_lineatus_-_Octopus_sp._-_Octopus_vulgaris_-_Sepia_sp._-_Y%C5%ABshi_Ishizaki_-_Cock_Blomhoff_Collection_-_pencil_drawing_-_water_colour.jpg",
+      "caption": "Pterois lunulata, Brotula multibarbata, Tachysurus nudiceps, Octopus fangsiao, Octopus sinensis, Sepia esculenta",
+      "thumb": "https://media.aquatome.com/commons/f898f8225ecde318-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-rQMnSpiM_E",
+      "title": "ギギ　Pelteobagrus nudiceps",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QM7QBGIuHB8",
+      "title": "長良川のギギ（2024.8.3　岐阜市）　Tachysurus nudiceps in Nagara River, Gifu Prefecture, Japan.",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6S5P3tgRgjs",
+      "title": "ギギ　Pelteobagrus nudiceps",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gkvX_0AbO7k",
+      "title": "ギギ　Gigi　Pelteobagrus nudiceps　かすみがうら市水族館　Kasumigaura City Aquarium",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

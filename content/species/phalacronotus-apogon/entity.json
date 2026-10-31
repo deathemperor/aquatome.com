@@ -1,0 +1,184 @@
+{
+  "id": "phalacronotus-apogon",
+  "scientificName": "Phalacronotus apogon",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Phalacronotus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong",
+    "malaysia",
+    "peninsular-malaysia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 70
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<ul><li><strong>Scientific name:</strong> Phalacronotus apogon (Bleeker, 1851)</li><li><strong>Type locality:</strong> Bandjarmasin, Borneo, Indonesia.</li><li><strong>Etymology:</strong> From the Greek a- meaning without and pogon, meaning beard, in reference to the very small barbels in this species.</li><li><strong>Size:</strong> 700 mm (27.6\") SL.</li><li><strong>Identification:</strong> No dorsal fin; greatly reduced barbels (smaller than eye diameter or absent); body depth 5.7-7.0 times in SL; vomerine teeth in angular band; 75-91 anal-fin rays.</li><li><strong>IUCN Red List status:</strong> Least Concern</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>This fish is fairly active and needs open spaces to swim in. Provide plenty of vegetation for it to hide in during the day.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>Readily feeds on live/frozen foods and other prepared foods such as pellets. Will also eat fishes/shrimps.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>A predatory fish best kept alone.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>Males are more slender and have strong serrations on the posterior edge of the pectoral spine (females lack these serrations).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>Not reported in captivity. In mainland South-east Asia, this species spawns just prior to the rise in water levels and moves into the flooded riparian forests and probably out into the floodplains during high water levels. Young of the year are first seen in July and start to move back to the rivers in October, where they remain common until January.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
+      "html": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 2 - pp67</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c06fe9147f546929.webp",
+      "width": 960,
+      "height": 280,
+      "licence": "CC BY-SA 4.0",
+      "author": "fishs of the indochinese mekong",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%B8%9B%E0%B8%A5%E0%B8%B2%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99.jpg",
+      "caption": "Phalacronotus apogon",
+      "thumb": "https://media.aquatome.com/commons/c06fe9147f546929-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/948d91729f9486de.webp",
+      "width": 960,
+      "height": 587,
+      "licence": "CC BY-SA 4.0",
+      "author": "Xufanc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalacronotus_apogon1058.JPG",
+      "caption": "Phalacronotus apogon (ปลาเนื้ออ่อน) at the market in Bang rak, Bangkok",
+      "thumb": "https://media.aquatome.com/commons/948d91729f9486de-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a1260a411df6a0a5.webp",
+      "width": 800,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalacronotusapogon_2.jpg",
+      "caption": "Phalacronotus apogon from Riau, Indonesia.",
+      "thumb": "https://media.aquatome.com/commons/a1260a411df6a0a5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1d7b7bb9bc650812.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalacronotusapogon_1.jpg",
+      "caption": "Phalacronotus apogon from Riau, Indonesia.",
+      "thumb": "https://media.aquatome.com/commons/1d7b7bb9bc650812-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "1GkWeVZgiyM",
+      "title": "Phalacronotus apogon",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7nKdO_qb6GE",
+      "title": "コモンシートフィッシュ phalacronotus apogon",
+      "durationSec": 57,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "4op11rBGWYQ",
+      "title": "クリプトプテルスアポゴン、コモンシートフィッシュ　Phalacronotus apogon",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bNn5xEaXLp0",
+      "title": "Phalacronotus apogon @ Silver Sheathfish/Bilut (Thailand)",
+      "durationSec": 93,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá săn mồi",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

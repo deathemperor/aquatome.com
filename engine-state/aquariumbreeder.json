@@ -39,6 +39,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/asellus-aquaticus-profile-water-louse-in-shrimp-and-fish-tank/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [
+      "species/asellus-aquaticus"
+    ],
+    "updatedAt": "2026-10-31T12:36:43.383Z",
+    "hash": "eb52fd6f3bd9b3e5c49b711ee4118083d3a9064df0034fa5ced1f0f5bacebab7",
+    "processedHash": "eb52fd6f3bd9b3e5c49b711ee4118083d3a9064df0034fa5ced1f0f5bacebab7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/asian-leeches-in-shrimp-tank-stay-or-go/": {
     "lastmod": "2026-06-06T17:34:34+00:00",
     "entityIds": [
@@ -58,6 +69,17 @@
     "updatedAt": "2026-10-30T22:14:48.174Z",
     "hash": "8e2fb8a6682f9f97bbb140eb88af47be9ec22f4f3533682cf32f17e54d611b5f",
     "processedHash": "8e2fb8a6682f9f97bbb140eb88af47be9ec22f4f3533682cf32f17e54d611b5f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove"
+    ],
+    "updatedAt": "2026-10-31T12:29:53.769Z",
+    "hash": "647bb60cf2ea7ab4573f0323d70717072cbe15ee8a031a2aa7ed1212d64196ac",
+    "processedHash": "647bb60cf2ea7ab4573f0323d70717072cbe15ee8a031a2aa7ed1212d64196ac",
     "status": "processed",
     "attempts": 0
   },
@@ -118,6 +140,17 @@
     "hash": "2bb741f99bda0f45f603dd4daa799b494caf44b885c3d84f28f15e358dcd51bf",
     "processedHash": "2bb741f99bda0f45f603dd4daa799b494caf44b885c3d84f28f15e358dcd51bf",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/cryptocoryne-disease-identifying-and-addressing-plant-issues/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-cryptocoryne-disease-identifying-and-addressing-plant-issues"
+    ],
+    "updatedAt": "2026-10-31T12:35:04.776Z",
+    "hash": "b789cd7aa7140057d91f409ada3a6a706b12aa16d2371cf4c285afc1bea1ec32",
+    "processedHash": "b789cd7aa7140057d91f409ada3a6a706b12aa16d2371cf4c285afc1bea1ec32",
+    "status": "processed",
     "attempts": 0
   },
   "https://aquariumbreeder.com/cryptocoryne-parva-care-guide-planting-growing-and-propagation/": {
@@ -186,6 +219,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/flat-rock-scorpion-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:21:41.767Z",
+    "hash": "c88c838c43575ad767f210038b02e6b3e200e7eef0f50fef0811e9fd9b5c9bb0",
+    "processedHash": "c88c838c43575ad767f210038b02e6b3e200e7eef0f50fef0811e9fd9b5c9bb0",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/gold-ringed-cowry-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:35+00:00",
     "entityIds": [
@@ -204,6 +246,15 @@
     "status": "error",
     "attempts": 1,
     "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+  },
+  "https://aquariumbreeder.com/hermit-crabs-as-pets-pros-and-cons/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:38:19.059Z",
+    "hash": "62b72152c8f1e9637ffdade2ddd59c8e772f6507363daf0589202dbe985f84e0",
+    "processedHash": "62b72152c8f1e9637ffdade2ddd59c8e772f6507363daf0589202dbe985f84e0",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/hibernation-and-land-snails/": {
     "lastmod": "2026-06-06T17:34:05+00:00",
@@ -353,6 +404,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/mistakes-that-can-kill-your-hermit-crab/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:21:30.703Z",
+    "hash": "61950051acccfd17cc0c0d21f9d60668602f6ec04e1888cc1a5b2ab05faa5888",
+    "processedHash": "61950051acccfd17cc0c0d21f9d60668602f6ec04e1888cc1a5b2ab05faa5888",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:35+00:00",
     "entityIds": [
@@ -494,6 +554,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/rotifers-profile-and-culture-guide/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-rotifers-profile-and-culture-guide"
+    ],
+    "updatedAt": "2026-10-31T12:21:49.375Z",
+    "hash": "c9b6577ae67c79fa4263d2077658b4161d3b63fad6c4ab96ec441600c13ceb7f",
+    "processedHash": "c9b6577ae67c79fa4263d2077658b4161d3b63fad6c4ab96ec441600c13ceb7f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/science-of-substrate-siphoning-in-aquaria-siphon-or-not/": {
     "lastmod": "2026-06-06T17:34:57+00:00",
     "entityIds": [
@@ -627,6 +698,17 @@
     "status": "error",
     "attempts": 1,
     "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+  },
+  "https://aquariumbreeder.com/xiphophorus-pygmaeus-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:35:39+00:00",
+    "entityIds": [
+      "species/xiphophorus-pygmaeus"
+    ],
+    "updatedAt": "2026-10-31T12:38:24.937Z",
+    "hash": "4b8e7c381f444eaf46457214e9f2728192b1f6d16085550e1bb9f0916f55faec",
+    "processedHash": "4b8e7c381f444eaf46457214e9f2728192b1f6d16085550e1bb9f0916f55faec",
+    "status": "processed",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:56+00:00",

@@ -1,0 +1,57 @@
+{
+  "id": "pareiorhaphis-steindachneri",
+  "scientificName": "Pareiorhaphis steindachneri",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pareiorhaphis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "santa-catarina"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
+      "html": "<p><strong>Scientific name:</strong> Pareiorhaphis steindachneri (Miranda Ribeiro, 1918)</p><p><strong>Type locality:</strong> Rio Itapucú, Santa Catharina, Brazil.</p><p><strong>Size:</strong> 124 mm (4.9 in) SL.</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
+      "html": "<p>South America: Brazil. Rivers of Santa Catarina State: Cubatão, Tubarão and Araranguá.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
+      "html": "<p>Pareiorhaphis species are primarily diagnosed from remaining neoplecostomines by having the canal plate firmly articulated to the preopercle, and by a series of sexually-dimorphic features of hypertrophied odontodes of adult males, giving the fish a hispid appearance.</p><p>Pectoral fin overlapping half the length of pelvic fin; absence of a skin flap on dorsal margin of the pectoral-fin spine; nuptial males with pectoral-fin spines thick, straight and richly ornamented with short hypertrophied odontodes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
+      "html": "<p>Revista da Sociedade Brasileira de Sciências (Rio de Janeiro) v. 2, pp 107.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

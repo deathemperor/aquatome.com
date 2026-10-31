@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus-aculeatus-bangka-2/
+title: Macrognathus aculeatus "Bangka" - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T13:56:47.548Z
+hash: 03006fb14e0923080d16d8bae65e522ed23c84deff99fca106aeaae613ea77a9
+---
+
+The small spiny eel Macrognathus aculeatus – the species rarely grows to 20 cm long, even though 38 cm is given as the maximum length in the literature – is one of the longest known species of these bizarre fishes. Already in 1786 it was described by Bloch. As so often with old known species there are exactly therefore a lot of misidentifications in the literature, because the origin was only vaguely known to Bloch; he gives “East India”, which corresponded at that time to the Moluccas, the Indonesian island world and the peninsula Malacca. In this area there are several Macrognathus species similar to each other. Therefore Kottelat and Widjanarti limited the origin to Java in 2005 and established a neotype from there as future reference.
+We could now for the first time import beautiful, apparently adult (because the females show clear spawning) Macrognathus from Indonesia, which according to the exporter were collected on the (relatively!) small island of Bangka. Bangka is located east off Sumatra and about 500 km north of Java. These spiny eels are not distinguishable from the neotype and are perhaps the first “real” Macrognathus aculeatus that came alive to Germany – at least recognized.
+The care of these animals is easy. They are peaceful, sociable fish that like to cuddle with conspecifics in a lair. However, small fish are seen as a food supplement, you should pay attention to this. Temperature requirements are between 22 and 28°C. Although in nature they seem to colonize peat swamps with strongly acidic black water, the adaptation to “normal” water conditions is good. Any drinking water is suitable for their care. For food it is best to give frozen and live food. They prefer red mosquito larvae, tubifex and the like. After acclimation they usually also accept granulated food. All spiny eels are free spawners, spawning near the water surface in dense plant tangles. Spiny eels do practice broodcare. The sexes differ mainly in the abdominal girth, which is considerably fuller in females.
+For our customers: the animals have code 425158 on our stocklist. Please note that we supply exclusively to wholesalers.
+Text & photos: Frank Schäfer
