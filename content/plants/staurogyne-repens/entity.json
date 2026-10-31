@@ -1,13 +1,12 @@
 {
   "id": "staurogyne-repens",
   "scientificName": "Staurogyne repens",
-  "difficulty": 2,
-  "light": "medium",
+  "difficulty": 1,
+  "light": "low",
   "co2": "optional",
-  "growth": "slow",
+  "growth": "medium",
   "placement": [
-    "foreground",
-    "midground"
+    "foreground"
   ],
   "sections": [
     {
@@ -15,6 +14,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/staurogyne-repens-care-guide-planting-growing-and-propagation/",
       "html": "<ul><li><strong>Scientific name:</strong> Staurogyne repens</li><li><strong>Other names:</strong> Mud mat</li><li><strong>Tank size (minimum):</strong> 10 gallons (~40 liters)</li><li><strong>Difficulty:</strong> Easy to medium</li><li><strong>Lighting:</strong> Medium to high</li><li><strong>Optimal pH:</strong> 6.0 – 7.0</li><li><strong>Optimal GH:</strong> 1 – 10</li><li><strong>Optimal temperature:</strong> 22 – 30 °C (72 – 86 °F)</li><li><strong>Substrate:</strong> Needed (nutrient-rich)</li><li><strong>Growth rate:</strong> Slow</li><li><strong>Placement in tank:</strong> Mostly foreground / midground</li><li><strong>Height:</strong> 8 – 10 cm (up to 4 inches)</li><li><strong>Fertilizer:</strong> Recommended</li><li><strong>CO2:</strong> Not needed – low</li><li><strong>Propagation:</strong> By side shoots and vegetative buds</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Staurogynerepens(049GPCS)/19617",
+      "html": "<ul><li><strong>Type:</strong> Stem plant</li><li><strong>Origin:</strong> South America</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 3–10+ cm</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
     },
     {
       "key": "distribution",
@@ -69,6 +74,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/staurogyne-repens-care-guide-planting-growing-and-propagation/",
       "html": "<h3>Description</h3><p>In appearance, Staurogyne repens is similar to and closely related to Hygrophila, which is also found in South American waters. The distinction between the two plant groups is that the leaves of Hygrophila are bigger and longer than those of Staurogyne repens, in addition to the difference in growth rate—known species of Hygrophila grow faster than Staurogyne repens.</p><p>Staurogyne repens has an overall bright green coloration with green or brown stems. The leaves are small and thin, typically oval and broad towards the base. The plant has a soft/smooth texture, which makes it an easy target for plant-eating fish and some snail species, so you ought to be careful when choosing tankmates.</p><p>Staurogyne repens develops horizontally creeping shoots from the base which tend to form a low and compact covering on the aquarium floor. The typical size of the carpet is about 4 inches (10 cm), earning the plant a spot as one of the best foreground plants for aquascaping.</p><h3>Melting</h3><p>This is a common phenomenon in plants during a transition from emersed to submersed form. When an emersed-grown Staurogyne repens is cultivated submersed in an aquarium, the initial leaves will melt/die off to make way for new leaves, and growth of the plant continues. As long as the stems are green, there is no need to worry too much; it will resprout.</p><p>Note: Sometimes Staurogyne repens can melt after months of thriving. Aquarists call it Staurogyne melt syndrome. Unfortunately, nobody really knows what causes it.</p><h3>Discolored leaves</h3><p>Yellow or faded leaves are often a sign of nutrient deficiency. To remedy this, boost the iron (Fe) content of the tank water by dosing enough chelated iron.</p><p>Likewise, make sure to provide sufficient macro and trace nutrients to support the active and healthy growth of this species. The availability of essential nutrients in the substrate and tank water, in addition to CO2, will help keep the leaves fresh and bright green.</p><h3>Leggy growth</h3><p>The aim of cultivating a low foreground plant is to achieve a nice, compact carpet in the front of the tank, but in some cases the plant tends to grow vertically towards the surface instead of horizontally.</p><p>The stronger the light intensity, the denser and more compact the carpet will be; when the carpet is grown in low light, it will look leggy and unattractive.</p><h3>Buying</h3><p>This species is readily available in local fish stores; if you don't find it at nearby stores, look online, as there are plenty of online vendors that stock this plant.</p><p>Avoid unhealthy or damaged plants, since they don't do well when cultivated in the tank. Typically, healthy stems are fresh, upright, with green or slight brown coloration. A sizeable bunch containing up to 10 stems should be enough to aquascape a 10–20 gallon fish tank.</p><h3>Quarantine</h3><p>Quarantine Staurogyne repens before putting it into your aquarium if necessary. For example, there is no need to do so if the plants are \"in vitro\", meaning they are cultivated on nutrient media under sterile laboratory conditions. In all other cases:</p><ul><li>The plant can carry parasites, pests such as snails, or even predators (dragonfly, damselfly nymphs, etc.).</li><li>It could also have been treated with chemicals (pesticide) to remove parasites, snails, etc. These chemicals are extremely poisonous to fish, shrimp, and other invertebrates.</li></ul><p>Note: According to a study, Staurogyne repens is hardy enough to tolerate a relatively high concentration of hydrogen peroxide (H2O2). The best results were found in explants treated with 5.5% H2O2 for 20 minutes.</p><h3>Conclusion</h3><p>For a hardy plant that can form a beautiful and thick lawn on the bottom of the aquarium, Staurogyne repens is a good fit. It is slow-growing, thrives with or without CO2 and takes up to 2–3 months after planting to densely cover the foreground of the tank, so frequent trimming of the shoots is not needed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Staurogynerepens(049GPCS)/19617",
+      "html": "<p>Staurogyne repens is a fresh green, compact and hardy plant for the foreground of the aquarium. It was found in the Rio Cristalino in the southern Amazonas. Its nearest relative in the aquarium hobby is Hygrophila, but Staurogyne differs with its compact, low and bushy stature (5–10 cm) and small green leaves (each stem is 3.4 cm wide).</p><p>During planting in the aquarium, the longest upright shoots should be cut off, and new horizontally creeping shoots will soon form from the plant base and gradually colonise the gravel.</p>"
     }
   ],
   "photos": [
@@ -116,5 +127,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

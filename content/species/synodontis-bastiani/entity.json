@@ -1,0 +1,93 @@
+{
+  "id": "synodontis-bastiani",
+  "scientificName": "Synodontis bastiani",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "cote-d-ivoire",
+    "bandama"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p><strong>Scientific name:</strong> Synodontis bastiani Daget, 1948</p><p><strong>Common names:</strong> Bastian's Synodontis, Elfenbein-Fiederbartwels (Germany)</p><p><strong>Type locality:</strong> Bouaffé, Ivory Coast.</p><p><strong>Size:</strong> 20.1 cm (7.9\") SL. FishBase also lists a maximum TL of 28.1 cm.</p><p><strong>Temperature:</strong> 22.0-25.0°C (71.6-77°F)</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2006).</p><p><strong>Breeding:</strong> Unreported.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p>Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p>First lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up and you won't get punctured by the sharp fin spines (which hurts - be careful). The genital pore is in a small furrow of tissue (in healthy fish) and will be obstructed by the pelvic fins. Pull down on the tail gently to arch the fish's spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus of the fish. The male has a somewhat ridged genital papilla on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papilla but the oviduct is on the ventral side of the papilla. It may also show a little redness if really gravid. A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p>All species in the genus Synodontis have a hardened head cap that has attached a process (humeral process) which is situated behind the gill opening and pointed towards the posterior. The dorsal fin and pectoral fins have a hardened first ray which is serrated. Caudal fin is always forked. There is one pair of maxillary barbels, sometimes having membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes attached. The cone-shaped teeth in the upper jaw are short, S-shaped and movable in the lower jaw. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>Etymology: According to Cuvier, Synodontis is an \"ancient name for an undetermined fish from the Nile\". It is apparently not derived, as often reported, from syn-, together and odous, tooth, presumed etymology of the lizardfish genus Synodus and in reference to the closely-spaced lower jaw teeth of both genera.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
+      "html": "<p>Catalog. Inst. Franç. D'Afr. Noire No. 3, pp 35, Fig. 10.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

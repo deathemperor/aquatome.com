@@ -1,0 +1,64 @@
+{
+  "id": "iheringichthys-megalops",
+  "scientificName": "Iheringichthys megalops",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Iheringichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "rio-paraguay",
+    "argentina",
+    "parana",
+    "brazil"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
+      "html": "<p>Scientific name: Iheringichthys megalops Eigenmann &amp; Ward, 1907.</p><p>Family: Pimelodidae.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
+      "html": "<p>South America: Paraná River basin. Type locality: Bahia Negra, Río Paraguay, Paraguay.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
+      "html": "<p>Etymology: Named after Hermann von Ihering, 1850-1930, who arrived in Brazil in 1880 and settled in Rio Grande, and was an expert in birds, fishes and molluscs. The specific epithet refers to its large (megale = large) eyes (ops = eyes).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
+      "html": "<p>Annals of the Carnegie Museum v. 4 (no. 2) (art. 7), pp 115, Pl. 32 (figs. 3-4).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d772e10cea2d661a.webp",
+      "width": 885,
+      "height": 738,
+      "licence": "Public domain",
+      "author": "Carl H. Eigenmann / Waldo Lee McAtee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52358_Iheringichthys_megalops_Eigenmann_and_Ward.jpeg",
+      "caption": "Iheringichthys megalops Eigenmann and Ward Subject: Pimelodidae, Catfishes Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/d772e10cea2d661a-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

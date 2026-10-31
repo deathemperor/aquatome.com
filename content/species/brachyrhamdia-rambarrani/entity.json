@@ -1,0 +1,133 @@
+{
+  "id": "brachyrhamdia-rambarrani",
+  "scientificName": "Brachyrhamdia rambarrani",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Brachyrhamdia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-unini"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<ul><li>Scientific name: Brachyrhamdia rambarrani (Axelrod &amp; Burgess, 1987)</li><li>Common name: False Adolfoi</li><li>Size: 55 mm (2.2 in) SL</li><li>Synonym: Pimelodella rambarrani</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>South America: Unini River basin in the upper Negro River drainage, Brazil. Type locality: Rio Unini, tributary of Rio Negro, Amazonas, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>pH 5.8 - 7.0. Temperature 24.0-26.0°C (75.2-78.8°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>An open expanse of gravel for this fish to interact with its conspecifics or Corydoras is necessary to see it at its best. Floating plants will diffuse overhead light and thus allow the fish a greater sense of security when out in the open. The swimming area should be bordered with suitable sized hiding places structured to allow this fast swimming fish both quick entry and exit.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>Will eat most foods to the point of bursting. Care must be taken not to overfeed, especially with foods that expand once inside the fish. Live foods are relished but best used for acclimatizing or conditioning individuals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>A peaceful fish both with its own species and with Corydoras. The only drawback is that it will eat small tetras and young fish. Fish larger than 1 inch are too large to eat and will not otherwise be molested.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>Only potentially confused with Corydoras imitator or similar. Anything more than a quick glance reveals the long barbels and naked flanks. Sexing: unknown. Fishbase lists 70 mm TL. IUCN Red List: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
+      "html": "<p>Tropical Fish Hobbyist v. 35 (no. 12), pp 24, Figs.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

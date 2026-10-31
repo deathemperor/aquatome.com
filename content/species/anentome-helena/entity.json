@@ -1,0 +1,93 @@
+{
+  "id": "anentome-helena",
+  "scientificName": "Anentome helena",
+  "order": "Neogastropoda",
+  "family": "Nassariidae",
+  "genus": "Anentome",
+  "group": "snails",
+  "places": [
+    "asia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 1.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/anentome-helena/",
+      "html": "<p>Origin: Asia. Available size: 1–1.5 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/anentome-helena/",
+      "html": "<p>The snail-eating snail Anentome helena is well suited to clearing a tank of other snails. It finds its victims with its trunk. With a total length of about 1.5 cm it is also suitable for very small tanks, in which many hobbyists keep dwarf shrimps. In such small tanks it is nearly impossible to reduce other snails with loaches or puffers. After all the snails have been eaten, it can be fed protein-containing food.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/86ee37ccae7f6d2a.webp",
+      "width": 960,
+      "height": 821,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_helena_01.JPG",
+      "caption": "Anentome helena (Philippi, 1847), Assassin snail, Length 1.6 cm; Originating from an aquarium breeding; Shell of own collection, therefore not geocoded.",
+      "thumb": "https://media.aquatome.com/commons/86ee37ccae7f6d2a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/19effafe55eb52ed.webp",
+      "width": 960,
+      "height": 672,
+      "licence": "CC BY 4.0",
+      "author": "Manuel CABALLER",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_helena_(MNHN-IM-2009-29663)_001.jpeg",
+      "caption": "PRESERVED_SPECIMEN; Anentome helena (Philippi, 1847); Type status: N/A; Identified by: Kantor Y.; Individual count: 1; Event date: N/A",
+      "thumb": "https://media.aquatome.com/commons/19effafe55eb52ed-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/98d669efa37acd54.webp",
+      "width": 960,
+      "height": 1440,
+      "licence": "CC BY 4.0",
+      "author": "Lardeur A.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_helena_(MNHN-IM-2013-59231).jpeg",
+      "caption": "PRESERVED_SPECIMEN; Anentome helena (Philippi, 1847); Type status: N/A; Identified by: Kantor Y.; Individual count: 1; Event date: N/A",
+      "thumb": "https://media.aquatome.com/commons/98d669efa37acd54-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/56adb8ce0fdcecaf.webp",
+      "width": 800,
+      "height": 354,
+      "licence": "CC BY-SA 3.0",
+      "author": "RSX",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_Helena_2010.jpg",
+      "caption": "Clea helena, syn. Anentome helena.",
+      "thumb": "https://media.aquatome.com/commons/56adb8ce0fdcecaf-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn giàu protein cho ốc",
+        "thức ăn đông lạnh trùng huyết"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tép cảnh nhỏ",
+        "bể thủy sinh mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

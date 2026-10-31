@@ -1,0 +1,57 @@
+{
+  "id": "cephalocassis-melanochir",
+  "scientificName": "Cephalocassis melanochir",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cephalocassis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1185",
+      "html": "<ul><li><strong>Scientific name:</strong> Cephalocassis melanochir (Bleeker, 1852)</li><li><strong>Family:</strong> Ariidae</li><li><strong>Type locality:</strong> Palembang, Sumatra, Indonesia.</li><li><strong>Synonyms:</strong> Arius melanochir, Tachysurus melanochir</li><li><strong>Size:</strong> 300 mm SL (11.8\")</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1185",
+      "html": "<p>Asia: Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1185",
+      "html": "<p>Brackish, marine.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1185",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1185",
+      "html": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 3 - pp590</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

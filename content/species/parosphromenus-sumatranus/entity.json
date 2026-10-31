@@ -1,0 +1,114 @@
+{
+  "id": "parosphromenus-sumatranus",
+  "scientificName": "Parosphromenus sumatranus",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Parosphromenus",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parophromenus-sumatranus",
+      "html": "<p>One of the more commonly available Parosphromenus species. Similar to some species with brown/dark red unpaired fins. Distinguished from Parosphromenus bintan and P. deissneri by a conspicuous black spot at the posterior extremity of the dorsal-fin base (absent in those species). Differs from P. bintan in having a black pelvic fin filament (white in P. bintan).</p><p>Size: up to 3.5 cm for males.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parophromenus-sumatranus",
+      "html": "<ul><li>Temperature: 22–28 °C</li><li>pH: 3.0–6.5</li><li>Hardness: 18–72 ppm</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parophromenus-sumatranus",
+      "html": "<p>They are carnivores, feeding on a variety of small invertebrates and insect larvae. They will ONLY eat live food!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parophromenus-sumatranus",
+      "html": "<p>These fish are generally peaceful and shy, preferring to hide among vegetation or other structures in their environment.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/51f1e839b7174e77.webp",
+      "width": 845,
+      "height": 922,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrewbogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_deissneri_spawning_cave.png",
+      "caption": "A male Parosphromenus deissneri with its spawn. The 'cave' is a capped length of 3/4\" PVC pipe. Eggs are visible from a recent spawn as well as a hatched larva from an earlier spawn.",
+      "thumb": "https://media.aquatome.com/commons/51f1e839b7174e77-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn sống cho cá",
+        "artemia sống",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nuôi cá chân kiếm"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test pH thấp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

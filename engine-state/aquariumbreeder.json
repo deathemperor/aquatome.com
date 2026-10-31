@@ -156,6 +156,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/ear-snails-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:34:57+00:00",
+    "entityIds": [
+      "species/radix-rubiginosa"
+    ],
+    "updatedAt": "2026-10-31T04:08:33.059Z",
+    "hash": "717b185b2049f6734b106f759d9603296be4fe36d9fc792ca42f1e992cc79ddb",
+    "processedHash": "717b185b2049f6734b106f759d9603296be4fe36d9fc792ca42f1e992cc79ddb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:34:57+00:00",
+    "entityIds": [
+      "plants/eriocaulon-cinereum"
+    ],
+    "updatedAt": "2026-10-31T04:13:23.072Z",
+    "hash": "675b171cc2ba5a84c05ed8704081c1275d432e20840f1a71b5f039ea55c1aaaf",
+    "processedHash": "675b171cc2ba5a84c05ed8704081c1275d432e20840f1a71b5f039ea55c1aaaf",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/gold-ringed-cowry-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:35+00:00",
     "entityIds": [
@@ -205,6 +227,15 @@
     "hash": "91ed9ea7562ebf1ea2748706af905196d64012e5728fc628164f894a3ca3e784",
     "processedHash": "91ed9ea7562ebf1ea2748706af905196d64012e5728fc628164f894a3ca3e784",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/janalychas-tricarinatus-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:34:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T04:15:39.559Z",
+    "hash": "c0343a41014afee3c2640b52625f6cef20b9682b500f67a4ee7670c5e1698a6c",
+    "processedHash": "c0343a41014afee3c2640b52625f6cef20b9682b500f67a4ee7670c5e1698a6c",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/juncus-repens-care-guide-planting-growing-and-propagation/": {
@@ -262,6 +293,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/marron-crayfish-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [
+      "species/cherax-tenuimanus"
+    ],
+    "updatedAt": "2026-10-31T04:15:46.986Z",
+    "hash": "6d8d7d49b1a5b77046bb02c543e9645b03d144f18e2737cb19e57ba9ba04e054",
+    "processedHash": "6d8d7d49b1a5b77046bb02c543e9645b03d144f18e2737cb19e57ba9ba04e054",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/marsilea-hirsuta-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:39:29+00:00",
     "entityIds": [
@@ -306,6 +348,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/optimize-your-biofilter-a-guide-to-ideal-biological-filtration/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration"
+    ],
+    "updatedAt": "2026-10-31T04:24:04.614Z",
+    "hash": "65851ab632b19bf749833dbc91280f8211c7819938db0cf2efcf3ee9385726ca",
+    "processedHash": "65851ab632b19bf749833dbc91280f8211c7819938db0cf2efcf3ee9385726ca",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:34+00:00",
     "entityIds": [
@@ -325,6 +378,17 @@
     "updatedAt": "2026-10-30T11:55:25.896Z",
     "hash": "2baf53d2ad1eb507a83e5d9ceebae41c989b12e80913c3fa32422d51bba9fb01",
     "processedHash": "2baf53d2ad1eb507a83e5d9ceebae41c989b12e80913c3fa32422d51bba9fb01",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/potamon-potamios-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:34:57+00:00",
+    "entityIds": [
+      "species/potamon-potamios"
+    ],
+    "updatedAt": "2026-10-31T04:09:44.980Z",
+    "hash": "7f97523d09595c5d3ff84ad17689a693b0a82e31fb579b27903de480ccbb498c",
+    "processedHash": "7f97523d09595c5d3ff84ad17689a693b0a82e31fb579b27903de480ccbb498c",
     "status": "processed",
     "attempts": 0
   },
@@ -455,6 +519,17 @@
     "updatedAt": "2026-10-30T17:04:11.105Z",
     "hash": "cba5d617edc87fd4700831097a90fb847d476a71457c92d6dcdfc3a88a2bd0e2",
     "processedHash": "cba5d617edc87fd4700831097a90fb847d476a71457c92d6dcdfc3a88a2bd0e2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/submerged-aquarium-plants-as-nitrate-suppressors/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors"
+    ],
+    "updatedAt": "2026-10-31T04:17:44.667Z",
+    "hash": "9f80dd7d5d2ddf4747e377e7c471b77a917ef8784a8d506aa386b366cef3f456",
+    "processedHash": "9f80dd7d5d2ddf4747e377e7c471b77a917ef8784a8d506aa386b366cef3f456",
     "status": "processed",
     "attempts": 0
   },

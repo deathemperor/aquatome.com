@@ -1,0 +1,121 @@
+{
+  "id": "brachyplatystoma-vaillantii",
+  "scientificName": "Brachyplatystoma vaillantii",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Brachyplatystoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "venezuela",
+    "orinoco",
+    "french-guiana",
+    "suriname",
+    "colombia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
+      "html": "<ul><li>Scientific name: Brachyplatystoma vaillantii (Valenciennes, 1840)</li><li>Size: 1500 mm (59.1 in) SL</li><li>Temperature: 24.0–27.0°C</li><li>pH: 6.0–7.6</li><li>Identification: gray dorsal surface and underside. The large adipose fin clearly separates it from other congeners.</li><li>Etymology: Greek brachys = short, platys = flat, stoma = mouth.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
+      "html": "<p>South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil. Type locality: Cayenne, French Guiana; Suriname; Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
+      "html": "<p>Naturally found in muddy, black water and clear waters as far downstream as freshwater estuary habitat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp 21, Pl. 423.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9d5798afeca44766.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "NaturaLista.co user: juan_carlos_caicedo_hernandez",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_vaillantii.jpg",
+      "caption": "Laulao Catfish (Brachyplatystoma vaillantii). Species of fish.",
+      "thumb": "https://media.aquatome.com/commons/9d5798afeca44766-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d75d202d7b6a65f8.webp",
+      "width": 960,
+      "height": 549,
+      "licence": "CC BY 4.0",
+      "author": "Clara Costa D'Elia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piramutaba.png",
+      "caption": "Desenho à lápis da piramutaba (Brachyplatystoma vaillant). Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/).",
+      "thumb": "https://media.aquatome.com/commons/d75d202d7b6a65f8-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fe091f77544a4b75.webp",
+      "width": 831,
+      "height": 320,
+      "licence": "CC BY 4.0",
+      "author": "M. Goulding, from Ronaldo B. Barthem, Michael Goulding, Rosseval G. Leite, Carlos Cañas, Bruce Forsberg, Eduardo Venticinque, Paulo Petry, Mauro L. de B. Ribeiro, Junior Chuctaya & Armando Mercado",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vaillantii_piramutaba_pirabuton.png",
+      "caption": "B. vaillantii (piramutaba in Portuguese, pirabutón in Spanish)",
+      "thumb": "https://media.aquatome.com/commons/fe091f77544a4b75-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/172533759dbac642.webp",
+      "width": 960,
+      "height": 657,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_vaillantii_(Belem,_Para,_Brazil,_14_August_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Pimelodidae--Brachyplatystoma vaillantii (Valenciennes 1840). Common Name: Laulao catfish. Original Name: Piramutaba",
+      "thumb": "https://media.aquatome.com/commons/172533759dbac642-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

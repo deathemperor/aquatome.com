@@ -44,16 +44,40 @@
       "html": "<p>An obligate predator feeding on other fishes in nature, but quality dried foods are normally accepted in captivity.</p><p>It should also be offered meaty fare such as strips of white fish, live earthworms, shrimp, etc., for optimal health.</p><p>Adult individuals are unlikely to require feeding on a daily basis with 2-3 meals per week sufficient.</p>"
     },
     {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1176",
+      "html": "<p>Will take dry food pellets, earthworms or fish fillet. Earthworms are perhaps the best staple.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
       "html": "<p>This species will eat fishes small enough to fit in its capacious mouth and is aggressively territorial towards conspecifics so is best-maintained as a single specimen in a community of larger, ideally fluvial, species.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1176",
+      "html": "<p>A predator that will eat anything small enough. A loner, shows considerable intra-species aggression around a large territory.</p><p>Tankmates must be large enough to not to be considered edible. Competition for food is not an issue, this species is a capable hunter.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1176",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
       "html": "<p>This species is also traded as 'Jello Band' or 'Yellow Band' catfish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1176",
+      "html": "<p>Etymology: Aguarun = Peruvian Indian tribe that lives in Ecuador, and \"ichthys\" = Greek for fish.</p>"
     },
     {
       "key": "references",
@@ -65,25 +89,25 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/8ebf6792ae0cd918.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8ebf6792ae0cd918-480.webp",
       "width": 800,
       "height": 508,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
       "caption": "Subadult specimen from the German aquarium trade.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8ebf6792ae0cd918-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/a67f8e2236cdf0ca.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a67f8e2236cdf0ca-480.webp",
       "width": 800,
       "height": 531,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
       "caption": "Detail of head and anterior portion of body.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a67f8e2236cdf0ca-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/ddc2b17e74c95c06.webp",
@@ -154,5 +178,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

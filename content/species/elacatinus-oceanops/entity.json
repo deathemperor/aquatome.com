@@ -1,0 +1,190 @@
+{
+  "id": "elacatinus-oceanops",
+  "scientificName": "Elacatinus oceanops",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Elacatinus",
+  "group": "gobies",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida",
+    "belize"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 8,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<ul><li>Family: Gobiidae</li><li>Origin: Caribbean</li><li>Adult size: 5 cm (2 inches)</li><li>Life expectancy: 1-2 years</li><li>Social: peaceful</li><li>Tank level: bottom dweller</li><li>Minimum tank size: 38 litres (10 gallons)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Care: easy</li><li>pH 8.1-8.4</li><li>Hardness 8-12 dGH</li><li>Temperature 22-26 °C (72-78 °F)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>The Neon Goby can be found throughout the Caribbean, from southern Florida and Texas all the way down to Belize. However, most of these fish available to the hobby are captive bred, protecting wild populations.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>These tiny fish make their homes among the crevices of reef structures. They are usually found together as a mated pair.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>Neon gobies do not have to be limited to nano aquarium setups. Their small size and easy-going nature make them ideal additions for many saltwater and reef tanks. The minimum tank size is 38 litres (10 gallons).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>Being cleaner gobies, they may set up a cleaner station, where larger fish stop by for an external cleaning. Don't be surprised if you see a willing goby swim into the mouth or gills of a larger fish! This is simply part of the cleaning process.</p><p>These tiny fish like to have a small cave or crevice to call home that is overlooked by larger fish. They may not always stay in the same place and may be seen roaming about the aquarium, especially when first introduced. Once a pair has been established, they will usually stick to their territory.</p><p>Given their small size, it is critical to keep a watchful eye out for these fish when doing any maintenance or moving decor. Before setting down a decor item, make sure you know where all your fish are.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>pH 8.1-8.4; hardness 8-12 dGH; temperature 22-26 °C (72-78 °F).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>Neon gobies are true carnivores and require a high protein diet. As cleaner gobies, most of their wild diet consists of parasites picked off larger fish. A carnivore pelleted diet is sufficient, but occasional supplements with frozen treats, such as brine shrimp, mysis shrimp or chopped table shrimp are also appropriate.</p><p>You may not have to feed your neon gobies much if there are lots of other fish in the tank presenting themselves for cleaning. In a mixed species aquarium, it is hard to make sure everyone eats their specific food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>A peaceful community fish such as the neon goby gets along with many different species of saltwater fish. Given their small size, they are well suited for smaller setups. However, mated pairs may become aggressive when defending their nest of eggs.</p><p>Good tankmates include Ocellaris Clownfish (Amphiprion ocellaris), Yellow Tang (Zebrasoma flavescens), Regal Blue/Hippo Tang (Paracanthurus hepatus) and Firefish Goby (Nemateleotris magnifica).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>Although mostly identical, males and females can be differentiated by their genital papillae underneath their body. A complete examination usually requires removing the fish temporarily and looking at its underside while in a clear holding container. Male genital papilla are pointed, whereas females' are rounded. Like many fish species, females tend to be slightly larger and rounder than the males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>Even the most novice fish breeder can get a neon goby to spawn. If you have at least one male and one female, and provide a suitable home for spawning, your fish will likely do the rest. Neon gobies prefer a small cave or crevice in which to lay their eggs.</p><p>Be sure to provide a good environment with proper water quality, well-rounded diet and no aggressive tankmates. Some fish are picky about their light cycle to stimulate breeding. Make a plan for maintaining any fry you hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "html": "<p>The neon goby looks very similar in color to the Broadstripe Goby (Elacatinus prochilos) and Sharknose Goby (Elacatinus evelynae). They have a very similar body shape to the Yellowline Goby (Elacatinus figaro), and have been bred together producing gobies with a yellow to blue stripe. The Neon Goby can be confused with the Electric Blue Neon Dwarf Goby (Stiphodon atropurpureus), which is a freshwater fish native to Asia.</p><p>This species is characterized by a bright blue stripe along its side. A long-bodied fish, the rest of the fish is dark brown to black with a pale ventrum.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/sprucepets/7a2782cbc9318a5d.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/7a2782cbc9318a5d-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "caption": "Neon goby on stone coral",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/604d157273ea80a7.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/604d157273ea80a7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "caption": "Blue tang with dorsal fin raised in reef",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/56ab89dcb19e9efc.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/56ab89dcb19e9efc-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/neon-goby-fish-species-profile-5077182",
+      "caption": "Neon Tetras in Planted Fish Tank",
+      "source": "sprucepets"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nước mặn 40 lít",
+        "bể nano nước mặn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá nước mặn",
+        "artemia đông lạnh",
+        "mysis đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước mặn",
+        "khúc xạ kế đo độ mặn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

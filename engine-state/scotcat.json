@@ -277,12 +277,62 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm": {
+    "entityIds": [
+      "species/parakysis-verrucosus"
+    ],
+    "updatedAt": "2026-10-31T04:01:40.455Z",
+    "hash": "7ed1c25f892a1845e86a00106b3d2d86a5a1835990b8f8448e651b3746379204",
+    "processedHash": "7ed1c25f892a1845e86a00106b3d2d86a5a1835990b8f8448e651b3746379204",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/pseudobagarius_filifer.htm": {
+    "entityIds": [
+      "species/pseudobagarius-filifer"
+    ],
+    "updatedAt": "2026-10-31T04:03:02.753Z",
+    "hash": "cd6a0a59b3013cc96c953b4cfcdc7aea77b2373c81d12df9f9c2cb5e7f9c85bc",
+    "processedHash": "cd6a0a59b3013cc96c953b4cfcdc7aea77b2373c81d12df9f9c2cb5e7f9c85bc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm": {
+    "entityIds": [
+      "species/pseudobagarius-inermis"
+    ],
+    "updatedAt": "2026-10-31T04:04:20.396Z",
+    "hash": "ee065f5e2fe209eb7c1c09b560dcb05df9285c9d373ec77dc003ea273542b6bc",
+    "processedHash": "ee065f5e2fe209eb7c1c09b560dcb05df9285c9d373ec77dc003ea273542b6bc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm": {
+    "entityIds": [
+      "species/pseudobagarius-leucorhynchus"
+    ],
+    "updatedAt": "2026-10-31T04:06:44.121Z",
+    "hash": "49646574b00582e5b53f732685b62bcd930d6125ae7ccc9ac78fabdfb3ecc7de",
+    "processedHash": "49646574b00582e5b53f732685b62bcd930d6125ae7ccc9ac78fabdfb3ecc7de",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
     "hash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "processedHash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm": {
+    "entityIds": [
+      "species/synodontis-eupterus"
+    ],
+    "updatedAt": "2026-10-31T03:59:37.681Z",
+    "hash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
+    "processedHash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
+    "status": "processed",
     "attempts": 0
   }
 }

@@ -1,0 +1,141 @@
+{
+  "id": "pseudobagarius-inermis",
+  "scientificName": "Pseudobagarius inermis",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Pseudobagarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "xe-kong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "html": "<p>Pseudobagarius inermis (Ng &amp; Kottelat, 2000). Family: Akysidae. Synonym: Akysis inermis. Size: 3.5 cm. Temperature: 18-24°C. pH: 6.5-7.5.</p><p>Description: dorsal spines (total): 1; dorsal soft rays (total): 4-5; anal soft rays: 8-11; vertebrae: 31-35. It can be differentiated from its congeners by: no distinct serrae on the posterior edge of the pectoral spine; adipose fin with a moderately long base, its length 13.4-16.7 %SL; eye diameter 7-10 %HL; length of nasal barbel 38-57 %HL; tip of snout noticeably in front of the apex of the lower jaw; large anterior and posterior nostrils closely situated together and separated only by the base of the nasal barbel; caudal fin with 7+7-8 rays; branchiostegal rays 6-7.</p><p>Colouration: a light yellow snout with a sharp contrasted edge; colour pattern consisting of dorsal and ventral light yellow patches on the body that sometimes coalesce at mid-height of the flank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "html": "<p>Asia: Xe Banghiang and Xe Kong drainages of the Mekong River drainages in southern Laos. Type locality: Laos: Attapeu province: unnamed creek entering Xe Kaman from the north at proposed Xe Kaman dam site, 14º57'40\"N, 107º09'16\"E.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "html": "<p>Pseudobagarius inermis has been found in various habitats from swift creeks to riffles in streams and rapids in large rivers. All habitats had in common a stony (gravel to boulder) substrate and relatively swift current. In most of them the water was clear in the dry season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "html": "<p>Etymology: the genus name Pseudobagarius is tautonymous with Akysis pseudobagarius, proposed for members of the \"pseudobagarius group\" of Akysis; pseudo- means false, referring to the striking (but phylogenetically false) resemblance to the sisorid genus Bagarius. The specific name inermis means unarmed, referring to the lack of serrations on the pectoral spine.</p><p>IUCN Red List: there is insufficient information about the geographic distribution and population size of this species for an accurate assessment, and it is assessed as Data Deficient. More information is needed on threats to the species, including the impact of hydropower development in the Xe Kong drainage, one of the two known locations of the species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "html": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (09/2008). Ng, H.H. 2012. Pseudobagarius inermis. The IUCN Red List of Threatened Species 2012. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a21523465ec6c3fb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a21523465ec6c3fb-480.webp",
+      "width": 500,
+      "height": 233,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "caption": "Pseudobagarius inermis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/25b6cd82aeef6e6d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/25b6cd82aeef6e6d-480.webp",
+      "width": 500,
+      "height": 304,
+      "licence": "dùng với sự cho phép",
+      "author": "Kamphol Udomritthiruj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "caption": "Pseudobagarius inermis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b8e034da070256ee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b8e034da070256ee-480.webp",
+      "width": 500,
+      "height": 198,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "caption": "Pseudobagarius inermis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/93c295858ef278ff.webp",
+      "thumb": "https://media.aquatome.com/scotcat/93c295858ef278ff-480.webp",
+      "width": 500,
+      "height": 243,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_inermis.htm",
+      "caption": "Pseudobagarius inermis: dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

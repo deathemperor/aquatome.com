@@ -1,0 +1,51 @@
+{
+  "id": "diplomystes-nahuelbutaensis",
+  "scientificName": "Diplomystes nahuelbutaensis",
+  "order": "Siluriformes",
+  "family": "Diplomystidae",
+  "genus": "Diplomystes",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "chile",
+    "bio-bio"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
+      "html": "<ul><li><strong>Scientific name:</strong> Diplomystes nahuelbutaensis Arratia, 1987</li><li><strong>Type locality:</strong> Río Cautín, Lautaro, Chile.</li><li><strong>Size:</strong> 220 mm (8.7\") SL</li><li><strong>IUCN Red List category:</strong> Data Deficient (last assessed 1996)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
+      "html": "<p>South America: Chile, Bío-Bío River basin and Loncomilla River.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
+      "html": "<p>Bonner Zoologische Monographien No. 24, pp 33, Figs. 8, 10-18.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

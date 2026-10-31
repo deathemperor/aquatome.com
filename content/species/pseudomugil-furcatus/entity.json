@@ -7,7 +7,8 @@
   "group": "rainbowfish",
   "places": [
     "oceania",
-    "papua-new-guinea"
+    "papua-new-guinea",
+    "milne-bay-province"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +17,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 24,
+          "max": 26
         }
       }
     ],
@@ -26,6 +34,13 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -35,11 +50,22 @@
           "min": 4,
           "max": 12
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 8,
+          "max": 18
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
+        "value": 5
+      },
+      {
+        "source": "sprucepets",
         "value": 5
       }
     ],
@@ -47,6 +73,16 @@
       {
         "source": "bwaquatics",
         "value": 3
+      },
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 90
       }
     ]
   },
@@ -58,10 +94,40 @@
       "html": "<ul><li>Adults reach approximately 4–5 cm (≈ 1.6–2.0″) total length.</li><li>Captive-bred fish are hardy and well suited to community aquaria.</li><li>IUCN Red List: Not Evaluated (localized habitat pressure from logging and sedimentation).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<ul><li>Family: Pseudomugilidae</li><li>Origin: New Guinea</li><li>Adult size: 2 inches (5 cm)</li><li>Life expectancy: 3 years</li><li>Social: peaceful</li><li>Tank level: middle</li><li>Diet: omnivore</li><li>Breeding: egg layer</li><li>Care: easy</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province. They occasionally travel into nearby rivers and tributaries, probably as a result of drainage among the different waterways.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
       "html": "<p>Pseudomugil furcatus is a small, darting rainbowfish native to rainforest streams and clearwater tributaries of Papua New Guinea. Known for their forked tail, vivid yellow fins, and bright electric-blue eyes, these fish display energetic, constant movement, especially males, who perform rapid fin-flaring and chasing displays to impress females. In the wild, they inhabit shallow, vegetation-rich streams with gentle flow, strong light penetration, and dense microfauna.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>These fish prefer slow-moving streams lined with heavy vegetation; these environments make it easy for them to find their favorite foods: zooplankton, phytoplankton, and invertebrates. Very few forktailed rainbowfish are collected in the wild. Because they are easy to breed, they are bred at fish farms for the aquarium trade.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Choose a 30-gallon (about 115 litres) or larger aquarium.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Their native environment is one of slow-moving water with a great deal of vegetation. To recreate a similar habitat, add a dark, sandy or rocky substrate. Decorate with river rocks, driftwood, rooted plants, and floating feathery-leafed plants. Floating plants over a dark substrate will not only bring out the colors in this species to the best effect, but the fish will be more comfortable and calm. Live plants are necessary for this fish to thrive.</p><p>Forktailed rainbowfish need many hours to acclimatize to a new aquarium environment. Quick exposure to different water chemistry and temperature can shock their systems.</p>"
     },
     {
       "key": "waterConditions",
@@ -70,10 +136,22 @@
       "html": "<p>Clean, well-oxygenated water is essential for long-term color and activity.</p><ul><li>pH 6.0 – 7.5</li><li>GH 4 – 12 °d</li><li>KH 2 – 8 °d</li><li>TDS 80 – 200 ppm</li><li>Temperature: 22 – 28 °C (72 – 82 °F); males show the best color and activity in the mid-range (24–26 °C).</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<ul><li>Temperature: 75 to 79 °F (24 to 26 °C)</li><li>pH: 7.0 to 8.0</li><li>Hardness: 8 to 18 dGH</li></ul><p>Provided it is transferred slowly to its new aquarium, it will adapt to a wide range of water conditions, from soft and slightly acidic water to hard and alkaline.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
       "html": "<p>Provide gentle flow, floating plants, and open midwater space for schooling and display behavior. They thrive in planted setups with open swimming space and stable, clean water conditions.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Be sure the water is well oxygenated. Use a large filtration system but one that doesn't create too much turbulence.</p>"
     },
     {
       "key": "diet",
@@ -82,10 +160,28 @@
       "html": "<p>Micro-predatory omnivore. Offer:</p><ul><li>Baby brine shrimp</li><li>Daphnia</li><li>Cyclops</li><li>Microworms</li><li>High-quality micro-pellets and fine flakes</li></ul><p>Frequent small feedings encourage natural display behavior and intense coloration.</p>"
     },
     {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Their feeding requirements are uncomplicated: they have almost no special needs. Choose flake, micropellets, and small frozen foods such as daphnia, baby brine shrimp (Artemia nauplii), and cyclops.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
       "html": "<p>Peaceful and best kept in groups of 8–12+ to promote natural social structure and reduce stress. Suitable tankmates include:</p><ul><li>Boraras species</li><li>Sundadanio</li><li>Small rasboras</li><li>Pygmy corydoras (C. pygmaeus, C. hastatus, C. habrosus)</li><li>Licorice gouramis (Parosphromenus)</li></ul><p>Avoid nippy or aggressive fish that may damage their delicate fins. Keep them in sufficiently large groups to reduce sparring intensity and encourage natural shoaling dynamics.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Forktailed rainbowfish are a shoaling species and should be kept with six to ten of their own kind. A generally peaceful fish, they can live comfortably with smaller goby or catfish species, danios, tetras, rasboras, dwarf cichlids, and other small rainbowfish. Avoid keeping this species with slower-moving fish or fish with long, trailing fins, as they do sometimes nip and can be a bit aggressive.</p><p>The fish is very active; it is fast and agile, swimming, twisting, and turning in and out of plants. They are a middle zone fish and are in motion as long as aquarium lights are on. It is best to keep two males together with four to six females to induce the most active social displays.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>Male forktailed rainbowfish can be distinguished by their sharper colors and a striking fin shape; fins are curved and almost wing-like and are bright yellow. Females and juveniles have the same basic coloring as males, but the colors are not as brilliant.</p>"
     },
     {
       "key": "reproduction",
@@ -94,52 +190,75 @@
       "html": "<p>An egg-scattering species that spawns frequently under good conditions. Males flare brightly colored fins and court females with fluttering display movements. Eggs are deposited in fine-leaved plants, mosses, or spawning mops and adhere to surfaces. Adults do not guard eggs and may consume them; dedicated breeding setups increase success. Eggs hatch in 7–14 days depending on temperature, with fry initially requiring infusoria or rotifers before transitioning to baby brine shrimp.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>These fish are short-lived in nature so they mature quickly and breed young. Males are prime at about eight months; after one year to 15 months, they will develop a pigeon chest, at which time they are too old to breed. However, many live to be very old in a community aquarium.</p><p>This species usually mates within the shoal and lays eggs among feathery-leafed plants. Using two males and six females, each male will set up his own territory in the well-planted breeding tank. One of the males will take possession of a fine-leaved plant or breeding mop at one end of the tank, while the females stay in the middle; the other male may take another plant or mop at the other end.</p><p>Males display for the females at sunrise, so the lighting in the breeding tank can be set to simulate dawn. Occasionally the males may have a brief skirmish for dominance, but they tend to ignore each other.</p><p>Eventually, a female will follow one of the males back to his chosen plant or mop to spawn. They dip to the lower reaches of the tank and swim up into the plant or mop close to each other. Near the top of the plant, they swim into each other and release eggs and milt together.</p><p>The eggs take at least 14 days to hatch, so there is a real chance of losing the eggs to fungus if left in the breeding tank. Remove the eggs to a sterile water tank with fungus treatment.</p><p>The fry are unusual among the smaller egg-layers as they are free-swimming and self-sufficient at hatching. They are immediately large enough to eat live baby brine shrimp and powdered dry food.</p><p>Use a sponge filter in the fry rearing tank after three weeks, change 20 percent of the water each week, and feed small amounts of varying foods six times a day. At three months they will be over an inch (about 2.5 cm) long.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-furcatus",
       "html": "<p>Captive-bred Pseudomugil furcatus are more adaptable and resilient than wild counterparts. Maintain excellent water quality, stable parameters, and frequent small feedings to support their high activity level.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "html": "<p>The forktailed rainbowfish has blue eyes, a silvery body, and bright yellow stripes on the top and bottom of the body in the breeding season. Two upturned, almost wing-like pectoral fins are bright yellow, as are the dorsal fins in breeding season. Over the last 10 years this species has faded almost completely from the home aquarium scene, although it is one of the easiest rainbowfish to keep in a community aquarium and to breed.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/sprucepets/5acacb51b25a2faa.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/5acacb51b25a2faa-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/forktailed-rainbow-fish-4071595",
+      "caption": "Small forktailed rainbowfish near bottom of fish tank with pebbles",
+      "source": "sprucepets"
+    },
+    {
       "url": "https://media.aquatome.com/commons/bd4395e23920c110.webp",
+      "thumb": "https://media.aquatome.com/commons/bd4395e23920c110-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "Dirk Godlinski",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_m_Aquarium_DG.jpg",
-      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - male - in aquarium.",
-      "thumb": "https://media.aquatome.com/commons/bd4395e23920c110-480.webp"
+      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - male - in aquarium."
     },
     {
       "url": "https://media.aquatome.com/commons/5a8b6e5464fdc145.webp",
+      "thumb": "https://media.aquatome.com/commons/5a8b6e5464fdc145-480.webp",
       "width": 960,
       "height": 533,
       "licence": "CC BY-SA 3.0",
       "author": "Guérin Nicolas (messages)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_(Wroclaw_zoo).JPG",
-      "caption": "Picture taken in the zoo of Wrocław (Poland): Pseudomugil furcatus (Nichols, 1955)",
-      "thumb": "https://media.aquatome.com/commons/5a8b6e5464fdc145-480.webp"
+      "caption": "Picture taken in the zoo of Wrocław (Poland): Pseudomugil furcatus (Nichols, 1955)"
     },
     {
       "url": "https://media.aquatome.com/commons/611c6ee961d347d2.webp",
+      "thumb": "https://media.aquatome.com/commons/611c6ee961d347d2-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "R.workoran",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Forktail_worakarn.jpg",
-      "caption": "Forktail Blue-eye",
-      "thumb": "https://media.aquatome.com/commons/611c6ee961d347d2-480.webp"
+      "caption": "Forktail Blue-eye"
     },
     {
       "url": "https://media.aquatome.com/commons/f53f3542abf5b499.webp",
+      "thumb": "https://media.aquatome.com/commons/f53f3542abf5b499-480.webp",
       "width": 960,
       "height": 636,
       "licence": "CC BY-SA 3.0",
       "author": "Dirk Godlinski",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_furcatus_f_Aquarium_DG.jpg",
-      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - female - in aquarium.",
-      "thumb": "https://media.aquatome.com/commons/f53f3542abf5b499-480.webp"
+      "caption": "Forktail Blue-eye (Pseudomugil furcatus) - female - in aquarium."
     }
   ],
   "videos": [
@@ -198,5 +317,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -1,0 +1,142 @@
+{
+  "id": "corydoras-caudimaculatus",
+  "scientificName": "Corydoras caudimaculatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-guapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>Corydoras caudimaculatus reaches 5-6 cm in length. It is the most round-nosed and high-backed species of the “tail-spotted armored catfish”, which all have a similar pattern but are not closely related to each other.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>Corydoras caudimaculatus is a much sought-after species, which unfortunately can only occasionally be found on export lists.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>From the Brazilian state of Mato Grosso, more precisely from the upper Rio Guaporé.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>Many enthusiasts report that this species needs comparatively high water temperatures (26-28°C) to feel comfortable in the long term. Cooler kept animals are often shy and nervous.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>The evolutionary advantage of the similar pattern is that fish-eaters – birds, snakes, predatory fish, etc. – who have once tried such a spiny, armored fish, will avoid it in the future, because it scratches the throat considerably. This is how this colour similarity, which is often found in Corydoras catfish, occurs between different species living in the same area.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "html": "<p>It is easy to breed.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/101f591f11d1d6db.webp",
+      "thumb": "https://media.aquatome.com/glaser/101f591f11d1d6db-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cbde08c61fafd101.webp",
+      "thumb": "https://media.aquatome.com/glaser/cbde08c61fafd101-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c1dc34800dfd16e7.webp",
+      "thumb": "https://media.aquatome.com/glaser/c1dc34800dfd16e7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7954b194b8ec672f.webp",
+      "thumb": "https://media.aquatome.com/glaser/7954b194b8ec672f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-caudimaculatus-wild-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 60x30"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W",
+        "máy sưởi điều chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm Corydoras"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

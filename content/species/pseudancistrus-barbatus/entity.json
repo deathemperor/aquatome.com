@@ -1,0 +1,118 @@
+{
+  "id": "pseudancistrus-barbatus",
+  "scientificName": "Pseudancistrus barbatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "maroni",
+    "suriname",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>Pseudancistrus barbatus (Valenciennes, 1840). Common name: Wreath Pleco. Type locality: La Mana River, French Guiana. Size: 200 mm (7.9\") SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>South America: Oyapock, Mana, Maroni, Suriname, Corantijn and Essequibo River basins.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>Occurs in rapids where it lives in the rocky anfractuosities in the strong current zones. The length of the male snout bristles might be related with the hierarchic level of the individual within the population.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>Pseudancistrus is the only genus of the Ancistrini (former Ancistrinae) that lacks evertible cheek plates. Because of this characteristic, it has at times been placed in the Hypostominae.</p><p>Etymology: Greek, pseudes = false + Greek, agkistron = hook or barb, \"False Ancistrus\". The specific epithet literally means bearded (barbatus = bearded).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp 506.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/b25ca07846d55ba3.webp",
+      "width": 960,
+      "height": 1378,
+      "licence": "Public domain",
+      "author": "Charles Darwin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Descent_of_Man_Appleton_1875_Fig_031.jpg",
+      "caption": "The Descent of Man, Scan of Fig. 31. Plecostomus barbatus. Upper figure, head of male; lower figure, female.",
+      "thumb": "https://media.aquatome.com/commons/b25ca07846d55ba3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5d5b4a3724a2c423.webp",
+      "width": 960,
+      "height": 1072,
+      "licence": "CC BY 2.0",
+      "author": "Phylogeny Figures",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zookeys-406-001-g006_(14126050318).jpg",
+      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i",
+      "thumb": "https://media.aquatome.com/commons/5d5b4a3724a2c423-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0d746020fbe39466.webp",
+      "width": 960,
+      "height": 1017,
+      "licence": "CC BY 2.0",
+      "author": "Phylogeny Figures",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zookeys-406-001-g002_(14126183787).jpg",
+      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i",
+      "thumb": "https://media.aquatome.com/commons/0d746020fbe39466-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau củ chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "leptodoras-cataniai",
+  "scientificName": "Leptodoras cataniai",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Leptodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "casiquiare"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 19.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1015",
+      "html": "<p><strong>Scientific name:</strong> Leptodoras cataniai Sabaj Pérez, 2005</p><p><strong>Common name:</strong> Slank Musemalle (Denmark)</p><p><strong>Etymology:</strong> Leptodoras: from the Greek leptos, meaning slender, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the shape. Named in honor of David Catania, for his dedicated service to the ichthyological community since 1985 as Collection Manager of Fishes, California Academy of Sciences.</p><p><strong>Size:</strong> 194 mm (7.6 in) SL.</p><p><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2020.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1015",
+      "html": "<p>South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.</p><p><strong>Type locality:</strong> Río Casiquiare from mouth of río Pamoni to 4 kilometers below mouth, west of Pamoni, 2°48'N, 65°57'W, Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1015",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1015",
+      "html": "<p>Neotropical Ichthyology v. 3 (no. 4), pp 667, Figs. 4g, 5g, 6b, 18e and 22.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

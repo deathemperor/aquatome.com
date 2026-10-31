@@ -3,17 +3,23 @@
   "name": "Rêu Đài Loan",
   "altNames": [
     "Rêu Taiwan",
-    "Taiwan moss"
+    "Taiwan moss",
+    "Taiwan Moss",
+    "Mini Taiwan moss"
   ],
   "sections": {
     "quickFacts:bwaquatics": "<p>Rêu Đài Loan (Taiwan moss) tương tự rêu java nhưng có nhiều nút phân nhánh hơn và mọc dày, rậm hơn.</p>",
-    "notes:bwaquatics": "<p>Rêu rất phù hợp cho các bể ánh sáng yếu cần chỗ trú ẩn cho bể cộng đồng, cũng như để nuôi cá bột.</p><p>Hãy chuẩn bị sẵn môi trường sống trước khi mua.</p>"
+    "notes:bwaquatics": "<p>Rêu rất phù hợp cho các bể ánh sáng yếu cần chỗ trú ẩn cho bể cộng đồng, cũng như để nuôi cá bột.</p><p>Hãy chuẩn bị sẵn môi trường sống trước khi mua.</p>",
+    "quickFacts:tropica": "<ul><li>Loại: Rêu</li><li>Nguồn gốc: Châu Á</li><li>Tốc độ phát triển: Trung bình</li><li>Chiều cao: 3 - 10+ cm</li><li>Nhu cầu ánh sáng: Thấp</li><li>CO2: Thấp</li></ul>",
+    "maintenance:tropica": "<p>Rêu Taiwan mini mọc ngang và rủ xuống, trông như một bản thu nhỏ của rêu 'Weeping moss'. Rêu đẹp nhất khi bạn buộc nó lên lũa nhiều nhánh hoặc lên đá dựng đứng. Loại rêu này cũng rất hợp để làm tường rêu hay che thiết bị trong bể. Đây là loại rêu dễ chơi, trang trí đẹp và không đòi hỏi nhiều. Dù vậy, nếu có đèn tốt và châm thêm chút CO2 thì rêu sẽ lên nhanh hơn và phân nhánh nhiều hơn.</p>",
+    "notes:tropica": "<p>Đến nay người ta vẫn chưa xác định được đầy đủ danh tính của loại rêu đẹp này. Nhiều khả năng các nghiên cứu sau này sẽ xếp nó vào một loài thuộc họ Isopterygium.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.9
+      "bwaquatics": 0.9,
+      "tropica": 0.85
     }
   }
 }

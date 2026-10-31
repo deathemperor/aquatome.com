@@ -1,0 +1,78 @@
+{
+  "id": "megalancistrus-barrae",
+  "scientificName": "Megalancistrus barrae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Megalancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-francisco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 38.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1018",
+      "html": "<ul><li><strong>Scientific name:</strong> Megalancistrus barrae (Steindachner, 1910)</li><li><strong>Common names:</strong> Black Spiny Ashiura Pleco, Azzura Pleco, Giant Ancistrus</li><li><strong>Type locality:</strong> Rio São Francisco near Barra, Brazil.</li><li><strong>Synonym:</strong> Ancistrus barrae</li><li><strong>Size:</strong> 385 mm (15.2\") SL</li><li><strong>Etymology:</strong> Greek, megas, megalos = great + Greek, agkistron = hook, in this case meaning \"big Ancistrus\". Named for the Rio São Francisco near Barra in Brazil, the type locality.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1018",
+      "html": "<p>South America: São Francisco River basin, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1018",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1018",
+      "html": "<p>A colossal pleco worthy of the generic name. Can be differentiated from other large loricariids by the presence of evertible interopercular odontodes.</p><p>This species' background colour is dark brown to black; those more commonly exported are black, and often they are exported under the nomen nudem \"Megalancistrus etentaculatus\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1018",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftlichen Klasse v. 47 (no. 8) (for 10 Mar. 1910), pp 58.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 300 lít trở lên"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau chìm cho cá lau kính"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

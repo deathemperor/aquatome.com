@@ -1,0 +1,93 @@
+{
+  "id": "apteronotus-leptorhynchus",
+  "scientificName": "Apteronotus leptorhynchus",
+  "order": "Gymnotiformes",
+  "family": "Apteronotidae",
+  "genus": "Apteronotus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "colombia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus_leptorhynchus_gold_en/",
+      "html": "<ul><li>Origin: Colombia</li><li>Available size: 8-10 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus_leptorhynchus_gold_en/",
+      "html": "<p>The species is widespread and common in Colombia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus_leptorhynchus_gold_en/",
+      "html": "<p>A golden Apteronotus leptorhynchus has recently arrived from Colombia. The \"Brown Ghost\" is regularly stocked, but this is the first time a specimen with such a unique coloration has been seen.</p><p>Lexicon: Apteronotus: ancient Greek, means \"with no fin on the back\". leptorhynchus: ancient Greek, means \"with a small snout\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/646be59c5a79869f.webp",
+      "thumb": "https://media.aquatome.com/glaser/646be59c5a79869f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus_leptorhynchus_gold_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7995c5615056cafe.webp",
+      "thumb": "https://media.aquatome.com/glaser/7995c5615056cafe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus_leptorhynchus_gold_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá dao"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "thức ăn cho cá dao"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

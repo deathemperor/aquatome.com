@@ -1,0 +1,118 @@
+{
+  "id": "hoplosternum-magdalenae",
+  "scientificName": "Hoplosternum magdalenae",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Hoplosternum",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>Hoplosternum magdalenae Eigenmann, 1913. Type locality: Soplaviento, Colombia. Etymology: Hoplosternum comes from the Greek hoplon, meaning shield, and sternum, meaning breast, in reference to the prominent coracoid bones on the breast. The species is named after the Magdalena River, part of its native habitat.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>South America: Magdalena and Sinú River basins, Colombia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<ul><li>pH: 5.8 - 7.8</li><li>Temperature: 20.0-22.0°C</li><li>Hardness: up to 25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>Omnivore, constantly searches the substrate for any food.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>In Dianema, Hoplosternum and Megalechis (but not in Callichthys), medial expansions of the coracoid bones are especially developed, covering most of the skin between the pectoral fins and sometimes overlapping in the midline in fully developed mature males (vs. not fully covering the abdominal skin and not overlapping in females). Mature males of Callichthys, Dianema, Hoplosternum, Lepthoplosternum, and Megalechis have a thick adipose body on the ventral surface of the pectoral fin. Mature females of Dianema, Hoplosternum and Megalechis have a small fold of skin on the external face of the leading pelvic-fin ray.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>Bubble-nest builder. The male courts the female. The female carries eggs in a pouch created by the pectoral fin and places them in the nest with the male curved around the female. The female should be removed after spawning. Fry develop in 4-5 days. Spawning took place in a 26-28 °C tank with 5 °KH. Rear fry in a tank with algae, feeding with Artemia and prepared baby food (such as TetraMin Babyfood).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1188",
+      "html": "<p>Annals of the Carnegie Museum v. 8 (nos 3-4) (art. 13), pp 412.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá thủy sinh 100 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy viên chìm",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

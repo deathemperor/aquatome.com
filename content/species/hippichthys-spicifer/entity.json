@@ -1,0 +1,133 @@
+{
+  "id": "hippichthys-spicifer",
+  "scientificName": "Hippichthys spicifer",
+  "order": "Syngnathiformes",
+  "family": "Syngnathidae",
+  "genus": "Hippichthys",
+  "group": "other",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 7,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 15
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<ul><li>Size: can grow up to 15 cm, but they are long and thin rather than big.</li><li>Temperament: very peaceful.</li><li>Temperature: 22–28°C (72–82°F).</li><li>pH: 7–8.4.</li><li>TDS: 300+ (adding salt is useful).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>These fish are wild caught. The exact species name is still being confirmed. Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>Some keepers use a little salt, while others keep them in 100% freshwater. Adding salt is useful for the TDS of 300+.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>They prefer a densely planted tank. Keep the water flow low, otherwise they will have a hard time catching baby brine shrimp or other food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>Pipefish are carnivorous and require a diet rich in live or frozen foods. Feed small live or frozen mysis shrimp, brine shrimp, copepods and other small invertebrates. Offer small, frequent meals. They are feeding on baby brine shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>These pipefish are generally peaceful but should be kept in a species-specific tank or with other calm, non-aggressive tank mates. They are very slow moving and occupy the lower zone of the aquarium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "html": "<p>Males carry eggs in their pouch and give birth to live young. It is not known whether the young require saltwater to grow into adulthood.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/f2046f256901a819.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/f2046f256901a819-480.webp",
+      "width": 1200,
+      "height": 1567,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/446223adb28614b7.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/446223adb28614b7-480.webp",
+      "width": 1200,
+      "height": 1471,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hippichthys-spicifer-barbelly-pipefish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia mới nở",
+        "tôm mysis đông lạnh",
+        "copepod"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm rạp",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,108 @@
+{
+  "id": "sturisomatichthys-aureum",
+  "scientificName": "Sturisomatichthys aureum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Sturisomatichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
+      "html": "<p>Sturisomatichthys aureus (Steindachner, 1900). Common name: Giant Whiptail. Type locality: Sororia Creek at Jagua de Ibiricó, lower Magdalena basin, Cesar Department, Colombia. Size: 150 mm (5.9\") SL. IUCN Red List: Data Deficient (last assessed 2014).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
+      "html": "<p>South America: Colombia, Caribbean rivers, Magdalena.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
+      "html": "<p>pH 6.6–7.6. Temperature 20–26°C (68–78.8°F). Soft to medium water hardness. This fish prefers slightly cooler water and may not thrive in an aquarium warmer than 26°C (78°F).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
+      "html": "<p>Sturisoma and Sturisomatichthys can be difficult to tell apart. Older descriptions emphasized snout length (elongated in Sturisoma), but this trait is not reliable. Recent analyses distinguish them by abdominal plates, fin colours and lateral plates: Sturisoma has central abdominal plates in three clearly defined longitudinal series, no dark spots on the fins (except sometimes the pectorals), and 20–21 lateral plates in the median series. Sturisomatichthys has less organised central abdominal plates, usually dark spots on one or more of the dorsal, pectoral, pelvic or anal fins, and 15–18 lateral plates in the median series. All Sturisoma are cis-Andean; most (not all) Sturisomatichthys are trans-Andean.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 37 (no. 18), pp 206.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d930f01353077358.webp",
+      "width": 800,
+      "height": 1200,
+      "licence": "CC BY-SA 2.5",
+      "author": "Richard Bartz, Munich aka Makro Freak",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sturisoma_aureum_Richard_Bartz.jpg",
+      "caption": "Whiptail catfish (Sturisomatichthys aureus, Synonym: Sturisoma aureum). Sturisomatichthys is a genus of catfishes (order Siluriformes) of the suckermouth armoured catfish family (Loricariidae).",
+      "thumb": "https://media.aquatome.com/commons/d930f01353077358-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau củ chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

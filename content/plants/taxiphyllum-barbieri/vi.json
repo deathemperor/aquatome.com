@@ -3,19 +3,27 @@
   "name": "Rêu java",
   "altNames": [
     "Rêu Java",
-    "Java Moss"
+    "Java Moss",
+    "Rêu Bogor",
+    "Rêu java Bogor",
+    "Bogor Moss",
+    "Java moss"
   ],
   "sections": {
     "quickFacts:aquariumcoop": "<ul><li>Là một trong những loại cây thủy sinh dễ trồng nhất; cứng cáp và đa dụng.</li><li>Có thể phát triển mà không cần ánh sáng.</li><li>Không bám rễ vào nền; rêu tự bám vào các bề mặt.</li><li>Phần đầu rêu có màu xanh lá nhạt cho thấy rêu đang mọc mới.</li></ul>",
     "maintenance:aquariumcoop": "<p>Rêu java cực kỳ bền bỉ. Từng có trường hợp một cây bị bỏ quên trong xô tới hai tháng, khi tìm thấy vẫn còn sống và đang phát triển. Hiếm ai không giữ nổi rêu java, nên nó rất phù hợp cho người mới chơi.</p><p>Để rêu gọn gàng hơn trong bể, chỉ cần cắt tỉa nhanh. Việc cắt tỉa giúp cây khỏe mạnh và không làm hại phần mọc về sau.</p><p>Đôi khi tảo tóc có thể mọc trên rêu, nhưng thả thêm vài con tép vào bể sẽ giải quyết được vấn đề này. Tép sẽ vui vẻ ăn sạch lớp xơ trắng.</p>",
     "behaviour:aquariumcoop": "<p>Rêu java rất tốt cho người nhân giống vì cực kỳ thân thiện với cá con và tép. Các con non nhỏ tìm được nơi trú ẩn an toàn, dễ chịu trong lớp rêu mềm, còn tép thì có chỗ làm tổ. Tép cũng nhẹ nhàng làm sạch rêu, giúp rêu luôn khỏe mạnh.</p>",
-    "notes:aquariumcoop": "<p>Rêu java không bám rễ. Thay vào đó, nó tự bám vào các vật thể, khá giống cây thường xuân, và sẽ không ăn rễ vào lớp sỏi nền. Rêu thường neo vào một chỗ rồi bồng bềnh ở đó, những sợi xanh mảnh nằm phía trên lớp sỏi.</p><p>Rêu java hợp với hầu hết các bể và dễ dùng để tạo cảnh thủy sinh. Có thể phủ hoặc gắn rêu lên cành lũa, ở vị trí cao hay thấp trong bể.</p>"
+    "notes:aquariumcoop": "<p>Rêu java không bám rễ. Thay vào đó, nó tự bám vào các vật thể, khá giống cây thường xuân, và sẽ không ăn rễ vào lớp sỏi nền. Rêu thường neo vào một chỗ rồi bồng bềnh ở đó, những sợi xanh mảnh nằm phía trên lớp sỏi.</p><p>Rêu java hợp với hầu hết các bể và dễ dùng để tạo cảnh thủy sinh. Có thể phủ hoặc gắn rêu lên cành lũa, ở vị trí cao hay thấp trong bể.</p>",
+    "quickFacts:tropica": "<ul><li><strong>Loại:</strong> Rêu</li><li><strong>Xuất xứ:</strong> Châu Á</li><li><strong>Tốc độ phát triển:</strong> Trung bình</li><li><strong>Chiều cao:</strong> 3 - 10+ cm</li><li><strong>Nhu cầu ánh sáng:</strong> Thấp</li><li><strong>CO2:</strong> Thấp</li></ul>",
+    "maintenance:tropica": "<p>Bạn buộc rêu vào lũa hoặc đá bằng một đoạn dây câu hay chỉ cotton. Cứ để dây đó cho tới khi rêu bám chắc. Khi rêu mọc rậm quá, bạn lấy kéo tỉa bớt là được.</p>",
+    "notes:tropica": "<p>Taxiphyllum barbieri 'Bogor Moss' có nguồn gốc Đông Nam Á. Đây là loài cây khỏe, không kén nước và cũng không cần nhiều sáng. Thảm rêu dày khoảng 3-10 cm và chịu bám trên gần như mọi bề mặt. Vì vậy nó rất hợp để phủ đá, phủ rễ cây hoặc che bớt thiết bị trong bể. Trong bể cho cá sinh sản, Taxiphyllum barbieri là chỗ trốn rất tốt cho cá con.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "aquariumcoop": 0.8
+      "aquariumcoop": 0.8,
+      "tropica": 0.85
     }
   }
 }

@@ -8,149 +8,85 @@
   "places": [
     "asia",
     "india",
-    "brahmaputra",
-    "bangladesh",
-    "nepal",
-    "ganges",
-    "bhutan",
-    "myanmar"
+    "assam"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": {
-          "min": 16,
-          "max": 25
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 6,
-          "max": 8
+          "min": 20,
+          "max": 30
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 29.7
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
       {
-        "source": "seriouslyfish",
-        "value": 120
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 5
+        "source": "glaser",
+        "value": 100
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal. It is also listed from Bhutan and Myanmar and grows to about 30 cm TL. Keepers give it a cooler winter of about 16-18 °C, it is aggressive towards its own kind, and the male broods the eggs in his mouth.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>This snakehead, often traded under the name Channa cf. barca, originates from the Indian province of Assam. Channa stewartii can reach a length of 30 cm.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Described from Cachar in the Barak valley of Assam, northeastern India.</p><p>It's known from the Brahmaputra basin in India and Bangladesh, and from the Ganges basin from southern Nepal eastward (Bordoloi et al., 2024). The Catalog of Fishes also lists it from West Bengal and Bhutan.</p><p>Britz et al. (2024) include it among the snakeheads of Myanmar, without giving a locality there.</p><p>Type locality is 'Cachar, Assam, India'.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Recorded from both flowing and still water, including streams and ponds.</p><p>The region has a monsoon climate with a warm, wet summer and a cool, dry winter, and keepers maintain it with a matching seasonal drop in temperature (see 'Maintenance').</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>India, Assam.</p>"
     },
     {
       "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>An aquarium with base dimensions of at least 120 × 45 cm (about 243 litres) is large enough for a single fish or a pair.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Furnish the tank densely with rocks, driftwood, plants and floating cover, arranged to give plenty of caves and to break up lines of sight between the fish.</p><p>It will escape through any gap, so the tank needs a tightly fitting cover. Leave a space between the cover and the water surface, as the fish breathe air and need access to a layer of humid air.</p><p>Keepers give it a seasonal cycle, with summer temperatures of about 24-25 °C and a cooler winter period of about 16-18 °C.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>For a pair, a well-planted 200 l aquarium with slow-moving water and some hiding places would be ideal.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<ul><li>Temperature: 16-25 °C</li><li>pH: 6.0-8.0</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>Since their habitat does not lie in the tropical range, they can be kept well in an unheated aquarium. They tolerate temperatures between 20–30°C and have low requirements concerning other water parameters. They can tolerate low-oxygen conditions in water because they are air breathers from an early age.</p>"
     },
     {
       "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>A predator. In the aquarium it takes meaty foods, live or frozen, such as earthworms, prawn and pieces of fish, and reports say it won't eat dried foods.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>Besides live and dead fish, they accept food such as insects, worms and, after habituation, possibly also sticks.</p>"
     },
     {
       "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Aggressive towards its own kind and best kept singly or as a pair in a tank of its own.</p><p>A pair is best formed by growing on a group and removing the others once two fish have paired, as the rest are likely to be attacked.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Females are slightly duller and more yellowish than males (Bordoloi et al., 2024).</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>As predators they should be kept together only with fishes whose length is at least 2/3 of their own body length.</p>"
     },
     {
       "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>A mouthbrooder in which the male carries the eggs. In one aquarium spawning described in Practical Fishkeeping, the male brooded for ten days at 18 °C before releasing the young.</p><p>Weijola (2022) reported that in several snakeheads of the C. gachua group the female feeds the young with unfertilised eggs, and suggested that the behaviour may be found throughout the group. No account of it has been found in this species.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
-      "html": "<p>Also known as the Assamese snakehead.</p><p>A member of the C. gachua group. The group holds most of the species in the genus, and includes both mouthbrooders and species that guard floating eggs (Britz et al., 2024).</p><p>Britz et al. (2024) diagnose it among the Myanmar members of the group by its higher fin-ray counts, with 39-40 dorsal-fin rays and 26-27 anal-fin rays.</p><p>Playfair's two type specimens turned out to be two different species. Britz et al. (2024) designated the larger, 204 mm (8 in) SL fish illustrated in the original description as the lectotype, and identified the smaller one as C. gachua.</p><p>In the same study, DNA barcodes from fish identified as C. stewartii fell into two clades differing by 3.2-4.1%, and the authors called for a thorough revision of this group of snakeheads.</p><p>FishBase lists it as an obligate air-breather. All Channa species have a chamber above each gill, lined with respiratory tissue, that lets them breathe atmospheric air, so the fish must always be able to reach the surface.</p><p>The IUCN Red List assesses it as Least Concern (2010).</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "html": "<p>Channa stewartii is probably a nest builder providing eggs and young with parental care. Other reports mention them as mouthbrooders.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/985b7199d988c19c.webp",
-      "width": 960,
-      "height": 289,
-      "licence": "Public domain",
-      "author": "George Henry Ford (1809–1876)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_stewartii.jpg",
-      "caption": "Channa stewartii",
-      "thumb": "https://media.aquatome.com/commons/985b7199d988c19c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ba0d7bc1fcaf33b3.webp",
-      "width": 960,
-      "height": 322,
-      "licence": "Public domain",
-      "author": "George Henry Ford",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophiocephalus_stewartii_Ford_77.jpg",
-      "caption": "Channa stewartii syn. Ophiocephalus stewartiiThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Ophiocephalus stewartii",
-      "thumb": "https://media.aquatome.com/commons/ba0d7bc1fcaf33b3-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/25337a8fe27ca115.webp",
-      "width": 960,
-      "height": 1292,
-      "licence": "Public domain",
-      "author": "George Henry Ford",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fishes_of_India._Atlas._Plate_LXXVII.jpg",
-      "caption": "1 – Ophiocephalus leucopunctatus = Channa marulius, 2 – Ophiocephalus barca, 3 – Ophiocephalus stewartii, 4 – Ophiocephalus micropeltes.",
-      "thumb": "https://media.aquatome.com/commons/25337a8fe27ca115-480.webp"
+      "url": "https://media.aquatome.com/glaser/0099a321dcddac1c.webp",
+      "thumb": "https://media.aquatome.com/glaser/0099a321dcddac1c-480.webp",
+      "width": 640,
+      "height": 416,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -158,27 +94,22 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá lớn nắp kín"
+        "bể cá 200 lít",
+        "bể cá 120cm"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng bể lớn"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá"
+        "lọc thùng cho bể 200 lít",
+        "lọc dòng chảy nhẹ"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cho cá lóc",
-        "giun đất cho cá"
+        "thức ăn cho cá săn mồi"
       ]
     }
   ],

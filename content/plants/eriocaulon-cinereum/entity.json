@@ -6,8 +6,7 @@
   "co2": "required",
   "growth": "slow",
   "placement": [
-    "foreground",
-    "midground"
+    "foreground"
   ],
   "sections": [
     {
@@ -17,52 +16,116 @@
       "html": "<ul><li>Origin: Cosmopolitan</li><li>Growth rate: Slow</li><li>Height: 3 - 10+ cm</li><li>Light demand: High</li><li>CO2: High</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Other names: Gong grass, Pipe worts, Water Pipewort, Ashy pipe worts</li><li>Difficulty: difficult</li><li>Lighting: moderate to high</li><li>Optimal pH: 5.5 – 7.0</li><li>Optimal GH: 2 – 8</li><li>Optimal temperature: 20 – 28°C</li><li>Substrate: nutrient-rich</li><li>Can be grown emersed: yes</li><li>Growth rate: slow</li><li>Placement in tank: foreground</li><li>Size: 10 – 15 cm</li><li>CO2: needed</li><li>Propagation: cuttings and seeds</li><li>Colour: green</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Eriocaulon cinereum has a wide distribution in South America, Africa, and parts of Southeast Asia.</p><p>It is broadly distributed in Indonesia, Vietnam, Thailand, the Philippines, Cambodia, India, Sri Lanka, Yunnan and Zhejiang Provinces in China, Brazil (Serra dos Carajás, Pará state), Venezuela, Burkina Faso, Laos, the Ryukyu Islands, Western Australia, Japan, Zimbabwe, Tanzania, Guinea, Cameroon, Zambia, Angola, Myanmar, Namibia, Senegal, Niger, Nepal, Ghana and Uzbekistan.</p><p>Note: According to a study, this species is divided into two lineages (from Africa and Asia) which have genetic variation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Eriocaulon cinereum thrives in shallow and marshy areas and rice fields. It is amphibious, living in temporarily flooded locations. The species occurs in both high and low-altitude areas.</p><p>Note: In Nepal, for example, within its native habitat this plant is regarded as a weed and is second (12%) in prevalence among weed species, with Rotala indica taking the lead (18%).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Due to its small size and slow growth, Eriocaulon cinereum can be put in nano aquariums, but it is not a good idea to keep it in very small tanks: it does not like to be densely planted, and water parameters are harder to keep stable in small tanks. A 40-litre (10-gallon) tank is a sensible starting point.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This plant is not for beginners; even experienced aquarists may find it challenging.</p><ul><li>It is small and ideal for the foreground.</li><li>It grows very slowly; it may take 4-6 months to reach 8 – 10 cm with proper care.</li><li>It does not tolerate shading at all, so make sure neighbouring plants do not overshadow it.</li><li>Tank depth also matters: in a deep tank it may still not receive enough light.</li><li>Monitor water parameters, CO2 injection and fertilization regularly.</li><li>It is an annual plant, so its lifespan is short and it will need to be propagated.</li><li>Even in paludariums, the rosette should always remain submerged.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: 20 – 28°C; it does not tolerate cold water well.</p><p>pH: 5.5 – 7.0; water that is too alkaline negatively affects the plant.</p><p>Hardness: soft to medium water, GH 2 – 8 and KH 1 – 4. Values of GH 8 and KH 4 are borderline, and the plant may react negatively.</p><p>Flow: tolerates moderate water movement but avoid strong currents; in nature it lives in stagnant water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: at least medium-high light (30–50 PAR), with a photoperiod of 10-12 hours daily. Strong light without CO2 will cause algae problems.</p><p>Substrate: a heavy root feeder that needs a nutrient-rich substrate; sand or gravel is not suitable. The substrate depth should be at least 7 – 8 cm.</p><p>CO2: supplementation is highly recommended; it is very difficult to grow this plant without CO2.</p><p>Fertilization: add root tabs periodically. The plant needs nitrate of 10-20 mg/l and phosphate of 1-2 mg/l. Macro and micronutrients should be added together.</p><p>If planting it in a shrimp tank, note that high CO2 levels and copper (present in most fertilizers) are extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eriocauloncinereum(091TC)/19547",
       "html": "<p>Aquarium plant from tissue culture in closed cup. The genus Eriocaulon is usually adapted to soft water. Eriocaulon cinereum is more tolerant than most and will thrive in medium-hard water. Soft water will promote overall health. This is a quite small, very narrow-leaved and almost cushion-growing plant, that demands good supply of light and CO2 to develop. The plant usually flowers very willingly after planting in the aquarium and the numerous flower stems give a unique appearance. Flowering easily drains the energy of the plant, but given the right conditions, it will gather new energy and grow from basis after some time.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Etymology: the genus name Eriocaulon derives from the Greek \"erios\" (woolly or hairy) and \"kaulon\" (stem), referring to the flower stalk, which may have fine hair-like structures. The species name cinereum is Latin for \"ash-coloured\", also referring to the colour of the flower.</p><p>Description: with its needle-like leaves extending in all directions, the plant strongly resembles a sea urchin. It is a freshwater, erect, annual, herbaceous rosette plant, typically 8 – 10 cm high and 10 – 15 cm wide. Leaves are very narrow (2 – 3 mm), long (10 – 15 cm) and membranaceous with pointed tips. During flowering it develops long stalks (25 – 30 cm) with flowers at the tips; in nature this lets the plant reach the water surface, pollinate and disperse seeds. Flowers are unisexual, male and female on the same plant (monoecious), usually pale whitish. The root system is very powerful and can be up to 2 times longer than the foliage. The plant can grow partially above water but should not be kept completely out of water for weeks.</p><p>Planting: bury the roots in the substrate at about 2.5 – 5 cm depth, spacing plants at least 7 – 10 cm apart. It is usually grown in greenhouses and may melt away once submerged; decaying leaves can hinder new shoots. To prevent this, lay the plants sideways on the substrate secured with a stone or staple; they quickly turn upward.</p><p>Propagation: (1) Division – carefully remove the plant, divide it into 2-3 parts by the rosette with a sharp knife or razor blade, remove unhealthy leaves, and trim about 1/2 to 1/3 of the roots if needed, then replant. Mother and daughter plants may die after division. Only divide if there are multiple plants in a cluster. (2) Seeds – once flower stalks reach the water surface, viable seeds are produced. Use a transparent plastic container with a 2.5 cm layer of substrate, add water along the edge, scatter the seeds; growth appears after 2-3 weeks, and plants with 5-6 small leaves can be planted underwater. This method is complex and not guaranteed, and bought seeds may be poor quality. (3) Rarely, a daughter plant grows directly from the flower stalk.</p><p>Flower stalks: flowering is inevitable. After releasing seeds the plant dies. Cutting or pulling off the stalks does not work; the plant keeps producing more and may survive an additional 1-3 months, but wilts with a 99% probability. Sometimes daughter rosettes form around the flower stalks, which is a good moment to divide the plant.</p><p>Problems: unattractive tall thin flower stalks; short lifespan (annual plant); large roots that can uproot part of the tank when relocating (take it out slowly); algae because of slow growth, which can be limited by adjusting light, regular water changes and algae eaters; demanding requirements for light, nutrients and CO2.</p><p>Benefits: used to visually define the boundary between foreground and midground; its structure holds biofilm and catches free-floating particles, creating a foraging place for shrimp; its root system helps break up anaerobic pockets in the substrate (hydrogen sulfide, H2S, smells like rotten eggs and can be dangerous to fish and shrimp).</p><p>Interesting fact: in Indonesia the plant is used as traditional medicine by the local community for fever, to boost the immune system, and to treat tumor cells.</p><p>Conclusion: the plant can quickly perish under unfavorable conditions, growth and propagation are challenging, and it changes visually during flowering.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Leach, Gregory John. “A revision of Australian Eriocaulon (Eriocaulaceae).” Telopea 20 (2017): 205-259.</li><li>Nugraha, Arde Toga, et al. “Cytotoxic activity of flavonoid from local plant Eriocaulon cinereum RB against MCF-7 breast cancer cells.” Journal of Advanced Pharmaceutical Technology &amp; Research 12, no. 4 (2021): 425.</li><li>Larridon, Isabel, et al. “First molecular phylogenetic insights into the evolution of Eriocaulon (Eriocaulaceae, Poales).” Journal of plant research 132 (2019): 589-600.</li><li>Sokoloff, Dmitry D., et al. “Stability despite reduction: flower structure, patterns of receptacle elongation and organ fusion in Eriocaulon (Eriocaulaceae: Poales).” Plants 9, no. 11 (2020): 1424.</li><li>Moghe, Snehal, and Veenapani Dubey. “Eriocaulaceae of rice fields of Bilaspur in Chhattisgarh.” Current Botany 8 (2017): 141-143.</li><li>Kraemer, Liziane, and Juliana Maria Fachinetto. “NICHO ECOLÓGICO E ANÁLISE FILOGENÉTICA DE Eriocaulon L. UTILIZANDO O GENE rpoC1.” Salão do Conhecimento 7, no. 7 (2021).</li><li>Roskov Y., et al. (ed) (2019). “Species 2000 &amp; ITIS Catalogue of Life: 2019 Annual Checklist”. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X. TaxonID: 43184246.</li><li>Chaudhary, Amit, et al. “Effect of weed species on drought tolerant rice genotypes at Sundarbazar, Lamjung, Nepal.” Open Agriculture 4, no. 1 (2019): 65-78.</li><li>Choi, Yu Seong, and Jae Geun Kim. “Seed bank has potential for the restoration of insectivorous plants in Janggun montane wetland.” Ecological Engineering 182 (2022): 106728.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/f60bbce5dac44a44.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/f60bbce5dac44a44-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/5f98dc8ae9a9150c.webp",
+      "thumb": "https://media.aquatome.com/commons/5f98dc8ae9a9150c-480.webp",
       "width": 960,
       "height": 1284,
       "licence": "CC BY-SA 3.0",
       "author": "Show_ryu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriocaulon_cinereum.JPG",
-      "caption": "A Specimen of Eriocaulon cinereum",
-      "thumb": "https://media.aquatome.com/commons/5f98dc8ae9a9150c-480.webp"
+      "caption": "A Specimen of Eriocaulon cinereum"
     },
     {
       "url": "https://media.aquatome.com/commons/f0abbe8601a44710.webp",
+      "thumb": "https://media.aquatome.com/commons/f0abbe8601a44710-480.webp",
       "width": 960,
       "height": 1440,
       "licence": "CC BY-SA 4.0",
       "author": "V C Balakrishnan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriocaulon_cinereum_(8).JPG_-_Photo_by_V_C_Balakrishnan.jpg",
-      "caption": "Photos of plants taken by V C Balakrishnan",
-      "thumb": "https://media.aquatome.com/commons/f0abbe8601a44710-480.webp"
+      "caption": "Photos of plants taken by V C Balakrishnan"
     },
     {
       "url": "https://media.aquatome.com/commons/42b4b07f7b30b8f5.webp",
+      "thumb": "https://media.aquatome.com/commons/42b4b07f7b30b8f5-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "V C Balakrishnan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriocaulon_cinereum_(14).JPG_-_Photo_by_V_C_Balakrishnan.jpg",
-      "caption": "Photos of plants taken by V C Balakrishnan",
-      "thumb": "https://media.aquatome.com/commons/42b4b07f7b30b8f5-480.webp"
+      "caption": "Photos of plants taken by V C Balakrishnan"
     },
     {
       "url": "https://media.aquatome.com/commons/8670dab53cbe3bf0.webp",
+      "thumb": "https://media.aquatome.com/commons/8670dab53cbe3bf0-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "V C Balakrishnan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriocaulon_cinereum_(12).JPG_-_Photo_by_V_C_Balakrishnan.jpg",
-      "caption": "Photos of plants taken by V C Balakrishnan",
-      "thumb": "https://media.aquatome.com/commons/8670dab53cbe3bf0-480.webp"
+      "caption": "Photos of plants taken by V C Balakrishnan"
     }
   ],
   "productSlots": [
@@ -95,5 +158,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

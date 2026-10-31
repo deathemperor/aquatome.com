@@ -1,0 +1,129 @@
+{
+  "id": "parakysis-verrucosus",
+  "scientificName": "Parakysis verrucosus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Parakysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "johore",
+    "indonesia",
+    "riau-archipelago"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 19,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.7,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>Family: Akysidae. Size: 5.0 cm (2 in). Temperature: 19-23°C (65-73°F). pH: 6.7-7.2.</p><p>The genus Parakysis currently has only 6 species. Parakysis can easily be distinguished from Akysis and Pseudobagarius because they do not possess an adipose fin as such, having only an adipose ridge, which can be hard to distinguish as it is shallow and runs along the median of the dorsal surface.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra. Type locality: Mawai District, Johore, Malaysia.</p><p>This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago. The estimated extent of occurrence (EOO) is 95,000 km2 and the area of occupancy (AOO) is estimated to be between 1,900-2,000 km2.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>An aquarium having a gravel substrate and containing areas of pebbles, small rocks and a scattering of small grass-like plants would make an ideal set-up for these little hillstream catfishes. Fish such as Brachydanio rosaeus and Barbus rhombocellatus would make excellent tank companions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>A diet of live foods such as Daphnia, Cyclops, small bloodworms and white worms should be offered, as like most of the sub-family Parakysinae, Parakysis tends not to feed on commercially prepared dried foods, although they will accept small frozen bloodworms.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>IUCN Red List: this species is a peat swamp forest obligate. Based on the pervasive threat of peat swamp destruction due to land conversion, the number of locations is defined as one to five. Given a limited number of locations, a restricted AOO, and a major pervasive threat, this species is assessed as Vulnerable (VU) under criteria D2 and B2ab(ii,iii,v) (IUCN 2019).</p><p>Etymology: Parakysis: para-, near, i.e. similar to Akysis but lacking an adipose fin. verrucosus: covered with verrucae, or warts, the skin \"covered everywhere with very small granules or tubercles\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ng, H.H. 2019. Parakysis verrucosus. The IUCN Red List of Threatened Species 2019.</p><p>ScotCat Factsheet no. 195. Sept. 2012.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/adeb87c13afde53a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/adeb87c13afde53a-480.webp",
+      "width": 500,
+      "height": 247,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "caption": "Parakysis verrucosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c60181ebc563cf5a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c60181ebc563cf5a-480.webp",
+      "width": 500,
+      "height": 392,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
+      "caption": "Parakysis verrucosus: dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo sống",
+        "trùng huyết đông lạnh",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền hồ cá",
+        "sỏi cuội trang trí"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá",
+        "lọc dòng chảy nhẹ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

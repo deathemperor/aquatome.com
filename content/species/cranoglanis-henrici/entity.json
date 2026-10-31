@@ -1,0 +1,65 @@
+{
+  "id": "cranoglanis-henrici",
+  "scientificName": "Cranoglanis henrici",
+  "order": "Siluriformes",
+  "family": "Cranoglanididae",
+  "genus": "Cranoglanis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "vietnam",
+    "da-river",
+    "china"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
+      "html": "<ul><li><strong>Scientific name:</strong> Cranoglanis henrici (Vaillant, 1893)</li><li><strong>Family:</strong> Cranoglanididae</li><li><strong>Synonym:</strong> Anopleutropius henrici</li><li><strong>Etymology:</strong> Greek kranion = skull + Greek glanis = a cat fish</li><li><strong>Size:</strong> 290 mm (11.4 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2010)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
+      "html": "<p>Asia: Viet Nam and China. Type locality: Black River, Upper Tonkin [= Song Da], northern Vietnam.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
+      "html": "<p>Bulletin de la Société philomathique de Paris (8th Série) v. 5 (no. 4), pp 199 [3].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,88 @@
+{
+  "id": "pseudolithoxus-tigris",
+  "scientificName": "Pseudolithoxus tigris",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudolithoxus",
+  "group": "catfish",
+  "lNumber": "L257",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
+      "html": "<p><strong>Scientific name:</strong> Pseudolithoxus tigris (Armbruster &amp; Provenzano, 2000)</p><p><strong>Common names:</strong> L257, Tigerstribet Flyversugemalle (Denmark), Tigerstriped Plane Pleco</p><p><strong>Synonym:</strong> Lasiancistrus tigris</p><p><strong>Pronunciation:</strong> sue doh lith ox uss</p><p><strong>Size:</strong> 94 mm (3.7\") SL</p><p><strong>Temperature:</strong> 23.0-27.0°C (73.4-80.6°F)</p><p><strong>IUCN Red List category:</strong> Least Concern, last assessed 2021.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
+      "html": "<p>South America: Orinoco, Upper Orinoco, Ventuari.</p><p>Type locality: backwater of Río Orinoco behind a sand playa, approximately 0.5 hr upstream from Isla Temblador, 3°04'N, 66°28'W, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
+      "html": "<p>There is but a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
+      "html": "<p>Etymology: Greek, pseudes = false + Greek, lithos = stone + Greek, oxys = sharp. Lorica, Loricare = cuirass of corslet of leather (a suit of armour made of leather).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 11 (no. 3), pp 251, Fig. 5.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

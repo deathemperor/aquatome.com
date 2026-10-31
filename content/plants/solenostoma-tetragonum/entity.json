@@ -1,0 +1,51 @@
+{
+  "id": "solenostoma-tetragonum",
+  "scientificName": "Solenostoma tetragonum",
+  "difficulty": 3,
+  "light": "high",
+  "co2": "required",
+  "growth": "slow",
+  "placement": [
+    "foreground",
+    "epiphyte"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Solenostomatetragonum'PearlMoss'(002TC)/31163",
+      "html": "<ul><li><strong>Growth rate:</strong> slow</li><li><strong>Height:</strong> 0.2 - 5+ cm (average height after two months in the tank)</li><li><strong>Light demand:</strong> high</li><li><strong>CO2:</strong> medium</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Solenostomatetragonum'PearlMoss'(002TC)/31163",
+      "html": "<p>Solenostoma tetragonum 'Pearl Moss' is a rare and distinctive liverwort from Borneo, offering a fresh and highly decorative look compared to traditional aquarium mosses. Its small, round, translucent leaves form dense, cushion-like growth with a deep green colour that adds detail and texture to any aquascape.</p><p>This species grows slowly and attaches naturally to rocks and driftwood, where it develops compact, elegant mats. It is ideal for nano aquariums or for adding fine structure in larger layouts, especially in combination with Bucephalandra and other shade-loving species.</p><p>Solenostoma tetragonum thrives under stable conditions with CO2 injection and a good nutrient balance. With time and proper care, it rewards the aquarist with striking, pearl-like oxygen bubbles forming between its closely packed leaves.</p>"
+    }
+  ],
+  "photos": [],
+  "productSlots": [
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 thủy sinh",
+        "bình CO2 cho bể nano"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh",
+        "đèn bể thủy sinh ánh sáng mạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu thủy sinh",
+        "Bucephalandra"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

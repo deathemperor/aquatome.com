@@ -14,13 +14,18 @@
     "diet:seriouslyfish": "<p>Là loài săn mồi bắt buộc, ăn các loài cá khác ngoài tự nhiên, nhưng trong điều kiện nuôi thường chấp nhận thức ăn khô chất lượng tốt.</p><p>Để có sức khỏe tối ưu, nên cho ăn thêm thức ăn thịt như miếng cá thịt trắng, giun đất sống, tôm, v.v.</p><p>Cá trưởng thành không cần cho ăn hằng ngày; 2-3 bữa mỗi tuần là đủ.</p>",
     "behaviour:seriouslyfish": "<p>Loài này sẽ ăn những loài cá đủ nhỏ để lọt vào cái miệng rộng của nó và có tính lãnh thổ hung hăng với đồng loại, nên tốt nhất nuôi một cá thể duy nhất trong bể chung với các loài lớn hơn, lý tưởng là loài sống ở sông chảy.</p>",
     "notes:seriouslyfish": "<p>Loài này còn được bán với tên cá da trơn 'Jello Band' hoặc 'Yellow Band'.</p>",
-    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>",
+    "diet:planetcatfish": "<p>Cá chịu ăn thức ăn viên khô, giun đất hoặc phi lê cá. Giun đất có lẽ là món ăn chính tốt nhất.</p>",
+    "behaviour:planetcatfish": "<p>Đây là loài săn mồi. Con gì đủ nhỏ thì nó đều ăn. Loài này sống đơn độc và rất hung dữ với đồng loại. Nó chiếm giữ một vùng lãnh thổ rộng.</p><p>Cá nuôi chung phải đủ lớn để nó không coi là mồi. Bạn không cần lo chuyện tranh ăn, vì loài này săn mồi rất giỏi.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về chuyện loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Về nguồn gốc tên gọi, Aguarun là tên một bộ tộc người da đỏ Peru sống ở Ecuador. Còn \"ichthys\" là tiếng Hy Lạp, nghĩa là cá.</p>"
   },
   "quality": {
-    "score": 0.88,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.88
+      "seriouslyfish": 0.88,
+      "planetcatfish": 0.85
     }
   }
 }

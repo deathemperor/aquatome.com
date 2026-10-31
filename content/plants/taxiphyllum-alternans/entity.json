@@ -3,11 +3,9 @@
   "scientificName": "Taxiphyllum alternans",
   "difficulty": 1,
   "light": "low",
-  "co2": "none",
+  "co2": "optional",
   "growth": "medium",
   "placement": [
-    "foreground",
-    "midground",
     "epiphyte"
   ],
   "sections": [
@@ -18,22 +16,40 @@
       "html": "<p>Taiwan moss is similar to Java moss but has more branching nodes and grows in a thicker, bushier fashion.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "html": "<ul><li>Type: Moss</li><li>Origin: Asia</li><li>Growth rate: Medium</li><li>Height: 3 - 10+ cm</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "html": "<p>Growth of Mini Taiwan moss is horizontal and overhanging, like a mini version of 'Weeping moss'. Attaching to branching wood or vertical rock will present it at its best and is also very useful for a moss wall or for hiding installations in the aquarium. It is an easy and decorative moss with quite low demands, but good light and some added CO2 will promote growth and branching.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/taiwan-moss",
       "html": "<p>It is very good for low light tanks where you need hiding space for community tanks, as well as for raising fry.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "html": "<p>Full identity of this beautiful moss is not yet established and studies may likely place it as a species of family Isopterygium.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/4a66ebc335f88fc1.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/4a66ebc335f88fc1-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/taiwan-moss",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/4a66ebc335f88fc1-480.webp"
+      "source": "bwaquatics"
     }
   ],
   "productSlots": [
@@ -52,5 +68,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

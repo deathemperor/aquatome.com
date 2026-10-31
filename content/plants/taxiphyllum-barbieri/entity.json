@@ -17,10 +17,22 @@
       "html": "<ul><li>One of the easiest aquarium plants to grow; hardy and versatile.</li><li>Can grow with no light at all.</li><li>Does not root; it attaches itself to surfaces.</li><li>Light green tips indicate new growth.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri'BogorMoss'(003POR)/4391",
+      "html": "<ul><li><strong>Type:</strong> Moss</li><li><strong>Origin:</strong> Asia</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 3 - 10+ cm</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
       "html": "<p>Java Moss is extremely durable. There are instances where a plant was forgotten in a bucket for up to two months and was still alive and growing when found. It is rare for someone to be unable to keep Java Moss alive, which makes it great for beginners.</p><p>To keep the moss neater in the tank, give it a quick trim. Trimming keeps the plant healthy and does not damage future growth.</p><p>Hair algae can sometimes grow on the moss, but adding a few shrimp to the tank can take care of that problem. Shrimp will happily eat the white fluff away.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri'BogorMoss'(003POR)/4391",
+      "html": "<p>Attach the plant with a piece of fishing line or cotton thread until it has gained a hold on the décor. If its growth becomes too luxuriant, it can be pruned with scissors.</p>"
     },
     {
       "key": "behaviour",
@@ -33,19 +45,25 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
       "html": "<p>Java Moss does not root. Instead, it attaches itself to things, much like ivy, and will not root into your gravel. It tends to anchor in one spot and float there, its green wisps resting above the gravel.</p><p>It looks good in most aquariums and is easily used for aquascaping. It can be draped over or attached to branches, high or low, inside the tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri'BogorMoss'(003POR)/4391",
+      "html": "<p>Taxiphyllum barbieri 'Bogor Moss' from South-East Asia is a hardy plant which makes few demands on the water or light. The moss becomes 3-10 cm thick and grows willingly on any surface, so it is ideal for decorating stones and tree roots or concealing installations in the aquarium. In breeding aquariums Taxiphyllum barbieri is a wonderful hiding place for the young fish.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
       "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
-      "source": "aquariumcoop",
-      "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp"
+      "source": "aquariumcoop"
     }
   ],
   "productSlots": [
@@ -70,5 +88,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

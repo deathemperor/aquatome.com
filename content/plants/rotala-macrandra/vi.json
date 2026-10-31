@@ -4,7 +4,10 @@
   "altNames": [
     "Rotala đỏ khổng lồ",
     "Rotala macrandra đỏ",
-    "Giant Red Rotala"
+    "Giant Red Rotala",
+    "Rotala macrandra 'Japan'",
+    "Rotala đỏ Nhật",
+    "Giant red rotala"
   ],
   "sections": {
     "quickFacts:aquariumbreeder": "<ul><li>Tên khác: Giant Red Rotala (Rotala đỏ khổng lồ)</li><li>Độ khó: Khó</li><li>Ánh sáng: Mạnh</li><li>pH lý tưởng: 6,0–7,5</li><li>GH lý tưởng: 3–8</li><li>Nhiệt độ lý tưởng: 22–26 °C</li><li>Nền: cần nền giàu dinh dưỡng</li><li>Dạng cây: cây thân đứng</li><li>Tốc độ lên: trung bình đến nhanh</li><li>Vị trí: trung cảnh hoặc hậu cảnh</li><li>CO2: cần</li><li>Chiều cao: 20–30 cm</li><li>Nhân giống: giâm ngọn</li></ul>",
@@ -13,13 +16,17 @@
     "aquariumSize:aquariumbreeder": "<p>Cây có thể lên rất mạnh nên cần nhiều không gian. Bể nên có dung tích tối thiểu khoảng 40 lít.</p>",
     "waterConditions:aquariumbreeder": "<ul><li>Nhiệt độ: 22–26 °C.</li><li>pH: 6,0–7,5. Cây thích nước hơi chua.</li><li>Độ cứng: cây cần nước mềm, khoảng 3–8 dKH.</li><li>CO2: bắt buộc phải châm CO2, mức nên giữ là 15–25 ppm. Cây không chịu được CO2 lên xuống thất thường. CO2 dao động có thể làm ngọn bị còi, nhất là ở những giống yếu hơn.</li><li>Muốn cây đỏ đậm: giữ phosphate khoảng 1,5–2,0 ppm và nitrat dưới 10 ppm.</li></ul><p>Nếu bạn nuôi tép chung với cây này, hãy nhớ rằng CO2 cao và đồng (có trong phần lớn các loại phân) cực kỳ nguy hiểm với tép.</p>",
     "equipment:aquariumbreeder": "<p>Ánh sáng: Rotala macrandra là cây khó chiều. Phần lớn các giống cần đèn cường độ cao mới lên khỏe và giữ được màu đậm. Bạn nên dùng đèn LED thủy sinh loại tốt hoặc một nguồn sáng chất lượng khác, giữ PAR ở mức phù hợp và thời gian chiếu sáng theo chuẩn thông thường. Phần dưới của cây có thể bị tan do thiếu sáng hoặc do cây cao hơn che mất.</p><p>Nền: cây cần nền giàu dinh dưỡng. Các loại phân nền (aqua soil) giàu dinh dưỡng giữ được amoniac và các chất thiết yếu. Nhờ vậy thân cây mập hơn, lá dày và khỏe hơn. Một số loại nền nên dùng:</p><ul><li>ADA Amazonia aqua soil</li><li>Carib Sea Eco-Complete</li><li>Seachem Fluorite</li></ul>",
-    "maintenance:aquariumbreeder": "<p>Đây không phải loại cây thân đứng dành cho người mới chơi. Cây cần đèn mạnh, CO2 ổn định và châm phân nước liều nhẹ thì mới lên tốt và giữ màu tươi. Khi thiếu phân đa lượng, lá phía dưới sẽ xấu dần. Còn thiếu vi lượng thì cây lên màu kém và gặp thêm các vấn đề khác. Khi đã ổn định, cây lên khá nhanh.</p><p>Bạn nên dùng kéo sắc tỉa thường xuyên những thân mọc quá dài để chúng không chạm mặt nước. Phần ngọn cắt ra có thể cắm lại hoặc bỏ đi. Mỗi tuần nên thay khoảng 25% nước bằng nước đã khử clo để giữ nước sạch và loại bớt nitrat dư. Lịch châm phân cần đều đặn, liều nhẹ, đủ cả đa lượng lẫn vi lượng mà cây cần.</p>"
+    "maintenance:aquariumbreeder": "<p>Đây không phải loại cây thân đứng dành cho người mới chơi. Cây cần đèn mạnh, CO2 ổn định và châm phân nước liều nhẹ thì mới lên tốt và giữ màu tươi. Khi thiếu phân đa lượng, lá phía dưới sẽ xấu dần. Còn thiếu vi lượng thì cây lên màu kém và gặp thêm các vấn đề khác. Khi đã ổn định, cây lên khá nhanh.</p><p>Bạn nên dùng kéo sắc tỉa thường xuyên những thân mọc quá dài để chúng không chạm mặt nước. Phần ngọn cắt ra có thể cắm lại hoặc bỏ đi. Mỗi tuần nên thay khoảng 25% nước bằng nước đã khử clo để giữ nước sạch và loại bớt nitrat dư. Lịch châm phân cần đều đặn, liều nhẹ, đủ cả đa lượng lẫn vi lượng mà cây cần.</p>",
+    "quickFacts:tropica": "<ul><li>Loại: cây thân đứng (stem)</li><li>Xuất xứ: châu Á</li><li>Tốc độ phát triển: trung bình</li><li>Chiều cao: 20-30+ cm</li><li>Nhu cầu ánh sáng: cao</li><li>CO2: cao</li></ul>",
+    "maintenance:tropica": "<p>Khi tỉa, bạn cắt những thân dài nhất ở đoạn cách mặt nền 5-10 cm, rồi cắm lại phần ngọn vào cụm.</p>",
+    "notes:tropica": "<p>Rotala macrandra 'Japan' là một cây thủy sinh rất đẹp. Tiếc là nó cũng rất khó chơi. Biến thể này dễ trồng hơn một chút và lên màu đẹp hơn. Muốn cây lên sắc đỏ đẹp thì đèn phải thật mạnh. Châm CO2 và giữ nước mềm cũng là điều bắt buộc nếu bạn muốn cây phát triển tốt nhất.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "aquariumbreeder": 0.8
+      "aquariumbreeder": 0.8,
+      "tropica": 0.9
     }
   }
 }

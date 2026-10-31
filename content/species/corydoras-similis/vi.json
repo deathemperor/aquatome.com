@@ -1,0 +1,23 @@
+{
+  "slug": "ca-chuot-tim",
+  "name": "Cá chuột tím",
+  "altNames": [
+    "Cá chuột đốm lem",
+    "Cá chuột violet",
+    "Smudge Spot Cory",
+    "Violet Cory Catfish"
+  ],
+  "sections": {
+    "beforeYouBuy:bwaquatics": "<p>Đây là một loài cá chuột rất hay và không phổ biến lắm. Có nơi gọi nó là cá chuột tím. Cá rất hiền, hợp với nhiều kiểu bể cộng đồng. Bạn chỉ cần tránh nuôi chung với cá lớn có thể tìm cách ăn chúng. Nếu chuyện đó xảy ra thì nhiều khả năng cả hai con đều chết.</p>",
+    "behaviour:bwaquatics": "<p>Loài này nuôi theo nhóm là tốt nhất. Chúng thích túm tụm thành đàn bơi chỗ này chỗ kia.</p>",
+    "diet:bwaquatics": "<p>Hiện cá đang ăn giun đen, trùng huyết đông lạnh và thức ăn viên.</p>",
+    "waterConditions:bwaquatics": "<p>Hiện cá đang sống ở nước có pH 6-7. Dù vậy, chúng có thể thích nghi với nhiều mức pH khác nhau.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "bwaquatics": 0.8
+    }
+  }
+}

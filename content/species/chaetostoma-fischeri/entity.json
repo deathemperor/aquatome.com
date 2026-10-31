@@ -1,0 +1,83 @@
+{
+  "id": "chaetostoma-fischeri",
+  "scientificName": "Chaetostoma fischeri",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Chaetostoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1173",
+      "html": "<p>Pronunciation: KATE oh STOW mah. Etymology: Greek, chaite = hair + Greek, stoma = mouth.</p><p>Identification: The genus Chaetostoma is not straightforward to identify, but as a general rule, the species has spines behind the gill-cover (interopercular odontodes), no plates on the abdomen, and aside from C. platyrhynchus also lack plates on the snout edge. Different from Ancistrus by not having fleshy tentacles on the snout.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1173",
+      "html": "<p>Colombia: Rio Magdalena, Colombia Caribbean Rivers, Magdalena.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1173",
+      "html": "<p>Well rounded stones stacked to replicate a river bottom and provide caves.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1173",
+      "html": "<p>The males have a larger and broader head, slimmer ventral sides and disproportionately large pelvic fins. Perhaps the over-sized pelvic fins play a large role in the fertilization of the eggs. By inverting these over the clutch of eggs, they prevent the sperm cells being carried away by fast water current.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1173",
+      "html": "<p>Unreported.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bd62890f723261dd.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaetostoma_fischeri_(16521483575).jpg",
+      "caption": "Chaetostoma fischeri",
+      "thumb": "https://media.aquatome.com/commons/bd62890f723261dd-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau củ chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,103 @@
+{
+  "id": "pseudobagarius-leucorhynchus",
+  "scientificName": "Pseudobagarius leucorhynchus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Pseudobagarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm",
+      "html": "<p>Family: Akysidae. Adult size: 3.0 cm. Temperature: 18–24°C. pH: 6.5–7.5.</p><p>Description: Akysidae with the following combination of characters: snout extending well anterior of margin of lower jaw, rendering mouth subterminal; narial openings relatively large and closely set; and caudal fin deeply forked. Dorsal soft rays (total): 6; anal soft rays: 6–8; vertebrae: 31–34. Distinguished from all its congeners by: light-yellow snout with a sharp, contrasted edge; 4–6 small serrae on the posterior edge of the pectoral spine; head width 20.3–25.5% SL; depth of caudal peduncle 5.5–7.1% SL; length of anal-fin base 9.7–16.6% SL; length of nasal barbel 16–38% HL; 5 branchiostegal rays; and deeply emarginate caudal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm",
+      "html": "<p>Asia: Thailand; Chao Phraya basin and southern Peninsular. Phitsanulok Province. Type locality: Chieng Mai, North Siam.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm",
+      "html": "<p>Etymology: the genus name Pseudobagarius is tautonymous with Akysis pseudobagarius, proposed for members of the \"pseudobagarius group\" of Akysis; pseudo- means false, referring to the striking (but phylogenetically false) resemblance to the sisorid genus Bagarius. The specific name leucorhynchus: leuco- means white, rhynchus means snout, referring to the white end of the muzzle.</p><p>Remarks: A look-alike, Akysis pulvinatus, is thought to mimic this catfish in the same habitat, a so-called Müllerian mimic.</p><p>IUCN Red List: There is insufficient information about the geographic distribution and population size of this species for an accurate assessment, and it is assessed as Data Deficient. Despite earlier assessments as Vulnerable by Vidthayanon (2005), there are no empirical data to justify this assessment, but it needs updating (IUCN 2012).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm",
+      "html": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (09/2008).</p><p>Ng, H.H. 2012. Pseudobagarius leucorhynchus. The IUCN Red List of Threatened Species 2012.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c2d67d30c6e145a6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c2d67d30c6e145a6-480.webp",
+      "width": 500,
+      "height": 271,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_leucorhynchus.htm",
+      "caption": "Pseudobagarius leucorhynchus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,137 @@
+{
+  "id": "aphanotorulus-unicolor",
+  "scientificName": "Aphanotorulus unicolor",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Aphanotorulus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-purus"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>Aphanotorulus unicolor (Steindachner, 1908). Type locality: Rio Purus, Brazil. Etymology: Greek aphanes = hidden + Latin torulus = muscle, little string.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>South America: Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>Temperature: 25.0-28.0°C (77-82.4°F).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>In Aphanotorulus, all species show clear sexual dimorphism. Males in breeding condition possess extremely elongate, bristle-like odontodes. These cover the entire back and sides behind the dorsal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>Size: 139 mm (5.5\") SL.</p><p>Identification: In Aphanotorulus, all species have a generally flatter appearance than other hypostomine genera. The posterior edge of the oral disc is jagged rather than smooth. Aphanotorulus can be distinguished from Isorineloricaria by having caudal peduncles that do not become greatly lengthened with size and that are oval in cross section (vs. caudal peduncle proportions that get proportionately longer with size and become round in cross-section), and by having small dark spots (less than half plate diameter) on a light tan background (vs. spots almost as large as lateral plates on a nearly white background).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Klasse v. 45 (no. 11) (for 2 Apr. 1908), pp 164.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c5c4c778348981dc.webp",
+      "width": 960,
+      "height": 1508,
+      "licence": "CC BY 4.0",
+      "author": "Ronaldo Souza da Silva et. al.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_species_collected_from_sandy_beaches_of_the_Acre_river_Brazil_(5_of_5).png",
+      "caption": "Fish species collected on the beaches of Acre river, Acre, Brazil.58) Aphanotorulus unicolor;59) Hypostomus cf. pyrineusi;60) Farlowella nattereri;61) Lamontichthys filamentosus;62) Limatulichthys gri",
+      "thumb": "https://media.aquatome.com/commons/c5c4c778348981dc-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/96aa04b3f3933668.webp",
+      "width": 960,
+      "height": 485,
+      "licence": "CC BY-SA 3.0",
+      "author": "V.D.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypostomus_basilisko1.jpg",
+      "caption": "Hypostomus basilisko (syn. Cochliodon basilisko), also known as \"red bruno\" or Cochlidion sp. Paraguay)",
+      "thumb": "https://media.aquatome.com/commons/96aa04b3f3933668-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a6e1a857982ec1a4.webp",
+      "width": 960,
+      "height": 684,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphanotorulus_unicolor.jpg",
+      "caption": "Aphanotorulus unicolor",
+      "thumb": "https://media.aquatome.com/commons/a6e1a857982ec1a4-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

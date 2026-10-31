@@ -1,0 +1,157 @@
+{
+  "id": "notoglanidium-macrostoma",
+  "scientificName": "Notoglanidium macrostoma",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Notoglanidium",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "angola",
+    "chiloango",
+    "congo",
+    "loeme",
+    "gabon",
+    "ogooue",
+    "cameroon",
+    "sanaga"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<ul><li>Scientific name: Notoglanidium macrostoma (Pellegrin, 1909)</li><li>Size: 240 mm (9.4\") SL</li><li>Type locality: Ogowe River at Ngomo, Gabon</li><li>An uncommon import but the most commonly imported member of the genus.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Africa: Chiloango basin in Angola, central basin of the Congo, Loémé basin in Congo, Ogooué basin in Gabon and the basins of the Nyong, Sanaga and Dja in Cameroon.</p><p>IUCN Red List category: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>pH 6.4–8.0; temperature 22.0–27.0°C (71.6–80.6°F). Prefers soft, mildly acid to neutral (pH 6.5–7.2) water, but can usually be maintained in mildly alkaline systems up to pH 8.0.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Medium sized rock work and bogwood. This species likes to root around in the substrate so make sure rocks and stones are well placed and plants will need to be potted.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Their diet includes catfish pellets, prawns, earthworms, catfish tablets and frozen bloodworm, as well as smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Tends to be territorial and, with its predatory nature, is not suited for the general community tank. Fares much better in an African concept tank with other robust fish. Not suitable with small fish.</p><p>Provide enough tank space and hiding places if more than one individual is kept in the same tank. Ideal tankmates include riverine Synodontis, large African tetras (such as Brycinus or Alestes spp.), African barbs such as Barbus camptacanthus, riverine African cichlids such as Pelvicachromis, and African labyrinth fishes (Ctenopoma). Its territorial nature means it should not be kept with too many bottom-dwelling fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Males are smaller than females and may be darker.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>This species has been accidentally spawned in the aquarium, and as such the spawning trigger is unknown. The fish nests in shelter (e.g. under rocks), and the parents (especially the male) exhibit brood care. The fry are free-swimming in approximately two weeks. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=102",
+      "html": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 15 (no. 2), pp 67</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9e20318f1f5bdd38.webp",
+      "width": 960,
+      "height": 636,
+      "licence": "CC BY 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cameroon2011_6_(1)_(7003775597).jpg",
+      "caption": "Anaspidoglanis macrostomus",
+      "thumb": "https://media.aquatome.com/commons/9e20318f1f5bdd38-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fa06ded2bef5d91b.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cameroon2011_9_(6857650358).jpg",
+      "caption": "Anaspidoglanis macrostomus",
+      "thumb": "https://media.aquatome.com/commons/fa06ded2bef5d91b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a92bc62da0583fcc.webp",
+      "width": 806,
+      "height": 392,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert, 1858-1937",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notoglanidium_macrostoma.jpg",
+      "caption": "Notoglanidium macrostoma syn. Parauchenoglanis ansorgii",
+      "thumb": "https://media.aquatome.com/commons/a92bc62da0583fcc-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

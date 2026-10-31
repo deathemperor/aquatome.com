@@ -7,144 +7,124 @@
   "group": "catfish",
   "places": [
     "africa",
-    "burundi",
-    "lake-tanganyika",
-    "democratic-republic-of-the-congo",
-    "tanzania",
-    "zambia"
+    "lake-tanganyika"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": {
-          "min": 24,
+          "min": 25,
           "max": 28
         }
       }
     ],
     "ph": [
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": {
           "min": 7.5,
-          "max": 8.5
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 10,
-          "max": 35
+          "max": 9
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 13
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 90
+        "source": "glaser",
+        "value": 10
       }
     ],
     "difficulty": [
       {
-        "source": "seriouslyfish",
-        "value": 6
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>The dwarf lake Synodontis, Synodontis petricola, is a small, peaceful Synodontis catfish endemic to Lake Tanganyika. Unlike most of the genus it is bred quite often in aquaria, usually as an open-spawning egg scatterer, though it is also one of the few fish known to practise brood parasitism. It should be kept in a group of four or more, and a dwarf form adapts to a wider range of water chemistry.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<ul><li>Usually 8-10 cm long; very old animals may reach 15 cm in huge aquaria.</li><li>pH above 7.5, temperature 25°C or warmer.</li><li>Peaceful with each other and with other fish, with a few exceptions.</li><li>Currently offered almost exclusively as a captive-bred species.</li></ul>"
     },
     {
-      "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>This species is endemic to Lake Tanganyika.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>This species is endemic to Lake Tanganyika. Its name refers to its preferred habitat among the rocks of the lake (petra = rock or stone, cola = dweller).</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Standard length: 130 mm SL (5 in). Aquarium base: 90 × 30 cm. Volume: ~81 litres. A tank of 90 × 30 × 30 cm (~81 litres) is the minimum, as a group should be kept.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Should be housed in a Lake Tanganyika biotope setup, with piles of rocks arranged to form caves and areas of open water for swimming. Dim lighting will encourage the fish to be seen more often.</p>"
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>S. petricola is currently offered almost exclusively as a captive-bred species and is a perfect catfish for Tanganyika cichlid aquariums, but also fits well in other communities.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<ul><li>Temperature: 24–28 °C</li><li>pH: 7.5–8.5</li><li>Hardness: 10–35 dGH</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>The water should have a pH value above 7.5 and be 25°C or warmer, otherwise the fish have no special requirements.</p>"
     },
     {
       "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>They will eat all common ornamental fish food.</p>"
     },
     {
       "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Should not be kept with any fish so small as to be considered food but makes a good addition to a community of hard water cichlids, ideally mouthbrooding species of Rift Lake origin. It can also be kept with suitably sized rainbowfish and livebearers. The dwarf form can be kept with many different species due to its adaptability regarding water chemistry. Both forms should be kept in a group of 4 or more as single specimens are often very secretive. One of the most peaceful species of Synodontis available.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Mature females are rounder in the belly than males. Cannot be sexed using the genital papillae technique as it is too small.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Unlike the majority of the genus, S. petricola is actually bred quite often in aquaria. It is usually an open spawning egg scatterer but it is also one of the few fish known to exhibit a method of spawning known as brood parasitism. The others also being Tanganyikan Synodontis species. The catfish times its spawning to coincide with that of a 'host' mouthbrooding cichlid and lays its eggs among those of the host fish. The Synodontis eggs hatch much quicker than the cichlids' and the young catfish quickly devour all the mouthbrooder's eggs. The unwitting cichlid then guards the fry as if they are their own.</p><p>However, in aquaria by far the most productive method of breeding is to set up a separate breeding tank and try and raise all the eggs. The tank can be quite simple but should contain hiding places in the form of rock piles or terracotta pots. Water should be kept very clean with minimal nitrates. The fish can be spawned in pairs or groups (flock spawning) and whichever method is used, they should be brought into condition with plenty of live and frozen foods.</p><p>Spawning itself occurs following some chasing by the male. The fish adopt a similar stance to the \"T\" position seen in Corydoras breeding. The male grabs the female around the head area and eggs and sperm are released. They may also be seen lying alongside each other, quivering as spawning takes place. The adult fish should be removed once the spawn is complete in order to avoid egg predation.</p><p>The eggs hatch in around 24 hours with the fry becoming free swimming 2-3 days later. They are very small and should be offered infusoria for the first couple of days, followed by brine shrimp nauplii and powdered flake. They are fairly slow growing and it may take 6 months or more before they reach a saleable size. There are also reports of S. petricola spawning in caves so it is obviously unfussy with regards to breeding, provided conditions are to its liking.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>They are usually peaceful with each other and with other fish. A few exceptions prove the rule. These catfish live in shallow water in the wild and are only really active at night and at dusk. During the day they seek out dimly lit hiding places, which should also be offered to them in the aquarium. After acclimatization, however, S. petricola are often out and about in the aquarium during the day, especially at feeding times.</p>"
     },
     {
       "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<p>Highly recommended for any Tanganyikan community aquarium. The dwarf form can even be kept in a South American community.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>The squeaking catfish (Synodontis) of Lake Tanganyika became world-famous when one of their species was found to have cuckoo breeding behavior. This involves the catfish sneaking their spawn to mouthbrooding cichlids. The catfish are not only hatched by the cichlids, but the brood parasites even feed on the young cichlid stepsiblings in the mother's mouth. However, many of the lake's Synodontis do not exhibit cuckoo behavior, but are crevice spawners, depositing their eggs in rock crevices etc. and then leaving them to fend for themselves.</p><p>Among the non-parasitic catfishes, Synodontis petricola is the most frequently imported and bred species. Similar to the Tropheus cichlids of the lake, there are many different looking Synodontis petricola (\"phenotypes\"). The Synodontis petricola-like ones are distinguished from other similar-looking squeakers in the lake by a snow-white dorsal fin spine. A relatively small phenotype of this group was scientifically described in 2006 as Synodontis lucipinnis. It and a very similar, even smaller form were called \"Dwarf petricola\" in the hobby.</p><p>A major new study on the Synodontis of Lake Tanganyika and its inflows and outflows was published in September 2024 (Englmaier et al.). One of the findings was that S. lucipinnis falls within the variance of S. petricola and does not exist as an independent species. The authors confirm the large number of phenotypes in S. petricola; there are also genetic differences between them, but these are too minor to justify separate species. In the same paper, the cuckoo catfish S. grandiops is equated with S. multipunctatus, so the valid name for the cuckoo catfish is again S. multipunctatus, and S. ilebrevis is synonymized with S. polli.</p>"
     },
     {
       "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "html": "<ul><li>Hubert Matthes (1959). Poissons nouveaux du Lac Tanganika descriptions préliminaires Folia Scientifica Africae Centralis (Vol. 4), 76-78</li><li>Max Poll (1971). Révision des Synodontis Africains Annales du Musee Royal de Afrique Centrale</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "html": "<p>Englmaier, G. K., R. Blažek, R. Zimmermann, V. Bartáková, M. Polačik, J. Žák, D. P. Mulokozi, C. Katongo, H. H. Büscher, L. Mabo, S. Koblmüller, A. Palandačić &amp; M. Reichard (2024): Revised taxonomy of Synodontis catfishes (Siluriformes: Mochokidae) from the Lake Tanganyika basin reveals lower species diversity than expected. Zoological Journal of the Linnean Society v. 202 (art. zlae130): 1-38.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/9c3969ccf15182ec.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9c3969ccf15182ec-480.webp",
-      "width": 600,
-      "height": 400,
+      "url": "https://media.aquatome.com/glaser/ca9d260d0389cf45.webp",
+      "thumb": "https://media.aquatome.com/glaser/ca9d260d0389cf45-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-petricola",
-      "caption": "Synodontis petricola",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e7af93b817e291e9.webp",
+      "thumb": "https://media.aquatome.com/glaser/e7af93b817e291e9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a4d4a038d5055628.webp",
+      "thumb": "https://media.aquatome.com/glaser/a4d4a038d5055628-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/10d7cb09e810797d.webp",
+      "thumb": "https://media.aquatome.com/glaser/10d7cb09e810797d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-petricola-s-lucipinnis-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -152,15 +132,20 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 100 lít"
+        "bể cá 120cm",
+        "bể cichlid Tanganyika"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng bể cá",
-        "lọc cho cá Tanganyika"
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
       ]
     },
     {
@@ -168,13 +153,6 @@
       "keywords": [
         "thức ăn cá nheo",
         "thức ăn viên chìm"
-      ]
-    },
-    {
-      "category": "phan-nen",
-      "keywords": [
-        "cát nâng pH",
-        "nền cho cá Tanganyika"
       ]
     }
   ],

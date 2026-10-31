@@ -1,0 +1,101 @@
+{
+  "id": "aguarunichthys-tocantinsensis",
+  "scientificName": "Aguarunichthys tocantinsensis",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Aguarunichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 31.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>Scientific name: Aguarunichthys tocantinsensis Zuanon, Rapp Py-Daniel &amp; Jégu, 1993.</p><p>Common name: Tocantins Pimelodus.</p><p>Size: 317 mm (12.5 in) SL.</p><p>IUCN Red List: Endangered (last assessed 2018).</p><p>Etymology: Aguarun = a Peruvian Indian tribe that lives in Ecuador, and \"ichthys\" = Greek for fish. Named for the Rio Tocantins in Brazil.</p><p>Identification: Aguarunichthys tocantinsensis has a deeper body, larger eye, more gill rakers and more spots on the body than A. torosus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>South America: Tocantins River basin. Type locality: rapids above Marabá, Rio Tocantins drainage, Pará State, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>Collected in areas with strong currents and rocky bottom.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>Will take dry food pellets, earthworms or fish fillet. Earthworms are perhaps the best staple.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>A predator that will eat anything small enough. A loner, it shows considerable intra-species aggression around a large territory.</p><p>Tankmates must be large enough not to be considered edible. Competition for food is not an issue, as this species is a capable hunter.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 4 (no. 3), pp 252, Figs. 2a, 4.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/41cee889fe01c579.webp",
+      "width": 960,
+      "height": 1279,
+      "licence": "CC BY 4.0",
+      "author": "Thiago Nascimento da Silva Campos, Hasley Rodrigo Pereira, Phâmela Bernardes Perônico, Carine Cavalcante Chamon, Philip Teles Soares, and Fernando Mayer Pelicice",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamodromous_fishes_from_the_Tocantins-Araguaia_Basin.jpg",
+      "caption": "Characiformes: 1 = Hydrolycus armatus; 2 = Brycon falcatus; 3 = Semaprochilodus brama; 4 = Triportheus trifurcatus; 5 = Tometes siderocarajensis; 6 = Leporinus friderici. Siluriformes: 7 = Oxydoras ni",
+      "thumb": "https://media.aquatome.com/commons/41cee889fe01c579-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn ăn thịt",
+        "giun đất"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
