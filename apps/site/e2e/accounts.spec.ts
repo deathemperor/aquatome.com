@@ -83,7 +83,8 @@ test('signing in with Google merges this browser\'s tanks into the account; anot
   await page.locator('#acc-google button').click()
   await expect(page.locator('#acc-status')).toContainText('Google')
   await expect(page.locator('[data-where="account"]')).toBeVisible()
-  expect(await b.count('tank_records')).toBe(1)
+  // The sync writes after the page shows the account (line 105 waits the same way): read it once it has.
+  await expect.poll(() => b.count('tank_records'), { timeout: 5000 }).toBe(1)
 
   // A second browser with its own tank: after signing in it has both, and so does the account.
   const other = await browser.newContext()
