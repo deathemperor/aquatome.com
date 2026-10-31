@@ -28,15 +28,16 @@ final class AccountModel {
   /// Syncs done since launch (the UI tests wait on it).
   private(set) var syncs = 0
 
-  private let tanks: TanksModel
-  private let api: AccountsClient
-  private let apple: AppleSignIn
-  private let keychain: TokenStore
-  private var token: String?
-  private var later: Task<Void, Never>?
-  private var again = false
+  // Not shown, so not observed.
+  @ObservationIgnored private let tanks: TanksModel
+  @ObservationIgnored private let api: AccountsClient
+  @ObservationIgnored private let apple: AppleSignIn
+  @ObservationIgnored private let keychain: TokenStore
+  @ObservationIgnored private var token: String?
+  @ObservationIgnored private var later: Task<Void, Never>?
+  @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
-  private var synced: TankStore?
+  @ObservationIgnored private var synced: TankStore?
 
   init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), keychain: TokenStore = TokenStore()) {
     self.tanks = tanks

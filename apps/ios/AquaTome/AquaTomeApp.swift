@@ -50,13 +50,14 @@ struct AquaTomeApp: App {
     }
   }
 
-  /// aquatome.com's accounts. The UI tests (they all pass -fixed-handbook) never reach it: they get a stand-in server
-  /// in the app (accounts off unless `-fake-accounts on`) and a stand-in Apple sheet.
+  /// aquatome.com's accounts. A debug build on the simulator (every UI and performance test) never reaches it: it gets a
+  /// stand-in server in the app (accounts off unless `-fake-accounts on`) and a stand-in Apple sheet, as it gets a fake
+  /// light; `-real-accounts` to try the real server from the simulator.
   @MainActor
   private static func account(_ tanks: TanksModel) -> AccountModel {
-    #if DEBUG
+    #if DEBUG && targetEnvironment(simulator)
     let args = ProcessInfo.processInfo.arguments
-    if args.contains("-fixed-handbook") || args.contains("-fake-accounts") {
+    if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
       return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn(), keychain: TokenStore(inDefaults: true))
     }

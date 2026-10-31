@@ -1,3 +1,5 @@
+#if DEBUG
+// Tests and the simulator only: not in a release build.
 import Foundation
 import Tanks
 
@@ -148,3 +150,4 @@ public final class FakeAccounts {
     ])
   }
 }
+#endif
