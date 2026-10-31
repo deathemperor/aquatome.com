@@ -109,13 +109,19 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
   await expect(page.locator('#ch-hours')).toHaveText(/Giờ tắt phải sau giờ bật/)
 })
 
+test('tank volume: the ready-made tank table fits a small phone in every language, glass column included', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
+  await page.setViewportSize({ width: 360, height: 800 })
+  for (const path of ['/vi/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/']) {
+    await page.goto(path)
+    const table = await page.locator('.scroll').first().evaluate(el => ({ fits: el.scrollWidth <= el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
+    expect(table.fits, `${path}: the table is wider than a 360 px phone`).toBe(true)
+    expect(table.hint, `${path}: should it ever grow wider, a shadow at the edge says there is more to see`).toContain('gradient')
+  }
+})
+
 test('wide tables on a phone show that they scroll sideways', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
-  // A tool's table.
-  await page.goto('/vi/cong-cu/the-tich-be/')
-  const tool = await page.locator('.scroll').first().evaluate(el => ({ wide: el.scrollWidth > el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
-  expect(tool.wide, 'the tank-volume table is wider than a phone').toBe(true)
-  expect(tool.hint, 'the tank-volume table: a shadow at the edge that has more to see').toContain('gradient')
   // A comparison table in a guide's text. The guide comes from the site's own pages: the fixture's guides and
   // aquatome.com's are different ones (a fixed fixture path timed out on aquatome.com, #193). The first guide whose
   // table is wider than a phone (the fixture has one); aquatome.com's tables may all fit, then the first guide's table.

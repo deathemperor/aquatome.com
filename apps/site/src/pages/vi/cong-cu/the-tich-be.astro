@@ -70,12 +70,12 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     <h2 id="sizes-h">{t('Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm')}</h2>
     <div class="scroll">
       <table>
-        <thead><tr><th scope="col">{t('Dài × rộng × cao (cm)')}</th><th scope="col">{t('Thể tích')}</th><th scope="col">{t('Nước thực tế')}</th><th scope="col">{t('Kính')}</th><th scope="col">{t('Nặng khi đầy')}</th></tr></thead>
+        <thead><tr><th scope="col">{t('Dài × rộng × cao (cm)')}</th><th scope="col">{t('Thể tích (lít)')}</th><th scope="col">{t('Nước thực tế (lít)')}</th><th scope="col">{t('Kính (mm)')}</th><th scope="col">{t('Nặng khi đầy (kg)')}</th></tr></thead>
         <tbody>
           {rows.map(r => (
             <tr>
               <th scope="row"><a href={`?hinh=chu-nhat&l=${r.l}&w=${r.w}&h=${r.h}`}>{r.l} × {r.w} × {r.h}</a></th>
-              <td>{t('{n} lít', { n: fmt(r.litres) })}</td><td>~{t('{n} lít', { n: fmt(r.water) })}</td><td>{r.glass} mm</td><td>~{fmt(Math.round(r.kg / 5) * 5)} kg</td>
+              <td>{fmt(r.litres)}</td><td>~{fmt(r.water)}</td><td>{r.glass}</td><td>~{fmt(Math.round(r.kg / 5) * 5)}</td>
             </tr>
           ))}
         </tbody>
@@ -181,6 +181,9 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   section h2 { font-size: var(--step-2); }
   table { border-collapse: collapse; font-size: 0.95rem; min-width: 100%; }
   th, td { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--c-rule); white-space: nowrap; }
+  /* All five columns fit a 360 px phone: headers wrap, cells pad on one side only. */
+  thead th { white-space: normal; vertical-align: bottom; }
+  @media (max-width: 30rem) { table { font-size: 0.875rem; } th, td { padding-inline: 0 var(--space-2); } }
   tbody th { font-weight: 500; }
   details { border-bottom: 1px solid var(--c-rule); padding: var(--space-2) 0; max-width: var(--measure); }
   summary { cursor: pointer; font-weight: 600; }
