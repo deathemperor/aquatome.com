@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/copy-of-betta-smaragdina-guitar-blue-rare-bettas
+title: Betta Smaragdina Guitar - Blue | Rare Bettas – BWAquatics
+fetchedAt: 2026-10-31T00:26:18.758Z
+hash: 126a77fb58c462d0523e1a3038b57dad41dad23836066130b17b2c96a976d220
+---
+
+Skip to product information 1 / of 1 BWAquatics Betta Smaragdina Guitar - Blue | Rare Bettas Betta Smaragdina Guitar - Blue | Rare Bettas Sale amount Pair (we pick) Male (we pick) Female (we pick) Quantity Quantity (0 in cart) From the Betta Splenden Complex. IUCN Red List: N/A Blue Smaragdina Guitar Blue is a Hybrid type of Smaragdina Guitar. Smaragdina are a species of better in the Betta splendens complex identified by the snake like scales that cover their body. The unique structure of the scales causes the fish to shimmer with green and blue hues, creating a mesmerizing visual effect.. Due to its wide distribution, B. smaragdina exhibits regional variations in shape and color. Males may develop extended fins, but unlike the closely related Betta splendens, the fins of B. smaragdina lack the iridescent margin. The caudal fin typically has transverse bars and lacks the red, crescent-shaped distal band found in some other Betta species. Inhabits slow-moving streams, marshes, and rice paddies with dense vegetation. "Guitar" variant with distinctive fin markings that appear as spider webbing in the caudal fins. Basic Information Temperament: Males are VERY aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space. Max Size: 2.3 inches TDS: 60 - 200 (We keep them in soft water with low TDS to match our other wild bettas but they are more tolerant of water conditions.) pH: 5.0-7.0 Temperature : 75-85 (much better coloration at warmer temperature above 78 degrees) Diet: Carnivorous, we currently feed them live blackworms, frozen bloodworms and pellets. Breeding: Bubblenester Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

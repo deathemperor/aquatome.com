@@ -1,0 +1,128 @@
+{
+  "id": "betta-ideii",
+  "scientificName": "Betta ideii",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<ul><li>Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.</li><li>Mouthbrooder.</li><li>Maximum size: 10–11 cm (4–4.5 inches).</li><li>Temperature: 22–28 °C (72–82 °F).</li><li>pH: 5.0–7.0.</li><li>TDS: about 60–100.</li><li>IUCN Red List: not listed.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>TDS about 60–100; pH 5.0–7.0; temperature 22–28 °C (72–82 °F). Cooler temperatures are preferred, but higher temperatures induce coloration and breeding behaviour.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed on live, frozen and dried foods, such as blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Like many species in this complex, which includes the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank, as they can eat anything that fits in their large mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Betta ideii is a mouthbrooding betta in the Unimaculata complex. It is closely related to Betta patoti and the two can be difficult to tell apart. Males have unique iridescence and scaling throughout their bodies, including the typical blue coloration on the cheeks and lower jaw. In B. ideii, this iridescence is much more widespread and the scaling appears to be more numerous. B. ideii also has an orange patch in front of the eye running continuous with the upper lip, as well as a white vertical patch that is noticeable on the lower lip.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/9e55b88dd5efbff4.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/9e55b88dd5efbff4-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/72fe95ba9a407c62.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/72fe95ba9a407c62-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể nuôi cá betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên cho cá betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "neblinichthys-pilosus",
+  "scientificName": "Neblinichthys pilosus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Neblinichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1096",
+      "html": "<ul><li><strong>Scientific name:</strong> Neblinichthys pilosus Ferraris, Isbrücker &amp; Nijssen, 1986</li><li><strong>Common name:</strong> Punk Pleco</li><li><strong>Size:</strong> 89 mm (3.5 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2019)</li><li><strong>Etymology:</strong> Neblin- is based on the Neblina camp, where the type specimen was caught. -ichthys: fish. Literally \"fish from Neblina\". The specific epithet refers to its hairy (pilosus = hairy) appearance.</li><li><strong>Type locality:</strong> Río Mawarinuma tributary, at Neblina base camp, on the right bank in a riffle, 0°55'N, 66°10'W, Venezuela, elevation 120 m.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1096",
+      "html": "<p>South America: Upper Negro, Casiquiare, and Baria River basins in Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1096",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1096",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 13 (no. 3), pp 70, Figs. 1, 4-5.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

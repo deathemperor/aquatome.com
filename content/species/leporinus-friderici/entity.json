@@ -7,160 +7,88 @@
   "group": "other",
   "places": [
     "south-america",
-    "brazil",
-    "amazon",
-    "peru",
-    "ucayali",
-    "bolivia",
-    "guapore",
-    "guyana",
-    "suriname",
-    "french-guiana",
-    "north-america",
-    "trinidad-and-tobago",
-    "trinidad"
+    "suriname"
   ],
   "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 20,
-          "max": 28
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 5,
-          "max": 8
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 2,
-          "max": 15
-        }
-      }
-    ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 40
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 240
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 6
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>The threespot leporinus, Leporinus friderici, is an anostomid from much of the Amazon system, with further records from the Guianas and Trinidad. It grows to 350 to 400 mm and needs an aquarium with base dimensions of at least 240 by 90 cm. Across this enormous range the fish differ in morphology and, especially, colour pattern.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "html": "<p>Leporinus friderici is one of the longest-known Leporinus species. It was described in 1794 under the name Salmo friderici. It reaches up to 40 cm in length. Specimens bred in Indonesia, currently 5-7 cm long, are available.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>This species was described from Suriname but no specific locality was given.</p><p>It's currently accepted to occur throughout much of the Amazon river system in Brazil, Peru and Bolivia with additional records from coastal drainages of Guyana, Suriname and French Guiana plus the island of Trinidad (Trinidad and Tobago).</p><p>Unsurprisingly given this enormous range the fish exhibit certain differences in morphology and, especially, colour pattern depending on locality.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>An aquarium with base dimensions of 240 × 90 cm (96 × 36 in) or equivalent should be the smallest considered.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>Décor is relatively unimportant and maintenance simple provided sufficient space is available and oxygenation adequate.</p><p>A natural-style arrangement could consist of a sandy substrate with some leaf litter plus large driftwood branches and twisted roots and perhaps some floating vegetation.</p><p>Water quality is of the utmost importance and this species should never be introduced to a biologically immature aquarium.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "html": "<p>The author of the original description, Marcus Eliser Bloch, wrote: \"This fish is a resident of Surinam's waters. I received it from the present governor, the Lord of Friderici, along with several other fish. He has an excellent meat, and belongs to the tasty fish of Suriname.\"</p>"
     },
     {
       "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>Leporinus spp. tend to be predominantly benthic omnivores feeding on algae, invertebrates and organic detritus in nature.</p><p>They're quite unfussy in the aquarium and will accept most things offered, although foods containing high levels of protein are best avoided.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "html": "<p>In nature Leporinus feed mainly on fruits, seeds and insects.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "html": "<p>In behaviour they are best compared with cichlids. They form a quite rough ranking among themselves, so specimens with completely undamaged fins are rarely seen. These injuries are harmless. If they feel threatened, they immediately join together into a dense shoal. They are best described as social fish that value the company of conspecifics, but do not necessarily treat them peacefully.</p>"
     },
     {
       "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<p>Leporinus is among the more diverse genera in the order Characiformes with around 90 valid species, and a phylogentic study by Sidlauskas and Vari (2008) demonstrated it to represent a polyphyletic lineage.</p><p>Four species (H. despaxi, H. megalepis, H. mormyrops and H. pachycheilus) were thus placed into the revalidated genus Hypomasticus which had originally been proposed by Borodin (1929).</p><p>The remaining species of Leporinus, except for L. gomesi, formed a clade alongside Abramites, and this grouping was itself placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon and Synaptolaemus.</p><p>In particular there was an overall lack of a resolution of relationships within Leporinus, and the authors suggested that molecular analysis is likely to be needed to fully resolve the relationships between them.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately-elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "html": "<p>In the aquarium they reliably destroy all plants. They are ideal fish for large aquariums with silver dollars, large cichlids, catfish, etc.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/a69e6a8ce812dd37.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a69e6a8ce812dd37-480.webp",
-      "width": 801,
-      "height": 531,
+      "url": "https://media.aquatome.com/glaser/04d26b57002635e4.webp",
+      "thumb": "https://media.aquatome.com/glaser/04d26b57002635e4-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "caption": "Freshly-collected subadult.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/f983c324e00038c1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f983c324e00038c1-480.webp",
-      "width": 799,
-      "height": 599,
+      "url": "https://media.aquatome.com/glaser/5daf0e9cb813d9f3.webp",
+      "thumb": "https://media.aquatome.com/glaser/5daf0e9cb813d9f3-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "caption": "Subadult individual.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/3daa1ca4a24e844a.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3daa1ca4a24e844a-480.webp",
-      "width": 800,
-      "height": 349,
+      "url": "https://media.aquatome.com/glaser/1a8f39db5d0a30ec.webp",
+      "thumb": "https://media.aquatome.com/glaser/1a8f39db5d0a30ec-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "caption": "Subadult from the rio Xingu.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/e096141fc9e4111e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/e096141fc9e4111e-480.webp",
-      "width": 800,
-      "height": 279,
+      "url": "https://media.aquatome.com/glaser/22e9602e12c10d90.webp",
+      "thumb": "https://media.aquatome.com/glaser/22e9602e12c10d90-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-friderici",
-      "caption": "Subadult from the rio Guaporé.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-friderici-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -168,24 +96,24 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 240cm",
-        "bể cá lớn"
+        "bể cá lớn 200cm",
+        "bể cá 400 lít"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng công suất lớn",
+        "lọc thùng cho bể lớn",
         "máy lọc bể cá lớn"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
-        "thức ăn cá ăn tạp",
-        "thức ăn viên cá lớn"
+        "thức ăn cá lớn",
+        "thức ăn viên chìm cho cá"
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

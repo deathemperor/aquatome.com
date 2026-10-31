@@ -1,63 +1,59 @@
 ---
-url: https://www.planetcatfish.com/common/species.php?species_id=108
-title: PlanetCatfish.com - Platystacus cotylephorus (Aspredinidae) Cat-eLog
-fetchedAt: 2026-10-30T20:46:12.021Z
-hash: fdf13f18d728fc6c0b38d403e96b0e40438b0e0f1556a90ad8f6a6c4cb0c29d5
+url: https://www.planetcatfish.com/common/species.php?species_id=1105
+title: Tachysurus nitidus • Bagridae • Cat-eLog
+fetchedAt: 2026-10-31T00:07:28.336Z
+hash: 050642226e7a294f1a1fc434778a106d71ca49a56f567b9d7f126ae2a8197aa5
 ---
 
-- Dorsal view
-- Close-up of rows of tubercules on tail
-- Head-on view
-- Male
-- Close-up of ventral view
-- Close-up of head
-- Female
-- Male
-- Female carrying egg
-- Close-up of head
-- Super close-up of embryo
-- Close-up of female and egg
-- Eggs attached to underside of parent
-- Habitat: Essequibo river, Guyana
-- Habitat
-- Newly hatched fry
-- Ten day old fry
+<!DOCTYPE html>
+Tachysurus nitidus • Bagridae • Cat-eLog
+- CotM This month By year 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 2006 2005 2004 2003 2002 2001 2000 1999 1998 1997 1996 By family Akysidae Amphiliidae Ariidae Aspredinidae Auchenipteridae Bagridae Callichthyidae Cetopsidae Chacidae Clariidae Claroteidae Doradidae Heptapteridae Ictaluridae Loricariidae Malapteruridae Mochokidae Pangasiidae Pimelodidae Plotosidae Pseudopimelodidae Schilbeidae Siluridae Sisoridae Trichomycteridae By popularity
+- Cat-eLog Cat-eLog search Interactive All species kept All species bred All wishes All spots All My Aquaria users All My Cats users Families Akysidae Ailiidae Amblycipitidae Amphiliidae Anchariidae †Andinichthyidae Ariidae Aspredinidae †Astephidae Astroblepidae Auchenipteridae Austroglanididae Bagridae Callichthyidae Cetopsidae Chacidae Clariidae Claroteidae Cranoglanididae Diplomystidae Doradidae Heptapteridae Horabagridae †Hypsidoridae Ictaluridae Kryptoglanidae Lacantuniidae Loricariidae Malapteruridae Mochokidae Nematogenyidae Pangasiidae Phreatobiidae Pimelodidae Plotosidae Pseudopimelodidae Schilbeidae Scoloplacidae Siluridae Sisoridae Trichomycteridae Numbers C-numbers CW-numbers L-numbers LDA-numbers Big Lists Families Common names Contributors Image captions Genera Synonyms Other Stuff IBAMA positive list IUCN red list Random species Updates Recent image updates Recent species updates
+- Shane's World Articles on "catfishology" Articles on geography Articles on reproduction Articles on species Articles by popularity
+- Forum Search What is my catfish? Taxonomy & science news African catfishes Asian catfishes South American catfish (Corys et al) South American catfish (Plecos et al) South American catfishes (Everything else) Other catfishes Travellers notebook Speak easy Tank talk Wanted & For Sale Site announcements Bugs & suggestions Rules FAQ RSS Feeds
+- Books All book reviews Reviews by popularity
+- About Articles about the site Fun stuff Shop Hall of fame Contribute PlanetXingu: You Did It!!!
+- Help Reset Password Catfish FAQ Forum FAQ Convertors Glossary Catfish anatomy Site map Report bugs
+- Search Species Search Forum Search Site Search
+- My Stuff Login
+- Quick links Unanswered topics Active topics Search
+- FAQ
+- Login
+- Register
+- Home Forum index
+- Search
 | Cat-eLog Data Sheet |
-| Scientific Name | Platystacus cotylephorus Bloch, 1794 |
-| Common Names | Eel-tail Banjo Catfish Banded Banjo, Båndet Banjomalle (Denmark), Maulbruetender Hexenwels (Germany), Mottled Eel-tail Banjo Catfish, Whiptail Banjo Catfish |
-| Type Locality | No locality. |
-| Synonym(s) | Aspredo cotylephorus, Aspredo sexcirrhis, Aspredo spectrum, Cotylephorus blochii, Platystacus nematophorus, Silurus hexadactylus |
-| Pronunciation | plat ee STAK uss - coat ee LEFF or uss |
-| Etymology | Platystacus: From the Greek platys, meaning broad or flat and the Latin acus, meaning needle; in reference to the shape. Cotylephorus: meaning sites for the attachment of developing embryos, which in this case refers to the ventral area. |
-| Articles | - CotM 2002 November - Shane's World Catfishology The Eel-tail banjo catfish Platystacus cotylephorus |
+| Scientific Name | Tachysurus nitidus (Sauvage & Dabry de Thiersant, 1874) |
+| Common Name | |
+| Type Locality | Chang Jiang [Yangtze River], China. |
+| Synonym(s) | Leiocassis nitidus, Pelteobagrus nitidus, Pseudobagrus nitidus |
 | Species Information |
-| Size | 318mm or 12.5" SL. Find near, nearer or same sized spp. |
-| Identification | The fishes mottled colouration is very variable - almost to the point of no two individuals looking exactly the same. |
-| Sexing | Females appear more brown than black with very little or no mottling. Males by contrast are darker and show high contrast mottling. Mature males have larger pectoral fins than equally aged females. |
-| General Remarks | This species is able to produce bark-like sounds by quickly moving the pectorals. These sounds are probably used to locate each other during mating periods and certainly when being attacked. |
+| Identification | Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers. |
+| Sexing | Males have an elongate genital papilla in front of the anal fin. |
 | Habitat Information |
-| Distribution | Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers). Venezuela Caribbean Waters (click on these areas to find other species found there) Guyana Waters, Coastal Rivers of Guyanas (click on these areas to find other species found there) Amapa State Waters (click on these areas to find other species found there) Pará State Waters (click on these areas to find other species found there) Login to view the map. |
-| IUCN Red List Category | Least Concern, range map and more is available on the IUCN species page. Last assessed 2020. |
-| pH | 6.0 - 8.2 |
-| Temperature | 22.0-25.0°C or 71.6-77°F (Show species within this range) |
-| Other Parameters | Although the fish tolerates lower, the fish should really be kept at as near to a neutral pH as possible. Water should be medium hard. |
+| Distribution | Asia: Yangtze -Kiang, China. Reported from South Korea. China Waters, Yangtze (click on these areas to find other species found there) Log in to view data on a map. |
+| IUCN Red List Category | Not Evaluated |
 | Husbandry Information |
-| Feeding | A nocturnal scavenger. Will eat most food after lights our. Can be tempted to eat frozen foods during the day. User data. |
-| Furniture | A large sandy bottom with leaf cover is ideal, fish of all ages will bury in the sand. Larger fish will bury in gravel. |
-| Compatibility | Will eat small fish and shrimps but otherwise entirely docile. |
-| Suggested Tankmates | Small to medium sized hardy, preferably Amazon, fish that do not mind the higher pH and hardness this species prefers. Care should be taken to avoid fish that will pick away at the unmoving partly buried catfish. |
-| Breeding | Not reported in the home aquarium, but evidence exists of the method of reproduction. See catfish of the month article. |
+| Breeding | Unreported. |
 | Breeding Reports | There is no breeding report. |
 | Further Information |
-| Reference | Naturgeschichte der ausländischen Fische v. 8, pp 54, Pl. 372. |
-| Registered Keepers | There are 35 registered keepers, view all "my cats" data. |
-| Wishlists | Love this species? Click the heart to add it to your wish list. There are 7 wishes to keep this species, see who wants what. |
-| Spotters | Spotted this species somewhere? Click the binoculars! There are 15 records of this fish being seen, view them all. |
+| Reference | Annales des Sciences Naturelles, Paris (Zoologie et Paléontologie) (Sér. 6) v. 1 (art. 5), pp 5. |
+| Registered Keepers | Keeping this species? Why not . There is no registered keeper. |
+| Wishlists | Love this species? Click the heart to add it to your wish list. There is no wish to keep this species. |
+| Spotters | Spotted this species somewhere? Click the binoculars! There is no record of this fish being seen. |
 | Forum BBCode | |
-| | Search for P. cotylephorus |
-| | Look up P. cotylephorus on AquaticRepublic.com |
-| | Look up P. cotylephorus on Fishbase |
-| | Look up P. cotylephorus on Encyclopedia of Life |
-| | Look up P. cotylephorus on Global Biodiversity Information Facility |
-| | LFS label creator ARN ref:1.10.50.108 |
-| Last Update | 2025 Jan 02 01:36 (species record created: 2001 Apr 13 00:00) |
+More on
+Tachysurus
+nitidus
+| | Look up Tachysurus nitidus on AquaticRepublic.com |
+| | Look up Tachysurus nitidus on Fishbase |
+| | Look up Tachysurus nitidus on Encyclopedia of Life |
+| | Look up Tachysurus nitidus on Global Biodiversity Information Facility |
+| ' | LFS label creator. |
+| Hits | 5485 hits. |
+| Last Update | 2020 Sep 23 14:17 (species record created: 2003 Aug 27 00:00) |
+Has this page been useful? Please donate to our monthly hosting costs and keep us free for everyone to enjoy! Explore our YouTube channel, Facebook page or follow us on Twitter.
+© 1996 - 2020 PlanetCatfish.com, part of the Aquatic Republic Network group of websites. All Rights Reserved. Cite this website. By accessing this site you agree to our Terms and Conditions of Use. Our Privacy Policy.
+- Home Forum index
+- All times are UTC+01:00
+- Delete cookies

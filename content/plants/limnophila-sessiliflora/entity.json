@@ -2,11 +2,12 @@
   "id": "limnophila-sessiliflora",
   "scientificName": "Limnophila sessiliflora",
   "difficulty": 1,
-  "light": "medium",
+  "light": "low",
   "co2": "optional",
   "growth": "fast",
   "placement": [
-    "background"
+    "background",
+    "midground"
   ],
   "sections": [
     {
@@ -14,6 +15,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/limnophila-sessiliflora-care-guide-planting-growing-and-propagation/",
       "html": "<ul><li><strong>Common name:</strong> Dwarf ambulia</li><li><strong>Other names:</strong> Ambulia, Ambulis, Asian marshweed</li><li><strong>Difficulty:</strong> Easy</li><li><strong>Lighting:</strong> Low to high</li><li><strong>Optimal pH:</strong> 5.0–7.0</li><li><strong>Optimal GH:</strong> 1–10</li><li><strong>Optimal temperature:</strong> 20–28°C</li><li><strong>Substrate:</strong> Any</li><li><strong>Can be grown emersed:</strong> Partially</li><li><strong>Growth rate:</strong> Fast</li><li><strong>Placement in tank:</strong> Background</li><li><strong>Height:</strong> 25–50 cm</li><li><strong>Fertilizers:</strong> Low requirements</li><li><strong>CO2:</strong> Needed</li><li><strong>Propagation:</strong> Vegetatively</li><li><strong>Colour:</strong> Green</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilasessiliflora(047CLP)/30571",
+      "html": "<ul><li>Origin: Asia</li><li>Height: 15 - 30+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2: low</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -64,6 +71,12 @@
       "html": "<h3>Description</h3><ul><li><strong>Growth habit.</strong> A perennial erect aquatic plant.</li><li><strong>Growth form.</strong> It grows with submersed and emersed parts. The part growing above water is typically quite short, usually reaching 10–15 cm (4–6 inches).</li><li><strong>Size.</strong> In aquariums, size is essentially limited by the aquarium itself, which is why it is often stated to grow up to 50 cm (20 inches) high and 2.5–5 cm (1–2 inches) wide. In its natural environment, the stems may reach up to 3.7 m (12 feet) in length, growing from the bottom to the surface.</li><li><strong>Stem.</strong> The submerged stem is smooth, about 2–3 mm in diameter. The short emersed part of the stem is erect and covered with fine hairs.</li><li><strong>Leaves.</strong> Submersed and emergent leaves are distinctly different. Emersed leaves are lanceolate and dark green, with torn, uneven, jagged or serrated edges, arranged in 5–8 whorls and about 10–20 mm long. Submerged leaves are finely divided and feathery, about 2.5 cm long, arranged in whorls of 6 or more leaves around the stem; they can be oval, elongated or lance-shaped, generally 10–40 mm long.</li><li><strong>Flower.</strong> Small purplish-blue, blue-violet or pink stalkless axillary flowers, solitary and located on the uppermost part of the stems above the water. In nature, flowering usually continues from July to September (in Texas, through November). Seeds are brown to dark brown and conic to cylindric.</li><li><strong>Roots.</strong> A fairly strong root mass of numerous thin, white roots; it can also produce roots at each stem node.</li><li><strong>Colour.</strong> Green.</li></ul><p>Limnophila sessiliflora var. Orange stands out from its typical green counterparts with its orange hue.</p><h3>Etymology</h3><p>The genus name \"Limnophila\" is derived from the Greek words \"limne\" meaning \"marsh or pond\" and \"philo\" meaning \"loving\", indicating its affinity for aquatic habitats. The species name \"sessiliflora\" comes from the Latin words \"sessilis\" meaning \"sitting or attached\" and \"flora\" meaning \"flower\", referring to flowers attached directly to the stem without stalks.</p><h3>Taxonomy</h3><p>In 1826, Karl Ludwig von Blume (1796–1862), the German-Dutch botanist, mentioned this species as Limnophila sessiflora. In 1831, G. Bentham corrected the spelling from sessiflora to sessiliflora, and later works have generally accepted the corrected epithet.</p><ul><li>Kingdom: Plantae</li><li>Clade: Tracheophytes (vascular plants)</li><li>Clade: Angiosperms (flowering plants)</li><li>Clade: Eudicots</li><li>Order: Lamiales</li><li>Family: Plantaginaceae</li><li>Genus: Limnophila</li><li>Species: Limnophila sessiliflora</li></ul><h3>Benefits</h3><ul><li><strong>Versatility:</strong> It can grow emersed and submersed, in low-tech and high-tech tanks.</li><li><strong>Removal of excess nutrients:</strong> As an extremely fast-growing plant, it absorbs nitrates in large amounts, and absorbs and utilizes harmful substances from animal waste, decayed plant matter and tap water, such as heavy metals, ammonia and nitrites.</li><li><strong>Reduces algal bloom:</strong> The plant is greedy for nutrients, so it outcompetes algae.</li><li><strong>Hiding place for fish, fry and shrimp:</strong> It serves as cover and a hiding place for invertebrates and small fish.</li><li><strong>Foraging place:</strong> It provides biofilm, an ideal first food for newly hatched fry and shrimplets.</li><li><strong>Oxygenation:</strong> Thanks to its serrated leaf surface, it cleans the water of turbidity and oxygenates it.</li></ul><h3>Conclusion</h3><p>Limnophila sessiliflora is a fast-growing and versatile plant. It quickly adapts to almost any conditions and absorbs nitrates like a sponge. It can be a great addition to any low-tech or high-tech tank. At the same time, many of these advantages can become a burden over time because the plant requires a lot of trimming and, without proper control, will overshadow everything it can.</p><p>In Asian countries, Limnophila sessiliflora is also used as a flavourful spice for fish dishes.</p>"
     },
     {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilasessiliflora(047CLP)/30571",
+      "html": "<p>Limnophila sessiliflora is a pretty and undemanding plant from South-East Asia. A great alternative to Cabomba, which doesn't require a lot of light. Stems grow fast up to 40 cm tall and become 3-4 cm wide. The plant often grows leggy in poor light, but this can be counteracted to some extent by stimulating growth with CO2 addition. Most beautiful when planted in groups. In good growing conditions it sends out runners and spreads across the bottom. Limnophila sessiliflora used to be called \"Ambulia\".</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/limnophila-sessiliflora-care-guide-planting-growing-and-propagation/",
@@ -73,43 +86,43 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/7e08e5ecb1308a9f.webp",
+      "thumb": "https://media.aquatome.com/commons/7e08e5ecb1308a9f-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Andreus Felipen",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Punta_de_abulia.JPG",
-      "caption": "Punta de una planta ambulia",
-      "thumb": "https://media.aquatome.com/commons/7e08e5ecb1308a9f-480.webp"
+      "caption": "Punta de una planta ambulia"
     },
     {
       "url": "https://media.aquatome.com/commons/f02ac861689269f0.webp",
+      "thumb": "https://media.aquatome.com/commons/f02ac861689269f0-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 3.0",
       "author": "Moritz Holzinger",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquariumpflanzen.JPG",
-      "caption": "Echinodorus bleheri & Limnophila sessiliflora",
-      "thumb": "https://media.aquatome.com/commons/f02ac861689269f0-480.webp"
+      "caption": "Echinodorus bleheri & Limnophila sessiliflora"
     },
     {
       "url": "https://media.aquatome.com/commons/68fabaacb18bb816.webp",
+      "thumb": "https://media.aquatome.com/commons/68fabaacb18bb816-480.webp",
       "width": 800,
       "height": 585,
       "licence": "CC BY-SA 4.0",
       "author": "J.M.Garg",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_sessiliflora_(Asian_Ambulia)_in_Hyderabad,_AP_W_IMG_1415.jpg",
-      "caption": "Asian or Dwarf Ambulia or Asian marshweed Limnophila sessiliflora in Hyderabad, India.",
-      "thumb": "https://media.aquatome.com/commons/68fabaacb18bb816-480.webp"
+      "caption": "Asian or Dwarf Ambulia or Asian marshweed Limnophila sessiliflora in Hyderabad, India."
     },
     {
       "url": "https://media.aquatome.com/commons/5705996f168a89af.webp",
+      "thumb": "https://media.aquatome.com/commons/5705996f168a89af-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "S.Tanaka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:-Limnophila_sessiliflora-_from_Japan.JPG",
-      "caption": "キクモ（日本産） 水槽栽培 私物を自宅で撮影 撮影日時 ２００６年 ６月１８日",
-      "thumb": "https://media.aquatome.com/commons/5705996f168a89af-480.webp"
+      "caption": "キクモ（日本産） 水槽栽培 私物を自宅で撮影 撮影日時 ２００６年 ６月１８日"
     }
   ],
   "productSlots": [
@@ -143,5 +156,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

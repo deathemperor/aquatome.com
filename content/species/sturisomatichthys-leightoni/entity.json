@@ -1,0 +1,91 @@
+{
+  "id": "sturisomatichthys-leightoni",
+  "scientificName": "Sturisomatichthys leightoni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Sturisomatichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
+      "html": "<ul><li>Scientific name: Sturisomatichthys leightoni (Regan, 1912)</li><li>Family: Loricariidae</li><li>Common names: Dwarf Royal Twig Catfish; Leightons Störwels (Germany)</li><li>Synonym: Oxyloricaria leightoni</li><li>Size: 180 mm (7.1\") SL</li><li>Temperature: 20.0–24.0°C (68–75.2°F)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
+      "html": "<p>South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers. Type locality: Honda, Colombia, elevation 300-400 feet.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
+      "html": "<p>Breeding: unreported. There are 2 breeding reports on the site.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
+      "html": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 669, Pl. 77 (fig. 2).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/600cf22ff8752850.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC BY-SA 4.0",
+      "author": "Biodiego88 (via iNaturalist)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:INaturalist_Observation_188742000_Sturisomatichthys_leightoni.jpg",
+      "caption": "Registro de biodiversidad de la especie Sturisomatichthys leightoni (No disponible) detectado en el municipio de Caicedonia, Valle del Cauca, Colombia.",
+      "thumb": "https://media.aquatome.com/commons/600cf22ff8752850-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dọn bể",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

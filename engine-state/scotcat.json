@@ -189,6 +189,54 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm": {
+    "entityIds": [
+      "species/akysis-maculipinnis"
+    ],
+    "updatedAt": "2026-10-30T22:23:24.291Z",
+    "hash": "64c60a22612fb68b5d560f5df2771dc2e642579fea240c86dee601216d52288b",
+    "processedHash": "64c60a22612fb68b5d560f5df2771dc2e642579fea240c86dee601216d52288b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/akysis_patrator.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-30T22:25:36.965Z",
+    "hash": "c2e082a9011d29a55cdfc7021298f6915282efdebf6053df47d3d43e3db0e260",
+    "processedHash": "c2e082a9011d29a55cdfc7021298f6915282efdebf6053df47d3d43e3db0e260",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/akysis_portellus.htm": {
+    "entityIds": [
+      "species/akysis-portellus"
+    ],
+    "updatedAt": "2026-10-30T22:26:34.273Z",
+    "hash": "f907c8f0195e48dfa005a12fadf4528f33766ea24f7e5321e91989d7b1693d69",
+    "processedHash": "f907c8f0195e48dfa005a12fadf4528f33766ea24f7e5321e91989d7b1693d69",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/akysis_prashadi.htm": {
+    "entityIds": [
+      "species/akysis-prashadi"
+    ],
+    "updatedAt": "2026-10-30T22:28:04.515Z",
+    "hash": "f7e9cbb41b0294770480c703e47f656124e644d2a5b8859b057756bfffa635b4",
+    "processedHash": "f7e9cbb41b0294770480c703e47f656124e644d2a5b8859b057756bfffa635b4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/akysis_varius.htm": {
+    "entityIds": [
+      "species/akysis-varius"
+    ],
+    "updatedAt": "2026-10-30T22:30:17.550Z",
+    "hash": "eaea748aa1bde2f8e454770d408158d911be6d36ffd63e87aed492b7ac45942c",
+    "processedHash": "eaea748aa1bde2f8e454770d408158d911be6d36ffd63e87aed492b7ac45942c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",

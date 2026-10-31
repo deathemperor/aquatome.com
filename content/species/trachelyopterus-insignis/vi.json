@@ -1,0 +1,22 @@
+{
+  "slug": "ca-meo-go-flag",
+  "name": "Cá mèo gỗ Flag",
+  "altNames": [
+    "Cá mèo gỗ cờ",
+    "Flag Woodcat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Trachelyopterus insignis (Steindachner, 1878)</li><li>Tên thường gọi: Flag Woodcat</li><li>Kích thước: 200 mm SL (chiều dài chuẩn)</li><li>Từ nguyên: Trachelyopterus ghép từ hai chữ Hy Lạp là trachelos (cổ) và pteron (vây). Tên này nói đến tấm giáp sọ dài của cá, khiến vây lưng trông như mọc ra từ vùng cổ.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực hạ lưu sông Magdalena. Cá sống ở các sông đổ ra biển Caribe của Colombia, gồm sông Magdalena và vùng hạ Magdalena. Nơi thu mẫu chuẩn là Río Magdalena, Colombia. Trong Danh sách đỏ IUCN, loài này thuộc nhóm Ít quan tâm (lần đánh giá gần nhất vào năm 2014).</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,2 - 7,2</li><li>Nhiệt độ: 23-28°C</li><li>dH 10-25</li></ul><p>Lưu ý: Fishbase ghi nhiệt độ 23-38°C. Con số 38 nhiều khả năng là lỗi đánh máy.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 15 (no. 12) (for 9 May 1878), pp 89.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.85
+    }
+  }
+}

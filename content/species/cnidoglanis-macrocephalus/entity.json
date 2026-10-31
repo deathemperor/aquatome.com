@@ -1,0 +1,145 @@
+{
+  "id": "cnidoglanis-macrocephalus",
+  "scientificName": "Cnidoglanis macrocephalus",
+  "order": "Siluriformes",
+  "family": "Plotosidae",
+  "genus": "Cnidoglanis",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 8,
+          "max": 8.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 91
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<ul><li>Scientific name: Cnidoglanis macrocephalus (Valenciennes, 1840)</li><li>Common names: Estuary Cobbler, Estuarine Catfish, South Australian Catfish</li><li>Size: 91 cm SL</li><li>Identification: distinguished by its mottled coloration, 222-234 total median fin rays and molariform teeth.</li><li>Etymology: the generic name comes from the Greek knide (nettle) and glanis (catfish), in reference to the painful sting the fish can inflict. The specific epithet comes from the Greek makros (long) and cephale (head), in reference to the longer head of this species.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>Indo-Pacific: endemic to Australia. Present along both eastern and western Australian coasts, from Kirra in southern Queensland to Jervis Bay in New South Wales, and from Kingston in South Australia to the Houtman Abrolhos in Western Australia. The range extension to the Duck River in Tasmania needs verification.</p><p>Type locality: Timor Island, southern Malay Archipelago (probably in error for Tasmania, Australia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>An inshore marine species which lives in shallow bays and sandy inlets near river mouths. Found most frequently over sand, rocks and weeds in clear to turbid waters. By day, cobbler are most often found in holes and on ledges in banks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<ul><li>pH: 8.0 - 8.6</li><li>Temperature: 20.0-25.0°C (68-77°F)</li><li>Needs saltwater.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>A sand/gravel and coral/rock rubble bottom is preferred. Make sure that there is enough rockwork for the fish to hide in during the day.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>They are opportunistic feeders, primarily feeding at night. Food consists of bivalve and univalve molluscs, crustaceans (small prawns and amphipods), polychaete worms, algae and organic debris. Juveniles eat more crustacea, often from among drifting macrophytic algae. Adults feed mainly on molluscs and polychaetes.</p><p>Juveniles may be fed a variety of foods, but adults may show a strong preference for molluscs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>Fairly peaceful and compatible with most fish of equal size or larger in a marine setup, although adults appear to be solitary. Capable of inflicting painful stings with its spines.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>The fish spawn in the austral spring (August-December). Males guard the eggs (a typical spawn consists of 500-3500 eggs) between their pelvic fins for an unknown period in the nest which the male has constructed among seagrass beds and rocks. The drift weeds found in inshore marine waters, protected inshore marine environments and estuaries act as nursery areas. Cobbler enter these areas during their first year of life and often remain there for long periods.</p><p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>IUCN Red List category: Data Deficient (last assessed 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1037",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp 428, Pl. 449.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9667cc64e3195973.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sylke Rohrlach",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Estuary_Catfish-Cnidoglanis_macrocephalus.JPG",
+      "caption": "at Shelly Beach, Manly, Sydney",
+      "thumb": "https://media.aquatome.com/commons/9667cc64e3195973-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/11a294523793e4cd.webp",
+      "width": 960,
+      "height": 1200,
+      "licence": "CC BY 4.0",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cnidoglanis_macrocephalus_455868676.jpg",
+      "caption": "Estuary Cobbler (Cnidoglanis macrocephalus) in Australia",
+      "thumb": "https://media.aquatome.com/commons/11a294523793e4cd-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ea3738940b36952a.webp",
+      "width": 960,
+      "height": 676,
+      "licence": "CC BY 4.0",
+      "author": "Tim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cnidoglanis_macrocephalus_379664319.jpg",
+      "caption": "Estuary Cobbler (Cnidoglanis macrocephalus) in Australia",
+      "thumb": "https://media.aquatome.com/commons/ea3738940b36952a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c6c95723f35dd129.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 2.0",
+      "author": "Sylke Rohrlach from Sydney",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Estuary_Catfish-Cnidoglanis_macrocephalus_(12260643715).jpg",
+      "caption": "Estuary Catfish-Cnidoglanis macrocephalus",
+      "thumb": "https://media.aquatome.com/commons/c6c95723f35dd129-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-30"
+}

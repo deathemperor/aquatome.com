@@ -1,0 +1,62 @@
+{
+  "id": "xyliphius-lepturus",
+  "scientificName": "Xyliphius lepturus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Xyliphius",
+  "group": "catfish",
+  "places": [
+    "south-america"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
+      "html": "<ul><li><strong>Scientific name:</strong> Xyliphius lepturus Orcés, 1962</li><li><strong>Common name:</strong> Banjo Catfish</li><li><strong>Type locality:</strong> Desembocadura del rio Pucayacu en el Bobonaza, Río Magdalena system, Amazon system, Colombia.</li><li><strong>Etymology:</strong> From the Greek xyliphion, meaning a piece of wood; in reference to the overall appearance.</li><li><strong>Size:</strong> 132 mm (5.2\") SL.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
+      "html": "<p>South America: upper Amazon and Orinoco River basins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
+      "html": "<p>Cienc. Nat. (Quito)v. 5 (no. 2) - pp50 - Figs. 1-2</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

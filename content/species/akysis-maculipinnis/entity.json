@@ -9,7 +9,8 @@
     "asia",
     "thailand",
     "chanthaburi",
-    "cambodia"
+    "cambodia",
+    "chao-phraya"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +20,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -26,6 +34,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -43,6 +58,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "scotcat",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -66,16 +85,34 @@
       "html": "<p>The spotfin stream catfish, Akysis maculipinnis, is a small akysid catfish from Chanthaburi Province in eastern Thailand. Its range apparently extends into Cambodia. Among the smaller members of the family at around 35 mm SL, it has been exported for the hobby. It spawns above the substrate in flowing water with no parental care, and the adults are avid egg-eaters, so the eggs must be protected if fry are to be raised.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate; it needs a well-established tank and stable water.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Family: Akysidae. Adult size: 3.0 cm. Temperature: 18-22°C. pH: 6.5-7.5.</p><p>Description: Dorsal soft rays (total): 5-6; anal soft rays: 8-10; vertebrae: 31-32. Distinguished from all its congeners by the following combination of characters: head length 22.0-28.6% SL; depth of caudal peduncle 8.8-10.7% SL; length of anal-fin base 15.2-19.1% SL; eye diameter 12-16% HL; length of nasal barbel 57-92% HL; 3-4 serrae on the posterior edge of the pectoral spine; and caudal fin emarginate.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "html": "<p>Described from 'Chantaboon, Southeast Siam' which corresponds to modern day Chanthaburi Province, eastern Thailand and presumably the river drainage of the same name.</p><p>It's apparently restricted to this area with distribution extending into southwestern Cambodia, though to date we've been unable to locate any definitive record pertaining to the latter country.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Asia: Mekong and Chao Phrya (Thailand) basins as well as basins around the upper Gulf of Thailand. Type locality: Chantaboon, Southeast Siam.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "html": "<p>Members of this genus are near-exclusive inhabitants of swiftly-flowing streams and rivers with substrates generally consisting of any combination of sand, gravel and rocks. Water is normally transparent to slightly turbid, though overall volume, flow, and thus the amount of suspended material tend to increase significantly during rainy periods.</p><p>Aquatic plants are not normally present though there may be patches of leaf litter or underwater structures such as fallen branches or roots protruding from banks.</p><p>In the Khao Ang Rue Nai Wildlife Sanctuary, which lies at the border of Chachoengsao, Chonburi, Rayong, Chanthaburi, and Prachin Buri provinces and contains the last remaining area of lowland rainforest in Thailand, A. maculipinnis was collected alongside a number of other species including Parachela maculicauda, Hampala macrolepidota, Labiobarbus spilopleura, Mystacoleucus marginatus, Oreichthys parvus, Osteochilus vittatus, 'Puntius' binotatus, P. orphoides, P. partipentazona, Danio albolineatus, Esomus metallicus, Rasbora borapetensis, R. trilineata, Pangio anguillaris, Lepidocephalichthys hasseltii, Homaloptera smithi, Nemacheilus pallidus, N. platiceps, Schistura kohchangensis, Pseudomystus siamensis, Amblyceps sp., Glyptothorax sp., Macrognathus circumcinctus, M. siamensis, Mastacembelus armatus, M. favus, Chanda siamensis, Pseudogobiopsis oligactis, Betta prima, Trichopodus microlepis, Trichopsis vittata, and Channa striata.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Inhabits large muddy river channels.</p>"
     },
     {
       "key": "aquariumSize",
@@ -96,10 +133,22 @@
       "html": "<ul><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Good water flow and a sand substrate. Decorate the aquarium with rocks and driftwood.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Frozen foods such as bloodworm, livefoods and tablet foods.</p>"
     },
     {
       "key": "behaviour",
@@ -126,56 +175,112 @@
       "html": "<p>This species has been exported for the aquarium hobby and ranks among the smaller members of the family. It can be differentiated from all other Akysis species by the following combination of characters: head length 22.0-28.6% of standard length (SL); caudal peduncle depth 8.8-10.7% of SL; anal-fin base length 15.2-19.1% of SL; eye diameter 12-16% of head length (HL); nasal barbel length 57-92% of HL; possession of 3-4 serrae on the posterior edge of pectoral fin spine; body patterning mottled with indistinct light patches; caudal fin emarginate.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects the genus as originally considered was split into the A. variegatus and A. pseudobagarius species groups by Ng and Kottelat (1998)[8], but all species of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name maculipinnis: Spotted fins.</p><p>IUCN Red List: There is insufficient information about the geographic distribution and population size of this species for an accurate assessment and it is assessed as Data Deficient, but needs updating (IUCN 2012).</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fowler, H. W. (1934). Zoological results of the third De Schauensee Siamese Expedition, Part I.--Fishes. Proceedings of the Academy of Natural Sciences of Philadelphia 86, 67-163</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "html": "<p>Ng, H.H. 2012. Akysis maculipinnis. The IUCN Red List of Threatened Species 2012.</p><p>Ng, H.H. and M. Kottelat 1998 The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/9046735659f9da28.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9046735659f9da28-480.webp",
       "width": 850,
       "height": 638,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "caption": "Wild specimen collected from Chanthaburi province, eastern Thailand.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9046735659f9da28-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/cadc33646b916d42.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cadc33646b916d42-480.webp",
       "width": 850,
       "height": 638,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "caption": "Anterior portion of body and head detail.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/cadc33646b916d42-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/bca02832fcec4902.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bca02832fcec4902-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "caption": "Wild specimen collected from among the plants in the previous image.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/bca02832fcec4902-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/549828ce279cfe61.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/549828ce279cfe61-480.webp",
       "width": 850,
       "height": 638,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-maculipinnis",
       "caption": "Akysids possess four pairs of barbels.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/549828ce279cfe61-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/05443155c88a430f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/05443155c88a430f-480.webp",
+      "width": 500,
+      "height": 260,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "caption": "Akysis maculipinnis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/10e3c8f3bf39c435.webp",
+      "thumb": "https://media.aquatome.com/scotcat/10e3c8f3bf39c435-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "caption": "Akysis maculipinnis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/73b1f261031c71b2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/73b1f261031c71b2-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "caption": "Akysis maculipinnis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/14d28df998dc3183.webp",
+      "thumb": "https://media.aquatome.com/scotcat/14d28df998dc3183-480.webp",
+      "width": 500,
+      "height": 322,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_maculipinnis.htm",
+      "caption": "Akysis maculipinnis",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -210,5 +315,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

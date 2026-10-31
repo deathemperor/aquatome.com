@@ -1,0 +1,94 @@
+{
+  "id": "tatia-neivai",
+  "scientificName": "Tatia neivai",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "piracicaba"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>Tatia neivai (Ihering, 1930), family Auchenipteridae. Common name: Naive Tatia (Germany). Type locality: Rio Piracicaba, Piracicaba, São Paulo State, Brazil. Synonym: Glanidium neivai. Etymology: Tatia was named after the ichthyologist C. Tate Regan. Size: 57 mm (2.2\") SL. IUCN Red List: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>South America: Piracicaba River, São Paulo, Brazil. Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>Mature males exhibit a modified anal fin copulatory organ.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1100",
+      "html": "<p>Archivos do Instituto Biológico, São Paulo v. 3, pp 99, Pl. 13 (fig. 1).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ab0193aaca43070a.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC BY 4.0",
+      "author": "Ribeiro DC, Chagas JMA, Thereza MR, Langeani F (2019) Checklist and key for the identification of fish fauna of the Uberaba River, Upper Paraná River system, Brazil. ZooKeys 875: 129-155. https://doi.org/10.3897/zookeys.875.31977",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_(10.3897-zookeys.875.31977)_Figure_7.jpg",
+      "caption": "Figure 7; Siluriformes (Loricariidae absent), Gymnotiformes, Cichliformes, Cyprinodontiformes, and Synbrachiformes collected in the Uberaba River: Megalechis thoracata Tatia neivai Trichomycterus cand",
+      "thumb": "https://media.aquatome.com/commons/ab0193aaca43070a-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

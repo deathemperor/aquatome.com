@@ -1,0 +1,86 @@
+{
+  "id": "tatia-gyrina",
+  "scientificName": "Tatia gyrina",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "itaya",
+    "suriname",
+    "marowijne",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<ul><li>Scientific name: Tatia gyrinus (Eigenmann &amp; Allen, 1942)</li><li>Common names: Woodcat, Zwergdornwels (Germany)</li><li>Type locality: Río Itaya, Iquitos, Peru.</li><li>Size: 70 mm (2.8\") SL.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>Sexual dimorphism in males appears at a length of 3.5-4.0 cm.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>Unreported. There is but a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>May easily be mistaken for juveniles of Glanidium leopardus, from which it is distinguished by the pectoral spines (with projections vs. smooth) and by the number of rays in the anal fin (8-9 vs. 12-14).</p><p>Etymology: Tatia was named after the ichthyologist C. Tate Regan.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1102",
+      "html": "<p>Fishes of western South America, pp 118, Pl. 5 (fig. 4).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cho cá mèo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

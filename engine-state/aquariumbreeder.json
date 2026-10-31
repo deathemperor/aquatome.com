@@ -85,6 +85,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/centruroides-bicolor-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:34:56+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-30T22:44:46.160Z",
+    "hash": "7ace393315621bc859b7e0656476b918c6c45f2554bd48fbdadeb91eec0a7eec",
+    "processedHash": "7ace393315621bc859b7e0656476b918c6c45f2554bd48fbdadeb91eec0a7eec",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/cryptocoryne-parva-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:41:39+00:00",
     "entityIds": [
@@ -202,6 +211,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/live-rocks-and-dry-rocks-pros-and-cons/": {
+    "lastmod": "2026-06-06T17:34:56+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-live-rocks-and-dry-rocks-pros-and-cons"
+    ],
+    "updatedAt": "2026-10-30T22:44:54.421Z",
+    "hash": "f55bdc8f3c7abe6be08e8db966aa14f85c6185660b92a634ddce4c2cc9936c7b",
+    "processedHash": "f55bdc8f3c7abe6be08e8db966aa14f85c6185660b92a634ddce4c2cc9936c7b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/lysimachia-nummularia-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:34:34+00:00",
     "entityIds": [
@@ -298,6 +318,17 @@
     "updatedAt": "2026-10-30T19:12:55.376Z",
     "hash": "05872b3d5799cb3eb4567a49e29a3d8efaa45a99e2797a71a19a303be40bd2b2",
     "processedHash": "05872b3d5799cb3eb4567a49e29a3d8efaa45a99e2797a71a19a303be40bd2b2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/profile-gorilla-crabs-in-reef-tanks/": {
+    "lastmod": "2026-06-06T17:34:56+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-profile-gorilla-crabs-in-reef-tanks"
+    ],
+    "updatedAt": "2026-10-30T22:36:46.970Z",
+    "hash": "ede79ec09db4daa41b53717e4d2952c8c8e728b761ebc87bc5bd0d84dd5bf877",
+    "processedHash": "ede79ec09db4daa41b53717e4d2952c8c8e728b761ebc87bc5bd0d84dd5bf877",
     "status": "processed",
     "attempts": 0
   },
@@ -407,6 +438,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/water-milfoil-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:34:56+00:00",
+    "entityIds": [
+      "plants/myriophyllum-elatinoides"
+    ],
+    "updatedAt": "2026-10-30T22:35:10.425Z",
+    "hash": "9c0fa7a3212978deb70ace3832d8c468a769ec80ddf72865994fad7c02ca6adb",
+    "processedHash": "9c0fa7a3212978deb70ace3832d8c468a769ec80ddf72865994fad7c02ca6adb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/water-mites-profile-water-mites-in-shrimp-and-fish-tank/": {
+    "lastmod": "2026-06-06T17:34:35+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-water-mites-profile-water-mites-in-shrimp-and-fish-tank"
+    ],
+    "updatedAt": "2026-10-30T22:31:47.022Z",
+    "hash": "dd669a8c4a449265a5fad5394d29826b1a82f6882bc0e9243c02a0c60d24fdfe",
+    "processedHash": "dd669a8c4a449265a5fad5394d29826b1a82f6882bc0e9243c02a0c60d24fdfe",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/why-do-african-land-snails-burrow/": {
     "lastmod": "2026-06-06T17:34:35+00:00",
     "entityIds": [],
@@ -414,6 +467,17 @@
     "hash": "3da3f53184cf39f7db4871ee40f7329dab1b4a70e097f386abd033542ea025f9",
     "processedHash": "3da3f53184cf39f7db4871ee40f7329dab1b4a70e097f386abd033542ea025f9",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:34:56+00:00",
+    "entityIds": [
+      "species/yunnanilus-cruciatus"
+    ],
+    "updatedAt": "2026-10-30T22:40:37.722Z",
+    "hash": "3491ed898bee6958f489fbd572a855c210113c42e982444abb4b831b980de412",
+    "processedHash": "3491ed898bee6958f489fbd572a855c210113c42e982444abb4b831b980de412",
+    "status": "processed",
     "attempts": 0
   }
 }

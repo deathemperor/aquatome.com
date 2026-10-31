@@ -25,6 +25,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -40,6 +47,13 @@
         "value": {
           "min": 7,
           "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.5,
+          "max": 8.4
         }
       }
     ],
@@ -67,6 +81,10 @@
       {
         "source": "sprucepets",
         "value": 3.5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -77,6 +95,10 @@
       {
         "source": "sprucepets",
         "value": 75
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 30
       }
     ],
     "difficulty": [
@@ -86,6 +108,10 @@
       },
       {
         "source": "sprucepets",
+        "value": 4
+      },
+      {
+        "source": "aquariumcoop",
         "value": 4
       }
     ]
@@ -104,10 +130,22 @@
       "html": "<ul><li>Common names: Pea Puffer, Dwarf Puffer, Bumblebee Puffer, Malabar Puffer, Pygmy Puffer</li><li>Family: Tetraodontidae</li><li>Adult size: 1 to 1.5 inches (2.5 to 4 cm)</li><li>Life expectancy: 4 years</li><li>Origin: India</li><li>Social: aggressive</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Care: intermediate</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Carinotetraodon travancoricus, also known as the pea puffer, Indian dwarf puffer, Malabar puffer and pygmy puffer, is the smallest pufferfish in the world. It comes from fully freshwater environments in the southwestern tip of India. It grows to only about 1 inch (2.5 cm) long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
       "html": "<p>In India, Carinotetraodon travancoricus has been exploited extensively for the aquarium trade. As a result, it was listed as vulnerable by the IUCN in 2010. Fortunately, this species is now successfully bred in captivity and available for sale.</p><p>Dwarf puffer fish are a little more high maintenance than other fish, and keeping them in a community tank is not easy.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Pea puffers are usually sold at local fish stores (usually not available at pet store chains). Choose a healthy fish with a nicely rounded belly. It also helps to ask the store what they feed the puffers, since they can be picky eaters.</p><p>Most pea puffers are now captive bred, but if they are wild caught, they may need additional deworming medication. A quarantine medication trio has been used as a preventative treatment on thousands of pea puffers with no harmful effects. Even though puffers are considered \"scaleless\" fish, these three medications are proven to be safe for them. Use the full recommended dosages, or else pathogens may survive the treatment.</p><p>This oddball species is more of an intermediate level fish and is generally not recommended to first-time fish keepers. They have special dietary requirements and do not get along with other community fish. However, pea puffers are very inquisitive, have unique looks and behaviors, and can even learn to recognize their owner.</p>"
     },
     {
       "key": "distribution",
@@ -134,6 +172,12 @@
       "html": "<p>The minimum tank size for a single Dwarf puffer fish is generally considered to be 20 litres (5 gallons).</p><p>For a small group (3–4 fish), a tank of at least 40 litres (10 gallons) is a good starting point. A larger tank is always recommended to accommodate their territorial nature and reduce aggression.</p><p>Dwarf puffer fish are not known for being prolific jumpers, but it may happen, especially if they are stressed or scared or tank conditions are unsuitable. To minimise the risk: use a tight-fitting lid, lower the water level, use floating plants, etc.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Because pea puffers can be very territorial, many people keep just one in a five-gallon (about 19 litre) aquarium. To keep more than one, the general rule of thumb is five gallons (19 litres) of water for the first puffer and three gallons (11 litres) for each additional puffer. It is possible to keep three puffers in a 10-gallon (38 litre) tank and six to seven puffers in a 20-gallon (76 litre) tank, but success depends on how well the environment is set up.</p><p>If the tank is mostly bare without much cover, expect a pufferfish battle zone. A lush, densely planted aquarium might handle three puffers in 10 gallons. Up to six or seven pea puffers can be kept in a 20-gallon aquarium (with no other tank mates) if there is lots of cover in the form of plants or decorations.</p><p>The larger the aquarium, the better: more water volume dilutes waste (poor water quality can harm the puffer's health) and gives the puffers more space to avoid each other.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -152,10 +196,22 @@
       "html": "<ul><li>Temperature: 24–27°C (75–80°F). They do not tolerate cooler temperatures well.</li><li>pH: 7.0–8.0. In their natural environment they thrive in alkaline waters; reducing the pH to 6.5 had negative effects on the fish.</li><li>Hardness: 7–14 GH. They do not like soft water.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Pea puffers do well in stable, tropical temperatures from 74 to 82°F (23–28°C). They have been kept at pH 6.5 to 8.4. A pH of 7.2 to 7.5 is ideal, but keeping pH stable matters more than aiming for a specific number.</p>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
       "html": "<ul><li>Lighting: dim lighting is optimal; bright light stresses them.</li><li>Water flow: still or very slow currents are recommended.</li><li>Substrate: mud and sand in the natural environment.</li><li>Filtration: no special requirements, as long as the filter suits the size of the tank.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>If room temperature is below this range or fluctuates a lot, an aquarium heater is needed. Because they are not the fastest swimmers, use a gentle filter with a slower flow rate.</p>"
     },
     {
       "key": "diet",
@@ -170,6 +226,12 @@
       "html": "<p>Pea Puffers are carnivorous and require animal-based proteins in their diet. This will likely mean a wide variety of frozen foods in addition to a carnivore pellet. Vitamin content may diminish in frozen diets, so a pelleted diet must be included to keep the fish healthy. If the fish is reluctant to eat pellets, feed a varied diet to round out its nutritional intake.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>These hardcore carnivores are best fed frozen foods (like frozen bloodworms and brine shrimp) and live foods (like little pest snails or blackworms). They typically will not take dry foods, though Hikari Vibra Bites have worked well because they look and move like bloodworms as they sink.</p><p>Most larger pufferfish must be fed hard, crunchy foods to grind down their ever-growing teeth, but pea puffers do not have this problem, so live snails are not essential. Feed a wide variety of frozen foods so they get all the essential nutrients. Frozen bloodworms are a favorite food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -182,6 +244,12 @@
       "html": "<p>Due to their aggressive nature, few species can be kept in the same aquarium. Most aquariums containing Pea Puffers will have only Pea Puffers. If kept with other fish, slow swimming fish will be nibbled on, so only fast swimmers should be housed with pufferfish. If adding these fish to an established aquarium, be sure they are the last to be added. It is best to add the most aggressive species to a mixed-species tank last to give others room to claim places to hide.</p><p>Since they are carnivorous, it is not recommended to keep any invertebrates in their tank, including shrimp and snails.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Pea puffers are known for their helicopter-like maneuverability and independently moving eyes. They are very curious fish with excellent eyesight and often examine everything in their aquarium.</p><p>Some puffers can be timid, but most are pretty aggressive and territorial. Like a dog prone to fighting, any other tank mate will probably get attacked, so keep them in a species-only aquarium. This means no algae eaters or clean-up crew, so more tank maintenance is needed. Pea puffers can be messy, so live aquarium plants help consume toxic waste compounds. A densely planted tank has little algae and provides a jungle to navigate.</p><p>Pea puffers can puff up as a defensive mechanism or for practice, by sucking in water to increase their size. It is rare. Left alone, the fish shrinks back to its normal shape. Do not deliberately stress the fish to make it inflate. When moving a pea puffer, use a cup or small container instead of a net, so the fish stays submerged and does not suck in air.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -192,6 +260,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
       "html": "<p>If all puffers are roughly the same age and fed the same diet, females tend to be larger than males. Males may also have a black line on the belly.</p><p>Male Pea Puffers can be very territorial, so it is recommended to keep only one male per aquarium, or to have an extra large tank with lots of space so there are no territory overlaps.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>Sexing can be tricky. Males tend to have deeper coloration with a stripe or dot on the belly, slenderer bodies and more aggressive behavior. Females have a yellow belly and tend to be plumper. Most pea puffers are sold as juveniles, which are hard to sex.</p>"
     },
     {
       "key": "reproduction",
@@ -218,6 +292,12 @@
       "html": "<p>The Pea Puffer has a small, rounded body with a golden back that blends into a white or tan belly. The back is covered in dark brown to black spots. Like many other puffers, the body is fairly round with eyes that slightly protrude from the pointed head. The tail tapers to a point with a minimized dorsal fin and absent pelvic fins.</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "html": "<p>A ratio of one male to two or three females tends to decrease aggression. If you end up with one female and two males, you may need to rehome at least one male to minimize fighting.</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -225,6 +305,50 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/2f87f4da53ea9e87.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/2f87f4da53ea9e87-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "caption": "Care Guide for Pea Puffers – The Smallest Pufferfish in the World - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/55e2e3c3b8be7e8e.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/55e2e3c3b8be7e8e-480.webp",
+      "width": 1000,
+      "height": 593,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "caption": "group of pea puffers",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/8b825fbbc22d8bef.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/8b825fbbc22d8bef-480.webp",
+      "width": 1000,
+      "height": 581,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "caption": "pea puffer in a planted tank",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab-480.webp",
+      "width": 1000,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
+      "caption": "pea puffer looking at a bloodworm",
+      "source": "aquariumcoop"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
       "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",

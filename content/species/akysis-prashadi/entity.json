@@ -10,7 +10,8 @@
     "myanmar",
     "ayeyarwady",
     "india",
-    "manipur"
+    "manipur",
+    "indawgyi-lake"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +21,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -27,6 +35,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 7.2
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.2
         }
       }
@@ -44,6 +59,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.2
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
       }
     ],
     "tankCm": [
@@ -56,6 +75,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -67,10 +90,22 @@
       "html": "<p>The Indawgyi stream catfish, Akysis prashadi, is an akysid catfish from Lake Indawgyi and the upper Ayeyarwady drainage in northern Myanmar. It has also been recorded from the Lokchao river in Manipur, India. At up to 62 mm SL it ranks among the largest in the genus, and though it has been exported for the hobby it is by no means common.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Common name: Indawgyi stream catfish</li><li>Size: 6.5 cm</li><li>Temperature: 18-27°C</li><li>pH: 6.5-7.2</li></ul><p>IUCN Red List: Although Akysis prashadi does not seem to have a wide geographic distribution, there are no known threats and occasional collection for the ornamental fish trade is not projected to adversely affect the population. It is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-prashadi",
       "html": "<p>Described from the southern shore of Lake Indawgyi and surrounding waters close to the town of Kamaing, Kachin State, northern Myanmar, all of which fall within the upper Irrawaddy/Ayeyarwady river drainage. Indawgyi is the largest inland lake in Southeast Asia and since 1999 has been under national protection, forming the Indawgyi Wildlife Sanctuary.</p><p>Kachin itself is one of the world's great biodiversity hotspots and contains many endemic species although sadly large portions of the area have already been decimated due to illegal logging by companies deriving from both Myanmar and neighbouring China.</p><p>Vishwanath et al. (2007) report that the species also occurs in the state of Manipur, northeastern India where it was recorded in the Lokchao river, an upper affluent of the Chindwin river system which is itself a tributary of the Ayeyarwady.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Asia: Indawgyi Lake and northern Irrawaddy River basin, Myanmar. Type locality: South end of Indawgyi Lake, along sw. shore, Myitkyina Dist., Upper Burma.</p>"
     },
     {
       "key": "habitat",
@@ -91,10 +126,22 @@
       "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding. It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter can also be used.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank. Weekly water changes of 30-50% tank volume should be considered routine.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Like other members of its genus, Akysis prashadi is more at home in aquaria having a sand substrate interspersed with small rocks and pebbles mixed with thick clumps of plants. Unless feeding, when they are highly active, they can be overlooked in aquaria with a sand substrate, as they like nothing better than to bury themselves, leaving only their slightly protruding nasal barbels to indicate where they are.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-prashadi",
       "html": "<ul><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.2</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Water conditions are not critical, as long as nitrate is low. Provide a temperature range of 18-27°C and pH values of 6.5-7.2.</p>"
     },
     {
       "key": "equipment",
@@ -107,6 +154,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-prashadi",
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Feeding Akysis prashadi does not cause any difficulty, as long as you use frozen or live foods such as bloodworms, brine shrimp, white worms and daphnia, as they tend to ignore commercially prepared foods.</p>"
     },
     {
       "key": "behaviour",
@@ -133,10 +186,22 @@
       "html": "<p>This species is among the few members of the family to be exported for the aquarium hobby though is by no means common. It can be differentiated from all other Akysis species by the following combination of characters: head length 20.6-23.8% of standard length (SL); head width 21.4-25.1% SL; caudal peduncle depth 7.7-9.8% SL; interorbital distance 35.0-37.0% of head length (HL); nasal barbel length 63.0-86.0% HL; absence of serrations on posterior margin of pectoral fin spine; caudal fin deeply emarginate with lower lobe slightly longer than upper.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects the genus as originally considered was split into the A. variegatus and A. pseudobagarius species groups by Ng and Kottelat (1998)[7], but all species of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 45; vertebrae: 34-35. Posterior edge of pectoral spine without serrations. Head length 20.6-23.8% SL; head width 21.4-25.1% SL; interorbital distance 35-37% HL; length of nasal barbel 63-68% HL. Caudal fin deeply emarginate.</p><p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name prashadi: named after the Indian ichthyologist Dr. B. Prashad.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-prashadi",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2007). Akysis pulvinatus, a new species of catfish (Siluriformes: Akysidae) from southern Thailand. Zootaxa 1608, 51-58</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Vishwanath, W., I. Linthoingambi and L. Juliana (2007). Fishes of the genus Akysis Bleeker from India (Teleostei: Akysidae). Zoos' Print Journal 22(5), 2675-2678</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "html": "<p>Ng, H.H. 1999 The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bull. Zool. 47(2):541-548. Ng, H. 2010. Akysis prashadi. The IUCN Red List of Threatened Species 2010. ScotCat Factsheet no. 139. Jan. 2008.</p>"
     }
   ],
   "photos": [
@@ -175,14 +240,58 @@
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/3b36ed665198b235.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3b36ed665198b235-480.webp",
       "width": 1000,
       "height": 488,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-prashadi",
       "caption": "Ventral view.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3b36ed665198b235-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ad0777b20ddb94e4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ad0777b20ddb94e4-480.webp",
+      "width": 500,
+      "height": 201,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "caption": "Akysis prashadi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bba7f254188cd46a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bba7f254188cd46a-480.webp",
+      "width": 500,
+      "height": 228,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "caption": "Akysis prashadi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/99657abe3c32fce7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/99657abe3c32fce7-480.webp",
+      "width": 500,
+      "height": 313,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "caption": "Akysis prashadi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/21c7aa6a1663b867.webp",
+      "thumb": "https://media.aquatome.com/scotcat/21c7aa6a1663b867-480.webp",
+      "width": 500,
+      "height": 283,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_prashadi.htm",
+      "caption": "Akysis prashadi",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -217,5 +326,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

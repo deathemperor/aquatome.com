@@ -1,0 +1,108 @@
+{
+  "id": "tatia-strigata",
+  "scientificName": "Tatia strigata",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<ul><li><strong>Scientific name:</strong> Tatia strigata Soares-Porto, 1995</li><li><strong>Common name:</strong> Pinstripe Woodcat</li><li><strong>Size:</strong> 80 mm (3.1\") SL</li><li><strong>Type locality:</strong> Municipio de Maués, Igarapé Limãozinho, Amazonas, Brazil</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>South America: Amazon River basin and upper reaches of the Orinoco, in Brazil and Venezuela.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>Feeds mainly on insects.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>Mature males exhibit a modified anal fin copulatory organ.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>Has been bred a few times in the aquarium. Eggs are scattered individually across the tank as opposed to laid in a clump like some congeners. The species isn't difficult to spawn, however, the eggs are hard to develop and the fry are hard to raise. The eggs only develop in very soft acidic water; without this they \"melt\". The fry are quite small, with a high mortality rate. They can only be weaned on liquid foods for the first couple of weeks, after that they are quite easy to rear.</p><p>There is a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>Imported and photographed for the first time in early 2011. Although the description of this species notes the maximum length of specimens treated therein as 32 mm, aquarists have recorded the species up to at least the SL presented here.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1095",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 6 (no. 3), pp 202, Fig. 1.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/408a1da19062732e.webp",
+      "width": 960,
+      "height": 685,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tatia_strigata.jpg",
+      "caption": "Tatia strigata",
+      "thumb": "https://media.aquatome.com/commons/408a1da19062732e-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "thức ăn cá nhỏ ăn côn trùng"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

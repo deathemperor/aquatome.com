@@ -32,11 +32,25 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "sprucepets",
         "value": {
           "min": 6,
           "max": 7.5
@@ -50,24 +64,43 @@
           "min": 5,
           "max": 20
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 35
+      },
+      {
+        "source": "sprucepets",
+        "value": 33
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 150
+      },
+      {
+        "source": "sprucepets",
+        "value": 120
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "sprucepets",
+        "value": 6
       }
     ]
   },
@@ -79,10 +112,22 @@
       "html": "<ul><li>Max size: 350 mm SL (14 in SL)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 5 of 8 (moderate); needs a very large tank</li></ul><p>The oscar, Astronotus ocellatus, is a large cichlid widely distributed in the Amazon region, recorded from Colombia and Venezuela south to Argentina. It grows to 350 mm SL and typically lives 10 to 20 years, both of which need taking into account before purchase. Most fish on sale come from commercial breeders in Eastern Europe or the Far East, in numerous ornamental strains, and genetic analyses suggest the genus contains additional, morphologically cryptic species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<ul><li>Common names: Oscar, Tiger Oscar, Marble Cichlid, Velvet Cichlid</li><li>Scientific name: Astronotus ocellatus</li><li>Adult size: 12 to 14 inches (30–36 cm)</li><li>Life expectancy: 10 to 15 years</li><li>Family: Cichlidae</li><li>Origin: South America</li><li>Social: Semi-aggressive</li><li>Tank level: Top, mid-dweller</li><li>Minimum tank size: 65 gallons (about 250 litres)</li><li>Diet: Carnivore</li><li>Breeding: Egg layer</li><li>Care: Advanced</li><li>pH: 6.0 to 7.5</li><li>Hardness: 5 dGH</li><li>Temperature: 22 to 25 °C (72 to 77 °F)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>Widely-distributed in the Amazon region and has been recorded in Colombia, Venezuela, Bolivia, Ecuador, Peru, Brazil, French Guiana, Paraguay, Uruguay and Argentina. Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock. Feral populations also exist in several countries, including Singapore and the USA.</p><p>Wild fish are occasionally available in the trade, but the vast majority of those on sale originate from commercial breeders in Eastern Europe or the Far East.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins. They are common in the aquarium hobby with most individuals being captive bred.</p><p>They are commonly sold in South American markets as a food fish and have been introduced to Asia, Australia and North America. In many US states where fish have been released into the wild, they are labeled a non-native pest species.</p>"
     },
     {
       "key": "habitat",
@@ -103,10 +148,22 @@
       "html": "<p>Unsuitable for the carefully-aquascaped aquarium since it has a tendency to dig into the substrate but otherwise relatively unfussy. A natural-style set-up could include a soft, sandy substrate, relatively dim lighting plus some large driftwood roots and branches.</p><p>Efficient filtration and a dedicated maintenance regime comprising weekly water changes of 30-50% aquarium volume are essential, and if possible the heaterstat should be situated externally as this species has been known to break such items of equipment.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>Oscars are sticklers for good water chemistry, so it is vital that you keep up with your regular maintenance and check your water chemistry regularly. They are more susceptible to Head and Lateral Line Erosion, also known as Hole-In-The-Head disease, which can occur when fish are chronically stressed.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: Captive-bred examples are not fussy with somewhere in the range 6.0–7.5 normally recommended. Wild-caught fish may require more specific conditions depending on origin.</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>This aggressive nature towards their tank decor may turn against filtration and other life support items you have in their tank, such as powerheads and heaters. Oscars have been known to break these items, even if you try to be sneaky about hiding them. The best solution for many destructive oscar tanks is to incorporate a sump. In doing so, you can move all of your life support equipment out of the main tank and away from your fish.</p>"
     },
     {
       "key": "diet",
@@ -115,10 +172,22 @@
       "html": "<p>This species is a generalised omnivore, feeding on a range of items including smaller fish, insects, crustaceans, zooplankton and various types of both terrestrial and aquatic vegetation in the wild, although meatier foods appear to be the preferred option with fruit and other plant material being taken when prey is scarce.</p><p>A study by Winemiller (1990) revealed that of the fish consumed, most were benthic catfish including Bunocephalus, Rineloricaria and Ochmacanthus species. Some populations have been oberved hunting in a similar fashion to the Nimbochromis of Lake Malawi, utilising a behavioural strategy known as thanatosis, or 'playing dead'.</p><p>In the aquarium it is an unfussy feeder, although a high protein menu is preferable. A good quality cichlid pellet can be used as the staple diet, supplemented with regular offerings of live or frozen foods. Live earthworms are a particular favourite, but prawns, whitebait, river shrimp, crickets etc., are all useful alternatives.</p><p>Take care not to overfeed as oscars are notoriously greedy and soon learn to 'beg' for food whenever their owner approaches the aquarium.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian/avian meat such as beef heart or chicken, and similarly there is little benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>Oscars are serious carnivores who will prey upon smaller, more docile fish in their tank. It is critical to select suitable tankmates who will not look or act too tasty.</p><p>As with most pet fish species, a well-rounded diet will consist of a pelleted cichlid diet and meaty supplements. There are many pelleted cichlid diets that are good for a wide variety of cichlid diets, carnivores included. Additional protein-rich foods to give your oscar include bloodworms, tubifex worms, frozen krill and other larger frozen diets. Although some recommend feeding your oscar live foods, this should be avoided in order to limit the spread of disease into your system and potentially overpopulating your tank.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>Although not especially aggressive for a cichlid of this size this species' predatory nature dictates that it should not be combined with much smaller fishes.</p><p>Its adult size also precludes the possibility of it being maintained in a community in all but the largest private aquaria.</p><p>Potential tankmates include characids, anostomids, other cichlids, and larger loricariid or doradid catfishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>Be very careful when selecting tankmates for your oscar. Although they may start out small, many quickly outgrow smaller tankmates and then consume them. These are semi-aggressive cichlids who do not play well with many community fish. When choosing compatible cichlid species, make sure you select fish from the same region. Even though there are many varieties of cichlids, their origin will dictate what water quality parameters are best for them. Since oscars are South American, be sure to stick to other South American varieties.</p><p>For your oscar tank, it is best to select fish of a similar size who can hold their own. This includes Jack Dempseys (cá Jack Dempsey), Convict Cichlids (cá Convict) and Silver Dollars (cá đô la bạc) as a few examples.</p><p>Oscars are notorious redecorators. Expect your fish to move everything, especially live plants with roots. Oscars will dig up plants, overturn rocks and toss sticks aside. It's just in their nature and there is not much you can do to deter rearranging behavior.</p>"
     },
     {
       "key": "dimorphism",
@@ -127,16 +196,34 @@
       "html": "<p>In wild populations adult males are sometimes a little larger and more colourful than females, but this species does not tend to exhibit external sexual differences.</p><p>In nuptial females the ovipositor is visible as an extension to the oviduct just prior to and during spawning.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>There is a very small external difference between male and female oscars. You will need to safely catch and handle your fish, and flip them upside down to examine their urogenital openings. Oscar females will have one larger hole, which is the opening for their eggs. Oscar males will have holes of similar size. If they are not reproductively mature, the holes will look the same size regardless of their sex.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>This species is a substrate-spawner developing extended pair bonds.</p><p>The best way to obtain a pair is to begin with a group of half-a-dozen or more youngsters which should begin to pair off naturally as they reach sexual maturity. Once a pair has formed the other fish should be removed.</p><p>The aquarium should contain a number of flat rocks or other structures in order to provide a choice of spawning sites.</p><p>During courtship the pair will select and then thoroughly clean their chosen site. The eggs themselves are white and opaque immediately post-laying. We failed to find any data confirming the exact reasons for this, but a viable brood will tyically change colour during the first 24 hours.</p><p>Parental care is extended post-hatching, but once the fry are free-swimming they can safely be separated from the adults.</p><p>Careful thought is required before attempting to breed this species, however. A single female can lay as many as 2000 eggs meaning considerable space and resources will be necessary if the intention is to raise them all. In addition, A. ocellatus is among those fishes most-often discarded after growing large with public aquaria and stores commonly offered more than they are able to house. It is also considered an invasive pest in some countries, and has little commercial value since it continues to be produced on a massive scale by ornamental breeders.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>Even if you have one male and female oscar, they may not be interested in breeding. Oscars can be picky when it comes to selecting a mate. If your fish are not initially interested, do not despair and try moving them back to their main tank, incorporating different decor items to the breeding tank or getting a larger breeding tank.</p><p>It is recommended to breed your oscars in a separate tank away from other fish, in a 100 gallon (about 380 litres) tank or larger. Temperature is critical to induce spawning, and should be warmer than their usual tank, 26 to 30 °C (79 to 86 °F). You will need some flat rock or stone surfaces for the fish to lay their eggs. The female will lay between 1,000-2,000 eggs which the male will then swim over to fertilize. The eggs and fry will be guarded by their parents and should remain in the breeding tank until they can fend for themselves.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>This species is also referred to as 'velvet cichlid', 'red oscar', 'tiger oscar', or 'marble cichlid'.</p><p>It is a popular aquarium fish although its adult size and typical life-span of 10-20 years must be taken into account before purchase. Numerous ornamental strains are now available, and while care is more-or-less identical for all of them a degree of additional care must be taken with the 'long-finned' variety which is a little less competitive than other forms.</p><p>A. ocellatus can be told apart from its only congener, A. crassipinnis, by presence (vs. absence) of ocellated spots at the base of the dorsal-fin, having the anteriormost light vertical body bar located above the anal-fin base (vs. anterior to the pectoral-fin tip), plus possession of 13 spinous and 20 soft (vs. 12 spinous and 21-22 soft) dorsal-fin rays. In addition, A. crassipinnis exhibits two dark vertical bars in place of the first light bar in A. ocellatus, and is overall darker in colour.</p><p>The taxonomy of the genus is far from resolved, however, with genetic analyses suggesting that a number of additional, morphologically cryptic species exist.</p><p>For example, the dorsal ocelli only appear to be present in western Amazonian populations, with only Peruvian A. ocellatus having been studied in depth.</p><p>The colour pattern in all Astronotus is cryptic and composed of irregularly-arranged blotches and stripes, while juveniles are typically black with white stripes.</p><p>In phylogenetic terms Astronotus has formerly been grouped in the putative tribe Chaetobranchini alongside the genera Chaetobranchus and Chaetobranchopsis due to morphological similarities between the three (Kullander, 1998), although recent analyses have tended to place it closer to the tribes Cichlini and Retroculini (López-Fernández et al., 2005), Cichlasomatini and Heroini (López-Fernández et al., 2010) or as sister to all these groups (Smith et al., 2008).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "html": "<p>The common Oscar is also known as the Tiger Oscar, a darker brown to light green fish with highlights of red and orange. The color pattern can vary wildly with a characteristic eye spot, or ocelli, on the tail fin. There are albino variations with an all white body with red spots.</p><p>The species also includes mutations with vibrant colors like yellow and blue, mostly black, and even all-white (albino).</p>"
     },
     {
       "key": "references",
@@ -148,47 +235,69 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/3f28df94d5975f39.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3f28df94d5975f39-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "caption": "Young adult specimen collected in Bahia state, northeastern Brazil.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3f28df94d5975f39-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/5aea43ac1ade225b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5aea43ac1ade225b-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "caption": "The wild form from Bahia is normally traded as A. ocellatus 'Bahia red'.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5aea43ac1ade225b-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/95c4155a9e9ffea4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/95c4155a9e9ffea4-480.webp",
       "width": 1024,
       "height": 676,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "caption": "Adult specimen of ornamental 'albino' strain.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/95c4155a9e9ffea4-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/797e1a90f7ebd5c9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/797e1a90f7ebd5c9-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "caption": "Juvenile of ornamental 'tiger' strain.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/797e1a90f7ebd5c9-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/56d5b06420073d26.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/56d5b06420073d26-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "caption": "Oscar cichlid",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/db7fcf4d367012e0.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/db7fcf4d367012e0-480.webp",
+      "width": 600,
+      "height": 413,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
+      "caption": "Convict Cichlid",
+      "source": "sprucepets"
     }
   ],
   "videos": [],
@@ -222,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

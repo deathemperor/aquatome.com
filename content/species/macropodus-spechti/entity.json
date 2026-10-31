@@ -1,0 +1,143 @@
+{
+  "id": "macropodus-spechti",
+  "scientificName": "Macropodus spechti",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Macropodus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "vietnam",
+    "thu-bon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 21,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 13
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "bwaquatics",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Type of paradise fish. IUCN Red List: LC.</p><p>The Black paradise fish is a dark-colored, gourami-like fish with a beautiful black outline on the scales. Unlike bettas, these fish tolerate their peers and usually establish a pecking order in groups. They are very hardy and tolerant of different water temperatures, making them great beginner fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>A pair can be kept together in a 10 to 20-gallon tank (about 40–75 litres).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<ul><li>TDS: ~60+ (can tolerate high TDS water)</li><li>pH: 6.0–7.8 (water quality isn't that important)</li><li>Temperature: 21–28 °C (70–83 °F); does well in cooler temperatures, but higher temperatures induce coloration and breeding behaviour</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Carnivorous. Readily take dried foods. Fed on blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. A pair per 5 gallons (about 19 litres) of water is recommended.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Males have extended anal, dorsal and caudal fins, while females have a much rounder body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Bubble nester.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "html": "<p>Maximum size: about 13 cm (5 inches) including tail.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/42a0ea58b3c57783.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/42a0ea58b3c57783-480.webp",
+      "width": 1200,
+      "height": 857,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60 lít",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc treo hông bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

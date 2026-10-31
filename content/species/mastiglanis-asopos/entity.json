@@ -1,0 +1,62 @@
+{
+  "id": "mastiglanis-asopos",
+  "scientificName": "Mastiglanis asopos",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Mastiglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "trombetas"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
+      "html": "<ul><li><strong>Scientific name:</strong> Mastiglanis asopos Bockmann, 1994</li><li><strong>Type locality:</strong> Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas, Pará State, Brazil.</li><li><strong>Etymology:</strong> from Greek mastax, -agos (bite) and glanis (a fish that can eat the bait without touching the hook; a catfish).</li><li><strong>Size:</strong> 66 mm SL (standard length).</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
+      "html": "<p>South America: Amazon, Capim and Orinoco River basins. Recorded areas include the Lower Amazon (Guamá, Capim, Trombetas), Upper Amazon, and Middle Amazon (Solimões; Negro, Preto da Eva).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
+      "html": "<p>Proceedings of the Biological Society of Washington v. 107 (no. 4), pp 762, Fig. 1.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/35d7ceefb64645c3.webp",
+      "width": 960,
+      "height": 489,
+      "licence": "CC BY-SA 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mastiglanis_asopos_Armbruster.jpg",
+      "caption": "Mastiglanis asopos GUY14-26 56mm",
+      "thumb": "https://media.aquatome.com/commons/35d7ceefb64645c3-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

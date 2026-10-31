@@ -7,173 +7,92 @@
   "group": "barbs",
   "places": [
     "asia",
-    "india"
+    "india",
+    "deccan"
   ],
   "dataCard": {
     "tempC": [
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": {
-          "min": 22,
+          "min": 26,
           "max": 26
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 6,
-          "max": 7.5
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 2,
-          "max": 10
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 7
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 90
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 2
+        "source": "glaser",
+        "value": 8
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>The melon barb, Haludaria fasciata, is a small cyprinid endemic to the Western Ghats of southern India, in Goa, Karnataka, Kerala and Tamil Nadu. It exists in a number of colour forms, and it is undecided whether they are geographical variants or a complex of closely-related species. Also traded as the 'ember barb', 'banded barb' and 'black spot barb', it is relatively peaceful and hardy, but a vigorous feeder that may outcompete slower or more timid fishes.</p><ul><li>Max size: 70 mm SL (2.8 in)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "html": "<p>A typical fish of this region is the melon barb, Haludaria (formerly Barbus or Puntius) fasciata. There are many colour strains of it in the different rivers. The most attractive varieties from an aquaristic point of view are red, but there are also yellow and orange varieties.</p><p>Wild-caught specimens can have a fantastically deep red as base colour. The males seem to glow from the inside. The melon barb becomes about 8 cm long and is completely peaceful.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Endemic to the Western Ghats mountains in the south Indian states of Goa, Karnataka, Kerala and Tamil Nadu where it ranges from Kanyakumari district at the southern tip of the country almost as far as Maharashtra state to the north.</p><p>It's more common on the western slopes of the range and has been recorded in numerous river drainages from mouth to near source though it's more common at sea level and in the foothills.</p><p>There are a number of geographically-isolated variants which differ in both colour and patterning depending on locality and habitat-type. Populations from highland environments (headwaters, hill streams, etc.) typically display an orangey base colour whereas at lower altitudes they are normally purple or reddish, for example.</p><p>The number and positioning of dark bars on the body is also variable; populations from Goa have five, Karnataka/northern Kerala four, central/southern Kerala three.</p><p>Some from southern Kerala only have two and the much sought after fish from Kanyakumari uniquely display none at all (R. Kumar, pers. comm.).</p><p>Since genetic differences are also likely to exist it's important not to mix the forms in aquaria to avoid hybridisation.</p><p>Unfortunately this may already have occurred in the trade so it's wise to ask about the origins of your fish prior to purchase.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Among the most widely-distributed barbs in the Western Ghats and inhabits a variety of biotopes from hill streams to major rivers as well as irrigation canals, ponds, lakes and ditches.</p><p>It shows a preference for shallow, quiet zones with submerged cover in the form of aquatic vegetation or leaf litter.</p><p>Though gregarious it usually forms large schools with members of other species as well as conspecifics.</p><p>It's typically found alongside other small cyprinids such as Pethia ticto, Puntius sahyadriensis, 'Puntius' setnai and others towards the northern extent of its range, Dawkinsia filamentosua, D. assimilis, D. arulius, Pethia ticto and P. punctata in the middle and D. assimilis, D. exclamatio, D. filamentosa, D. Pethia ticto, and P. punctata at the southern end.</p><p>Rasbora daniconius occurs sympatrically in most places, too.</p><p>All rivers in the Western Ghats are rain-fed and seasonal so many habitats undergo changes in depth, temperature, water chemistry, turbidity, and flow rate depending on the time of year. Undammed rivers can almost dry up completely during summer but flow like torrents after the monsoons.</p><p>At the Valpairi habitat in the images, plant species include Lagenandra ovata and Blyxa aubertii and sympatric fishes Devario malabaricus, Garra, Travancoria, and Mesonoemacheilus spp.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Base dimensions of at least 90 × 30 cm (36 × 12 in) or equivalent are required. Volume: about 81 litres (21 US gal).</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Fairly undemanding provided the aquarium is well-maintained but can appear a little washed out in very sparsely decorated set-ups.</p><p>A combination of subdued lighting and a dark substrate will encourage it to show its best colours, and it can look superb in a planted set-up decorated with pieces of bogwood, twisted roots and patches of floating vegetation.</p><p>The ideal set-up would be dedicated to the replication of a slowly flowing stream. Use a sand, gravel or mixed substrate and perhaps some smooth, water-worn rocks of varying sizes.</p><p>Filtration can be quite gentle but try to provide some water movement, adding some roots, branches, twigs and some aquatic plants (native species include Lagenandra ovata and Blyxa auberti) for cover.</p><p>A few handfuls of leaf litter should complete the natural effect and may help to bring out the best colours of the fish.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "html": "<p>In the south of India rises the ancient high plateau of the Deccan, which was already formed when India was still part of Africa. From here numerous small rivers flow directly into the Indian Ocean and in many of these rivers own colour variations, subspecies or species of freshwater fish have formed due to the geographical isolation. Barbs and loaches in particular can be found here in a great variety of forms, which has not yet been scientifically researched.</p>"
     },
     {
       "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "html": "<p>The water composition is secondary; the temperature should be around 26°C. A \"hibernation\" of 6-8 weeks at temperatures between 18 and 22°C has a very positive effect on the fish, but is not absolutely necessary.</p>"
     },
     {
       "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Wild fish are foraging omnivores feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Generally very peaceful making it an ideal resident of the well-researched community aquarium, but may outcompete slower-moving or more timid fishes as it's a somewhat vigorous feeder.</p><p>Since it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby though, including other small cyprinids as well as tetras, livebearers, rainbowfishes, certain anabantoids, catfishes, and loaches.</p><p>A community based around species from the Western Ghats could include species mentioned in the 'Habitat' section plus others such as Laubuca dadiburjori, Rasbora caverii, R. rasbora, Lepidocephalichthys guntea, L. thermalis, Botia striata, Aplocheilus blockii, A.lineatus, A. panchax, Pseudetroplus maculatus, Etroplus suratensis, and Pseudosphromenus cupanus.</p><p>As always research your planned combination thoroughly before purchase.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security and you'll be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is fascinating to watch plus they display their best colours when competing for female attention or hierarchical dominance.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Females tend to be larger and fuller bodied, especially when in breeding condition.</p><p>Males are by far the more colourful sex, and usually have red and/or black colouration in the dorsal-fin.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>Like most small cyprinids it's an egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition it will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<p>This species is traded under various vernacular names including 'ember barb', 'banded barb' and 'black spot barb', and is perhaps among the more undervalued small cyprinids in the aquarium hobby being relatively peaceful, hardy, colourful, and with interesting behaviour.</p><p>It exists in a number of colour forms but as yet it's undecided whether they should be thought of as geographical variants or a complex of closely-related species since no exhaustive phylogenetic studies have been conducted.</p><p>Four populations have have been raised to specific or subspecific status but only H. pradhani (Tilak, 1973), a coastal form from Maharashtra and Goa with 5 bars and purple body and H. kannikkatiensis, a blackish, black-finned form from Tamil Nadu state with two body markings, one beneath the dorsal-fin and the other on the caudal peduncle, are currently accepted to be valid (R. Kumar, pers. comm.).</p><p>The taxa considered synonymous with H. fasciata are H. afasciata (Jayaram, 1990), a plain-bodied form from Kanyakumari; H. melanampyx (Day, 1865), a three-striped form found in central and southern Kerala and H. grayi (Day, 1867), a highland form with 3 bars, the posterior of which at the base of the caudal-fin is often indistinct, and olive-green to crimson body.</p><p>H. fasciata itself was described from Malabar (corresponding to modern-day northern Kerala), and although no type specimens are known Jerdon did mention it had four bars.</p><p>It's possible that the 'group' is in the process of speciation and it seems feasible that some of these names may be revalidated, or additional populations raised to full species status, in the future.</p><p>All these nominal species were moved to new genus Dravidia by Pethiyagoda et al. (2012) but it subsequently became clear that the name was already preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>Haludaria species are defined by the following combination of characters: size small, usually less than 60 mm (2.4 in) SL; presence of rostral and maxillary barbels; lateral line complete, with 18-26 pored scales on body; 4 unbranched and 8 branched dorsal-fin rays, of which the last unbranched ray is weak and smooth; 3 unbranched and 5 branched anal-fin rays; gill rakers simple, acuminate (not branched or laminate); no antrorse predorsal spinous ray; infraorbital 3 deep, partly overlapping preoperculum; free uroneural and post-epiphysial fontanelle absent; presence of one or two broad, black bars on each flank, between the bases of dorsal and anal fins.</p><p>The genus Puntius was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Haludaria, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage.</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "html": "<ul><li>Day, F. (1865). On the fishes of Cochin, on the Malabar Coast of India. Part II. Anacanthini. Proceedings of the Zoological Society of London 1865 (pt 1), 286-318</li><li>Jayaram, K. C. (1990). Two new species of the genus Puntius Hamilton (Pisces: Cyprinidae) from India. Journal of the Bombay Natural History Society 87(1), 106-109</li><li>Silias, E. G. (1956). The Systematic Position of the Indian Cyprinid Fish, Cirrhinus fasciatus (Jerdon, 1849), with a New Name for Barbus fasciatus Bleeker (1853). Copeia 1956(3), 194</li><li>Kullander, S. O. and F. Fang (2005). Two new species of Puntius from northern Myanmar (Teleostei: Cyprinidae). Copeia 2005(2), 290-302</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "html": "<p>As a barb it nibbles on delicate plant parts if it is not sufficiently supplied with plant food.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/66bb649a530d2a37.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/66bb649a530d2a37-480.webp",
-      "width": 797,
-      "height": 519,
+      "url": "https://media.aquatome.com/glaser/3c5ab433abfb3f25.webp",
+      "thumb": "https://media.aquatome.com/glaser/3c5ab433abfb3f25-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "caption": "Adult male from the UK aquarium trade.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/dec2b4c5a4d81d8e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/dec2b4c5a4d81d8e-480.webp",
-      "width": 800,
-      "height": 520,
+      "url": "https://media.aquatome.com/glaser/69853b9b3423210f.webp",
+      "thumb": "https://media.aquatome.com/glaser/69853b9b3423210f-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "caption": "Adult female from the UK aquarium trade.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/c7ba6647c2953ee6.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c7ba6647c2953ee6-480.webp",
-      "width": 662,
-      "height": 354,
+      "url": "https://media.aquatome.com/glaser/f8628c8464db2461.webp",
+      "thumb": "https://media.aquatome.com/glaser/f8628c8464db2461-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "caption": "This male specimen with four dark body bars closely resembles the fish in Jerdon's original description.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b73c3c0c01544115.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b73c3c0c01544115-480.webp",
-      "width": 640,
-      "height": 426,
+      "url": "https://media.aquatome.com/glaser/2642065201ad461a.webp",
+      "thumb": "https://media.aquatome.com/glaser/2642065201ad461a-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
-      "caption": "Lagendra ovata grows thickly in certain marginal zones.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -181,32 +100,23 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể thủy sinh 90x30"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc sủi mút",
-        "lọc thùng nhỏ cho bể 90cm"
+        "bể cá 80cm",
+        "bể cá cộng đồng"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
-        "thức ăn cá nhỏ dạng vảy",
-        "trùng huyết đông lạnh",
-        "artemia"
+        "thức ăn cho cá barb",
+        "thức ăn thực vật cho cá"
       ]
     },
     {
-      "category": "phan-nen",
+      "category": "suoi",
       "keywords": [
-        "cát nền bể cá",
-        "sỏi nền tối màu"
+        "sưởi bể cá"
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

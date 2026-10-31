@@ -15,6 +15,49 @@
       {
         "source": "glaser",
         "value": 1
+      },
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 90
       }
     ]
   },
@@ -24,6 +67,60 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_conchonius_en/",
       "html": "<ul><li>Origin: India</li><li>Available size: 6-8 cm</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<ul><li>Common names: Red barb, rosy barb</li><li>Scientific name: Puntius conchonius</li><li>Family: Cyprinidae</li><li>Adult size: 6 inches (15 cm)</li><li>Life expectancy: 5 years</li><li>Social: Active, peaceful</li><li>Tank level: All areas</li><li>Minimum tank size: 30 gallons (about 110 litres)</li><li>Diet: Omnivore</li><li>Breeding: Egglayer</li><li>Care: Easy to intermediate</li><li>pH: 6.5</li><li>Hardiness: up to 10 dGH</li><li>Temperature: 18 to 22°C (64 to 72°F)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Rosy barbs originate from northern India, specifically in the states of West Bengal and Assam. Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia. In the wild, they inhabit lakes and fast-flowing waters in subtropical climates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>While a 20-gallon aquarium will suffice for a school of rosy barbs, a 30-gallon or larger tank is preferable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>As one of the hardiest barbs, rosy barbs are relatively easy to care for in captivity. Ensure your aquarium has a secure lid, as rosy barbs are proficient jumpers.</p><p>Rosy barbs can adapt to various conditions, provided extreme water conditions are avoided. They are known to tolerate higher nitrate levels, making them ideal for new tanks; they have a higher likelihood of surviving the initial nitrogen cycling.</p><p>Live plants are recommended, but avoid soft-leaved varieties, as rosy barbs may nibble on them. Java moss proves beneficial, providing shade and shelter.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Rosy barbs tolerate cooler temperatures than most tropical fish, ranging from 18 to 22°C (64 to 72°F). This allows them to be kept as pond fish. However, they should be moved indoors during winter, especially in regions susceptible to cold weather.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Rosy barbs are omnivorous and opportunistic feeders. They thrive on a diverse diet, consuming both vegetables and protein sources. Offer them plant matter, insects, worms, crustaceans, flakes, pellets, and frozen foods. They will also eat small live foods such as insects, worms, and crustaceans, including brine shrimp and bloodworms.</p><p>Provide variety by offering boiled zucchini or peas as treats. Due to their grazing behavior, rosy barbs help control hair algae growth in aquariums. They are enthusiastic eaters, so take caution to avoid overfeeding.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Ideally, house a minimum of five rosy barbs in an aquarium, as they are schooling fish that become stressed when alone. They may exhibit aggressive or \"fin-nipping\" behavior, which is mitigated by keeping them in a group of five or more. Due to their fin-nipping tendency, avoid pairing them with slower-moving, long-finned fish.</p><p>Rosy barbs are excellent community fish, socializing well with other nonaggressive, similarly sized species that thrive in cooler water. Suitable tankmates include swordtails, gouramis, angelfish, knifefish, ropefish, paradise fish, danios, tetras, many American cichlids, and other barbs. Hobbyists often use rosy barbs as dither fish in cichlid tanks, as their vibrant presence indicates a predator-free environment, coaxing shy cichlids out of hiding. Rosy barbs are agile and can outswim most similarly sized cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Males have a brighter red coloration, while females appear more gold or silver. Both genders display black markings on their fins and sides. The rosy barb has a torpedo-shaped body with a forked tail and a single dorsal fin. Like other cyprinid fish, rosy barbs lack an adipose fin.</p><p>Rosy barbs are challenging to sex when young. As they mature, males develop a redder, more slender appearance, while females remain smaller and plumper, typically lacking the males' bright red coloration, appearing more yellow, olive, or gold.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "html": "<p>Rosy barbs are relatively easy to breed, reaching sexual maturity at approximately 6 cm (2.5 inches). For breeding, a 20- or 30-gallon aquarium is ideal. They breed in shallow water, but fry require a larger tank to prevent stunting. Provide ample plants, offering seclusion and egg-laying surfaces.</p><p>For breeding, select one male and two females from a school with exceptional markings and strong coloration. When ready to breed, the female becomes more vibrant. Typically, they lay eggs at dawn as it becomes light.</p><p>During breeding, the male and female exhibit chasing and mock mating behaviors. The male fertilizes the eggs as the female scatters several hundred eggs onto the substrate, plants, decorations, or releases them into open water. These adhesive eggs require prompt removal, as parents do not care for them and may consume them if left in the tank.</p><p>Eggs hatch in approximately 30 hours. Feed free-swimming fry infusoria, liquid fry food, or newly hatched baby brine shrimp at least three times daily. Monitor closely during feeding, as uneaten food quickly fouls the water, and clean conditions are vital for fry survival.</p>"
     },
     {
       "key": "notes",
@@ -72,6 +169,39 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_conchonius_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/27e4299594bc51a4.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/27e4299594bc51a4-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "caption": "Puntius conchonius - Rosy Barb",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/3213eda1134f0646-480.webp",
+      "width": 600,
+      "height": 395,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "caption": "Cherry barb in an aquarium",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/4f99b8d126153251.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/4f99b8d126153251-480.webp",
+      "width": 600,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
+      "caption": "Gold Barb - Puntius semifasciolatus",
+      "source": "sprucepets"
     }
   ],
   "videos": [

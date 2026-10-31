@@ -1,0 +1,134 @@
+{
+  "id": "ameiurus-serracanthus",
+  "scientificName": "Ameiurus serracanthus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ameiurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "usa",
+    "suwannee"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 15,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 28
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<ul><li><strong>Scientific name:</strong> Ameiurus serracanthus (Yerger &amp; Relyea, 1968)</li><li><strong>Common names:</strong> Spotted Bullhead; Hvidplettet Dværgmalle (Denmark)</li><li><strong>Synonym:</strong> Ictalurus serracanthus</li><li><strong>Size:</strong> 280 mm or 11\" SL</li><li><strong>Etymology:</strong> Ameiurus: \"curtailed\", refers to the lack of a deep notch in the caudal fin. The specific epithet serracanthus refers to the serrated pectoral spine.</li><li><strong>Type locality:</strong> Northern shore of Lake Talquin, 6.8 miles west-southwest of Ochlockonee River, Gadsden County, Florida, U.S.A.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2011).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>North America: Gulf Coastal Plain in Suwannee, St. Marks, Ochlockonee, Apalachicola and St. Andrews Bay drainages of northern Florida, southern Georgia and southeastern Alabama in the USA.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<ul><li>pH: 6.6 - 8.4</li><li>Temperature: 15.0-24.0°C (59-75.2°F)</li><li>Other parameters: Very tolerant generally, even towards brackish water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>A sand substrate with stones and large piece of driftwood to hide under during the day is very desirable.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Omnivorous. Diet includes fish, aquatic invertebrates and some green matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Social with most anything they can not swallow, to be on the safe side do not house with anything less than half it's own size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Females are much fuller bodied during breeding season. This occurs during early spring.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Not known in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Identification: One of the easier ictalurids to recognize. It has a relatively dark body with many small bold white spots which no other bullhead has. There is a dark oval blotch at the base of the dorsal fin. The upper jaw is longer than the lower jaw. Caudal fin and the relatively short rounded anal fin have a distinct narrow black margin. Not to be confused with the southern mottled form of Ameiurus nebulosus.</p><p>General remarks: A spectacular looking fish. A great catfish to keep for those looking for a smaller predatory fish. In the wild, it has a limited distribution and is not commonly found even in its own range.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1089",
+      "html": "<p>Copeia 1968 (no. 2), pp 373, Fig. 4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

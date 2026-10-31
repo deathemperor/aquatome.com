@@ -1,0 +1,30 @@
+{
+  "slug": "ca-tre-dien",
+  "name": "Cá trê điện",
+  "altNames": [
+    "Cá da trơn điện",
+    "Electric Catfish",
+    "Elektrisk Mal",
+    "Elektrisk Malle",
+    "Elmalle",
+    "Zitterwels"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<p><strong>Tên khoa học:</strong> Malapterurus electricus (Gmelin, 1789)</p><p><strong>Nơi thu mẫu định danh (type locality):</strong> sông Nile tại Banha, Ai Cập, 30°28'N 31°11'E.</p><p><strong>Kích thước:</strong> 1220 mm SL (chiều dài chuẩn, không tính vây đuôi).</p><p><strong>Phân loại Danh lục đỏ IUCN:</strong> Ít lo ngại (đánh giá lần cuối năm 2019).</p><p><strong>Từ nguyên:</strong> Malapterurus ghép từ ba chữ Hy Lạp. Malakos nghĩa là mềm, pteron nghĩa là vây, còn oura nghĩa là đuôi. Cái tên này có lẽ ám chỉ vây mỡ. Loài này không có vây lưng có tia, nên vây mỡ trông càng nổi bật.</p>",
+    "distribution:planetcatfish": "<p>Loài này sống ở châu Phi. Cá có mặt ở phần lớn hệ thống sông Nile (trừ hồ Victoria), ở lưu vực hồ Turkana, hồ Chad và sông Senegal, và khắp hệ thống sông Niger. Ở Tây Phi, cá còn sống trong các lưu vực nhỏ hơn chảy về phía nam, từ sông Bandama đến sông Volta.</p>",
+    "waterConditions:planetcatfish": "<p>pH: 6,5 - 8,2</p><p>Nhiệt độ: 23,0-30,0°C</p>",
+    "equipment:planetcatfish": "<p>Bể nên để ánh sáng dịu và có chỗ trú vừa với cỡ cá. Cá có vẻ thích chỗ trú bằng đá hơn bằng lũa.</p>",
+    "diet:planetcatfish": "<p>Cá ăn cá sống, giun đất (cá nhỏ thì cho ăn trùng huyết), thịt hoặc hải sản cắt nhỏ. Đây là loài cực kỳ háu ăn. Vì vậy bạn phải cẩn thận để không cho ăn quá tay.</p>",
+    "behaviour:planetcatfish": "<p>Đây là loài sống đơn độc. Cá trưởng thành bắt buộc phải nuôi riêng một mình. Không có loài nào phù hợp để nuôi chung.</p>",
+    "dimorphism:planetcatfish": "<p>Cá đực có thân thon hơn cá cái.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa rõ loài này sinh sản ra sao. Có báo cáo cho rằng (a) cá đẻ trong hang và (b) cá có thể ấp trứng trong miệng. Chưa có báo cáo nào về nhân giống loài này.</p>",
+    "references:planetcatfish": "<p>Caroli a Linné ... Systema Naturae per regna tria naturae v. 1 (pt 3), pp 1354.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.6
+    }
+  }
+}

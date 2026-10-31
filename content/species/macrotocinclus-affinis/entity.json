@@ -1,0 +1,175 @@
+{
+  "id": "macrotocinclus-affinis",
+  "scientificName": "Macrotocinclus affinis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Macrotocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-de-janeiro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 19
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Otocinclus affinis Steindachner, 1877. Size: 5 cm SL. Mainly nocturnal.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Otocinclus affinis is a rare import from Brazil. It is almost universally misidentified in hobby literature, with the correct determination often being O. vittatus, which is very commonly imported and offered for sale.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>South America: vicinity of Rio de Janeiro, Brazil. Type locality: streams at Santa Cruz in the region of Rio de Janeiro.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<ul><li>pH: 6.0 - 8.0</li><li>Temperature: 20.0-26.0°C</li><li>dH: 5-19</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Feeds on algae, in particular on leaves and roots of plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Keep in groups (preferably at least six) with any small to mid-sized community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Etymology: Greek, ous, oto = ear + Latin, cinclus = latticework; in allusion to the holes of the head in the ears.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1083",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 76 (1. Abth.), pp 221 [5], Pl. 1 (figs. 1-1b).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0e2e8e770f67551a.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Cisamarc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrotocinclus_affinis_resting.jpg",
+      "caption": "Macrotocinclus affinis",
+      "thumb": "https://media.aquatome.com/commons/0e2e8e770f67551a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9b4371c8cc7d51a5.webp",
+      "width": 926,
+      "height": 1181,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_affinis.JPG",
+      "caption": "Otocinclus affinis.JPG",
+      "thumb": "https://media.aquatome.com/commons/9b4371c8cc7d51a5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a48463f73be629c2.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Cisamarc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrotocinclus_affinis_looking_for_algae.jpg",
+      "caption": "Pair of Macrotocinclus affinis",
+      "thumb": "https://media.aquatome.com/commons/a48463f73be629c2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6514c05843e0740a.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Kichu66",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otosek_przyuj%C5%9Bciowy_(Otocinclus_affinis).jpg",
+      "caption": "Otosek przyujściowy (Otocinclus affinis) w akwarium.",
+      "thumb": "https://media.aquatome.com/commons/6514c05843e0740a-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá oto",
+        "viên rau củ cho cá dọn tảo"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

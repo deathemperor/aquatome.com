@@ -5,150 +5,75 @@
   "family": "Osphronemidae",
   "genus": "Luciocephalus",
   "group": "labyrinth",
-  "places": [
-    "asia",
-    "thailand",
-    "malaysia",
-    "indonesia",
-    "brunei",
-    "singapore"
-  ],
+  "places": [],
   "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 22,
-          "max": 26
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 0,
-          "max": 10
-        }
-      }
-    ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 20
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 120
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 4
+        "source": "glaser",
+        "value": 13
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>The giant pikehead, Luciocephalus pulcher, is a predatory anabantoid from blackwater peat swamps in Thailand, Malaysia, Indonesia and Brunei. Highly piscivorous and notoriously difficult to wean off live foods, it travels poorly and is often sold in a weakened, emaciated state. Once settled it is quite hardy. The male is a mouthbrooder, holding the eggs for around 30 days, and it is best kept in a species tank in acidic water.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "html": "<p>The pikehead, Luciocephalus pulcher, is a highly specialized anabantoid, a relative of the chocolate gouramies. Like the latter the pikehead is a mouthbrooder. Luciocephalus is the only true predator among the various anabantoids; in its natural habitat it feeds preferably on shrimps.</p><p>The calm, beautiful animal (Latin pulcher = beautiful) would surely be a favourite aquarium fish despite being always hungry, but there is a big problem: Luciocephalus is among the most sensitive fish of all.</p>"
     },
     {
-      "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Parts of Thailand, Malaysia, Indonesia and Brunei Darussalam.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Inhabits peat swamps and other forested, often stagnant, black water habitats. These ancient biotopes contain water that is typically stained dark brown with humic acids and other chemicals released by decaying organic material. The dissolved mineral content is invariably negligible, and the pH can be as low as 3.0 or 4.0. The dense rainforest canopy above usually means that very little light penetrates the water surface, and the substrate is typically littered with fallen tree branches and rotting leaves.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Standard length 200 mm (8 in) SL. Aquarium base 120 × 30 cm. Volume ~108 litres. A tank of 120 × 30 × 30 cm (~108 litres) should be the minimum considered.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>This ambush predator will often be seen hovering motionless in the mid to upper water levels, and is happiest when maintained in a tank shaded by patches of floating vegetation. You'll also need to simulate the acidic black waters of its natural waters to keep it successfully. Try using peat fibre as substrate, and add some twigs and branches arranged so that some of them break the surface. Leave a gap of a few inches between the cover and the water as not only does the species require a layer of humid air above its tank, it's also an excellent jumper. The addition of some leaf litter in the form of beech, oak or Indian Almond leaves will complete the natural feel and result in a loosely accurate representation of the species' natural habitat. It will also thrive in a heavily-planted tank given suitable water conditions. In either situation water movement should be kept to a minimum so set the filter to run quite slowly. Regular partial water changes are a must in order to maintain the high water quality required.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: Acidic water is a prerequisite when keeping this species. In its natural waters it has been collected in water with a pH of just over 3.0! In the aquarium a value of 6.0 should be considered the absolute maximum.</li><li>Hardness: 0–10 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Highly piscivorous and notoriously difficult to wean off live foods, L. pulcher is a perfectly-adapted niche predator. It possesses one of the most protrusible jaws of all fish, having the ability to extend its mouthparts to around a third of its body length. This allows it to consume prey items almost half its own size. It lies in wait, motionless and highly-camouflaged until a suitable victim (usually a smaller fish) is within range. In the blink of an eye it lunges forward, literally engulfing the unfortunate quarry with its enormous mouth. Little to no success has been had in getting this species to accept dead foods in the aquarium. Although live fish are the preferred food, earthworms, crickets and live shrimp are also accepted. If you are intending to use live feeder fish it is well worth establishing a separate tank containing a colony of livebearers. Culturing these for feeding will reduce the risk of disease or parasite introduction via shop-bought fish.</p>"
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "html": "<p>The most current importation of the fish is absolutely problem-free. The adult pikeheads, about 11-13 cm long, were obtained via Singapore. The collecting site is unknown, as the pikeheads are not only extraordinarily healthy but also extraordinarily coloured.</p>"
     },
     {
       "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Although there are a few reports of successfully co-habiting this pikehead with similarly-sized fish that enjoy the same water conditions, it really is best kept in a species tank. As well as possessing the ability to consume smaller tankmates, it's actually quite shy and can easily become threatened if housed alongside much larger or more vigorous species. It can be kept in groups in sufficiently roomy quarters, but ensure that all the fish are of comparable size otherwise cannibalism is very likely to occur.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>Unknown.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>It's a paternal mouthbrooder that has been bred successfully in aquaria, although little data is available. The male holds the eggs in his mouth for around 30 days before the fully-formed fry are released. He does not attempt to eat during this brooding period.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/luciocephalus-pulcher",
-      "html": "<p>With a reputation as a difficult species to maintain in captivity, L. pulcher is recommended only to those enthusiasts able to provide the specialist diet and care it requires for its long-term health. It seems to travel very poorly, and is often seen on sale in a weakened, emaciated state. It is also particularly susceptible to bacterial infections when initially imported. Observe the fish carefully when buying and avoid any that are showing red patches around the mouthparts or fins, or that appear especially listless. Once settled, feeding and provided with conditions it is actually quite a hardy and very unusual Anabantoid.</p><p>Despite their predatory nature Luciocephalus are closely related to many of the commonly available gouramis. They are grouped within the Osphronemid subfamily Luciocephalinae along with Colisa, Trichogaster, Sphaerichthys, Parasphaerichthys and Ctenops species. The latter trio share an egg structure with Luciocephalus that is unique among teleosts, consisting of a series of spiralling ridges on the outer surface. This has given rise to the (as yet unproven) theory that the four genera form a monophyletic group ie. they share a common genetic ancestor. In Luciocephalus and Sphaerichthys the eggs are also distinctively pear-shaped, suggesting that these two share even closer genetic similarities.</p><p>L. pulcher was the sole representative of the genus for many years, until Tan and Ng described the beautiful L. aura in 2005. L. aura is a little smaller than L. pulcher and can be easily distinguished by the peppering of iridescent spots along its flanks. This patterning also gave rise to its common name of peppermint pikehead. Both species lack functioning swim bladders.</p><p>Like others in the suborder Anabantoidei, Luciocephalus possess an accessory breathing apparatus known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "html": "<p>Usually the pikehead has a broad, horizontal brown band along the flanks. Only when the fish are under distress or during mating this band vanishes and irregular spots are visible. The new importation has shown this spotted pattern since arrival 10 days ago. There is no satisfying explanation for the phenomenon; maybe it is currently the breeding season for pikeheads?</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/4e606d15ec01ac35.webp",
-      "width": 960,
-      "height": 540,
-      "licence": "Public domain",
-      "author": "F. A. Lucas",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luciocephalus_pulcher_2.jpg",
-      "caption": "Luciocephalus pulcher",
-      "thumb": "https://media.aquatome.com/commons/4e606d15ec01ac35-480.webp"
+      "url": "https://media.aquatome.com/glaser/fc0b28bbc9af20aa.webp",
+      "thumb": "https://media.aquatome.com/glaser/fc0b28bbc9af20aa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/f28a18fd980706eb.webp",
-      "width": 960,
-      "height": 679,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ubs6u!d-pongsakorn",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luciocephalus_pulcher_map.jpg",
-      "caption": "Luciocephalus pulcher map",
-      "thumb": "https://media.aquatome.com/commons/f28a18fd980706eb-480.webp"
+      "url": "https://media.aquatome.com/glaser/8911cba7d64b2e3e.webp",
+      "thumb": "https://media.aquatome.com/glaser/8911cba7d64b2e3e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/1b8cfd8ef46ca8b0.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY 4.0",
-      "author": "Wich’yanan L",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luciocephalus_pulcher_215155066.jpg",
-      "caption": "Crocodile Pikehead Gourami (Luciocephalus pulcher)",
-      "thumb": "https://media.aquatome.com/commons/1b8cfd8ef46ca8b0-480.webp"
+      "url": "https://media.aquatome.com/glaser/03e4e57a9dcea861.webp",
+      "thumb": "https://media.aquatome.com/glaser/03e4e57a9dcea861-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7f36251bcc7b4d12.webp",
+      "thumb": "https://media.aquatome.com/glaser/7f36251bcc7b4d12-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/luciocephalus-pulcher-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -156,28 +81,17 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30x30"
+        "bể cá 100cm",
+        "bể cá thủy sinh"
       ]
     },
     {
-      "category": "phan-nen",
+      "category": "thuc-an",
       "keywords": [
-        "than bùn nền bể",
-        "lá bàng khô"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng dòng chảy nhẹ"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá 100W"
+        "thức ăn đông lạnh",
+        "tôm nhỏ sống"
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

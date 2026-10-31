@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "sittaung"
+    "sittaung",
+    "sittang"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +19,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -25,6 +33,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -42,12 +57,20 @@
       {
         "source": "seriouslyfish",
         "value": 4.3
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 30
       }
     ],
     "difficulty": [
@@ -65,10 +88,22 @@
       "html": "<p>The smallmouth stream catfish, Akysis portellus, is a small akysid catfish from the Sittaung River system in southern Myanmar. One of the few members of the family exported for the hobby, it grows to around 43 mm SL. It closely resembles the sympatric A. longifilis, and differs in its shorter adipose fin base, smaller mouth and more rounded head when viewed from above.</p><ul><li>Max size: 43 mm SL (1.7 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Akysis portellus Ng, 2009. Family: Akysidae. Dorsal spines (total): 1; dorsal soft rays (total): 4-5; vertebrae: 32-33. Akysis portellus is most similar to A. longifilis, which occurs sympatrically in the Sittang River drainage. It is distinguished from A. longifilis by a shorter adipose-fin base, a smaller mouth and a more rounded head shape when viewed from above.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<p>The type series was collected from Shwe Kyin stream, a minor tributary of the Sittaung (aka Sittang) River system in Bago (formerly Pegu) Region, southern Myanmar. We've been unable to establish any firm details regarding additional localities to date but the species' appearance in the aquarium trade suggests it may have a wider distribution within the Sittaung drainage.</p><p>A. longifilis also occurs in the Sittaung with its type locality just 90 km upstream from that of A. portellus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Asia: Myanmar. Known from the type locality in the Sittang River drainage, southern Myanmar. Type locality: Shwe Kyin stream, a minor tributary of the Sittaung (aka Sittang) River system in Bago (formerly Pegu) Region, southern Myanmar.</p>"
     },
     {
       "key": "habitat",
@@ -89,16 +124,34 @@
       "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding. It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter can also be used.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank. Weekly water changes of 30-50% tank volume should be considered routine.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. You can keep them in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes and caves. They will either bury themselves in the sand or hide in caves and pipes. They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<ul><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Temperature: 18-22°C (63-71°F). pH: 6.5-7.5.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
     },
     {
       "key": "behaviour",
@@ -125,35 +178,25 @@
       "html": "<p>This species is among the few members of the family to have been exported for the aquarium hobby.</p><p>It can be differentiated from all other Akysis species by the following combination of characters: base of adipose fin measures 17.1-19.2% of standard length (SL); length of caudal peduncle 19.1-22.0% SL; depth of caudal peduncle 6.0-7.0% SL; width of gape (mouth) 9.5-11.1% of head length (HL); interorbital distance 30.8-36.8% HL; length of nasal barbels 80.5-101.4% HL; length of maxillary barbels 116.7-143.2% HL; length of inner mandibular barbel 53.7-79.2% HL; length of outer mandibular barbel 101.1-127.8% HL; absence of serrations on posterior edge of pectoral fin spine; caudal fin forked.</p><p>Within the genus the most similar-looking species is the sympatric A. longifilis, from which A. portellus differs only in the length of the adipose fin base (17.1-19.2% SL in A. portellus vs. 25.7-31.1% in A. longifilis), mouth size (9.5-11.1% HL vs. 12.9-14.7%), lack of brown markings in the pelvic and anal fins (vs. presence, though based on photographs this character may not be 100% reliable with some individuals of A. portellus appearing to possess these markings and some of A. longifilis lacking them) and having a more rounded head shape when viewed from above.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects Ng and Kottelat (1998) split the genus as originally accepted into the A. variegatus and A. pseudobagarius species groups, but all those of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name portellus: from the Latin portella, the diminutive form of porta, meaning door. The name is used as a noun and alludes to the relatively small mouth of this species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2007). Akysis pulvinatus, a new species of catfish (Siluriformes: Akysidae) from southern Thailand. Zootaxa 1608, 51-58</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and M. Kottelat (2004). Akysis vespa a new species of catfish (Siluriformes: Akysidae) from the Ataran River drainage (Myanmar). Ichthyological Exploration of Freshwaters 15(3), 193-200</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2017). Ng, H.H., 2009. Akysis portellus sp. Nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1):2-8.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/0ee2dad46c8db706.webp",
-      "thumb": "https://media.aquatome.com/scotcat/0ee2dad46c8db706-480.webp",
-      "width": 500,
-      "height": 324,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
-      "caption": "Akysis portellus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/0ae56c9af6639bf2.webp",
-      "thumb": "https://media.aquatome.com/scotcat/0ae56c9af6639bf2-480.webp",
-      "width": 500,
-      "height": 330,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
-      "caption": "Akysis portellus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/b6f7772de4de94a8.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/b6f7772de4de94a8-480.webp",
@@ -175,6 +218,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "caption": "Deeper-bodied (female?) specimen.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0ee2dad46c8db706.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0ee2dad46c8db706-480.webp",
+      "width": 500,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "caption": "Akysis portellus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0ae56c9af6639bf2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0ae56c9af6639bf2-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_portellus.htm",
+      "caption": "Akysis portellus",
+      "source": "scotcat"
     },
     {
       "url": "https://media.aquatome.com/scotcat/ac72b47ed421dcb3.webp",
@@ -231,5 +296,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

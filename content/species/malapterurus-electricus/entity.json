@@ -1,0 +1,176 @@
+{
+  "id": "malapterurus-electricus",
+  "scientificName": "Malapterurus electricus",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "egypt",
+    "nile",
+    "kenya",
+    "lake-turkana",
+    "chad",
+    "lake-chad",
+    "senegal",
+    "nigeria",
+    "niger",
+    "ghana",
+    "volta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 122
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p><strong>Scientific name:</strong> Malapterurus electricus (Gmelin, 1789)</p><p><strong>Type locality:</strong> Nile River at Banha, Egypt, 30°28'N 31°11'E.</p><p><strong>Size:</strong> 1220 mm (48\") SL.</p><p><strong>IUCN Red List category:</strong> Least Concern (last assessed 2019).</p><p><strong>Etymology:</strong> Malapterurus: from the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>Africa: occurs in much of the Nile system (exclusive of Lake Victoria), the Lake Turkana, Lake Chad and Senegal basins, throughout the Niger system, and in smaller southward flowing basins in west Africa (rivers Bandama through Volta).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>pH: 6.5 - 8.2</p><p>Temperature: 23.0-30.0°C (73.4-86°F)</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>A dimly lit tank with a suitably sized retreat - appears to prefer stone over wood.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>Live fish, earthworms (bloodworm for smaller fish), chopped meat or seafood. Care must be taken not to overfeed as this fish is a real glutton.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>A loner, adult fish must be kept alone. Suggested tankmates: none.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>Males are more slender.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>Unknown, although it is reported that (a) the fish spawn in burrows and (b) that they may be mouthbrooders. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=109",
+      "html": "<p>Caroli a Linné ... Systema Naturae per regna tria naturae v. 1 (pt 3), pp 1354.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/24c1648410e5de5d.webp",
+      "width": 960,
+      "height": 573,
+      "licence": "CC BY-SA 3.0",
+      "author": "Stan Shebs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_electricus_1.jpg",
+      "caption": "Photo of Malapterurus electricus (electric catfish) at the Steinhart Aquarium in San Francisco",
+      "thumb": "https://media.aquatome.com/commons/24c1648410e5de5d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/440f58f512517669.webp",
+      "width": 960,
+      "height": 769,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert; Loat, L.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_the_Nile_(Pl._LXXVIII)_(6815509270).jpg",
+      "caption": "Malapterurus electricus anatomy",
+      "thumb": "https://media.aquatome.com/commons/440f58f512517669-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/de21dae9d8c5e386.webp",
+      "width": 960,
+      "height": 769,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert; Loat, L.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_the_Nile_(Pl._LXXVII)_(6815509070).jpg",
+      "caption": "Malapterurus electricus",
+      "thumb": "https://media.aquatome.com/commons/de21dae9d8c5e386-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4078429e0c31f6af.webp",
+      "width": 960,
+      "height": 367,
+      "licence": "CC BY 2.0",
+      "author": "Fondo Antiguo de la Biblioteca de la Universidad de Sevilla from Sevilla, España",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Egipto,_1882_%22Malapterus_Electricus._Siluro_el%C3%A9ctrico%22_(21409757886).jpg",
+      "caption": "Autor: Ebers, Georg Moritz, 1837-1898 Descripción bibliográfica: Egipto / por Jorge Ebers ; traducción directa del alemán por Antonio Bergnes de las Casas, revisada y corregida por Cayetano Vidal de V",
+      "thumb": "https://media.aquatome.com/commons/4078429e0c31f6af-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá dài 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "giun đất cho cá",
+        "thức ăn cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

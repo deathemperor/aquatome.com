@@ -1,0 +1,141 @@
+{
+  "id": "trachelyopterus-insignis",
+  "scientificName": "Trachelyopterus insignis",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Trachelyopterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.2,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
+      "html": "<ul><li>Scientific name: Trachelyopterus insignis (Steindachner, 1878)</li><li>Common name: Flag Woodcat</li><li>Size: 200 mm (7.9\") SL</li><li>Etymology: Trachelyopterus, from the Greek trachelos, meaning neck, and pteron, meaning fin; in reference to the long cranial shield, which gives the appearance that the dorsal fin originates at the neck region.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
+      "html": "<p>South America: Lower Magdalena River basin. Colombia Caribbean Rivers, Magdalena, Lower Magdalena. Type locality: Río Magdalena, Colombia. IUCN Red List category: Least Concern (last assessed 2014).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
+      "html": "<ul><li>pH: 6.2 - 7.2</li><li>Temperature: 23.0-28.0°C (73.4-82.4°F)</li><li>dH 10-25</li></ul><p>Note: Fishbase lists 23-38°C - the latter is most likely a typo.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1097",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 15 (no. 12) (for 9 May 1878), pp 89.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6b54e68e6962c92d.webp",
+      "width": 960,
+      "height": 760,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trachelyopterus_insignis_(16039067099).jpg",
+      "caption": "Trachelyopterus insignis",
+      "thumb": "https://media.aquatome.com/commons/6b54e68e6962c92d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/655d0ff635a587ce.webp",
+      "width": 960,
+      "height": 415,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tracheolipterus_insignis_(16610903379).jpg",
+      "caption": "Tracheolipterus insignis",
+      "thumb": "https://media.aquatome.com/commons/655d0ff635a587ce-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a27faea36e70c43f.webp",
+      "width": 936,
+      "height": 950,
+      "licence": "CC BY-SA 3.0",
+      "author": "Alexrk2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rio_Magdalena_map.png",
+      "caption": "Map of Magdalena River and its drainage basin",
+      "thumb": "https://media.aquatome.com/commons/a27faea36e70c43f-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá mèo"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy dạng viên chìm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

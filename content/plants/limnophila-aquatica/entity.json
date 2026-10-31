@@ -1,0 +1,103 @@
+{
+  "id": "limnophila-aquatica",
+  "scientificName": "Limnophila aquatica",
+  "difficulty": 2,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "fast",
+  "placement": [
+    "background",
+    "midground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
+      "html": "<ul><li><strong>Type:</strong> Stem plant</li><li><strong>Origin:</strong> Asia</li><li><strong>Height:</strong> 20 - 30+ cm</li><li><strong>Light demand:</strong> Medium</li><li><strong>CO2:</strong> Low</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
+      "html": "<p>In the right growing conditions with added CO2 and a nutritious bottom this plant grows fast and can become 25-50 cm long and each stem up to 15 cm wide. In good light it forms horizontal side shoots and becomes attractive and bushy.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
+      "html": "<p>An extremely beautiful aquarium plant from South-East Asia, circled by light-green and finely branched leaves. Most decorative when several stems are planted in a small group. In open aquariums it sometimes sends shoots above the water surface, forming small blue flowers.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c56caea0c74f9c23.webp",
+      "width": 960,
+      "height": 716,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jerzy Opioła",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aquatica_a1.jpg",
+      "caption": "Limnophila aquatica",
+      "thumb": "https://media.aquatome.com/commons/c56caea0c74f9c23-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c7911a046a4cc324.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aquatica_kz01.jpg",
+      "caption": "Limnophila aquatica in the Botanischer Garten, Berlin-Dahlem",
+      "thumb": "https://media.aquatome.com/commons/c7911a046a4cc324-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/34ef3ccb1c1bafe3.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aquatica_kz02.jpg",
+      "caption": "Limnophila aquatica in the Botanischer Garten, Berlin-Dahlem",
+      "thumb": "https://media.aquatome.com/commons/34ef3ccb1c1bafe3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8e1a3633ad95d1a4.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andreus Felipen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ambuliadetalle.JPG",
+      "caption": "Ambulia",
+      "thumb": "https://media.aquatome.com/commons/8e1a3633ad95d1a4-480.webp"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây rau om nước",
+        "Limnophila aquatica",
+        "cây thân mọc thủy sinh"
+      ]
+    },
+    {
+      "category": "co2",
+      "keywords": [
+        "bộ CO2 bể thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "phân nền thủy sinh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

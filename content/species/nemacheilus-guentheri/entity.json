@@ -7,52 +7,12 @@
   "group": "loaches",
   "places": [
     "asia",
-    "india",
-    "nilgiri-hills"
+    "india"
   ],
   "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 19,
-          "max": 25.5
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 6,
-          "max": 7.5
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 2,
-          "max": 12
-        }
-      }
-    ],
     "sizeCm": [
       {
-        "source": "seriouslyfish",
-        "value": 6
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 60
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 6
       }
     ]
@@ -60,154 +20,93 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Mesonoemacheilus guentheri is a loach from the Western Ghats of southern India, described from the Nilgiri Hills and since recorded in Kerala. Outside India it is most often seen as bycatch among shipments of M. triangularis. It is often confused with M. herrei, since both have rows of yellowish, dark-edged spots, but its spots are rounded where those of M. herrei are 'Y' or 'V' shaped. Some aquarists report it as peaceful and others as territorial and aggressive.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 19–25.5°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "html": "<p>There are ten known species in the genus Mesonoemacheilus. They are small, 4-6 cm long, very lively loaches.</p>"
     },
     {
       "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Described from 'rapids' on the slopes of the Nilgiri Hills, western Tamil Nadu state, southern India.</p><p>The Nilgiris fall within the boundaries of the Nilgiris UNESCO Biosphere Reserve, form part of the Western Ghats mountain chain and are located close to the borders of Karnataka and Kerala states.</p><p>It is now known to have an extended range and has been recorded in the Periyar Tiger Reserve of the Cardamom Hills, Kerala, some distance further south.</p><p>Colouration and patterning vary to an extent both between and within populations.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Inhabits clear, well-oxygenated, headwater streams and minor rivers. These are often shaded by surrounding forest cover with the substrate normally composed of coarse sand, gravel, rocks and boulders covered with an epilithic layer of algae, diatoms plus other microorganisms and detritus.</p><p>Aquatic plants usually absent, though Lagenandra and Blyxa spp. have been observed at some lower-gradient habitats.</p><p>Flow rate and turbidity vary somewhat depending on the time of year with both increasing dramatically during the annual monsoon season which occurs between June and September.</p><p>In the Panniyar river basin, Kerala it was collected alongside Haludaria fasciata, Tor khudree, Opsarius bakeri, Devario aequipinnatus, Rasbora daniconius, Garra mcclellandi, Homaloptera santhamparaiensis, the congener Mesonoemacheilus triangularis, and a Glyptothorax sp. during one study.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "html": "<p>All of them occur along the Western Ghats, a mountain chain along the west coast of India, the so called Malabar coast. These mountains border the inland against the Arabian Sea. The Western Ghats are a so called hotspot of biodiversity. Almost each small river that flows to the sea contains its own, endemic fish fauna, among them many loaches and among the loaches Mesonoemacheilus.</p>"
     },
     {
       "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>An aquarium with a base measuring at least 60 × 30 cm (24 × 12 in) is recommended, a volume of about 54 litres.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Not difficult to maintain under the correct conditions.</p><p>It is strongly recommended to keep it in a tank designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>Like many fishes that naturally inhabit running water it is intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<ul><li>Temperature: 19–25.5°C (66–78°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Mesonoemacheilus species are omnivorous although the bulk of their diet consists of small insects, worms, crustaceans and other zooplankton with only relatively small amounts of plant matter consumed.</p><p>In the aquarium they will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc. will result in the best colouration and condition.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>This species can apparently exhibit contrasting behaviour in captivity with some aquarists reporting it to be peaceful while others claim it to be territorial and aggressive.</p><p>It is unknown if such differences relate to different wild populations, gender or some environmental variable but caution is recommended if introducing it to an established community.</p><p>UK aquarist Andy Rushworth found that transferring his previously combative M. triangularis to an entirely bare set-up resulted in a total loss of aggression though this option may of course not always be feasible or preferable.</p><p>At any rate, robust fishes which inhabit similar biotopes in nature, especially small, open water-dwelling cyprinids constitute the best options in terms of tankmates, with smaller species best omitted in shallower (&lt;45 cm / 18 in deep) tanks as they may prove unable to cope with persistent attacks.</p><p>Other possibilities include rheophilic loaches from genera such as Pseudogastromyzon, Beaufortia and Sewellia (avoid the more delicate genera, e.g., Gastromyzon) plus benthic cyprinids like Crossocheilus and Garra species.</p><p>Similarly-shaped relatives such as other Nemacheilus, Acanthocobitis and Schistura spp. are not really recommended although a combination may work in larger aquaria, while sedate bottom-dwellers such as Corydoras spp. catfishes are best omitted entirely.</p><p>This species is normally tolerant of conspecifics and seems to appreciate being maintained in a group, though as mentioned it can exhibit extreme territorial behaviour in some cases.</p><p>The purchase of four or more specimens is nonetheless recommended since observations of its native habitats suggest it occurs in quite large aggregations.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Males have a small suborbital flap and may develop thickened pectoral fin rays with rows of tubercles when sexually mature, as has been observed in M. herrei.</p><p>Adult females are likely to grow slightly larger and be rounder-bellied than males when gravid.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Unrecorded in captivity and little has been written about its natural life history, but success with the congener M. triangularis was reported by an American aquarist in 2004.</p><p>An adult pair was removed from a community set-up containing several loach species and introduced to a 38 litre tank fitted with a small hang-on filter, the outflow of which was directed towards a plastic box filled with aquarium gravel.</p><p>Two large spawning mops were also added and weighed down using a piece of tile, and the aquarist noted that the male was exhibiting reflective reddish-bronze colouration in the lower body and belly.</p><p>The male was however found dead the next morning so a second individual was introduced since the female still appeared to be gravid. The following day the fish were observed swimming up and down one side of the tank together, then entering one of the mops.</p><p>Close examination using a magnifying glass revealed 'hundreds' of clear, non-adhesive eggs on the base of the tank, and the adults were then removed after the male was seen eating them. Water temperature was 24.4 °C (76 °F).</p><p>The eggs were examined under a microscope at various stages of development and recorded to swell to a size of approximately 0.7 mm with a cellular cap apparent at just 3 hours of age.</p><p>Hatching seemingly began around 24 hours post-fertilisation, and once complete the mops, tub of gravel and hang-on filter were removed with the latter replaced by an air-driven sponge filter.</p><p>Once the first few fry showed signs of eye and intestinal development and had apparently consumed the yolk sac they were fed small amounts of 'fry starter', presumably a proprietary product, and by squeezing the sponge from a mature filter into the tank.</p><p>Artemia nauplii were introduced to the diet 24 hours later and progressively larger foods as the young fish grew. 500 individuals were eventually raised to saleable size.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "html": "<p>One should keep these fishes in a tank with fine sand bottom and some flat stones. Here the loaches will establish small territories. In this tank there will be constant swimming, hunting and quarreling, so such an aquarium is never boring to observe.</p>"
     },
     {
       "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<p>Outside of India this species is most commonly encountered as bycatch among shipments of M. triangularis though some specialist retailers do occasionally offer it for sale in larger numbers.</p><p>It is often confused with M. herrei as both species share similar body patterning consisting of rows of yellowish, dark-edged spots.</p><p>However, according to the identification key of Rema Devi and Indra (2002), the two can be distinguished by a combination of factors as follows: body spots rounded in shape (vs. 'Y' or 'V' shaped in M. herrei); caudal peduncle relatively long (vs. relatively short); anal fin not reaching base of caudal fin (vs. anal fin reaching base of caudal fin); caudal peduncle with a dark band (vs. caudal peduncle with a dark spot); suborbital flap not pronounced, being shorter than its width (vs. pronounced and longer than its width); distance between eye and nostril more than half diameter of eye (vs. less than half); lateral line prominent and complete (vs. prominent to origin of anal fin, discontinuous or absent after); pelvic fin extending 50% of distance between its origin and that of the anal fin (vs. 75%).</p><p>With regard to the remaining members of the genus, only M. triangularis is regularly exported for the aquarium trade and is easily told apart since its body patterning consists of 6-7 pale, vertical bars with dark edges and a brownish base colour.</p><p>M. petrubanarescui has dark body stripes, M. menoni a reticulated pattern of dark bands and blotches, M. pambarensis more branched dorsal fin rays (8-10, usually 9, vs. 7-8 in M. guentheri) plus an elongate body, the depth of which fits more than 5.5 times into the SL, M. pulchellus also has more branched dorsal fin rays (always 10) and M. remadevii lacks dark markings in the fins.</p><p>Information on M. remadevii, described in 2002 and at present the only other valid species, is currently lacking.</p><p>All Mesonoemacheilus spp. are endemic to rivers draining the Western Ghats and the genus is separated from the closely-related Nemacheilus by members possessing two pairs of rostral barbels which are confluent at their bases vs. rostral barbels present but not confluent.</p><p>In addition, the lips are usually less deeply-furrowed in Mesonoemacheilus than Nemacheilus spp. while Bãnãrescu and Nalbant (1995) noted that Mesonoemacheilus is the only nemacheilid genus exhibiting a greater degree of brownish than whitish colouration.</p><p>Rema Devi and Indra (2002) noted that Acoura savona from northern India uniquely shares both this feature plus possession of confluent rostral barbels and that this may warrant further study, though it appears that this suggestion has not been followed to date.</p><p>The family Nemacheilidae is widely distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Etymology: Mesonoemacheilus comes from the Greek meso, meaning 'half', nema, meaning 'thread, filament', and cheilos, meaning 'lip', in reference to the relatively less deeply-furrowed lip in members compared to that in Nemacheilus spp. guentheri is named for Dr. A. Günther.</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "html": "<ul><li>Arun, L. K., C. P. Shaji and P. S. Easa (1996). Record of new fishes from Periyar Tiger Reserve. Journal of the Bombay Natural History Society 93(1), 103-104</li><li>Bănărescu, P. M. and T. T. Nalbant (1995). A generical classification of Nemacheilinae with description of two new genera (Teleostei: Cypriniformes: Cobitidae). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 35, 429-495</li><li>Arunachalam, M. (2000). Assemblage structure of stream fishes in the Western Ghats (India). Hydrobiologia 430(1-3), 1-31</li><li>Boggs, S. (2004). Spawning the Batik Loach (Neomcheilus triangularis). Finformation 57(7), 4-5</li><li>Day, F. (1867). On the fishes of the Neilgherry Hills and rivers around their bases. Proceedings of the General Meetings for Scientific Business of the Zoological Society of London 1867(2), 281-302</li><li>Raju Thomas, K., M. J. George, and C. R. Biju (2002). Freshwater fishes of southern Kerala with notes on the distribution of endemic and endangered species. Journal of the Bombay Natural History Society 99(1), 47-53</li><li>Rema Devi, K. and T. J. Indra (2002). A note on Mesonoemacheilus herrei Nalbant and Banarescu (Cypriniformes: Balitoridae: Noemacheilinae). Journal of the Bombay Natural History Society 99(2), 333-337</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Zacharias, V. J. and K. C. Minimol (1999). Noemacheilus menoni, a new species of fish from Malappara, Periyar Tiger Reserve, Kerala. Journal of the Bombay Natural History Society 96(2), 288-290</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Shaji, C. P. (2002). Mesonoemacheilus remadevii (Pisces: Balitoridae. Nemeacheilinae) from Silent Valley National Park, Kerala. Indian Journal of Fisheries 49(2), 217-221</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "html": "<p>Most imported individuals belong to the species Mesonoemacheilus guentheri, but there are also some individuals of other, closely related species, like M. herrei and the Zodiac loach, M. triangularis.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/6afa5ef8aedd1c2b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6afa5ef8aedd1c2b-480.webp",
-      "width": 768,
-      "height": 475,
+      "url": "https://media.aquatome.com/glaser/f8ab9a6136074b4b.webp",
+      "thumb": "https://media.aquatome.com/glaser/f8ab9a6136074b4b-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "caption": "Specimen collected close to Calicut (Khozikhode), Kerala state, southwestern India.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/02385be6e05fe6dc.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/02385be6e05fe6dc-480.webp",
-      "width": 706,
-      "height": 420,
+      "url": "https://media.aquatome.com/glaser/ed93c0bdf63a62f6.webp",
+      "thumb": "https://media.aquatome.com/glaser/ed93c0bdf63a62f6-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "caption": "Specimen from the Wsetern Ghats.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b09fe956a1d94d8b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b09fe956a1d94d8b-480.webp",
-      "width": 768,
-      "height": 493,
+      "url": "https://media.aquatome.com/glaser/dda42c205e726ae1.webp",
+      "thumb": "https://media.aquatome.com/glaser/dda42c205e726ae1-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "caption": "Adult pair from Kerala.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/65482adcc230a80c.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/65482adcc230a80c-480.webp",
-      "width": 768,
-      "height": 524,
+      "url": "https://media.aquatome.com/glaser/af6e21d990f37b2b.webp",
+      "thumb": "https://media.aquatome.com/glaser/af6e21d990f37b2b-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-guentheri",
-      "caption": "Detail of head and anterior portion of body.",
-      "source": "seriouslyfish"
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-guentheri-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
   "productSlots": [
     {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    },
+    {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc ngoài dòng chảy mạnh",
-        "máy bơm tạo dòng"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "artemia đông lạnh",
-        "trùng huyết đông lạnh",
-        "thức ăn cá đáy"
-      ]
-    },
-    {
-      "category": "phan-nen",
-      "keywords": [
-        "cát sông",
-        "sỏi nhỏ cho bể cá"
+        "lọc thùng nhỏ cho bể 60cm"
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

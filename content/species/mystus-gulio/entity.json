@@ -1,0 +1,138 @@
+{
+  "id": "mystus-gulio",
+  "scientificName": "Mystus gulio",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>Size: 200 mm (7.9\") SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>Primarily Asia but a handful of species in Africa (genus Mystus).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>pH: 6.0 - 7.8</p><p>Temperature: 22.0-27.0°C (71.6-80.6°F)</p><p>Prefers brackish water, although it can do well in fresh water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>Easily adapts to a wide variety of frozen and prepared food in the aquarium. May eat very small fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
+      "html": "<p>Fishes of the genus Mystus Scopoli are small to medium-sized bagrid catfishes occurring in South Asia. Roberts (1994) recognized Mystus to have an elongate cranial fontanel reaching up to the base of the occipital process, long maxillary barbel, very long adipose fin, 11–30 gill rakers on the first gill arch and 37–46 total vertebrae, about equally divided between abdominal and caudal regions. He included only eight species under the genus. Jayaram &amp; Sanyal (2003) and Ferraris (2007) respectively listed 44 and 33 species of Mystus as valid.</p><p>Etymology: The generic name is probably derived from the Latin mystax, meaning moustache, in reference to the long barbels. It was first used by Scopoli in 1777.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a4d50f2984a3fff5.webp",
+      "width": 960,
+      "height": 743,
+      "licence": "Public domain",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_gulio_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ14600067.tif",
+      "caption": "Mystus gulio syn. Macrones gulio",
+      "thumb": "https://media.aquatome.com/commons/a4d50f2984a3fff5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d0d3d20d1617abf7.webp",
+      "width": 960,
+      "height": 437,
+      "licence": "Public domain",
+      "author": "Francis Day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_gulio_Day_99.jpg",
+      "caption": "Mystus gulio syn. Macrones gulioThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Macrones gulio",
+      "thumb": "https://media.aquatome.com/commons/d0d3d20d1617abf7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ceef7dc31d620c3d.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mystusgulio_3.jpg",
+      "caption": "Mystus gulio, from Jawa Tengah, Indonesia",
+      "thumb": "https://media.aquatome.com/commons/ceef7dc31d620c3d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7be24c506651d719.webp",
+      "width": 960,
+      "height": 533,
+      "licence": "CC BY-SA 4.0",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mystusgulio_2.jpg",
+      "caption": "Mystus gulio, from Jawa Tengah, Indonesia",
+      "thumb": "https://media.aquatome.com/commons/7be24c506651d719-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

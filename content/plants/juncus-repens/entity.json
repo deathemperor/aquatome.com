@@ -1,12 +1,13 @@
 {
   "id": "juncus-repens",
   "scientificName": "Juncus repens",
-  "difficulty": 2,
+  "difficulty": 1,
   "light": "medium",
-  "co2": "none",
+  "co2": "optional",
   "growth": "medium",
   "placement": [
-    "midground"
+    "midground",
+    "background"
   ],
   "sections": [
     {
@@ -14,6 +15,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/juncus-repens-care-guide-planting-growing-and-propagation/",
       "html": "<ul><li>Other names: Juncus grass, Creeping rush, Lesser creeping rush, Rush</li><li>Difficulty: easy to medium</li><li>Lighting: medium</li><li>pH: 5.5 – 8.0</li><li>GH: 0 – 18</li><li>Temperature: 20 – 26 °C (68 – 79 °F)</li><li>Substrate: nutrient-rich</li><li>Can float: no</li><li>Growth form: stem</li><li>Can be grown emersed: yes</li><li>Growth rate: moderate (submersed), fast (emersed)</li><li>Placement: midground</li><li>Size: 10 – 40 cm (4 – 16 inches)</li><li>Fertilizers: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: cut stem, new growth or lateral shoots</li><li>Colour: light green</li></ul><p>The genus Juncus includes more than 200 species. Only Juncus repens has been found to be a good aquarium plant; all other species of the genus are suitable only as pond plants.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Juncusrepens(133FCLP)/31141",
+      "html": "<p>Juncus repens originates from swampy areas of south-east North America. This grasslike plant is rather undemanding in cultivation.</p>"
     },
     {
       "key": "distribution",
@@ -38,6 +45,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/juncus-repens-care-guide-planting-growing-and-propagation/",
       "html": "<p>Juncus repens is easy to care for and adaptable, but the foliage must be trimmed from time to time to stop it overrunning the tank. Growth rate depends strongly on light intensity, nutrient availability and CO2.</p><p>Under low light, or until it takes hold, it is not a rapid grower; it may take several weeks to see growth. Under optimal conditions with high light it grows so rapidly that shoots need constant, aggressive pruning with curved scissors to keep a short, compact, grass-like form. Kept trimmed, it forms a nice carpet, but this is time-consuming. Without regular pruning, shoots reach the water surface; overgrowth is not a problem if a jungle look is desired.</p><p>Partial water changes are crucial, as they add micronutrients to the water and improve growth rate.</p><h3>Planting</h3><p>Thanks to its size and bushy appearance, it suits the midground. Use a substrate 5 – 7 cm (2 – 3 inches) deep to ease rooting.</p><ul><li>Untie the bunch and divide it into several portions.</li><li>Disinfect or quarantine the plantlets (if not grown in vitro).</li><li>Place individual stems into the enriched substrate, about 5 – 8 cm (2 – 3 inches) apart to prevent overcrowding and shading.</li><li>Plant stems about 2.5 cm (1 inch) deep.</li><li>Avoid placing it near tall plants that shade it.</li><li>Avoid placing it too close to the glass, which limits its bushy growth.</li><li>Do not glue it onto driftwood or anything else; it will not survive.</li></ul><h3>Propagation</h3><p>Juncus repens proliferates: stems and leaves produce new plants vegetatively until the plant becomes a branching tangle. Underwater stolons/runners bear independent daughter plants that cover the substrate quickly. Daughter plants can be cut off and replanted or left alone. You can also cut the top of the plant or cut at each point where roots emerge.</p><h3>Dry start method</h3><p>Instead of filling the tank with water after planting, add only enough water to reach the surface of the lowest part of the substrate. Use tweezers to plant Juncus repens and spread it over the substrate. Cover the tank with cling wrap to increase humidity. After about 5 – 8 weeks the tank can be flooded. This method provides unlimited CO2 at no cost and allows growing the plant even before cycling the tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Juncusrepens(133FCLP)/31141",
+      "html": "<p>Under unhindered light and with a good dose of micronutrients, this plant assumes a reddish-brown hue. Under moderate light, it has a pleasant green colour. Its moderate but constant growth makes Juncus repens an easy-to-handle plant. It can be propagated by cuttings like stem plants.</p>"
     },
     {
       "key": "waterConditions",

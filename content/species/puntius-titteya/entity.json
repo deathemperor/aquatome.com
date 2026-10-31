@@ -7,15 +7,68 @@
   "group": "barbs",
   "places": [
     "asia",
-    "sri-lanka"
+    "sri-lanka",
+    "kelani"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 4,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "sprucepets",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "sprucepets",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "sprucepets",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_titteya_super_red_en/",
       "html": "<p>The Cherry barb, Barbus titteya, has been a favorite aquarium fish for decades. The species is quite variable regarding coloration in the wild already. The sport called Super Red has been developed by selective breeding.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<ul><li>Family: Cyprinidae</li><li>Origin: Sri Lanka</li><li>Adult size: 2 inches (about 5 cm)</li><li>Life expectancy: 4 to 6 years</li><li>Social: peaceful</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 25 gallons (about 95 litres)</li><li>Diet: omnivore</li><li>Breeding: egglayer</li><li>Care: easy</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -30,6 +83,48 @@
       "html": "<p>It lives endemic on the island of Sri Lanka.</p>"
     },
     {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>The Cherry Barb, native to Sri Lanka, inhabits the Kelani and Nilwala basins. Their vibrant colors have made them popular in the aquarium trade, leading to overfishing of the most colorful individuals.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>Being a shyer fish, the Cherry Barb likes to have lots of places to hide in their home aquarium. They should be added to your aquarium first, so they can get settled and not have to compete for hiding places.</p><p>Since they like to stick in a group, you may need to make lots of hiding places to accommodate more than one fish at a time. Planted tanks or aquascapes make a great home for Cherry Barbs with good water quality and lots of places to hide.</p><p>Cherry Barbs are relatively easy to care for as long as you keep up with your regular maintenance. In planted tanks, be sure to remove dead plant material regularly and pay attention to any pH changes between day and night.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<ul><li>pH: 6.0 to 7.0</li><li>Hardness: 4 to 10 dKH</li><li>Temperature: 74 to 79 °F (23 to 27 °C)</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>As an omnivore, the Cherry Barb will accept a wide variety of foods. A standard tropical pellet will suffice for most of their nutritional needs. You can supplement with fresh veggies and frozen treats on occasion. Most Cherry Barbs raised in captivity are very well accustomed to a pelleted diet and are not too picky about the type.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>Cherry Barbs thrive in small schools, so ensure you have room for 5-6 fish. Suitable tank mates include other barb species like the Rosy Barb or Black Ruby Barb, and tetra species such as the Neon Tetra or Buenos Aires Tetra, which add vibrant color to your tank. Many peaceful community fishes are also well-suited for a tank with Cherry Barbs, but ensure their water parameters are compatible.</p><p>These smaller fish tend to be shy around larger, aggressive fish, so keep them in a group and choose their tank mates carefully.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>Their characteristic red coloration is more common in male Cherry Barbs during spawning season. Most Cherry Barbs will be primarily tan to dark brown with highlights of red or orange. All Cherry Barbs have a darker line of scales along their midline, right along their lateral line.</p><p>During spawning, Cherry Barb males will turn a vibrant red color. Females tend to be lighter with a darker lateral line bar. Females often get very round as their eggs mature, whereas males tend to stay slender. Your males and females may look very similar if they are not interested in spawning.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "html": "<p>Cherry Barbs readily breed in captivity and even beginners have good luck getting their fish to spawn. In order to get your Cherry Barbs interested in spawning, you will need to increase your tank's water temperature. Be sure to provide plenty of food to support gender differentiation and development of reproductive products. You will see your male fish take on a brighter red color during this time. If you have lots of males and only a few females, things may get very competitive. Try to have more females than males in your school to keep competition limited.</p><p>Cherry Barbs will lay their eggs on various plant materials in the tank. Then the males will follow behind the females and externally fertilize the eggs. Within a few days, the fry will hatch and start swimming around. Beware that other fish and invertebrates will try to eat the fry. If possible, move the plants containing eggs to a separate spawning tank prior to hatching. This will also allow you to feed the fry a better diet for proper development.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_titteya_super_red_en/",
@@ -39,13 +134,57 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/glaser/1a5f3f22c1953cfc.webp",
+      "thumb": "https://media.aquatome.com/glaser/1a5f3f22c1953cfc-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_titteya_super_red_en/",
-      "source": "glaser",
-      "thumb": "https://media.aquatome.com/glaser/1a5f3f22c1953cfc-480.webp"
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/60809b2a94bcdced.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/60809b2a94bcdced-480.webp",
+      "width": 1200,
+      "height": 790,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "caption": "Cherry barb in an aquarium",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/bc56e57aea7edc07.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/bc56e57aea7edc07-480.webp",
+      "width": 1200,
+      "height": 810,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "caption": "Rosy barb in an aquarium",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/34a779a0acfd7416.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/34a779a0acfd7416-480.webp",
+      "width": 1200,
+      "height": 718,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "caption": "Male Cherry Barb",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/9680c6237d3601f8.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/9680c6237d3601f8-480.webp",
+      "width": 1200,
+      "height": 798,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
+      "caption": "Female Cherry Barb",
+      "source": "sprucepets"
     }
   ],
   "videos": [],
@@ -72,5 +211,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }

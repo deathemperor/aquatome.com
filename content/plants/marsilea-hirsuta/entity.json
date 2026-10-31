@@ -2,12 +2,11 @@
   "id": "marsilea-hirsuta",
   "scientificName": "Marsilea hirsuta",
   "difficulty": 1,
-  "light": "medium",
+  "light": "low",
   "co2": "optional",
-  "growth": "slow",
+  "growth": "medium",
   "placement": [
-    "foreground",
-    "midground"
+    "foreground"
   ],
   "sections": [
     {
@@ -15,6 +14,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/marsilea-hirsuta-care-guide-planting-growing-and-propagation/",
       "html": "<ul><li>Other names: Pepperwort, Bristly water-clover, Rough water-clover</li><li>Optimal tank size: 40 litres (10 gallons)</li><li>Difficulty: easy to medium</li><li>Lighting: medium to high</li><li>Optimal pH: 6.0–7.5</li><li>Optimal GH: 2–12</li><li>Optimal temperature: 20–25 °C (68–77 °F)</li><li>Substrate: needed (nutrient-rich)</li><li>Growth rate: slow to moderate</li><li>Placement: mostly foreground / midground</li><li>Height: up to 10 cm</li><li>CO2: not needed to low</li><li>Fertilizers: not needed to low</li><li>Propagation: splitting</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Marsileahirsuta(010TC)/4428",
+      "html": "<ul><li>Type: carpeting</li><li>Origin: Australia</li><li>Growth rate: medium</li><li>Height: 5–20+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
     },
     {
       "key": "distribution",
@@ -57,48 +62,54 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/marsilea-hirsuta-care-guide-planting-growing-and-propagation/",
       "html": "<p>Marsilea hirsuta is a small, perennial, creeping plant with thin stems, each bearing a compound frond divided into two, three or four leaflets, in a low form once fully settled. It has dark or lime-green blades up to 1 cm long and 5 mm wide; the leaves are circinate.</p><p>The plant is compact and can reach up to 10 cm. In low light it grows taller, while under high light it tends to stay smaller. It forms a long, slender, creeping rhizome often bearing small pale brown hairs, and produces numerous runners that spread rapidly across the base of the tank.</p><p>Unlike Marsilea quadrifolia, which produces floating leaves that reach the water surface, Marsilea hirsuta stays permanently submerged and produces no floating leaves.</p><p>It also reproduces by spores, which is more common in its emersed form. Being heterosporous, it produces two different kinds of spores that can remain dormant for long periods to survive unfavourable conditions.</p><h3>Benefits</h3><ul><li>Aquascape: a great choice for aquascapes (particularly Iwagumi); an excellent ground-cover plant that forms dense, beautiful carpets.</li><li>Shelter: the carpet is a good spawning medium for egg scatterers and provides shelter for bottom-dwelling fish, fry and shrimp.</li><li>Foraging place: a foraging ground for shrimp and snails; biofilm grows on it, an ideal first food for newly hatched fry and shrimplets.</li><li>Oxygenation: helps oxygenate and filter the water through photosynthesis.</li></ul><h3>Tankmates</h3><p>Best kept with small, peaceful community fish such as bleeding heart tetra, neon tetra, mollies, killifish, swordtails, white cloud mountain minnows, zebra danio, cherry barb, sunburst platy, Endler's livebearers, otocinclus and pygmy corydoras.</p><p>Shrimp: choose species that prefer the same water parameters (mostly pH), for example crystal red shrimp, blue bolt shrimp, Caridina cf. babaulti.</p><p>Snails: ornamental snails should not be kept long in low-pH water as it harms their shells. If pH is close to 7.0, almost any snail or dwarf shrimp can be kept, e.g. Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, Asolene spixi, rabbit snails.</p><p>Avoid species that may eat Marsilea hirsuta, such as koi, goldfish, oscars, rainbowfish, Jack Dempsey, clown loaches and African cichlids. Most crayfish and freshwater crabs are not a good combination either, as they cut, eat and uproot everything in the tank.</p><h3>Buying and quarantine</h3><p>The plant is readily available in pet stores and from reputable online vendors, and is very affordable. Choose healthy, vibrant specimens with sufficient roots.</p><p>Quarantine any new plants before adding them to the tank. They can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.). They may also have been treated with pesticides, which are extremely poisonous to fish, shrimp and other invertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Marsileahirsuta(010TC)/4428",
+      "html": "<p>Marsilea hirsuta is a carpet-plant from Australia. A fascinating plant, usually delivered with leaves like a four-leaf clover. After a transitional period it develops different types of leaves, possibly a low form with single leaves like a large Glossostigma, or alternatively develop two, three or four-lobed leaves varying in height (from 2-10 cm), depending on the growth conditions. Whichever form the plant adopts, it forms runners and spreads rapidly round the aquarium.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/e0586b414c960cbc.webp",
+      "thumb": "https://media.aquatome.com/commons/e0586b414c960cbc-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 2.0",
       "author": "Macleay Grass Man",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_hirsuta_plant_NC1.jpg",
-      "caption": "Native ferns of Australia",
-      "thumb": "https://media.aquatome.com/commons/e0586b414c960cbc-480.webp"
+      "caption": "Native ferns of Australia"
     },
     {
       "url": "https://media.aquatome.com/commons/c88d45fb5cd83ac5.webp",
+      "thumb": "https://media.aquatome.com/commons/c88d45fb5cd83ac5-480.webp",
       "width": 960,
       "height": 831,
       "licence": "CC0",
       "author": "Daderot",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_hirsuta_-_Victoriahuset,_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm,_Sweden_-_DSC00253.JPG",
-      "caption": "Botanical specimen in the Victoriahuset, Bergianska trädgården - Stockholm, Sweden.",
-      "thumb": "https://media.aquatome.com/commons/c88d45fb5cd83ac5-480.webp"
+      "caption": "Botanical specimen in the Victoriahuset, Bergianska trädgården - Stockholm, Sweden."
     },
     {
       "url": "https://media.aquatome.com/commons/f2263587189a1c3f.webp",
+      "thumb": "https://media.aquatome.com/commons/f2263587189a1c3f-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 2.0",
       "author": "Macleay Grass Man",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_hirsuta_leaf_NC3.jpg",
-      "caption": "Native ferns of Australia",
-      "thumb": "https://media.aquatome.com/commons/f2263587189a1c3f-480.webp"
+      "caption": "Native ferns of Australia"
     },
     {
       "url": "https://media.aquatome.com/commons/1fb503a4fb12c06c.webp",
+      "thumb": "https://media.aquatome.com/commons/1fb503a4fb12c06c-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 2.0",
       "author": "Macleay Grass Man",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_hirsuta_leaf_NC1.jpg",
-      "caption": "Native ferns of Australia",
-      "thumb": "https://media.aquatome.com/commons/1fb503a4fb12c06c-480.webp"
+      "caption": "Native ferns of Australia"
     }
   ],
   "productSlots": [

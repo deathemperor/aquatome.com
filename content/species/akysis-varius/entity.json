@@ -12,7 +12,8 @@
     "thailand",
     "mun-river",
     "cambodia",
-    "siem-reap"
+    "siem-reap",
+    "chao-phraya"
   ],
   "dataCard": {
     "tempC": [
@@ -22,6 +23,13 @@
           "min": 16.5,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -29,6 +37,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -46,18 +61,30 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 30
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 2
       }
     ]
   },
@@ -69,10 +96,22 @@
       "html": "<ul><li>Max size: 40 mm SL (1.6 in SL)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–24°C (62–75°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate. Rated moderate because it needs a well-established tank and stable water.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>The variable stream catfish, Akysis varius, is a small akysid catfish from the Mekong drainage in Laos, Thailand and Cambodia. The number of serrations on its pectoral spine varies, and in contrast to other Akysis with serrated spines, the larger specimens examined had fewer or none. Members of the genus live almost exclusively in swiftly flowing streams and rivers over sand, gravel and rocks.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 4.0 cm (1½ in)</li><li>Temperature: 18-24°C (63-75°F)</li><li>pH: 6.5-7.5</li><li>IUCN Red List: Data Deficient. There is insufficient information about the geographic distribution and population size of this species for an accurate assessment. This is compounded by its unstable taxonomy, and full verification of the conspecificity of material reported as this species from throughout the Mekong River drainage is needed (IUCN 2012).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-varius",
       "html": "<p>Described from the Xe Bangfai river system with type locality around 3 km upstream of Ban Pakphanang village in Khammouane/Khammouan province, central western Laos.</p><p>It's also known from the Mun River basin in Ubon Ratchathani and Nakhon Ratchasima provinces, central eastern Thailand as well as the Siem Reap river, which flows through the province of the same name, in northwestern Cambodia. All known localities form part of the much larger Mekong drainage.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>Asia: Thailand, Phitsanulok Province, Upper Chao Phraya.</p><p>The first specimen shown was collected by the image contributor in Phitsanulok Province, Upper Chao Phraya, Thailand. Although it is similar to Akysis varius, which comes from the Mekong drainage, this one is from the Chao Phraya drainage, so it may be an undescribed species.</p>"
     },
     {
       "key": "habitat",
@@ -87,10 +126,22 @@
       "html": "<ul><li>Standard length: 40 mm SL (1.6 in SL)</li><li>Aquarium base: 45 × 30 cm (18 × 12 in)</li><li>Volume: ~41 litres (~11 US gal)</li></ul><p>A tank with base dimensions of 45 × 30 cm (18 × 12 in) is more than sufficient, even for a group.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>Can be kept in small tanks (30 cm wide x 20 cm high x 30 cm deep).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-varius",
       "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding. It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter can also be used with dried beech, oak or Ketapang leaves all suitable.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank. Weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. Provide a sand bottom, small pipes and caves. They will either bury themselves in the sand or hide in caves and pipes.</p>"
     },
     {
       "key": "waterConditions",
@@ -105,10 +156,22 @@
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times. If the specimens are very small you may need to chop the food accordingly.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-varius",
       "html": "<p>Not especially competitive and should not be kept with much larger or more aggressive fishes. Miniature schooling cyprinids such as Boraras, Microdevario or smaller Danio/Rasbora species make good tankmates and if geography isn't an issue many similarly-sized characins and livebearers should also work.</p><p>Other similarly-sized akysid catfishes plus smaller sisorids such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, many balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are also suitable. Some members of the families Botiidae, Cobitidae and Nemacheilidae are ok but proper research is essential as some can be excessively aggressive/territorial or simply grow too large, and it's also proven to co-exist peacefully with freshwater shrimp.</p><p>It's nonaggressive towards conspecifics and can be kept singly or in a group as preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>They are not usually active during the day but will spring to action and eat voraciously if food is put in the tank.</p>"
     },
     {
       "key": "dimorphism",
@@ -129,23 +192,35 @@
       "html": "<p>This species is among the smaller members of the family. It can be differentiated from all other Akysis species by the following combination of characters: caudal peduncle length 16.1-19.8% of standard length (SL); caudal peduncle depth 6.5-9.3% SL; length of adipose-fin base 25.6-29.5% SL; interorbital distance 42.0-46.0% of head length (HL), eye diameter 13.0-20.0% HL; length of nasal barbel 44.0-66.0% HL; lateral margins of the head appear straight when viewed from above; possession of 0-5 serrae on posterior margin of the pectoral spine; caudal fin truncate.</p><p>This species exhibits a variable number of serrations on the posterior margin of the pectoral fin spine, with two of the larger specimens examined during its description lacking them completely, while smaller individuals had 4 or 5.</p><p>The authors noted that this character is in contrast to that seen in other Akysis species with serrated pectoral spines in which the larger specimens tended to possess a greater number of serrations than the smaller. It remains unconfirmed whether this relates to sexual dimorphism or not.</p><p>Members of the family Akysidae are often referred to collectively as 'Asian stream catfishes' since the majority are exclusive inhabitants of such environments. All have four pairs of barbels, and within this larger grouping Akysis species are diagnosable by possession of tuberculate skin and cryptic colour patterning typically comprising yellowish bands or blotches on a brownish background.</p><p>Based on various morphological aspects Ng and Kottelat (1998)[8] split the genus as originally accepted into the A. variegatus and A. pseudobagarius species groups, but all those of the latter group were reassigned to the genus Pseudobagarius by Ferraris (2007) on the basis of the following shared characters: tip of snout extends anterior to margin of lower jaw; mouth subterminal; narial openings (anterior and posterior nostrils) relatively large and closely-set; caudal fin deeply forked.</p><p>Pseudobagarius spp. also tend to have a relatively extended body shape compared with Akysis, while in the latter the snout tip extends only slightly beyond the margin of the lower jaw, mouth orientation terminal to slightly subterminal, narial openings relatively small and widely-spaced and caudal fin truncate or emarginate.</p><p>In recent phylogenetic analyses the family Akysidae has been grouped into an assemblage informally referred to as 'Big Asia' where it occupies a basal position and is most closely related to the families Amblycipitidae, Sisoridae and Erethistidae, these apparently forming a monophyletic group alongside the Bagridae and Horabagridae.</p><p>The South American family Aspredinidae has often been affiliated with Akysidae in earlier studies, but is now considered more closely associated with the Doradidae and Auchenipteridae.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 5-6; anal soft rays: 8-10; vertebrae: 31-33. Distinguished from all its congeners by the following unique combination of characters: truncate caudal fin; length of caudal peduncle 16.1-19.8% SL; depth of caudal peduncle 6.5-9.3% SL; length of adipose-fin base 25.6-29.5% SL; interorbital distance 42-46% HL; eye diameter 13-20% HL; length of nasal barbel 44-66% HL; straight lateral margins of the head when viewed dorsally; and 0-5 serrae on the posterior edge of the pectoral spine.</p><p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name varius: variable, referring to the highly variable number of serrae on the posterior edge of the pectoral spine.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-varius",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2007). Akysis pulvinatus, a new species of catfish (Siluriformes: Akysidae) from southern Thailand. Zootaxa 1608, 51-58</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_varius.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>Ng, H.H. 2012. Akysis varius. The IUCN Red List of Threatened Species 2012.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/dfc5200e3d9ba6fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dfc5200e3d9ba6fd-480.webp",
       "width": 700,
       "height": 436,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-varius",
       "caption": "Individual in the aquarium.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/dfc5200e3d9ba6fd-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/08be31333ae0c9a8.webp",
@@ -202,5 +277,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }
