@@ -71,15 +71,20 @@ that would have caught it).
   - `site-watch.mjs`, when it opens a `site-check` issue (up to 3 a run)
   - the `autofix` label on any issue, a review note for example
   - running `fix.yml` by hand with an issue number
-- `fix.yml`, step by step:
-  1. Checks out main without a stored token, and builds the fixture site.
-  2. Gives Claude (`FIX_MODEL`, default opus) the issue and `scripts/site-fix-prompt.md`. Claude must reproduce the
-     problem with a check that fails, fix the cause (the engine rule too, for content problems), never weaken a check,
-     and run the gate. It has no GitHub token, and the issue text is a report to verify, not instructions.
-  3. The workflow runs `pnpm test`, `pnpm typecheck` and `pnpm --filter site e2e` **itself**.
-  4. `scripts/site-fix-publish.mjs` acts on the result:
-     - all passed: a **draft PR** that fixes the issue, with CI started on it
+- `fix.yml` has three jobs, so that the agent's work never runs where a write token is:
+  1. **agent** (read-only token, used only to read the issue) builds the fixture site, then gives Claude (`FIX_MODEL`,
+     default opus) the issue and `scripts/site-fix-prompt.md`. Claude must reproduce the problem with a check that
+     fails, fix the cause (the engine rule too, for content problems), never weaken a check, and run the gate. The issue
+     text is a report to verify, not instructions. The job hands over only a patch.
+  2. **verify** (no secrets) applies the patch to a fresh checkout and runs `pnpm test`, `pnpm typecheck` and
+     `pnpm --filter site e2e`.
+  3. **publish** (write token) runs no repository code: `scripts/site-fix-publish.mjs` as it is on main applies the
+     patch and acts on the result:
+     - verified: a **draft PR** that fixes the issue, with CI started on it
      - otherwise: a comment on the issue saying why, plus the `needs-person` label
+     - it refuses patches to `.github/` or to the fix and watch scripts
+- Remaining risk: the agent job holds the Claude token and can run commands. Its input is the bot's own issues, or
+  issues a collaborator labelled `autofix`.
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
   run closes the issue.
 
