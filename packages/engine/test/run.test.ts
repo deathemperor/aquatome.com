@@ -21,7 +21,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
-    links: async () => [],
+    links: async (_u: string): Promise<string[]> => [],
     get: async (url: string) => {
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
       return { status: 200, html: fx(url.endsWith('blocked-fish') ? 'pages/challenge.html' : 'pages/seriouslyfish-cardinal.html'), finalUrl: url }
