@@ -22,7 +22,7 @@ import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { slugify } from '@aq/schema/slug'
+import { searchAliases } from '../../../lib/search'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
@@ -64,10 +64,10 @@ const breeds = breedsOf(lang, c, s.id)
     <PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} />
     <div>
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
-      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
-      {s.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
+      {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <DataCard card={s.dataCard} sources={c.sources} />
       {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
       {vn && <VnClimate card={s.dataCard} />}

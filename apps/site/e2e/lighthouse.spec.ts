@@ -28,9 +28,9 @@ const BUDGET: Record<'phone' | 'desktop', Budget> = {
 const KNOWN: Record<string, Partial<Budget>> = {
   // Every species card at once: ~15,400 elements on aquatome.com (more with each species added): phone 54, LCP 9.5 s.
   'vi/ca/2': { performance: 45, lcp: 12000, tbt: 800, dom: 20000 },
-  // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its footer
-  // jumps when the results arrive (CLS 0.41); the search index's script is ~200 KB.
-  'vi/tim-kiem/2': { performance: 55, seo: 55, cls: 0.45, js: 210 },
+  // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its search
+  // script is ~90 KB.
+  'vi/tim-kiem/2': { seo: 55, js: 100 },
 }
 
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.

@@ -7,7 +7,7 @@ const { t } = i18n(Astro.url)
 const { guides, heading = t('Bài viết nhắc đến'), max = 8 } = Astro.props
 ---
 {guides.length > 0 && (
-  <section class="wrap guides" aria-label={heading}>
+  <section class="wrap guides" aria-label={heading} data-pagefind-ignore>
     <h2>{heading}</h2>
     <ul>{guides.slice(0, max).map(g => <li><a href={`/vi/huong-dan/${g.t.slug}/`}>{g.t.name}</a> <span>{t(GUIDE_KIND_LABELS[g.kind])}</span></li>)}</ul>
   </section>

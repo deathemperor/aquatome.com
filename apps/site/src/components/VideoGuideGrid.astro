@@ -5,7 +5,7 @@ interface Props { guides: Localized<GuideEntity>[]; heading: string; max?: numbe
 const { guides, heading, max = 6 } = Astro.props
 ---
 {guides.length > 0 && (
-  <section class="wrap vg" aria-label={heading}>
+  <section class="wrap vg" aria-label={heading} data-pagefind-ignore>
     <h2>{heading}</h2>
     <div class="grid">{guides.slice(0, max).map(g => <GuideCard g={g} />)}</div>
   </section>

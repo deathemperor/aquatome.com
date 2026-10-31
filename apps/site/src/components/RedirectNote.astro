@@ -6,7 +6,7 @@ const { from = [] } = Astro.props
 const { t } = i18n(Astro.url)
 ---
 {from.length > 0 && <>
-  {from.map(r => <p class="redirected" data-from={r.slug} hidden>({t('Chuyển hướng từ')} <b>{r.name}</b>)</p>)}
+  {from.map(r => <p class="redirected" data-from={r.slug} data-pagefind-ignore hidden>({t('Chuyển hướng từ')} <b>{r.name}</b>)</p>)}
   <script is:inline>(()=>{try{var u=new URL(location.href),t=u.searchParams.get('tu');if(!t)return;var n=[].find.call(document.querySelectorAll('p.redirected'),function(p){return p.dataset.from===t});if(n)n.hidden=false;u.searchParams.delete('tu');history.replaceState(null,'',u.pathname+u.search+u.hash)}catch(e){}})()</script>
 </>}
 <style>
