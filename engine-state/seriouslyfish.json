@@ -2211,10 +2211,10 @@
   },
   "https://www.seriouslyfish.com/species/badis-blosyrus": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T03:59:01.067Z",
+    "updatedAt": "2026-10-31T12:05:40.334Z",
     "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "attempts": 2,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://www.seriouslyfish.com/species/badis-corycaeus": {
     "entityIds": [
@@ -4943,6 +4943,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:05:21.162Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+  },
   "https://www.seriouslyfish.com/species/pelvicachromis-pulcher": {
     "entityIds": [
       "species/pelvicachromis-pulcher"
@@ -5262,6 +5269,13 @@
     "processedHash": "8c922ea370f68ec5c04726ba170de679734330faa4a749533078d6f738b8c94d",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/puntius-sahyadriensis": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T12:05:35.085Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://www.seriouslyfish.com/species/rasbora-argyrotaenia": {
     "entityIds": [

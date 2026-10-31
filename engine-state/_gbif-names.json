@@ -758,6 +758,20 @@
     "genus": "Amblyceps",
     "matchType": "EXACT"
   },
+  "Amblyceps foratum": {
+    "canonicalName": "Amblyceps foratum",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
+    "matchType": "EXACT"
+  },
+  "Amblyceps laticeps": {
+    "canonicalName": "Amblyceps laticeps",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
+    "matchType": "EXACT"
+  },
   "Amblyceps mangois": {
     "canonicalName": "Amblyceps mangois",
     "order": "Siluriformes",
@@ -4109,6 +4123,14 @@
     "genus": "Cyclocheilichthys",
     "matchType": "EXACT"
   },
+  "Cyclocheilichthys schoppeae": {
+    "canonicalName": "Cyclocheilichthys schoppeae",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Cyclocheilichthys",
+    "matchType": "EXACT"
+  },
+  "Cyclocheilos including": null,
   "Cynolebias nigripinnis": {
     "canonicalName": "Austrolebias nigripinnis",
     "order": "Cyprinodontiformes",
@@ -4205,6 +4227,20 @@
   },
   "Dario hysginon": {
     "canonicalName": "Dario hysginon",
+    "order": "Perciformes",
+    "family": "Badidae",
+    "genus": "Dario",
+    "matchType": "EXACT"
+  },
+  "Dario kajal": {
+    "canonicalName": "Dario kajal",
+    "order": "Perciformes",
+    "family": "Badidae",
+    "genus": "Dario",
+    "matchType": "EXACT"
+  },
+  "Dario urops": {
+    "canonicalName": "Dario urops",
     "order": "Perciformes",
     "family": "Badidae",
     "genus": "Dario",
@@ -5282,6 +5318,14 @@
     "genus": "Micranthemum",
     "matchType": "EXACT"
   },
+  "Hemibagrus caveatus": {
+    "canonicalName": "Hemibagrus caveatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hemibagrus",
+    "matchType": "EXACT"
+  },
+  "Hemibagrus has": null,
   "Hemibagrus nemurus": {
     "canonicalName": "Hemibagrus nemurus",
     "order": "Siluriformes",
@@ -5471,6 +5515,13 @@
     "order": "Commelinales",
     "family": "Pontederiaceae",
     "genus": "Heteranthera",
+    "matchType": "EXACT"
+  },
+  "Heteropneustes fossilis": {
+    "canonicalName": "Heteropneustes fossilis",
+    "order": "Siluriformes",
+    "family": "Heteropneustidae",
+    "genus": "Heteropneustes",
     "matchType": "EXACT"
   },
   "Heterotis niloticus": {
