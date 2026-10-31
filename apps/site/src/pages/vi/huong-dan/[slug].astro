@@ -105,7 +105,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       </section>
     )}
     {refs && refs.length > 0 && (
-      <section class="refs" id="nguon" aria-labelledby="ref-h">
+      <section class="refs" id="nguon" aria-labelledby="ref-h" data-pagefind-ignore>
         <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
         <ol>{refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
       </section>

@@ -2,20 +2,199 @@
 import Browse from '../../../layouts/Browse.astro'
 import { i18n } from '../../../lib/i18n'
 const { t } = i18n(Astro.url)
+// The Latin-name hint's example: a species every language has, so the link always finds it.
+const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innesi</a>'
 ---
-<Browse title={t('Tìm kiếm')} heading={t('Tìm kiếm')} noindex>
-  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-  <div id="search"></div>
-  <script is:inline src="/pagefind/pagefind-ui.js"></script>
-  <script is:inline define:vars={{ placeholder: t('Tìm loài cá, cây, hướng dẫn'), zero_results: t('Không tìm thấy kết quả cho [SEARCH_TERM]') }}>
-    window.addEventListener('DOMContentLoaded', () => {
-      // Pagefind searches the index of the page's language (from <html lang>).
-      const ui = new PagefindUI({ element: '#search', showSubResults: false, showImages: true, translations: { placeholder, zero_results } })
-      const q = new URLSearchParams(location.search).get('q')
-      if (q) ui.triggerSearch(q)
-    })
+<Browse title={t('Tìm kiếm')} heading={t('Tìm kiếm')} noindex search={false}>
+  <form class="field" role="search" data-search>
+    <label for="sq" class="visually-hidden">{t('Tìm kiếm')}</label>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+    <input id="sq" name="q" type="search" placeholder={t('Tìm loài cá, cây, hướng dẫn')} autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" />
+    <button type="button" class="clear" hidden>{t('Xóa')}</button>
+  </form>
+  <p class="status" role="status" aria-live="polite" data-status></p>
+  <p class="hint" data-hint>{t('Tìm theo tên thường gọi, tên khác hoặc tên khoa học.')}</p>
+  <div class="none" data-none hidden>
+    <p set:html={t('Thử tên khoa học, ví dụ {name}, hoặc gõ ngắn hơn.', { name: latin })} />
+    <a class="all" href="/vi/ca/">{t('Xem tất cả loài')} <span aria-hidden="true">→</span></a>
+  </div>
+  <ol class="hits" data-hits></ol>
+  <button type="button" class="more" data-more hidden>{t('Xem thêm kết quả')}</button>
+  <script>
+    import { ct } from '../../../scripts/ct'
+
+    // Pagefind's browser API (built into /pagefind/ after `astro build`), the parts used here.
+    type Doc = { url: string; excerpt: string; meta: Record<string, string | undefined> }
+    type Hit = { data: () => Promise<Doc> }
+    type Pagefind = { options: (o: object) => Promise<void>; search: (q: string) => Promise<{ results: Hit[] }> }
+
+    const PAGE = 10
+    const form = document.querySelector<HTMLFormElement>('[data-search]')!
+    const input = form.querySelector('input')!
+    const clear = form.querySelector<HTMLButtonElement>('.clear')!
+    const status = document.querySelector<HTMLElement>('[data-status]')!
+    const hint = document.querySelector<HTMLElement>('[data-hint]')!
+    const none = document.querySelector<HTMLElement>('[data-none]')!
+    const list = document.querySelector<HTMLOListElement>('[data-hits]')!
+    const more = document.querySelector<HTMLButtonElement>('[data-more]')!
+
+    let pagefind: Promise<Pagefind> | undefined
+    const load = () => (pagefind ??= (async () => {
+      const src = '/pagefind/pagefind.js'
+      const pf = (await import(/* @vite-ignore */ src)) as Pagefind
+      // A page's other names (aka, on species, breed and plant pages) count as much as its title; its description,
+      // which carries the scientific name, twice as much as body text.
+      await pf.options({ excerptLength: 24, ranking: { metaWeights: { title: 5, aka: 5, description: 2 } } })
+      return pf
+    })())
+
+    const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/g, 'd').toLowerCase()
+    const words = (s: string) => fold(s).split(/[^\p{L}\p{N}]+/u).filter(Boolean)
+    /**
+     * How much of a query word the known words spell out, left to right (0 to 1). Pagefind answers a word it has never
+     * seen with the shorter words it starts with: "xyzzyq" finds the "X.-Y." of an author's initials or the "xy" of
+     * "ô-xy", which spell out a third of it. A word that starts a known one ("neo" for "neon") counts in full.
+     */
+    function covered(term: string, known: string[]): number {
+      let i = 0
+      while (i < term.length) {
+        const rest = term.slice(i)
+        if (known.some(w => w.startsWith(rest))) return 1
+        const step = Math.max(0, ...known.filter(w => rest.startsWith(w)).map(w => w.length))
+        if (!step) break
+        i += step
+      }
+      return i / term.length
+    }
+    // More than half of every query word: a stemmed match ("renangnya" → "renang") passes, a fragment does not.
+    const spells = (terms: string[], known: string[]) => terms.every(t => covered(t, known) > 0.5)
+    const metaWords = (d: Doc) => words(`${d.meta.title ?? ''} ${d.meta.aka ?? ''}`)
+    /** The words this result matched on: the ones Pagefind marked in its excerpt, plus the page's names and description. */
+    const matched = (d: Doc) => [...d.excerpt.matchAll(/<mark>(.*?)<\/mark>/g)].flatMap(m => { const w = words(m[1]!); return [w.join(''), ...w] }).concat(metaWords(d), words(d.meta.description ?? ''))
+
+    function item(d: Doc, terms: string[]): HTMLLIElement {
+      const li = document.createElement('li')
+      if (d.meta.image) {
+        const img = document.createElement('img')
+        img.src = d.meta.image; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.width = 160; img.height = 120
+        li.append(img)
+      }
+      const body = document.createElement('div')
+      const a = document.createElement('a')
+      a.href = d.url; a.textContent = d.meta.title ?? d.url
+      const p = document.createElement('p')
+      // A page about what was searched for (its title or other names say so) shows its own summary; a page that only
+      // mentions it shows where, with the words marked.
+      if (d.meta.description && spells(terms, metaWords(d))) p.textContent = d.meta.description
+      else p.innerHTML = d.excerpt // Pagefind's excerpt: the page's text, HTML-escaped, with <mark> around the matches
+      body.append(a, p)
+      li.append(body)
+      return li
+    }
+
+    let run = 0
+    let hits: Hit[] = []
+    let terms: string[] = []
+
+    async function show(from: number) {
+      const me = run
+      const docs = await Promise.all(hits.slice(from, from + PAGE).map(h => h.data()))
+      if (me !== run) return
+      list.append(...docs.map(d => item(d, terms)))
+      more.hidden = from + PAGE >= hits.length
+      return docs
+    }
+
+    function state(q: string, kind: 'idle' | 'busy' | 'hits' | 'none' | 'error', n = 0) {
+      hint.hidden = kind !== 'idle'
+      none.hidden = kind !== 'none'
+      status.classList.toggle('is-none', kind === 'none')
+      status.textContent =
+        kind === 'busy' ? ct('Đang tìm…')
+        : kind === 'hits' ? ct('{n} kết quả cho “{q}”', { n, q })
+        : kind === 'none' ? ct('Không có kết quả cho “{q}”', { q })
+        : kind === 'error' ? ct('Không tải được bộ tìm kiếm. Kiểm tra mạng rồi tải lại trang.')
+        : ''
+    }
+
+    async function search(raw: string) {
+      const q = raw.trim()
+      const me = ++run
+      const u = new URL(location.href)
+      if (q) u.searchParams.set('q', q); else u.searchParams.delete('q')
+      history.replaceState(history.state, '', u)
+      clear.hidden = !raw
+      if (!q) { hits = []; list.replaceChildren(); more.hidden = true; state(q, 'idle'); return }
+      try {
+        if (!list.childElementCount) state(q, 'busy')
+        const r = await (await load()).search(q)
+        if (me !== run) return
+        hits = r.results
+        terms = words(q)
+        list.replaceChildren()
+        const docs = (await show(0)) ?? []
+        if (me !== run) return
+        // Nothing found, or only fragments of the words searched for: say so instead of listing them.
+        if (!docs.some(d => !terms.length || spells(terms, matched(d)))) {
+          hits = []; list.replaceChildren(); more.hidden = true
+          state(q, 'none')
+        } else state(q, 'hits', hits.length)
+      } catch {
+        pagefind = undefined // try again on the next search
+        if (me === run) state(q, 'error')
+      }
+    }
+
+    let timer: ReturnType<typeof setTimeout> | undefined
+    input.addEventListener('input', () => { clear.hidden = !input.value; clearTimeout(timer); timer = setTimeout(() => search(input.value), 250) })
+    form.addEventListener('submit', e => { e.preventDefault(); clearTimeout(timer); search(input.value); input.blur() })
+    clear.addEventListener('click', () => { input.value = ''; search(''); input.focus() })
+    more.addEventListener('click', () => { const from = list.childElementCount; show(from).then(() => (list.children[from] as HTMLElement | undefined)?.querySelector('a')?.focus()) })
+
+    const q = new URLSearchParams(location.search).get('q') ?? ''
+    input.value = q
+    if (q) search(q); else { state('', 'idle'); input.focus() }
   </script>
 </Browse>
-<style is:global>
-  #search { --pagefind-ui-primary: var(--c-moss); --pagefind-ui-text: var(--c-ink); --pagefind-ui-background: var(--c-plate); --pagefind-ui-border: var(--c-rule); --pagefind-ui-font: var(--f-body); max-width: var(--measure); }
+<style>
+  .field { position: relative; display: flex; align-items: center; max-width: var(--measure); background: var(--c-mat); border: 1px solid var(--c-ink-soft); }
+  .field:focus-within { border-color: var(--c-ink); box-shadow: 0 0 0 1px var(--c-ink); }
+  .field svg { flex: none; margin-inline: var(--space-3) var(--space-2); fill: none; stroke: var(--c-ink-soft); stroke-width: 2; stroke-linecap: round; }
+  .field input { flex: 1; min-width: 0; min-height: 52px; border: 0; background: none; font: 500 1.125rem var(--f-body); color: var(--c-ink); padding: 0 var(--space-2) 0 0; }
+  .field input::placeholder { color: var(--c-ink-faint); font-weight: 400; }
+  .field input:focus-visible { outline: none; }
+  .field input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+  .clear { flex: none; min-height: 44px; min-width: 44px; padding-inline: var(--space-3); border: 0; background: none; font: 600 0.95rem var(--f-body); color: var(--c-moss); cursor: pointer; }
+  .clear:hover { color: var(--c-ink); }
+
+  .status { margin: var(--space-4) 0 0; font-weight: 600; font-size: 0.95rem; color: var(--c-ink); min-height: 1.5em; }
+  .status:empty { min-height: 0; }
+  .status.is-none { font: 400 var(--step-2)/1.25 var(--f-display); margin-top: var(--space-6); overflow-wrap: anywhere; }
+  .hint { margin: var(--space-3) 0 0; color: var(--c-ink-soft); font-size: 0.95rem; max-width: var(--measure); }
+
+  .none { max-width: var(--measure); margin-top: var(--space-2); }
+  .none p { margin: 0 0 var(--space-5); color: var(--c-ink-soft); }
+  /* An inline link: the padding widens what a thumb can hit (44px) without moving the lines. */
+  .none :global(.sci) { color: var(--c-moss); padding-block: 0.85rem; }
+  .all { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 48px; padding-inline: var(--space-5); background: var(--c-ink); color: var(--c-paper); font-weight: 600; text-decoration: none; }
+  .all:hover { background: var(--c-moss); color: var(--c-paper); }
+
+  .hits { list-style: none; margin: var(--space-3) 0 0; padding: 0; max-width: var(--measure); }
+  .hits :global(li) { position: relative; display: flex; gap: var(--space-4); padding-block: var(--space-4); border-top: 1px solid var(--c-rule); }
+  .hits :global(li:last-child) { border-bottom: 1px solid var(--c-rule); }
+  .hits :global(img) { flex: none; width: 6.5rem; aspect-ratio: 4 / 3; height: auto; object-fit: cover; background: var(--c-plate); }
+  .hits :global(div) { min-width: 0; }
+  .hits :global(a) { font-weight: 600; font-size: var(--step-1); line-height: 1.3; color: var(--c-ink); text-decoration: none; overflow-wrap: anywhere; }
+  /* The whole row opens the page; the link's name stays the title. */
+  .hits :global(a::after) { content: ''; position: absolute; inset: 0; }
+  .hits :global(li:hover a) { color: var(--c-moss); text-decoration: underline; }
+  .hits :global(a:focus-visible) { outline: none; }
+  .hits :global(a:focus-visible::after) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .hits :global(p) { margin: var(--space-1) 0 0; font-size: 0.95rem; line-height: 1.55; color: var(--c-ink-soft); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+  .hits :global(mark) { background: var(--c-select); color: var(--c-ink); padding-inline: 1px; }
+
+  .more:not([hidden]) { display: block; }
+  .more { width: 100%; max-width: var(--measure); min-height: 48px; margin-top: var(--space-5); border: 1px solid var(--c-ink); background: none; color: var(--c-ink); font: 600 1rem var(--f-body); cursor: pointer; }
+  .more:hover { background: var(--c-ink); color: var(--c-paper); }
+  @media (min-width: 700px) { .hits :global(img) { width: 8.5rem; } .hits :global(p) { -webkit-line-clamp: 3; } }
 </style>
