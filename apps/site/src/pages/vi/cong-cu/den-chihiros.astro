@@ -11,6 +11,7 @@ const guide = (id: string) => c.guides.find(g => g.id === id)
 const hours = guide('youtube-H-A6KwMSa9s')
 const algae = guide('aquatome-reu-hai-trong-be-thuy-sinh-nhan-biet-tung-loai-reu-va-cach-diet')
 const choose = guide('aquariumcoop-blogs-aquarium-how-to-pick-the-best-planted-aquarium-light')
+const product = c.products.find(p => p.id === 'chihiros-wrgb-ii')
 
 // Planted-tank starting points: 6–8 hours a day at a fixed time, less and dimmer while a tank is new or fighting algae.
 const PRESETS = [
@@ -79,7 +80,7 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     {faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
     <p class="note">
       {choose && <><a href={`/vi/huong-dan/${choose.t.slug}/`}>{t('Chọn đèn cho bể thủy sinh →')}</a> </>}
-      <a href="/vi/san-pham/chihiros-wrgb-ii/">{t('Đèn Chihiros WRGB II →')}</a>
+      {product && <a href={`/vi/san-pham/${product.t.slug}/`}>{t('Đèn Chihiros WRGB II →')}</a>}
     </p>
     <p class="note">{t('AquaTome không liên quan tới hãng Chihiros. Các lệnh Bluetooth theo ghi chép mã nguồn mở')} <a href="https://github.com/TheMicDiet/chihiros-led-control" rel="noopener">chihiros-led-control</a> {t('(giấy phép MIT).')}</p>
   </section>

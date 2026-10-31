@@ -16,3 +16,12 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm test
       - run: pnpm typecheck
+      # Browser checks on the fixture build `pnpm test` left in apps/site/dist (apps/site/e2e/README.md).
+      - run: pnpm --filter site exec playwright install --with-deps chromium
+      - run: pnpm --filter site e2e
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: e2e-report
+          path: apps/site/e2e-report
+          if-no-files-found: ignore

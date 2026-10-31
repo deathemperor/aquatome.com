@@ -21,6 +21,17 @@ jobs:
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
       - run: pnpm test
+      # The same browser checks as ci.yml, here too: engine content reaches this workflow without a pull request.
+      - run: pnpm --filter site exec playwright install --with-deps chromium
+      - run: pnpm --filter site e2e
       - run: scripts/deploy.sh
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # deploy.sh checks a fixed sample of the real pages in a browser before uploading them.
+          E2E_GATE: '1'
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: e2e-report
+          path: apps/site/e2e-report
+          if-no-files-found: ignore
