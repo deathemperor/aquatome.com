@@ -325,6 +325,39 @@
       "Item 7: \"อาหารสด\" for \"live\" is ambiguous, since it can mean fresh dead food. Use \"อาหารเป็น\" or \"อาหารมีชีวิต\" so it reads as live food next to the frozen food."
     ]
   },
+  "atractosteus-spatula": {
+    "at": "2026-10-31",
+    "from": "2026-10-29",
+    "name": "ปลาอัลลิเกเตอร์การ์",
+    "confidence": "high",
+    "score": 0.55,
+    "notes": [
+      "Item 8: \"similarly-sized ... it cannot fit into its mouth\" is mistranslated as \"ตัวใหญ่เกินกว่าจะเข้าปากได้\". It now reads as a separate, unclear condition. Rephrase to \"ขนาดใกล้เคียงกันและไม่ก้าวร้าว ซึ่งปลาการ์กลืนไม่ลง\", meaning fish too big to swallow.",
+      "Item 7: \"at most\" is translated as \"เป็นอย่างมาก\", which reads as 'very much' and is wrong. Use \"อย่างมากที่สุด\" or \"ไม่เกินสัปดาห์ละหนึ่งหรือสองมื้อ\".",
+      "Item 7: \"This species should never be fed the meat of mammals such as beef heart or chicken\" is mistranslated. Chicken is poultry, not a mammal, and the Thai \"เนื้อสัตว์เลี้ยงลูกด้วยนมหรือเนื้อไก่ เช่น หัวใจวัว\" distorts the structure. Fix to \"เนื้อสัตว์เลี้ยงลูกด้วยนมและสัตว์ปีก เช่น หัวใจวัวหรือเนื้อไก่\", and drop the added \"ห้ามให้\" framing if it overstates.",
+      "Item 7: The sentence \"In extreme cases there may be no other option but to use live 'feeder' fishes\" is rendered as \"กรณีที่หนักจริง ๆ\", which is awkward. Use \"ในกรณีสุดโต่ง/จำเป็นจริง ๆ\".",
+      "Item 7: \"quarantine them for at least two weeks\" omits the part that it is done \"in advance\" while feeding well. This is minor. \"ปลาแลนซ์ (lance fish)\" is non-standard; use \"ปลาไหลทราย/sand eel\" or keep the English term.",
+      "Item 1 and Item 10: The \"120 in\" in brackets was dropped, and \"250–300 mm (10–12 in)\" was converted to mm only. This is acceptable, but \"3050 มม.\" would read more naturally as about 3 m (305 cm). Consider cm or m for hobbyists.",
+      "Item 2: \"ปัจจุบันได้หายไปจากพื้นที่ส่วนใหญ่ทางตอนเหนือ\" is slightly stronger than \"much of its northern range\" (\"ส่วนใหญ่\" means 'most'). Use \"หลายพื้นที่\" or \"พื้นที่จำนวนมาก\".",
+      "Item 11: \"ลักษณะโบราณที่สุดกลุ่มหนึ่ง\" is awkward for \"most primitive\". Use \"เป็นปลาดึกดำบรรพ์ที่สุดกลุ่มหนึ่ง\". The phrase \"หลอดเลือดมาเลี้ยงจำนวนมาก\" adds the idea of 'a large number'. \"Vascularised\" simply means 'has blood vessels'."
+    ]
+  },
+  "atyopsis-moluccensis": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "กุ้งมือพัด",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Moluccan mountain rock shrimp\" left in English; fine as bracket but consider a Thai trade name (e.g. กุ้งพัด/กุ้งมือพัด) for hobbyists.",
+      "Item 2: \"อาหารเม็ด/อาหารแท็บเล็ต (food tablets)\" is clumsy; use one term such as \"อาหารเม็ดแบบแท็บเล็ต\" or \"อาหารแท็บเล็ต\" and drop the slash.",
+      "Item 2: \"ไซคลอปส์แช่แข็ง\" is fine, but \"ขูดหรือบดละเอียด\" adds \"or ground\"; the source says only finely grated.",
+      "Item 3: \"ที่เป็นที่แพร่หลายและมีที่ยืนในวงการแล้ว\" is wordy and awkward; simplify to \"ที่เป็นที่นิยมในวงการอย่างมั่นคง\".",
+      "Item 3: \"กุ้งใช้เพียงก้ามที่เปลี่ยนเป็นพัด\" is slightly off; the source says they only filter small food particles with their claws that are transformed into fans. Rephrase to \"กรองจับเฉพาะอนุภาคอาหารเล็ก ๆ ด้วยก้ามที่เปลี่ยนเป็นพัด\".",
+      "Item 3: \"fish ... out of the water\" is rendered as \"กรองจับ\"; fine, but \"พัดที่มือ\" for \"hand fans\" is slightly awkward.",
+      "Item 4: \"ลายข้าวหลามตัด\" for a diamond pattern is acceptable, but \"แถบสีตามแนวหลัง\" for a dorsal stripe is fine; \"สีเบจ\" could be \"สีน้ำตาลอ่อน\"."
+    ]
+  },
   "bagrichthys-hypselopterus": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -951,6 +984,23 @@
       "Item 2: \"มีการนำเข้าไปยัง\" for \"introduced\" reads as commercial import. \"ถูกนำเข้าไปแพร่/ปล่อยในพื้นที่\" or \"มีการนำไปเลี้ยง/แพร่พันธุ์ใน...\" is clearer."
     ]
   },
+  "chromobotia-macracanthus": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "ปลาหมูอินโด",
+    "confidence": "high",
+    "score": 0.5,
+    "notes": [
+      "Item 6: \"ปลาแมว\" for catfish is wrong; use \"ปลาดุก/ปลาหนัง\" (or \"แคทฟิช\"), as \"ปลาแมว\" is not a standard hobby term.",
+      "Item 12: \"ผสมพันธุ์ในที่เลี้ยงได้น้อยมาก\" for \"breed\" is okay, but \"ตัวเมียหรือตัวผู้จะกินไข่\" changes \"she or the males will eat\" only slightly; \"พฤติกรรมและความต้องการในการผสมพันธุ์\" is fine. Use \"เพาะพันธุ์\" consistently, as in the spec sheet.",
+      "Item 4: \"กิ่งไม้เล็ก และกิ่งไม้\" is redundant; twigs vs branches should be \"กิ่งไม้เล็ก และกิ่งไม้ใหญ่\".",
+      "Item 4: \"น้ำอ่อนสีชา\" is unclear; use \"น้ำกร่อยอ่อน\" is wrong, so say \"น้ำที่มีความกระด้างต่ำ (soft water) สีชา\".",
+      "Item 2: \"at least a few inches long\" was converted to \"5–7 ซม.\", which adds a specific number not in the source; \"few inches\" is about 5–8 cm, so give \"อย่างน้อยราว 5–8 ซม.\" or keep it vague.",
+      "Item 9: \"หอยที่มาก่อกวน\" should be \"หอยฝาเดียว/หอยขมที่รบกวน\" (snails). \"Worms\" with \"สด\" is fine, but \"live foods\" should be \"อาหารเป็น\" (live food).",
+      "Item 3: \"over a foot\" was converted to \"เกิน 30 ซม.\", which is acceptable. But \"ปลาหมูอินโด\" is the usual name for clown loach, so \"ปลาหมูอินโดมาจาก\" should read \"พบในแม่น้ำ...\".",
+      "Item 1: \"นิสัย: รักสงบ\" for Social is okay, but \"กินเนื้อ\" for Carnivore should be \"กินเนื้อเป็นอาหาร (สัตว์กินเนื้อ)\"; the tank-size note drops the original \"100 gallons\" in brackets, which is fine."
+    ]
+  },
   "clarias-batrachus": {
     "at": "2026-10-31",
     "from": "2026-10-30",
@@ -1254,6 +1304,19 @@
       "Item 6: the byline 'Text & photos: Frank Schäfer' is dropped, which is allowed."
     ]
   },
+  "gnathonemus-petersii": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาจมูกช้าง",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Items 1 and 13: \"พื้นที่นุ่ม\" for \"soft substrate\" is ambiguous (it reads as a soft area). Use \"วัสดุปูพื้นที่นุ่ม\" or \"พื้นทรายละเอียด\".",
+      "Item 10: \"ปลาผีเสื้อ\" for Butterfly fish (Pantodon) can be confused with marine butterflyfish. Use \"ปลาผีเสื้อแอฟริกา\" or add the Latin name.",
+      "Item 10: \"ปลาแมวในสกุล Synodontis\" is non-standard. Hobbyists usually say \"ซินโนดอนติส\" or \"ปลากดซินโนดอนติส\".",
+      "Item 5: \"พอใช้ได้แบบเฉียดฉิว\" is colloquial and a little odd for a handbook. Use \"พอรับได้ในระดับต่ำสุด\" instead."
+    ]
+  },
   "gymnocorymbus-ternetzi": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1407,6 +1470,20 @@
       "Item 7: \"จุดดำหลังเหงือก\" for \"humeral spot\" is slightly off. The humeral spot sits behind the gill cover, above the pectoral fin. \"จุดบริเวณหัวไหล่\" with the English term in brackets would be clearer."
     ]
   },
+  "hyphessobrycon-rosaceus": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "โรซี่เตตร้า",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ได้รับการบรรยายในชื่อ Hyphessobrycon ornatus\" is slightly awkward. Use \"ถูกบรรยายไว้ในชื่อ ...\" or \"ตั้งชื่อว่า ...\".",
+      "\"ปลาเตตร้า\" and \"โรซี่เตตร้า\" are transliterated. The common Thai hobby terms \"ปลาเทtrา/เททรา\" and \"โรซี่เทตร้า\" are also used, so check that spelling is consistent.",
+      "\"ไม่ว่าชื่อจะสับสนเพียงใด\" is a bit stiff. \"แม้ชื่อจะสับสน\" reads more naturally.",
+      "\"มีเลี้ยงอยู่ในตู้ปลา\" is slightly clumsy. \"ยังเป็นที่นิยมเลี้ยงในตู้ปลา\" is better.",
+      "\"fide Zarske, 2014\" is left in Latin. This is acceptable, but a short gloss such as \"ตามข้อมูลของ Zarske, 2014\" would help readers."
+    ]
+  },
   "inpaichthys-kerri": {
     "at": "2026-10-31",
     "from": "2026-10-31",
@@ -1496,6 +1573,23 @@
       "Item 11: \"ไทร์แทร็กอีล\" and \"พีค็อกอีล\" are transliterations. Consider adding the Thai common name for the tyre-track eel (e.g. ปลากระทิงลายยาง) if one is established."
     ]
   },
+  "melanotaenia-boesemani": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "ปลาเรนโบว์โบสมานี",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 10: \"กรองฟองน้ำขนาดเล็กที่ใช้ปั๊มลม\" — source says only \"small air-powered filter\"; \"sponge\" is added. Use \"ระบบกรองขนาดเล็กที่ใช้ปั๊มลม\".",
+      "Item 10: \"อาหารที่ลอยอยู่ในน้ำ\" for \"free swimming foods\" is inaccurate. Use \"อาหารที่ล่องลอยในน้ำ/ว่ายอยู่ในน้ำ\".",
+      "Item 11: \"ว่าเป็นชนิดที่ใกล้สูญพันธุ์\" — source says \"endangered species\", which is \"ใกล้สูญพันธุ์\" (EN) at best. The wording is acceptable, but \"IUCN red list\" is an existing fact; check it matches.",
+      "Item 4: \"ประมาณ 108 ลิตร\" — correct, but \"An active species\" as \"ว่ายน้ำตลอดเวลา\" (swims constantly) overstates. Use \"ว่ายน้ำคล่องแคล่ว\".",
+      "Item 10: \"ปลาตัวผู้จะแสดงอาการข่มกัน\" — \"display to each other\" is a display of colour, not dominance. Use \"อวดสีให้กัน\".",
+      "Item 10: \"มอสส์ชวา\" should be the common spelling \"มอสชวา\". \"ไหมพรมวางไข่\" is okay but is unclear; add \"(spawning mop)\".",
+      "Item 1: \"ปลาซิว\" for danios and \"ปลาตะเพียน\" for barbs (item 8) are loose. Use \"ปลาแดนิโอ\" and \"ปลาบาร์บ\", the terms hobbyists use. \"ปลาแพะ\" for Corydoras is wrong: use \"ปลาคอรี่\" (Corydoras).",
+      "Item 8: \"ปลาหมอสีจากทะเลสาบริฟต์วัลเลย์\" — a typo (\"ทะเลสาบริฟต์\"); use \"ทะเลสาบริฟต์แวลลีย์\" or \"ปลาหมอสีแอฟริกา\"."
+    ]
+  },
   "melanotaenia-praecox": {
     "at": "2026-10-31",
     "from": "2026-10-31",
@@ -1550,6 +1644,20 @@
       "Item 9: \"(ไม่ทำรัง)\" adds a fact that isn't in the source. Remove it."
     ]
   },
+  "monodactylus-sebae": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาโมโนเซบี",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ที่ปรับตัวต่อความเค็มได้เต็มที่ (euryhaline)\" is stiff; the more natural Thai is \"ทนความเค็มได้หลายระดับ\" or \"ปรับตัวต่อความเค็มได้กว้าง\".",
+      "\"ปลาที่พิสูจน์แล้วว่าเหมาะที่สุด\" (\"ปริมาณเกลือที่พิสูจน์แล้วว่าเหมาะที่สุด\") reads like a literal translation. Use \"จากประสบการณ์พบว่าเหมาะที่สุด\".",
+      "\"ปล่อยไข่ลอยอิสระ\" for free spawners is awkward. Use \"วางไข่แบบกระจายไข่ในน้ำ\" or \"ปลาชนิดนี้วางไข่ลอยในน้ำ\".",
+      "\"แต่หลายสิบปีมาแล้วที่ปลาชนิดนี้มีขายเฉพาะปลาที่เพาะพันธุ์...\" is clumsy because \"ปลา\" is repeated. Use \"แต่หลายสิบปีที่ผ่านมามีขายเฉพาะปลาเพาะพันธุ์จากเอเชียตะวันออกเฉียงใต้\".",
+      "\"อาหารสดทั่วไปได้ทุกชนิด\" says \"all\" kinds of food. This is slightly overstated, but it matches the source's \"all common\"."
+    ]
+  },
   "monopterus-albus": {
     "at": "2026-10-31",
     "from": "2026-10-31",
@@ -1565,6 +1673,25 @@
       "Item 8: \"เลี้ยงเดี่ยวเพียงตัวเดียว\" is redundant; use \"เลี้ยงเดี่ยว\".",
       "Item 10: \"ผสมพันธุ์ได้ตลอดทั้งปี\" is fine. \"เป็นผู้เฝ้าหวอด\" is slightly stiff but acceptable.",
       "Item 1: \"เป็นที่รู้กันว่ากระโดดได้\" is stiff; use \"มีนิสัยชอบกระโดด\"."
+    ]
+  },
+  "myxocyprinus-asiaticus": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาฉลามจีน",
+    "confidence": "low",
+    "score": 0.55,
+    "notes": [
+      "Item 1: 'Chinese Whimple Carp' is mistranslated as 'ปลาฉลามจีน' (that is 'Chinese banded shark'); use a distinct name, e.g. 'ปลาซักเกอร์จีน', so the common names are not confused. This also affects item 3.",
+      "Item 5: 'pelagic' is rendered as 'แนวน้ำกลางถึงผิวน้ำ', which is fine, but the source Latin binomial context is missing. The real problem is that the text should say 'ลำน้ำสายหลัก' only once; 'ลำน้ำสายหลักของแม่น้ำ' is redundant.",
+      "Item 7: '900 mm SL (35 in SL)' is converted to '90 ซม.'. The conversion is correct, but 'ความยาวมาตรฐาน (SL)' is vague. Use 'ความยาวมาตรฐาน (SL) สูงสุด'.",
+      "Item 8: the broken English sentence 'this species a set-up designed...' is a source typo. The Thai is fine, but 'ถูกน้ำกัดเซาะจนมน' for 'water-worn' is awkward; use 'หินก้อนใหญ่ผิวมนจากกระแสน้ำ'.",
+      "Item 9: 'active over the range' is rendered as 'กระฉับกระเฉง', which is awkward. Say 'ยังคงแอคทีฟได้ในช่วง'. The Fahrenheit values are dropped, which is acceptable.",
+      "Item 9: 'ความกระด้าง (GH): 2–20 dGH' is fine, but 'numerous reports' is rendered as 'รายงานจำนวนมาก' and the fungal problem as 'เป็นโรคเชื้อรา'. This is acceptable.",
+      "Item 10: 'สัตว์จำพวกกุ้งกั้งปู' is odd for 'crustaceans'; use 'สัตว์น้ำเปลือกแข็ง' or ' crustacean'. 'ไรแดง' for Daphnia is right, and 'ไรทะเล' for Artemia is acceptable.",
+      "Item 11: 'winter-hardy in central Europe' is kept, but 'ปลาคาร์ฟ (โคอิ)' repeats the carp term. Use 'ปลาคาร์ป' consistently, as in item 4. 'เป็นที่ต้องการอย่างมาก' is acceptable.",
+      "Item 13: the source '12 - 14\"' is converted to '30–36 ซม.', which is correct. 'ปลาวัยรุ่น' for 'subadult' is acceptable.",
+      "Item 15: 'ปลาหมูครีบสูงลายแถบ' for 'high-fin banded loach' is questionable. 'ปลาหมู' is a loach in Thai, so it is fine, but 'ปลาค้างคาวน้ำจืด' for 'freshwater batfish' is a literal gloss. Also 'ที่เป็นตัวแทนเพียงชนิดเดียว' repeats 'เพียงชนิดเดียว' in the same sentence."
     ]
   },
   "neocaridina-davidi": {
@@ -1650,6 +1777,23 @@
     "score": 0.95,
     "notes": []
   },
+  "parambassis-ranga": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "ปลาแป้นแก้ว",
+    "confidence": "medium",
+    "score": 0.55,
+    "notes": [
+      "Item 8: 'loaches' translated as 'ปลาหมู' — ปลาหมู is the loach group in Thai hobby use, but the sentence is OK; however 'chromides' → 'ปลาหมอโครมายด์' is non-standard; use 'ปลาหมอเทศ/ปลาหมอสีโครไมด์ (Etroplus)' or keep the English term.",
+      "Item 8: 'mollies' translated as 'ปลาสอด' — wrong. ปลาสอด is the platy/swordtail-type; mollies should be 'ปลามอลลี่'.",
+      "Item 8: 'vigorous' rendered as 'ว่ายเร็วปราดเปรียว' — changes the meaning, since vigorous here means boisterous/active tankmates; use 'ปลาที่ซุกซนหรือแรงเยอะ'.",
+      "Item 10: 'Stock it with 6-8 adult fish' is fine, but 'A pH around neutral should be fine' is hedged; fine. However the leftover 'The adult fish can be removed at this point' is OK.",
+      "Item 4: 'should be the smallest considered' is OK, but omitting the original-brackets is fine; no change needed.",
+      "Item 1: 'ปลาแป้นแก้ว' for Chanda ranga is the Thai name, but 'ปลาแก้วฉีดสี' is fine; the 'Indian glass fish' brand name may be kept as 'ปลาแก้ว' for consistency.",
+      "Item 11: 'Disco fish' and 'Painted' left in English without Thai; give a Thai rendering such as 'ปลาดิสโก้'.",
+      "Item 11: 'ปลาที่ใกล้ชิดกันหลายชนิด' for 'closely related species' is awkward; use 'ปลาในสกุลเดียวกันหรือใกล้เคียงกันหลายชนิด'."
+    ]
+  },
   "pelvicachromis-pulcher": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1690,6 +1834,17 @@
       "\"Rio Orinoco\" is left in Latin script; use a Thai form such as \"แม่น้ำโอรีโนโก\" for natural reading.",
       "\"ปลาแลนซ์ (lancefish)\" is unclear; use a recognisable name such as \"ปลาไหลทราย/ปลาแลนซ์ฟิช\" or briefly explain it.",
       "\"ปลาตะเพียน\" for cyprinids is too narrow; \"ปลาตระกูลคาร์ป/ไซปรินิด\" is closer to the source."
+    ]
+  },
+  "piaractus-brachypomus": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาจะระเม็ดน้ำจืด",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "ข้อ 7: \"ร่วมกับผักและผลไม้ปริมาณมาก ผักโขม ใบผักกาดหอม…\" reads as a run-on list. Add a colon or comma so the spinach and lettuce examples are clearly separate from the preceding clause.",
+      "ข้อ 11: \"ปลาแมวขนาดใหญ่ในกลุ่ม Pimelodid, Doradid และ Loricariid\" (also in item 8) leaves the family names in Latin with no Thai gloss. This is minor. Consider adding a common Thai name or the family suffix, e.g. วงศ์ Pimelodidae."
     ]
   },
   "poecilia-latipinna": {
@@ -1742,6 +1897,23 @@
       "Item 10: \"ตาข่ายหรือกล่องแยกคลอด\" is a bit loose. \"กล่องหรือตะข่ายแยกแม่ปลา\" would be more natural."
     ]
   },
+  "polypterus-senegalus": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ไบเคอร์เซเนกัล",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 9: \"ปลาสลาด/ปลากราย (Knife Fish)\" is fine, but \"ปลากลุ่ม Datnoides\" is left in Latin only. Use the Thai name \"ปลาไทเกอร์\" or \"ปลาลาย/ปลาเสือ\" in brackets, since hobbyists in Thailand know Datnoides as ปลาไทเกอร์/ตะกรับ.",
+      "Item 9: \"ไม่ควรไว้ใจให้อยู่ร่วมกับปลาที่มีขนาดพอจะเข้าปากได้\" is awkward. Say \"ไม่ควรเลี้ยงรวมกับปลาที่เล็กพอจะกินได้\".",
+      "Item 2 and item 6: \"ขึ้นชื่อว่ากระโดด\" is slightly unnatural. Use \"ขึ้นชื่อเรื่องการกระโดด\".",
+      "Item 6: \"ไม้น้ำไม่จำเป็นแต่ปลาก็ชื่นชอบ\" changes \"appreciated\" into \"the fish like it\". Reword to \"ไม่จำเป็นแต่ก็เป็นประโยชน์\".",
+      "Item 11: \"ไหมพรมสำหรับวางไข่\" (spawning mop) is an acceptable term, but \"ไมโครเวิร์ม\" and \"ไรทะเลแรกฟัก\" are fine. The real problem is \"ผสมพันธุ์\" in \"ผสมพันธุ์ในช่วงฤดูฝน\" and \"ไม่ค่อยเคลื่อนไหวมากนัก\", which are slightly off. Reword the second to \"ไม่ค่อยเคลื่อนไหว\".",
+      "Item 12: \"สัตว์ยุคโบราณมาก\" is incomplete. The source says \"very ancient species\", so write \"สัตว์ตระกูลโบราณ\" or \"สปีชีส์โบราณ\".",
+      "Item 12: \"ไรทะเล\" in item 8 is used for brine shrimp, which is fine. \"หนอนแดง\" for bloodworm is fine. In item 12, \"ลูกปลาไบเคอร์มีเหงือกภายนอก\" is correct. However \"กลุ่ม 'ขากรรไกรบน' ของวงศ์ Polypteridae\" mistranslates \"tribe\". Use \"กลุ่ม (tribe)\" rather than \"วงศ์\" for the polypterid grouping.",
+      "Item 5: The line \"ตู้ขนาด 150 × 60 × 60 ซม. จุประมาณ 540 ลิตร\" is correct. \"Standard length\" is rendered as \"ความยาวมาตรฐาน\" and should be \"ความยาวมาตรฐาน (SL)\" for clarity, but this is minor."
+    ]
+  },
   "prionobrama-filigera": {
     "at": "2026-10-31",
     "from": "2026-10-31",
@@ -1784,19 +1956,18 @@
     ]
   },
   "pterophyllum-scalare": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "ปลาเทวดา",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.6,
     "notes": [
-      "\"ปลาปอมปาดัวร์\" is the Thai name for discus, which is fine, but mixing it with \"ปลาในสกุล Apistogramma\" is slightly uneven; consider \"ปลาหมอสีอาปิสโตแกรมมา (Apistogramma)\".",
-      "\"ปลาแข็งแรงและอยู่ตัวดีมาก\" lacks a subject reference; use \"ปลาชุดนี้แข็งแรงและปรับตัวนิ่งดี\" for clarity.",
-      "\"จับจากธรรมชาติ\" is acceptable, but hobbyists more commonly say \"ปลาไวลด์ / ปลาที่จับจากแหล่งธรรมชาติ\"; consider \"ปลาเทวดาไวลด์\".",
-      "\"ปลาปิรันย่าที่กินครีบกัดมาแล้ว\" is awkward; rephrase to \"เคยถูกปลาปิรันย่าที่ชอบกัดแทะครีบกัด\".",
-      "\"ครีบงอกกลับคืนเร็ว\" is fine, but \"ครีบงอกใหม่เร็วมาก\" is more natural; the source says \"very fast\".",
-      "Sentence 1 of item 4 puts \"ซึ่งยังไม่ทราบสาเหตุ\" after the fish list, so it could be misread as being about the fish; split it into two sentences.",
-      "Item 3: \"อ่อนมาก\" alone is ambiguous; use \"เป็นน้ำอ่อนมาก\" (soft water)."
+      "Item 14: 'เคยถูกปลาปิรันย่าที่กินครีบกัดมาก่อน' is garbled; say 'เคยถูกปิรันย่าที่ชอบกัดแทะครีบกัดมาก่อน'. Also 'บาดแผลจากธรรมชาติ' should be 'บาดแผลที่ได้มาจากธรรมชาติ'.",
+      "Item 12: 'ซึ่งจะได้ปลาจับคู่กันอย่างแน่นอน' states certainty, but the source says 'a pair is sure to form'. Keep it, but 'ปุ่มเพศ' for genital papillae is fine. 'ตัวผู้มีปุ่มเพศเล็กและแหลมกว่า' is correct.",
+      "Item 11: The source says 'best kept in small groups' because of squabbling. 'เหมาะสำหรับตู้ปลารวม' is fine, but 'ปลาซิวเททรา' is a wrong name for tetras. Use 'เททร่า' or 'ปลาเทตร้า'. 'ปลาซิว' means danios/rasboras. This also affects item 2.",
+      "Item 2: 'ปลาซิวเททรา' is a wrong hobby term for tetras. Use 'ปลาเททร่า'.",
+      "Item 7: 'ต้นอเมซอน (Amazon Sword)' is not the Thai hobby name. Use 'ต้นอเมซอนซอร์ด' or 'อเมซอน'. 'ปลาชอบกระแสน้ำเบา ๆ' is acceptable.",
+      "Item 13: The paragraph was split in two, which is a minor structure change. 'ขุนปลา' (fatten) is too strong for 'well conditioned'. Use 'ปรนปลาให้พร้อมผสมพันธุ์'. 'ไรทะเล' for brine shrimp is fine but 'อาร์ทีเมีย' is more common."
     ]
   },
   "puntigrus-tetrazona": {
@@ -1848,6 +2019,21 @@
       "\"ปลาเรดไลน์ทอร์ปิโด\" is acceptable. You could add the common Thai name \"ปลาตอร์ปิโด\" in brackets for clarity."
     ]
   },
+  "scatophagus-argus": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาเสือดาว",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "\"ปลาเสือดาว\" for scat/argus fish is not the standard Thai name. Use \"ปลาตะกรับ\" (Scatophagus argus), optionally with \"สแคท (scat)\" in brackets, so hobbyists don't confuse it with other fish.",
+      "Item 7: \"วางไข่ในมวลน้ำเปิด\" is stiff for \"open-water spawners\". Use something more natural, e.g. \"วางไข่ลอยอิสระในน้ำ\" or \"ปล่อยไข่ในน้ำโดยไม่เลือกที่วาง\".",
+      "Item 2: \"ซึ่งไม่ถูกต้อง\" is vague about what is wrong. Make it clear that classifying them as one species is incorrect, e.g. \"ซึ่งการจัดแบบนี้ไม่ถูกต้อง\".",
+      "Item 1: \"ควรอยู่เหนือ 8\" is awkward for pH. Use \"ควรสูงกว่า 8\".",
+      "Item 1: \"รักสงบกับปลาต่างชนิด\" reads awkwardly. Use \"ไม่ก้าวร้าวต่อปลาชนิดอื่น\".",
+      "Item 3: \"ย้ายไปมา…ตลอดเวลา\" sounds as if the fish are being moved. Use \"ว่ายเข้าออกระหว่างน้ำเค็มกับน้ำจืดได้อย่างอิสระ\"."
+    ]
+  },
   "scleropages-formosus": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1867,6 +2053,23 @@
       "Item 8: \"ตัวผู้อมไข่และลูกไว้ในปาก\" fine but \"ในเชิงพาณิชย์\" placement ambiguous; say \"เพื่อการค้ามักเพาะในบ่อกลางแจ้ง\""
     ]
   },
+  "sewellia-breviventralis": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาผีเสื้อติดหิน",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "\"ปลาผีเสื้อติดหิน\" for hillstream loaches: Thai hobbyists use \"ปลาค้อ\" for loaches and \"ปลาหมูสวนหิน/ปลาเกาะหิน\" for Sewellia, so check this term. \"ปลาผีเสื้อติดหิน\" is not clearly established and is used throughout.",
+      "\"ตะไคร่\" is used for algae. The usual hobby term is \"สาหร่าย\" or \"ตะไคร่น้ำ\", so check \"ปลากินตะไคร่โดยแท้\".",
+      "\"แบบเป็น ๆ\" for live imported animals is colloquial. Use \"ปลาที่มีชีวิต\" or \"ปลาที่นำเข้าจริง\".",
+      "\"all usual ornamental fish food, i.e. dry food, granules\": \"อาหารเม็ดเล็ก\" adds \"small\". Use \"อาหารเม็ด\".",
+      "\"มีลักษณะก้ำกึ่งทุกรูปแบบเท่าที่จะนึกได้\" is awkward. Use \"มีรูปแบบกึ่งกลางทุกระดับ\".",
+      "\"ในตอนนี้การคาดเดาเรื่องชื่อดูจะยังไม่มีประโยชน์ เมื่อพิจารณา...\": the 'also in view of colour variability' reasoning is clumsy. Fix the sentence flow.",
+      "\"จุลชีพ\" for microorganisms is too technical and often means pathogens. Use \"จุลินทรีย์\" or \"สิ่งมีชีวิตขนาดเล็ก\".",
+      "\"กระแสน้ำแรง\" and \"สารอินทรีย์ปนเปื้อนน้อย\" (organically little polluted) are acceptable, but \"organically polluted\" is more natural as \"มีของเสียอินทรีย์น้อย\"."
+    ]
+  },
   "sewellia-lineolata": {
     "at": "2026-10-31",
     "from": "2026-10-30",
@@ -1879,19 +2082,14 @@
     ]
   },
   "symphysodon-aequifasciatus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "ปลาปอมปาดัวร์",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "\"ปลา Royal\" / \"สายพันธุ์ Royal\": Thai hobbyists commonly write \"ปอมปาดัวร์ รอยัล\" or use Thai script for Royal; consider transliterating consistently.",
-      "\"ถิ่นต้นแบบ (type locality)\" is fine, but \"ถิ่นที่พบต้นแบบ\" is the more standard Thai phrase.",
-      "\"ซึ่งในสายตาคนดูไม่สวยเท่ามาก\" is awkward and unclear; use \"ซึ่งในสายตาเราดูสวยน้อยกว่ามาก\" or \"ซึ่งสวยน้อยกว่ามากในสายตาผู้เลี้ยง\".",
-      "\"ลักษณะนี้ไม่ใช่ลักษณะประจำชนิดหรือประจำสายพันธุ์\" leaves \"race\" as \"สายพันธุ์\"; for a natural population \"ประจำชนิดหรือประจำถิ่น/เผ่าพันธุ์ย่อย\" is more accurate, and it is used inconsistently with \"สายพันธุ์ Royal\" for variety.",
-      "\"สถานีรวบรวมปลาส่งออก\" is acceptable but \"ศูนย์/สถานีพักปลาของผู้ส่งออก\" reads more naturally.",
-      "\"ปัจจุบันปลามีความยาว 12–15 ซม.\" is faithful but ambiguous; consider \"ขณะนี้ปลา (ที่มีจำหน่าย) มีขนาด 12–15 ซม.\" to preserve the sale-size sense.",
-      "\"และยังมีจุดสีส้มแดงที่ข้างลำตัวเพิ่มเข้ามาอีกด้วย\" is wordy; use \"และมีจุดสีส้มแดงที่ข้างลำตัวเพิ่มเติม\"."
+      "Item 8: \"ได้ชื่อว่าสวยที่สุดเป็นตำนาน\" reads awkwardly; something like \"ขึ้นชื่อว่าสวยที่สุดอย่างเลื่องลือ\" would be more natural.",
+      "Item 8: \"ที่นี่พบปลา Royal เป็นจำนวนมากเป็นพิเศษ และยังมีจุดสีส้มแดง...\" leaves it unclear that the orange-red spots are on the Royal fish. Make the subject explicit."
     ]
   },
   "symphysodon-discus": {
@@ -1967,14 +2165,15 @@
     ]
   },
   "trichopodus-leerii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "ปลากระดี่มุก",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "Item 3: \"เหมาะกับการเลี้ยงรวมในตู้ปลารวม\" is redundant; use \"เหมาะกับตู้ปลารวม\".",
-      "Item 6: \"ไส้เดือนน้ำ\" for blackworms is loose; consider adding \"(blackworm)\" to avoid confusion with tubifex or bloodworm."
+      "Item 19: \"ปลากลุ่ม anabantoid\" leaves English in place. Use a Thai term such as \"ปลากลุ่มที่มีอวัยวะช่วยหายใจ\" or put \"anabantoid\" in brackets after the Thai.",
+      "Items 2, 3, 4, 6 and 5: \"พื้นที่ชุ่มน้ำที่ราบลุ่ม\" for \"lowland swamps\" is rather generic. \"ป่าพรุ\" or \"หนองน้ำที่ราบลุ่ม\" is closer to what hobbyists write.",
+      "Item 20: \"เท้าเส้นขน\" for \"hair-feet\" is a slightly awkward literal rendering. \"เท้าเหมือนเส้นขน\" would read more naturally."
     ]
   },
   "trichopodus-trichopterus": {
@@ -2034,35 +2233,60 @@
       "Item 9: the \"genital papillae is pointed in the male\" translation is correct. No change needed beyond consistency."
     ]
   },
+  "vittina-waigiensis": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "หอยเนอไรท์เรเซอร์",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 5: \"WoRMS ใช้ชื่อ Vittina waigiensis สำหรับสปีชีส์ที่ Lesson บรรยายไว้\" adds a fact. The source only says WoRMS refers to the species as Vittina waigiensis. Remove the added clause or keep it neutral.",
+      "Item 5: \"ยอดเปลือก (spire) กร่อนหายไป\" adds the idea of erosion. The source says the tip of the shell is missing, as part of normal growth. Use \"ปลายเปลือกหายไป\" or \"ไม่มีปลายยอดเปลือก\".",
+      "Item 5: \"ส่วนหอยที่ในวงการปลาสวยงามเรียกกัน…\" is acceptable in meaning, but \"ผู้เชี่ยวชาญ\" for \"qualified person\" is slightly stronger. Consider \"ผู้มีความรู้ความสามารถ\".",
+      "Item 3: \"หอยเนอไรท์\" is a transliteration that Thai hobbyists rarely use. Use \"หอยเนอริไทต์\" or the common \"หอยเนอริต\" with (nerite) in brackets.",
+      "Item 3: \"การเลี้ยงใช้หลักเดียวกับที่รู้กันทั่วไปเกี่ยวกับหอย…ทั้งหมด\" is clumsy. Rephrase, for example \"การดูแลเป็นไปตามหลักทั่วไปของหอยเนอริไทต์\".",
+      "Item 1: \"ตะไคร่\" is fine. Use \"สาหร่าย\" or \"ตะไคร่น้ำ\" consistently across items 1 and 4."
+    ]
+  },
   "xiphophorus-hellerii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "ปลาหางดาบ",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.6,
     "notes": [
-      "#1: The bracketed original \"3-4 inches\" was dropped, which is acceptable. Keep \"8–10 ซม.\" and 75 ลิตร as they are.",
-      "#2: \"ปลาหางดาบสายพันธุ์ 'พิเศษ'\" narrows the source. The English says \"specialty varieties\" in general, not only swordtails, so use a more general wording such as \"ปลาสายพันธุ์พิเศษ\".",
-      "#6: \"ปลาชนิดนี้ว่ายน้ำตลอดเวลา\" overstates \"They are active fish\". Use \"ว่ายน้ำคล่องแคล่ว/ปราดเปรียว\".",
-      "#10: \"จะพบได้ในช่วงแรกของประชากร\" is ambiguous. Make clear that both male types appear in every swordtail population at the start, or in wild populations.",
-      "#4: \"หางดาบลายแต้มสี\" for \"painted\" and \"สีดาวเรืองครีบดำ\" for \"marigold wag\" are not standard Thai trade names. Check them against the names Thai shops use, such as \"มาริโกลด์\" and \"เรดแว็ก\".",
-      "#8: Check \"ปลาหมูอารีย์\" for Coolie Loach. If it is not the standard Thai name, add the English name or the Latin name Pangio kuhlii in brackets."
+      "Item 1: 'Tank level: Top, mid-dweller' fine, but min tank size 20 gallons ≈ 75 L is kept; OK. Temperature line omits nothing important.",
+      "Item 21: source ends with truncated 'known as 'sneakers',' and Thai leaves 'sneaker' untranslated in English; give a Thai rendering (e.g. ตัวผู้แอบผสม) or explain it.",
+      "Item 9: 'about 108 litres (29 US gal)' – 'surface dimensions' translated as 'พื้นที่ผิวน้ำอย่างน้อย' adds 'อย่างน้อย' phrasing; fine, but 'should be the smallest considered' is fine. Minor.",
+      "Item 18: 'early and late males' translated as 'ตัวผู้โตเร็ว/โตช้า' (fast/slow growing) – changes meaning; should be 'ตัวผู้ที่โตเต็มวัยเร็ว/ช้า' (early/late maturing).",
+      "Item 18: 'natural polymorphism' rendered as 'ความหลากหลายของรูปร่างตามธรรมชาติ'; 'polymorphism' should be 'รูปแบบหลายแบบ (polymorphism)' not only shape; 'small, tiny' collapsed.",
+      "Item 15: 'Coolie Loach' translated as 'ปลาปล้องอ้อย' – acceptable; but 'ปลาแพะ (Corydoras)' is a nonstandard name; use 'ปลาคอรี่' / 'คอรีดอรัส'.",
+      "Item 14: 'ไรแดง' for Daphnia ok, but 'Artemia' as 'ไรทะเล' is less standard; use 'อาร์ทีเมีย'. 'หนอนแดง' ok.",
+      "Item 20: opening 'ปลาออกลูกเป็นตัวอย่างปลาหางดาบเพิ่มจำนวนจนล้นตู้ได้ง่าย' is awkward/misreadable (อย่าง ambiguous); rephrase 'ปลาออกลูกเป็นตัว เช่น ปลาหางดาบ ...'.",
+      "Item 3: 'ดำสด ๆ' for 'blacks' and 'ภูมิคุ้มกันต่ำ' fine; 'limited immune function' ok. Item 5: 'ไพน์แอปเปิล เพนต์' transliterations awkward (pineapple, painted)."
     ]
   },
   "xiphophorus-maculatus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "ปลาเพลตี้",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.88,
     "notes": [
-      "\"ปลาเพลตี้สายพันธุ์ธรรมชาติ\": for a wild-type platy, \"เพลตี้ป่า\" or \"เพลตี้สายพันธุ์แท้จากธรรมชาติ\" is more usual; \"สายพันธุ์\" is ambiguous.",
-      "\"แผ่นปิดเหงือก\": hobbyists say \"ฝาเหงือก\"; use that.",
-      "\"อินทรธนูนายพลเรือ\": stiff and a bit literal; \"อินทรธนูแบบนายพลเรือ\" or keep only the English with a short gloss.",
-      "\"สายพันธุ์ที่เพาะเลี้ยงกัน\": awkward; use \"สายพันธุ์ที่คัดเพาะขึ้นมา\" or \"สายพันธุ์เพาะเลี้ยง\".",
-      "\"ปล่อยปลา...ให้ว่ายรวมกัน\": \"ปล่อย\" can sound like releasing into the wild; \"เลี้ยงรวมกัน\" is clearer.",
-      "\"ลายพระจันทร์เสี้ยวคู่\" and \"ลายมิกกี้เมาส์\": fine, but \"Mickey Mouse\" is commonly written \"มิกกี้เมาส์\" without \"ลาย\" doubled; this is minor.",
-      "\"ซึ่งทำให้...จะได้ปลา\": the sentence is long and clumsy; split it for readability."
+      "Item 19 and 20: \"mollies\" is translated as \"ปลาสอด\". In Thai hobby use \"ปลาสอด\" often means platy or other livebearers generally, so it is ambiguous here. Use \"ปลาโมลลี่\" for mollies.",
+      "Item 19: the guppy entry is \"ปลาหางนกยูงเอ็นด์เลอร์ (Endler's guppy)\" followed straight away by \"ปลาหางนกยูง\" for guppies. Make the Endler's name clearly distinct, for example \"ปลาเอ็นด์เลอร์\"."
+    ]
+  },
+  "yasuhikotakia-modesta": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ปลาหมูหางแดง",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "Item 8: 'เฟิร์นใบหอก' for Java fern is not the usual hobby name; use 'เฟิร์นชวา' (or 'ไมโครซอเรียม').",
+      "Item 11: 'ไรทะเล' for Artemia is a little loose; 'อาร์ทีเมีย' or 'ไรน้ำเค็ม' is what hobbyists in Thailand say.",
+      "Item 8: 'ไม้ขอนลอย' for driftwood is slightly odd; 'ไม้流木' is not Thai, so use 'ไม้流木' only in the sense of 'ไม้ซุง/ขอนไม้' (e.g. 'ไม้แช่น้ำ/ขอนไม้')."
     ]
   }
 }
