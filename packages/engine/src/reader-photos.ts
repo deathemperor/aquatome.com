@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import sharp from 'sharp'
+import sharp, { type OutputInfo } from 'sharp'
 import { THUMB_WIDTH } from '@aq/schema'
 
 const TEMPLATE = readFileSync(new URL('./prompts/reader-photo.md', import.meta.url), 'utf8')
@@ -45,7 +45,7 @@ export async function moderatePhotos(api: PhotoAdmin, d: PhotoDeps): Promise<{ o
         const sp = d.species(item.entity_ref.replace(/^species:/, ''))
         if (!sp) { await remove(item.id, 'species page not found'); continue }
         const raw = await api.raw(item.id) // a download failure leaves the photo pending
-        let full: { data: Buffer; info: sharp.OutputInfo }, thumb: Buffer
+        let full: { data: Buffer; info: OutputInfo }, thumb: Buffer
         try {
           full = await sharp(raw).rotate().resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true }).webp({ quality: 80 }).toBuffer({ resolveWithObject: true })
           thumb = await sharp(raw).rotate().resize({ width: THUMB_WIDTH, withoutEnlargement: true }).webp({ quality: 75 }).toBuffer()

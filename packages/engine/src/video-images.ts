@@ -117,7 +117,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
-    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is { t: number; jpg: Buffer } => !!f && !seen.has(f.t)) : []
+    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t)) : []
     const uniq = [...new Map(cands.map(c => [c.t, c])).values()].slice(0, 12)
     if (uniq.length) {
       const sheet = join(dir, `${v.youtubeId}-${i}-m.jpg`)

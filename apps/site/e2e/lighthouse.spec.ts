@@ -74,7 +74,8 @@ for (const path of pages) {
         performance: score('performance'), accessibility: score('accessibility'), 'best-practices': score('best-practices'), seo: score('seo'),
         lcp: Math.round(value('largest-contentful-paint')), tbt: Math.round(value('total-blocking-time')), cls: Number(value('cumulative-layout-shift').toFixed(3)),
         js: Math.round(scripts.filter(r => r.resourceType === 'Script' && new URL(r.url).origin === own).reduce((n, r) => n + (r.resourceSize ?? 0), 0) / 1024),
-        dom: value('dom-size'),
+        // Lighthouse 13 counts the page's elements in an insight (the dom-size audit is gone).
+        dom: value('dom-size-insight'),
       }
       // The numbers in the log, to see the margin a budget has.
       console.log(`${form} ${path} ${JSON.stringify(got)} (machine speed ${Math.round(lhr.environment.benchmarkIndex)})`)
