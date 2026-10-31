@@ -94,6 +94,23 @@ that would have caught it).
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
   run closes the issue.
 
+## Content guards (the engine)
+
+The engine writes and changes pages without a PR, so its own steps guard what it publishes (`scripts/engine-cycle.sh`).
+The layers above still check the result.
+
+- **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
+  one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+- **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
+  video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
+  guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
+  guide: such a guide is reported instead. Found by the owner: a lighting-hours guide ended on pre-filters.
+- **Photos.** No people (faces dropped), each photo must show its species, open licences or permission only.
+- **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
+  (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
+- **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
+  shows the range they all accept.
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest
