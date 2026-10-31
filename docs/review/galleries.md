@@ -5,10 +5,10 @@ Written by `pnpm engine gallery` (2026-10-31). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 4 | 8 |
-| shop | 60 | 115 | 75 | 24 | 166 |
-| popular | 40 | 20 | 0 | 0 | 20 |
-| covered | 30 | 39 | 3 | 1 | 41 |
-| rest | 20 | 691 | 90 | 0 | 781 |
+| shop | 60 | 120 | 77 | 24 | 173 |
+| popular | 40 | 21 | 0 | 0 | 21 |
+| covered | 30 | 68 | 3 | 1 | 70 |
+| rest | 20 | 705 | 92 | 0 | 797 |
 
 ## Short of target: every source read (15)
 
@@ -30,4 +30,4 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/scleropages-jardinii | shop | 8 | 60 |
 | species/channa-asiatica | shop | 6 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
-| species/betta-macrostoma | rest | 0 | 20 |
+| species/betta-macrostoma | covered | 0 | 30 |
