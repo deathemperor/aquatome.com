@@ -1,5 +1,5 @@
 {
-  "$comment": "Chihiros Bluetooth test vectors, shared by the site (apps/site/test/chihiros.test.ts) and the iOS app (apps/ios/AquaTomeKit/Tests). Change both implementations together. Light names are synthetic: never put a real device's name suffix or address here.",
+  "$comment": "Chihiros Bluetooth test vectors, shared by the site (apps/site/test/chihiros.test.ts) and the iOS app (apps/ios/AquaTomeKit/Tests). Change both implementations together. Light names are synthetic: never put a real device's name suffix or address here. Snapshots: bytes 9–21 (meaning unknown) are zeroed; the site has no snapshot parser yet.",
   "frame": [
     { "note": "deleting an everyday 02:30–05:10 setting with a one-minute ramp", "cmd": 165, "mode": 25, "params": [2, 30, 5, 10, 1, 127, 255, 255, 255, 255, 255, 255, 255, 255], "id": 23, "hex": "a5 01 13 00 17 19 02 1e 05 0a 01 7f ff ff ff ff ff ff ff ff 71" }
   ],
@@ -51,5 +51,14 @@
     { "on": "08:00", "off": "16:00", "hours": 8 },
     { "on": "22:00", "off": "06:00", "hours": 8 },
     { "on": "10:00", "off": "16:30", "hours": 6.5 }
+  ],
+  "snapshot": [
+    { "note": "captured: 12:00–20:00, 30-minute ramp, 70%", "reply": "5b 18 30 00 01 fe 06 0f 29 00 00 00 00 00 00 00 00 00 00 00 00 00 06 0f 29 0c 00 00 0c 1e 46 13 1e 46 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 6, "time": "15:41" }, "points": [["12:00", 0], ["12:30", 70], ["19:30", 70], ["20:00", 0]], "schedule": { "on": "12:00", "off": "20:00", "ramp": 30, "level": 70 } },
+    { "note": "captured: written as 13:00–19:00, 15-minute ramp, 40/50/60; the curve keeps the first channel's level", "reply": "5b 18 30 00 01 fe 06 0f 29 00 00 00 00 00 00 00 00 00 00 00 00 00 06 0f 29 0d 00 00 0d 0f 28 12 2d 28 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 6, "time": "15:41" }, "points": [["13:00", 0], ["13:15", 40], ["18:45", 40], ["19:00", 0]], "schedule": { "on": "13:00", "off": "19:00", "ramp": 15, "level": 40 } },
+    { "note": "read back: written as 13:00–19:00, no ramp, 60/50/40: two points", "reply": "5b 18 30 00 01 fe 06 0f 2a 00 00 00 00 00 00 00 00 00 00 00 00 00 06 0f 2a 0d 00 3c 13 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 6, "time": "15:42" }, "points": [["13:00", 60], ["19:00", 0]], "schedule": { "on": "13:00", "off": "19:00", "ramp": 0, "level": 60 } },
+    { "note": "captured right after a write: the cleared curve", "reply": "5b 18 30 00 01 fe 06 0f 29 00 00 00 00 00 00 00 00 00 00 00 00 00 06 0f 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 6, "time": "15:41" }, "points": [], "schedule": null },
+    { "note": "a curve this app doesn't write (two periods, from the protocol notes)", "reply": "5b 18 30 00 01 fe 01 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 08 00 09 00 00 09 01 05 10 3b 05 11 00 00 11 01 41 15 3b 41 16 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 1, "time": "08:00" }, "points": [["09:00", 0], ["09:01", 5], ["16:59", 5], ["17:00", 0], ["17:01", 65], ["21:59", 65], ["22:00", 0]], "schedule": null },
+    { "note": "after a power cut the clock reads zero", "reply": "5b 18 30 00 01 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c 00 00 0c 1e 46 13 1e 46 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "firmware": 24, "clock": { "weekday": 0, "time": "00:00" }, "points": [["12:00", 0], ["12:30", 70], ["19:30", 70], ["20:00", 0]], "schedule": { "on": "12:00", "off": "20:00", "ramp": 30, "level": 70 } },
+    { "note": "the runtime reply is not a snapshot", "reply": "5b 18 0a 00 01 0a 01 ff ff ff ff 01 26 3f", "snapshot": false }
   ]
 }

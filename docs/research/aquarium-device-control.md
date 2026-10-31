@@ -294,6 +294,14 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 - **The site's page works on the light (Chrome Beta and Edge on macOS, Web Bluetooth).** `/vi/cong-cu/den-chihiros/` found the light with its `namePrefix: 'DY'` filter, read firmware 24, and wrote two schedules in turn (14:00–20:00 at 50%, then 12:00–20:00 at 70%, 30-minute ramp). Its clock button, manual mode and per-channel sliders also worked, with acknowledged writes.
 - The `0xfe` snapshot holds the stored schedule as points (`hh mm level`) from byte 25: the second write read `0c 00 00 | 0c 1e 46 | 13 1e 46 | 14 00 00` (12:00 0%, 12:30 70%, 19:30 70%, 20:00 0%), and it replaced the first schedule rather than adding to it. A page can read this back to show what the light currently runs.
 - On this Mac, a second copy of stable Chrome (its own profile, started while the owner's Chrome was open) listed only paired devices and no live BLE advertisements. Chrome Beta and Edge saw the light at once. If the picker is empty on a Mac, try another Chromium browser.
+- **The iOS app's own code works on the light** (Swift, CoreBluetooth, through `apps/ios/AquaTomeKit`'s `light-harness` on the Mac). It found the light, read firmware 24 and the saved schedule, wrote schedules and read them back, set the clock (a deliberately wrong 03:07, then the right time, both read back) and set a manual level. What it showed:
+  - The full advertised name is `DYSL30` plus a suffix that looks like the device address. Keep real names out of the repo.
+  - `askStatus` gets two replies, both in one notification each: a 14-byte runtime reply (mode `0a`), then the 50-byte `0xfe` snapshot. Byte 2 is the length minus 2.
+  - Snapshot bytes 6–8 are the clock as **ISO weekday, hour, minute** (a copy sits at 22–24). Points are 8 slots of `hh mm level` from byte 25; byte 49 is a trailer. Bytes 9–21 didn't change across the tests; their meaning is unknown.
+  - The curve keeps **one level: the first channel's**. 40/50/60 was stored as 40, and 60/50/40 as 60. Other channels' schedule levels can't be read back.
+  - With no ramp, the curve is **two points**: `on level`, `off 0`.
+  - Right after a schedule write, the snapshot sometimes still shows the **cleared** curve (all zero). A second read a moment later shows the new one. The app reads again until it does.
+  - Connecting again right after a disconnect was once dropped at once; the next try worked.
 
 **Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007). Identified, but no commands were sent.
 - Chip: Beken `BK-BLE-1.0`. Service `fff0`: `fff2` write, `fff1` notify.

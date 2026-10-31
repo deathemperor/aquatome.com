@@ -19,6 +19,24 @@ struct Vectors: Decodable {
   struct ModelCase: Decodable { let note: String?; let name: String; let model: String?; let channels: [Channel]? }
   struct FirmwareCase: Decodable { let reply: String; let firmware: Int? }
   struct HoursCase: Decodable { let on: String; let off: String; let hours: Double }
+  struct SnapshotCase: Decodable {
+    struct Clock: Decodable { let weekday: Int; let time: String }
+    struct Saved: Decodable { let on: String, off: String, ramp: Int, level: Int }
+    let note: String
+    let reply: String
+    let snapshot: Bool?
+    let firmware: Int?
+    let clock: Clock?
+    let points: [[Point]]?
+    let schedule: Saved?
+    enum Point: Decodable {
+      case time(String), level(Int)
+      init(from d: Decoder) throws {
+        let c = try d.singleValueContainer()
+        if let t = try? c.decode(String.self) { self = .time(t) } else { self = .level(try c.decode(Int.self)) }
+      }
+    }
+  }
 
   let frame: [FrameCase]
   let setLevel: [LevelCase]
@@ -31,6 +49,7 @@ struct Vectors: Decodable {
   let modelOf: [ModelCase]
   let firmwareOf: [FirmwareCase]
   let hoursLit: [HoursCase]
+  let snapshot: [SnapshotCase]
 
   static let shared: Vectors = {
     // Tests/ChihirosTests/VectorTests.swift → the repository root, six levels up.
@@ -87,4 +106,23 @@ let v = Vectors.shared
 @Test func statusRepliesAndHoursOfLight() {
   for c in v.firmwareOf { #expect(Reply.firmware(bytes(c.reply)) == c.firmware) }
   for c in v.hoursLit { #expect(Schedule.hoursLit(on: TimeOfDay(c.on)!, off: TimeOfDay(c.off)!) == c.hours) }
+}
+
+@Test func statusSnapshotsCapturedFromTheLight() throws {
+  for c in v.snapshot {
+    let s = Snapshot(bytes(c.reply))
+    if c.snapshot == false { #expect(s == nil, "\(c.note)"); continue }
+    let snap = try #require(s, "\(c.note)")
+    #expect(snap.firmware == c.firmware, "\(c.note)")
+    #expect(snap.clock.weekday == c.clock?.weekday && snap.clock.time == TimeOfDay(c.clock!.time), "\(c.note)")
+    let points = (c.points ?? []).map { p -> Snapshot.Point in
+      guard case .time(let t) = p[0], case .level(let l) = p[1] else { fatalError("bad point in \(c.note)") }
+      return Snapshot.Point(time: TimeOfDay(t)!, level: l)
+    }
+    #expect(snap.points == points, "\(c.note)")
+    let expected = c.schedule.map { Schedule(on: TimeOfDay($0.on)!, off: TimeOfDay($0.off)!, ramp: $0.ramp, levels: [$0.level, $0.level, $0.level]) }
+    #expect(snap.schedule(channels: 3) == expected, "\(c.note)")
+    // The fake light builds the same bytes from the same state.
+    #expect(hex(FakeLight.snapshot(firmware: snap.firmware, clock: snap.clock, points: snap.points)) == c.reply, "\(c.note)")
+  }
 }
