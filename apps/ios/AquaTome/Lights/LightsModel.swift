@@ -51,8 +51,8 @@ final class LightsModel {
   var saved: Schedule? { snapshot?.schedule(channels: channels.count) }
   var canWrite: Bool { isConnected && !isBusy && form.problem == nil && (firmware ?? 0) >= 20 }
   /// Minutes the light's clock is off from the phone's; nil if it isn't set (after a power cut).
-  var clockOff: Int? { snapshot?.clock.minutesOff(from: Date()) }
-  var clockNeedsSync: Bool { snapshot.map { !$0.clock.isSet || ($0.clock.minutesOff(from: Date()) ?? 0) > 2 } ?? false }
+  var clockOff: Int? { snapshot?.clock.drift(from: Date()).map(abs) }
+  var clockNeedsSync: Bool { snapshot.map { !$0.clock.isSet || ($0.clock.drift(from: Date()).map(abs) ?? 0) > 2 } ?? false }
 
   // MARK: Finding and connecting
 

@@ -19,6 +19,13 @@ struct Vectors: Decodable {
   struct ModelCase: Decodable { let note: String?; let name: String; let model: String?; let channels: [Channel]? }
   struct FirmwareCase: Decodable { let reply: String; let firmware: Int? }
   struct HoursCase: Decodable { let on: String; let off: String; let hours: Double }
+  struct ClockValue: Decodable { let weekday: Int; let hour: Int; let minute: Int }
+  struct ClockCase: Decodable { let note: String; let reply: String; let clock: ClockValue? }
+  struct DriftCase: Decodable { let note: String?; let clock: ClockValue; let local: String; let minutes: Int? }
+  struct LevelAtCase: Decodable {
+    struct Times: Decodable { let on: String; let off: String; let ramp: Int }
+    let note: String?; let schedule: Times; let minute: Int; let level: Double
+  }
   struct SnapshotCase: Decodable {
     struct Clock: Decodable { let weekday: Int; let time: String }
     struct Saved: Decodable { let on: String, off: String, ramp: Int, level: Int }
@@ -49,6 +56,9 @@ struct Vectors: Decodable {
   let modelOf: [ModelCase]
   let firmwareOf: [FirmwareCase]
   let hoursLit: [HoursCase]
+  let clockOf: [ClockCase]
+  let clockDrift: [DriftCase]
+  let levelAt: [LevelAtCase]
   let snapshot: [SnapshotCase]
 
   static let shared: Vectors = {
@@ -124,5 +134,32 @@ let v = Vectors.shared
     #expect(snap.schedule(channels: 3) == expected, "\(c.note)")
     // The fake light builds the same bytes from the same state.
     #expect(hex(FakeLight.snapshot(firmware: snap.firmware, clock: snap.clock, points: snap.points)) == c.reply, "\(c.note)")
+  }
+}
+
+extension Snapshot.Clock {
+  init(_ c: Vectors.ClockValue) { self.init(weekday: c.weekday, time: TimeOfDay(hour: c.hour, minute: c.minute)) }
+}
+
+@Test func theLightsClockFromItsStatusReply() {
+  for c in v.clockOf { #expect(Reply.clock(bytes(c.reply)) == c.clock.map(Snapshot.Clock.init), "\(c.note)") }
+}
+
+@Test func clockDriftOverAWeek() {
+  // "local" is the phone's wall-clock time: read in one zone and measured in the same one.
+  let zone = TimeZone(identifier: "UTC")!
+  let parse = DateFormatter()
+  parse.locale = Locale(identifier: "en_US_POSIX")
+  parse.timeZone = zone
+  parse.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+  for c in v.clockDrift {
+    #expect(Snapshot.Clock(c.clock).drift(from: parse.date(from: c.local)!, timeZone: zone) == c.minutes, "\(c.note ?? c.local)")
+  }
+}
+
+@Test func brightnessThroughTheDay() {
+  for c in v.levelAt {
+    let s = Schedule(on: TimeOfDay(c.schedule.on)!, off: TimeOfDay(c.schedule.off)!, ramp: c.schedule.ramp, levels: [100])
+    #expect(abs(s.level(atMinute: c.minute) - c.level) < 1e-9, "\(c.note ?? "\(c.schedule.on)–\(c.schedule.off) at \(c.minute)")")
   }
 }

@@ -148,6 +148,13 @@ public enum Frame {
 public enum Reply {
   /// The firmware version in a status reply (`5b <firmware> …`), if this is one.
   public static func firmware(_ reply: [UInt8]) -> Int? { reply.count >= 7 && reply[0] == 0x5b ? Int(reply[1]) : nil }
+
+  /// The light's clock from its long status reply (`5b <firmware> <len> <id> fe <weekday> <hour> <minute> …`), if this is
+  /// one. Weekday 0 means a power cut reset it.
+  public static func clock(_ reply: [UInt8]) -> Snapshot.Clock? {
+    guard reply.count >= 9, reply[0] == 0x5b, reply[5] == 0xfe, reply[6] <= 7, reply[7] < 24, reply[8] < 60 else { return nil }
+    return Snapshot.Clock(weekday: Int(reply[6]), time: TimeOfDay(hour: Int(reply[7]), minute: Int(reply[8])))
+  }
 }
 
 /// Why the light can't take a schedule as entered.
@@ -163,6 +170,16 @@ public enum ScheduleProblem: Sendable, Equatable {
 extension Schedule {
   /// Minutes the light is on, within one day: an off time of 00:00 is the end of the day (00:00–00:00 is 24 hours).
   public var minutesLit: Int { (off.minutes == 0 ? 1440 : off.minutes) - on.minutes }
+
+  /// How bright the schedule has the light at a minute of the day, 0–1 of its levels: off before `on`, rising over `ramp`
+  /// minutes, full, falling over the last `ramp` minutes to off at `off` (00:00: midnight).
+  public func level(atMinute m: Int) -> Double {
+    let (on, off) = (on.minutes, off.minutes == 0 ? 1440 : off.minutes)
+    if m < on || m >= off { return 0 }
+    if ramp > 0 && m < on + ramp { return Double(m - on) / Double(ramp) }
+    if ramp > 0 && m > off - ramp { return Double(off - m) / Double(ramp) }
+    return 1
+  }
 
   /// What's wrong with this schedule, if anything: the same rules as the site's form.
   public var problem: ScheduleProblem? {

@@ -15,11 +15,15 @@ public struct Snapshot: Sendable, Equatable {
       let c = cal.dateComponents([.weekday, .hour, .minute], from: date)
       self.init(weekday: (c.weekday! + 5) % 7 + 1, time: TimeOfDay(hour: c.hour!, minute: c.minute!))
     }
-    /// Minutes between this clock and `date`'s time of day, the short way round midnight; nil if the clock isn't set.
-    public func minutesOff(from date: Date, timeZone: TimeZone = .current) -> Int? {
+    /// Minutes this clock is ahead of `date` (negative: behind), the short way round the week; nil when a power cut reset
+    /// it (it isn't any real time then).
+    public func drift(from date: Date, timeZone: TimeZone = .current) -> Int? {
       guard isSet else { return nil }
-      let d = abs(Clock(date: date, timeZone: timeZone).time.minutes - time.minutes)
-      return min(d, 1440 - d)
+      let week = 7 * 1440
+      let here = Clock(date: date, timeZone: timeZone)
+      let d = (((weekday - 1) * 1440 + time.minutes) - ((here.weekday - 1) * 1440 + here.time.minutes)) % week
+      let ahead = (d + week) % week
+      return ahead > week / 2 ? ahead - week : ahead
     }
     /// Whether the clock has been set since the light last lost power.
     public var isSet: Bool { weekday != 0 }
