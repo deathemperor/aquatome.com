@@ -29,7 +29,7 @@ const jsonld = [{
   })),
 }]
 ---
-<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name: s.t.name, n: photos.length })} heading={t('Ảnh {name}', { name: s.t.name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name: s.t.name, sci: sci ? ` (${sci})` : '' })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)}>
+<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name: s.t.name, n: photos.length })} heading={t('Ảnh {name}', { name: s.t.name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name: s.t.name, sci: sci ? ` (${sci})` : '' })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)} search={false}>
   <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{t('{n} ảnh từ {from}, giấy phép mở.', { n: photos.length, from })} <a href={page}>{t('Cách nuôi {name} →', { name: s.t.name })}</a></p>
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
@@ -40,7 +40,7 @@ const jsonld = [{
       </li>
     ))}
   </ul>
-  <dialog class="lb" aria-label={t('Xem ảnh')}>
+  <dialog class="lb" aria-label={t('Xem ảnh')} data-pagefind-ignore>
     <figure>
       <img alt="" />
       <figcaption><span class="cap" /><span class="by" /></figcaption>

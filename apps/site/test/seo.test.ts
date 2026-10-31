@@ -38,8 +38,15 @@ test('search index is built and pages carry an accent-free search alias', () => 
   expect(existsSync(join(DIST, 'pagefind', 'pagefind.js'))).toBe(true)
   const { dom } = page('/vi/ca/ca-dia/')
   expect(dom.querySelector('main[data-pagefind-body]')).not.toBeNull()
-  expect(dom.querySelector('[data-pagefind-index-attrs="data-ascii"]')?.getAttribute('data-ascii')).toContain('ca dia')
+  // Searched (Pagefind metadata), never shown in a result's excerpt.
+  expect(dom.querySelector('h1[data-pagefind-meta="aka[data-aka]"]')?.getAttribute('data-aka')).toContain('ca dia')
   expect(() => page('/vi/tim-kiem/')).not.toThrow()
+})
+test('search leaves out photo galleries, reference lists, old names and other names lists', () => {
+  expect(page('/vi/ca/ca-neon-vua/anh/').dom.querySelector('[data-pagefind-body]')).toBeNull()
+  const { dom } = page('/vi/ca/ca-neon-xanh/')
+  for (const sel of ['section[data-section="references"]', 'section.refs', 'p.alt']) expect(dom.querySelector(sel)?.closest('[data-pagefind-ignore]'), sel).not.toBeNull()
+  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
 })
 test('sitemap omits noindex glossary terms', () => {
   expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/vi/thuat-ngu/gh/')

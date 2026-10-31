@@ -35,51 +35,130 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   </details>
   <script is:inline>(()=>{var d=document.getElementById('filter-box');if(matchMedia('(max-width: 640px)').matches&&!location.search)d.open=false})()</script>
   <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
-  <p class="count" id="species-count" aria-live="polite"></p>
+  <div class="result">
+    <p class="count" id="species-count" aria-live="polite"></p>
+    {/* The filters in the address, one chip each: × drops one, "Xóa lọc" all (filled in by the script below). */}
+    <div class="active" id="species-active" hidden>
+      <ul class="chips" id="species-chips" aria-label={t('Đang lọc')}></ul>
+      <button type="button" class="clear" id="species-clear">{t('Xóa lọc')}</button>
+    </div>
+  </div>
   <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} />
   <p class="more"><button type="button" id="species-more" hidden></button></p>
+  {/* Species no known figure rules out but missing one the filter asks about: after the sure matches, closed. */}
+  <details class="unsure" id="species-unsure" hidden>
+    <summary><span id="species-unsure-n"></span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+    <p class="why">{t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}</p>
+    <p class="more"><button type="button" id="unsure-more" hidden></button></p>
+  </details>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
-  import { filterSpecies, keepBreed, queryFromParams, type SpeciesIndexItem } from '../../../scripts/filter'
+  import { filterSpecies, keepBreed, queryFromParams, unsureSpecies, type SpeciesIndexItem } from '../../../scripts/filter'
   import { ct } from '../../../scripts/ct'
   const PAGE = 24
-  const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
-  const form = document.getElementById('species-filter') as HTMLFormElement
-  const count = document.getElementById('species-count')!
-  const more = document.getElementById('species-more') as HTMLButtonElement
+  const $ = (id: string) => document.getElementById(id)!
+  const items: SpeciesIndexItem[] = JSON.parse($('species-index').textContent!)
+  const form = $('species-filter') as HTMLFormElement
+  const count = $('species-count')
+  const chips = $('species-chips')
+  const unsure = $('species-unsure') as HTMLDetailsElement
   const breeds = document.querySelector<HTMLElement>('section.breeds')
-  let keep = new Set<string>()
-  let shown = PAGE
-  // All cards stay in the HTML (crawlers follow every link); readers see them a page of 24 at a time.
+  // Every card in reading order, taken once: each run deals them out again, so the order never drifts.
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-slug]')]
+  const grid = cards[0]?.parentElement ?? document.createElement('div')
+  // The unsure group's grid: a bare copy of the list's, so it carries the same (scoped) grid styles.
+  const unsureGrid = grid.cloneNode(false) as HTMLElement
+  unsure.querySelector('.more')!.before(unsureGrid)
+  // All cards stay in the HTML (crawlers follow every link); readers see each list a page of 24 at a time.
+  const lists = [
+    { grid, more: $('species-more') as HTMLButtonElement, keep: new Set<string>(), shown: PAGE },
+    { grid: unsureGrid, more: $('unsure-more') as HTMLButtonElement, keep: new Set<string>(), shown: PAGE },
+  ]
+  const listOf = (el: HTMLElement) => lists.findIndex(l => l.keep.has(el.dataset.slug!))
   function render() {
-    let n = 0
-    document.querySelectorAll<HTMLElement>('[data-slug]').forEach(el => { const ok = keep.has(el.dataset.slug!); el.hidden = !ok || n >= shown; if (ok) n++ })
-    const left = keep.size - Math.min(shown, keep.size)
-    more.hidden = left <= 0
-    more.textContent = ct('Xem thêm {n} loài (còn {left})', { n: Math.min(left, PAGE), left })
+    const n = lists.map(() => 0)
+    for (const el of cards) { const k = listOf(el); el.hidden = k < 0 || n[k]!++ >= lists[k]!.shown }
+    for (const l of lists) {
+      const left = l.keep.size - Math.min(l.shown, l.keep.size)
+      l.more.hidden = left <= 0
+      l.more.textContent = ct('Xem thêm {n} loài (còn {left})', { n: Math.min(left, PAGE), left })
+    }
+  }
+  /** The filters set, in the form's words: "Nhiệt độ: 26 °C" (its label, with the unit in brackets moved after the value). */
+  function active(params: URLSearchParams) {
+    return [...params].flatMap(([k, v]) => {
+      const el = form.elements.namedItem(k)
+      if (!v || !(el instanceof HTMLInputElement || el instanceof HTMLSelectElement)) return []
+      const label = el.closest('label')!.firstChild!.textContent!.trim() // a select's label also holds every option's text
+      const value = el instanceof HTMLSelectElement && el.value === v ? el.selectedOptions[0]!.text
+        : el.type === 'number' ? Number(v).toLocaleString(document.documentElement.lang) : v
+      const unit = /^(.+?)\s*\(([^)]+)\)$/.exec(label)
+      return [{ k, text: unit ? `${unit[1]}: ${value} ${unit[2]}` : `${label}: ${value}` }]
+    })
+  }
+  function showChips(on: { k: string; text: string }[]) {
+    chips.replaceChildren(...on.map(({ k, text }) => {
+      const li = document.createElement('li')
+      const b = li.appendChild(document.createElement('button'))
+      b.type = 'button'
+      b.dataset.k = k
+      b.setAttribute('aria-label', ct('Bỏ {name}', { name: text }))
+      b.innerHTML = '<span class="pill"><span></span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg></span>'
+      b.querySelector('.pill span')!.textContent = text
+      return li
+    }))
+    $('species-active').hidden = on.length === 0
   }
   function run(params: URLSearchParams) {
     for (const [k, v] of params) { const el = form.elements.namedItem(k); if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v }
     const q = queryFromParams(params)
-    keep = new Set(filterSpecies(items, q).map(i => i.slug))
+    // Sure matches first; species missing a figure the filter asks about wait in the closed group below.
+    lists[0]!.keep = new Set(filterSpecies(items, q).map(i => i.slug))
+    lists[1]!.keep = new Set(unsureSpecies(items, q).map(i => i.slug))
+    // Dealt out again only when a card changes list: moving all of them costs a phone ~750 card moves on every visit.
+    if (cards.some(el => el.parentElement !== lists[Math.max(listOf(el), 0)]!.grid)) for (const el of cards) lists[Math.max(listOf(el), 0)]!.grid.append(el)
     // A search leads with its results: the breed cards above the list stay only when they match it.
     if (breeds) {
       let n = 0
       breeds.querySelectorAll('li').forEach(li => { li.hidden = !keepBreed(li.querySelector('.n')!.textContent!, q); if (!li.hidden) n++ })
       breeds.hidden = n === 0
     }
-    shown = PAGE
-    count.textContent = keep.size === items.length ? '' : keep.size === 0 ? ct('Không có loài nào khớp. Thử nới điều kiện lọc.') : ct('{n} loài phù hợp', { n: keep.size })
+    const on = active(params)
+    showChips(on)
+    const [sure, maybe] = lists.map(l => l.keep.size) as [number, number]
+    count.textContent = !on.length ? ''
+      : sure + maybe === 0 ? ct('Không có loài nào khớp. Thử nới điều kiện lọc.')
+      : maybe ? ct('{n} loài phù hợp · {m} loài chưa đủ dữ liệu để chắc', { n: sure, m: maybe })
+      : ct('{n} loài phù hợp', { n: sure })
+    unsure.hidden = maybe === 0
+    // With no sure match the group opens: the reader gets the possible ones rather than an empty list.
+    unsure.open = sure === 0
+    $('species-unsure-n').textContent = ct('Chưa đủ dữ liệu để chắc ({n})', { n: maybe })
+    for (const l of lists) l.shown = PAGE
     render()
   }
-  more.addEventListener('click', () => { shown += PAGE; render() })
-  form.addEventListener('submit', e => {
-    e.preventDefault()
+  function apply() {
     const p = new URLSearchParams([...new FormData(form)].filter(([, v]) => v !== '') as [string, string][])
     history.replaceState(null, '', p.size ? `?${p}` : location.pathname)
     run(p)
+  }
+  lists.forEach(l => l.more.addEventListener('click', () => { l.shown += PAGE; render() }))
+  form.addEventListener('submit', e => { e.preventDefault(); apply() })
+  // With no filter left, focus goes back to the filter: its button, or on a phone with the box closed, the box's toggle.
+  const box = $('filter-box') as HTMLDetailsElement
+  const toFilter = () => (box.open ? form.querySelector<HTMLElement>('button[type=submit]')! : box.querySelector('summary')!).focus()
+  // A chip's × clears its field, and focus moves to the chip that takes its place.
+  chips.addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('button[data-k]')
+    if (!b) return
+    const i = [...chips.children].indexOf(b.parentElement!)
+    ;(form.elements.namedItem(b.dataset.k!) as HTMLInputElement | HTMLSelectElement).value = ''
+    apply()
+    const left = chips.querySelectorAll('button')
+    left.length ? left[Math.min(i, left.length - 1)]!.focus() : toFilter()
   })
+  $('species-clear').addEventListener('click', () => { form.reset(); apply(); toFilter() })
   run(new URLSearchParams(location.search))
 </script>
 <style>
@@ -87,7 +166,27 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   .filters label { display: grid; gap: 2px; min-width: 0; font-size: 0.8rem; color: var(--c-ink-soft); }
   .filters input, .filters select { font: inherit; font-size: 0.95rem; padding: 0.4rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); min-width: 0; width: 8.5rem; }
   .filters button { font: 600 0.95rem var(--f-body); background: var(--c-ink); color: var(--c-paper); border: 0; border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; }
-  .count { min-height: 1.5em; color: var(--c-ink-soft); font-size: 0.9rem; }
+  .result { margin-block: var(--space-3) var(--space-4); }
+  .count { min-height: 1.5em; margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
+  .active:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); margin-top: var(--space-1); }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-2); }
+  /* The button is the 44px target; the pill inside is what shows. */
+  .chips :global(button) { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; font: inherit; font-size: 0.9rem; color: var(--c-ink); cursor: pointer; }
+  .chips :global(.pill) { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 34px; padding: 0 0.55rem 0 0.85rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); font-variant-numeric: tabular-nums; transition: border-color 0.15s ease-out; }
+  .chips :global(svg) { color: var(--c-ink-soft); flex: none; transition: color 0.15s ease-out; }
+  .chips :global(button:hover .pill) { border-color: var(--c-ink); }
+  .chips :global(button:hover svg) { color: var(--c-cardinal); }
+  .chips :global(button:focus-visible) { outline: none; }
+  .chips :global(button:focus-visible .pill) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .clear { min-height: 44px; padding: 0 var(--space-1); border: 0; background: none; font: 600 0.9rem var(--f-body); color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
+  .clear:hover { color: var(--c-ink); }
+  .unsure { margin-top: var(--space-7); border-top: 2px solid var(--c-ink); }
+  .unsure summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: 48px; padding-block: var(--space-3); font: 450 var(--step-2) var(--f-display); cursor: pointer; list-style: none; }
+  .unsure summary::-webkit-details-marker { display: none; }
+  .unsure summary svg { flex: none; color: var(--c-ink-soft); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .unsure[open] summary svg { transform: rotate(180deg); }
+  .unsure summary:hover { color: var(--c-moss); }
+  .why { margin: 0 0 var(--space-5); max-width: var(--measure); color: var(--c-ink-soft); font-size: 0.95rem; }
   .fbox { margin-bottom: var(--space-4); }
   .fbox summary { display: none; }
   .more { text-align: center; margin-top: var(--space-6); }
