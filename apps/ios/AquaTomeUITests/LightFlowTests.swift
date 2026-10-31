@@ -18,8 +18,7 @@ final class LightFlowTests: XCTestCase {
     connect(app)
     tap(app, "preset-new")
     expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
-    tap(app, "write")
-    app.alerts.buttons["Ghi lịch"].tap()
+    write(app)
     expect(app, "saved", contains: "13:00–19:00 · 40% · sáng dần 30 phút")
     expect(app, "notice", contains: "Đã ghi lịch: bật 13:00, tắt 19:00.")
     expect(app, "restore", contains: "12:00–20:00 · 70% · sáng dần 30 phút")
@@ -48,6 +47,41 @@ final class LightFlowTests: XCTestCase {
     connect(app)
     app.buttons["disconnect"].tap()
     XCTAssertTrue(app.buttons["scan"].waitForExistence(timeout: 5))
+    XCTAssertFalse(element(app, "notice").exists, "the connected light's notice stayed")
+  }
+
+  func testDisconnectWhileReadingTheLightReportsNothing() {
+    let app = launch("-fake-slow") // the first status read takes seconds
+    app.buttons["scan"].tap()
+    let light = app.buttons["light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+    light.tap()
+    XCTAssertTrue(app.buttons["disconnect"].waitForExistence(timeout: 5), "not connected")
+    app.buttons["disconnect"].tap()
+    XCTAssertTrue(app.buttons["scan"].waitForExistence(timeout: 5))
+    // The read stops without an answer (timeout 2 s, after a 1.5 s frame): that is no error to the reader.
+    let notice = element(app, "notice")
+    let shown = XCTWaiter.wait(for: [expectation(for: NSPredicate(format: "exists == true"), evaluatedWith: notice)], timeout: 6)
+    XCTAssertNotEqual(shown, .completed, "notice after a deliberate disconnect: “\(notice.label)”")
+  }
+
+  func testFillsTheFormWithTheLightsSchedule() {
+    let app = launch("-fake-other-schedule")
+    connect(app)
+    expect(app, "saved", contains: "10:00–17:00 · 55% · sáng dần 15 phút")
+    expect(app, "hours", contains: "Đèn sáng 7 tiếng mỗi ngày.")
+    expect(app, "level-0", contains: "55%")
+  }
+
+  func testWritingAScheduleEndsTheManualLevels() {
+    let app = launch()
+    connect(app)
+    scrolledTo(app, "manual-0").adjust(toNormalizedSliderPosition: 0.3)
+    expect(app, "manual-0-level", lacks: "–")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi lịch")
+    // The light runs the schedule again: no level set by hand holds now.
+    expect(app, "manual-0-level", contains: "–")
   }
 
   // MARK: Helpers
@@ -59,12 +93,21 @@ final class LightFlowTests: XCTestCase {
     return app
   }
 
+  /// Connects and waits for the first status read (the notice says so), not just the light's screen.
   private func connect(_ app: XCUIApplication) {
     app.buttons["scan"].tap()
     let light = app.buttons["light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
     light.tap()
     XCTAssertTrue(app.buttons["disconnect"].waitForExistence(timeout: 10), "not connected")
+    expect(app, "notice", contains: "Đã kết nối")
+  }
+
+  private func write(_ app: XCUIApplication) {
+    tap(app, "write")
+    let confirm = app.alerts.buttons["Ghi lịch"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    confirm.tap()
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
@@ -89,6 +132,7 @@ final class LightFlowTests: XCTestCase {
   private func tap(_ app: XCUIApplication, _ id: String) {
     let e = scrolledTo(app, id)
     XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing")
+    XCTAssertTrue(e.isHittable, "\(id) not reached by scrolling")
     e.tap()
   }
 

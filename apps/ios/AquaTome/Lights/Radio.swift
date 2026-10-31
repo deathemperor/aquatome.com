@@ -33,7 +33,8 @@ final class BluetoothRadio: Radio {
 }
 
 /// The simulator's light: a WRGB II Slim holding the owner's everyday schedule. Launch arguments for UI tests:
-/// `-fake-clock-unset` (as after a power cut), `-fake-old-firmware` (firmware 19).
+/// `-fake-clock-unset` (as after a power cut), `-fake-old-firmware` (firmware 19), `-fake-other-schedule` (10:00–17:00,
+/// 55%, ramp 15: not the form's starting values), `-fake-slow` (each frame takes 1.5 s).
 @MainActor
 final class FakeRadio: Radio {
   static let light = FoundLight(id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, name: "DYSL30A1B2C3", rssi: -58)
@@ -55,12 +56,14 @@ final class FakeRadio: Radio {
 
   func connect(_ light: FoundLight, onLost: @escaping @MainActor () -> Void) async throws -> LightLink {
     try await Task.sleep(for: .milliseconds(300))
-    let schedule = Schedule(on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), ramp: 30, levels: [70, 70, 70])
+    let schedule = arguments.contains("-fake-other-schedule")
+      ? Schedule(on: TimeOfDay(hour: 10, minute: 0), off: TimeOfDay(hour: 17, minute: 0), ramp: 15, levels: [55, 55, 55])
+      : Schedule(on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), ramp: 30, levels: [70, 70, 70])
     let fake = FakeLight(firmware: arguments.contains("-fake-old-firmware") ? 19 : 24, schedule: schedule, channels: 3)
     fake.clock = arguments.contains("-fake-clock-unset")
       ? Snapshot.Clock(weekday: 0, time: TimeOfDay(hour: 0, minute: 0))
       : Snapshot.Clock(date: Date())
-    fake.writeDelay = .milliseconds(15)
+    fake.writeDelay = arguments.contains("-fake-slow") ? .milliseconds(1500) : .milliseconds(15)
     return fake
   }
 }

@@ -161,9 +161,12 @@ public enum ScheduleProblem: Sendable, Equatable {
 }
 
 extension Schedule {
+  /// Minutes the light is on, within one day: an off time of 00:00 is the end of the day (00:00–00:00 is 24 hours).
+  public var minutesLit: Int { (off.minutes == 0 ? 1440 : off.minutes) - on.minutes }
+
   /// What's wrong with this schedule, if anything: the same rules as the site's form.
   public var problem: ScheduleProblem? {
-    let lit = (off.minutes == 0 ? 1440 : off.minutes) - on.minutes
+    let lit = minutesLit
     if lit <= 0 { return .offNotAfterOn }
     if !(0...150).contains(ramp) { return .rampOutOfRange }
     if ramp * 2 > lit { return .rampTooLong }

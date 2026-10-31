@@ -64,7 +64,7 @@ final class LightsModel {
     scanTask = Task {
       do {
         let stream = try await radio.scan()
-        let stop = Task { try? await Task.sleep(for: .seconds(15)); self.stopScan() }
+        let stop = Task { do { try await Task.sleep(for: .seconds(15)); self.stopScan() } catch {} }
         for await l in stream where !found.contains(where: { $0.id == l.id }) && Model.of(name: l.name) != nil {
           found.append(l)
         }
@@ -91,22 +91,26 @@ final class LightsModel {
     connecting = l.id
     notice = Notice(text: String(localized: "Đang kết nối…"))
     defer { connecting = nil }
+    var s: LightSession?
     do {
       let link = try await radio.connect(l) { [weak self] in self?.lost() }
-      let s = LightSession(name: l.name, model: m, link: link, pacing: radio.pacing)
-      session = s
+      let new = LightSession(name: l.name, model: m, link: link, pacing: radio.pacing)
+      s = new
+      session = new
       light = l
       model = m
       isManual = false
       manual = [:]
       previous = loadPrevious(l)
-      let snap = try await s.refresh()
+      let snap = try await new.refresh()
+      guard session === new else { return } // disconnected while reading
       show(snap)
       if let saved { fill(from: saved) }
-      notice = Notice(text: s.canWriteSchedule
+      notice = Notice(text: new.canWriteSchedule
         ? String(localized: "Đã kết nối \(m.name) (\(l.name)), firmware \(snap.firmware).")
         : String(localized: "Đã kết nối \(m.name) (\(l.name)), firmware \(snap.firmware): bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros."))
     } catch {
+      guard s == nil || session === s else { return } // disconnected while reading: nothing to report
       session?.disconnect()
       session = nil
       light = nil
@@ -117,6 +121,7 @@ final class LightsModel {
   func disconnect() {
     session?.disconnect()
     reset()
+    notice = nil
   }
 
   private func lost() {
@@ -146,11 +151,17 @@ final class LightsModel {
   func writeSchedule() async {
     let s = form
     guard let session, let light, s.problem == nil else { return }
-    if let saved, saved != s { keepPrevious(saved, for: light) }
-    await run {
+    // Kept before writing: a write that stops halfway leaves the light with no schedule, and this one must survive.
+    // The light keeps one level for all channels, so "the same" is what it would report back.
+    if let snapshot, let saved, !snapshot.holds(s, channels: channels.count) { keepPrevious(saved, for: light) }
+    await run(session) {
       let snap = try await session.writeSchedule(s)
+      guard self.session === session else { return }
       self.show(snap)
       self.isManual = false
+      // The light runs the schedule now: the manual levels no longer hold.
+      self.manual = [:]
+      self.pending = [:]
       self.notice = snap.holds(s, channels: self.channels.count)
         ? Notice(text: String(localized: "Đã ghi lịch: bật \(s.on.description), tắt \(s.off.description). Đèn chạy theo lịch từ bây giờ."))
         : Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút."), isError: true)
@@ -166,8 +177,10 @@ final class LightsModel {
 
   func syncClock() async {
     guard let session else { return }
-    await run {
-      self.show(try await session.syncClock())
+    await run(session) {
+      let snap = try await session.syncClock()
+      guard self.session === session else { return }
+      self.show(snap)
       self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(date: .omitted, time: .shortened))."))
     }
   }
@@ -184,22 +197,25 @@ final class LightsModel {
     flushing = true
     defer { flushing = false }
     do {
-      while !pending.isEmpty {
+      while !pending.isEmpty, self.session === session {
         let batch = pending.sorted { $0.key < $1.key }
         pending = [:]
         for (c, l) in batch { try await session.setLevel(channel: c, level: l) }
-        isManual = true
+        if self.session === session { isManual = true }
       }
     } catch {
+      guard self.session === session else { return }
       pending = [:]
       notice = Notice(text: Self.describe(error), isError: true)
     }
   }
 
-  private func run(_ body: @escaping @MainActor () async throws -> Void) async {
+  /// A command on `s`. Once `s` is no longer the light shown (disconnected, dropped), its outcome is not reported: the
+  /// screen already says what happened.
+  private func run(_ s: LightSession, _ body: @escaping @MainActor () async throws -> Void) async {
     isBusy = true
-    defer { isBusy = false }
-    do { try await body() } catch { notice = Notice(text: Self.describe(error), isError: true) }
+    defer { if session === s { isBusy = false } }
+    do { try await body() } catch { if session === s { notice = Notice(text: Self.describe(error), isError: true) } }
   }
 
   private func show(_ snap: Snapshot) {

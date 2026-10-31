@@ -124,8 +124,7 @@ private struct LightView: View {
 
       Section {
         ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
-          LevelSlider(title: c.title, value: lights.manual[i]) { lights.setLevel(channel: i, level: $0) }
-            .accessibilityIdentifier("manual-\(i)")
+          LevelSlider(id: "manual-\(i)", title: c.title, value: lights.manual[i]) { lights.setLevel(channel: i, level: $0) }
         }
       } header: {
         Text("Chỉnh tay")
@@ -224,7 +223,7 @@ private struct HoursText: View {
       case .rampOutOfRange?: Text("Sáng dần, tối dần từ 0 đến 150 phút.").foregroundStyle(Color.warning)
       case .rampTooLong?: Text("Sáng dần, tối dần dài hơn nửa thời gian bật đèn.").foregroundStyle(Color.warning)
       case nil:
-        let h = schedule.hoursLit
+        let h = Double(schedule.minutesLit) / 60
         VStack(alignment: .leading) {
           Text("Đèn sáng \(h.formatted(.number.precision(.fractionLength(0...1)))) tiếng mỗi ngày.")
           if h > 8 { Text("Trên 8 tiếng dễ lên rêu.").foregroundStyle(Color.warning) }
@@ -249,20 +248,22 @@ private struct TimePicker: View {
   }
 }
 
+/// Only a drag sends a level: the slider shows the model's value, so a row built again (scrolled back into view)
+/// sends nothing.
 private struct LevelSlider: View {
+  let id: String
   let title: String
   let value: Int?
   let onChange: (Int) -> Void
-  @State private var current = 70.0
 
   var body: some View {
     HStack {
       Text(title).frame(width: 90, alignment: .leading)
-      Slider(value: $current, in: 0...100, step: 1)
-        .onChange(of: current) { _, v in onChange(Int(v)) }
+      Slider(value: Binding { Double(value ?? 70) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
+        .accessibilityIdentifier(id)
       Text(verbatim: value.map { "\($0)%" } ?? "–").monospacedDigit().frame(width: 48, alignment: .trailing)
+        .accessibilityIdentifier("\(id)-level")
     }
-    .onAppear { if let value { current = Double(value) } }
   }
 }
 

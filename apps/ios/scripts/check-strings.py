@@ -21,8 +21,8 @@ if not keys:
     sys.exit('no extracted strings found: build the app first (SWIFT_EMIT_LOC_STRINGS)')
 
 def placeholders(s):
-    # %@, %lld, %1$@ … in order of argument, ignoring %%.
-    found = re.findall(r'%(?:(\d+)\$)?(@|lld|ld|d|f)', s.replace('%%', ''))
+    # Any printf placeholder (%@, %lld, %1$@, %.1f, %02ld, %s …) by argument position and type, ignoring %%.
+    found = re.findall(r'%(?:(\d+)\$)?[-+#0]*\d*(?:\.\d+)?((?:hh|h|ll|l|q|L|z|t|j)?[@dDiuUxXoOfFeEgGaAcCsSp])', s.replace('%%', ''))
     return sorted((int(n) if n else i + 1, t) for i, (n, t) in enumerate(found))
 
 problems = []
@@ -39,6 +39,11 @@ for k in sorted(keys):
             problems.append(f'{lang} placeholders differ: {k!r} → {unit["value"]!r}')
 for k in sorted(set(catalog) - keys):
     problems.append(f'in the catalog but not in the code: {k!r}')
+# Info.plist strings (the app's name, the Bluetooth prompt) have no code to extract them from: each must be translated.
+for k, entry in json.load(open(os.path.join(here, '..', 'AquaTome', 'InfoPlist.xcstrings')))['strings'].items():
+    for lang in LANGS:
+        if entry.get('localizations', {}).get(lang, {}).get('stringUnit', {}).get('state') != 'translated':
+            problems.append(f'no {lang} translation in InfoPlist.xcstrings: {k!r}')
 
 print('\n'.join(problems) if problems else f'{len(keys)} strings, all translated ({", ".join(LANGS)})')
 sys.exit(1 if problems else 0)

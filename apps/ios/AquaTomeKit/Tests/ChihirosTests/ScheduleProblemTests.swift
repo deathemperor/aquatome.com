@@ -11,6 +11,13 @@ func sched(_ on: String, _ off: String, ramp: Int) -> Schedule {
   #expect(sched("12:00", "20:00", ramp: 30).problem == nil)
   #expect(sched("09:30", "00:00", ramp: 150).problem == nil) // ending at midnight
   #expect(sched("12:00", "13:00", ramp: 30).problem == nil) // ramps meet in the middle
+  #expect(sched("00:00", "00:00", ramp: 0).problem == nil) // all day
+}
+
+@Test func hoursShownAreTheHoursTheLightIsOn() {
+  #expect(sched("00:00", "00:00", ramp: 0).minutesLit == 1440) // not 0
+  #expect(sched("09:30", "00:00", ramp: 0).minutesLit == 870)
+  #expect(sched("12:00", "20:00", ramp: 0).minutesLit == 480)
 }
 
 @Test func offMustComeAfterOnTheSameDay() {
