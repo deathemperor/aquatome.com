@@ -31,7 +31,7 @@ const start = leadGuides(c).slice(0, 4)
     )}
     <section aria-labelledby="all-h">
       <h2 id="all-h">{t('Tất cả hướng dẫn')}</h2>
-      {/* Each subject in the address (?kind=care), so a filtered list can be shared; the script below runs them. */}
+      {/* Each subject in the address (?kind=care), so a filtered list can be shared; the script after the list runs them. */}
       {kinds.length > 1 && (
         <div class="kinds" id="guide-kinds" role="group" aria-label={t('Chủ đề')}>
           <button type="button" data-kind="" aria-pressed="true">{t('Tất cả')} <span class="n">{guides.length}</span></button>
@@ -39,35 +39,34 @@ const start = leadGuides(c).slice(0, 4)
         </div>
       )}
       <div class="grid" id="guide-list">{guides.map(g => <GuideCard g={g} row />)}</div>
+      {/* Inline, right after the list: a shared ?kind= link is filtered before the page is first drawn, so nothing jumps. */}
+      {kinds.length > 1 && <script is:inline>(() => {
+        const kinds = document.getElementById('guide-kinds')
+        const buttons = [...kinds.querySelectorAll('button[data-kind]')]
+        const cards = [...document.querySelectorAll('#guide-list > [data-kind]')]
+        const start = document.getElementById('guide-start')
+        function show(kind) {
+          // A subject this list doesn't have (an old link, another language's list): every guide.
+          if (!buttons.some(b => b.dataset.kind === kind)) kind = ''
+          for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
+          for (const el of cards) el.hidden = kind !== '' && el.dataset.kind !== kind
+          // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
+          if (start) start.hidden = kind !== ''
+        }
+        kinds.addEventListener('click', e => {
+          const b = e.target.closest('button[data-kind]')
+          if (!b) return
+          history.replaceState(null, '', b.dataset.kind ? '?kind=' + b.dataset.kind : location.pathname)
+          // The chips stay where the reader tapped them while the beginner row above comes and goes.
+          const top = kinds.getBoundingClientRect().top
+          show(b.dataset.kind)
+          scrollBy(0, kinds.getBoundingClientRect().top - top)
+        })
+        show(new URLSearchParams(location.search).get('kind') || '')
+      })()</script>}
     </section>
   </>}
 </Browse>
-<script>
-  const kinds = document.getElementById('guide-kinds')
-  if (kinds) {
-    const buttons = [...kinds.querySelectorAll<HTMLButtonElement>('button[data-kind]')]
-    const cards = [...document.querySelectorAll<HTMLElement>('#guide-list > [data-kind]')]
-    const start = document.getElementById('guide-start')
-    function show(kind: string) {
-      // A subject this list doesn't have (an old link, another language's list): every guide.
-      if (!buttons.some(b => b.dataset.kind === kind)) kind = ''
-      for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
-      for (const el of cards) el.hidden = kind !== '' && el.dataset.kind !== kind
-      // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
-      if (start) start.hidden = kind !== ''
-    }
-    kinds.addEventListener('click', e => {
-      const b = (e.target as Element).closest<HTMLButtonElement>('button[data-kind]')
-      if (!b) return
-      history.replaceState(null, '', b.dataset.kind ? `?kind=${b.dataset.kind}` : location.pathname)
-      // The chips stay where the reader tapped them while the beginner row above comes and goes.
-      const top = kinds.getBoundingClientRect().top
-      show(b.dataset.kind!)
-      scrollBy(0, kinds.getBoundingClientRect().top - top)
-    })
-    show(new URLSearchParams(location.search).get('kind') ?? '')
-  }
-</script>
 <style>
   .vid { margin: 0 0 var(--space-5); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }

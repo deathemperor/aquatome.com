@@ -86,7 +86,7 @@ export function filterList(prefix: string, match: (p: URLSearchParams) => { sure
   }
   function apply() {
     const p = new URLSearchParams([...new FormData(form)].filter(([, v]) => v !== '') as [string, string][])
-    history.replaceState(null, '', p.size ? `?${p}` : location.pathname)
+    history.replaceState(null, '', `${p}` ? `?${p}` : location.pathname) // not p.size: Safari before 17 has none
     run(p)
   }
   lists.forEach(l => l.more.addEventListener('click', () => { l.shown += PAGE; render() }))
