@@ -9,7 +9,9 @@ for path in CommandLine.arguments.dropFirst() {
   req.recognitionLevel = .accurate
   req.usesLanguageCorrection = false
   req.minimumTextHeight = 0.012
-  req.recognitionLanguages = ["en-US", "vi-VT", "th-TH", "id-ID", "de-DE"]
+  // Only languages this Mac's Vision has: an unknown one would fail every image.
+  let supported = (try? req.supportedRecognitionLanguages()) ?? ["en-US"]
+  req.recognitionLanguages = ["en-US", "vi-VT", "th-TH", "id-ID", "de-DE"].filter { supported.contains($0) }
   do {
     try VNImageRequestHandler(url: URL(fileURLWithPath: path), options: [:]).perform([req])
     let lines: [[String: Any]] = (req.results ?? []).compactMap { o in

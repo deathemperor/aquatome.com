@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
+import { mirrorPlan } from '../src/mirror-photos'
 import { LlmError } from '../src/claude'
 import { commonsCandidates, galleries, inatCandidates, type GalleryDeps } from '../src/gallery'
 
@@ -96,6 +97,14 @@ test('gallery: a recent gallery is left alone; rejected photos never come back; 
 
   const stopped = await galleries(r, deps({ look: async () => { throw new LlmError('usage limit') } }), { limit: 5, only: 'betta-splendens' })
   expect(stopped.stopped).toMatch(/usage limit/)
+
+  // A Commons photo blocked after it moved to our bucket (a watermark) is known by its key there: a rebuild skips it.
+  const commons = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/A.jpg/1280px-A.jpg'
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(commons)!.key}`]: 'watermark: credit, bottom left' }))
+  const looked: number[] = []
+  const rebuilt = await galleries(r, deps({ faces: async f => (looked.push(f.length), f.map(() => 0)), look: async () => ({ keep: [{ n: 1, caption: 'x' }], best: [] }) }), { limit: 5, only: 'betta-splendens' })
+  expect(rebuilt.done).toEqual(['betta-splendens: 1 of 1'])
+  expect((JSON.parse(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8')).photos as { url: string }[]).map(p => p.url)).not.toContain(commons)
 })
 
 test('gallery order: the staples first, what shops sell, the most-kept fish, then the species most sources write about', async () => {
