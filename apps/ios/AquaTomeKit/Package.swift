@@ -10,6 +10,7 @@ let package = Package(
     .library(name: "ChihirosBLE", targets: ["ChihirosBLE"]),
     .library(name: "Tanks", targets: ["Tanks"]),
     .library(name: "Handbook", targets: ["Handbook"]),
+    .library(name: "Accounts", targets: ["Accounts"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -25,5 +26,9 @@ let package = Package(
     // The handbook: the site's page index for the app (/app/<lang>.json) and searching it. Pure.
     .target(name: "Handbook"),
     .testTarget(name: "HandbookTests", dependencies: ["Handbook"]),
+    // Accounts: signing in and syncing "Bể của tôi" with aquatome.com (protocols/accounts.openapi.json), and a stand-in
+    // server for tests and the simulator.
+    .target(name: "Accounts", dependencies: ["Tanks"]),
+    .testTarget(name: "AccountsTests", dependencies: ["Accounts", "Tanks"]),
   ]
 )
