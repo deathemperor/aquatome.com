@@ -9,16 +9,84 @@ test('tank volume: the default tank, then a new length, with the result shareabl
   await expect(page).toHaveURL(/l=100/)
 })
 
-test('tank-mates: two species give a comparison table', async ({ page }) => {
-  await page.goto('/vi/cong-cu/')
-  // Names in both the fixture content and aquatome.com.
-  for (const name of ['Cá neon vua', 'Cá neon xanh']) {
+// The tank-mates checker's page (E2E_TM_PATH: another address, e.g. the old tools page, to see these fail there).
+const TM = process.env.E2E_TM_PATH ?? '/vi/cong-cu/nuoi-chung/'
+
+test('tank-mates: "neon" suggests the neon tetras and adds nothing until one is picked', async ({ page, errors }) => {
+  await page.goto(TM)
+  const input = page.locator('#tm-input')
+  await input.fill('neon')
+  const options = page.locator('#tm-list [role=option]')
+  await expect(options.first()).toBeVisible()
+  await expect(options).toContainText(['Cá neon xanh', 'Cá neon vua'])
+  await expect(input).toHaveAttribute('aria-expanded', 'true')
+  // A partial name is never picked for the reader.
+  await page.locator('#tm-form button[type=submit]').click()
+  await expect(page.locator('#tm-chosen li')).toHaveCount(0)
+  await expect(page.locator('#tm-msg')).toContainText('chọn một loài')
+  // The keyboard: down to the first suggestion, Enter adds it.
+  await input.press('ArrowDown')
+  await expect(input).toHaveAttribute('aria-activedescendant', 'tm-opt-0')
+  await input.press('Enter')
+  await expect(page.locator('#tm-chosen li')).toHaveCount(1)
+  await expect(page.locator('#tm-chosen li').first()).toContainText('Cá neon xanh')
+  await expect(input).toHaveValue('')
+  // A tap on a suggestion adds that one.
+  await input.fill('neon')
+  await options.filter({ hasText: 'Cá neon vua' }).click()
+  await expect(page.locator('#tm-chosen li')).toHaveCount(2)
+  await expect(page).toHaveURL(/ca=ca-neon-xanh:\d+,ca-neon-vua:\d+/)
+  // Escape closes the list.
+  await input.fill('ca')
+  await input.press('Escape')
+  await expect(input).toHaveAttribute('aria-expanded', 'false')
+  expect(errors).toEqual([])
+})
+
+test('tank-mates: a name with no match says so and keeps what was typed', async ({ page }) => {
+  await page.goto(TM)
+  const input = page.locator('#tm-input')
+  await input.fill('xyzq')
+  await page.locator('#tm-form button[type=submit]').click()
+  await expect(page.locator('#tm-msg')).toHaveText('Không thấy “xyzq”. Thử tên khoa học.')
+  await expect(page.locator('#tm-chosen li')).toHaveCount(0)
+  await expect(input).toHaveValue('xyzq')
+})
+
+test('tank-mates: an incompatible pair answers in one sentence first, then the warnings, then a table that fits', async ({ page }) => {
+  await page.goto(TM)
+  // A whole name typed out is added without a pick.
+  for (const name of ['Cá đĩa', 'Cá galaxy']) {
     await page.locator('#tm-input').fill(name)
-    await page.locator('#tm-form button[type=submit]').click()
+    await page.locator('#tm-input').press('Enter')
   }
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
-  await expect(page.locator('#tm-out table')).toBeVisible()
-  await expect(page).toHaveURL(/ca=/)
+  const verdict = page.locator('#tm-verdict')
+  await expect(verdict).toHaveText('Không nên nuôi chung: Cá đĩa có thể ăn Cá galaxy; nhiệt độ không có khoảng chung.')
+  const top = async (sel: string) => (await page.locator(sel).first().boundingBox())!.y
+  expect(await top('#tm-verdict')).toBeLessThan(await top('#tm-detail .warn'))
+  expect(await top('#tm-detail .warn')).toBeLessThan(await top('#tm-detail table'))
+  // Every value shows without a sideways scroll: 2 species and the shared row, 5 values each.
+  const box = page.locator('#tm-detail .scroll')
+  expect(await box.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true)
+  await expect(page.locator('#tm-detail td:visible')).toHaveCount(15)
+  await expect(page).toHaveURL(/ca=ca-dia:\d+,ca-galaxy:\d+/)
+})
+
+test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {
+  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-galaxy#nuoi-chung')
+  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-galaxy:\d+$/)
+  await expect(page.locator('#tm-chosen li')).toHaveCount(2)
+  await expect(page.locator('#tm-chosen input').first()).toHaveValue('10')
+})
+
+test('tools page: a card for every tool; the calculators below by anchor', async ({ page }) => {
+  await page.goto('/vi/cong-cu/')
+  await expect(page.locator('.tools a')).toHaveCount(6)
+  await page.locator('.tools a[href="#suoi"]').click()
+  await expect(page.locator('#suoi')).toBeInViewport()
+  await page.locator('.tools a[href="/vi/cong-cu/nuoi-chung/"]').click()
+  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/$/)
 })
 
 test('Chihiros page without Bluetooth: says which browsers work; the schedule form still works', async ({ page }) => {

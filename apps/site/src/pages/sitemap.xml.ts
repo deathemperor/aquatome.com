@@ -9,7 +9,7 @@ export const GET: APIRoute = async ({ site }) => {
   const c = await getContent('vi')
   const paths = [
     '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', ...(c.series.length ? ['/vi/video/'] : []), '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/moi-cap-nhat/', '/vi/phan-loai/', '/vi/nguon-goc/',
-    '/vi/cong-cu/', '/vi/cong-cu/the-tich-be/', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/', '/vi/gioi-thieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',
+    '/vi/cong-cu/', '/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/', '/vi/gioi-thieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',
     ...c.species.filter(s => s.t.quality.indexable).map(s => `/vi/ca/${s.t.slug}/`),
     ...c.breeds.filter(b => b.t.quality.indexable).map(b => `/vi/ca/${b.t.slug}/`),
     ...c.plants.filter(p => p.t.quality.indexable).map(p => `/vi/cay/${p.t.slug}/`),

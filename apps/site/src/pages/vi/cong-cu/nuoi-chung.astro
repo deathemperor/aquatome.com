@@ -1,0 +1,357 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { POPULAR, slugify, STAPLE_SPECIES } from '@aq/schema'
+import { getContent } from '../../../lib/content'
+import { toIndexItem } from '../../../lib/species-index'
+import { jsonForScript } from '../../../lib/json'
+import { getTraits } from '../../../lib/traits'
+import { cleanPhoto } from '../../../lib/home'
+import { smallSrc } from '../../../lib/img'
+import { i18n } from '../../../lib/i18n'
+import type { MateItem } from '../../../scripts/tankmates'
+
+const { lang, t } = i18n(Astro.url)
+const c = await getContent(lang)
+const traits = await getTraits()
+// Among equally good matches the fish readers keep most come first: the staples, then the popular list (as on the home page).
+const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
+const index: MateItem[] = c.species.map(s => {
+  const p = cleanPhoto(s.photos), pop = known.indexOf(s.id)
+  return { ...toIndexItem(s, traits.get(s.id)), ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
+}).sort((a, b) => a.name.localeCompare(b.name, lang))
+---
+<Browse title={t('Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con')} heading={t('Nuôi chung được không? Thả bao nhiêu con?')} intro={t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.')}>
+  <div class="tm">
+    <form id="tm-form" class="pick" novalidate>
+      <label for="tm-input">{t('Thêm loài')}</label>
+      <div class="field">
+        <div class="combo">
+          <input id="tm-input" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="tm-list" aria-describedby="tm-msg" placeholder={t('Gõ tên Việt hoặc tên khoa học')} autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <ul id="tm-list" role="listbox" aria-label={t('Gợi ý')} hidden></ul>
+        </div>
+        <button type="submit">{t('Thêm')}</button>
+      </div>
+      <p id="tm-msg" class="msg" aria-live="polite"></p>
+      <span id="tm-sr" class="visually-hidden" aria-live="polite"></span>
+    </form>
+    <ul id="tm-chosen" class="chosen" aria-label={t('Loài đã chọn')}></ul>
+    <p id="tm-verdict" class="verdict" aria-live="polite"></p>
+    <div id="tm-detail"></div>
+
+    <section id="mat-do" class="st" aria-labelledby="st-h" hidden>
+      <h2 id="st-h">{t('Mật độ cá')}</h2>
+      <form id="vol-form" class="row">
+        <label>{t('Dài (cm)')} <input name="l" type="number" inputmode="numeric" min="10" max="400" value="60" /></label>
+        <label>{t('Rộng (cm)')} <input name="w" type="number" inputmode="numeric" min="10" max="200" value="30" /></label>
+        <label>{t('Cao (cm)')} <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
+        <label>{t('Lọc (lít/giờ, không bắt buộc)')} <input name="flow" type="number" inputmode="numeric" min="0" max="20000" placeholder={t('vd. 600')} /></label>
+      </form>
+      <div id="st-out" aria-live="polite"></div>
+    </section>
+  </div>
+  <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
+</Browse>
+<script>
+  import { checkTankmates, exactMatch, rankMatches, TEMPERAMENT_LABELS, verdictOf, type MateItem, type Verdict } from '../../../scripts/tankmates'
+  import { tankVolume } from '../../../scripts/calc'
+  import { stocking } from '../../../scripts/stocking'
+  import { cpath, ct } from '../../../scripts/ct'
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const items: MateItem[] = JSON.parse($('species-index').textContent!)
+  const fmt = (n: number, d = 1) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: d }).format(n)
+  const esc = (s: string) => s.replace(/[&<>"']/g, ch => `&#${ch.charCodeAt(0)};`)
+  const cap = (s: string) => s.charAt(0).toLocaleUpperCase() + s.slice(1)
+  const LABEL = { tempC: ct('Nhiệt độ'), ph: 'pH', gh: ct('Độ cứng (dGH)') } as const
+  const unit = (f: keyof typeof LABEL) => (f === 'tempC' ? '°C' : '')
+  const rng = (r: { min: number; max: number }) => (r.min === r.max ? fmt(r.min) : `${fmt(r.min)}–${fmt(r.max)}`)
+  const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
+  const svg = (d: string, box = '0 0 24 24') => `<svg viewBox="${box}" aria-hidden="true">${d}</svg>`
+  const FISH = svg('<path d="M5 20c7-10 22-10 29 0-7 10-22 10-29 0zM34 20l8-7v14z"/><circle cx="13" cy="18.5" r="1.3"/>', '0 0 48 40')
+  const REMOVE = svg('<path d="M6 6l12 12M18 6 6 18"/>')
+  const MARK: Record<Verdict['level'], string> = {
+    no: svg('<circle cx="12" cy="12" r="9"/><path d="M8.6 8.6l6.8 6.8M15.4 8.6l-6.8 6.8"/>'),
+    care: svg('<path d="M12 3.6 2.6 19.8h18.8z"/><path d="M12 9.8v4.6M12 17.2v.1"/>'),
+    unsure: svg('<circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6M12 17v.1"/>'),
+    yes: svg('<circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.9 2.9L16.2 10"/>'),
+  }
+
+  // Chosen species and their numbers live in the address (?ca=slug:6,slug:2) so a result can be shared; ?l=&w=&h= is the tank (cm).
+  const params = new URLSearchParams(location.search)
+  const counts = new Map<string, number>()
+  const chosen: MateItem[] = (params.get('ca') ?? '').split(',').map(s => {
+    const [slug, n] = s.split(':')
+    const hit = items.find(i => i.slug === slug)
+    if (hit && Number(n) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
+    return hit
+  }).filter((i): i is MateItem => !!i).filter((i, k, a) => a.indexOf(i) === k).slice(0, 6)
+  const count = (c: MateItem) => counts.get(c.slug) ?? c.schoolMin ?? 1
+  for (const k of ['l', 'w', 'h']) { const v = params.get(k); if (v) ($<HTMLFormElement>('vol-form').elements.namedItem(k) as HTMLInputElement).value = v }
+
+  // The picker: an ARIA combobox. Suggestions as you type; a species is added only when picked, or when the whole name was typed.
+  const form = $<HTMLFormElement>('tm-form'), input = $<HTMLInputElement>('tm-input'), list = $('tm-list')
+  const say = (s: string) => { $('tm-msg').textContent = s }
+  const sr = (s: string) => { $('tm-sr').textContent = s }
+  let shown: MateItem[] = []
+  let active = -1
+  function setActive(i: number) {
+    active = i
+    list.querySelectorAll('[role=option]').forEach((o, k) => o.setAttribute('aria-selected', String(k === i)))
+    if (i >= 0) input.setAttribute('aria-activedescendant', `tm-opt-${i}`)
+    else input.removeAttribute('aria-activedescendant')
+  }
+  function openList(on: boolean) {
+    list.hidden = !on
+    input.setAttribute('aria-expanded', String(on))
+    if (!on) setActive(-1)
+  }
+  function suggest() {
+    const q = input.value.trim()
+    shown = q ? rankMatches(q, items) : []
+    list.innerHTML = shown.map((s, i) => {
+      const has = chosen.some(c => c.slug === s.slug)
+      return `<li role="option" id="tm-opt-${i}" data-i="${i}" aria-selected="false"${has ? ' aria-disabled="true"' : ''}>`
+        + `<span class="ph">${FISH}${s.img ? `<img src="${esc(s.img)}" alt="" decoding="async">` : ''}</span>`
+        + `<span class="nm"><span>${esc(s.name)}</span><i class="sci">${esc(s.scientificName)}</i></span>`
+        + (has ? `<span class="tag">${ct('Đã thêm')}</span>` : '') + '</li>'
+    }).join('')
+    setActive(-1)
+    openList(shown.length > 0)
+    say(q && !shown.length ? ct('Không thấy “{q}”. Thử tên khoa học.', { q }) : '')
+    sr(shown.length ? ct('{n} gợi ý. Dùng phím mũi tên để chọn.', { n: shown.length }) : '')
+  }
+  function pick(s: MateItem) {
+    if (chosen.some(c => c.slug === s.slug)) return say(ct('{name} đã có trong danh sách.', { name: s.name }))
+    chosen.push(s)
+    input.value = ''
+    openList(false)
+    say('')
+    sr(ct('Đã thêm {name}.', { name: s.name }))
+    render()
+  }
+  input.addEventListener('input', suggest)
+  input.addEventListener('focus', () => { if (input.value.trim()) suggest() })
+  input.addEventListener('blur', () => openList(false))
+  input.addEventListener('keydown', e => {
+    const n = shown.length
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && n) {
+      e.preventDefault()
+      const down = e.key === 'ArrowDown'
+      if (list.hidden) { openList(true); setActive(down ? 0 : n - 1) } else setActive(down ? (active + 1) % n : active <= 0 ? n - 1 : active - 1)
+    } else if (e.key === 'Enter' && !list.hidden && active >= 0) {
+      e.preventDefault()
+      pick(shown[active]!)
+    } else if (e.key === 'Escape') {
+      if (!list.hidden) { e.preventDefault(); openList(false) } else if (input.value) { input.value = ''; say('') }
+    }
+  })
+  // A tap on a suggestion keeps the focus in the box (no blur closing the list first).
+  list.addEventListener('pointerdown', e => e.preventDefault())
+  list.addEventListener('click', e => {
+    const o = (e.target as Element).closest<HTMLElement>('[role=option]')
+    if (o) pick(shown[Number(o.dataset.i)]!)
+  })
+  // A photo the network can't fetch leaves the drawn fish under it.
+  list.addEventListener('error', e => { if (e.target instanceof HTMLImageElement) e.target.remove() }, true)
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    const q = input.value.trim()
+    input.focus()
+    if (!q) return say(ct('Gõ tên loài cá muốn thêm.'))
+    const hit = exactMatch(q, items)
+    if (hit) return pick(hit)
+    suggest()
+    if (shown.length) say(ct('Chưa thêm: chọn một loài trong danh sách gợi ý.'))
+  })
+
+  // The chosen species: a row each, with the number of fish and a way to take it out.
+  function renderChosen() {
+    $('tm-chosen').innerHTML = chosen.map((c, i) => `<li><a href="${cpath(`/vi/ca/${c.slug}/`)}">${esc(c.name)}</a>`
+      + `<label class="qty"><input type="number" inputmode="numeric" min="1" max="200" value="${count(c)}" data-qty="${i}" aria-label="${esc(ct('Số con {name}', { name: c.name }))}" /><span aria-hidden="true">${ct('con')}</span></label>`
+      + `<button type="button" data-rm="${i}" aria-label="${esc(ct('Bỏ {name}', { name: c.name }))}">${REMOVE}</button></li>`).join('')
+    const full = chosen.length >= 6
+    input.disabled = full
+    form.querySelector('button')!.disabled = full
+    input.placeholder = full ? ct('Đã đủ 6 loài: bỏ bớt một loài để thêm.') : ct('Gõ tên Việt hoặc tên khoa học')
+  }
+  $('tm-chosen').addEventListener('input', e => {
+    const q = (e.target as Element).closest<HTMLInputElement>('[data-qty]')
+    const n = Math.round(Number(q?.value))
+    if (q && n > 0) { counts.set(chosen[Number(q.dataset.qty)]!.slug, Math.min(200, n)); renderResult() }
+  })
+  $('tm-chosen').addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('[data-rm]')
+    if (!b) return
+    const [gone] = chosen.splice(Number(b.dataset.rm), 1)
+    sr(ct('Đã bỏ {name}.', { name: gone!.name }))
+    render()
+    input.focus()
+  })
+
+  // The answer first (one sentence), then the warnings, then the species side by side.
+  function renderResult() {
+    // Written out as is (slug:6,slug:2), not percent-encoded, so a shared address stays readable.
+    const url = new URL(location.href)
+    url.searchParams.delete('ca')
+    url.search = [chosen.length ? `ca=${chosen.map(c => `${c.slug}:${count(c)}`).join(',')}` : '', url.searchParams.toString()].filter(Boolean).join('&')
+    history.replaceState(null, '', url)
+    renderStocking()
+    const verdict = $('tm-verdict'), detail = $('tm-detail')
+    if (chosen.length < 2) {
+      verdict.className = 'verdict hint'
+      verdict.textContent = chosen.length ? ct('Thêm một loài nữa để so.') : ct('Thêm 2 loài trở lên để xem có nuôi chung được không.')
+      detail.innerHTML = ''
+      return
+    }
+    const r = checkTankmates(chosen, ct)
+    const v = verdictOf(chosen, r, ct)
+    verdict.className = `verdict ${v.level}`
+    verdict.innerHTML = `${MARK[v.level]}<span><strong>${esc(v.head)}</strong>: ${v.reasons.map(esc).join('; ')}.</span>`
+    const warn = [...r.eats.map(e => ct('{big} ({bigCm} cm) có thể ăn {small} ({smallCm} cm).', { big: esc(e.big), bigCm: fmt(e.bigCm), small: esc(e.small), smallCm: fmt(e.smallCm) })),
+      ...r.notes.filter(n => n.level !== 'info').map(n => esc(n.text))]
+    const info = [...r.notes.filter(n => n.level === 'info').map(n => esc(n.text)),
+      ...(r.minTankCm ? [ct('Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.', { n: fmt(r.minTankCm) })] : [])]
+    const gaps = v.level === 'unsure' || !v.gaps.length ? '' : `<p class="na">${esc(cap(v.gaps.join('; ')))}.</p>`
+    const cols = [...r.params.map(p => LABEL[p.field]), ct('Kích thước'), ct('Tính cách')]
+    const td = (k: number, html: string) => `<td role="cell" data-label="${esc(cols[k]!)}">${html}</td>`
+    const cell = (c: MateItem, f: keyof typeof LABEL) => (c[f] ? `${rng(c[f]!)}${unit(f)}` : '—')
+    const rows = chosen.map(c => `<tr role="row"><th role="rowheader" scope="row"><a href="${cpath(`/vi/ca/${c.slug}/`)}">${esc(c.name)}</a></th>`
+      + r.params.map((p, k) => td(k, cell(c, p.field))).join('')
+      + td(3, c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—') + td(4, c.temperament ? ct(TEMPERAMENT_LABELS[c.temperament]) : '—') + '</tr>').join('')
+    const sum = r.params.map((p, k) => td(k, p.shared ? `<span class="ok">${rng(p.shared)}${unit(p.field)}</span>` : chosen.length - p.missing.length >= 2 ? `<span class="bad">${ct('Không có')}</span>` : `<span class="na">${ct('Thiếu dữ liệu')}</span>`)).join('')
+      + td(3, r.eats.length ? `<span class="bad">${ct('Chênh lệch lớn')}</span>` : `<span class="ok">${ct('Ổn')}</span>`)
+      + td(4, r.notes.some(n => n.level === 'bad') ? `<span class="bad">${ct('Xung đột')}</span>` : r.notes.some(n => n.level === 'warn') ? `<span class="bad">${ct('Cần lưu ý')}</span>` : chosen.every(c => c.temperament) ? `<span class="ok">${ct('Ổn')}</span>` : `<span class="na">${ct('Thiếu dữ liệu')}</span>`)
+    const head = `<tr role="row"><th role="columnheader" scope="col">${ct('Loài')}</th>${cols.map(c => `<th role="columnheader" scope="col">${c}</th>`).join('')}</tr>`
+    detail.innerHTML = gaps
+      + (warn.length ? `<ul class="warn">${warn.map(w => `<li>${w}</li>`).join('')}</ul>` : '')
+      + (info.length ? `<ul class="info">${info.map(w => `<li>${w}</li>`).join('')}</ul>` : '')
+      + `<h2 class="sub">${ct('So từng loài')}</h2>`
+      + `<div class="scroll"><table class="mates" role="table"><thead role="rowgroup">${head}</thead><tbody role="rowgroup">${rows}</tbody>`
+      + `<tfoot role="rowgroup"><tr role="row"><th role="rowheader" scope="row">${ct('Khoảng chung')}</th>${sum}</tr></tfoot></table></div>`
+  }
+  function render() { renderChosen(); renderResult() }
+
+  // Stocking: the chosen fish against the tank size and filter above.
+  const LEVEL = {
+    light: [ct('Còn thưa'), ct('thả thêm được.')], ok: [ct('Vừa phải'), ct('bể ổn định với lọc và thay nước thường lệ.')],
+    full: [ct('Đã đầy'), ct('cần lọc tốt và thay nước đều mỗi tuần.')], over: [ct('Quá tải'), ct('bớt cá hoặc dùng bể lớn hơn.')],
+  } as const
+  function renderStocking() {
+    $('mat-do').hidden = !chosen.length
+    const v = $<HTMLFormElement>('vol-form')
+    const [l, w, ht, flow] = [num(v, 'l'), num(v, 'w'), num(v, 'h'), num(v, 'flow')]
+    if (!chosen.length || !(l > 0 && w > 0 && ht > 0)) { $('st-out').innerHTML = chosen.length ? `<p class="na">${ct('Nhập đủ dài, rộng, cao.')}</p>` : ''; return }
+    const vol = tankVolume(l, w, ht)
+    const r = stocking(chosen.map(c => ({ name: c.name, count: count(c), sizeCm: c.sizeCm, schoolMin: c.schoolMin, tankCm: c.tankCm })), vol.water, { tankCm: l, filterLph: flow, grossLitres: vol.litres })
+    const [label, advice] = LEVEL[r.level]
+    const notes = [
+      ...r.school.map(s => ct('{name} sống theo đàn: nên nuôi từ {min} con (đang chọn {count}).', { name: esc(s.name), min: s.min, count: s.count })),
+      ...r.tooShort.map(s => ct('{name} cần bể dài từ {n} cm.', { name: esc(s.name), n: fmt(s.tankCm) })),
+      ...(r.unknown.length ? [ct('Chưa có kích thước của {names}: chưa tính vào mật độ.', { names: r.unknown.map(esc).join(', ') })] : []),
+      ...(r.turnover === undefined ? [] : r.turnover < 4 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: hơi yếu, nên 4–10 lần.', { n: fmt(r.turnover) })] : r.turnover > 10 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: dòng mạnh, cá bơi yếu như betta, cá đuôi dài dễ bị cuốn.', { n: fmt(r.turnover) })] : []),
+    ]
+    $('st-out').innerHTML = `<div class="meter ${r.level}" role="img" aria-label="${fmt(r.percent, 0)}%"><span style="width:${Math.min(100, r.percent / 1.5)}%"></span><i style="left:${100 / 1.5}%"></i></div>`
+      + `<p><strong>${fmt(r.percent, 0)}% · ${label}</strong>: ${advice} ${ct('Bể {l} × {w} × {h} cm, khoảng {water} lít nước.', { l: fmt(l), w: fmt(w), h: fmt(ht), water: fmt(vol.water, 0) })}</p>`
+      + (r.perFish.length > 1 ? `<ul class="shares">${r.perFish.map(f => `<li>${esc(f.name)}: ${fmt(f.share * 100, 0)}%</li>`).join('')}</ul>` : '')
+      + (notes.length ? `<ul class="warn">${notes.map(n => `<li>${n}</li>`).join('')}</ul>` : '')
+      + `<p class="note">${ct('Ước theo kích thước cá trưởng thành (cá lớn thải nhiều hơn hẳn cá nhỏ), cho bể có lọc. Cây thủy sinh nhiều, thay nước thường xuyên thì nuôi được dày hơn một chút.')}</p>`
+  }
+  $('vol-form').addEventListener('input', renderStocking)
+  $('vol-form').addEventListener('submit', e => e.preventDefault())
+  render()
+</script>
+<style>
+  .tm { max-width: 52rem; }
+  .pick { margin: 0 0 var(--space-4); }
+  .pick > label { display: block; font-size: 0.85rem; color: var(--c-ink-soft); margin-bottom: var(--space-1); }
+  .field { display: flex; gap: var(--space-2); align-items: stretch; }
+  .combo { position: relative; flex: 1 1 auto; min-width: 0; }
+  .combo input { font: inherit; font-size: 1rem; width: 100%; min-height: 2.75rem; padding: 0.5rem 0.75rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); }
+  .combo input::placeholder { color: var(--c-ink-faint); }
+  .combo input:disabled { opacity: 0.7; }
+  /* Focused, the box and its open list share one 2px frame in the focus colour. */
+  .combo input:focus-visible { outline: none; border-color: var(--c-focus); box-shadow: inset 0 0 0 1px var(--c-focus); }
+  .combo input[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .field button { font: 500 1rem var(--f-body); min-height: 2.75rem; padding: 0.5rem 1.1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  .field button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .msg { margin: var(--space-2) 0 0; min-height: 0; color: var(--c-cardinal); font-size: 0.95rem; }
+  .msg:empty { display: none; }
+
+  /* The suggestions: a sheet under the box, over what follows. */
+  #tm-list { position: absolute; z-index: 20; inset-inline: 0; top: 100%; margin: 0; padding: 0; list-style: none; background: var(--c-plate); border: 2px solid var(--c-focus); border-top: 1px solid var(--c-rule); border-radius: 0 0 8px 8px; box-shadow: 0 10px 24px -8px rgb(10 26 29 / 0.28); overflow: hidden; }
+  #tm-list :global([role=option]) { display: flex; align-items: center; gap: var(--space-3); min-height: 3.5rem; padding: var(--space-2) var(--space-3); cursor: pointer; border-top: 1px solid var(--c-rule); }
+  #tm-list :global([role=option]:first-child) { border-top: 0; }
+  #tm-list :global([role=option]:hover), #tm-list :global([aria-selected="true"]) { background: color-mix(in srgb, var(--c-moss) 12%, var(--c-plate)); }
+  #tm-list :global([aria-selected="true"]) { box-shadow: inset 2px 0 var(--c-moss); }
+  #tm-list :global([aria-disabled="true"]) { cursor: default; color: var(--c-ink-soft); }
+  #tm-list :global(.ph) { position: relative; flex: none; width: 3.5rem; height: 2.625rem; display: grid; place-items: center; background: var(--c-mat); color: var(--c-ink-faint); box-shadow: 0 0 0 1px var(--c-rule); }
+  #tm-list :global(.ph svg) { width: 2rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+  #tm-list :global(.ph img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  #tm-list :global(.nm) { display: grid; min-width: 0; line-height: 1.3; }
+  #tm-list :global(.nm > span) { font-weight: 500; }
+  #tm-list :global(.nm .sci) { font-size: 0.9rem; color: var(--c-ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #tm-list :global(.tag) { margin-left: auto; flex: none; font-size: var(--step--1); color: var(--c-ink-soft); }
+
+  /* Chosen species: one row each, every control a full finger wide. */
+  .chosen { list-style: none; padding: 0; margin: 0 0 var(--space-4); max-width: 34rem; }
+  .chosen :global(li) { display: flex; align-items: center; gap: var(--space-2); min-height: 3.25rem; border-bottom: 1px solid var(--c-rule); }
+  .chosen :global(li:first-child) { border-top: 1px solid var(--c-rule); }
+  .chosen :global(li > a) { flex: 1 1 auto; min-width: 0; min-height: 2.75rem; display: flex; align-items: center; font-weight: 500; }
+  .chosen :global(.qty) { display: flex; align-items: center; gap: var(--space-1); color: var(--c-ink-soft); font-size: 0.9rem; }
+  .chosen :global(.qty input) { width: 4.25rem; min-height: 2.75rem; font: inherit; font-size: 1rem; text-align: right; padding: 0.25rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+  .chosen :global(button) { flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 0; border-radius: 8px; background: none; color: var(--c-ink-soft); cursor: pointer; }
+  .chosen :global(button:hover) { color: var(--c-cardinal); background: color-mix(in srgb, var(--c-cardinal) 10%, transparent); }
+  .chosen :global(button svg) { width: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+
+  /* The verdict: the answer, in one sentence, before anything else. */
+  .verdict { --tone: var(--c-ink-soft); display: flex; gap: var(--space-3); align-items: flex-start; margin: 0 0 var(--space-4); max-width: var(--measure); font-size: var(--step-1); line-height: 1.45; }
+  .verdict:empty { display: none; }
+  .verdict.hint { font-size: 1rem; color: var(--c-ink-faint); }
+  .verdict:not(.hint) { padding: var(--space-3) var(--space-4); background: color-mix(in srgb, var(--tone) 9%, var(--c-plate)); border: 1px solid color-mix(in srgb, var(--tone) 40%, var(--c-rule)); border-radius: 8px; }
+  .verdict.no, .verdict.care { --tone: var(--c-cardinal); }
+  .verdict.yes { --tone: var(--c-moss); }
+  .verdict :global(strong) { color: var(--tone); font-weight: 600; }
+  .verdict.unsure :global(strong) { color: var(--c-ink); }
+  .verdict :global(svg) { flex: none; width: 1.5rem; height: 1.5rem; margin-top: 0.1rem; fill: none; stroke: var(--tone); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  #tm-detail :global(.warn) { color: var(--c-cardinal); padding-left: 1.2em; max-width: var(--measure); }
+  #tm-detail :global(.info) { padding-left: 1.2em; max-width: var(--measure); }
+  #tm-detail :global(.na) { color: var(--c-ink-soft); max-width: var(--measure); }
+  #tm-detail :global(.sub) { font-size: var(--step-1); margin: var(--space-5) 0 var(--space-2); }
+  #tm-detail :global(table) { border-collapse: collapse; font-size: 0.95rem; min-width: 100%; }
+  #tm-detail :global(th), #tm-detail :global(td) { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--c-rule); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  #tm-detail :global(tbody th) { white-space: normal; font-weight: 500; min-width: 9rem; }
+  #tm-detail :global(tfoot th), #tm-detail :global(tfoot td) { border-top: 2px solid var(--c-ink); border-bottom: 0; }
+  #tm-detail :global(.ok) { color: var(--c-moss); font-weight: 600; }
+  #tm-detail :global(.bad) { color: var(--c-cardinal); font-weight: 600; }
+  #tm-detail :global(td .na) { color: var(--c-ink-faint); }
+
+  /* A phone: each species is a block of labelled values, so every column shows without a sideways scroll. */
+  @media (max-width: 40rem) {
+    #tm-detail :global(.mates), #tm-detail :global(.mates tbody), #tm-detail :global(.mates tfoot) { display: block; min-width: 0; }
+    #tm-detail :global(.mates thead) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    #tm-detail :global(.mates tr) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2) var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--c-rule); }
+    #tm-detail :global(.mates th[scope=row]) { grid-column: 1 / -1; padding: 0; border: 0; }
+    #tm-detail :global(.mates td) { display: grid; align-content: start; padding: 0; border: 0; white-space: normal; }
+    #tm-detail :global(.mates td::before) { content: attr(data-label); font-size: var(--step--1); color: var(--c-ink-soft); font-weight: 400; }
+    #tm-detail :global(.mates tfoot tr) { border-top: 2px solid var(--c-ink); border-bottom: 0; }
+    #tm-detail :global(.mates tfoot th), #tm-detail :global(.mates tfoot td) { border-top: 0; }
+    .field button { padding-inline: 0.9rem; }
+  }
+
+  .st { padding-top: var(--space-5); margin-top: var(--space-5); border-top: 1px solid var(--c-rule); }
+  .st h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
+  .row label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); flex: 1 1 6rem; }
+  .row label:last-child { flex-basis: 12rem; }
+  .row input { font: inherit; font-size: 1rem; min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; }
+  #st-out :global(.meter) { position: relative; height: 0.7rem; border-radius: 999px; background: var(--c-plate); border: 1px solid var(--c-rule); max-width: 32rem; }
+  #st-out :global(.meter span) { display: block; height: 100%; border-radius: 999px; background: var(--c-moss); }
+  #st-out :global(.meter.full span) { background: #c9a227; }
+  #st-out :global(.meter.over span) { background: var(--c-cardinal); }
+  #st-out :global(.meter i) { position: absolute; top: -0.25rem; bottom: -0.25rem; width: 2px; background: var(--c-ink); }
+  #st-out :global(.shares) { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); padding: 0; list-style: none; color: var(--c-ink-soft); font-size: 0.9rem; }
+  #st-out :global(.warn) { color: var(--c-cardinal); padding-left: 1.2em; }
+  #st-out :global(.note) { font-size: var(--step--1); color: var(--c-ink-soft); }
+  #st-out :global(.na) { color: var(--c-ink-faint); }
+</style>
