@@ -190,13 +190,15 @@ public struct TankStore: Sendable, Equatable {
   /// A store read from disk or the server. Records that don't pass the schema are kept as they are (and saved again)
   /// but not shown; a store of another version, or with an entry that isn't an object, is refused, so it isn't overwritten.
   public init(_ value: JSON) throws {
-    guard let o = value.object, let t = o["tanks"]?.array, let d = o["devices"]?.array else { throw TankStoreError.notAStore }
+    guard let o = value.object else { throw TankStoreError.notAStore }
     guard o["v"] == .number(Double(storeVersion)) else { throw TankStoreError.unknownVersion }
+    guard let t = o["tanks"]?.array, let d = o["devices"]?.array else { throw TankStoreError.notAStore }
     let tanks = t.compactMap(\.object), devices = d.compactMap(\.object)
     guard tanks.count == t.count, devices.count == d.count else { throw TankStoreError.notAStore }
     json = o
-    self.tanks = tanks
-    self.devices = devices
+    // A list holding an id twice (it shouldn't) is read as the merge would keep it, so an edit changes the copy shown.
+    self.tanks = Self.hasRepeats(tanks) ? Self.mergeRecords(tanks, []) : tanks
+    self.devices = Self.hasRepeats(devices) ? Self.mergeRecords(devices, []) : devices
   }
 
   public init(data: Data) throws { try self.init(JSON.parse(data)) }
@@ -287,7 +289,7 @@ public struct TankStore: Sendable, Equatable {
     var d = Device(json: devices[i])
     let prev = d.updatedAt
     try change(&d)
-    if let n = d.nickname?.trimmingCharacters(in: .whitespacesAndNewlines) { d.nickname = n.isEmpty ? nil : n }
+    if let n = d.nickname.map(Self.trim) { d.nickname = n.isEmpty ? nil : n }
     d.json["updatedAt"] = .string(Timestamp.stamp(now, after: prev))
     try Self.check(Validate.device(.object(d.json)))
     devices[i] = d.json
@@ -304,12 +306,24 @@ public struct TankStore: Sendable, Equatable {
     return ["id": record["id"] ?? .string(""), "updatedAt": .string(at), "deletedAt": .string(at)]
   }
 
+  private static func hasRepeats(_ records: [Object]) -> Bool {
+    let ids = records.map { Array(($0["id"]?.string ?? "").utf16) }
+    return Set(ids).count != ids.count
+  }
+
   private static func check(_ problems: [Problem]) throws {
     if !problems.isEmpty { throw TankStoreError.invalid(problems) }
   }
 
+  /// As JavaScript's `trim()`.
+  private static func trim(_ s: String) -> String {
+    let u = s.unicodeScalars
+    guard let first = u.firstIndex(where: { !$0.isJavaScriptSpace }), let last = u.lastIndex(where: { !$0.isJavaScriptSpace }) else { return "" }
+    return String(u[first...last])
+  }
+
   private static func trimmed(_ name: String) throws -> String {
-    let t = name.trimmingCharacters(in: .whitespacesAndNewlines)
+    let t = trim(name)
     guard !t.isEmpty else { throw TankStoreError.blankName }
     return t
   }

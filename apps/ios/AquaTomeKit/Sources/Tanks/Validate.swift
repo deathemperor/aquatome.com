@@ -23,8 +23,9 @@ public enum Validate {
   public static func deviceRecord(_ v: JSON) -> [Problem] { var c = Checker(); c.record(v, [], live: Checker.device); return c.problems }
   public static func store(_ v: JSON) -> [Problem] { var c = Checker(); c.store(v, []); return c.problems }
 
-  /// Minutes a schedule keeps the light on; an off time of 00:00 is midnight at the end of the day.
-  public static func minutesLit(on: String, off: String) -> Int {
+  /// Minutes a schedule keeps the light on; an off time of 00:00 is midnight at the end of the day. Only for times that
+  /// passed the HH:MM check.
+  static func minutesLit(on: String, off: String) -> Int {
     func m(_ t: String) -> Int { Int(t.prefix(2))! * 60 + Int(t.suffix(2))! }
     return (off == "00:00" ? 1440 : m(off)) - m(on)
   }
@@ -169,12 +170,13 @@ struct Checker {
   /// Text a person typed: something besides spaces (JavaScript's \S), at most `max` characters.
   mutating func label(_ v: JSON, _ p: [PathKey], max: Int) {
     string(v, p, min: 0, max: max)
-    if let s = v.string, !s.unicodeScalars.contains(where: { !$0.properties.isWhitespace && $0 != "\u{FEFF}" }) { fail(p, "blank") }
+    if let s = v.string, s.unicodeScalars.allSatisfy(\.isJavaScriptSpace) { fail(p, "blank") }
   }
 
   mutating func matches(_ v: JSON, _ p: [PathKey], _ pattern: String, _ what: String) {
     guard let s = v.string else { return fail(p, "expected text") }
-    if s.range(of: pattern, options: .regularExpression) == nil { fail(p, what) }
+    // The whole text: ICU's `$` also matches before a final line break, JavaScript's doesn't.
+    if s.range(of: pattern, options: .regularExpression) != s.startIndex..<s.endIndex { fail(p, what) }
   }
 
   mutating func recordId(_ v: JSON, _ p: [PathKey]) {
@@ -208,4 +210,9 @@ struct Checker {
     if a.isEmpty || a.count > 4 { fail(p, "1–4 levels") }
     for (i, x) in a.enumerated() { int(x, p + [.index(i)], min: 0, max: 100) }
   }
+}
+
+extension Unicode.Scalar {
+  /// JavaScript's whitespace (`\s`, what `trim()` removes): Unicode's, less U+0085, plus U+FEFF.
+  var isJavaScriptSpace: Bool { (properties.isWhitespace && value != 0x85) || value == 0xFEFF }
 }

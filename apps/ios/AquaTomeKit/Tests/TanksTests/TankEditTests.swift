@@ -115,3 +115,52 @@ let t0 = Date(timeIntervalSince1970: 1_790_000_000)
     #expect(!Timestamp.isValid(s), "\(s)")
   }
 }
+
+// Where Swift's own text rules differ from JavaScript's, the site's win.
+
+let uuid = "7d9c1e2a-0b5f-4c3d-9e8a-1f2b3c4d5e6f"
+func tankJSON(_ fields: String) -> JSON {
+  try! JSON.parse(Data("""
+    {"id":"\(uuid)","name":"Bể","species":[],"plants":[],"createdAt":"2026-10-01T00:00:00.000Z",
+    "updatedAt":"2026-10-01T00:00:00.000Z"\(fields)}
+    """.utf8))
+}
+
+@Test func patternsMatchTheWholeTextAsJavaScriptDoes() {
+  // ICU's `$` also matches before a final line break; JavaScript's doesn't.
+  var t = tankJSON("").object!
+  t["id"] = .string(uuid + "\n")
+  #expect(Validate.tank(.object(t)).contains { $0.path == [.key("id")] })
+  t = tankJSON("").object!
+  t["species"] = .array([.object(["id": .string("neon\n")])])
+  #expect(Validate.tank(.object(t)).contains { $0.path == [.key("species"), .index(0), .key("id")] })
+  // A schedule time with a line break is refused, not read as a time (it crashed).
+  let device = try! JSON.parse(Data("""
+    {"id":"\(uuid)","tankId":"\(uuid)","kind":"light","createdAt":"2026-10-01T00:00:00.000Z","updatedAt":"2026-10-01T00:00:00.000Z",
+    "schedules":[{"id":"\(uuid)","on":"12:00\\n","off":"20:00","ramp":0,"levels":[50],"savedAt":"2026-10-01T00:00:00.000Z"}]}
+    """.utf8))
+  #expect(Validate.device(device).contains { $0.path == [.key("schedules"), .index(0), .key("on")] })
+}
+
+@Test func blankIsJavaScriptsWhitespace() {
+  var t = tankJSON("").object!
+  t["name"] = .string("\u{85}")      // not whitespace in JavaScript
+  #expect(Validate.tank(.object(t)) == [])
+  t["name"] = .string("\u{FEFF} \u{3000}")  // all whitespace in JavaScript
+  #expect(Validate.tank(.object(t)).contains { $0.path == [.key("name")] })
+}
+
+@Test func theVersionIsReadBeforeTheShape() {
+  // A newer store may be shaped differently: it is still kept as it is, not taken for a broken one.
+  #expect(throws: TankStoreError.unknownVersion) { try TankStore(JSON.parse(Data(#"{"v":2,"items":[]}"#.utf8))) }
+}
+
+@Test func aRecordHeldTwiceIsReadAsTheMergeWouldKeepIt() throws {
+  let older = tankJSON("").object!
+  var later = older
+  later["name"] = .string("Bể mới"); later["updatedAt"] = .string("2026-10-02T00:00:00.000Z")
+  var s = try TankStore(.object(["v": .number(1), "tanks": .array([.object(older), .object(later)]), "devices": .array([])]))
+  #expect(s.liveTanks.map(\.name) == ["Bể mới"])
+  try s.deleteTank(uuid, now: t0)
+  #expect(s.liveTanks.isEmpty && Validate.store(s.value) == [])
+}
