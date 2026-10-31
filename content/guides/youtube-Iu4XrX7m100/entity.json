@@ -1,0 +1,73 @@
+{
+  "id": "youtube-Iu4XrX7m100",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Iu4XrX7m100",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-31",
+  "video": {
+    "youtubeId": "Iu4XrX7m100",
+    "title": "Hướng dẫn lắp đặt phụ kiện cho hồ thủy sinh",
+    "channel": "Yêu Thủy Sinh",
+    "channelUrl": "https://www.youtube.com/channel/UC-H-ZAq65MKLpKEaiE241Ew",
+    "durationSec": 1040,
+    "publishedAt": "2019-01-28",
+    "chapters": [],
+    "series": {
+      "id": "PLegIszGUwqXki-OD1hbZR_YQDldFT8515",
+      "position": 14
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Iu4XrX7m100/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [
+      "Hemianthus callitrichoides"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 127
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 221
+      },
+      {
+        "category": "test-nuoc",
+        "t": 439
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 500
+      },
+      {
+        "category": "loc",
+        "t": 722
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Lọc thùng: lọc hãng hay lọc chế",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Iu4XrX7m100/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Iu4XrX7m100/p5-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng ngoài đặt trong tủ bể, bên cạnh là xô và ống siphon."
+        }
+      }
+    ]
+  }
+}

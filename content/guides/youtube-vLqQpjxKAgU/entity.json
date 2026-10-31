@@ -1,0 +1,125 @@
+{
+  "id": "youtube-vLqQpjxKAgU",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=vLqQpjxKAgU",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-31",
+  "video": {
+    "youtubeId": "vLqQpjxKAgU",
+    "title": "Cách Chọn Bể Thủy Sinh • Thủy Sinh Cơ Bản • Phần 2",
+    "channel": "AquaTV",
+    "channelUrl": "https://www.youtube.com/channel/UCngb5q_IkcOgmDIo3xISvUA",
+    "durationSec": 809,
+    "publishedAt": "2020-08-31",
+    "chapters": [],
+    "series": {
+      "id": "PLJ_EHHAmMhoDJ_53KNlnyAtixGXiKPMlR",
+      "position": 6
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/vLqQpjxKAgU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 240
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 390
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 510
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao không nên dùng bể cá làm sẵn có nắp",
+        "moments": [
+          {
+            "t": 94,
+            "url": "https://media.aquatome.com/video/vLqQpjxKAgU/t94.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh hở trên, lũa và cây mọc cao lên khỏi mặt nước."
+          },
+          {
+            "t": 134,
+            "url": "https://media.aquatome.com/video/vLqQpjxKAgU/t134.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cá làm sẵn có nắp đậy, bên trong gắn ống lọc và cây nhựa."
+          }
+        ]
+      },
+      {
+        "heading": "Bể thủy sinh bây giờ được làm thế nào",
+        "moments": [
+          {
+            "t": 164,
+            "url": "https://media.aquatome.com/video/vLqQpjxKAgU/t164.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể kính trong không nẹp, thành kính dày, miệng bể thoáng."
+          },
+          {
+            "t": 233,
+            "url": "https://media.aquatome.com/video/vLqQpjxKAgU/t233.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cỡ lớn nuôi nhiều cá, loại bể còn dùng nẹp kính."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vLqQpjxKAgU/p1-wNjMzODMzKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vLqQpjxKAgU/p1-wNjMzODMzKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20050633833).jpg",
+          "caption": "Tranh minh họa bể kính đời cũ có khung và nẹp giữ thành bể."
+        }
+      },
+      {
+        "heading": "Chọn kích thước bể thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vLqQpjxKAgU/p2-yMy0wMi0wNS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vLqQpjxKAgU/p2-yMy0wMi0wNS5qcGc-480.webp",
+          "width": 960,
+          "height": 262,
+          "licence": "CC BY-SA 4.0",
+          "author": "Pelagic",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
+          "caption": "Bể kính dài kiểu chuẩn, có lũa và đá bố trí gọn bên trong."
+        }
+      },
+      {
+        "heading": "Kính thường, kính siêu trong hay acrylic",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vLqQpjxKAgU/p4-wNjMzODMzKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vLqQpjxKAgU/p4-wNjMzODMzKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20050633833).jpg",
+          "caption": "Tranh minh họa bể kính có khung, bên trong có cá bơi."
+        }
+      }
+    ]
+  }
+}

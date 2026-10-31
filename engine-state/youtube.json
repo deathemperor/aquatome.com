@@ -1,4 +1,12 @@
 {
+  "-5cy6iLFhJQ": {
+    "status": "processed",
+    "entityIds": [
+      "youtube--5cy6iLFhJQ"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:11:45.873Z"
+  },
   "-5dase5hg20": {
     "status": "processed",
     "entityIds": [
@@ -38,6 +46,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T04:04:49.367Z"
   },
+  "0zu1pQQC8cM": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:05:15.881Z"
+  },
   "18soyZFZ70A": {
     "status": "processed",
     "entityIds": [
@@ -45,6 +60,20 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T04:26:04.966Z"
+  },
+  "1BQV0cTFyLQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:04:13.483Z"
+  },
+  "2IfvTTXr9yE": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "spoken in ja",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:01:09.868Z"
   },
   "2cQKwuP8G8I": {
     "status": "processed",
@@ -54,6 +83,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T04:06:57.693Z"
   },
+  "4hqF53o1Vpc": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:07:50.477Z"
+  },
   "5GfRTHTv5ZM": {
     "status": "processed",
     "entityIds": [
@@ -61,6 +97,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:23:46.696Z"
+  },
+  "5P2odiqiDmw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:15:03.754Z"
   },
   "5ajPkl9rhKQ": {
     "status": "processed",
@@ -86,6 +129,20 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T05:07:27.968Z"
   },
+  "6XItaEBdYhA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:24:39.507Z"
+  },
+  "6g7zP__cs3Y": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:35:01.603Z"
+  },
   "6tqu7SyOjh8": {
     "status": "skipped",
     "entityIds": [],
@@ -109,12 +166,28 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:06:47.092Z"
   },
+  "8wpB5jlgKEg": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-8wpB5jlgKEg"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:56:20.125Z"
+  },
   "9XYrzMuSqjg": {
     "status": "skipped",
     "entityIds": [],
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:28:03.008Z"
+  },
+  "9zhkRJllCNg": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-9zhkRJllCNg"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:03:45.170Z"
   },
   "A7UY_Sa4t7s": {
     "status": "processed",
@@ -124,6 +197,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:31:09.573Z"
   },
+  "AIZmDYKen98": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:36:31.725Z"
+  },
   "AsK_yxCXVrY": {
     "status": "processed",
     "entityIds": [
@@ -131,6 +211,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:13:22.252Z"
+  },
+  "CJL7MqhrRkg": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:28:42.538Z"
   },
   "D8ZPJeMEXiY": {
     "status": "processed",
@@ -146,6 +233,21 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T22:53:14.575Z"
+  },
+  "ECTuSDh3DDY": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:12:37.767Z"
+  },
+  "EIjUVVFcNmo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-EIjUVVFcNmo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:48:02.507Z"
   },
   "EXF0vtu0bqI": {
     "status": "processed",
@@ -170,6 +272,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:16:40.448Z"
+  },
+  "FG8c0evXqCE": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:19:37.643Z"
   },
   "FM-rkJsWX4k": {
     "status": "skipped",
@@ -202,6 +311,27 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:40:18.218Z"
   },
+  "GdjuDtp9cUU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:08:17.512Z"
+  },
+  "GliXjvoNDUU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:53:23.746Z"
+  },
+  "Gus3iCQFjtU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:20:41.460Z"
+  },
   "H-A6KwMSa9s": {
     "status": "processed",
     "entityIds": [
@@ -218,6 +348,28 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T22:39:01.475Z"
   },
+  "HaJ2jNhkIC0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:14:17.195Z"
+  },
+  "Hov6KCuO_FI": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:57:08.056Z"
+  },
+  "HuWHarbSQUk": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-HuWHarbSQUk"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:14:16.998Z"
+  },
   "I_KBOUM1RXM": {
     "status": "processed",
     "entityIds": [
@@ -232,6 +384,28 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T22:42:08.686Z"
+  },
+  "Ijv_AEG8Ye0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:20:01.149Z"
+  },
+  "Iu4XrX7m100": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Iu4XrX7m100"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:56:21.545Z"
+  },
+  "JIqPqDU1GsA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:34:16.496Z"
   },
   "J_PR999bgtw": {
     "status": "processed",
@@ -257,6 +431,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:58:43.747Z"
   },
+  "Jth3Ks8lm6c": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Jth3Ks8lm6c"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:48:55.593Z"
+  },
   "K972tk73JpU": {
     "status": "processed",
     "entityIds": [
@@ -279,6 +461,48 @@
     "error": "yt-dlp: ERROR: [youtube] Kgld7vg_f7c: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.",
     "attempts": 1,
     "updatedAt": "2026-10-30T22:42:30.103Z"
+  },
+  "Kn3EUzI3Hp0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:20:21.304Z"
+  },
+  "Kwu6wANYGbc": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:02:59.649Z"
+  },
+  "L7FmCdoyQwQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:24:14.822Z"
+  },
+  "L7ac1Z_iEPQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:15:50.624Z"
+  },
+  "LaHCoxYlIok": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:13:05.063Z"
+  },
+  "M0Jk-yCD25A": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:09:08.729Z"
   },
   "M0kds6giFrU": {
     "status": "processed",
@@ -303,6 +527,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T23:21:30.436Z"
+  },
+  "NTzUwbGIrV8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:25:02.876Z"
   },
   "Nbl2XlDFhY4": {
     "status": "processed",
@@ -351,12 +582,35 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:07:10.977Z"
   },
+  "OaGALeztDt8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:05:39.554Z"
+  },
   "Oj1Czl2n4xU": {
     "status": "error",
     "entityIds": [],
     "error": "yt-dlp: ERROR: [youtube] Oj1Czl2n4xU: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.",
     "attempts": 1,
     "updatedAt": "2026-10-30T22:43:28.072Z"
+  },
+  "PVRlXXhdD7U": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-PVRlXXhdD7U"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:00:49.463Z"
+  },
+  "Pfm2p0p8KFM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Pfm2p0p8KFM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:51:30.231Z"
   },
   "Q8-gktwcXqQ": {
     "status": "processed",
@@ -372,6 +626,14 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:10:36.460Z"
+  },
+  "QoLZvjObqYM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-QoLZvjObqYM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:01:43.305Z"
   },
   "RVyowD7Sln4": {
     "status": "skipped",
@@ -420,6 +682,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:01:14.395Z"
   },
+  "U_2TYWQ_i3U": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-U_2TYWQ_i3U"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:31:22.045Z"
+  },
   "VJlpUJS1b3A": {
     "status": "processed",
     "entityIds": [
@@ -427,6 +697,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:09:52.454Z"
+  },
+  "WVoQWuOZj-4": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:16:15.505Z"
   },
   "Y6S_TH5qFoE": {
     "status": "processed",
@@ -468,6 +745,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:19:10.225Z"
   },
+  "ZdfT2fMKq3M": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:03:22.517Z"
+  },
   "ZyaIM3mNO4k": {
     "status": "processed",
     "entityIds": [
@@ -491,6 +775,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T22:58:50.897Z"
+  },
+  "_LDwOyvHamI": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:02:12.319Z"
   },
   "_ZxeBxNRdPU": {
     "status": "processed",
@@ -516,12 +807,34 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:55:58.424Z"
   },
+  "apPiQrY9GIM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-apPiQrY9GIM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:18:51.253Z"
+  },
+  "b7Gm8xPnLcY": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:13:56.880Z"
+  },
   "bQwIesUyAHY": {
     "status": "skipped",
     "entityIds": [],
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T01:11:59.387Z"
+  },
+  "bhi25R8x6Yg": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:02:36.396Z"
   },
   "c86hMeJfPms": {
     "status": "processed",
@@ -555,6 +868,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:08:47.957Z"
   },
+  "fR-INyQXdPM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-fR-INyQXdPM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:54:41.210Z"
+  },
   "fTwWsNi06TA": {
     "status": "skipped",
     "entityIds": [],
@@ -585,6 +906,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:10:19.627Z"
   },
+  "gxes_iLVtYc": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:36:08.028Z"
+  },
   "h8S2tqgB5JQ": {
     "status": "skipped",
     "entityIds": [],
@@ -600,6 +928,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T04:17:28.384Z"
   },
+  "hse29AkwWYw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:49:25.502Z"
+  },
   "iFDXqeBOxQk": {
     "status": "processed",
     "entityIds": [
@@ -608,12 +943,26 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:03:23.721Z"
   },
+  "i_kFn29YuRk": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:12:35.725Z"
+  },
   "jHTOAaN_IzU": {
     "status": "skipped",
     "entityIds": [],
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:15:26.080Z"
+  },
+  "joHaSHt_jPA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:21:01.633Z"
   },
   "jvEJpkByqJ0": {
     "status": "processed",
@@ -639,6 +988,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T22:25:44.903Z"
   },
+  "ka0JESLL9t8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:23:51.859Z"
+  },
   "kq-MchItRfo": {
     "status": "processed",
     "entityIds": [
@@ -646,6 +1002,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T03:44:39.005Z"
+  },
+  "lQ9xe0i0tAs": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:23:22.755Z"
   },
   "lVFJKBML5Ws": {
     "status": "processed",
@@ -670,6 +1033,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:23:25.638Z"
   },
+  "o2kLV_BJWZo": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:15:26.894Z"
+  },
   "oHh1FU_k1jo": {
     "status": "processed",
     "entityIds": [
@@ -686,6 +1056,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T04:29:17.303Z"
   },
+  "p3kI7HsglvQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:03:45.555Z"
+  },
   "pmAONHBduCw": {
     "status": "processed",
     "entityIds": [
@@ -693,6 +1070,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T23:17:54.903Z"
+  },
+  "qD5BkJhQDdw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:36:51.885Z"
   },
   "qjVZkXOHBto": {
     "status": "processed",
@@ -709,6 +1093,27 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T23:05:36.015Z"
+  },
+  "rK7a3EwVq-Y": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:19:14.383Z"
+  },
+  "rPz4udZIiuY": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:22:59.821Z"
+  },
+  "sBbPnHsxIrQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:14:40.470Z"
   },
   "sX_3GzJI_xo": {
     "status": "skipped",
@@ -740,6 +1145,51 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T23:33:33.527Z"
+  },
+  "ufbEc_pOrjI": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-ufbEc_pOrjI"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T05:12:09.506Z"
+  },
+  "ul0Tk7rUCGU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:22:36.332Z"
+  },
+  "unoN1HtqXO0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:50:55.839Z"
+  },
+  "v5nzl93fEXA": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-v5nzl93fEXA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:49:47.402Z"
+  },
+  "vLF7dVF3PsA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:12:09.374Z"
+  },
+  "vLqQpjxKAgU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-vLqQpjxKAgU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:59:27.921Z"
   },
   "vZVXVNavk4g": {
     "status": "processed",
@@ -788,6 +1238,35 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:35:08.999Z"
   },
+  "wSgQPctHpck": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:57:31.875Z"
+  },
+  "wU97ji_L8EI": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:56:41.853Z"
+  },
+  "wV9FK0MHv5g": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-wV9FK0MHv5g"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T03:45:06.527Z"
+  },
+  "x81BVk_Piws": {
+    "status": "error",
+    "entityIds": [],
+    "error": "yt-dlp: Command failed: yt-dlp --no-warnings --cookies-from-browser chrome:Profile 6 --skip-download --write-subs --write-auto-subs --sub-langs vi,vi-orig --sub-format json3 -o %(id)s.%(ext)s https://www.youtube.com/watch?v=x81BVk_Piws",
+    "attempts": 1,
+    "updatedAt": "2026-10-31T04:27:25.926Z"
+  },
   "xaMPVEEhQzU": {
     "status": "processed",
     "entityIds": [
@@ -804,11 +1283,40 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:35:06.924Z"
   },
+  "xif_bw_8beE": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:21:24.629Z"
+  },
   "yKTNKEyuuig": {
     "status": "skipped",
     "entityIds": [],
     "error": "not a guide",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:27:10.590Z"
+  },
+  "ysH2T_HOG0E": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-ysH2T_HOG0E"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:41:02.222Z"
+  },
+  "zKaDIsSBRXA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:32:47.548Z"
+  },
+  "zxhmjbgk6dU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-31T04:52:25.528Z"
   }
 }

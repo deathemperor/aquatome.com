@@ -1,0 +1,127 @@
+{
+  "id": "youtube-Jth3Ks8lm6c",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Jth3Ks8lm6c",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "taxiphyllum-alternans",
+    "bucephalandra-sp",
+    "rotala-rotundifolia"
+  ],
+  "updatedAt": "2026-10-31",
+  "video": {
+    "youtubeId": "Jth3Ks8lm6c",
+    "title": "6 bước thực hiện hồ thủy sinh (Part 2 - bước 4, 5)",
+    "channel": "Yêu Thủy Sinh",
+    "channelUrl": "https://www.youtube.com/channel/UC-H-ZAq65MKLpKEaiE241Ew",
+    "durationSec": 1250,
+    "publishedAt": "2018-10-12",
+    "chapters": [],
+    "series": {
+      "id": "PLegIszGUwqXki-OD1hbZR_YQDldFT8515",
+      "position": 9
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Jth3Ks8lm6c/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+    },
+    "transcribed": true,
+    "lang": "vi",
+    "taxa": [
+      "Eleocharis sp.",
+      "Taxiphyllum alternans",
+      "Taxiphyllum sp.",
+      "Bucephalandra sp.",
+      "Anubias sp.",
+      "Hemianthus callitrichoides",
+      "Rotala rotundifolia",
+      "Rotala sp.",
+      "Pterygoplichthys sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 0
+      },
+      {
+        "category": "co2",
+        "t": 740
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chuẩn bị nền và dụng cụ trước khi trồng",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t30.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh có nền đen và lũa đã xếp sẵn, chuẩn bị trồng cây."
+          }
+        ]
+      },
+      {
+        "heading": "Trồng ngưu mao chiên thế nào",
+        "moments": [
+          {
+            "t": 1031,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1031.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Ngưu mao chiên đã trồng thành các bụi nhỏ trên nền, cạnh lũa."
+          },
+          {
+            "t": 1041,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1041.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Thảm ngưu mao chiên xanh mọc rải rác giữa nền và lũa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn-480.webp",
+          "width": 960,
+          "height": 337,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lennart Jöhnk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
+          "caption": "Thảm ngưu mao chiên xanh mướt phủ kín nền trong hồ thủy sinh."
+        }
+      },
+      {
+        "heading": "Cây bám giá thể dán khác rêu ở chỗ nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn-480.webp",
+          "width": 960,
+          "height": 587,
+          "licence": "CC BY-SA 4.0",
+          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
+          "caption": "Các bụi cây bám giá thể gắn trên đá lũa trong hồ thủy sinh."
+        }
+      },
+      {
+        "heading": "Cắt và cắm cây cắt cắm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Krzysztof Ziarnek, Kenraiz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_kz01.jpg",
+          "caption": "Phần ngọn Rotala khỏe với lá xếp vòng tròn, thích hợp để cắt và cắm."
+        }
+      }
+    ]
+  }
+}
