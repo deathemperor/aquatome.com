@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { binomials, POPULAR, resolveWanted, wantedFirst, wantedIn, withPopular } from '../src/wanted'
+import { acceptedNames, addSourceNames, binomials, POPULAR, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from '../src/wanted'
 
 const english = new Set(['max', 'size', 'standard', 'length', 'appear', 'basin', 'clade', 'the', 'fish'])
 const isWord = (w: string) => english.has(w)
@@ -38,6 +38,46 @@ test('popular fish we lack are wanted even unmentioned; wanted pages go popular 
   expect([...w.keys()]).toEqual(['a-b', 'c-d', 'danio-rerio', 'pterophyllum-scalare']) // had betta: not wanted
   const found = ['e-f', 'a-b', 'pterophyllum-scalare', 'c-d', 'danio-rerio'].map(s => ({ url: `https://x/species/${s}/` }))
   expect(wantedFirst(found, w, ['Danio rerio', 'Betta splendens', 'Pterophyllum scalare']).map(f => f.url.split('/')[4])).toEqual(['danio-rerio', 'pterophyllum-scalare', 'c-d', 'a-b', 'e-f'])
+})
+
+test('the name anywhere in the address counts, not only at its start', () => {
+  const w = new Map([['hyphessobrycon-sweglesi', { name: 'Hyphessobrycon sweglesi', names: ['hyphessobrycon-sweglesi'], mentionedIn: [] }], ['peckoltia-compta', { name: 'Peckoltia compta', names: ['peckoltia-compta'], mentionedIn: [] }]])
+  expect(wantedIn('https://www.aquariumglaser.de/en/09-characoids/red_phantom_tetra_hyphessobrycon_sweglesi_en/', w)).toBe('hyphessobrycon-sweglesi')
+  expect(wantedIn('https://www.aquariumglaser.de/en/10-catfishes/l134-peckoltia-compta-2/', w)).toBe('peckoltia-compta')
+})
+
+test('a wanted species a source keeps under a synonym, another ending, a misspelling or a newer Corydoras genus is found there too; nothing else is', async () => {
+  const gbif = async (n: string) => ({
+    'Megalamphodus eques': { canonicalName: 'Hyphessobrycon eques', matchType: 'EXACT' }, // a synonym
+    'Epalzeorhynchos kalopterum': { canonicalName: 'Epalzeorhynchos kalopterus', matchType: 'FUZZY' }, // another ending
+    'Coyrdoras paleatus': { canonicalName: 'Corydoras paleatus', matchType: 'FUZZY' }, // misspelt
+    'Nannostomus eques': { canonicalName: 'Nannostomus eques', matchType: 'EXACT' }, // another fish, same epithet
+    'Neolebias trilineatus': { canonicalName: 'Neolebias trilineatus', matchType: 'EXACT' },
+  } as Record<string, { canonicalName: string; matchType: string }>)[n] ?? null // Hoplisoma: GBIF knows only the genus
+  const w: Wanted = new Map(['Hyphessobrycon eques', 'Epalzeorhynchos kalopterus', 'Corydoras paleatus', 'Corydoras trilineatus', 'Corydoras adolfoi'].map(n => [n.toLowerCase().replace(' ', '-'), { name: n, names: [n.toLowerCase().replace(' ', '-')], mentionedIn: [] }]))
+  const urls = ['megalamphodus-eques', 'nannostomus-eques', 'epalzeorhynchos-kalopterum', 'neolebias-trilineatus', 'hoplisoma-trilineatum', 'synodontis-adolfoi'].map(s => `https://www.seriouslyfish.com/species/${s}`)
+  await addSourceNames([...urls, 'https://www.aquariumglaser.de/en/10-catfishes/coyrdoras-paleatus-wild-2/'], w, gbif, () => false)
+  expect(Object.fromEntries([...w].map(([k, v]) => [k, v.names.slice(1)]))).toEqual({
+    'hyphessobrycon-eques': ['megalamphodus-eques'], 'epalzeorhynchos-kalopterus': ['epalzeorhynchos-kalopterum'], 'corydoras-paleatus': ['coyrdoras-paleatus'],
+    'corydoras-trilineatus': ['hoplisoma-trilineatum'], 'corydoras-adolfoi': [], // Synodontis is no Corydoras genus
+  })
+  expect(wantedIn(urls[0]!, w)).toBe('hyphessobrycon-eques')
+  // New names are looked up only within the budget.
+  const fresh: Wanted = new Map([['hyphessobrycon-eques', { name: 'Hyphessobrycon eques', names: ['hyphessobrycon-eques'], mentionedIn: [] }]])
+  await addSourceNames(urls, fresh, gbif, () => false, 0)
+  expect(fresh.get('hyphessobrycon-eques')!.names).toEqual(['hyphessobrycon-eques'])
+})
+
+test('shop names under the name GBIF accepts, as pages are kept; a name GBIF cannot place stays', async () => {
+  const gbif = async (n: string) => ({
+    'Chindongo demasoni': { canonicalName: 'Pseudotropheus demasoni', matchType: 'EXACT' },
+    'Barbonymus schwanenfeldii': { canonicalName: 'Barbonymus schwanefeldii', matchType: 'FUZZY' },
+    'Danio rerio': { canonicalName: 'Danio rerio', matchType: 'EXACT' },
+  } as Record<string, { canonicalName: string; matchType: string }>)[n] ?? null
+  const names = await acceptedNames(['Chindongo demasoni', 'Barbonymus schwanenfeldii', 'Hoplisoma sterbai', 'Danio rerio', 'Pseudotropheus demasoni'], gbif)
+  expect(names).toEqual(['Pseudotropheus demasoni', 'Barbonymus schwanefeldii', 'Hoplisoma sterbai', 'Danio rerio'])
+  // A shop species we have under the accepted name is not wanted.
+  expect([...withPopular(new Map(), new Set(['pseudotropheus-demasoni']), names).keys()]).toEqual(['barbonymus-schwanefeldii', 'hoplisoma-sterbai', 'danio-rerio'])
 })
 
 test('the popular list names real binomials, no repeats', () => {

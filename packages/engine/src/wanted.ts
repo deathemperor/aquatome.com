@@ -67,16 +67,66 @@ export async function resolveWanted(cands: Map<string, string[]>, have: Set<stri
   return wanted
 }
 
-/** The wanted species a source page is about, from its address (".../species/synodontis-lucipinnis/", ".../potamotrygon_leopoldi_black_diamond_en/"). */
-export function wantedIn(url: string, wanted: Wanted): string | undefined {
+/** Each pair of neighbouring words in an address's path ("genus-epithet" when it names a species). */
+function addressPairs(url: string): string[] {
   let path: string
-  try { path = new URL(url).pathname.toLowerCase().replace(/_/g, '-') } catch { return undefined }
+  try { path = new URL(url).pathname.toLowerCase().replace(/_/g, '-') } catch { return [] }
+  const out: string[] = []
   for (const seg of path.split('/')) {
-    const head = seg.match(/^([a-z]+-[a-z]+)(?:-|$)/)?.[1]
-    if (!head) continue
-    for (const [slug, w] of wanted) if (w.names.includes(head)) return slug
+    const words = seg.split('-')
+    for (let i = 0; i + 1 < words.length; i++) if (/^[a-z]+$/.test(words[i]!) && /^[a-z]+$/.test(words[i + 1]!)) out.push(`${words[i]}-${words[i + 1]}`)
   }
+  return out
+}
+
+/**
+ * The wanted species a source page is about, from its address: the name anywhere in it (".../species/synodontis-lucipinnis/",
+ * ".../potamotrygon_leopoldi_black_diamond_en/", ".../red_phantom_tetra_hyphessobrycon_sweglesi_en/", ".../l134-peckoltia-compta-2/").
+ */
+export function wantedIn(url: string, wanted: Wanted): string | undefined {
+  const pairs = addressPairs(url)
+  for (const pair of pairs) for (const [slug, w] of wanted) if (w.names.includes(pair)) return slug
   return undefined
+}
+
+/**
+ * Genera the 2024 split of Corydoras (Dita et al.) moved species into, which GBIF's backbone doesn't know yet (it answers
+ * "Hoplisoma adolfoi" with the genus only): a source address under one of them names the Corydoras of the same epithet.
+ */
+const NEWER_GENERA: Record<string, string[]> = { corydoras: ['hoplisoma', 'gastrodermus', 'osteogaster', 'brochis'] }
+/** An epithet without its Latin ending, so another gender or ending still matches ("kalopterus", "kalopterum"). */
+const stem = (epithet: string) => epithet.replace(/(ii|ae|us|um|is|a|e|i)$/, '')
+
+/**
+ * Source addresses that name a wanted species under another name become its names, so the page is fetched first: a synonym
+ * GBIF knows ("megalamphodus-eques" for Hyphessobrycon eques), another ending or a misspelling GBIF matches loosely
+ * ("epalzeorhynchos-kalopterum", "coyrdoras-paleatus"), or a Corydoras under a genus of the 2024 split. Only word pairs
+ * whose epithet matches a wanted one (ending aside) are looked up; `budget` caps lookups of names not seen before.
+ */
+export async function addSourceNames(urls: string[], wanted: Wanted, gbif: (name: string) => Promise<Taxon | null>, known: (name: string) => boolean, budget = 100): Promise<void> {
+  const byStem = new Map<string, string[]>()
+  for (const slug of wanted.keys()) { const ep = slug.split('-')[1]; if (ep) byStem.set(stem(ep), [...(byStem.get(stem(ep)) ?? []), slug]) }
+  const named = new Set([...wanted.values()].flatMap(w => w.names))
+  for (const url of urls) for (const pair of addressPairs(url)) {
+    const [genus, epithet] = pair.split('-') as [string, string]
+    if (named.has(pair) || genus.length < 3 || epithet.length < 3) continue
+    for (const slug of byStem.get(stem(epithet)) ?? []) {
+      const name = `${genus[0]!.toUpperCase()}${genus.slice(1)} ${epithet}`
+      if (!known(name) && budget-- <= 0) return
+      const t = await gbif(name).catch(() => null)
+      if (t ? slugify(t.canonicalName) !== slug : !NEWER_GENERA[slug.split('-')[0]!]?.includes(genus)) continue
+      wanted.get(slug)!.names.push(pair)
+      named.add(pair)
+      break
+    }
+  }
+}
+
+/** Names under the name GBIF accepts for them, as pages are kept (Chindongo demasoni is pseudotropheus-demasoni); a name GBIF can't place as a species stays as it is. */
+export async function acceptedNames(names: string[], gbif: (name: string) => Promise<Taxon | null>): Promise<string[]> {
+  const out: string[] = []
+  for (const n of names) { const t = await gbif(n).catch(() => null); out.push(t && t.canonicalName.split(' ').length === 2 ? t.canonicalName : n) }
+  return [...new Set(out)]
 }
 
 
