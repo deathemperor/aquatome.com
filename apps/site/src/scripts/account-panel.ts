@@ -31,6 +31,8 @@ function script(src: string): Promise<void> {
 }
 const APPLE_LOCALE: Record<string, string> = { vi: 'vi_VN', id: 'id_ID', th: 'th_TH' }
 const KIND: Record<string, string> = { google: 'Google', apple: 'Apple', email: 'email', passkey: 'passkey' }
+/** The AquaTome app's web view (apps/ios PageView's user agent). */
+const IN_APP = /\bAquaTomeApp\//
 
 // The passkey helper loads when a passkey button shows, so a press reaches the browser's prompt straight away.
 let webauthnModule: Promise<typeof import('@simplewebauthn/browser')> | undefined
@@ -386,6 +388,10 @@ export function initAccount(o: { onStore: () => void }) {
     timer = setTimeout(() => void sync(), 1500)
   }
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') void sync() })
+
+  // Inside the app, the app signs in and syncs, and its bridge carries this page's tanks into it: no second sign-in
+  // here, no session asked, no sign-in scripts (Google refuses embedded web views anyway).
+  if (IN_APP.test(navigator.userAgent)) return { changed }
 
   void (async () => {
     const s = await getSession()
