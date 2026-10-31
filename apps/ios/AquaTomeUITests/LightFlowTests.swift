@@ -88,8 +88,9 @@ final class LightFlowTests: XCTestCase {
 
   private func launch(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"] + args
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + args
     app.launch()
+    app.tabBars.buttons["Đèn"].tap()
     return app
   }
 

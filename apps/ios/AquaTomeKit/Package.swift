@@ -9,6 +9,7 @@ let package = Package(
     .library(name: "Chihiros", targets: ["Chihiros"]),
     .library(name: "ChihirosBLE", targets: ["ChihirosBLE"]),
     .library(name: "Tanks", targets: ["Tanks"]),
+    .library(name: "Handbook", targets: ["Handbook"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -21,5 +22,8 @@ let package = Package(
     // "Bể của tôi": tanks and devices, the site's model and merge rules (docs/my-tanks-sync.md). Pure.
     .target(name: "Tanks"),
     .testTarget(name: "TanksTests", dependencies: ["Tanks"]),
+    // The handbook: the site's page index for the app (/app/<lang>.json) and searching it. Pure.
+    .target(name: "Handbook"),
+    .testTarget(name: "HandbookTests", dependencies: ["Handbook"]),
   ]
 )

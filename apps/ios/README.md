@@ -2,6 +2,9 @@
 
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
+Two tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
+the phone for reading offline, without ads); **Đèn** controls the lights. The handbook's Chihiros tool opens the Đèn tab.
+
 ## The app
 
 ```text
@@ -51,6 +54,7 @@ changes the project, `Config/` or the workflow signs and exports without uploadi
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order |
 
 ```sh
 cd apps/ios/AquaTomeKit
