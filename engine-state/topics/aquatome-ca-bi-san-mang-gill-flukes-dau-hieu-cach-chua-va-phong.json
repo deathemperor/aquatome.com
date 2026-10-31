@@ -1,0 +1,431 @@
+{
+  "found": true,
+  "species": [
+    "Dactylogyrus anchoratus",
+    "Cyprinus carpio",
+    "Carassius auratus",
+    "Melanotaenia pygmaea",
+    "Helostoma temminckii",
+    "Centrocestus formosanus",
+    "Melanoides tuberculata"
+  ],
+  "sources": [
+    {
+      "url": "https://thefishsite.com/articles/monogenean-parasites-of-fish",
+      "title": "Monogenean Parasites of Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=30972",
+      "title": "Gill Fluke Treatment Guide: Dactylogyrus in Freshwater Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://vetmed.agriculturejournals.cz/artkey/vet-202212-0003_efficacy-of-a-therapeutic-bath-with-selected-antiparasitic-drugs-on-a-dactylogyrus-anchoratus-infection-in-juve.php",
+      "title": "Efficacy of a therapeutic bath with selected antiparasitic drugs on a Dactylogyrus anchoratus infection in juvenile common carp (Cyprinus carpio)",
+      "kind": "paper"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/disease_prevention_and_control/gill_and_body_flukes.html",
+      "title": "Gill & Body Flukes",
+      "kind": "article"
+    },
+    {
+      "url": "https://visinhcakoi.com/cach-tri-benh-kenh-mang-san-la-tren-ca-koi/",
+      "title": "CÁCH TRỊ BỆNH KÊNH MANG (SÁN LÁ) TRÊN CÁ KOI.",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Gill flukes are monogeneans, small flatworms that live mostly outside the fish, on the skin, fins and gills.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Monogeneans have a direct life cycle: they pass straight from fish to fish with no intermediate host.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dactylogyrids lay eggs and live mainly on the gills. They mostly infest freshwater cyprinids such as danios, barbs, goldfish and koi.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Gyrodactylids are mostly live-bearing, live mainly on the body and fins (sometimes the gills), and multiply fast in closed systems.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dactylogyrids have two pairs of eye spots; gyrodactylids have none.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Adult flukes are typically about 600 µm long and flat and oval in shape.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "In the wild these parasites seldom cause harm. In captivity, crowding can let parasite loads grow until fish sicken and die in large numbers.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Heavy gill infestations cause breathing problems; affected fish tolerate low oxygen poorly.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Heavy infestations can kill fish through secondary infections or loss of osmotic regulation.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "At about 22–25°C, monogeneans can develop from egg to adult in only a few days. Near 1–2°C this can take five or six months.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Fast or laboured breathing, even when the water has enough oxygen.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Gill covers held flared open, or clamped shut.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Flashing (rubbing against the tank bottom, sides or decor).",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Lethargy, swimming near the surface or crowding at filter outlets, and loss of appetite.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Severe cases: swollen, pale gills, faster breathing and gulping at the surface (piping).",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Tiny dark spots may be visible on the gill filaments.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Skin flukes can cause scale loss and pinkish fluid at the attachment sites.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Clamped fins and skin discoloration where the parasites feed.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Confirming flukes needs a gill, fin or skin-mucus sample examined under a light microscope, from a live or freshly dead fish. The parasites decline quickly after the fish dies.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Work out which family is present, because treatment differs: egg-layers need longer treatment to kill the young as they hatch.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Look-alikes: bacterial gill disease and poor water quality. Test ammonia, nitrite and pH first.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Look-alike: gill irritation from chloramine in tap water that was not fully dechlorinated. Rule this out first.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Look-alike in koi: gill-cover flaring ('kênh mang') can be caused by cysts of larvae of the digenean fluke Centrocestus formosanus (spelled 'fomorsanus' on the page) deep in the gill filaments, not by monogeneans.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Flukes are often brought in on new fish that look healthy; carriers can infect fish that have never been exposed.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Stressors such as crowding, poor water quality, poor nutrition and aggression raise risk. The stress hormone cortisol has been shown to increase monogenean reproduction.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Eggs and larvae can survive off the fish in the tank.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Centrocestus larvae (the look-alike) reach fish via the snail Melanoides tuberculata. The adult worms live in birds and mammals, including humans.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Weak or heavily parasitised fish may not survive treatment.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Warm water holds less oxygen, so add aeration or surface agitation during treatment.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove fish from the treatment at once if they react badly.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Praziquantel is the treatment of choice for monogeneans. In the US it is not FDA-approved for fish, so a vet must prescribe it for this use.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Praziquantel bath: 2.5 mg/L for 24 hours, then a 50% water change. Repeat on day 7 and day 14 because it does not kill eggs.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Praziquantel in water at 2–3 mg/L: above 25°C treat every 3–4 days for 20 days in total; at 20–25°C every 4–5 days for 25 days in total.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "To clear dactylogyrids from a closed system: three cycles of 5–6 days at 2.5 mg/L/day, with 1–4 medication-free weeks between cycles.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Praziquantel can also be given as a 10 mg/L bath for 3 hours, or at 35–125 mg/kg in food for up to 3 days.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Change 50–75% of the water between praziquantel treatments.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Long-term praziquantel: start at 2.5 mg/L and repeat every other day. Some species tolerated cumulative doses up to 10 mg/L.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Dissolve praziquantel powder in a small amount of alcohol, mix it into tank water in a bucket, then add it to the tank. Poorly dissolved powder can badly damage gills.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "At therapeutic doses, praziquantel is described as safe for nearly all freshwater species, including shrimp, snails and live plants, and it does not harm the biological filter.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Kissing gouramis have reportedly reacted badly to Prazifish (a praziquantel product).",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Formalin: 30 mg/L with vigorous aeration, re-treating after about 30 days if needed. Formalin uses up oxygen and sick fish tolerate it poorly.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Formalin 0.15–0.25 ml/L for 30–60 minutes, only in a well-aerated hospital tank. Never use it in display tanks with plants or invertebrates.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "In juvenile common carp with Dactylogyrus anchoratus, a formaldehyde bath of 0.17 ml/l for 15 min and fenbendazole at 25 mg/l (2 × 12 h with a 24 h break) each cut infection by more than 90%.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "The study's authors suggest registered fenbendazole products could replace unregistered formaldehyde for monogenean infections.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Also tested in that study: ivermectin 0.031 mg/l for 1 h, mebendazole 1 mg/l for 12 h, and levamisole 50 mg/l for 2 h or 3 × 1 h.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Levamisole at 2 mg/L is a second-line option with moderate effect.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Hydrogen peroxide 300–560 mg/L for 10 minutes. Use with extreme caution, as some fish cannot tolerate it.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Potassium permanganate: 2 mg/L as a long bath. Preferred when columnaris or water mould is also present.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt dip: 30–35 g/L for 3–5 minutes. For non-acute cases, a low-salt bath of 5 g/L for 90 minutes.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seawater dip for freshwater fish: at least 10 minutes (15 for some monogeneans). Remove the fish if it rolls over.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt at 25 g/L for 15 minutes removed 100% of Gyrodactylus turnbulli but only 72% of G. bullatarudis, so salt results are unreliable.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt at 3–5 g/L gives mild relief but does not reliably kill adult flukes.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Organophosphates (trichlorfon, dichlorvos) were historically used at about 0.25 mg/L active ingredient. They are dangerous to fish and humans and banned for this use in many countries.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Trichlorfon at 0.5–2 ppm has been linked to spinal deformities in Melanotaenia pygmaea. Low oxygen makes organophosphates more toxic.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Dactycid can harm snails.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Some flukes have shown resistance to formaldehyde.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Before draining water from ornamental tanks treated with praziquantel, pass it through activated carbon.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Look-alike (Centrocestus): a koi seller reports that formalin, copper sulfate, salt, potassium permanganate and malachite green did not kill the larvae in the gills.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Look-alike (Centrocestus): the same seller gives praziquantel mixed into feed at 50–75 mg/kg of feed for 3–5 days, feeding 10–15% of body weight, and says this was tested at Vietnam National University of Agriculture.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Praziquantel smells strong: at high doses in feed, fish may refuse to eat, which reduces the effect. A binder helps keep the drug on the food.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Re-examine the fish under the microscope after treatment. The source's interval is garbled; it is likely 1–2 weeks.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish for at least four weeks in a simple setup, with gill, fin and skin samples checked under a microscope.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Dip new fish before adding them to an established tank. Consider a preventive broad-spectrum parasite treatment during quarantine.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Fluke eggs are sticky and resist salinity changes, so a dip alone may not clear them.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep nutrition good and water quality stable to reduce stress.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Treat the tank as well as the fish, and repeat doses, because eggs and larvae survive off the host and eggs resist some treatments.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Flukes are very hard to eradicate otherwise, so empty, dry and disinfect tanks before restocking.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skipping the follow-up praziquantel doses lets eggs hatch and restart the infection.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using a conditioner that removes chlorine but not chloramine.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding during treatment raises ammonia.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding new fish without quarantine.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating ponds with formalin at dusk; it uses up oxygen.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Reinfestation can occur 5–30 days after organophosphate treatment, so up to three treatments about 21 days apart may be needed.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese koi keepers call gill-cover flaring 'kênh mang' and may call the disease 'sán lá'. One cause discussed there is Centrocestus larvae, not monogeneans.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese koi seller names densely stocked ponds and changing weather as high-risk conditions for heavy gill infections.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Rooms without air conditioning in tropical Singapore run 28–31°C; warm water holds less oxygen, so aerate well during treatment.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Salt is not a reliable way to kill adult flukes (Gensou).",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Salt results are unreliable: in one study, raising salinity from 0 to 3 g/L increased gyrodactylid numbers (UF/IFAS article).",
+      "source": 0
+    }
+  ]
+}

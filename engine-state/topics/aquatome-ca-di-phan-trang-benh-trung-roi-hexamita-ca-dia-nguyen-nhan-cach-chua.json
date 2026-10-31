@@ -1,0 +1,378 @@
+{
+  "found": true,
+  "species": [
+    "Symphysodon spp.",
+    "Pterophyllum scalare",
+    "Astronotus ocellatus",
+    "Spironucleus vortens"
+  ],
+  "sources": [
+    {
+      "url": "https://www.vin.com/doc/?id=3980269",
+      "title": "Pathology and Clinical Management of Diplomonad Flagellate Infections of Angel Fish",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/protistan-parasites-of-fish",
+      "title": "Table: Protistan Parasites of Fish-Merck Veterinary Manual",
+      "kind": "vet"
+    },
+    {
+      "url": "https://gensou.sg/aquarium-hexamita-treatment-guide/",
+      "title": "Hexamita in Aquarium Fish: Diagnosis and Treatment",
+      "kind": "article"
+    },
+    {
+      "url": "https://wattleydiscus.com/metro-discus-medication-metronidazole/",
+      "title": "Metro Discus Medication (metronidazole)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://mayaqua.vn/benh-duong-ruot-o-ca-dia-cach-chua-va-phong-benh-nhu-the-nao/",
+      "title": "Bệnh đường ruột ở Cá Đĩa- Cách chữa và Phòng bệnh như thế nào?",
+      "kind": "article"
+    },
+    {
+      "url": "https://cadiadaiphat.com/ca-dia-bi-phan-trang-nguyen-nhan-va-cach-khac-phuc/",
+      "title": "Cá dĩa bị phân trắng – Nguyên nhân và cách khắc phục",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ca-di-phan-trang.157985/",
+      "title": "Cá đi phân trắng",
+      "kind": "forum"
+    },
+    {
+      "url": "https://capitalcichlids.org/forums/threads/treating-hexamita-in-angelfish.11424",
+      "title": "treating hexamita in angelfish",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "The flagellates once called Hexamita sp. in angelfish are diplomonads.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Diplomonads were found in about 50% of angelfish examined at the University of Florida fish disease laboratory.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Their clinical importance is debated because they are often found in fish that look healthy.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Spironucleus is an internal flagellate that lives in the lower intestine.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Spironucleus affects all cichlids, bettas, gouramis and many other aquarium fish.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Hexamita is a flagellated protozoan of the intestinal tract. Discus, oscars and angelfish are especially vulnerable to it.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Many fish carry low numbers of Hexamita without showing signs.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Spironucleus signs include weight loss (anorexia) and deaths of fry and juveniles.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Diagnosis is made with a wet mount.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Infection is graded by counting organisms per low-power field in an intestinal exam: slight 1-5, moderate 5-15, marked 15-30, extreme 30-100.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Angelfish with heavy lab infections often showed no other abnormalities.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs include appetite loss with white, mucus-trailing feces, darkened colour, hiding and hovering near the surface.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Small pits can form around the sensory pores of the head and grow into craters if not treated.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Treat at once if a fish refuses food for more than three days while passing stringy feces.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Early signs in discus are going off food, white stringy mucous feces and rapid weight loss.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Later signs are a swollen belly, dull skin, lethargy and hiding in corners.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Severe cases lie near the bottom, with a swollen red anus and possible belly ulcers.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "White stool in discus can also come from stress, diet (spinach, Spirulina, peas, Epsom salt, unsoaked dry food), worms or internal bacterial infection, not only Hexamita.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "A keeper described a sick fish as dark and lethargic with cotton-like white stringy feces and a sunken head and belly.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "After shipping, diplomonad counts in angelfish rose sharply within 24 hours, to more than 500 organisms per low-power field.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Infections not controlled before shipping may cause deaths within one week.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overcrowding, poor water quality or a poor diet can make Hexamita multiply quickly.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Vitamin C and D deficiency has been linked to Hexamita susceptibility in cichlids.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Causes of gut disease in discus include spoiled food, overfeeding, high NH3/NO2, Hexamita/Spironucleus, and stress from sudden temperature changes or overcrowding.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Hexamita is called the most notorious cause of white stool in discus. Parasites can enter with new plants, fish or objects.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "A beef-heart-only diet, too much fiber or fat, and sudden diet changes can cause digestive upset in discus.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Isolate the sick fish in a separate tank kept at 28-30°C with strong aeration.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Treat in a bare-bottom quarantine tank of at least 40 litres instead of the display tank.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Medicate every fish in the tank, because infected fish can reinfect the others.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole is listed as the treatment for Spironucleus, for non-food fish only.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Before shipping, angelfish were treated with metronidazole in feed at 50 mg/kg for 5 days.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Another group was treated with a metronidazole bath at 5 mg/L for 3 hours daily for 5 days.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Treated fish had 0-1 organisms per field after shipping, against more than 500 in controls, and none of the treated fish died.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole bath: 250 mg per 40 litres every 48 hours for three treatments, with a 25% water change before each dose.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Medicated food: soak food in 500 mg metronidazole dissolved in 30 ml of tank water and feed only this for 7–10 days. Food is preferred while fish still eat.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Remove activated carbon during treatment because it adsorbs the drug.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole is toxic to shrimp and snails.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Tank dose: 1 gram metronidazole per 20 gallons, given for 10 days straight.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For fish not eating, raise the tank to 86 to 88 (Fahrenheit implied) during treatment.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole stays active in water for about eight hours, so a water change can follow eight hours after dosing.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Medicated food made in advance loses effect. Feed it right away and coat lightly, because too much makes the food bitter and fish refuse it.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole is said not to harm the biological filter, and UV is reported safe to keep running.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Vietnamese method: 1 tablet of Metronidazol per 20 litres as a 2-day soak, then siphon about half the water, refill and redose for the new water, at 32–33°C.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Alternative: an oral digestive enzyme product (e.g. BIO FISH) per label, with the temperature raised to 32–33°C.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not feed during treatment and resume about 3 days after it ends. Mosquito larvae are suggested as easy-to-digest food.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "A forum keeper gives metronidazole at 500 mg per 40 litres, dissolved in warm water, in a hospital tank with strong aeration.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "A keeper suggests a bath of about 5 mg/L every other day for three treatments, or food at about 50 mg/kg body weight (10 mg per gram food) for five days, citing UF/IFAS.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "A keeper reports raising the temperature to 96°F for five days worked with discus. They said it was untested in angelfish.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Test ammonia, nitrite, nitrate, pH and oxygen first and fix water quality with regular water changes.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Preventive metronidazole before shipping may reduce sickness after shipping.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep ammonia and nitrite at zero and nitrate below 20 ppm, avoid overstocking, and feed varied quality food instead of mostly dry flake.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish for at least two weeks. Discus keepers often give a preventive medicated food course during quarantine.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Medicated food for two or three feedings every three months is suggested as prevention.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 20–30% of the water weekly, keep pH 6.5–7.0, and remove uneaten food after each feeding.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine new fish for 2 weeks and use probiotics or digestive supplements.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid high-risk live feeder fish, or rinse or quarantine them before feeding.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not combine several medicines without instructions or raise the dose on your own.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dosing one tablet a day in a bucket is criticised. The dose should follow water volume and the drug's directions.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overdosing metronidazole is warned against because it can kill fish.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating in the display tank can upset the biological filter.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam the disease is often called 'phân trắng' or 'bệnh đường ruột' in discus (cá đĩa/cá dĩa), and metronidazol tablets are the common treatment.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers recommend raising the temperature to 32–33°C during treatment.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese forum keepers disagree on feeding during illness: one says fast the fish, another says feed bloodworms (trùn huyết).",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "A Vietnamese forum keeper says raising the temperature generally does not help this disease, against common advice.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "A moderator says metronidazole alone may not stick well and mixed it into food, or used a product like API General Cure.",
+      "source": 7
+    }
+  ]
+}
