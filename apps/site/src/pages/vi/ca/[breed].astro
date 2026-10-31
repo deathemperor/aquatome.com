@@ -61,7 +61,7 @@ const alternates = await alternatesOf('breeds', b.id)
     {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} /> : <div />}
     <div>
       <p class="where">{t(BREED_KIND[b.kind])}{parent && b.kind === 'variety' && <>{t(', dòng của')} <a href={parent.href}>{parent.name}</a></>}</p>
-      <h1 data-pagefind-weight="10" data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(b.t)}>{b.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(b.t)}>{b.t.name}</h1>
       <RedirectNote from={b.t.redirectFrom} />
       {b.parents.length > 0 && (
         <p class="parents">{t('Lai từ:')} {b.parents.map((p, i) => {

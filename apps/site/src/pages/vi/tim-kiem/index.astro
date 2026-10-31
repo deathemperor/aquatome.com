@@ -42,9 +42,10 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
     const load = () => (pagefind ??= (async () => {
       const src = '/pagefind/pagefind.js'
       const pf = (await import(/* @vite-ignore */ src)) as Pagefind
-      // A page's other names (aka, on species, breed and plant pages) count as much as its title; its description,
-      // which carries the scientific name, twice as much as body text.
-      await pf.options({ excerptLength: 24, ranking: { metaWeights: { title: 5, aka: 5, description: 2 } } })
+      // A page's other names and scientific name (aka, on species, breed and plant pages) count as much as its title.
+      // Its description is only shown, never ranked: every species description ends in the same sentence
+      // ("Cách nuôi, thức ăn…"), which would lift every species for "thức ăn".
+      await pf.options({ excerptLength: 24, ranking: { metaWeights: { title: 5, aka: 5, description: 0 } } })
       return pf
     })())
 
