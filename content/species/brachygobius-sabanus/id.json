@@ -1,11 +1,11 @@
 {
   "slug": "brachygobius-sabanus",
-  "name": "Bumblebee Goby",
+  "name": "Sabanus Bumblebee Goby",
   "altNames": [
     "Goby Lebah",
     "Ikan Lebah",
-    "Sabanus Bumblebee Goby",
-    "Golden-banded Goby"
+    "Golden-banded Goby",
+    "Bumblebee Goby"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Bumblebee goby Sabanus, Brachygobius sabanus, adalah goby kecil yang dideskripsikan dari distrik Kinabatangan, Sabah, Kalimantan bagian timur laut. Spesies ini termasuk anggota genusnya yang paling sering diperdagangkan dan mudah tertukar dengan B. doriae. Bedanya, satu atau dua jari-jari terakhir sirip punggung pertamanya tidak berwarna, dan bagian hitam pada sirip dadanya kurang dari separuh. Sebaran lengkapnya belum jelas, dan populasi di Singapura diduga bukan populasi alami. Ikan ini hidup di habitat dataran rendah pesisir, baik air tawar maupun air payau.</p><ul><li>Ukuran maksimal: 27 mm SL</li><li>Ukuran akuarium: 45 × 30 cm</li><li>Suhu: 22–28 °C</li><li>pH: 7,0–8,5</li><li>Kesadahan: 8–20 dGH</li><li>Tingkat kesulitan: 6 dari 8, sedang</li></ul>",
@@ -27,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.75
     }
-  }
+  },
+  "nameFixed": true
 }

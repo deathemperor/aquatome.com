@@ -1,10 +1,11 @@
 {
   "slug": "ca-dao-ma-nau-apteronotus",
-  "name": "Cá dao ma nâu",
+  "name": "Cá dao ma macrostomus",
   "altNames": [
     "Cá dao nâu",
     "Brown Ghost",
-    "Brown Ghost Knifefish"
+    "Brown Ghost Knifefish",
+    "Cá dao ma nâu"
   ],
   "sections": {
     "quickFacts:glaser": "<p>“Brown Ghost” là một trong những loài cá dao được nuôi nhiều nhất. Cá không nhỏ nhưng cũng không quá to. Chiều dài tối đa bạn có thể gặp là khoảng 20 cm, chưa bằng một nửa người anh em họ màu đen của nó (A. albifrons).</p>",
@@ -19,5 +20,6 @@
     "bySource": {
       "glaser": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

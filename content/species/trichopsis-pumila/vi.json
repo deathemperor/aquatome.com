@@ -1,6 +1,6 @@
 {
   "slug": "ca-sac-lun-trichopsis",
-  "name": "Cá sặc lùn",
+  "name": "Cá thanh ngọc lùn",
   "altNames": [
     "Cá sặc lấp lánh",
     "Cá sặc kêu lùn",
@@ -8,7 +8,8 @@
     "Pygmy gourami",
     "Dwarf croaking gourami",
     "Cá sặc ánh kim nhỏ",
-    "Sparkling Gourami"
+    "Sparkling Gourami",
+    "Cá sặc lùn"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá sặc lùn (sparkling gourami, Trichopsis pumila) là một loài cá mê cung nhỏ, sống ở hạ lưu sông Mekong và vùng trung, nam Thái Lan. Tên tiếng Anh khác của nó là pygmy gourami. Thân cá có một sọc sẫm liền mạch chạy dọc giữa thân, phía trên là một hàng đốm sẫm. Nhờ đặc điểm này cộng với kích thước nhỏ, bạn có thể phân biệt nó với T. schalleri. Cả cá đực lẫn cá cái đều phát ra được tiếng 'ộp ộp' mà tai người nghe thấy, nhờ một cơ chế đặc biệt ở vây ngực. Phần lớn cá bán trên thị trường là cá nhân giống thương mại.</p>",
@@ -36,5 +37,6 @@
       "seriouslyfish": 0.62,
       "glaser": 0.8
     }
-  }
+  },
+  "nameFixed": true
 }

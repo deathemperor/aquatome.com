@@ -1,11 +1,12 @@
 {
   "slug": "brachygobius-xanthozonus",
-  "name": "Bumblebee goby",
+  "name": "Bumblebee goby xanthozonus",
   "altNames": [
     "Ikan bumblebee",
     "Goby bumblebee",
     "Bumblebee fish",
-    "Ikan lebah"
+    "Ikan lebah",
+    "Bumblebee goby"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Brachygobius xanthozona adalah salah satu bumblebee goby yang dideskripsikan dari Surabaya, Jawa Timur, Indonesia, dan mungkin endemik di pulau tersebut. Selama puluhan tahun namanya banyak dipakai secara keliru dalam literatur akuarium, dan ikan yang dijual dengan nama ini selalu ternyata B. doriae atau B. sabanus. Dengan sekitar 50 sisik lateral, sementara kerabat satu genusnya memiliki kurang dari 30, bentuk tubuhnya relatif lebih memanjang. Ikan ini memiliki empat pita gelap di tubuh dan sirip anal yang seluruhnya hitam.</p><p>Ukuran maksimum: 38 mm SL.</p>",
@@ -20,5 +21,6 @@
     "bySource": {
       "seriouslyfish": 0.88
     }
-  }
+  },
+  "nameFixed": true
 }

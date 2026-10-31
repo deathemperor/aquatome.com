@@ -1,12 +1,12 @@
 {
   "slug": "anubias-nana-anubias",
-  "name": "Anubias nana",
+  "name": "Anubias nana Large",
   "altNames": [
     "Ráy nana",
     "Anubias lùn",
     "Dwarf Anubias",
     "Anubias barteri var. nana 'Large'",
-    "Anubias nana Large"
+    "Anubias nana"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li>Dạng cây: Thân rễ</li><li>Nguồn gốc: Châu Phi</li><li>Tốc độ lên: Chậm</li><li>Chiều cao: 5 - 15+ cm</li><li>Nhu cầu ánh sáng: Thấp</li><li>CO2: Thấp</li></ul>",
@@ -19,5 +19,6 @@
     "bySource": {
       "tropica": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

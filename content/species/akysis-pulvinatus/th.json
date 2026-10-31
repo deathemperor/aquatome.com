@@ -1,11 +1,11 @@
 {
   "slug": "akysis-pulvinatus",
-  "name": "ปลาแขยงหิน",
+  "name": "ปลาแขยงหินคอคอดกระ",
   "altNames": [
-    "ปลาแขยงหินคอคอดกระ",
     "Kra stream catfish",
     "Asian stream catfish",
-    "Akysis"
+    "Akysis",
+    "ปลาแขยงหิน"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li><strong>ขนาดโตเต็มที่:</strong> 3 ซม. SL (30 มม.)</li><li><strong>ขนาดตู้ปลา:</strong> 45 × 30 ซม.</li><li><strong>อุณหภูมิ:</strong> 16.5–23.5 °C</li><li><strong>ค่า pH:</strong> 6.0–7.2</li><li><strong>ความกระด้าง (GH):</strong> 2–12 dGH</li></ul><p>Kra stream catfish หรือ Akysis pulvinatus เป็นปลาหนังขนาดเล็กในวงศ์ปลาแขยงหิน (Akysidae) จากภาคใต้ของไทย พบในลำธารฝั่งตะวันตกของคอคอดกระและลุ่มแม่น้ำตาปีตอนบน โตได้ประมาณ 3 ซม. SL และมีการส่งออกเป็นปลาสวยงามในปริมาณที่น้อยมาก มีลักษณะคล้าย A. vespa มากที่สุด แต่ต่างกันที่ฐานครีบไขมันยาวกว่า คอดหางลึกกว่า และครีบหางแฉกล่างยาวกว่าแฉกบน</p>",
@@ -27,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

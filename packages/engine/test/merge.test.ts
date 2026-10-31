@@ -1,3 +1,4 @@
+import { nameKey } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { ensurePlaces, mergePlant, mergeSpecies, writeGuide } from '../src/merge'
 import type { ProcessedPage } from '../src/process'
@@ -87,9 +88,25 @@ test('an owner-fixed name and its redirects survive every source; a name Serious
 
 test("Seriously Fish's name doesn't replace one when another fish already has it (#228)", () => {
   const a = mergeSpecies({}, page({ viName: 'Cá neon vua Super Red' }), ctx('glaser'))
-  const sf = mergeSpecies(a, page(), { ...ctx('seriouslyfish'), takenNames: new Set(['cá neon vua']) })
+  const sf = mergeSpecies(a, page(), { ...ctx('seriouslyfish'), takenNames: new Set([nameKey('cá neon vua')]) })
   expect(sf.vi.name).toBe('Cá neon vua Super Red')
   expect(sf.vi.altNames).not.toContain('Cá neon vua Super Red')
+})
+
+test("a new species doesn't start under another fish's name, even written another way: its scientific name, the source's name kept as another name", () => {
+  const r = mergeSpecies({}, page({ viName: 'Cá Neon-Vua' }), { ...ctx('glaser'), takenNames: new Set([nameKey('Cá neon vua')]) })
+  expect(r.vi.name).toBe('Cá Paracheirodon axelrodi')
+  expect(r.vi.slug).toBe('ca-paracheirodon-axelrodi')
+  expect(r.vi.altNames).toContain('Cá Neon-Vua')
+  // A free name is taken as it is.
+  expect(mergeSpecies({}, page(), { ...ctx('glaser'), takenNames: new Set([nameKey('Cá neon xanh')]) }).vi).toMatchObject({ name: 'Cá neon vua', slug: 'ca-neon-vua' })
+})
+
+test("a new plant doesn't start under another plant's name", () => {
+  const plant = { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'] } as const
+  const p = mergePlant({}, page({ kind: 'plant', scientificName: 'Anubias barteri var. nana', viName: 'Anubias nana', plant: { ...plant, placement: ['epiphyte'] } }), { source: 'tropica', url: 'https://t/p', now: '2026-10-28', takenSlugs: new Set(), takenNames: new Set([nameKey('Anubias nana')]) })
+  expect(p?.vi.name).toBe('Anubias barteri var. nana')
+  expect(p?.vi.altNames).toContain('Anubias nana')
 })
 
 test('a source page giving one part twice (two quick-facts blocks): one section with both texts, in English and in Vietnamese', () => {

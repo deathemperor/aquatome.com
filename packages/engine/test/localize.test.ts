@@ -83,6 +83,26 @@ test('text from a source that does not allow translation is never sent or writte
   expect(e.sections.some(s => s.source === 'seriouslyfish')).toBe(true) // the fixture page does have such text
 })
 
+test("a name another page has in the language is refused (the scientific name instead); an owner-fixed name stays on a redo", async () => {
+  const root = await site()
+  const [id, other] = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort() as [string, string]
+  const sci = JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8')).scientificName as string
+  await writeFile(join(root, 'content/species', other, 'id.json'), JSON.stringify({ slug: 'discus', name: 'Discus', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'discus', altNames: ['Ikan diskus'], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: '<p>x</p>' })) } as T
+  }
+  await localizeSpecies(root, llm, 'id', [id], { now })
+  const file = join(root, 'content/species', id, 'id.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  expect(t.name).toBe(sci)
+  expect(t.altNames).toEqual(['discus', 'Ikan diskus'])
+  await writeFile(file, JSON.stringify({ ...t, name: 'Discus coklat', altNames: ['Discus'], nameFixed: true }))
+  await localizeSpecies(root, llm, 'id', [id], { now, redo: true })
+  expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Discus coklat', altNames: ['Discus', 'discus', 'Ikan diskus'], nameFixed: true })
+})
+
 test('plant pages: written beside the plant, their own state file, the hint has no family when the plant has none', async () => {
   const root = await site()
   const id = 'cryptocoryne-wendtii'

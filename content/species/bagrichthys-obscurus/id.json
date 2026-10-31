@@ -1,9 +1,10 @@
 {
   "slug": "bagrichthys-obscurus",
-  "name": "Black Lancer",
+  "name": "Black Lancer obscurus",
   "altNames": [
     "Bagrichthys obscurus",
-    "Lancer catfish"
+    "Lancer catfish",
+    "Black Lancer"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Bagrichthys obscurus Ng, 1999. Ukuran maksimum 249 mm SL (panjang standar). Lokasi tipe: Lam Chi, 1,5 km di hilir jembatan jalan raya 23, 4 km sebelah barat Selaphum, Provinsi Roi Et, Thailand.</p><p>Anggota genus Bagrichthys hidup di sungai-sungai besar berlumpur di seluruh Asia Tenggara. Ciri khasnya adalah batang ekor (pangkal ekor) yang memanjang dan pipih ke samping, gerigi yang mengarah ke atas pada tepi belakang duri sirip punggung, serta sirip lemak (adiposa) yang panjang tanpa tepi belakang yang bebas. Spesies ini memiliki bukaan mulut yang relatif kecil dan sempit, gigi mulut yang sangat tereduksi, duri sirip punggung yang relatif pendek dengan 15 gerigi atau kurang, sungut mandibula bagian dalam dan luar yang bergerigi halus (berlekuk), tubuh yang ramping, pangkal sirip lemak yang pendek, serta tubuh berwarna cokelat merata tanpa garis pucat di tengah sisi tubuh maupun bercak pucat di bagian samping.</p>",
@@ -23,5 +24,6 @@
     "bySource": {
       "planetcatfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

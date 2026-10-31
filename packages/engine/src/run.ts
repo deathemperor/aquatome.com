@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, slugify, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, nameKey, slugify, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
@@ -70,11 +70,11 @@ function store(contentRoot: string) {
       if (own) set.delete(own)
       return set
     },
-    /** Names (lower-cased) of the other items of this kind. */
+    /** Names (nameKey) of the other items of this kind. */
     takenNames: async (kind: Kind, own?: string) => {
       if (!names.has(kind)) {
         const map = new Map<string, string>()
-        for (const id of await ids(kind)) { const t = await readJson<Translation>(join(contentRoot, kind, id, 'vi.json')); if (t) map.set(id, t.name.toLowerCase()) }
+        for (const id of await ids(kind)) { const t = await readJson<Translation>(join(contentRoot, kind, id, 'vi.json')); if (t) map.set(id, nameKey(t.name)) }
         names.set(kind, map)
       }
       return new Set([...names.get(kind)!].filter(([id]) => id !== own).map(([, n]) => n))
@@ -88,7 +88,7 @@ function store(contentRoot: string) {
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
       slugs.get(kind)?.add(vi.slug)
-      names.get(kind)?.set(entity.id, vi.name.toLowerCase())
+      names.get(kind)?.set(entity.id, nameKey(vi.name))
     },
   }
 }
@@ -201,7 +201,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!taxon) return null
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
-      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: await s.takenNames('species', slugify(taxon.canonicalName)), quality: combineQuality(existing.vi?.quality, source, score) })
+      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])
@@ -215,7 +215,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!page.scientificName) return null
       const existing = await s.read<z.infer<typeof PlantSchema>>('plants', slugify(page.scientificName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`plants/${slugify(page.scientificName)}`]
-      const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), quality: combineQuality(existing.vi?.quality, source, score) })
+      const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http), [])
