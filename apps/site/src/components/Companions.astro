@@ -65,7 +65,7 @@ const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos);
   .avoid li a { border-color: color-mix(in srgb, var(--c-cardinal) 40%, var(--c-rule)); }
   .avoid li a:hover { border-color: var(--c-cardinal); }
   .how { margin: var(--space-2) 0 0; font-size: 0.85rem; color: var(--c-ink-soft); }
-  .how a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .how a { display: flex; align-items: center; width: fit-content; min-height: 2.75rem; }
   @media (max-width: 480px) {
     .row { grid-template-columns: 1fr; gap: var(--space-1); }
     h3 { line-height: 1.4; }

@@ -39,7 +39,7 @@ test('species page: the jump row takes the reader to a part and marks where they
   for (const h of await row.locator('a').evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
 
   if (info.project.name !== 'phone') return
-  await page.locator('#muc-reproduction h2').scrollIntoViewIfNeeded()
+  await page.locator('#muc-reproduction').evaluate(el => el.scrollIntoView()) // as a reader scrolls: the heading up to the top
   const last = row.locator('a', { hasText: 'Sinh sản' })
   await expect(last).toHaveAttribute('aria-current', 'true')
   await expect.poll(async () => {

@@ -81,16 +81,16 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
   .mark { display: inline-block; width: 0.45rem; height: 0.45rem; margin-left: 0.4rem; border-radius: 50%; background: var(--c-cardinal); vertical-align: 0.08em; }
   /* One toggle per card, joined to its lower edge. */
   .trust { border: 1px solid var(--c-ink); border-top: 0; background: var(--c-plate); font: 400 0.875rem/1.45 var(--f-body); }
-  .trust summary { display: flex; align-items: center; flex-wrap: wrap; gap: 0 var(--space-3); min-height: 2.75rem; padding: var(--space-2) var(--space-3); cursor: pointer; list-style: none; color: var(--c-ink-soft); transition: color 0.15s ease-out; }
+  .trust summary { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 0 var(--space-3); min-height: 2.75rem; padding: var(--space-2) 2.75rem var(--space-2) var(--space-3); cursor: pointer; list-style: none; color: var(--c-ink-soft); transition: color 0.15s ease-out; }
   .trust summary::-webkit-details-marker { display: none; }
   .trust summary:hover { color: var(--c-ink); }
   .trust .label { font-weight: 500; text-decoration: underline dotted var(--c-rule); text-underline-offset: 4px; }
   .trust .legend { font-size: 0.8125rem; color: var(--c-ink-faint); }
   .trust .legend .mark { margin: 0 0.35rem 0 0; }
-  .chev { margin-left: auto; flex: none; transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .chev { position: absolute; right: var(--space-3); top: calc(50% - 8px); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
   .trust[open] .chev { transform: rotate(180deg); }
   .by { margin: 0; padding: 0 var(--space-3) var(--space-3); }
-  .by > div { display: grid; grid-template-columns: minmax(6.5rem, 30%) 1fr; gap: var(--space-3); padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
+  .by > div { display: grid; grid-template-columns: minmax(7.5rem, 34%) 1fr; gap: var(--space-3); padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
   .by dt { font-size: 0.8125rem; color: var(--c-ink-soft); }
   .by dd { font: inherit; color: var(--c-ink); }
   .by p { margin: 0 0 2px; color: var(--c-ink-soft); }

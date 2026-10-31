@@ -80,8 +80,8 @@ const jumps = [
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
-      {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <KeyFacts card={s.dataCard} />
+      {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
     </div>
     {s.photos.length > 0 && <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>}
     <div class="facts">
@@ -122,7 +122,7 @@ const jumps = [
   .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
   .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-2); }
-  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: 0; }
+  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
   .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
