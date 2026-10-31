@@ -20,7 +20,7 @@ export function mirrorPlan(url: string): { key: string; fetch: string[] } | unde
     return m ? { key: `commons/${sha16(decodeURIComponent(m[1]!))}.webp`, fetch: [url] } : undefined
   }
   if (u.host === 'inaturalist-open-data.s3.amazonaws.com' || u.host === 'static.inaturalist.org') {
-    const m = u.pathname.match(/^\/photos\/(\d+)\/(square|small|medium|large|original)\.\w+$/)
+    const m = u.pathname.match(/^\/photos\/(\d+)\/(square|small|medium|large|original)\.\w*$/)
     return m ? { key: `inaturalist/${m[1]}.webp`, fetch: [...new Set([url.replace(/\/(square|small|medium)\./, '/large.'), url])] } : undefined
   }
   // Flickr photos (found through Openverse): one key per photo id, whatever size the URL asks for.

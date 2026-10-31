@@ -39,6 +39,8 @@ test('mirrorPlan: one key per Commons file whatever the size or query; iNaturali
   expect(mirrorPlan(C1280)!.key).toBe(mirrorPlan(C500)!.key)
   expect(mirrorPlan(C1280)!.key).toMatch(/^commons\/[0-9a-f]{16}\.webp$/)
   expect(mirrorPlan(INAT)).toEqual({ key: 'inaturalist/617421644.webp', fetch: [INAT.replace('/medium.', '/large.'), INAT] })
+  // iNaturalist's oldest photos have no extension after the dot
+  expect(mirrorPlan('https://inaturalist-open-data.s3.amazonaws.com/photos/1244973/large.')?.key).toBe('inaturalist/1244973.webp')
   expect(mirrorPlan(OURS)).toBeUndefined()
 })
 
