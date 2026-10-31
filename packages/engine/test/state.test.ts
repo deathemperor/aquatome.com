@@ -29,7 +29,7 @@ const LIMIT = "claude failed (1): You've hit your 5-hour limit · resets 12:10pm
 test('failures are told apart by their error: usage limit, transient, the page itself', () => {
   expect(errorKind(LIMIT)).toBe('usage')
   for (const e of [CRASH, 'fetch failed', 'net::ERR_CONNECTION_RESET', 'page.goto: Timeout 45000ms exceeded.', 'HTTP 503']) expect(errorKind(e)).toBe('transient')
-  for (const e of ['HTTP 404', 'claude failed (1): no JSON in the reply', 'R2 upload 403', undefined]) expect(errorKind(e)).toBe('other')
+  for (const e of ['HTTP 404', 'claude failed (1): no JSON in the reply', 'R2 upload 403', 'R2 upload: rate limit reached', undefined]) expect(errorKind(e)).toBe('other')
 })
 test('a usage limit uses no attempt; any other failure uses one', () => {
   const failed = { ...base, status: 'error' as const, attempts: 2 }

@@ -17,7 +17,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
-import { BROWSER_GONE, attemptsAfter, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
+import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
@@ -43,6 +43,8 @@ const MAX_PHOTOS = 8
 const rank = (p: Photo) => (p.source ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
+/** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
+const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 
 /** This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. */
@@ -313,6 +315,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
 
+    let networkFailures = 0
     for (const { url, lastmod } of todo) {
       if (deps.now().getTime() > until) break
       const prev = state[url]
@@ -321,6 +324,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       counts.fetched++
       try {
         const r = await get(url)
+        networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()
@@ -353,6 +357,10 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')
           break sources
+        }
+        if (!(e instanceof LlmError) && errorKind(message) === 'transient' && ++networkFailures >= MAX_NETWORK_FAILURES) {
+          report.errors.push(`${id}: stopping: ${MAX_NETWORK_FAILURES} pages in a row failed on the network (${message.slice(0, 120)})`)
+          break
         }
         if (e instanceof LlmError && ++llmFailures >= MAX_LLM_FAILURES) {
           report.errors.push(`stopping: ${MAX_LLM_FAILURES} consecutive Claude failures (${(e as Error).message.slice(0, 120)})`)

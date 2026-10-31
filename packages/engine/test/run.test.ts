@@ -270,6 +270,15 @@ test("the 2026-10-29 crash's errors run first: due at once and ahead of the back
   expect(order).toEqual(['zz-crashed', 'zz-limited'])
 })
 
+test('the network gone: the source stops after 3 pages in a row, so the rest keep their attempts', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['f1', 'f2', 'f3', 'f4', 'f5'] })
+  d.fetcher.get = async () => { throw new Error('page.goto: net::ERR_INTERNET_DISCONNECTED') }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 3, errors: 3 })
+  expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network/)
+})
+
 test('a usage limit uses none of the page\'s attempts', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['f1'], llmFails: true }).d, { sources: ['seriouslyfish'] })

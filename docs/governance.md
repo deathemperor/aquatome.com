@@ -137,7 +137,8 @@ The layers above still check the result.
   - Found by the owner: Betta macrostoma's page was one shop listing whose whole breeding section was "Mouthbrooder.",
     while Seriously Fish had a full profile the engine had failed to fetch.
 - **Retries.** A page that failed through no fault of its own (the browser closed, the network, Claude's usage limit)
-  runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts. Found with the
+  runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
+  row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed

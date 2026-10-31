@@ -21,9 +21,9 @@ const tokens = (html: string) => plainText(html).toLowerCase().split(/[\s,.;:!?(
 
 /** Quick facts already say it: most of its words are in them ("Sinh sản: ấp trứng bằng miệng" and "Cá ấp trứng bằng miệng."). */
 function said(facts: string, html: string): boolean {
-  const have = plainText(facts).toLowerCase()
+  const have = new Set(tokens(facts))
   const words = tokens(html)
-  return words.length > 0 && words.filter(w => have.includes(w)).length / words.length >= 0.75
+  return words.length > 0 && words.filter(w => have.has(w)).length / words.length >= 0.75
 }
 
 /** One more list item at the end of a block: inside its last list, else in a list of its own. */

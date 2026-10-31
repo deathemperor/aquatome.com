@@ -35,7 +35,8 @@ export async function saveState(root: string, source: SourceId, state: Record<st
 export const MAX_ATTEMPTS = 3
 export const BROWSER_GONE = /Target page, context or browser has been closed|Browser has been closed|Target closed/i
 const NETWORK = /fetch failed|net::ERR_|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|socket hang up|Timeout \d+ ?ms exceeded|Navigation timeout|\bHTTP (408|429|5\d\d)\b/i
-const USAGE = /hit your .*limit|usage limit|limit reached|rate.?limit/i
+/** Claude's usage limit: a failure of the claude CLI (claude.ts LlmError) that says so. */
+const USAGE = /^claude failed\b.*(hit your .*limit|usage limit|limit reached|rate.?limit)/i
 
 /**
  * Why a page failed, from its error: Claude's usage limit ('usage'), the browser or the network gone ('transient'),
