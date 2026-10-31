@@ -131,6 +131,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const glossary = await glossaryTerms(s)
   const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
+  const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
@@ -195,7 +196,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const now = today()
     const minWidth = sourceById(source).minPhotoWidth
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked }, existing)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)

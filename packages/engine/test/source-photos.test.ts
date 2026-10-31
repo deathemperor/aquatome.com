@@ -118,3 +118,15 @@ test('photos on pages of their own (ScotCat): each thumbnail\'s page gives the f
   const [stored] = await storeSourcePhotos('scotcat', 'ScotCat', SC, picked.slice(0, 1), { bytes: async () => new Uint8Array(1), media }, [])
   expect(stored).toMatchObject({ author: 'Helen Burns / ScotCat', sourceUrl: SC, caption: 'Hoplisoma sterbai: spawning embrace', source: 'scotcat' })
 })
+
+test('a photo taken off the site before (a watermark) is not stored again when its source page is re-read', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const picked = [{ src: 'https://x.test/logo-stamped.jpg', alt: 'a' }, { src: 'https://x.test/clean.jpg', alt: 'b' }]
+  const first = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), new Uint8Array(1)), media }, [])
+  const blocked = { [first[0]!.url]: 'watermark: Aquarium Glaser banner, top' }
+  fetched.length = 0
+  const again = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), new Uint8Array(1)), media, blocked }, [])
+  expect(again.map(p => p.url)).toEqual([first[1]!.url])
+  expect(fetched).toEqual(['https://x.test/clean.jpg'])
+})
