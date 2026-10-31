@@ -5,6 +5,10 @@ import { expect, test } from './fixtures'
 // from the test content, so they hold on aquatome.com too (production watch): each list shows 24 cards at a time.
 const PAGE = 24
 test('home tank form: sure matches first, species without the figures in a closed group, chips to drop filters', async ({ page }) => {
+  // On aquatome.com the list holds every species' card (~16,000 elements): the trace that a failure keeps copies the whole
+  // page at each of this journey's ~20 steps, about a second each on a phone, so it ran past 30 s (#236). The page itself
+  // answers each step in milliseconds (2 s for the whole journey without the trace); the steps and assertions are unchanged.
+  test.slow()
   await page.goto('/vi/')
   await page.locator('#tank button[type=submit]').click()
   await expect(page).toHaveURL(/\/vi\/ca\/\?tankCm=60&tempC=26&ph=7$/)
