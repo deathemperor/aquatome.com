@@ -45,6 +45,8 @@ that would have caught it).
 - A **failed deploy** opens a "Deploy failed" issue. Engine runs start deploys with the workflow token, so nobody would
   hear about it otherwise. The next deploy that finishes closes it.
 - The watch blocks the site's own visit beacon, so its page loads don't count as readers.
+- It runs the checks of the version that is live (the deploy's commit, else the last deploy that succeeded), not main's
+  newest: a check merged before its fix is deployed would otherwise fail on the old site (it happened once, #183).
 
 ### 3. AI page review (live)
 
@@ -64,6 +66,8 @@ that would have caught it).
 - Calibrated on the real bug: with the old `/vi/ca/?q=chach` code back, it reported "search results pushed below an
   unrelated section" as high, with the fix that shipped. On the fixed site, the 11 key pages had no high findings.
 - Its first run found 2 small problems on the Chihiros page (fixed with it) and 3 content notes.
+- In the screenshots, pictures from other websites (blocked in every check) are grey boxes, as the prompt expects; on a
+  PR, the prompt also says the test build has little content.
 
 ### 4. Fix loop (live)
 
@@ -83,6 +87,8 @@ that would have caught it).
      - verified: a **draft PR** that fixes the issue, with CI started on it
      - otherwise: a comment on the issue saying why, plus the `needs-person` label
      - it refuses patches to `.github/` or to the fix and watch scripts
+     - it needs the repository setting "Allow GitHub Actions to create and approve pull requests" (on since
+       2026-10-31); if opening the PR fails anyway, the issue gets a link to the pushed branch
 - Remaining risk: the agent job holds the Claude token and can run commands. Its input is the bot's own issues, or
   issues a collaborator labelled `autofix`.
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch

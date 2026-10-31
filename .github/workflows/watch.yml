@@ -34,7 +34,14 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
     steps:
+      # Check what is live with the checks of that version: the commit the deploy just shipped, else the last deploy
+      # that succeeded. Main's newest checks against an older site fail on what isn't deployed yet.
+      - id: live
+        if: github.event_name != 'workflow_run'
+        run: echo "sha=$(gh run list -R "$GITHUB_REPOSITORY" --workflow deploy --status success --limit 1 --json headSha --jq '.[0].headSha')" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || steps.live.outputs.sha || github.sha }}
       - uses: ./.github/actions/setup
       - if: github.event_name == 'workflow_run'
         run: node scripts/site-watch.mjs deploy-ok "$DEPLOY_RUN"
