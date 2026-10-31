@@ -264,7 +264,8 @@ const index: MateItem[] = c.species.map(s => {
   render()
 </script>
 <style>
-  .tm { max-width: 52rem; }
+  /* A screen tall: the footer starts below the fold, so the result appearing (or a web font arriving) moves nothing in view. */
+  .tm { max-width: 52rem; min-height: 100dvh; }
   .pick { margin: 0 0 var(--space-4); }
   .pick > label { display: block; font-size: 0.85rem; color: var(--c-ink-soft); margin-bottom: var(--space-1); }
   .field { display: flex; gap: var(--space-2); align-items: stretch; }
