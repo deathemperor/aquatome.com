@@ -82,8 +82,10 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
 })
 
 test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {
-  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-galaxy#nuoi-chung')
-  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-galaxy:\d+$/)
+  // Species in the test content and on aquatome.com alike (the watch runs this live): the test content's ca-galaxy is
+  // ca-thien-ha there, and the checker rightly drops a slug it doesn't know.
+  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-dia#nuoi-chung')
+  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-dia:\d+$/)
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   await expect(page.locator('#tm-chosen input').first()).toHaveValue('10')
 })
