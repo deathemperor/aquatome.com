@@ -1,0 +1,30 @@
+{
+  "id": "alternanthera-reineckii-mini",
+  "scientificName": "Alternanthera reineckii 'Mini'",
+  "difficulty": 2,
+  "light": "medium",
+  "co2": "optional",
+  "growth": "medium",
+  "placement": [
+    "foreground",
+    "midground"
+  ],
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://example.invalid/tropica/alternanthera-reineckii-mini",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>"
+    }
+  ],
+  "photos": [],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "Alternanthera reineckii mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-28"
+}

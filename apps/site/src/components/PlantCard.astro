@@ -3,14 +3,17 @@ import type { Localized, PlantEntity } from '@aq/schema'
 import { PLANT_LABELS } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
-interface Props { p: Localized<PlantEntity> }
-const { p } = Astro.props
+/** `eager`: the image loads at once (the list's first row). */
+interface Props { p: Localized<PlantEntity>; eager?: boolean }
+const { p, eager = false } = Astro.props
 const ph = p.photos[0]
 const { t } = i18n(Astro.url)
 ---
-<article class="pc">
+<article class="pc" data-slug={p.t.slug}>
   <a href={`/vi/cay/${p.t.slug}/`}>
-    <div class="plate">{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}</div>
+    <div class="plate">{ph
+      ? <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading={eager ? 'eager' : 'lazy'} />
+      : <span class="ph">{t('Chưa có ảnh')}</span>}</div>
     <h3>{p.t.name}</h3>
     <p class="sci">{p.scientificName}</p>
   </a>
@@ -20,6 +23,10 @@ const { t } = i18n(Astro.url)
   .pc a { text-decoration: none; color: inherit; display: block; }
   .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+  /* No photo yet: a leaf on the plate colour, the photos' shape, so the card doesn't read as a broken image. */
+  .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); aspect-ratio: 4 / 3; width: 100%; background: var(--c-plate); color: var(--c-ink-faint); font-size: 0.8rem; }
+  /* The leaf is a mask, not an inline SVG: no page elements added for each of the plants without a photo. */
+  .ph::before { content: ''; width: 30%; aspect-ratio: 6 / 5; background: currentColor; opacity: 0.6; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 40' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 33C8 17 20 6 40 5c1 19-9 29-25 29-2 0-4-.4-6-1Z'/%3E%3Cpath d='M9 33 29 15'/%3E%3C/svg%3E") center / contain no-repeat; }
   h3 { font-size: var(--step-1); margin-top: var(--space-3); }
   .pc a:hover h3 { color: var(--c-moss); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }

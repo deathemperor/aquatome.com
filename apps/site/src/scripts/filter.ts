@@ -46,3 +46,45 @@ export function queryFromParams(p: URLSearchParams): SpeciesQuery {
   const n = (k: string) => { const v = p.get(k); return v === null || v === '' || Number.isNaN(Number(v)) ? undefined : Number(v) }
   return { difficultyMax: n('difficultyMax'), tempC: n('tempC'), ph: n('ph'), tankCm: n('tankCm'), group: p.get('group') || undefined, text: p.get('q') || undefined }
 }
+
+const LIGHT = ['low', 'medium', 'high'] as const
+const PLACEMENT = ['foreground', 'midground', 'background', 'epiphyte', 'floating'] as const
+/** A plant list card's figures; one the content has no value for is left out (a plant with no position: no `placement`). */
+export type PlantIndexItem = {
+  slug: string; light?: (typeof LIGHT)[number]; co2?: 'none' | 'optional' | 'required'; difficulty?: number; placement?: string[]
+}
+/**
+ * The reader's tank, as the plant list's filters set it: its light (plants needing as much or less fit), no CO₂ (plants
+ * that grow without it) or the plants that need CO₂, a position in the tank, and the hardest plant they will take on.
+ */
+export type PlantQuery = { light?: (typeof LIGHT)[number]; co2?: 'none' | 'required'; placement?: string; difficultyMax?: number }
+
+/** As for species: true when the plant fits, false when it doesn't, undefined when it has no figure for it. */
+function plantChecks(i: PlantIndexItem, q: PlantQuery): (boolean | undefined)[] {
+  const has = <T>(v: T | undefined, ok: (v: T) => boolean) => (v === undefined ? undefined : ok(v))
+  return [
+    q.light === undefined ? true : has(i.light, l => LIGHT.indexOf(l) <= LIGHT.indexOf(q.light!)),
+    q.co2 === undefined ? true : has(i.co2, c => (q.co2 === 'none' ? c !== 'required' : c === 'required')),
+    q.placement === undefined ? true : has(i.placement, p => p.includes(q.placement!)),
+    q.difficultyMax === undefined ? true : has(i.difficulty, d => d <= q.difficultyMax!),
+  ]
+}
+
+/** Plants whose figures are all known and all fit the query. */
+export function filterPlants(items: PlantIndexItem[], q: PlantQuery): PlantIndexItem[] {
+  return items.filter(i => plantChecks(i, q).every(c => c === true))
+}
+
+/** Plants nothing known rules out, but missing a figure the query asks about. */
+export function unsurePlants(items: PlantIndexItem[], q: PlantQuery): PlantIndexItem[] {
+  return items.filter(i => { const c = plantChecks(i, q); return !c.includes(false) && c.includes(undefined) })
+}
+
+export function plantQueryFromParams(p: URLSearchParams): PlantQuery {
+  const one = <T extends string>(k: string, allowed: readonly T[]) => allowed.find(a => a === p.get(k))
+  const d = Number(p.get('difficultyMax'))
+  return {
+    light: one('light', LIGHT), co2: one('co2', ['none', 'required'] as const), placement: one('placement', PLACEMENT),
+    difficultyMax: d >= 1 && d <= 3 ? d : undefined,
+  }
+}

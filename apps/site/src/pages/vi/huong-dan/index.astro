@@ -4,15 +4,86 @@ import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { GUIDE_KIND_LABELS } from '../../../lib/format'
+import { leadGuides } from '../../../lib/home'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Video guides have their own index (/vi/video/), grouped by series.
 const guides = c.guides.filter(g => g.kind !== 'discovery' && !g.video)
 const videos = c.guides.some(g => g.video)
+// One chip per subject the list has, in the order a new keeper needs them.
+const kinds = (['setup', 'care', 'plantCare', 'aquascaping', 'breeding', 'disease'] as const)
+  .map(k => ({ k, n: guides.filter(g => g.kind === k).length }))
+  .filter(x => x.n > 0)
+// For a beginner: the guides the home page leads with (cycling, water changes, easy fish and plants), else the most practical.
+const start = leadGuides(c).slice(0, 4)
 ---
 <Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
   {videos && <p class="vid">{t('Có cả')} <a href="/vi/video/">{t('video hướng dẫn')}</a>{t(': bài viết kèm video gốc, phụ đề tiếng Việt.')}</p>}
-  {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>}
+  {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <>
+    {start.length > 0 && (
+      <section class="start" id="guide-start" aria-labelledby="start-h">
+        <h2 id="start-h">{t('Bắt đầu từ đây')}</h2>
+        <p class="lead">{t('Mới nuôi bể? Đọc mấy bài này trước.')}</p>
+        <div class="grid">{start.map(g => <GuideCard g={g} row />)}</div>
+      </section>
+    )}
+    <section aria-labelledby="all-h">
+      <h2 id="all-h">{t('Tất cả hướng dẫn')}</h2>
+      {/* Each subject in the address (?kind=care), so a filtered list can be shared; the script below runs them. */}
+      {kinds.length > 1 && (
+        <div class="kinds" id="guide-kinds" role="group" aria-label={t('Chủ đề')}>
+          <button type="button" data-kind="" aria-pressed="true">{t('Tất cả')} <span class="n">{guides.length}</span></button>
+          {kinds.map(({ k, n }) => <button type="button" data-kind={k} aria-pressed="false">{t(GUIDE_KIND_LABELS[k]!)} <span class="n">{n}</span></button>)}
+        </div>
+      )}
+      <div class="grid" id="guide-list">{guides.map(g => <GuideCard g={g} row />)}</div>
+    </section>
+  </>}
 </Browse>
-<style>.vid { margin: 0 0 var(--space-5); } .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }</style>
+<script>
+  const kinds = document.getElementById('guide-kinds')
+  if (kinds) {
+    const buttons = [...kinds.querySelectorAll<HTMLButtonElement>('button[data-kind]')]
+    const cards = [...document.querySelectorAll<HTMLElement>('#guide-list > [data-kind]')]
+    const start = document.getElementById('guide-start')
+    function show(kind: string) {
+      // A subject this list doesn't have (an old link, another language's list): every guide.
+      if (!buttons.some(b => b.dataset.kind === kind)) kind = ''
+      for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
+      for (const el of cards) el.hidden = kind !== '' && el.dataset.kind !== kind
+      // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
+      if (start) start.hidden = kind !== ''
+    }
+    kinds.addEventListener('click', e => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('button[data-kind]')
+      if (!b) return
+      history.replaceState(null, '', b.dataset.kind ? `?kind=${b.dataset.kind}` : location.pathname)
+      // The chips stay where the reader tapped them while the beginner row above comes and goes.
+      const top = kinds.getBoundingClientRect().top
+      show(b.dataset.kind!)
+      scrollBy(0, kinds.getBoundingClientRect().top - top)
+    })
+    show(new URLSearchParams(location.search).get('kind') ?? '')
+  }
+</script>
+<style>
+  .vid { margin: 0 0 var(--space-5); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }
+  /* A card of another subject: the card sets its own display, which would beat the hidden attribute. */
+  .grid > :global([hidden]) { display: none; }
+  h2 { font-size: var(--step-2); margin: 0 0 var(--space-3); }
+  .start { margin-bottom: var(--space-7); }
+  .start .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .lead { margin: calc(-1 * var(--space-2)) 0 var(--space-4); color: var(--c-ink-soft); }
+  .kinds { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+  .kinds button { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0 0.9rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink-soft); font: 500 0.9rem/1 var(--f-body); cursor: pointer; transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out; }
+  .kinds button:hover { color: var(--c-ink); border-color: var(--c-ink-soft); }
+  .kinds button[aria-pressed='true'] { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
+  .kinds button:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .n { font-variant-numeric: tabular-nums; font-weight: 400; }
+  @media (max-width: 520px) {
+    .grid, .start .grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  }
+</style>
