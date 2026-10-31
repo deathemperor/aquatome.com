@@ -121,6 +121,15 @@ The layers above still check the result.
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
 
+### main's ruleset (GitHub)
+
+- `main` can't be deleted or force-pushed. Changes arrive by pull request, squash-merged, after the `test` check
+  (ci.yml) passes. Merged branches are deleted.
+- Let through: repository admins (the owner, and the owner's Mac pushing video content), and deploy keys. The engine
+  pushes content over its deploy key (`ENGINE_DEPLOY_KEY`, engine.yml), since GitHub Actions' own token can't be let
+  through on a personal repository. That push starts deploy.yml like a merge does.
+- Secret scanning blocks pushes that contain a known kind of key. Dependabot opens PRs for vulnerable dependencies.
+
 ## Mobile apps (later)
 
 The journeys describe what a reader does, not the page's code, so the same list becomes the app's flows (Maestro or
