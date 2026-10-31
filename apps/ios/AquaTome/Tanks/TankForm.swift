@@ -15,20 +15,21 @@ struct TankForm: View {
       Form {
         Section {
           TextField("Ví dụ: Bể 60 phòng khách", text: $f.name).accessibilityIdentifier("name")
+            .onChange(of: f.name) { _, v in f.name = TankFields.capped(v, TankFields.nameMax) }
         } header: {
           Text("Tên bể")
         }
         Section {
           HStack {
-            Number(title: "Dài", value: $f.l).accessibilityIdentifier("l")
+            Number(title: "Dài", text: $f.l).accessibilityIdentifier("l")
             Text(verbatim: "×").foregroundStyle(.secondary)
-            Number(title: "Rộng", value: $f.w).accessibilityIdentifier("w")
+            Number(title: "Rộng", text: $f.w).accessibilityIdentifier("w")
             Text(verbatim: "×").foregroundStyle(.secondary)
-            Number(title: "Cao", value: $f.h).accessibilityIdentifier("h")
+            Number(title: "Cao", text: $f.h).accessibilityIdentifier("h")
           }
-          if let l = f.litres, f.problem != .partialDims {
-            Text("\(l.formatted(.number.precision(.fractionLength(0...(l < 100 ? 1 : 0))))) lít").foregroundStyle(.secondary)
-              .accessibilityIdentifier("litres")
+          // As it's typed, as on the site's form.
+          if let l = f.litres {
+            Text(verbatim: litresText(l, digits: 1)).foregroundStyle(.secondary).accessibilityIdentifier("litres")
           }
         } header: {
           Text("Kích thước lòng bể (cm)")
@@ -49,6 +50,7 @@ struct TankForm: View {
           TextField("Lịch thay nước, phân bón, CO₂…", text: $f.notes, axis: .vertical)
             .lineLimit(3...8)
             .accessibilityIdentifier("notes-field")
+            .onChange(of: f.notes) { _, v in f.notes = TankFields.capped(v, TankFields.notesMax) }
         } header: {
           Text("Ghi chú")
         }
@@ -87,10 +89,10 @@ struct TankForm: View {
 
 private struct Number: View {
   let title: LocalizedStringKey
-  @Binding var value: Double?
+  @Binding var text: String
 
   var body: some View {
-    TextField(title, value: $value, format: .number)
+    TextField(title, text: $text)
       .keyboardType(.decimalPad)
       .multilineTextAlignment(.center)
   }

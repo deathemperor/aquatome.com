@@ -9,7 +9,8 @@ struct TanksView: View {
   var body: some View {
     NavigationStack {
       Group {
-        if tanks.tanks.isEmpty && tanks.problem == nil {
+        // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) {
           ContentUnavailableView {
             Label("Chưa có bể nào", systemImage: "fish")
           } description: {
@@ -41,7 +42,8 @@ struct TanksView: View {
         }
         if let data = tanks.exportData(), !tanks.tanks.isEmpty {
           ToolbarItem(placement: .secondaryAction) {
-            ShareLink(item: ExportFile(data: data), preview: SharePreview(ExportFile.name)) {
+            let file = ExportFile(data: data)
+            ShareLink(item: file, preview: SharePreview(file.name)) {
               Label("Tải bản sao (JSON)", systemImage: "square.and.arrow.up")
             }
           }
@@ -70,9 +72,9 @@ private struct TankRow: View {
 /// The line under a tank's name: size, litres, substrate (what it has of them), as the site writes it.
 func facts(_ t: Tank) -> [String] {
   var out: [String] = []
-  let num = { (n: Double, digits: Int) in n.formatted(.number.precision(.fractionLength(0...digits))) }
-  if let d = t.dims { out.append("\(num(d.l, 1)) × \(num(d.w, 1)) × \(num(d.h, 1)) cm") }
-  if let l = t.totalLitres { out.append(String(localized: "\(num(l, l < 100 ? 1 : 0)) lít")) }
+  let num = { (n: Double) in n.formatted(.number.rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
+  if let d = t.dims { out.append("\(num(d.l)) × \(num(d.w)) × \(num(d.h)) cm") }
+  if let l = t.totalLitres { out.append(litresText(l)) }
   if let s = t.substrate { out.append(Substrate.label(s)) }
   return out
 }
@@ -146,11 +148,11 @@ private struct ProblemText: View {
   }
 }
 
-/// The store as a file to share, named as the site names its download.
+/// The store as a file to share, named as the site names its download (aquatome-be-<UTC date>.json).
 struct ExportFile: Transferable {
-  static let name = "aquatome-tanks.json"
   let data: Data
+  var name: String { "aquatome-be-\(Date().formatted(.iso8601.year().month().day())).json" }
   static var transferRepresentation: some TransferRepresentation {
-    DataRepresentation(exportedContentType: .json) { $0.data }.suggestedFileName(name)
+    DataRepresentation(exportedContentType: .json) { $0.data }.suggestedFileName { $0.name }
   }
 }
