@@ -19,11 +19,25 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 22.8,
+          "max": 27.8
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "sprucepets",
         "value": {
           "min": 6,
           "max": 7.5
@@ -37,24 +51,43 @@
           "min": 3,
           "max": 18
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 3,
+          "max": 18
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "sprucepets",
+        "value": 9
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 120
+      },
+      {
+        "source": "sprucepets",
+        "value": 90
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "sprucepets",
+        "value": 4
       }
     ]
   },
@@ -66,10 +99,28 @@
       "html": "<p>The Congo tetra, Phenacogrammus interruptus, is a tetra from parts of the River Congo drainage in the Democratic Republic of Congo. Wild populations are endemic there, but most fish in the trade are bred commercially in the Far East and Eastern Europe. Usually sold as a drab, greyish juvenile, it colours up as it matures, and males develop extended caudal filaments and a greatly extended dorsal fin. It is sensitive to water quality and easily frightened when not kept in numbers.</p><ul><li>Max size: 80 mm SL (3.1 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 3–18 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<ul><li>Family: Alestidae</li><li>Origin: Congo River Basin</li><li>Social: peaceful schooling fish</li><li>Tank level: all levels</li><li>Minimum tank size: 30 gallons (about 114 litres)</li><li>Diet: omnivore</li><li>Breeding: egg layer</li><li>Care: moderate</li><li>Adult size: 2.5 to 3.5 inches (about 6 to 9 cm)</li><li>Life expectancy: 3 to 5 years</li><li>pH: 6.0 to 7.5</li><li>Hardness: 3 to 18 dGH</li><li>Temperature: 22.8 to 27.8 °C</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "html": "<p>Wild populations are endemic to parts of the River Congo drainage in the Democratic Republic of Congo. Most of the fish available in the trade are bred commercially in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>These African characin fish are found in the Congo River Basin.</p><p>The Congo tetra (Phenacogrammus interruptus) was not discovered until 1949 and was not commonly imported as an aquarium fish until the 1960s. In the 1970s, Florida fish farmers perfected a breeding line, and most specimens in pet stores today descend from it. They breed true, showcasing the vibrant colors and beautifully trailing tails of their native African counterparts.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>They inhabit streams, tributaries, pools, and marshes, preferring murky, slightly acidic water. The Congo tetra typically congregates in areas with tall vegetation, few trees, and substrates of sand, silt, and mud. Swimming in large schools, these tetras feed on worms, crustacea, insects, plant matter, and algae.</p>"
     },
     {
       "key": "aquariumSize",
@@ -78,10 +129,22 @@
       "html": "<p>Standard length: 80 mm SL (3.1 in SL). Aquarium base: 120 × 30 cm (48 × 12 in). Volume: ~108 litres (~29 US gal).</p><p>120 × 30 × 30 cm (48 × 12 × 12 in) for adult fish though young specimens can be kept in smaller tanks.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>Since they need to be kept in schools, a 30-gallon aquarium (about 114 litres) is the minimum size required for six to eight Congo tetras. For large schools or when mixed with other species, consider using a 55-gallon aquarium (about 208 litres). In a 55-gallon tank, you might keep up to 12 Congo tetras, provided they have sufficient space. Always consider the number of other species and the space taken up by plants when determining if a tank is large enough.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "html": "<p>Ideally an African biotope tank with driftwood branches, floating vegetation and anubias. However they will show their best colours in any well-planted setup with plenty of swimming space. Water should be on the acidic side of neutral and soft with good circulation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>To maintain their health, provide ample space and meticulously filtered water. If water quality declines, Congo tetras might lose their coloration or develop damaged fins.</p><p>Congo tetras are hardy fish but only thrive in well-maintained habitats. They prefer still, dark, soft, peat-filtered water with low light levels, achievable with dim aquarium lights and floating plants. They favor darker substrates and enjoy nibbling on bottom-growing plants.</p>"
     },
     {
       "key": "waterConditions",
@@ -90,10 +153,22 @@
       "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 3–18 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>pH 6.0 to 7.5; hardness 3 to 18 dGH; temperature 22.8 to 27.8 °C (73 to 82 °F).</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "html": "<p>An omnivore feeding on small worms, insects, crustaceans, algae and other zooplankton in nature. Relatively unfussy and will accept most foods but live and frozen food should compose a good proportion of the diet in order for the fish to show their best colouration.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>Congo tetras are omnivores, naturally feeding on insects, worms, plant matter, and algae. As pets, they are easy to feed and enjoy live, fresh, and flake foods, along with brine shrimp and bloodworms.</p><p>Feed these fish small amounts several times a day. If you don't see your Congo tetras eating, don't worry—they may be shy about feeding while being watched.</p><p>If your fish aren't getting enough food, consider a behavioral feeding ring. This device floats on the water's surface and keeps food together, making it easier for them to find.</p>"
     },
     {
       "key": "behaviour",
@@ -102,10 +177,22 @@
       "html": "<p>Peaceful but may scare shy species with its active swimming and large adult size. Recommended for most community tanks however. Ideal tankmates include other tetras, rainbowfish, Corydoras, Loricariids, Synodontis and various peaceful cichlids such as Pelvicachromis sp. or Cleithracara. Do not keep congo tetras with fin-nipping species as the spectacular fins of the males will be destroyed. Similarly they should not be kept with boisterous tankmates due to their shy nature. P. interruptus should be kept in a mixed-sex shoal for the best effect.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>Congo tetras are schooling fish that can become anxious if not part of a group of at least six of their species. When housed with fish of the same size or smaller, Congo tetras remain generally peaceful.</p><p>Ideal tankmates include:</p><ul><li>Other tetras, such as Neon and Cardinal tetras</li><li>Rainbowfish</li><li>Corydoras catfish</li><li>Mollies</li><li>Guppies</li><li>Platies</li><li>Harlequin rasbora</li><li>Swordtails</li><li>Celestial pearl danio</li><li>Dwarf cichlids</li></ul><p>Avoid aggressive species that will bully your Congo tetras. Do not keep Congo tetras with fin-nipping fish, such as tiger barbs, as the males' spectacular fins can be damaged. Avoid overcrowding the tank, as this can further stress them.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "html": "<p>The male fish are larger and much more colourful. They also develop extended filaments in the caudal fin and a greatly extended dorsal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>Males are more colorful than females, and they are also larger with more elaborate fins, characterized by a centrally extended caudal fin and a pronounced dorsal fin. Females are mostly golden with silver and green hues and lack the elaborate fins of males.</p><p>Males also feature long, flowing fins with violet and white edges.</p>"
     },
     {
       "key": "reproduction",
@@ -114,10 +201,22 @@
       "html": "<p>Not easy but possible. Egg-scatterer. The fish should be conditioned using live and frozen foods and the best coloured male and fattest female selected. These should be placed in a small aquarium with a mesh base. The eggs will fall through this minimising the risk of predation by the parents. Lighting should be subdued and some clumps of plants added to induce spawning, as the eggs would be scattered amongst vegetation in nature. The water should be of below neutral pH and soft. Following chasing by the male the fish spawn side by side with a quivering motion. Up to 300 large eggs may be deposited by a single female over a period of several days spawning activity, though 100-200 is more common. During the first 24-48 hours of incubation it is common for many of the eggs to become fungussed. These should be removed with a long pipettes. The eggs hatch in around 6 days and the fry should be offered infusoria after the yolk sacs have been absorbed (around 24 hours) followed after 2-3 days by brine shrimp nauplii or microworm.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>A larger breeding tank is necessary for Congo tetras due to their size and their tendency to produce 300 or more eggs, most of which will likely hatch. The fry will grow quickly, reaching a size larger than full-grown neon tetras in four to five weeks.</p><p>Use a 15- or 20-gallon long tank for breeding; 10-gallon tanks are not recommended. Boil enough peat moss to cover the tank's bottom with 1 inch of loosely packed substrate (about a 1/2 cubic foot for a 20-gallon tank). Fill the tank with reverse osmosis, distilled, or rural rainwater, and allow it to sit for a few days until the peat moss settles, creating a soft, acidic water environment.</p><p>Position several thickets of Java moss atop the peat moss substrate in various locations. Include additional nylon breeding mops or clumps of fine-leaved plants. Maintain the water temperature at a steady 77°F (25 °C). Avoid aeration or filtration to prevent disturbing the peat moss and clouding the water.</p><p>Introduce a well-conditioned pair of Congo tetras, previously kept in separate tanks, into the breeding tank shortly before lights out or sunset. Most pairs will spawn the next morning or when the lights are turned on. Maintain darkness for at least eight hours to stimulate spawning.</p><p>During spawning, the fish dive into the Java moss or spawning mops, releasing eggs and milt side by side. Some eggs stay in the plant or mop, but most fall into the peat moss substrate. Remove the breeders after spawning; the majority of eggs are not eaten as they are well hidden under the substrate.</p><p>Typically, 300 to 500 or more eggs are laid, with hatching occurring five to eight days after spawning. This contrasts with their South American relatives, whose eggs hatch more quickly, but whose fry initially hang on plants, being smaller and more helpless. Congo tetra fry emerge from the peat substrate fully free-swimming and hungry.</p><p>Congo tetra fry can be fed infusoria for a day or two before transitioning to baby brine shrimp. They grow quickly and begin accepting powdered dry food within two weeks, rapidly reaching nearly 1 inch (about 2.5 cm). Within three months, frequent feedings of live and commercial growth foods will increase their size to 2 inches (about 5 cm), at which point they begin to show color. While genders can be determined by then, they will be 6 months old and 3 inches (about 7.5 cm) long before they're ready to breed. This rapid growth underscores the need for a larger tank.</p><p>Do not remove the peat from the fry rearing tank, as the fish need it for water quality. Placing them directly into freshwater without peat can lead to fungal infections. Adult fish also benefit from peat moss in the filter or substrate to maintain slightly acidic water.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "html": "<p>P. interruptus are quite sensitive to water quality and if a high standard is not maintained the development of the males' fins may be impaired and the fish will lose colour. They are also quite an easily frightened fish, particularly if they are not maintained in numbers. This species is most often seen for sale as a fairly drab, greyish 1 1/2\" fish and is often overlooked. However once they are settled into the aquarium and have begun to mature they develop spectacular colouration. Lit from the front and above, especially in natural light, a large shoal of Congos is a sight to behold.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "html": "<p>The Congo tetra is the African counterpart to the colorful tetras of South America. It shimmers with all the colors of the rainbow and uses this bright coloring for extravagant courtship displays by both males and females.</p><p>In the wild, the fish can grow up to 3 1/2 inches (about 9 cm). However, farm-raised varieties, while richly colored and full-finned, typically do not exceed 3 inches (about 7.5 cm). They have long, flat bodies with large scales.</p><p>This fish displays remarkable rainbow luminescence throughout its body. It is generally blue on top, red and gold in the middle, and blue on the belly.</p>"
     }
   ],
   "photos": [
@@ -131,6 +230,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
       "caption": "A pair of large male congo tetras side by side in a heavily planted aquarium",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/44015ba473be96ea.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/44015ba473be96ea-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "caption": "Congo Tetra Community Aquarium Fish",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/56ab89dcb19e9efc.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/56ab89dcb19e9efc-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
+      "caption": "Neon Tetras in Planted Fish Tank",
+      "source": "sprucepets"
     }
   ],
   "videos": [],
@@ -164,5 +285,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

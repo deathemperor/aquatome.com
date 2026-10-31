@@ -1,0 +1,177 @@
+{
+  "id": "bagrus-bajad",
+  "scientificName": "Bagrus bajad",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Bagrus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "egypt",
+    "nile",
+    "chad",
+    "lake-chad",
+    "nigeria",
+    "niger",
+    "senegal",
+    "cameroon",
+    "sanaga",
+    "uganda",
+    "lake-albert",
+    "kenya",
+    "lake-turkana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 112
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<ul><li><strong>Scientific name:</strong> Bagrus bajad (Fabricius, 1775)</li><li><strong>Common name:</strong> Black Nile Catfish</li><li><strong>Type locality:</strong> Nile River, Egypt.</li><li><strong>Size:</strong> 112 cm (44.1\") SL</li><li><strong>Identification:</strong> Distinguished in having dorsal fin rays produced into short filaments, predorsal distance 2.4-2.6 times in standard length and head width 1.7-2.2 times in head length.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana. Reported from Sanaga River basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Occurs in water less than 12 m deep.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<ul><li>pH: 6.4 - 8.0</li><li>Temperature: 21.0-27.0°C (69.8-80.6°F)</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Provide plenty of driftwood as hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Preys on small fish, particularly Alestes spp., also feeds on insects, crustaceans, mollusks, vegetable matter. In the aquarium it readily feeds on live/frozen foods and other prepared foods such as pellets. Will eat smaller fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Although young fish can be kept with other fish of equal or larger sizes, adult fish are aggressive and should be kept alone.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1110",
+      "html": "<p>Descriptiones animalium (Forsskål), pp 66, xiii.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/866740861469e3f1.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert; Loat, L.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_the_Nile_(Pl._LVII)_(6961618931).jpg",
+      "caption": "Bagrus bajad",
+      "thumb": "https://media.aquatome.com/commons/866740861469e3f1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8c49fe2f94f784ce.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "Public domain",
+      "author": "Zoologie. Poissons du Nil. 1.2. Le Bayad fitilé (Porcus bayad); 3.4. Le Bayad docmac (Porcus docmac).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrus_bajad.jpg",
+      "caption": "Bagrus bajad",
+      "thumb": "https://media.aquatome.com/commons/8c49fe2f94f784ce-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c0bf0e408694a742.webp",
+      "width": 960,
+      "height": 1227,
+      "licence": "Public domain",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrus_bayad_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ14600059.tif",
+      "caption": "Bagrus bayad",
+      "thumb": "https://media.aquatome.com/commons/c0bf0e408694a742-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/19544996cba95a9e.webp",
+      "width": 960,
+      "height": 1173,
+      "licence": "Public domain",
+      "author": "Impr. impériale",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zoologie._Poissons_du_Nil._1.2._Le_Bayad_fitil%C3%A9_(Porcus_bayad);_3.4._Le_Bayad_docmac_(Porcus_docmac)_(NYPL_b14212718-1268514).jpg",
+      "caption": "Zoologie. Poissons du Nil. 1.2. Le Bayad fitilé (Porcus bayad); 3.4. Le Bayad docmac (Porcus docmac).",
+      "thumb": "https://media.aquatome.com/commons/19544996cba95a9e-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá dài 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

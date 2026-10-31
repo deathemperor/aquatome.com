@@ -1,0 +1,135 @@
+{
+  "id": "betta-macrostoma",
+  "scientificName": "Betta macrostoma",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "malaysia",
+    "marudi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 11.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "bwaquatics",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<ul><li>Wild-caught Betta macrostoma from Marudi, from the Betta unimaculata complex.</li><li>IUCN Red List: VU (Vulnerable)</li><li>Maximum size: 4.5 inches (about 11.5 cm)</li><li>Temperature: 72–82°F (22–28°C)</li><li>pH: 5.0–7.0</li><li>TDS: ~60–100</li><li>Breeding: mouthbrooder</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<p>This is one of the largest bettas and is highly sought after for its size and beauty. It turns red on the body and has a nice pattern on the dorsal fin. Betta macrostoma has been known to be more sensitive to water conditions and more susceptible to velvet than other large bettas. Its beauty, rarity and difficulty contribute to its higher cost. Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<p>TDS ~60–100; pH 5.0–7.0; temperature 72–82°F (22–28°C). Cooler temperatures are preferred, but higher temperatures induce coloration and breeding behaviour.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed on live, frozen and dry foods, such as blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<p>Like many species in this complex, with the largest bettas, they can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "html": "<p>Mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/d97b0799be9f2931.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/d97b0799be9f2931-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "cám viên cho betta"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

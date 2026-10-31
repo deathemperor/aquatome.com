@@ -1,0 +1,100 @@
+{
+  "id": "aposturisoma-myriodon",
+  "scientificName": "Aposturisoma myriodon",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Aposturisoma",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<ul><li>Scientific name: Farlowella myriodon (Isbrücker, Britski, Nijssen &amp; Ortega, 1983)</li><li>Common name: Big Mouth Twig Catfish</li><li>Family: Loricariidae</li><li>Synonym: Aposturisoma myriodon</li><li>Size: 200 mm (7.9\") SL</li><li>Temperature: 24.0-28.0°C (75.2-82.4°F)</li><li>IUCN Red List: Not Evaluated</li><li>Etymology: the genus is named after W. G. Farlow of Harvard University. Lorica, loricare = cuirass or corslet of leather (a suit of armour made of leather).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<p>South America: Amazon, Upper Amazon, Marañón, Ucayali, Upper Ucayali, Aguaytia.</p><p>Type locality: Río Aguaytia basin, Río Huacamayo, about 9°S, 75°29'W, Dept. Ucayali, Province Coronel Portillo, Peru.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<p>Suggested tankmates: smaller tetras or rasboras are suitably mannered - perhaps hatchetfish are best. Avoid fast or \"nippy\" fishes such as danios or barbs. Will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<p>The genus Farlowella is distinguished by its elongate and slender body with a pronounced rostrum (of variable length), having the dorsal fin located near the middle of the body and only slightly anterior to the anal fin (vs. having the dorsal fin conspicuously closer to the head than the tail, and significantly further anterior than the anal fin), and having a brownish color with two lateral dark stripes beginning at the tip of the rostrum, passing through the eyes and ending at the tail.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1140",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 2), pp 35, Figs. 3-6.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dọn bể",
+        "viên rau củ cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

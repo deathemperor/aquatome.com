@@ -1,0 +1,135 @@
+{
+  "id": "rasbora-daniconius",
+  "scientificName": "Rasbora daniconius",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "india",
+    "bengal"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>Rasbora daniconius usually grows to 6-8 cm in length; the largest specimen ever measured supposedly reached 15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>Imported from India. The species is found in Bengal together with such well-known and popular ornamental fishes as zebra danio (Danio rerio), rosy barb (Pethia conchonius), dwarf gourami (Colisa lalius) and chameleon fish (Badis badis).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>The water temperature can be between 18 and 28°C. Any tap water suitable as drinking water is suitable for care.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>Omnivores; plants are ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>The animals are completely peaceful. Like the majority of minnows, this species appreciates the company of its conspecifics and should be kept in a group of at least five, preferably 10-15 specimens. It is a good contrast fish to the above species in the community aquarium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-daniconius-6/",
+      "html": "<p>R. daniconius are free spawners without brood care.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/de9bfefbc5a0c7f7.webp",
+      "width": 824,
+      "height": 364,
+      "licence": "Public domain",
+      "author": "Captain R C Beavan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RasboraDanicorniusBeavan.png",
+      "caption": "Rasbora daniconius",
+      "thumb": "https://media.aquatome.com/commons/de9bfefbc5a0c7f7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/726326f81463faac.webp",
+      "width": 960,
+      "height": 400,
+      "licence": "Public domain",
+      "author": "G. H. Ford",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_daniconius.jpg",
+      "caption": "Rasbora_daniconius",
+      "thumb": "https://media.aquatome.com/commons/726326f81463faac-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4b9eed3ad83207cb.webp",
+      "width": 960,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Christopher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_daniconius_68015786.jpg",
+      "caption": "Slender Rasbora (Rasbora daniconius)",
+      "thumb": "https://media.aquatome.com/commons/4b9eed3ad83207cb-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8adead8561750090.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Ashwin Viswanathan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_daniconius_53178946.jpg",
+      "caption": "Slender Rasbora (Rasbora daniconius)",
+      "thumb": "https://media.aquatome.com/commons/8adead8561750090-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá cảnh dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

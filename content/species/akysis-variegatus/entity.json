@@ -1,0 +1,174 @@
+{
+  "id": "akysis-variegatus",
+  "scientificName": "Akysis variegatus",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Akysis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "citarum",
+    "cambodia",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>Nasal barbel shorter than head length and tip of snout dark. Large dark blotches on lower part of body, lighter above. Family: Akysidae. Size: 3.0 cm (1¼ in). Temperature: 18-22°C (63-71°F). pH: 6.5-7.5.</p><p>Akysid catfishes are known from across a large area of Southeast Asia. Roberts (1989) described them as small to minute fishes with cryptic colouration, tiny eyes, and completely covered with unculiferous plaques or tubercles. In some genera some of the tubercles on the body are enlarged and arranged in distinctive longitudinal rows, the number of which may be diagnostic. Among akysids, fishes of the genus Akysis are very small, cryptically coloured species generally found in fast-flowing streams with a sandy or rocky bottom and, until recently, they have been poorly studied, mainly due to the paucity of material in museum collections.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>Asia: Northern Borneo and Mekong basin. Type locality: Batavia.</p><p>This species is known only from the Citarum River drainage in western Java, although it is also known from the upper Brantas River drainage in eastern Java from specimens collected in the 1960's. More comprehensive sampling may reveal occurrence within adjacent drainages.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>You can keep them in small tanks (30 cm wide x 20 cm high x 30 cm deep) with a sand bottom, small pipes, and caves.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>Akysis are easy to keep for any decent fishkeeper. They will either bury themselves in the sand or hide in caves and pipes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia, and sinking pellets (although they seem to prefer live or frozen food).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>They are not usually active during the day but will spring to action and eat voraciously and crazily if food is put in the tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>Etymology: The genus name Akysis: A = without; kysis = bladder, in reference to the lack of a swimbladder. The specific name variegatus: variable; variously coloured.</p><p>IUCN Red List: Much of the information available for this species is based on museum records which are over 100 years old, so population size and trends are unknown. Habitat quality in and around the Citarum River is likely impacted by logging, deforestation, urban development, extensive and unsustainable fishing, pollution from industrial, domestic, and agricultural sources, and extensive small holder agricultural practices. However, given uncertainties regarding distribution, population status, and the direct effects of potential threats on habitat extent and quality, it is not possible to accurately estimate the extinction risk of this species. Therefore, it is assessed as Data Deficient until more information becomes available (IUCN 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Ng, H.H. 2019. Akysis variegatus. The IUCN Red List of Threatened Species 2019.</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong.</p><p>Rainboth, W.J., 1996. Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5142e54d19cb9b41.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5142e54d19cb9b41-480.webp",
+      "width": 500,
+      "height": 296,
+      "licence": "dùng với sự cho phép",
+      "author": "Rainboth, W.J / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "caption": "Akysis variegatus: line drawing",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b815ad2ceccc79b9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b815ad2ceccc79b9-480.webp",
+      "width": 500,
+      "height": 226,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "caption": "Akysis variegatus: Preserved specimen",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6823eacd9c8174ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6823eacd9c8174ac-480.webp",
+      "width": 500,
+      "height": 236,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "caption": "Akysis variegatus: Preserved specimen-dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5bf95729671243a5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5bf95729671243a5-480.webp",
+      "width": 500,
+      "height": 238,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_variegatus.htm",
+      "caption": "Akysis variegatus: Preserved specimen-ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 30cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

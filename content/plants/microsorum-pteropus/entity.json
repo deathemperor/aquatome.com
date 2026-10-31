@@ -3,7 +3,7 @@
   "scientificName": "Microsorum pteropus",
   "difficulty": 1,
   "light": "low",
-  "co2": "none",
+  "co2": "optional",
   "growth": "slow",
   "placement": [
     "epiphyte",
@@ -17,10 +17,22 @@
       "html": "<p>Java Fern is one of the world's most widely used plants in planted aquariums. Its slow growth, unique leaf structure and reproduction method make it a hit. It tolerates most lighting conditions and many environments, from soft acidic water to alkaline conditions, and even brackish tanks.</p><p>Other varieties include Java Fern Trident, Needle Leaf, 'Windelov' and Narrow Leaf, all with the same growth requirements.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Windel%C3%B8v'(008BTC)/31249",
+      "html": "<ul><li>Origin: cultivar</li><li>Growth rate: slow</li><li>Height: 10-20+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
       "html": "<p>Planting is easy: simply drop it into the water and it will start growing. It may float or attach to something its roots can hold. You can also bury the roots in gravel or tie it onto wood, rock or other décor.</p><p>The author's favourite method is super glue gel: put a bead of glue on the décor, hold the plant against it for 30 seconds, then let it air dry for another 3 minutes before placing it in the tank.</p><p>Do not bury the rhizome (the twig-like portion of the plant). All roots and leaves extend from it, and if it is buried under gravel or sand it will rot. The plant does not require substrate, so it is ideal for bare bottom tanks.</p><p>Because it grows slowly, many people do only one big trim a year. Do not prune too much at once or start a tank with it carelessly: it can fight badly with algae. A good crew of algae eaters helps, and it can be planted with faster growing plants like Vallisneria. If algae wins, pull off a couple of leaves and float them in a dish of water under some light; once plantlets form, remove them and restart them in the tank free of algae.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Windel%C3%B8v'(008BTC)/31249",
+      "html": "<p>A hardy and easy plant for both beginners and the more experienced. Best results are obtained by planting it on a stone or tree root. If planted in the bottom the horizontal rhizome must not be covered. This plant is not eaten by herbivorous fish.</p>"
     },
     {
       "key": "equipment",
@@ -39,19 +51,25 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
       "html": "<p>Most fish do not like the taste of Java Fern, so even many plant-eating fish will not eat it. The leaves are thick and tough and can withstand large cichlids or goldfish playing with them. Fish like to swim through the plants.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Windel%C3%B8v'(008BTC)/31249",
+      "html": "<p>Microsorum pteropus 'Windeløv' is a patented variety of Microsorum pteropus, named after Tropica's founder Holger Windeløv. Its finely branched leaf tips make it one of the most beautiful aquarium plants. The Microsorum variety becomes 15-20 cm tall and wide.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
       "caption": "Java Fern (Microsorum pteropus) an Easy Aquatic Plant. - Aquarium Co-Op",
-      "source": "aquariumcoop",
-      "thumb": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f-480.webp"
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/607c050cfb217739.webp",
@@ -88,5 +106,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

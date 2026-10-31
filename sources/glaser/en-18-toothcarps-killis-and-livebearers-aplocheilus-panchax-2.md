@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/
+title: Aplocheilus panchax - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T03:17:11.113Z
+hash: dd41b1792a48ed09f468c57ffe0824b7489c5096f773f4bb3c325ab8a7657fa6
+---
+
+Because of the still bad flight connections imports from India come in only sporadically. Now once again an import worked out. It contained among others the common panchax, Aplocheilus panchax. A. panchax is the most common fish in large parts of India and can be found literally everywhere, from the smallest puddle to the shores of large rivers and lakes, even the salty water of estuaries can be tolerated by the panchax. The water temperatures especially in the small waters vary enormously, in the sun they easily rise to well over 30°C, at night they can cool down to 12-14°C.
+So it is not surprising that Aplocheilus panchax was one of the first tropical ornamental fishes ever. It came to us for the first time in 1899 and was quickly bred. The great color variability of this 6-7 cm long fish caused heated, sometimes polemic discussions about whether they were species, subspecies or color morphs. Today we know: they are color morphs, reddish, orange and white fin seams occur within a single population, also the number of orange-red spots on the scales varies.
+After World War 2, the Panchax gradually disappeared from aquariums. People had electric heaters (instead of spirit burners under the aquarium), filters and aeration, and especially lighting. Previously, aquariums were placed at an angle to the window, so that the sunlight coming from the side illuminated the aquarium. In such light panchaxes are quite colorful, because many scales shine blue. This is quite different in fluorescent light from above, where the Panchax appear quite gray, especially if they are not yet acclimated. We’ve also attached a shot to this post where the lighting conditions are like they used to be, so you can see what we mean.
+Care from the Panchax is simple. They are surface-dwelling fish that will happily accept any bite-sized fish food. The water values and the temperature play practically no role (see above). Mostly A. panchax are peaceful, but there are sometimes quarrelsome males, so by-fish should not be too delicate. Well suited are e.g. rosy barbs and zebra danios, which come from the same biotopes. Plants leave the Panchax unnoticed. Males differ from females by the shape of the anal fin (see photos).
+For our customers: the animals have code 303703 on our stocklist. Please note that we supply exclusively to wholesalers.
+Text & photos: Frank Schäfer

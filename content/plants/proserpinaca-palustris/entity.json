@@ -4,10 +4,10 @@
   "difficulty": 3,
   "light": "high",
   "co2": "required",
-  "growth": "slow",
+  "growth": "medium",
   "placement": [
-    "midground",
-    "background"
+    "background",
+    "midground"
   ],
   "sections": [
     {
@@ -15,6 +15,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/mermaid-weed-care-guide-planting-growing-and-propagation/",
       "html": "<ul><li>Common name: Mermaid Weed</li><li>Other names: Marsh mermaidweed</li><li>Scientific name: Proserpinaca palustris</li><li>Difficulty: Medium</li><li>Lighting: Moderate-High</li><li>Optimal pH: 5.5 – 7.5</li><li>Optimal GH: 2 – 8</li><li>Optimal temperature: 15 – 30°C (59 – 86°F)</li><li>Substrate: Nutrient-rich</li><li>Can be grown emersed: Yes</li><li>Growth rate: Slow to moderate</li><li>Placement in tank: Midground and background</li><li>Aquarium size: over 50 cm (20+ inches)</li><li>Fertilizers needed: CO2</li><li>Propagation: Vegetative, by cuttings</li><li>Color: Red, yellow, orange, and green</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Proserpinacapalustris'Cuba'(037CTC)/4766",
+      "html": "<ul><li><strong>Type:</strong> Stem plant</li><li><strong>Origin:</strong> South America</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 10 - 30+ cm after two months in the tank</li><li><strong>Light demand:</strong> High</li><li><strong>CO2:</strong> High</li></ul>"
     },
     {
       "key": "distribution",
@@ -65,6 +71,12 @@
       "html": "<p>Melting: there are many reasons why this plant can melt all of a sudden.</p><ul><li>Transition from an emersed form to a submersed form.</li><li>Sudden changes in water parameters.</li><li>Too hard and/or alkaline pH.</li><li>Low lighting, overshadowing, and short photoperiod.</li><li>Not enough fertilization and CO2.</li></ul><p>Discoloration: depending on environmental conditions, the plant can display colors from light green to red and even purple. Achieving a red hue is often impossible without optimal conditions. In low-tech aquariums (no CO2, low light), the primary color will be green with a slight yellowish tint.</p><p>Leggy bottom: when Mermaid Weed gets really large (or reaches the surface), the lower leaves may die back, leaving a bare, elongated lower stem. Top leaves start blocking the light for the lower leaves. Solution: prune the plant, check the lighting and provide CO2.</p><p>Relocation: the plant may melt after relocation or propagation by splitting, even within the same tank. It does not like to be disturbed, and cutting roots will negatively affect it.</p><p>Nutrient sensitive: this plant cannot survive without nutrition for a long time. Solution: regular feeding.</p><p>Algae: due to its relatively slow growth, the plant is more susceptible to being covered in algae.</p><p>Benefits: the color, shape, and form make it an excellent decorative addition to any aquascape. It produces small pearls of oxygen on top of the plant. Its well-developed root system helps break up anaerobic pockets in the substrate. It serves as cover and a hiding place for invertebrates and small fish, and acts as a buffet of biofilm for newly hatched fry and shrimplets.</p><p>Conclusion: to achieve its desired classic look, this plant requires CO2, nutrient-rich substrate, regular fertilization, and strong lighting, all perfectly balanced. It will struggle in a low-tech tank, so it is more suitable for experienced aquarists.</p><p>If you keep shrimp with Mermaid Weed: a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
     },
     {
+      "key": "notes",
+      "source": "tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Proserpinacapalustris'Cuba'(037CTC)/4766",
+      "html": "<p>Aquarium plant from tissue culture in closed cup. Proserpinaca is a stem plant, 10-40 cm tall and 5-10 cm wide. Cultivated in closed cups and delivered with saw-toothed leaves, which after a transitional period in the aquarium develop into long, finely denticulated, needle-like leaves. In good light conditions it turns a beautiful copper colour and its characteristic appearance is a pleasing contrast to the other plants. Proserpinaca palustris varies in form according to its origin. The Tropica cultivar is found on the Isla de la Juventud off Cuba. In the USA the plant is commonly known as \"mermaid weed\".</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/mermaid-weed-care-guide-planting-growing-and-propagation/",
@@ -74,33 +86,33 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/dc589b44d271daeb.webp",
+      "thumb": "https://media.aquatome.com/commons/dc589b44d271daeb-480.webp",
       "width": 960,
       "height": 1440,
       "licence": "Public domain",
       "author": "Robert H. Mohlenbrock. USDA SCS. 1989. Midwest wetland flora: Field office illustrated guide to plant species. Midwest National Technical Center, Lincoln. Courtesy of USDA NRCS Wetland Science Institute.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Proserpinaca_palustris_NRCS-1.jpg",
-      "caption": "Proserpinaca palustris L. - marsh mermaidweed",
-      "thumb": "https://media.aquatome.com/commons/dc589b44d271daeb-480.webp"
+      "caption": "Proserpinaca palustris L. - marsh mermaidweed"
     },
     {
       "url": "https://media.aquatome.com/commons/0a6f43a8f28e5bd9.webp",
+      "thumb": "https://media.aquatome.com/commons/0a6f43a8f28e5bd9-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY-SA 4.0",
       "author": "Ryan Hodnett",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsh_Mermaidweed_(Proserpinaca_palustris)_-_Great_Swamp_National_Wildlife_Refuge,_New_Jersey_2023-04-23.jpg",
-      "caption": "Marsh Mermaidweed (Proserpinaca palustris) in Great Swamp National Wildlife Refuge, New Jersey, United States of America.",
-      "thumb": "https://media.aquatome.com/commons/0a6f43a8f28e5bd9-480.webp"
+      "caption": "Marsh Mermaidweed (Proserpinaca palustris) in Great Swamp National Wildlife Refuge, New Jersey, United States of America."
     },
     {
       "url": "https://media.aquatome.com/commons/d2f59cc46f061f4f.webp",
+      "thumb": "https://media.aquatome.com/commons/d2f59cc46f061f4f-480.webp",
       "width": 960,
       "height": 794,
       "licence": "CC BY-SA 4.0",
       "author": "cassi saari",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Proserpinaca_palustris.png",
-      "caption": "Proserpinaca palustris in Lake County, Indiana",
-      "thumb": "https://media.aquatome.com/commons/d2f59cc46f061f4f-480.webp"
+      "caption": "Proserpinaca palustris in Lake County, Indiana"
     }
   ],
   "productSlots": [
@@ -133,5 +145,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

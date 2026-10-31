@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/betta-mahachaiensis-copper-betta-mahachai-rare-bettas
+title: Betta Mahachaiensis Copper (Betta Mahachai)| Rare Bettas – BWAquatics
+fetchedAt: 2026-10-31T02:36:02.778Z
+hash: 5a5b82cfadb095a559148c6d897fd441c29fee83ab6ed534ff94ce3c633a974b
+---
+
+Skip to product information 1 / of 1 BWAquatics Betta Mahachaiensis Copper (Betta Mahachai)| Rare Bettas Betta Mahachaiensis Copper (Betta Mahachai)| Rare Bettas Sale amount Pair (we pick) Male (We pick) Female (we pick) Quantity Quantity (0 in cart) Imported in JUNE 18th 2025, CURRENTLY UNDER QUARENTINE SHIPPING BEGIN ON THE 24th! Betta Splendens Complex. IUCN Red List: N/A Betta Mahachaiensis This betta is a newer species discovered in 2012 and can be found in central and southern Thailand. They encompassed habitat such as still moving water bodies such as marshland, ponds and ditches where the water is quite murky. They are also unique in that they can be found in water with measurable level of salt, being able to live in brackish water habitat. Mahachaiensis or Mahachais are known by their highly iridescence tail and the dual bars that covers their cheek plates. The Copper color morphs occurs due the grey iridescence couple with the metallic gene. Fish that “we select” for you are just as good as any fish, we just do not have the opportunity to take photos of them all. We always try our best to send the healthiest fish to our customers. Basic Information Temperament: Males are VERY aggressive and should be kept alone or in tanks with non-male betta mates. Can be kept in a planted community tank of multiple females if there is adequate space. Max Size: 2.3 inches TDS: 60 - 200 (We keep them in soft water with low TDS to match our other wild bettas but they are more tolerant of water conditions.) pH: 6.0-8.0 Temperature : 75-85 (much better coloration at warmer temperature above 78 degrees) Diet: Carnivorous, we currently feed them live blackworms, frozen bloodworms and pellets. Breeding: Bubblenester Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

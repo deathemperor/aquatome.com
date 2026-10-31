@@ -1,0 +1,93 @@
+{
+  "id": "pterobunocephalus-depressus",
+  "scientificName": "Pterobunocephalus depressus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pterobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "bolivia",
+    "rio-machupo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
+      "html": "<ul><li><strong>Scientific name:</strong> Pterobunocephalus depressus (Haseman, 1911)</li><li><strong>Common name:</strong> Banjo Catfish</li><li><strong>Type locality:</strong> Río Machupo near San Joaquín, Amazon system, Bolivia.</li><li><strong>Synonyms:</strong> Buncephalus depressus, Bunocephalus albofasciatus</li><li><strong>Size:</strong> 89 mm (3.5\") SL.</li><li><strong>Identification:</strong> Smaller than Bunocephalus species and can most readily be distinguished from that genus by the number of anal fin rays (11-20 in Pterobunocephalus vs. 5-10 in Bunocephalus).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
+      "html": "<p>South America: Amazon, Orinoco and Paraguay River basins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
+      "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 319, Pls. 48 (fig. 1), 49.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/45addec58d363313.webp",
+      "width": 960,
+      "height": 201,
+      "licence": "Public domain",
+      "author": "John D. Haseman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52313_Bunocephalus_depressus_Haseman_Type.jpeg",
+      "caption": "Bunocephalus depressus Haseman. Type, Synonym of Pterobunocephalus depressus (Haseman 1911) Subject: Aspredinidae Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/45addec58d363313-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/58b07d0fb48e9adb.webp",
+      "width": 960,
+      "height": 211,
+      "licence": "Public domain",
+      "author": "John D. Haseman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterobunocephalus_depressus.jpg",
+      "caption": "Bunocephalus depressus Haseman. Type, Synonym of Pterobunocephalus depressus (Haseman 1911) Subject: Aspredinidae Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/58b07d0fb48e9adb-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát sông thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn chìm cho cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

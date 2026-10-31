@@ -1,0 +1,85 @@
+{
+  "id": "centrochir-crocodili",
+  "scientificName": "Centrochir crocodili",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Centrochir",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
+      "html": "<p>Scientific name: Centrochir crocodili (Humboldt, 1821)</p><p>Type locality: Río Magdalena, Colombia.</p><p>Size: 210 mm (8.3\") SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
+      "html": "<p>South America: Magdalena River basin. Colombia Caribbean Rivers, Magdalena.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
+      "html": "<p>Voyage de Humboldt et Bonpland v. 2 (Title page 1833), pp181, Pl. 48 (fig. 2).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c7d0eae7765e2ebf.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "Public domain",
+      "author": "Actinopterygii-Humboldt-T048.png: A. Humboldt (1769-1859) derivative work: Haplochromis (talk)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centrochir_crocodili.jpg",
+      "caption": "Centrochir crocodili. (Syn. Doras crocodili)",
+      "thumb": "https://media.aquatome.com/commons/c7d0eae7765e2ebf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1c4ad9e04a255652.webp",
+      "width": 960,
+      "height": 1341,
+      "licence": "Public domain",
+      "author": "A. Humboldt (1769-1859)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Actinopterygii-Humboldt-T048.png",
+      "caption": "Fig. 1. Hoplias malabaricus. (Syn. Erythrinus guavina) Fig. 2. Centrochir crocodili. (Syn. Doras crocodili)",
+      "thumb": "https://media.aquatome.com/commons/1c4ad9e04a255652-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

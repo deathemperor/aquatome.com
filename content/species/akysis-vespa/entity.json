@@ -10,7 +10,8 @@
     "myanmar",
     "salween",
     "thailand",
-    "tak"
+    "tak",
+    "ataran"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +21,13 @@
           "min": 16.5,
           "max": 23.5
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -28,6 +36,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
         }
       }
     ],
@@ -44,6 +59,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.1
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
       }
     ],
     "tankCm": [
@@ -67,16 +86,34 @@
       "html": "<ul><li>Max size: 31 mm SL (1.2 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–23.5°C (62–74°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Family: Akysidae. Common name: Wasp Stream Catfish. Size: 3.5 cm. Temperature: 23-28°C. pH: 6.0-7.0. Dorsal spines: 1; dorsal soft rays: 5; vertebrae: 31-32. Distinguished from congeners in the Akysis variegatus species group (except A. pictus, A. prashadi and A. varius) by having no serration on the posterior edge of the pectoral spines. Differs from A. varius in having a gently forked (vs. truncate) caudal fin, from A. pictus in having a larger eye (12-16% HL vs. 8-10) and a smaller adipose fin (17.6-21.1% SL vs. 22.0-23.6), and from A. prashadi in having a larger eye (12-16% HL vs. 8-12) and a longer caudal peduncle (19.4-23.3% SL vs. 16.5-18.4).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "html": "<p>Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.</p><p>Type locality is 'Stream \"Chon Son\" between Kyondaw and Phadaw, about 20 kilometers northwest of Payathouzu (at border with Thailand), 15°25'N, 98°15'E, Kayin State, Myanmar'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Asia: Ataran River drainage in Myanmar.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "html": "<p>Members of this genus are near-exclusive inhabitants of swiftly-flowing streams and rivers with substrates generally consisting of any combination of sand, gravel and rocks.</p><p>The water is normally transparent to slightly turbid, though overall volume, flow, and thus the amount of suspended material tend to increase significantly during rainy periods.</p><p>Aquatic plants are not normally present though there may be patches of leaf litter or underwater structures such as fallen branches or roots protruding from banks.</p><p>In the Hanthayaw aquatic plants include Pogostemon helferi and a Cryptocoryne species while sympatric fishes comprise Acanthocobitis pictilis, Botia kubotai, Syncrossus berdmorei, Pangio fusca, Crossocheilus burmanicus, Chanda pulcinella, Systomus orphoides, Pethia stoliczkana, Microdevario kubotai, Hampala salweenensis, Poropuntius scapanognathus, Glyptothorax dorsalis, Batasio dayi, B. feruminatus, Amblyceps caecutiens and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Occurs in clear, fast-flowing streams with a gravelly bottom.</p>"
     },
     {
       "key": "aquariumSize",
@@ -89,6 +126,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "html": "<p>Not difficult to keep but should really be provided with a soft, sandy substrate since some of its time is spent completely buried, or with only eyes protruding.</p><p>It also appears to enjoy squeezing into crevices between rockwork and other solid surfaces so additional décor could include some water-worn rocks of various sizes, plus perhaps some driftwood roots and branches.</p><p>Although aquatic plants are unlikely to be a feature of its natural habitat some can be added if you wish with those that can be grown attached to rocks and wood, such as Microsorum, Anubias or various moss species particularly useful since they will not be disturbed by the fishes' burrowing activity. Leaf litter may also be used.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive.</p><p>It also does best if there is a relatively high proportion of dissolved oxygen and decent water movement in the tank, and weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>A good addition to an aquarium with a good water current, but beware when handling, as they can inflict a painful sting if handled incorrectly.</p>"
     },
     {
       "key": "waterConditions",
@@ -109,6 +152,12 @@
       "html": "<p>Akysis species are primarily nocturnal micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia, bloodworm or glassworm, ideally after dark in order that they can demonstrate natural behaviour, though once settled most specimens will emerge at feeding times.</p><p>If the fish are very small you may need to chop the food accordingly.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
@@ -121,62 +170,130 @@
       "html": "<p>Unreported, but sexual dimorphism has been reported in A. alfredi (Ng and Kottelat, 1998)[9], A. fuscus (Ng, 1996)[3] and A. microps (Ng and Tan, 1999)[4].</p><p>In the former pair the anus is located anterior to a genital papilla in males, this structure having a genital opening covered by a fleshy flap at its tip and situated immediately posterior to the base of the pelvic fins.</p><p>In females the anus is located more posteriorly and the genital papilla is formed by a short appendage with an opening at the tip, this structure being situated approximately level with the poterior end of the inner pelvic-fin ray.</p><p>In A. alfredi the distance between the origin of the first pelvic-fin ray and the first anal-fin ray is less than in females (13.8-17.5% of standard length (SL) vs. 17.7-18.4%) but in A. fuscus the opposite is true.</p><p>The pelvic fins in males are also shorter than in females (12.9-14.2% SL vs. 14.1-15.5%), closer together (distance between pelvic fins 4.0-4.9% SL vs. 4.8-5.5%), usually overlapping posteriorly (vs. spread laterally) nand often curved to forma bowl-like shape (vs. straight).</p><p>In A. microps the genital papilla in males has a bulbous base with the genital opening at the tip not covered by a fleshy flap, while in females the genital opening is only partially covered by an appendage and there are no obvious differences in pelvic-fin morphology between the two genders.</p><p>According to Vishwanath et al. (2007) male specimens of A. prashadi possess a short, conical genital papilla immediately posterior to the anus while females have a flattened papilla with radial grooves at the pore.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>The males are slimmer than the females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "html": "<p>A short report with images was published in the description paper (Ng and Kottelat, 2004), in which a successful spawning event in that species was apparently triggered by a significant decrease in temperature of around 7 °C (45 °F).</p><p>Several males were observed in pursuit of a gravid female, and the successful individual was allowed to wrap its body around that of the female at which point eggs and milt were released.</p><p>The eggs hatched 4 days post-spawn with the yolk sac fully-absorbed after 10 days.</p><p>Adult patterning was fully-developed after just 23 days.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Has been bred in the aquarium with a large water change, after which they lay greenish eggs.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "html": "<p>This species is among the few members of the family to be exported for the aquarium hobby and we've also seen it on sale under various names such as 'orange-banded stone catfish', 'orange micro bumblebee catfish', 'Burmese orange mini bee catfish' or more simply 'wasp catfish'.</p><p>Though the majority of forms are yellowish to orange in colouration there appears to exist a bright red variant which to date we've only seen in photos.</p><p>All akysids possess venom apparatus at the base of the dorsal and pectoral spines and though not dangerous to a healthy human can inflict a painful sting, so should be handled with care when being removed from the water for any reason or during aquarium maintenance.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Etymology: the genus name Akysis: A = without, kysis = bladder, in reference to the lack of a swimbladder. The specific name vespa is the Latin word for wasp, due to the colour markings.</p><p>IUCN Red List: there is insufficient information about the geographic distribution and population size of this species for an accurate assessment, and it is assessed as Data Deficient, but needs updating (IUCN 2012).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>Ng, H.H. 2012. Akysis vespa. The IUCN Red List of Threatened Species 2012.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/5a111e852ecf169f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5a111e852ecf169f-480.webp",
       "width": 800,
       "height": 557,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "caption": "Specimen from the German aquarium trade.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5a111e852ecf169f-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/f7656ebd5854b616.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f7656ebd5854b616-480.webp",
       "width": 870,
       "height": 580,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "caption": "Specimen from Myanmar in the aquarium.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f7656ebd5854b616-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/cb03be7f76fe4bb7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cb03be7f76fe4bb7-480.webp",
       "width": 700,
       "height": 415,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "caption": "Specimen collected in Thailand.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/cb03be7f76fe4bb7-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b-480.webp",
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
       "caption": "The Hanthayaw/Suriya river as it flows through Tak province, Thailand.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/acefa90d22ffb8ad.webp",
+      "thumb": "https://media.aquatome.com/scotcat/acefa90d22ffb8ad-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "caption": "Akysis vespa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4f237fbf3d9ac909.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4f237fbf3d9ac909-480.webp",
+      "width": 500,
+      "height": 339,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "caption": "Akysis vespa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3cd61f73f384306c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3cd61f73f384306c-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "caption": "Akysis vespa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/033e35c6040fab2a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/033e35c6040fab2a-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Stefan van der Voort / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
+      "caption": "Akysis vespa",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -211,5 +328,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

@@ -310,6 +310,517 @@
   {
     "date": "2026-10-31",
     "kind": "species",
+    "id": "caridina-logemanni",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "centromochlus-heckelii",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-lecontei",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "synbranchus-marmoratus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "tetragonopterus-argenteus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-morleti",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "macrognathus-siamensis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "parosphromenus-paludicola",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "hoplias-malabaricus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "channa-bankanensis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "schistura-nicholsi",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "hoplias-malabaricus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-daniconius",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "aplocheilus-panchax",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "lepidocephalichthys-guntea",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "proserpinaca-palustris",
+    "source": "tropica",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "pogostemon-stellatus",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "pogostemon-quadrifolius",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "pogostemon-helferi",
+    "source": "tropica",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "pogostemon-deccanensis",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "plagiomnium-sp-thyme-moss",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "phyllanthus-fluitans",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "peperomia-prostrata",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "nymphoides-hydrophylla",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "nymphaea-lotus",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "najas-guadalupensis",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "myriophyllum-sp-guyana",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "myriophyllum-mattogrossense",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "murdannia-keisak",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "monosolenium-tenerum",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "microsorum-sp",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "microsorum-pteropus",
+    "source": "tropica",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "microsorum-pteropus-trident",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "microsorum-pteropus-narrow",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "micranthemum-umbrosum",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "micranthemum-tweediei-monte-carlo",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "micranthemum-glomeratum",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "micranthemum-callitrichoides",
+    "source": "tropica",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "micranthemum-callitrichoides",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "plant",
+    "id": "mayaca-fluviatilis",
+    "source": "tropica",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "aposturisoma-myriodon",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "leptodoras-linnelli",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "noturus-gladiator",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "synodontis-arnoulti",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "corydoras-elegans",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "hara-horai",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "ancistrus-pirareta",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "bagrus-bajad",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "pterobunocephalus-depressus",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "centrochir-crocodili",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "gymnochanda-ploegi",
+    "source": "bwaquatics",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "betta-antoni",
+    "source": "bwaquatics",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "betta-macrostoma",
+    "source": "bwaquatics",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-livebearer-disease",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-baby-brine-shrimp",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-mini-outdoor-pond",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-pleco-care-guide",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-how-to-treat-sick-aquarium-fish",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "danio-rerio",
+    "source": "sprucepets",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "phenacogrammus-interruptus",
+    "source": "sprucepets",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "cyprinus-rubrofuscus",
+    "source": "sprucepets",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "sprucepets-why-do-betta-fish-fight-5183979",
+    "source": "sprucepets",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "sprucepets-betta-common-questions-1380780",
+    "source": "sprucepets",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "sprucepets-how-much-to-feed-your-betta-fish-5207803",
+    "source": "sprucepets",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "sprucepets-common-fish-names-beginning-with-s-1378555",
+    "source": "sprucepets",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "guide",
+    "id": "aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "trichogaster-lalius",
+    "source": "aquariumbreeder",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "xiphophorus-maculatus",
+    "source": "aquariumbreeder",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "parakysis-notialis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "breitensteinia-insignis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "akysis-vespa",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "akysis-variegatus",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
     "id": "rasbora-einthovenii",
     "source": "seriouslyfish",
     "action": "new"
@@ -2986,517 +3497,6 @@
     "kind": "species",
     "id": "otocinclus-macrospilus",
     "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "hoplosternum-punctatum",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "noturus-miurus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "bagrichthys-obscurus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "corydoras-desana",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "silurichthys-hasseltii",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "hypostomus-luteus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "rita-kuturnee",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudeutropius-brachypopterus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "kryptopterus-cryptopterus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "malapterurus-microstoma",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "trichopodus-leerii",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "sprucepets-cichlids-diverse-aquatic-life-4058856",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "xiphophorus-hellerii",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "sprucepets-methylene-blue-1379926",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "staurogyne-repens",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-parva",
-    "source": "aquariumbreeder",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "marsilea-hirsuta",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "rotala-rotundifolia",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "danio-rerio",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-wendtii",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-usteriana",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-undulata",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-spiralis",
-    "source": "tropica",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-spiralis",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-parva",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-nurii",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-crispatula",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-beckettii",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cryptocoryne-albida",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "crinum-thaianum",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "crinum-calamistratum",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "ceratopteris-thalictroides",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "ceratophyllum-demersum",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cardamine-lyrata",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "cabomba-aquatica",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bucephalandra-sp-red",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bucephalandra-sp-needle-leaf",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bucephalandra-sordidula",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bucephalandra-pygmaea",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bucephalandra-diabolica",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bolbitis-heudelotii",
-    "source": "tropica",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "blyxa-japonica",
-    "source": "tropica",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bacopa-salzmannii",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bacopa-monnieri",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bacopa-caroliniana",
-    "source": "tropica",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bacopa-caroliniana",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "acrochordonichthys-rugosus",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "silonia-silondia",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "laides-longibarbis",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "laides-hexanema",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "belontia-hasselti",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "batasio-feruminatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "baryancistrus-beggini",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "barbonymus-altus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "balantiocheilos-melanopterus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "badis-badis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "trichogaster-fasciata",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "mastacembelus-tinwini",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "aphanius-vladykovi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "aphanius-farsicus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudoplatystoma-corruscans",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "hemiodontichthys-acipenserinus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "rineloricaria-lanceolata",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "corydoras-aeneus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "corydoras-aeneus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "semaprochilodus-taeniurus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pyrrhulina-australis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pygocentrus-nattereri",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "glaser-en-09-characoids-tetra-relationship-nannostomus-eques-and-n-unifasciatus-two-odd-birds",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "hampala-macrolepidota",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pethia-conchonius",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudomugil-gertrudae",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudomugil-furcatus",
-    "source": "bwaquatics",
     "action": "new"
   }
 ]

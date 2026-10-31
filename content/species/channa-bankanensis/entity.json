@@ -1,0 +1,122 @@
+{
+  "id": "channa-bankanensis",
+  "scientificName": "Channa bankanensis",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "malaysia"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "html": "<p>Channa bankanensis belongs to the medium-sized snakehead species that attain a maximum length of 25-30 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "html": "<p>Channa bankanensis is distributed in Indonesia and Malaysia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "html": "<p>The species is a typical blackwater inhabitant that lives in the wild in waters with a very acidic character: pH around 3. Luckily it does not demand this in aquaria.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "html": "<p>Many species of snakehead look very attractive as juveniles. Juvenile Channa are usually schooling fish. Depending on the species they swim in close schools up to a length of 3 cm or even 15 cm. The contrasting juvenile coloration has two basic reasons: first, it helps conspecifics to identify other fish as members of the same species, and second it confuses predators, as the silhouette of a single specimen is hard to detect in a school.</p><p>Later on snakeheads become more and more solitary fish and the coloration becomes dull. Now camouflage is needed, as larger snakeheads are usually predators that feed on other small fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/29fded5429ab3f60.webp",
+      "thumb": "https://media.aquatome.com/glaser/29fded5429ab3f60-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/040dfa55bc301281.webp",
+      "thumb": "https://media.aquatome.com/glaser/040dfa55bc301281-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/73994fbce34d0d0d.webp",
+      "thumb": "https://media.aquatome.com/glaser/73994fbce34d0d0d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7233c42eb2e5ef25.webp",
+      "thumb": "https://media.aquatome.com/glaser/7233c42eb2e5ef25-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-bankanensis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể nuôi cá lóc"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lóc",
+        "thức ăn cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

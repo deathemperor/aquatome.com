@@ -1,0 +1,105 @@
+{
+  "id": "breitensteinia-insignis",
+  "scientificName": "Breitensteinia insignis",
+  "order": "Siluriformes",
+  "family": "Akysidae",
+  "genus": "Breitensteinia",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "barito"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "html": "<ul><li>Family: Akysidae</li><li>Size: 22.0 cm (8¾ in)</li><li>Temperature: 20-24°C (67-75°F)</li><li>pH: 6.0-7.0</li><li>Common name: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "html": "<p>Asia: Barito River basin, southern Borneo. Type locality: Teweh [= Moara Teweh, Barito River, Borneo].</p><p>This species is known only from a limited number of collections taken in the Barito River drainage in southern Borneo. There are not enough point collections to accurately estimate Extent of Occurrence (EOO), Area of Occupancy (AOO), or number of locations. Population size and trend are unknown. Localised and regional threats exist, but their direct impact on habitat quality and population status are largely unknown. Therefore, this species is assessed as Data Deficient until more information becomes available (IUCN 2019).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 4-5; anal spines: 0; anal soft rays: 9; vertebrae: 44-45. Differentiated from its congeners by the following unique set of characters: eye diameter 1.9-3.2% HL; interorbital distance 19.2-25.1% HL; snout length 28.6-34.1% HL; length of caudal peduncle 33.7-36.5% SL; 44-45 vertebrae.</p><p>Colouration: Brown spots on the dorsal and pectoral fins concentrated in a dark band in the distal half.</p><p>Etymology: The genus name Breitensteinia: –ia, belonging to Heinrich Breitenstein (1848-1930), German physician who served with the Dutch East Indies army; he collected fishes and reptiles in Borneo for Steindachner, including presumably the type of B. insignis. The specific name insignis: conspicuous, probably referring to “intense” brownish-purple spots on sides, and/or yellowish-white dorsal, pectoral and anal fins that are “more or less mottled with dark purple” (translations).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org (10/2023).</p><p>Kottelat, M. 2013. The fishes of the inland waters of southeast Asia. Raffles Bulletin of Zoology Supplement No. 27: 1-663.</p><p>Ng, H.H. and D.J. Siebert, 1998. A revision of the akysid catfish genus Breitensteinia Steindachner with descriptions of two new species. J. Fish Biol. 53(3):645-657.</p><p>Ng, H.H. 2019. Breitensteinia insignis. The IUCN Red List of Threatened Species 2019.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/35b5585ac534de01.webp",
+      "thumb": "https://media.aquatome.com/scotcat/35b5585ac534de01-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "caption": "Breitensteinia insignis: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bcd889958c4a4cd3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bcd889958c4a4cd3-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm",
+      "caption": "Breitensteinia insignis: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

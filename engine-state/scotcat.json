@@ -227,6 +227,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/akysidae/akysis_variegatus.htm": {
+    "entityIds": [
+      "species/akysis-variegatus"
+    ],
+    "updatedAt": "2026-10-31T01:11:26.898Z",
+    "hash": "297d02acd7c87dc6b17b24d4dbd2063a3435d56b6bfacfb42117fbf40a1362cb",
+    "processedHash": "297d02acd7c87dc6b17b24d4dbd2063a3435d56b6bfacfb42117fbf40a1362cb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/akysidae/akysis_varius.htm": {
     "entityIds": [
       "species/akysis-varius"
@@ -234,6 +244,36 @@
     "updatedAt": "2026-10-30T22:30:17.550Z",
     "hash": "eaea748aa1bde2f8e454770d408158d911be6d36ffd63e87aed492b7ac45942c",
     "processedHash": "eaea748aa1bde2f8e454770d408158d911be6d36ffd63e87aed492b7ac45942c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/akysis_vespa.htm": {
+    "entityIds": [
+      "species/akysis-vespa"
+    ],
+    "updatedAt": "2026-10-31T01:14:00.602Z",
+    "hash": "b7d79a88727465f894fd3209e5becd3730ee90c6d2a4ebb2a9e2a901b471b801",
+    "processedHash": "b7d79a88727465f894fd3209e5becd3730ee90c6d2a4ebb2a9e2a901b471b801",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/breitensteinia_insignis.htm": {
+    "entityIds": [
+      "species/breitensteinia-insignis"
+    ],
+    "updatedAt": "2026-10-31T01:16:16.716Z",
+    "hash": "9f65aae763990ad0c1ccafb18f7fb11cb93ea259e6142e1d8f037adf0d2aa9d8",
+    "processedHash": "9f65aae763990ad0c1ccafb18f7fb11cb93ea259e6142e1d8f037adf0d2aa9d8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/akysidae/parakysis_notialis.htm": {
+    "entityIds": [
+      "species/parakysis-notialis"
+    ],
+    "updatedAt": "2026-10-31T01:17:49.519Z",
+    "hash": "2e794fafdb3484b27efbc1adab76764ab6d2a61d52d21ccaaebe8aa6a76c6d62",
+    "processedHash": "2e794fafdb3484b27efbc1adab76764ab6d2a61d52d21ccaaebe8aa6a76c6d62",
     "status": "processed",
     "attempts": 0
   },

@@ -1,0 +1,117 @@
+{
+  "id": "leptodoras-linnelli",
+  "scientificName": "Leptodoras linnelli",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Leptodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "essequibo",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
+      "html": "<ul><li>Scientific name: Leptodoras linnelli Eigenmann, 1912</li><li>Common names: Elongate Mouse Catfish, Black-back Sturgeon Catfish</li><li>Type locality: Potaro river, Tumatumari, Mazaruni-Potaro, Guyana.</li><li>Etymology: Leptodoras: from the Greek leptos, meaning slender, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the shape.</li><li>Size: 230 mm (9.1\") SL.</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
+      "html": "<p>South America: Upper Orinoco (rios Ventuari and Mavaca) and Casiquiare River basin in Venezuela; Atlantic Coast drainages of the Guianas and northern Brazil such as Essequibo, Demerara and Araguari; the rios Uatumã, Tacutu and Demini in Brazil. Recently collected from the rio Tiquié basin (right bank tributary of the upper rio Negro) in the Amazonas State and from the upper rio Aripuaña (tributary of the rio Madeira) in Mato Grosso State, Brazil, extending the known distribution of this species into the western limits of the Brazilian Shield.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
+      "html": "<ul><li>pH: 5.8 - 7.0</li><li>Temperature: 18.0-22.0°C (64.4-71.6°F)</li><li>Hardness: dH 18</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 191, Pl. 17 (fig. 1), Pl. 18 (fig. 1).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

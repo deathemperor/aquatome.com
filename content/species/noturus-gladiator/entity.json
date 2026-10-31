@@ -1,0 +1,72 @@
+{
+  "id": "noturus-gladiator",
+  "scientificName": "Noturus gladiator",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "hatchie-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1128",
+      "html": "<ul><li>Scientific name: Noturus gladiator Thomas &amp; Burr, 2004</li><li>Common name: Piebald Madtom</li><li>Size: 107 mm (4.2\") SL</li><li>IUCN Red List: Near Threatened (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1128",
+      "html": "<p>North America: coastal plain streams of Tennessee and Mississippi, USA. Gulf Coast drainages, Mississippi. Type locality: just upstream of Potters Creek, about 2.5 km west of Bolivar, Pleasant Run, Hatchie River at Summerville-Bolivar Road, Mississippi River basin, Hardeman County, Tennessee, U.S.A.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1128",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1128",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The specific epithet refers to the large, serrated pectoral spines (gladiator = swordsman).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1128",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 15 (no. 4), pp 353, Figs. 2-3, 8c.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nước mát"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

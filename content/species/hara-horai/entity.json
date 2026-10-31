@@ -1,0 +1,72 @@
+{
+  "id": "hara-horai",
+  "scientificName": "Hara horai",
+  "order": "Siluriformes",
+  "family": "Erethistidae",
+  "genus": "Hara",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bangladesh",
+    "rajshahi"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=112",
+      "html": "<ul><li>Scientific name: Erethistes horai (Misra, 1976)</li><li>Common names: Elongate Moth Catfish, Hora's Moth Catfish, Terai Hara</li><li>Synonym: Hara horai</li><li>Type locality: Terai and Duars, West Bengal</li><li>Size: 70 mm (2.8\") SL</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=112",
+      "html": "<p>Asia: northern Bengal in India. Also recorded from Indian waters (West Bengal, Assam, Arunachal Pradesh) and Bangladesh (Rajshahi Division).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=112",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=112",
+      "html": "<p>Teleostomi: Cypriniformes; Siluri, pp 245, Pl. 9 (figs. 1-3).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

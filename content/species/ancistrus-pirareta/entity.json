@@ -1,0 +1,96 @@
+{
+  "id": "ancistrus-pirareta",
+  "scientificName": "Ancistrus pirareta",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "lNumber": "LDA053",
+  "places": [
+    "south-america",
+    "paraguay",
+    "tebicuary"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<ul><li>Size: 156 mm (6.1\") SL.</li><li>Common names: LDA053, Bristlenose Catfish, Pirareta Bristlenose.</li><li>Type locality: tributary of Río Tebicuary-mi, Salto Pirareta, Cordillera, Paraguay.</li><li>IUCN Red List: Least Concern (last assessed 2020).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>South America: La Plata, Paraná, Paraguay and Tebicuary basins.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>Ancistrus should be fed mainly on vegetarian foods. Prepared foods include algae wafers and spirulina based sinking food. Vegetables such as courgette/zucchini and (English) cucumber are an excellent addition to the diet, along with the odd, small amount of more meaty foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>A good complement to most aquariums, they are not aggressive to other species. Males may fight over territory if kept in too small a tank.</p><p>Appropriate with most community fish that aren't overly big or aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>Mature males and sometimes females have soft tentacles (bushy fleshy growths) on the snout; this is unique to the genus Ancistrus. Males develop soft tentacles on the head and while sometimes females also do, it is never to the extent of those found on the male.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>All Ancistrus species are cave-breeders, where the male looks after the eggs and young fry.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>Etymology: the name Ancistrus is derived from the Greek word agkistron, meaning hook, in reference to the hooked interopercular odontodes. Lorica, Loricare = cuirass of leather (a suit of armour made of leather).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1118",
+      "html": "<p>Revue Suisse de Zoologie v. 96 (no. 4), pp 891, Fig. 2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm rong tảo",
+        "thức ăn spirulina cho cá lau kính"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
