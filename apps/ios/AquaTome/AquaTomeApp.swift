@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct AquaTomeApp: App {
-  @State private var lights = LightsModel(radio: AquaTomeApp.radio())
+  @State private var lights: LightsModel
   @State private var handbook = HandbookModel()
   @State private var tanks: TanksModel
   @State private var tab = Tab.handbook
@@ -18,7 +18,9 @@ struct AquaTomeApp: App {
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
     // Read after the tests' reset above.
-    _tanks = State(initialValue: TanksModel())
+    let tanks = TanksModel()
+    _tanks = State(initialValue: tanks)
+    _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
   }
 
   var body: some Scene {

@@ -2,6 +2,7 @@ import Chihiros
 import ChihirosBLE
 import Foundation
 import Observation
+import Tanks
 
 /// The lights screen: scan, connect, read what the light holds, write a schedule, set its clock, set levels by hand.
 @Observable
@@ -28,23 +29,29 @@ final class LightsModel {
   var notice: Notice?
 
   /// The schedule form.
-  var on = TimeOfDay(hour: 12, minute: 0)
-  var off = TimeOfDay(hour: 20, minute: 0)
-  var ramp = 30
+  var on = TimeOfDay(hour: 12, minute: 0) { didSet { if on != oldValue { planName = nil } } }
+  var off = TimeOfDay(hour: 20, minute: 0) { didSet { if off != oldValue { planName = nil } } }
+  var ramp = 30 { didSet { if ramp != oldValue { planName = nil } } }
+  /// The preset the form came from, kept with the schedule written (as the site does); changing its hours drops it,
+  /// changing only its levels keeps it.
+  private(set) var planName: String?
   var levels = [70, 70, 70, 70]
   /// The manual sliders, by channel.
   var manual: [Int: Int] = [:]
 
   private let radio: Radio
   private let store: UserDefaults
+  /// "Bể của tôi": each light connected, the schedules written to it and when its clock was set, as on the site.
+  private let tanks: TanksModel?
   private var session: LightSession?
   private var scanTask: Task<Void, Never>?
   private var pending: [Int: Int] = [:]
   private var flushing = false
 
-  init(radio: Radio, store: UserDefaults = .standard) {
+  init(radio: Radio, store: UserDefaults = .standard, tanks: TanksModel? = nil) {
     self.radio = radio
     self.store = store
+    self.tanks = tanks
   }
 
   var isConnected: Bool { session != nil }
@@ -106,6 +113,7 @@ final class LightsModel {
       previous = loadPrevious(l)
       let snap = try await new.refresh()
       guard session === new else { return } // disconnected while reading
+      tanks?.metLight(bleName: l.name, model: m.name)
       show(snap)
       if let saved { fill(from: saved) }
       notice = Notice(text: new.canWriteSchedule
@@ -147,6 +155,7 @@ final class LightsModel {
     on = p.on
     off = p.off
     levels = levels.map { _ in p.level }
+    planName = String(localized: p.name)
   }
 
   /// Writes the form's schedule (after keeping the light's current one to put back).
@@ -160,6 +169,7 @@ final class LightsModel {
       let snap = try await session.writeSchedule(s)
       guard self.session === session else { return }
       self.show(snap)
+      self.remember(snap.holds(s, channels: self.channels.count) ? s : nil, name: self.planName, at: Date())
       self.isManual = false
       // The light runs the schedule now: the manual levels no longer hold.
       self.manual = [:]
@@ -183,6 +193,7 @@ final class LightsModel {
       let snap = try await session.syncClock()
       guard self.session === session else { return }
       self.show(snap)
+      self.changeLight { $0.clockSyncedAt = Timestamp.string(Date()) }
       self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(date: .omitted, time: .shortened))."))
     }
   }
@@ -218,6 +229,21 @@ final class LightsModel {
     isBusy = true
     defer { if session === s { isBusy = false } }
     do { try await body() } catch { if session === s { notice = Notice(text: Self.describe(error), isError: true) } }
+  }
+
+  /// After a write: the clock was set and levels set by hand no longer hold, as the site keeps them. The schedule is kept
+  /// only when the light read it back (`s`): one it didn't confirm isn't recorded as on the light.
+  private func remember(_ s: Schedule?, name: String?, at: Date) {
+    changeLight {
+      if let s { $0.wrote(on: s.on.description, off: s.off.description, ramp: s.ramp, levels: s.levels, name: name, at: at) }
+      $0.manual = nil
+      $0.clockSyncedAt = Timestamp.string(at)
+    }
+  }
+
+  private func changeLight(_ change: (inout Device) -> Void) {
+    guard let light, let model else { return }
+    tanks?.changeLight(bleName: light.name, model: model.name, change)
   }
 
   private func show(_ snap: Snapshot) {

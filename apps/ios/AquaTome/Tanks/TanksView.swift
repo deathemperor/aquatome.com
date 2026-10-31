@@ -127,8 +127,9 @@ private struct LightRow: View {
     VStack(alignment: .leading, spacing: 2) {
       Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn"))
       if let s = device.schedules.first(where: { $0.id == device.activeScheduleId }) {
-        let ramp = s.ramp > 0 ? " · " + String(localized: "sáng dần \(s.ramp) phút") : ""
-        Text(verbatim: "\(s.on) → \(s.off)\(ramp)")
+        // As the site writes it: on → off · ramp · the preset's name.
+        let parts = [s.ramp > 0 ? String(localized: "sáng dần \(s.ramp) phút") : nil, s.name].compactMap { $0 }
+        Text(verbatim: (["\(s.on) → \(s.off)"] + parts).joined(separator: " · "))
           .font(.caption).foregroundStyle(.secondary)
       } else {
         Text("Chưa lưu lịch nào cho đèn này.").font(.caption).foregroundStyle(.secondary)
