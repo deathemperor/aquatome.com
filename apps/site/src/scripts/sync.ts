@@ -77,3 +77,7 @@ export async function syncOnce(local: () => TankStore, f: Fetch = fetch, wait = 
     return { store: mergeStores(local(), r.store), refused: r.refused?.length ?? 0 }
   }
 }
+
+/** Deletes the account. With Sign in with Apple on it, a fresh Apple authorization code (protocols/accounts.openapi.json). */
+export const deleteAccount = (apple?: { code: string; clientId: string; redirectUri: string }, f: Fetch = fetch) =>
+  call<object>(f, 'DELETE', '/api/v1/account', apple ? { apple } : undefined)

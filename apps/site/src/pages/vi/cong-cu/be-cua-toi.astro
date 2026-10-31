@@ -54,9 +54,49 @@ const { t } = i18n(Astro.url)
     <p class="row"><button type="button" class="primary" data-add>{t('Thêm bể đầu tiên')}</button> <a href="/vi/cong-cu/den-chihiros/">{t('Kết nối đèn Chihiros →')}</a></p>
   </div>
 
+  <section id="tai-khoan" class="account" aria-labelledby="acc-h" hidden>
+    <h2 id="acc-h">{t('Đồng bộ giữa các thiết bị')}</h2>
+    <div id="acc-out">
+      <p>{t('Muốn xem các bể này trên máy khác hoặc trong ứng dụng AquaTome trên iPhone? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên trình duyệt này.')}</p>
+      <p><button id="acc-open" type="button" class="quiet" aria-expanded="false" aria-controls="acc-ways">{t('Đăng nhập để đồng bộ')}</button></p>
+      <div id="acc-ways" class="ways" hidden>
+        <div id="acc-google" class="way"></div>
+        <button id="acc-apple" type="button" class="apple way" hidden>
+          <svg viewBox="0 0 17 20" aria-hidden="true"><path d="M14.2 10.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM11.7 3c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z" /></svg>
+          {t('Đăng nhập bằng Apple')}
+        </button>
+        <form id="acc-email" class="email" hidden novalidate>
+          <label>{t('Hoặc nhận mã đăng nhập qua email')} <input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+          <div data-turnstile></div>
+          <button type="submit" class="quiet">{t('Gửi mã')}</button>
+        </form>
+        <form id="acc-code" class="email" hidden novalidate>
+          <label>{t('Mã 6 số trong email')} <input name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required /></label>
+          <button type="submit" class="primary">{t('Đăng nhập')}</button>
+        </form>
+        <p class="fine">{t('Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.')} <a href="/vi/chinh-sach-bao-mat/#tai-khoan">{t('Chính sách bảo mật')}</a></p>
+      </div>
+    </div>
+    <div id="acc-in" hidden>
+      <p id="acc-status" aria-live="polite"></p>
+      <p class="row">
+        <button id="acc-sync" type="button" class="quiet">{t('Đồng bộ ngay')}</button>
+        <a id="acc-export" href="/api/v1/account/export" download>{t('Tải dữ liệu tài khoản')}</a>
+        <button id="acc-signout" type="button" class="quiet">{t('Đăng xuất')}</button>
+      </p>
+      <details class="leave">
+        <summary>{t('Xóa tài khoản')}</summary>
+        <p>{t('Xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Không khôi phục được. Bể trên trình duyệt này vẫn còn.')}</p>
+        <p><button id="acc-delete" type="button" class="quiet danger">{t('Xóa tài khoản vĩnh viễn')}</button></p>
+      </details>
+    </div>
+    <p id="acc-msg" class="msg" role="status" hidden></p>
+  </section>
+
   <section id="du-lieu" class="data" aria-labelledby="data-h">
     <h2 id="data-h">{t('Dữ liệu ở đâu?')}</h2>
-    <p>{t('Các bể chỉ nằm trong trình duyệt này, trên máy này: không gửi đi đâu. Xóa dữ liệu trình duyệt hoặc dùng chế độ ẩn danh thì mất. Tải bản sao để giữ lại.')}</p>
+    <p data-where="local">{t('Các bể chỉ nằm trong trình duyệt này, trên máy này: không gửi đi đâu. Xóa dữ liệu trình duyệt hoặc dùng chế độ ẩn danh thì mất. Tải bản sao để giữ lại.')}</p>
+    <p data-where="account" hidden>{t('Các bể nằm trong trình duyệt này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy. Xóa tài khoản ở phần trên thì bản trong tài khoản mất ngay.')}</p>
     <p><button id="mt-export" type="button" class="quiet">{t('Tải bản sao (JSON)')}</button></p>
   </section>
 </Browse>
@@ -65,6 +105,7 @@ const { t } = i18n(Astro.url)
   import type { Device, Tank, TankStore } from '@aq/schema'
   import { tankLitres } from '@aq/schema/tank-rules'
   import * as store from '../../../scripts/tank-store'
+  import { initAccount } from '../../../scripts/account-panel'
   import { channelsOf, dayPicture, esc, facts } from '../../../scripts/my-tanks'
   import { cpath, ct } from '../../../scripts/ct'
 
@@ -241,6 +282,7 @@ const { t } = i18n(Astro.url)
       notes: (form.elements.namedItem('notes') as HTMLTextAreaElement).value.trim() || undefined,
     }, editing ?? undefined)
     store.save(db)
+    account.changed()
     close(t.id)
     document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })
   })
@@ -262,6 +304,7 @@ const { t } = i18n(Astro.url)
       db = store.load()
       store.removeTank(db, id)
       store.save(db)
+      account.changed()
       render()
       ;((next && document.querySelector<HTMLElement>(`#be-${next} [data-edit]`)) || $('mt-add')).focus()
     }
@@ -279,13 +322,44 @@ const { t } = i18n(Astro.url)
     if (e.key !== store.KEY) return
     db = store.load()
     if (editing === null) render()
+    account.changed()
   })
   render()
+  // Signed in: synced with the account (scripts/account-panel.ts); a sync brings tanks from other devices.
+  const account = initAccount({ onStore: () => { db = store.load(); if (editing === null) render() } })
 </script>
 
 <style>
   .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-bottom: var(--space-5); }
   .where { margin: 0; color: var(--c-ink-soft); font-size: var(--step--1); }
+  .account { max-width: 40rem; margin: var(--space-8) 0 0; padding-top: var(--space-5); border-top: 1px solid var(--c-rule); }
+  .account h2 { font-size: var(--step-1); margin: 0 0 var(--space-3); }
+  .account + .data { margin-top: var(--space-6); }
+  .account p { margin: 0 0 var(--space-3); }
+  .ways { display: grid; gap: var(--space-3); margin-top: var(--space-4); max-width: 22rem; }
+  .way { min-height: 44px; }
+  :global(.account button) { font: 500 1rem var(--f-body); padding: 0.6rem 1.15rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; min-height: 44px; transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
+  :global(.account button.primary) { background: var(--c-ink); color: var(--c-paper); }
+  :global(.account button.primary:hover) { background: var(--c-moss); }
+  :global(.account button.quiet) { background: none; color: var(--c-ink); border-color: var(--c-rule); }
+  :global(.account button.quiet:hover) { border-color: var(--c-ink); }
+  :global(.account button.danger:hover) { color: var(--c-cardinal); border-color: var(--c-cardinal); }
+  :global(.account :is(button, input, a, summary):focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  :global(.account button:disabled) { opacity: 0.55; cursor: progress; }
+  .apple { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #000; color: #fff; border-radius: 4px; }
+  .apple[hidden] { display: none; }
+  .apple svg { width: 1rem; height: 1.15rem; fill: currentColor; }
+  .email { display: grid; gap: var(--space-2); }
+  .email[hidden] { display: none; }
+  .email label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .email input { box-sizing: border-box; width: 100%; font: inherit; font-size: 1rem; color: var(--c-ink); padding: 0.5rem 0.65rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); min-height: 44px; }
+  .email input[name=code] { font-variant-numeric: tabular-nums; letter-spacing: 0.2em; max-width: 10rem; }
+  .fine { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .account .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .leave { margin-top: var(--space-5); }
+  .leave summary { cursor: pointer; color: var(--c-ink-soft); }
+  .msg { font-size: var(--step--1); color: var(--c-ink-soft); }
+  .msg.bad { color: var(--c-cardinal); }
   .gone { margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border: 1px solid var(--c-cardinal); background: var(--c-plate); }
   /* Global: the script draws the tanks' buttons, which scoped styles don't reach. */
   :global(:is(.bar, .editor, .empty, .data, .tank) button) { font: 500 1rem var(--f-body); padding: 0.6rem 1.15rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; min-height: 44px; transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
