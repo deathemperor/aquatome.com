@@ -69,12 +69,17 @@ export async function startEmail(db: D1Database, key: string, email: string, lan
  */
 export async function checkEmail(db: D1Database, flow: string, code: string, now: Date): Promise<{ value: string; userId: string | null } | undefined> {
   const id = await sha256(flow)
-  const row = await db.prepare(`UPDATE auth_challenges SET attempts = attempts + 1 WHERE id = ? AND kind = 'email' RETURNING value, user_id, code, attempts, expires_at`).bind(id)
-    .first<{ value: string; user_id: string | null; code: string; attempts: number; expires_at: string }>()
+  // The count and the limits in one statement: tries sent at the same time can't get past MAX_ATTEMPTS.
+  const row = await db.prepare(`UPDATE auth_challenges SET attempts = attempts + 1 WHERE id = ? AND kind = 'email' AND attempts < ? AND expires_at > ? RETURNING value, user_id, code, attempts`)
+    .bind(id, MAX_ATTEMPTS, now.toISOString()).first<{ value: string; user_id: string | null; code: string; attempts: number }>()
   if (!row) return undefined
   const right = /^\d{6}$/.test(code) && row.code === (await sha256(`${flow}|${code}`))
-  if (right || row.attempts >= MAX_ATTEMPTS || row.expires_at <= now.toISOString()) await db.prepare(`DELETE FROM auth_challenges WHERE id = ?`).bind(id).run()
-  return right && row.expires_at > now.toISOString() ? { value: row.value, userId: row.user_id } : undefined
+  // Used, or out of tries: gone. Only the try that deletes it signs in, so the same code can't be used twice at once.
+  if (right || row.attempts >= MAX_ATTEMPTS) {
+    const gone = await db.prepare(`DELETE FROM auth_challenges WHERE id = ? RETURNING id`).bind(id).first()
+    if (right && gone) return { value: row.value, userId: row.user_id }
+  }
+  return undefined
 }
 
 /** Uses up a one-time value: its stored value if it exists, is of this kind and hasn't expired. Gone either way. */

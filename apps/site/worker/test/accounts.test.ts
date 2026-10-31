@@ -164,6 +164,17 @@ test('email: five wrong codes and the flow is gone', async () => {
   expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code } })).json.error).toBe('bad_code')
 })
 
+test('email: tries sent at once can\'t pass the limit, and one code signs in once', async () => {
+  const { call, ask } = setup()
+  const { flow, code } = await ask('reader@example.com')
+  const wrong = String((Number(code) + 1) % 1_000_000).padStart(6, '0')
+  const tries = await Promise.all([...Array(8)].map(() => call('POST', '/api/v1/auth/email/verify', { body: { flow, code: wrong } })).concat(call('POST', '/api/v1/auth/email/verify', { body: { flow, code } })))
+  expect(tries.filter(r => r.status === 200).length).toBeLessThanOrEqual(1)
+  const b = await ask('b@example.com')
+  const both = await Promise.all([1, 2].map(() => call('POST', '/api/v1/auth/email/verify', { body: b })))
+  expect(both.map(r => r.status).sort()).toEqual([200, 401])
+})
+
 test('email: a code someone else asked for neither signs this browser in nor joins this account (CSRF)', async () => {
   const { call, ask, google } = setup()
   const attacker = await ask('attacker@example.com')
