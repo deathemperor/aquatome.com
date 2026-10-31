@@ -3,24 +3,23 @@
   "name": "Betta uberis",
   "altNames": [
     "Cupang uberis",
-    "Cupang alam uberis",
-    "Uberis"
+    "Cupang alam uberis"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Betta uberis tangkapan alam dari Palangkaraya, termasuk dalam kompleks Betta coccina. Daftar Merah IUCN: Rentan (Vulnerable), yaitu terancam dan menghadapi risiko kepunahan yang tinggi di alam liar.</p><ul><li>Ukuran maksimum: sekitar 3–3,5 cm</li><li>Temperamen: cukup agresif</li><li>Pakan: karnivora</li><li>Tipe pemijah: bubble nester (membuat sarang busa)</li></ul>",
-    "beforeYouBuy:bwaquatics": "<p>Pastikan akuarium untuk ikan ini sudah siap sebelum membeli.</p>",
-    "habitat:bwaquatics": "<p>Warnanya sangat mirip dengan Betta burdigala, hanya saja jantan Betta uberis memiliki kilau hijau iridesen di sepanjang sisi tengah tubuh dan umumnya bertubuh kurang kekar. Siripnya lebih pendek daripada sirip Betta burdigala. Bintik pada Betta uberis berbeda-beda pada tiap individu, bahkan ada yang di alam sama sekali tidak memiliki bintik tersebut.</p>",
-    "aquariumSize:bwaquatics": "<p>Disarankan 1 pasang per ±19 liter air.</p>",
+    "quickFacts:bwaquatics": "<p>Betta uberis tangkapan alam dari Palangkaraya, termasuk kelompok Betta coccina complex. Daftar Merah IUCN: Rentan (Vulnerable), yaitu terancam dan menghadapi risiko tinggi punah di alam.</p><ul><li>Ukuran maksimal: sekitar 3–3,5 cm</li><li>Sifat: cukup agresif</li><li>Pakan: karnivora</li><li>Pemijahan: pembuat sarang busa</li></ul>",
+    "beforeYouBuy:bwaquatics": "<p>Pastikan habitatnya sudah siap sebelum membeli.</p>",
+    "habitat:bwaquatics": "<p>Warnanya sangat mirip dengan Burdigala, hanya saja jantan Uberis menampilkan kilau hijau di bagian tengah sisi tubuh dan umumnya bertubuh kurang kekar. Siripnya lebih pendek daripada sirip Burdigala. Bintik pada Uberis berbeda-beda pada tiap individu, karena sebagian individu di alam tidak memiliki bintik tersebut.</p>",
+    "aquariumSize:bwaquatics": "<p>Disarankan 1 pasang per sekitar 19 liter air.</p>",
     "waterConditions:bwaquatics": "<ul><li>TDS: 60–100</li><li>pH: 5,0–6,5</li><li>Suhu: 24–28 °C</li></ul>",
-    "diet:bwaquatics": "<p>Karnivora. Saat ini ikan ini diberi pakan cacing hitam (blackworm) hidup, cacing darah beku, dan pelet.</p>",
-    "behaviour:bwaquatics": "<p>Cukup agresif; ikan jantan bisa menjadi teritorial saat membentuk wilayah berbiak. Namun, karena ukurannya kecil, beberapa pasang bisa dipelihara bersama asalkan ruangnya cukup.</p>",
-    "reproduction:bwaquatics": "<p>Bubble nester (membuat sarang busa).</p>"
+    "diet:bwaquatics": "<p>Karnivora. Saat ini diberi pakan blackworm hidup, cacing darah beku, dan pelet.</p>",
+    "behaviour:bwaquatics": "<p>Cukup agresif; jantan bisa bersifat teritorial saat membentuk area pemijahan. Namun, karena ukurannya kecil, beberapa pasang bisa dipelihara bersama selama ruangnya cukup.</p>",
+    "reproduction:bwaquatics": "<p>Pembuat sarang busa.</p>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "bwaquatics": 0.7
+      "bwaquatics": 0.8
     }
   }
 }

@@ -37,7 +37,7 @@ const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping to
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
 - what (what it is, why it matters), signs (how it looks, how to tell it from look-alikes), causes, firstAid (what to do at once), treatment (methods with exact doses, temperatures and durations as sources give them, and what fish, shrimp, snails or plants cannot take them), steps (for a how-to: the steps in order), prevention, mistakes (common errors), vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there), myths (claims sources say are wrong, with who says so), other.
 - species: scientific names of the fish or plants the topic is mostly about or that sources single out (sensitive species, typical victims). Empty if none.
-- sources: every page used, with its kind.
+- sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
 Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. Never fetch Shopee, Lazada or Tiki pages.`
@@ -81,11 +81,12 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
-  // Only web links are kept as sources; a fact whose source was dropped goes with it, and the rest are renumbered.
-  const web = researched.sources.map(s => /^https?:\/\/\S+$/i.test(s.url))
-  const at = (i: number) => (web[i] ? web.slice(0, i).filter(Boolean).length : -1)
+  // Only web links are kept as sources, each page once (a fact citing a page listed twice cites its first listing); a
+  // fact whose source was dropped goes with it, and the rest are renumbered.
+  const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
+  const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
   const facts = researched.facts.filter(f => at(f.source) >= 0).map(f => ({ ...f, source: at(f.source) }))
-  const refs = researched.sources.filter((_, i) => web[i]).map(s => ({ url: s.url, title: s.title }))
+  const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts` }
 
   const forWriter = { topic: a.topic, kind: a.kind, facts }

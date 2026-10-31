@@ -1,0 +1,464 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Carassius auratus",
+    "Scleropages formosus",
+    "Carinotetraodon travancoricus",
+    "Dario dario"
+  ],
+  "sources": [
+    {
+      "url": "https://thevetdesk.com/pet-health-wellness/fish/why-is-my-fish-not-eating",
+      "title": "Why Is My Fish Not Eating? (PangoVet / The Vet Desk, reviewed by Dr. Luqman Javed, DVM)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/all-other-pets/fish/disorders-and-diseases-of-fish",
+      "title": "Disorders and Diseases of Fish - Merck Veterinary Manual (pet owner version)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18563",
+      "title": "Nguyên nhân cá la hán bỏ ăn. Cách xử lý hiệu quả (Chợ Tốt)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chotot.com/kinh-nghiem/?p=18072",
+      "title": "Tìm hiểu nguyên nhân cá rồng biếng ăn và cách khắc phục (Chợ Tốt)",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=19585",
+      "title": "Fish Not Eating? 8 Causes and What to Do (Gensou Premium Aquascaping, Singapore)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariadise.com/how-long-can-fish-go-without-food/",
+      "title": "How long can fish go without food? (Aquariadise)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumsource.com/betta-fish-not-eating",
+      "title": "Why Your Betta Fish Is Not Eating (Simple Checklist) - Aquarium Source",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "A fish that has eaten enough will not eat more, so a fish that seems to refuse food may simply be overfed.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Loss of appetite is listed as a sign of many fish diseases, including ich, velvet, Ichthyobodo and intestinal protozoa such as Spironucleus/Hexamita.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Improper nutrition is one of the most common contributors to illness or death in aquarium and pond fish.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Healthy adult aquarium fish generally last 3 to 7 days without food, and some species can go more than two weeks.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Juveniles and fry need several feedings a day, and going without food can cause deformities or death.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Suggested safe fasting periods: small community fish 3-5 days (survival up to 2 weeks), gouramis and barbs 5-7 days (up to 2-3 weeks), large cichlids and plecos 1-2 weeks (up to 4 weeks), bettas 5-7 days (up to 2 weeks), fry 1-2 days maximum (survival 3-5 days).",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Stress in a new fish: it hides, looks pale, darts when approached and ignores food for the first 24-72 hours.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Wrong food: fish take food into the mouth and spit it out, or the food sinks uneaten.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Bad water: loss of appetite comes with gasping at the surface, clamped fins, lethargy, or cloudy or smelly water.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Disease: loss of appetite comes with white spots, cotton-like growths, bloating, red streaks in the fins, isolation, fast gill movement or weight loss.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Bullying: one fish does not eat while the others do, gets chased away from food, hides all the time or has torn fins.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Overfeeding: fish pick at food lazily, uneaten food builds up, bellies look slightly rounded and algae blooms.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Breeding behaviour such as bubble nests, plumper females or mouthbrooders holding eggs can explain a fish that stops eating.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Owners may think a betta is not eating when it is only eating part of its food, so watch feeding over several sessions to tell the difference.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "A betta in water that is too cold may lose its appetite and lie at the bottom of the tank.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Intestinal protozoa (Spironucleus, Hexamita) cause lethargy, weight loss and white, stringy feces.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "In flowerhorn, a bacterial gut infection shows as refusing food, shyness, faded colour, a swollen belly or vent, and white or stringy feces.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Flowerhorn hole-in-the-head (Hexamita) shows as white, brown or yellow pus-filled pits on the head, thinness, dark skin, stringy white feces, and hanging head-up at the surface.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding: fish that are full ignore food, and excess food fouls the water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Wrong diet: herbivores ignore live prey and meaty treats, and carnivores show little interest in vegetables or algae wafers.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overcrowding: timid fish may be bullied at feeding time and stop coming to eat, and some males become territorial as they grow.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Illness causes loss of appetite, including bacterial and viral infections, parasites, swim bladder disorder, and tail and fin rot.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Poor filtration and water quality cause loss of appetite: ammonia spikes, nitrite spikes, high nitrate, fast-deteriorating water and low oxygen.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Water that is too hot can make fish hyperactive and uninterested in food, and water that is too cold slows metabolism and reduces appetite. A faulty heater is the usual cause.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "In new tank syndrome, ammonia builds up in the first 1 to 3 weeks because the biofilter is not yet established.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Cryptobia in African cichlids makes affected fish stop eating and lose weight, and Merck says there is no treatment.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Outbreaks of intestinal protozoa can be triggered by crowding, shipping, handling and other stress.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Bettas raised by breeders on live, frozen and freeze-dried foods may not recognise flakes or pellets as food.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Frozen or freeze-dried food that is still frozen or crunchy may be left uneaten.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Changes in pH, water hardness and ammonia can all affect a betta's appetite.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Female mouthbrooding African cichlids can go weeks without eating while they carry fry, which can last up to a month.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Mouthbrooding cichlids may not eat for 2-3 weeks while brooding.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Arowana stop eating because of dirty water, a filter that has stopped, ammonia, nitrite or nitrate, or a pH that changes too fast.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Arowana that reach about 40-50 cm naturally slow down and eat less.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Female arowana often eat less for a few weeks to a few months when they start carrying eggs.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Arowana may refuse food after transport or a tank change, after losing a tankmate, or when the water is changed right after a big meal.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Gut infections in flowerhorn start when stress from a tank change or transport lowers resistance and gut bacteria multiply.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water at once with a liquid test kit.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "If ammonia or nitrite is above zero, or nitrate is above 40 ppm, change 30-50% of the water.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "When total ammonia reaches 2 mg/L or more, change at least 50% of the water.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In old tank syndrome (ammonia often above 10 mg/L after pH drops below 6.0), simple water changes are not recommended, because rising pH can make the ammonia toxic.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Treat gasping together with loss of appetite, bloating or pinecone scales as an emergency: test the water and act right away.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Fry or juveniles that have not eaten for more than 24 hours are an emergency.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Move a sick fish to a quarantine tank, then consult a veterinarian.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Sudden temperature changes can be very harmful, often lethal, so fix the cause quickly and replace a faulty heater.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For bad water, fixes include a partial water change, live plants, more filtration, fewer fish and a bigger tank, and often several are needed together.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For a betta with low temperature, check with a second thermometer and warm the water. Moving it to the high end of the 74-81°F range may help.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Thaw frozen food fully, for example by soaking it in tank water, before offering it.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "When switching foods, offer the old food alongside the new if the fish is not adapting.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Flowerhorn gut infection: dissolve metronidazole fully in warm water and dose 500 mg per 40 litres. Calculate the water volume correctly to avoid overdosing. The article gives no treatment length.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Flowerhorn hole-in-the-head: change about 75% of the water, clean the substrate and filter, then dose crushed metronidazole dissolved in hot water (about 90°C) at 500 mg per 40 litres for 10-15 days, longer if improvement is slow. Methylene blue can be added against secondary bacterial infection.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Flowerhorn enteritis: stop feeding, keep the water at 28-30°C, change 50% of the water on day one, then 10% daily.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Arowana with ich or stress: keep the water at about 30-32°C and add a little salt.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Arowana not eating for other reasons: change 10-20% of the water every 2-3 days, adding a little salt each time and then less over time, but not too much. Run aeration 4-6 hours a day.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Fasting for 24 to 48 hours can clear constipation, which can otherwise cause swim bladder problems.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Merck recommends a veterinarian or fish health professional for diagnosis and treatment.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "1) Watch feeding over several sessions and note whether the fish refuses all food or only some. 2) Note how long the refusal has lasted. 3) Check the food is right and fully thawed. 4) Keep a regular schedule and remove leftovers. 5) Check temperature with a second thermometer. 6) Test pH, hardness and ammonia. 7) Watch for disease signs and see a fish vet if the cause is unclear.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "If you have changed the filter and tried the other fixes and the fish still does not eat, contact a veterinarian.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "For a new fish, wait 12-24 hours before the first feeding. Most start eating within 2-3 days.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "To reduce competition from bullies, feed in several spots or use sinking and floating foods together, and rearrange decor or add plants for hiding places.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish can eat in a few minutes and remove uneaten food before it settles.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish finish in about two minutes, once or twice a day, and skip one day per week, except for fry and juveniles.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Match the diet to whether the species is a herbivore, carnivore or omnivore.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Store dry food in a cool, dry place, use or replace it every 2 months, and throw away moldy food (aflatoxin risk).",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Buy live food from a reputable source, because wild-harvested food may carry parasites.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Not quarantining new or sick fish is a contributing factor in many fish disorders.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep fewer, healthier fish and choose species that get along.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Bettas and fancy goldfish benefit from one fasting day per week.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Goldfish, especially round-bodied fancy goldfish, are easy to overfeed and prone to digestive and swim bladder problems.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding too often, or several people in the house each feeding the fish.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using a plain dechlorinator when the tap water contains chloramine.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming that refusing dry food always means illness: pea puffers and scarlet badis often refuse dry food and need live or frozen food.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Tapping the glass or feeding a new fish on its first day, force-feeding breeding fish, and fasting fry.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Food blocks can leave uneaten food rotting in the tank, and many species, including tetras and most cichlids, do not recognise them as food.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Small tankmates can nip the fins of a sick arowana and make its stress worse.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "In hot tropical climates, warm water speeds up waste breakdown and lowers dissolved oxygen, which makes water quality problems worse. Overheating, not cold, is the main temperature risk. (Source is written for Singapore, a climate similar to southern Vietnam.)",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tanks in rooms without air conditioning can exceed 32°C in hot spells. Use a fan, more surface agitation or a chiller, and keep tanks out of direct afternoon sun.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "With air conditioning that switches on and off, a heater set to 25-26°C keeps the temperature stable. Over-cooling at night can shock fish.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tropical fish prefer 24-28°C.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese guides discuss loss of appetite mainly for arowana (cá rồng) and flowerhorn (cá la hán), and name metronidazole, oxytetracycline, methylene blue and salt.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Source says bettas are not especially prone to hunger strikes. The problem seems common only because bettas are so popular.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "A stressed new betta often starts eating again on its own, but the refusal should still be taken seriously.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Big fish with slow metabolisms can go longer between meals. Warmer water raises metabolism and food needs.",
+      "source": 5
+    }
+  ]
+}

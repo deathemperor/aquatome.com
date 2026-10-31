@@ -1,0 +1,485 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Carassius auratus",
+    "Poecilia reticulata",
+    "Pseudomonas fluorescens",
+    "Aeromonas hydrophila",
+    "Flavobacterium columnare"
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Fin_rot",
+      "title": "Fin rot (Wikipedia)",
+      "kind": "article"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/phuong-phap-chua-benh-thoi-vay-o-ca.html",
+      "title": "Phương pháp chữa bệnh thối vây ở cá (Mytour)",
+      "kind": "article"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/disease_prevention_and_control/fin_and_tail_rot.html",
+      "title": "Fin & Tail Rot (ANGFA Rainbowfish)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.liveaquaria.com/article/72/",
+      "title": "Common Bacterial Infections in Fish (LiveAquaria)",
+      "kind": "article"
+    },
+    {
+      "url": "https://cafishvet.com/?p=89174",
+      "title": "Fin Rot in Pet Fish (Dr. Jessie Sanders, Aquatic Veterinary Services)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/fin-rot",
+      "title": "5 Quick and Easy Steps for Treating Fin Rot (Aquarium Co-Op)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.seachem.com/kanaplex.php",
+      "title": "KanaPlex (Seachem)",
+      "kind": "maker"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "An aquatic vet describes fin rot as an active infection of the fins that can spread to other skin and sometimes becomes systemic.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Fin rot is a bacterial disease that leaves fins and tail ragged or discolored, and it is common in bettas and goldfish.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "The decay starts at the fin edge and moves inward. Once it reaches the fin base, the lost tissue cannot regrow.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Untreated fin rot can spread to the body as fin-and-body rot and kill the fish.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Mortality can come within days and rises sharply once bacteria reach the bloodstream.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "In mild cases, the soft fin-ray tissue can grow back fully once the infection is cleared.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Long, delicate fins, such as those of bettas and fancy goldfish, are awkward to use and get injured often.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Stage 1 is discoloration at the fin edges, which can look white, red or black depending on the fish's color.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Stage 2 is frayed, uneven edges as dead tissue falls away. Stage 3 is loss of the whole fin or tail, with the infection spreading to the body.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Fin rot often starts with red streaks in the fins, then the fin edges turn abnormally pale, then the membrane frays or rots.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Early signs include frayed edges, a reddened tail fin and greyish fin tips. Advanced cases erode and bleed back to the caudal peduncle and can expose the skeleton.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Affected fish may stop eating, become lethargic and turn darker.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Bacterial fin rot leaves a whitish-grey edge and patchy damage. Fungal fin rot looks creamy-white and hairy, with more even damage.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Bacterial (Pseudomonas) rot frays the fin raggedly. Fungal rot erodes more evenly and more often leaves a white edge.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "A healing wound often regrows white or translucent tissue, and clear or white regrowth at the tail is normal. Red tissue means infection is still active.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Fish with naturally uneven fin edges, such as halfmoon bettas, can make fin rot hard to spot.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Regrown fins may come back in a different color.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "A sure diagnosis needs a necropsy plus bacterial culture and isolation.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "The usual bacteria are Aeromonas, Pseudomonas and Flavobacterium, which often live normally in the fish's skin mucus.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "LiveAquaria names Aeromonas, Pseudomonas and Flexibacter as the cause. These bacteria are normally in the water and only cause disease when fish are weakened.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "In a 2004 study, Aeromonas hydrophila was the most common isolate (198 of 468) and was highly virulent, followed by Pseudomonas fluorescens (102) and Flavobacterium columnare (36).",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Bacterial and fungal infections can occur together.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Fin rot usually starts as a wound that becomes infected. Fin tissue has little blood supply, so infection can spread locally.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Predisposing factors include poor water quality, injury, poor diet and stress. Fin rot can also be secondary to another disease.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Aggressive encounters that damage fins often lead to secondary bacterial or fungal infection.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Named stressors include dirty water, fin nipping, an overly strong filter, sharp decor, wrong temperature, overcrowding and overfeeding.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Mytour names tetras, serpae tetras, black skirt tetras, angelfish and catfish as fin nippers that should be kept away from vulnerable fish such as guppies.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Even soft plant roots and unsuitable decor can snag long fins and cause the first wound.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water at once and look for stressors, then remove the stressor right away.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Isolate the sick fish in a separate tank of clean, dechlorinated water, and use a separate net for each tank.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "If an infected area is red, check water chemistry, environment and diet. If all are fine, contact an aquatic vet.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove fin-nipping or fighting fish and correct water problems to stop the rot from coming back.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "An aquatic vet says improving the environment (water quality, diet, conditions that support immunity) is the best treatment for fin rot.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "The same vet says antibiotics are rarely recommended for fin rot because they are hard to deliver to the fin tips.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "The same vet advises against water-column medications for simple fin rot because they disrupt the biological filter.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Persistent infections may need a vet for antibiotic injections and cleaning or trimming of the affected tissue.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op recommends erythromycin for fin rot and methylene blue if a secondary fungal infection is present.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op says aquarium salt can be used if erythromycin is unavailable but generally works more slowly. It gives no salt dose.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Medication may take several days to work. Recovery signs are that the rot stops spreading, appetite returns and fins begin to regrow.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Routine salt at 1–3 g/L is tolerated by most tropical fish and is safe for the biological filter.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt-tolerant species can take a 20–30 minute bath at 10 g/L.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Adult rainbowfish tolerate up to 17 g/L salt and juveniles up to 12 g/L.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Kanamycin can be given in food at 200–300 mg per 100 g of food.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "A kanamycin bath of 2–5 g/L for 4–5 days, followed by a 35–50% water change, is listed.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Water-soluble nalidixic acid can be used as a 13 mg/L bath for 1–4 hours, repeated if needed.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Malachite green at 1–3 mg/L for up to 1 hour is effective in some cases.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "ANGFA advises thinking carefully before using antibiotics and following the maker's directions for commercial products, since concentrations vary.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Other listed options are salt baths for species that tolerate salt, gentian violet dabbed on the lesion, and antibiotics in a treatment tank.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem KanaPlex (kanamycin) lists fin rot with a treatment period of 7 days or until the infection clears.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "KanaPlex water dose: 1 measure per 20 L (5 gallons), repeated every 48 hours, for a maximum of 3 doses.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says a second back-to-back KanaPlex round is possible for severe cases, but only if fish show no stress at the end of the first round.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says to remove all invertebrates (shrimp, snails) before dosing KanaPlex in the water, because they are extremely sensitive to medication.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "KanaPlex can be fed instead (1 scoop KanaPlex, 1 scoop Focus, 1 tbsp food, daily for up to 1 week), and Seachem calls this medicated food excellent for tanks with invertebrates.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says to turn off UV and ozone and remove carbon or Purigen while dosing KanaPlex, then remove it afterward with activated carbon. It does not harm the filter bed.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Mytour lists antibacterials containing erythromycin, minocycline, trimethoprim or sulfadimidine. It says to choose dye-free products and use them for the period on the label.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Mytour advises medicating only if the fish does not improve after a few days of cleaning and water correction.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Mytour suggests keeping the water at 26–27°C and pH 7–8 during treatment.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Mytour gives a salt dose of 30 g per 4 L, only for salt-tolerant freshwater fish. This is far above ANGFA's routine 1–3 g/L.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Medications reduce dissolved oxygen, so add an air stone or sponge filter during treatment.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Mytour says that for bettas the aeration should be kept low so the current does not stress the fish.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: test water parameters and look for stressors such as a strong current, sharp decor, wrong temperature or nippers.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: remove the stressor right away.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: clean the tank and remove as much waste as possible, since many medications require skipping water changes during treatment.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: medicate if needed, for example erythromycin, or methylene blue for secondary fungus.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: keep conditions comfortable and add aeration while medicating.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Mytour says unfiltered tanks can have a 100% water change with dechlorinated water. Tanks with an established biological filter should have only about 50% changed.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Rinse filter media in tank water, not tap water.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep water quality excellent, avoid fin injuries, reduce stress and remove dead or sick fish promptly.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Never add sick fish to a community tank. Quarantine or treat them first.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean the tank on a schedule, avoid overstocking and overfeeding, and add live plants to absorb waste.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Use a heater to hold the right temperature, slow strong currents and remove aggressive tankmates.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Check the fish every day, ideally at feeding time, to catch early signs.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Trim plants regularly, use decor suited to long-finned bettas, and give bettas a smooth resting spot.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Mytour suggests changing the water every 3 days in a 4 L tank, every 4–5 days in a 10 L tank and every 7 days in a 20 L tank.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed a varied, good-quality diet without overfeeding, since leftovers feed bacteria.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating the symptoms without removing the cause, such as nippers, sharp decor or dirty water, lets fin rot come back.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Forgetting to aerate while medicating is a mistake, because medications reduce oxygen.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Mistaking normal white or clear regrowth on a healing fin for active rot is a common error. Only red tissue indicates active infection.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dosing medication into the water of a tank with shrimp or snails is a mistake. Seachem says to remove invertebrates first or use medicated food.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Routinely mixing medications should be avoided.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using salt on species that do not tolerate it is a mistake. Check tolerance before a salt bath.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese guide (Mytour) stresses treating tap water with dechlorinator before it goes into the tank or hospital tank.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnamese, the disease is called bệnh thối vây or thối đuôi. Mytour blames dirty tanks, poor care and contact with sick fish.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Mytour itself says tea tree oil (1–2 drops in the tank) is unproven and should only be used for prevention.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Wikipedia says the belief that pet-store conditions are why bettas commonly get fin rot lacks a citation.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Seachem lists mouth rot (columnaris) among KanaPlex targets and says columnaris is highly contagious, so infected fish should go to a hospital tank.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Fungal secondary infection is common on fin-rot lesions.",
+      "source": 2
+    }
+  ]
+}

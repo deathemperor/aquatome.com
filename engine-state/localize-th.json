@@ -279,18 +279,16 @@
     "score": 0.78
   },
   "bangana-behri": {
-    "at": "2026-10-30",
+    "at": "2026-10-31",
     "from": "2026-10-29",
-    "name": "ปลาหว้าหน้านอ",
+    "name": "ปลาหว่าหน้านอ",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.88,
     "notes": [
-      "Item 5: \"คาดได้ว่าจะไม่รอด\" (expected not to survive) overstates the source \"can be expected not to do well\". Use something like \"คาดว่าจะอยู่ได้ไม่ดี\" or \"มีปัญหา\", so the care advice isn't exaggerated.",
-      "Item 3: \"บ่อปลาคาร์ป\" for \"koi ponds\" loses the koi meaning. Use \"บ่อปลาคาร์ปแฟนซี (koi)\" or \"บ่อโคอิ\".",
-      "Item 4: \"ตะไคร่และสาหร่าย\" for \"algae\" adds a second item. Use one term, \"สาหร่าย\" or \"ตะไคร่น้ำ\".",
-      "Item 6: \"ชื่อท้องถิ่นของปลาชนิดหนึ่งในสกุลนี้\" adds \"in this genus\", which the source doesn't say. Use \"ปลาชนิดหนึ่ง\" only.",
-      "Item 1: \"ชื่อสามัญ: Two-headed carp\" is left untranslated. Add a Thai rendering such as \"คาร์ปสองหัว\" or give the Thai common name.",
-      "Item 1: \"แหล่งที่มา\" for \"Origin\" is slightly ambiguous. \"ถิ่นกำเนิด\" or \"แหล่งนำเข้า\" is more natural."
+      "Item 1: \"ปลาตะเพียน\" for \"carp\" points to Barbonymus (silver barb) in Thai. Use \"ปลาคาร์ป\" or \"ปลาในวงศ์ปลาตะเพียน/คาร์ป\" instead.",
+      "Item 3: \"บ่อปลาคาร์ป\" drops \"koi\". Use \"บ่อปลาโคอิ\" or \"บ่อปลาคาร์ป (โคอิ)\".",
+      "Item 5: \"คาดว่าจะไม่ค่อยดีนัก\" is vague for \"can be expected not to do well\". Say that they tend to fare poorly or fight, e.g. \"มักไม่ค่อยอยู่รอดหรืออยู่ร่วมกันได้ไม่ดี\".",
+      "Item 1: \"แหล่งที่มา: ประเทศไทย\" is better as \"ถิ่นกำเนิด: ประเทศไทย\" for \"Origin\"."
     ]
   },
   "barbodes-semifasciolatus": {
@@ -662,10 +660,12 @@
     "from": "2026-10-29",
     "name": "ปลาเสือหกแถบ",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.75,
     "notes": [
-      "Item 1: \"Currently available: wonderful, fully grown\" is dropped — the TH has no \"ขณะนี้มีจำหน่าย\" (currently available) and no \"wonderful\". It also reads as a fragment. Add that the fish are currently in stock and that they are beautiful.",
-      "Item 6: \"tiger barbs\" is rendered as \"ปลาเสือสุมาตรา\" (Sumatra tiger fish), which is a loose rendering. Use the established name \"ปลาเสือสุมาตรา\" only if it is the common local name. Check that \"ปลาตะเพียนลายแถบ\" for \"banded barbs\" is the term hobbyists use."
+      "#6: \"ปลาตะเพียนลายแถบ\" / \"ปลาตะเพียนลายเสือ\" – Thai hobbyists usually call tiger barbs \"ปลาเสือสุมาตรา\" (or \"ปลาตะเพียนเสือ\"); consider the common hobby term.",
+      "#6: \"เอเชียตะวันออกเฉียงใต้\" is correct, but \"deep bodied\" rendered as \"ลำตัวป้อมสูง\" is slightly awkward; consider \"ลำตัวลึก/ลำตัวสูง\".",
+      "#3: \"น้ำอ่อนที่มีสภาพเป็นกรด\" is slightly wordy; consider \"น้ำอ่อนเป็นกรด\" (or \"น้ำที่เป็นกรดอ่อน\" in hobby usage).",
+      "#1: \"สวยงามมาก\" at the end is fine, but \"ขณะนี้มีจำหน่าย\" reads like shop talk; consider neutral phrasing for a handbook."
     ]
   },
   "desmopuntius-johorensis": {
