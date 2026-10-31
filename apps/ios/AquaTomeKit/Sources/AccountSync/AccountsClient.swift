@@ -42,17 +42,36 @@ public struct SignedIn: Sendable, Equatable {
 }
 
 public struct Synced: Sendable, Equatable {
-  /// The account's store: merge it into the phone's latest (`TankStore.merge(kept: phone, incoming: store)`), so a
-  /// change made while the request was on its way stays.
+  /// The account's store, as the server merged it.
   public let store: TankStore
-  /// Records the server refused (they stay on the phone, not in the account).
-  public let refused: Int
+  /// Ids of the records the server refused: they stay on the phone, not in the account.
+  public let refused: Set<String>
+  /// The phone's store as it was sent.
+  let sent: TankStore
+
+  /// The phone's store after this sync: the account's, since only the server decides a merge (docs/my-tanks-sync.md:
+  /// it sets a time ahead of its clock to its own, and keeps its copy on a tie). Records changed on the phone since the
+  /// sync was sent, and records the server refused, stay as the phone has them; the next sync sends them.
+  public func applied(to phone: TankStore) -> TankStore {
+    func pick(_ server: [Object], _ sent: [Object], _ phone: [Object]) -> [JSON] {
+      let id = { (r: Object) in r["id"]?.string ?? "" }
+      let before = Dictionary(sent.map { (id($0), $0) }, uniquingKeysWith: { _, last in last })
+      let kept = phone.filter { refused.contains(id($0)) || before[id($0)] != $0 }
+      let keptIds = Set(kept.map(id))
+      return (server.filter { !keptIds.contains(id($0)) } + kept).map(JSON.object)
+    }
+    var o = phone.value.object ?? [:]
+    o["tanks"] = .array(pick(store.tanks, sent.tanks, phone.tanks))
+    o["devices"] = .array(pick(store.devices, sent.devices, phone.devices))
+    return (try? TankStore(.object(o))) ?? phone
+  }
 }
 
 public enum AccountError: Error, Equatable {
   /// No network, or the server could not be reached.
   case offline
-  /// The token is no longer good (signed out elsewhere, or the account deleted): forget it.
+  /// The token is no longer good (signed out elsewhere, or the account deleted): forget it. (`session(token:)` says
+  /// so with no user instead.)
   case signedOut
   /// The account's store is of a newer version than this app knows: the phone's is left as it is.
   case newerStore
@@ -97,7 +116,8 @@ public struct AccountsClient: Sendable {
 
   public func session(token: String?) async throws -> AccountSession {
     let o = try await call("GET", "/api/v1/session", token: token)
-    guard case .bool(true) = o["accounts"] else { return .off }
+    guard case .bool(let accounts) = o["accounts"] else { throw AccountError.badReply }
+    guard accounts else { return .off }
     let p = o["providers"]?.object ?? [:]
     let on = { (k: String) in if case .bool(true) = p[k] { true } else { p[k]?.object != nil } }
     let user: AccountUser? = if let u = o["user"], u != .null { try AccountUser(u) } else { nil }
@@ -110,9 +130,10 @@ public struct AccountsClient: Sendable {
     return n
   }
 
-  /// Signs in with Sign in with Apple's identity token, asked for with `sha256Hex(nonce)`.
-  public func signInWithApple(idToken: String, nonce: String) async throws -> SignedIn {
-    let o = try await call("POST", "/api/v1/auth/apple", body: ["idToken": .string(idToken), "nonce": .string(nonce), "client": .string("app")])
+  /// Signs in with Sign in with Apple's identity token, asked for with `sha256Hex(nonce)`. The token this phone had, if
+  /// any, goes along: the server ends that session.
+  public func signInWithApple(idToken: String, nonce: String, replacing token: String? = nil) async throws -> SignedIn {
+    let o = try await call("POST", "/api/v1/auth/apple", token: token, body: ["idToken": .string(idToken), "nonce": .string(nonce), "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
   }
@@ -126,7 +147,7 @@ public struct AccountsClient: Sendable {
         let o = try await call("POST", "/api/v1/tanks/sync", token: token, body: ["store": store.value])
         guard let s = o["store"], let refused = o["refused"]?.array else { throw AccountError.badReply }
         do {
-          return Synced(store: try TankStore(s), refused: refused.count)
+          return Synced(store: try TankStore(s), refused: Set(refused.compactMap { $0.object?["id"]?.string }), sent: store)
         } catch TankStoreError.unknownVersion {
           throw AccountError.newerStore
         } catch {
@@ -161,7 +182,7 @@ public struct AccountsClient: Sendable {
       r.httpBody = try JSON.object(body).data()
     }
     let data: Data, res: HTTPURLResponse
-    do { (data, res) = try await send(r) } catch is URLError { throw AccountError.offline }
+    do { (data, res) = try await send(r) } catch let e as URLError { throw e.code == .cancelled ? CancellationError() : AccountError.offline }
     if res.statusCode == 204 { return [:] }
     let o = (try? JSON.parse(data))?.object
     guard (200..<300).contains(res.statusCode) else {

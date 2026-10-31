@@ -55,7 +55,7 @@ changes the project, `Config/` or the workflow signs and exports without uploadi
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order |
-| `Accounts` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit
