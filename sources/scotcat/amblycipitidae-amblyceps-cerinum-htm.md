@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amblycipitidae/amblyceps_cerinum.htm
 title: Amblyceps cerinum Ng & Wright, 2010
-fetchedAt: 2026-10-31T06:54:02.577Z
+fetchedAt: 2026-10-31T14:56:42.684Z
 hash: 65c50c1a2795767f08cf83477399a5f1dafcbfd777d39d3507361db237fa780f
 ---
 

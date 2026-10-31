@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amblycipitidae/amblyceps_caecutiens.htm
 title: Amblyceps caecutiens Blyth, 1858
-fetchedAt: 2026-10-31T06:53:49.877Z
+fetchedAt: 2026-10-31T14:55:05.245Z
 hash: dbc4445ba95c61fa8dfe2a5465610fb2806be1c8ba5039d15a8e62f8f7269f8d
 ---
 

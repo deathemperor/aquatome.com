@@ -1,0 +1,138 @@
+{
+  "id": "peregriana-peregra",
+  "scientificName": "Peregriana peregra",
+  "order": "",
+  "family": "Lymnaeidae",
+  "genus": "Peregriana",
+  "group": "snails",
+  "places": [
+    "europe",
+    "united-kingdom",
+    "france",
+    "germany",
+    "italy",
+    "russia",
+    "poland",
+    "ukraine"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 14,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Small pond snail</li><li>Other names: Wandering snail</li><li>Scientific name: Lymnaea peregra (Radix peregra/Peregriana peregra)</li><li>Water type: Freshwater/brackish</li><li>Minimum tank size: Any (does not matter)</li><li>Keeping: Easy</li><li>Breeding: Easy</li><li>Size: 2 cm in length</li><li>Optimal temperature: 14–29°C</li><li>Optimal pH: 7.0–8.0</li><li>Optimal GH: 6–30</li><li>Optimal KH: 1–20</li><li>Nitrate: less than 100 ppm</li><li>Diet: Algae eater/detritivore</li><li>Temperament: Peaceful</li><li>Life span: up to 2 years</li><li>Colour: Brownish</li></ul>\n<p>Fully grown snails barely reach 2 cm in length and 1.2 cm in width.</p><p><strong>Shell.</strong> A conical, right-handed spiral shell, typically with a pointed spire and sometimes growth lines or ridges, usually with 4 to 5 whorls. Colour varies considerably: commonly light yellow to yellow or yellowish-brown, occasionally darker brown or brownish-yellow, with a glossy appearance.</p><p><strong>Tentacles.</strong> Mobile, flat, triangular, short and wide, whitish or yellowish-gray, with eyes at their base.</p><p><strong>Body.</strong> Elongated, typically light gray, gray or yellowish-gray. The mantle is gray or yellowish-gray, often with many small dark spots. The foot is quite long and robust.</p><p><strong>Respiration.</strong> They can obtain oxygen both through the skin and from their pulmonary bubble.</p><p><strong>Lifespan.</strong> Most individuals are annuals, but a few may survive to a second year.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Small pond snail is very widely distributed across Europe and West Asia. Its native range includes countries in Western, Central and Eastern Europe, such as the United Kingdom, France, Germany, Italy, Russia, Poland and Ukraine.</p><p>The species has also been introduced to other parts of the world, including North America, South America, Asia and Oceania, through human activities such as accidental ship transport or the aquarium trade.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These temperate freshwater snails usually inhabit lakes, ponds, marshes and ditches. They prefer stagnant or slow-moving water. They thrive in both natural and man-made water bodies, colonising areas with suitable vegetation and food sources.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caring for this species is hardly necessary, as it is highly resilient, adaptable and tolerant.</p><p><strong>Tank size.</strong> Tank size does not matter; these small snails can live basically anywhere.</p><p><strong>Filtration.</strong> No special requirements. To breed them as live food and increase their population, a basic sponge filter can be used.</p><p><strong>Lighting.</strong> No special requirements. Snails are nocturnal, so lighting should suit the needs of plants (and/or algae if needed).</p><p><strong>Substrate.</strong> They can be kept on any substrate, but smooth gravel is recommended because algae grow on it more easily. They do not usually burrow.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Temperature:</strong> normal movement occurs within 14–29°C. Below about 10°C the snail withdraws into its shell and hibernates.</p><p><strong>pH:</strong> found in both alkaline and acidic waters, optimal 7.0–8.0. If pH stays below 6.0 for weeks or months, shell formation may suffer because calcium uptake becomes difficult.</p><p><strong>Hardness:</strong> they prefer hard water, KH above 1 and GH above 6, and grow larger in hard water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Small pond snails are omnivorous. They eat green dust algae, green spot algae, diatoms (brown algae) and so on. When algae are scarce, they may eat live plants, choosing the tender parts, as well as plant detritus.</p><p>They also scavenge, occasionally feeding on decaying animal matter, and swallow small invertebrates (such as hydras and protozoans) and fish eggs whole.</p><p>In aquariums they appreciate blanched vegetables and eat the same food given to fish and shrimp. Calcium is vital for snails, most obviously for forming the shell.</p><p><strong>Plant safety.</strong> They can generally be considered plant-safe, but at high population densities or with limited food they may become more herbivorous and damage delicate, tender plants. They are not recommended for a planted aquarium with expensive plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Small pond snails are entirely peaceful. They crawl over surfaces, float and sink using the lung cavity, and glide on the underside of the water's surface film. They are mainly active at night and often hide and rest during the day.</p><p>They are not true burrowers, but in the wild they can retreat into mud when a water body dries. When disturbed, the foot contracts and closes the shell aperture.</p><ul><li>Social: No</li><li>Active: At night</li><li>Peaceful: Yes</li><li>Burrowers: No</li></ul>\n<p><strong>Tankmates.</strong> Small pond snails are excellent food for assassin snails, crayfish, loaches, pufferfish, oscars and others. Otherwise they can live and thrive anywhere.</p><p>They can be good feeders or a clean-up crew in a community tank if kept under control.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lymnaea peregra is a self-fertile hermaphrodite: each individual has both male and female reproductive organs, so it can potentially fertilise itself, although cross-mating is more common.</p><ul><li>Maturity at around 7–10 mm.</li><li>They grow fast and start reproducing in the 7th week.</li><li>Attempts to hybridise them in the laboratory have not been successful.</li><li>They lay capsules, each containing 10–20 eggs.</li><li>Foreign sperm is stored and remains viable for several months after copulation; as it runs out, the self-fertilisation rate gradually increases.</li><li>The mean number of eggs per capsule is almost twice as high in cross-fertilisation as in self-fertilisation.</li><li>Eggs fail to develop above 36°C. Hatching success is high between 10°C and 30°C (100%–82.9%).</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/63c467b00d126cd2.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/63c467b00d126cd2-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/small-pond-snails-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "rau củ chần cho ốc",
+        "thức ăn cho ốc thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển cho bể ốc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

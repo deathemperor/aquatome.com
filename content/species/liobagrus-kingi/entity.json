@@ -1,0 +1,102 @@
+{
+  "id": "liobagrus-kingi",
+  "scientificName": "Liobagrus kingi",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "dianchi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "html": "<ul><li>Common name: King's bullhead</li><li>Family: Amblycipitidae</li><li>Size: 9.5 cm (3¾ in)</li><li>Temperature: 18-22°C (63-71°F)</li><li>pH: 6.5-7.5</li><li>Synonyms: none</li></ul><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6; anal spines: 3; anal soft rays: 10. Snout blunt, rounded and depressed; eyes small and nearer to tip of snout. Barbels 4 pairs; body naked and without lateral line; head and fins with thick skin. Caudal fin rounded.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "html": "<p>China: Upper Yangtze River basin and Lake Dianchi. Type locality: Tsin-ning, Yunnan, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "html": "<p>Liobagrus kingi is known from the Lake Dianchi basin, in the tributaries and its effluent river Zhangjiu and two tributaries of Jinsha Jiang (Upper Yangtze) in Sichuan and Yunnan Provinces. It was already a rare species in Lake Dianchi basin in the 1960s and it has not been found in the basin, tributaries and springs or in any fish market for many years. It is possible the Zhangjiu and Sichuan populations still exist. The water quality in the two tributaries of Jinsha Jiang is good but the two populations are separated by the construction of hydro power dams. The population in Zhangjiu River is far from the other two, and declining in quality due to polluted water entering from Lake Dianchi. The remaining area of occupancy for this species is about 200 km² and currently it is found in three locations and is classed as Endangered B2ab(i,ii,iii,iv,v), but needs updating (IUCN 2008).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "html": "<p>Etymology: The genus name Liobagrus: leio-, smooth, referring to lack of vomerine and palatine teeth; bagrus, a catfish then placed in the group “Bagrina” of the family Siluridae. The specific name kingi: In honour of malacologist Sohtsu G. King (1886-1949), committee member, Fan Memorial Institute of Biology, which published Tchang’s study.</p><p>Remarks: Since its discovery in 1935 in Jinning County, KIZ have deposited two specimens collected in 1960 and this is the last record of this fish. Even if the species still exists, the population should be very small. That is why it is on the endangered species list (IUCN 2008).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "html": "<ul><li>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Chen, X.-Y. &amp; Yang, B. 2008. Liobagrus kingi (errata version published in 2018). The IUCN Red List of Threatened Species 2008.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/20/23 ).</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ef63ba5acf554ff6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ef63ba5acf554ff6-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "CAFS / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_kingi.htm",
+      "caption": "Liobagrus kingi: line drawing",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test nước hồ cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước hồ cá",
+        "lọc thùng hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

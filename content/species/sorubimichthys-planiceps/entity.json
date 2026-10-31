@@ -1,0 +1,220 @@
+{
+  "id": "sorubimichthys-planiceps",
+  "scientificName": "Sorubimichthys planiceps",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Sorubimichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "colombia",
+    "orinoco",
+    "peru",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Sorubimichthys planiceps (Spix &amp; Agassiz, 1829). Size: 150 cm (59.1\") SL.</p><p>Identification: the body is overall cylindrical with a very flattened head and a large, long caudal fin. In large specimens the upper jaw extends beyond the lower. Coloration and pattern vary greatly across the range, but the fish generally has a broad cream stripe from the gill cover to the caudal peduncle, which may or may not be bordered by darker stripes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>South America: Amazon and Orinoco River basins, including the Middle Amazon (Solimões), Japurá, Caquetá, Putumayo, Upper Orinoco, Guaviare, Guayabero, and Middle Orinoco, Meta and Metica.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Normally found in whitewaters high in suspended sediments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>With an adult size reaching almost five feet, this fish would require a massive tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>pH 6.0 - 7.6. Temperature 24.0-28.0°C (75.2-82.4°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>The substrate should be sand with large stones and driftwood providing hiding places. The water current should be strong with a high oxygen content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>A voracious predator that consumes other fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Compatible with other fishes with similar water requirements that are too large to be swallowed whole. Suggested tankmates: other large catfishes of the families Pimelodidae or Doradidae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Unknown. Adult females are reported to be larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Unreported. Juveniles appear at the onset of the rainy season. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>The largest specimen reported from the Amazon was 1.5 m; Puerto Lopez, Colombia 1.6 m; Rio Caquetá 97 cm. Considered \"Vulnerable\" to extinction due to overfishing by commercial fisheries. Average adult size captured has declined in recent years and now averages under one metre. In Puerto Carreño, on the Rio Orinoco, 5.5 tons of S. planiceps were harvested in 2001. Under Colombian law, specimens under 95 cm may not be retained, which would also make the small specimens imported for the aquarium trade illegal; this law is rarely enforced. IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=122",
+      "html": "<p>Selecta genera et species piscium quos in itinere per Brasiliam, pp 25, Pl. 12.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/43b2d6fe8fedaad4.webp",
+      "width": 960,
+      "height": 1415,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:3_catfish_(Teffe,_Brazil,_14_October_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Pimelodidae--Leiarius marmoratus (Gill 1870).Taxonomic Classification: Animalia--Pimelodidae--Pseudoplatystoma fasciatum (Linnaeus 1766).Taxonomic Classification: A",
+      "thumb": "https://media.aquatome.com/commons/43b2d6fe8fedaad4-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8e2f9380fa31b81c.webp",
+      "width": 960,
+      "height": 602,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sorubimichthys_caught.jpg",
+      "caption": "Firewood catfish on red-painted decking",
+      "thumb": "https://media.aquatome.com/commons/8e2f9380fa31b81c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/52754056eb8894f9.webp",
+      "width": 960,
+      "height": 501,
+      "licence": "CC0",
+      "author": "Gremlinextreme",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Firewood_catfish_range_map.png",
+      "caption": "Firewood catfish range map",
+      "thumb": "https://media.aquatome.com/commons/52754056eb8894f9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/41cee889fe01c579.webp",
+      "width": 960,
+      "height": 1279,
+      "licence": "CC BY 4.0",
+      "author": "Thiago Nascimento da Silva Campos, Hasley Rodrigo Pereira, Phâmela Bernardes Perônico, Carine Cavalcante Chamon, Philip Teles Soares, and Fernando Mayer Pelicice",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamodromous_fishes_from_the_Tocantins-Araguaia_Basin.jpg",
+      "caption": "Characiformes: 1 = Hydrolycus armatus; 2 = Brycon falcatus; 3 = Semaprochilodus brama; 4 = Triportheus trifurcatus; 5 = Tometes siderocarajensis; 6 = Leporinus friderici. Siluriformes: 7 = Oxydoras ni",
+      "thumb": "https://media.aquatome.com/commons/41cee889fe01c579-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ePRSmPfBs0g",
+      "title": "Sorubimichthys planiceps",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YF4imdEIAFg",
+      "title": "Firewood Catfish (Sorubimichthys Planiceps)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iJTrIErMyKk",
+      "title": "Sorubimichthys planiceps aka firewood catfish",
+      "durationSec": 381,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tkMLoBgMPX8",
+      "title": "\"Butterfly\" catfish firewood aka Sorubimichthys planiceps",
+      "durationSec": 400,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cỡ lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

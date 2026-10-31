@@ -1,0 +1,73 @@
+{
+  "id": "hemiancistrus-medians",
+  "scientificName": "Hemiancistrus medians",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hemiancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "maroni",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 39
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
+      "html": "<ul><li>Scientific name: Hemiancistrus medians (Kner, 1854)</li><li>Type locality: Grand Inini River, Saut S, 3°36'19\"N, 53°48'25\"W, Suriname.</li><li>Synonym: Ancistrus medians</li><li>Etymology: Greek, hemi = the half. While the Greek, agkistron = hook, is thought to be the root of the term ancistrus, hemiancistrus can be taken to mean that these species have a part (not exactly HALF) of the features of the genus Ancistrus, but not ALL of the features.</li><li>Size: 390 mm or 15.4\" SL.</li><li>IUCN Red List: Least Concern. Last assessed 2020.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
+      "html": "<p>South America: Maroni River basin. Guyana Waters, Coastal Rivers of Guyanas, Suriname Coastal Rivers, Marowijne.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
+      "html": "<p>Lives among rocks in fast, deep water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp (256) 281 [6, 31].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

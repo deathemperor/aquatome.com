@@ -1,0 +1,103 @@
+{
+  "id": "ceratoglanis-scleronema",
+  "scientificName": "Ceratoglanis scleronema",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Ceratoglanis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "citarum",
+    "malaysia",
+    "pahang",
+    "thailand",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 44
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Type locality: Krawang, Java, Indonesia. Maximum size: 44 cm (17.3\") SL. IUCN Red List: Least Concern (last assessed 2019).</p><p>Etymology: from the Greek keratos, meaning horn, and glanis, meaning catfish. The specific name comes from the Greek skleros, meaning hard, and nema, meaning thread. Both names refer to the stiff, hooked maxillary barbels characteristic of this genus.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>This species is nearly impossible to maintain in the home aquarium. It requires vast amounts of swimming room, and experience in the field indicates that it is extremely sensitive to shock, dying very quickly after capture.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo. Reported from the Mekong basin in Thailand.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>pH: 6.0 - 7.0. Temperature: 22.0-27.0°C (71.6-80.6°F).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Males have membranous extensions to the maxillary barbels and prominent serrations on the posterior edge of the pectoral spine, which females lack.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Identification: differs from the only other congener, C. pachynema, in having more fin-rays, a smaller eye, and mature males with membranous extensions only on the front edge of the maxillary barbel.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1205",
+      "html": "<p>Atlas ichthyologique des Indes Orientales Néêrlandaises, pp 93, Pl. 101 (Silur. Pl. 53).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

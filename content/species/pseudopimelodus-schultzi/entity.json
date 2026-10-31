@@ -1,0 +1,81 @@
+{
+  "id": "pseudopimelodus-schultzi",
+  "scientificName": "Pseudopimelodus schultzi",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Pseudopimelodus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1189",
+      "html": "<ul><li><strong>Scientific name:</strong> Pseudopimelodus schultzi (Dahl, 1955)</li><li><strong>Common names:</strong> Schultz's Bumblebee Catfish, Schultz's Jelly Catfish</li><li><strong>Type locality:</strong> Cereté, Colombia</li><li><strong>Synonym:</strong> Zungaro zungaro schultzi</li><li><strong>Size:</strong> 207 mm (8.1 in) SL</li><li><strong>Identification:</strong> Broad dark brown stripe in the caudal fin; originates in Colombia.</li><li><strong>Etymology:</strong> Greek pseudes = false + pimele = fat + odous = teeth, i.e. 'false pimelodus'.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1189",
+      "html": "<p>Rio Magdalena, Colombia (Colombia Caribbean Rivers, Magdalena).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1189",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1189",
+      "html": "<p>Revista Linneana v. 1 (no. 1) 13</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6cc196da38f2b081.webp",
+      "width": 960,
+      "height": 357,
+      "licence": "Public domain",
+      "author": "François-Louis Laporte, comte de Castelnau",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zungaro_zungaro.jpg",
+      "caption": "Bagrus flavicans Cast. = Zungaro zungaro (Humboldt, 1821)",
+      "thumb": "https://media.aquatome.com/commons/6cc196da38f2b081-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

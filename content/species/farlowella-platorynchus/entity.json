@@ -1,0 +1,100 @@
+{
+  "id": "farlowella-platorynchus",
+  "scientificName": "Farlowella platorynchus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Farlowella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 19.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<ul><li>Scientific name: Farlowella platorynchus Retzer &amp; Page, 1997</li><li>Common names: Broadsnout Twig Catfish</li><li>Size: 194 mm (7.6\") SL</li><li>Temperature: 22.0-27.0°C</li><li>Habitat: Blackwater</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<p>South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali. Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<p>Suggested tankmates: Tetras or Rasboras are best. Avoid fast or \"nippy\" fishes such as Danios or Barbs. Will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<p>Identification: The genus Farlowella is distinguished by its elongate and slender body with a pronounced rostrum (of variable length), having the dorsal fin located near the middle of the body and only slightly anterior to the anal fin, and having a brownish color with two lateral dark stripes beginning at the tip of the rostrum, passing through the eyes and ending at the tail.</p><p>Etymology: The genus is named after W. G. Farlow, from Harvard University. The specific epithet refers to its broad (platys = broad) snout (rhynchos = snout).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
+      "html": "<p>Proc. Acad. Nat. Sci. Phila. v. 147 71 Fig. 44</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau củ cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

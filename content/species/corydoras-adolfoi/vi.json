@@ -1,0 +1,21 @@
+{
+  "slug": "ca-chuot-adolfo",
+  "name": "Cá chuột Adolfo",
+  "altNames": [
+    "Cá chuột mặt nạ đen",
+    "Adolfo's Cory"
+  ],
+  "sections": {
+    "quickFacts:bwaquatics": "<p>Đây là một loài cá chuột rất đẹp và ít gặp. Trên lưng cá có một vệt đen chạy dọc. Vùng mắt có một mảng đen như chiếc mặt nạ, chạy theo chiều dọc thân.</p>",
+    "behaviour:bwaquatics": "<p>Cá rất hiền và hợp với nhiều kiểu bể cộng đồng. Đừng nuôi chung với cá lớn có thể tìm cách ăn chúng. Nếu chuyện đó xảy ra, nhiều khả năng cả hai con đều chết. Tốt nhất là nuôi theo nhóm, vì chúng thích kết đàn bơi khắp bể.</p>",
+    "diet:bwaquatics": "<p>Thức ăn hiện dùng cho cá gồm giun đen, trùng huyết đông lạnh và thức ăn viên.</p>",
+    "waterConditions:bwaquatics": "<p>Cá đang được nuôi ở pH 6-7. Dù vậy, chúng có thể thích nghi với nhiều mức pH khác nhau.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "bwaquatics": 0.8
+    }
+  }
+}
