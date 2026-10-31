@@ -5,7 +5,7 @@ import { i18n } from '../../../lib/i18n'
 const { t } = i18n(Astro.url)
 const mail = `mailto:${CONTACT_EMAIL}`
 ---
-<Doc title={t('Chính sách bảo mật')} updated="29/10/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
+<Doc title={t('Chính sách bảo mật')} updated="31/10/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
   <p><a href="#english" lang="en">English version below.</a></p>
 
   <h2>{t('1. Chúng tôi là ai')}</h2>
@@ -30,6 +30,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <li><strong>units</strong> {t('(bộ nhớ trình duyệt): ghi nhớ bạn chọn đơn vị °C/cm hay °F/inch.')}</li>
     <li><strong>aq_tank</strong> {t('(bộ nhớ trình duyệt): chiều dài, nhiệt độ và pH bể bạn nhập ở trang chủ, để lần sau không phải nhập lại. Không gửi đi đâu.')}</li>
     <li><strong>aq_theme</strong> {t('(bộ nhớ trình duyệt): giao diện sáng hoặc tối bạn chọn. Không có thì trang theo cài đặt của máy. Không gửi đi đâu.')}</li>
+    <li><strong>aq.tanks</strong> {t('(bộ nhớ trình duyệt): các bể bạn lưu ở trang Bể của tôi và trang đèn Chihiros: tên bể, kích thước, nền, cá, cây, ghi chú, đèn (tên Bluetooth, lịch, mức sáng). Không gửi đi đâu; xóa bể ngay trên trang hoặc xóa dữ liệu trình duyệt để xóa hết.')}</li>
     <li><strong>aq_lang</strong> {t('(cookie, 1 năm): ngôn ngữ bạn chọn ở menu ngôn ngữ, để aquatome.com mở đúng ngôn ngữ đó lần sau. Chỉ đặt khi bạn chọn.')}</li>
     <li><strong>ts_sid</strong> {t('(bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê ẩn danh, xóa khi đóng tab.')}</li>
     <li><strong>{t('Cookie quảng cáo của Google')}</strong>{t(': xem mục 4.')}</li>
@@ -67,7 +68,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
 
   <section id="english" lang="en">
     <h2>Privacy policy (English)</h2>
-    <p>Last updated: 29 October 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+    <p>Last updated: 31 October 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
     <h3>What we process</h3>
     <ul>
       <li><strong>Comments:</strong> the display name and text you enter, shown publicly at once if they pass automatic filters; flagged comments wait for review, and comments that break the rules are removed in daily moderation. No email, account or IP address is stored. To limit spam, a one-way hash of your IP address plus the date is kept for 24 hours.</li>
@@ -82,6 +83,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
       <li><strong>units</strong> (local storage): your °C/cm or °F/inch choice.</li>
       <li><strong>aq_tank</strong> (local storage): the tank length, temperature and pH you enter on the home page, so the form is filled next time. Never sent anywhere.</li>
       <li><strong>aq_theme</strong> (local storage): the light or dark look you chose; without it the site follows your device. Never sent anywhere.</li>
+      <li><strong>aq.tanks</strong> (local storage): the tanks you save on the My tanks and Chihiros light pages: tank name, size, substrate, fish, plants, notes, lights (Bluetooth name, schedules, levels). Never sent anywhere; delete a tank on the page, or clear your browser data to remove them all.</li>
       <li><strong>aq_lang</strong> (cookie, 1 year): the language you picked in the language menu, so aquatome.com opens in it next time. Set only when you pick one.</li>
       <li><strong>ts_sid</strong> (session storage): random session ID for anonymous statistics.</li>
       <li>Google advertising cookies: see below.</li>

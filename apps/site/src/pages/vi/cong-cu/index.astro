@@ -90,6 +90,11 @@ const room = lang === 'vi' ? VN_WATER.northWinter : 20
     <p class="lead">{t('Kết nối đèn Chihiros qua Bluetooth ngay trên trình duyệt: đặt lịch bật tắt mỗi ngày, chỉnh độ sáng từng màu, chỉnh giờ cho đèn.')} <a href="/vi/cong-cu/den-chihiros/">{t('Mở trang điều khiển đèn →')}</a></p>
   </section>
 
+  <section class="tool" id="be-cua-toi" aria-labelledby="mine-h">
+    <h2 id="mine-h">{t('Bể của tôi')}</h2>
+    <p class="lead">{t('Ghi lại từng bể: kích thước, nền, cá, cây, ghi chú và lịch đèn đã đặt. Lưu ngay trên máy này, không cần đăng ký.')} <a href="/vi/cong-cu/be-cua-toi/">{t('Mở sổ bể →')}</a></p>
+  </section>
+
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>

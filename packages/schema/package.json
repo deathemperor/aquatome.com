@@ -6,7 +6,8 @@
     ".": "./src/index.ts",
     "./slug": "./src/slug.ts",
     "./text": "./src/text.ts",
-    "./tanks": "./src/tanks.ts"
+    "./tanks": "./src/tanks.ts",
+    "./tank-rules": "./src/tank-rules.ts"
   },
   "scripts": {
     "test": "vitest run",
