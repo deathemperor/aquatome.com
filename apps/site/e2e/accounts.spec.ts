@@ -13,13 +13,15 @@ const SIGN_IN_SCRIPTS = /accounts\.google\.com|appleid\.cdn-apple\.com|challenge
 function backend() {
   const mails: Mail[] = []
   const revoked: string[] = []
+  const usedTokens = new Set<string>()
   const env: AccountsEnv = { DB: testD1(), ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'k'.repeat(32), GOOGLE_CLIENT_IDS: 'g-web', APPLE_CLIENT_IDS: 'com.aquatome.web,com.aquatome.app', TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'sk' }
   const deps: AccountDeps = {
     verifyIdToken: async (_p, token, audiences) => {
       const [sub, nonce] = token.split('|')
       return audiences.length && sub ? { sub, emailVerified: false, ...(nonce ? { nonce } : {}) } : undefined
     },
-    siteverify: async (_s, t) => t === 'tok',
+    // Like Cloudflare's: each Turnstile token passes once.
+    siteverify: async (_s, t) => t.startsWith('tok-') && !usedTokens.has(t) && !!usedTokens.add(t),
     sendMail: async m => { mails.push(m); return true },
     revokeApple: async (_c, code, _r, ours) => {
       const sub = code.replace(/^good-/, '')
@@ -41,7 +43,9 @@ const APPLE = `window.AppleID = { auth: {
   init(o) { window.__a = o },
   signIn: async () => ({ authorization: { id_token: (window.__sub || 'apple-1') + '|' + window.__a.nonce + '|', code: 'good-' + (window.__sub || 'apple-1') } }),
 } }`
-const TURNSTILE = `window.turnstile = { render(el, o) { setTimeout(() => o.callback('tok'), 10); return 'w1' }, reset() {} }`
+// Like Cloudflare's: solved a moment after render, and again after each reset, with a new token each time.
+const TURNSTILE = `let n = 0
+window.turnstile = { render(el, o) { window.__ts = o; setTimeout(() => o.callback('tok-' + ++n), 10); return 'w1' }, reset() { setTimeout(() => window.__ts.callback('tok-' + ++n), 10) } }`
 
 async function connect(target: Page | BrowserContext, b: Backend) {
   await target.route('**/api/**', async route => {
@@ -74,6 +78,7 @@ test('signing in with Google merges this browser\'s tanks into the account; anot
   await expect(acc).toBeVisible()
   // Nothing from Google, Apple or Cloudflare's Turnstile loads until the reader asks to sign in (privacy policy, #tai-khoan).
   expect(signInScripts).toEqual([])
+  await expect(page.locator('#acc-ways')).toBeHidden()
   await page.locator('#acc-open').click()
   await page.locator('#acc-google button').click()
   await expect(page.locator('#acc-status')).toContainText('Google')
@@ -110,7 +115,10 @@ test('email sign-in: the code is mailed, and the mail\'s link signs in this brow
   await page.locator('#acc-email input[name=email]').fill('Reader@Example.com')
   await page.locator('#acc-email button[type=submit]').click()
   await expect(page.locator('#acc-code')).toBeVisible()
+  // Turnstile solves again after its reset: that must not send a second mail by itself.
+  await page.waitForTimeout(300)
   expect(b.mails).toHaveLength(1)
+  await expect(page.locator('#acc-msg')).toContainText('Đã gửi mã tới Reader@Example.com')
   expect(b.mails[0]!.to).toBe('reader@example.com')
   const link = /https?:\/\/\S+#ma=\d{6}/.exec(b.mails[0]!.text)![0]
   // The link opens a new tab of the same browser.
@@ -159,4 +167,91 @@ test('with accounts off the section stays hidden and no sign-in script loads', a
   await expect(page.locator('#tai-khoan')).toBeHidden()
   expect(third).toEqual([])
   expect(errors).toEqual([])
+})
+
+test('signing out and back in: one sign-in request per click, and a double-clicked code is sent once', async ({ page, errors }) => {
+  const b = backend()
+  await connect(page, b)
+  const posts: string[] = []
+  page.on('request', r => {
+    const path = new URL(r.url()).pathname
+    if (r.method() === 'POST' && /^\/api\/v1\/auth\/(apple|google|email\/start|email\/verify)$/.test(path)) posts.push(path.slice('/api/v1/auth/'.length))
+  })
+  await page.goto(PAGE)
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-apple').click()
+  await expect(page.locator('#acc-status')).toContainText('Apple')
+  await page.locator('#acc-signout').click()
+  await expect(page.locator('#acc-open')).toBeVisible()
+  await expect(page.locator('#acc-ways')).toBeHidden()
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-apple').click()
+  await expect(page.locator('#acc-status')).toContainText('Apple')
+  await page.locator('#acc-signout').click()
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Google')
+  await page.locator('#acc-signout').click()
+  await page.locator('#acc-open').click()
+  await expect(page.locator('#acc-code')).toBeHidden()
+  await page.locator('#acc-email input[name=email]').fill('reader@example.com')
+  await page.locator('#acc-email button[type=submit]').click()
+  await expect(page.locator('#acc-code')).toBeVisible()
+  await page.locator('#acc-code input').fill(/\b(\d{6})\b/.exec(b.mails[0]!.text)![1]!)
+  await page.locator('#acc-code button').dblclick()
+  await expect(page.locator('#acc-status')).toContainText('email')
+  await page.waitForTimeout(300)
+  expect(posts).toEqual(['apple', 'apple', 'google', 'email/start', 'email/verify'])
+  await expect(page.locator('#acc-msg')).toBeHidden()
+  expect(errors).toEqual([])
+})
+
+test('a session ended elsewhere: the next sync says so and offers sign-in again', async ({ page, errors }) => {
+  const b = backend()
+  await connect(page, b)
+  await page.goto(PAGE)
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Đồng bộ lúc')
+  await b.env.DB!.prepare('DELETE FROM sessions').run()
+  await page.locator('#acc-sync').click()
+  await expect(page.locator('#acc-msg')).toContainText('Phiên đăng nhập đã hết')
+  await expect(page.locator('#acc-open')).toBeVisible()
+  await expect(page.locator('#acc-open')).toHaveAttribute('aria-expanded', 'false')
+  await expect(page.locator('#acc-ways')).toBeHidden()
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Google')
+  expect(errors).toEqual([])
+})
+
+test('Apple added on another device after this page opened: deleting asks for Apple, then works', async ({ page, errors }) => {
+  const b = backend()
+  await connect(page, b)
+  await page.goto(PAGE)
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Google')
+  await b.env.DB!.prepare(`INSERT INTO credentials (id, user_id, kind, subject, created_at) VALUES ('c-apple', (SELECT id FROM users), 'apple', 'apple-9', '2026-10-31T00:00:00.000Z')`).run()
+  await page.evaluate(() => { (window as unknown as { __sub: string }).__sub = 'apple-9' })
+  await page.locator('#tai-khoan details summary').click()
+  page.on('dialog', d => d.accept())
+  await page.locator('#acc-delete').click()
+  await expect(page.locator('#acc-msg')).toContainText('cần đăng nhập lại bằng Apple')
+  expect(await b.count('users')).toBe(1)
+  await page.locator('#acc-delete').click()
+  await expect(page.locator('#acc-msg')).toContainText('Đã xóa tài khoản')
+  expect(b.revoked).toEqual(['apple-9'])
+  expect(await b.count('users')).toBe(0)
+  expect(errors).toEqual([])
+})
+
+test('an email sign-in left unfinished is forgotten once it expires', async ({ page }) => {
+  const b = backend()
+  await connect(page, b)
+  await page.goto(PAGE)
+  await page.evaluate(() => localStorage.setItem('aq.signin', JSON.stringify({ flow: 'f', until: '2000-01-01T00:00:00.000Z' })))
+  await page.reload()
+  await expect(page.locator('#tai-khoan')).toBeVisible()
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('aq.signin'))).toBeNull()
 })

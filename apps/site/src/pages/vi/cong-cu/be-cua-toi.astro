@@ -337,6 +337,7 @@ const { t } = i18n(Astro.url)
   .account + .data { margin-top: var(--space-6); }
   .account p { margin: 0 0 var(--space-3); }
   .ways { display: grid; gap: var(--space-3); margin-top: var(--space-4); max-width: 22rem; }
+  .ways[hidden] { display: none; }
   .way { min-height: 44px; }
   :global(.account button) { font: 500 1rem var(--f-body); padding: 0.6rem 1.15rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; min-height: 44px; transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
   :global(.account button.primary) { background: var(--c-ink); color: var(--c-paper); }
