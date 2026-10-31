@@ -303,6 +303,25 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - The iPhone sent each command as a list of 12 16-bit service UUIDs, the first one `0x004E`. iOS apps can't send manufacturer data, so broadcast apps hide their bytes in UUID lists.
   - Within a second, something at the tank's signal strength sent the same bytes back as manufacturer data under company ID 78 (`0x004E`). It sent about 4 copies, each from a new random address, with a few bytes changed and 6 extra bytes at the end. It is most likely the light relaying or acknowledging the command.
   - When idle, the light sends nothing. That is why 15 minutes of scanning beside it found nothing.
+- **Format, decoded from a labelled capture** (the owner did off, on, then brightness steps, then off, on):
+  - Scrambling: byte 0 is sent as is. Every later byte is `plain[i] = sent[i] XOR ((sent[i-1] - (i-1)) & 0xFF)`. On iOS, the bytes ride in the UUID list (`0x004E` first, then 11 UUIDs, each little-endian).
+  - Plain layout, 22 bytes from the phone:
+
+    | Bytes | Meaning |
+    |---|---|
+    | 0 | rolling sequence |
+    | 1 | `07` from the phone, `06` in the light's echo |
+    | 2–3 | `00 03` |
+    | 4–7 | the light's 4-byte ID, the same in every message |
+    | 8–9 | command |
+    | 10–15 | parameters |
+    | 16–19 | 4 changing bytes on on/off; zeros on `02 07` |
+    | 20–21 | no checksum found (standard CRC-16s and sums tried); possibly random |
+
+  - Commands seen:
+    - `00 00` is off and `00 01` is on, confirmed twice.
+    - `02 07` carries brightness and colour in 6 parameter bytes. These look like three pairs, e.g. `ff ff`, `7f 7f`, `80 80`, but the mapping to sliders is not pinned down yet.
+  - The echo repeats bytes 0–19 with byte 1 set to `06`, then adds 6 bytes that differ in every copy.
 - The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
 - What this means for the app:
   - A website can't control this light, because Web Bluetooth can't broadcast.
