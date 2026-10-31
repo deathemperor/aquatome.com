@@ -71,6 +71,8 @@ jobs:
           E2E_BASE_URL: https://aquatome.com
           E2E_PAGES: e2e-pages.json
           E2E_JSON: lighthouse-results.json
+          # Its own report, inside the uploaded one: in the same folder it would replace the checks' report and traces.
+          E2E_REPORT: e2e-report/lighthouse
       - if: always()
         run: node scripts/site-watch.mjs report apps/site/e2e-results.json,apps/site/lighthouse-results.json "$RUN_URL"
       - if: failure()
