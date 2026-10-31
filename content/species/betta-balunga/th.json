@@ -1,0 +1,26 @@
+{
+  "slug": "betta-balunga",
+  "name": "เบตต้า บาลุงก้า",
+  "altNames": [
+    "ปลากัดบาลุงก้า",
+    "ปลากัดป่าบาลุงก้า",
+    "Betta balunga",
+    "บาลุงก้า"
+  ],
+  "sections": {
+    "quickFacts:bwaquatics": "<ul><li>นิสัย: รักสงบ เลี้ยงเป็นคู่หรือเป็นกลุ่มได้</li><li>ขนาดสูงสุด: 6.4 ซม.</li><li>TDS: 60–200</li><li>ค่า pH: 6.5–7</li><li>อุณหภูมิ: 24–28 °C</li><li>อาหาร: กินเนื้อ</li><li>การเพาะพันธุ์: อมไข่ในปาก</li><li>สถานะใน IUCN Red List: กังวลน้อยที่สุด (Least Concern)</li></ul>",
+    "distribution:bwaquatics": "<p>ปลากัดกลุ่มอมไข่ในปากอีกชนิดหนึ่ง พบที่เกาะตารากัน (Tarakan) ประเทศอินโดนีเซีย เป็นชนิดเดียวในกลุ่มของมัน คือกลุ่ม Betta akarensis complex</p>",
+    "waterConditions:bwaquatics": "<p>TDS 60–200 ค่า pH 6.5–7 อุณหภูมิ 24–28 °C เลี้ยงในน้ำอ่อนที่มีค่า TDS ต่ำ แต่ปลาชนิดนี้ทนต่อสภาพน้ำได้กว้างกว่า</p>",
+    "diet:bwaquatics": "<p>กินเนื้อ ให้กินแบล็กเวิร์ม (blackworm) แบบมีชีวิต หนอนแดงแช่แข็ง และอาหารเม็ด</p>",
+    "behaviour:bwaquatics": "<p>ปลากัดชนิดนี้ดูจะเป็นปลาที่รักสงบมาก และเลี้ยงรวมกันได้ ทั้งแบบเป็นคู่หรือเป็นกลุ่ม</p>",
+    "dimorphism:bwaquatics": "<p>โดยทั่วไปตัวผู้มีขนาดใหญ่กว่าและครีบยาวกว่า</p>",
+    "reproduction:bwaquatics": "<p>อมไข่ในปาก</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "bwaquatics": 0.75
+    }
+  }
+}

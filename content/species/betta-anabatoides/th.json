@@ -1,0 +1,24 @@
+{
+  "slug": "betta-anabatoides",
+  "name": "เบตต้า อนาบาทอยเดส",
+  "altNames": [
+    "Betta anabatoides",
+    "ปลากัดป่าอนาบาทอยเดส",
+    "Giant Betta"
+  ],
+  "sections": {
+    "quickFacts:bwaquatics": "<ul><li><strong>นิสัย:</strong> รักสงบ เลี้ยงเป็นคู่หรือเป็นกลุ่มได้</li><li><strong>ขนาดสูงสุด:</strong> ประมาณ 12.5 ซม. (5 นิ้ว)</li><li><strong>TDS:</strong> 60–200</li><li><strong>ค่า pH:</strong> 6.5–7</li><li><strong>อุณหภูมิ:</strong> 24–28 °C</li><li><strong>อาหาร:</strong> กินเนื้อ</li><li><strong>การขยายพันธุ์:</strong> อมไข่</li><li><strong>สถานะใน IUCN Red List:</strong> ความเสี่ยงต่ำ (Least Concern)</li></ul>",
+    "waterConditions:bwaquatics": "<p>TDS 60–200 เลี้ยงในน้ำอ่อนที่มีค่า TDS ต่ำ แต่ปลาชนิดนี้ทนต่อสภาพน้ำได้กว้างกว่า</p>",
+    "diet:bwaquatics": "<p>เป็นปลากินเนื้อ ให้กินแบล็กเวิร์ม (blackworm) แบบมีชีวิต หนอนแดงแช่แข็ง และอาหารเม็ดได้</p>",
+    "dimorphism:bwaquatics": "<p>โดยทั่วไปตัวผู้จะตัวใหญ่กว่าและครีบยาวกว่า</p>",
+    "reproduction:bwaquatics": "<p>อมไข่</p>",
+    "notes:bwaquatics": "<p>เป็นชนิดเดียวในกลุ่มของตัวเอง คือกลุ่ม Betta anabatoides complex มีอีกชื่อหนึ่งว่า Giant Betta เพราะโตได้ยาวถึง 5 นิ้ว (ประมาณ 12.5 ซม.) เป็นปลากัดกลุ่มอมไข่อีกชนิดหนึ่ง มีถิ่นกำเนิดในจังหวัดกาลิมันตันใต้ ประเทศอินโดนีเซีย เลี้ยงเป็นคู่หรือเป็นกลุ่มได้ โดยทั่วไปตัวผู้จะตัวใหญ่กว่าและครีบยาวกว่า ปลากัดชนิดนี้ดูจะรักสงบมากและเลี้ยงรวมเป็นกลุ่มได้</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "bwaquatics": 0.75
+    }
+  }
+}
