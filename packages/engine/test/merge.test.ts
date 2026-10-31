@@ -85,6 +85,13 @@ test('an owner-fixed name and its redirects survive every source; a name Serious
   expect(b.vi).toMatchObject({ name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: 'ca-neon-vua-super-red', name: 'Cá neon vua Super Red' }] })
 })
 
+test("Seriously Fish's name doesn't replace one when another fish already has it (#228)", () => {
+  const a = mergeSpecies({}, page({ viName: 'Cá neon vua Super Red' }), ctx('glaser'))
+  const sf = mergeSpecies(a, page(), { ...ctx('seriouslyfish'), takenNames: new Set(['cá neon vua']) })
+  expect(sf.vi.name).toBe('Cá neon vua Super Red')
+  expect(sf.vi.altNames).not.toContain('Cá neon vua Super Red')
+})
+
 test('a source page giving one part twice (two quick-facts blocks): one section with both texts, in English and in Vietnamese', () => {
   const r = mergeSpecies({}, page({ sections: [
     { key: 'quickFacts', en: '<p>Wild caught.</p>', vi: '<p>Cá bắt tự nhiên.</p>' },
