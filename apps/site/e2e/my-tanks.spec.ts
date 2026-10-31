@@ -142,6 +142,12 @@ test('drawn before the page script runs, so nothing jumps: a first visit has the
   await expect(page.locator('#mt-loading')).toBeVisible()
   await expect(page.locator('#mt-empty')).toBeHidden()
 
+  // A store this page can't read (another version): as good as none, like the page's own script decides.
+  await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 2, tanks: [tank], devices: [] }))
+  await page.reload()
+  await expect(page.locator('#mt-empty')).toBeVisible()
+  await expect(page.locator('#mt-loading')).toBeHidden()
+
   // Only deleted tanks: as good as none.
   await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 1, tanks: [{ id: id(1), updatedAt: at, deletedAt: at }], devices: [] }))
   await page.reload()

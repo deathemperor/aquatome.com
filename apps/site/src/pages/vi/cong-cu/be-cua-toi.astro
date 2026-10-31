@@ -54,8 +54,8 @@ const { t } = i18n(Astro.url)
     <p class="row"><button type="button" class="primary" data-add>{t('Thêm bể đầu tiên')}</button> <a href="/vi/cong-cu/den-chihiros/">{t('Kết nối đèn Chihiros →')}</a></p>
   </div>
   {/* Before the first paint, so nothing jumps when the list is drawn: a reader with tanks here sees the loading line, not
-     the empty state (tank-store.ts: KEY 'aq.tanks', a record with deletedAt is deleted). */}
-  <script is:inline>(function(){try{var s=JSON.parse(localStorage.getItem('aq.tanks')||'null');if(s&&s.tanks&&s.tanks.some(function(t){return!('deletedAt' in t)})){document.getElementById('mt-empty').hidden=true;document.getElementById('mt-loading').hidden=false}}catch(e){}})()</script>
+     the empty state (tank-store.ts: KEY 'aq.tanks', the store load() accepts, a record with deletedAt is deleted). */}
+  <script is:inline>(function(){try{var s=JSON.parse(localStorage.getItem('aq.tanks')||'null');if(s&&s.v===1&&Array.isArray(s.tanks)&&Array.isArray(s.devices)&&s.tanks.some(function(t){return!('deletedAt' in t)})){document.getElementById('mt-empty').hidden=true;document.getElementById('mt-loading').hidden=false}}catch(e){}})()</script>
 
   <section id="du-lieu" class="data" aria-labelledby="data-h">
     <h2 id="data-h">{t('Dữ liệu ở đâu?')}</h2>

@@ -84,11 +84,14 @@ export function initAccount(o: { onStore: () => void }) {
 
   async function sync(first = false) {
     if (!user) return
+    const who = user
     const btn = $<HTMLButtonElement>('acc-sync')
     btn.disabled = true
     const before = store.liveTanks(store.load()).length
     const r = await syncOnce(() => store.load())
     btn.disabled = false
+    // Signed out, or the account deleted, while it was on its way: its answer is stale.
+    if (user !== who) return
     if (isFail(r)) {
       if (r.error === 'signed_out') { signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true); return }
       say(r.error === 'offline' ? ct('Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này.') : problem(r), true)
@@ -121,6 +124,7 @@ export function initAccount(o: { onStore: () => void }) {
     user = null
     clearTimeout(timer)
     appleForDelete = undefined
+    $('acc-status').textContent = ''
     $('acc-in').querySelector('details')!.open = false
     show()
     $('acc-ways').hidden = true
@@ -298,6 +302,7 @@ export function initAccount(o: { onStore: () => void }) {
     const r = await deleteAccount(appleCode)
     btn.disabled = false
     if (isFail(r)) {
+      if (r.error === 'signed_out') { signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true); return }
       // Apple added to the account on another device since this page loaded: Apple's step, on the next press.
       if (r.error === 'apple_reauth') {
         const s = await getSession()
