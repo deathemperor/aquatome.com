@@ -1,0 +1,3 @@
+// Settings shared by every target. Signing: copy Local.xcconfig.example to Local.xcconfig (git-ignored) and put your
+// team ID there, so the public project never carries it. Without it, simulator builds still work.
+#include? "Local.xcconfig"

@@ -1,0 +1,28 @@
+{
+  "sourceLanguage": "vi",
+  "strings": {
+    "NSBluetoothAlwaysUsageDescription": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome memakai Bluetooth untuk menemukan dan mengendalikan lampu akuarium Anda."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ใช้บลูทูธเพื่อค้นหาและควบคุมโคมไฟตู้ปลาของคุณ"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome dùng Bluetooth để tìm và điều khiển đèn bể cá của bạn."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

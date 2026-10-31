@@ -21,3 +21,21 @@ jobs:
       # run by hand against a real light), then the tests run.
       - run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
+  app:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # The main flows (apps/ios/AquaTomeUITests) on the simulator's fake light, which answers like the real one.
+      - run: >-
+          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
+      # Every string the app shows is translated into Indonesian and Thai.
+      - run: python3 apps/ios/scripts/check-strings.py build/dd
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios-ui-tests
+          path: build/ui.xcresult
+          if-no-files-found: ignore

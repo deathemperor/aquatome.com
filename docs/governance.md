@@ -104,7 +104,27 @@ that would have caught it).
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
 
-## Mobile apps (later)
+## Mobile apps
 
-The journeys describe what a reader does, not the page's code, so the same list becomes the app's flows (Maestro or
-Detox), and layer 3 reviews simulator screenshots against the same rubric.
+The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push that touches `apps/ios/**` or
+`protocols/**`. Android (`apps/android`) will follow the same pattern.
+
+| Check | Catches | Where |
+| --- | --- | --- |
+| **Protocol vectors**: the device frames and replies against `protocols/*-vectors.json`, which the site's tests read too | the app and the site sending different bytes; a reply misread | `swift test` in `apps/ios/AquaTomeKit` (job `kit`) |
+| **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
+| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock, write a preset and put the old one back, set a lost clock, old firmware refused, disconnect | `xcodebuild test` (job `app`) |
+| **Translations**: every string in the code has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+
+Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
+against a real light from a Mac with `light-harness` (`apps/ios/README.md`), ending with `restore`. What the light
+showed goes into the research doc, and into the vectors as captured bytes.
+
+Rules (as for the site):
+1. **A bug comes with a check that fails without the fix**: a vector, a session test or a UI flow. Run it against the
+   unfixed code once to see it fail.
+2. **A new device behaviour seen on hardware goes into `FakeLight` and the vectors**, so the tests know it too.
+3. **Never weaken a check to get a green run.**
+4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
+
+Next: layer 3 reviews simulator screenshots against the site's rubric.

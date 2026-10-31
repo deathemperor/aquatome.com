@@ -1,0 +1,3 @@
+// Copy to Local.xcconfig (git-ignored). Your team ID: Xcode → Settings → Accounts, or the "OU" of your signing
+// certificate in Keychain Access.
+DEVELOPMENT_TEAM = YOURTEAMID
