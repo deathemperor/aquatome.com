@@ -33,6 +33,8 @@ const SCHEMA = {
 }
 const file = (root: string, lang: ShopLang) => join(root, 'engine-state/shop-lists', `${lang}.json`)
 const key = (s: string) => s.normalize('NFC').toLowerCase().replace(/\s+/g, ' ').trim()
+/** A name that is only the genus ("Danio", "Ikan Monodactylus"): it covers every species in it. */
+const genusOnly = (name: string, sci: string) => key(name).replace(/^(cá|tép|ốc|ikan|udang|ปลา)\s*/, '') === key(sci.split(' ')[0]!)
 
 export async function readShopList(root: string, lang: ShopLang): Promise<ShopList | null> {
   return JSON.parse(await readFile(file(root, lang), 'utf8').catch(() => 'null')) as ShopList | null
@@ -72,23 +74,24 @@ export const shopIds = async (root: string, langs: ShopLang[]) => (await shopSci
 export const popularFirst = async (root: string) => [...new Set([...await shopScientific(root, ['vi', 'id', 'th']), ...POPULAR])]
 
 /**
- * Shop names onto the language's species pages as other names: only sure mappings, at most MAX_NEW a page, and never a
- * name the shops give several species or another page in the language already uses (it would point readers to the wrong fish).
+ * Shop names onto the language's species pages as other names: only sure mappings, the surest first, at most MAX_NEW a
+ * page, and never a name the list gives several species or a group ("Cá pleco" for any pleco, at any confidence), or that
+ * another page in the language already uses (it would point readers to the wrong fish).
  */
 export async function addShopNames(root: string, lang: ShopLang): Promise<string[]> {
   const list = await readShopList(root, lang)
   if (!list) return []
-  const sure = list.items.filter((i): i is ShopItem & { name: string; scientificName: string } => !!i.name && !!i.scientificName && i.confidence >= NAME_MIN)
+  const sure = list.items.filter((i): i is ShopItem & { name: string; scientificName: string } => !!i.name && !!i.scientificName && i.confidence >= NAME_MIN && !genusOnly(i.name, i.scientificName))
   const owners = new Map<string, Set<string>>()
   const own = (name: string, who: string) => (owners.get(key(name)) ?? owners.set(key(name), new Set()).get(key(name))!).add(who)
-  for (const i of sure) own(i.name, `species:${slugify(i.scientificName)}`)
+  for (const i of list.items) if (i.name) own(i.name, i.scientificName ? `species:${slugify(i.scientificName)}` : `group:${i.trade}`)
   for (const kind of ['species', 'breeds', 'plants']) for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
     const t = JSON.parse(await readFile(join(root, 'content', kind, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null
     if (t) for (const name of [t.name, ...t.altNames]) own(name, `${kind}:${id}`)
   }
   const added: string[] = []
   const byId = new Map<string, string[]>()
-  for (const i of sure) byId.set(slugify(i.scientificName), [...(byId.get(slugify(i.scientificName)) ?? []), i.name])
+  for (const i of [...sure].sort((a, b) => b.confidence - a.confidence)) byId.set(slugify(i.scientificName), [...(byId.get(slugify(i.scientificName)) ?? []), i.name])
   for (const [id, names] of byId) {
     const f = join(root, 'content/species', id, `${lang}.json`)
     const t = JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null

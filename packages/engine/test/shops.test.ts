@@ -62,6 +62,11 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
     item('Galaxy', 'Boraras brigittae', 0.9, 'Cá galaxy'), // another page's name
     item('Đĩa', 'Symphysodon aequifasciatus', 0.7, 'Cá đĩa bò'), // not sure enough
     item('Cánh buồm', 'Gymnocorymbus ternetzi', 0.9, 'Cá cánh buồm'), // no page
+    item('Đĩa xanh', 'Symphysodon aequifasciatus', 0.9, 'Cá dĩa'),
+    item('Các dòng dĩa', null, 0, 'Cá dĩa'), // a group name, whatever the confidence
+    item('Pleco L134', 'Boraras brigittae', 0.9, 'Cá pleco'),
+    item('Pleco L397', 'Danio margaritatus', 0.3, 'Cá pleco'), // the same name for another fish, even unsure
+    item('Neon', 'Paracheirodon innesi', 0.95, 'Cá Paracheirodon'), // the genus alone
   ])
   const added = await addShopNames(root, 'vi')
   expect(added).toEqual(['paracheirodon-axelrodi: Cá neon tim, Cá neon hoàng đế'])
