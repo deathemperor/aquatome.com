@@ -58,6 +58,24 @@ final class TanksModel {
   /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.
   func commitSynced(_ s: TankStore) throws { try commit(s) }
 
+  // MARK: The site's pages in the app (PageBridge): they save to these same tanks
+
+  /// The store for a page of the site, or nil while this phone's store isn't this app's to write (a page won't get a
+  /// store it could save over), or the last save failed: then pages keep their own saves, and send them again with each
+  /// page until one is kept.
+  func storeForPages() -> String? {
+    guard problem == nil, let data = try? store.data() else { return nil }
+    return String(decoding: data, as: UTF8.self)
+  }
+
+  /// A store a page sent: merged record by record (the newer copy of each wins, docs/my-tanks-sync.md) and saved if it
+  /// changed anything. One the app can't read (another version) is left alone.
+  func mergeFromPage(_ data: Data) {
+    guard problem == nil || problem == .saveFailed, let page = try? TankStore(data: data) else { return }
+    let merged = TankStore.merge(kept: store, incoming: page)
+    if merged != store { try? commit(merged) }
+  }
+
   // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
 
   /// The tank a light met for the first time goes on, when there is none yet.
@@ -104,18 +122,20 @@ final class TanksModel {
 
   #if DEBUG
   /// UI tests: no tanks (`-reset-defaults`), then maybe a store this app must leave alone (`-seed-tanks newer`,
-  /// `unreadable`), a place it can't save to (`unwritable`), or a tank another client gave litres of its own (`litres`).
+  /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`), or
+  /// one with fish and plants on it (`life`).
   static func prepareForTests(_ args: [String], file: URL = defaultFile()) {
     let dir = file.deletingLastPathComponent()
     let fm = FileManager.default
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres":
+    case "newer", "unreadable", "litres", "life":
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
         "unreadable": "{not json",
         "litres": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000001","name":"Bể cũ","dims":{"l":100,"w":40,"h":50},"litres":180,"species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        "life": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000002","name":"Bể cá neon","species":[{"id":"paracheirodon-innesi","count":12},{"id":"loai-chua-co-trang"}],"plants":[{"id":"rotala-rotundifolia"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)

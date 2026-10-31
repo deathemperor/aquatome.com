@@ -1,11 +1,11 @@
 import Handbook
 import SwiftUI
 
-/// Search and browse the handbook natively; a result opens the site's page.
+/// Search and browse the handbook natively; a result opens the site's page, or the app's own screen for it (the Chihiros
+/// tool is the Lights tab, "Bể của tôi" the tanks tab).
 struct HandbookView: View {
   @Environment(HandbookModel.self) private var handbook
-  /// The Chihiros tool is this app's own Lights tab, not a web page.
-  let openLights: () -> Void
+  @Environment(\.openScreen) private var openScreen
 
   var body: some View {
     @Bindable var handbook = handbook
@@ -23,8 +23,8 @@ struct HandbookView: View {
         }
         Section {
           ForEach(handbook.results) { item in
-            if item.path.hasSuffix(chihirosSuffix(handbook.lang)) {
-              Button { openLights() } label: { ItemRow(item: item) }
+            if item.kind == .tool, let screen = AppScreen.of(handbook.url(item), site: handbook.site) {
+              Button { openScreen(screen) } label: { ItemRow(item: item) }
             } else {
               NavigationLink(value: item) { ItemRow(item: item) }
             }
@@ -42,11 +42,6 @@ struct HandbookView: View {
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
-  }
-
-  /// The Chihiros page's last segment in each language (apps/site/src/lib/i18n.ts).
-  private func chihirosSuffix(_ lang: String) -> String {
-    ["id": "/lampu-chihiros/", "th": "/chihiros-light/"][lang] ?? "/den-chihiros/"
   }
 }
 

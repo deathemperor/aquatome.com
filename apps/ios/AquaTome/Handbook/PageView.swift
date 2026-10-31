@@ -8,11 +8,14 @@ import WebKit
 struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
+  @Environment(TanksModel.self) private var tanks
+  @Environment(\.openScreen) private var openScreen
   @State private var offline = false
   @State private var failed = false
 
   var body: some View {
-    WebPage(url: url, offline: $offline, failed: $failed)
+    // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
+    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
       .ignoresSafeArea(edges: .bottom)
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
@@ -38,6 +41,11 @@ private struct WebPage: UIViewRepresentable {
   let url: URL
   @Binding var offline: Bool
   @Binding var failed: Bool
+  /// The app's tanks as JSON for the pages (nil: none to hand them), and what to do with a page's.
+  let store: String?
+  let saved: (Data) -> Void
+  /// A link to a page the app has as its own screen.
+  let open: (AppScreen) -> Void
 
   func makeCoordinator() -> Coordinator { Coordinator(self) }
 
@@ -45,6 +53,10 @@ private struct WebPage: UIViewRepresentable {
     let config = WKWebViewConfiguration()
     // The site can tell the app's visits from a browser's.
     config.applicationNameForUserAgent = "AquaTomeApp/\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0")"
+    // The handler goes through a weak link: the content controller keeps what it's given, and the coordinator keeps the
+    // web view.
+    config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
+    context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
@@ -56,7 +68,18 @@ private struct WebPage: UIViewRepresentable {
     return web
   }
 
-  func updateUIView(_ web: WKWebView, context: Context) {}
+  func updateUIView(_ web: WKWebView, context: Context) {
+    let was = context.coordinator.page.store
+    context.coordinator.page = self
+    // The tanks changed (in the app, by the account, or by this page's save): the page open now, and the next ones.
+    guard store != was else { return }
+    context.coordinator.bridge(web.configuration.userContentController)
+    if let store { web.evaluateJavaScript(PageBridge.update(store: store, site: url)) }
+  }
+
+  static func dismantleUIView(_ web: WKWebView, coordinator: Coordinator) {
+    web.configuration.userContentController.removeScriptMessageHandler(forName: PageBridge.handler)
+  }
 
   /// One rule per ad host: content-blocker filters have no alternation.
   static let noAds = "[" + [#"googlesyndication\\.com"#, #"doubleclick\\.net"#, #"adservice\\.google\\.com"#, #"fundingchoicesmessages\\.google\\.com"#]
@@ -64,8 +87,8 @@ private struct WebPage: UIViewRepresentable {
     .joined(separator: ",") + "]"
 
   @MainActor
-  final class Coordinator: NSObject, WKNavigationDelegate {
-    let page: WebPage
+  final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
+    var page: WebPage
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
@@ -73,10 +96,31 @@ private struct WebPage: UIViewRepresentable {
 
     init(_ page: WebPage) { self.page = page }
 
+    /// The tanks script for the pages to come, with the app's store as it is now.
+    func bridge(_ content: WKUserContentController) {
+      content.removeAllUserScripts()
+      content.addUserScript(WKUserScript(source: PageBridge.script(store: page.store, site: page.url), injectionTime: .atDocumentStart, forMainFrameOnly: true))
+    }
+
+    /// A store one of the site's pages sent (it saved, or the web view held one): merged into the app's.
+    func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
+      let origin = message.frameInfo.securityOrigin
+      guard message.frameInfo.isMainFrame, PageBridge.trusts(scheme: origin.protocol, host: origin.host, site: page.url),
+            let json = message.body as? String else { return }
+      page.saved(Data(json.utf8))
+    }
+
     func webView(_ web: WKWebView, decidePolicyFor action: WKNavigationAction) async -> WKNavigationActionPolicy {
       guard let u = action.request.url else { return .allow }
       switch PageRoute.of(u, site: page.url, mainFrame: action.targetFrame?.isMainFrame ?? true, newWindow: action.targetFrame == nil) {
-      case .app: return .allow
+      case .app:
+        // A tapped link to "Bể của tôi" (the tools' "Xem trong Bể của tôi →" after a save) or the Chihiros page: the app's
+        // own tab. Only a tap: the page's first load, back and reload stay as they are.
+        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url) {
+          page.open(screen)
+          return .cancel
+        }
+        return .allow
       case .none: return .cancel
       case .outside:
         _ = await UIApplication.shared.open(u)
@@ -121,5 +165,14 @@ enum PageStore {
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
     let key = SHA256.hash(data: Data(url.absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
+  }
+}
+
+/// Passes messages on without keeping the coordinator alive.
+private final class WeakHandler: NSObject, WKScriptMessageHandler {
+  weak var target: WKScriptMessageHandler?
+  init(_ target: WKScriptMessageHandler) { self.target = target }
+  func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
+    target?.userContentController(content, didReceive: message)
   }
 }
