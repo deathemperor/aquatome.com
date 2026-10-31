@@ -12,9 +12,9 @@ final class PerformanceTests: XCTestCase {
     measure(metrics: [XCTApplicationLaunchMetric(waitUntilResponsive: true)]) { app.launch() }
   }
 
-  /// The handbook's fish, more than the site has: the app's CPU work (instructions, steady from run to run, unlike
-  /// time on a shared machine) and its memory while flinging down through them. The simulator reports no scroll
-  /// hitches, only the length of the deceleration animation, which the app doesn't set.
+  /// The handbook's fish, more than the site has: the app's CPU time and its memory while flinging down through them.
+  /// The simulator reports no scroll hitches, only the length of the deceleration animation, which the app doesn't
+  /// set; the hosted runners' virtual Macs read CPU instructions and cycles as 0, so the budget is on CPU time.
   func testFlingingThroughTheFish() {
     let app = XCUIApplication()
     app.launchArguments = args

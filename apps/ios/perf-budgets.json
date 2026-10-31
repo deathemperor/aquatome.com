@@ -1,37 +1,37 @@
 {
-  "$comment": "What the app may cost a reader, measured by AquaTomeUITests/PerformanceTests and checked by scripts/check-perf.py (ios.yml, job app) against the median of each test's runs, on the CI simulator (iPhone 17, iOS 26.5, Debug build). A budget only tightens: one raised says why in its reason (docs/governance.md, Mobile apps rule 5). The first values are the first CI run's medians plus headroom, rounded.",
+  "$comment": "What the app may cost a reader, measured by AquaTomeUITests/PerformanceTests and checked by scripts/check-perf.py (ios.yml, job app) against the median of each test's runs, on the CI simulator (iPhone 17, iOS 26.5, Debug build). A budget only tightens: one raised says why in its reason (docs/governance.md, Mobile apps rule 5). Each first value is the first CI run's median plus headroom, rounded.",
   "budgets": [
     {
       "name": "Launch to the first screen answering touches",
       "test": "PerformanceTests/testLaunch()",
       "metric": "com.apple.dt.XCTMetric_ApplicationLaunch-ApplicationFirstFramePresentationResponsive.duration",
       "unit": "s",
-      "max": 8,
-      "reason": "provisional: twice a local run (3.6 s on an M-series Mac), until the first CI run"
+      "max": 3.8,
+      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 3.06 s, ×1.25"
     },
     {
-      "name": "CPU work flinging through 800 fish",
+      "name": "CPU time flinging through 800 fish",
       "test": "PerformanceTests/testFlingingThroughTheFish()",
-      "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.instructions_retired",
-      "unit": "kI",
-      "max": 8000000,
-      "reason": "provisional: twice a local run (3.9 billion instructions), until the first CI run"
+      "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.time",
+      "unit": "s",
+      "max": 2.2,
+      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 1.74 s (RSD 1.7%), ×1.25. CPU time, not instructions: the runners' virtual Macs read instructions and cycles as 0"
     },
     {
       "name": "Memory at its peak while flinging through 800 fish",
       "test": "PerformanceTests/testFlingingThroughTheFish()",
       "metric": "com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak",
       "unit": "kB",
-      "max": 140000,
-      "reason": "provisional: twice a local run (70 MB), until the first CI run"
+      "max": 75500,
+      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 68,573 kB, ×1.1"
     },
     {
       "name": "App size, as archived for the App Store (all files, before Apple's encryption and thinning)",
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 1200,
-      "reason": "provisional: twice a local archive (0.56 MB), until the first CI run"
+      "max": 840,
+      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 761 kB, ×1.1"
     }
   ]
 }

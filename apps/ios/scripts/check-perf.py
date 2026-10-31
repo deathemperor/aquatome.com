@@ -7,7 +7,8 @@ Usage:
                                                 reason (governance, Mobile apps rule 5)
 
 Medians, not averages: a CI runner that stalls for one of the five runs shouldn't fail the check. A budgeted metric
-the result doesn't have fails too (the test didn't run, or Xcode renamed the metric): a budget never checks nothing.
+the result doesn't have, or reads as 0, fails too (the test didn't run, Xcode renamed the metric, or the machine has
+no such counter): a budget never checks nothing.
 """
 import json, os, subprocess, sys
 from statistics import median
@@ -42,22 +43,22 @@ def measured(xcresult):
     return found
 
 
-def check(xcresult, app):
-    values = measured(xcresult)
+def check(values, app):
     rows, failed = [], False
     for key, b in budgets().items():
         if b['test'] == 'bundle':
             value = app_size_kb(app)
-        elif key in values:
+        elif key in values and median(values[key]) > 0:
             value = median(values[key])
         else:
-            rows.append((b['name'], 'missing', b['max'], b['unit'], '✘'))
+            # Missing, or 0: a counter the machine doesn't have (CPU instructions read 0 on the hosted runners' VMs).
+            rows.append((b['name'], 'not measured', b['max'], b['unit'], '✘'))
             failed = True
             continue
         over = value > b['max']
         failed |= over
         rows.append((b['name'], f'{value:.3f}'.rstrip('0').rstrip('.'), b['max'], b['unit'], '✘' if over else '✔'))
-    table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v} {u} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
+    table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v}{" " + u if v != "not measured" else ""} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
     print('\n'.join(table))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
@@ -81,4 +82,4 @@ if __name__ == '__main__':
     if sys.argv[1:2] == ['--tightens-only']:
         tightens_only(sys.argv[2])
     else:
-        check(sys.argv[1], sys.argv[2])
+        check(measured(sys.argv[1]), sys.argv[2])
