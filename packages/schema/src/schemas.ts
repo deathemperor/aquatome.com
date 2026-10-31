@@ -172,11 +172,15 @@ export const SourcesSchema = z.partialRecord(SourceId, SourceInfoSchema)
 
 export const schemas = { Range, SourcedValue, Section, Photo, Video, ProductSlot }
 
-/** AquaTome's own summary of a species page, drafted from its translated text; the site shows it only once approved. */
+/**
+ * AquaTome's own summary of a species page, drafted from its translated text and data card; the site shows it only once
+ * approved (by the engine's check, or by hand). `problems`: what the check found, while it stays pending.
+ */
 export const SummarySchema = z.object({
   id: z.string(), review: z.enum(['pending', 'approved']),
   summary: z.string(), mistakes: z.array(z.string()).max(3),
   speciesUpdatedAt: z.string(), generatedAt: z.string(),
+  problems: z.array(z.string()).optional(),
 })
 
 /** Behaviour facts read from a species page's own text, for the tank-mates checker. Re-read when the page changes. */
