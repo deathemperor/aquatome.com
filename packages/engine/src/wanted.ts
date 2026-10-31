@@ -1,6 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { slugify } from '@aq/schema'
+import { POPULAR, slugify } from '@aq/schema'
 import type { Taxon } from './gbif'
 import { matchTaxon, pageIds } from './video-items'
 
@@ -79,24 +79,6 @@ export function wantedIn(url: string, wanted: Wanted): string | undefined {
   return undefined
 }
 
-/**
- * The fish Vietnamese hobbyists and shops keep most, most popular first. Wanted whether or not a page mentions them,
- * and fetched before any other wanted page, so the pages readers look for come first.
- */
-export const POPULAR = [
-  'Pterophyllum scalare', 'Symphysodon aequifasciatus', 'Symphysodon discus', 'Xiphophorus maculatus', 'Xiphophorus hellerii',
-  'Poecilia sphenops', 'Poecilia latipinna', 'Cyprinus rubrofuscus', 'Cyprinus carpio', 'Scleropages formosus', 'Osteoglossum bicirrhosum',
-  'Danio rerio', 'Paracheirodon innesi', 'Gymnocorymbus ternetzi', 'Puntigrus tetrazona', 'Trichopodus trichopterus', 'Trichopodus leerii',
-  'Trichogaster lalius', 'Helostoma temminkii', 'Mikrogeophagus ramirezi', 'Epalzeorhynchos bicolor', 'Epalzeorhynchos frenatum',
-  'Balantiocheilos melanopterus', 'Pterygoplichthys pardalis', 'Ancistrus dolichopterus', 'Corydoras aeneus', 'Corydoras paleatus',
-  'Corydoras sterbai', 'Corydoras panda', 'Hemigrammus bleheri', 'Hyphessobrycon eques', 'Hyphessobrycon herbertaxelrodi',
-  'Hemigrammus erythrozonus', 'Pethia conchonius', 'Puntius titteya', 'Danio margaritatus', 'Boraras brigittae', 'Poecilia wingei',
-  'Oryzias latipes', 'Macropodus opercularis', 'Pelvicachromis pulcher', 'Labidochromis caeruleus', 'Thorichthys meeki', 'Heros severus',
-  'Rocio octofasciata', 'Andinoacara rivulatus', 'Channa barca', 'Channa andrao', 'Channa pulchra', 'Channa bleheri', 'Channa micropeltes',
-  'Datnioides microlepis', 'Datnioides pulcher', 'Chitala ornata', 'Pangasianodon hypophthalmus', 'Phractocephalus hemioliopterus',
-  'Carinotetraodon travancoricus', 'Dichotomyctere nigroviridis', 'Toxotes jaculatrix', 'Monodactylus argenteus', 'Phenacogrammus interruptus',
-  'Caridina cantonensis', 'Pomacea diffusa', 'Vittina natalensis',
-]
 
 /** `wanted` plus the popular species we have no page for yet. */
 export function withPopular(wanted: Wanted, have: Set<string>, popular = POPULAR): Wanted {
@@ -117,3 +99,5 @@ export function wantedFirst<T extends { url: string }>(found: T[], wanted: Wante
   hit.sort((a, b) => { const [x, y] = [rank(a.slug), rank(b.slug)]; return x[0] - y[0] || x[1] - y[1] || a.i - b.i })
   return hit.length ? [...hit.map(h => h.f), ...found.filter(f => !hit.some(h => h.f === f))] : found
 }
+
+export { POPULAR }

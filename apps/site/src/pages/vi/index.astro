@@ -10,8 +10,8 @@ import { HERO } from '../../lib/hero'
 import { creditsFor } from '../../lib/credits'
 import { smallSrc } from '../../lib/img'
 import { homeVideos } from '../../lib/video'
-import { easyPlants, featuredSpecies, groupTiles, leadGuides, STEP_GUIDES } from '../../lib/home'
-import { i18n, served } from '../../lib/i18n'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeSpecies, STEP_GUIDES } from '../../lib/home'
+import { i18n } from '../../lib/i18n'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -29,10 +29,12 @@ const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
 const groups = groupTiles(lang, c)
 const plants = easyPlants(c)
-// Equipment guides are written in Vietnamese only so far.
-const equipment = served(lang, '/vi/thiet-bi/x/') ? c.equipment : []
+const equipment = c.equipment
+const native = nativeSpecies(lang, c)
+// The country's own fish, besides those already featured above.
+const nativeShown = native.species.filter(s => !featured.includes(s)).slice(0, 4)
 const credits = [HERO, ...creditsFor([
-  ...featured.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...videos.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
+  ...featured.map(s => s.photos[0]), ...nativeShown.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...videos.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
 ])]
 ---
 <Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
@@ -76,6 +78,13 @@ const credits = [HERO, ...creditsFor([
       ? <p class="empty">{t('Chưa có hồ sơ loài nào được xuất bản.')}</p>
       : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} />)}</div>}
   </section>
+
+  {native.place?.parent && nativeShown.length === 4 && (
+    <section class="wrap block" aria-labelledby="native-h">
+      <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: native.count })}</a></div>
+      <div class="grid">{nativeShown.map(s => <SpeciesCard s={s} />)}</div>
+    </section>
+  )}
 
   {groups.length > 0 && (
     <section class="wrap block" aria-labelledby="groups-h">
