@@ -15,34 +15,34 @@ const L = f('l', msg('Dài')), W = f('w', msg('Rộng')), H = f('h', msg('Cao'))
 const shorter = (a: number, b: number, what: string, than: string, ct: T) => (a > b ? ct('{what} phải ngắn hơn {than}.', { what, than }) : undefined)
 
 export const SHAPES: Record<ShapeId, Shape> = {
-  'chu-nhat': { name: 'Chữ nhật', fields: [L, W, H], area: d => d.l! * d.w! },
-  'lap-phuong': { name: 'Lập phương', fields: [f('l', msg('Cạnh'))], area: d => d.l! * d.l!, height: d => d.l! },
+  'chu-nhat': { name: msg('Chữ nhật'), fields: [L, W, H], area: d => d.l! * d.w! },
+  'lap-phuong': { name: msg('Lập phương'), fields: [f('l', msg('Cạnh'))], area: d => d.l! * d.l!, height: d => d.l! },
   // Elongated hexagon: front and back panes, a point at each end.
-  'luc-giac': { name: 'Lục giác', fields: [L, W, H, FRONT], area: d => (d.w! * (d.l! + d.f!)) / 2, check: (d, ct) => shorter(d.f!, d.l!, ct('Kính trước'), ct('chiều dài'), ct) },
+  'luc-giac': { name: msg('Lục giác'), fields: [L, W, H, FRONT], area: d => (d.w! * (d.l! + d.f!)) / 2, check: (d, ct) => shorter(d.f!, d.l!, ct('Kính trước'), ct('chiều dài'), ct) },
   'bat-giac': {
-    name: 'Bát giác', fields: [L, W, H, FRONT, END],
+    name: msg('Bát giác'), fields: [L, W, H, FRONT, END],
     area: d => d.l! * d.w! - 2 * ((d.l! - d.f!) / 2) * ((d.w! - d.e!) / 2),
     check: (d, ct) => shorter(d.f!, d.l!, ct('Kính trước'), ct('chiều dài'), ct) ?? shorter(d.e!, d.w!, ct('Kính hông'), ct('chiều rộng'), ct),
   },
   // Flat back, square ends of depth E, two angled front corners.
   'luc-giac-lung': {
-    name: 'Lục giác lưng phẳng', fields: [L, W, H, FRONT, END],
+    name: msg('Lục giác lưng phẳng'), fields: [L, W, H, FRONT, END],
     area: d => d.l! * d.w! - ((d.l! - d.f!) / 2) * (d.w! - d.e!),
     check: (d, ct) => shorter(d.f!, d.l!, ct('Kính trước'), ct('chiều dài'), ct) ?? shorter(d.e!, d.w!, ct('Kính hông'), ct('chiều rộng'), ct),
   },
-  tru: { name: 'Trụ tròn', fields: [f('d', msg('Đường kính')), H], area: d => Math.PI * (d.d! / 2) ** 2 },
-  'nua-tru': { name: 'Nửa trụ', fields: [f('d', msg('Dài (lưng phẳng)')), H], area: d => (Math.PI * (d.d! / 2) ** 2) / 2 },
-  'goc-tron': { name: 'Góc ¼ tròn', fields: [f('r', msg('Cạnh áp tường')), H], area: d => (Math.PI * d.r! ** 2) / 4 },
-  elip: { name: 'Elip', fields: [L, W, H], area: d => Math.PI * (d.l! / 2) * (d.w! / 2) },
+  tru: { name: msg('Trụ tròn'), fields: [f('d', msg('Đường kính')), H], area: d => Math.PI * (d.d! / 2) ** 2 },
+  'nua-tru': { name: msg('Nửa trụ'), fields: [f('d', msg('Dài (lưng phẳng)')), H], area: d => (Math.PI * (d.d! / 2) ** 2) / 2 },
+  'goc-tron': { name: msg('Góc ¼ tròn'), fields: [f('r', msg('Cạnh áp tường')), H], area: d => (Math.PI * d.r! ** 2) / 4 },
+  elip: { name: msg('Elip'), fields: [L, W, H], area: d => Math.PI * (d.l! / 2) * (d.w! / 2) },
   // Corner pentagon: two walls of A, short sides B, a front pane across.
-  'goc-ngu-giac': { name: 'Ngũ giác góc', fields: [f('a', msg('Cạnh áp tường')), f('b', msg('Cạnh ngắn')), H], area: d => d.a! ** 2 - (d.a! - d.b!) ** 2 / 2, check: (d, ct) => shorter(d.b!, d.a!, ct('Cạnh ngắn'), ct('cạnh áp tường'), ct) },
+  'goc-ngu-giac': { name: msg('Ngũ giác góc'), fields: [f('a', msg('Cạnh áp tường')), f('b', msg('Cạnh ngắn')), H], area: d => d.a! ** 2 - (d.a! - d.b!) ** 2 / 2, check: (d, ct) => shorter(d.b!, d.a!, ct('Cạnh ngắn'), ct('cạnh áp tường'), ct) },
   // L-shape, each arm measured overall from the corner: the shared corner is counted once.
   'chu-l': {
-    name: 'Chữ L', fields: [f('l1', msg('Dài nhánh 1')), f('w1', msg('Rộng nhánh 1')), f('l2', msg('Dài nhánh 2')), f('w2', msg('Rộng nhánh 2')), H],
+    name: msg('Chữ L'), fields: [f('l1', msg('Dài nhánh 1')), f('w1', msg('Rộng nhánh 1')), f('l2', msg('Dài nhánh 2')), f('w2', msg('Rộng nhánh 2')), H],
     area: d => d.l1! * d.w1! + d.l2! * d.w2! - d.w1! * d.w2!,
     check: (d, ct) => shorter(d.w2!, d.l1!, ct('Rộng nhánh 2'), ct('dài nhánh 1'), ct) ?? shorter(d.w1!, d.l2!, ct('Rộng nhánh 1'), ct('dài nhánh 2'), ct),
   },
-  'goc-tam-giac': { name: 'Tam giác góc', fields: [f('a', msg('Cạnh 1')), f('b', msg('Cạnh 2')), H], area: d => (d.a! * d.b!) / 2 },
+  'goc-tam-giac': { name: msg('Tam giác góc'), fields: [f('a', msg('Cạnh 1')), f('b', msg('Cạnh 2')), H], area: d => (d.a! * d.b!) / 2 },
 }
 
 export const GALLON_L = 3.785411784 // US gallon

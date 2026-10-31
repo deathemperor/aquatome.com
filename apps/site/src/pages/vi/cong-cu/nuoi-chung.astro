@@ -1,5 +1,6 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
+import SaveToTank from '../../../components/SaveToTank.astro'
 import { POPULAR, slugify, STAPLE_SPECIES } from '@aq/schema'
 import { getContent } from '../../../lib/content'
 import { toIndexItem } from '../../../lib/species-index'
@@ -17,7 +18,7 @@ const traits = await getTraits()
 const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
 const index: MateItem[] = c.species.map(s => {
   const p = cleanPhoto(s.photos), pop = known.indexOf(s.id)
-  return { ...toIndexItem(s, traits.get(s.id)), ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
+  return { ...toIndexItem(s, traits.get(s.id)), id: s.id, ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
 }).sort((a, b) => a.name.localeCompare(b.name, lang))
 ---
 <Browse title={t('Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con')} heading={t('Nuôi chung được không? Thả bao nhiêu con?')} intro={t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.')}>
@@ -48,6 +49,7 @@ const index: MateItem[] = c.species.map(s => {
       </form>
       <div id="st-out" aria-live="polite"></div>
     </section>
+    <SaveToTank />
   </div>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
@@ -56,6 +58,7 @@ const index: MateItem[] = c.species.map(s => {
   import { tankVolume } from '../../../scripts/calc'
   import { stocking } from '../../../scripts/stocking'
   import { cpath, ct } from '../../../scripts/ct'
+  import { initSaveToTank, withSpecies } from '../../../scripts/save-to-tank'
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
   const items: MateItem[] = JSON.parse($('species-index').textContent!)
@@ -82,7 +85,7 @@ const index: MateItem[] = c.species.map(s => {
   const chosen: MateItem[] = (params.get('ca') ?? '').split(',').map(s => {
     const [slug, n] = s.split(':')
     const hit = items.find(i => i.slug === slug)
-    if (hit && Number(n) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
+    if (hit && Math.round(Number(n)) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
     return hit
   }).filter((i): i is MateItem => !!i).filter((i, k, a) => a.indexOf(i) === k).slice(0, 6)
   const count = (c: MateItem) => counts.get(c.slug) ?? c.schoolMin ?? 1
@@ -241,6 +244,7 @@ const index: MateItem[] = c.species.map(s => {
   } as const
   function renderStocking() {
     $('mat-do').hidden = !chosen.length
+    save.show(chosen.length > 0)
     const v = $<HTMLFormElement>('vol-form')
     const [l, w, ht, flow] = [num(v, 'l'), num(v, 'w'), num(v, 'h'), num(v, 'flow')]
     if (!chosen.length || !(l > 0 && w > 0 && ht > 0)) { $('st-out').innerHTML = chosen.length ? `<p class="na">${ct('Nhập đủ dài, rộng, cao.')}</p>` : ''; return }
@@ -259,6 +263,21 @@ const index: MateItem[] = c.species.map(s => {
       + (notes.length ? `<ul class="warn">${notes.map(n => `<li>${n}</li>`).join('')}</ul>` : '')
       + `<p class="note">${ct('Ước theo kích thước cá trưởng thành (cá lớn thải nhiều hơn hẳn cá nhỏ), cho bể có lọc. Cây thủy sinh nhiều, thay nước thường xuyên thì nuôi được dày hơn một chút.')}</p>`
   }
+  // "Lưu vào Bể của tôi": the chosen fish and their numbers onto a tank; a new tank also takes the size above.
+  const size = () => {
+    const v = $<HTMLFormElement>('vol-form')
+    const [l, w, h] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
+    // Sides an account takes (up to 1000 cm); past that, a new tank gets no size.
+    return [l, w, h].every(x => x > 0 && x <= 1000) ? { l, w, h } : undefined
+  }
+  const save = initSaveToTank({
+    name: () => { const d = size(); return d ? ct('Bể {l} × {w} × {h}', { l: fmt(d.l), w: fmt(d.w), h: fmt(d.h) }) : ct('Bể mới') },
+    fields: kept => {
+      const species = withSpecies(kept?.species, chosen.flatMap(c => (c.id ? [{ id: c.id, count: count(c) }] : [])))
+      const dims = kept ? undefined : size()
+      return dims ? { species, dims } : { species }
+    },
+  })
   $('vol-form').addEventListener('input', renderStocking)
   $('vol-form').addEventListener('submit', e => e.preventDefault())
   render()
