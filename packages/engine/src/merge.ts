@@ -1,4 +1,4 @@
-import { SECTION_ORDER, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
+import { PLACE_ALIASES, SECTION_ORDER, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import type { Taxon } from './gbif'
 import type { ProcessedPage } from './process'
 
@@ -6,7 +6,8 @@ type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>
 type Item<E> = { entity: E; vi: Translation }
 type PagePlace = ProcessedPage['places'][number]
 
-export const placeId = (name: string) => slugify(name)
+/** A place's id from its name; a country spelled another way ("USA", "DR Congo") gets the id it is kept under. */
+export const placeId = (name: string) => PLACE_ALIASES[slugify(name)] ?? slugify(name)
 /** A region must be one proper name (river, lake, province), not a phrase like "mainly western" or "Kentucky (introduced)". */
 const VAGUE = /\b(north|south|east|west|northern|southern|eastern|western|central|mainly|except|introduced|around|and|parts?|possibly|probably)\b|[()]/i
 export const usableRegion = (r?: string): r is string => !!r && !VAGUE.test(r) && r.trim().split(/\s+/).length <= 4

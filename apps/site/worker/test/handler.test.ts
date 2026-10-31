@@ -223,12 +223,15 @@ test('owner: opening /_ab/ sets the owner flag cookie; the taken-down page offer
 })
 
 test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>; unknown paths stay 404', async () => {
-  const table = { '/vi/ca/ca-betta-green-alien/': '/vi/ca/ca-betta/?tu=ca-betta-green-alien' }
+  const table = { '/vi/ca/ca-betta-green-alien/': '/vi/ca/ca-betta/?tu=ca-betta-green-alien', '/id/asal/north-america/usa/': '/id/asal/north-america/united-states/' }
   const { e } = env({ ASSETS: { fetch: async (r: Request) => new URL(r.url).pathname === '/redirects.json' ? Response.json(table) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } as unknown as Fetcher })
   const r = await handle(new Request('https://aquatome.com/vi/ca/ca-betta-green-alien/'), e)
   expect(r.status).toBe(301)
   expect(r.headers.get('location')).toBe('/vi/ca/ca-betta/?tu=ca-betta-green-alien')
   expect((await handle(new Request('https://aquatome.com/vi/ca/khong-co/'), e)).status).toBe(404)
+  // Other languages' old addresses too.
+  const id = await handle(new Request('https://aquatome.com/id/asal/north-america/usa/'), e)
+  expect([id.status, id.headers.get('location')]).toEqual([301, '/id/asal/north-america/united-states/'])
 })
 
 test('a page view never waits on KV: the list baked in at deploy answers until the live one is in, then the live one wins', async () => {

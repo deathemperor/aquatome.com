@@ -48,6 +48,9 @@ test('ensurePlaces creates missing places with parents', () => {
     ['south-america', 'continent', undefined], ['rio-negro', 'river', 'brazil'], ['asia', 'continent', undefined], ['thailand', 'country', 'asia'],
   ])
   expect(made[0]?.vi).toMatchObject({ name: 'South America', slug: 'south-america' })
+  // A country spelled another way is the one already kept: no second place, and a region under it hangs off it.
+  const usa = ensurePlaces([{ continent: 'North America', country: 'USA', region: 'Florida' }], new Set(['north-america', 'united-states']))
+  expect(usa.map(p => [p.entity.id, p.entity.parent])).toEqual([['florida', 'united-states']])
 })
 
 test('plants and guides', () => {
