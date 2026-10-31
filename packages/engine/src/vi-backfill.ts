@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { QUALITY_THRESHOLD } from '@aq/schema'
+import { QUALITY_THRESHOLD, judgeQuality } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { reviewRewrite, reviewTranslation } from './quality'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
@@ -10,7 +10,7 @@ export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as cons
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
 type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
-type Vi = { sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number> } }
+type Vi = { sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
 export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
@@ -116,7 +116,8 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         for (const [src, k] of kept) if (src && k.scores.length) bySource[src] = Math.min(...k.scores, ...(k.all ? [] : [orig(src)]))
         if (Object.keys(bySource).length) {
           const min = Math.min(...Object.values(bySource))
-          vi.quality = { score: min, indexable: min >= QUALITY_THRESHOLD, bySource }
+          // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
+          vi.quality = judgeQuality({ score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
         }
       }
     } catch (e) {

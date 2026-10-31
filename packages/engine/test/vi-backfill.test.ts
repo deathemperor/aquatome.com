@@ -87,10 +87,18 @@ test('a long source split into chunks scores as its weakest kept chunk, or its o
   }
   const both = await make([0.9, 0.7]) // both beat the old 0.6
   expect(Object.values(both.sections)).toEqual(['<p>mới habitat:seriouslyfish</p>', '<p>mới diet:seriouslyfish</p>'])
-  expect(both.quality).toEqual({ score: 0.7, indexable: false, bySource: { seriouslyfish: 0.7 } })
+  expect(both.quality).toEqual({ score: 0.7, indexable: false, bySource: { seriouslyfish: 0.7 }, reason: 'score' })
   const one = await make([0.9, 0.5]) // the second chunk keeps its old text, so the source can't rise above the old 0.6
   expect(one.sections['diet:seriouslyfish']).toBe('<p>cũ</p>')
-  expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 } })
+  expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 }, reason: 'score' })
+})
+
+test('a rewrite keeps a thin page out of search: it changes the words, not the page\'s depth', async () => {
+  const root = await setup()
+  const file = join(root, 'species/x/vi.json')
+  await writeFile(file, JSON.stringify({ ...await read(root, 'species/x/vi.json'), quality: { score: 0.8, indexable: false, bySource: { seriouslyfish: 0.8, glaser: 0.9 }, reason: 'thin' } }))
+  await rewriteExisting(root, join(root, 'state.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10 })
+  expect((await read(root, 'species/x/vi.json')).quality).toEqual({ score: 0.9, indexable: false, bySource: { seriouslyfish: 0.9, glaser: 0.9 }, reason: 'thin' })
 })
 
 test('a guide translated from a plain-text outline keeps its HTML', async () => {

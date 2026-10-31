@@ -15,6 +15,8 @@ export const QUESTION_LABELS: Record<SectionKey, string> = {
 }
 
 const BLOCK = /<\/?(p|ul|ol|li|div|br)\b[^>]*>/gi
+/** A heading whose whole text (the source's) is "Unknown.": nothing to show, as a section or a quick fact. */
+const UNKNOWN = /^(unknown|not known|uncertain)( at (this time|present))?\.?$/i
 const tokens = (html: string) => plainText(html).toLowerCase().split(/[\s,.;:!?()"“”'‘’–-]+/).filter(Boolean)
 
 /** Quick facts already say it: most of its words are in them ("Sinh sản: ấp trứng bằng miệng" and "Cá ấp trứng bằng miệng."). */
@@ -38,7 +40,7 @@ export function foldNearEmpty(sections: Section[], t: Translation, label: (vi: s
     const html = vi[`${s.key}:${s.source}`]
     delete vi[`${s.key}:${s.source}`]
     const facts = `quickFacts:${s.source}`
-    if (!html || !plainText(html) || said(vi[facts] ?? '', html)) continue
+    if (!html || !plainText(html) || UNKNOWN.test(plainText(s.html)) || said(vi[facts] ?? '', html)) continue
     const item = `<li><strong>${label(SECTION_LABELS.vi[s.key])}:</strong> ${html.replace(BLOCK, ' ').replace(/\s+/g, ' ').trim()}</li>`
     const prev = vi[facts]
     const end = prev?.lastIndexOf('</ul>') ?? -1
