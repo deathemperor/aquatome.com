@@ -31,3 +31,8 @@ test('a page never links its own names, even when another page shares them; per-
   const r = linkTerms('<p>Cá chạch mặt ngựa lùn ưa pH thấp.</p>', targets, 'ml', new Set(), new Set(['cá chạch mặt ngựa lùn']))
   expect(r.html).toBe('<p>Cá chạch mặt ngựa lùn ưa <a href="/vi/thuat-ngu/ph/" class="gl">pH</a> thấp.</p>')
 })
+
+test('a target with a tip carries it on the link, escaped', () => {
+  const targets = [{ key: 'glossary:nh3', href: '/vi/thuat-ngu/amoniac/', names: ['Amoniac', 'NH3'], cls: 'gl', tip: { term: 'Amoniac', text: 'Chất "độc" <với> cá & tép' } }]
+  expect(linkTerms('<p>Đo NH3 mỗi tuần.</p>', targets, 'ml').html).toBe('<p>Đo <a href="/vi/thuat-ngu/amoniac/" class="gl" data-term="Amoniac" data-tip="Chất &quot;độc&quot; &lt;với> cá &amp; tép">NH3</a> mỗi tuần.</p>')
+})

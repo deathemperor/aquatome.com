@@ -63,7 +63,7 @@ export function linkTargets(c: Content): LinkTarget[] {
   }
   out.push(...taxa.values())
   // Glossary before equipment: "CO2" explains the term rather than selling the kit.
-  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames], cls: 'gl' })
+  for (const g of c.glossary) out.push({ key: `glossary:${g.id}`, href: `/vi/thuat-ngu/${g.t.slug}/`, names: [g.t.name, ...g.t.altNames], cls: 'gl', ...(g.t.definition ? { tip: { term: g.t.name, text: g.t.definition } } : {}) })
   const groups = new Set(c.species.map(s => s.group))
   for (const [g, names] of Object.entries(GROUP_TERMS)) if (groups.has(g) && GROUP_LABELS[g]) out.push({ key: `group:${g}`, href: `/vi/nhom/${g}/`, names })
   // Continents and countries have pages; a region or river links to the country it lies in.

@@ -1,6 +1,7 @@
 ---
 import { linkTerms, type Section, type Translation } from '@aq/schema'
 import SourceCredit from './SourceCredit.astro'
+import GlossaryTip from './GlossaryTip.astro'
 import { getContent } from '../lib/content'
 import { mentionIndex } from '../lib/mentions'
 import { figureHtml, type Figure } from '../lib/figures'
@@ -39,6 +40,7 @@ const figAfter = new Map(figures.slice(0, Math.max(0, groups.length - 1)).map((f
     {figAfter.has(i) && <Fragment set:html={figureHtml(lang, figAfter.get(i)!)} />}
   </>
   ))}
+  <GlossaryTip />
 </div>
 <style>
   .body section { display: grid; grid-template-columns: minmax(0, var(--measure)) 1fr; column-gap: var(--space-6); padding-block: var(--space-5); border-top: 1px solid var(--c-rule); }

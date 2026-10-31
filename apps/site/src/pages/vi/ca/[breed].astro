@@ -12,6 +12,7 @@ import ReaderPhotos from '../../../components/ReaderPhotos.astro'
 import Comments from '../../../components/Comments.astro'
 import RedirectNote from '../../../components/RedirectNote.astro'
 import BreedList from '../../../components/BreedList.astro'
+import GlossaryTip from '../../../components/GlossaryTip.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
@@ -97,6 +98,7 @@ const alternates = await alternatesOf('breeds', b.id)
     <ol>{b.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(s.title) ? 'vi' : undefined}>{s.title}</a>{lang !== 'vi' && isVietnamese(s.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
   </section>
   <div class="wrap"><Comments entity={key} /></div>
+  <GlossaryTip />
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }

@@ -1,8 +1,11 @@
 import { parse } from 'node-html-parser'
 import { escapeHtml, escapeRe, textNodes } from './glossary-link'
 
-/** Something a page can link to: any of `names` in the text links to `href`. `exact`: match case too (Latin genus/family names). `cls` overrides the link class. */
-export type LinkTarget = { key: string; href: string; names: string[]; exact?: boolean; cls?: string }
+/**
+ * Something a page can link to: any of `names` in the text links to `href`. `exact`: match case too (Latin genus/family names). `cls` overrides the link class.
+ * `tip`: a short explanation the page shows when the link is hovered or tapped (glossary terms), as data-term / data-tip.
+ */
+export type LinkTarget = { key: string; href: string; names: string[]; exact?: boolean; cls?: string; tip?: { term: string; text: string } }
 
 /**
  * Links the first occurrence of each target in the text (outside links, headings and code), longest name first at any
@@ -34,7 +37,8 @@ export function linkTerms(html: string, targets: LinkTarget[], cls: string, seen
       seen.add(t.key)
       keys.push(t.key)
       hit = true
-      return `<a href="${escapeHtml(t.href)}" class="${t.cls ?? cls}">${m}</a>`
+      const tip = t.tip ? ` data-term="${escapeHtml(t.tip.term)}" data-tip="${escapeHtml(t.tip.text)}"` : ''
+      return `<a href="${escapeHtml(t.href)}" class="${t.cls ?? cls}"${tip}>${m}</a>`
     })
     if (hit) node.rawText = next
   }
