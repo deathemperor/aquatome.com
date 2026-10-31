@@ -58,7 +58,7 @@ export async function listComments(url: URL, env: CommentsEnv): Promise<Response
 }
 
 /** Body as text, or null past `max` bytes — without trusting content-length (chunked bodies have none). */
-async function readCapped(req: Request, max: number): Promise<string | null> {
+export async function readCapped(req: Request, max: number): Promise<string | null> {
   if (Number(req.headers.get('content-length') ?? 0) > max) return null
   if (!req.body) return ''
   const reader = req.body.getReader()

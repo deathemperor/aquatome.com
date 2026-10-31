@@ -1,0 +1,1057 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome accounts and saved tanks",
+    "version": "1.0.0",
+    "description": "Optional accounts for \"Bể của tôi\": sign in (Apple, Google, email link; passkeys next), sync saved tanks between the site and the iOS app, export and delete the account.\n\nRecords and merge rules: docs/my-tanks-sync.md; schemas: protocols/tanks.schema.json; cases: protocols/tanks-vectors.json.\n\nOff unless the server has ACCOUNTS=on (or preview, for the owner): then GET /api/v1/session says {\"accounts\": false} and every other path is 404 accounts_off.\n\nEvery POST body is JSON with Content-Type: application/json. Changes from a browser must come from https://aquatome.com pages (Origin / Sec-Fetch-Site); the app sends no Origin and no cookie, and authenticates with Authorization: Bearer <token>. A bearer token is only valid as a bearer token, a cookie only as a cookie.\n\nErrors are {\"error\": \"<code>\"} with the status listed. 429 rate_limited can come from any sign-in path."
+  },
+  "servers": [
+    {
+      "url": "https://aquatome.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "The app: the token from a sign-in with client \"app\"."
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "__Host-aq_session",
+        "description": "The site: set by a sign-in with client \"web\"."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "Method": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "createdAt",
+          "lastUsedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "apple",
+              "google",
+              "passkey",
+              "email"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "lastUsedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": [
+          "id",
+          "createdAt",
+          "methods"
+        ],
+        "description": "An account holds no name, email address or phone number.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Method"
+            }
+          }
+        }
+      },
+      "SignedIn": {
+        "type": "object",
+        "required": [
+          "user"
+        ],
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "token": {
+            "type": "string",
+            "description": "client \"app\" only, and only for a new session: send as Authorization: Bearer <token>. Keep it in the Keychain."
+          }
+        }
+      },
+      "TankStore": {
+        "$ref": "tanks.schema.json#/$defs/TankStore"
+      },
+      "Refused": {
+        "type": "object",
+        "required": [
+          "kind",
+          "id",
+          "issues"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "tank",
+              "device"
+            ]
+          },
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  }
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Synced": {
+        "type": "object",
+        "required": [
+          "store",
+          "refused",
+          "serverTime"
+        ],
+        "properties": {
+          "store": {
+            "$ref": "#/components/schemas/TankStore"
+          },
+          "refused": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Refused"
+            },
+            "description": "Records sent that did not validate: not stored; keep them on the device."
+          },
+          "serverTime": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v1/session": {
+      "get": {
+        "summary": "Whether accounts are on, which sign-ins to offer, and who is signed in",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Off: {\"accounts\": false}. On: providers and the signed-in user (null when signed out). A browser's cookie is renewed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "accounts"
+                  ],
+                  "properties": {
+                    "accounts": {
+                      "type": "boolean"
+                    },
+                    "providers": {
+                      "type": "object",
+                      "properties": {
+                        "google": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "clientId": {
+                              "type": "string"
+                            }
+                          },
+                          "description": "The web client id (the app uses its own, also accepted)."
+                        },
+                        "apple": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "clientId": {
+                              "type": "string"
+                            }
+                          },
+                          "description": "The Services ID for the web; the app uses its bundle id."
+                        },
+                        "email": {
+                          "type": "boolean"
+                        },
+                        "passkey": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "turnstileSitekey": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "user": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/components/schemas/User"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/nonce": {
+      "post": {
+        "summary": "A one-time nonce (10 minutes) to put in the Apple or Google sign-in request",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The nonce. Web: pass it as is. Sign in with Apple on iOS: set request.nonce to its SHA-256 (lowercase hex) and send the nonce itself below.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "nonce"
+                  ],
+                  "properties": {
+                    "nonce": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/apple": {
+      "post": {
+        "summary": "Sign in with Apple: the provider's ID token",
+        "description": "The identity token from ASAuthorizationAppleIDCredential (iOS, audience = the bundle id) or Sign in with Apple JS (web, audience = the Services ID). The authorization code is not used.",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "idToken",
+                  "nonce"
+                ],
+                "properties": {
+                  "idToken": {
+                    "type": "string"
+                  },
+                  "nonce": {
+                    "type": "string",
+                    "description": "The nonce from /api/v1/auth/nonce, as issued."
+                  },
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedIn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: bad_token, bad_nonce",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: credential_in_use (signed in, and this account belongs to another)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/google": {
+      "post": {
+        "summary": "Sign in with Google: the provider's ID token",
+        "description": "The ID token (credential) from Google Identity Services (web) or Google Sign-In (iOS), whose audience is one of our client ids.",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "idToken",
+                  "nonce"
+                ],
+                "properties": {
+                  "idToken": {
+                    "type": "string"
+                  },
+                  "nonce": {
+                    "type": "string",
+                    "description": "The nonce from /api/v1/auth/nonce, as issued."
+                  },
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedIn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: bad_token, bad_nonce",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: credential_in_use (signed in, and this account belongs to another)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/email/start": {
+      "post": {
+        "summary": "Email a one-time sign-in link (15 minutes)",
+        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The link is https://aquatome.com/<language page>#dang-nhap=<token> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/); the page, or the app through a universal link, posts the token to /api/v1/auth/email/verify. The address is not stored. Limits: 3 links an hour per address, 10 an hour per network.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "turnstile"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "turnstile": {
+                    "type": "string"
+                  },
+                  "lang": {
+                    "type": "string",
+                    "enum": [
+                      "vi",
+                      "id",
+                      "th"
+                    ],
+                    "default": "vi"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Sent."
+          },
+          "400": {
+            "description": "Error: bad_email, bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: turnstile, cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Error: mail_failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: provider_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/email/verify": {
+      "post": {
+        "summary": "Sign in with the token from an email link (once)",
+        "security": [
+          {},
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "token"
+                ],
+                "properties": {
+                  "token": {
+                    "type": "string"
+                  },
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedIn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: bad_link (used, expired or unknown)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: credential_in_use",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "summary": "End this session (the token or cookie stops working)",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Signed out; the browser's cookie is cleared. The device keeps its own copy of the tanks."
+          }
+        }
+      }
+    },
+    "/api/v1/tanks": {
+      "get": {
+        "summary": "The account's saved tanks and devices, tombstones included",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The store.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "store",
+                    "serverTime"
+                  ],
+                  "properties": {
+                    "store": {
+                      "$ref": "#/components/schemas/TankStore"
+                    },
+                    "serverTime": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tanks/sync": {
+      "post": {
+        "summary": "Merge the device's records into the account's; the account's store after the merge",
+        "description": "Send every record (or every record changed since the last sync) as a TankStore; each is checked on its own and merged by docs/my-tanks-sync.md (an updatedAt ahead of the server's clock becomes the server's). Take the returned store as the device's, keeping refused records and records changed since the request was sent. Signing in: sync the device's whole store once, so local tanks join the account. Up to 2000 records a request; 600 syncs an hour.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "store"
+                ],
+                "properties": {
+                  "store": {
+                    "$ref": "#/components/schemas/TankStore"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Merged.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synced"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_store (not v1, or not lists), bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too_large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Error: too_many (the account would hold more than 200 live tanks or 400 live devices)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/export": {
+      "get": {
+        "summary": "Everything the account holds, as a JSON file",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content-Disposition: attachment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "exportedAt",
+                    "user",
+                    "tanks"
+                  ],
+                  "properties": {
+                    "exportedAt": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "tanks": {
+                      "$ref": "#/components/schemas/TankStore"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account": {
+      "delete": {
+        "summary": "Delete the account now: its tanks, sign-in methods and every session",
+        "description": "Ask the reader to confirm first. The device keeps its own copy of the tanks unless the reader clears it too.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted; the browser's cookie is cleared."
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/methods/{id}": {
+      "delete": {
+        "summary": "Remove a sign-in method (not the last one)",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Removed."
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: last_method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
