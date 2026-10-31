@@ -4,19 +4,22 @@ import Tanks
 /// "Bể của tôi": the reader's tanks and the lights on them, as on the site's page (/vi/cong-cu/be-cua-toi/).
 struct TanksView: View {
   @Environment(TanksModel.self) private var tanks
+  @Environment(AccountModel.self) private var account
   @State private var adding = false
 
   var body: some View {
     NavigationStack {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) {
+        // Signed in, the list stays, for the account's buttons.
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
           ContentUnavailableView {
             Label("Chưa có bể nào", systemImage: "fish")
           } description: {
             Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.")
           } actions: {
             Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
+            AccountSignIn()
           }
         } else {
           List {
@@ -27,8 +30,13 @@ struct TanksView: View {
                   .accessibilityIdentifier("tank")
               }
             } footer: {
-              Text("Các bể lưu trên máy này, không cần tài khoản.")
+              if account.user != nil {
+                Text("Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy.")
+              } else {
+                Text("Các bể lưu trên máy này, không cần tài khoản.")
+              }
             }
+            AccountSection()
           }
         }
       }

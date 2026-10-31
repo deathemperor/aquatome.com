@@ -55,6 +55,9 @@ final class TanksModel {
     try commit(s)
   }
 
+  /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.
+  func commitSynced(_ s: TankStore) throws { try commit(s) }
+
   // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
 
   /// The tank a light met for the first time goes on, when there is none yet.

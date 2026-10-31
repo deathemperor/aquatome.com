@@ -33,6 +33,22 @@
         }
       }
     },
+    "%lld bản ghi không hợp lệ nên chưa vào tài khoản.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld data tidak valid sehingga belum masuk ke akun."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มี %lld รายการที่ไม่ถูกต้อง จึงยังไม่ได้เพิ่มเข้าบัญชี"
+          }
+        }
+      }
+    },
     "%lld tiếng, %lld%%": {
       "localizations": {
         "id": {
@@ -77,6 +93,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "Apple chưa xác nhận được: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple belum bisa mengonfirmasi: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple ยังยืนยันไม่ได้ โปรดลองอีกครั้ง"
           }
         }
       }
@@ -257,6 +289,22 @@
         }
       }
     },
+    "Chính sách bảo mật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kebijakan privasi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นโยบายความเป็นส่วนตัว"
+          }
+        }
+      }
+    },
     "Chưa chọn": {
       "localizations": {
         "id": {
@@ -353,6 +401,54 @@
         }
       }
     },
+    "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihapus: masuk lagi dengan Apple untuk mengonfirmasi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ลบ ต้องเข้าสู่ระบบด้วย Apple อีกครั้งเพื่อยืนยัน"
+          }
+        }
+      }
+    },
+    "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa disinkronkan: tidak ada koneksi internet. Perubahan tetap tersimpan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซิงค์ไม่สำเร็จเนื่องจากไม่มีอินเทอร์เน็ต การเปลี่ยนแปลงยังบันทึกอยู่ในเครื่องนี้"
+          }
+        }
+      }
+    },
+    "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, email hay số điện thoại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya dipakai untuk mengenali Anda saat masuk: nama, email, atau nomor telepon tidak disimpan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้เพื่อระบุตัวคุณเมื่อเข้าสู่ระบบเท่านั้น โดยไม่เก็บชื่อ อีเมล หรือหมายเลขโทรศัพท์"
+          }
+        }
+      }
+    },
     "Chỉnh giờ đèn theo máy này": {
       "localizations": {
         "id": {
@@ -401,6 +497,22 @@
         }
       }
     },
+    "Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium disimpan di perangkat ini dan di akun Anda di server AquaTome (Cloudflare), agar terlihat di semua perangkat yang sudah masuk."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลาจะถูกบันทึกไว้ในอุปกรณ์นี้และในบัญชีของคุณบนเซิร์ฟเวอร์ AquaTome (Cloudflare) เพื่อให้ทุกอุปกรณ์ที่เข้าสู่ระบบเห็นข้อมูลเดียวกัน"
+          }
+        }
+      }
+    },
     "Các bể lưu trên máy này, không cần tài khoản.": {
       "localizations": {
         "id": {
@@ -433,6 +545,22 @@
         }
       }
     },
+    "Cách đăng nhập này đã thuộc một tài khoản khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metode masuk ini sudah terhubung ke akun lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิธีเข้าสู่ระบบนี้ผูกกับบัญชีอื่นอยู่แล้ว"
+          }
+        }
+      }
+    },
     "Cát": {
       "localizations": {
         "id": {
@@ -461,6 +589,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Có lỗi, chưa làm được: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terjadi kesalahan, belum berhasil: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เกิดข้อผิดพลาด ดำเนินการไม่สำเร็จ โปรดลองอีกครั้ง"
           }
         }
       }
@@ -701,6 +845,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "คืนค่าตารางก่อนหน้า: %@"
+          }
+        }
+      }
+    },
+    "Không có mạng: thử lại khi có mạng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada koneksi internet: coba lagi saat sudah terhubung."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่มีอินเทอร์เน็ต โปรดลองอีกครั้งเมื่อเชื่อมต่อได้"
           }
         }
       }
@@ -961,6 +1121,22 @@
         }
       }
     },
+    "Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingin melihat akuarium ini di aquatome.com atau di perangkat lain? Masuk untuk menyinkronkan. Tidak wajib: tanpa masuk, akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องการดูตู้ปลาเหล่านี้บน aquatome.com หรือบนอุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อซิงค์ข้อมูล ไม่บังคับ หากไม่เข้าสู่ระบบ ตู้ปลาจะยังคงบันทึกอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
     "Máy này không có Bluetooth.": {
       "localizations": {
         "id": {
@@ -1053,6 +1229,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วัสดุปูพื้นอื่น"
+          }
+        }
+      }
+    },
+    "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesi masuk sudah berakhir: masuk lagi untuk menyinkronkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เซสชันหมดอายุแล้ว โปรดเข้าสู่ระบบอีกครั้งเพื่อซิงค์"
           }
         }
       }
@@ -1249,6 +1441,22 @@
         }
       }
     },
+    "Thử quá nhiều lần: đợi một lát rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terlalu banyak percobaan: tunggu sebentar lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองหลายครั้งเกินไป โปรดรอสักครู่แล้วลองใหม่"
+          }
+        }
+      }
+    },
     "Trên 8 tiếng dễ lên rêu.": {
       "localizations": {
         "id": {
@@ -1277,6 +1485,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาว"
+          }
+        }
+      }
+    },
+    "Tài khoản có dữ liệu từ bản ứng dụng mới hơn: cập nhật AquaTome để đồng bộ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun berisi data dari versi aplikasi yang lebih baru: perbarui AquaTome untuk menyinkronkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชีนี้มีข้อมูลจากแอปเวอร์ชันที่ใหม่กว่า โปรดอัปเดต AquaTome เพื่อซิงค์ข้อมูล"
+          }
+        }
+      }
+    },
+    "Tài khoản đã đủ chỗ (200 bể, 400 đèn): xóa bớt rồi đồng bộ lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun sudah penuh (200 akuarium, 400 lampu): hapus sebagian lalu sinkronkan lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชีเต็มแล้ว (200 ตู้, 400 โคม) โปรดลบบางรายการออกแล้วซิงค์ใหม่"
           }
         }
       }
@@ -1505,6 +1745,70 @@
         }
       }
     },
+    "Xóa tài khoản": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akun"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบบัญชี"
+          }
+        }
+      }
+    },
+    "Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Bể trên máy này vẫn còn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghapus akun berarti langsung menghapus akun, semua metode masuk, dan semua akuarium yang tersimpan di akun. Akuarium di perangkat ini tetap ada."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การลบบัญชีจะลบบัญชี วิธีเข้าสู่ระบบ และตู้ปลาทั้งหมดที่บันทึกไว้ในบัญชีทันที ส่วนตู้ปลาในอุปกรณ์นี้จะยังคงอยู่"
+          }
+        }
+      }
+    },
+    "Xóa tài khoản vĩnh viễn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akun secara permanen"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบบัญชีถาวร"
+          }
+        }
+      }
+    },
+    "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus akun dan semua akuarium di dalamnya secara permanen? Akuarium di perangkat ini tetap ada."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบบัญชีและตู้ปลาในบัญชีอย่างถาวรใช่ไหม ตู้ปลาในอุปกรณ์นี้จะยังคงอยู่"
+          }
+        }
+      }
+    },
     "chưa đặt": {
       "localizations": {
         "id": {
@@ -1517,6 +1821,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่ได้ตั้ง"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/#tai-khoan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/#tai-khoan"
           }
         }
       }
@@ -1697,6 +2017,102 @@
         }
       }
     },
+    "Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah menyimpan akuarium di aquatome.com atau perangkat lain? Masuk untuk mengambilnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เคยบันทึกตู้ปลาไว้บน aquatome.com หรืออุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อดึงข้อมูลกลับมา"
+          }
+        }
+      }
+    },
+    "Đã thêm %lld bể từ tài khoản.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld akuarium ditambahkan dari akun."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มตู้ปลา %lld ตู้จากบัญชีแล้ว"
+          }
+        }
+      }
+    },
+    "Đã xóa tài khoản. Các bể vẫn còn trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun telah dihapus. Akuarium masih ada di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบบัญชีแล้ว ตู้ปลายังคงอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
+    "Đã đăng nhập bằng %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk dengan %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบด้วย %@ แล้ว"
+          }
+        }
+      }
+    },
+    "Đã đăng nhập bằng %@. Đồng bộ lúc %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk dengan %1$@. Disinkronkan pukul %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบด้วย %1$@ แล้ว ซิงค์ล่าสุดเมื่อ %2$@"
+          }
+        }
+      }
+    },
+    "Đã đăng xuất. Các bể vẫn còn trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda telah keluar. Akuarium masih ada di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออกจากระบบแล้ว ตู้ปลายังคงอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
     "Đèn": {
       "localizations": {
         "id": {
@@ -1825,6 +2241,38 @@
         }
       }
     },
+    "Đó là một Apple ID khác: đăng nhập bằng Apple ID của tài khoản này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Itu Apple ID yang berbeda: masuk dengan Apple ID milik akun ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นี่เป็น Apple ID อื่น โปรดเข้าสู่ระบบด้วย Apple ID ของบัญชีนี้"
+          }
+        }
+      }
+    },
+    "Đăng xuất": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออกจากระบบ"
+          }
+        }
+      }
+    },
     "Đỏ": {
       "localizations": {
         "id": {
@@ -1837,6 +2285,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "แดง"
+          }
+        }
+      }
+    },
+    "Đồng bộ giữa các thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinkronkan antarperangkat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซิงค์ระหว่างอุปกรณ์"
+          }
+        }
+      }
+    },
+    "Đồng bộ ngay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinkronkan sekarang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซิงค์ตอนนี้"
           }
         }
       }

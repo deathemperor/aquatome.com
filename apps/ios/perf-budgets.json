@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 1150,
-      "reason": "raised 2026-11-01 from 840 kB for the Bể của tôi tab (the binary grew 659 → 949 kB when it merged, measured on both commits); the budgets had been set on a base from before it. Main's archive on CI: 1041 kB, ×1.1"
+      "max": 1340,
+      "reason": "raised 2026-11-01 from 1150 kB for sign-in and sync on Bể của tôi (#268): +163 kB measured on both commits (Release archive on one Mac, 1058 → 1221 kB): the account client 42 kB, its model 47 kB, the account section 36 kB, Sign in with Apple 17 kB, the id/th strings 12 kB, after taking the stand-in server out of release builds (−35 kB). Worth it: it is the feature that syncs the reader's tanks with the site. Budget: 1221 kB ×1.1"
     }
   ]
 }

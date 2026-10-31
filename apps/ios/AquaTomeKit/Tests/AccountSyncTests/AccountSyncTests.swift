@@ -237,3 +237,17 @@ func delete() async throws {
   await #expect(throws: AccountError.signedOut) { try await api.sync(try phone(), token: token) }
   #expect(try await api.session(token: token) == noUser)
 }
+
+@MainActor @Test("The stand-in kept across launches: the same accounts, tanks and sessions")
+func snapshot() async throws {
+  let fake = FakeAccounts()
+  var p = try phone("Bể phòng khách")
+  let token = try await signIn(client(fake), "apple-1").token
+  try await sync(client(fake), &p, token)
+  let again = FakeAccounts(snapshot: try JSON.parse(try fake.snapshot.data()))
+  #expect(again.store(of: "apple-1").map(names) == ["Bể phòng khách"])
+  #expect(again.sessionCount == 1)
+  #expect(try await client(again).sync(TankStore(), token: token).store.liveTanks.count == 1)
+  // New tokens don't repeat old ones.
+  #expect(try await signIn(client(again), "apple-2").token != token)
+}

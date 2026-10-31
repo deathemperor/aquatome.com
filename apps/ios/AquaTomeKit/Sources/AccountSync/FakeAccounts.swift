@@ -1,3 +1,5 @@
+#if DEBUG
+// Tests and the simulator only: not in a release build.
 import Foundation
 import Tanks
 
@@ -26,6 +28,27 @@ public final class FakeAccounts {
   static let appleClientIds = ["com.aquatome.web", "com.aquatome.app"]
 
   public init() {}
+
+  /// The accounts, their tanks and sessions as JSON, so the stand-in keeps them across launches of the app (UI tests:
+  /// a second phone signs in to the account the first one made).
+  public var snapshot: JSON {
+    .object([
+      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "store": $0.store.value]) }),
+      "tokens": .object(tokens.mapValues(JSON.string)),
+      "issued": .number(Double(issued)),
+    ])
+  }
+
+  public convenience init(snapshot: JSON) {
+    self.init()
+    let o = snapshot.object ?? [:]
+    for (sub, a) in o["accounts"]?.object ?? [:] {
+      guard let id = a.object?["id"]?.string, let store = a.object?["store"].flatMap({ try? TankStore($0) }) else { continue }
+      accounts[sub] = Account(id: id, store: store)
+    }
+    for (token, sub) in o["tokens"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { tokens[token] = sub } }
+    issued = o["issued"]?.int ?? 0
+  }
 
   /// The tanks an account holds, by the Apple user it signs in with.
   public func store(of sub: String) -> TankStore? { accounts[sub]?.store }
@@ -127,3 +150,4 @@ public final class FakeAccounts {
     ])
   }
 }
+#endif
