@@ -49,7 +49,8 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
   const out: Localized<z.infer<S>>[] = []
   for (const id of ids.sort()) {
     const tPath = join(base, id, `${lang}.json`)
-    if (!(await exists(tPath))) continue
+    // A translation left behind with no entity (an engine run named it while a merged change removed the page) is no page.
+    if (!(await exists(tPath)) || !(await exists(join(base, id, 'entity.json')))) continue
     const entity = await readJson(join(base, id, 'entity.json'), schema)
     const t = await readJson(tPath, TranslationSchema)
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)

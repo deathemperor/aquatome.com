@@ -121,3 +121,15 @@ test('another language has only the places one of its fish comes from; Vietnames
   expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).places.map(p => p.id).sort()).toEqual(['asia', 'europe'])
   expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
 })
+
+test('a translation whose entity was removed is no page, not a broken build', async () => {
+  const { cp, mkdir, rm, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-orphan-'))
+  await cp(root, dir, { recursive: true })
+  await mkdir(join(dir, 'places/gone'), { recursive: true })
+  await writeFile(join(dir, 'places/gone/vi.json'), JSON.stringify({ slug: 'gone', name: 'Gone', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  await rm(join(dir, 'species/beta/entity.json'))
+  const c = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
+  expect(c.places).toEqual([])
+  expect(c.species.map(s => s.id)).toEqual(['alpha'])
+})
