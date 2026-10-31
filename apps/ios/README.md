@@ -43,8 +43,8 @@ Signing is Xcode's automatic, cloud-managed signing with the App Store Connect A
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):
 no certificate or profile is in the repository. Only the export signs: the archive is built unsigned and carries its
 entitlements in an ad-hoc signature, because signing the archive on a fresh runner makes a new development certificate
-each time, until Apple's cap stops the build. The job then checks the signed app still has every entitlement in
-`Config/AquaTome.entitlements`. The build number is the workflow's run number. A pull request that changes the project,
+each time, until Apple's cap stops the build. The job signs a local copy first and checks it has every entitlement in
+`Config/AquaTome.entitlements`; only then does it export again to App Store Connect. The build number is the workflow's run number. A pull request that changes the project,
 `Config/` or the workflow signs and exports without uploading.
 
 ## AquaTomeKit
