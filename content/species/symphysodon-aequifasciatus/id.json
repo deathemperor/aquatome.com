@@ -1,22 +1,27 @@
 {
   "slug": "symphysodon-aequifasciatus",
-  "name": "Discus Coklat",
+  "name": "Discus",
   "altNames": [
-    "Discus",
+    "Ikan discus",
     "Diskus",
-    "Ikan Discus",
-    "Ikan Diskus",
-    "Green Discus",
-    "Blue Discus"
+    "Ikan diskus"
   ],
   "sections": {
-    "notes:glaser": "<p>Rajanya ikan discus adalah varietas \"Royal\". Seekor discus disebut Royal bila elemen pola hijau atau biru tersebar di seluruh permukaan tubuhnya. Di antara discus hijau, Royal dari Tefé di Brasil (yang juga merupakan salah satu lokalitas tipe S. aequifasciatus, yaitu lokasi asal spesimen yang menjadi dasar deskripsi ilmiahnya) dikenal sebagai yang paling indah dan sudah melegenda. Di sana ditemukan sangat banyak ikan Royal, yang juga memiliki bintik-bintik oranye kemerahan di bagian sisi tubuhnya.</p><p>Namun, setiap pencinta discus perlu memahami bahwa ikan Royal ada di (hampir) setiap populasi discus, dan ini bukan ciri spesies atau ras, melainkan variasi warna individu. Di alam, ikan Royal hidup bersama varietas warna \"biasa\", yang di mata kita jauh kurang menarik, dan kawin dengan mereka dalam satu populasi. Baru di stasiun ekspor ikan-ikan ini dipilah berdasarkan warnanya. Sama seperti warna Royal, warna mata juga bukan ciri ras. Di antara ikan tangkapan alam selalu ada individu dengan cincin iris kuning maupun merah.</p><p>Saat ini ikan-ikan tersebut berukuran 12–15 cm.</p>"
+    "quickFacts:seriouslyfish": "<p>Discus, Symphysodon aequifasciatus, adalah ikan cichlid dari Amazon di Kolombia, Peru, dan Brasil. Sebarannya mengikuti Rio Solimões dan aliran utama Amazon, mulai dari Rio Putumayo sampai daerah aliran Sungai Tocantins. Ikan ini lebih suka anak-anak sungai berarus lambat dan kolam-kolam di dalam hutan. Di sana mereka hidup bergerombol di perairan dalam yang terlindung, di sekitar akar pohon dan bebatuan. Discus tangkapan alam bisa mencapai sekitar 14 cm. Discus sangat pemalu dan gampang kaget, jadi butuh banyak tempat berlindung.</p>",
+    "distribution:seriouslyfish": "<p>Sebaran alami spesies ini mengikuti Rio Solimões dan sepanjang aliran utama Sungai Amazon, dari Rio Putumayo di Kolombia dan Peru sampai daerah aliran Rio Tocantins di Brasil. Ada juga populasi introduksi di negara tetangganya, Guyana dan Suriname.</p>",
+    "habitat:seriouslyfish": "<p>Ikan ini jarang terlihat di alur utama sungai. Kebanyakan ditemukan di anak-anak sungai berarus lambat dan kolam-kolam di dalam hutan. Di sana mereka hidup bergerombol di bagian yang dalam dan terlindung, di sekitar akar pohon dan bebatuan.</p>",
+    "aquariumSize:seriouslyfish": "<p>Discus memang hanya tumbuh sampai sekitar 15 cm, tetapi tinggi badannya bisa sama dengan panjangnya. Sepasang induk butuh ruang yang lega, baik ke samping maupun ke atas. Karena itu, akuarium berukuran sekitar 120 x 45 x 45 cm (sekitar 255 liter) disarankan untuk beberapa ekor discus remaja atau sepasang induk.</p>",
+    "maintenance:seriouslyfish": "<p>Banyak penggemar berat discus memilih akuarium yang penuh tanaman air. Cara ini sangat cocok untuk Symphysodon aequifasciatus karena tanaman yang lebat memberi banyak tempat berlindung. Discus sangat pemalu dan gampang kaget, jadi butuh tempat berlindung sebanyak mungkin supaya merasa nyaman.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Suhu: 26–30 °C</li><li>pH: 5,0–7,0</li><li>Kesadahan: 0–5 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Di alam, discus terutama memakan zooplankton, serangga, dan invertebrata kecil lainnya.</p>",
+    "notes:glaser": "<p>Di antara semua discus, yang paling istimewa adalah varian \"Royal\". Seekor discus disebut Royal kalau corak hijau atau birunya menyebar ke seluruh permukaan tubuh. Di kalangan discus hijau, Royal asal Tefé di Brasil dikenal sebagai yang paling cantik. Tefé juga salah satu lokasi tipe S. aequifasciatus, yaitu lokasi asal spesimen yang dipakai untuk deskripsi ilmiahnya. Di sana banyak sekali ditemukan ikan Royal, dan banyak di antaranya juga punya bintik-bintik merah oranye di sisi tubuh.</p><p>Namun, setiap pencinta discus perlu paham bahwa ikan Royal ada di (hampir) setiap populasi discus. Warna Royal bukan ciri spesies atau ras, melainkan variasi warna per individu. Di alam, ikan Royal hidup bersama varian warna \"biasa\", yang di mata para penghobi jauh kurang menarik, dan semuanya kawin satu sama lain sebagai satu populasi. Ikan-ikan ini baru dipilah berdasarkan warna di stasiun ekspor. Sama seperti warna Royal, warna mata juga bukan ciri ras. Di antara discus tangkapan alam selalu ada ikan dengan cincin iris kuning maupun merah.</p><p>Saat ini ikan-ikan tersebut berukuran 12-15 cm.</p>"
   },
   "quality": {
-    "score": 0.82,
-    "indexable": true,
+    "score": 0.6,
+    "indexable": false,
     "bySource": {
-      "glaser": 0.82
+      "seriouslyfish": 0.6,
+      "glaser": 0.6
     }
   }
 }
