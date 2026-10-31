@@ -2,6 +2,9 @@
 
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
+Two tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
+the phone for reading offline, without ads); **Đèn** controls the lights. The handbook's Chihiros tool opens the Đèn tab.
+
 ## The app
 
 ```text
@@ -38,8 +41,11 @@ each build by itself:
 
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):
-no certificate or profile is in the repository. The build number is the workflow's run number. A pull request that
-changes the project, `Config/` or the workflow signs and exports without uploading.
+no certificate or profile is in the repository. Only the export signs: the archive is built unsigned and carries its
+entitlements in an ad-hoc signature, because signing the archive on a fresh runner makes a new development certificate
+each time, until Apple's cap stops the build. The job then checks the signed app still has every entitlement in
+`Config/AquaTome.entitlements`. The build number is the workflow's run number. A pull request that changes the project,
+`Config/` or the workflow signs and exports without uploading.
 
 ## AquaTomeKit
 
@@ -51,6 +57,7 @@ changes the project, `Config/` or the workflow signs and exports without uploadi
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order |
 
 ```sh
 cd apps/ios/AquaTomeKit

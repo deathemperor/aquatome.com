@@ -8,7 +8,11 @@
     "Wasp catfish",
     "Orange micro bumblebee catfish",
     "Cá da trơn suối Wasp",
-    "Wasp Stream Catfish"
+    "Wasp Stream Catfish",
+    "Cá trê đá vạch cam",
+    "Cá trê suối vạch cam",
+    "Orange Banded Stone Catfish",
+    "Orange Banded Hillstream Catfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 31 mm SL (1,2 in)</li><li>Kích thước bể: 45 × 30 cm (18 × 12 in)</li><li>Nhiệt độ: 16,5–23,5°C (62–74°F)</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–12 dGH</li><li>Độ khó: 6/8 (trung bình)</li></ul>",
@@ -31,7 +35,14 @@
     "dimorphism:scotcat": "<p>Con đực thon hơn con cái.</p>",
     "reproduction:scotcat": "<p>Loài này từng sinh sản thành công trong bể nuôi sau một lần thay nước lớn. Sau lần thay nước đó, cá đẻ trứng màu xanh lục.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Akysis ghép từ A (không có) và kysis (bọng), ám chỉ việc cá không có bóng bơi. Tên loài vespa trong tiếng Latin nghĩa là ong vò vẽ. Tên này đặt theo các mảng màu trên thân cá.</p><p>Danh lục Đỏ IUCN: hiện chưa có đủ thông tin về vùng phân bố và kích thước quần thể của loài này để đánh giá chính xác. Vì vậy IUCN xếp loài vào nhóm Thiếu dữ liệu, nhưng đánh giá này cần cập nhật (IUCN 2012).</p>",
-    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>Ng, H.H. 2012. Akysis vespa. The IUCN Red List of Threatened Species 2012.</p>"
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</p><p>Ng, H.H. 2012. Akysis vespa. The IUCN Red List of Threatened Species 2012.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Akysis vespa Ng &amp; Kottelat, 2004</li><li>Tên thường gọi: Orange Banded Stone Catfish, Orange Banded Hillstream Catfish, Wasp Stream Catfish</li><li>Kích thước: 35 mm SL (chiều dài chuẩn)</li><li>Nguồn gốc tên gọi: ghép từ hai chữ Hy Lạp, a nghĩa là \"không có\" và kystis nghĩa là \"bọng\". Tên này ám chỉ việc cá không có bóng bơi.</li><li>Nơi thu mẫu chuẩn: suối \"Chon Son\" nằm giữa Kyondaw và Phadaw, cách Payathouzu (sát biên giới Thái Lan) khoảng 20 km về phía tây bắc, tọa độ 15°25'N, 98°15'E, bang Kayin, Myanmar.</li></ul><p>Cá thuộc chi Akysis đều là loài nhỏ, thường không dài quá 50 mm SL. Da chúng có nhiều nốt sần, màu sắc mang tính ngụy trang, thường là các mảng hoặc vạch vàng trên nền thân nâu. Chúng phân bố từ lưu vực sông Irrawaddy ở phía tây, sang lưu vực sông Citarum ở phía đông và phía nam, lên đến lưu vực sông Lancanjiang (thượng nguồn Mekong) ở phía bắc.</p>",
+    "distribution:planetcatfish": "<p>Châu Á: lưu vực sông Ataran ở Myanmar (Salween/Thanlwin, Ataran).</p>",
+    "diet:planetcatfish": "<p>Loài này có vẻ không kén ăn. Cá chịu ăn cả thức ăn chế biến sẵn, miễn là miếng ăn đủ nhỏ để nuốt được, vì đây là loài cá nhỏ.</p>",
+    "equipment:planetcatfish": "<p>Bể nên có đá hoặc lũa để chắn bớt một phần dòng chảy và cho cá có chỗ trốn. Thêm ít cây thủy sinh hoặc một lớp lá khô dưới đáy thì càng lý tưởng.</p>",
+    "behaviour:planetcatfish": "<p>Những bạn cùng bể lý tưởng gồm các loài cá bám đá balitorine như Homaloptera, các loài cá họ chép bơi nhanh như Danio hay Barilius, và các loài cá chạch gai (mastacembelid) cỡ nhỏ.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 15 (no. 3), pp 194, Figs. 1-3, 5.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -45,7 +56,8 @@
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.8,
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "planetcatfish": 0.8
     }
   }
 }

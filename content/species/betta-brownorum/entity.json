@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "malaysia",
-    "sarawak"
+    "sarawak",
+    "indonesia",
+    "kalimantan"
   ],
   "dataCard": {
     "tempC": [
@@ -34,71 +36,106 @@
         "source": "bwaquatics",
         "value": 3.8
       }
-    ],
-    "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 5
-      }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<ul><li>Wild-caught Betta brownorum from Sibu, part of the Betta coccina complex.</li><li>IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</li><li>Maximum size: 1.2-1.5 inches (about 3-3.8 cm).</li><li>Temperament: moderately aggressive.</li><li>Breeding: bubblenester.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Wild-caught Betta brownorum from West Kalimantan, belonging to the Betta coccina complex. IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</p><ul><li>Max size: 1.2-1.5 inches (about 3-3.8 cm)</li><li>Temperature: 75-82°F (24-28°C)</li><li>pH: 5.0-6.5</li><li>TDS: 60-100</li><li>Diet: carnivorous</li><li>Breeding: bubble nester</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>West Kalimantan.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres).</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<ul><li>TDS: 60-100</li><li>pH: 5.0-6.5</li><li>Temperature: 75-82°F (about 24-28°C)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>TDS: 60-100. pH: 5.0-6.5. Temperature: 24-28°C (75-82°F).</p>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Carnivorous. The seller feeds live blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space and cover. Expect fin nipping. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. Because of their small size, multiple pairs can be kept as long as there is enough space and cover. Expect fin nipping.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>The male has an intense red colour with a green iridescent spot on the body and longer anal fins, while females have shorter finnage and less intense coloration.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Males are an intense red with a green iridescent spot on the body and have longer anal fins. Females have shorter finnage and less intense coloration. Spot size varies.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Bubblenester.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>The seller noticed that, at this location, a few fish have a much larger spot than at other brownorum locations they have encountered. Spot size varies, but some larger-spotted fish may appear in their offspring. Be sure to have the habitat ready before purchase.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Bubble nester.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/bwaquatics/c719077cf0ca1036.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/c719077cf0ca1036-480.webp",
+      "width": 760,
+      "height": 697,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "source": "bwaquatics"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/1a9a888378f70baf.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/1a9a888378f70baf-480.webp",
       "width": 1200,
       "height": 1200,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/1a9a888378f70baf-480.webp"
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "yPVwdvQBPnI",
+      "title": "Betta Brownorum Breeding & Fry Care Made Super Easy!",
+      "durationSec": 350,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rkuW2JlewG8",
+      "title": "Aquascaping the Betta Brownorum Paludarium - Peat Swamp Forest Biotope",
+      "durationSec": 719,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5rS6VjA8068",
+      "title": "wild betta brownorum dot green,blue,and purple..west borneo",
+      "durationSec": 294,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nH3Fp0X9Dwk",
+      "title": "🔺 Wild Betta Brownorum 🔺🔹 Betta Coccina Complex 🔹",
+      "durationSec": 98,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -129,5 +166,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

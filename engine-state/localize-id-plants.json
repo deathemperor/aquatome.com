@@ -512,17 +512,20 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "Hornwort",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.7,
     "notes": [
-      "\"Ceratophyllum sebenarnya tidak memiliki akar\": \"as such\" is better rendered as \"tidak memiliki akar sejati\" (no true roots).",
-      "\"batangnya bisa mencapai tinggi 80 cm dan lebar 5 cm\": \"lebar 5 cm\" is awkward; use \"tinggi hingga 80 cm dengan lebar rumpun sekitar 5 cm\" or similar.",
-      "\"Ceratophyllum demersum berbeda karena...\": the source says it differs from other Ceratophyllum, so add \"dari Ceratophyllum lain\" for clarity.",
-      "\"varietas Ceratophyllum lainnya\": \"varieties\" here means other types or species, so \"jenis/spesies Ceratophyllum lainnya\" is more accurate than \"varietas\".",
-      "\"Tanaman batang (stem)\": the usual hobby term is \"tanaman batang\" or \"stem plant\"; the bracket is fine, but \"Kosmopolitan (tersebar di seluruh dunia)\" is an acceptable gloss."
+      "Item 4: \"10–30 °C\" dropped the Fahrenheit bracket; fine, but \"3–10 cm per minggu\" also fine. No issue there.",
+      "Item 2: \"fluffy-looking stems\" rendered as \"batangnya yang tampak lebat dan halus\"; \"fluffy\" is better as \"berbulu/mengembang\", \"halus\" adds a meaning.",
+      "Item 2: \"daun cemara\" for \"pine needles\" is loose; use \"daun jarum pinus\" or \"jarum pinus\".",
+      "Item 2/4: \"kolam luar ruangan\" is stiff; use \"kolam outdoor\" or \"kolam taman\".",
+      "Item 6: \"jatuh ke dasar saat musim dingin\" for \"during the cold season\" is acceptable, but \"planted in the ground\" became \"ditanam di substrat\"; fine. \"little buds\" as \"tunas kecil\" is OK.",
+      "Item 7: \"varietas Ceratophyllum lainnya\" for \"Ceratophyllum-varieties\" is imprecise; use \"jenis/spesies Ceratophyllum lainnya\" since they are different species, not varieties.",
+      "Item 7: \"lebar 5 cm\" for \"5 cm wide\" is fine, but \"tidak semudah itu patah\" is awkward; use \"tidak mudah patah\".",
+      "Item 1: \"Tinggi: 5–30+ cm\" is fine. Item 8: \"Sedot daun-daun yang rontok dengan penyedot kotoran\" is awkward; use \"sifon daun yang rontok dengan gravel vacuum/penyedot kotoran dasar\"."
     ]
   },
   "ceratopteris-thalictroides": {
@@ -852,6 +855,41 @@
       "\"Tanaman latar depan yang ideal\": fine in meaning, but \"foreground\" is more naturally \"tanaman latar depan/foreground\" as a full sentence, e.g. \"Cocok sebagai tanaman latar depan\".",
       "\"berjarak cukup rapat\" is slightly contradictory/awkward; use \"dengan jarak cukup rapat\" or \"ditanam cukup rapat\".",
       "\"Asal: kosmopolitan\" is fine, but \"Tipe: stolon\" would be clearer as \"Tipe: berstolon\" or \"Tipe pertumbuhan: stolon\"."
+    ]
+  },
+  "eleocharis-pusilla": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eleocharis Mini",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "#3: \"has even lower growth\" means lower growth height, but \"tumbuh lebih pendek lagi\" is fine; however the \"was given to Tropica by Thomas Barr\" clause is OK. The real issue is the Latin names Eleocharis pusilla and Eleocharis parvula are not italicised, while <em> is added only to \"cup\". Use <em> for the Latin names or drop it for \"cup\" to keep it consistent.",
+      "#3: \"diberikan kepada Tropica\" is a stiff passive after \"dan\". Consider \"dan berasal dari pemberian Thomas Barr dari Amerika Serikat kepada Tropica\".",
+      "#2: \"hampir tidak perlu perawatan\" overstates \"a minimum of maintenance\". Use \"perawatannya minimal\".",
+      "#2: \"Dalam waktu singkat\" is acceptable, but \"rumpun-rumpun kecil\" for \"small portions\" could be \"porsi kecil/potongan kecil\", since portions of tissue culture are not clumps.",
+      "#1: \"Kecepatan tumbuh\" is understandable, but hobbyists more often write \"Laju pertumbuhan\" or \"Kecepatan pertumbuhan\"."
+    ]
+  },
+  "eriocaulon-cinereum": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "Eriocaulon cinereum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#4: \"temporarily flooded\" is rendered \"tergenang secara musiman\" (seasonally), which slightly changes the meaning. Use \"tergenang sementara\" or \"tergenang untuk sementara waktu\".",
+      "#2: \"Bisa ditanam emersed\" leaves the English term bare. Write \"Bisa ditanam emers (di atas permukaan air)\" or give \"emersed\" in brackets after the Indonesian term."
+    ]
+  },
+  "eriocaulon-sp-vietnam": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eriocaulon Vietnam",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"mirip daun pinus\": \"pine needles\" means jarum pinus; use \"mirip jarum pinus\" (daun pinus is slightly off but meaning is intact)."
     ]
   },
   "hygrophila-polysperma": {

@@ -1,0 +1,125 @@
+{
+  "id": "liobagrus-marginatoides",
+  "scientificName": "Liobagrus marginatoides",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "yangtze"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "html": "<ul><li><strong>Family:</strong> Amblycipitidae</li><li><strong>Common name:</strong> None</li><li><strong>Synonyms:</strong> Amblyceps marginatoides</li><li><strong>Size:</strong> 8.5 cm (3¼ in)</li><li><strong>Temperature:</strong> 18-22°C (63-71°F)</li><li><strong>pH:</strong> 6.5-7.5</li><li><strong>IUCN Red List:</strong> Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "html": "<p>China: Changjiang River (Yangtze River).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "html": "<p>The primary difference between Leiobagrus marginatus and Liobagrus marginatoides is that the posterior of the pectoral spine is serrated in L. marginatus.</p><p>Etymology: The specific name marginatoides: -oides, having the form of Liobagrus marginatus, to which it is compared.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "html": "<p>Shaw, Drake. pers. comm.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/05c81dfe312af5c7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/05c81dfe312af5c7-480.webp",
+      "width": 500,
+      "height": 232,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "caption": "Liobagrus marginatoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8f4669e9efde8b6c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8f4669e9efde8b6c-480.webp",
+      "width": 500,
+      "height": 399,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "caption": "Liobagrus marginatoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9def0c5f14339116.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9def0c5f14339116-480.webp",
+      "width": 500,
+      "height": 313,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_marginatoides.htm",
+      "caption": "Liobagrus marginatoides",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "máy lọc nước dòng chảy mạnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "thức ăn cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

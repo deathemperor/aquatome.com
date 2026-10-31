@@ -1,0 +1,133 @@
+{
+  "id": "lasiancistrus-caucanus",
+  "scientificName": "Lasiancistrus caucanus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Lasiancistrus",
+  "group": "catfish",
+  "lNumber": "L312",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Lasiancistrus volcanensis Dahl, 1941. Common names: LDA071, Sage Halffin Pleco, L312. Size: 100 mm (3.9\") SL.</p><p>Etymology: Greek, lasios, -a, -on = hairy + Greek, agkistron = hook.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Tributaries of the upper Rio Magdalena, Colombia. Complete distribution is unknown.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>pH 6.6 - 7.2. Temperature 20.0-25.0°C (68-77°F).</p><p>Like Chaetostoma species, this fish requires well oxygenated water with lower temperatures than the average tropical aquarium.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>The tank decor should consist of various sized stones stacked to form caves over a sand/gravel substrate.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Although sometimes picky immediately after import, these fish will eventually accept fresh vegetables as well as live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Will not bother tankmates provided it has a cave of its own. An excellent specimen for the cooler \"hillstream\" community tank.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Adult Lasiancistrus can be separated from all other loricariids by the presence of whisker-like odontodes on the cheeks. In addition, they have evertible cheek odontodes; three rows of plates on the caudal peduncle; and a modified, bar-shaped opercle. The caudal fin is slightly emarginate to forked, with the lower lobe longer than upper. Nuptial males have tentacules on the pectoral-fin spines longer than their associated odontodes; and translucent tentacules on the snout that have odontodes associated with them. Nuptial males lack hypertrophied odontodes on top of the head and lack long, bristle-like odontodes on the leading edge of the pectoral-fin spine.</p><p>This fish is collected in faster flowing tributaries of the upper Rio Magdalena, Colombia and exported through Bogota. It normally appears as bycatch in shipments of Colombian Chaetostoma. Further investigation is needed to see if this fish is identifiable with Lasiancistrus caucanus.</p><p>Type locality: Río Volcán near its junction to Río San Bartolomé, tributary of Río Magdalena, Antióquia Dept., Colombia, elevation about 600 meters.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1174",
+      "html": "<p>Förhandlingar / Kungliga Fysiografiska Sällskapets i Lund = Proceedings of the Royal Physiographic Society at Lund v. 11 (no. 8), pp 83 [4], Figs. 3-4.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/59ee7df244f65025.webp",
+      "width": 960,
+      "height": 452,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lasiancistrus_caucanus_(16335654317).jpg",
+      "caption": "Lasiancistrus caucanus",
+      "thumb": "https://media.aquatome.com/commons/59ee7df244f65025-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

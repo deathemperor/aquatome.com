@@ -695,18 +695,24 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=107": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T02:45:15.066Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/otocinclus-vittatus"
+    ],
+    "updatedAt": "2026-10-31T16:13:38.996Z",
+    "hash": "b7b668d08407c033cc434ca14f859d8f931bf0842c5ba394c7925306c68a0cca",
+    "processedHash": "b7b668d08407c033cc434ca14f859d8f931bf0842c5ba394c7925306c68a0cca",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1070": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T02:45:15.257Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/aspidoras-fuscoguttatus"
+    ],
+    "updatedAt": "2026-10-31T16:14:36.749Z",
+    "hash": "52439da434f32db7227ccd6162d717318d0975be40e3db54a10bb3d1fce068a7",
+    "processedHash": "52439da434f32db7227ccd6162d717318d0975be40e3db54a10bb3d1fce068a7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1071": {
     "entityIds": [
@@ -720,17 +726,21 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1072": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T02:45:20.273Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:15:35.639Z",
+    "hash": "9c98ed584dc6c33ec6ca422715daf24d1fa3c6d97d33870758beeb90581445d5",
+    "processedHash": "9c98ed584dc6c33ec6ca422715daf24d1fa3c6d97d33870758beeb90581445d5",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1073": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T02:45:27.268Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/zaireichthys-camerunensis"
+    ],
+    "updatedAt": "2026-10-31T16:16:00.395Z",
+    "hash": "6ed55a01943331a107e9251b74df39f275f5d8753922b30f24bb53af682a60c2",
+    "processedHash": "6ed55a01943331a107e9251b74df39f275f5d8753922b30f24bb53af682a60c2",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1074": {
     "entityIds": [],
@@ -1523,45 +1533,47 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=116": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:17.921Z",
+    "updatedAt": "2026-10-31T16:16:46.793Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1160": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:22.990Z",
+    "updatedAt": "2026-10-31T16:16:51.420Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1161": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:28.070Z",
+    "updatedAt": "2026-10-31T16:16:56.438Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1162": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:33.144Z",
+    "updatedAt": "2026-10-31T16:17:01.450Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1163": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:39.022Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:17:07.558Z",
+    "hash": "d1dca5196bbd57c01b3ae6ce631dd8b222cee2842e7c9df504a4ed162a773ebc",
+    "processedHash": "d1dca5196bbd57c01b3ae6ce631dd8b222cee2842e7c9df504a4ed162a773ebc",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1164": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:44:44.513Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:17:57.277Z",
+    "hash": "2b69b5897cba58d783cd6c03a65f7d511fdb000257e2b487e025ad7c29b2a53a",
+    "processedHash": "2b69b5897cba58d783cd6c03a65f7d511fdb000257e2b487e025ad7c29b2a53a",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1165": {
     "entityIds": [],
@@ -1620,18 +1632,24 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1171": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:49:24.027Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/hemiancistrus-medians"
+    ],
+    "updatedAt": "2026-10-31T16:18:35.009Z",
+    "hash": "fc573da5672f6a86959187864ac23ae77dd5afc00b1f98f3a4d8b4f41940445f",
+    "processedHash": "fc573da5672f6a86959187864ac23ae77dd5afc00b1f98f3a4d8b4f41940445f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1172": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:49:27.872Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/chaetostoma-leucomelas"
+    ],
+    "updatedAt": "2026-10-31T16:19:44.707Z",
+    "hash": "6ee49a1f9cc5517be321772abd51d45adaa8b1c180241f9772865221b4108d10",
+    "processedHash": "6ee49a1f9cc5517be321772abd51d45adaa8b1c180241f9772865221b4108d10",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1173": {
     "entityIds": [
@@ -1644,11 +1662,14 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1174": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:50:09.039Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/lasiancistrus-caucanus"
+    ],
+    "updatedAt": "2026-10-31T16:20:40.363Z",
+    "hash": "7cd2d1d1c72127c7225bf9412bc38179d78649ef13a3c1c247f7c533eed00540",
+    "processedHash": "7cd2d1d1c72127c7225bf9412bc38179d78649ef13a3c1c247f7c533eed00540",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1175": {
     "entityIds": [],
@@ -1699,46 +1720,50 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=118": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:12.771Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/corydoras-melini"
+    ],
+    "updatedAt": "2026-10-31T16:21:46.979Z",
+    "hash": "746b046cd343c484cd668f895ee015508d30903e0ca110615a7732edb3d28015",
+    "processedHash": "746b046cd343c484cd668f895ee015508d30903e0ca110615a7732edb3d28015",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1180": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:16.772Z",
+    "updatedAt": "2026-10-31T16:22:41.904Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1181": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:21.851Z",
+    "updatedAt": "2026-10-31T16:22:46.296Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1182": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:26.925Z",
+    "updatedAt": "2026-10-31T16:22:51.312Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1183": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:32.374Z",
+    "updatedAt": "2026-10-31T16:22:56.322Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1184": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:54:37.455Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:23:01.340Z",
+    "hash": "1d974326894453c0e668da2600b44b7762344d1d735998490bed78c8c134db08",
+    "processedHash": "1d974326894453c0e668da2600b44b7762344d1d735998490bed78c8c134db08",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1185": {
     "entityIds": [
@@ -1781,80 +1806,464 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1189": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:57:35.438Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/pseudopimelodus-schultzi"
+    ],
+    "updatedAt": "2026-10-31T16:23:11.729Z",
+    "hash": "cd8c4be3ce5abd4ad1e197e30c31a4d1231071fb616c9444b22e56826ec86cdf",
+    "processedHash": "cd8c4be3ce5abd4ad1e197e30c31a4d1231071fb616c9444b22e56826ec86cdf",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=119": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:57:39.922Z",
+    "updatedAt": "2026-10-31T16:23:47.657Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1190": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:57:44.996Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/farlowella-platorynchus"
+    ],
+    "updatedAt": "2026-10-31T16:23:52.159Z",
+    "hash": "88d643b88bdddc6cc22a807115ceb06df78d0636dbefe01aa73482ea1bc85734",
+    "processedHash": "88d643b88bdddc6cc22a807115ceb06df78d0636dbefe01aa73482ea1bc85734",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1191": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:57:50.073Z",
+    "updatedAt": "2026-10-31T16:24:52.507Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1192": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:57:55.149Z",
+    "updatedAt": "2026-10-31T16:24:57.143Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1193": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:00.570Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:25:02.443Z",
+    "hash": "6e341275efa1baf25a7ea6557f84b1a77c1972ceaaa95e094967db5d6cbb9d7d",
+    "processedHash": "6e341275efa1baf25a7ea6557f84b1a77c1972ceaaa95e094967db5d6cbb9d7d",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1194": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:06.062Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T16:25:25.458Z",
+    "hash": "9a80fa55a820b7de2da3f9c6f7a06652cde7f5e5fbcc0d4b18df74e0cca5045a",
+    "processedHash": "9a80fa55a820b7de2da3f9c6f7a06652cde7f5e5fbcc0d4b18df74e0cca5045a",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1195": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:11.143Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/corydoras-fulleri"
+    ],
+    "updatedAt": "2026-10-31T16:25:56.525Z",
+    "hash": "84514eb70a2c0c4a13aa18df75869e21a8bb3cc4f65e23fe687f86fcb80cf0e2",
+    "processedHash": "84514eb70a2c0c4a13aa18df75869e21a8bb3cc4f65e23fe687f86fcb80cf0e2",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1196": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:16.229Z",
+    "updatedAt": "2026-10-31T16:26:52.727Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1197": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:21.306Z",
+    "updatedAt": "2026-10-31T16:26:58.436Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1198": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T05:58:26.381Z",
+    "updatedAt": "2026-10-31T16:27:03.477Z",
+    "status": "error",
+    "attempts": 2,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1199": {
+    "entityIds": [
+      "species/akysis-vespa"
+    ],
+    "updatedAt": "2026-10-31T16:27:08.477Z",
+    "hash": "d2000b67725b0132d522e630b3771ed1e8beb5598f2d21491c677783f9ebe2c4",
+    "processedHash": "d2000b67725b0132d522e630b3771ed1e8beb5598f2d21491c677783f9ebe2c4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=12": {
+    "entityIds": [
+      "species/corydoras-granti"
+    ],
+    "updatedAt": "2026-10-31T16:28:02.447Z",
+    "hash": "b755024aac81417f70bce31fe552b99526ba5b10175f11737417dc611b66de00",
+    "processedHash": "b755024aac81417f70bce31fe552b99526ba5b10175f11737417dc611b66de00",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=120": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:29:05.423Z",
+    "hash": "d98f03687bb0d20b1840627946c92cbd65091adbee61f800b89b3649d76dc221",
+    "processedHash": "d98f03687bb0d20b1840627946c92cbd65091adbee61f800b89b3649d76dc221",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1200": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:29:44.194Z",
+    "hash": "dd91211df45b9e1f5b36db75ef01c1b0e81ba8747f7c56b423eb21062f0ff04f",
+    "processedHash": "dd91211df45b9e1f5b36db75ef01c1b0e81ba8747f7c56b423eb21062f0ff04f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1201": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:30:28.638Z",
+    "hash": "899814c98e443b66d50c7558b4a52c7fe7baa4b87c44a5fe1e5c4326c9e8823c",
+    "processedHash": "899814c98e443b66d50c7558b4a52c7fe7baa4b87c44a5fe1e5c4326c9e8823c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1202": {
+    "entityIds": [
+      "species/glyptothorax-dorsalis"
+    ],
+    "updatedAt": "2026-10-31T16:31:03.114Z",
+    "hash": "8de88f9a4ee3640f48ba197d0c7173c06502591c2467f8090b0f22f98f4b3b7e",
+    "processedHash": "8de88f9a4ee3640f48ba197d0c7173c06502591c2467f8090b0f22f98f4b3b7e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1203": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:31:51.659Z",
+    "hash": "d06467f0039963cd2df9ec16d08c45792e143c20b6083f08b908e5df3008208e",
+    "processedHash": "d06467f0039963cd2df9ec16d08c45792e143c20b6083f08b908e5df3008208e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1204": {
+    "entityIds": [
+      "species/clarias-meladerma"
+    ],
+    "updatedAt": "2026-10-31T16:32:13.880Z",
+    "hash": "33c4fe12e81a965a7b838e357ac2f12804d85996d616d92d9cf66639f8cbce84",
+    "processedHash": "33c4fe12e81a965a7b838e357ac2f12804d85996d616d92d9cf66639f8cbce84",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1205": {
+    "entityIds": [
+      "species/ceratoglanis-scleronema"
+    ],
+    "updatedAt": "2026-10-31T16:34:03.640Z",
+    "hash": "c04222fbde8207ad6d797d42b34dc543dd65874e520fc6cf398aa6755b1ab818",
+    "processedHash": "c04222fbde8207ad6d797d42b34dc543dd65874e520fc6cf398aa6755b1ab818",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1206": {
+    "entityIds": [
+      "species/schilbe-marmoratus"
+    ],
+    "updatedAt": "2026-10-31T16:34:56.302Z",
+    "hash": "706c82523c8de20a2e64bdf8fa3c0ca5445b1f986748e9ce02d1dcf5369b4e94",
+    "processedHash": "706c82523c8de20a2e64bdf8fa3c0ca5445b1f986748e9ce02d1dcf5369b4e94",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1207": {
+    "entityIds": [
+      "species/scoloplax-empousa"
+    ],
+    "updatedAt": "2026-10-31T16:35:36.069Z",
+    "hash": "c17afda113defd8d033b7ff56dde45bb428edd1a86da315f1f209aabe76c4b3a",
+    "processedHash": "c17afda113defd8d033b7ff56dde45bb428edd1a86da315f1f209aabe76c4b3a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1208": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:33.765Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1209": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:38.345Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=121": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:43.550Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1210": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:48.564Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1211": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:53.582Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1212": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:36:58.591Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1213": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:37:03.603Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1214": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:37:08.610Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1215": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:37:13.625Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1216": {
+    "entityIds": [
+      "species/kronichthys-subteres"
+    ],
+    "updatedAt": "2026-10-31T16:37:18.645Z",
+    "hash": "9e39512955d1695f3bb8b06b1b4c6f2307e9425ef1ef2d8d068ff398f56bd0e6",
+    "processedHash": "9e39512955d1695f3bb8b06b1b4c6f2307e9425ef1ef2d8d068ff398f56bd0e6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1217": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:38:08.924Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1218": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:38:13.780Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=122": {
+    "entityIds": [
+      "species/sorubimichthys-planiceps"
+    ],
+    "updatedAt": "2026-10-31T16:38:19.018Z",
+    "hash": "e5982afb2d26a05d190884fa55c46bb4bb6aecc1ecb1b5e1eafdab11f01e41f9",
+    "processedHash": "e5982afb2d26a05d190884fa55c46bb4bb6aecc1ecb1b5e1eafdab11f01e41f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1220": {
+    "entityIds": [
+      "species/pimelodella-gracilis"
+    ],
+    "updatedAt": "2026-10-31T16:39:21.062Z",
+    "hash": "d06a67e55053800070727de378d782a3560d9ff54e41cccf7a4ad61958778f52",
+    "processedHash": "d06a67e55053800070727de378d782a3560d9ff54e41cccf7a4ad61958778f52",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1221": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:00.959Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1222": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:04.420Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1223": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:09.436Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1225": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:14.452Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1226": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:19.467Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1227": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:24.482Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1228": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:29.493Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1229": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:34.508Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=123": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:39.520Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1230": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:40:44.537Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1231": {
+    "entityIds": [
+      "species/trichomycterus-albinotatus"
+    ],
+    "updatedAt": "2026-10-31T16:40:49.548Z",
+    "hash": "3cc594ff161d6880ac7fa285a7f6dabe2bce99f3f5578928ffe290f0042fee65",
+    "processedHash": "3cc594ff161d6880ac7fa285a7f6dabe2bce99f3f5578928ffe290f0042fee65",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1232": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:41:31.828Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1233": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:41:37.170Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1234": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:41:42.439Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1235": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:41:47.565Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1236": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:04.953Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1237": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:04.968Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1238": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:09.975Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1239": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:14.992Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=124": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:20.008Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1240": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:25.019Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1241": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:30.033Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1242": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T16:42:38.761Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
   }
 }

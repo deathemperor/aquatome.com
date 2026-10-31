@@ -33,6 +33,22 @@
         }
       }
     },
+    "%lld trang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld halaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld หน้า"
+          }
+        }
+      }
+    },
     "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.": {
       "localizations": {
         "id": {
@@ -225,6 +241,38 @@
         }
       }
     },
+    "Cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Công cụ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครื่องมือ"
+          }
+        }
+      }
+    },
     "Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.": {
       "localizations": {
         "id": {
@@ -317,6 +365,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาปิดต้องอยู่หลังเวลาเปิด ภายในวันเดียวกัน"
+          }
+        }
+      }
+    },
+    "Hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คู่มือ"
           }
         }
       }
@@ -433,6 +497,38 @@
         }
       }
     },
+    "Không tải được cẩm nang. Kiểm tra kết nối mạng rồi kéo xuống để thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panduan tidak dapat dimuat. Periksa koneksi internet, lalu tarik ke bawah untuk mencoba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không tải được trang. Kiểm tra kết nối mạng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuat. Periksa koneksi internet."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต"
+          }
+        }
+      }
+    },
     "Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.": {
       "localizations": {
         "id": {
@@ -461,6 +557,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อโคมไฟ"
+          }
+        }
+      }
+    },
+    "Loài cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์ปลา"
+          }
+        }
+      }
+    },
+    "Loại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jenis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ประเภท"
           }
         }
       }
@@ -529,6 +657,22 @@
         }
       }
     },
+    "Mở trong trình duyệt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka di browser"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดในเบราว์เซอร์"
+          }
+        }
+      }
+    },
     "Ngắt kết nối": {
       "localizations": {
         "id": {
@@ -593,6 +737,22 @@
         }
       }
     },
+    "Thuật ngữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Istilah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำศัพท์"
+          }
+        }
+      }
+    },
     "Trên 8 tiếng dễ lên rêu.": {
       "localizations": {
         "id": {
@@ -625,6 +785,38 @@
         }
       }
     },
+    "Tìm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหา"
+          }
+        }
+      }
+    },
+    "Tìm loài cá, cây, hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari ikan, tanaman, panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหาชนิดปลา ไม้น้ำ คู่มือ"
+          }
+        }
+      }
+    },
     "Tìm đèn": {
       "localizations": {
         "id": {
@@ -637,6 +829,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค้นหาโคมไฟ"
+          }
+        }
+      }
+    },
+    "Tất cả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทั้งหมด"
           }
         }
       }
@@ -721,6 +929,22 @@
         }
       }
     },
+    "Đang dùng bản đã lưu trên máy (%lld trang).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memakai salinan yang tersimpan di ponsel (%lld halaman)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังใช้สำเนาที่บันทึกไว้ในเครื่อง (%lld หน้า)"
+          }
+        }
+      }
+    },
     "Đang kết nối…": {
       "localizations": {
         "id": {
@@ -749,6 +973,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังค้นหาโคมไฟ…"
+          }
+        }
+      }
+    },
+    "Đang xem bản đã lưu (ngoại tuyến).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melihat salinan tersimpan (offline)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังดูสำเนาที่บันทึกไว้ (ออฟไลน์)"
           }
         }
       }
@@ -813,6 +1053,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อ %1$@ (%2$@) แล้ว firmware %3$lld: เวอร์ชันนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดต firmware ด้วยแอป My Chihiros"
+          }
+        }
+      }
+    },
+    "Đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ"
           }
         }
       }

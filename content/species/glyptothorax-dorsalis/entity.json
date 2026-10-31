@@ -1,0 +1,128 @@
+{
+  "id": "glyptothorax-dorsalis",
+  "scientificName": "Glyptothorax dorsalis",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "manipur",
+    "myanmar",
+    "salween"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Glyptothorax dorsalis Vinciguerra, 1890. Type locality: Meetan, Upper Myanmar. Size: 120 mm (4.7\") SL. Distinguished by its cream-colored nuchal plate (bone at the base of the dorsal spine).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Asia: Manipur Valley, India and Myanmar. Salween basin. Manipur.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. They attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<ul><li>pH: 6.0 - 7.0</li><li>Temperature: 16.0-24.0°C (60.8-75.2°F)</li><li>Needs well oxygenated water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>A sandy/gravel bottom and enough rocks/driftwood to partially deflect the current and for the fish to hide in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Will feed on live/frozen food, but does not appear to take prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>A peaceful species suitable for the hillstream biotope tank. Best kept in a well-oxygenated tank with strong current. Ideal tankmates include balitorine loaches such as Homaloptera, fast-swimming cyprinids such as Danio or Barilius, and smaller mastacembelids.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Etymology: the generic name comes from the Greek glyptos, meaning carved, and thorax, meaning breastplate, in reference to the folds of skin comprising the thoracic adhesive apparatus. The specific epithet comes from the Latin dorsalis, meaning of the back, in reference to the distinct coloration of the nuchal plate.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1202",
+      "html": "<p>Annali del Museo Civico di Storia Naturale di Genova (Serie 2) v. 9, pp 246, Pl. 7 (fig. 4).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá suối"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -298,3 +298,79 @@ test('an email sign-in left unfinished is forgotten once it expires', async ({ p
   await expect(page.locator('#tai-khoan')).toBeVisible()
   await expect.poll(() => page.evaluate(() => localStorage.getItem('aq.signin'))).toBeNull()
 })
+
+// Passkeys need a host name (an IP can't be a relying party): locally the page opens on localhost. Chrome's virtual
+// authenticator stands in for Face ID, a fingerprint or the device PIN.
+async function onPasskeyHost(page: Page, baseURL: string) {
+  const local = baseURL.replace('//127.0.0.1:', '//localhost:')
+  if (local !== baseURL) await page.route(url => url.hostname === 'localhost' && url.pathname !== '/_e', r => r.continue())
+  const cdp = await page.context().newCDPSession(page)
+  await cdp.send('WebAuthn.enable')
+  const { authenticatorId } = await cdp.send('WebAuthn.addVirtualAuthenticator', {
+    options: { protocol: 'ctap2', transport: 'internal', hasResidentKey: true, hasUserVerification: true, isUserVerified: true, automaticPresenceSimulation: true },
+  })
+  return { url: new URL(PAGE, local).href, verified: (on: boolean) => cdp.send('WebAuthn.setUserVerified', { authenticatorId, isUserVerified: on }) }
+}
+
+test('a passkey added to an account signs in to it on its own; a passkey the server no longer knows is refused', async ({ page, baseURL, errors }) => {
+  const b = backend()
+  b.env.PASSKEYS = 'on'
+  const device = await onPasskeyHost(page, baseURL!)
+  await connect(page, b)
+  let passkeyPosts = 0
+  page.on('request', r => { if (r.method() === 'POST' && new URL(r.url()).pathname === '/api/v1/auth/passkey') passkeyPosts++ })
+  await page.goto(device.url)
+  await addTank(page, 'Bể phòng khách')
+  await page.locator('#acc-open').click()
+  await expect(page.locator('#acc-passkey')).toBeVisible()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Google')
+
+  await page.locator('#acc-passkey-add').click()
+  await expect(page.locator('#acc-msg')).toContainText('Đã thêm passkey')
+  await expect(page.locator('#acc-status')).toContainText('Google, passkey')
+  // The same device again: the browser refuses (the account's passkeys are excluded), and says so.
+  await page.locator('#acc-passkey-add').click()
+  await expect(page.locator('#acc-msg')).toContainText('Máy này đã có passkey của tài khoản này')
+  expect(await b.count("credentials WHERE kind = 'passkey'")).toBe(1)
+
+  // Signed out, the passkey alone signs back in to the same account, with its tanks.
+  await page.locator('#acc-signout').click()
+  await page.locator('#acc-open').click()
+  // The reader closes the prompt: nothing to say, and the button works again.
+  await device.verified(false)
+  await page.locator('#acc-passkey').click()
+  await expect(page.locator('#acc-passkey')).toBeEnabled()
+  await expect(page.locator('#acc-msg')).toBeHidden()
+  expect(passkeyPosts).toBe(0)
+  await device.verified(true)
+  await page.locator('#acc-passkey').click()
+  await expect(page.locator('#acc-in')).toBeVisible()
+  await expect(page.locator('#acc-status')).toContainText('Google, passkey')
+  expect(await b.count('users')).toBe(1)
+  expect(await b.count("credentials WHERE kind = 'passkey' AND last_used_at IS NOT NULL")).toBe(1)
+  expect(passkeyPosts).toBe(1)
+
+  // The account's passkey gone from the server (the account deleted on another device): refused, with a way out.
+  await b.env.DB!.prepare(`DELETE FROM credentials WHERE kind = 'passkey'`).run()
+  await page.locator('#acc-signout').click()
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-passkey').click()
+  await expect(page.locator('#acc-msg')).toContainText('Passkey này không mở được tài khoản nào')
+  await expect(page.locator('#acc-in')).toBeHidden()
+  expect(errors).toEqual([])
+})
+
+test('with passkeys off neither passkey button shows', async ({ page, baseURL, errors }) => {
+  const b = backend()
+  const device = await onPasskeyHost(page, baseURL!)
+  await connect(page, b)
+  await page.goto(device.url)
+  await page.locator('#acc-open').click()
+  await expect(page.locator('#acc-google button')).toBeVisible()
+  await expect(page.locator('#acc-passkey')).toBeHidden()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Google')
+  await expect(page.locator('#acc-passkey-add')).toBeHidden()
+  expect(errors).toEqual([])
+})

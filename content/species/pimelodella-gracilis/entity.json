@@ -1,0 +1,170 @@
+{
+  "id": "pimelodella-gracilis",
+  "scientificName": "Pimelodella gracilis",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Pimelodella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "parana",
+    "uruguay",
+    "brazil",
+    "amazon",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<ul><li><strong>Scientific name:</strong> Pimelodella gracilis (Valenciennes, 1835)</li><li><strong>Common names:</strong> Graceful Pimelodella, Schlanker Fadenwels (Germany)</li><li><strong>Type locality:</strong> Corrientes, Río Paraná, Argentina.</li><li><strong>Size:</strong> 170 mm (6.7 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<p>South America: Orinoco, Amazon and La Plata basins. Collected in Arroyo Tropa Vieja, Salinas, Uruguay.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<ul><li>pH: 6.5 - 7.8</li><li>Temperature: 20.0-24.0°C (68-75.2°F)</li><li>dH: 5-20</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<p>In nature feeds on worms and insects.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<p>Etymology: diminutive latinized of Greek, pimele = fat + Greek, odous, odella = little teeth.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1220",
+      "html": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (fig. 5).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/25a890d4ba16c8fe.webp",
+      "width": 960,
+      "height": 331,
+      "licence": "Public domain",
+      "author": "Paul Louis Oudart",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodella_gracilis.jpg",
+      "caption": "« Pimelodus gracilis » = Pimelodella gracilis",
+      "thumb": "https://media.aquatome.com/commons/25a890d4ba16c8fe-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d7d6e40b3b086302.webp",
+      "width": 960,
+      "height": 1213,
+      "licence": "CC BY 4.0",
+      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(4_of_7).png",
+      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(37) Salminus brasiliensis;(38) Triportheus pantanensis;(39) Anadoras wedellii;(40) Auchenipterus osteomystax;(41) T",
+      "thumb": "https://media.aquatome.com/commons/d7d6e40b3b086302-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/aec7d2b7a4d89428.webp",
+      "width": 885,
+      "height": 330,
+      "licence": "Public domain",
+      "author": "Carl H. Eigenmann / Waldo Lee McAtee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52357_Pimelodella_gracillis_Valenciennes.jpeg",
+      "caption": "Pimelodella gracillis Valenciennes Subject: Pimelodidae, Catfishes Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/aec7d2b7a4d89428-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/52ae1fc73a59e95e.webp",
+      "width": 960,
+      "height": 303,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PSM_V68_D522_Pimelodella_gracillis_a_smaller_catfish.png",
+      "caption": "Pimelodella gracillis a smaller catfish",
+      "thumb": "https://media.aquatome.com/commons/52ae1fc73a59e95e-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cho cá trê"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

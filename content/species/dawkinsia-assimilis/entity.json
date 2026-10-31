@@ -1,0 +1,212 @@
+{
+  "id": "dawkinsia-assimilis",
+  "scientificName": "Dawkinsia assimilis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Dawkinsia",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "netravati"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 19,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>The mascara barb, Dawkinsia assimilis, is a cyprinid from the Netravati, Chalakudy and Kallada basins of Karnataka and Kerala, India. The caudal-fin lobes are tipped with a black band about as wide as the eye, faint or absent in Kallada fish. Misidentified in the past as Puntius mahecola, it still appears on trade lists as 'mahecola barb', and some populations might represent distinct species.</p><ul><li>Max size: 120 mm SL (5 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 19–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>Endemic to the Southwest Indian states of Karnataka and Kerala where it's been collected from the Netravati, Chalakudy and Kallada river basins in recent years, though the precise extent of its distribution remains unclear.</p><p>The type locality in the original description was given as 'a river in Canara', the latter being a region of Karnataka comprising several districts, and consistent with the Netravati drainage in terms of location.</p><p>The Chalakudy and Kallada rivers lie several hundred kilometers further south, however, and are further separated from the Netravati by the Palghat Gap.</p><p>This was noted by Pethiyagoda and Kottelat (2005a) who also observed some differences in colour pattern, particularly within the Kallada population in which the black transverse bands in the caudal-fin lobes are faint to non-existent (see 'Notes').</p><p>In addition, the syntype of Puntius lepidus (Jerdon 1849), collected from the Bhavani River system in Tamil Nadu state, was tentatively synonymised with D. assimilis by Pethiyagoda and Kottelat (2005a) on the basis of mouth and snout shape, position of the dark caudal peduncle marking, and caudal-fin patterning.</p><p>The Bhavani fish may or may not turn out to be distinct and this is currently under investigation (J. D. Marcus Knight, pers. comm.).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>Occurs in various habitat-types depending on locality and probably time of year.</p><p>In the Netravati it was recorded in marginal zones with sluggish flow and muddy substrate, whereas the Chalakudy fish were collected from clear, rocky, flowing stretches between the numerous waterfalls formed as the river descends from the Western Ghats mountains.</p><p>In the Kallada River, where it was living syntopically with D. exclamatio, the water was clear, shallow (depth &lt; 50 cm) and flowing slowly with the fish found among granite boulders (Pethiyagoda and Kottelat, 2005a).</p><p>Other species found in the same general area include Pethia conchonius, Puntius denisonii, Haludaria fasciata, Dawkinsia arulius, D. filamentosa, D. rubrotincta, Opsarius bakeri, O. bendelisis, O. canarensis, Devario malabaricus, Esomus danricus, Garra mcclellandi, G. hughi, Bhavania australis, Travancoria jonesi, Mesonoemacheilus guentheri, M. triangularis, Schistura denisoni, Lepidocephalichthys thermalis, Batasio travancoria, Mystus armatus, M. canarensis, Glyptothorax annandalei, Aplocheilus lineatus, Parambassis thomassi, Etroplus canarensis, Pseudetroplus maculatus, Sicyopterus griseus, Pseudosphromenus dayi, Channa striata and Carinotetraodon travancoricus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>An aquarium with base measurements of at least 120 × 45 cm (about 243 litres) or equivalent should be the smallest considered for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though we recommend aquascaping the tank to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in relatively pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement, while weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<ul><li>Temperature: 19–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>A foraging omnivore in nature feeding on a variety of worms, insects, crustaceans, plant material, and other organic debris.</p><p>In the aquarium it's easily-fed but a balanced diet comprising regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules will promote optimal condition and colours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>An ideal addition to a peaceful community of riverine species alongside other schooling or shoaling cyprinids plus botiid, cobitid, nemacheilid, and balitorid loaches.</p><p>If geography isn't an issue it can actually be combined with most peaceful fish of a size too large to be considered food and that have a bold enough disposition to not be intimidated by its size and active nature.</p><p>As always, thorough research is the best way to avoid problems when selecting a compatible fish community.</p><p>It's a schooling species by nature so ideally 8-10 specimens should be purchased. Maintaining it in decent numbers will not only make the fish less skittish but will result in a more effective, natural looking display.</p><p>In addition, any aggressive behaviour will normally be contained as males concentrate on maintaining their hierarchical position within the group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>Adult males develop a more intense colour pattern than females and exhibit noticeable tubercules on the head when in spawning condition.</p><p>Adult females tend to grow a little larger, are heavier-bodied, and less colourful.</p><p>Both sexes may develop filamentous rays in the dorsal-fin, depending on population, and these are possibly shed or absorbed at certain times of year.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>Like most small cyprinids this is an egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition it will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention, although if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a separate aquarium should be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They require microscopic food for the first few days until large enough to accept microworm, Artemia nauplii or suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<p>D. assimilis was formerly included in the genus Puntius and Puntius filamentosus 'group' of related species which also contained P. arulius, P. assimilis, P. exclamatio, P. filamentosus, P. rohani, P. rubrotinctus, P. singhala, P. srilankensis and P. tambraparniei, but all of these were moved to the new genus Dawkinsia by Pethiyagoda et al. (2012).</p><p>Dawkinsia species are defined by the following combination of characters: adult size normally 80 – 120 mm (3.1 – 5 in) SL; rostral barbels absent; maxillary barbels present or absent; last unbranched dorsal-fin ray smooth; 4 unbranched and 8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays; lateral line complete, with 18-22 scales on body; gill rakers simple, acuminate (not branched or laminate); no antrorse predorsal spinous ray; free uroneural present; 4-5 supraneurals; 15 precaudal and 14-17 caudal vertebrae; post-epiphysial fontanelle absent; infraorbital 3 slender, not overlapping preoperculum; juvenile (&lt; 50 mm SL) colour pattern consisting of three black bars on body, retained in adults of some species; a black, horizontally elongate blotch on the caudal peduncle in adults.</p><p>D. assimilis is told apart from all other Dawkinsia spp. by the following combination of characters: tip of caudal-fin lobes with a transverse black band approximately as wide as the eye (expressed faintly or absent in the Kallada River population); lower lip continuous; presence of a dark blotch on the caudal peduncle approximately 2-5 body scales in length, and not reaching anal-fin origin; no prominent markings on body anterior to anal-fin origin; mouth inferior; maxillary barbel length 23.5 - 33.3 % HL.</p><p>The branched dorsal rays are also extended into filament-like threads in some adult individuals of the Chalakudy and Kallada River populations.</p><p>Within the group the most similar-looking species are D. filamentosa and D. rohani, but the former is readily identifiable by possession of a subterminal mouth (vs. inferior in D. assimilis) and shorter maxillary barbels (0.5 - 2.2% SL, vs. 5.5 - 9.3 %), while in the latter the caudal-fin lobes lack transverse black bands.</p><p>D. assimilis has been misidentified as Puntius mahecola (Valenciennes, 1844) in the past but the identity of both species was resolved by Pethiyagoda and Kottelat (2005a, 2005b).</p><p>They inspected the syntypes of P. mahecola and concluded that though valid it isn't closely related to any member of Dawkinsia (then the P. filamentosus group) but is rather a smaller, silvery fish with a single dark blotch on the caudal peduncle, located entirely posterior to the anal-fin.</p><p>It's widely-distributed in Kerala state, southern India and has been pictured in some older literature as Puntius amphibius (Valenciennes, 1842).</p><p>P. mahecola had previously been considered a synonym of D. filamentosa, with a fish resembling the latter collected from the Chalakudy River and exported for the aquarium hobby as 'P. mahecola' in 1996.</p><p>Several Dawkinsia species, including D. assimilis, continue to appear on trade lists as 'mahecola barb' while a beautiful colour morph with additional red markings is traded as D. assimilis 'red', 'super red' or 'neon red'.</p><p>Kottelat and Pethiyagoda (2005a) suggested that some populations of D. assimilis might represent distinct species but were unable to form any definitive conclusions due to a lack of adult material from Karnataka, in particular.</p><p>The precise relationships within the genus are still open to question in some respects with Knight et al. (2011) suggesting that members may hybridise naturally at some localities.</p><p>For example, a D. arulius-like fish (possibly D. rubrotincta) co-occurs with D. assimilis in the Kallada River at Thenmalai, which also happens to be the type locality of D. exclamatio.</p><p>The latter is somewhat anomalous since it's the only Dawkinsia species other than D. rubrotincta to feature a (roughly) W-shaped mid-lateral blotch, but also has a laterally-elongated blotch on the caudal peduncle as in other genus members.</p><p>D. exclamatio should also have a sub-terminal mouth and lack dorsal-fin filaments but some specimens possess a terminal mouth and/or dorsal filaments, and one specimen also had black caudal-fin tips as typically seen in D. filamentosa, whereas the description states that the fin tips are only dusky and lack distinctive markings.</p><p>Forms apparently intermediate between D. filamentosa and D. tambraparniei have also been collected where the two occur together in the Thamirabarani River, Tamil Nadu.</p><p>While no conclusions were reached because DNA testing was not performed, hybridisation between D. filamentosa and D. arulius in that river had previously been speculated and is a phenomenon known to be more common in the family Cyprinidae than in any other group of fishes, meaning future research may yield interesting results.</p><p>The genus Puntius was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here on SF at the moment.</p><p>Thanks to J. D. Marcus Knight.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "html": "<ul><li>Pethiyagoda, R. and M. Kottelat (2005). A review of the barb of the Puntius filamentosus group (Teleostei: Cyprinidae) of southern India and Sri Lanka. Raffles Bulletin of Zoology Supplement 12, 127-144</li><li>Rema Devi, K., T. J. Indra, and J. D. Marcus Knight (2010). Puntius rohani (Teleostei: Cyprinidae), a new species of barb in the Puntius filamentosus group from the southern Western Ghats of India. Journal of Threatened Taxa 2(9), 1121-1129</li><li>Marcus Knight, J. D., K. Rema Devi, and V. Atkore (2011). Systematic status of Systomus rubrotinctus Jerdon (Teleostei: Cyprinidae) with notes on the Puntius arulius group of fishes. Journal of Threatened Taxa 3(4), 1686-1693</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Pethiyagoda, R. and M. Kottelat (2005). The identity of the south Indian barb Puntius mahecola (Teleostei: Cyprinidae). Raffles Bulletin of Zoology Supplement 12, 145-152</li><li>Raju Thomas, K., M. J. George, and C. R. Biju (2002). Freshwater fishes of southern Kerala with notes on the distribution of endemic and endangered species. Journal of the Bombay Natural History Society 99(1), 47-53</li><li>Raju Thomas, K., C. R. Biju, C. R. Ajithkumar and M. J. George (2000). Fish fauna of Idukki and Neyyar wildlife sanctuaries southern Kerala, India. Journal of the Bombay Natural History Society 97(3), 443-446</li><li>Kurian Abraham, R., N. Kelkar and A. Biju Kumar (2011). Freshwater fish fauna of the Ashambu Hills landscape, southern Western Ghats, India, with notes on some range extensions. Journal of Threatened Taxa 3(3), 1585-1593</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c9236d4add48100f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c9236d4add48100f-480.webp",
+      "width": 802,
+      "height": 484,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "caption": "Adult male individual of the 'red' form (see 'Notes').",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cfabba7622866ce4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cfabba7622866ce4-480.webp",
+      "width": 807,
+      "height": 431,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "caption": "Probable adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fe9534234d29e9f0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fe9534234d29e9f0-480.webp",
+      "width": 798,
+      "height": 476,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "caption": "This subadult individual is beginning to develop adult colour pattern, and the characteristic inferior mouth position is also demonstrated clearly.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3cb14638d0bce28d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3cb14638d0bce28d-480.webp",
+      "width": 799,
+      "height": 482,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-assimilis",
+      "caption": "Well-conditioned adult specimens.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120x45 cm",
+        "bể cá 240 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít",
+        "lọc mút sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá barb",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông nền bể",
+        "cát mịn cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
