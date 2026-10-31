@@ -19,7 +19,7 @@
   --c-select: #e8d5b5;
   color-scheme: light;
 
-  --f-display: 'Newsreader Variable', 'Newsreader Fallback', 'Newsreader Fallback Noto', Georgia, 'Noto Serif Thai', 'Noto Sans Thai', Thonburi, 'Leelawadee UI', serif;
+  --f-display: 'Newsreader Variable', 'Newsreader Fallback', 'Newsreader Fallback Noto', 'Newsreader Fallback Liberation', Georgia, 'Noto Serif Thai', 'Noto Sans Thai', Thonburi, 'Leelawadee UI', serif;
   --f-body: 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Be Vietnam Pro Fallback Roboto', 'Noto Sans Thai', Thonburi, 'Leelawadee UI', system-ui, sans-serif; /* Thai: the system's own Thai face, glyph by glyph */
 
   --step--1: 0.8125rem;
@@ -85,9 +85,12 @@
 /*
  * Stand-ins shaped like the web fonts (average letter width, ascent, descent from @capsizecss/metrics), so text keeps
  * its size and line breaks when Be Vietnam Pro and Newsreader arrive and nothing below it moves. Arial/Georgia on
- * Apple and Windows, Roboto/Noto Serif on Android.
+ * Apple and Windows, Roboto/Noto Serif on Android, Liberation Sans/Serif (Arimo/Tinos on ChromeOS) on Linux: Liberation
+ * Sans has Arial's metrics, Liberation Serif has Times New Roman's. Without one, a Linux machine (GitHub's runners too)
+ * drew the text in its own default face and the first screen moved when the fonts came (layout shift 0.215, 2026-11-01).
  */
-@font-face { font-family: 'Be Vietnam Pro Fallback'; src: local('Arial'); size-adjust: 110.36%; ascent-override: 90.61%; descent-override: 24.01%; line-gap-override: 0%; }
+@font-face { font-family: 'Be Vietnam Pro Fallback'; src: local('Arial'), local('Liberation Sans'), local('LiberationSans'), local('Arimo'), local('Arimo-Regular'); size-adjust: 110.36%; ascent-override: 90.61%; descent-override: 24.01%; line-gap-override: 0%; }
 @font-face { font-family: 'Be Vietnam Pro Fallback Roboto'; src: local('Roboto'); size-adjust: 110.61%; ascent-override: 90.41%; descent-override: 23.96%; line-gap-override: 0%; }
 @font-face { font-family: 'Newsreader Fallback'; src: local('Georgia'); size-adjust: 96.12%; ascent-override: 76.47%; descent-override: 27.57%; line-gap-override: 0%; }
 @font-face { font-family: 'Newsreader Fallback Noto'; src: local('Noto Serif'), local('NotoSerif'); size-adjust: 89.09%; ascent-override: 82.51%; descent-override: 29.75%; line-gap-override: 0%; }
+@font-face { font-family: 'Newsreader Fallback Liberation'; src: local('Liberation Serif'), local('LiberationSerif'), local('Tinos'), local('Tinos-Regular'); size-adjust: 105.48%; ascent-override: 69.68%; descent-override: 25.12%; line-gap-override: 0%; }

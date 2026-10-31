@@ -1,0 +1,33 @@
+---
+import { i18n } from '../lib/i18n'
+/**
+ * A list's filter form (scripts/filter-list.ts runs it), its fields in the slot, each a `<label>Name <input|select></label>`.
+ * Open on wide screens; on phones it starts closed unless a filter is in the address (the inline script, before paint).
+ */
+interface Props { id: string; prefix: string; summary: string }
+const { id, prefix, summary } = Astro.props
+const { t } = i18n(Astro.url)
+---
+<details class="fbox" id={id} open>
+  <summary>{summary}</summary>
+  <form class="filters" id={`${prefix}-filter`} role="search">
+    <slot />
+    <button type="submit">{t('Lọc')}</button>
+  </form>
+</details>
+<script is:inline define:vars={{ id }}>var d=document.getElementById(id);if(matchMedia('(max-width: 640px)').matches&&!location.search)d.open=false</script>
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: flex-end; }
+  .filters :global(label) { display: grid; gap: 2px; min-width: 0; font-size: 0.8rem; color: var(--c-ink-soft); }
+  .filters :global(input), .filters :global(select) { font: inherit; font-size: 0.95rem; padding: 0.4rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); min-width: 0; width: 8.5rem; }
+  .filters button { font: 600 0.95rem var(--f-body); background: var(--c-ink); color: var(--c-paper); border: 0; border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; }
+  .fbox { margin-bottom: var(--space-4); }
+  .fbox summary { display: none; }
+  @media (max-width: 640px) {
+    .fbox summary { display: block; cursor: pointer; min-height: 44px; line-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--c-ink); background: var(--c-plate); font-weight: 600; }
+    .fbox[open] summary { margin-bottom: var(--space-3); }
+    .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .filters :global(input), .filters :global(select) { width: 100%; min-height: 44px; }
+    .filters button { grid-column: 1 / -1; min-height: 44px; }
+  }
+</style>

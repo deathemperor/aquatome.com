@@ -31,13 +31,17 @@ const KNOWN: Record<string, Partial<Budget>> = {
   // elements, phone 64–73 and LCP 4.6–6.2 s (served uncompressed here), blocking time 0–58 ms. Each species added
   // brings ~2.6 elements and ~0.6 KB (~0.3 s of LCP per 100): the room here is ~350 more species.
   'vi/ca/2': { performance: 55, lcp: 7500, dom: 4000 },
+  // Every plant card in the HTML (readers see 24 at a time): ~1,620 elements with 166 plants (2026-11-01; ~1,530 before
+  // its filter), more with each plant added.
+  'vi/cay/2': { dom: 2000 },
   // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its search
   // script is ~90 KB.
   'vi/tim-kiem/2': { seo: 55, js: 100 },
 }
 
-// One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.
-const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/3', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
+// One page of each kind, the first in the build (or the sitemap), so the same page is measured each time. The plant and
+// guide lists too: their filters and chips must not shift the page as it loads.
+const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-dan/2', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
 // Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
 const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'])
 
