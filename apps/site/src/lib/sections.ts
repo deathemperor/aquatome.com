@@ -1,4 +1,4 @@
-import type { SectionKey } from '@aq/schema'
+import { nearEmptyKeys, plainText, SECTION_LABELS, type Section, type SectionKey, type Translation } from '@aq/schema'
 
 /** Reader order: can I keep it → what it needs → living with it → breeding → the wild. (Sources use their own order.) */
 export const DISPLAY_ORDER: SectionKey[] = [
@@ -12,4 +12,38 @@ export const QUESTION_LABELS: Record<SectionKey, string> = {
   waterConditions: 'Nước cần thế nào?', maintenance: 'Chăm sóc ra sao?', equipment: 'Cần thiết bị gì?', diet: 'Cho ăn gì?',
   behaviour: 'Nuôi chung với con gì?', dimorphism: 'Phân biệt đực cái thế nào?', reproduction: 'Sinh sản ra sao?',
   distribution: 'Ngoài tự nhiên sống ở đâu?', habitat: 'Môi trường tự nhiên', notes: 'Ghi chú', references: 'Tài liệu tham khảo',
+}
+
+const BLOCK = /<\/?(p|ul|ol|li|div|br)\b[^>]*>/gi
+const tokens = (html: string) => plainText(html).toLowerCase().split(/[\s,.;:!?()"“”'‘’–-]+/).filter(Boolean)
+
+/** Quick facts already say it: most of its words are in them ("Sinh sản: ấp trứng bằng miệng" and "Cá ấp trứng bằng miệng."). */
+function said(facts: string, html: string): boolean {
+  const have = plainText(facts).toLowerCase()
+  const words = tokens(html)
+  return words.length > 0 && words.filter(w => have.includes(w)).length / words.length >= 0.75
+}
+
+/**
+ * A heading with only a few words under it, all sources together ("Sinh sản ra sao?" over "Mouthbrooder.") doesn't stand
+ * as a section of its own: the fact joins its source's quick facts (so its source mark stays right), or is left out when
+ * they already say it. Which headings fold is decided on the source text (@aq/schema depth.ts), the same in every language.
+ */
+export function foldNearEmpty(sections: Section[], t: Translation, label: (vi: string) => string): { sections: Section[]; t: Translation } {
+  const fold = nearEmptyKeys(sections)
+  if (!fold.size) return { sections, t }
+  const vi = { ...t.sections }
+  const out = sections.filter(s => !fold.has(s.key))
+  for (const s of sections.filter(x => fold.has(x.key))) {
+    const html = vi[`${s.key}:${s.source}`]
+    delete vi[`${s.key}:${s.source}`]
+    const facts = `quickFacts:${s.source}`
+    if (!html || !plainText(html) || said(vi[facts] ?? '', html)) continue
+    const item = `<li><strong>${label(SECTION_LABELS.vi[s.key])}:</strong> ${html.replace(BLOCK, ' ').replace(/\s+/g, ' ').trim()}</li>`
+    const prev = vi[facts]
+    const end = prev?.lastIndexOf('</ul>') ?? -1
+    vi[facts] = !prev ? `<ul>${item}</ul>` : end >= 0 ? `${prev.slice(0, end)}${item}${prev.slice(end)}` : `${prev}<ul>${item}</ul>`
+    if (!out.some(x => x.key === 'quickFacts' && x.source === s.source)) out.unshift({ key: 'quickFacts', source: s.source, sourceUrl: s.sourceUrl, html: '' })
+  }
+  return { sections: out, t: { ...t, sections: vi } }
 }

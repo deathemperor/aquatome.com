@@ -235,15 +235,80 @@ test('least-covered source runs first and gets only a fair share of the time', a
   expect(r.perSource.seriouslyfish?.fetched).toBe(2)
 })
 
-test('a closed browser stops the run without marking the page as an error', async () => {
+test('a closed browser stops the run; the page it was on runs first next time, ahead of new pages', async () => {
   const root = await fresh()
-  const { d } = deps(root, { urls: ['paracheirodon-axelrodi', 'broken-fish'] })
+  const { d } = deps(root, { urls: ['new-fish', 'paracheirodon-axelrodi', 'broken-fish'] })
   let gets = 0
   d.fetcher.get = async () => { gets++; throw new Error('page.goto: Target page, context or browser has been closed') }
   const r = await runEngine(d, { sources: ['seriouslyfish'] })
   expect(gets).toBe(1)
   expect(r.errors.at(-1)).toContain('stopping: the browser closed')
-  expect(JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8').catch(() => '{}'))['https://www.seriouslyfish.com/species/paracheirodon-axelrodi']?.status).not.toBe('error')
+  const state = JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}new-fish`]).toMatchObject({ status: 'error', attempts: 1 })
+  // The next cycle, minutes later (no backoff): the crashed page first, before the pages never tried.
+  const next = deps(root, { urls: ['new-fish', 'paracheirodon-axelrodi', 'broken-fish'] })
+  const order: string[] = []
+  const get = next.d.fetcher.get
+  next.d.fetcher.get = async (u: string) => { order.push(u.slice(SF.length)); return get(u) }
+  next.d.now = () => new Date('2026-10-28T10:30:00Z')
+  await runEngine(next.d, { sources: ['seriouslyfish'] })
+  expect(order[0]).toBe('new-fish')
+})
+
+test("the 2026-10-29 crash's errors run first: due at once and ahead of the backlog", async () => {
+  const root = await fresh()
+  await mkdir(join(root, 'engine-state'))
+  const crashed = { entityIds: [], updatedAt: '2026-10-29T04:05:56.271Z', status: 'error', attempts: 1, error: 'page.goto: Target page, context or browser has been closed' }
+  const limited = { ...crashed, attempts: 2, error: "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)" }
+  await writeFile(join(root, 'engine-state', 'seriouslyfish.json'), JSON.stringify({ [`${SF}zz-crashed`]: crashed, [`${SF}zz-limited`]: limited }))
+  const { d } = deps(root, { urls: ['aa-new', 'zz-crashed', 'bb-new', 'zz-limited'] })
+  d.now = () => new Date('2026-10-29T06:00:00Z') // two hours later: an ordinary error would still be waiting out its backoff
+  const order: string[] = []
+  const get = d.fetcher.get
+  d.fetcher.get = async (u: string) => { order.push(u.slice(SF.length)); return get(u) }
+  await runEngine(d, { sources: ['seriouslyfish'], limit: 2 })
+  expect(order).toEqual(['zz-crashed', 'zz-limited'])
+})
+
+test('a usage limit uses none of the page\'s attempts', async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['f1'], llmFails: true }).d, { sources: ['seriouslyfish'] })
+  await runEngine(deps(root, { urls: ['f1'], llmFails: true }).d, { sources: ['seriouslyfish'] })
+  const state = JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}f1`]).toMatchObject({ status: 'error', attempts: 0 })
+})
+
+test("a thin species' profile runs before new species; under a newer name, the source's search finds it", async () => {
+  const root = await fresh()
+  // Two thin pages, made from one Glaser note each.
+  for (const [id, sci] of [['corydoras-panda', 'Corydoras panda'], ['betta-macrostoma', 'Betta macrostoma']]) {
+    await mkdir(join(root, 'content/species', id!), { recursive: true })
+    await writeFile(join(root, 'content/species', id!, 'entity.json'), JSON.stringify({ id, scientificName: sci, order: 'O', family: 'F', genus: sci!.split(' ')[0], group: 'other', places: [], dataCard: {}, sections: [{ key: 'notes', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/x/y', html: '<p>A note.</p>' }], photos: [], videos: [], productSlots: [], updatedAt: '2026-10-01' }))
+    await writeFile(join(root, 'content/species', id!, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: { 'notes:glaser': '<p>Ghi chú.</p>' }, quality: { score: 0.9, indexable: true, bySource: { glaser: 0.9 } } }))
+  }
+  const { d } = deps(root, { urls: ['aaa-new', 'betta-macrostoma', 'bbb-new', 'hoplisoma-panda'] })
+  const searches: string[] = []
+  d.fetcher.links = async (u: string) => { searches.push(u); return u.includes('Corydoras%20panda') ? [`${SF}hoplisoma-panda`] : [] }
+  const order: string[] = []
+  const get = d.fetcher.get
+  d.fetcher.get = async (u: string) => { order.push(u.slice(SF.length)); return get(u) }
+  const r = await runEngine(d, { sources: ['seriouslyfish'], limit: 2 })
+  expect(searches).toEqual(['https://www.seriouslyfish.com/search?q=Corydoras%20panda']) // betta-macrostoma was in the index
+  expect(order).toEqual(['hoplisoma-panda', 'betta-macrostoma']) // the panda cory is on the popular list
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_depth-search.json'), 'utf8'))).toEqual({ 'seriouslyfish/corydoras-panda': { url: `${SF}hoplisoma-panda`, at: '2026-10-28' } })
+  expect(r.depth).toMatchObject({ thin: 2, bySource: { glaser: 2 } })
+})
+
+test('a page from a shop listing alone is recorded out of search (thin); an in-depth source brings it back', async () => {
+  const root = await fresh()
+  const BW = 'https://bwaquatics.com/products/'
+  const shop = deps(root)
+  shop.d.fetcher.text = async () => `<urlset><url><loc>${BW}cardinal-tetra</loc></url></urlset>`
+  await runEngine(shop.d, { sources: ['bwaquatics'] })
+  const vi = async () => JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect((await vi()).quality).toEqual({ score: 0.9, indexable: false, bySource: { bwaquatics: 0.9 }, reason: 'thin' })
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  expect((await vi()).quality).toEqual({ score: 0.9, indexable: true, bySource: { bwaquatics: 0.9, seriouslyfish: 0.9 } })
 })
 
 test('a usage limit during the style pass stops the run; nothing publishes unpolished', async () => {

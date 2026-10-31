@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
+import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese } from './text'
 import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
@@ -88,9 +89,19 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const score = Math.min(...by)
     return { ...x, t: { ...x.t, quality: { ...x.t.quality, score, indexable: score >= QUALITY_THRESHOLD } } }
   }
+  /**
+   * A species page is also judged on its depth (depth.ts), here at every build: a page that gained an in-depth source (an
+   * engine run, or two jobs' work merged) goes back in search by itself, whatever its translation file last recorded.
+   */
+  const judgeDepth = (x: Localized<SpeciesEntity>): Localized<SpeciesEntity> => {
+    const q = cleanQuality(x).t.quality
+    // A recorded `thin` was this rule's own call: the score alone decides the rest.
+    const scoreOk = q.reason === 'thin' ? q.score >= QUALITY_THRESHOLD : q.indexable
+    return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
+  }
 
   const species = (await loadKind(root, 'species', SpeciesSchema, lang))
-    .map(s => cleanQuality({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
+    .map(s => judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang))
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))

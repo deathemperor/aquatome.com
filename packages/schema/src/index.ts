@@ -9,6 +9,7 @@ export { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, states } from 
 export { isAllowedLicence, filterPhotos } from './licence'
 export { cToF, cmToIn } from './units'
 export { SECTION_LABELS } from './labels'
+export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FULL, PROFILE_SOURCES, judgeQuality, nearEmptyKeys, plainText, speciesDepth, wordCount, type CareTopic, type Depth } from './depth'
 export { loadAll, MARKET, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { linkTerms, type LinkTarget } from './link-terms'
