@@ -144,6 +144,11 @@ The layers above still check the result.
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
   guide: such a guide is reported instead. Found by the owner: a lighting-hours guide ended on pre-filters.
+- **Checked summaries.** A species page's "Tóm tắt nhanh" is drafted from the page's text and data card, then checked
+  before it shows: every temperature, pH, hardness, size, tank and difficulty figure must be the card's and every other
+  number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
+  draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
+  `docs/review/summaries.md`.
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
   good), each photo must show its species, open licences or permission only.

@@ -73,6 +73,9 @@ if part pages; then
   [ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
   # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
   pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
+  # "Tóm tắt nhanh" for new or changed species, most-read first: each checked against its page (numbers against the
+  # data card, claims against the text) and shown if it passes, else listed in docs/review/summaries.md.
+  pnpm engine summaries --top "${SUMMARY_LIMIT:-40}" --jobs 4 || log "summaries: failed (those pages show no summary yet)"
 fi
 if part sf && [ -z "${ENGINE_ARGS:-}" ]; then
   pnpm engine run --sources seriouslyfish --max-minutes "${ENGINE_MAX_MINUTES:-300}"

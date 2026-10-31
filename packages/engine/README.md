@@ -5,8 +5,8 @@
 | Command | Does |
 |---|---|
 | `pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>]` | discover → fetch (real Chrome, ≥5 s per source) → snapshot to `sources/` → Claude classify + translate + review → merge into `content/` → photos → changelog |
-| `pnpm engine summaries [--top N]` | draft "Tóm tắt nhanh" + common mistakes for the best indexable species, from their translated text only → `content/summaries/` (pending) + `docs/review/summaries.md` |
-| `pnpm engine summaries approve <id,id\|all>` | publish reviewed summaries (the site shows approved ones only) |
+| `pnpm engine summaries [--top N] [--jobs N] [--only id,id]` | "Tóm tắt nhanh" + common mistakes for every published species without one (or whose page changed), most-read first, from its translated text and data card → `content/summaries/`. Each draft is checked: temperature, pH, hardness, adult size, minimum tank and difficulty figures must be the card's and every other number written on the page (a rule), and a second model call checks every claim against the text; a draft with problems is rewritten once with them. Passing ones are approved (the site shows approved ones only), the rest stay pending with their problems in `docs/review/summaries.md`. `--jobs`: species at a time; `--only`: redo these species whatever their state. Run by the cycle |
+| `pnpm engine summaries approve <id,id\|all>` | approve pending summaries by hand, after correcting them |
 | `pnpm engine traits [--limit N]` | temperament, fin-nipping, minimum school size from each species page's text → `content/traits/` (tank-mates checker); run by the cycle |
 | `pnpm engine thumbs` | 480px card thumbs for photos stored before thumbs existed; run by the cycle |
 | `pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill]` | Jim Cumming's Facebook (posts, albums) → full-size originals in R2 `facebook/` + snapshots in `sources/facebook-jim/` → species in his photos (Claude, high confidence only, `--limit` model calls) → species galleries |
