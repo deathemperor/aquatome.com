@@ -1,0 +1,22 @@
+{
+  "slug": "eutropiichthys-burmannicus",
+  "name": "ปลาสังกะวาดพม่า",
+  "altNames": [
+    "Eutropiichthys burmannicus",
+    "ปลาสังกะวาด"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>วงศ์: Ailiidae</li><li>ขนาด: 35 ซม.</li><li>อุณหภูมิ: 23–26 °C</li><li>ค่า pH: 6.5–7.2</li><li>ชื่อพ้อง: Eutropiichthys vacha burmannicus</li></ul>",
+    "distribution:scotcat": "<p>เอเชีย: แม่น้ำอิรวดี แม่น้ำสาละวินตอนล่าง และแม่น้ำสายเล็กที่อยู่ระหว่างสองลุ่มน้ำนี้ ในประเทศเมียนมา พบปลาชนิดนี้ตั้งแต่ลุ่มแม่น้ำอิรวดีในเมียนมาไปทางตะวันออกจนถึงลุ่มแม่น้ำสาละวินทางภาคตะวันตกของไทย ปลาชนิดนี้ได้รับการบรรยายลักษณะจากตัวอย่างที่ไม่ทราบแหล่งเก็บแน่ชัดในเมียนมา (Day 1877)</p>",
+    "habitat:scotcat": "<p>อาศัยอยู่ในร่องน้ำหลักของแม่น้ำขนาดใหญ่ รวมถึงลำน้ำสาขาขนาดใหญ่ของแม่น้ำเหล่านั้น พื้นท้องน้ำในแหล่งอาศัยลักษณะนี้โดยทั่วไปเป็นทรายหรือโคลน (H.H. Ng)</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อสกุล Eutropiichthys มาจากภาษากรีก eutropheia = ได้รับอาหารอย่างดี + ภาษากรีก ichthys = ปลา ส่วนชื่อชนิด burmannicus หมายถึง มาจากพม่า (เมียนมา)</p><p>ใน FishBase ยังคงจัด Eutropiichthys burmannicus ไว้ในวงศ์ Schilbeidae แต่ปัจจุบัน Catalog of Fishes จัดให้อยู่ในวงศ์ Ailiidae</p><p>บัญชีแดงของ IUCN: ยังไม่ทราบภัยคุกคามที่เจาะจงต่อปลาชนิดนี้ และไม่มีข้อมูลด้านนิเวศวิทยาและประชากร (แม้จะมีรายงานว่าพบได้ไม่บ่อยในตลาดปลา) ปลาชนิดนี้มีการกระจายพันธุ์กว้างทั้งในลุ่มน้ำสาละวินและลุ่มน้ำอิรวดี จึงได้รับการประเมินให้อยู่ในสถานะกังวลน้อยที่สุด (Least Concern) แต่การประเมินนี้จำเป็นต้องปรับปรุงให้เป็นปัจจุบัน (IUCN 2010)</p>",
+    "references:scotcat": "<ul><li>Ferraris, C.J. and R.P. Vari, 2007. Revision of the Catfishes of the genus Eutropiichthys, with the description of two new species (Siluriformes: Schilbidae). Copeia 2007(4):866-885.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (02/2019).</li><li>Ng, H.H. 2010. Eutropiichthys burmannicus. The IUCN Red List of Threatened Species 2010.</li></ul>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.85
+    }
+  }
+}
