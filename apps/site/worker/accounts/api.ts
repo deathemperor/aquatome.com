@@ -1,6 +1,8 @@
 import { readCapped, siteverify as realSiteverify } from '../comments/api'
-import { checkEmail, consume, emailHash, normalEmail, startEmail, type Lang, type SendMail } from './email'
+import { appleRevoker, type RevokeApple } from './apple'
+import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, type Lang, type SendMail } from './email'
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
+import { cloudflareMailer, type EmailBinding } from './mailer'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
@@ -22,10 +24,25 @@ export type AccountsEnv = {
   APPLE_CLIENT_IDS?: string
   TURNSTILE_SECRET?: string
   TURNSTILE_SITEKEY?: string
+  /** Cloudflare Email Sending (sign-in codes). Without it, email sign-in is off. */
+  EMAIL?: EmailBinding
+  /** Sign in with Apple key (secret, a .p8's contents), its Key ID and the team: to revoke Apple tokens on deletion. */
+  APPLE_SIGNIN_KEY?: string
+  APPLE_SIGNIN_KEY_ID?: string
+  APPLE_TEAM_ID?: string
 }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
-export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail }
-export const realDeps: AccountDeps = { verifyIdToken: realVerifyIdToken, siteverify: realSiteverify }
+export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail; revokeApple?: RevokeApple }
+/** The real outside world for this environment: what it has bindings and secrets for. */
+export function depsFor(env: AccountsEnv): AccountDeps {
+  const keys = env.APPLE_TEAM_ID && env.APPLE_SIGNIN_KEY_ID && env.APPLE_SIGNIN_KEY ? { teamId: env.APPLE_TEAM_ID, keyId: env.APPLE_SIGNIN_KEY_ID, key: env.APPLE_SIGNIN_KEY } : undefined
+  return {
+    verifyIdToken: realVerifyIdToken,
+    siteverify: realSiteverify,
+    ...(env.EMAIL ? { sendMail: cloudflareMailer(env.EMAIL) } : {}),
+    ...(keys ? { revokeApple: appleRevoker(keys) } : {}),
+  }
+}
 
 const HOUR_MS = 3_600_000
 const json = (data: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...headers } })
@@ -82,7 +99,7 @@ async function done(env: Live, userId: string, client: Client, adding: Session |
   return client === 'web' ? json({ user }, 200, { 'set-cookie': cookieFor(token, 'web') }) : json({ user, token })
 }
 
-export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Date, deps: AccountDeps = realDeps): Promise<Response> {
+export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Date, deps: AccountDeps = depsFor(env)): Promise<Response> {
   const path = url.pathname.replace(/\/$/, '')
   const on = ready(env) && switchedOn(env, req)
   if (path === '/api/v1/session' && req.method === 'GET' && !on) return json({ accounts: false })
@@ -196,6 +213,20 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     return json(data, 200, { 'content-disposition': `attachment; filename="aquatome-${now.toISOString().slice(0, 10)}.json"` })
   }
   if (route === 'DELETE /api/v1/account') {
+    // Signed in with Apple: Apple's tokens are revoked first, from a fresh sign-in with Apple (worker/accounts/apple.ts).
+    const apple = (await db.prepare(`SELECT subject FROM credentials WHERE user_id = ? AND kind = 'apple'`).bind(session.userId).all<{ subject: string }>()).results
+    if (apple.length && deps.revokeApple) {
+      const body = await bodyOf(req)
+      if (body === 'too_large') return fail('too_large', 413)
+      const a = body?.apple as { code?: unknown; clientId?: unknown; redirectUri?: unknown } | undefined
+      if (typeof a?.code !== 'string' || typeof a.clientId !== 'string') return fail('apple_reauth', 409)
+      if (!ids(env.APPLE_CLIENT_IDS).includes(a.clientId)) return fail('bad_request', 400)
+      const pages = Object.values(TANKS_PAGE).map(p => `${url.origin}${p}`)
+      const redirectUri = typeof a.redirectUri === 'string' && pages.includes(a.redirectUri) ? a.redirectUri : undefined
+      const revoked = await deps.revokeApple(a.clientId, a.code, redirectUri)
+      if (!revoked) return fail('apple_revoke_failed', 502)
+      if (!apple.some(x => x.subject === revoked.sub)) return fail('apple_other_account', 409)
+    }
     await deleteUser(db, session.userId)
     return none(session.via === 'cookie' ? { 'set-cookie': CLEAR_COOKIE } : {})
   }

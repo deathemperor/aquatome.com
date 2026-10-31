@@ -422,3 +422,50 @@ test('every path in the API contract (protocols/accounts.openapi.json) is served
   expect((await call('POST', '/api/v1/auth/logout', { bearer: token, origin: null, body: {} })).status).toBe(204)
   expect((await call('GET', '/api/v1/session', { bearer: token })).json.user).toBeNull()
 })
+
+test('deleting an account that signs in with Apple: a fresh Apple sign-in first, its tokens revoked, then the account goes', async () => {
+  const t = setup()
+  const revoked: { clientId: string; code: string; redirectUri?: string }[] = []
+  // Fake Apple: a code `good-<sub>` belongs to that Apple user.
+  t.deps.revokeApple = async (clientId, code, redirectUri) => {
+    revoked.push({ clientId, code, ...(redirectUri ? { redirectUri } : {}) })
+    return code.startsWith('good-') ? { sub: code.slice(5) } : undefined
+  }
+  const { json: { nonce } } = await t.call('POST', '/api/v1/auth/nonce', { body: {} })
+  const r = await t.call('POST', '/api/v1/auth/apple', { body: { idToken: `apple-1|${nonce}|`, nonce } })
+  const cookie = t.cookieOf(r)!
+  const still = async () => (await t.call('GET', '/api/v1/session', { cookie })).json.user !== null
+
+  expect((await t.call('DELETE', '/api/v1/account', { cookie })).json.error).toBe('apple_reauth')
+  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-apple-1', clientId: 'com.other' } } })).status).toBe(400)
+  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'expired', clientId: 'com.aquatome.web' } } })).status).toBe(502)
+  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-someone-else', clientId: 'com.aquatome.web' } } })).json.error).toBe('apple_other_account')
+  expect(await still()).toBe(true)
+
+  // A redirect URI that isn't one of the tanks pages is not passed on to Apple.
+  const page = `${ORIGIN}/vi/cong-cu/be-cua-toi/`
+  const d = await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: page } } })
+  expect(d.status).toBe(204)
+  expect(revoked.at(-1)).toEqual({ clientId: 'com.aquatome.web', code: 'good-apple-1', redirectUri: page })
+  expect(await still()).toBe(false)
+  expect((await t.db.prepare(`SELECT COUNT(*) AS n FROM credentials`).first<{ n: number }>())!.n).toBe(0)
+  expect(revoked.filter(x => x.redirectUri === 'https://evil.test/')).toEqual([])
+})
+
+test('an account without Apple is deleted without any Apple step', async () => {
+  const t = setup()
+  t.deps.revokeApple = async () => { throw new Error('must not be called') }
+  const { cookie } = await t.google('g-9')
+  expect((await t.call('DELETE', '/api/v1/account', { cookie })).status).toBe(204)
+})
+
+test('the real deps follow the environment: email sign-in only with the EMAIL binding', async () => {
+  const env: AccountsEnv = { DB: testD1(), ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'k'.repeat(32), TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'sk', GOOGLE_CLIENT_IDS: 'g.apps.googleusercontent.com' }
+  const session = async (e: AccountsEnv) => {
+    const req = new Request(`${ORIGIN}/api/v1/session`)
+    return (await (await accounts(req, new URL(req.url), e, NOW)).json()) as { providers: { email: boolean; google: { clientId: string } | null } }
+  }
+  expect((await session(env)).providers.email).toBe(false)
+  const withMail = await session({ ...env, EMAIL: { send: async () => ({ messageId: 'x' }) } })
+  expect(withMail.providers).toMatchObject({ email: true, google: { clientId: 'g.apps.googleusercontent.com' } })
+})
