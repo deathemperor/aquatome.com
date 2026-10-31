@@ -4,15 +4,17 @@ import SwiftUI
 struct AquaTomeApp: App {
   @State private var lights = LightsModel(radio: AquaTomeApp.radio())
   @State private var handbook = HandbookModel()
+  @State private var tanks = TanksModel()
   @State private var tab = Tab.handbook
 
-  enum Tab { case handbook, lights }
+  enum Tab { case tanks, handbook, lights }
 
   init() {
     #if DEBUG
-    // UI tests start from a clean phone (no schedule kept from an earlier run).
+    // UI tests start from a clean phone (no schedule or tank kept from an earlier run).
     if ProcessInfo.processInfo.arguments.contains("-reset-defaults"), let id = Bundle.main.bundleIdentifier {
       UserDefaults.standard.removePersistentDomain(forName: id)
+      try? FileManager.default.removeItem(at: TanksModel.defaultFile())
     }
     #endif
   }
@@ -24,12 +26,16 @@ struct AquaTomeApp: App {
         HandbookView { tab = .lights }
           .tabItem { Label("Tìm", systemImage: "magnifyingglass") }
           .tag(Tab.handbook)
+        TanksView()
+          .tabItem { Label("Bể của tôi", systemImage: "fish") }
+          .tag(Tab.tanks)
         LightsView()
           .tabItem { Label("Đèn", systemImage: "lightbulb") }
           .tag(Tab.lights)
       }
       .environment(lights)
       .environment(handbook)
+      .environment(tanks)
     }
   }
 

@@ -2,8 +2,10 @@
 
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
-Two tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
-the phone for reading offline, without ads); **Đèn** controls the lights. The handbook's Chihiros tool opens the Đèn tab.
+Three tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
+the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
+substrate, notes) on the phone with no account, in the same store the site uses, and shares a copy as JSON; **Đèn**
+controls the lights. The handbook's Chihiros tool opens the Đèn tab.
 
 ## The app
 
