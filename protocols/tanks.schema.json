@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from packages/schema/src/tanks.ts by packages/schema/test/tanks.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). Looser than the contract where JSON Schema can't say it: timestamps must be real instants; a schedule's off time must be after its on time, the same day (00:00 = midnight at the end); the ramp is at most half the time lit; one record per id in each list. protocols/tanks-vectors.json has a case for each.",
+  "$defs": {
+    "Tank": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 80,
+          "pattern": "\\S"
+        },
+        "dims": {
+          "type": "object",
+          "properties": {
+            "l": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1000
+            },
+            "w": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1000
+            },
+            "h": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "l",
+            "w",
+            "h"
+          ],
+          "additionalProperties": {}
+        },
+        "litres": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 100000
+        },
+        "substrate": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "species": {
+          "maxItems": 200,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 120,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9999
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": {}
+          }
+        },
+        "plants": {
+          "maxItems": 200,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 120,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": {}
+          }
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "createdAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "updatedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "deletedAt": {
+          "not": {}
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "species",
+        "plants",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": {}
+    },
+    "Device": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "tankId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "bleName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "nickname": {
+          "type": "string",
+          "maxLength": 80,
+          "pattern": "\\S"
+        },
+        "schedules": {
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 80,
+                "pattern": "\\S"
+              },
+              "on": {
+                "type": "string",
+                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+              },
+              "off": {
+                "type": "string",
+                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+              },
+              "ramp": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 150
+              },
+              "levels": {
+                "minItems": 1,
+                "maxItems": 4,
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "savedAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+              }
+            },
+            "required": [
+              "id",
+              "on",
+              "off",
+              "ramp",
+              "levels",
+              "savedAt"
+            ],
+            "additionalProperties": {}
+          }
+        },
+        "activeScheduleId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "manual": {
+          "type": "object",
+          "properties": {
+            "levels": {
+              "minItems": 1,
+              "maxItems": 4,
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "at": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+            }
+          },
+          "required": [
+            "levels",
+            "at"
+          ],
+          "additionalProperties": {}
+        },
+        "clockSyncedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "createdAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "updatedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "deletedAt": {
+          "not": {}
+        }
+      },
+      "required": [
+        "id",
+        "tankId",
+        "kind",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": {}
+    },
+    "Tombstone": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "updatedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "deletedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        }
+      },
+      "required": [
+        "id",
+        "updatedAt",
+        "deletedAt"
+      ],
+      "additionalProperties": {}
+    },
+    "TankRecord": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Tombstone"
+        },
+        {
+          "$ref": "#/$defs/Tank"
+        }
+      ]
+    },
+    "DeviceRecord": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Tombstone"
+        },
+        {
+          "$ref": "#/$defs/Device"
+        }
+      ]
+    },
+    "TankStore": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "type": "number",
+          "const": 1
+        },
+        "tanks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TankRecord"
+          }
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DeviceRecord"
+          }
+        }
+      },
+      "required": [
+        "v",
+        "tanks",
+        "devices"
+      ],
+      "additionalProperties": {}
+    }
+  }
+}
