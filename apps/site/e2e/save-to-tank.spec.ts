@@ -42,7 +42,8 @@ test('volume: a box is saved as a new tank with its size; a round tank then upda
 })
 
 test('tank-mates: the chosen fish and their numbers go onto a tank; saving again updates the numbers, no duplicates', async ({ page, errors }) => {
-  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:12,ca-neon-vua:8&l=80&w=35&h=40')
+  // Species both the fixture and aquatome.com have (the watch runs these checks on aquatome.com too).
+  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:12&l=80&w=35&h=40')
   const save = page.locator('.save-tank')
   await expect(save).toBeVisible()
   await expect(save.locator('input[name=name]')).toHaveAttribute('placeholder', 'Bể 80 × 35 × 40')
@@ -50,14 +51,18 @@ test('tank-mates: the chosen fish and their numbers go onto a tank; saving again
   await expect(save.locator('[role=status]')).toContainText('Đã lưu vào “Bể 80 × 35 × 40”')
   let tanks = await live(page)
   expect(tanks).toHaveLength(1)
-  expect(tanks[0]).toMatchObject({ dims: { l: 80, w: 35, h: 40 }, species: [{ id: 'paracheirodon-innesi', count: 12 }, { id: 'paracheirodon-axelrodi', count: 8 }] })
+  expect(tanks[0]).toMatchObject({ dims: { l: 80, w: 35, h: 40 }, species: [{ id: 'paracheirodon-innesi', count: 12 }] })
 
-  // The link opens the tank on "Bể của tôi", fish by name.
+  // The link opens the tank on "Bể của tôi".
   await save.locator('[role=status] a').click()
   await expect(page).toHaveURL(new RegExp(`/vi/cong-cu/be-cua-toi/#be-${tanks[0]!.id}$`))
   await expect(page.locator('.tank')).toContainText('Bể 80 × 35 × 40')
 
+  // More neons and a discus (by its scientific name: aquatome.com has two "Cá đĩa"), onto the same tank.
   await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:20&l=60&w=30&h=36')
+  await page.locator('#tm-input').fill('Symphysodon aequifasciatus')
+  await page.locator('#tm-input').press('Enter')
+  await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   await expect(save.locator('select')).toHaveValue('')
   await save.locator('select').selectOption({ label: 'Bể 80 × 35 × 40' })
   await expect(save.locator('input[name=name]')).toBeHidden()
@@ -66,7 +71,9 @@ test('tank-mates: the chosen fish and their numbers go onto a tank; saving again
   tanks = await live(page)
   expect(tanks).toHaveLength(1)
   // An existing tank keeps its size: the size on this page is only for a new one.
-  expect(tanks[0]).toMatchObject({ dims: { l: 80, w: 35, h: 40 }, species: [{ id: 'paracheirodon-innesi', count: 20 }, { id: 'paracheirodon-axelrodi', count: 8 }] })
+  expect(tanks[0]!.dims).toEqual({ l: 80, w: 35, h: 40 })
+  expect(tanks[0]!.species.map(x => x.id)).toEqual(['paracheirodon-innesi', 'symphysodon-aequifasciatus'])
+  expect(tanks[0]!.species[0]!.count).toBe(20)
 
   // No fish chosen: nothing to save.
   await page.goto('/vi/cong-cu/nuoi-chung/')
