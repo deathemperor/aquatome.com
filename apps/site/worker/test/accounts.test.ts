@@ -42,18 +42,18 @@ function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = 
   }
   const cookieOf = (r: { headers: Headers }) => /^(__Host-aq_session=[^;]+)/.exec(r.headers.get('set-cookie') ?? '')?.[1]
   /** Signs in with the fake Google: the session cookie (web) or token (app). */
-  const google = async (sub: string, o: { email?: string; client?: 'web' | 'app'; cookie?: string; bearer?: string } = {}) => {
+  const google = async (sub: string, o: { email?: string; client?: 'web' | 'app'; cookie?: string; bearer?: string; link?: boolean } = {}) => {
     const { json: { nonce } } = await call('POST', '/api/v1/auth/nonce', { body: {} })
-    const r = await call('POST', '/api/v1/auth/google', { body: { idToken: `${sub}|${nonce}|${o.email ?? ''}`, nonce, client: o.client ?? 'web' }, cookie: o.cookie, bearer: o.bearer, origin: o.client === 'app' ? null : undefined })
+    const r = await call('POST', '/api/v1/auth/google', { body: { idToken: `${sub}|${nonce}|${o.email ?? ''}`, nonce, client: o.client ?? 'web', ...(o.link ? { link: true } : {}) }, cookie: o.cookie, bearer: o.bearer, origin: o.client === 'app' ? null : undefined })
     return { ...r, cookie: cookieOf(r), token: r.json?.token as string | undefined }
   }
   /** Asks for a code (signed in or not) and returns the flow secret and the mailed code. */
-  const ask = async (email: string, o: { cookie?: string; lang?: string } = {}) => {
-    const r = await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: o.lang ?? 'id' }, cookie: o.cookie })
+  const ask = async (email: string, o: { cookie?: string; lang?: string; link?: boolean } = {}) => {
+    const r = await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: o.lang ?? 'id', ...(o.link ? { link: true } : {}) }, cookie: o.cookie })
     expect(r.status).toBe(200)
     return { flow: r.json.flow as string, code: /#ma=(\d{6})/.exec(mails.at(-1)!.text)![1]! }
   }
-  const emailIn = async (email: string, o: { cookie?: string } = {}) => {
+  const emailIn = async (email: string, o: { cookie?: string; link?: boolean } = {}) => {
     const { flow, code } = await ask(email, o)
     const r = await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: o.cookie })
     return { ...r, cookie: cookieOf(r), flow, code }
@@ -193,11 +193,11 @@ test('email: adding an address to the account works only for the account that as
   const { call, ask, google } = setup()
   const a = await google('g-a')
   const b = await google('g-b')
-  const forA = await ask('a@example.com', { cookie: a.cookie })
+  const forA = await ask('a@example.com', { cookie: a.cookie, link: true })
   expect((await call('POST', '/api/v1/auth/email/verify', { body: forA, cookie: b.cookie })).status).toBe(401)
-  const forA2 = await ask('a@example.com', { cookie: a.cookie })
+  const forA2 = await ask('a@example.com', { cookie: a.cookie, link: true })
   expect((await call('POST', '/api/v1/auth/email/verify', { body: forA2 })).status).toBe(401)
-  const forA3 = await ask('a@example.com', { cookie: a.cookie })
+  const forA3 = await ask('a@example.com', { cookie: a.cookie, link: true })
   const added = await call('POST', '/api/v1/auth/email/verify', { body: forA3, cookie: a.cookie })
   expect(added.json.user.methods.map((m: { kind: string }) => m.kind)).toEqual(['google', 'email'])
   expect(added.headers.get('set-cookie')).toBeNull()
@@ -227,24 +227,38 @@ test('a verified address links sign-ins: Google first, an email link to the same
   expect((await emailIn('reader@example.com')).json.user.id).toBe(g.json.user.id)
 })
 
-test('signed in, a new sign-in method joins the account; one that belongs to another account is refused', async () => {
+test('signed in, a sign-in method joins the account only when asked to (link); one that belongs to another account is refused', async () => {
   const { call, google, emailIn } = setup()
   const e = await emailIn('reader@example.com')
-  const added = await google('g-1', { cookie: e.cookie })
+  const added = await google('g-1', { cookie: e.cookie, link: true })
   expect(added.json.user.id).toBe(e.json.user.id)
   expect(added.headers.get('set-cookie')).toBeNull() // the same session goes on
   expect((await call('GET', '/api/v1/session', { cookie: e.cookie })).json.user.methods.map((m: { kind: string }) => m.kind)).toEqual(['email', 'google'])
   const other = await google('g-2')
-  expect((await google('g-1', { cookie: other.cookie })).status).toBe(409)
+  expect((await google('g-1', { cookie: other.cookie, link: true })).status).toBe(409)
+  expect((await google('g-3', { link: true })).status).toBe(401) // nothing to add it to
+})
+
+test('signing in as someone else on a signed-in browser switches accounts: never joins them (a shared computer)', async () => {
+  const { call, google } = setup()
+  const a = await google('g-a')
+  const b = await google('g-b', { cookie: a.cookie })
+  expect(b.json.user.id).not.toBe(a.json.user.id)
+  expect((await call('GET', '/api/v1/session', { cookie: a.cookie })).json.user).toBeNull() // A's session ended
+  expect((await call('GET', '/api/v1/session', { cookie: b.cookie })).json.user.methods).toMatchObject([{ kind: 'google' }])
+  expect((await google('g-a')).json.user.methods).toMatchObject([{ kind: 'google' }])
 })
 
 test('removing a sign-in method, but never the last', async () => {
   const { call, google, emailIn } = setup()
   const e = await emailIn('reader@example.com')
-  await google('g-1', { cookie: e.cookie })
+  await google('g-1', { cookie: e.cookie, link: true })
   const methods = (await call('GET', '/api/v1/session', { cookie: e.cookie })).json.user.methods as { id: string }[]
-  expect((await call('DELETE', `/api/v1/account/methods/${methods[1]!.id}`, { cookie: e.cookie })).status).toBe(204)
-  expect((await call('DELETE', `/api/v1/account/methods/${methods[0]!.id}`, { cookie: e.cookie })).status).toBe(409)
+  // Both at once: one goes, the other is the last and stays.
+  const both = await Promise.all(methods.map(m => call('DELETE', `/api/v1/account/methods/${m.id}`, { cookie: e.cookie })))
+  expect(both.map(r => r.status).sort()).toEqual([204, 409])
+  expect((await call('GET', '/api/v1/session', { cookie: e.cookie })).json.user.methods).toHaveLength(1)
+  expect((await call('DELETE', '/api/v1/account/methods/00000000-0000-4000-8000-000000000000', { cookie: e.cookie })).status).toBe(404)
 })
 
 type MergeCase = { note: string; kept: { id: string }[]; incoming: unknown[]; expected: unknown[] }
@@ -290,6 +304,52 @@ test('sync: an account holds at most 200 live tanks', async () => {
   expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(many(1000, 150)) } })).status).toBe(200)
   expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(many(2000, 51)) } })).json.error).toBe('too_many')
   expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(many(2000, 50)) } })).status).toBe(200)
+})
+
+test('sync: a tombstone is stored as its three keys, whatever else was sent', async () => {
+  const { call, google } = setup()
+  const { cookie } = await google('g-1')
+  const dead = { id: '00000000-0000-4000-8000-000000000001', updatedAt: '2026-10-05T00:00:00.000Z', deletedAt: '2026-10-05T00:00:00.000Z', name: 'x'.repeat(10_000) }
+  const r = await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store([dead]) } })
+  expect(r.json.store.tanks).toEqual([{ id: dead.id, updatedAt: dead.updatedAt, deletedAt: dead.deletedAt }])
+})
+
+test('sync: only the newest 1000 tombstones of a kind are kept', async () => {
+  const { call, google } = setup()
+  const { cookie } = await google('g-1')
+  const at = (i: number) => new Date(Date.UTC(2026, 9, 1) + i * 1000).toISOString()
+  const dead = Array.from({ length: 1005 }, (_, i) => ({ id: `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`, updatedAt: at(i), deletedAt: at(i) }))
+  const r = await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(dead) } })
+  expect(r.json.store.tanks).toHaveLength(1000)
+  expect(r.json.store.tanks.some((t: { id: string }) => t.id === dead[4]!.id)).toBe(false)
+  expect(r.json.store.tanks.some((t: { id: string }) => t.id === dead[5]!.id)).toBe(true)
+})
+
+test('sync: an account holds at most 1 MB of live records', async () => {
+  const { call, google } = setup()
+  const { cookie } = await google('g-1')
+  const t = V.valid.find(c => c.kind === 'tank')!.value
+  const big = (from: number, n: number) => Array.from({ length: n }, (_, i) => ({ ...t, id: `00000000-0000-4000-8000-${String(from + i).padStart(12, '0')}`, notes: 'n'.repeat(4000) }))
+  expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(big(1000, 150)) } })).status).toBe(200)
+  expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store(big(2000, 100)) } })).json.error).toBe('too_many')
+})
+
+test('sync: one at a time per account', async () => {
+  const { db, call, google } = setup()
+  const { cookie, json: { user } } = await google('g-1')
+  await db.prepare(`UPDATE users SET sync_until = ? WHERE id = ?`).bind('2026-11-01T00:00:10.000Z', user.id).run()
+  expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store() } })).status).toBe(409)
+  await db.prepare(`UPDATE users SET sync_until = ? WHERE id = ?`).bind('2026-10-31T23:59:00.000Z', user.id).run() // a sync that died
+  expect((await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store() } })).status).toBe(200)
+  expect((await db.prepare(`SELECT sync_until FROM users WHERE id = ?`).bind(user.id).first<{ sync_until: string | null }>())!.sync_until).toBeNull()
+})
+
+test('deleting the account also voids email codes already sent to its addresses', async () => {
+  const { call, ask, emailIn } = setup()
+  const e = await emailIn('reader@example.com')
+  const pending = await ask('reader@example.com')
+  expect((await call('DELETE', '/api/v1/account', { cookie: e.cookie })).status).toBe(204)
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: pending })).json.error).toBe('bad_code')
 })
 
 test('export: the account, its sign-in methods and its tanks; delete: all of it, and the session ends', async () => {

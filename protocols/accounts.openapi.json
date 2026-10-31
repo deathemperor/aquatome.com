@@ -360,6 +360,11 @@
                     ],
                     "default": "web",
                     "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  },
+                  "link": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
                   }
                 }
               }
@@ -368,7 +373,7 @@
         },
         "responses": {
           "200": {
-            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). With link: true, the method was added to the signed-in account (no new session, no token).",
             "content": {
               "application/json": {
                 "schema": {
@@ -388,7 +393,7 @@
             }
           },
           "401": {
-            "description": "Error: bad_token, bad_nonce",
+            "description": "Error: bad_token, bad_nonce, signed_out (link without a session)",
             "content": {
               "application/json": {
                 "schema": {
@@ -408,7 +413,7 @@
             }
           },
           "409": {
-            "description": "Error: credential_in_use (signed in, and this account belongs to another)",
+            "description": "Error: credential_in_use (link: this sign-in belongs to another account)",
             "content": {
               "application/json": {
                 "schema": {
@@ -469,6 +474,11 @@
                     ],
                     "default": "web",
                     "description": "\"app\": the reply carries a bearer token and sets no cookie (send no Origin header and no cookie). \"web\": an HttpOnly session cookie; the request must come from the site's own pages."
+                  },
+                  "link": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
                   }
                 }
               }
@@ -477,7 +487,7 @@
         },
         "responses": {
           "200": {
-            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). With link: true, the method was added to the signed-in account (no new session, no token).",
             "content": {
               "application/json": {
                 "schema": {
@@ -497,7 +507,7 @@
             }
           },
           "401": {
-            "description": "Error: bad_token, bad_nonce",
+            "description": "Error: bad_token, bad_nonce, signed_out (link without a session)",
             "content": {
               "application/json": {
                 "schema": {
@@ -517,7 +527,7 @@
             }
           },
           "409": {
-            "description": "Error: credential_in_use (signed in, and this account belongs to another)",
+            "description": "Error: credential_in_use (link: this sign-in belongs to another account)",
             "content": {
               "application/json": {
                 "schema": {
@@ -542,7 +552,7 @@
     "/api/v1/auth/email/start": {
       "post": {
         "summary": "Email a 6-digit sign-in code (15 minutes, once)",
-        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The reply's `flow` is a secret only this browser or app may hold: keep it (web: localStorage, so a link opened in another tab of the same browser works; app: memory) and never put it in a URL. The mail holds the code and a link https://aquatome.com/<language page>#ma=<code> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/), which the page (or the app, through a universal link) fills in. Signed in when asking: the address is added to that account. The address is not stored. Limits: 3 codes an hour per address, 10 an hour per network.",
+        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The reply's `flow` is a secret only this browser or app may hold: keep it (web: localStorage, so a link opened in another tab of the same browser works; app: memory) and never put it in a URL. The mail holds the code and a link https://aquatome.com/<language page>#ma=<code> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/), which the page (or the app, through a universal link) fills in. With link: true (signed in), the address is added to that account. The address is not stored. Limits: 3 codes an hour per address, 10 an hour per network.",
         "security": [
           {},
           {
@@ -577,6 +587,11 @@
                       "th"
                     ],
                     "default": "vi"
+                  },
+                  "link": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
                   }
                 }
               }
@@ -604,6 +619,16 @@
           },
           "400": {
             "description": "Error: bad_email, bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (link without a session)",
             "content": {
               "application/json": {
                 "schema": {
@@ -658,7 +683,7 @@
     "/api/v1/auth/email/verify": {
       "post": {
         "summary": "Sign in with the emailed code and the flow secret from /email/start",
-        "description": "Wrong codes count: after 5, or 15 minutes, or once used, the flow is gone (401 bad_code; ask again). A flow started while signed in only works for that same account and adds the address to it; one started signed out signs in (ending any other session on this browser).",
+        "description": "Wrong codes count: after 5, or 15 minutes, or once used, the flow is gone (401 bad_code; ask again). A flow started with link: true only works for that same account, signed in on this client, and adds the address to it; any other flow signs in (ending any other session on this client).",
         "security": [
           {},
           {
@@ -702,7 +727,7 @@
         },
         "responses": {
           "200": {
-            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). Already signed in: the method is added to that account and no new session is made (no token).",
+            "description": "Signed in. Web: Set-Cookie __Host-aq_session (HttpOnly; Secure; SameSite=Lax; 180 days, renewed when used). App: `token` (365 days, renewed when used). With link: true, the method was added to the signed-in account (no new session, no token).",
             "content": {
               "application/json": {
                 "schema": {
@@ -756,8 +781,9 @@
     },
     "/api/v1/auth/logout": {
       "post": {
-        "summary": "End this session (the token or cookie stops working)",
+        "summary": "End this session (the token or cookie stops working); signed out already is fine",
         "security": [
+          {},
           {
             "bearer": []
           },
@@ -789,6 +815,46 @@
         "responses": {
           "204": {
             "description": "Signed out; the browser's cookie is cleared. The device keeps its own copy of the tanks."
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too_large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -843,7 +909,7 @@
     "/api/v1/tanks/sync": {
       "post": {
         "summary": "Merge the device's records into the account's; the account's store after the merge",
-        "description": "Send every record (or every record changed since the last sync) as a TankStore; each is checked on its own and merged by docs/my-tanks-sync.md (an updatedAt ahead of the server's clock becomes the server's). Take the returned store as the device's, keeping refused records and records changed since the request was sent. Signing in: sync the device's whole store once, so local tanks join the account. Up to 2000 records a request; 600 syncs an hour.",
+        "description": "Send every record (or every record changed since the last sync) as a TankStore; each is checked on its own and merged by docs/my-tanks-sync.md (an updatedAt ahead of the server's clock becomes the server's). Take the returned store as the device's, keeping refused records and records changed since the request was sent. Signing in: sync the device's whole store once, so local tanks join the account. Up to 2000 records a request; 600 syncs an hour; one at a time per account (409 busy: try again shortly). The server stores a tombstone as its three keys only, and keeps the newest 1000 tombstones of each kind.",
         "security": [
           {
             "bearer": []
@@ -901,6 +967,16 @@
               }
             }
           },
+          "409": {
+            "description": "Error: busy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "413": {
             "description": "Error: too_large",
             "content": {
@@ -912,7 +988,7 @@
             }
           },
           "422": {
-            "description": "Error: too_many (the account would hold more than 200 live tanks or 400 live devices)",
+            "description": "Error: too_many (the account would hold more than 200 live tanks, 400 live devices, or 1 MB of live records)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1052,6 +1128,16 @@
           },
           "401": {
             "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
             "content": {
               "application/json": {
                 "schema": {

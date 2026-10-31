@@ -1,9 +1,11 @@
 -- Accounts for "Bể của tôi" (optional sign-in that backs up and syncs saved tanks). Data kept to the minimum:
 -- no names, no phone numbers, no email addresses. Email sign-in stores only a keyed hash of the address
 -- (HMAC with ACCOUNT_HMAC_KEY), enough to find the account again; the address itself is used once, to send the link.
+-- sync_until: while a sync of this account runs (one at a time, so its limits hold); NULL otherwise.
 CREATE TABLE users (
   id TEXT PRIMARY KEY,
-  created_at TEXT NOT NULL
+  created_at TEXT NOT NULL,
+  sync_until TEXT
 );
 
 -- Ways to sign in to an account. subject: the provider's user id (Apple, Google), the passkey's credential id, or the

@@ -4,11 +4,12 @@ import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken }
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
-import { deleteUser, InUse, methodsOf, signInWith } from './users'
+import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
 
 /**
  * /api/v1/*: optional accounts for "Bể của tôi" (sign in, sync saved tanks, export, delete). Contract:
- * protocols/accounts.openapi.json. Off unless ACCOUNTS is "on" (everyone) or "preview" (browsers with the owner flag).
+ * protocols/accounts.openapi.json. Off unless ACCOUNTS is "on" (everyone) or "preview" (browsers with the owner flag
+ * cookie: hides the feature from readers while the owner tries it; anyone can set that cookie, so it protects nothing).
  */
 export type AccountsEnv = {
   DB?: D1Database
@@ -68,10 +69,15 @@ async function bodyOf(req: Request, max = 8192): Promise<Record<string, unknown>
   }
 }
 
-/** Signed in: a new session (cookie for the web, token for the app), or the same one when a sign-in method was added. */
-async function done(env: Live, userId: string, client: Client, current: Session | undefined, now: Date): Promise<Response> {
+/**
+ * Signed in. Adding a sign-in method to the account signed in here (`adding`): that session goes on. Otherwise a new
+ * session (cookie for the web, token for the app), and a session this client had before ends: signing in as someone
+ * else switches accounts, it never joins the two.
+ */
+async function done(env: Live, userId: string, client: Client, adding: Session | undefined, before: Session | undefined, now: Date): Promise<Response> {
   const user = await userView(env.DB, userId)
-  if (current) return json({ user })
+  if (adding) return json({ user })
+  if (before) await env.DB.prepare(`DELETE FROM sessions WHERE id = ?`).bind(before.id).run()
   const token = await createSession(env.DB, userId, client, now)
   return client === 'web' ? json({ user }, 200, { 'set-cookie': cookieFor(token, 'web') }) : json({ user, token })
 }
@@ -115,6 +121,10 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       return json({ nonce })
     }
 
+    // `link: true`: add this sign-in method to the account signed in here, only when asked for (a shared computer).
+    const adding = body.link === true ? session : undefined
+    if (body.link === true && !session) return fail('signed_out', 401)
+
     if (path === '/api/v1/auth/google' || path === '/api/v1/auth/apple') {
       const provider = path.slice('/api/v1/auth/'.length) as Provider
       const audiences = ids(provider === 'google' ? env.GOOGLE_CLIENT_IDS : env.APPLE_CLIENT_IDS)
@@ -127,8 +137,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (claims.nonce !== body.nonce && claims.nonce !== (await sha256(body.nonce))) return fail('bad_nonce', 401)
       const email = claims.emailVerified ? normalEmail(claims.email) : undefined
       try {
-        const userId = await signInWith(db, { kind: provider, subject: claims.sub, ...(email ? { emailHash: await emailHash(env.ACCOUNT_HMAC_KEY, email) } : {}), ...(session ? { signedIn: session.userId } : {}) }, now)
-        return done(env, userId, client, session, now)
+        const userId = await signInWith(db, { kind: provider, subject: claims.sub, ...(email ? { emailHash: await emailHash(env.ACCOUNT_HMAC_KEY, email) } : {}), ...(adding ? { signedIn: adding.userId } : {}) }, now)
+        return done(env, userId, client, adding, session, now)
       } catch (e) {
         if (e instanceof InUse) return fail('credential_in_use', 409)
         throw e
@@ -145,7 +155,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       const hash = await emailHash(k, email)
       const ok = (await allow(db, k, `mail-ip|${ipOf(req)}`, 10, HOUR_MS, now)) && (await allow(db, k, `mail-to|${hash}`, 3, HOUR_MS, now)) && (await allow(db, k, `mail-day|${now.toISOString().slice(0, 10)}`, 2000, 24 * HOUR_MS, now))
       if (!ok) return fail('rate_limited', 429)
-      const { flow, mail } = await startEmail(db, k, email, lang, url.origin, session?.userId, now)
+      const { flow, mail } = await startEmail(db, k, email, lang, url.origin, adding?.userId, now)
       return (await deps.sendMail!(mail)) ? json({ flow }) : fail('mail_failed', 502)
     }
 
@@ -153,13 +163,12 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (typeof body.flow !== 'string' || typeof body.code !== 'string') return fail('bad_request', 400)
       const started = await checkEmail(db, body.flow, body.code, now)
       if (!started) return fail('bad_code', 401)
-      // Started while signed in: adds the address to that account, and only for that account. Started signed out: a sign-in.
+      // Started to add the address to an account: only for that account, signed in here. Otherwise: a sign-in.
       if (started.userId && started.userId !== session?.userId) return fail('bad_code', 401)
-      const adding = started.userId ? session : undefined
+      const toAccount = started.userId ? session : undefined
       try {
-        const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(adding ? { signedIn: adding.userId } : {}) }, now)
-        if (!adding && session) await db.prepare(`DELETE FROM sessions WHERE id = ?`).bind(session.id).run()
-        return done(env, userId, client, adding, now)
+        const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(toAccount ? { signedIn: toAccount.userId } : {}) }, now)
+        return done(env, userId, client, toAccount, session, now)
       } catch (e) {
         if (e instanceof InUse) return fail('credential_in_use', 409)
         throw e
@@ -178,7 +187,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     if (body === 'too_large') return fail('too_large', 413)
     if (!body) return fail('bad_request', 400)
     const out = await syncStore(db, session.userId, body.store, now)
-    if ('error' in out) return fail(out.error, out.error === 'bad_store' ? 400 : 422)
+    if ('error' in out) return fail(out.error, out.error === 'bad_store' ? 400 : out.error === 'busy' ? 409 : 422)
     return json({ ...out, serverTime: now.toISOString() })
   }
 
@@ -192,11 +201,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   }
   const m = /^\/api\/v1\/account\/methods\/([0-9a-f-]{36})$/.exec(path)
   if (m && req.method === 'DELETE') {
-    const methods = await methodsOf(db, session.userId)
-    if (!methods.some(x => x.id === m[1])) return fail('not_found', 404)
-    if (methods.length === 1) return fail('last_method', 409)
-    await db.prepare(`DELETE FROM credentials WHERE id = ? AND user_id = ?`).bind(m[1], session.userId).run()
-    return none()
+    const r = await removeMethod(db, session.userId, m[1]!)
+    return r === 'removed' ? none() : r === 'last' ? fail('last_method', 409) : fail('not_found', 404)
   }
   return fail('not_found', 404)
 }
