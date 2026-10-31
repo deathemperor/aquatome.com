@@ -1,8 +1,9 @@
 import type { Device, SavedSchedule, Tank, TankStore } from '@aq/schema'
+import { stamp as stampAfter, tombstone } from '@aq/schema/tank-rules'
 /**
  * "Bể của tôi" kept in this browser: the reader's tanks and the lights on them, in the shared model
  * (packages/schema/src/tanks.ts, docs/my-tanks-sync.md). Signing in later sends these same records to the account.
- * Every change sets the record's `updatedAt`; deleting leaves a tombstone. Other tabs hear of changes (CHANGED).
+ * Every change sets the record's `updatedAt` after the copy it changes (`stamp`); deleting leaves a tombstone. Other tabs hear of changes (CHANGED).
  */
 export const KEY = 'aq.tanks'
 export const CHANGED = 'aq-tanks-changed'
@@ -48,9 +49,10 @@ export function ensureTank(s: TankStore, name: string, env: Env = browser()): Ta
 
 /** A light met for the first time, or the saved one with its fields changed. */
 export function putDevice(s: TankStore, d: Partial<Device> & Pick<Device, 'tankId' | 'kind'>, env: Env = browser()): Device {
-  const at = stamp(env)
   const i = d.id ? s.devices.findIndex(x => x.id === d.id) : -1
   const kept = i >= 0 && isLive(s.devices[i]!) ? (s.devices[i] as Device) : undefined
+  // After the copy here, a tombstone too: a light written back after a delete must win over it.
+  const at = stampAfter(env.now(), i >= 0 ? s.devices[i]!.updatedAt : undefined)
   const next = { schedules: [], createdAt: at, ...kept, ...d, id: kept?.id ?? d.id ?? env.uuid(), updatedAt: at } as Device
   if (i >= 0) s.devices[i] = next
   else s.devices.push(next)
@@ -74,9 +76,39 @@ export function wroteSchedule(s: TankStore, d: Device, sched: Pick<SavedSchedule
 
 /** Forget a light: a tombstone, so a copy elsewhere doesn't bring it back when they sync. */
 export function forget(s: TankStore, id: string, env: Env = browser()) {
-  const at = stamp(env)
   const i = s.devices.findIndex(x => x.id === id)
-  if (i >= 0) s.devices[i] = { id, updatedAt: at, deletedAt: at }
+  if (i >= 0 && isLive(s.devices[i]!)) s.devices[i] = tombstone(s.devices[i]!, env.now())
 }
 
 export const activeSchedule = (d: Device) => d.schedules?.find(x => x.id === d.activeScheduleId)
+
+/** The fields of a tank a reader edits on "Bể của tôi". */
+export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes'>>
+
+/**
+ * A new tank, or the saved one with the given fields changed (a field given as undefined is removed; other keys stay).
+ * Its `updatedAt` comes after the copy it changes, a tombstone included (`stamp`), so an edit made after a sync wins even
+ * on a clock running behind.
+ */
+export function putTank(s: TankStore, fields: TankFields, id?: string, env: Env = browser()): Tank {
+  const now = env.now()
+  const i = id ? s.tanks.findIndex(x => x.id === id) : -1
+  const kept = i >= 0 && isLive(s.tanks[i]!) ? (s.tanks[i] as Tank) : undefined
+  const at = stampAfter(now, i >= 0 ? s.tanks[i]!.updatedAt : undefined)
+  // `dims` is merged, not replaced: keys another client added to it stay (docs/my-tanks-sync.md).
+  const dims = fields.dims ? { dims: { ...kept?.dims, ...fields.dims } } : {}
+  const next = { species: [], plants: [], createdAt: at, ...kept, ...fields, ...dims, id: kept?.id ?? id ?? env.uuid(), name: fields.name.trim(), updatedAt: at } as Tank
+  for (const k of ['dims', 'litres', 'substrate', 'notes'] as const) if (k in fields && (fields[k] === undefined || fields[k] === '')) delete next[k]
+  if (i >= 0) s.tanks[i] = next
+  else s.tanks.push(next)
+  return next
+}
+
+/** Delete a tank and the lights on it: tombstones, stamped after the copies they replace. */
+export function removeTank(s: TankStore, id: string, env: Env = browser()) {
+  const now = env.now()
+  const i = s.tanks.findIndex(x => x.id === id)
+  if (i < 0 || !isLive(s.tanks[i]!)) return
+  s.tanks[i] = tombstone(s.tanks[i]!, now)
+  s.devices = s.devices.map(d => (isLive(d) && (d as Device).tankId === id ? tombstone(d, now) : d))
+}

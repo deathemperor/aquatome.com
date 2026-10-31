@@ -34,3 +34,16 @@ test('other languages list their own names and addresses', () => {
   const tool = index('id').items.find(i => i.kind === 'tool' && i.path.includes('lampu-chihiros'))
   expect(tool?.name).toBe('Lampu Chihiros')
 })
+
+test('fish and plants carry their content id (the page folder), so a saved tank can name them; every index has the tanks page', () => {
+  for (const lang of LANGS) {
+    for (const i of index(lang).items.filter(x => x.kind === 'fish' || x.kind === 'plant')) expect(i.id, i.path).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+  }
+  const vi = index('vi').items.find(i => i.id === 'paracheirodon-axelrodi')
+  expect(vi?.path).toMatch(/^\/vi\/ca\//)
+  expect(index('vi').items.filter(i => i.kind === 'plant').every(i => i.id)).toBe(true)
+  expect(index('vi').items.some(i => i.kind === 'plant')).toBe(true)
+  for (const [lang, path] of [['vi', '/vi/cong-cu/be-cua-toi/'], ['id', '/id/alat/akuarium-saya/'], ['th', '/th/tools/my-tanks/']]) {
+    expect(index(lang!).items.some(i => i.path === path), path).toBe(true)
+  }
+})

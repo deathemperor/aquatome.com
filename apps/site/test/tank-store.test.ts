@@ -1,6 +1,6 @@
-import { TankStore } from '@aq/schema'
+import { TankStore, type Device } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { deviceByBleName, ensureTank, forget, liveDevices, load, putDevice, save, wroteSchedule, activeSchedule } from '../src/scripts/tank-store'
+import { deviceByBleName, ensureTank, forget, liveDevices, liveTanks, load, putDevice, putTank, removeTank, save, wroteSchedule, activeSchedule } from '../src/scripts/tank-store'
 
 function env() {
   const data = new Map<string, string>()
@@ -58,4 +58,66 @@ test('an unreadable store starts empty instead of breaking the page', () => {
   const e = env()
   e.data.set('aq.tanks', '{not json')
   expect(load(e)).toEqual({ v: 1, tanks: [], devices: [] })
+})
+
+test('a tank made, edited (emptied fields go), and deleted with its lights: tombstones, valid store', () => {
+  const e = env()
+  const s = load(e)
+  const t = putTank(s, { name: '  Bể 60  ', dims: { l: 60, w: 30, h: 36 }, substrate: 'soil', notes: 'Thay nước Chủ nhật' }, undefined, e)
+  expect(t).toMatchObject({ name: 'Bể 60', species: [], plants: [], createdAt: t.updatedAt })
+  const edited = putTank(s, { name: 'Bể 60 cm', dims: { l: 60, w: 30, h: 40 }, notes: '' , substrate: undefined }, t.id, e)
+  expect(edited.id).toBe(t.id)
+  expect(edited.createdAt).toBe(t.createdAt)
+  expect(edited).not.toHaveProperty('notes')
+  expect(edited).not.toHaveProperty('substrate')
+  expect(edited.dims).toEqual({ l: 60, w: 30, h: 40 })
+  const d = putDevice(s, { tankId: t.id, kind: 'light', bleName: 'DY1' }, e)
+  const other = putTank(s, { name: 'Bể tép' }, undefined, e)
+  const keep = putDevice(s, { tankId: other.id, kind: 'light', bleName: 'DY2' }, e)
+  removeTank(s, t.id, e)
+  expect(liveTanks(s).map(x => x.id)).toEqual([other.id])
+  expect(liveDevices(s).map(x => x.id)).toEqual([keep.id])
+  expect(s.tanks[0]).toEqual({ id: t.id, updatedAt: expect.any(String), deletedAt: expect.any(String) })
+  expect(s.devices.find(x => x.id === d.id)).toEqual({ id: d.id, updatedAt: expect.any(String), deletedAt: expect.any(String) })
+  expect(TankStore.safeParse(s).success).toBe(true)
+})
+
+test('an edit on a clock running behind still comes after the copy it changes, so it wins the merge', () => {
+  const e = env()
+  const s = load(e)
+  // Synced from a device whose clock is a day ahead of this one.
+  const ahead = '2026-11-01T12:00:00.000Z'
+  s.tanks.push({ id: e.uuid(), name: 'Bể', species: [], plants: [], createdAt: ahead, updatedAt: ahead })
+  s.devices.push({ id: e.uuid(), tankId: s.tanks[0]!.id, kind: 'light', createdAt: ahead, updatedAt: ahead })
+  const t = putTank(s, { name: 'Bể đổi tên' }, s.tanks[0]!.id, e)
+  expect(t.updatedAt > ahead).toBe(true)
+  const d = putDevice(s, { ...(s.devices[0] as Device), nickname: 'Đèn' }, e)
+  expect(d.updatedAt > ahead).toBe(true)
+  const gone = d.updatedAt
+  forget(s, d.id, e)
+  expect(s.devices[0]!.updatedAt > gone).toBe(true)
+  removeTank(s, t.id, e)
+  expect(s.tanks[0]!.updatedAt > t.updatedAt).toBe(true)
+})
+
+test('an edit keeps what this page does not know: other keys of the tank and of its dims', () => {
+  const e = env()
+  const s = load(e)
+  const at = '2026-10-31T11:00:00.000Z'
+  s.tanks.push({ id: e.uuid(), name: 'Bể', dims: { l: 60, w: 30, h: 36, glass: 0.8 }, substrate: 'akadama', species: [], plants: [], createdAt: at, updatedAt: at, fromApp: true } as never)
+  const t = putTank(s, { name: 'Bể 60', dims: { l: 60, w: 30, h: 40 }, substrate: 'akadama' }, s.tanks[0]!.id, e)
+  expect(t.dims).toEqual({ l: 60, w: 30, h: 40, glass: 0.8 })
+  expect(t).toMatchObject({ substrate: 'akadama', fromApp: true })
+  expect(TankStore.safeParse(s).success).toBe(true)
+})
+
+test('a tank or light written over a tombstone is stamped after it, even when the delete came from a clock ahead', () => {
+  const e = env()
+  const s = load(e)
+  const ahead = '2026-11-01T12:00:00.000Z'
+  const tid = e.uuid(), did = e.uuid()
+  s.tanks.push({ id: tid, updatedAt: ahead, deletedAt: ahead })
+  s.devices.push({ id: did, updatedAt: ahead, deletedAt: ahead })
+  expect(putTank(s, { name: 'Bể' }, tid, e).updatedAt > ahead).toBe(true)
+  expect(putDevice(s, { id: did, tankId: tid, kind: 'light' }, e).updatedAt > ahead).toBe(true)
 })
