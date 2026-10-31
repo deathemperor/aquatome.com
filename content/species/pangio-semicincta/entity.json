@@ -1,0 +1,221 @@
+{
+  "id": "pangio-semicincta",
+  "scientificName": "Pangio semicincta",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Pangio",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "malaysia",
+    "johor",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<ul><li>Max size: 100 mm SL (3.9 in)</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 21–26°C</li><li>pH: 3.5–7.0</li><li>Hardness: 0–8 dGH</li><li>Difficulty: 5 of 8 (Easy)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p><p>Usually sold as the 'kuhli' loach, Pangio semicincta is a cobitid loach from Peninsular Malaysia, Sumatra and Borneo. It lives in shallow forest streams and swamps, often in black water, and is typically abundant in leaf litter. P. kuhlii itself is currently considered endemic to Java and has possibly never been seen in aquaria, so the common aquarium 'kuhli' is more likely to be this species or an unidentified relative.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Currently accepted to occur in Peninsular Malaysia plus the Great Sunda Islands of Sumatra and Borneo but the true extent of its distribution is unclear.</p><p>Type locality is given as Malay Peninsula (Malacca, Johore) which corresponds to what's now normally referred to as Mawai district collected in Johor state at the southern tip of Peninsular Malaysia, but similar-looking fish have been recorded from numerous localities across the above range.</p><p>Colour pattern is variable both within and between populations and the species will probably turn out to represent a complex of closely-related taxa with at least 3 genetic lineages already identified (Bohlen et al. 2011, also see 'Notes' below).</p><p>Fraser-Brunner (1940) described populations from southern Sumatra as a subspecies, Acanthophthalmus kuhlii sumatranus, but these are currently considered synonymous with P. semicincta (Tan and Kottelat, 2009).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of forest streams or other calm habitats such as swamps, oxbows, and backwaters.</p><p>Many such environments are associated with ancient peat swamps and contain black water although it's also found in clear waters which may or may not be tannin-stained to some extent.</p><p>Such habitats are typically shaded from the sun by marginal vegetation and the dense tree canopy above.</p><p>The water generally has a negligible dissolved mineral content, is poorly buffered and pH can be as low as 3.0 or 4.0 due to the gradual release of tannins and organic acids from decaying plant material.</p><p>Depending on locality the substrate may be composed of peat, mud or sand with the fish typically abundant in piles of leaf litter.</p><p>In the Rajang river basin, Sarawak state, Malaysian Borneo sympatric species include Cyclocheilichthys apogon, C. repasson, Garra borneensis, Osteochilus vittatus, Paracrossochilus vittatus, Rasbora argyrotaenia, R. dusonensis, R. kottelati, R. sarawakensis, 'Puntius' johorensis, 'P.' kuchingensis, 'P.' pentazona, Sundadanio margarition, Trigonopoma pauciperforatum, Pangio anguillaris, P. piperata, Syncrossus hymenophysa, several Gastromyzon, Homaloptera and Nemacheilus spp., Betta akarensis, Sphaerichthys osphromenoides and Carinotetraodon salivator.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>An aquarium with base measurements of at least 60 × 30 cm (24 × 12 in) or equivalent is recommended (volume approx. 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Use a soft, sandy substrate since this species likes to dig and tends to spend some of its time completely buried. When coarser gravel is used it may become stressed or damage itself, and feeding behaviour can be inhibited.</p><p>A few driftwood roots and branches, placed in such a way that plenty of shady spots are formed, can be used to add structure to the display and addition of dried leaf litter would provide additional cover and aid in simulating natural conditions.</p><p>Fairly dim lighting is also preferable with aquatic plants from genera such as Microsorum, Taxiphyllum, and Cryptocoryne suitable.</p><p>Gentle filtration providing a little surface agitation is adequate and high flow rates best avoided.</p><p>Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<ul><li>Temperature: 21–26°C (70–79°F)</li><li>pH: 3.5–7.0</li><li>Hardness: 0–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Chiefly a micropredator sifting mouthfuls of substrate through the mouth and gills from which insect larvae, small crustaceans and suchlike are extracted with a proportion of the natural diet also likely to comprise organic detritus and plant material from the gut contents of prey.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of live and frozen Daphnia, Artemia, bloodworm, micro worm, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Pangio spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>In nature they're often found in large aggregations and in captivity will often pack themselves into a single nook, cranny or cave when at rest, so a group of at least 5-6 specimens should be the minimum purchased.</p><p>Small, peaceful species from similar environments such as Boraras, Sundadanio, smaller Rasbora, Trichopsis, Sphaerichthys, Kottelatlimia, etc., constitute the best tankmates.</p><p>Some sand-dwelling loaches from the family Nemacheilidae are also suitable but proper research is essential as some can be excessively competitive, territorial or otherwise aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Adult females are typically heavier-bodied and a little larger than males, while in mature males the first pectoral-fin ray is branched and thickened.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>Several vague reports exist but none are supported by solid information or photographs.</p><p>Presumably a seasonal spawner in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<p>This species is among the most frequently-misidentified in the hobby, almost always being traded as P. kuhlii. However the latter is currently considered endemic to Java, from where commercial collections are almost unheard of, and has possibly never been seen in aquaria.</p><p>The relationship between these two has long been confused. P. semicincta was regarded valid from 1940 until 1992 when it was placed in synonymy with P. kuhlii by Burridge. Kottelat and Lim (1993) conditionally agreed, but suggested more work be done. In 1995 Kottelat reported he had received fresh P. kuhlii material from Java and confirmed P. semicincta to be a separate taxon. In 2009 Tan and Kottelat confirmed that fresh material from Java shows the two species have very distinctive colour patterns. P. sumatrana was adjudged synonymous with P. semicincta rather than P. kuhlii, with the former occurring in Peninsular Malaysia, Sumatra and Borneo and the latter endemic to Java.</p><p>It also seems likely that a number of unidentified, similar-looking populations exist, particularly on Borneo, of which some have undoubtedly appeared in the aquarium trade. The common aquarium 'Kuhli/coolie' loach is more likely to be P. semicincta, one or more unidentified species, or a combination of these.</p><p>P. semicincta is included in the P. kuhlii-oblonga group of closely-related species within the genus as per Bohlen et al. (2011).</p><p>Its colour pattern is highly irregular with innumerable variations, though most specimens exhibit the same basic pattern of dark saddle-like markings, usually wider at the dorsal surface, over a yellow/orange base colour. Many forms have saddles extending well below the lateral line, and the saddles break up to a certain extent in some older individuals.</p><p>Pangio is among the most speciose cobitid genera and widespread throughout South and Southeast Asia. Pangio species are often generically referred to as 'kuhli' or 'coolie' loaches in the aquarium hobby, derived from the surname of German naturalist Heinrich Kuhl (1797-1821). Ichthyologists tend to refer to them as 'eel loaches'. They are distinguished from other cobitids by their long, slender body shape, relatively high number of vertebrae and the position of the dorsal fin, situated well behind the origin of the pelvic fins.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "html": "<ul><li>Burridge, M. E. (1992). Systematics of the Acanthophthalmus kuhlii complex (Teleostei: Cobitidae), with the description of a new species from Sarawak and Brunei. Copeia 1992(1), 172-186</li><li>Kottelat, M. (1995). Malaiische Halbinsel und Indonesien: Die Dornaugen der Gattung Pangio. DATZ Aquarien-Terrarien 48, 304-309</li><li>Kottelat, M. and K. K. P. Lim (1993). A review of the eel-loaches of the genus Pangio (Teleostei: Cobitidae) from the Malay Peninsula, with descriptions of six new species. Raffles Bulletin of Zoology 41(2), 203-249</li><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Fraser-Brunner, A. (1940). On some fishes of the genus Acanthophthalmus, with description of a new species. Annals and Magazine of Natural History, Series 11 v. 6 (32), 170-175</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Bohlen, J., V, Šlechtová, H. H. Tan and R. Britz (2011). Phylogeny of the Southeast Asian freshwater fish genus Pangio (Cypriniformes; Cobitidae). Molecular Phylogenetics and Evolution 61(3), 854-865</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f09c0cb6e9a306c2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f09c0cb6e9a306c2-480.webp",
+      "width": 700,
+      "height": 357,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "caption": "Specimen from Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ec52af34dbc94039.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ec52af34dbc94039-480.webp",
+      "width": 701,
+      "height": 573,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d168a08546f2cf2c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d168a08546f2cf2c-480.webp",
+      "width": 707,
+      "height": 421,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "caption": "Specimen from Perak state, northwestern Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2b09fd75f1c3e8dc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2b09fd75f1c3e8dc-480.webp",
+      "width": 691,
+      "height": 232,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-semicincta",
+      "caption": "In some individuals the bars begin to break up with age revealing patches of the base body colour.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60x30"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "nền cát cho cá chạch"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ",
+        "lọc bio mút"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

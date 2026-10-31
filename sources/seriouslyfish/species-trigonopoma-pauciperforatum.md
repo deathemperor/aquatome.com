@@ -1,0 +1,168 @@
+---
+url: https://www.seriouslyfish.com/species/trigonopoma-pauciperforatum
+title: Trigonopoma pauciperforatum (Glowlight Rasbora) · Seriously Fish
+fetchedAt: 2026-10-30T22:55:43.515Z
+hash: f610cd3c954bf6c84814956fc5e3cee99711c2725b7440b628493fbe864fa143
+---
+
+On this page
+12 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 6
+A well-coloured adult male specimen.Haji Badaruddin
+## Quick factsEdit
+Max size
+60mm SL2.4in SL
+Aquarium size
+90 × 30cm36 × 12in
+Temp
+21–26°C70–79°F
+pH
+4.0–7.5
+Hardness
+0–10dGH
+## Difficulty5 of 8 measures
+Easy
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+flexible
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+The glowlight rasbora, Trigonopoma pauciperforatum, is a small cyprinid from Peninsular Malaysia, Singapore, Borneo and Sumatra. Also sold as the 'redline' rasbora, its lateral stripe varies from deep orange to golden with locality, diet, condition and mood. It inhabits blackwater streams associated with peat swamps, where the pH can drop as low as 3.0 or 4.0, and the name R. agilis is a junior synonym of it.
+## Distribution
+Edit
+Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.
+According to many sources it's also found in Thailand and Cambodia although definitive occurence records from either country are lacking. In Peninsular Malaysia it's widely-distributed and has been collected in the states of Perak, Terengganu, Pahang, and Johor.
+Records from Singapore and Sumatra are scarce and it's likely the species can no longer be found in the former although it does still exist on nearby Bintan Island. The only information pertaining to Sumatra we have is a single account from Gunung Sahilan in Riau province and another from the Batang Hari river system.
+On Borneo the majority of collections have occured from the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat). It also occurs in the neighbouring Malaysian state of Sarawak and there exist numerous records from the Belait and Ingei Rivers, Belait District, Brunei Darussalam. Its range does not appear to extend into the far north and east of the island however.
+## Habitat
+Write a note
+Edit
+Primarily inhabits black water streams and rivers associated with ancient forest peat swamps in which the water that is typically stained dark brown by humic acids and other chemicals released from decaying organic material.
+This results in a negligible dissolved mineral content and the pH can drop as low as 3.0 or 4.0. The dense rainforest canopy above means that very little light penetrates the water surface and the substrate is normally littered with fallen tree branches and rotting leaves.
+The clear water habitats are broadly simlar in terms of water chemistry but in many cases aquatic vegetation grows profusely and often includes representatives of genera such as Cryptocoryne, Blyxa, Barclaya, Eleocharis, Utricularia, and Lymnophila.
+In the highly diverse Danau Sentarum National Park in the Kapuas River basin, West Kalimantan, Borneo it occurs sympatrically with over 200 other fish species including Barbonymus schwanenfeldii, Crossocheilus oblongus, Cyclocheilichthys janthochir, Epalzeorhynchos kalopterus, Paracrossochilus vittatus, 'Puntius' endecanalis, 'P.' everetii, 'P.' kuchingensis, 'P.' trifasciatus, Rasbora caudimaculata, R. cephalotaenia, R. sarawakensis, R. trilineata, T. pauciperforatum, Homaloptera nebulosus, H. orthogoniata, Nemacheilus saravacensis, N. spiniferus, Vaillantella cinnamomea, Chromobotia macracanthus, Syncrossus hymenophysa, Pangio semicincta, Hemibagrus wyckii, Mystus castaneus, M. singaringan, Kryptopterus bicirrhis, Datnioides microlepis, Nandus nebulosus, Helostoma temminckii, Channa pleurophthalma, and Mastacembelus erythrotaenia.
+## Aquarium size
+Write a note
+Edit
+Standard length
+60mm SL2.4in SL
+Aquarium base
+90 × 30cm36 × 12in
+Volume
+~81litres~21US gal
+Minimum base dimensions of 90 ∗ 30 cm36 ∗ 12 in or equivalent are required for long-term care.
+## Maintenance
+Write a note
+Edit
+Choice of décor is not as critical as water quality although this species does look particularly effective in a well-planted tank with a dark substrate. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark.
+Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.
+The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating a blackwater environment. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.
+This species seems to do best under fairly dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne, and Anubias are recommended since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective.
+## Water conditions
+Edit
+Temperature
+21–26°C70–79°F
+pH
+4.0–7.5
+Hardness
+0–10dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton. In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules.
+## Behaviour and compatibility
+Write a note
+Edit
+An ideal addition to a peaceful community of Southeast Asian fishes with comparably-sized cyprinids, small loaches, and certain anabantoids perhaps constituting the best choices. Some of the more commonly-exported species from Borneo include 'Puntius' johorensis, 'P.' hexazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, Rasbora eintovenii, and various Pangio spp., for example. Avoid boisterous or very vigorous tankmates as they may outcompete it for food.
+It's a schooling species by nature and the purchase of at least 8-10 specimens is recommended. Maintaining it in larger numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.
+## Sexual dimorphism
+Write a note
+Edit
+Mature females are noticeably rounder-bellied and often a little larger than the slimmer, more-intensely patterned males.
+## Reproduction
+Write a note
+Edit
+Like most small cyprinids Trigonopoma spp. are egg-scattering free spawners exhibiting no parental care. When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.
+However if you want to maximise yield a more controlled approach is required. The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.
+The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results. The water itself should be of slightly acidic pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.
+When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning. An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.
+In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed. These should hatch in 18-48 hours with the fry free swimming after 3-4 days. They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.
+## Notes
+Edit
+This species is also sold as the 'redline' rasbora which is something of a misnomer as in reality the colour of the lateral stripe that gives rise to the name can vary from deep orange to golden depending upon the collection locality of the fish as well as diet, condition, and even mood. Some specimens also have a second, darkish stripe beneath the other which seems to vary in length and intensity depending on a similar array of factors. Older fish tend to possess a greater degree of black edging to the scales, especially in the ventral portion of the body.
+T. pauciperforatum is sometimes said to closely resemble and occur sympatrically with R. agilis but despite being listed as valid by some sources the latter is a junior synonym of the former. R. agilis had previously been used to refer to a fish described by Ahl as R. taeniata, was subsequently redescribed as R. gracilis by Kottelat in 1991, and is now known as Trigonopoma gracile.
+It's a smaller, more delicate-looking fish than T. pauciperforatum, has relatively longer fins, and the lateral stripe is dark in colour. It was pictured in a 1971 book by Brittan labelled as R. agilis and this is probably where much of the confusion originated.
+Trigonopoma is distinguished from related genera by possession of a triangular-shaped opercle, the dorsal half of which, above the opercle-hyomandibular junction, is greatly reduced forming an upward process in the middle of the dorsal outline.
+Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by: possession of an unbranched, non-spiny first dorsal-fin ray; seven soft dorsal rays; origin of the dorsal-fin in the middle of the body; five branched anal-fin rays; a small mouth not extending below the eye; absence of barbels.
+It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) among others, and in 2010 the results of a phylogenetic analysis by Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to represent a monophyletic grouping existing in six clades and erected four new genera containing former members of Rasbora in order to preserve monophyly of the existing groups.
+The first two of these clades contain new groupings Kottelatia and Brevibora, respectively. The third comprises Boraras, Horadandia, Rasboroides, and Trigonostigma, plus new genera Trigonopoma and Rasbosoma. However the results for Boraras and Trigonostigma were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended.
+The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis, and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita (plus allies), R. kobonensis, R. ornata, and R. cf. daniconius.
+Clade six is subdivided into two groupings. The first contains R. einthovenii, R. elegans, and R. cephalotaenia, and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed related fish), R. caudimaculata, and R. trilineata.
+As this final clade contains R. cephalotaenia, the type species of Rasbora, its members retain the generic name as do members of clade five because they don't differ sufficiently to warrant erection of a new genus or genera.
+Unfortunately many species weren't included in the analysis leading to confusion regarding the correct placement of the 40 or so other Rasbora species, in particular. As the genus had previously been split into various 'species groups' (groups of closely-related taxa) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change in the future:
+R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis. R. trifasciata species group: R. trifasciata, R. amplistriga, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. meinkeni, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. tuberculata. R. daniconius species group: R. daniconius, R. caverii, R. kobonensis, R. labiosa, R. ornata, R. wilpita. R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. tubbi. R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii. R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris.
+Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. kalbarensis, R. reticulata, R. vulcanus (possibly members of a different, unnamed, genus) and R. zanzibarensis (identity in question).
+Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published (Tang et al. 2010) The results differed significantly and the four new genera of Liao et al., plus Boraras and Trigonostigma, were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach described as 'more conservative'.
+Though neither conclusion can be deemed 100% the system of Liao et al. is followed here on SF pending future studies, if only because we prefer to retain the familiar genera Boraras and Trigonostigma. In addition, species described post-2010 are not included in the list above.
+## References
+- Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654
+- Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600
+- Zakaria, R., M. Mansor, and A.B. Ali (1999). Swamp-riverine tropical fish population: a comparative study of two spatially isolated freshwater ecosystems in Peninsular Malaysia. Wetlands Ecology and Management 6(4), 261-268
+- Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176
+- Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214
+## Species images · 6
+A well-coloured adult male specimen.Haji Badaruddin
+A typical habitat close to the Mandor River, West Kalimantan, Borneo. T. pauciperforatum and Rasbora cephalotaenia were also found here.Michael Lo
+Adult pair, male upper.Chor Kiat Yeo
+Specimen collected in Sibu district, Sarawak, Malaysian Borneo.Haji Badaruddin
+Adult, possibly male, specimen.Ola Åhlander
+A pale specimen.Mike Norén
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Indonesia
+- Malaysia
+- Singapore
+- Borneo
+- Peninsular Malaysia
+- Riau Islands
+- Sumatra
+- Batang Hari
+- Johor
+- Kapuas
+- Sarawak
+## Profile completeness21 of 24
+88% complete
+- Add temperament
+Also missing: water condition notes, etymology.
+Report a mistake
+## Community
+Questions about Trigonopoma pauciperforatum?
+Ask on Discord
+→

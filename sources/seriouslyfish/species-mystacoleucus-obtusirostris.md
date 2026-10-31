@@ -1,0 +1,194 @@
+---
+url: https://www.seriouslyfish.com/species/mystacoleucus-obtusirostris
+title: Mystacoleucus obtusirostris · Seriously Fish
+fetchedAt: 2026-10-31T00:03:08.499Z
+hash: a5d3ef369490a4ff62877916fe9736a7d20a4b42f09d48aa26b56997ec8ffbba
+---
+
+On this page
+13 sections
+- Etymology
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 21
+Adult individual from Thailand.Nonn Panitvong/Siamensis.org
+## Quick factsEdit
+Max size
+140mm SL6in SL
+Aquarium size
+120 × 45cm48 × 18in
+Temp
+20–27°C68–81°F
+pH
+6.0–8.0
+Hardness
+2–15dGH
+## Difficulty7 of 8 measures
+Moderate
+Rated moderate because it needs a well-established tank and stable water.
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+flexible
+Diet
+unknown
+Temperament
+peaceful
+Social
+needs to be in a group
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+needs a well-established tank
+Mystacoleucus obtusirostris is a riverine cyprinid found from Myanmar and southwestern China to Vietnam, Borneo, Sumatra and Java. Referred to as M. marginatus for decades, it is the most widely distributed member of the genus, and populations vary somewhat in colour pattern. It is occasionally marketed as 'Burmese rainbow barb'. A group of six or more is the smallest to consider, and like all Mystacoleucus it has a forward-pointing predorsal spine that can snag in a net.
+## Etymology
+Edit
+Mystacoleucus: from the Ancient Greek μύσταξ (mústaks), meaning 'upper lip, moustache', and the generic name Leuciscina, which is not currently in use.
+obtusirostris: from the Latin obtusus, meaning 'dull, blunt', and rostrum, meaning 'snout', in reference to this species' truncated snout.
+## Distribution
+Edit
+M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.
+It occurs in several major river systems including the Mekong, Chao Phraya, Mae Klong, Batang Hari, and Kapuas, with populations varying somewhat in terms of colour pattern.
+Type locality is 'Indonesia: Java: Buitenzorg [Bogor]'.
+## Habitat
+Write a note
+Edit
+Predominantly a riverine fish favouring clear, well-oxygenated, running water with substrates of sand or gravel and often present in rock and boulder-filled headwater streams. As a result of damming and other human interferences it now also inhabits some lakes and reservoirs.
+## Aquarium size
+Write a note
+Edit
+Standard length
+140mm SL6in SL
+Aquarium base
+120 × 45cm48 × 18in
+Volume
+~243litres~64US gal
+An aquarium with base dimensions of 120 ∗ 45 cm48 ∗ 18 in or equivalent should be the minimum size considered.
+## Maintenance
+Write a note
+Edit
+Choice of décor is not as critical as water quality and the amount of open swimming-space provided but this species is perhaps best-suited to an environment resembling a flowing stream/river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.
+This can be further furnished with driftwood roots or branches, and aquatic plants such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.
+Since it naturally occurs in pristine habitats it is intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement. Weekly water changes of 30-50% aquarium volume should be considered mandatory.
+## Water conditions
+Edit
+Temperature
+20–27°C68–81°F
+pH
+6.0–8.0
+Hardness
+2–15dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Likely to be a generalised omnivore in nature. Stomach analyses of the congener M. marginatus showed it to feed on insects, crustaceans, worms, algae and aquatic plants, though it's unclear if the latter two were taken directly or via the stomach contents of prey items.
+In the aquarium it is easily-fed but for it to develop its best colours and condition offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes and granules; at least some of the latter should contain added plant material such as Spirulina.
+## Behaviour and compatibility
+Write a note
+Edit
+Not aggressive but can upset slow-moving or timid tankmates with its vigorous behaviour, especially when feeding, so is best maintained alongside robust, similarly-sized fishes, especially cyprinids, loaches and other riverine species.
+This species exists in schools in the wild therefore a group of six or more should be the smallest considered.
+## Sexual dimorphism
+Write a note
+Edit
+Sexually mature females are likely to be deeper-bodied than males.
+## Reproduction
+Write a note
+Edit
+Unrecorded in aquaria. In nature spawning occurs during the wet season, from April to September.
+## Notes
+Edit
+This species is occasionally marketed as 'Burmese Rainbow Barb' in the ornamental trade.
+It was referred to as Mystacoleucus marginatus for decades, but that name is a simultaneous subjective synonym of M. obtusirostris following Kottelat (2013).
+M. obtusirostris can be distinguished from congeners by the following combination of characters: 24-26 + 2 lateral line scales; 14 circumpeduncular scale rows; anal-fin with a convex distal margin; dorsal-fin with black anterior and distal margins; caudal-fin with black distal margin; most body scales with a black, crescent-shaped base.
+All Mystacoleucus species possess a procumbent predorsal spine orientated towards the head, though it can be difficult to spot with the naked eye. This can become entangled in an aquarium net so care must be taken when handling the fish.
+The trait is shared by members of Tor, Spinibarbus and Paraspinibarbus although there exists no strong evidence to suggest that these genera form a monophyletic lineage and it's likely that they developed the spine independantly of one another. Mystacoleucus spp. can be further identified by the presence of 6-10 branched anal-fin rays and 24-39 lateral line scales.
+## References
+- Chu X. L. and M. Kottelat (1989). Paraspinibarbus, a new genus of cyprinid fishes from the Red River Basin. Japanese Journal of Ichthyology 36(1), 1-5
+- Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128
+- Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198
+- Roberts, T. R. (1993). The freshwater fishes of Java, as observed by Kuhl and van Hasselt in 1820-23. Zoologische Verhandelingen (Leiden) 285, 1-94
+- Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69
+- Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173
+- Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99
+- Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366
+- Lim, K. K. P., P. K. L. Ng and M. Kottelat (1990). On a collection of freshwater fishes from Endau-Rompin, Pahang-Johore, Peninsular Malaysia. Bulletin of the Raffles Museum 38(1), 31-54
+- Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663
+- Cuvier, G. and A. Valenciennes (1842). Tome seizième. Livre dix-huitième. Les Cyprinoïdes. Histoire naturelle des poissons v. 16, i-xx + 1-472
+## Species images · 21
+Adult individual from Thailand.Nonn Panitvong/Siamensis.org
+This shallow, fast-flowing river at the border between Thailand and Myanmar is a typical habitat.Michael Lo
+In nature this species tends to occur in schools...Nonn Panitvong/Siamensis.org
+...so the purchase of a group is recommended if possible.Nonn Panitvong/Siamensis.org
+Specimen from the border region of Thailand and Myanmar.Michael Lo
+Subadult from Thailand.Nonn Panitvong/Siamensis.org
+Specimen from the Mekong River basin.http://ffish.asia
+Specimen from Ratanakiri province, northeastern Cambodia.http://ffish.asia
+Specimen from Savannakhet province, western Laos.http://ffish.asia
+Juvenile from Sambo, Kratie province, northeastern Cambodia.http://ffish.asia
+Specimen from Kampong Chhnang province, central Cambodia.http://ffish.asia
+Specimen from Muang Phalan, Savannakhet province, western Laos.http://ffish.asia
+The following series of images depict the same specimen; a fish measuring 122 mm SL collected from the Cisadane River close to Bogor, West Java province, Indonesia.Wibowo Djatmiko
+Partial dorsal view.Wibowo Djatmiko
+Pectoral-fin detail.Wibowo Djatmiko
+Dorsal-fin detail.Wibowo Djatmiko
+Detail of pelvic region.Wibowo Djatmiko
+Pelvic-fin detail.Wibowo Djatmiko
+Anal-fin detail.Wibowo Djatmiko
+Caudal-fin detail.Wibowo Djatmiko
+Detail of flank scales.Wibowo Djatmiko
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Cambodia
+- China
+- Indonesia
+- Laos
+- Malaysia
+- Thailand
+- Vietnam
+- Borneo
+- Java
+- Peninsular Malaysia
+- Sumatra
+- Air Lanas
+- Batang Hari
+- Chao Phraya
+- Danau Sentarum
+- Dong Nai
+- Endau
+- Kahang
+- Kapuas
+- Kenyam
+- Luo Suo Jiang
+- Mekong
+- Nam Lamlon
+- Nam Lawe
+- Ping
+- Pinoh
+- Pong
+- Tembeling
+- Tahan (Malaysia)
+## Profile completeness22 of 24
+92% complete
+Also missing: a common name, water condition notes.
+Report a mistake
+## Community
+Questions about Mystacoleucus obtusirostris?
+Ask on Discord
+→

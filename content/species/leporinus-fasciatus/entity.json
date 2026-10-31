@@ -1,0 +1,228 @@
+{
+  "id": "leporinus-fasciatus",
+  "scientificName": "Leporinus fasciatus",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "bolivia",
+    "madeira",
+    "peru",
+    "maranon",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "essequibo",
+    "suriname",
+    "courantyne",
+    "french-guiana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 27
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<ul><li>Max size: 270 mm SL (11 in)</li><li>Aquarium size: 210 × 60 cm (84 × 24 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 7 of 8, rated difficult because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The banded leporinus, Leporinus fasciatus, is an anostomid from the Amazon and Orinoco systems and coastal Guyana, Suriname and French Guiana. Young fish are often sold without warning of their size and requirements, and it is fairly ubiquitous in public aquarium displays. It is frequently confused with L. affinis, and its dark body bars multiply with age, from five in young fish to around ten in adults.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>This species was described from Suriname but no specific locality was given.</p><p>It's currently accepted to occur throughout much of the Amazon and Orinoco river systems including their major tributaries in Brazil, Bolivia, Peru and Venezuela with additional records from coastal drainages of Guyana, Suriname and French Guiana such as the Essequibo, Courantyne (aka Corantijn), Demerera and Coppename.</p><p>Unsurprisingly given this enormous range the fish exhibit certain differences in morphology and, especially, colour pattern depending on locality.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>This species is something of a habitat generalist and has been collected from main river channels, smaller tributaries, oxbows and floodplain lakes.</p><p>It typically undergoes annual migrations and in the wet season is typically found in areas of flooded forest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Standard length: 270 mm SL (11 in). Aquarium base: 210 × 60 cm (84 × 24 in). Volume: ~756 litres (~200 US gal).</p><p>An aquarium with base dimensions of 210 × 60 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Décor is relatively unimportant and maintenance simple provided sufficient space is available and oxygenation adequate.</p><p>A natural-style arrangement could consist of a sandy substrate with some leaf litter plus large driftwood branches and twisted roots.</p><p>Aquatic plants can be used if you wish but may be eaten by the fish.</p><p>Water quality is of the utmost importance and this species should never be introduced to a biologically immature aquarium.</p><p>A well-fitting cover is also essential as anostomids are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Leporinus spp. tend to be predominantly benthic omnivores feeding on algae, invertebrates and organic detritus in nature.</p><p>They're quite unfussy in the aquarium and will accept most things offered, although foods containing high levels of protein are best avoided.</p><p>The stomach contents of wild L. fasciatus individuals were found to contain a mixture of fruits, seeds, aufwuchs and in one case, smaller fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Although it occurs in large shoals in nature, it tends to be quarrelsome with conspecifics if only a few individuals are kept.</p><p>It can be maintained in groups of 6 or more in larger tanks, but otherwise keep just a single specimen in a community of peaceful medium to large fishes.</p><p>Possibilities include larger characids, loricariids, doradids and peaceful cichlids, with reophilic species particularly suitable, while much smaller tankmates are likely to be predated on.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Mature females grow slightly larger and tend to be rounder-bellied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<p>This species is also referred to as 'black-banded leporinus', 'striped leporinus' and 'eight-banded leporinus'.</p><p>There are a number of similar-looking species in the genus and L. fasciatus is frequently confused with L. affinis, for example.</p><p>Following Mahnert et al. (1997) L. fasciatus possesses the following characters in which it differs from L. affinis: 6-7½ scale rows between lateral line and dorsal-fin (vs. 8-9 in L. affinis); 5-6 scale rows between lateral line and pelvic-fin origin (vs. 6-8); 40-45 lateral line scales (vs. 42-44); 8 (juveniles) to 10 (adults) broad and slightly inclined dark body bars (vs. 8 transverse bands).</p><p>The authors also state that in L. affinis the anal-fin is 'rounded and quite long', while it's also worth noting that Günther (1864) counted 11 dark body bars in L. fasciatus.</p><p>The stripes actually multiply with age, with young fish possessing only 5. These split every 6 months or so until the fish achieves its adult patterning.</p><p>Leporinus is among the more diverse genera in the order Characiformes with around 90 valid species, and a phylogenetic study by Sidlauskas and Vari (2008) demonstrated it to represent a polyphyletic lineage.</p><p>Four species (H. despaxi, H. megalepis, H. mormyrops and H. pachycheilus) were thus placed into the revalidated genus Hypomasticus which had originally been proposed by Borodin (1929).</p><p>The remaining species of Leporinus, except for L. gomesi, formed a clade alongside Abramites, and this grouping was itself placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon and Synaptolaemus.</p><p>In particular there was an overall lack of resolution of relationships within Leporinus, and the authors suggested that molecular analysis is likely to be needed to fully resolve the relationships between them.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "html": "<ul><li>Birindelli, J. L. O. and H. A. Britski (2009). New species of the genus Leporinus Agassiz (Characiformes: Anostomidae) from the rio Curuá, rio Xingu basin, Serra do Cachimbo, Brazil, with comments on Leporinus reticulatus. Neotropical Ichthyology 7(1), 1-10</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li><li>Mahnert, V., J. Géry and S. Muller (1997). Leporinus falcipinnis n.sp., a new species from the lower rio Tapajos basin, Para, Brazil (Pisces, Characiformes, Anostomidae). Revue Suisse de Zoologie 104(4), 837-844</li><li>Günther, A. (1864). Catalogue of the fishes in the British Museum. Catalogue of the Physostomi, containing the families Siluridae, Characinidae, Haplochitonidae, Sternoptychidae, Scopelidae, Stomiatidae in the collection of the British Museum. v. 5, i-xxii + 1-455</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/123e62c375a8c6c1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/123e62c375a8c6c1-480.webp",
+      "width": 798,
+      "height": 424,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "caption": "Young adult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/03f6756ce2e5bf63.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/03f6756ce2e5bf63-480.webp",
+      "width": 799,
+      "height": 562,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "caption": "This species deserves a large aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c7f0ba964c578b08.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c7f0ba964c578b08-480.webp",
+      "width": 799,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "caption": "Subadult.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/005c241adafc3ce7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/005c241adafc3ce7-480.webp",
+      "width": 800,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporinus-fasciatus",
+      "caption": "Adult specimen of L. cf. fasciatus from the rio Negro, Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 210cm",
+        "bể cá lớn dài 2m"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 1000 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá lớn",
+        "thức ăn cá ăn tạp"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-30"
+}

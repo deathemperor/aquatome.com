@@ -1,0 +1,215 @@
+{
+  "id": "etroplus-maculatus",
+  "scientificName": "Etroplus maculatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Etroplus",
+  "group": "cichlids",
+  "places": [
+    "asia",
+    "india",
+    "kerala",
+    "sri-lanka",
+    "negombo-lagoon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>The orange chromide, Pseudetroplus maculatus, is a euryhaline cichlid native to peninsular India and Sri Lanka. It mostly inhabits brackish estuaries, coastal lagoons and the lower reaches of rivers, and can be kept in fresh or brackish water so long as acidic conditions are avoided. Wild examples are rarely seen in the hobby, where selectively bred strains traded as 'red' or 'yellow' chromide are widely available.</p><ul><li>Max size: 80 mm SL (3.1 in)</li><li>Aquarium size: 120 × 60 cm</li><li>Temperature: 20–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Native to peninsular India and Sri Lanka.</p><p>In the former its range stretches southwards down the western coast from the state of Maharashtra through Goa, Karnataka, and Kerala states as far as the southern part of the peninsula in Tamil Nadu state.</p><p>Records from Sri Lanka are mostly limited to the western coast and pertain to North, North Western, North Central and Western provinces.</p><p>Type locality is 'Coromandel, India' [in error; the Coromandel Coast is the entire southeastern coast of the Indian Subcontinent between False Divi Point, Andhra Pradesh state, and Kanyakumari, Tamil Nadu state.].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>This species is euryhaline and mostly inhabits brackish estuaries, coastal lagoons and the lower reaches of rivers.</p><p>It also occurs in freshwater habitats, however, including a number of inland lakes in Sri Lanka although it appears to have been introduced intentionally.</p><p>The closely related Etroplus suratensis typically occurs in the same habitats and there exists evidence to suggest that this sympatry is not random and may represent a mutually beneficial relationship with a little cheating on the part of P. maculatus (see 'Diet' and 'Notes').</p><p>In the Chembarampakkam Lake, a man-made freshwater reservoir on the Adayar River close to the city of Chennai in Tamil Nadu state, India, it occurs alongside numerous other fish species including Notopterus notopterus, Puntius amphibius, P. chola, P. vittatus, Pethia conchonius, Dawkinsia filamentosa, Laubuca laubuca, Esomus danricus, Mystus cavasius, M. vittatus, Neotropius atherinoides, Xenentodon cancila, Oryzias dancena, Macrognathus pancalus, Chanda ranga, Trichogaster lalius, and Channa punctata, plus the non-natives Trichopodus trichopterus and Oreochromis sp. (tilapia).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Standard length: 80 mm SL (3.1 in). Aquarium base: 120 × 60 cm. Volume: ~432 litres.</p><p>An aquarium with base dimensions of 120 × 60 cm should be the smallest considered to house a group (see 'Behaviour and Compatibility').</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>This species can be maintained in fresh or brackish water so long as acidic conditions are avoided.</p><p>Décor is largely down to personal choice although a degree of structure, perhaps incorporating a sandy substrate, variably-shaped rocks and some driftwood branches, would adequately simulate natural conditions.</p><p>It is intolerant to accumulation of organic pollutants and requires spotless water meaning weekly water changes of 25-50% volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Observations of wild fish suggest it to be something of a generalist with a tendency to graze aufwuchs and filamentous algae from solid surfaces although it has been observed acting as a 'cleaner' for the congener E. suratensis, consuming parasites and fungi from its body and fins (see 'Notes').</p><p>In the aquarium it can be offered high quality prepared foods but displays a preference for small live or frozen items such as chironomid larvae (bloodworm), Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a significant proportion of vegetable matter such as Spirulina or similar, while chopped peas and suchlike are also useful supplements.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Relatively peaceful unless breeding and will not predate on any but the smallest fishes.</p><p>In a community setting the addition of a group or two of gregarious, pelagic species to act as 'dithers' is recommended.</p><p>In freshwater cyprinids such as certain Danio, Devario or Rasbora spp. are ideal for this purpose while in the brackish aquarium salt-tolerant poeciliid livebearers, e.g., Poecilia sphenops, can be used.</p><p>Best avoided are territorial or otherwise aggressive species, including other cichlids unless the aquarium is very large, and those that require soft, acidic water.</p><p>Like the Etroplus species it is loosely gregarious and tends to form groups unless spawning, with juveniles in particular displaying a strong social response when threatened.</p><p>A group of 8+ individuals should therefore be the minimum purchase and these will form a noticeable dominance hierarchy once sexual maturity is reached.</p><p>When maintained in smaller numbers weaker specimens can become the target of excessive abuse by dominant individuals or the group may fail to settle and behave nervously.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Conflicting information exists with some examples as follows: either males or females have red pigmentation in the dorsal and anal fins; females have white stripes in the dorsal and anal fins, or white distal markings in the caudal-fin; both sexes take on an orange-yellow colour pattern when breeding; only nuptial females are orange with males a greyish colour, or vice versa; in nuptial males the colour pattern becomes darker and more intense while in females black spots and blotches appear on the ventral portion of the body between the pelvic and anal fins; both sexes are identical.</p><p>It appears that at least some of this confusion may be attributable to phenotypic differences between wild populations.</p><p>In ornamental strains (see 'Notes') both males and females may lack dark markings on the body and maintain a permanent bright orange-red colour pattern.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>This species is a biparental substrate spawner which forms temporary pair bonds when reproductively active.</p><p>Observations of wild fish in Sri Lanka suggest that there are two such periods each year represented by the dry pre-monsoonal (December to April) and monsoonal (June to September; the monsoon season is dry in parts of Sri Lanka) seasons when water salinity increases and turbidity decreases, the latter thought to benefit the fish via improved visual contact between adults and fry.</p><p>E. suratensis always spawned in isolated pairs and displayed a preference for sites with better chances of fry survival, and both parents remained with the eggs and fry at all times, never leaving to forage.</p><p>This behaviour was in contrast to P. maculatus, which selected areas of dense vegetation in order to better protect the eggs when spawning in isolation, but during peak breeding season (July) eggs were laid in sparser vegetation, seemingly a 'trade-off' between fry protection and food for the adults.</p><p>The latter sites were also occupied by foraging, non-nuptial conspecifics which were seen to actively prey on fry, and these additional pressures caused pairs to choose spawning sites close to one another in order to reduce the risks.</p><p>Reductions in both actual and attempted cannibalism were recorded when the fish were breeding in such colonies, while during fry care one parent would normally remain with the brood while the other left the territory to forage with the roles reversed every few minutes.</p><p>E. suratensis was thus considered to expend twice as much time and energy on brood-care as P. maculatus but with a decreased risk of fry predation.</p><p>In the aquarium it's recommended to purchase a group of fish and allow them to select their own partners.</p><p>During courtship a particular site, normally a rock although even the aquarium glass will do, is selected and the surrounding area defended against intruders from that point on.</p><p>Eggs are deposited in typical fashion and attached via short filaments permitting a degree of movement.</p><p>Both parents participate in guarding the territory and general brood-care such as fanning and mouthing the eggs to keep them sediment-free.</p><p>Incubation is approximately 2 days at a temperature of 27 °C (81 °F) with the fry swimming freely in a further 2-3 days.</p><p>Prior to hatching the adults excavate a number of nursery pits in the substrate surrounding the spawning site and the fry are moved between these until their yolk sacs are absorbed.</p><p>If the fry remain with the adults they will graze on their parents' body mucus when they are 1-3 days free-swimming.</p><p>Parental care can be highly-extended and a pair may even continue to defend their fry until they are almost as large as themselves.</p><p>Some breeders prefer to remove the eggs prior to hatching as they 're often eaten by tankmates or the parents themselves, with the most common method being to remove the rock with eggs attached and place it in a separate container with water from the adults' tank.</p><p>Water movement across the eggs is maintained by placing an air-line or filter outlet close to the rock while any displaying signs of fungus should be removed as they're noticed.</p><p>Once free-swimming the fry are large enough to accept Artemia nauplii and similar immediately.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<p>Wild examples are rarely-seen in the aquarium hobby although selectively-bred ornamental strains are widely-available.</p><p>These are normally traded as 'red' or 'yellow' chromide and have a solid yellow-orange colour pattern with no dark elements.</p><p>It's sometimes referred to using alternative vernacular names, most commonly 'spotted chromide'.</p><p>It exhibits a widespread sympatry with Etroplus suratensis throughout its natural range and observations of wild fish provide evidence of a symbiotic relationship between the two in the tidal Negombo Lagoon, southwestern Sri Lanka.</p><p>P. maculatus acted as a cleaner for the larger E. suratensis, removing parasites and suchlike by grazing the body and fins but the nutrition these provide is considered debatable and therefore not the benefit gained from the task.</p><p>More remarkably, the advantage to P. maculatus is hypothesised to be overall health, and therefore reproductive success, of E. suratensis because it is an active predator of its relative's offspring.</p><p>Groups of P. maculatus were seen consuming entire batches of E. suratensis eggs and fry while the latter displayed an apparently altruistic behaviour in which adult individuals unrelated to the parents would help defend the territory.</p><p>Pseudetroplus and Etroplus are the only cichlid genera native to the Indian subcontinent and Sri Lanka. This species was placed in Etroplus until Pethiyagoda et al. (2014) moved it to Pseudetroplus, where it is the only species. Etroplus comprises E. canarensis, which is limited to freshwater and restricted in range, and E. suratensis, which like P. maculatus is euryhaline and relatively widespread.</p><p>P. maculatus can easily be told apart from both Etroplus species since dark markings on the body are reduced to 1-3 dark blotches just above midbody (unless stressed when short bars may appear in the upper portion of the body with a solid dark posteroventral patch) and is much paler overall, with the majority of body scales having an orange-red centre.</p><p>The remaining species both possess a series of normally 6 dark vertical bars on the body (excluding those on the head and caudal peduncle) but in E. canarensis the anterior 3 bars tend to bifurcate as the fish mature, base body colour is buff-grey, and some body scales have a yellowish central patch, whereas in E. suratensis the bars remain solid throughout life, base body colour is greenish-brown, and numerous body scales have a pearly-white central spot.</p><p>E. suratensis is also much the larger fish and capable of exceeding 300 mm (12 in) SL.</p><p>Its closest relative among other cichlids is the Malagasy endemic genus Paretroplus and these two are sometimes grouped together under the putative subfamily Etroplinae.</p><p>They are an ancient, morphologically distinct lineage and represent the evolutionary sister group to all other cichlids (Sparks and Smith, 2004) with several unique specialised characters (Sparks, 2001; Stiassny et al., 2001).</p><p>These include complex paired anterior swim bladder chambers that are located within enlarged exoccipital recesses forming a direct otophysic (mechanical) connection between the gas bladder and inner ear, highly modified supraoccipital and exocippital bones of the neurocranium, and specialized ligaments associated with the suspensorium and oral jaws.</p><p>Etroplus can be told apart from Paretroplus by a number of characters including: possession of tricuspid (vs. unicuspid in Paretroplus) teeth; teeth present in multiple rows in both upper and lower jaws (vs. a single row of teeth in upper and lower jaws; teeth numerous in both upper and lower jaws (vs. teeth few in number (&lt; 18 in upper jaw, &lt; 14 in lower); paired anterior gas bladder extensions rather typical and tubelike (vs. paired anterior gas bladder extensions highly-modified with multiple anterior polyplike chambers possessing a tough and thickened tunica externa, and extremely narrow connections (diverticula) to the main gas bladder chamber); an elevated number of anal-fin spines; configuration of the anal-fin pterygiophore/hemal spine complex (Sparks, 2001; Stiassny et al., 2001).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "html": "<ul><li>Ward, J. A. and J. I. Samarakoon (1981). Reproductive tactics of the Asian cichlids of the genus Etroplus in Sri Lanka. Environmental Biology of Fishes 6(1), 95-103</li><li>Ward, J. A. and R. L. Wyman (1977). Ethology and ecology of cichlid fishes of the genus Etroplus in Sri Lanka: preliminary findings. Environmental Biology of Fishes 2(2), 137-145</li><li>Bindu, L. and K. G. Padmakumar (2012). Breeding behaviour and embryonic development in the Orange chromide, Etroplus maculatus (Cichlidae, Bloch 1795). Journal of the Marine Biological Association of India 54(1), 13-19</li><li>Sparks, J. S. (2008). Phylogeny of the cichlid subfamily Etroplinae and taxonomic revision of the Malagasy cichlid genus Paretroplus (Teleostei, Cichlidae). Bulletin of the American Museum of Natural History 314, 1-151</li><li>Sparks, J. S. and R. C. Schelly (2011). A new species of Paretroplus (Teleostei: Cichlidae: Etroplinae) from northeastern Madagascar, with a phylogeny and revised diagnosis for the P. damii clade. Zootaxa 2768, 55-68</li><li>Sparks, J. S., and W. L. Smith (2004). Phylogeny and biogeography of cichlid fishes (Teleostei: Perciformes: Cichlidae). Cladistics 20, 501-517</li><li>Ranjit Daniels, R. J. and B. Rajagopal (2004). Fishes of Chembarampakkam Lake - a wetland in the outskirts of Chennai. Zoo's Print Journal 19(5), 1481-1483</li><li>Day, F. (1877). The fishes of India; being a natural history of the fishes known to inhabit the seas and fresh waters of India, Burma, and Ceylon. Part 3. William Dawson &amp; Sons, London, 369-552</li><li>Bloch, M. E. (1795). Naturgeschichte der ausländischen Fische v. 9. Berlin, i-ii + 1-192, Pls. 397-429</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1b13107f32fe614f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1b13107f32fe614f-480.webp",
+      "width": 650,
+      "height": 427,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "caption": "Specimen from the Chalakudy River.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dec64ab91b04f8a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dec64ab91b04f8a7-480.webp",
+      "width": 803,
+      "height": 420,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "caption": "In the aquarium trade the selectively-bred 'red' or 'yellow' strains are more common than the natural form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9ee11fabdd0221a0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9ee11fabdd0221a0-480.webp",
+      "width": 800,
+      "height": 629,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "caption": "Wild specimen from the German aquarium trade displaying stress colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0a812a2808164263.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0a812a2808164263-480.webp",
+      "width": 650,
+      "height": 459,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudetroplus-maculatus",
+      "caption": "Individual displaying neutral, non-nuptial colour pattern.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120x60",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá cichlid",
+        "artemia đông lạnh",
+        "thức ăn spirulina"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
