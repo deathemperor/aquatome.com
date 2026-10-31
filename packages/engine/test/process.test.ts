@@ -49,3 +49,10 @@ test('implausible data-card numbers are dropped, swapped ranges fixed', async ()
   const p = await processPage(fake(bad), input)
   expect(p.dataCard).toEqual({ ph: { min: 6, max: 7.5 }, sizeCm: 4 })
 })
+test('a tank length that is the page\'s tank volume is dropped from the card', async () => {
+  const volume = { ...structuredClone(species), dataCard: { ...species.dataCard, tankCm: 75 },
+    sections: [{ key: 'aquariumSize', en: '<p>Minimum tank size: 75 litres (20 gallons).</p>', vi: '<p>Bể tối thiểu: 75 lít.</p>' }] }
+  expect((await processPage(fake(volume), input)).dataCard.tankCm).toBeUndefined()
+  const length = { ...volume, sections: [{ key: 'aquariumSize', en: '<p>A tank 75 cm long (75 litres).</p>', vi: '<p>Bể dài 75 cm.</p>' }] }
+  expect((await processPage(fake(length), input)).dataCard.tankCm).toBe(75)
+})
