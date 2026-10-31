@@ -1,0 +1,34 @@
+import Foundation
+import Testing
+@testable import Handbook
+
+private let site = URL(string: "https://aquatome.com")!
+private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, site: site) }
+
+@Test func theToolsLinkAfterASaveOpensThatTank() {
+  // apps/site/src/scripts/save-to-tank.ts: `${cpath('/vi/cong-cu/be-cua-toi/')}#be-${tank.id}`
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/#be-3f2a9c1e-0d4b-4e8a-9b7c-1a2b3c4d5e6f") == .tanks("3f2a9c1e-0d4b-4e8a-9b7c-1a2b3c4d5e6f"))
+  #expect(screen("https://aquatome.com/id/alat/akuarium-saya/#be-t1") == .tanks("t1"))
+  #expect(screen("https://www.aquatome.com/th/tools/my-tanks/#be-t1") == .tanks("t1"))
+}
+
+@Test func theTanksPageWithoutATankOpensTheList() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/") == .tanks(nil))
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi") == .tanks(nil))
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/#mt-add") == .tanks(nil))
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/#be-") == .tanks(nil))
+}
+
+@Test func theChihirosPageInEachLanguageOpensTheLightsTab() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/den-chihiros/") == .lights)
+  #expect(screen("https://aquatome.com/id/alat/lampu-chihiros/") == .lights)
+  #expect(screen("https://aquatome.com/th/tools/chihiros-light/") == .lights)
+}
+
+@Test func otherPagesAndOtherSitesStayPages() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/") == nil)
+  #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
+  #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/khac/") == nil)
+  #expect(screen("https://example.com/vi/cong-cu/be-cua-toi/") == nil)
+  #expect(screen("mailto:hi@aquatome.com") == nil)
+}

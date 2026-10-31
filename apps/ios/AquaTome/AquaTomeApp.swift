@@ -1,4 +1,5 @@
 import AccountSync
+import Handbook
 import SwiftUI
 
 @main
@@ -8,6 +9,7 @@ struct AquaTomeApp: App {
   @State private var tanks: TanksModel
   @State private var account: AccountModel
   @State private var tab = Tab.handbook
+  @State private var tanksPath = NavigationPath()
   @Environment(\.scenePhase) private var phase
 
   enum Tab { case tanks, handbook, lights }
@@ -30,11 +32,10 @@ struct AquaTomeApp: App {
   var body: some Scene {
     WindowGroup {
       TabView(selection: $tab) {
-        // The Chihiros tool in the handbook is this app's Lights tab, not its web page.
-        HandbookView { tab = .lights }
+        HandbookView()
           .tabItem { Label("Tìm", systemImage: "magnifyingglass") }
           .tag(Tab.handbook)
-        TanksView()
+        TanksView(path: $tanksPath)
           .tabItem { Label("Bể của tôi", systemImage: "fish") }
           .tag(Tab.tanks)
         LightsView()
@@ -45,9 +46,23 @@ struct AquaTomeApp: App {
       .environment(handbook)
       .environment(tanks)
       .environment(account)
+      // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
+      .environment(\.openScreen) { open($0) }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
+    }
+  }
+
+  /// One of the app's own screens: its tab, and the tank the link names if it's one of the reader's.
+  private func open(_ screen: AppScreen) {
+    switch screen {
+    case .lights: tab = .lights
+    case .tanks(let id):
+      var path = NavigationPath()
+      if let id, tanks.tanks.contains(where: { $0.id == id }) { path.append(id) }
+      tanksPath = path
+      tab = .tanks
     }
   }
 
@@ -75,4 +90,9 @@ struct AquaTomeApp: App {
     BluetoothRadio()
     #endif
   }
+}
+
+extension EnvironmentValues {
+  /// Opens one of the app's own screens in place of the site's page for it (AppScreen).
+  @Entry var openScreen: (AppScreen) -> Void = { _ in }
 }
