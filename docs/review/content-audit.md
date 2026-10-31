@@ -526,46 +526,174 @@ borrow one from a species or plant they mention on the site.
 - guides/sprucepets-common-fish-names-beginning-with-m-1378548 — Các loài cá bắt đầu bằng chữ M: Hướng dẫn tổng hợp
 - guides/sprucepets-gourami-care-and-breeding-1378303 — Chăm sóc và sinh sản cá thái hòa (Gourami) trong hồ cá nước ngọt nhiệt đới
 
-## Same Vietnamese name as another page (rename one, set nameFixed) (14)
+## Same Vietnamese name as another page (rename one, set nameFixed) (0)
 
-- species/apteronotus-leptorhynchus — Cá dao ma nâu
-- species/apteronotus-macrostomus — Cá dao ma nâu
-- species/crenuchus-spilurus — Cá tetra vây buồm
-- species/hyphessobrycon-elachys — Cá tetra vây buồm
-- species/mollienisia — Cá molly
-- species/poecilia-sphenops — Cá molly
-- species/puntigrus-partipentazona — Cá tứ vân
-- species/puntigrus-tetrazona — Cá tứ vân
-- species/trichogaster-lalius — Cá sặc lùn
-- species/trichopsis-pumila — Cá sặc lùn
-- plants/anubias-barteri — Anubias barteri
-- plants/anubias-barteri-var-barteri — Anubias barteri
-- plants/anubias-barteri-nana — Anubias nana
-- plants/anubias-barteri-var-nana — Anubias nana
+- none
 
-## Named on our pages, no page yet: queued on a source (5)
+## Named on our pages, no page yet: queued on a source (144)
 
-- Panaque nigrolineatus — named on 7 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/baryancistrus-beggini, species/biotodoma-wavrini, species/geophagus-abalios, …) — queued first: https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm
-- Scleromystax barbatus — named on 2 pages (guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish, guides/sprucepets-cory-species-1381075) — queued first: https://www.seriouslyfish.com/species/scleromystax-barbatus
-- Blyxa aubertii — named on 1 page (species/haludaria-fasciata) — queued first: https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/
-- Corydoras ourastigma — named on 1 page (guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish) — queued first: https://www.seriouslyfish.com/species/corydoras-ourastigma
+- Acanthocobitis pictilis — named on 12 pages (species/acanthocobitis-botia, species/acanthocobitis-pavonacea, species/acanthocobitis-zonalternans, species/akysis-vespa, species/batasio-feruminatus, …) — queued first: https://www.seriouslyfish.com/species/acanthocobitis-pictilis
+- Mystus bleekeri — named on 3 pages (species/botia-dario, species/ctenops-nobilis, species/danio-rerio) — queued first: https://www.seriouslyfish.com/species/mystus-bleekeri
+- Aphanius anatoliae — named on 2 pages (species/anatolichthys-sureyanus, species/anatolichthys-transgrediens) — queued first: https://www.seriouslyfish.com/species/aphanius-anatoliae
+- Aphanius baeticus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-baeticus) — queued first: https://www.seriouslyfish.com/species/aphanius-baeticus
+- Aphanius iberus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-iberus) — queued first: https://www.seriouslyfish.com/species/aphanius-iberus
+- Aphanius mento — named on 2 pages (guides/seriouslyfish-articles-whaddaya-mean-too-hot, species/paraphanius-mento) — queued first: https://www.seriouslyfish.com/species/aphanius-mento
+- Barilius caudiocellatus — named on 2 pages (species/abbottina-rivularis, species/garra-mirofrontis) — queued first: https://www.seriouslyfish.com/species/opsarius-caudiocellatus
+- Betadevario ramachandrani — named on 2 pages (species/devario-assamensis, species/devario-xyrops) — queued first: https://www.seriouslyfish.com/species/betadevario-ramachandrani
+- Homalopteroides stephensoni — named on 2 pages (species/crossocheilus-elegans, species/garra-borneensis) — queued first: https://www.seriouslyfish.com/species/homalopteroides-stephensoni
+- Hyphessobrycon agulha — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-agulha
+- Ladigesia roloffi — named on 2 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/epiplatys-annulatus) — queued first: https://www.seriouslyfish.com/species/ladigesia-roloffi
+- Lamontichthys filamentosus — named on 2 pages (species/acestrorhynchus-falcatus, species/geophagus-altifrons) — queued first: https://www.seriouslyfish.com/species/lamontichthys-filamentosus
+- Mesonoemacheilus herrei — named on 2 pages (species/nemacheilus-guentheri, species/nemacheilus-triangularis) — queued first: https://www.seriouslyfish.com/species/mesonoemacheilus-herrei
+- Nannostomus trifasciatus — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus) — queued first: https://www.seriouslyfish.com/species/nannostomus-trifasciatus
+- Puntius sahyadriensis — named on 2 pages (species/haludaria-fasciata, species/schistura-denisoni) — queued first: https://www.seriouslyfish.com/species/puntius-sahyadriensis
+- Vieja maculicauda — named on 2 pages (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy, species/cincelichthys-bocourti) — queued first: https://www.seriouslyfish.com/species/vieja-maculicauda
+- Aphanius villwocki — named on 1 page (species/anatolichthys-villwocki) — queued first: https://www.seriouslyfish.com/species/aphanius-villwocki
+- Badis blosyrus — named on 1 page (species/danio-rerio) — queued first: https://www.seriouslyfish.com/species/badis-blosyrus
+- Barbodes binotatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/barbodes-binotatus
+- Barbodes dunckeri — named on 1 page (species/barbodes-everetti) — queued first: https://www.seriouslyfish.com/species/barbodes-dunckeri
+- Barbodes kuchingensis — named on 1 page (species/barbodes-lateristriga) — queued first: https://www.seriouslyfish.com/species/barbodes-kuchingensis
+- Barilius gatensis — named on 1 page (species/etroplus-canarensis) — queued first: https://www.seriouslyfish.com/species/opsarius-gatensis
+- Cleithracara maronii — named on 1 page (species/gymnocorymbus-bondi) — queued first: https://www.seriouslyfish.com/species/cleithracara-maronii
+- Congochromis dimidiatus — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/congochromis-dimidiatus
+- Crossocheilus cobitis — named on 1 page (species/crossocheilus-elegans) — queued first: https://www.seriouslyfish.com/species/crossocheilus-cobitis
+- Ctenopoma kingsleyae — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/ctenopoma-kingsleyae
+- Danionella translucida — named on 1 page (species/danionella-dracula) — queued first: https://www.seriouslyfish.com/species/danionella-translucida
+- Devario devario — named on 1 page (species/ctenops-nobilis) — queued first: https://www.seriouslyfish.com/species/devario-devario
+- Epiplatys sexfasciatus — named on 1 page (species/epiplatys-annulatus) — queued first: https://www.seriouslyfish.com/species/epiplatys-sexfasciatus
+- Exodon paradoxus — named on 1 page (species/geophagus-neambi) — queued first: https://www.seriouslyfish.com/species/exodon-paradoxus
+- Garra dampaensis — named on 1 page (species/garra-arupi) — queued first: https://www.seriouslyfish.com/species/garra-dampaensis
+- Garra kalpangi — named on 1 page (species/garra-arupi) — queued first: https://www.seriouslyfish.com/species/garra-kalpangi
+- Hampala sabana — named on 1 page (species/crossocheilus-elegans) — queued first: https://www.seriouslyfish.com/species/hampala-sabana
+- Hara jerdoni — named on 1 page (species/ctenops-nobilis) — queued first: https://www.seriouslyfish.com/species/hara-jerdoni
+- Hemiancistrus subviridis — named on 1 page (species/baryancistrus-beggini) — queued first: https://www.seriouslyfish.com/species/hemiancistrus-subviridis
+- Hemigrammus stictus — named on 1 page (species/nannostomus-eques) — queued first: https://www.seriouslyfish.com/species/hemigrammus-stictus
+- Hemiodus ternetzi — named on 1 page (species/acnodon-normani) — queued first: https://www.seriouslyfish.com/species/hemiodus-ternetzi
+- Hepsetus odoe — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/hepsetus-odoe
+- Herotilapia multispinosa — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy) — queued first: https://www.seriouslyfish.com/species/herotilapia-multispinosa
+- Heterandria formosa — named on 1 page (species/nothobranchius-rachovii) — queued first: https://www.seriouslyfish.com/species/heterandria-formosa
+- Heteropneustes fossilis — named on 1 page (species/dario-hysginon) — queued first: https://www.seriouslyfish.com/species/heteropneustes-fossilis
+- Homalopteroides modestus — named on 1 page (species/paracanthocobitis-pictilis) — queued first: https://www.seriouslyfish.com/species/homalopteroides-modestus
+- Hyphessobrycon amapaensis — named on 1 page (species/paracheirodon-simulans) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-amapaensis
+- Hyphessobrycon bifasciatus — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus
+- Hyphessobrycon columbianus — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-columbianus
+- Hyphessobrycon compressus — named on 1 page (species/thorichthys-meeki) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-compressus
+- Hyphessobrycon heterorhabdus — named on 1 page (species/hyphessobrycon-herbertaxelrodi) — queued first: https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus
+- Hypselecara temporalis — named on 1 page (species/agamyxis-pectinifrons) — queued first: https://www.seriouslyfish.com/species/hypselecara-temporalis
+- Hypselobarbus jerdoni — named on 1 page (species/etroplus-canarensis) — queued first: https://www.seriouslyfish.com/species/hypselobarbus-jerdoni
+- Hypsophrys nicaraguensis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis
+- Indostomus paradoxus — named on 1 page (guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014) — queued first: https://www.seriouslyfish.com/species/indostomus-paradoxus
+- Iodotropheus sprengerae — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids) — queued first: https://www.seriouslyfish.com/species/iodotropheus-sprengerae
+- Julidochromis marlieri — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/julidochromis-marlieri
+- Julidochromis regani — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/julidochromis-regani
+- Julidochromis transcriptus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/julidochromis-transcriptus
+- Kottelatlimia pristes — named on 1 page (species/pangio-anguillaris) — queued first: https://www.seriouslyfish.com/species/kottelatlimia-pristes
+- Labeo chrysophekadion — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/labeo-chrysophekadion
+- Labeo pierrei — named on 1 page (species/bangana-behri) — queued first: https://www.seriouslyfish.com/species/labeo-pierrei
+- Labiobarbus siamensis — named on 1 page (species/akysis-maculipinnis) — queued first: https://www.seriouslyfish.com/species/labiobarbus-siamensis
+- Leporacanthicus triactis — named on 1 page (species/baryancistrus-beggini) — queued first: https://www.seriouslyfish.com/species/leporacanthicus-triactis
+- Liosomadoras morrowi — named on 1 page (species/geophagus-proximus) — queued first: https://www.seriouslyfish.com/species/liosomadoras-morrowi
+- Lobocheilos melanotaenia — named on 1 page (species/yasuhikotakia-eos) — queued first: https://www.seriouslyfish.com/species/lobocheilos-melanotaenia
+- Mayaheros urophthalmus — named on 1 page (species/thorichthys-meeki) — queued first: https://www.seriouslyfish.com/species/mayaheros-urophthalmus
+- Maylandia callainos — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/maylandia-callainos
+- Megalechis picta — named on 1 page (guides/aquariumcoop-blogs-aquarium-goldfish-tank-mates) — queued first: https://www.seriouslyfish.com/species/megalechis-picta
+- Melanochromis auratus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/melanochromis-auratus
+- Melanotaenia fluviatilis — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300) — queued first: https://www.seriouslyfish.com/species/melanotaenia-fluviatilis
+- Melanotaenia splendida — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300) — queued first: https://www.seriouslyfish.com/species/melanotaenia-splendida
+- Mesoheros festae — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy) — queued first: https://www.seriouslyfish.com/species/mesoheros-festae
+- Metynnis lippincottianus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/metynnis-lippincottianus
+- Microctenopoma ansorgii — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/microctenopoma-ansorgii
+- Microrasbora rubescens — named on 1 page (species/danio-erythromicron) — queued first: https://www.seriouslyfish.com/species/microrasbora-rubescens
+- Mystacoleucus chilopterus — named on 1 page (species/nemacheilus-masyae) — queued first: https://www.seriouslyfish.com/species/mystacoleucus-chilopterus
+- Mystus mysticetus — named on 1 page (species/yasuhikotakia-eos) — queued first: https://www.seriouslyfish.com/species/mystus-mysticetus
+- Nannostomus marginatus — named on 1 page (species/apistogramma-barlowi) — queued first: https://www.seriouslyfish.com/species/nannostomus-marginatus
+- Nannostomus mortenthaleri — named on 1 page (species/apistogramma-pantalone) — queued first: https://www.seriouslyfish.com/species/nannostomus-mortenthaleri
+- Nemacheilus corica — named on 1 page (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world) — queued first: https://www.seriouslyfish.com/species/nemacheilus-corica
+- Nemacheilus spiniferus — named on 1 page (species/garra-borneensis) — queued first: https://www.seriouslyfish.com/species/nemacheilus-spiniferus
+- Nematobrycon palmeri — named on 1 page (species/inpaichthys-kerri) — queued first: https://www.seriouslyfish.com/species/nematobrycon-palmeri
+- Neolamprologus brichardi — named on 1 page (species/neolamprologus-multifasciatus) — queued first: https://www.seriouslyfish.com/species/neolamprologus-brichardi
+- Neolamprologus buescheri — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/neolamprologus-buescheri
+- Neolamprologus leleupi — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/neolamprologus-leleupi
+- Neolamprologus sexfasciatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/neolamprologus-sexfasciatus
+- Neolebias ansorgii — named on 1 page (species/epiplatys-annulatus) — queued first: https://www.seriouslyfish.com/species/neolebias-ansorgii
+- Neolebias trilineatus — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/neolebias-trilineatus
+- Nothobranchius foerschi — named on 1 page (species/nothobranchius-rachovii) — queued first: https://www.seriouslyfish.com/species/nothobranchius-foerschi
 - Oliotius oligolepis — named on 1 page (species/oreichthys-parvus) — queued first: https://www.seriouslyfish.com/species/oliotius-oligolepis
+- Opsarius bernatziki — named on 1 page (species/nemacheilus-masyae) — queued first: https://www.seriouslyfish.com/species/opsarius-bernatziki
+- Oreichthys cosuatis — named on 1 page (species/ctenops-nobilis) — queued first: https://www.seriouslyfish.com/species/oreichthys-cosuatis
+- Oreochromis mossambicus — named on 1 page (guides/seriouslyfish-articles-pupfish-form-evolutionary-mountain-ranges) — queued first: https://www.seriouslyfish.com/species/oreochromis-mossambicus
+- Oryzias dancena — named on 1 page (species/etroplus-maculatus) — queued first: https://www.seriouslyfish.com/species/oryzias-dancena
+- Oryzias mekongensis — named on 1 page (species/oryzias-latipes) — queued first: https://www.seriouslyfish.com/species/oryzias-mekongensis
+- Oryzias sarasinorum — named on 1 page (species/oryzias-latipes) — queued first: https://www.seriouslyfish.com/species/oryzias-sarasinorum
+- Oryzias songkhramensis — named on 1 page (species/oryzias-latipes) — queued first: https://www.seriouslyfish.com/species/oryzias-songkhramensis
+- Osphronemus laticlavius — named on 1 page (species/osphronemus-goramy) — queued first: https://www.seriouslyfish.com/species/osphronemus-laticlavius
+- Oxyeleotris marmorata — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/oxyeleotris-marmorata
+- Pangio cuneovirgata — named on 1 page (species/akysis-hendricksoni) — queued first: https://www.seriouslyfish.com/species/pangio-cuneovirgata
+- Pangio malayana — named on 1 page (species/pangio-anguillaris) — queued first: https://www.seriouslyfish.com/species/pangio-malayana
+- Pangio myersi — named on 1 page (species/barbucca-diabolica) — queued first: https://www.seriouslyfish.com/species/pangio-myersi
+- Pangio shelfordii — named on 1 page (species/acanthopsoides-molobrion) — queued first: https://www.seriouslyfish.com/species/pangio-shelfordii
+- Pao cochinchinensis — named on 1 page (species/nemacheilus-binotatus) — queued first: https://www.seriouslyfish.com/species/pao-cochinchinensis
+- Parachanna obscura — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/parachanna-obscura
+- Parambassis wolffii — named on 1 page (species/etroplus-canarensis) — queued first: https://www.seriouslyfish.com/species/parambassis-wolffii
+- Parasphaerichthys lineatus — named on 1 page (species/ctenops-nobilis) — queued first: https://www.seriouslyfish.com/species/parasphaerichthys-lineatus
+- Paratilapia polleni — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/paratilapia-polleni
+- Parosphromenus bintan — named on 1 page (species/parosphromenus-sumatranus) — queued first: https://www.seriouslyfish.com/species/parosphromenus-bintan
+- Pelvicachromis humilis — named on 1 page (species/epiplatys-annulatus) — queued first: https://www.seriouslyfish.com/species/wallaceochromis-humilis
+- Periophthalmus novemradiatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/periophthalmus-novemradiatus
+- Pethia aurea — named on 1 page (species/pethia-gelius) — queued first: https://www.seriouslyfish.com/species/pethia-aurea
+- Pethia erythromycter — named on 1 page (species/danio-kyathit) — queued first: https://www.seriouslyfish.com/species/pethia-erythromycter
+- Pethia phutunio — named on 1 page (species/cyclocheilichthys-heteronema) — queued first: https://www.seriouslyfish.com/species/pethia-phutunio
+- Petitella georgiae — named on 1 page (guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners) — queued first: https://www.seriouslyfish.com/species/petitella-georgiae
+- Pimelodus maculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/pimelodus-maculatus
+- Poecilocharax weitzmani — named on 1 page (guides/seriouslyfish-articles-new-darter-characins-from-brazil) — queued first: https://www.seriouslyfish.com/species/poecilocharax-weitzmani
+- Potamotrygon motoro — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/potamotrygon-motoro
+- Pseudoplatystoma tigrinum — named on 1 page (guides/sprucepets-large-fish-for-freshwater-aquariums-7570272) — queued first: https://www.seriouslyfish.com/species/pseudoplatystoma-tigrinum
+- Pterophyllum altum — named on 1 page (guides/sprucepets-angelfish-gallery-4121742) — queued first: https://www.seriouslyfish.com/species/pterophyllum-altum
+- Puntigrus anchisporus — named on 1 page (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name) — queued first: https://www.seriouslyfish.com/species/puntigrus-anchisporus
+- Pygocentrus piraya — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340) — queued first: https://www.seriouslyfish.com/species/pygocentrus-piraya
+- Rasbora elegans — named on 1 page (species/garra-borneensis) — queued first: https://www.seriouslyfish.com/species/rasbora-elegans
+- Rasbora rasbora — named on 1 page (species/lepidocephalichthys-berdmorei) — queued first: https://www.seriouslyfish.com/species/rasbora-rasbora
+- Retroculus lapidifer — named on 1 page (species/acnodon-normani) — queued first: https://www.seriouslyfish.com/species/retroculus-lapidifer
+- Rhinogobius chiengmaiensis — named on 1 page (species/nemacheilus-binotatus) — queued first: https://www.seriouslyfish.com/species/rhinogobius-chiengmaiensis
+- Rhinogobius mekongianus — named on 1 page (species/homalopteroides-smithi) — queued first: https://www.seriouslyfish.com/species/rhinogobius-mekongianus
+- Rhinogobius zhoui — named on 1 page (species/rhinogobius-duospilus) — queued first: https://www.seriouslyfish.com/species/rhinogobius-zhoui
+- Satanoperca acuticeps — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/satanoperca-acuticeps
+- Schistura balteata — named on 1 page (guides/loachesonline-articles-breeding-sewellia) — queued first: https://www.seriouslyfish.com/species/schistura-balteata
+- Schistura devdevi — named on 1 page (species/aborichthys-elongatus) — queued first: https://www.seriouslyfish.com/species/schistura-devdevi
+- Serrasalmus serrulatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/serrasalmus-serrulatus
+- Sewellia albisuera — named on 1 page (species/sewellia-lineolata) — queued first: https://www.seriouslyfish.com/species/sewellia-albisuera
+- Sinogastromyzon puliensis — named on 1 page (species/sinogastromyzon-wui) — queued first: https://www.seriouslyfish.com/species/sinogastromyzon-puliensis
+- Stigmatogobius sadanundio — named on 1 page (species/anableps-anableps) — queued first: https://www.seriouslyfish.com/species/stigmatogobius-sadanundio
+- Synodontis angelicus — named on 1 page (species/pimelodus-pictus) — queued first: https://www.seriouslyfish.com/species/synodontis-angelicus
+- Synodontis contractus — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/synodontis-contractus
+- Synodontis flavitaeniatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/synodontis-flavitaeniatus
+- Tanganicodus irsacae — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.seriouslyfish.com/species/tanganicodus-irsacae
+- Tanichthys micagemmae — named on 1 page (species/tanichthys-albonubes) — queued first: https://www.seriouslyfish.com/species/tanichthys-micagemmae
+- Thalassophryne amazonica — named on 1 page (species/allenbatrachus-grunniens) — queued first: https://www.seriouslyfish.com/species/thalassophryne-amazonica
+- Trigonostigma somphongsi — named on 1 page (guides/seriouslyfish-articles-ffsg-has-global-mission) — queued first: https://www.seriouslyfish.com/species/trigonostigma-somphongsi
+- Variabilichromis moorii — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548) — queued first: https://www.seriouslyfish.com/species/variabilichromis-moorii
+- Xenomystus nigri — named on 1 page (species/ctenopoma-acutirostre) — queued first: https://www.seriouslyfish.com/species/xenomystus-nigri
+- Yasuhikotakia caudipunctata — named on 1 page (guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms) — queued first: https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata
+- Chindongo demasoni — named on 0 pages () — queued first: https://www.seriouslyfish.com/species/chindongo-demasoni
+- Epalzeorhynchos frenatum — named on 0 pages () — queued first: https://www.seriouslyfish.com/species/epalzeorhynchos-frenatum
 
-## Named on our pages, no page yet: no source has it (642)
+## Named on our pages, no page yet: no source has it (530)
 
-- Garra cambodgiensis — named on 13 pages (species/acantopsis-dialuzona, species/ambastaia-nigrolineata, species/annamia-normani, species/barbucca-diabolica, species/discherodontus-ashmeadi, …)
-- Acanthocobitis pictilis — named on 12 pages (species/acanthocobitis-botia, species/acanthocobitis-pavonacea, species/acanthocobitis-zonalternans, species/akysis-vespa, species/batasio-feruminatus, …)
+- Garra cambodgiensis — named on 17 pages (species/acantopsis-dialuzona, species/ambastaia-nigrolineata, species/annamia-normani, species/barbucca-diabolica, species/discherodontus-ashmeadi, …)
 - Mystacoleucus marginatus — named on 12 pages (species/akysis-maculipinnis, species/akysis-varius, species/ambastaia-nigrolineata, species/barbucca-diabolica, species/mystacoleucus-obtusirostris, …)
-- Barbodes xouthos — named on 10 pages (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name, species/dawkinsia-filamentosa, species/desmopuntius-johorensis, species/pethia-nigrofasciata, species/pethia-padamya, …)
-- Hemigrammus rhodostomus — named on 10 pages (guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners, guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/apistogramma-viejita, species/biotodoma-wavrini, …)
+- Barbodes xouthos — named on 11 pages (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/desmopuntius-johorensis, species/pethia-nigrofasciata, …)
+- Hemigrammus rhodostomus — named on 11 pages (guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners, guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/apistogramma-viejita, species/biotodoma-wavrini, …)
 - Crossocheilus oblongus — named on 9 pages (guides/aquariumcoop-blogs-aquarium-algae-eaters, guides/youtube-O5kuU_-xMzo, guides/youtube-YXhZnSTaUW0, guides/youtube-dTkvCEn1xHA, species/rasbora-caudimaculata, …)
+- Hyphessobrycon sweglesi — named on 8 pages (species/acestrorhynchus-falcirostris, species/apistogramma-viejita, species/biotodoma-wavrini, species/geophagus-abalios, species/geophagus-dicrozoster, …)
+- Panaque nigrolineatus — named on 8 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/baryancistrus-beggini, species/biotodoma-wavrini, species/geophagus-abalios, …)
 - Pangio kuhlii — named on 8 pages (guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners, guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches, guides/aquariumcoop-blogs-aquarium-top-10-fish-for-10-gallon-aquarium, guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name, guides/sprucepets-low-maintenance-freshwater-fish-4770223, …)
-- Amblyceps caecutiens — named on 7 pages (species/akysis-vespa, species/botia-kubotai, species/paracanthocobitis-pictilis, species/pethia-stoliczkana, species/syncrossus-beauforti, …)
+- Platydoras costatus — named on 8 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/biotodoma-wavrini, species/geophagus-abalios, species/geophagus-dicrozoster, …)
+- Channa striata — named on 7 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/akysis-maculipinnis, species/channa-asiatica, species/dawkinsia-arulius, species/dawkinsia-assimilis, …)
 - Cryptocoryne walkeri — named on 7 pages (guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants, guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria, guides/youtube-5ajPkl9rhKQ, guides/youtube-J_PR999bgtw, guides/youtube-vl1Lx9iWDYU, …)
-- Hyphessobrycon sweglesi — named on 7 pages (species/acestrorhynchus-falcirostris, species/apistogramma-viejita, species/biotodoma-wavrini, species/geophagus-abalios, species/mikrogeophagus-ramirezi, …)
+- Geophagus gottwaldi — named on 7 pages (species/geophagus-abalios, species/geophagus-altifrons, species/geophagus-brachybranchus, species/geophagus-dicrozoster, species/geophagus-neambi, …)
 - Pangio fusca — named on 7 pages (species/akysis-vespa, species/botia-kubotai, species/paracanthocobitis-pictilis, species/pethia-stoliczkana, species/syncrossus-beauforti, …)
-- Platydoras costatus — named on 7 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/biotodoma-wavrini, species/geophagus-abalios, species/mikrogeophagus-ramirezi, …)
-- Channa striata — named on 6 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/akysis-maculipinnis, species/channa-asiatica, species/dawkinsia-arulius, species/dawkinsia-filamentosa, …)
+- Garra mcclellandi — named on 6 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/nemacheilus-guentheri, species/nemacheilus-triangularis, …)
+- Mystus armatus — named on 6 pages (species/botia-striata, species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/pethia-ticto, …)
 - Rasbora semilineata — named on 6 pages (species/kottelatia-brittani, species/rasbora-borapetensis, species/rasbora-einthovenii, species/rasbora-paviana, species/trigonostigma-espei, …)
 - Acanthocobitis longipinnis — named on 5 pages (species/acanthocobitis-botia, species/acanthocobitis-pavonacea, species/acanthocobitis-zonalternans, species/paracanthocobitis-mooreh, species/paracanthocobitis-pictilis)
 - Acrossocheilus multistriatus — named on 5 pages (species/acrossocheilus-beijiangensis, species/acrossocheilus-iridescens, species/acrossocheilus-monticola, species/acrossocheilus-paradoxus, species/acrossocheilus-parallens)
@@ -573,20 +701,24 @@ borrow one from a species or plant they mention on the site.
 - Batasio dayi — named on 5 pages (species/akysis-vespa, species/botia-kubotai, species/syncrossus-beauforti, species/syncrossus-berdmorei, species/systomus-orphoides)
 - Corydoras julii — named on 5 pages (guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide, guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish, guides/aquariumcoop-blogs-aquarium-top-5-bottom-dwellers, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-cory-species-1381075)
 - Corydoras paleatus — named on 5 pages (guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide, guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-cory-species-1381075, species/lepidocephalichthys-guntea)
-- Garra mcclellandi — named on 5 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/nemacheilus-guentheri, species/nemacheilus-triangularis, species/puntius-mahecola)
-- Mystus armatus — named on 5 pages (species/botia-striata, species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/pethia-ticto, species/puntius-mahecola)
 - Poropuntius scapanognathus — named on 5 pages (species/akysis-vespa, species/botia-kubotai, species/syncrossus-beauforti, species/syncrossus-berdmorei, species/systomus-orphoides)
 - Pseudobagarius pseudobagarius — named on 5 pages (species/pseudobagarius-filifer, species/pseudobagarius-inermis, species/pseudobagarius-leucorhynchus, species/pseudobagarius-similis, species/pseudobagarius-subtilis)
 - Raiamas guttatus — named on 5 pages (species/akysis-varius, species/opsarius-koratensis, species/yasuhikotakia-lecontei, species/yasuhikotakia-modesta, species/yasuhikotakia-morleti)
 - Rasbora aurotaenia — named on 5 pages (species/epalzeorhynchos-bicolor, species/nemacheilus-binotatus, species/rasbora-paviana, species/schistura-geisleri, species/yasuhikotakia-eos)
 - Acanthopsoides gracilentus — named on 4 pages (species/acantopsis-dialuzona, species/barbucca-diabolica, species/epalzeorhynchos-bicolor, species/homalopteroides-smithi)
 - Acrossocheilus spinifer — named on 4 pages (species/acrossocheilus-beijiangensis, species/acrossocheilus-monticola, species/acrossocheilus-paradoxus, species/acrossocheilus-parallens)
+- Aphyocharax alburnus — named on 4 pages (species/acestrorhynchus-falcatus, species/geophagus-altifrons, species/geophagus-megasema, species/mikrogeophagus-altispinosus)
+- Glyptothorax annandalei — named on 4 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/puntius-mahecola)
+- Hyphessobrycon bentosi — named on 4 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus, species/acestrorhynchus-falcatus, species/geophagus-altifrons)
 - Hypostomus plecostomus — named on 4 pages (guides/aquariumcoop-blogs-aquarium-pleco-care-guide, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-large-fish-for-freshwater-aquariums-7570272, guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Ichthyophthirius multifiliis — named on 4 pages (guides/aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish, guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong, guides/loachesonline-articles-oxygen-in-the-aquarium, guides/sprucepets-methylene-blue-1379926)
 - Parachela maculicauda — named on 4 pages (species/akysis-maculipinnis, species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Paracrossochilus vittatus — named on 4 pages (species/acrochordonichthys-rugosus, species/pangio-semicincta, species/syncrossus-hymenophysa, species/trigonopoma-pauciperforatum)
+- Parambassis thomassi — named on 4 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/puntius-mahecola)
 - Platydoras hancockii — named on 4 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus, species/agamyxis-pectinifrons, species/amblydoras-nauticus)
 - Rhabdalestes aeratis — named on 4 pages (species/alestopetersius-brichardi, species/alestopetersius-caudalis, species/alestopetersius-nigropterus, species/alestopetersius-smykalai)
+- Sicyopterus griseus — named on 4 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/puntius-mahecola)
+- Travancoria jonesi — named on 4 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/puntius-mahecola)
 - Vanmanenia pingchowensis — named on 4 pages (species/beaufortia-kweichowensis, species/erromyzon-sinensis, species/liniparhomaloptera-disparis, species/sinogastromyzon-wui)
 - Aeromonas hydrophila — named on 3 pages (guides/aquatome-benh-nam-mieng-nam-lung-columnaris-o-ca-canh-nhan-biet-cach-chua-va-phong, guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong, guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong)
 - Ageneiosus uranophthalmus — named on 3 pages (species/ageneiosus-inermis, species/ageneiosus-marmoratus, species/ageneiosus-ucayalensis)
@@ -595,27 +727,23 @@ borrow one from a species or plant they mention on the site.
 - Astyanax fasciatus — named on 3 pages (guides/seriouslyfish-articles-pupfish-form-evolutionary-mountain-ranges, guides/sprucepets-common-fish-names-beginning-with-m-1378548, species/amatitlania-nanolutea)
 - Corydoras metae — named on 3 pages (guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-cory-species-1381075, guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Corydoras trilineatus — named on 3 pages (guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-cory-species-1381075)
+- Dawkinsia rubrotinctus — named on 3 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa)
 - Dawkinsia singhala — named on 3 pages (species/malpulutta-kretseri, species/pethia-nigrofasciata, species/rasboroides-vaterifloris)
 - Didiplis diandra — named on 3 pages (guides/youtube-Nbl2XlDFhY4, guides/youtube-tPkJ5PEBVYA, guides/youtube-xf_ylcdUQsQ)
 - Epalzeorhynchos kalopterus — named on 3 pages (species/gyrinocheilus-aymonieri, species/syncrossus-hymenophysa, species/trigonopoma-pauciperforatum)
 - Epipremnum aureum — named on 3 pages (guides/aquariumcoop-blogs-aquarium-pothos, guides/youtube-FaGycOl_GyA, guides/youtube-PVRlXXhdD7U)
-- Geophagus gottwaldi — named on 3 pages (species/geophagus-abalios, species/geophagus-brachybranchus, species/geophagus-parnaibae)
-- Glyptothorax annandalei — named on 3 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/puntius-mahecola)
 - Glyptothorax laosensis — named on 3 pages (species/annamia-normani, species/nemacheilus-binotatus, species/schistura-geisleri)
 - Hemibagrus nemurus — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
-- Hyphessobrycon bentosi — named on 3 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus, species/acestrorhynchus-falcatus)
 - Hyphessobrycon eques — named on 3 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, guides/sprucepets-lifespans-of-aquarium-fish-1378340, guides/sprucepets-small-aquarium-fish-breeds-for-freshwater-5120495)
 - Mystus vittatus — named on 3 pages (species/malpulutta-kretseri, species/pethia-nigrofasciata, species/rasboroides-vaterifloris)
 - Ompok leiacanthus — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Osteochilus spilurus — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Pangio alcoides — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
-- Parambassis thomassi — named on 3 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/puntius-mahecola)
 - Pseudomystus leiacanthus — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Puntius sophore — named on 3 pages (species/badis-ferrarisi, species/lepidocephalichthys-guntea, species/pethia-didi)
 - Rasbora sumatrana — named on 3 pages (species/acrochordonichthys-gyrinus, species/acrochordonichthys-rugosus, species/acrochordonichthys-septentrionalis)
 - Rhodeus amarus — named on 3 pages (species/acheilognathus-macropterus, species/rhodeus-ocellatus, species/tanakia-signifer)
-- Sicyopterus griseus — named on 3 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/puntius-mahecola)
-- Travancoria jonesi — named on 3 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa, species/puntius-mahecola)
+- Sicyopterus fasciatus — named on 3 pages (species/devario-xyrops, species/garra-rakhinica, species/xenentodon-cancila)
 - Tuberoschistura baenzigeri — named on 3 pages (species/nemacheilus-binotatus, species/nemacheilus-masyae, species/schistura-geisleri)
 - Wallago leerii — named on 3 pages (species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Acanthocobitis rubidipinnis — named on 2 pages (species/syncrossus-beauforti, species/syncrossus-berdmorei)
@@ -623,11 +751,7 @@ borrow one from a species or plant they mention on the site.
 - Acrochordonichthys ischnosoma — named on 2 pages (species/acrochordonichthys-gyrinus, species/acrochordonichthys-septentrionalis)
 - Akysis clavulus — named on 2 pages (species/annamia-normani, species/lepidocephalichthys-hasselti)
 - Anadoras grypus — named on 2 pages (species/agamyxis-pectinifrons, species/amblydoras-nauticus)
-- Aphanius anatoliae — named on 2 pages (species/anatolichthys-sureyanus, species/anatolichthys-transgrediens)
-- Aphanius baeticus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-baeticus)
-- Aphanius iberus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-iberus)
-- Aphanius mento — named on 2 pages (guides/seriouslyfish-articles-whaddaya-mean-too-hot, species/paraphanius-mento)
-- Aphyocharax alburnus — named on 2 pages (species/acestrorhynchus-falcatus, species/mikrogeophagus-altispinosus)
+- Apistogramma linkei — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Astyanax aeneus — named on 2 pages (species/amatitlania-myrnae, species/thorichthys-meeki)
 - Atya gabonensis — named on 2 pages (guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium, species/atyopsis-moluccensis)
 - Badis laspiophilus — named on 2 pages (guides/seriouslyfish-articles-five-new-species-of-badis-described-from-west-bengal-india, species/badis-badis)
@@ -639,38 +763,46 @@ borrow one from a species or plant they mention on the site.
 - Caridina serrata — named on 2 pages (guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp, guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china)
 - Channa punctata — named on 2 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/etroplus-maculatus)
 - Chilatherina fasciata — named on 2 pages (guides/sprucepets-types-of-rainbow-fish-5272300, species/glossolepis-wanamensis)
-- Corydoras adolfoi — named on 2 pages (guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Cribroheros bussingi — named on 2 pages (species/amatitlania-myrnae, species/amatitlania-nanolutea)
-- Dawkinsia rubrotinctus — named on 2 pages (species/dawkinsia-arulius, species/dawkinsia-filamentosa)
+- Cribroheros robertsoni — named on 2 pages (species/cincelichthys-bocourti, species/thorichthys-meeki)
+- Cyclocheilichthys schoppeae — named on 2 pages (species/cyclocheilichthys-armatus, species/cyclocheilichthys-heteronema)
 - Devario strigillifer — named on 2 pages (species/lepidocephalichthys-berdmorei, species/pethia-didi)
 - Eigenmannia virescens — named on 2 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus)
 - Elatine hydropiper — named on 2 pages (guides/youtube-Nbl2XlDFhY4, guides/youtube-tPkJ5PEBVYA)
 - Eleocharis vivipara — named on 2 pages (guides/youtube-J_PR999bgtw, guides/youtube-vl1Lx9iWDYU)
+- Erethistes pusillus — named on 2 pages (species/botia-dario, species/devario-acuticephala)
+- Glossogobius giuris — named on 2 pages (species/ctenops-nobilis, species/nemacheilus-masyae)
 - Hemigrammus bleheri — named on 2 pages (guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners, species/nannostomus-eques)
+- Hemigrammus lunatus — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Hypancistrus debilittera — named on 2 pages (guides/aquariumcoop-blogs-aquarium-pleco-care-guide, species/baryancistrus-beggini)
 - Leiocassis micropogon — named on 2 pages (species/akysis-hendricksoni, species/helostoma-temminckii)
+- Macrognathus pancalus — named on 2 pages (species/ctenops-nobilis, species/etroplus-maculatus)
 - Mastacembelus tanganicae — named on 2 pages (species/mastacembelus-armatus, species/mastacembelus-erythrotaenia)
-- Mesonoemacheilus herrei — named on 2 pages (species/nemacheilus-guentheri, species/nemacheilus-triangularis)
 - Mesonoemacheilus remadevii — named on 2 pages (species/nemacheilus-guentheri, species/nemacheilus-triangularis)
 - Micralestes acutidens — named on 2 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/alestopetersius-caudalis)
 - Micranthemum micranthemoides — named on 2 pages (guides/youtube-5ajPkl9rhKQ, guides/youtube-pY7e33xGcyQ)
 - Moenkhausia collettii — named on 2 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus)
-- Mystus bleekeri — named on 2 pages (species/botia-dario, species/danio-rerio)
+- Moenkhausia oligolepis — named on 2 pages (species/acestrorhynchus-falcatus, species/geophagus-altifrons)
 - Mystus castaneus — named on 2 pages (species/syncrossus-hymenophysa, species/trigonopoma-pauciperforatum)
 - Nannopetersius ansorgii — named on 2 pages (species/alestopetersius-brichardi, species/alestopetersius-nigropterus)
 - Nemacheilus menoni — named on 2 pages (species/nemacheilus-guentheri, species/nemacheilus-triangularis)
 - Pangio pangia — named on 2 pages (species/acanthocobitis-zonalternans, species/botia-dario)
+- Parambassis lala — named on 2 pages (species/danio-erythromicron, species/parambassis-ranga)
+- Pareutropius debauwi — named on 2 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/ctenopoma-acutirostre)
 - Pethia nigripinna — named on 2 pages (species/pethia-padamya, species/pethia-ticto)
 - Pristolepis fasciata — named on 2 pages (species/epalzeorhynchos-bicolor, species/rasbora-paviana)
+- Pseudorasbora parva — named on 2 pages (species/abbottina-rivularis, species/garra-mirofrontis)
+- Psilorhynchus balitora — named on 2 pages (species/botia-dario, species/devario-acuticephala)
 - Psilorhynchus robustus — named on 2 pages (species/paracanthocobitis-pictilis, species/pethia-stoliczkana)
+- Puntius amphibius — named on 2 pages (species/dawkinsia-assimilis, species/etroplus-maculatus)
 - Puntius brevis — named on 2 pages (species/acantopsis-dialuzona, species/yasuhikotakia-eos)
-- Puntius sahyadriensis — named on 2 pages (species/haludaria-fasciata, species/schistura-denisoni)
 - Schistura desmotes — named on 2 pages (species/nemacheilus-binotatus, species/schistura-geisleri)
 - Schistura fasciolata — named on 2 pages (species/pseudogastromyzon-myersi, species/rhinogobius-duospilus)
+- Schistura latifasciata — named on 2 pages (species/abbottina-rivularis, species/garra-mirofrontis)
 - Schistura namboensis — named on 2 pages (species/annamia-normani, species/lepidocephalichthys-hasselti)
 - Schistura scaturigina — named on 2 pages (guides/loachesonline-articles-a-river-runs-through-it, species/aborichthys-elongatus)
 - Schistura udomritthiruji — named on 2 pages (species/akysis-pulvinatus, species/schistura-geisleri)
-- Sicyopterus fasciatus — named on 2 pages (species/devario-xyrops, species/xenentodon-cancila)
+- Tyttocharax tambopatensis — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Vaillantella cinnamomea — named on 2 pages (species/syncrossus-hymenophysa, species/trigonopoma-pauciperforatum)
 - Xiphophorus continens — named on 2 pages (species/xiphophorus-hellerii, species/xiphophorus-pygmaeus)
 - Zebrasoma flavescens — named on 2 pages (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world, species/elacatinus-oceanops)
@@ -695,13 +827,12 @@ borrow one from a species or plant they mention on the site.
 - Anablepsoides ornatus — named on 1 page (species/agamyxis-pectinifrons)
 - Ancistrus macrophthalmus — named on 1 page (species/baryancistrus-beggini)
 - Angiostrongylus malaysiensis — named on 1 page (species/radix-rubiginosa)
+- Anodus elongatus — named on 1 page (species/geophagus-proximus)
 - Anubias heterophylla — named on 1 page (guides/aquariumcoop-blogs-aquarium-goldfish-plants)
 - Aperioptus pictorius — named on 1 page (species/acantopsis-dialuzona)
 - Aphanius sophiae — named on 1 page (species/esmaeilius-persicus)
-- Aphanius villwocki — named on 1 page (species/anatolichthys-villwocki)
 - Aphyocharax dentatus — named on 1 page (guides/sprucepets-what-fish-species-are-coldwater-1380965)
 - Apistogramma atahualpa — named on 1 page (species/apistogramma-cinilabra)
-- Apistogramma linkei — named on 1 page (species/mikrogeophagus-altispinosus)
 - Apistogramma martini — named on 1 page (species/apistogramma-pantalone)
 - Apistogramma ortmanni — named on 1 page (species/geophagus-brachybranchus)
 - Apistogramma piauiensis — named on 1 page (species/geophagus-parnaibae)
@@ -710,13 +841,13 @@ borrow one from a species or plant they mention on the site.
 - Aspidoras velites — named on 1 page (species/aspidoras-pauciradiatus)
 - Astrodoras asterifrons — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Astyanax jordani — named on 1 page (species/astyanax-mexicanus)
+- Astyanax villwocki — named on 1 page (species/geophagus-proximus)
 - Atherinella alvarezi — named on 1 page (species/thorichthys-meeki)
 - Auchenipterichthys longimanus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Auchenipterus ambyiacus — named on 1 page (species/biotodoma-cupido)
 - Austrolebias nigripinnis — named on 1 page (guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831)
 - Awaous tajasica — named on 1 page (species/amatitlania-nanolutea)
 - Badis andrewraoi — named on 1 page (guides/seriouslyfish-articles-five-new-species-of-badis-described-from-west-bengal-india)
-- Badis blosyrus — named on 1 page (species/danio-rerio)
 - Badis britzi — named on 1 page (species/badis-badis)
 - Badis dibruensis — named on 1 page (species/badis-juergenschmidti)
 - Badis soraya — named on 1 page (guides/seriouslyfish-articles-five-new-species-of-badis-described-from-west-bengal-india)
@@ -726,26 +857,22 @@ borrow one from a species or plant they mention on the site.
 - Balitora mysorensis — named on 1 page (species/botia-striata)
 - Barbatula barbatula — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Barbichthys laevis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Barbodes binotatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Barbodes everetti — named on 1 page (species/barbodes-banksi)
-- Barbodes kuchingensis — named on 1 page (species/barbodes-lateristriga)
 - Barbodes rhombeus — named on 1 page (species/annamia-normani)
 - Barbus fasciatus — named on 1 page (species/haludaria-fasciata)
+- Barilius barila — named on 1 page (species/devario-acuticephala)
 - Barilius bendelisis — named on 1 page (species/lepidocephalichthys-thermalis)
-- Barilius caudiocellatus — named on 1 page (species/abbottina-rivularis)
-- Barilius gatensis — named on 1 page (species/etroplus-canarensis)
 - Batasio batasio — named on 1 page (species/botia-dario)
 - Bathyaethiops caudomaculatus — named on 1 page (species/alestopetersius-caudalis)
 - Batrachomoeus trispinosus — named on 1 page (species/allenbatrachus-grunniens)
 - Belonesox belizanus — named on 1 page (species/thorichthys-meeki)
-- Betadevario ramachandrani — named on 1 page (species/devario-xyrops)
 - Bivibranchia bimaculata — named on 1 page (species/geophagus-brachybranchus)
+- Blyxa aubertii — named on 1 page (species/haludaria-fasciata)
 - Bombina orientalis — named on 1 page (guides/youtube-PVRlXXhdD7U)
 - Botia lohachata — named on 1 page (guides/loachesonline-articles-an-introduction-to-keeping-botia)
 - Brachionus plicatilis — named on 1 page (guides/aquariumbreeder-rotifers-profile-and-culture-guide)
 - Brachionus rotundiformis — named on 1 page (guides/aquariumbreeder-rotifers-profile-and-culture-guide)
 - Brachirus harmandi — named on 1 page (species/nemacheilus-masyae)
-- Buccochromis lepturus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Cambarellus alvarezi — named on 1 page (species/cyprinodon-alvarezi)
 - Campostoma ornatum — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Caridina cantonensis — named on 1 page (guides/youtube-ddIenwrxWgU)
 - Caridina trifasciata — named on 1 page (guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china)
@@ -766,11 +893,8 @@ borrow one from a species or plant they mention on the site.
 - Chiapaheros grammodes — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Chilatherina axelrodi — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
 - Chilatherina sentaniensis — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
-- Cichla temensis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Cichlasoma amazonarum — named on 1 page (species/agamyxis-pectinifrons)
-- Cincelichthys bocourti — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Cirrhinus molitorella — named on 1 page (species/epalzeorhynchos-bicolor)
-- Clarias meladerma — named on 1 page (species/clarias-insolitus)
 - Clarias olivaceus — named on 1 page (species/clarias-insolitus)
 - Clarias planiceps — named on 1 page (species/clarias-insolitus)
 - Clithon corona — named on 1 page (guides/youtube-vl1Lx9iWDYU)
@@ -779,53 +903,40 @@ borrow one from a species or plant they mention on the site.
 - Clupisoma nujiangense — named on 1 page (species/clupisoma-longianale)
 - Clupisoma sinense — named on 1 page (species/clupisoma-longianale)
 - Condylactis gigantea — named on 1 page (species/periclimenes-yucatanicus)
-- Copella arnoldi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Copella meinkeni — named on 1 page (species/nannostomus-eques)
+- Conta conta — named on 1 page (species/ctenops-nobilis)
+- Copella nigrofasciata — named on 1 page (species/geophagus-proximus)
 - Copella vilmae — named on 1 page (species/apistogramma-barlowi)
-- Corydoras acutus — named on 1 page (species/mikrogeophagus-altispinosus)
 - Corydoras axelrodi — named on 1 page (guides/aquariumcoop-blogs-aquarium-top-5-bottom-dwellers)
 - Corydoras habrosus — named on 1 page (guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish)
 - Corydoras hastatus — named on 1 page (species/hyphessobrycon-elachys)
 - Corydoras leopardus — named on 1 page (guides/sprucepets-aquarium-catfish-breeds-5115234)
 - Corydoras leucomelas — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Corynopoma riisei — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Creagrutus britskii — named on 1 page (species/geophagus-neambi)
 - Creagrutus meridionalis — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
+- Creagrutus occidaneus — named on 1 page (species/geophagus-proximus)
 - Crenichthys baileyi — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Crenicichla cametana — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Crenicichla menezesi — named on 1 page (species/geophagus-parnaibae)
 - Crenicichla strigata — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Cribroheros robertsoni — named on 1 page (species/thorichthys-meeki)
-- Crossocheilus elegans — named on 1 page (species/crossocheilus-reticulatus)
 - Cryptocoryne affinis — named on 1 page (species/akysis-hendricksoni)
 - Cryptocoryne nevillii — named on 1 page (guides/youtube-5GfRTHTv5ZM)
 - Cryptocoryne pygmaea — named on 1 page (guides/youtube-xf_ylcdUQsQ)
+- Cryptoheros spilurus — named on 1 page (species/cincelichthys-bocourti)
 - Cteniloricaria maculata — named on 1 page (species/geophagus-brachybranchus)
-- Ctenopoma acutirostre — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Ctenops nobilis — named on 1 page (species/danio-rerio)
-- Cyclocheilichthys heteronema — named on 1 page (species/nemacheilus-masyae)
-- Cyclocheilichthys schoppeae — named on 1 page (species/cyclocheilichthys-armatus)
-- Cyprinodon alvarezi — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Cyprinodon elegans — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Cyprinodon eximius — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Cyprinodon nevadensis — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Dactylogyrus anchoratus — named on 1 page (guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong)
-- Danio erythromicron — named on 1 page (guides/youtube-Q8-gktwcXqQ)
 - Danionella cerebrum — named on 1 page (guides/youtube-Q8-gktwcXqQ)
-- Danionella dracula — named on 1 page (species/horadandia-atukorali)
-- Dario kajal — named on 1 page (species/dario-hysginon)
-- Dario urops — named on 1 page (species/dario-hysginon)
-- Dawkinsia assimilis — named on 1 page (species/dawkinsia-filamentosa)
 - Dawkinsia tambraparniei — named on 1 page (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name)
 - Denariusa australis — named on 1 page (guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua)
 - Dermogenys siamensis — named on 1 page (species/epalzeorhynchos-bicolor)
-- Devario acuticephala — named on 1 page (species/acanthocobitis-pavonacea)
-- Devario assamensis — named on 1 page (species/danio-rerio)
+- Devario anomalus — named on 1 page (species/devario-assamensis)
+- Devario auropurpureus — named on 1 page (species/danio-erythromicron)
 - Devario ostreographus — named on 1 page (species/devario-aequipinnatus)
-- Dianema urostriatum — named on 1 page (guides/aquariumcoop-blogs-aquarium-goldfish-tank-mates)
 - Dicrossus gladicauda — named on 1 page (species/nannostomus-eques)
 - Dionda episcopa — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
-- Distichodus affinis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Distichodus sexfasciatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Distichodus decemmaculatus — named on 1 page (species/ctenopoma-acutirostre)
 - Dormitator maculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Edwardsiella ictaluri — named on 1 page (guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao)
 - Elacatinus evelynae — named on 1 page (species/elacatinus-oceanops)
@@ -835,53 +946,32 @@ borrow one from a species or plant they mention on the site.
 - Engraulicypris sardella — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
 - Enteromius camptacanthus — named on 1 page (species/notoglanidium-macrostoma)
 - Enteromius leonensis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Epiplatys annulatus — named on 1 page (guides/aquariumcoop-blogs-aquarium-coldwater-fish)
-- Erethistes pusillus — named on 1 page (species/botia-dario)
+- Epiplatys chevalieri — named on 1 page (species/ctenopoma-acutirostre)
 - Esomus altus — named on 1 page (species/badis-ferrarisi)
 - Farlowella paraguayensis — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Ficus pumila — named on 1 page (guides/youtube-PVRlXXhdD7U)
 - Filopaludina javanica — named on 1 page (species/sulcospira-testudinaria)
 - Flavobacterium columnare — named on 1 page (guides/aquatome-benh-nam-mieng-nam-lung-columnaris-o-ca-canh-nhan-biet-cach-chua-va-phong)
-- Fossorochromis rostratus — named on 1 page (species/cyrtocara-moorii)
-- Fundulopanchax gardneri — named on 1 page (guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831)
-- Fundulopanchax sjostedti — named on 1 page (guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831)
 - Gagata gagata — named on 1 page (species/botia-dario)
 - Garra annandalei — named on 1 page (species/botia-dario)
-- Garra arupi — named on 1 page (species/acanthocobitis-pavonacea)
 - Garra ceylonensis — named on 1 page (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world)
 - Garra findolabium — named on 1 page (species/garra-imberbis)
-- Garra fuliginosa — named on 1 page (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world)
 - Garra gotyla — named on 1 page (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world)
+- Garra kempi — named on 1 page (species/garra-arupi)
 - Garra micropulvinus — named on 1 page (species/garra-imberbis)
-- Garra mirofrontis — named on 1 page (species/abbottina-rivularis)
-- Garra rakhinica — named on 1 page (species/xenentodon-cancila)
+- Gastromyzon aequabilis — named on 1 page (species/crossocheilus-elegans)
 - Gastromyzon borneensis — named on 1 page (guides/loachesonline-articles-suckerbelly-loaches)
-- Geophagus altifrons — named on 1 page (species/acestrorhynchus-falcatus)
-- Geophagus dicrozoster — named on 1 page (species/paracheirodon-axelrodi)
-- Geophagus megasema — named on 1 page (species/mikrogeophagus-altispinosus)
-- Geophagus neambi — named on 1 page (species/acnodon-normani)
-- Geophagus proximus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Glossogobius giuris — named on 1 page (species/nemacheilus-masyae)
 - Glyptothorax lampris — named on 1 page (species/ambastaia-nigrolineata)
-- Gymnochanda filamentosa — named on 1 page (species/eirmotus-octozona)
-- Gymnocorymbus bondi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Gymnochanda limi — named on 1 page (species/gymnochanda-filamentosa)
 - Gymnogeophagus gymnogenys — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Hara filamentosa — named on 1 page (species/akysis-pulvinatus)
-- Hemiancistrus guahiborum — named on 1 page (species/baryancistrus-beggini)
-- Hemiancistrus subviridis — named on 1 page (species/baryancistrus-beggini)
 - Hemibagrus caveatus — named on 1 page (species/hemibagrus-wyckii)
-- Hemigrammus lunatus — named on 1 page (species/mikrogeophagus-altispinosus)
-- Hemigrammus stictus — named on 1 page (species/nannostomus-eques)
+- Hemigrammus luelingi — named on 1 page (species/geophagus-proximus)
+- Hemiodus amazonum — named on 1 page (species/geophagus-proximus)
 - Hemiodus immaculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Hemiodus ternetzi — named on 1 page (species/acnodon-normani)
 - Hemirhamphodon kuekenthali — named on 1 page (species/barbodes-banksi)
 - Hemisorubim platyrhynchos — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Hemitaeniochromis brachyrhynchus — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
-- Herotilapia multispinosa — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
-- Heterandria formosa — named on 1 page (species/nothobranchius-rachovii)
-- Heteropneustes fossilis — named on 1 page (species/dario-hysginon)
-- Homalopteroides modestus — named on 1 page (species/paracanthocobitis-pictilis)
-- Homalopteroides stephensoni — named on 1 page (species/garra-borneensis)
 - Hydrilla verticillata — named on 1 page (species/barbronia-weberi)
 - Hydrocleys nymphoides — named on 1 page (guides/youtube-I_KBOUM1RXM)
 - Hygrophila angustifolia — named on 1 page (guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors)
@@ -889,14 +979,9 @@ borrow one from a species or plant they mention on the site.
 - Hypancistrus contradens — named on 1 page (species/baryancistrus-beggini)
 - Hypancistrus furunculus — named on 1 page (species/baryancistrus-beggini)
 - Hypancistrus lunaorum — named on 1 page (species/baryancistrus-beggini)
-- Hyphessobrycon agulha — named on 1 page (species/mikrogeophagus-altispinosus)
-- Hyphessobrycon amapaensis — named on 1 page (species/paracheirodon-simulans)
-- Hyphessobrycon bifasciatus — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Hyphessobrycon columbianus — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Hyphessobrycon compressus — named on 1 page (species/thorichthys-meeki)
 - Hyphessobrycon epicharis — named on 1 page (species/hyphessobrycon-rosaceus)
 - Hyphessobrycon erythrostigma — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Hyphessobrycon heterorhabdus — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
+- Hyphessobrycon frankei — named on 1 page (species/geophagus-proximus)
 - Hyphessobrycon nigricinctus — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Hyphessobrycon togoi — named on 1 page (species/hyphessobrycon-anisitsi)
 - Hypophthalmus marginatus — named on 1 page (species/biotodoma-cupido)
@@ -904,163 +989,115 @@ borrow one from a species or plant they mention on the site.
 - Hyporhamphus roberti — named on 1 page (species/anableps-anableps)
 - Hypostomus pseudohemiurus — named on 1 page (species/geophagus-brachybranchus)
 - Hypostomus punctatus — named on 1 page (species/parotocinclus-maculicauda)
-- Hypselecara temporalis — named on 1 page (species/agamyxis-pectinifrons)
-- Hypselobarbus jerdoni — named on 1 page (species/etroplus-canarensis)
-- Hypsophrys nicaraguensis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Ictiobus bubalus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - incertae sedis — named on 1 page (species/inpaichthys-kerri)
-- Indostomus paradoxus — named on 1 page (guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014)
 - Indostomus spinosus — named on 1 page (species/brachygobius-mekongensis)
-- Iodotropheus sprengerae — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
-- Julidochromis marlieri — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
-- Julidochromis regani — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Julidochromis transcriptus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Kihnichthys ufermanni — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Knodus chapadae — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
-- Kottelatlimia pristes — named on 1 page (species/pangio-anguillaris)
 - Krobia guianensis — named on 1 page (species/apistogramma-steindachneri)
 - Labeo barbatus — named on 1 page (guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en)
-- Labeo chrysophekadion — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Labeo parvus — named on 1 page (guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en)
-- Labeo pierrei — named on 1 page (species/bangana-behri)
 - Labiobarbus lineatus — named on 1 page (species/nemacheilus-masyae)
-- Labiobarbus siamensis — named on 1 page (species/akysis-maculipinnis)
-- Ladigesia roloffi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Laetacara flavilabris — named on 1 page (species/apistogramma-paulmuelleri)
 - Lagenandra ovata — named on 1 page (species/haludaria-fasciata)
 - Laimosemion agilae — named on 1 page (species/apistogramma-steindachneri)
-- Lamontichthys filamentosus — named on 1 page (species/acestrorhynchus-falcatus)
 - Lamprologus speciosus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Lasiancistrus schomburgkii — named on 1 page (species/baryancistrus-beggini)
 - Lebrunia neglecta — named on 1 page (species/periclimenes-yucatanicus)
 - Leiarius marmoratus — named on 1 page (species/agamyxis-pectinifrons)
 - Lepidiolamprologus attenuatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Lepidomeda mollispinis — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
-- Leporacanthicus triactis — named on 1 page (species/baryancistrus-beggini)
 - Leporinus falcipinnis — named on 1 page (species/leporinus-fasciatus)
 - Leporinus reticulatus — named on 1 page (species/leporinus-fasciatus)
 - Lepthoplosternum altamazonicum — named on 1 page (species/agamyxis-pectinifrons)
 - Lepthoplosternum pectorale — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Limnophila aromatica — named on 1 page (guides/youtube-k3xDjE_A8t0)
 - Liniparhomaloptera qiongzhongensis — named on 1 page (species/liniparhomaloptera-disparis)
-- Lobocheilos melanotaenia — named on 1 page (species/yasuhikotakia-eos)
+- Lobocheilos unicornis — named on 1 page (species/crossocheilus-elegans)
 - Ludwigia arcuata — named on 1 page (guides/youtube-I_KBOUM1RXM)
 - Macrognathus aral — named on 1 page (species/canthophrys-gongota)
 - Macrognathus circumcinctus — named on 1 page (species/akysis-maculipinnis)
+- Macrognathus keithi — named on 1 page (species/crossocheilus-elegans)
 - Macrognathus maculatus — named on 1 page (species/barbodes-banksi)
-- Macrognathus pancalus — named on 1 page (species/etroplus-maculatus)
 - Marsilea crenata — named on 1 page (guides/youtube-GDaWgKk-hDo)
-- Mayaheros urophthalmus — named on 1 page (species/thorichthys-meeki)
-- Maylandia callainos — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Megalechis picta — named on 1 page (guides/aquariumcoop-blogs-aquarium-goldfish-tank-mates)
-- Melanochromis auratus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
+- Megupsilon aporus — named on 1 page (species/cyprinodon-alvarezi)
 - Melanotaenia ajamaruensis — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
 - Melanotaenia duboulayi — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
-- Melanotaenia fluviatilis — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
 - Melanotaenia nigrans — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
 - Melanotaenia picta — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
 - Melanotaenia pygmaea — named on 1 page (guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong)
-- Melanotaenia splendida — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
-- Mesoheros festae — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Mesonauta mirificus — named on 1 page (species/agamyxis-pectinifrons)
 - Metynnis fasciatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Metynnis lippincottianus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Micropanchax johnstoni — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
+- Microphis deocata — named on 1 page (species/ctenops-nobilis)
 - Micropoecilia branneri — named on 1 page (species/geophagus-parnaibae)
 - Misgurnus fossilis — named on 1 page (species/misgurnus-anguillicaudatus)
 - Moapa coriacea — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
+- Mochokiella paynei — named on 1 page (species/epiplatys-annulatus)
 - Moenkhausia dichroura — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
-- Moenkhausia oligolepis — named on 1 page (species/acestrorhynchus-falcatus)
 - Monetaria moneta — named on 1 page (species/monetaria-annulus)
 - Mylossoma duriventre — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Mystacoleucus chilopterus — named on 1 page (species/nemacheilus-masyae)
 - Mystus cavasius — named on 1 page (species/etroplus-maculatus)
 - Mystus malabaricus — named on 1 page (species/lepidocephalichthys-thermalis)
-- Mystus mysticetus — named on 1 page (species/yasuhikotakia-eos)
 - Mystus nigriceps — named on 1 page (species/nemacheilus-masyae)
 - Mystus pulcher — named on 1 page (species/lepidocephalichthys-berdmorei)
 - Nannocharax fasciatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Nannostomus marginatus — named on 1 page (species/apistogramma-barlowi)
-- Nannostomus mortenthaleri — named on 1 page (species/apistogramma-pantalone)
-- Nannostomus trifasciatus — named on 1 page (species/mikrogeophagus-altispinosus)
 - Nanobagrus fuscus — named on 1 page (species/akysis-hendricksoni)
-- Nemacheilus corica — named on 1 page (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world)
 - Nemacheilus periyarensis — named on 1 page (species/schistura-denisoni)
 - Nemacheilus pulchellus — named on 1 page (species/lepidocephalichthys-thermalis)
-- Nemacheilus spiniferus — named on 1 page (species/garra-borneensis)
 - Nemateleotris magnifica — named on 1 page (species/elacatinus-oceanops)
-- Nematobrycon palmeri — named on 1 page (species/inpaichthys-kerri)
 - Neocaridina denticulata — named on 1 page (species/trichogaster-lalius)
 - Neoclytus scutellaris — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
 - Neodontobutis aurarmus — named on 1 page (species/brachygobius-mekongensis)
-- Neolamprologus brichardi — named on 1 page (species/neolamprologus-multifasciatus)
-- Neolamprologus buescheri — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Neolamprologus leleupi — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Neolamprologus sexfasciatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Neogastromyzon crassiobex — named on 1 page (species/crossocheilus-elegans)
 - Niphargus sphagnicolus — named on 1 page (species/asellus-aquaticus)
 - Nosferatu molango — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
-- Nothobranchius foerschi — named on 1 page (species/nothobranchius-rachovii)
+- Notoglanidium thomasi — named on 1 page (species/epiplatys-annulatus)
 - Odontostilbe pequira — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Olyra burmanica — named on 1 page (species/devario-xyrops)
-- Opsarius bernatziki — named on 1 page (species/nemacheilus-masyae)
-- Oreochromis mossambicus — named on 1 page (guides/seriouslyfish-articles-pupfish-form-evolutionary-mountain-ranges)
-- Oryzias dancena — named on 1 page (species/etroplus-maculatus)
+- Olyra longicaudata — named on 1 page (species/ctenops-nobilis)
 - Oryzias hadiatyae — named on 1 page (species/oryzias-latipes)
-- Oryzias mekongensis — named on 1 page (species/oryzias-latipes)
 - Oryzias nebulosus — named on 1 page (species/oryzias-latipes)
-- Oryzias sarasinorum — named on 1 page (species/oryzias-latipes)
 - Oryzias setnai — named on 1 page (species/oryzias-latipes)
-- Oryzias songkhramensis — named on 1 page (species/oryzias-latipes)
 - Oscura heterospila — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
-- Osphronemus laticlavius — named on 1 page (species/osphronemus-goramy)
 - Ossancora punctata — named on 1 page (species/biotodoma-cupido)
 - Osteochilus waandersii — named on 1 page (species/acantopsis-dialuzona)
 - Otocinclus hasemani — named on 1 page (species/geophagus-parnaibae)
-- Otocinclus vittatus — named on 1 page (species/acestrorhynchus-falcatus)
 - Otothyropsis piribebuy — named on 1 page (species/apistogramma-commbrae)
-- Oxyeleotris marmorata — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Oxyura leucocephala — named on 1 page (species/anatolichthys-sureyanus)
 - Pachypterus atherinoides — named on 1 page (species/etroplus-maculatus)
-- Pangio cuneovirgata — named on 1 page (species/akysis-hendricksoni)
-- Pangio malayana — named on 1 page (species/pangio-anguillaris)
-- Pangio myersi — named on 1 page (species/barbucca-diabolica)
-- Pangio shelfordii — named on 1 page (species/acanthopsoides-molobrion)
-- Pao cochinchinensis — named on 1 page (species/nemacheilus-binotatus)
+- Panaque bathyphilus — named on 1 page (species/geophagus-proximus)
 - Papuligobius ocellatus — named on 1 page (species/ambastaia-nigrolineata)
 - Parabotia mantschurica — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Paracanthocobitis maekhlongensis — named on 1 page (species/paracanthocobitis-pictilis)
 - Paracanthurus hepatus — named on 1 page (species/elacatinus-oceanops)
 - Parachromis friedrichsthalii — named on 1 page (species/thorichthys-meeki)
+- Paracrossochilus acerus — named on 1 page (species/crossocheilus-elegans)
 - Parailia pellucida — named on 1 page (species/kryptopterus-vitreolus)
-- Parambassis lala — named on 1 page (species/parambassis-ranga)
-- Parambassis wolffii — named on 1 page (species/etroplus-canarensis)
 - Paraneetroplus gibbiceps — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
-- Paratilapia polleni — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Parazacco spilurus — named on 1 page (species/liniparhomaloptera-disparis)
-- Pareutropius debauwi — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
-- Parosphromenus bintan — named on 1 page (species/parosphromenus-sumatranus)
+- Parhomaloptera microstoma — named on 1 page (species/crossocheilus-elegans)
 - Peckoltia vittata — named on 1 page (species/baryancistrus-beggini)
-- Periophthalmus novemradiatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
+- Pelmatochromis nigrofasciatus — named on 1 page (species/ctenopoma-acutirostre)
 - Perrunichthys perruno — named on 1 page (species/leiarius-pictus)
 - Petenia splendida — named on 1 page (species/thorichthys-meeki)
-- Pethia aurea — named on 1 page (species/pethia-gelius)
-- Pethia erythromycter — named on 1 page (species/danio-kyathit)
 - Pethia thelys — named on 1 page (species/pethia-didi)
-- Petitella georgiae — named on 1 page (guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners)
 - Phallichthys fairweatheri — named on 1 page (species/thorichthys-meeki)
 - Phenacogrammus deheyni — named on 1 page (species/alestopetersius-caudalis)
+- Phractolaemus ansorgii — named on 1 page (species/ctenopoma-acutirostre)
 - Physella acuta — named on 1 page (guides/aquatome-oc-hai-trong-be-thuy-sinh-nhan-biet-va-cach-loai-bo)
 - Physoschistura pseudobrunneana — named on 1 page (species/lepidocephalichthys-hasselti)
-- Pimelodus maculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Pimelodella cristata — named on 1 page (species/geophagus-neambi)
+- Pimelodus blochii — named on 1 page (species/geophagus-neambi)
 - Plagiomnium affine — named on 1 page (guides/youtube-xf_ylcdUQsQ)
+- Planiloricaria cryptodon — named on 1 page (species/geophagus-proximus)
 - Platydoras brachylecis — named on 1 page (species/platydoras-armatulus)
 - Platysilurus malarmo — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Platystomatichthys sturio — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pleistophora hyphessobryconis — named on 1 page (species/danio-rerio)
 - Poecilia mexicana — named on 1 page (species/thorichthys-meeki)
 - Poecilia petenensis — named on 1 page (species/thorichthys-meeki)
-- Poecilocharax weitzmani — named on 1 page (guides/seriouslyfish-articles-new-darter-characins-from-brazil)
-- Potamotrygon motoro — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
+- Poropanchax brichardi — named on 1 page (species/ctenopoma-acutirostre)
 - Pristobrycon striolatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Procambarus alleni — named on 1 page (species/procambarus-clarkii)
 - Prochilodus nigricans — named on 1 page (species/agamyxis-pectinifrons)
@@ -1073,90 +1110,70 @@ borrow one from a species or plant they mention on the site.
 - Pseudecheneis sulcata — named on 1 page (species/aborichthys-elongatus)
 - Pseudogastromyzon fangi — named on 1 page (species/sinogastromyzon-wui)
 - Pseudogobiopsis oligactis — named on 1 page (species/akysis-maculipinnis)
+- Pseudolaguvia muricata — named on 1 page (species/ctenops-nobilis)
+- Pseudolaguvia ribeiroi — named on 1 page (species/ctenops-nobilis)
 - Pseudolithoxus dumus — named on 1 page (species/baryancistrus-beggini)
 - Pseudomugil paskai — named on 1 page (guides/youtube-g6Rqis9uO1Y)
 - Pseudomystus rugosus — named on 1 page (species/barbodes-banksi)
 - Pseudomystus stenomus — named on 1 page (species/akysis-hendricksoni)
-- Pseudoplatystoma tigrinum — named on 1 page (guides/sprucepets-large-fish-for-freshwater-aquariums-7570272)
-- Pseudorasbora parva — named on 1 page (species/abbottina-rivularis)
 - Pseudorinelepis genibarbis — named on 1 page (species/agamyxis-pectinifrons)
 - Pseudotropheus elongatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pseudotropheus saulosi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pseudotropheus socolofi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pseudoxiphophorus bimaculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Psilorhynchus balitora — named on 1 page (species/botia-dario)
 - Psilorhynchus breviminor — named on 1 page (species/lepidocephalichthys-berdmorei)
+- Psilorhynchus sucatio — named on 1 page (species/ctenops-nobilis)
 - Psilorhynchus tenura — named on 1 page (species/schistura-denisoni)
-- Pterophyllum altum — named on 1 page (guides/sprucepets-angelfish-gallery-4121742)
 - Pterygoplichthys anisitsi — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pterygoplichthys gibbiceps — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pungitius pungitius — named on 1 page (species/apistogramma-pantalone)
-- Puntigrus anchisporus — named on 1 page (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name)
-- Puntius amphibius — named on 1 page (species/etroplus-maculatus)
 - Puntius kelumi — named on 1 page (species/puntius-bimaculatus)
 - Puntius madhusoodani — named on 1 page (species/puntius-mahecola)
 - Puntius melanostigma — named on 1 page (species/puntius-mahecola)
-- Pygocentrus piraya — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Pyrrhulina vittata — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Rasbora caverii — named on 1 page (species/haludaria-fasciata)
-- Rasbora elegans — named on 1 page (species/garra-borneensis)
 - Rasbora hobelmani — named on 1 page (species/lepidocephalichthys-hasselti)
 - Rasbora kalbarensis — named on 1 page (species/kottelatia-brittani)
 - Rasbora myersi — named on 1 page (species/acantopsis-dialuzona)
 - Rasbora notura — named on 1 page (species/rasbora-paviana)
 - Rasbora ornata — named on 1 page (species/badis-ferrarisi)
-- Rasbora rasbora — named on 1 page (species/lepidocephalichthys-berdmorei)
 - Rasbora reticulata — named on 1 page (species/rasbora-vulcanus)
-- Retroculus lapidifer — named on 1 page (species/acnodon-normani)
 - Rhadinocentrus ornatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Rhamdia guatemalensis — named on 1 page (species/thorichthys-meeki)
 - Rheoheros lentiginosus — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Rhinecanthus aculeatus — named on 1 page (guides/sprucepets-triggerfish-family-balistidae-profile-2925851)
 - Rhinichthys cataractae — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Rhinichthys osculus — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
-- Rhinogobius chiengmaiensis — named on 1 page (species/nemacheilus-binotatus)
 - Rhinogobius lindbergi — named on 1 page (species/abbottina-rivularis)
-- Rhinogobius mekongianus — named on 1 page (species/homalopteroides-smithi)
-- Rhinogobius zhoui — named on 1 page (species/rhinogobius-duospilus)
 - Rhodobryum giganteum — named on 1 page (guides/aquariumbreeder-top-10-weirdly-beautiful-aquarium-plants)
 - Richardsonius balteatus — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Rineloricaria cacerensis — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Sargocentron xantherythrum — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Satanoperca acuticeps — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Scaphirhynchus platorynchus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Schistura balteata — named on 1 page (guides/loachesonline-articles-breeding-sewellia)
+- Schismatorhynchos holorhynchos — named on 1 page (species/crossocheilus-elegans)
 - Schistura breviceps — named on 1 page (species/homalopteroides-smithi)
 - Schistura cryptofasciata — named on 1 page (species/schistura-nicholsi)
-- Schistura devdevi — named on 1 page (species/aborichthys-elongatus)
 - Schistura kohchangensis — named on 1 page (species/akysis-maculipinnis)
-- Schistura latifasciata — named on 1 page (species/abbottina-rivularis)
 - Schistura moeiensis — named on 1 page (species/acanthocobitis-zonalternans)
 - Schistura mukambbikaensis — named on 1 page (species/schistura-denisoni)
 - Schistura multifasciata — named on 1 page (species/schistura-vinciguerrae)
 - Schistura nilgiriensis — named on 1 page (species/schistura-denisoni)
 - Sciades herzbergii — named on 1 page (species/anableps-anableps)
+- Scriptaphyosemion chaytori — named on 1 page (species/epiplatys-annulatus)
 - Selenotoca multifasciata — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Serrapinnus calliurus — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
-- Serrasalmus serrulatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Sewellia albisuera — named on 1 page (species/sewellia-lineolata)
-- Sinogastromyzon puliensis — named on 1 page (species/sinogastromyzon-wui)
 - Sorubim elongatus — named on 1 page (species/agamyxis-pectinifrons)
 - Stenogobius ingeri — named on 1 page (species/barbodes-banksi)
-- Stigmatogobius sadanundio — named on 1 page (species/anableps-anableps)
+- Sturisoma nigrirostrum — named on 1 page (species/geophagus-proximus)
 - Sundadanio margarition — named on 1 page (species/pangio-semicincta)
 - Synbranchus madeirae — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Syncrossus reversa — named on 1 page (guides/loachesonline-articles-telling-tigers-apart-the-syncrossus-genus)
 - Syngonium podophyllum — named on 1 page (guides/youtube-PVRlXXhdD7U)
-- Synodontis angelicus — named on 1 page (species/pimelodus-pictus)
-- Synodontis flavitaeniatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Systomus sarana — named on 1 page (species/schistura-denisoni)
 - Taeniolethrinops praeorbitalis — named on 1 page (species/cyrtocara-moorii)
-- Tanganicodus irsacae — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
-- Tanichthys micagemmae — named on 1 page (species/tanichthys-albonubes)
 - Tanichthys thacbaensis — named on 1 page (species/tanichthys-albonubes)
 - Taxus baccata — named on 1 page (guides/youtube-9zhkRJllCNg)
 - Telmatherina bonti — named on 1 page (guides/sprucepets-types-of-rainbow-fish-5272300)
-- Thalassophryne amazonica — named on 1 page (species/allenbatrachus-grunniens)
 - Theraps godmanni — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Thorichthys maculipinnis — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Thorichthys socolofi — named on 1 page (species/thorichthys-meeki)
@@ -1164,29 +1181,26 @@ borrow one from a species or plant they mention on the site.
 - Trachelyopterus galeatus — named on 1 page (species/agamyxis-pectinifrons)
 - Trichomycterus zonatus — named on 1 page (guides/seriouslyfish-articles-phallusy-or-foe-the-myth-of-the-candiru)
 - Tricuspidalestes caeruleus — named on 1 page (species/alestopetersius-caudalis)
-- Trigonostigma somphongsi — named on 1 page (guides/seriouslyfish-articles-ffsg-has-global-mission)
 - Triplophysa stoliczkai — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Triportheus trifurcatus — named on 1 page (species/geophagus-neambi)
 - Turbatrix aceti — named on 1 page (species/parosphromenus-linkei)
-- Tyttocharax tambopatensis — named on 1 page (species/mikrogeophagus-altispinosus)
+- Tylochromis aristoma — named on 1 page (species/ctenopoma-acutirostre)
 - Vallisneria nana — named on 1 page (guides/youtube-ahN0nP8HLaI)
-- Variabilichromis moorii — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-m-1378548)
 - Vesicularia dubyana — named on 1 page (guides/youtube-OSR9EPaO78Q)
-- Vieja maculicauda — named on 1 page (guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy)
 - Vittina natalensis — named on 1 page (guides/youtube-_ZxeBxNRdPU)
 - Vittina turrita — named on 1 page (species/vittina-waigiensis)
 - Xiphophorus clemenciae — named on 1 page (species/xiphophorus-hellerii)
 - Xiphophorus monticolus — named on 1 page (species/xiphophorus-hellerii)
 - Xiphophorus multilineatus — named on 1 page (species/xiphophorus-pygmaeus)
 - Xiphophorus nigrensis — named on 1 page (species/xiphophorus-pygmaeus)
-- Yasuhikotakia caudipunctata — named on 1 page (guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms)
 - Yasuhikotakia longidorsalis — named on 1 page (guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms)
+- Yunnanilus brevis — named on 1 page (species/danio-erythromicron)
 - Yunnanilus pulcherrimus — named on 1 page (species/yunnanilus-cruciatus)
 - Zophobas atratus — named on 1 page (species/channa-asiatica)
+- Zungaro zungaro — named on 1 page (species/pseudopimelodus-schultzi)
 - Arapaima gigas — named on 0 pages ()
 - Caridina gracilirostris — named on 0 pages ()
-- Chindongo demasoni — named on 0 pages ()
 - Cyprinus carpio — named on 0 pages ()
-- Epalzeorhynchos frenatum — named on 0 pages ()
 - Helostoma temminkii — named on 0 pages ()
 - Microrasbora erythromicron — named on 0 pages ()
 - Neritina natalensis — named on 0 pages ()
