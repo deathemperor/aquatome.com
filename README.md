@@ -1,78 +1,50 @@
-# thủy·sinh (working name)
+# AquaTome
 
-Vietnamese-first aquarium knowledge site: species, plants, guides and glossary, translated from licensed sources.
-Design: `docs/superpowers/specs/2026-10-28-aquarium-site-design.md` · Plans: `docs/superpowers/plans/`.
+[aquatome.com](https://aquatome.com): an aquarium handbook for Vietnam first, with Indonesian and Thai versions. Species,
+plants, guides, a glossary and tools (tank volume, tank-mates, Chihiros lights, saved tanks). A content engine translates
+the pages from sources that gave permission. An iOS app is in progress.
 
-## Requirements
-- [nvm](https://github.com/nvm-sh/nvm) and **Node 24.22.1** (`nvm install && nvm use` reads `.nvmrc`). Do not use Node 25.x (CVE-2026-111497).
-- pnpm 10+
+## Layout
 
-## Commands
+| Path | What |
+|---|---|
+| `apps/site` | Astro static site and its Cloudflare Worker (affiliate links, comments, accounts) |
+| `apps/ios` | SwiftUI app ([README](apps/ios/README.md)) |
+| `packages/schema` | the content model (`@aq/schema`); the site reads content only through `loadAll()` |
+| `packages/engine` | the content engine ([README](packages/engine/README.md)) |
+| `content/` | engine output: `{species,plants,guides,glossary,places}/{id}/entity.json` (data, English source text) + `vi.json` |
+| `protocols/` | device and sync vectors the site and the app both test against |
+| `docs/` | [governance](docs/governance.md) (checks and rules), [saved-tank sync](docs/my-tanks-sync.md), research, specs |
+| `PRODUCT.md` | who the product is for and how it should feel |
+
+## Develop
+
+Node 24.22.1 (`nvm use` reads `.nvmrc`; not 25.x) and pnpm 10+.
+
 | | |
 |---|---|
 | `pnpm i` | install |
 | `pnpm dev` | local site at http://localhost:4321/vi/ |
-| `pnpm build` | static build to `apps/site/dist` (+ Pagefind search index) |
-| `pnpm typecheck` | `tsc` for the schema, `astro check` for the site (pins TypeScript 6; astro check doesn't support TS 7 yet) |
-| `pnpm test` | all tests (schema unit tests; site builds, then tests its output) |
+| `pnpm test` | every package's tests; builds the site from `apps/site/test/fixture-content/` |
+| `pnpm typecheck` | `tsc` and `astro check` |
+| `pnpm --filter site e2e` | browser checks on that build ([e2e/README](apps/site/e2e/README.md)) |
+| `pnpm build` | static build to `apps/site/dist` with the Pagefind index |
 
-Build-time environment:
-- `PUBLIC_BUILD=1`: only sources with `"publish": true` in `content/sources.json` are built.
-- `STAGING=1`: every page `noindex`, `robots.txt` disallows all (use for the huuloc.com staging subdomain).
-- `SITE_URL`: absolute site URL for canonical links and the sitemap.
-- `CONTENT_ROOT`, `OUT_DIR`: override content and output directories.
+Build environment: `PUBLIC_BUILD=1` builds only cleared sources, `SITE_URL` sets canonical links and the sitemap,
+`STAGING=1` makes every page `noindex`, `CONTENT_ROOT` / `OUT_DIR` move content and output, and `I18N_LENIENT=1` lets an
+untranslated UI string through (the engine cycle only).
 
-## Content layout
-```
-content/sources.json                                    # per-source name, homepage, publish flag, permission record
-content/{species|plants|guides|glossary|places}/{id}/entity.json   # language-neutral data + English source sections
-content/{species|plants|guides|glossary|places}/{id}/vi.json       # Vietnamese translation, slug, quality score
-```
-The model and its rules live in `packages/schema` (`@aq/schema`). The site reads content only through `loadAll()`.
+## Ship
 
-## Publish gate
-Every source starts with `"publish": false`. Set it to `true` only after its written permission (translation, automated copying,
-restating facts, commercial use with ads and affiliate links) is recorded in its `permission` field. Public builds drop content
-from sources that aren't cleared. Photos load only with CC0, CC BY, CC BY-SA or public-domain licences.
+A pull request runs `ci.yml`. A squash merge to `main` runs `deploy.yml`, which tests and deploys to aquatome.com, and
+`watch.yml` then checks the live site. Problems become issues, and `fix.yml` drafts fixes for them
+([governance](docs/governance.md)). The engine (`engine.yml`, every 3 h) pushes content the same way. A manual deploy:
+`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy.sh`.
 
-`content/` holds engine output (Plan 2). Site tests use the sample store in `apps/site/test/fixture-content/` (placeholder Vietnamese text, Wikimedia Commons photos; generator `scripts/gen-sample-content.py`).
+## Content rules
 
-## Deploy
-`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy.sh` builds the publish-gated site (`PUBLIC_BUILD=1`)
-and deploys it to https://aquatome.com (Worker `aquatome`, `apps/site/wrangler.jsonc`). www.aquatome.com and the old staging
-host thuysinh.infinitus.run 301 to it. The engine cycle runs this after each content run.
-
-## Content engine
-
-`packages/engine` keeps `content/` in sync with the sources on the always-on home machine.
-
-| Command | Does |
-|---|---|
-| `pnpm engine run [--sources a,b] [--limit N] [--max-minutes M] [--only <url regex>]` | discover → fetch (real Chrome, ≥5 s per source) → snapshot to `sources/` → Claude classify + translate + review → merge into `content/` → photos → changelog |
-| `pnpm engine summaries [--top N]` | draft "Tóm tắt nhanh" + common mistakes for the best indexable species, from their translated text only → `content/summaries/` (pending) + `docs/review/summaries.md` |
-| `pnpm engine summaries approve <id,id\|all>` | publish reviewed summaries (the site shows approved ones only) |
-| `pnpm engine traits [--limit N]` | temperament, fin-nipping, minimum school size from each species page's text → `content/traits/` (tank-mates checker); run by the cycle |
-| `pnpm engine thumbs` | 480px card thumbs for photos stored before thumbs existed; run by the cycle |
-| `pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill]` | Jim Cumming's Facebook (posts, albums) → full-size originals in R2 `facebook/` + snapshots in `sources/facebook-jim/` → species in his photos (Claude, high confidence only, `--limit` model calls) → species galleries |
-| `pnpm engine status` | URL counts per source and status from `engine-state/` |
-
-- Fetching uses headed Chrome (`~/.cache/thuysinh/chrome-profile`). A challenge page marks the source `needs-human`: open that profile, pass the check by hand, and the next run continues. No stealth or solvers.
-- Translation: `claude -p --model sonnet` on the owner's subscription with a lean prompt; a second pass scores it. Scores under 0.75 get one re-translation with the reviewer's notes, and are noindexed if still low.
-- Facebook: a **spare** Facebook account is logged into the engine Chrome profile by hand (not the owner's own). Run `pnpm engine facebook --backfill` by hand first (whole timeline and every album, up to 10 h), again until it prints no `warning:` lines; normal runs only read what's new at the top. Logged out or at a checkpoint, the run stops and `facebook-jim` is blocked until `pnpm engine facebook --retry-blocked`. Originals sit unconverted at `https://media.aquatome.com/facebook/<photo id>.<ext>` (public, not linked from the site). State: `engine-state/facebook-jim-crawl.json` (crawl) and `facebook-jim-photos.json` (one decision per photo). Re-capture parser fixtures with `packages/engine/scripts/fb-recon.ts` + `fb-fixtures.ts` when Facebook changes.
-- Photos: the best few photos on each source page are copied to R2 `thuysinh-media` (≤1200 px WebP, `https://media.aquatome.com`) and credited to the source page. They follow the source's publish flag. Wikimedia Commons (open licences) is the fallback.
-- Credentials (never committed): `~/.config/thuysinh/cf-token` and `~/.config/thuysinh/cf-account`, or `CLOUDFLARE_API_TOKEN` / `CF_ACCOUNT_ID`. Optional: `YOUTUBE_API_KEY` for videos.
-- Schedule: GitHub Actions `engine.yml` runs `scripts/engine-cycle.sh` (pull → run → test → commit + push → deploy) every 3 h as three parallel jobs, each publishing its own part: `pages` (new pages), `photos` (photo upkeep), `rewrite` (older Vietnamese). `pages` and `photos` use macOS runners (face screening uses Apple Vision; the fetcher drives a headed Chrome). The engine-state photo caches merge through `scripts/merge-json-map.mjs` (`.gitattributes`). Manual run: `gh workflow run engine.yml -f engine_args="--sources scotcat --limit 2"`. `moderate.yml` moderates comments and reader photos nightly; `deploy.yml` deploys every merge to main; `ci.yml` tests PRs. Secrets: `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`), `CLOUDFLARE_API_TOKEN`, `AB_DASH_TOKEN`; variable `CF_ACCOUNT_ID`.
-- YouTube steps (videos → guides, their species and kit, playlist discovery) run on the owner's Mac, because YouTube throttles GitHub's IPs: `scripts/install-video-schedule.sh` installs `run.thuysinh.videos` (`scripts/video-cycle.sh` every 3 h; log `~/Library/Logs/thuysinh-videos.log`). It also starts the GitHub engine workflow when that hasn't run for 3 hours (GitHub's cron drops slots). Video metadata comes from the YouTube Data API (`~/.config/thuysinh/youtube-api-key` or `YOUTUBE_API_KEY`), so yt-dlp only fetches captions; `~/.config/thuysinh/yt-cookies-from` (e.g. `chrome:Profile 2`) signs yt-dlp in. `content/changelog.json` merges through `scripts/merge-changelog.mjs` (`.gitattributes`).
-- On a Mac instead: `scripts/install-engine-schedule.sh` installs the launchd agent `run.thuysinh.engine` (same script, every 6 h, from a dedicated clone; log `~/Library/Logs/thuysinh-engine.log`). Don't run both.
-
-## Affiliate
-
-Every product link on the site is a `/go/{shopee|lazada|tiki}/?k=keyword&c=category&e=kind:id` link. The Worker redirects it:
-1. to the best active product for that placement in the D1 `products` catalog, if one was checked in the last 48 h;
-2. otherwise to the marketplace search for the keyword.
-
-Either target is wrapped in the network's deeplink template when the secret `AFF_TEMPLATE_SHOPEE` (and the `_LAZADA` / `_TIKI` equivalents) is set, e.g. `wrangler secret put AFF_TEMPLATE_SHOPEE` with `https://go.isclix.com/deep_link/<id>?url={url}`. Search links never go dead.
-
-Clicks are counted per day and placement in D1. The daily cron checks products through each network's API: two failed checks in a row set a product `inactive` and the redirect falls through automatically, while `unknown` (no API credentials yet) never deactivates.
-
-To add listings once an account exists, run `scripts/aff-add.sh products.json`. Results show on the `/_ab/` dashboard.
+- Every source in `content/sources.json` starts with `"publish": false`. It turns `true` only once its written permission
+  (translation, automated copying, restating facts, commercial use with ads and affiliate links) is recorded in its
+  `permission` field. Public builds drop the rest.
+- Photos: CC0, CC BY, CC BY-SA, public domain, or recorded permission; no people.
+- Product links go through `/go/…` ([affiliate](apps/site/worker/affiliate/README.md)).
