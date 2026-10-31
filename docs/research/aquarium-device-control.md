@@ -292,12 +292,15 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 - The `0xfe` status snapshot carries the light's clock at bytes 6–8. It read zero after a power cut until a clock sync. This answers test 5: the on-device schedule runs on a clock that a power cut resets.
 - Lesson for the app: the snapshot does not hold the per-channel manual levels. Our test left the light in manual mode at 70 on R/G/B, and the levels set before the test could not be read back. The app must save the user's settings itself before it changes anything.
 
-**Week Aqua-board lights** (3 found; names `B3.0-*`, manufacturer ID 18007). Identified, but no commands were sent.
+**Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007). Identified, but no commands were sent.
 - Chip: Beken `BK-BLE-1.0`. Service `fff0`: `fff2` write, `fff1` notify.
 - They also expose a firmware-update (OAD) service, `f000ffc0`. The app must never write to it.
 - The model code (test 3) is still unread. Per alokauz, these lights can't report their state.
 
-**A Tuya BLE device** (service data `a201`, company ID `0x07D0`). Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`). Control needs the device's local key from a Tuya cloud project.
+**The owner's Love Ecology device is a Tuya BLE device.** It advertises as `TY` (service data `a201`, company ID `0x07D0`).
+- How we know: it is always on. Before the lights were switched on, it was the only aquarium-type device with a strong signal (about −70 dBm, like the lights later). The Chihiros and the Week Aqua-type lights appeared only after.
+- Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`). Control needs the device's local key from a Tuya cloud project. So this brand belongs with the Tuya devices (rank 3), not the BLE lights.
+- The advertised product ID is the raw (type 1) form, so the device type can't be read without the Tuya cloud.
 
 What this changes:
 - Test 1 is still open: Chrome on Android hasn't been tried.
