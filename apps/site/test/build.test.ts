@@ -107,6 +107,10 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     const { html, dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
     expect(html).toContain('2Hr Aquarist')
     expect(dom.querySelector('main .gl')).not.toBeNull()
+    // Each term carries its name and definition for the hover/tap card.
+    const gl = dom.querySelector('main a.gl')!
+    expect(gl.getAttribute('data-term')).toBeTruthy()
+    expect(gl.getAttribute('data-tip')!.length).toBeGreaterThan(20)
   })
   test('guide links species, genus and equipment it names; those pages link back', () => {
     const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')

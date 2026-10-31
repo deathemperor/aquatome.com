@@ -5,6 +5,7 @@ import ProductSlots from '../../../components/ProductSlots.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import GuideCard from '../../../components/GuideCard.astro'
+import GlossaryTip from '../../../components/GlossaryTip.astro'
 import { getContent } from '../../../lib/content'
 import { categoriesIn, normKeyword, speciesUsing, typeUses, type CategoryUse } from '../../../lib/equipment'
 import { alternatesWhere } from '../../../lib/alternates'
@@ -132,6 +133,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
       <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
     </details>
   )}
+  <GlossaryTip />
 </Browse>
 <style>
   .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-6); align-items: start; margin-bottom: var(--space-6); }

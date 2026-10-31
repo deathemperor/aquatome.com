@@ -5,6 +5,7 @@ import Nav from '../../../components/Nav.astro'
 import SpeciesCard from '../../../components/SpeciesCard.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import SourceCredit from '../../../components/SourceCredit.astro'
+import GlossaryTip from '../../../components/GlossaryTip.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
@@ -129,6 +130,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
     </section>
   )}
   <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
+  <GlossaryTip />
 </Base>
 <style>
   .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }
