@@ -79,6 +79,8 @@ if part photos; then
   pnpm engine photos --limit 60 || log "photos: backfill failed"
   # Nonn Panitvong's FishBase photos (used with permission) on species pages made since the last cycle.
   pnpm engine fishbase-photos || log "fishbase-photos: failed"
+  # Jan D. Bastmeijer's own photos (used with permission) on Cryptocoryne pages that have none of his yet.
+  pnpm engine crypts-photos || log "crypts-photos: failed"
 fi
 if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).
