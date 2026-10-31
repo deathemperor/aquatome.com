@@ -60,6 +60,8 @@ test('plants and guides', () => {
   const g = writeGuide(page({ kind: 'guide', sections: [], guide: { kind: 'setup', viTitle: 'Dựng bể đầu tiên', viBody: '<p>Bước 1.</p>' } }), { source: 'aquariumcoop', url: 'https://www.aquariumcoop.com/blogs/aquarium/first-tank?x=1', now: '2026-10-28', takenSlugs: new Set() })
   expect(g?.entity).toMatchObject({ id: 'aquariumcoop-blogs-aquarium-first-tank', kind: 'setup', source: 'aquariumcoop' })
   expect(g?.vi).toMatchObject({ name: 'Dựng bể đầu tiên', body: '<p>Bước 1.</p>', slug: 'dung-be-dau-tien' })
+  const piped = writeGuide(page({ kind: 'guide', sections: [], guide: { kind: 'setup', viTitle: 'Cách nuôi Daphnia | Nuôi Daphnia cơ bản', viBody: '<p>x</p>' } }), { source: 'aquariumcoop', url: 'https://www.aquariumcoop.com/blogs/aquarium/daphnia', now: '2026-10-28', takenSlugs: new Set() })
+  expect(piped?.vi).toMatchObject({ name: 'Cách nuôi Daphnia', slug: 'cach-nuoi-daphnia' })
 })
 
 test('vague or phrase-like regions are dropped', () => {

@@ -100,7 +100,7 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
     id: guideId(ctx.source, ctx.url), kind: page.guide.kind, source: ctx.source, sourceUrl: `${u.origin}${u.pathname}`, html: '',
     photos: prev?.entity?.photos ?? [], mentions: prev?.entity?.mentions ?? [], updatedAt: ctx.now,
   }
-  const name = page.guide.viTitle
+  const name = page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
   return { entity, vi: { slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: page.guide.viBody, quality: ctx.quality ?? DEFAULT_QUALITY } }
 }
 
