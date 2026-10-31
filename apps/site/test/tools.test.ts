@@ -41,7 +41,7 @@ test('tools page: nav link, sitemap, species index carries size and hardness; sp
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
   expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8 })
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/cong-cu/')
-  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('a[href="/vi/cong-cu/?ca=ca-neon-vua#nuoi-chung"]')).not.toBeNull()
+  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('a[href="/vi/cong-cu/?ca=ca-neon-vua:8#nuoi-chung"]')).not.toBeNull()
 })
 
 test('tankmates: behaviour notes from traits', () => {
