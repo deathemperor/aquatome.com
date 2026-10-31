@@ -1,0 +1,552 @@
+{
+  "found": true,
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Thread (filamentous) algae are colonies of single-celled algae joined into long green threads.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Filamentous algae is a group that includes hair, staghorn, string and thread algae. Pulled out of the tank, it looks like wet hair.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Blue-green 'algae' (cyanobacteria) are bacteria, not true algae.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Green water is caused by free-floating single-celled organisms (Euglena) that cloud the water.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "The goal should be to keep algae at a safe level, not to wipe it out 100%.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Black beard algae (BBA, rêu chùm đen) is called the hardest nuisance algae to treat.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Black brush/beard algae (Rhodophyta) is a black, brown, red or green coating that can quickly cover plants and hardscape.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu chùm đen grows in black, dark green or dark red tufts and favours strong water flow.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "BBA is black or grey and grips tightly to rocks, driftwood and leaf edges.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Staghorn algae (Compsopogon sp.) is coarse, branching strands like antlers, in white, grey or green, on leaves and equipment.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu sừng hươu is grey-green and branching. It often appears where flow is strong, such as at the filter outlet.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Brown algae (diatoms) form a brown, muddy film on leaves and hardscape. They are rare in established tanks.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Tảo nâu (diatoms) is a brown slimy layer on glass, rocks and driftwood that wipes off easily.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Cyanobacteria form green, black or purple slime with an 'earthy' smell.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu nhớt (cyanobacteria) forms a thick, mat-like layer with gas bubbles underneath. It is dark green in freshwater and dark red in saltwater.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu nhớt xanh smells pungent.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Cladophora forms tough, green, wool-like mats, often in hairgrass, substrate and hardscape.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fuzz algae shows as slightly fuzzy edges on plant leaves.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu lông tơ shows as short threads, about 2 cm long, on leaf edges, mostly in brightly lit tanks.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Green dust algae (GDA) is a dusty green film on the glass that usually avoids hardscape and leaves.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Green spot algae (Choleochaete orbicularis) appears on glass and on long-lived leaves such as Java fern, Anubias and Bolbitis.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Hair/thread algae has long green filaments up to 30cm, often tangled in moss.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "White 'algae' (rêu trắng) is fungus or bacteria. The fungal form is cottony and grows on leftover food or new driftwood. The bacterial form is a thin film over substrate, plants and rocks after setup.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Green water is normally caused by too high nutrient concentrations in the water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Blue-green coatings usually appear only from excessive feeding.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Filamentous algae is linked to excess nutrients such as iron, too much light, or too few nutrients for a long lighting period.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Hair/thread algae is linked to iron above 0.15ppm.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "BBA is linked to nutrient imbalance (possibly excess N, P, Fe). Low pH is a suspected cause, only 'believed' rather than proven.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Staghorn is linked to nutrient imbalance and low CO2.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Diatoms are linked to new setups, excess silica and possibly old bulbs.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Cyanobacteria are linked to low nitrate, high organics from overfeeding, old bulbs and poor circulation.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Green spot algae appears almost exclusively when phosphate (PO4) is depleted.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Cladophora can be brought in with Marimo balls.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Green water can follow a new setup, a nutrient imbalance, or medication that damages the biofilter.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Spirogyra often appears about 2 weeks after setup, while the nitrogen cycle is still unstable, from excess light and nutrients.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Light is a main driver: lights on too long, too strong, or not made for planted tanks.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Rêu trắng does not photosynthesise, so cutting light does not help. It feeds on leftover food and waste, and poor flow lets it settle.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Pull filamentous algae out by hand, using a toothbrush on large clumps.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Shorten the lighting period when filamentous algae appears.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Bleach dip for BBA or staghorn on hardscape and hardy plants: 1:20 bleach to water, then rinse until there is no bleach smell before returning items to the tank.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Spot-treat BBA with Excel or H2O2 from a syringe, then remove it by hand once it turns grey/white.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper algaecides will most likely also kill aquarium plants. GWAPA does not recommend them.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For cyanobacteria: raise nitrate to about 5ppm, black out the tank, and add fast-growing plants.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Erythromycin at half dosage (Maracyn) is used against cyanobacteria without harming most plants.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For green spot algae, raise PO4 to 0.5-2.0ppm and scrape the glass with a razor blade.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Green dust algae can be left alone. It should harden and fall off after roughly 21 days, then scrape the rest and do a thorough clean and water change.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For green water: blackout for 5 days plus small 5-10% water changes daily until clear. A UV sterilizer, micron filter, flocculant or Daphnia also help.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "After a 5-day blackout, plants may look a little ratty for a week or so.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Most fish and invertebrates will not eat staghorn algae.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Amano shrimp are the main control for thread algae. Up to 2 shrimps per 5 L of water may be needed for a transitional period.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Tropica generally advises against removing thread algae with chemicals, because some products harm aquarium plants.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Tropica does not recommend UV as a standard aid against green water, because the UV light also kills useful bacteria.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem's test on Vallisneria: no problems at the recommended Excel dose. At double dose some leaves melted, but new leaves grew back strongly.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says Excel damage to vals is temporary because roots are not affected. Dosing N, P, Fe and K alongside lets vals take much higher Excel levels without melting.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "One method: mix H2O2 50:50 with water and inject it into the worst algae. Turn the filter off for a few hours, then change 50% of the water the next day. Repeat if needed, but do not overuse.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For BBA, inject 3% H2O2 directly into the algae with a syringe. The source gives roughly 1 ml per 2 litres of water.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Diatoms in a new tank usually go away in 4-6 weeks as the tank settles, or can be scrubbed off.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "For diatoms, check or replace the lights and change 30-50% of the water repeatedly until they are gone. Otocinclus help.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Whole-tank H2O2 dose: 1.5ml of 3% hydrogen peroxide per 1 gallon of true water volume (minus substrate and decor).",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "H2O2 kills nitrifying bacteria. Take the filter out and run it in saved tank water during treatment, and check ammonia afterwards.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "No published experiments measure how much H2O2 dwarf shrimp can take. Overdosing can kill shrimp, and baby shrimp are less resistant.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "If shrimp show distress after H2O2, dose 2-3 times the normal water conditioner amount to neutralise the peroxide.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "The Shrimp Farm does not recommend H2O2 for purely cosmetic algae. For BBA it prefers scrubbing by hand.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Algae eaters: otocinclus for soft algae and diatoms, Siamese algae eater for BBA and staghorn, Amano shrimp for hair algae, nerite snails for hard algae on glass.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Nerite snails clear green spot algae from leaves and glass.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: identify the algae type, because each type has different causes and treatments.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: remove algae by hand (toothbrush, tweezers, scraper) and trim badly covered or old leaves.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: do weekly to bi-weekly water changes and rebalance nutrients and CO2.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: spot-treat stubborn BBA, staghorn or Cladophora with Excel or H2O2.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Step 5: add a suitable cleanup crew for the algae type.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Nutrient targets: N 10-20ppm, P 0.5-2ppm, K 10-20ppm, Ca 10-30ppm, Mg 2-5ppm, Fe 0.1ppm. CO2 20-30ppm as livestock allow.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Light 6-8 hours/day, or 5-6 hours/day for a new tank. It can be split into 2-3 periods of 3-4 hours each.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Light 8-10 hours/day, or 4-6 hours for a new tank.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep CO2 at 20-30 ppm, checked with a drop checker (green means correct).",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Filter flow should be 5-7 times tank volume (a 100 litre tank needs 500-700 litres/hour).",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Water changes: 2-3 times a week in the first month. In a stable tank, 20-30% per week.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Water changes: 20% 2-3 times a week in a new tank, 10-15% daily in a stable tank.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Feeding less usually makes blue-green algae disappear again.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not let nitrate drop to zero, since that triggers cyanobacteria.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overdosing algae chemicals to get quick results stresses fish, weakens plants and upsets the bacteria.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Turning lights off for many days to 'kill' algae is listed as a mistake.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing too much water, or changing it too suddenly, is a common error.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating only the symptom without finding the cause lets algae come back.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Siamese algae eaters (cá bút chì) and cá nô lệ eat nuisance algae at first, but later eat decorative moss and damage plants.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Scraping green dust algae early may interrupt its lifecycle and delay clearing.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Large water changes against green water stop helpful microorganisms from establishing.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Without fixing water quality and excess nutrients first, algae will likely return after H2O2 treatment.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese hobbyists use these names: rêu chùm đen (BBA), rêu sừng hươu (staghorn), rêu tóc (hair algae), tảo nâu (diatoms), rêu nhớt/rêu lam (cyanobacteria), rêu đốm xanh (green spot), rêu bụi xanh (GDA), rêu lông tơ (fuzz), nước xanh (green water).",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for algae eaters include cá bút chì (Siamese algae eater), tép Yamato/Amano, cá otto and ốc Nerite.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Cheap local algae eaters recommended include mún đỏ, cá hòa lan, cá hắc culy, tép mồi and tép RC.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Outdoor tanks get algae back more easily because of direct sun.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Strong light, often from sun on outdoor tanks, is the main cause of green water (rêu nước xanh).",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Keep direct sunlight off the tank, and use dechlorinated or RO water.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Products sold in Vietnam for algae include Seachem Excel, JBL Algol and ADA Phyton Git (herbal, gentler).",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Hair algae eaters named in Vietnamese include tép Amano, tép mũi đỏ, tép Thanh Mai, ốc Nerita and cá bút chì.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "GWAPA says the idea that low pH causes BBA is a belief, not established fact.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "GWAPA says expecting fish or invertebrates to control staghorn is wrong, since most will not eat it.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Diatom growth is tied to silica. Check silica levels with your water utility.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Cladophora is hard to remove completely and can be left if it is not a problem.",
+      "source": 4
+    }
+  ],
+  "species": [
+    "Vallisneria spp.",
+    "Anubias spp.",
+    "Microsorum pteropus",
+    "Bolbitis heudelotii",
+    "Crossocheilus siamensis",
+    "Caridina multidentata",
+    "Otocinclus spp.",
+    "Neritina spp."
+  ],
+  "sources": [
+    {
+      "url": "https://tropica.com/en/guide/algae-control/types-of-algae/",
+      "title": "Tropica – Types of algae",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/string-algae-hair-algae",
+      "title": "Aquarium Co-Op – How to get rid of hair, staghorn, string and other filamentous algae",
+      "kind": "maker"
+    },
+    {
+      "url": "https://gwapa.org/wordpress/articles/algae-in-the-planted-aquarium/",
+      "title": "GWAPA – Algae in the Planted Aquarium",
+      "kind": "article"
+    },
+    {
+      "url": "https://seachem.zendesk.com/hc/en-us/articles/115000426233-FAQ-Will-Seachem-Flourish-Excel-kill-my-Vals-or-will-they-adapt-over-time",
+      "title": "Seachem FAQ – Will Flourish Excel kill my Vals?",
+      "kind": "maker"
+    },
+    {
+      "url": "http://saigonaqua.com/2014/04/nhan-biet-cac-loai-reu-hai-nguyen-nhan-va-cach-diet.html",
+      "title": "SaigonAqua – Rêu hại hồ thủy sinh: nhận biết, nguyên nhân và cách diệt",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquasetup.com/10-loai-reu-hai-thuy-sinh-nguyen-nhan-va-cach-tri-dut-diem/",
+      "title": "AquaSetup – 10 loại rêu hại thủy sinh: nguyên nhân và cách trị",
+      "kind": "article"
+    },
+    {
+      "url": "https://chothuysinh.com/cach-tri-reu-hai-trong-be/",
+      "title": "Chợ Thủy Sinh – Cách trị rêu hại trong bể thủy sinh",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/posts/hydrogen-peroxide-treatment-shrimp/",
+      "title": "The Shrimp Farm – Hydrogen peroxide treatment for shrimp",
+      "kind": "article"
+    }
+  ]
+}

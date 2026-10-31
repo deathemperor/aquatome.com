@@ -1,0 +1,408 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Trichopodus trichopterus",
+    "Oncorhynchus mykiss",
+    "Cyprinus carpio"
+  ],
+  "sources": [
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/common-environmental-hazards-for-fish",
+      "title": "Common Environmental Hazards for Fish (Merck Veterinary Manual)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://fishdoc.co.uk/miscellaneous-diseases-dropsy-hypoxia-and-gas-bubble-disease/",
+      "title": "Miscellaneous Diseases: Dropsy, Hypoxia and Gas-bubble Disease (FishDoc)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/features/what-should-i-do-if-my-fish-are-gasping/",
+      "title": "What should I do if my fish are gasping? (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.globalseafood.org/advocate/nitrite-toxicity-affected-by-species-susceptibility-environmental-conditions/",
+      "title": "Nitrite toxicity affected by species susceptibility, environmental conditions (Global Seafood Alliance)",
+      "kind": "article"
+    },
+    {
+      "url": "https://vietvetpharma.com/blogs/thong-tin-ky-thuat/ca-noi-dau-ngap-khi-nguyen-nhan-va-cach-khac-phuc",
+      "title": "Cá nổi đầu, ngáp khí: nguyên nhân và cách khắc phục (Vietvet Pharma)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://sonnmt.phutho.gov.vn/vi/thuy-san/khac-phuc-tinh-trang-ca-noi-dau-trong-ao-nuoi",
+      "title": "Khắc phục tình trạng cá nổi đầu trong ao nuôi (Sở NN&MT Phú Thọ)",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage-preparation",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage (Aquarium Co-Op)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During a Power Outage (Chewy)",
+      "kind": "article"
+    },
+    {
+      "url": "https://read.qxmd.com/read/30570160/hypoxia-induced-developmental-plasticity-of-larval-growth-gill-and-labyrinth-organ-morphometrics-in-two-anabantoid-fish-the-facultative-air-breather-siamese-fighting-fish-betta-splendens-and-the-obligate-air-breather-the-blue-gourami-trichopodus-trichopter",
+      "title": "Hypoxia-induced developmental plasticity of gill and labyrinth organ in Betta splendens and Trichopodus trichopterus",
+      "kind": "paper"
+    },
+    {
+      "url": "https://microbelift.vn/ca-thieu-oxy-nguyen-nhan-dau-hieu-khac-phuc/",
+      "title": "Cá thiếu oxy: Nguyên nhân, dấu hiệu và cách khắc phục (Microbe-Lift Việt Nam)",
+      "kind": "maker"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Fish swim up to the surface because the water there has the most dissolved oxygen.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Gasping at the surface can be an early warning of a wider problem in the tank, so treat it as a reason to investigate.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "If the cause is nitrite poisoning or zero oxygen, fish can die within hours.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Merck lists 'piping' at the surface as the behavioural sign of hypoxia (low dissolved oxygen), with flared gills and dark colouring as physical signs.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "In hypoxia, large fish are affected more than small fish.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen are lethargic, gasp at the surface and gather around water returns.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "The signs of hypoxia look like a gill problem, so a dissolved-oxygen test is needed to confirm it.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite toxicity also causes piping at the surface, and the gills and blood turn dark brown, though this is hard to see.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Carbon dioxide toxicity shows as lethargy at the surface.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Gasping first thing in the morning points to oxygen running out overnight in planted tanks or ponds.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Spots, clamped fins or signs of fungal or bacterial infection alongside gasping point to gill disease rather than water chemistry.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Suspect gill disease if fish keep gasping when oxygen is not low, especially with discoloured gills, extra mucus, rubbing (flashing) or reduced feeding.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "In mild oxygen shortage, fish still swim fast and dive when startled by a hand clap. In severe shortage, they bunch up, ignore noise or are still at the surface around 8–9 a.m.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Mild oxygen shortage shows in the early morning. In severe shortage, fish stay at the surface day and night, become sluggish, stop eating and can die in large numbers.",
+      "source": 9
+    },
+    {
+      "section": "signs",
+      "fact": "Betta splendens is a facultative air-breather and the blue gourami (Trichopodus trichopterus) is an obligate air-breather. Both use a labyrinth organ, so regular trips to the surface for air are normal for them.",
+      "source": 8
+    },
+    {
+      "section": "causes",
+      "fact": "High water temperature reduces how much oxygen the water can hold.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "A heater stuck 'on' can overheat the tank, often to well over 30°C (86°F).",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia increases mucus on the gills and makes them less efficient.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Nitrite reduces the blood's ability to carry oxygen.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Nitrite binds haemoglobin and turns the blood brown (brown-blood disease). The effect is worse when dissolved oxygen is low.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Too much CO2, from over-dosing or a faulty CO2 unit in a planted tank, can cause gasping.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Merck gives a CO2 toxicity threshold of more than 40 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Merck gives a nitrite toxicity threshold of NO2 above 0.1 mg/L, made worse by low chloride in fresh water.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Most test kits measure NO2-N. Multiply the reading by 3.3 to get NO2 in mg/L.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Merck links ammonia toxicity to un-ionized ammonia above 1 mg/L and pH above 8, typical of 'new tank syndrome'.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "High stocking, heavy feeding and a dirty pond or filter use up oxygen as organic waste breaks down.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Submerged plants respire at night and then use more oxygen than they make.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Low oxygen is most likely in summer and often happens in the early hours of the morning.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Long spells of heavy rain or overcast weather reduce algal photosynthesis, so less oxygen is produced during the day.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Parasites, pathogens or chemicals that damage the gills can cause gasping even when oxygen is not very low.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia (NH3) becomes more toxic as pH and temperature rise.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Check the water temperature first and cool the tank if it is too warm.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Increase aeration. If fish gasp in the morning, aerate especially at night.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test the water at the first sign of trouble. If ammonia or nitrite is present, do an immediate water change with dechlorinated tap water.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Practical Fishkeeping recommends a 50% emergency water change.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If a CO2 unit has released too much gas, cut CO2 dosing and increase aeration.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Additional aeration helps a hypoxic system, but you must also find and fix the cause.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Reduce or stop feeding for a short time, then bring feeding back gradually once the fish are stable.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "When changing water, check the new water and how much it differs from the tank or pond water, so the fish are not shocked.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a power outage, a battery-powered air pump with an airstone is the simplest backup.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "During an outage, don't feed and turn off automatic feeders for the first 1–2 hours. After 8+ hours, run an air stone or sponge filter for 1 hour every 8 hours, or every 4 hours if the tank is heavily stocked or fish are gasping.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Chloride competes with nitrite at the gills. A chloride level 20 times the nitrite-nitrogen level completely counteracts nitrite toxicity in channel catfish and probably most freshwater species.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Fish with brown-blood disease recover quickly once moved to water with little nitrite.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "To limit nitrite toxicity, keep dissolved oxygen above 3 mg/L for warmwater fish or 5 mg/L for coldwater fish.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Replace a heater that is malfunctioning.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For suspected gill disease, consult a specialist dealer or an experienced fish vet.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Don't use chemicals or several products at once on your own. If deaths rise fast or fish show unusual lesions, call an aquaculture technician.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "After power returns, test ammonia and nitrite and do water changes if either reads above 0 ppm.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "After an outage, rinse the filter and clean the impellers before restarting, because clogged impellers often fail to start.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep a tropical freshwater tank at about 24–28°C (75–82°F).",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Low dissolved oxygen is indicated below about 5–6 ppm (mg/litre). Cheap DO test kits are available.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "When testing DO, follow the kit instructions carefully. Shaking or pouring the sample adds oxygen and skews the result.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish need, manage stocking density and clean regularly to keep organic waste from building up.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Monitor oxygen regularly where possible, especially near dawn and after overcast days.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep a battery air pump with spare airstones, airline tubing and batteries for power outages.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquarium Co-Op's battery air pump switches on automatically in an outage and runs about 20 hours, or 40+ hours in a 15-seconds-on, 15-seconds-off power-save mode.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Safe long-term nitrite-nitrogen is about 0.5–2.5 mg/L for warmwater fish and freshwater invertebrates, and 0.0125–0.5 mg/L for coldwater fish.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't always blame temperature. Sudden gasping is often linked to pollution or disease.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Gasping alone is not enough to know the cause. Combine watching the fish with water tests.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't wait until fish crowd the surface before adding oxygen.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't stir up bottom mud suddenly, because it can release toxic gases into the water.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Canister filters can go anoxic in as little as 4–6 hours without power. Restarting them uncleaned can flush rotting debris into the tank.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Don't feed for 24 hours after power returns, so the biological filter can catch up.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Phú Thọ provincial agriculture department page lists hot, muggy summer weather, overfeeding and dawn oxygen shortage as causes of fish surfacing ('cá nổi đầu').",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese technical pages use the terms 'cá nổi đầu' and 'ngáp khí' for fish gasping at the surface.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese maker of biological products sells Microbe-Lift AQUA SA and AQUA C bacteria to break down organic waste and reduce H2S and NH3. These are pond products.",
+      "source": 9
+    },
+    {
+      "section": "other",
+      "fact": "Nitrite sensitivity varies widely by species. Coldwater fish such as rainbow trout (96-h LC50 0.24–11.0 mg/L NO2-N) are far more sensitive than common carp (88.0 mg/L).",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Merck notes that gas supersaturation can cause gas bubbles in the gills, fins and eyes, and fine bubbles may appear on the aquarium glass.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Most fish can go about a week without food, so skipping meals during an outage is safe.",
+      "source": 7
+    }
+  ]
+}

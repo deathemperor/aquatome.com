@@ -1,0 +1,418 @@
+{
+  "found": true,
+  "species": [
+    "Physella acuta",
+    "Melanoides tuberculata",
+    "Planorbidae (ramshorn snails)",
+    "Anentome helena",
+    "Yasuhikotakia sidthimunki",
+    "Vallisneria spp.",
+    "Sagittaria spp.",
+    "Cryptocoryne spp.",
+    "Anubias spp."
+  ],
+  "sources": [
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/pest-snails",
+      "title": "5 Easy Ways to Get Rid of Aquarium Pest Snails (Aquarium Co-Op)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.thatpetplace.com/articles/dipping-plants-to-eliminate-snails",
+      "title": "Dipping Plants to Eliminate Snails (That Pet Place)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/snail/coppersnail.php",
+      "title": "Snail control & Copper (Aquaticcommunity.com)",
+      "kind": "article"
+    },
+    {
+      "url": "https://gensou.sg/?p=29151",
+      "title": "Aquarium Pest Identification Guide: Snails, Worms and Hydra (Gensou)",
+      "kind": "article"
+    },
+    {
+      "url": "https://zenaquarius.com/oc-hai-trong-be-thuy-sinh-nguyen-nhan-tac-hai-va-cach-xu-ly/",
+      "title": "Ốc Hại Trong Bể Thủy Sinh: Nguyên Nhân, Tác Hại và Cách Xử Lý (Zen Aquarius)",
+      "kind": "article"
+    },
+    {
+      "url": "https://cacanhthaihoa.com/kien-thuc/cach-xu-ly-oc-hai-trong-be-thuy-sinh.html",
+      "title": "Cách xử lý ốc hại trong bể thủy sinh (Thái Hòa Aquarium)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/aquarium-snails-what-to-keep-and-what-to-avoid",
+      "title": "Aquarium Snails: What to Keep and What to Avoid (Chewy)",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "The snails usually called pests in aquariums are bladder, ramshorn and Malaysian trumpet snails (MTS).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "These snails eat algae, leftover food, fish waste and dead or sickly plant matter. Aquarium Co-Op says they do not harm live fish or healthy plants.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Gensou says bladder, ramshorn and MTS do not harm healthy plants or fish. The trouble comes from their numbers growing too large.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Zen Aquarius says that when ramshorn snails get too numerous they eat young leaves, especially on weak or soft plants.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Zen Aquarius says Melanoides tuberculata burrows and churns the substrate. When the snails are very numerous they can make the substrate mushy and spoil the aquascape.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Zen Aquarius says bladder snails do not directly harm plants. They spoil the look of the tank and lower water quality through fast breeding and the waste they build up.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Bladder snails (Physella acuta) have thin, translucent shells.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Ramshorn snails have flat, coiled shells that are brown, red or pink.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Zen Aquarius describes ramshorn snails as about 1-2 cm across.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Malaysian trumpet snails have cone- or trumpet-shaped shells. They are nocturnal and stay buried in the gravel.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "MTS burrow into the substrate by day and come out at night, so they often go unnoticed until their numbers surge.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Bladder and ramshorn snails lay egg sacs holding many young. MTS give birth to live young and leave no egg clutches.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Assassin snails (Anentome helena) are about 1 inch (2.5 cm) long and eat other snails. They are useful snails and should not be mistaken for pests.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Chewy describes assassin snails as striped like a bumblebee.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Pest snails and their eggs most often arrive on live aquatic plants.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Snails can also arrive in the water at the bottom of a fish bag from the store.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Excess food, fish waste, algae, dying plant matter and mulm feed snail populations.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding is the main driver of snail population booms.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Chewy says overfeeding, excess algae from too much light or food, and too little plant growth or too much fertilizer can keep snail populations going.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Snail eggs can come in on stones, sand, plants or substrate, or with water added to the tank.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "A single bladder snail can start an infestation because it is a hermaphrodite and can lay viable eggs alone.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "A few bladder snails arriving on one plant can become hundreds within weeks.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "First, cut feeding to what the fish finish in a few minutes.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Prune plants regularly, scrub algae and vacuum the gravel to remove mulm and debris that feed snails.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Pick snails out by hand or with planting tweezers, and siphon small snails into a bucket during water changes.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Hand removal works less well against MTS because they stay buried in the substrate.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Use a snail trap baited with vegetables or fish food. Traps help catch burrowing, nocturnal snails like MTS.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Leave a piece of cucumber or carrot in the tank overnight, then lift it out the next morning with the snails on it. This has to be repeated many times.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "A fresh lettuce leaf left in a corner overnight can be removed with the snails in the morning. This controls snails but does not remove 100% of them.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Blanched zucchini in a submerged bottle can be used as a home-made snail trap.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Snail-eating fish include pufferfish from pea puffer to Mbu puffer, and clown, zebra, yoyo and dwarf chain loaches.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Chewy advises against clown loaches as snail control because of their large size and need to school. It suggests smaller loaches such as Yasuhikotakia sidthimunki.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Snail-eating fish only work well against small snails and baby snails. The species must suit the tank size.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Assassin snails (Anentome helena) eat other snails, including larger ones.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Rachel O'Leary, quoted by Chewy, advises keeping assassin snails in a small bare tank rather than a display tank. Their eggs spread easily on plants, wood, rocks or sponge filters, and released snails could become invasive.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper sulfate: the 96-hour LC50 for pond snails at 20 °C is 0.39 mg/L. A typical aquarium treatment should stay at 0.15–0.2 ppm.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Do not double a copper dose, because toxicity does not rise in a straight line with dose.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper toxicity rises with temperature. The author suggests treating at about 22–23 °C.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Hard, alkaline water binds copper and makes it less effective. In soft, acidic water, start at about half the copper dose.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "During copper treatment, take the filter out and keep it alive in a bucket of water to protect the nitrifying bacteria. Keep strong aeration going.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper does not kill snail eggs. A repeat treatment within about two weeks may be needed for newly hatched snails.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Shrimp, crabs and other invertebrates are highly sensitive to copper. Do not use copper sulfate when they are in the tank.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Vallisneria and Sagittaria are sensitive to copper. Anubias and most mosses generally survive the recommended doses.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Too much copper can cause red sores on the sides of fish.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper cannot break down and leaves the tank only through water changes. Activated carbon removes some of it, and a water conditioner with chelating agents can inactivate what remains.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper-based snail killers kill invertebrates and some plants.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium Co-Op advises against bleach or aquarium salt for snails. A dose that kills snails and eggs without harming sensitive plants like vallisneria and cryptocoryne is hard to find.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Zen Aquarius notes that snail killers such as copper sulfate and Snailaway work fast but can affect fish and plants, and ornamental shrimp are especially sensitive.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, alum: 1-3 tablespoons per gallon of warm water, for at least 2-3 hours for stronger solutions or up to 24 hours for milder ones. Alum kills snails but works less well on eggs.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, alum: 2-3 teaspoons per quart of water for 2-3 days. It can harm plants.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, bleach: use plain liquid chlorine bleach at no more than 1 part to 19 parts water (just over ¾ cup per gallon). Dip for no more than 2 minutes for sensitive plants or 3 minutes for hardier ones.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, bleach: Chewy gives 1 part bleach to 20 parts water, followed by thorough rinsing.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, potassium permanganate: mix with warm water to a dark pink solution and soak for 10-20 minutes. Then rinse in dechlorinated water.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Plant dip, salt: 1 cup of aquarium or kosher salt per gallon. Swish the plant for about 15-20 seconds, keeping the roots above the water. Do not use table or iodized salt.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Never mix potassium permanganate with hydrogen peroxide, formalin, formaldehyde or anything containing alcohol, because they form a noxious gas.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "When snails die en masse after a treatment, remove the dead snails promptly and do a large water change of about 50%. Decaying snails release ammonia that can harm fish more than the copper does.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Check new plants and remove every snail and egg by hand, rinse them under running water, then grow them in a lit, fertilized quarantine tank and keep removing any snails that appear.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Snail eggs take 1–4 weeks to hatch, depending on species and temperature. Plant quarantine is not foolproof.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Always dip plants in a separate bucket or tub, never in the aquarium. Test the dip on one plant first, and rinse in dechlorinated water before planting.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Wash and disinfect new plants, and never add water from the fish store to your tank.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Change water and clean the tank regularly, and feed only what the fish eat within a few minutes.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using copper coins or wire against snails does not work: metallic copper does not release usable ions and can bring in pathogens.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using copper snail killers while snail numbers are still high is a mistake. Use them only after the population is under control, because the dead snails foul the water.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Leaving killed snails to rot in the tank is a mistake. Feed them to snail-eating fish instead, or crush them.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Throwing out used gravel briefly is not enough to get rid of MTS: they can survive in dry, used gravel for many months.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: one snail cannot breed. Aquarium Co-Op says bladder snails can reproduce alone and lay viable eggs.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: 'pest' snails harm plants and fish. Aquarium Co-Op and Gensou say they do not harm healthy plants or fish and are part of the tank's ecosystem.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese guides call these snails 'ốc hại'. Zen Aquarius calls Melanoides tuberculata 'ốc viền đỏ' and the bladder snail 'ốc bàng quang'.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Thái Hòa Aquarium names the pest snails 'ốc xoắn' and 'ốc đỉa'. It recommends cá lóc (snakehead) and cá chuột Mỹ (corydoras) as snail eaters, plus ốc Helena (assassin snail).",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Zen Aquarius lists snail-eating fish used in Vietnam as cá chuột, loach, cá bảy màu (guppy) and puffer.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops mention copper sulfate and Snailaway as snail killers but give no doses. They advise reading the product label carefully.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Chewy says apple snails (in Vietnam, ốc bươu vàng and relatives) and other pond snails should be kept out of home aquariums.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Copper sulfate also works as an algaecide, antibacterial, antifungal and treatment for ich.",
+      "source": 2
+    }
+  ]
+}

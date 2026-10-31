@@ -1,0 +1,333 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-answers/why-wont-this-cloudy-water-clear/",
+      "title": "Why won't this cloudy water clear? (Practical Fishkeeping)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/why-is-my-fish-tank-cloudy",
+      "title": "Why Is My Fish Tank Cloudy? (reviewed by Jessie Sanders, DVM, DABVP Fish Practice)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/uv-filters-for-aquariums",
+      "title": "UV Filters for Fish Tanks and Ponds (Chewy)",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.apifishcare.com/post/troubleshooting-for-green-cloudy-water",
+      "title": "Troubleshooting for Green & Cloudy Water (API Fishcare)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://seachem.zendesk.com/hc/en-us/articles/115000130614-Info-Seachem-Clarity-dosing-instructions",
+      "title": "Seachem Clarity dosing instructions",
+      "kind": "maker"
+    },
+    {
+      "url": "https://thuysinh4u.com/nguyen-nhan-gay-duc-ho-thuy-sinh-ca-canh",
+      "title": "Các nguyên nhân gây đục hồ thủy sinh, cá cảnh (Thủy Sinh 4U)",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1888/nguyen-nhan-va-giai-phap-cho-be-ca-bi-bung-vi-sinh.html",
+      "title": "Nguyên nhân và giải pháp cho bể cá bị bùng vi sinh (Aquarium Care)",
+      "kind": "maker"
+    },
+    {
+      "url": "https://giaiphapcanhquan.com/nuoc-be-ca-bi-xanh.html",
+      "title": "Nước bể cá bị xanh, tại sao? Nguyên nhân và 3 cách khắc phục",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "A bacterial bloom is the most likely cause of milky water and is common in new tanks.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A mature bacterial ecosystem in an aquarium takes much longer than six months to develop.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A bacterial bloom in a new tank is generally not dangerous. Biological filtration can take four to six weeks to mature.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Green water is caused by free-floating single-celled algae multiplying fast. The bloom can lower dissolved oxygen and affect fish health.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Vietnamese keepers call white bacterial cloudiness 'vi sinh nở hoa' or 'bùng vi sinh'.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "In a bacterial bloom the water suddenly turns cloudy, like rice-washing water ('nước vo gạo').",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Many keepers mistake a bacterial bloom for their beneficial bacteria dying off ('chết vi sinh').",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "White or grey cloudiness from unwashed gravel or stirred-up substrate in a new setup usually clears within 1–2 days with filtration.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Green or discoloured water can appear even when test readings look normal.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Causes of cloudy water include microscopic debris the filter cannot catch, minerals leaching from décor and substrate in acidic water, and bacterial blooms.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding, an unnoticed dead fish, infrequent water changes and swings in water chemistry can trigger a bloom.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Over-cleaning the filter can kill beneficial bacteria and let bloom bacteria take over.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Over-cleaning or replacing filter media often removes beneficial bacteria and can cause white cloudiness.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Antiseptic or antibiotic treatments can kill beneficial bacteria or break the nitrogen cycle, causing a bacterial bloom, especially in new tanks.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Sudden water changes, tank cleaning, medicines, sudden changes in temperature or pH, and adding more fish can trigger a bacterial bloom.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Green water can be caused by direct sunlight, lights on for more than 8–12 hours a day, non-aquarium lights, or planted-tank lights on a tank without plants.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Too many fish or infrequent cleaning raises phosphate and nitrate levels, which feed algae.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Excess nutrients or fish waste that overwhelm the biological filter, high phosphate, a cycling tank, and overstocking can all lead to green or cloudy water.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Strong light, especially direct sun on tanks near windows or outdoors, combined with excess nutrients drives green water.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test ammonia first; it should read zero. Check the water temperature too.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the cloudiness is only a bacterial bloom and ammonia is zero, do nothing and let the tank rebalance.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Stop feeding for about 7 days. Healthy fish should cope.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Leave the filter alone, with no cleaning or other changes, for at least 7 days.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Ammonia or nitrite readings above zero can mean a mini-cycle is feeding the bloom. Test daily during recovery.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Add a layer of filter wool to trap debris too fine for standard media.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Clarity dose: 5 mL (one capful) per 80 L, about 20 US gallons. That works out to 2.5 mL per 40 L and 12.5 mL per 200 L.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Cloudiness may increase for a while after dosing Clarity. Seachem says this is normal and the water should clear within 1–2 hours.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "After Clarity has cleared the tank, clean the filter floss or cartridge to remove the trapped material.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "API Accu-Clear is a flocculant that clumps particles so they settle for siphoning or are caught by the filter. API gives no dose online; follow the label.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "For algae, a UV sterilizer can help. Add fine filter floss to catch dead algae particles.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "UV-C light (200–280 nm) damages the DNA of free-floating algae and bacteria so they cannot reproduce.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Recommended UV dose for algae and bacteria is 180,000 µWs/cm². Use a unit rated for the tank's volume; undersized units do not work, oversized ones are fine.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Replace the UV bulb every six months.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "UV does not affect organisms attached to surfaces or living inside fish.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "API suggests its algaecide AlgaeFix to clear green water quickly, and Stress Zyme or Quick Start bacteria to compete with algae for nutrients.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Combine mechanical, biological and chemical filtration (activated carbon, zeolite) and a filter with a UV lamp to fight green water.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: test the water for nitrogen cycling and high phosphate.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: do a 30% partial water change with a gravel siphon and scrape algae off the glass and décor.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: add beneficial bacteria. Step 4: if still cloudy, use a flocculant.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Next steps: add live plants to absorb nutrients. If cloudiness persists, review fish numbers and size against tank volume, and keep testing and changing water consistently.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Do weekly water changes of 10–25%.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do regular 10–50% water changes. Never change 100% of the water.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Limit tank lighting to roughly 8–12 hours a day and move the tank out of direct sunlight.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Change about 25–30% of the water weekly, matching the new water's temperature and quality to the tank's.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Use curtains, plants or a new tank position to keep direct sun off the tank, and limit feeding.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep temperature and pH stable, keep a suitable number of fish, and provide enough aeration.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "In a mature tank, ammonia and nitrite should read 0. Nitrate should rise slowly, and pH and KH should drop slowly.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Avoid large, irregular water changes such as 75%, which can destabilize the tank.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes include deep-cleaning the tank and accessories, overfeeding, overstocking and adding unwashed gravel.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Over-the-counter water-based antibiotics are typically unlicensed and can harm fish.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding antiseptics or antibiotics to the tank kills beneficial bacteria, and setting up a tank before the nitrogen cycle is stable invites blooms.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using chemicals wrongly during cleaning can lower dissolved oxygen and cloud the water.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese source lists sudden temperature changes, especially in warm water, among the triggers of bacterial blooms.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops widely sell beneficial-bacteria products ('men vi sinh', e.g. Aquarium Care) to rebalance tanks after a bloom.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tanks near windows or outdoors in direct sun are singled out as prone to green water.",
+      "source": 7
+    },
+    {
+      "section": "myths",
+      "fact": "Practical Fishkeeping says blooms usually clear on their own within a few days, so heavy intervention such as big water changes is not needed.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "A Vietnamese seller claims heterotrophic bacteria double every 15–20 minutes, but gives no source.",
+      "source": 6
+    }
+  ]
+}
