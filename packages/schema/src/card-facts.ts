@@ -111,6 +111,22 @@ export function states(html: string, field: DataCardField, value: Figure): boole
   }
 }
 
+/** A tank volume: "75 litres", "60 l", "20 gallons", "10 US gal". */
+const VOLUME = String.raw`${NOT_SIDE}${NUM}\s*(litres?|liters?|l\b|(?:us\s*)?gal(?:lons?)?\b)`
+const GALLON = 3.785
+
+/**
+ * Whether a minimum tank length is really the source's tank volume: the text gives that figure as litres or gallons
+ * ("75 litres (20 gallons)" read as 75 cm; "75 gallons (about 284 litres)" as 284 cm) and never as a length.
+ */
+export function tankIsVolume(html: string, value: number): boolean {
+  if (states(html, 'tankCm', value)) return false
+  return [...text(html).matchAll(new RegExp(VOLUME, 'gi'))].some(m => {
+    const litres = /^l/i.test(m[2]!) ? num(m[1]!) : num(m[1]!) * GALLON
+    return Math.abs(litres - value) <= Math.max(1.5, value * 0.03)
+  })
+}
+
 const FIELDS: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm']
 const key = (v: Figure) => JSON.stringify(isRange(v) ? [v.min, v.max] : v)
 

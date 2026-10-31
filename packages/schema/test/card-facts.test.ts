@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, states } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, states, tankIsVolume } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -70,4 +70,22 @@ test('figuresOffCard: what a block states that the card shows otherwise, never w
   const loach = { sizeCm: [{ source: 'loachesonline', value: 25 }, { source: 'sprucepets', value: 30 }] }
   expect(figuresOffCard(loach, 'loachesonline', '<p>Cá trưởng thành có thể dài tới 25 cm.</p>')).toEqual([{ field: 'sizeCm', own: 25, card: 30 }])
   expect(figuresOffCard(loach, 'glaser', '<p>Dài tới 25 cm.</p>')).toEqual([]) // no figure of its own on the card
+})
+
+test('a tank length that the page gives only as a volume is that volume, not a length', () => {
+  // The Spruce Pets' discus, aquarium breeder's platy and zebra danio, BW Aquatics' Betta livida, as the engine read them
+  // (2026-10-31): the card held 284, 60, 75 and 20 "cm".
+  const discus = '<p>Adult Discus need a tank 5 feet (about 150 cm) long, or about 75 gallons (about 284 litres).</p>'
+  expect(tankIsVolume(discus, 284)).toBe(true)
+  expect(tankIsVolume(discus, 150)).toBe(false)
+  expect(tankIsVolume('<li><strong>Minimum tank size:</strong> 15 gallons (~60 litres)</li>', 60)).toBe(true)
+  expect(tankIsVolume('<li>Minimum tank size: 20 gallons</li>', 75)).toBe(true)
+  expect(tankIsVolume('<p>Recommended 1 pair per 5 gallons (about 19 litres).</p>', 20)).toBe(true)
+  // A length the page states stays, whatever the volume beside it.
+  expect(tankIsVolume('<p>A tank of 60 cm (54 litres).</p>', 60)).toBe(false)
+  expect(tankIsVolume('<p>60 × 30 × 30 cm, about 54 l.</p>', 60)).toBe(false)
+  expect(tankIsVolume('<p>At least 60 cm long, or 60 litres.</p>', 60)).toBe(false)
+  // No volume near the figure: nothing to say.
+  expect(tankIsVolume('<p>Keep them in a long tank.</p>', 80)).toBe(false)
+  expect(tankIsVolume('<p>A 100 litre tank.</p>', 80)).toBe(false)
 })

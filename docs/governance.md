@@ -147,8 +147,10 @@ The layers above still check the result.
 - **Photos.** No people (faces dropped), each photo must show its species, open licences or permission only.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
-- **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
-  shows the range they all accept.
+- **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
+  its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm), when the
+  engine reads a page and again at every build (`tankIsVolume`). Where sources disagree, every page shows the range they
+  all accept.
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
