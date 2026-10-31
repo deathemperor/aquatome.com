@@ -1,5 +1,11 @@
 export const MEDIA_HOST = 'media.aquatome.com'
 export const THUMB_WIDTH = 480
+/**
+ * Hosts that set third-party cookies on the photos they serve (Wikimedia's WMF-Uniq and GeoIP; iNaturalist's): a page
+ * showing one fails Lighthouse's best practices. `pnpm engine mirror-photos` copies their photos to MEDIA_HOST.
+ */
+export const COOKIE_PHOTO_HOSTS = ['upload.wikimedia.org', 'thumb.wikimedia.org', 'inaturalist-open-data.s3.amazonaws.com', 'static.inaturalist.org']
+export const setsCookies = (url: string) => COOKIE_PHOTO_HOSTS.includes(new URL(url).host)
 
 /**
  * Small version of a photo for cards and thumbnails: our R2 photos have a `-480.webp` sibling (made on upload,
