@@ -1,7 +1,20 @@
 {
   "id": "boraras-urophthalmoides",
-  "photos": [],
-  "seen": 5,
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/251523954.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/251523954-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/251523954",
+      "caption": "Cá trâm Boraras urophthalmoides thân đỏ cam bơi trong bể kính",
+      "best": true,
+      "kind": "other"
+    }
+  ],
+  "seen": 6,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

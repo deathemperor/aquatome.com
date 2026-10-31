@@ -2,6 +2,78 @@
   "id": "osteoglossum-bicirrhosum",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/51202917.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/51202917-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/51202917",
+      "caption": "Hai cá rồng bạc bơi trong bể có lũa",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/268520112.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/268520112-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/268520112",
+      "caption": "Cá rồng bạc nhìn nghiêng trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/428598019.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/428598019-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/428598019",
+      "caption": "Hai cá rồng bạc bơi trong bể thủy sinh có cây",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/337743416.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/337743416-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/337743416",
+      "caption": "Cá rồng bạc cận cảnh với vảy lớn ánh bạc",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/359882847.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/359882847-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/359882847",
+      "caption": "Cá rồng bạc bơi cạnh cành gỗ trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/35296314.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/35296314-480.webp",
+      "width": 1024,
+      "height": 546,
+      "licence": "CC0",
+      "author": "Andrew J. Crawford",
+      "sourceUrl": "https://www.inaturalist.org/photos/35296314",
+      "caption": "Cá rồng bạc thân bạc ánh trong bể kính lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/29aa9891fa0c8ee5.webp",
       "thumb": "https://media.aquatome.com/commons/29aa9891fa0c8ee5-480.webp",
       "width": 1200,
@@ -500,9 +572,93 @@
       "author": "engin akyurt",
       "sourceUrl": "https://unsplash.com/photos/silver-arowana-fish-in-aquarium-QgxgRz7FFio?utm_source=aquatome&utm_medium=referral",
       "caption": "Đàn cá rồng bạc bơi giữa rêu và gỗ trong bể lớn"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/321595943.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/321595943-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "R Vasconcellos",
+      "sourceUrl": "https://www.inaturalist.org/photos/321595943",
+      "caption": "Cá rồng bạc con bơi gần mặt nước",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/168733.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/168733-480.webp",
+      "width": 765,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Sterling Sheehy",
+      "sourceUrl": "https://www.inaturalist.org/photos/168733",
+      "caption": "Cá rồng bạc bơi sát mặt nước ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/268520155.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/268520155-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/268520155",
+      "caption": "Cá rồng bạc bơi gần kính trong bể công cộng lớn",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328401880.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328401880-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/328401880",
+      "caption": "Cá rồng bạc bơi trong bể có sỏi và gỗ lũa",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328402124.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328402124-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/328402124",
+      "caption": "Cá rồng bạc ánh bạc bơi gần mặt nước trong bể lớn",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/592647175.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/592647175-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/592647175",
+      "caption": "Cá rồng bạc cận cảnh trong bể có gỗ và cây thủy sinh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/109390322.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/109390322-480.webp",
+      "width": 1024,
+      "height": 320,
+      "licence": "CC0",
+      "author": "Andrew J. Crawford",
+      "sourceUrl": "https://www.inaturalist.org/photos/109390322",
+      "caption": "Thân cá rồng bạc với vảy lớn ánh bạc",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 179,
+  "seen": 219,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

@@ -154,6 +154,35 @@ The layers above still check the result.
   good), each photo must show its species, open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
+  - **Galleries and their targets.** Every species and plant has a gallery, topped up each cycle to a target set by how
+    much readers want it (`packages/engine/src/gallery-plan.ts`, the reason beside each number): the 12 staples 100,
+    what shops in Vietnam, Indonesia and Thailand sell 60 (fish lists and plant lists, `engine-state/shop-lists/`), the
+    most-kept fish 40, pages two or more sources write about 30, every other page 20. The most popular pages go first,
+    `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is never padded: a page whose sources run
+    dry stays short and is listed in `docs/review/galleries.md`, then read again a month later.
+  - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
+    CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
+    Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
+    iNaturalist's copy) and Openverse (Flickr). Each photo's licence is read from the source's API for that photo, never
+    assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads and affiliate links.
+    Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through their own steps. Each
+    source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200 a day without a key),
+    and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues there.
+  - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
+    the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
+    as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
+    sheets of 20, keeps only a clear living example of the species, with no person or body part, no drawing, text overlay
+    or banner, and no near-copy, and writes its caption. After the photos move to our bucket, `pnpm engine watermarks`
+    reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
+    leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
+    under water, emersed, in flower).
+  - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
+    and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
+    GBIF photos are copied to our media bucket with the credit kept.
+  - **Removal.** A reader or a photographer writes to the address on the contact page (`/vi/lien-he/`, "Bản quyền và
+    ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
+    reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws
+    permission is set to `"publish": false` in `content/sources.json`, which takes its photos off public builds.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that

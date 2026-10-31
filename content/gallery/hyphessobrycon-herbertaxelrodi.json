@@ -2,6 +2,30 @@
   "id": "hyphessobrycon-herbertaxelrodi",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/552749112.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/552749112-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/552749112",
+      "caption": "Đàn cá neon đen trong bể thủy sinh có rong",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/6181919529.webp",
+      "thumb": "https://media.aquatome.com/flickr/6181919529-480.webp",
+      "width": 1023,
+      "height": 659,
+      "licence": "CC BY 2.0",
+      "author": "brian.gratwicke",
+      "sourceUrl": "https://www.flickr.com/photos/19731486@N07/6181919529",
+      "caption": "Cá neon đen bơi trong bể thủy sinh có cây xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2506688ec64435b7.webp",
       "thumb": "https://media.aquatome.com/commons/2506688ec64435b7-480.webp",
       "width": 977,
@@ -92,7 +116,7 @@
       "caption": "Đàn cá neon đen với sọc đen rõ trong bể cá"
     }
   ],
-  "seen": 24,
+  "seen": 28,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

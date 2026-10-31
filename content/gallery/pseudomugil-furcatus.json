@@ -2,6 +2,30 @@
   "id": "pseudomugil-furcatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/309615729.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/309615729-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/309615729",
+      "caption": "Cá cầu vồng đuôi chẻ đực trong bể có đá và cỏ",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/323597743.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/323597743-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/323597743",
+      "caption": "Cặp cá cầu vồng đuôi chẻ màu vàng trong bể trồng cây",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/327622441.webp",
       "thumb": "https://media.aquatome.com/inaturalist/327622441-480.webp",
       "width": 1024,
@@ -32,7 +56,7 @@
       "caption": "Cá cầu vồng đuôi chẻ đực vàng cam bơi trong bể trồng cây"
     }
   ],
-  "seen": 6,
+  "seen": 11,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

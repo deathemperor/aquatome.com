@@ -19,9 +19,10 @@ export const GET: APIRoute = async ({ site }) => {
     ...videoChannels(c).filter(ch => ch.guides.some(g => g.t.quality.indexable)).map(ch => `/vi/video/kenh/${ch.slug}/`),
     ...categories(c).map(u => `/vi/thiet-bi/${u.category}/`),
     ...[...c.species, ...c.breeds].filter(s => s.t.quality.indexable && (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => `/vi/ca/${s.t.slug}/anh/`),
+    ...c.plants.filter(p => p.t.quality.indexable && (c.galleries[p.id]?.length ?? 0) >= GALLERY_MIN).map(p => `/vi/cay/${p.t.slug}/anh/`),
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
   ]
-  // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant and glossary pages.
+  // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant (and its photos) and glossary pages.
   for (const lang of ['id', 'th'] as const) {
     const t = await getContent(lang)
     paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
@@ -30,6 +31,7 @@ export const GET: APIRoute = async ({ site }) => {
     if (served(lang, '/vi/thiet-bi/x/')) paths.push(...categoriesIn(lang, t).filter(u => t.equipment.find(e => e.category === u.category)?.quality?.indexable).map(u => localizePath(lang, `/vi/thiet-bi/${u.category}/`)))
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
     if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
+    if (served(lang, '/vi/cay/x/anh/')) paths.push(...t.plants.filter(p => p.t.quality.indexable && (t.galleries[p.id]?.length ?? 0) >= GALLERY_MIN).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/anh/`)))
     for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) if (served(lang, index)) paths.push(localizePath(lang, index))
     if (served(lang, '/vi/thuat-ngu/x/')) paths.push(...t.glossary.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/thuat-ngu/${g.t.slug}/`)))
   }

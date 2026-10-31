@@ -2,6 +2,42 @@
   "id": "trigonostigma-heteromorpha",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/319701701.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319701701-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319701701",
+      "caption": "Cá tam giác màu tím hồng bơi trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/552749269.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/552749269-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/552749269",
+      "caption": "Đàn cá tam giác đông đúc trong bể thủy sinh nhiều cây",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/486530990.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/486530990-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/486530990",
+      "caption": "Đàn cá tam giác nhỏ bơi trong bể cây thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/bedddf878342d8a7.webp",
       "thumb": "https://media.aquatome.com/commons/bedddf878342d8a7-480.webp",
       "width": 1200,
@@ -142,6 +178,7 @@
       "caption": "Cá tam giác bơi trong bể thủy sinh cùng cá neon"
     }
   ],
-  "seen": 38,
-  "updatedAt": "2026-10-30"
+  "seen": 44,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

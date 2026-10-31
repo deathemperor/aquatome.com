@@ -2,6 +2,42 @@
   "id": "phractocephalus-hemioliopterus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/11697784.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/11697784-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11697784",
+      "caption": "Cá da trơn đuôi đỏ bơi trên nền cát trong bể lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84886801.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84886801-480.webp",
+      "width": 1024,
+      "height": 678,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/84886801",
+      "caption": "Cá da trơn đuôi đỏ nhìn chính diện với râu dài trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/250985358.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250985358-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/250985358",
+      "caption": "Cá da trơn đuôi đỏ nhìn chính diện giữa rễ cây trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/91bcd7d079a310fa.webp",
       "thumb": "https://media.aquatome.com/commons/91bcd7d079a310fa-480.webp",
       "width": 1200,
@@ -540,9 +576,21 @@
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/337740937",
       "caption": "Cá da trơn đuôi đỏ bơi dưới gờ đá trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/265275120.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265275120-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/265275120",
+      "caption": "Cá da trơn đuôi đỏ với vây đuôi đỏ trong bể kính",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 116,
+  "seen": 136,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

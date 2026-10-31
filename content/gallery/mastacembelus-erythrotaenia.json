@@ -9,17 +9,9 @@
       "licence": "CC BY 4.0",
       "author": "Jesaya Li",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
-      "caption": "Cá chạch lửa với sọc đỏ cam trong bể có đá cuội"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6d9fac2a4db28895.webp",
-      "thumb": "https://media.aquatome.com/commons/6d9fac2a4db28895-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "CC BY-SA 3.0",
-      "author": "Гурьева Светлана (zooclub.ru)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%81%D1%82%D0%B0%D1%86%D0%B5%D0%BC%D0%B1%D0%B5%D0%BB_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D1%81%D1%8B%D0%B9_(Mastacembelus_erythrotaenia).jpg",
-      "caption": "Cá chạch lửa sọc đỏ rực nổi bật trên nền xanh trong bể"
+      "caption": "Cá chạch lửa sọc đỏ cam bên đá cuội trong bể",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/470665911.webp",
@@ -29,7 +21,21 @@
       "licence": "CC BY",
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/470665911",
-      "caption": "Cá chạch lửa sọc đỏ bên gốc lũa trong bể thủy sinh"
+      "caption": "Cá chạch lửa bơi giữa rễ lũa trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6d9fac2a4db28895.webp",
+      "thumb": "https://media.aquatome.com/commons/6d9fac2a4db28895-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "CC BY-SA 3.0",
+      "author": "Гурьева Светлана (zooclub.ru)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%81%D1%82%D0%B0%D1%86%D0%B5%D0%BC%D0%B1%D0%B5%D0%BB_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D1%81%D1%8B%D0%B9_(Mastacembelus_erythrotaenia).jpg",
+      "caption": "Cận cảnh cá chạch lửa với sọc đỏ cam rực rỡ",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/d89c14aae18e6e58.webp",
@@ -40,6 +46,42 @@
       "author": "Nils Schaudig",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:FeuerstachelAal_-_Nils_Schaudig.jpg",
       "caption": "Cá chạch lửa sọc đỏ trong bể thủy sinh có cây xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/579b202140466936.webp",
+      "thumb": "https://media.aquatome.com/commons/579b202140466936-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY 4.0",
+      "author": "Jesaya Li",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_02.jpg",
+      "caption": "Cá chạch lửa núp dưới tảng đá trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b18f6d47ec824403.webp",
+      "thumb": "https://media.aquatome.com/commons/b18f6d47ec824403-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "CC BY-SA 3.0",
+      "author": "Гурьева Светлана (zooclub.ru)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mastacembelus-erythroia.jpg",
+      "caption": "Cá chạch lửa sọc đỏ bơi trên nền cỏ trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470665992.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470665992-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/470665992",
+      "caption": "Cá chạch lửa thò đầu từ rễ lũa trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 21,

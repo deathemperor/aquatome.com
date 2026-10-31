@@ -2,6 +2,42 @@
   "id": "chromobotia-macracanthus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/319811024.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319811024-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319811024",
+      "caption": "Hai cá heo hề trong bể có lũa và sỏi",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339892448.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339892448-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alex Sosnovshchenko",
+      "sourceUrl": "https://www.inaturalist.org/photos/339892448",
+      "caption": "Cá heo hề bơi trên nền cát trong bể lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339892454.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339892454-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alex Sosnovshchenko",
+      "sourceUrl": "https://www.inaturalist.org/photos/339892454",
+      "caption": "Hai cá heo hề bơi trên nền cát trong bể lớn",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8d89111af94c9833.webp",
       "thumb": "https://media.aquatome.com/commons/8d89111af94c9833-480.webp",
       "width": 1200,
@@ -160,9 +196,21 @@
       "author": "Greg III Espera",
       "sourceUrl": "https://www.inaturalist.org/photos/116275301",
       "caption": "Cá heo hề bơi sát đáy trong bể nuôi"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/116275260.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/116275260-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Greg III Espera",
+      "sourceUrl": "https://www.inaturalist.org/photos/116275260",
+      "caption": "Cá heo hề trưởng thành trong bể nền sỏi",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 37,
+  "seen": 43,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

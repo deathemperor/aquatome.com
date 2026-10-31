@@ -2,6 +2,18 @@
   "id": "glossolepis-incisus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/101675934.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/101675934-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Sarah McRae",
+      "sourceUrl": "https://www.inaturalist.org/photos/101675934",
+      "caption": "Cá cầu vồng đỏ đực bơi trong bể có lũa và cây thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2af08c53b1ba5176.webp",
       "thumb": "https://media.aquatome.com/commons/2af08c53b1ba5176-480.webp",
       "width": 1200,
@@ -52,7 +64,7 @@
       "caption": "Cá cầu vồng đỏ màu đỏ bơi trong bể có cỏ thủy sinh"
     }
   ],
-  "seen": 9,
+  "seen": 10,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

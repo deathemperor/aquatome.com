@@ -2,6 +2,90 @@
   "id": "xiphophorus-maculatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/677699706.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/677699706-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Alexander Regio",
+      "sourceUrl": "https://www.inaturalist.org/photos/677699706",
+      "caption": "Cá platy đực vàng cam vây đuôi lớn trong hộp quan sát",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/556401822.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/556401822-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/556401822",
+      "caption": "Cá platy cái màu cam vàng trong hộp quan sát trong suốt",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/556400500.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/556400500-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/556400500",
+      "caption": "Cá platy đỏ có đốm đen bên thân trong bể chụp ảnh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/617421764.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617421764-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617421764",
+      "caption": "Đàn cá platy màu cam trong bể thủy sinh có lũa",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/537433573.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/537433573-480.webp",
+      "width": 1018,
+      "height": 678,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/537433573",
+      "caption": "Cá platy đỏ cam ngoài tự nhiên trên nền sỏi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/207091518.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/207091518-480.webp",
+      "width": 1024,
+      "height": 804,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/207091518",
+      "caption": "Cá platy vàng bơi trong bể nước hơi đục",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/558226066.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/558226066-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/558226066",
+      "caption": "Cá platy màu vàng cam trong hộp quan sát có thước đo",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9bff71904ab836d2.webp",
       "thumb": "https://media.aquatome.com/commons/9bff71904ab836d2-480.webp",
       "width": 1200,
@@ -360,9 +444,33 @@
       "author": "Alexander Regio",
       "sourceUrl": "https://www.inaturalist.org/photos/677699643",
       "caption": "Cá platy màu vàng cam trong hộp nhựa có thước đo"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/556402200.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/556402200-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/556402200",
+      "caption": "Nhóm cá platy màu cam trong hộp quan sát ngoài trời",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/746844741.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/746844741-480.webp",
+      "width": 1024,
+      "height": 935,
+      "licence": "CC0",
+      "author": "Ben Keen",
+      "sourceUrl": "https://www.inaturalist.org/photos/746844741",
+      "caption": "Cá platy màu đỏ bơi ngoài tự nhiên trong nước đục",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 172,
+  "seen": 240,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

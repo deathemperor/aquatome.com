@@ -2,6 +2,30 @@
   "id": "corydoras-pygmaeus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/757259951.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757259951-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/757259951",
+      "caption": "Cá chuột pygmy bên đá phủ rêu trong bể nuôi",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/696106999.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/696106999-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "dinomariobob",
+      "sourceUrl": "https://www.inaturalist.org/photos/696106999",
+      "caption": "Cá chuột pygmy bơi trên nền sỏi nhiều màu trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60.webp",
       "thumb": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-480.webp",
       "width": 1200,
@@ -42,7 +66,7 @@
       "caption": "Cá chuột pygmy nghỉ trên đá trong bể trồng cây"
     }
   ],
-  "seen": 16,
+  "seen": 21,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

@@ -2,6 +2,42 @@
   "id": "danio-margaritatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/86335569.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86335569-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Greg III Espera",
+      "sourceUrl": "https://www.inaturalist.org/photos/86335569",
+      "caption": "Cá thiên hà đực bơi cạnh cây thủy sinh trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/86335722.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86335722-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Greg III Espera",
+      "sourceUrl": "https://www.inaturalist.org/photos/86335722",
+      "caption": "Cặp cá thiên hà đực và cái trong bể thủy sinh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/86335683.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86335683-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Greg III Espera",
+      "sourceUrl": "https://www.inaturalist.org/photos/86335683",
+      "caption": "Cá thiên hà đực bơi gần cây thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7d80108137356168.webp",
       "thumb": "https://media.aquatome.com/commons/7d80108137356168-480.webp",
       "width": 1200,
@@ -72,7 +108,7 @@
       "caption": "Cá thiên hà đực bơi giữa cây thủy sinh trong bể"
     }
   ],
-  "seen": 19,
+  "seen": 23,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

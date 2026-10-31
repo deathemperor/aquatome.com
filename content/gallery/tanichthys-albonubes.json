@@ -2,6 +2,18 @@
   "id": "tanichthys-albonubes",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/302e7e50c71aa14f.webp",
+      "thumb": "https://media.aquatome.com/commons/302e7e50c71aa14f-480.webp",
+      "width": 822,
+      "height": 683,
+      "licence": "CC BY 3.0",
+      "author": "User:Ark pl wiki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanichthys_albonubes_by_Ark.jpg",
+      "caption": "Ba cá kim tơ bơi giữa cây thủy sinh lá dài",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7bdad02c7cf963bf.webp",
       "thumb": "https://media.aquatome.com/commons/7bdad02c7cf963bf-480.webp",
       "width": 1200,
@@ -9,7 +21,9 @@
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_Cloud_Mountain_Minnow_(Tanichthys_albonubes).jpg",
-      "caption": "Cá kim tơ có sọc ánh kim và đuôi đỏ trong bể"
+      "caption": "Cá kim tơ trong bể thủy sinh, thân có vệt dọc và đuôi đỏ",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/2a09f53cad9e8ad1.webp",
@@ -19,7 +33,9 @@
       "licence": "CC BY 4.0",
       "author": "Petrtyl",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanichthys_albonubes-kardinalka_cinska.jpg",
-      "caption": "Cá kim tơ nhìn nghiêng nền đen, đuôi đỏ rõ nét"
+      "caption": "Cá kim tơ trưởng thành nền đen, vây đuôi đỏ rõ nét",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/151442fe993ad513.webp",
@@ -29,27 +45,9 @@
       "licence": "CC BY-SA 4.0",
       "author": "Ethmostigmus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_Cloud_Mountain_minnow_(Tanichthys_albonubes)_captive_adult_female.jpg",
-      "caption": "Cá kim tơ đuôi đỏ bơi giữa cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/617424508.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/617424508-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Gabriel",
-      "sourceUrl": "https://www.inaturalist.org/photos/617424508",
-      "caption": "Đàn cá kim tơ vàng bơi trong bể cá"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/302e7e50c71aa14f.webp",
-      "thumb": "https://media.aquatome.com/commons/302e7e50c71aa14f-480.webp",
-      "width": 822,
-      "height": 683,
-      "licence": "CC BY 3.0",
-      "author": "User:Ark pl wiki",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanichthys_albonubes_by_Ark.jpg",
-      "caption": "Ba con cá kim tơ bơi giữa cây thủy sinh trong bể"
+      "caption": "Cá kim tơ bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/452cae60e198189b.webp",
@@ -59,27 +57,9 @@
       "licence": "Public domain",
       "author": "DefenderRegina",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanichthys_albonubes_gold.jpg",
-      "caption": "Cá kim tơ dạng vàng đuôi đỏ trong bể nuôi"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b5b5b48e0c0a8111.webp",
-      "thumb": "https://media.aquatome.com/commons/b5b5b48e0c0a8111-480.webp",
-      "width": 1200,
-      "height": 952,
-      "licence": "CC BY 2.0",
-      "author": "Elma from Reykjavík",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_cloud_-_male_(4057199382).jpg",
-      "caption": "Cá kim tơ đực màu sẫm vây đỏ trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/631595127.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/631595127-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "dinomariobob",
-      "sourceUrl": "https://www.inaturalist.org/photos/631595127",
-      "caption": "Cá kim tơ ánh tím đuôi đỏ trong bể nuôi"
+      "caption": "Cá kim tơ màu vàng cam đuôi đỏ trong bể",
+      "best": false,
+      "kind": "form"
     }
   ],
   "seen": 25,

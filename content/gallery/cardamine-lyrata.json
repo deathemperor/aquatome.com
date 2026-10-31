@@ -1,0 +1,44 @@
+{
+  "id": "cardamine-lyrata",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/657989897.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/657989897-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Wang.QG",
+      "sourceUrl": "https://www.inaturalist.org/photos/657989897",
+      "caption": "Cải nước lyrata ra hoa trắng ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/513081794.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/513081794-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "岸本年郎",
+      "sourceUrl": "https://www.inaturalist.org/photos/513081794",
+      "caption": "Thảm Cải nước lyrata xanh tươi mọc dày dưới nước",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/513081810.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/513081810-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "岸本年郎",
+      "sourceUrl": "https://www.inaturalist.org/photos/513081810",
+      "caption": "Cải nước lyrata mọc bò thành dải trên nền đất ẩm",
+      "best": false,
+      "kind": "emersed"
+    }
+  ],
+  "seen": 4,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
+}

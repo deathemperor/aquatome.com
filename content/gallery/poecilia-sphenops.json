@@ -2,6 +2,42 @@
   "id": "poecilia-sphenops",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/221943574.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/221943574-480.webp",
+      "width": 1024,
+      "height": 792,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/221943574",
+      "caption": "Cá molly đốm hồng đuôi sẫm bơi trong bể thủy sinh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/6286600.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/6286600-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/6286600",
+      "caption": "Hai cá molly trong bể nuôi nền xanh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/611221064.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/611221064-480.webp",
+      "width": 1024,
+      "height": 402,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/611221064",
+      "caption": "Cá molly ngoài tự nhiên bơi gần đáy sỏi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/f89391c4e5bf15da.webp",
       "thumb": "https://media.aquatome.com/commons/f89391c4e5bf15da-480.webp",
       "width": 1024,
@@ -142,7 +178,7 @@
       "caption": "Cá molly bạc nhạt trong bể cây thủy sinh xanh"
     }
   ],
-  "seen": 67,
+  "seen": 98,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

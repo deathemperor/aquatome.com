@@ -2,6 +2,42 @@
   "id": "maylandia-estherae",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/747520557.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/747520557-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/747520557",
+      "caption": "Đàn cá zebra đỏ trong bể có lũa và đá",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/427013941.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/427013941-480.webp",
+      "width": 1024,
+      "height": 819,
+      "licence": "CC BY",
+      "author": "Reid Hardin",
+      "sourceUrl": "https://www.inaturalist.org/photos/427013941",
+      "caption": "Cá zebra đỏ bơi gần đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/427013951.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/427013951-480.webp",
+      "width": 1024,
+      "height": 819,
+      "licence": "CC BY",
+      "author": "Reid Hardin",
+      "sourceUrl": "https://www.inaturalist.org/photos/427013951",
+      "caption": "Cá zebra đỏ cái bơi giữa đá trong hồ Malawi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fe0bb4ceb78d10cc.webp",
       "thumb": "https://media.aquatome.com/commons/fe0bb4ceb78d10cc-480.webp",
       "width": 1200,
@@ -170,9 +206,21 @@
       "author": "scohlendorf",
       "sourceUrl": "https://www.inaturalist.org/photos/242648413",
       "caption": "Cá zebra đỏ dạng cam vằn đen nhìn nghiêng"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/747520603.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/747520603-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/747520603",
+      "caption": "Đàn cá zebra đỏ bơi quanh lũa trong bể cá",
+      "best": false,
+      "kind": "group"
     }
   ],
-  "seen": 33,
+  "seen": 39,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

@@ -2,6 +2,42 @@
   "id": "chitala-ornata",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/130041687.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130041687-480.webp",
+      "width": 1024,
+      "height": 820,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/130041687",
+      "caption": "Cá thát lát cườm nhỏ bơi trong chậu trắng, thân có đốm rõ",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/642201352.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642201352-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/642201352",
+      "caption": "Cá thát lát cườm bơi trong bể kính có đá và cây",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/130041777.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130041777-480.webp",
+      "width": 1024,
+      "height": 817,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/130041777",
+      "caption": "Cá thát lát cườm con bơi nghiêng trong chậu trắng",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/commons/e2aacd9755454d8b.webp",
       "thumb": "https://media.aquatome.com/commons/e2aacd9755454d8b-480.webp",
       "width": 1200,
@@ -72,7 +108,7 @@
       "caption": "Cá thát lát cườm nâu bơi trong bể nước xanh"
     }
   ],
-  "seen": 34,
+  "seen": 55,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

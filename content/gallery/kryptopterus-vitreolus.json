@@ -2,6 +2,18 @@
   "id": "kryptopterus-vitreolus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/307195233.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/307195233-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/307195233",
+      "caption": "Cá thủy tinh bơi cạnh rong xanh trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fca62a828bf26357.webp",
       "thumb": "https://media.aquatome.com/commons/fca62a828bf26357-480.webp",
       "width": 1200,
@@ -122,7 +134,7 @@
       "caption": "Đàn cá thủy tinh bơi trong bể thủy sinh nhiều rêu và cây"
     }
   ],
-  "seen": 32,
+  "seen": 35,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

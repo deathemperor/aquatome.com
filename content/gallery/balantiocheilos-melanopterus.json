@@ -2,6 +2,18 @@
   "id": "balantiocheilos-melanopterus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/337051532.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/337051532-480.webp",
+      "width": 1024,
+      "height": 714,
+      "licence": "CC0",
+      "author": "hhkaaks",
+      "sourceUrl": "https://www.inaturalist.org/photos/337051532",
+      "caption": "Đàn cá hỏa tiễn bơi trong bể có ống gốm trang trí",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/21ffa492f22f806c.webp",
       "thumb": "https://media.aquatome.com/commons/21ffa492f22f806c-480.webp",
       "width": 1200,
@@ -170,9 +182,21 @@
       "author": "Martyn Drabik-Hamshare",
       "sourceUrl": "https://www.inaturalist.org/photos/315322142",
       "caption": "Cá hỏa tiễn lớn vây lưng cao trong bể có cây thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/226476117.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/226476117-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Matt Schultz",
+      "sourceUrl": "https://www.inaturalist.org/photos/226476117",
+      "caption": "Cá hỏa tiễn bơi cạnh cây thủy sinh trong bể kính",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 34,
+  "seen": 38,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

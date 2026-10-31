@@ -95,15 +95,17 @@ fi
 if part photos; then
   # Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
-  # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
-  pnpm engine gallery --limit "${GALLERY_LIMIT:-16}" || log "gallery: failed"
+  # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
+  # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS
+  # model calls a cycle (about 480 a day on the subscription); each page continues next cycle where this one stopped.
+  pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
   pnpm engine unsplash --limit "${UNSPLASH_LIMIT:-6}" || log "unsplash: failed"
 fi
 if part pages sf photos; then
-  # Commons and iNaturalist photos (new galleries, new pages) copied to our bucket: their hosts set third-party cookies.
+  # Commons, iNaturalist, Flickr and GBIF photos (new gallery photos, new pages) copied to our bucket: their hosts set third-party cookies.
   pnpm engine mirror-photos --limit "${MIRROR_LIMIT:-200}" || log "mirror-photos: failed"
   # No watermarks (credits, dealer logos, site names): text on a photo is judged once by the model, a marked photo leaves
   # every page and stays blocked. After mirroring, so a gallery's Commons photo is screened under the URL pages use.

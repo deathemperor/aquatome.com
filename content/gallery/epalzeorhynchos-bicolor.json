@@ -2,6 +2,30 @@
   "id": "epalzeorhynchos-bicolor",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/226475991.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/226475991-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Matt Schultz",
+      "sourceUrl": "https://www.inaturalist.org/photos/226475991",
+      "caption": "Cá mập đuôi đỏ bơi trên nền cát trắng trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/601260022.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/601260022-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Oz Perkins",
+      "sourceUrl": "https://www.inaturalist.org/photos/601260022",
+      "caption": "Cá mập đuôi đỏ thân đen trong bể trang trí hồng",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/ec1546635933af84.webp",
       "thumb": "https://media.aquatome.com/commons/ec1546635933af84-480.webp",
       "width": 1024,
@@ -80,19 +104,9 @@
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/504514431",
       "caption": "Cá mập đuôi đỏ bơi trong bể ánh sáng xanh"
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1675518130510-dea2fba5896d?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTN8fFJlZC10YWlsZWQlMjBibGFjayUyMHNoYXJrfGVufDF8fHx8MTc5MzQ2Nzg3N3ww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
-      "thumb": "https://images.unsplash.com/photo-1675518130510-dea2fba5896d?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTN8fFJlZC10YWlsZWQlMjBibGFjayUyMHNoYXJrfGVufDF8fHx8MTc5MzQ2Nzg3N3ww&ixlib=rb-4.1.0&w=480&q=80&fm=jpg&fit=max",
-      "width": 1280,
-      "height": 960,
-      "licence": "Unsplash License",
-      "author": "vxhorse",
-      "sourceUrl": "https://unsplash.com/photos/a-group-of-fish-swimming-in-an-aquarium-2RaW9a-s0zc?utm_source=aquatome&utm_medium=referral",
-      "caption": "Cá mập đuôi đỏ trong bể thủy sinh có lũa và đá"
     }
   ],
-  "seen": 52,
+  "seen": 28,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

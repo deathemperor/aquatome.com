@@ -32,7 +32,7 @@ const SECTIONS: Record<Exclude<Lang, 'vi'>, Record<string, string>> = {
     'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products',
   },
 }
-/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/. */
+/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/, /vi/cay/<slug>/anh/. */
 const SUB: Record<Exclude<Lang, 'vi'>, { 'the-tich-be': string; 'den-chihiros': string; 'be-cua-toi': string; 'nuoi-chung': string; kenh: string; anh: string }> = {
   id: { 'the-tich-be': 'volume-akuarium', 'den-chihiros': 'lampu-chihiros', 'be-cua-toi': 'akuarium-saya', 'nuoi-chung': 'kecocokan-ikan', kenh: 'kanal', anh: 'foto' },
   th: { 'the-tich-be': 'tank-volume', 'den-chihiros': 'chihiros-light', 'be-cua-toi': 'my-tanks', 'nuoi-chung': 'tank-mates', kenh: 'channel', anh: 'photos' },
@@ -52,7 +52,7 @@ export function localizePath(lang: Lang, path: string): string {
   const tool = TOOLS.find(x => x === seg[3])
   if (section === 'cong-cu' && tool) seg[3] = SUB[lang][tool]
   if (section === 'video' && seg[3] === 'kenh' && seg.length > 5) seg[3] = SUB[lang].kenh
-  if (section === 'ca' && seg[4] === 'anh' && seg.length === 6) seg[4] = SUB[lang].anh
+  if ((section === 'ca' || section === 'cay') && seg[4] === 'anh' && seg.length === 6) seg[4] = SUB[lang].anh
   return seg.join('/') + tail
 }
 
@@ -83,7 +83,7 @@ export function toVi(path: string): string {
   const tool = TOOLS.find(x => SUB[lang][x] === seg[3])
   if (seg[2] === 'cong-cu' && tool) seg[3] = tool
   if (seg[2] === 'video' && seg[3] === SUB[lang].kenh && seg.length > 5) seg[3] = 'kenh'
-  if (seg[2] === 'ca' && seg[4] === SUB[lang].anh && seg.length === 6) seg[4] = 'anh'
+  if ((seg[2] === 'ca' || seg[2] === 'cay') && seg[4] === SUB[lang].anh && seg.length === 6) seg[4] = 'anh'
   return seg.join('/')
 }
 
@@ -113,7 +113,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
 export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */

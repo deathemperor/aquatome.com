@@ -2,6 +2,54 @@
   "id": "puntius-titteya",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/8916958624.webp",
+      "thumb": "https://media.aquatome.com/flickr/8916958624-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "berarma",
+      "sourceUrl": "https://www.flickr.com/photos/95806203@N02/8916958624",
+      "caption": "Cá anh đào đực màu đỏ trên đá rêu trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/8917047324.webp",
+      "thumb": "https://media.aquatome.com/flickr/8917047324-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "berarma",
+      "sourceUrl": "https://www.flickr.com/photos/95806203@N02/8917047324",
+      "caption": "Cặp cá anh đào bơi trong bể thủy sinh nhiều cây",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58825752.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58825752-480.webp",
+      "width": 1024,
+      "height": 898,
+      "licence": "CC BY-SA",
+      "author": "Pieter Prins",
+      "sourceUrl": "https://www.inaturalist.org/photos/58825752",
+      "caption": "Cá anh đào bơi trên lá khô ở suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58825741.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58825741-480.webp",
+      "width": 1024,
+      "height": 720,
+      "licence": "CC BY-SA",
+      "author": "Pieter Prins",
+      "sourceUrl": "https://www.inaturalist.org/photos/58825741",
+      "caption": "Cá anh đào trong môi trường tự nhiên giữa lá khô dưới nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2fb9dd25d0d5ed3f.webp",
       "thumb": "https://media.aquatome.com/commons/2fb9dd25d0d5ed3f-480.webp",
       "width": 1200,
@@ -52,6 +100,7 @@
       "caption": "Cá anh đào đực màu đỏ rực bơi giữa cây thủy sinh"
     }
   ],
-  "seen": 8,
-  "updatedAt": "2026-10-29"
+  "seen": 15,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

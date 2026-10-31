@@ -2,6 +2,18 @@
   "id": "amphilophus-labiatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/569828374.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/569828374-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://www.inaturalist.org/photos/569828374",
+      "caption": "Cá red devil màu hoang dã trên nền đá trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/89d4bb7e563f046d.webp",
       "thumb": "https://media.aquatome.com/commons/89d4bb7e563f046d-480.webp",
       "width": 1200,
@@ -32,7 +44,7 @@
       "caption": "Cá red devil dạng hoang dã màu nâu vằn trong bể đá"
     }
   ],
-  "seen": 30,
+  "seen": 47,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

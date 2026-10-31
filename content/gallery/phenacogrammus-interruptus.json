@@ -2,6 +2,42 @@
   "id": "phenacogrammus-interruptus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/319646045.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319646045-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319646045",
+      "caption": "Đàn cá tetra Congo bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/625518862.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/625518862-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/625518862",
+      "caption": "Cá tetra Congo bơi cạnh cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/505901507.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/505901507-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/505901507",
+      "caption": "Cá tetra Congo bơi trong bể nền sỏi xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8fed53dad95f17eb.webp",
       "thumb": "https://media.aquatome.com/commons/8fed53dad95f17eb-480.webp",
       "width": 1000,
@@ -132,7 +168,7 @@
       "caption": "Cá tetra Congo vàng ánh xanh bơi trên nền cát trong bể"
     }
   ],
-  "seen": 36,
+  "seen": 39,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

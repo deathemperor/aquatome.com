@@ -2,6 +2,30 @@
   "id": "caridina-multidentata",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/103111757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/103111757-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Takaaki Hattori",
+      "sourceUrl": "https://www.inaturalist.org/photos/103111757",
+      "caption": "Tép Amano ngoài tự nhiên trên nền sỏi đá suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/458429689.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/458429689-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/458429689",
+      "caption": "Tép Amano trên đá đỏ trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/01def3b3afb6bf5d.webp",
       "thumb": "https://media.aquatome.com/commons/01def3b3afb6bf5d-480.webp",
       "width": 1195,
@@ -212,7 +236,7 @@
       "caption": "Tép Amano màu vàng nâu bám trên kính bể thủy sinh"
     }
   ],
-  "seen": 50,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 55,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

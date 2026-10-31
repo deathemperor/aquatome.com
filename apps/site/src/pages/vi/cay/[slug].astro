@@ -3,6 +3,8 @@ import type { Localized, PlantEntity } from '@aq/schema'
 import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import PhotoGallery from '../../../components/PhotoGallery.astro'
+import GalleryStrip from '../../../components/GalleryStrip.astro'
+import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import Sections from '../../../components/Sections.astro'
 import GuideLinks from '../../../components/GuideLinks.astro'
 import { guidesMentioning } from '../../../lib/mentions'
@@ -14,7 +16,7 @@ import { getContent } from '../../../lib/content'
 import { searchAliases } from '../../../lib/search'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { i18n, langOf } from '../../../lib/i18n'
+import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -24,6 +26,9 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
+// Its gallery's first photos, linking the gallery page, once there are enough for one.
+const gallery = c.galleries[p.id] ?? []
+const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/cay/${p.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP) : []
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -36,7 +41,7 @@ const facts: [string, string][] = [
 import RedirectNote from '../../../components/RedirectNote.astro'
 const alternates = await alternatesOf('plants', p.id)
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor(p.photos.slice(1))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...p.photos.slice(1), ...strip])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">
@@ -48,6 +53,7 @@ const alternates = await alternatesOf('plants', p.id)
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
+  {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/cay/${p.t.slug}/anh/`} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
   <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />

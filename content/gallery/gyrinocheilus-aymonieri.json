@@ -2,6 +2,30 @@
   "id": "gyrinocheilus-aymonieri",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/265232922.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265232922-480.webp",
+      "width": 1024,
+      "height": 730,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/265232922",
+      "caption": "Cá hút đá vàng bơi trong bể cảnh có đá trang trí",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/265232797.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265232797-480.webp",
+      "width": 1024,
+      "height": 678,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/265232797",
+      "caption": "Cá hút đá vàng cam bên tảng đá trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9432726606f767fa.webp",
       "thumb": "https://media.aquatome.com/commons/9432726606f767fa-480.webp",
       "width": 1035,
@@ -132,7 +156,7 @@
       "caption": "Cận cảnh đầu cá hút đá vàng trong bể"
     }
   ],
-  "seen": 33,
+  "seen": 47,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

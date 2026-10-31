@@ -2,6 +2,30 @@
   "id": "mikrogeophagus-ramirezi",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/545967345.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545967345-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545967345",
+      "caption": "Cá phượng hoàng bơi gần tảo cầu trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/2479429940.webp",
+      "thumb": "https://media.aquatome.com/flickr/2479429940-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "threefingeredlord",
+      "sourceUrl": "https://www.flickr.com/photos/12568296@N06/2479429940",
+      "caption": "Cá phượng hoàng vàng xanh trong bể thủy sinh tối",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8310c6fbb2b90e3b.webp",
       "thumb": "https://media.aquatome.com/commons/8310c6fbb2b90e3b-480.webp",
       "width": 1024,
@@ -240,9 +264,33 @@
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/545967330",
       "caption": "Cá phượng hoàng đực vây lưng cao trong bể có rêu"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545967298.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545967298-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545967298",
+      "caption": "Nhóm cá phượng hoàng bên đám tảo cầu",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/41797083.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/41797083-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Alexandre S. Michelotto",
+      "sourceUrl": "https://www.inaturalist.org/photos/41797083",
+      "caption": "Cá phượng hoàng trong bể kính hơi xanh rêu",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 50,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 56,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

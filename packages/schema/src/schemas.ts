@@ -94,7 +94,13 @@ export const EquipmentSchema = z.object({
 /** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
 export const CaptionsSchema = z.record(z.string(), z.string())
 
-export const GallerySchema = z.object({ id: z.string(), photos: z.array(Photo), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
+/**
+ * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
+ * its picks of a contact sheet; `kind`, what it shows (male, female, colour form, juvenile, habitat; for a plant
+ * submersed, emersed, flower…). Photos screened before these existed have neither.
+ */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional() })
+export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
 const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)

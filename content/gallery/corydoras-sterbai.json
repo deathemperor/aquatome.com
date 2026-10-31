@@ -2,6 +2,42 @@
   "id": "corydoras-sterbai",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/617423382.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617423382-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617423382",
+      "caption": "Đàn cá chuột Sterba kiếm ăn trên nền sỏi màu trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339901810.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339901810-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alex Sosnovshchenko",
+      "sourceUrl": "https://www.inaturalist.org/photos/339901810",
+      "caption": "Cá chuột Sterba bơi giữa bể, thân đốm vàng, vây ngực cam",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339901824.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339901824-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alex Sosnovshchenko",
+      "sourceUrl": "https://www.inaturalist.org/photos/339901824",
+      "caption": "Cá chuột Sterba bơi cạnh lá cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/0fada46707e939af.webp",
       "thumb": "https://media.aquatome.com/commons/0fada46707e939af-480.webp",
       "width": 1200,
@@ -100,9 +136,21 @@
       "author": "Indula Chanaka",
       "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-fish-in-an-aquarium-7l5iz0aeGZo?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá chuột Sterba kiếm ăn trên nền cát trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/523447091.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/523447091-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "adamcvean",
+      "sourceUrl": "https://www.inaturalist.org/photos/523447091",
+      "caption": "Cá chuột Sterba thân đốm sẫm bơi trong bể kính",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 14,
+  "seen": 20,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

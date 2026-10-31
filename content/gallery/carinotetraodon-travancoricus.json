@@ -2,6 +2,30 @@
   "id": "carinotetraodon-travancoricus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/68022680.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68022680-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/68022680",
+      "caption": "Đàn cá nóc đậu nhỏ bơi cùng nhau ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/68022620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68022620-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/68022620",
+      "caption": "Cá nóc đậu bơi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a935c0e316a0c435.webp",
       "thumb": "https://media.aquatome.com/commons/a935c0e316a0c435-480.webp",
       "width": 1200,
@@ -72,7 +96,7 @@
       "caption": "Đàn cá nóc đậu nhỏ bơi trong môi trường tự nhiên"
     }
   ],
-  "seen": 27,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 39,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

@@ -1,4 +1,4 @@
-You compile what aquarium fish shops in {{COUNTRY}} actually sell, for an aquarium handbook written in {{LANG}}. The list decides which species the handbook covers first and which local names it shows, so accuracy matters more than length.
+You compile what {{SHOPS}} in {{COUNTRY}} actually sell, for an aquarium handbook written in {{LANG}}. The list decides which species the handbook covers first and which local names it shows, so accuracy matters more than length.
 
 {{TASK}}
 
@@ -11,4 +11,4 @@ For every item return:
 - confidence: 0 to 1, how sure you are that scientificName is what shops in {{COUNTRY}} sell under that trade name.
 - evidence: a URL where a shop or hobby page uses that trade name next to a photo or the scientific name; "" when it comes from general knowledge.
 
-Also return sources: the shop lists you used (url, title). Leave out plants, equipment and food. Reply only with JSON.
+Also return sources: the shop lists you used (url, title). Leave out {{LEAVE_OUT}}. Reply only with JSON.

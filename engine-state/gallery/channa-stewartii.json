@@ -1,0 +1,27 @@
+{
+ "queue": [],
+ "judged": [
+  "File:Channa stewartii.jpg",
+  "File:Ophiocephalus stewartii Ford 77.jpg",
+  "inat:328049234",
+  "inat:328049264",
+  "inat:328049289"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/glaser/0099a321dcddac1c.webp": "459d0e0b1befc99c",
+  "https://media.aquatome.com/inaturalist/33418401.webp": "86cbdcdc71428103"
+ },
+ "inat": {
+  "taxon": 97279,
+  "pass": "done",
+  "after": {
+   "research": 187489015,
+   "agree": 21589242
+  }
+ },
+ "commons": "2026-10-31",
+ "gbif": {
+  "key": 2391448,
+  "next": null
+ }
+}

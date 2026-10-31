@@ -2,6 +2,78 @@
   "id": "neocaridina-davidi",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/757287248.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757287248-480.webp",
+      "width": 1024,
+      "height": 473,
+      "licence": "CC BY",
+      "author": "Rubén F. A.",
+      "sourceUrl": "https://www.inaturalist.org/photos/757287248",
+      "caption": "Tép đỏ cherry trên nền cát trắng trong bể thủy sinh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259004710.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259004710-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/259004710",
+      "caption": "Hai tép Neocaridina màu nâu hoang dã trên nền sỏi trắng",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/603056247.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/603056247-480.webp",
+      "width": 1024,
+      "height": 878,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/603056247",
+      "caption": "Tép đỏ trên nền cát dưới nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/417540239.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/417540239-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Yoshihiro Tokue",
+      "sourceUrl": "https://www.inaturalist.org/photos/417540239",
+      "caption": "Tép đỏ Neocaridina màu hoang dã trong hộp nước trong suốt",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/603056309.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/603056309-480.webp",
+      "width": 735,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/603056309",
+      "caption": "Tép đỏ bơi trên đáy cát trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/565122018.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/565122018-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Syd Cannings",
+      "sourceUrl": "https://www.inaturalist.org/photos/565122018",
+      "caption": "Tép đỏ trong môi trường tự nhiên giữa thảm rêu xanh",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/23140abc7cf6959a.webp",
       "thumb": "https://media.aquatome.com/commons/23140abc7cf6959a-480.webp",
       "width": 1024,
@@ -440,8 +512,33 @@
       "author": "aquariumstocking.com",
       "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-red-and-white-fish-oMRqAtEZprE?utm_source=aquatome&utm_medium=referral",
       "caption": "Cận cảnh tép đỏ Neocaridina trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/596900718.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/596900718-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Jay Paroline",
+      "sourceUrl": "https://www.inaturalist.org/photos/596900718",
+      "caption": "Tép màu đen sẫm trên nền sỏi dưới nước",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/642177826.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642177826-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "余世文",
+      "sourceUrl": "https://www.inaturalist.org/photos/642177826",
+      "caption": "Tép màu tím nâu bám trên cây thủy sinh",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 201,
-  "updatedAt": "2026-10-29"
+  "seen": 260,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }
