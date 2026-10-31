@@ -2,6 +2,27 @@
   {
     "date": "2026-10-31",
     "kind": "species",
+    "id": "amblyceps-mangois",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "amblyceps-laticeps",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "amblyceps-foratum",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
     "id": "yasuhikotakia-morleti",
     "source": "seriouslyfish",
     "action": "updated"
@@ -3477,26 +3498,5 @@
     "id": "puntius-titteya",
     "source": "sprucepets",
     "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumbreeder-live-rocks-and-dry-rocks-pros-and-cons",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "yunnanilus-cruciatus",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumbreeder-profile-gorilla-crabs-in-reef-tanks",
-    "source": "aquariumbreeder",
-    "action": "new"
   }
 ]
