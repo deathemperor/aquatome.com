@@ -7,6 +7,10 @@ the phone for reading offline, without ads); **Bể của tôi** keeps the reade
 substrate, notes) on the phone with no account, in the same store the site uses, and shares a copy as JSON; **Đèn**
 controls the lights. The handbook's Chihiros tool opens the Đèn tab.
 
+Signing in (Sign in with Apple) syncs the tanks with an aquatome.com account, as the site's page does: the token is in
+the Keychain, on this phone only. The UI tests get a stand-in server and Apple sheet inside the app
+(`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`); no test reaches aquatome.com.
+
 ## The app
 
 ```text

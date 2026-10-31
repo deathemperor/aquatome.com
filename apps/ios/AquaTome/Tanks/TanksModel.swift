@@ -55,6 +55,9 @@ final class TanksModel {
     try commit(s)
   }
 
+  /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.
+  func commitSynced(_ s: TankStore) throws { try commit(s) }
+
   private func commit(_ s: TankStore) throws {
     guard problem == nil || problem == .saveFailed else { throw TankStoreError.unknownVersion }
     do {

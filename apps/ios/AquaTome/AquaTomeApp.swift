@@ -1,3 +1,4 @@
+import AccountSync
 import SwiftUI
 
 @main
@@ -5,7 +6,9 @@ struct AquaTomeApp: App {
   @State private var lights = LightsModel(radio: AquaTomeApp.radio())
   @State private var handbook = HandbookModel()
   @State private var tanks: TanksModel
+  @State private var account: AccountModel
   @State private var tab = Tab.handbook
+  @Environment(\.scenePhase) private var phase
 
   enum Tab { case tanks, handbook, lights }
 
@@ -18,7 +21,9 @@ struct AquaTomeApp: App {
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
     // Read after the tests' reset above.
-    _tanks = State(initialValue: TanksModel())
+    let tanks = TanksModel()
+    _tanks = State(initialValue: tanks)
+    _account = State(initialValue: AquaTomeApp.account(tanks))
   }
 
   var body: some Scene {
@@ -38,7 +43,26 @@ struct AquaTomeApp: App {
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
+      .environment(account)
+      // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
+      .onChange(of: tanks.store) { account.changed() }
+      .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
     }
+  }
+
+  /// aquatome.com's accounts. The UI tests (they all pass -fixed-handbook) never reach it: they get a stand-in server
+  /// in the app (accounts off unless `-fake-accounts on`) and a stand-in Apple sheet.
+  @MainActor
+  private static func account(_ tanks: TanksModel) -> AccountModel {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-fixed-handbook") || args.contains("-fake-accounts") {
+      if args.contains("-reset-defaults") { TokenStore().delete() }
+      let fake = FakeServer(args)
+      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn())
+    }
+    #endif
+    return AccountModel(tanks: tanks)
   }
 
   /// Bluetooth on a device; the simulator has none, so it gets a fake light (UI tests run on it too).
