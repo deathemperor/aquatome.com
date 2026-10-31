@@ -10,7 +10,8 @@ import { alternatesWhere } from '../../../lib/alternates'
 type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
-  const nodes = new Map<string, Node>()
+  // The index always exists (a language with no species yet still has the page its menus link to).
+  const nodes = new Map<string, Node>([['', { path: [], name: 'Phân loại', species: [] }]])
   const add = (path: string[], name: string, s: Localized<SpeciesEntity>) => {
     const k = path.join('/')
     const n = nodes.get(k) ?? { path, name, species: [] }
@@ -32,8 +33,8 @@ const { t } = i18n(Astro.url)
 // The same taxon in another language: some species of it has a page there.
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => node.path.every((x, i) => x === [s.order, s.family, s.genus][i]!.toLowerCase())))
 const level = [t('Phân loại'), t('Bộ'), t('Họ'), t('Chi')][node.path.length]!
-const first = node.species[0]!
-const crumbNames = [first.order, first.family]
+const first = node.species[0]
+const crumbNames = [first?.order, first?.family]
 const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t('Phân loại')], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []

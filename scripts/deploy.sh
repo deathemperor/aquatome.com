@@ -13,6 +13,9 @@ else
 fi
 # I18N_LENIENT: a UI string an Indonesian or Thai page lacks shows in Vietnamese rather than stopping the deploy.
 I18N_LENIENT=1 PUBLIC_BUILD=1 SITE_URL=https://aquatome.com pnpm build
+# E2E_GATE (deploy.yml): the page checks on the real build, one or two pages of each kind (the same ones every time),
+# before anything is uploaded. A broken template breaks its sampled page too.
+if [ -n "${E2E_GATE:-}" ]; then E2E_SEED=0 pnpm exec playwright test --grep @invariants; fi
 # The same list goes into the Worker: what it answers from until it has read the live one (worker/hidden.ts isHidden).
 HIDDEN_PAGES="$(node -e 'try { process.stdout.write(Object.keys(JSON.parse(require("fs").readFileSync(".hidden.json", "utf8"))).join(" ")) } catch {}')"
 [ "${#HIDDEN_PAGES}" -le 5000 ] || { echo "warning: hidden-page list over 5 KB, not baked in"; HIDDEN_PAGES=; } # a Worker variable's limit
