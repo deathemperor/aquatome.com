@@ -59,7 +59,7 @@ jobs:
       needs.check.outputs.upload == 'yes' &&
       (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: macos-26
-    timeout-minutes: 45
+    timeout-minutes: 100
     env:
       KEY_ID: ${{ vars.APP_STORE_CONNECT_KEY_ID }}
       ISSUER_ID: ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
@@ -96,6 +96,13 @@ jobs:
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
             -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
           echo "Build ${{ github.run_number }}: $DESTINATION done" >> "$GITHUB_STEP_SUMMARY"
+      # Apple processes an upload before testers get it, and refuses some only then (by email): wait for its answer.
+      - name: Wait for App Store Connect
+        env:
+          APP_ID: '6829188547'
+          # A dry run only reports the newest build (it checks the key and the script).
+          BUILD: ${{ env.DESTINATION == 'upload' && github.run_number || '' }}
+        run: KEY_PATH="$RUNNER_TEMP/asc.p8" node apps/ios/scripts/asc-build-state.mjs
       - name: Remove the key
         if: always()
         run: rm -f "$RUNNER_TEMP/asc.p8"
