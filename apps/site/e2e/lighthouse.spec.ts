@@ -26,8 +26,11 @@ const BUDGET: Record<'phone' | 'desktop', Budget> = {
 // Pages that start below the general budget (by path, else by kind): held where they are until they're fixed, then
 // removed from here.
 const KNOWN: Record<string, Partial<Budget>> = {
-  // Every species card at once: ~15,400 elements on aquatome.com (more with each species added): phone 54, LCP 9.5 s.
-  'vi/ca/2': { performance: 45, lcp: 12000, tbt: 800, dom: 20000 },
+  // The fish list: 24 species as cards, every other one as a link its script makes a card of (SpeciesGrid `full`), with
+  // the filter index and the photo credits of every species, half of its ~620 KB. 877 species (2026-11-01): 3,042
+  // elements, phone 64–73 and LCP 4.6–6.2 s (served uncompressed here), blocking time 0–58 ms. Each species added
+  // brings ~2.6 elements and ~0.6 KB (~0.3 s of LCP per 100): the room here is ~350 more species.
+  'vi/ca/2': { performance: 55, lcp: 7500, dom: 4000 },
   // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its search
   // script is ~90 KB.
   'vi/tim-kiem/2': { seo: 55, js: 100 },
