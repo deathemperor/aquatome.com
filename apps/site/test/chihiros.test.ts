@@ -1,50 +1,57 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { firmwareOf, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setTime } from '../src/scripts/chihiros'
+import { askStatus, firmwareOf, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setSchedule, setTime, type Schedule } from '../src/scripts/chihiros'
+
+// Shared with the iOS app's tests, so both implementations send the same bytes.
+type Case<T> = T & { note?: string }
+type Vectors = {
+  frame: Case<{ cmd: number; mode: number; params: number[]; id: number; hex: string }>[]
+  setLevel: Case<{ channel: number; level: number; id: number; hex: string }>[]
+  setMode: Case<{ mode: number; id: number; hex: string }>[]
+  setTime: Case<{ local: string; id: number; hex: string }>[]
+  askStatus: Case<{ id: number; hex: string }>[]
+  setSchedule: Case<{ schedule: Schedule; channels: number; id: number; hex: string }>[]
+  nextId: Case<{ id: number; next: number }>[]
+  scheduleParams: Case<{ schedule: Schedule; channels: number; params: number[] }>[]
+  modelOf: Case<{ name: string; model: string | null; channels?: string[] }>[]
+  firmwareOf: Case<{ reply: string; firmware: number | null }>[]
+  hoursLit: Case<{ on: string; off: string; hours: number }>[]
+}
+const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/chihiros-vectors.json', import.meta.url), 'utf8'))
 
 const hex = (b: Uint8Array) => Buffer.from(b).toString('hex').replace(/(..)(?!$)/g, '$1 ')
+const bytes = (h: string) => Uint8Array.from(h.split(' '), b => parseInt(b, 16))
 
 test('frames match the captures in the protocol notes', () => {
-  expect(hex(setLevel(0, 90, 0x0001))).toBe('5a 01 07 00 01 07 00 5a 5a') // level 90 = 0x5a is sent as is
-  expect(hex(setLevel(0, 100, 0x0020))).toBe('5a 01 07 00 20 07 00 64 45')
-  // Deleting an everyday 02:30–05:10 setting with a one-minute ramp.
-  expect(hex(frame(0xa5, 0x19, [2, 30, 5, 10, 1, 127, 255, 255, 255, 255, 255, 255, 255, 255], 0x0017))).toBe('a5 01 13 00 17 19 02 1e 05 0a 01 7f ff ff ff ff ff ff ff ff 71')
-  expect(hex(setMode(11, 2))).toBe('5a 01 08 00 02 05 0b ff ff 05')
-  expect(setLevel(1, 140, 3)[7]).toBe(100) // levels are 0–100
+  for (const c of v.frame) expect(hex(frame(c.cmd, c.mode, c.params, c.id)), c.note).toBe(c.hex)
+  for (const c of v.setLevel) expect(hex(setLevel(c.channel, c.level, c.id)), c.note).toBe(c.hex)
+  for (const c of v.setMode) expect(hex(setMode(c.mode, c.id)), c.note).toBe(c.hex)
+  for (const c of v.askStatus) expect(hex(askStatus(c.id))).toBe(c.hex)
+  for (const c of v.setSchedule) expect(hex(setSchedule(c.schedule, c.channels, c.id)), c.note).toBe(c.hex)
 })
 
 test('message ids skip 0x5a in either byte and wrap', () => {
-  expect(nextId(1)).toBe(2)
-  expect(nextId(0x59)).toBe(0x5b)
-  expect(nextId(0x59ff)).toBe(0x5b00)
-  expect(nextId(0xffff)).toBe(1)
+  for (const c of v.nextId) expect(nextId(c.id), c.note).toBe(c.next)
 })
 
 test('the clock frame sends the ISO weekday', () => {
-  // Saturday 31 October 2026, 12:05:09.
-  expect([...setTime(new Date(2026, 9, 31, 12, 5, 9), 1).slice(6, 12)]).toEqual([26, 10, 6, 12, 5, 9])
-  expect(setTime(new Date(2026, 10, 1, 8, 0, 0), 1)[8]).toBe(7) // Sunday
+  // `local` has no zone, so it is read as this machine's local time, as the page's `new Date()` is.
+  for (const c of v.setTime) expect(hex(setTime(new Date(c.local), c.id)), c.note).toBe(c.hex)
 })
 
 test('schedules: 14 bytes, everyday, levels by channel, white-only and midnight cases', () => {
-  expect(scheduleParams({ on: '08:00', off: '16:00', ramp: 30, levels: [70, 60, 50] }, 3)).toEqual([8, 0, 16, 0, 30, 127, 70, 60, 50, 255, 255, 255, 255, 255])
-  expect(scheduleParams({ on: '09:30', off: '00:00', ramp: 0, levels: [80] }, 1)).toEqual([9, 30, 23, 59, 0, 127, 80, 255, 255, 255, 255, 255, 255, 255])
-  expect(scheduleParams({ on: '10:00', off: '18:00', ramp: 45, levels: [50, 50, 50, 90] }, 4).slice(6, 10)).toEqual([50, 50, 50, 90])
+  for (const c of v.scheduleParams) expect(scheduleParams(c.schedule, c.channels), c.note).toEqual(c.params)
 })
 
 test('models by name prefix, longest first', () => {
-  expect(modelOf('DYSL30FB86A368EB04')).toMatchObject({ name: 'WRGB II Slim', channels: ['red', 'green', 'blue'] })
-  expect(modelOf('DYNA2N12345')?.name).toBe('A II')
-  expect(modelOf('DYNARGB60')?.name).toBe('RGB A Plus') // not the A Series ("DYA")
-  expect(modelOf('DYNC2N60')?.name).toBe('C II')
-  expect(modelOf('DYU1200AB')?.channels).toHaveLength(4)
-  expect(modelOf('DYTWO300')).toBeUndefined() // X300: warm/white channels, not supported here
-  expect(modelOf('B3.0-A430Pro')).toBeUndefined()
+  for (const c of v.modelOf) {
+    const m = modelOf(c.name)
+    expect(m?.name ?? null, c.name).toBe(c.model)
+    if (c.channels) expect(m?.channels, c.name).toEqual(c.channels)
+  }
 })
 
 test('status replies and hours of light', () => {
-  expect(firmwareOf(Uint8Array.from([0x5b, 24, 0x10, 0, 1, 0xfe, 0, 0, 0]))).toBe(24)
-  expect(firmwareOf(Uint8Array.from([0x5a, 24, 0, 0, 0, 0, 0]))).toBeUndefined()
-  expect(hoursLit('08:00', '16:00')).toBe(8)
-  expect(hoursLit('22:00', '06:00')).toBe(8)
-  expect(hoursLit('10:00', '16:30')).toBe(6.5)
+  for (const c of v.firmwareOf) expect(firmwareOf(bytes(c.reply)) ?? null).toBe(c.firmware)
+  for (const c of v.hoursLit) expect(hoursLit(c.on, c.off)).toBe(c.hours)
 })

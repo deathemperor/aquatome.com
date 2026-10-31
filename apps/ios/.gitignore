@@ -1,0 +1,6 @@
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+# The owner's signing team: see README.md.
+Config/Local.xcconfig
