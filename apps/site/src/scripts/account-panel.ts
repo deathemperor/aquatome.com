@@ -1,12 +1,12 @@
 import { loadTurnstile, type Turnstile } from './comments'
 import { ct } from './ct'
 import * as store from './tank-store'
-import { codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, PENDING, pendingFlow, signInWith, signOut, syncOnce, type Fail, type Providers, type User } from './sync'
+import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Providers, type User } from './sync'
 
 /**
  * "Đồng bộ giữa các thiết bị" on "Bể của tôi": optional sign-in and sync. The section stays hidden unless the server
  * offers accounts. Google's, Apple's and Turnstile's scripts load only when the reader asks to sign in (and Apple's
- * when "Xóa tài khoản" opens for an account that signs in with Apple).
+ * when "Xóa tài khoản" opens for an account that signs in with Apple). Passkeys use the browser's own prompt.
  *
  * Signed in, this browser's tanks and the account's are merged both ways (sync.ts): right after signing in, when the page
  * opens, after each change here (a moment later), and when the tab comes back into view.
@@ -31,6 +31,13 @@ function script(src: string): Promise<void> {
 }
 const APPLE_LOCALE: Record<string, string> = { vi: 'vi_VN', id: 'id_ID', th: 'th_TH' }
 const KIND: Record<string, string> = { google: 'Google', apple: 'Apple', email: 'email', passkey: 'passkey' }
+
+// The passkey helper loads when a passkey button shows, so a press reaches the browser's prompt straight away.
+let webauthnModule: Promise<typeof import('@simplewebauthn/browser')> | undefined
+const webauthn = () => (webauthnModule ??= import('@simplewebauthn/browser').catch(e => { webauthnModule = undefined; throw e }))
+const canPasskey = () => typeof window.PublicKeyCredential === 'function'
+/** The reader closed the browser's passkey prompt, or let it time out: nothing to say. */
+const closed = (e: unknown) => ['NotAllowedError', 'AbortError'].includes((e as Error | undefined)?.name ?? '')
 
 export function initAccount(o: { onStore: () => void }) {
   const section = $('tai-khoan')
@@ -68,6 +75,7 @@ export function initAccount(o: { onStore: () => void }) {
     apple_other_account: ct('Đó là một Apple ID khác: đăng nhập bằng Apple ID của tài khoản này.'),
     apple_revoke_failed: ct('Apple chưa xác nhận được: thử lại.'),
     apple_reauth: ct('Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.'),
+    bad_passkey: ct('Passkey này không mở được tài khoản nào: đăng nhập cách khác.'),
   } as Record<string, string>)[f.error] ?? ct('Có lỗi, chưa làm được: thử lại.')
 
   function show() {
@@ -80,6 +88,9 @@ export function initAccount(o: { onStore: () => void }) {
       const time = syncedAt ? new Intl.DateTimeFormat(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }).format(syncedAt) : ''
       $('acc-status').textContent = time ? ct('Đã đăng nhập bằng {ways}. Đồng bộ lúc {time}.', { ways, time }) : ct('Đã đăng nhập bằng {ways}.', { ways })
     }
+    const addKey = $('acc-passkey-add')
+    addKey.hidden = !(user && providers?.passkey && canPasskey())
+    if (!addKey.hidden) void webauthn().catch(() => {})
   }
 
   async function sync(first = false) {
@@ -249,6 +260,30 @@ export function initAccount(o: { onStore: () => void }) {
     })
   }
 
+  // A passkey added to an account earlier, here or in the app: the browser asks for Face ID, a fingerprint or the PIN.
+  function passkey() {
+    const btn = $<HTMLButtonElement>('acc-passkey')
+    btn.hidden = false
+    void webauthn().catch(() => {})
+    btn.addEventListener('click', async () => {
+      if (btn.disabled) return
+      btn.disabled = true
+      say('')
+      try {
+        const { startAuthentication } = await webauthn()
+        const options = await passkeyLoginOptions()
+        if (isFail(options)) { say(problem(options), true); return }
+        const r = await signInWithPasskey(await startAuthentication({ optionsJSON: options }))
+        if (isFail(r)) say(problem(r), true)
+        else await signedIn(r.user)
+      } catch (e) {
+        if (!closed(e)) say(problem({ error: 'failed' }), true)
+      } finally {
+        btn.disabled = false
+      }
+    })
+  }
+
   async function openWays() {
     const ways = $('acc-ways')
     if (!ways.hidden) return
@@ -261,6 +296,7 @@ export function initAccount(o: { onStore: () => void }) {
     await Promise.all([
       providers.google ? google(providers.google.clientId) : undefined,
       providers.apple ? apple(providers.apple.clientId) : undefined,
+      providers.passkey && canPasskey() ? passkey() : undefined,
       providers.email ? email() : undefined,
     ])
   }
@@ -272,6 +308,33 @@ export function initAccount(o: { onStore: () => void }) {
     if (isFail(r) && r.error !== 'signed_out') { say(problem(r), true); return }
     signedOut(ct('Đã đăng xuất. Các bể vẫn còn trên trình duyệt này.'))
     $('acc-open').focus()
+  })
+  $('acc-passkey-add').addEventListener('click', async () => {
+    const btn = $<HTMLButtonElement>('acc-passkey-add')
+    if (!user || btn.disabled) return
+    const who = user
+    btn.disabled = true
+    say('')
+    try {
+      const { startRegistration } = await webauthn()
+      const options = await passkeyAddOptions()
+      const r = isFail(options) ? options : await addPasskey(await startRegistration({ optionsJSON: options }))
+      if (user !== who) return
+      if (isFail(r)) {
+        if (r.error === 'signed_out') signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true)
+        else say(r.error === 'bad_passkey' ? ct('Chưa thêm được passkey: thử lại.') : problem(r), true)
+        return
+      }
+      user = r.user
+      show()
+      say(ct('Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy.'))
+    } catch (e) {
+      // This device has a passkey of this account already (the server's excludeCredentials).
+      if ((e as Error).name === 'InvalidStateError') say(ct('Máy này đã có passkey của tài khoản này.'))
+      else if (!closed(e)) say(ct('Chưa thêm được passkey: thử lại.'), true)
+    } finally {
+      btn.disabled = false
+    }
   })
   const hasApple = () => !!user?.methods.some(m => m.kind === 'apple') && !!providers?.apple
   const prepApple = () => { if (hasApple()) appleForDelete ??= appleReady(providers!.apple!.clientId) }

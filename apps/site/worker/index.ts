@@ -14,6 +14,7 @@ import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
+import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 
 export interface Env {
@@ -141,6 +142,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     }
   }
   if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
+  if (url.pathname === '/.well-known/apple-app-site-association') return finish(new Response(JSON.stringify(APP_SITE_ASSOCIATION), { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' } }), env)
   // The root: the language the reader picked in the language menu, else a browser that prefers Indonesian or Thai goes
   // to that language (302, by Accept-Language); everyone else, crawlers included, to /vi/ for good. The 301 is cached
   // for an hour only, so a reader who later picks another language isn't stuck on a redirect their browser kept.

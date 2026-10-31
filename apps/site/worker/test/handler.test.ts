@@ -258,3 +258,11 @@ test('a page view never waits on KV: the list baked in at deploy answers until t
   expect((await go('/vi/ca/new/')).status).toBe(410) // hidden since the deploy
   expect((await go('/vi/ca/x/')).status).toBe(200) // shown again since the deploy
 })
+
+test("the iOS app's association: its passkeys are this site's (webcredentials), as JSON with no redirect", async () => {
+  const { e } = env()
+  const r = await handle(get('/.well-known/apple-app-site-association'), e)
+  expect(r.status).toBe(200)
+  expect(r.headers.get('content-type')).toBe('application/json')
+  expect(await r.json()).toEqual({ webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } })
+})
