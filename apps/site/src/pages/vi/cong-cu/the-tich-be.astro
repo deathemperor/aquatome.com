@@ -1,5 +1,6 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
+import SaveToTank from '../../../components/SaveToTank.astro'
 import { GALLON_L, SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../../scripts/volume'
 import { WATER_SHARE } from '../../../scripts/calc'
 import { i18n } from '../../../lib/i18n'
@@ -64,6 +65,7 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     </div>
   </form>
   <div id="vf-out" class="out" aria-live="polite"></div>
+  <SaveToTank shown />
   <p class="note">{t('Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng {p}% thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.', { p: fmt(WATER_SHARE * 100) })}</p>
 
   <section aria-labelledby="sizes-h">
@@ -93,6 +95,7 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   import { SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../../scripts/volume'
   import { WATER_SHARE } from '../../../scripts/calc'
   import { cpath, ct } from '../../../scripts/ct'
+  import { initSaveToTank } from '../../../scripts/save-to-tank'
 
   const form = document.getElementById('vf') as HTMLFormElement
   const fields = document.getElementById('vf-fields')!
@@ -112,6 +115,13 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   if (localStorage.getItem('units') === 'imperial') { el('unit')!.value = 'in'; if (!params.has('hinh')) rescale(1 / 2.54) }
 
   const shape = () => (new FormData(form).get('hinh') as ShapeId) ?? 'chu-nhat'
+  // The last size worked out, for "Lưu vào Bể của tôi": a box keeps its sides (cm), any other shape its litres.
+  let last: { dims?: { l: number; w: number; h: number }; litres: number; shape: ShapeId } | undefined
+  const r1 = (n: number) => Math.round(n * 10) / 10
+  const save = initSaveToTank({
+    name: () => (!last ? ct('Bể mới') : last.dims ? ct('Bể {l} × {w} × {h}', { l: fmt(last.dims.l, 1), w: fmt(last.dims.w, 1), h: fmt(last.dims.h, 1) }) : ct('{shape}, {n} lít', { shape: ct(SHAPES[last.shape].name), n: fmt(last.litres, 1) })),
+    fields: () => (last!.dims ? { dims: last!.dims, litres: undefined } : { litres: r1(last!.litres), dims: undefined }),
+  })
   function drawFields(values: Record<string, string>) {
     fields.innerHTML = SHAPES[shape()].fields.map(f => `<label>${ct(f.label)} <input name="${f.key}" type="number" inputmode="decimal" min="0" step="any" value="${values[f.key] ?? ''}" /></label>`).join('')
   }
@@ -130,12 +140,14 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
     url.search = new URLSearchParams({ hinh: id, ...Object.fromEntries(Object.entries(d).map(([a, b]) => [a, String(Math.round(b * 10) / 10)])) }).toString()
     history.replaceState(null, '', url)
     const missing = SHAPES[id].fields.find(f => !(d[f.key]! > 0))
-    if (missing) { out.innerHTML = `<p class="hint">${ct('Nhập {field}.', { field: ct(missing.label).toLowerCase() })}</p>`; return }
+    if (missing) { out.innerHTML = `<p class="hint">${ct('Nhập {field}.', { field: ct(missing.label).toLowerCase() })}</p>`; last = undefined; save.show(false); return }
     const v = shapeVolume(id, d, ct)
-    if ('error' in v) { out.innerHTML = `<p class="bad">${v.error}</p>`; return }
+    if ('error' in v) { out.innerHTML = `<p class="bad">${v.error}</p>`; last = undefined; save.show(false); return }
     const water = (v.filled ?? v.litres) * WATER_SHARE
     const box = id === 'chu-nhat' || id === 'lap-phuong'
     const [l, w, h] = id === 'lap-phuong' ? [d.l!, d.l!, d.l!] : [d.l!, d.w!, d.h!]
+    last = { shape: id, litres: v.litres, ...(box ? { dims: { l: r1(l), w: r1(w), h: r1(h) } } : {}) }
+    save.show(true)
     const glass = box ? glassThickness(Math.max(l, w), d.fill ?? h) : null
     const glassMass = glass?.order ? glassKg(l, w, h, glass.order) : null
     const lines = [

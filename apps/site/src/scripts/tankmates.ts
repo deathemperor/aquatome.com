@@ -9,7 +9,7 @@ export const EAT_RATIO = 3
 export const TEMPERAMENT_LABELS = { peaceful: msg('Hiền'), 'semi-aggressive': msg('Hơi dữ'), aggressive: msg('Hung dữ'), predator: msg('Săn mồi') } as const
 
 /** A species in the tank-mates picker: the filter's index item, its photo, other names, and its place on the popular list. */
-export type MateItem = SpeciesIndexItem & { img?: string; aka?: string[]; pop?: number }
+export type MateItem = SpeciesIndexItem & { id?: string; img?: string; aka?: string[]; pop?: number }
 
 export type ParamCheck = { field: 'tempC' | 'ph' | 'gh'; shared?: Range; missing: string[] }
 /** `short`: the same point in a few words, for the verdict sentence (bad and warn notes). */

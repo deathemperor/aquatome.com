@@ -94,8 +94,8 @@ export function forget(s: TankStore, id: string, env: Env = browser()) {
 
 export const activeSchedule = (d: Device) => d.schedules?.find(x => x.id === d.activeScheduleId)
 
-/** The fields of a tank a reader edits on "Bể của tôi". */
-export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes'>>
+/** The fields of a tank a reader edits on "Bể của tôi", or a tool saves to it (save-to-tank.ts). */
+export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes' | 'species'>>
 
 /**
  * A new tank, or the saved one with the given fields changed (a field given as undefined is removed; other keys stay).

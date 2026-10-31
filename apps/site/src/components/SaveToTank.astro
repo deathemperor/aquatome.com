@@ -1,0 +1,31 @@
+---
+import { i18n } from '../lib/i18n'
+const { t } = i18n(Astro.url)
+// "Lưu vào Bể của tôi" on a tool; scripts/save-to-tank.ts runs it. `shown`: drawn at once, when the tool's first state
+// already has something to save (so nothing below it moves when the script starts).
+const { shown = false } = Astro.props as { shown?: boolean }
+---
+<div class="save-tank" hidden={!shown}>
+  <form novalidate>
+    <label>{t('Lưu vào Bể của tôi')}
+      <select name="tank"><option value="">{t('Bể mới')}</option></select>
+    </label>
+    <label>{t('Tên bể')} <input name="name" maxlength="80" autocomplete="off" /></label>
+    <button type="submit">{t('Lưu')}</button>
+  </form>
+  <p class="msg" role="status"></p>
+</div>
+<style>
+  .save-tank { max-width: var(--measure); margin: var(--space-5) 0; padding-top: var(--space-4); border-top: 1px solid var(--c-rule); }
+  .save-tank[hidden], label[hidden] { display: none; }
+  form { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; }
+  label { display: grid; gap: var(--space-1); flex: 1 1 10rem; font-size: 0.85rem; color: var(--c-ink-soft); }
+  select, input { box-sizing: border-box; width: 100%; min-height: 2.75rem; font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); }
+  button { min-height: 2.75rem; font: 500 1rem var(--f-body); padding: 0.5rem 1.1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  button:hover { background: var(--c-moss); }
+  :is(button, select, input):focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  /* A phone: the button gets its own full row, not a stray one under the fields. */
+  @media (max-width: 40rem) { button { flex: 1 1 100%; } }
+  .msg { margin: var(--space-2) 0 0; font-size: 0.9rem; color: var(--c-ink-soft); }
+  .msg:empty { display: none; }
+</style>
