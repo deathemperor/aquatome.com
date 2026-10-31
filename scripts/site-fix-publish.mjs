@@ -41,6 +41,17 @@ if (changed && OK === '1' && result.status === 'fixed' && !forbidden.length) {
     throw e
   }
   run('gh', 'workflow', 'run', 'ci', '-R', repo, '--ref', branch)
+  // GitHub still records a pull_request run for a PR this token opens, but never starts it: it sits there with no jobs
+  // and turns into a failure when the PR is closed, a false alarm for every fix closed unmerged. Delete it once it shows
+  // (not worth failing the published fix over: a leftover run is only noise).
+  try {
+    for (let i = 0; i < 10; i++) {
+      const idle = JSON.parse(run('gh', 'run', 'list', '-R', repo, '--branch', branch, '--event', 'pull_request', '--json', 'databaseId'))
+      for (const r of idle) run('gh', 'run', 'delete', String(r.databaseId), '-R', repo)
+      if (idle.length) break
+      execFileSync('sleep', ['3'])
+    }
+  } catch (e) { console.log(`left the idle pull_request run: ${String(e.message).split('\n')[0]}`) }
   comment(`Draft fix: ${pr}`)
   console.log(`opened ${pr}`)
 } else {
