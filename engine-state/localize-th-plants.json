@@ -708,6 +708,60 @@
       "Item 2: \"จุดสีเข้มตัดกับใบสีอ่อนได้ชัดเจนกว่า\" is vague about what the contrast is compared with. \"จุดสีเข้มตัดกับสีใบที่อ่อนกว่าได้ชัดเจน\" reads more naturally."
     ]
   },
+  "echinodorus-red-diamond": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอน เรดไดมอนด์",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "1: \"ไม้ทรงกอ ใบแตกออกจากโคน (rosulate)\" is clumsy; use the usual hobby term, e.g. \"ไม้ทรงพุ่มแบบโรเซ็ตต์ (rosulate)\".",
+      "1: \"Origin: Cultivar\" as \"แหล่งกำเนิด: สายพันธุ์ปลูกเลี้ยง\" is stiff; \"สายพันธุ์ปรับปรุง/ลูกผสมที่คัดสายพันธุ์ (cultivar)\" is more natural.",
+      "3: \"ใบรูปดาบ\" for sword-shaped is fine, but \"เกิดขึ้นจากการเพาะเลี้ยงในยูเครน\" is awkward; use \"เกิดจากการเพาะพันธุ์ในยูเครน\".",
+      "3: \"ต่างจาก Echinodorus ชนิดอื่นหลายชนิด\" repeats \"ชนิด\"; use \"ต่างจากเอคินโดรัสชนิดอื่นส่วนใหญ่\".",
+      "3: \"ต้นที่สวยงาม\" and \"ไม้น้ำลูกผสมที่ได้เป็นต้นที่สวยงาม\" are wordy; shorten."
+    ]
+  },
+  "echinodorus-reni": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Reni'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"สายพันธุ์ปลูกเลี้ยง\" for cultivar is awkward; use \"สายพันธุ์คัดเลือก\" or \"คัลติวาร์ (cultivar)\".",
+      "\"ไม่เรื่องมาก\" for \"unpretentious\" is colloquial; use \"ดูแลง่าย\" or \"ไม่เรื่องมากเรื่องสภาพน้ำ\".",
+      "\"สีแดงเข้มแบบบีทรูท\" is a literal transliteration; use \"สีแดงเข้มอมม่วงคล้ายหัวบีท\" or \"สีแดงหัวบีท\".",
+      "\"ธาตุอาหารเพียงพอ\" for \"a lot of ... nourishment\" understates the source; use \"ธาตุอาหารมาก\" or \"ธาตุอาหารสูง\"."
+    ]
+  },
+  "echinodorus-rose": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Rosé'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"Origin: Cultivar\" rendered as \"พันธุ์ปลูกที่พัฒนาขึ้น (cultivar)\" is wordy; \"พันธุ์ปลูก (cultivar)\" is simpler.",
+      "Item 1: the added gloss \"(ใบแตกออกจากโคนซ้อนเป็นวง)\" is not in the source; remove it or keep just \"ทรงพุ่มกุหลาบ/โรเซตต์\".",
+      "Item 2: \"ดินปลูก\" for \"bottom\" is fine, but \"นอกจากนั้น\" is slightly off for \"but otherwise\"; \"แต่โดยทั่วไปแล้ว\" would be more faithful.",
+      "Item 3: \"ต้นสูงได้ 25–40 ซม. และแผ่เป็นทรงโรเซตต์กว้าง\" is slightly awkward; \"ทรงพุ่มกว้าง 15–25 ซม.\" is more natural.",
+      "Item 3: \"กระถางสี่เหลี่ยม 9 ซม.\" is fine, but \"ต้นแม่\" for a large mother plant could be clearer as \"ต้นแม่พันธุ์ขนาดใหญ่\"."
+    ]
+  },
+  "echinodorus-x-barthii": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "อเมซอนบาร์ทิไอ",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: Height '20–30+ ซม.' conflicts with item 3 (25–50 cm) but that is the source's inconsistency; keep as is. Minor: 'Light demand: low' vs. text saying high light gives colour is source issue, not translation.",
+      "Item 2: 'ธาตุอาหารรอง' for 'micronutrients' is acceptable but 'จุลธาตุ' or 'ธาตุอาหารเสริม' is more common among Thai hobbyists.",
+      "Item 2: 'วัสดุปลูกที่มีธาตุอาหารสูง' for 'nutritious bottom' is fine, but 'บดบังแสงของไม้น้ำด้านล่างมาก' reads slightly awkward; consider 'บังแสงไม้น้ำที่อยู่ข้างล่างมาก'.",
+      "Item 3: 'ทั้งกอใบแผ่กว้าง' is slightly awkward; consider 'ทั้งกอกว้าง 20–30 ซม.'. 'ใบที่อ่อนที่สุด/แก่ที่สุด' could be 'ใบอ่อน/ใบแก่'."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",

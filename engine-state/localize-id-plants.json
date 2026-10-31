@@ -763,6 +763,47 @@
       "\"Substrat yang kaya nutrisi\": fine; no real issue."
     ]
   },
+  "echinodorus-red-diamond": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Red Diamond'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Menambah nutrisi di substrat\" is slightly awkward; \"Peningkatan nutrisi pada substrat\" or \"Menambah kandungan nutrisi di substrat\" reads more naturally.",
+      "\"muncul sebagai hasil budidaya\" is a bit stiff for \"appeared as a culture\"; consider \"muncul sebagai varietas budidaya\" or \"hasil kultur\"."
+    ]
+  },
+  "echinodorus-reni": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus 'Reni'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Reni\" dijelaskan sebagai \"characterized by being easy to grow\"; terjemahan sedikit meratakan nuansa ini, tetapi maknanya masih utuh. Boleh diperjelas, misalnya \"dikenal mudah ditanam\".",
+      "Item 2: \"nourishment\" diterjemahkan \"nutrisi\". Ini bisa diterima, tetapi \"unsur hara\" atau \"pupuk\" lebih lazim di kalangan hobiis tanaman air."
+    ]
+  },
+  "echinodorus-rose": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus Rosé",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Substrat dasar yang kaya nutrisi\" is slightly redundant; \"substrat yang kaya nutrisi\" is more natural.",
+      "\"Tanaman air yang cantik ini\" adds \"air\", which the source does not say, but this is harmless. \"merah kecokelatan\" for \"red-brown\" is fine, but \"bintik-bintik merah kecokelatan\" adds \"kecil\" in the ID text, which is not in the source; remove \"kecil\" if it was added."
+    ]
+  },
+  "echinodorus-x-barthii": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Echinodorus Barthii",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",
