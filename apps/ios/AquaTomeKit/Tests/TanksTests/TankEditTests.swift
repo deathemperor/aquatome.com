@@ -1,0 +1,115 @@
+import Foundation
+import Testing
+@testable import Tanks
+
+// The app's own edits (docs/my-tanks-sync.md, "Writing"): every record it writes passes the schema, and is stamped.
+
+let t0 = Date(timeIntervalSince1970: 1_790_000_000)
+
+@Test func addTankTrimsTheNameAndStampsIt() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "  Bể 60  ", now: t0)
+  #expect(t.name == "Bể 60")
+  #expect(t.createdAt == Timestamp.string(t0) && t.updatedAt == t.createdAt)
+  #expect(Validate.store(s.value) == [])
+  #expect(throws: TankStoreError.blankName) { try s.addTank(name: " \n ", now: t0) }
+}
+
+@Test func editsTheSchemaRefusesLeaveTheStoreAsItWas() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể", now: t0)
+  let before = s
+  #expect(throws: TankStoreError.self) { try s.addTank(name: String(repeating: "a", count: 81), now: t0) }
+  #expect(throws: TankStoreError.self) { try s.updateTank(t.id, now: t0) { $0.litres = 0 } }
+  #expect(s == before)
+}
+
+@Test func anEditIsStampedAfterTheCopyItChanges() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể", now: t0)
+  // This phone's clock is behind the copy: the change still comes after it.
+  try s.updateTank(t.id, now: t0.addingTimeInterval(-60)) { $0.notes = "mới" }
+  #expect(s.tank(t.id)!.updatedAt == Timestamp.stamp(t0, after: t.updatedAt))
+  #expect(s.tank(t.id)!.updatedAt > t.updatedAt)
+}
+
+@Test func editsKeepKeysANewerClientWrote() throws {
+  var s = try TankStore(JSON.parse(Data("""
+    {"v":1,"later":true,"tanks":[{"id":"7d9c1e2a-0b5f-4c3d-9e8a-1f2b3c4d5e6f","name":"Bể","species":[{"id":"neon","count":5,"sex":"m"}],
+    "plants":[],"dims":{"l":60,"w":30,"h":36,"unit":"cm"},"glass":"low-iron","createdAt":"2026-10-01T00:00:00.000Z",
+    "updatedAt":"2026-10-01T00:00:00.000Z"}],"devices":[]}
+    """.utf8)))
+  let id = "7d9c1e2a-0b5f-4c3d-9e8a-1f2b3c4d5e6f"
+  try s.updateTank(id, now: t0) {
+    $0.dims = (90, 45, 45)
+    $0.species = [("neon", 10), ("otocinclus", nil)]
+  }
+  let o = s.tanks[0]
+  #expect(o["glass"] == .string("low-iron"))
+  #expect(o["dims"]?.object?["unit"] == .string("cm"))
+  #expect(o["species"]?.array?[0].object?["sex"] == .string("m"))
+  #expect(o["species"]?.array?[0].object?["count"] == .number(10))
+  #expect(o["species"]?.array?[1].object?["count"] == nil)
+  #expect(s.value.object?["later"] == .bool(true))
+  #expect(Validate.store(s.value) == [])
+}
+
+@Test func deletingATankTombstonesItsDevices() throws {
+  var s = TankStore()
+  let a = try s.addTank(name: "A", now: t0), b = try s.addTank(name: "B", now: t0)
+  let la = try s.addDevice(tankId: a.id, kind: "light", brand: "chihiros", model: "WRGB II Slim", bleName: "DYSL30A1B2C3", now: t0)
+  let lb = try s.addDevice(tankId: b.id, kind: "light", now: t0)
+  try s.deleteTank(a.id, now: t0.addingTimeInterval(1))
+  #expect(s.liveTanks.map(\.id) == [b.id])
+  #expect(s.liveDevices.map(\.id) == [lb.id])
+  let gone = s.devices.first { $0["id"] == .string(la.id) }!
+  #expect(gone.keys.sorted() == ["deletedAt", "id", "updatedAt"])
+  #expect(Validate.store(s.value) == [])
+}
+
+@Test func aDeviceKeepsItsSchedulesManualLevelsAndClock() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể", now: t0)
+  let d = try s.addDevice(tankId: t.id, kind: "light", brand: "chihiros", bleName: "DYSL30A1B2C3", now: t0)
+  let at = Timestamp.string(t0)
+  let sched = SavedSchedule(on: "12:00", off: "20:00", ramp: 30, levels: [70, 70, 70], savedAt: at)
+  try s.updateDevice(d.id, now: t0) {
+    $0.schedules = [sched]
+    $0.activeScheduleId = sched.id
+    $0.manual = ([40, 50, 60], at)
+    $0.clockSyncedAt = at
+    $0.nickname = "  "
+  }
+  let got = s.device(d.id)!
+  #expect(got.schedules == [sched] && got.activeScheduleId == sched.id)
+  #expect(got.manual?.levels == [40, 50, 60] && got.clockSyncedAt == at)
+  #expect(got.nickname == nil)
+  // A schedule the light can't run is refused.
+  #expect(throws: TankStoreError.self) {
+    try s.updateDevice(d.id, now: t0) { $0.schedules = [SavedSchedule(on: "20:00", off: "12:00", ramp: 0, levels: [50], savedAt: at)] }
+  }
+  #expect(Validate.store(s.value) == [])
+}
+
+@Test func limitsCountLiveRecordsOnly() throws {
+  var s = TankStore()
+  for i in 0..<maxTanks { try s.addTank(name: "Bể \(i)", now: t0) }
+  #expect(throws: TankStoreError.tooManyTanks) { try s.addTank(name: "one more", now: t0) }
+  try s.deleteTank(s.liveTanks[0].id, now: t0)
+  try s.addTank(name: "one more", now: t0)
+  #expect(s.liveTanks.count == maxTanks)
+}
+
+@Test func aStoreOfAnotherVersionIsRefused() {
+  #expect(throws: TankStoreError.unknownVersion) { try TankStore(JSON.parse(Data(#"{"v":2,"tanks":[],"devices":[]}"#.utf8))) }
+}
+
+@Test func timestampsRoundTripAndRefuseOtherForms() {
+  for s in ["1970-01-01T00:00:00.000Z", "2024-02-29T23:59:59.999Z", "1969-12-31T23:59:59.999Z", "2026-10-31T12:00:00.000Z"] {
+    #expect(Timestamp.millis(s).map { Timestamp.string(millis: $0) } == s, "\(s)")
+  }
+  for s in ["2026-02-29T00:00:00.000Z", "2026-10-31T24:00:00.000Z", "2026-10-31T12:00:00Z", "2026-10-31T12:00:00.000+07:00",
+            "2026-10-31 12:00:00.000Z", "２026-10-31T12:00:00.000Z"] {
+    #expect(!Timestamp.isValid(s), "\(s)")
+  }
+}
