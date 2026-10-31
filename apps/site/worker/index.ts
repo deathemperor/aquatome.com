@@ -202,7 +202,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const t = Date.now()
   const res = await env.ASSETS.fetch(plain)
   const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
-  if (res.status === 404 && url.pathname.startsWith('/vi/')) {
+  if (res.status === 404 && /^\/(vi|id|th)\//.test(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
   }
