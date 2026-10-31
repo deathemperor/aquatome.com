@@ -329,7 +329,7 @@ async function reconnect() {
 
 function save(patch: Partial<Device>) {
   db = store.load()
-  device = store.putDevice(db, { ...device!, ...patch })
+  device = store.putDevice(db, { ...store.currentLight(db, device!, ct('Bể của tôi')), ...patch })
   store.save(db)
 }
 function failed() { say(ct('Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.'), { bad: true }) }
@@ -422,7 +422,7 @@ async function write(p: Plan, o: { undoing?: boolean } = {}) {
     synced = true
     db = store.load()
     // Written: the light runs its schedule again, so the levels last set by hand no longer hold.
-    device = store.wroteSchedule(db, { ...(store.deviceByBleName(db, light.name) ?? device!), manual: undefined, clockSyncedAt: new Date().toISOString() }, p)
+    device = store.wroteSchedule(db, { ...store.currentLight(db, device!, ct('Bể của tôi')), manual: undefined, clockSyncedAt: new Date().toISOString() }, p)
     store.save(db)
     undo = o.undoing ? undefined : prev ? { on: prev.on, off: prev.off, ramp: prev.ramp, levels: prev.levels, name: prev.name } : undefined
     const done = ct('Đã ghi: bật {on}, tắt {off}. Đèn chạy theo lịch từ bây giờ.', { on: p.on, off: p.off })
