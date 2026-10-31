@@ -14,9 +14,9 @@ const hasParams = Object.keys(Astro.params).length > 0
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
     <span>{lang.toUpperCase()}</span>
   </summary>
-  <ul>
-    {LANGS.map(l => <li><a href={switchTo(l, viPath, here.get(l), hasParams)} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG_NAME[l]}</a></li>)}
-  </ul>
+  <div class="menu">
+    {LANGS.map(l => <a href={switchTo(l, viPath, here.get(l), hasParams)} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG_NAME[l]}</a>)}
+  </div>
 </details>
 <script>
   document.addEventListener('click', e => {
@@ -31,13 +31,16 @@ const hasParams = Object.keys(Astro.params).length > 0
   })
 </script>
 <style>
+  /* Plain links in a div, not ul > a: the header's link styles (handbook.css .nav ul a) would apply. */
   .lang { position: relative; }
-  summary { display: flex; align-items: center; gap: 0.35rem; list-style: none; cursor: pointer; border: 1px solid rgb(255 255 255 / 0.3); color: var(--c-on-dark); border-radius: 999px; font: 500 0.8rem var(--f-body); padding: 0.25rem 0.7rem; }
+  summary { display: flex; align-items: center; gap: 0.35rem; list-style: none; cursor: pointer; border: 1px solid var(--c-rule); color: var(--c-ink-soft); border-radius: 999px; font: 500 0.8rem var(--f-body); padding: 0.25rem 0.7rem; }
   summary::-webkit-details-marker { display: none; }
-  summary:hover, .lang[open] summary { border-color: var(--c-neon); }
+  summary:hover, .lang[open] summary { color: var(--c-ink); border-color: var(--c-ink-soft); }
   summary:focus-visible, a:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
-  ul { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; margin: 0; padding: var(--space-1) 0; list-style: none; min-width: 11rem; background: var(--c-blackwater); border: 1px solid rgb(255 255 255 / 0.15); border-radius: var(--radius-plate); box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
-  a { display: block; padding: 0.6rem var(--space-3); color: var(--c-on-dark); text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
-  a:hover { color: #fff; background: rgb(255 255 255 / 0.06); }
-  a[aria-current] { color: #fff; font-weight: 600; box-shadow: inset 3px 0 var(--c-neon); }
+  .menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; display: grid; min-width: 11rem; padding: var(--space-1) 0; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius-plate); box-shadow: 0 8px 24px rgb(0 0 0 / 0.12); }
+  a { padding: 0.6rem var(--space-3); color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
+  a:hover { color: var(--c-ink); background: var(--c-plate); }
+  a[aria-current] { color: var(--c-ink); font-weight: 600; box-shadow: inset 3px 0 var(--c-moss); }
+  /* Phones: the header's first row is full (logo, Tìm, units, theme), so the menu takes the next one, under the toggles. */
+  @media (max-width: 640px) { .lang { margin-left: auto; } }
 </style>

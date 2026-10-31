@@ -565,8 +565,8 @@ test('every page has the language menu; a fish without other-language pages offe
     expect(links.map(a => a.getAttribute('data-lang')), path).toEqual(['vi', 'id', 'th'])
   }
   const fish = page('/vi/ca/ca-neon-vua/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
-  expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', null], ['/th/fish/', null]])
+  expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
   // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
   const id = page('/id/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
-  expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/', null], ['/id/', 'true'], ['/th/', null]])
+  expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/', undefined], ['/id/', 'true'], ['/th/', undefined]])
 })
