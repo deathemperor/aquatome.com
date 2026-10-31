@@ -111,6 +111,8 @@ fi
 if part rewrite; then
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
+  # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
+  pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
