@@ -61,9 +61,10 @@ final class TanksModel {
   // MARK: The site's pages in the app (PageBridge): they save to these same tanks
 
   /// The store for a page of the site, or nil while this phone's store isn't this app's to write (a page won't get a
-  /// store it could save over).
+  /// store it could save over), or the last save failed: then pages keep their own saves, and send them again with each
+  /// page until one is kept.
   func storeForPages() -> String? {
-    guard problem == nil || problem == .saveFailed, let data = try? store.data() else { return nil }
+    guard problem == nil, let data = try? store.data() else { return nil }
     return String(decoding: data, as: UTF8.self)
   }
 

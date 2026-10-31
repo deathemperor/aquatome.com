@@ -15,7 +15,7 @@ struct PageView: View {
 
   var body: some View {
     // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-    WebPage(url: url, offline: $offline, failed: $failed, tanks: { tanks.storeForPages() }, saved: { tanks.mergeFromPage($0) }, open: openScreen)
+    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
       .ignoresSafeArea(edges: .bottom)
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
@@ -41,8 +41,8 @@ private struct WebPage: UIViewRepresentable {
   let url: URL
   @Binding var offline: Bool
   @Binding var failed: Bool
-  /// The app's tanks as JSON for the next page, and what to do with a page's.
-  let tanks: () -> String?
+  /// The app's tanks as JSON for the pages (nil: none to hand them), and what to do with a page's.
+  let store: String?
   let saved: (Data) -> Void
   /// A link to a page the app has as its own screen.
   let open: (AppScreen) -> Void
@@ -68,7 +68,14 @@ private struct WebPage: UIViewRepresentable {
     return web
   }
 
-  func updateUIView(_ web: WKWebView, context: Context) {}
+  func updateUIView(_ web: WKWebView, context: Context) {
+    let was = context.coordinator.page.store
+    context.coordinator.page = self
+    // The tanks changed (in the app, by the account, or by this page's save): the page open now, and the next ones.
+    guard store != was else { return }
+    context.coordinator.bridge(web.configuration.userContentController)
+    if let store { web.evaluateJavaScript(PageBridge.update(store: store, site: url)) }
+  }
 
   static func dismantleUIView(_ web: WKWebView, coordinator: Coordinator) {
     web.configuration.userContentController.removeScriptMessageHandler(forName: PageBridge.handler)
@@ -81,7 +88,7 @@ private struct WebPage: UIViewRepresentable {
 
   @MainActor
   final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
-    let page: WebPage
+    var page: WebPage
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
@@ -89,33 +96,30 @@ private struct WebPage: UIViewRepresentable {
 
     init(_ page: WebPage) { self.page = page }
 
-    /// The tanks script for the pages to come, with the app's store as it is now (it changes as pages save).
+    /// The tanks script for the pages to come, with the app's store as it is now.
     func bridge(_ content: WKUserContentController) {
       content.removeAllUserScripts()
-      content.addUserScript(WKUserScript(source: PageBridge.script(store: page.tanks()), injectionTime: .atDocumentStart, forMainFrameOnly: true))
+      content.addUserScript(WKUserScript(source: PageBridge.script(store: page.store, site: page.url), injectionTime: .atDocumentStart, forMainFrameOnly: true))
     }
 
-    /// A store a page of the site sent (it saved, or the web view held one): merged into the app's.
+    /// A store one of the site's pages sent (it saved, or the web view held one): merged into the app's.
     func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
-      guard message.frameInfo.isMainFrame, let u = message.frameInfo.request.url,
-            PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app,
+      let origin = message.frameInfo.securityOrigin
+      guard message.frameInfo.isMainFrame, PageBridge.trusts(scheme: origin.protocol, host: origin.host, site: page.url),
             let json = message.body as? String else { return }
       page.saved(Data(json.utf8))
-      bridge(content)
     }
 
     func webView(_ web: WKWebView, decidePolicyFor action: WKNavigationAction) async -> WKNavigationActionPolicy {
       guard let u = action.request.url else { return .allow }
       switch PageRoute.of(u, site: page.url, mainFrame: action.targetFrame?.isMainFrame ?? true, newWindow: action.targetFrame == nil) {
       case .app:
-        guard action.targetFrame?.isMainFrame == true else { return .allow }
         // A tapped link to "Bể của tôi" (the tools' "Xem trong Bể của tôi →" after a save) or the Chihiros page: the app's
         // own tab. Only a tap: the page's first load, back and reload stay as they are.
-        if action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url) {
+        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url) {
           page.open(screen)
           return .cancel
         }
-        bridge(web.configuration.userContentController)
         return .allow
       case .none: return .cancel
       case .outside:

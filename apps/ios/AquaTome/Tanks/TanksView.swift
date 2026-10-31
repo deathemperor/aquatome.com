@@ -111,10 +111,10 @@ private struct TankDetail: View {
         }
         // As the site lists them: fish (with how many), then plants, each opening its page.
         if !t.species.isEmpty {
-          Section("Cá và tép") { ForEach(t.species, id: \.id) { s in LifeRow(id: s.id, count: s.count) } }
+          Section("Cá và tép") { ForEach(Array(t.species.enumerated()), id: \.offset) { _, s in LifeRow(id: s.id, count: s.count) } }
         }
         if !t.plants.isEmpty {
-          Section("Cây") { ForEach(t.plants, id: \.self) { id in LifeRow(id: id, count: nil) } }
+          Section("Cây") { ForEach(Array(t.plants.enumerated()), id: \.offset) { _, id in LifeRow(id: id, count: nil) } }
         }
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }

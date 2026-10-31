@@ -5,9 +5,11 @@ iOS). Signing in is optional: it backs the same records up to the account and sy
 This file is the contract both clients follow.
 
 In the app, the site's pages (its tools save to "Bể của tôi") see the app's store, not one of their own: before a page's
-scripts run, the app puts its store in the page's `localStorage['aq.tanks']`, and each save the page makes comes back to
-the app and is merged as below (`apps/ios/AquaTomeKit/Sources/Handbook/PageBridge.swift`). A store the app is leaving
-alone (newer, unreadable) isn't handed to pages.
+scripts run, the app puts its store in the page's `localStorage['aq.tanks']`, hands an open page each change to it (a
+`storage` event, as another tab's save), and each save the page makes comes back to the app and is merged as below
+(`apps/ios/AquaTomeKit/Sources/Handbook/PageBridge.swift`). Only the site's own pages, over https, take part. A store the
+app is leaving alone (newer, unreadable), or can't save, isn't handed to pages, and a page's store of another version
+is never written over.
 
 - Schema: `packages/schema/src/tanks.ts` (zod). JSON Schema for other languages: `protocols/tanks.schema.json`
   (generated; a test fails when it is stale).
