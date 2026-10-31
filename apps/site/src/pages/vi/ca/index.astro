@@ -116,7 +116,8 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
     // Sure matches first; species missing a figure the filter asks about wait in the closed group below.
     lists[0]!.keep = new Set(filterSpecies(items, q).map(i => i.slug))
     lists[1]!.keep = new Set(unsureSpecies(items, q).map(i => i.slug))
-    for (const el of cards) lists[Math.max(listOf(el), 0)]!.grid.append(el)
+    // Dealt out again only when a card changes list: moving all of them costs a phone ~750 card moves on every visit.
+    if (cards.some(el => el.parentElement !== lists[Math.max(listOf(el), 0)]!.grid)) for (const el of cards) lists[Math.max(listOf(el), 0)]!.grid.append(el)
     // A search leads with its results: the breed cards above the list stay only when they match it.
     if (breeds) {
       let n = 0
