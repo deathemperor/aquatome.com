@@ -87,3 +87,43 @@ export function hoursLit(on: string, off: string): number {
   const d = (m(off) - m(on) + 1440) % 1440
   return Math.round((d / 60) * 10) / 10
 }
+
+/** The light's clock: ISO weekday (1 Monday … 7 Sunday; 0 after a power cut reset it), hour, minute. */
+export type Clock = { weekday: number; hour: number; minute: number }
+/**
+ * The light's clock from its long status reply (`5b <firmware> <len> <id> fe <weekday> <hour> <minute> …`), if this is
+ * one. The time the light was last given comes back here (captured on a WRGB II Slim, firmware 24); after a power cut
+ * it counts up from weekday 0, 00:00. The reply carries no sunrise/sunset setting and no manual levels: what was
+ * written is only known to whoever wrote it.
+ */
+export function clockOf(reply: Uint8Array): Clock | undefined {
+  if (reply.length < 9 || reply[0] !== 0x5b || reply[5] !== 0xfe) return undefined
+  const [weekday, hour, minute] = [reply[6]!, reply[7]!, reply[8]!]
+  return weekday <= 7 && hour < 24 && minute < 60 ? { weekday, hour, minute } : undefined
+}
+/**
+ * Minutes the light's clock is ahead of `now` (negative: behind), over a week; undefined when the clock was reset by a
+ * power cut (weekday 0), since then it isn't any real time.
+ */
+export function clockDrift(c: Clock, now: Date): number | undefined {
+  if (c.weekday === 0) return undefined
+  const week = 7 * 1440
+  const light = (c.weekday - 1) * 1440 + c.hour * 60 + c.minute
+  const here = ((now.getDay() || 7) - 1) * 1440 + now.getHours() * 60 + now.getMinutes()
+  const d = (((light - here) % week) + week) % week
+  return d > week / 2 ? d - week : d
+}
+
+/**
+ * How bright a sunrise/sunset setting has the light at a minute of the day, 0–1 of its levels: off before `on`, rising
+ * over `ramp` minutes from `on`, full, falling over the last `ramp` minutes to off at `off` (00:00: midnight).
+ */
+export function levelAt(s: Pick<Schedule, 'on' | 'off' | 'ramp'>, minute: number): number {
+  const m = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5))
+  const on = m(s.on)
+  const off = s.off === '00:00' ? 1440 : m(s.off)
+  if (minute < on || minute >= off) return 0
+  if (s.ramp > 0 && minute < on + s.ramp) return (minute - on) / s.ramp
+  if (s.ramp > 0 && minute > off - s.ramp) return (off - minute) / s.ramp
+  return 1
+}

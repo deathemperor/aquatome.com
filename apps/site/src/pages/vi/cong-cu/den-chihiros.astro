@@ -15,286 +15,320 @@ const product = c.products.find(p => p.id === 'chihiros-wrgb-ii')
 
 // Planted-tank starting points: 6–8 hours a day at a fixed time, less and dimmer while a tank is new or fighting algae.
 const PRESETS = [
-  { name: t('Bể mới trồng'), sub: t('{h} tiếng, {p}%', { h: 6, p: 40 }), on: '13:00', off: '19:00', level: 40 },
-  { name: t('Bể đã ổn định'), sub: t('{h} tiếng, {p}%', { h: 8, p: 70 }), on: '12:00', off: '20:00', level: 70 },
-  { name: t('Bể đang bị rêu'), sub: t('{h} tiếng, {p}%', { h: 6, p: 50 }), on: '14:00', off: '20:00', level: 50 },
+  { name: t('Bể mới trồng'), why: t('2–4 tuần đầu: ít giờ, đèn nhẹ để rêu khó bám.'), on: '13:00', off: '19:00', level: 40 },
+  { name: t('Bể đã ổn định'), why: t('Cây đã bén rễ, có phân và CO₂ đều.'), on: '12:00', off: '20:00', level: 70 },
+  { name: t('Bể đang bị rêu'), why: t('1–2 tuần, kèm thay nước, vệ sinh.'), on: '14:00', off: '20:00', level: 50 },
+  { name: t('Bể cá, không trồng cây'), why: t('Đủ để ngắm cá, ít rêu.'), on: '12:00', off: '20:00', level: 40 },
 ]
+// Colour mixes, as shares of the brightest channel (red, green, blue, white).
+const LOOKS = [
+  { id: 'natural', name: t('Tự nhiên'), mix: [1, 1, 1, 1] },
+  { id: 'red', name: t('Cây đỏ rực'), mix: [1, 0.8, 0.75, 0.8] },
+  { id: 'cool', name: t('Nước trong, mát'), mix: [0.7, 0.85, 1, 0.9] },
+  { id: 'warm', name: t('Ấm, dịu mắt'), mix: [1, 0.8, 0.5, 0.7] },
+]
+const RAMPS = [0, 10, 15, 20, 30, 45, 60, 90, 120, 150]
 const faq = [
   { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
   { q: t('Đèn Chihiros nào dùng được?'), a: t('Các đèn Bluetooth có tên bắt đầu bằng DY: {list}. Chưa hỗ trợ X300, Z Light Tiny, Egg và Commander 1 vì các đèn này chia kênh màu khác.', { list: SUPPORTED.join(', ') }) },
   { q: t('Nên bật đèn bể thủy sinh mấy tiếng mỗi ngày?'), a: t('Khoảng 6 đến 8 tiếng, cùng một khung giờ mỗi ngày. Bể mới trồng nên bắt đầu 6 tiếng, đèn 40–50%, rồi tăng dần khi cây đã bén rễ. Bật quá 8 tiếng, hoặc đèn mạnh mà thiếu CO₂ và phân, dễ lên rêu.') },
+  { q: t('Trang có nhớ lịch của đèn không?'), a: t('Có, trên máy này. Mỗi lần ghi lịch, trang nhớ đèn, tên bạn đặt và các lịch đã ghi, để lần sau mở lại, dùng lại hoặc hoàn tác. Đèn không cho đọc lại lịch đang lưu bên trong nó, nên lịch đặt bằng ứng dụng My Chihiros không hiện ở đây. Đèn cho đọc giờ của nó: trang báo khi đèn lệch giờ, chẳng hạn sau khi mất điện.') },
   { q: t('Đèn có bị hỏng hay mất cài đặt không?'), a: t('Trang chỉ gửi lệnh chỉnh độ sáng, giờ và lịch, không đụng tới firmware. Ghi lịch mới sẽ thay lịch cũ trên đèn; muốn quay lại cài đặt cũ thì đặt lại bằng ứng dụng My Chihiros.') },
   { q: t('Không thấy đèn trong danh sách?'), a: t('Bật Bluetooth trên máy và lại gần đèn. Đóng ứng dụng My Chihiros trên các điện thoại khác: mỗi lúc đèn chỉ nhận một kết nối. Trên Android, cho phép Chrome dùng thiết bị ở gần (hoặc vị trí, với Android cũ).') },
 ]
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+const HOURS = [0, 3, 6, 9, 12, 15, 18, 21, 24]
 ---
-<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={t('Hẹn giờ bật tắt, chỉnh độ sáng từng màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
-  <section class="connect" aria-labelledby="conn-h">
-    <h2 id="conn-h" class="visually-hidden">{t('Kết nối')}</h2>
-    <p id="ch-unsupported" class="bad" hidden>{t('Trình duyệt này không kết nối được Bluetooth. Dùng Chrome hoặc Edge trên điện thoại Android hay máy tính; trên iPhone, iPad dùng trình duyệt Bluefy.')}</p>
-    <div class="row">
-      <button id="ch-connect" type="button">{t('Kết nối đèn')}</button>
-      <button id="ch-disconnect" type="button" class="quiet" hidden>{t('Ngắt kết nối')}</button>
+<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
+  <div class="app">
+    <div class="side">
+      <section id="ch-light" class="card" aria-labelledby="light-h" data-state="idle">
+        <h2 id="light-h" class="visually-hidden">{t('Đèn của bạn')}</h2>
+        <!-- Without Bluetooth (Safari, Firefox): what works, and that planning still does. -->
+        <div id="ch-unsupported" class="state" hidden>
+          <p class="title">{t('Trình duyệt này chưa kết nối được đèn')}</p>
+          <p>{t('Dùng Chrome hoặc Edge trên điện thoại Android hay máy tính. Trên iPhone, iPad: trình duyệt Bluefy.')}</p>
+          <p class="soft">{t('Vẫn lập lịch được ở dưới: trang nhớ lịch trên máy này để ghi vào đèn sau.')}</p>
+        </div>
+        <div id="ch-idle" class="state">
+          <p class="title" id="ch-idle-title">{t('Kết nối đèn của bạn')}</p>
+          <ol id="ch-howto" class="howto">
+            <li>{t('Cắm điện, bật đèn.')}</li>
+            <li>{t('Bật Bluetooth, đứng gần đèn.')}</li>
+            <li>{t('Đóng ứng dụng My Chihiros trên các điện thoại khác: đèn chỉ nhận một kết nối.')}</li>
+          </ol>
+          <ul id="ch-known" class="known" hidden></ul>
+          <div class="row">
+            <button id="ch-connect" type="button" class="primary">{t('Kết nối đèn')}</button>
+          </div>
+        </div>
+        <div id="ch-busy" class="state" hidden>
+          <p class="title" id="ch-busy-text">{t('Đang kết nối…')}</p>
+          <div class="bar" aria-hidden="true"><span></span></div>
+        </div>
+        <div id="ch-ready" class="state" hidden></div>
+        <p id="ch-status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <figure class="tank" aria-labelledby="tank-cap">
+        <svg viewBox="0 0 320 190" role="img" aria-labelledby="tank-cap" id="ch-tank" class="scene">
+          <defs>
+            <linearGradient id="tk-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-opacity=".55" /><stop offset="1" stop-opacity="0" /></linearGradient>
+            <linearGradient id="tk-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="w1" /><stop offset="1" class="w2" /></linearGradient>
+          </defs>
+          <rect width="320" height="190" class="room" />
+          <rect x="34" y="14" width="252" height="7" rx="3.5" class="lamp" />
+          <path d="M40 21 L280 21 L298 176 L22 176 Z" fill="url(#tk-cone)" class="cone" />
+          <rect x="22" y="40" width="276" height="136" fill="url(#tk-water)" />
+          <path class="p-stem" d="M64 150 C60 120 70 95 66 62 M74 150 C78 118 70 92 78 70 M84 150 C82 126 90 104 88 80 M248 150 C252 116 242 88 250 58 M258 150 C256 120 264 100 260 74" />
+          <path class="p-red" d="M210 150 C206 124 216 104 212 84 M220 150 C224 126 216 110 222 92 M230 150 C228 130 236 114 232 98" />
+          <path class="p-leaf" d="M110 150 C102 128 112 112 124 104 C122 122 118 136 116 150 Z M128 150 C130 124 146 112 158 110 C150 126 140 138 136 150 Z M164 150 C160 132 170 120 182 116 C178 132 172 142 170 150 Z" />
+          <g class="fish"><path d="M150 72 l18 -5 v10 z M168 72 c4 -6 18 -6 22 0 c-4 6 -18 6 -22 0 z" /><path d="M118 92 l14 -4 v8 z M132 92 c3 -5 14 -5 17 0 c-3 5 -14 5 -17 0 z" /></g>
+          <path class="carpet" d="M22 156 C70 148 120 154 170 149 C220 145 260 152 298 147 L298 160 L22 160 Z" />
+          <rect x="22" y="158" width="276" height="18" class="soil" />
+          <rect x="22" y="40" width="276" height="136" class="glass" />
+          <text x="160" y="104" class="off-note" text-anchor="middle" visibility="hidden">{t('Đèn tắt')}</text>
+        </svg>
+        <figcaption id="tank-cap"><span id="ch-now"></span> <span class="soft">{t('Màu trên màn hình chỉ gần đúng.')}</span></figcaption>
+      </figure>
     </div>
-    <p id="ch-status" class="status" aria-live="polite">{t('Chưa kết nối. Bật đèn, bật Bluetooth trên máy rồi bấm “Kết nối đèn” và chọn đèn trong danh sách.')}</p>
-  </section>
 
-  <section aria-labelledby="sched-h">
-    <h2 id="sched-h">{t('Hẹn giờ bật tắt mỗi ngày')}</h2>
-    <p class="lead">{t('Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.')}</p>
-    <div class="presets" role="group" aria-label={t('Lịch mẫu')}>
-      {PRESETS.map(p => <button type="button" class="preset" data-on={p.on} data-off={p.off} data-level={p.level}><strong>{p.name}</strong><span>{p.on}–{p.off} · {p.sub}</span></button>)}
+    <div class="main">
+      <form id="ch-sched" novalidate>
+        <section id="lich" aria-labelledby="sched-h">
+          <h2 id="sched-h">{t('Lịch mỗi ngày')}</h2>
+          <p class="lead">{t('Chọn kiểu bể để có lịch gợi ý, rồi kéo giờ bật, giờ tắt trên thanh ngày. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.')}</p>
+          <div class="presets" role="group" aria-label={t('Lịch mẫu')}>
+            {PRESETS.map(p => <button type="button" class="preset" aria-pressed="false" data-name={p.name} data-on={p.on} data-off={p.off} data-level={p.level}><strong>{p.name}</strong><span class="num">{p.on}–{p.off} · {p.level}%</span><span class="why">{p.why}</span></button>)}
+          </div>
+
+          <div class="tl" id="ch-tl">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="tl-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="tl-top" /><stop offset="1" class="tl-bottom" /></linearGradient></defs>
+              {HOURS.slice(1, -1).map(h => <line x1={h * 60} x2={h * 60} y1="0" y2="100" class="grid" />)}
+              <path id="tl-curve" fill="url(#tl-fill)" d="" />
+            </svg>
+            <div class="mark now" id="tl-now"><span>{t('Bây giờ')}</span></div>
+            <div class="mark play" id="tl-play" hidden></div>
+            <button type="button" class="handle" id="tl-on" role="slider" aria-valuemin="0" aria-valuemax="1440" aria-label={t('Giờ bật')}><span class="tip num"></span></button>
+            <button type="button" class="handle" id="tl-off" role="slider" aria-valuemin="0" aria-valuemax="1440" aria-label={t('Giờ tắt')}><span class="tip num"></span></button>
+          </div>
+          <div class="hours num" aria-hidden="true">{HOURS.map(h => <span style={`left:${(h / 24) * 100}%`}>{h}h</span>)}</div>
+
+          <p id="ch-hours" class="out" aria-live="polite"></p>
+
+          <div class="fields">
+            <label>{t('Bật lúc')} <input name="on" type="time" value="12:00" step="300" required /></label>
+            <label>{t('Tắt lúc')} <input name="off" type="time" value="20:00" step="300" required /></label>
+            <label>{t('Sáng dần, tối dần')}
+              <select name="ramp">{RAMPS.map(r => <option value={r} selected={r === 30}>{r === 0 ? t('Không') : t('{n} phút', { n: r })}</option>)}</select>
+            </label>
+          </div>
+          <div class="row">
+            <button type="button" id="ch-play" class="quiet">{t('Xem thử cả ngày')}</button>
+          </div>
+          <p class="note">
+            {hours && <a href={`/vi/huong-dan/${hours.t.slug}/`}>{t('Nên bật đèn mấy tiếng →')}</a>}
+            {algae && <a href={`/vi/huong-dan/${algae.t.slug}/`}>{t('Nhận biết và diệt rêu hại →')}</a>}
+          </p>
+        </section>
+
+        <section id="mau" aria-labelledby="color-h">
+          <h2 id="color-h">{t('Màu và độ sáng')}</h2>
+          <svg class="mini scene" viewBox="0 0 320 190" aria-hidden="true" id="ch-tank-mini"></svg>
+          <div class="looks" role="group" aria-label={t('Kiểu màu')} id="ch-looks">
+            {LOOKS.map(l => <button type="button" class="look" aria-pressed="false" data-mix={l.mix.join(',')}><span class="dot" aria-hidden="true"></span>{l.name}</button>)}
+          </div>
+          <label class="master">
+            <span>{t('Độ sáng')}</span>
+            <input type="range" id="ch-master" min="0" max="100" step="1" value="70" />
+            <output id="ch-master-out" class="num">70%</output>
+          </label>
+          <details id="ch-each">
+            <summary>{t('Chỉnh từng màu')}</summary>
+            <div id="ch-levels" class="levels"></div>
+          </details>
+          <div class="row" id="ch-try-row" hidden>
+            <button type="button" id="ch-try" class="quiet" aria-pressed="false">{t('Thử màu trên đèn')}</button>
+            <span class="soft" id="ch-try-note">{t('Đèn hiện đúng màu đang chỉnh. Tắt thử thì đèn chạy lại theo lịch.')}</span>
+          </div>
+        </section>
+
+        <div class="write" id="ch-writebar">
+          <p id="ch-summary" class="num"></p>
+          <button id="ch-write" type="submit" class="primary" disabled>{t('Ghi lịch vào đèn')}</button>
+          <p id="ch-write-note" class="soft"></p>
+        </div>
+      </form>
+
+      <section id="ch-saved" aria-labelledby="saved-h" hidden>
+        <h2 id="saved-h">{t('Lịch đã ghi cho đèn này')}</h2>
+        <ul class="saved" id="ch-saved-list"></ul>
+      </section>
     </div>
-    <p class="note">
-      {t('Bể mới trồng (2–4 tuần đầu) bật ít giờ, đèn nhẹ để rêu khó bám. Bể bị rêu: giảm giờ và độ sáng trong 1–2 tuần, kèm thay nước, vệ sinh.')}
-      {hours && <>{' '}<a href={`/vi/huong-dan/${hours.t.slug}/`}>{t('Nên bật đèn mấy tiếng →')}</a></>}
-      {algae && <>{' '}<a href={`/vi/huong-dan/${algae.t.slug}/`}>{t('Nhận biết và diệt rêu hại →')}</a></>}
-    </p>
-    <form id="ch-sched" class="calc">
-      <div class="row">
-        <label>{t('Bật lúc')} <input name="on" type="time" value="12:00" required /></label>
-        <label>{t('Tắt lúc')} <input name="off" type="time" value="20:00" required /></label>
-        <label>{t('Sáng dần, tối dần (phút)')} <input name="ramp" type="number" inputmode="numeric" min="0" max="150" value="30" /></label>
-      </div>
-      <div id="ch-levels" class="row"></div>
-      <p id="ch-hours" class="out" aria-live="polite"></p>
-      <div class="row"><button id="ch-write" type="submit" disabled>{t('Ghi lịch vào đèn')}</button></div>
-    </form>
-    <p class="note">{t('Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.')}</p>
-  </section>
+  </div>
 
-  <section aria-labelledby="manual-h">
-    <h2 id="manual-h">{t('Chỉnh tay')}</h2>
-    <p class="lead">{t('Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.')}</p>
-    <div id="ch-sliders" class="sliders"><p class="hint">{t('Kết nối đèn để chỉnh tay.')}</p></div>
-  </section>
-
-  <section aria-labelledby="clock-h">
-    <h2 id="clock-h">{t('Giờ của đèn')}</h2>
-    <p class="lead">{t('Lịch chạy theo đồng hồ trong đèn. Nếu đèn bật tắt lệch giờ, chẳng hạn sau khi mất điện, bấm nút dưới để chỉnh lại.')}</p>
-    <div class="row"><button id="ch-clock" type="button" disabled>{t('Chỉnh giờ đèn theo máy này')}</button></div>
-  </section>
-
-  <section aria-labelledby="faq-h">
+  <section class="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">{t('Hỏi nhanh')}</h2>
     {faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
     <p class="note">
-      {choose && <><a href={`/vi/huong-dan/${choose.t.slug}/`}>{t('Chọn đèn cho bể thủy sinh →')}</a> </>}
+      {choose && <a href={`/vi/huong-dan/${choose.t.slug}/`}>{t('Chọn đèn cho bể thủy sinh →')}</a>}
       {product && <a href={`/vi/san-pham/${product.t.slug}/`}>{t('Đèn Chihiros WRGB II →')}</a>}
     </p>
+    <p class="note">{t('Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.')}</p>
     <p class="note">{t('AquaTome không liên quan tới hãng Chihiros. Các lệnh Bluetooth theo ghi chép mã nguồn mở')} <a href="https://github.com/TheMicDiet/chihiros-led-control" rel="noopener">chihiros-led-control</a> {t('(giấy phép MIT).')}</p>
   </section>
 </Browse>
 <script>
-  import { MODE, NAME_PREFIX, UART, askStatus, firmwareOf, hoursLit, modelOf, nextId, setLevel, setMode, setSchedule, setTime, type Channel, type Model, type Schedule } from '../../../scripts/chihiros'
-  import { ct } from '../../../scripts/ct'
-
-  // The few Web Bluetooth pieces used here (TypeScript's DOM types don't include it).
-  type Char = EventTarget & { value?: DataView; properties: { write: boolean }; writeValueWithoutResponse(b: Uint8Array): Promise<void>; writeValueWithResponse(b: Uint8Array): Promise<void>; startNotifications(): Promise<Char> }
-  type Device = EventTarget & { name?: string; gatt?: { connect(): Promise<{ getPrimaryService(uuid: string): Promise<{ getCharacteristic(uuid: string): Promise<Char> }> }>; disconnect(): void } }
-  const bt = (navigator as Navigator & { bluetooth?: { requestDevice(o: object): Promise<Device> } }).bluetooth
-
-  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
-  const form = $<HTMLFormElement>('ch-sched')
-  const status = $('ch-status')
-  const connectBtn = $<HTMLButtonElement>('ch-connect')
-  const dropBtn = $<HTMLButtonElement>('ch-disconnect')
-  const writeBtn = $<HTMLButtonElement>('ch-write')
-  const clockBtn = $<HTMLButtonElement>('ch-clock')
-  const fmt = (n: number) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: 1 }).format(n)
-  const NAME: Record<Channel, string> = { red: ct('Đỏ'), green: ct('Xanh lá'), blue: ct('Xanh dương'), white: ct('Trắng') }
-  const say = (s: string, bad = false) => { status.textContent = s; status.classList.toggle('bad', bad) }
-  const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
-
-  let device: Device | undefined
-  let tx: Char | undefined
-  // Before connecting, the schedule form shows the red/green/blue layout most Chihiros lights have.
-  let model: Model = { name: '', channels: ['red', 'green', 'blue'] }
-  let levels = [70, 70, 70, 70]
-  let firmware: number | undefined
-  let id = 0
-  let manual = false
-  let queue: Promise<unknown> = Promise.resolve()
-
-  /**
-   * Writes go one at a time (the light drops frames sent too close together; Chrome refuses overlapping GATT writes), each
-   * acknowledged like the My Chihiros app's, so a lost frame fails here instead of silently.
-   */
-  function send(make: (id: number) => Uint8Array, gap = 80): Promise<void> {
-    const run = async () => {
-      if (!tx) throw new Error('not connected')
-      id = nextId(id)
-      const f = make(id)
-      await (tx.properties.write ? tx.writeValueWithResponse(f) : tx.writeValueWithoutResponse(f))
-      await wait(gap)
-    }
-    const p = queue.then(run)
-    queue = p.catch(() => {})
-    return p
-  }
-
-  function drawLevels() {
-    $('ch-levels').innerHTML = model.channels.map((c, i) => `<label>${ct('{colour} (%)', { colour: NAME[c] })} <input name="lv${i}" type="number" inputmode="numeric" min="0" max="100" value="${levels[i]}" /></label>`).join('')
-  }
-  function drawSliders() {
-    $('ch-sliders').innerHTML = tx
-      ? model.channels.map((c, i) => `<label><span>${NAME[c]}</span><input type="range" min="0" max="100" step="1" value="${levels[i]}" data-ch="${i}" /><output>–</output></label>`).join('')
-      : `<p class="hint">${ct('Kết nối đèn để chỉnh tay.')}</p>`
-  }
-
-  const minutes = (t: string) => { const [h, m] = t.split(':').map(Number) as [number, number]; return h * 60 + m }
-  function schedule(): Schedule | { error: string } {
-    const on = (form.elements.namedItem('on') as HTMLInputElement).value
-    const off = (form.elements.namedItem('off') as HTMLInputElement).value
-    const ramp = Number((form.elements.namedItem('ramp') as HTMLInputElement).value || 0)
-    if (!on || !off) return { error: ct('Nhập giờ bật và giờ tắt.') }
-    const lit = (off === '00:00' ? 1440 : minutes(off)) - minutes(on)
-    if (lit <= 0) return { error: ct('Giờ tắt phải sau giờ bật, trong cùng một ngày.') }
-    if (!(ramp >= 0 && ramp <= 150)) return { error: ct('Sáng dần, tối dần từ 0 đến 150 phút.') }
-    if (ramp * 2 > lit) return { error: ct('Sáng dần, tối dần dài hơn nửa thời gian bật đèn.') }
-    return { on, off, ramp, levels: levels.slice(0, model.channels.length) }
-  }
-  function render() {
-    model.channels.forEach((_, i) => { const v = (form.elements.namedItem(`lv${i}`) as HTMLInputElement | null)?.value; if (v !== undefined && v !== '') levels[i] = Math.max(0, Math.min(100, Number(v))) })
-    const s = schedule()
-    const out = $('ch-hours')
-    out.classList.toggle('bad', 'error' in s)
-    if ('error' in s) { out.textContent = s.error; return }
-    const h = hoursLit(s.on, s.off)
-    out.textContent = ct('Đèn sáng {h} tiếng mỗi ngày.', { h: fmt(h) }) + (h > 8 ? ` ${ct('Trên 8 tiếng dễ lên rêu.')}` : '')
-  }
-  function ready() {
-    const old = firmware !== undefined && firmware < 20
-    writeBtn.disabled = !tx || old
-    clockBtn.disabled = !tx
-    connectBtn.hidden = !!tx
-    dropBtn.hidden = !tx
-    drawLevels(); drawSliders(); render()
-  }
-
-  async function connect() {
-    let d: Device
-    try {
-      d = await bt!.requestDevice({ filters: [{ namePrefix: NAME_PREFIX }], optionalServices: [UART.service] })
-    } catch (e) {
-      // NotFoundError: the picker was closed without choosing.
-      if ((e as Error).name !== 'NotFoundError') say(ct('Không mở được Bluetooth: {why}', { why: (e as Error).message }), true)
-      return
-    }
-    const m = modelOf(d.name ?? '')
-    if (!m) { say(ct('Đèn {name} chưa được hỗ trợ trên trang này.', { name: d.name ?? '?' }), true); return }
-    say(ct('Đang kết nối…'))
-    try {
-      const svc = await (await d.gatt!.connect()).getPrimaryService(UART.service)
-      const rx = await svc.getCharacteristic(UART.notify)
-      tx = await svc.getCharacteristic(UART.write)
-      firmware = undefined
-      rx.addEventListener('characteristicvaluechanged', () => { const v = rx.value; if (v) firmware = firmwareOf(new Uint8Array(v.buffer, v.byteOffset, v.byteLength)) ?? firmware })
-      await rx.startNotifications()
-      d.addEventListener('gattserverdisconnected', gone, { once: true })
-      device = d; model = m; id = 0; manual = false
-      await send(askStatus)
-      for (let i = 0; i < 15 && firmware === undefined; i++) await wait(100)
-      say(firmware === undefined
-        ? ct('Đã kết nối {model} ({name}). Không đọc được phiên bản firmware.', { model: m.name, name: d.name ?? '' })
-        : firmware < 20
-          ? ct('Đã kết nối {model} ({name}), firmware {fw}: bản này chưa hẹn giờ được từ trang, cập nhật firmware bằng ứng dụng My Chihiros.', { model: m.name, name: d.name ?? '', fw: firmware })
-          : ct('Đã kết nối {model} ({name}), firmware {fw}.', { model: m.name, name: d.name ?? '', fw: firmware }))
-    } catch (e) {
-      tx = undefined
-      d.gatt?.disconnect()
-      say(ct('Không kết nối được: {why}. Đóng ứng dụng My Chihiros trên các máy khác rồi thử lại.', { why: (e as Error).message }), true)
-    }
-    ready()
-  }
-  function gone() {
-    tx = undefined; device = undefined
-    say(ct('Đèn đã ngắt kết nối.'))
-    ready()
-  }
-
-  // Manual levels: while a write is under way, only each channel's latest level waits to go next.
-  const pending = new Map<number, number>()
-  let flushing = false
-  async function flush() {
-    if (flushing) return
-    flushing = true
-    try {
-      while (pending.size) {
-        if (!manual) { await send(i => setMode(MODE.manual, i)); manual = true }
-        const batch = [...pending]
-        pending.clear()
-        for (const [c, l] of batch) await send(i => setLevel(c, l, i))
-      }
-    } catch { say(ct('Không gửi được lệnh tới đèn.'), true) } finally { flushing = false }
-  }
-
-  if (!bt) { $('ch-unsupported').hidden = false; connectBtn.disabled = true }
-  connectBtn.addEventListener('click', connect)
-  dropBtn.addEventListener('click', () => device?.gatt?.disconnect())
-  form.addEventListener('input', render)
-  form.addEventListener('submit', async e => {
-    e.preventDefault()
-    const s = schedule()
-    if ('error' in s || !tx) return
-    if (!confirm(ct('Lịch đang lưu trên đèn sẽ bị xóa và thay bằng lịch này. Ghi lịch?'))) return
-    writeBtn.disabled = true
-    try {
-      // Clock first (the schedule runs on it), clear the old scenes, switch to the schedule, then the new setting.
-      await send(i => setTime(new Date(), i), 300)
-      await send(i => setMode(MODE.sceneReset, i), 300)
-      await send(i => setMode(MODE.scene, i), 300)
-      await send(i => setSchedule(s, model.channels.length, i), 300)
-      manual = false
-      say(ct('Đã ghi lịch: bật {on}, tắt {off}. Đèn chạy theo lịch từ bây giờ.', { on: s.on, off: s.off }))
-    } catch { say(ct('Không gửi được lệnh tới đèn.'), true) }
-    ready()
-  })
-  for (const b of document.querySelectorAll<HTMLButtonElement>('.preset')) b.addEventListener('click', () => {
-    ;(form.elements.namedItem('on') as HTMLInputElement).value = b.dataset.on!
-    ;(form.elements.namedItem('off') as HTMLInputElement).value = b.dataset.off!
-    levels = levels.map(() => Number(b.dataset.level))
-    drawLevels(); render()
-  })
-  $('ch-sliders').addEventListener('input', e => {
-    const r = e.target as HTMLInputElement
-    if (r.type !== 'range') return
-    ;(r.nextElementSibling as HTMLOutputElement).value = `${r.value}%`
-    pending.set(Number(r.dataset.ch), Number(r.value))
-    flush()
-  })
-  clockBtn.addEventListener('click', async () => {
-    try { await send(i => setTime(new Date(), i)); say(ct('Đã chỉnh giờ đèn: {time}.', { time: new Date().toLocaleTimeString(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }) })) } catch { say(ct('Không gửi được lệnh tới đèn.'), true) }
-  })
-  ready()
+  import { start } from '../../../scripts/light-page'
+  start()
 </script>
 <style>
-  section { padding-top: var(--space-5); max-width: 56rem; }
-  section h2 { font-size: var(--step-2); }
-  .connect { padding-top: 0; }
-  .lead { max-width: var(--measure); }
-  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
-  .calc :global(.row label) { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
-  .calc :global(.row input) { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 7.5rem; }
-  /* A 12-hour clock (browsers set to English) shows AM/PM beside the time picker's icon: room for both. */
-  .calc :global(.row input[type=time]) { width: 9.5rem; }
-  button { font: 500 1rem var(--f-body); padding: 0.55rem 1.1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
-  button:disabled { opacity: 0.45; cursor: not-allowed; }
-  button.quiet { background: none; color: var(--c-ink); border: 1px solid var(--c-rule); }
-  .presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: var(--space-2); margin: var(--space-3) 0 var(--space-2); }
-  .preset { display: grid; gap: 0.15rem; text-align: left; background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-rule); padding: var(--space-2) var(--space-3); }
-  .preset span { font-size: var(--step--1); color: var(--c-ink-soft); font-weight: 400; }
-  .preset:hover { border-color: var(--c-ink); }
-  .sliders { display: grid; gap: var(--space-2); max-width: 32rem; margin: var(--space-3) 0; }
-  .sliders :global(label) { display: grid; grid-template-columns: 6rem 1fr 3.5rem; align-items: center; gap: var(--space-3); }
-  .sliders :global(input) { width: 100%; accent-color: var(--c-ink); }
-  .sliders :global(output) { text-align: right; font-variant-numeric: tabular-nums; }
-  .status { max-width: var(--measure); }
-  .out { max-width: var(--measure); font-size: 1.05rem; }
-  .bad, .out.bad { color: var(--c-cardinal); }
-  .hint, .sliders :global(.hint) { color: var(--c-ink-faint); }
+  .app { display: grid; gap: var(--space-6); align-items: start; }
+  @media (min-width: 60rem) {
+    .app { grid-template-columns: minmax(20rem, 26rem) minmax(0, 1fr); gap: var(--space-7); }
+    .side { position: sticky; top: var(--space-4); }
+  }
+  .side { display: grid; gap: var(--space-4); }
+  section h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  .main > form > section + section, .main > section { margin-top: var(--space-7); }
+  .lead { max-width: var(--measure); color: var(--c-ink-soft); margin: 0 0 var(--space-4); }
+  .app :global(.soft) { color: var(--c-ink-soft); font-size: var(--step--1); }
   .note { color: var(--c-ink-soft); font-size: var(--step--1); max-width: var(--measure); }
-  .note a { margin-right: var(--space-2); }
-  details { border-bottom: 1px solid var(--c-rule); padding: var(--space-2) 0; max-width: var(--measure); }
-  summary { cursor: pointer; font-weight: 600; }
+  .note a { margin-right: var(--space-3); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin: var(--space-3) 0; }
+
+  /* Buttons: one vocabulary across the page. */
+  .app :global(button) { font: 500 1rem var(--f-body); min-height: 44px; padding: 0.55rem 1.1rem; border-radius: 8px; cursor: pointer; transition: background-color .15s ease-out, border-color .15s ease-out, color .15s ease-out; }
+  .app :global(button.primary) { border: 0; background: var(--c-ink); color: var(--c-paper); }
+  .app :global(button.primary:hover:not(:disabled)) { background: var(--c-moss); }
+  .app :global(button.quiet) { background: none; color: var(--c-ink); border: 1px solid var(--c-rule); }
+  .app :global(button.quiet:hover:not(:disabled)) { border-color: var(--c-ink); }
+  .app :global(button:disabled) { opacity: 0.45; cursor: not-allowed; }
+  .app :global(button[aria-pressed="true"].quiet) { border-color: var(--c-moss); color: var(--c-moss); background: color-mix(in srgb, var(--c-moss) 10%, transparent); }
+
+  /* The light card. */
+  .card { background: var(--c-plate); border: 1px solid var(--c-rule); border-radius: 12px; padding: var(--space-4); }
+  .card .title, .card :global(.title) { font-weight: 600; font-size: var(--step-1); margin: 0 0 var(--space-2); }
+  .card p { margin: 0 0 var(--space-2); }
+  .howto { margin: 0 0 var(--space-3); padding-left: 1.3rem; color: var(--c-ink-soft); font-size: 0.95rem; }
+  .howto li + li { margin-top: var(--space-1); }
+  .known { list-style: none; margin: 0 0 var(--space-2); padding: 0; }
+  .known :global(li) { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); align-items: center; padding: var(--space-3) 0; border-top: 1px solid var(--c-rule); }
+  .known :global(li:first-child) { border-top: 0; padding-top: 0; }
+  .known :global(.name) { font-weight: 600; }
+  .known :global(.meta) { grid-column: 1; color: var(--c-ink-soft); font-size: var(--step--1); }
+  .known :global(.forget) { grid-column: 1; justify-self: start; min-height: 0; padding: var(--space-1) 0; border: 0; background: none; color: var(--c-ink-faint); font-size: var(--step--1); text-decoration: underline; text-underline-offset: 0.18em; }
+  .known :global(.go) { grid-row: 1 / span 3; grid-column: 2; }
+  .status { margin: var(--space-2) 0 0; font-size: 0.95rem; }
+  .status:empty { display: none; }
+  .status :global(button) { margin-left: var(--space-2); min-height: 36px; padding: 0.3rem 0.8rem; }
+  .bad, .card :global(.bad) { color: var(--c-cardinal); }
+  .bar { height: 3px; background: var(--c-rule); border-radius: 2px; overflow: hidden; }
+  .bar span { display: block; width: 35%; height: 100%; background: var(--c-moss); animation: slide 1.1s cubic-bezier(.2, .7, .3, 1) infinite; }
+  @keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(290%); } }
+  .card :global(.lhead) { display: flex; gap: var(--space-3); align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+  .card :global(.nick) { font: 600 var(--step-1) var(--f-body); color: var(--c-ink); background: none; border: 1px solid transparent; border-radius: 6px; padding: 0.15rem 0.35rem; margin-left: -0.35rem; width: 100%; max-width: 16rem; }
+  .card :global(.nick:hover), .card :global(.nick:focus) { border-color: var(--c-rule); background: var(--c-mat); }
+  .card :global(.facts) { display: grid; gap: var(--space-2); margin: var(--space-3) 0; }
+  .card :global(.fact) { display: flex; gap: var(--space-2); align-items: flex-start; font-size: 0.95rem; }
+  .card :global(.fact svg) { flex: none; width: 1.1rem; height: 1.1rem; margin-top: 0.2rem; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .card :global(.fact.ok svg) { color: var(--c-moss); }
+  .card :global(.fact.warn) { color: var(--c-cardinal); }
+  .card :global(.fact button) { min-height: 36px; padding: 0.25rem 0.75rem; margin-top: var(--space-1); }
+  .card :global(.steps) { list-style: none; margin: 0 0 var(--space-3); padding: var(--space-3); border-radius: 8px; background: color-mix(in srgb, var(--c-moss) 8%, transparent); display: grid; gap: var(--space-1); font-size: 0.95rem; }
+  .card :global(.steps li) { display: flex; gap: var(--space-2); align-items: center; color: var(--c-ink-soft); }
+  .card :global(.steps li.done) { color: var(--c-ink); }
+  .card :global(.steps svg) { width: 1rem; height: 1rem; stroke: var(--c-moss); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .card :global(.steps .dot) { width: 1rem; height: 1rem; border: 1.5px solid var(--c-ink-faint); border-radius: 50%; }
+  .card :global(.quick) { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  .card :global(.quick button) { padding-inline: var(--space-2); font-size: 0.95rem; }
+  .card :global(.lfoot) { display: flex; justify-content: flex-end; margin-top: var(--space-2); }
+  .card :global(.link) { min-height: 0; padding: var(--space-1) 0; border: 0; background: none; color: var(--c-ink-soft); font-size: var(--step--1); text-decoration: underline; text-underline-offset: 0.18em; }
+
+  /* The tank, lit by the setting being edited (scripts/light-page.ts paints it). */
+  .tank { margin: 0; }
+  .mini { display: block; width: min(100%, 22rem); height: auto; border-radius: 10px; margin: 0 0 var(--space-4); }
+  @media (min-width: 60rem) { .mini { display: none; } }
+  .tank svg { display: block; width: 100%; height: auto; border-radius: 12px; }
+  .app :global(.scene .room) { fill: #0d1513; }
+  .app :global(.scene .glass) { fill: none; stroke: rgb(255 255 255 / .22); stroke-width: 1.5; }
+  .app :global(.scene .lamp) { fill: #2a2f2c; }
+  .app :global(.scene .p-stem), .app :global(.scene .p-red) { fill: none; stroke-width: 5; stroke-linecap: round; }
+  .app :global(.scene .off-note) { fill: rgb(255 255 255 / .6); font: 500 13px var(--f-body); }
+  .tank figcaption { margin-top: var(--space-2); font-size: 0.95rem; }
+  .app :global(.scene *) { transition: fill .25s ease-out, stroke .25s ease-out, stop-color .25s ease-out, opacity .25s ease-out; }
+
+  /* Presets: what the tank is like → a schedule. */
+  .presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)); gap: var(--space-2); margin: 0 0 var(--space-5); }
+  .preset { display: grid; gap: 0.1rem; align-content: start; text-align: left; background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-rule); padding: var(--space-3); }
+  .preset span { font-size: var(--step--1); color: var(--c-ink-soft); font-weight: 400; }
+  .preset .why { color: var(--c-ink-faint); }
+  .preset:hover { border-color: var(--c-ink); }
+  .preset[aria-pressed="true"] { border-color: var(--c-moss); box-shadow: inset 0 0 0 1px var(--c-moss); }
+
+  /* The day: 00:00 to 24:00, the light's curve, the two handles. */
+  .tl { position: relative; height: 7.5rem; margin: var(--space-6) 0 0; background: var(--c-plate); border: 1px solid var(--c-rule); border-radius: 10px; }
+  .tl svg { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: inherit; }
+  .tl .grid { stroke: var(--c-rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .tl path { stroke: var(--c-moss); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+  .tl .tl-top { stop-color: var(--c-moss); stop-opacity: .32; }
+  .tl .tl-bottom { stop-color: var(--c-moss); stop-opacity: .06; }
+  .hours { position: relative; height: 1.4rem; margin: var(--space-1) 0 0; font-size: var(--step--1); color: var(--c-ink-faint); }
+  .hours span { position: absolute; transform: translateX(-50%); }
+  .hours span:first-child { transform: none; }
+  .hours span:last-child { transform: translateX(-100%); }
+  .mark { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: repeating-linear-gradient(to bottom, var(--c-cardinal) 0 5px, transparent 5px 9px); pointer-events: none; }
+  .mark span { position: absolute; top: -1.45rem; left: 0; transform: translateX(-50%); font-size: var(--step--1); color: var(--c-cardinal); white-space: nowrap; }
+  .mark.play { background: var(--c-ink); }
+  .handle { position: absolute; top: 0; bottom: 0; width: 44px; margin-left: -22px; padding: 0; min-height: 0; border: 0; background: none; cursor: ew-resize; touch-action: none; }
+  .handle::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--c-ink); }
+  .handle::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 30px; margin: -15px 0 0 -7px; border-radius: 7px; background: var(--c-paper); border: 2px solid var(--c-ink); box-shadow: 0 1px 3px rgb(0 0 0 / .18); }
+  .handle:hover::after, .handle:focus-visible::after, .handle.drag::after { background: var(--c-moss); border-color: var(--c-moss); }
+  .handle:focus-visible { outline: none; }
+  .handle .tip { position: absolute; bottom: calc(100% + 0.2rem); left: 50%; transform: translateX(-50%); font: 600 0.85rem var(--f-body); color: var(--c-ink); background: var(--c-paper); padding: 0 0.25rem; border-radius: 4px; white-space: nowrap; }
+  .out { max-width: var(--measure); font-size: 1.05rem; margin: var(--space-3) 0; }
+  .out.bad { color: var(--c-cardinal); }
+  .out :global(.warn) { color: var(--c-cardinal); }
+  .fields { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .fields label, .master > span { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .fields input, .fields select { font: inherit; font-size: 1rem; min-height: 44px; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); color: var(--c-ink); }
+  .fields input[type=time] { width: 9.5rem; }
+
+  /* Colour: looks, one brightness, each channel. */
+  .looks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+  .look { display: inline-flex; gap: var(--space-2); align-items: center; background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-rule); border-radius: 999px; padding: 0.4rem 0.9rem 0.4rem 0.5rem; }
+  .look:hover { border-color: var(--c-ink); }
+  .look[aria-pressed="true"] { border-color: var(--c-moss); box-shadow: inset 0 0 0 1px var(--c-moss); }
+  .look .dot { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1px solid rgb(0 0 0 / .15); }
+  .master, .levels :global(label) { display: grid; grid-template-columns: 6.5rem 1fr 3.5rem; align-items: center; gap: var(--space-3); max-width: 34rem; min-height: 44px; }
+  .master > span { font-size: 1rem; color: var(--c-ink); }
+  .master input, .levels :global(input) { width: 100%; height: 44px; }
+  .levels :global(input) { accent-color: var(--swatch, var(--c-moss)); }
+  output { text-align: right; font-variant-numeric: tabular-nums; }
+  details#ch-each { margin-top: var(--space-2); }
+  details#ch-each summary { cursor: pointer; min-height: 44px; display: flex; gap: var(--space-2); align-items: center; color: var(--c-ink-soft); list-style: none; }
+  details#ch-each summary::-webkit-details-marker { display: none; }
+  details#ch-each summary::before { content: ''; width: 0.45rem; height: 0.45rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform .15s ease-out; }
+  details#ch-each[open] summary::before { transform: rotate(45deg); }
+  .levels { display: grid; gap: var(--space-1); padding-bottom: var(--space-2); }
+
+  /* Write: on a phone it stays at the bottom of the screen while the schedule is edited. */
+  .write { position: sticky; bottom: 0; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); align-items: center; margin-top: var(--space-6); padding: var(--space-3) var(--space-4); background: color-mix(in srgb, var(--c-paper) 92%, transparent); backdrop-filter: blur(8px); border-top: 1px solid var(--c-rule); }
+  .write p { margin: 0; }
+  #ch-summary { font-weight: 600; font-size: 0.95rem; }
+  #ch-write-note { grid-column: 1 / -1; }
+  #ch-write-note:empty { display: none; }
+  @media (min-width: 60rem) { .write { position: static; background: none; backdrop-filter: none; border: 1px solid var(--c-rule); border-radius: 12px; } }
+
+  .saved { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+  .saved :global(li) { display: flex; gap: var(--space-3); align-items: center; justify-content: space-between; padding: var(--space-2) 0; border-bottom: 1px solid var(--c-rule); }
+  .saved :global(.what) { display: grid; }
+  .saved :global(.when) { color: var(--c-ink-faint); font-size: var(--step--1); }
+  .saved :global(.badge) { font-size: var(--step--1); color: var(--c-moss); font-weight: 600; }
+  .saved :global(button) { min-height: 40px; padding: 0.3rem 0.9rem; }
+
+  .faq { margin-top: var(--space-8); max-width: 56rem; }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-2) 0; max-width: var(--measure); }
+  .faq summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
 </style>
