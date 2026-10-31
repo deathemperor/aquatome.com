@@ -1,0 +1,186 @@
+---
+url: https://www.seriouslyfish.com/species/lepidocephalichthys-guntea
+title: Lepidocephalichthys guntea · Seriously Fish
+fetchedAt: 2026-10-31T01:02:13.979Z
+hash: dcb142aca2e8465183352e7c5652ec2fbf3cea51ef38fb1d675b2a6ad491e66c
+---
+
+On this page
+12
+sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 20
+A typically-patterned specimen.Charles König
+## Quick factsEdit
+Max size
+150mm SL6in SL
+Aquarium size
+80 × 30cm31 × 12in
+Temp
+20–25°C68–77°F
+pH
+6.0–8.0
+Hardness
+2–12dGH
+## Difficulty5 of 8 measures
+Easy
+How the rating is worked out
+Space
+medium tank
+Water
+flexible
+Temp
+flexible
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+## Before you buy
+- Needs a tight-fitting lid as this species is known to jumpEnsure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.
+- Needs a soft, sandy substrateNot difficult to keep but must be provided with a soft, sandy substrate since some of its time will be spent completely buried, or with only eyes protruding.
+Lepidocephalichthys guntea is a cobitid loach from the Ganges and Brahmaputra systems of northern India, Nepal and Bangladesh, and much of Myanmar. One of the most frequently-traded members of the group, it is an excellent choice for those new to keeping loaches. Males carry a solid, dark lateral stripe and females spotted flanks, and patterning varies with origin. It is also used as a food fish, eaten fresh and dried.
+## Distribution
+Edit
+Widespread throughout the Ganges and Brahmaputra river systems in northern India, Nepal and Bangladesh with type locality given simply as 'Bengal', and also occurs throughout much of Myanmar.
+Records from central India and Pakistan also exist, and body patterning and colouration can vary depending on origin.
+It's used as a food fish across some of its range and is eaten both fresh and dried.
+## Habitat
+Write a note
+Edit
+Most commonly found in shallow, slow-moving sections of streams or calm habitats such as swamps, oxbows, backwaters and paddy fields.
+These are often heavily-vegetated or littered with submerged roots, branches and leaf litter, with substrates composed of soft mud or silt.
+Water clarity and depth vary on a seasonal basis across much of its range, and at certain times of year it probably enters temporarily-flooded zones. Conversely during dry periods some habitats may become stagnant with blooms of macrophytic algae and resultant hypoxia (oxygen depletion).
+Under such conditions members of this genus are able to use the intestine as a supplementary breathing organ and have been observed darting to the surface to gulp atmospheric air, and some have even been recorded to survive dry periods in moist sand or mud.
+A team from the Swedish Museum of Natural History recorded this species at a couple of localities in Myanmar during March 2008, one of which was the Dayame Chaung (Dayame stream), close to the township of Daik-u, Bago Division. From images it certainly appears that the stream undergoes seasonal drying as large sections of the muddy bed were exposed.
+Sympatric fishes at the locality included Danio albolineatus, D. nigrofasciatus, Puntius sophore, Dermogenys pusillus, Badis ruber and Trichogaster labiosa plus unidentified members of Esomus, 'Puntius' and Microrasbora (probably Microdevario).
+## Aquarium size
+Write a note
+Edit
+Standard length
+150mm SL6in SL
+Aquarium base
+80 × 30cm31 × 12in
+Volume
+~72litres~19US gal
+Base dimensions of 80 ∗ 30 cm31 ∗ 12 in or more are required.
+## Maintenance
+Write a note
+Edit
+Not difficult to keep but must be provided with a soft, sandy substrate since some of its time will be spent completely buried, or with only eyes protruding. When coarser gravel is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited.
+Other décor can include water-worn rocks and driftwood branches and tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity.
+Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.
+As this species hails from sluggish waters high flow rates are best avoided although a degree of oxygenation is recommended.
+Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.
+## Water conditions
+Edit
+Temperature
+20–25°C68–77°F
+pH
+6.0–8.0
+Hardness
+2–12dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Chiefly a micropredator sifting mouthfuls of substrate through the gills from which insect larvae, small crustaceans and suchlike are extracted.
+In the aquarium it will accept sinking dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc.
+## Behaviour and compatibility
+Write a note
+Edit
+Lepidocephalichthys spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.
+They fare best in the presence of conspecifics and should ideally be kept in a group of 4 or more specimens.
+L. guntea should do well alongside fishes from similar environments that occupy the upper part of the water column such as Trichopodus, Trichogaster, Trichopsis or certain Danio species.
+The presence of these should also make it less timid as the absence of fishes in the upper water column is often used as a signifier for approaching danger in nature.
+Sand-dwelling loaches from the families Botiidae, Cobitidae and Nemacheilidae are also suitable but proper research is essential as some can be excessively territorial or otherwise aggressive.
+A community based around fishes from its natural waters could include species such as Badis badis, Acanthocobitis zonalternans, Lepidocephalichthys berdmorei, Danio rerio, Trichogaster chuna and Trichogaster lalius.
+## Sexual dimorphism
+Write a note
+Edit
+In mature males the pectoral fins are enlarged with fused, thickened innermost (7th and 8th) rays forming a structure known as the lamina circularis.
+This generally varies in form depending on species and is present in some other cobitid genera though formed by different rays though formed by different rays.
+Adult females are typically heavier-bodied, a little larger then males and have spotted patterning on the flanks as opposed to a dark stripe.
+## Reproduction
+Write a note
+Edit
+Presumably a seasonal spawner in nature but hasn't been bred in captivity as far as we know.
+## Notes
+Edit
+This is one of the most frequently-traded members of the group and is an excellent choice for those new to keeping loaches.
+It's distinguishable from congeners by a combination of characters including: rounded/truncate caudal-fin; a scaleless patch on top of the head; relatively large adult size; flanks with spotted patterning in females and a solid, dark lateral stripe in males; caudal-fin with dark, reticulated markings; a black spot at the base of the caudal-fin, usually covering rays 2-7.
+The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.
+Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).
+In the most recent study Lepidocephalichthys was not found to be as closely-related to Pangio, Lepidocephalus or Kottelatlimia as previously hypothesised though unfortunately the authors stop short of proposing an alternative theory.
+All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.
+## References
+- Arunkumar, L. (2000). Loaches of the genus Lepidocephalicthys (Lepidocephalichthys) from Manipur, with description of a new species. Journal of Fish Biology 57(5), 1093-1104
+- Havird, J. C. and L. M. Page (2010). A revision of Lepidocephalichthys (Teleostei: Cobitidae) with descriptions of two new species from Thailand, Laos, Vietnam, and Myanmar. Copeia 2010(1), 137-159
+- Mittal, S., P. Mittal and A.K. Mittal (2004). Operculum of peppered loach, Lepidocephalichthys guntea (Hamilton, 1822) (Cobitidae, Cypriniformes): a scanning electron microscopic and histochemical investigation. Belgian Journal of Zoology 134(1), 9-15
+- Moitra, A., O. N. Singh and J. S. D. Munshi (1989). Microanatomy and cytochemistry of the gastro-respiratory tract of an air-breathing cobitidid fish, Lepidocephalichthys guntea. Japanese Journal of Icthyology 36(2), 227-231
+- Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357
+- Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365
+- Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831
+- Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199
+- Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663
+## Species images · 20
+A typically-patterned specimen.Charles König
+This species has been recorded from the Umkhen River, Meghalaya state, northeastern India.Sankhadipta Dey
+Females are supposed to have spotted, rather than striped, flanks but the specimen at the top of this image is female and striped.Charles König
+Lepidocephalichthys spp. do best when maintained in groups...Charles König
+...and are peaceful with other species. Here with Garra flavatra.Charles König
+This species is variable in patterning.Thomas Frank
+Another spotted specimen...Mick Wright
+...and another, younger fish.Mick Wright
+A specimen with a thick lateral stripe...Charles König
+This one has a thinner, less distinct stripe...Charles König
+...whereas in this fish the stripe is initially broken into a series of blotches.Thomas Frank
+Here the lateral stripe becomes indistinct towards the caudal fin.Thomas Frank
+Ventral view.Charles König
+The next sequence of images depicts potential courtship behaviour...Charles König
+...typified by a pair united in body contact...Charles König
+...before seeking a quieter place.Charles König
+Unfortunately no eggs were recovered on this occasion.Charles König
+Specimen with less distinct lateral stripe.Hayath
+Detail of head and anterior portion of body.Charles König
+Wild-collected albino specimen.Andrew Rao
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Bangladesh
+- India
+- Myanmar
+- Nepal
+- Pakistan
+- Ayeyarwady
+- Brahmaputra
+- Ganges
+- Koshi
+- Lake Indawgyi
+- Salween
+## Profile completeness20 of 24
+83% complete
+- Add temperament
+Also missing: a common name, water condition notes, etymology.
+Report a mistake
+## Community
+Questions about Lepidocephalichthys guntea?
+Ask on Discord
+→

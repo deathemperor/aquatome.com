@@ -1,0 +1,194 @@
+{
+  "id": "striuntius-lineatus",
+  "scientificName": "Striuntius lineatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Striuntius",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "malaysia",
+    "muar",
+    "indonesia",
+    "kapuas",
+    "brunei-darussalam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>The lined barb, Striuntius lineatus, is a laterally-striped cyprinid from Peninsular Malaysia, Sumatra and Borneo, found mostly in peat swamps. It is most often confused with Desmopuntius johorensis, the two being the most common of the striped species in the trade, but it has no more than one pair of barbels, lacks vertical bars as a juvenile and grows smaller. Its habitats include black water streams stained brown with humic acids, with pH as low as 3.0 or 4.0.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Native to Peninsular Malaysia plus the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia, and Brunei Darussalam) with type locality 'Muar River at Tubing Tinggi, Johor, Malaysia'.</p><p>In Peninsular Malaysia it has been collected in the states of Johor (Muar River) and Pahang (Lake Tasik Bera).</p><p>In Sumatra there are records from the province of Jambi (Batang Hari River) and on Borneo in the Malaysian state of Sarawak, Indonesian province of Kalimantan Barat/West Kalimantan (Kapuas River), and throughout Brunei Darussalam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is generally negligible, pH as low as 3.0 or 4.0, and the substrate is usually littered with fallen leaves, branches and submerged tree roots.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Base dimensions of at least 80 × 30 cm (31 × 12 in) or equivalent are required, about 72 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it is easily fed, but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes such as similarly sized cyprinids, cobitids and certain anabantoids.</p><p>Some of the more commonly exported species from Borneo include 'Puntius' johorensis, 'P.' pentazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, T. gracile, and several Pangio spp.</p><p>It is a schooling species by nature and should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, plus males will display their best colours as they compete with one another for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<p>One of four similar-looking, laterally-striped barbs native to Southeastern Asia alongside Desmopuntius gemellus, D. johorensis, and D. trifasciatus.</p><p>Of these S. lineatus is most often confused with D. johorensis because these two seem most common in the aquarium trade.</p><p>Telling them apart is relatively simple since S. lineatus has 0-1 pairs of barbels (vs. 2 pairs in the other three species), its juvenile colour pattern does not consist of vertical bars (vs. consists of vertical bars), plus it grows to a smaller adult size.</p><p>It also possesses a unique fleshy structure on the lower lip which forms a continuous postlabial groove and sets it apart from all other Southeast Asian Puntius spp.</p><p>It is excluded from the D. trifasciatus species group of which the other laterally-striped species mentioned here are members, and the Catalog of Fishes and FishBase now place it in Striuntius with S. lateristriga.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They are perhaps best referred to as 'Puntius' for the time being, whereby the genus name is surrounded by quotation marks to denote its questionable usage.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. (1996). The identity of Puntius eugrammus and diagnoses of two new species of striped barbs (Teleostei: Cyprinidae) from southeast Asia. Raffles Bulletin of Zoology 44(1), 301-316</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8e08464bd900c471.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8e08464bd900c471-480.webp",
+      "width": 800,
+      "height": 523,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "caption": "This species possesses a unique fleshy structure on the lower lip.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/61065fcd3364a528.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/61065fcd3364a528-480.webp",
+      "width": 650,
+      "height": 295,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lineatus",
+      "caption": "Specimen from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh 80x30"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng vảy",
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh Cryptocoryne",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "nền cát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

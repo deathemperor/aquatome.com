@@ -1,0 +1,205 @@
+{
+  "id": "catoprion-mento",
+  "scientificName": "Catoprion mento",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Catoprion",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "venezuela",
+    "guyana",
+    "brazil",
+    "pantanal",
+    "bolivia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>The wimpel piranha, Catoprion mento, is a scale-eating fish from Colombia, Venezuela, Guyana, Brazil and Bolivia. Though not a true piranha, it resembles them and is quite closely related to Pygocentrus species. The common name comes from the German 'Wimpel' (banner), after the extensions to the leading dorsal-fin rays in mature fish. Adults are best housed alone, and it is sensitive to poor water quality and to swings in chemistry.</p><ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 38 cm (48 × 15 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.8–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>Colombia, Venezuela, Guyana, Brazil and Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>Rivers, streams and tributaries. It is also found in the famous Pantanal wetlands of the Mato Grosso, an area rich in aquatic plant life.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>A standard 120 × 38 × 30 cm (48 × 15 × 12 in) tank, about 137 litres (36 US gal), is big enough to house one of these for life.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>Quite shy and prefers a tank with plenty of cover. Areas of dense planting, with perhaps some roots and branches added for extra effect, and a dark substrate would make a good setup. A layer of floating plants to provide dim conditions is also a good idea. Strong water flow is best avoided.</p><p>It is found in many so-called \"blackwater\" habitats in nature, where the water is heavily stained with tannins released by decaying organic material. This can be simulated if you wish by adding a net bag containing aquarium-safe peat (such as moss peat) to one of the filter compartments.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<ul><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.8–6.5. These values correspond to its natural waters. It can adapt to more alkaline water, provided very quick or large changes are avoided.</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>It feeds largely on the scales of both conspecifics and other species in nature, and has specially adapted teeth in order to do so. This doesn't mean you need to feed live fish in the aquarium. The vast majority of specimens will accept chopped prawn, mussel, lancefish and other meaty foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>Not a species for the community tank. Small tankmates will be eaten, while larger fish can be stripped of fins and scales quite quickly. Some hobbyists report success keeping it with Loricariids or Doradids, but this is an unstable situation and should not be considered long term. Juveniles tend to form shoals, but an adult fish really should be housed alone, as a single specimen. Females in particular become particularly belligerent as they mature and will attack males constantly.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>The male has a clearly convex anal fin, while the female does not.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/catoprion-mento",
+      "html": "<p>This species is not actually a piranha in ichthyologic terms, being monotypic and therefore unique. It was so named due to its general resemblance to true piranha, and the fact that it is quite closely related to Pygocentrus species. Mento means \"chin\", referring to the protruding jaw of the fish. This jaw structure, along with the adapted teeth, is used in its natural feeding behaviour. It has been observed to swim at great speed into a selected target, biting hard as it collides with it. This combination of impact and bite is usually enough to dislodge some scales from the unfortunate fish, which are eaten by the Catoprion.</p><p>Mature specimens develop stunning extensions to the leading rays of the dorsal fin. This feature gave rise to the common name, which is derived from the German word \"Wimpel\", meaning \"banner\". Many sources mis-spell this as \"wimple\". The extensions are sometimes lost during catching and transit, and unfortunately do not grow back.</p><p>Rarely seen in the hobby, it tends to be much sought after by piranha enthusiasts. However, it is not the most suitable choice for the beginner to this kind of fish. It is sensitive not only to poor water quality, but also to uneven swings in chemistry. A maintenance regime consisting of small, regular water changes rather than the occasional large change is necessary to keep it in good health.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5fbcfeacb1c8f05a.webp",
+      "width": 960,
+      "height": 665,
+      "licence": "CC BY 2.0",
+      "author": "Charles & Clint",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catoprion_mento_(juvenile).jpeg",
+      "caption": "Catoprion mento (juvenile)",
+      "thumb": "https://media.aquatome.com/commons/5fbcfeacb1c8f05a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/17a107a0381a51e9.webp",
+      "width": 960,
+      "height": 721,
+      "licence": "CC BY 4.0",
+      "author": "Matthew A. Kolmann, Jonathan M. Huie, Kory Evans, Adam P. Summers",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidophagous_fish.jpg",
+      "caption": "μCT scans of characiforms: (a) Catoprion mento, (b) Pygopristis denticulata, (c) Roeboides affinis, (d) Charax cf. pauciradiatus.",
+      "thumb": "https://media.aquatome.com/commons/17a107a0381a51e9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4ac63e7d0fc38d67.webp",
+      "width": 960,
+      "height": 1175,
+      "licence": "CC BY 4.0",
+      "author": "Matthew A. Kolmann, Jonathan M. Huie, Kory Evans, Adam P. Summers",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catoprion_and_Pygopristis.jpg",
+      "caption": "Comparison of tooth shape in Catoprion mento and Pygopristis denticulata as juveniles and as adults. Tooth outlines in lower right corner of each species' panel.",
+      "thumb": "https://media.aquatome.com/commons/4ac63e7d0fc38d67-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9f868266d7aa4143.webp",
+      "width": 960,
+      "height": 327,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catoprion_mento_(Lago_Jose_Assu,_Brazil).jpg",
+      "caption": "Taxonomic Classification: Animalia--Characidae--Catoprion mento (Cuvier 1819). Common Name: Wimple piranha",
+      "thumb": "https://media.aquatome.com/commons/9f868266d7aa4143-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 137 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 150W"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

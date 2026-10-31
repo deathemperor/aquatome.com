@@ -1,0 +1,210 @@
+{
+  "id": "barbonymus-gonionotus",
+  "scientificName": "Barbonymus gonionotus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Barbonymus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "cambodia",
+    "mekong",
+    "laos",
+    "thailand",
+    "chao-phraya",
+    "vietnam",
+    "dong-nai",
+    "singapore",
+    "indonesia",
+    "java",
+    "malaysia",
+    "terengganu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<ul><li>Max size: 300 mm SL (12 in)</li><li>Aquarium size: 210 × 60 cm</li><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Be sure to fit the tank with a heavy, tightly-fitting cover as it can be quite skittish at times and has a powerful leap.</p><p>Barbonymus gonionotus is a large cyprinid with an enormous distribution across Southeast Asia, from the Mekong to Java and Sumatra. It inhabits larger, slow-moving rivers and their floodplains, moving into flooded forest to feed and spawn, and is increasingly found in man-made canals and lakes. Plain grey caudal and dorsal fins and pale yellow pelvic and anal fins separate it from congeners. Populations in Peninsular Malaysia appear to be introduced.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including Cambodia, Laos, Thailand, Vietnam, Singapore, and Indonesia (Java and Sumatra). It is present in several major river systems including the Mekong, Mae Klong, and Chao Phraya, and appears to have been introduced to the Terengganu and Perak river systems in Peninsular Malaysia.</p><p>Type locality is 'Indonesia: Java: Kalimas River [Brantas] in Surabaya'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Mostly inhabits larger, slow-moving river channels that are prone to flooding during the wet season as well as their surrounding floodplains, but increasingly found in man-made canals and lakes. The fish move into inundated riparian areas and forests during wet periods to feed and spawn, returning to the rivers as the water begins to recede.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Standard length: 300 mm SL (12 in). Aquarium base: 210 × 60 cm (84 × 24 in). Volume: ~756 litres (~200 US gal).</p><p>An aquarium with base dimensions of 210 × 60 cm should be the minimum considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided; very healthy-looking specimens have been seen maintained in completely bare set-ups, for example.</p><p>An enormous external-style filter or two are going to be needed in order to provide the desired levels of oxygen, flow and surface area for bacterial colonisation. Be sure to fit the tank with a heavy, tightly-fitting cover as it can be quite skittish at times and has a powerful leap.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Omnivorous and something of an opportunist although studies suggest it is primarily a herbivore; wild fish have been observed feeding on invertebrates, algae, smaller fish, plant matter both aquatic and terrestrial and even carcasses of dead animals. In the aquarium it is easily-fed and will accept just about anything offered.</p><p>Ideally, offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes, granules and plenty of vegetable matter. Shelled peas, blanched courgette, spinach and chopped fruit all make good additions to the menu. Larger specimens will also take chopped earthworm, prawn, mussel etc., but take care not to overfeed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Not aggressive species but will eat small fishes and can upset slow-moving/more timid tankmates with its constant activity and rather vigorous feeding behaviour. It is therefore only appropriate for very large tanks containing robust, similarly-sized tankmates. There are lots of suitable choices including many cichlids, catfish, other cyprinids and characins. As always when selecting a compatible community of fish proper research is essential.</p><p>This species is found swimming in large schools in nature and some individuals can become skittish or even aggressive if kept in insufficient numbers in the aquarium, meaning a group of six or more should be the smallest considered. You will be rewarded with a much more natural-looking display plus interesting behaviour from the fish as they interact with conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Mature females are usually deeper-bodied than males, especially when gravid. Otherwise there are no obvious external differences.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Not known to have been bred in private aquaria but is cultured in some numbers as a food fish in both its native countries and further afield. In Hawaii it is used in aquaculture projects with spawning induced via the use of hormone stimulation, for example. Like others in the genus it is an egg-scatterer that exhibits no parental care and produces large broods, a single female being capable of releasing thousands of eggs in a single event.</p><p>A serious attempt by the hobbyist would not be a tempting prospect as it would require a method of preventing the adults eating the eggs, an enormous aquarium, plus the facilities and contacts to raise and sell on hundreds of fish that are unsuitable for the vast majority of aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<p>Kottelat (1998) discussed the defining external characteristics of Barbonymus species and stated that B. gonionotus can be told apart from congeners by possession of plain grey caudal and dorsal fins, pale yellow pelvic and anal fins, and 6-7 branched anal-fin rays.</p><p>The taxon Barbonymus was erected by Kottelat in 1999 and contains former members of Barbus and Barbodes from Southeast Asia.</p><p>Most other members are rare in the ornamental trade, and all have previously been included in the genera Barbus, Puntius, and Barbodes, so you may see them listed with one or more of these names in older literature.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "html": "<ul><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Bleeker, P. (1849). Bijdrage tot de kennis der ichthyologische fauna van Midden- en Oost-Java, met beschrijving van eenige nieuwe species. Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. 23(12), 1-23</li><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4460c74fe05a401c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4460c74fe05a401c-480.webp",
+      "width": 700,
+      "height": 446,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "caption": "Adult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d40f1b318083e55f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d40f1b318083e55f-480.webp",
+      "width": 811,
+      "height": 546,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "caption": "Subadult.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/48c6a314be858521.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/48c6a314be858521-480.webp",
+      "width": 700,
+      "height": 433,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbonymus-gonionotus",
+      "caption": "A group in their natural habitat, Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 210cm",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá lớn",
+        "thức ăn thực vật cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "rasbora-trilineata",
+  "scientificName": "Rasbora trilineata",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "malaysia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 22–25°C</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. It is usually sold at a much smaller size than the 15 cm it reaches, so it needs a large tank, and wild fish are increasingly hard to come by as it is produced commercially in several countries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Native to the Chao Phraya and lower Mekong river basins in Laos, Thailand and Cambodia and widespread in Peninsular Malaysia, with its distribution also extending into Sumatra and Borneo. It may be restricted to eastern Sumatra and south and western parts of Borneo, including Sarawak and West Kalimantan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>An adaptable fish collected from swift forest hill streams with boulder, stone, sand or gravel substrates (clear water, pH 6.5–7.5) and from sluggish blackwaters of peat swamp forest full of fallen leaves and branches (tannin-stained, very soft, pH 4.0–6.0). It also inhabits reservoirs and lakes and moves into flooded areas in the wet season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>A group needs a tank of at least 120 × 45 × 45 cm (~243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>A large, well-planted aquarium or a river-style set-up with rocks, gravel and boulders suits it; hardy plants such as Java fern, Bolbitis or Anubias can be attached to decor. A peat swamp set-up with dim lighting, roots, leaf litter and peat also works. The tank must have a very tight cover as it is an accomplished jumper. It is intolerant of organic waste and needs spotless water. Acclimatise slowly over a couple of hours; wild fish may be more delicate than captive-bred ones.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 5.0–8.0 depending on origin; 6.5–7.5 usually ideal</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Feeds mainly on aquatic and terrestrial invertebrates, particularly insects. It accepts dry food but daily small live and frozen foods such as Daphnia and Artemia give the best colour and bring it into breeding condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Very peaceful and a good resident of a larger community tank. It can be kept with cyprinids, tetras, livebearers, rainbowfish, anabantoids, catfish and loaches. Keep in a group of at least six; fish show better colours and are less nervous in groups.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>One of the easier Rasbora to breed; an egg-scattering, continuous spawner with no parental care. Fry may appear in a densely planted mature tank. For higher yield, use dimly lit shallow containers with mesh on the base, slightly acidic to neutral water at the upper end of the temperature range, and introduce one or two pairs. Adding cool water and feeding live and frozen foods triggers spawning. Remove adults after a couple of days. Eggs hatch in 18–48 hours and fry are free-swimming 24–48 hours later; feed Artemia nauplii and/or microworm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "html": "<p>Also known as the 'three-lined' rasbora; the 'scissortail' name derives from the twitching of the caudal fin at rest. It differs from R. caudimaculata by lacking red in the caudal fin and from R. spilocerca by its much larger size. Some wild populations show yellow pigment in the caudal fin. Rasbora is polyphyletic; Liao et al. (2010) placed R. trilineata in the R. sumatrana species group, while Tang et al. (2010) took a more conservative approach.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/36fd3606b9cc70ce.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/36fd3606b9cc70ce-480.webp",
+      "width": 640,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "caption": "Adult, probably male, specimen of Rasbora trilineata.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ecd4c73985bff091.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ecd4c73985bff091-480.webp",
+      "width": 700,
+      "height": 465,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "caption": "School of R. trilineata in the upper Khwae Noi (River Kwai), western Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5b17c7b1a71a4057.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5b17c7b1a71a4057-480.webp",
+      "width": 700,
+      "height": 467,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-trilineata",
+      "caption": "This species is normally available at a young age and relatively small size.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 240 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "dương xỉ java",
+        "anubias",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

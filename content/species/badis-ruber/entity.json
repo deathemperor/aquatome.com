@@ -1,0 +1,204 @@
+{
+  "id": "badis-ruber",
+  "scientificName": "Badis ruber",
+  "order": "Perciformes",
+  "family": "Badidae",
+  "genus": "Badis",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar",
+    "ayeyarwady",
+    "thailand",
+    "mekong",
+    "laos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>The Burmese badis, Badis ruber, is a badid common throughout much of lowland Myanmar, from the Ayeyarwady and Sittaung south to the Tenasserim. Among the better known Badis in the hobby, it is also traded as 'red badis' and appears in older literature as Badis badis burmicanus. It differs from B. khwae and B. siamensis in its rows of vertically arranged dark flank markings and relatively large caudal peduncle blotch. It tends to inhabit lentic biotopes such as roadside ditches and small, well-vegetated creeks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>The neotype locality as designated by Kullander and Britz (2002) is 'Roadside ditch, Irrawaddy River drainage, about 48 kilometers on road Pyay-Yangon, 18°30'41\"N, 95°24'48\"E, Bago Division, Myanmar'.</p><p>B. ruber is common throughout much of lowland Myanmar and has been recorded from the Ayeyarwady/Irrawaddy, Mu (a tributary of the Ayeyarwady) and Sittaung river basins as well as in minor drainages along the coastlines of Mon State and Tanintharyi Division with the Tenasserim River marking the southern limit of its range.</p><p>It also occurs in the Mekong basin in the provinces of Nong Khai and Chiang Rai, northern Thailand and Luang Prabang province, Laos.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Tends to inhabit lentic biotopes such as roadside ditches and small creeks with abundant vegetation.</p><p>Schreitmüller described this species (as B. badis var. rubra) based only on living specimens and did not preserve any of the type series, nor was a specific locality provided.</p><p>Kullander and Britz (2002) thus designated a neotype which was collected from a small ditch surrounded by rice fields. Grassy vegetation grew both in and out of the water which is described as \"stagnant, clear, greenish\".</p><p>Other fishes included Aplocheilus lineatus, Trichogaster labiosa, plus unidentified Esomus, Lepidocephalichthys and Glossogobius species.</p><p>At another locality in the Ayeyarwady Delta it was captured in less than 30 cm (12 in) of water from an ox-bow lake among floating Pistia-like vegetation and grasses.</p><p>Here it was living alongside Trichogaster labiosa, Microdevario nana, Brachygobius nunus, Aplocheilus panchax, plus unidentified Esomus, Oryzias, Parambassis and a Caridina sp. shrimp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Standard length: 50 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>A single pair or small group can be housed in an aquarium with a base measuring 60 × 30 cm or more.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>B. ruber will thrive in a well-structured set-up with a sand or gravel substrate plus plenty of water-worn rocks and pebbles to provide cover.</p><p>Plant species that can be grown attached to the decor such as Microsorum, Taxiphyllum or Anubias species can be added if you wish but aren't essential.</p><p>Driftwood twigs, branches, floating plants and leaf litter can also be used to lend a more natural feel while filtration and lighting need not be too strong.</p><p>Some cave-like structures should be included to act as potential spawning sites; many breeders use half-coconut shells or up-turned clay plant pots with drilled holes or parts of the rim removed to allow the fish access.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Temperature: 15–25°C (59–77°F). pH: 6.5–7.5. Hardness: 1–5 dGH.</p><p>Temperature: This species is subject to seasonal temperature fluctuations in nature and is comfortable between 15–25 °C with even greater extremes being tolerated for short periods. In many countries/well-insulated homes it can therefore be maintained without artificial heating year-round.</p><p>Temperatures towards the upper end of this range are known to stimulate spawning activity meaning a heater will be required if you want to breed the fish outside of spring and summer months though. Set it to around 20–24°C (68–75°F) for long-term care and breeding.</p><p>pH: Prefers neutral to slightly alkaline water with a value between 6.5–7.5.</p><p>Hardness: The water in northern Myanmar is typically soft despite the relatively high pH so aim for somewhere within the range 1–5 dGH.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Badis species are micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>They can be a little picky in the aquarium and may not accept dried foods although in some cases they will learn to take them over time.</p><p>At any rate they should always be offered regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm in order to develop ideal colour and conditioning.</p><p>They're somewhat shy, deliberate feeders (see 'compatibility') and it's also important to note that all species develop issues with obesity and become more susceptible to disease when fed chironomid larvae (bloodworm) and/or Tubifex so these should be omitted from the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Can be kept in a community tank provided tankmates are chosen with care.</p><p>It is slow-moving with a retiring nature and may be intimidated or outcompeted for food by larger or more boisterous tankmates.</p><p>Peaceful cyprinids such as Trigonostigma or smaller Rasbora species make good choices and we suspect it will also do ok with many South American characins, Otocinclus and similar small Loricariids or pygmy Corydoras catfish.</p><p>Accommodating it in a biotope-style community of Myanmarese fishes is trickier although suitable species available in the trade include Colisa labiosa, Danio choprae, D. nigrofasciatus and Microdevario nana.</p><p>Certainly do not combine it with similar-looking, territorial bottom dwellers such as dwarf cichlids unless the tank is very large and never house it with other Badis species as hybridisation might occur.</p><p>Also note that freshwater shrimp of the popular genera Caridina and Neocaridina, and certainly their young, may be preyed upon.</p><p>It is not a gregarious fish as such and rival males can be very aggressive towards one another, especially in smaller tanks.</p><p>In these cases only a single pair or one male and several females should be purchased but in roomier surroundings a group can coexist provided there is space for each male to establish a territory and plenty of broken lines of sight.</p><p>The clever placement of caves can help enormously in this respect; do not be tempted to cluster all the available spawning sites in one area of the tank, for example.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>This species is very easy to sex but often only males are imported for the trade, presumably due to their brighter colours.</p><p>Females are smaller, have duller patterning (they do not possess a great deal of red colouration on the body, for example) and a noticeably shorter, rounder-looking body profile than males. Males also develop extended finnage as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>Badis spp. are cave spawners that form temporary pair bonds and are not usually too difficult to breed provided the aquarium is arranged correctly (see 'Maintenance').</p><p>Other species are best omitted if you want to raise good numbers of fry although in a mature, well-furnished community a few may survive to adulthood.</p><p>Either a single pair or a group of adults can be used but if using multiple males be sure to provide each with a cave to defend.</p><p>Water parameters should be within the values suggested above, and if the fish are offered plenty of live and frozen foods spawning should not present too many problems.</p><p>As they come into breeding condition rival males will become increasingly combative and begin to display courtship behaviour towards females entering their chosen territory.</p><p>During this process the overall colour pattern intensifies and the locking of mouths is also common; the male literally attempting to drag his partner into the cave.</p><p>A receptive female will enter and spawning takes place with usually 30-100 eggs being laid.</p><p>Post-spawning the female is ejected and the male takes sole responsibility for the eggs and fry, defending the territory against intruders and fanning the brood with his fins. If you wish the other adult fish can be removed at this point although it is not absolutely necessary yet.</p><p>The eggs usually hatch in 2-3 days but the fry do not become free swimming until they are 6-8 days old and may not leave the vicinity of the cave for another week or so after that.</p><p>From then the adults may begin to regard them as food so they are best transferred to a separate container.</p><p>The young fish are quite sedentary for the first few days meaning microworm is an ideal initial food but once they are visibly swimming in the water column Artemia nauplii can be introduced to the diet.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<p>B. ruber is among the better known Badis species in the aquarium hobby with trade names including 'Burmese badis' and 'red badis'.</p><p>It was referred to as Badis badis burmicanus for a number of years and will be seen labelled as such in older literature.</p><p>Among congeners it is most easily confused with B. khwae and B. siamensis but can be identified by its flank patterning which consists of rows of vertically-arranged dark markings.</p><p>In B. siamensis these appear more in the form of horizontal stripes while in B. khwae they are absent altogether.</p><p>The three also differ in the shape of the dark marking on the caudal peduncle; in B. ruber it is relatively large and extends over the dorsal surface of the peduncle, in B. khwae it is noticeably smaller and in B. siamensis reduced even further or missing in some cases.</p><p>Posterior to the caudal peduncle marking B. ruber exhibits three more, smaller dark spots at the caudal-fin base, B. khwae a dark bar and B. siamensis some faint blotches.</p><p>Prior to this century the family Badidae included just five species of which only B. badis and, to a lesser extent, Badis dario (referred to as B. bengalensis by some sources) were popular in the aquarium hobby.</p><p>However an extensive revision paper by Kullander and Britz (2002) resulted in the erection of no less than ten new species along with the genus Dario into which B. dario was moved and designated the type species.</p><p>Dario is most easily distinguished from Badis by small adult size (usually less than 2.5 cm), predominantly red colouration, extended first few dorsal rays/pectoral fins in males, straight-edged (vs. rounded) caudal-fin, lack of visible lateral line and less involved parental behaviour.</p><p>Some of them are not always easy to identify correctly. For example B. badis, B. chittagongis, B. ferrarisi, B. kanabos, B. khwae, B. ruber, B. siamensis and B. tuivaiei all possess a dark cleithral spot just above the base of the pectoral-fin.</p><p>However B. khwae, B. ruber and B. siamensis all have an additional blotch on the caudal peduncle, and B. badis can be told apart from B. kanabos by possessing a series of dark markings in the dorsal fin and/or at its base (vs. a single marking at the front of the fin) and only faint or indistinct vertical bars on the flanks (vs. a series of dark narrow bars).</p><p>B. badis, B. chittagongis, B. dibruensis, B. tuivaiei and B. ferrarisi only differ in some morphological counts although the latter has very distinctive patterning, displaying a series of black vertical bars along the centre of the flanks.</p><p>Badids have historically been considered members of the families Nandidae or Pristolepididae and it was not until 1968 that Barlow proposed a separate grouping for them.</p><p>They share some characteristics with anabantoids, nandids and channids; most notably for aquarists the typical spawning embrace in which the male wraps his body around that of the female. More recent studies have concluded that this procedure is an ancient trait inherited from a common ancestor to all these families.</p><p>All Badis, Dario and Nandus species possess a uniquely bifurcated (split) hemal spine on the penultimate vertebra and this may represent evidence of the monophyly of this group.</p><p>Kullander and Britz (2002) proposed that the family Nandidae should be restricted to include only Nandus species with the remaining genera (Polycentrus, Monocirrhus, Afronandus and Polycentropsis) grouped together in Polycentridae.</p><p>Following this system the Nandidae and Badidae are only separated by differences in morphology and egg structure although the phylogenetic relationships between them are yet to be fully studied.</p><p>There exist several clades within the genus, each containing species that are most closely related to one another.</p><p>The B. badis group is distinguished only by the cleithral spot and contains B. badis, B. chittagongis, B. dubruensis, B. ferrarisi, B. kanabos and B. tuivaiei.</p><p>B. ruber, B. siamensis and B. khwae comprise the B. ruber group and are most easily identified by the combination of cleithral spot plus caudal peduncle blotch.</p><p>The B. assamensis group consists of B. assamensis and B. blosyrus which possess a unique colour pattern of light and dark striping, while the B. corycaeus group includes B. corycaeus and B. pyema which both possess an ocellated marking at the base of the caudal-fin along with a reduction in the number of sensory pores on the head.</p><p>Two species cannot be placed in any of these groups; B. kyar is separated by its relatively elongated body shape, pattern of vertical barring and band-like caudal-fin marking; B. juergenschmidti is similar to B. kyar in some respects but the first vertical body bar is straight (vs. curved), vertical bars 5, 6 and 7 are solid (vs. vertically split) and the dorsal and lower caudal-fin lobe are edged in white in males (vs. no white patterning).</p><p>In phylogenetic analyses B. kyar was found to represent the sister group to either the B. ruber or B. badis/B. assamensis clades depending on the test performed and further studies are required to determine the exact placement of these two within the genus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "html": "<ul><li>Kullander, S. O. and R. Britz (2002). Revision of the family Badidae (Teleostei: Perciformes), with description of a new genus and ten new species. Ichthyological Exploration of Freshwaters 13(4), 295-372</li><li>Rüber, L., R. Britz, S. O. Kullander and R. Zardoya (2004). Evolutionary and biogeographic patterns of the Badidae (Teleostei: Perciformes) inferred from mitochondrial and nuclear DNA sequence data. Molecular Phylogenetics and Evolution 32(3), 1010-1022</li><li>Geetakumari, K.H. and W. Vishwanath (2010). Badis dilbruensis, a new species (Teleostei: Badidaae) from northeastern India. Journal of Threatened Taxa 2(1), 644-647</li><li>Schindler, I. and H. Linke (2010). Badis juergenschmidti - a new species of the Indo-Burmese fish family Badidae (Teleostei: Perciformes) from Myanmar. Vertebrate Zoology 60(3), 209-216</li><li>Vishwanath, W. and K. Shanta (2004). A new fish species of the Indo-Burmese genus Badis Bleeker (Teleostei: Perciformes) from Manipur, India. Zoos' Print Journal 19(9), 1619-1621</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/857419acfa0d395e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/857419acfa0d395e-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "caption": "Female of B. ruber.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/223b770d4175f4c2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/223b770d4175f4c2-480.webp",
+      "width": 800,
+      "height": 501,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "caption": "Young male specimen...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e14918e615b052d5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e14918e615b052d5-480.webp",
+      "width": 800,
+      "height": 526,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/badis-ruber",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30",
+        "bể cá mini 54 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc sủi bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

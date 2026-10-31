@@ -1,0 +1,142 @@
+---
+url: https://www.seriouslyfish.com/species/rasbora-paviana
+title: Rasbora paviana · Seriously Fish
+fetchedAt: 2026-10-31T02:13:32.202Z
+hash: d5cd070fbdc909a7edb2f6a03dd17aa407a50ff5a729a0b2c028733966d063fb
+---
+
+On this page
+12 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 3
+Rasbora paviana.Chor Kiat Yeo
+## Quick factsEdit
+Max size
+90mm SL3.5in SL
+Aquarium size
+120 × 30cm48 × 12in
+Temp
+22–26°C72–79°F
+pH
+not recorded
+Hardness
+2–12dGH
+## Difficulty6 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+needs a steady temperature
+Diet
+unknown
+Temperament
+peaceful
+Social
+needs to be in a group
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+needs a well-established tank
+## Before you buy
+- Needs a tight-fitting lid as this species is known to jumpIn either situation the tank must have a very tightly-fitting cover as this species is a surface-dweller, an accomplished jumper and can escape through the tiniest of gaps.
+Rasbora paviana is a striped rasbora from the Mekong, Chao Phraya and Mae Klong basins in Thailand, Laos, Cambodia and Vietnam. Much of the literature pictures it under the invalid name R. paviei. It can be hard to separate from R. sumatrana, R. hobelmani and R. laticlavia, but it is the only one of the group found in Indochina, so a known collection locality makes identification easier. It has been collected from hill streams and sluggish lowland waters alike.
+## Distribution
+Edit
+Occurs in the great Mekong, Chao Phraya and Mae Klong river basins and is therefore widespread in Thailand as well as ranging into Laos, Cambodia and Vietnam. In Laos it has been recorded from the Xe Bang Fai and Nam Theun river basins while in Cambodia it is known from the Tonlé Sap river and lake. The only confirmed occurences from Vietnam we have are from the Duc My river in the centre of the country and Dong Nai drainage in the south.
+## Habitat
+Write a note
+Edit
+Clearly an adaptable fish as it has been collected from both swiftly-flowing forest hill streams with substrates of boulders, smaller stones, sand or gravel and more sluggish lowland waters including ponds and slow-moving rivers where leaf litter and silt tends to accumulate. According to Rainboth (1996) specimens from higher altitude environments possess a darker lateral stripe and tend to have blackish tips to the caudal fin. In the Duc My river the gently sloping habitat was composed of a series of shallow (<1m depth) riffles, short sections of rocky rapids and deeper pools with a sand/gravel substrate. There were almost no true aquatic plants but submerged parts of emergent species were common, tree cover was patchy and the water was notably clear. Small islands resulted in the splitting of the main river channel in places.
+## Aquarium size
+Write a note
+Edit
+Standard length
+90mm SL3.5in SL
+Aquarium base
+120 × 30cm48 × 12in
+Volume
+~108litres~29US gal
+An active fish and a group will need a tank measuring at least 120 ∗ 30 ∗ 30 cm48 ∗ 12 ∗ 12 in/~108 litres~29 US gal.
+## Maintenance
+Write a note
+Edit
+Choice of decor is not as critical as water quality and the amount of open swimming-space provided. We suggest keeping it in a large, well-planted aquarium or alternatively it would look superb in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel and some large water-worn boulders. A rivertank manifold could also be constructed to provide naturalistic unidirectional flow. The tank can be further furnished with driftwood branches and aquatic plants for aesthetic value. While the vast majority of plant species will fail to thrive in such conditions possibilities include hardy species such as Java fern, Bolbitis or Anubias species which can be grown attached to the decor. In either situation the tank must have a very tightly-fitting cover as this species is a surface-dweller, an accomplished jumper and can escape through the tiniest of gaps. Like other species that hail from such pristine natural environments it is intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.
+## Water conditions
+Edit
+Temperature
+22–26°C72–79°F
+pH
+not recorded
+Hardness
+2–12dGH
+Temperature: 22 – 26 °C72 – 79 °F
+pH: 6.0 - 7.5
+Hardness: 2 - 12°H
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+According to stomach analyses of wild specimens it feeds mainly on invertebrates both aquatic and terrestrial, particularly insects. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.
+## Behaviour and compatibility
+Write a note
+Edit
+This species is very peaceful indeed making it an ideal resident of the larger, well-furnished community tank. As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches. A community based around one of its native countries or river basins would also make a worthwhile project with some interesting alternatives. For example in Lake Tonlé Sap, Cambodia, sympatric species include Rasbora aurotaenia, R. daniconius, R. rubrodorsalis, Syncrossus helodes, Yasuhikotakia modesta, Nemacheilus pallidus, Chanda siamensis, Pristolepis fasciata, Trichogaster microlepis and T. trichopterus. It should be noted that while these may be compatible with R. paviana in some cases they are not with one another. It is a gregarious species by nature and really should be kept in a group of at least six to get the best out of it in the aquarium. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole is far more natural-looking.
+## Sexual dimorphism
+Write a note
+Edit
+Mature females are noticeably rounder-bellied and often a little larger than males.
+## Reproduction
+Write a note
+Edit
+We're not sure if this species has been bred in the hobby although it should certainly be possible. Like most cyprinids it is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention. However if you want to increase the yield of fry a slightly more controlled approach is required and we suggest upscaling an approach that has proven successful for smaller members of the genus. The adult group can still be conditioned together but one or more long, shallow, say 48" x 12" x 12"/120cm x 30cm x 30cm/113 litre containers should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for other species. The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank. When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will probably occur before a female is spent of eggs. The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism. Incubation in Rasbora eggs is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Artemia nauplii and/or microworm.
+## Notes
+Edit
+In much of the literature this species is pictured with the invalid name R. paviei, due to an issue with spelling which was corrected by Kottelat (2005), and the common name 'sidestripe rasbora' although the latter has yet to find popularity in the aquarium hobby. There are a number of similar-looking species including R. sumatrana, R. hobelmani and R. laticlavia and it can be problematic to separate members of this 'group'. If the collection locality of the fish is known identification is easier as R. paviana is the only species found in Indochina following current knowledge (Tan and Kottelat, 2009). Among them R. paviana is most similar to R. sumatrana as the two share scale counts and some other morphological aspects. In R. paviana adults develop dark reticulated edges to the scales, the dark lateral stripe is always present and widens into a tear/triangular/diamond-shaped blotch at the caudal peduncle which should be more circular in shape when present in R. sumatrana. R. paviana should also have yellowish fins with or without black tips to the dorsal although some forms of R. sumatrana can appear identical in these respects, and similarly the black marking above the anal fin (supra-anal streak) can vary in shape and size in both species depending on collection locality. In R. hobelmani the lateral stripe is said to be diffuse, reaching its widest point under the dorsal fin and tapering into a small precaudal blotch and there is a dark supra-anal streak running from the anal fin to the caudal peduncle. The fins are dusky-coloured. The most prominent distinguishing characters for R. laticlavia would appear to be the presence of black dots on the operculum and below the lateral stripe which is curved ventrally and extends from the caudal peduncle as far as the pelvic fins. There also exist numerous other laterally-striped rasboras but these are more easily separated from R. paviana and its allies. Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma. According to the authors the first two clades are monotypic; R. brittani should now be referred to as Kottelatia brittani and R. dorsiocellata as Brevibora dorsiocellata. The third clade comprises Boraras brigittae, Horadandia atukorali, Rasboroides vaterifloris, Trigonostigma heteromorpha and three species previously included in Rasbora but also moved into new genera; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca. The results for B. brigittae and T. heteromorpha were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended. The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita, R. kobonensis, R. ornata and R. cf. daniconius. Clade six, meanwhile, is subdivided into two groupings. The first contains R. einthovenii, R. elegans and R. cephalotaenia and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed, similar fish), R. caudimaculata and R. trilineata. As this final clade contains the type species (see below) its members retain the generic name Rasbora as do clade five species because they don't differ sufficiently to warrant the erection of a new genus/genera. Unfortunately many species weren't included in the analysis, meaning inevitable questions are raised regarding the correct placement of the 40 or so other Rasboras, in particular. As the genus had previously been split into various 'species groups' (groups of closely-related species) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change with further phylogenetic studies: R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis. R. trifasciata species group: R. trifasciata, R. amplistriga, R. api, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. kluetensis, R. meinkeni, R. nodulosa, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. truncata, R. tuberculata. R. daniconius species group: R. daniconius, R. armitagei, R. dandia, R. kobonensis, R. labiosa, R. microcephalus, R. ornata, R. wilpita. R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. patrickyapi, R. tubbi. R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii. R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris. Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. lacrimula (said to compare most closely with R. dies and R. semilineata which are members of the R. trifasciata and R. semilineata groups, respectively) R. kalbarensis, R. reticulata, R. vulcanus (possibly not Rasboras) and R. zanzibarensis (identity in question). NB - this list has been amended from that published in Liao et al. to reflect subsequent new species descriptions and taxonomical changes. Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010) Their results differed wildly from those of Liao et al. and the four new genera plus Boraras and Trigonostigma were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. Though perhaps neither conclusion is satisfactory we decided to adopt the system of Liao et al. pending future studies, if only because we prefer to retain Boraras and Trigonostigma. The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered by Liao et al..
+## References
+- Motomura, H., S. Tsukawaki, and T. Kamiya (2002). A preliminary survey of the fishes of Lake Tonle Sap near Siem Reap, Cambodia. Bulletin of the National Science Museum, Tokyo, Series A 28(4), 233-246
+- Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654
+- Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600
+- Kottelat, M. (2005). Rasbora notura, a new species of cyprinid fish from the Malay Peninsula (Teleostei: Cyprinidae). Ichthyol. Explor. Freshwaters, Vol. 16, No. 3, pp. 265-270
+- Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265
+- Herder, F. and J. Freyhof (2006). Resource partitioning in a tropical stream fish assemblage. Journal of Fish Biology 69(2), 571-589
+- Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69
+- Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176
+- Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214
+## Species images · 3
+Rasbora paviana.Chor Kiat Yeo
+Rasbora paviana.Mark Duffill
+Rasbora paviana.Mark Duffill
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Cambodia
+- Laos
+- Thailand
+- Vietnam
+- Chao Phraya
+- Mekong
+## Profile completeness19 of 24
+79% complete
+- Add water conditions
+- Add community suitability
+Also missing: taxonomic authority, a common name, etymology.
+Report a mistake
+## Community
+Questions about Rasbora paviana?
+Ask on Discord
+→

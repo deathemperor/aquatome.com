@@ -1,0 +1,208 @@
+{
+  "id": "rasbora-argyrotaenia",
+  "scientificName": "Rasbora argyrotaenia",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "malaysia",
+    "pahang",
+    "singapore",
+    "indonesia",
+    "java",
+    "philippines",
+    "palawan",
+    "brunei"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<ul><li>Max size: 140 mm TL (6 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li><li>Difficulty: easy</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The silver rasbora, Rasbora argyrotaenia, is a cyprinid from Peninsular Malaysia, Singapore, Sumatra, Java, Borneo and the Palawan islands. One of the larger rasboras at up to 140 mm TL, it is a plain, silvery fish with a faint dark stripe, and fish pictured under this name with a bold black stripe are probably a regional variant of R. daniconius. A DNA barcode study found two mitochondrial lineages under the name, and the species as currently recognised is likely to be split.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>Peninsular Malaysia and Singapore, the Philippines (Palawan group of islands), and the islands of Sumatra, Borneo and Java.</p><p>Type localities are given as Banyumas, Gombong, Purworejo and Surabaya, all on Java, Indonesia. The type series was drawn from several places and may include more than one species.</p><p>Records from the Chao Phraya, Mae Klong and Mekong river systems in Thailand, Cambodia, China and Vietnam are now considered misidentifications of other species, although FishBase still includes them.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>The majority of collections have occurred in rivers, tributaries, and forest streams rather than standing water bodies though records do exist from some inland lakes. During the rainy season it's been observed to move into inundated areas to feed and presumably spawn. A study in Brunei Darussalam reported that it's mainly found swimming just below the surface in slower-moving sections and pools of forest streams containing clear water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>A tank measuring 120 × 45 × 45 cm (48 × 18 × 18 in) / ~243 litres (~64 US gal) should be the minimum considered to house a group of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>Choice of decor is not as critical as water quality and the amount of open swimming-space provided. However should you possess the means to both provide and decorate a sufficiently-sized tank for long term care this species would look superb in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel and some large water-worn boulders. A rivertank manifold could also be constructed to provide naturalistic unidirectional flow.</p><p>The tank could be further furnished with driftwood branches and aquatic plants for aesthetic value. While the vast majority of plant species will fail to thrive in such conditions possibilities include hardy species such as Java fern, Bolbitis or Anubias species which can be grown attached to the decor. It will also thrive in a well-planted aquarium if you prefer but either way be sure to add a tightly-fitting cover as this species is an accomplished jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>According to stomach analyses of wild specimens this species appears to be primarily herbivorous in nature feeding on algae and other phytoplankton although we feel sure that invertebrates both aquatic and terrestrial are taken as well. In the aquarium it's easily-fed but for it to develop its best colours and condition offer regular meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules containing Spirulina or other vegetable matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>Not an aggressive species but it can upset slow-moving/much shyer tankmates simply by its size, especially at feeding times. It's therefore only appropriate for larger tanks containing sufficiently-bold species. There are lots of suitable choices including many cichlids, catfish and characins. A community based around one of its native countries or river basins would also make an interesting project with possibilities from Thailand alone including Botia rostrata, various Crossocheilus, Cyclocheilichthys, Devario, Puntius, Mystacoleucus, other Rasbora, Garra, Homaloptera, Lepidocephalichthys, Nemacheilus, Syncrossus, Yasuhikotakia and Schistura species. Please note that while members of these genera may make fitting companions for R. argyrotaenia not all of them can be housed together. As always when selecting a compatible community of fish proper research is essential.</p><p>It is a gregarious species by nature and really should be kept in a group of at least six to get the best out of it in the aquarium. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole is far more natural-looking.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>It has been bred in captivity in Indonesia. At the ornamental fish research institute in Depok, single pairs spawned in controlled containers after the pH was lowered, using raffia rope as a spawning substrate, and produced around 80 eggs per spawning (Zamroni et al., 2011). Like most cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required and we suggest upscaling an approach that has proven successful for smaller members of the genus. The adult group can still be conditioned together but one or more long, shallow, say 90 × 30 × 30 cm (36 × 12 × 12 in) / 85 litre containers should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for other species. The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will probably occur before a female is spent of eggs.</p><p>The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism. Incubation in Rasbora eggs is temperature-dependent to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "html": "<p>This species is pictured with a very well-defined dark lateral stripe by many of the available resources but we believe that fish to be a probable regional variant of R. daniconius. While the real R. argyrotaenia does possess such a stripe it's much less prominent. This species should also have a complete lateral line, 2 dorsal spines, 7 soft dorsal rays, 3 anal spines, 5 soft anal rays, 12-13 scales between the nape and dorsal fin and 9 (sometimes 8) scale rows over the top of the caudal peduncle counting from the lateral line on one side to the other. It's neither popular in the hobby nor regularly available in the trade, probably because of its rather plain appearance, as it's far from scarce in nature. Some of the populations exhibit differences in colour pattern and other characters, and a DNA barcode study found two mitochondrial lineages under this name, around 5% apart (Sholihah et al., 2020), so the species as currently recognised is likely to be split into a group of closely-related, but distinct, taxa at some point in the future.</p><p>Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma.</p><p>The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered by Liao et al.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0afb1267e65f07fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0afb1267e65f07fd-480.webp",
+      "width": 799,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "caption": "probable male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/88e58daedb63fd66.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/88e58daedb63fd66-480.webp",
+      "width": 799,
+      "height": 431,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "caption": "Adult female...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c14dbd43dabd3567.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c14dbd43dabd3567-480.webp",
+      "width": 799,
+      "height": 471,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-argyrotaenia",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 240 lít",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dạng mảnh spirulina",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "dương xỉ java",
+        "anubias",
+        "bolbitis"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

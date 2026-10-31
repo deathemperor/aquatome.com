@@ -1,0 +1,148 @@
+---
+url: https://www.seriouslyfish.com/species/rasboroides-vaterifloris
+title: Rasboroides vaterifloris (Fire Rasbora) · Seriously Fish
+fetchedAt: 2026-10-31T02:24:00.154Z
+hash: cffde850254d03fbcc8bea1e4ea66226a6704457c46fc32d8447f77c7ef29d73
+---
+
+On this page
+12 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 3
+Male of a very colourful form of Rasboroides vaterifloris.Nonn Panitvong
+## Quick factsEdit
+Max size
+40mm SL1.6in SL
+Aquarium size
+60 × 30cm24 × 12in
+Temp
+23–27°C73–81°F
+pH
+5.5–7.0
+Hardness
+1–8dGH
+## Difficulty6 of 8 measures
+Moderate
+Rated moderate because it needs a well-established tank and stable water.
+How the rating is worked out
+Space
+medium tank
+Water
+flexible
+Temp
+needs a steady temperature
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+needs a well-established tank
+The fire rasbora, Rasboroides vaterifloris, is a small cyprinid endemic to the Kalu, Bentota, Gin and Nilwala river basins of southwestern Sri Lanka. Colour varies with locality, and red, orange and yellow-finned forms are known. Its delicate nature causes problems in shipping, and reports suggest the more highly coloured fish are becoming scarcer in the wild, possibly because selective collection for the trade has altered the structure of wild populations.
+## Distribution
+Edit
+Endemic to southwestern Sri Lanka where it is restricted to the Kalu, Bentota, Gin, and Nilwala river basins in the southwestern 'wet zone' of the island, with type locality given as 'Kaluganga River, near Illukvattai ferry on Ratnapura to Gilimalé road, Sabaragamuwa Province'.
+Very little of the country's forest cover remains due to human activities, with the result that habitat and water quality have been heavily degraded and numerous native fish species are now considered at risk of extinction.
+## Habitat
+Write a note
+Edit
+The 'wet zone' of southwestern Sri Lanka is an area receiving annual rainfall of 2000 – 3000 mm79 – 118 in, much of which arrives during the South-West monsoons between March and August. It's a tropical environment with no significant dry spells or climatic changes, and air temperature is fairly constant throughout the year, ranging from 25 – 27 °C77 – 81 °F. Such conditions favour development of lowland tropical rainforest at altitudes below 1000 m AMSL.
+In Sri Lanka these forests are found only in the wet zone and they're inhabited by a significant proportion of the country's endemic flora and fauna with the moist, warm climate and long period of geographic isolation leading to exceptional localised biodiversity. The vast majority has been cleared for plantation agriculture, however, much of it when the country was under British colonial rule, though a significant portion was also removed during the more-recent civil war, with more than 35% of the original cover lost between 1990 and 2005.
+As of 2006 only 4.6% of the old forest was left with the remainder existing only in small, highly-fragmented patches, most covering areas less than 10 km², of which some are now officially-protected reserves. Kottawa Forest is one of these and comprises just 15-20 hectares of wet, evergreen jungle, though the combined Kottawa-Kombala forest covers around 1600 ha. A number of minor, pristine streams containing clear or slightly-stained, shallow water traverse the reserve and these represent typical habitats of P. nigrofasciata across its range.
+Little sun is able to penetrate the forest floor so aquatic habitats are shaded and water temperature may be relatively cool, while conductivity and hardness are generally low and pH slightly acid. Macrophytes are uncommon though there may be dense, marginal vegetation, sometimes overhanging the full width of the stream, the roots of which may penetrate the banks underwater. Typical substrates are sandy but covered by a layer of leaf litter with fallen twigs and branches.
+Sympatric fish species include Pethia nigrifasciata, Puntius bimaculatus, P. kelumi, P. titteya, Dawkinsia singhala, Schistura notostigma, Mystus vittatus, Aplocheilus werneri, Channa orientalis, Malpulutta kretseri, and Mastacembelus armatus.
+## Aquarium size
+Write a note
+Edit
+Standard length
+40mm SL1.6in SL
+Aquarium base
+60 × 30cm24 × 12in
+Volume
+~54litres~14US gal
+Base dimensions of at least 60 ∗ 30 cm24 ∗ 12 in or equivalent are required.
+## Maintenance
+Write a note
+Edit
+Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate. The addition of some floating plants, driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.
+Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current in the tank. It can be tricky to acclimatise to aquarium life as it often arrives in poor condition and is sensitive to swings in water chemistry. As a result it should not be introduced to biologically immature aquaria and small, regular water changes of around 10% tank volume are the ideal in terms of maintenance.
+## Water conditions
+Edit
+Temperature
+23–27°C73–81°F
+pH
+5.5–7.0
+Hardness
+1–8dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Stomach analyses of wild specimens have revealed it to be primarily a micropredator feeding on invertebrates and organic detritus. In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules.
+## Behaviour and compatibility
+Write a note
+Edit
+Unsuitable for many community aquaria as it has a retiring nature and may be intimidated or outcompeted for food by larger or more boisterous tankmates. Small cyprinids such as Trigonostigma, Boraras, smaller Rasbora, some Pethia and Puntius species represent ideal tankmates as do peaceful loaches from genera such as Pangio.
+It's a schooling species by nature, and at least 6-10 specimens should be purchased. Maintaining it in such numbers will not only make the fish less skittish but result in a more effective, natural looking display, and males will develop better colours in the presence of conspecific rivals.
+## Sexual dimorphism
+Write a note
+Edit
+Adult males are noticeably smaller, slimmer, and more colourful than females, especially when in spawning condition.
+## Reproduction
+Write a note
+Edit
+A typical egg-scattering free spawner exhibiting no parental care. When in good condition adults spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.
+However if you want to increase yield a slightly more controlled approach is required therefore a dedicated breeding tank should be set up. A clump or two of a Taxiphyllum sp. or similar fine-leaved plant will provide cover and security for the fish as well as an alternative medium for egg-deposition. Filtration should be very gentle and an air-powered sponge-type unit is best as it will not suck in eggs or fry.
+According to most reports it is best spawned in a group of 5 to 6 well-conditioned adult pairs. These are added to the breeding tank and left to spawn in situ for 4 or 5 days before being removed. Eggs are usually deposited in small batches of around 20 and several spawning events normally occur before a female is spent. The fry can then be reared in the same tank and some breeders recommend reducing the water level to around 4"/10 cm3.9 in at this point.
+Incubation is temperature-dependant to an extent but usually takes between 24 and 48 hours with the young free-swimming after 3-5 days. Initial food should be Paramecium or similar introducing Artemia nauplii, microworm, etc. once the fry are large enough to accept them. They're said to be slow-growing and take several months to reach maturity.
+## Notes
+Edit
+This species may also be seen on sale as 'pearly rasbora', 'vateria flower rasbora', 'orange-finned barb', or 'Singhalese fire barb' and is not a common species in the trade. As far as we know it's not yet being produced commercially in any great numbers and its rather delicate nature means that problems often arise during shipping. Restrictions on exports of wild fish from its native Sri Lanka have also limited its availability.
+The fish vary in colour depending on locality with red, orange and yellow-finned forms known to date, while the colour of the body can also differ from red or orange to bluish. There were four subspecies described in the 1950s (at which point they were considered members of the genus Rasbora) based on these variations; R. v. vaterifloris from the Kalu river, R. v. ruber from the Bentota river, R. v. pallida from the Gin river and R. v. rubriculis from the Nilwala river.
+These are still regarded as valid by some authorities although it's widely accepted that they represent variants of R. vaterifloris due to a lack of type material hindering conclusive study. Rasboroides nigromarginata (Meinken, 1956) has also been used to refer to a reddish form in which males differ from other populations in possessing dark fin margins, but the name is currently considered synonymous with R. vaterifloris by most sources despite the fish being rediscovered in 2010.
+Brittan erected the subgenus Rasboroides in 1954 but it was not until 1993 that Maurice Kottelat elevated it to full genus level. This change has not yet been recognised by all authorities and it is still widely referred to as Rasbora vaterifloris in the aquarium hobby. A 2007 phylogenetic study confirmed that it should be included in a separate genus as it shows a large enough degree of genetic divergence from other Sri Lankan rasboras such as R. caverii and R. wilpita to be considered as such, splitting away from the lineage around 8.6 million years ago whereas the other two shared a common ancestor up to 1.6 mya.
+Several captive breeding initiatives have been set up in order that that R. vaterifloris can be produced commercially for the aquatic trade. Unfortunately reports suggest that the more highly-coloured fish are becoming scarcer and there is a distinct possibility that selective collections for the aquatic trade have altered the structure of the species' wild populations.
+Juveniles also tend to be returned to the water with only the adults being collected and many of these die before even reaching an aquarium shop due to poor handling techniques. According to Pethiyagoda (1991) only around 10% of the fish collected end up in hobbyists' tanks.
+## References
+- Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654
+- Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600
+- Pethiyagoda, R. (1991). Freshwater fishes of Sri Lanka. The Wildlife Heritage Trust of Sri Lanka, Colombo, i-xiii + 1-362
+- Ekaratne, S. U. K. (2000). A Review of the Status and Trends of Exported Ornamental Fish Resources and Their Habitats in Sri Lanka. Y.S. YADAVA for the Bay of Bengal Programme, 1-89
+- Silva, A., K. Maduwage, and R. Pethiyagoda (2010). A review of the genus Rasbora in Sri Lanka, with description of two new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 21(1), 27-50
+- Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176
+## Species images · 3
+Male of a very colourful form of Rasboroides vaterifloris.Nonn Panitvong
+Female of the same form of R. vaterifloris.Nonn Panitvong
+Male individual from the UK aquarium trade.Steven Grant
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Sri Lanka
+- Bentota
+- Gin
+- Kalu
+- Nilwala
+## Profile completeness21 of 24
+88% complete
+- Add temperament
+Also missing: water condition notes, etymology.
+Report a mistake
+## Community
+Questions about Rasboroides vaterifloris?
+Ask on Discord
+→

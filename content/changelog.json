@@ -2,6 +2,314 @@
   {
     "date": "2026-10-31",
     "kind": "species",
+    "id": "channa-pleurophthalma",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "channa-aurantimaculata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "chagunius-chagunio",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "chaca-chaca",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "chaca-bankanensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "catoprion-mento",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "canthophrys-gongota",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "barbucca-diabolica",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "barbonymus-schwanefeldii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "barbonymus-gonionotus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "badis-ruber",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "badis-juergenschmidti",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-splendida",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-lecontei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-eos",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "trichromis-salvini",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "thoracocharax-stellatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "synodontis-nigriventris",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "striuntius-lineatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "schistura-geisleri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "schistura-denisoni",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasboroides-vaterifloris",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-trilineata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-paviana",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-cephalotaenia",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-caudimaculata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "rasbora-argyrotaenia",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "puntius-mahecola",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "pseudosphromenus-cupanus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "neolamprologus-multifasciatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "nemacheilus-triangularis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "laubuka-laubuca",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "horadandia-atukorali",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "garra-borneensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "eirmotus-octozona",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "crossocheilus-reticulatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "channa-gachua",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "beaufortia-kweichowensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "yasuhikotakia-morleti",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "xenentodon-cancila",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "crossocheilus-latius",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "schistura-nicholsi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "garra-mullya",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "lepidocephalichthys-guntea",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
     "id": "rasbora-einthovenii",
     "source": "seriouslyfish",
     "action": "new"
@@ -3189,314 +3497,6 @@
     "kind": "species",
     "id": "pseudomugil-furcatus",
     "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "neohomaloptera-johorensis",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "corydoras-pygmaeus",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "boraras-brigittae",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "microdevario-kubotai",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "boraras-maculatus",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "sphaerichthys-osphromenoides",
-    "source": "bwaquatics",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-betta-fish-care-guide",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-aquarium-filter-upgrade",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-planted-aquarium-substrate",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-care-guide-for-fancy-goldfish",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-10-holiday-gift-ideas-for-your-favorite-fish-keeper",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-how-to-set-up-an-easy-planted-tank-for-african-cichlids",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "loachesonline-articles-information-posters",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "loachesonline-articles-breeding-acanthocobitis-zonalternans",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "loachesonline-articles-breeding-experience-with-pangio-oblonga",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "misgurnus-anguillicaudatus",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "loachesonline-articles-lepidocephalichthys-thermalis-spawning-behavior",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "loachesonline-articles-suckerbelly-loaches",
-    "source": "loachesonline",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "sprucepets-killifishes-or-egg-laying-tooth-carps-4107831",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "chromobotia-macracanthus",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "danio-albolineatus",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "symphysodon-discus",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "sprucepets-fish-species-heated-fish-tanks-4797120",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "tanichthys-albonubes",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "rotala-macrandra",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "pogostemon-helferi",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "blyxa-japonica",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "juncus-repens",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "hygrophila-polysperma",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "eutropiichthys-vacha",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "eutropiichthys-cetosus",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "eutropiichthys-burmannicus",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "clupisoma-longianale",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "clupisoma-garua",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "centromochlus-romani",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "synodontis-lucipinnis",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "tachysurus-trilineatus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pseudacanthicus-major",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "corydoras-longipinnis",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "denticetopsis-praecox",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "bagrichthys-hypselopterus",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "bacopa-australis",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "aponogeton-ulvaceus",
-    "source": "tropica",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "plant",
-    "id": "aponogeton-madagascariensis",
-    "source": "tropica",
     "action": "new"
   }
 ]
