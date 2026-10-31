@@ -6,13 +6,14 @@ import { smallSrc } from '../lib/img'
 import { guideImage } from '../lib/mentions'
 import { clock } from '../lib/video'
 import { i18n } from '../lib/i18n'
-interface Props { g: Localized<GuideEntity> }
-const { g } = Astro.props
+/** `row`: on a phone, a compact row (a small picture beside the text) rather than a full-width card. */
+interface Props { g: Localized<GuideEntity>; row?: boolean }
+const { g, row = false } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const ph = guideImage(c, g)
 ---
-<a class="gc" href={`/vi/huong-dan/${g.t.slug}/`}>
+<a class:list={["gc", { row }]} href={`/vi/huong-dan/${g.t.slug}/`} data-kind={g.kind}>
   <div class:list={['img', { video: g.video }]}>{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang={lang}>{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
   <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])}</p>
   <h3>{g.t.name}</h3>
@@ -30,4 +31,11 @@ const ph = guideImage(c, g)
   h3 { font-size: var(--step-1); }
   .gc:hover h3 { color: var(--c-moss); }
   .src { font-size: 0.8rem; color: var(--c-ink-faint); margin: var(--space-1) 0 0; }
+  /* The picture keeps its slot (plate colour) when a guide has none, so the rows stay aligned. */
+  @media (max-width: 520px) {
+    .row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: var(--space-3); align-items: start; }
+    .row .img { grid-row: 1 / -1; aspect-ratio: 16 / 10; background: var(--c-plate); }
+    .row .kind { margin: 0; }
+    .row h3 { font-size: 1.05rem; line-height: 1.3; }
+  }
 </style>

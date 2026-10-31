@@ -3,7 +3,7 @@ import SwiftUI
 
 @main
 struct AquaTomeApp: App {
-  @State private var lights = LightsModel(radio: AquaTomeApp.radio())
+  @State private var lights: LightsModel
   @State private var handbook = HandbookModel()
   @State private var tanks: TanksModel
   @State private var account: AccountModel
@@ -23,6 +23,7 @@ struct AquaTomeApp: App {
     // Read after the tests' reset above.
     let tanks = TanksModel()
     _tanks = State(initialValue: tanks)
+    _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
     _account = State(initialValue: AquaTomeApp.account(tanks))
   }
 

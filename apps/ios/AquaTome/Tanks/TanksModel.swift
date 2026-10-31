@@ -58,6 +58,26 @@ final class TanksModel {
   /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.
   func commitSynced(_ s: TankStore) throws { try commit(s) }
 
+  // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
+
+  /// The tank a light met for the first time goes on, when there is none yet.
+  static let newTankName = String(localized: "Bể của tôi")
+
+  /// A Chihiros light just connected: its saved record, or a new one on the first tank.
+  func metLight(bleName: String, model: String) {
+    var s = store
+    guard (try? s.metLight(bleName: bleName, model: model, tankName: Self.newTankName)) != nil else { return }
+    try? commit(s)
+  }
+
+  /// A change to a connected light, made to its record as the store has it now (met again if its tank went).
+  func changeLight(bleName: String, model: String, _ change: (inout Device) -> Void) {
+    var s = store
+    guard let d = try? s.metLight(bleName: bleName, model: model, tankName: Self.newTankName),
+          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return }
+    try? commit(s)
+  }
+
   private func commit(_ s: TankStore) throws {
     guard problem == nil || problem == .saveFailed else { throw TankStoreError.unknownVersion }
     do {

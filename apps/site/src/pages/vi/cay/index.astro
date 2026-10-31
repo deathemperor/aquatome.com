@@ -1,14 +1,57 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
 import PlantCard from '../../../components/PlantCard.astro'
+import FilterBox from '../../../components/FilterBox.astro'
+import FilterResults from '../../../components/FilterResults.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { PLANT_LABELS } from '../../../lib/format'
+import { jsonForScript } from '../../../lib/json'
+import type { PlantIndexItem } from '../../../scripts/filter'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
+// A plant with no position in the content has no `placement`: the filter counts it unsure, never a match.
+const index: PlantIndexItem[] = c.plants.map(p => ({ slug: p.t.slug, light: p.light, co2: p.co2, difficulty: p.difficulty, ...(p.placement.length ? { placement: p.placement } : {}) }))
+/** Cards in the first row load at once: one of them is usually the page's largest image. */
+const EAGER = 4
 ---
 <Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(c.plants.map(p => p.photos[0]))}>
-  {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <div class="grid">{c.plants.map(p => <PlantCard p={p} />)}</div>}
+  {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <>
+    {/* The reader's tank: its light grows plants needing as much or less; no CO₂ keeps the plants that grow without it. */}
+    <FilterBox id="plant-box" prefix="plant" summary={t('Lọc theo bể của bạn')}>
+      <label>{t('Ánh sáng bể')}
+        <select name="light"><option value="">{t('Bất kỳ')}</option>{['low', 'medium', 'high'].map(l => <option value={l}>{t(PLANT_LABELS.light[l]!)}</option>)}</select>
+      </label>
+      <label>CO₂
+        <select name="co2"><option value="">{t('Bất kỳ')}</option><option value="none">{t('Không cần châm')}</option><option value="required">{t(PLANT_LABELS.co2.required!)}</option></select>
+      </label>
+      <label>{t('Vị trí')}
+        <select name="placement"><option value="">{t('Bất kỳ')}</option>{Object.entries(PLANT_LABELS.placement).map(([k, v]) => <option value={k}>{t(v)}</option>)}</select>
+      </label>
+      <label>{t('Độ khó tối đa')}
+        <select name="difficultyMax"><option value="">{t('Bất kỳ')}</option><option value="1">{t('Dễ')}</option><option value="2">{t('Dễ và vừa')}</option></select>
+      </label>
+    </FilterBox>
+    <FilterResults prefix="plant" why={t('Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
+      <h2 class="visually-hidden">{t('Danh sách loài')}</h2>
+      <div class="grid">{c.plants.map((p, i) => <PlantCard p={p} eager={i < EAGER} />)}</div>
+    </FilterResults>
+    <script type="application/json" id="plant-index" set:html={jsonForScript(index)} />
+  </>}
 </Browse>
+<script>
+  import { filterPlants, plantQueryFromParams, unsurePlants, type PlantIndexItem } from '../../../scripts/filter'
+  import { filterList } from '../../../scripts/filter-list'
+  const json = document.getElementById('plant-index')
+  // No plants published in this language: no filter on the page.
+  if (json) {
+    const items: PlantIndexItem[] = JSON.parse(json.textContent!)
+    filterList('plant', p => {
+      const q = plantQueryFromParams(p)
+      return { sure: filterPlants(items, q).map(i => i.slug), unsure: unsurePlants(items, q).map(i => i.slug) }
+    })
+  }
+</script>
 <style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }</style>

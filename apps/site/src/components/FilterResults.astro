@@ -1,0 +1,51 @@
+---
+import { i18n } from '../lib/i18n'
+/**
+ * A filtered list (scripts/filter-list.ts fills it): the result line, a chip per filter set and "Xóa lọc", the cards
+ * (the slot: a grid of `[data-slug]` cards) a page at a time, then the cards missing a figure the filter asks about, in a
+ * closed group that `why` explains.
+ */
+interface Props { prefix: string; why: string }
+const { prefix, why } = Astro.props
+const { t } = i18n(Astro.url)
+---
+<div class="result">
+  <p class="count" id={`${prefix}-count`} aria-live="polite"></p>
+  <div class="active" id={`${prefix}-active`} hidden>
+    <ul class="chips" id={`${prefix}-chips`} aria-label={t('Đang lọc')}></ul>
+    <button type="button" class="clear" id={`${prefix}-clear`}>{t('Xóa lọc')}</button>
+  </div>
+</div>
+<slot />
+<p class="more"><button type="button" id={`${prefix}-more`} hidden></button></p>
+<details class="unsure" id={`${prefix}-unsure`} hidden>
+  <summary><span id={`${prefix}-unsure-n`}></span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+  <p class="why">{why}</p>
+  <p class="more"><button type="button" id={`${prefix}-unsure-more`} hidden></button></p>
+</details>
+<style>
+  .result { margin-block: var(--space-3) var(--space-4); }
+  .count { min-height: 1.5em; margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
+  .active:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); margin-top: var(--space-1); }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-2); }
+  /* The button is the 44px target; the pill inside is what shows. */
+  .chips :global(button) { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; font: inherit; font-size: 0.9rem; color: var(--c-ink); cursor: pointer; }
+  .chips :global(.pill) { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 34px; padding: 0 0.55rem 0 0.85rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); font-variant-numeric: tabular-nums; transition: border-color 0.15s ease-out; }
+  .chips :global(svg) { color: var(--c-ink-soft); flex: none; transition: color 0.15s ease-out; }
+  .chips :global(button:hover .pill) { border-color: var(--c-ink); }
+  .chips :global(button:hover svg) { color: var(--c-cardinal); }
+  .chips :global(button:focus-visible) { outline: none; }
+  .chips :global(button:focus-visible .pill) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .clear { min-height: 44px; padding: 0 var(--space-1); border: 0; background: none; font: 600 0.9rem var(--f-body); color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
+  .clear:hover { color: var(--c-ink); }
+  .unsure { margin-top: var(--space-7); border-top: 2px solid var(--c-ink); }
+  .unsure summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: 48px; padding-block: var(--space-3); font: 450 var(--step-2) var(--f-display); cursor: pointer; list-style: none; }
+  .unsure summary::-webkit-details-marker { display: none; }
+  .unsure summary svg { flex: none; color: var(--c-ink-soft); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .unsure[open] summary svg { transform: rotate(180deg); }
+  .unsure summary:hover { color: var(--c-moss); }
+  .why { margin: 0 0 var(--space-5); max-width: var(--measure); color: var(--c-ink-soft); font-size: 0.95rem; }
+  .more { text-align: center; margin-top: var(--space-6); }
+  .more button { min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
+  .more button:hover { background: var(--c-ink); color: var(--c-paper); }
+</style>
