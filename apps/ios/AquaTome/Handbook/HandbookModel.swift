@@ -1,0 +1,87 @@
+import Foundation
+import Handbook
+import Observation
+
+/// The handbook tab: the site's index for this language (kept on the phone for offline use), searched natively.
+@Observable
+@MainActor
+final class HandbookModel {
+  enum Status: Equatable { case loading, ready, offline, failed }
+
+  /// The site's language for this app's language: Vietnamese unless the app runs in Indonesian or Thai.
+  let lang: String
+  let site = URL(string: "https://aquatome.com")!
+  private(set) var status = Status.loading
+  private(set) var count = 0
+  var query = ""
+  var kind: HandbookIndex.Kind?
+
+  private var search = HandbookSearch([])
+  private let source: Source
+
+  /// Where the index comes from: the site, or (UI tests) a fixed one.
+  enum Source {
+    case site
+    case fixed(HandbookIndex)
+  }
+
+  init(source: Source = HandbookModel.defaultSource(), preferred: [String] = Bundle.main.preferredLocalizations) {
+    self.source = source
+    lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
+  }
+
+  var results: [HandbookIndex.Item] { search.find(query, kind: kind) }
+
+  func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
+
+  /// The kept copy first (instant, offline), then the site's current one.
+  func load() async {
+    if case .fixed(let ix) = source { return use(ix, .ready) }
+    let file = Self.cacheFile(lang)
+    if let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) { use(ix, .offline) }
+    do {
+      let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
+      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+      let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
+      try? data.write(to: file, options: .atomic)
+      use(ix, .ready)
+    } catch {
+      if count == 0 { status = .failed }
+    }
+  }
+
+  private func use(_ ix: HandbookIndex, _ s: Status) {
+    search = HandbookSearch(ix.items)
+    count = ix.items.count
+    status = s
+  }
+
+  /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
+  static func defaultSource() -> Source {
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return .fixed(.fixture) }
+    #endif
+    return .site
+  }
+
+  private static func cacheFile(_ lang: String) -> URL {
+    let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("handbook", isDirectory: true)
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    return dir.appendingPathComponent("\(lang).json")
+  }
+}
+
+#if DEBUG
+extension HandbookIndex {
+  /// UI tests' index: a few pages of each kind, as the site writes them.
+  static let fixture = HandbookIndex(lang: "vi", items: [
+    .init(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", sub: "Symphysodon aequifasciatus", aka: ["Discus"], path: "/vi/ca/ca-dia/"),
+    .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", sub: "Paracheirodon innesi", aka: ["Neon tetra"], path: "/vi/ca/ca-neon/"),
+    .init(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", sub: "Danio rerio", path: "/vi/ca/ca-ngua-van/"),
+    .init(kind: .plant, contentId: "rotala-rotundifolia", name: "Rotala đỏ", sub: "Rotala rotundifolia", path: "/vi/cay/rotala-do/"),
+    .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/"),
+    .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
+    .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
+  ])
+}
+#endif
