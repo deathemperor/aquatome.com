@@ -45,9 +45,16 @@ test('home tank form: sure matches first, species without the figures in a close
 })
 
 test('a filter nothing surely matches opens the unsure group instead of showing an empty list', async ({ page }) => {
-  // 10 cm: no fixture species with a known tank fits it; Cá ông tiên has no tank figure.
+  // 10 cm: no species with a known tank fits it. The species shown are the ones with no tank figure, taken from the
+  // page's own index, not named: the watch runs this on aquatome.com too, where Cá ông tiên has one (100 cm).
   await page.goto('/vi/ca/?tankCm=10')
   await expect(page.locator('#species-count')).toHaveText(/^0 loài phù hợp · [1-9]\d* loài chưa đủ dữ liệu để chắc$/)
-  await expect(page.locator('#species-unsure')).toHaveAttribute('open', '')
-  await expect(page.locator('#species-unsure [data-slug="ca-ong-tien"]')).toBeVisible()
+  const group = page.locator('#species-unsure')
+  await expect(group).toHaveAttribute('open', '')
+  const noTank = await page.locator('#species-index').evaluate(s =>
+    (JSON.parse(s.textContent!) as { slug: string; tankCm?: number }[]).filter(i => i.tankCm === undefined).map(i => i.slug))
+  const first = group.locator('[data-slug]').first()
+  await expect(first).toBeVisible()
+  expect(noTank).toContain(await first.getAttribute('data-slug'))
+  await expect(group.locator('[data-slug]:visible')).toHaveCount(Math.min(noTank.length, 24))
 })
