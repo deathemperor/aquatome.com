@@ -98,3 +98,57 @@ test('species data card: one sources toggle, the disagreeing values marked, each
   await press()
   await expect(by).toBeHidden()
 })
+
+// The data card is the page's one copy of each figure (design critique 2026-10-31: Cá neon vua's text said 5 cm,
+// "Trung bình", pH 3,5–7,5 where its card said 3,5 cm, Dễ, pH 4,6–6,2). A block that states a figure the card resolved
+// otherwise says, above itself, which source it follows and what the card shows; quick facts don't restate the card.
+// Read from the page (the card, the source list), so it holds on aquatome.com too.
+test('species page: a section\'s figure that differs from the card names its source and the card\'s figure', async ({ page }) => {
+  await page.goto('/vi/ca/ca-neon-vua/')
+  const sources = await page.locator('#nguon li a').allTextContents()
+  const notes = page.locator('.body p.off')
+  expect(await notes.count(), 'blocks that follow another source than the card').toBeGreaterThanOrEqual(1)
+  // A figure as the page holds it: its °C / cm pair (what the units toggle converts), else its text.
+  const figure = (el: import('@playwright/test').Locator) => el.evaluate(e => {
+    const x = e.matches('[data-c], [data-cm]') ? e : e.querySelector('[data-c], [data-cm]')
+    return x ? (x.getAttribute('data-c') ?? x.getAttribute('data-cm'))! : e.textContent!.replace(/\s*dGH$/, '').trim()
+  })
+  for (const note of await notes.all()) {
+    const text = (await note.textContent())!.trim()
+    expect(sources.some(s => text.startsWith(`${s} ghi khác bảng dữ liệu:`)), text).toBe(true)
+    const source = await note.getAttribute('data-source')
+    await expect(note.locator('xpath=following-sibling::*[1]')).toHaveAttribute('data-source', source!) // the block it is about
+    for (const off of await note.locator('[data-off]').all()) {
+      const field = (await off.getAttribute('data-off'))!
+      const card = await figure(page.locator(`.facts .card [data-field="${field}"] .v`))
+      expect(await figure(off.locator('.ours')), `${field}: the card's own figure`).toBe(card)
+      expect(await figure(off.locator('.theirs')), `${field}: the source's differs`).not.toBe(card)
+    }
+  }
+  // Quick facts never name the family, which the header shows. (A card figure's item stays when it says more than the
+  // figure, or when its source gave the card none, so those can't be ruled out from the page alone.)
+  const facts = await page.locator('section[data-section="quickFacts"] li').allTextContents()
+  expect(facts.filter(f => /^\s*Họ\s*:/.test(f))).toEqual([])
+})
+
+// "Tránh" used to list giants matched by size alone (an arowana "eats" a neon tetra no one keeps it with). Each chip now
+// says why, and a size reason gives the other fish's size, which is of this one's size class (at most 5× apart).
+test('species page: each "Tránh" chip says why; a size reason gives a size of this fish\'s class', async ({ page }) => {
+  for (const path of ['/vi/ca/ca-neon-vua/', '/vi/ca/tep-red-cherry/']) {
+    await page.goto(path)
+    const chips = page.locator('.mates .avoid li')
+    if (await chips.count() === 0) continue
+    const name = (await page.locator('h1').textContent())!.trim()
+    const own = await page.locator('.facts .card [data-field="sizeCm"] .v').evaluateAll(v => Number(v[0]?.getAttribute('data-cm')?.split(',')[1] ?? 0))
+    for (const chip of await chips.all()) {
+      const why = chip.locator('.why')
+      const reason = await why.getAttribute('data-reason')
+      expect(reason, `${path}: a reason`).toMatch(/^(eatsIt|eatenByIt|predator|aggressive|semiAggressive|finNipper)$/)
+      if (['eatsIt', 'eatenByIt', 'semiAggressive'].includes(reason!)) await expect(why).toContainText(name)
+      if (reason === 'eatsIt' || reason === 'eatenByIt') {
+        const size = Number((await why.locator('[data-cm]').getAttribute('data-cm'))!.split(',')[0])
+        if (own) expect(Math.max(size, own) / Math.min(size, own), `${path}: ${size} cm beside ${own} cm`).toBeLessThanOrEqual(5)
+      }
+    }
+  }
+})

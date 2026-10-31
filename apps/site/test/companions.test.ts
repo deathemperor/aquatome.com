@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import type { SpeciesIndexItem } from '../src/scripts/filter'
-import { judge, pickCompanions } from '../src/lib/companions'
+import { judge, pickCompanions, sameClass } from '../src/lib/companions'
 
 // A soft-water community fish, and others around it. Every verdict is the tank-mates tool's (checkTankmates).
 const f = (slug: string, o: Partial<SpeciesIndexItem> = {}): SpeciesIndexItem => ({
@@ -38,12 +38,36 @@ test('avoid: the clash that matters most to this species', () => {
   expect(judge(f('a', { temperament: 'semi-aggressive' }), f('b', { temperament: 'semi-aggressive' }))).toEqual({ kind: 'good' })
 })
 
-test('picks: up to 5 to keep with it, varied groups first; up to 3 to avoid, worst first; never itself', () => {
+test('picks: up to 5 to keep with it, varied groups first; up to 3 to avoid; never itself', () => {
   const ranked = [
     neon, f('t1'), f('t2'), f('t3'), f('r1', { group: 'rasboras' }), f('c1', { group: 'catfish' }), f('s1', { group: 'shrimp' }),
-    f('nipper', { finNipper: true }), f('barb', { temperament: 'semi-aggressive', group: 'barbs' }), f('oscar', { sizeCm: 30, group: 'cichlids' }), f('pike', { temperament: 'predator', group: 'other' }),
+    f('nipper', { finNipper: true }), f('barb', { temperament: 'semi-aggressive', group: 'barbs' }), f('angel', { sizeCm: 15, group: 'cichlids' }), f('pike', { temperament: 'predator', group: 'other' }),
   ].map(item => ({ item }))
   const { good, avoid } = pickCompanions(neon, ranked)
   expect(good.map(x => x.item.slug)).toEqual(['t1', 'r1', 'c1', 's1', 't2'])
-  expect(avoid.map(x => [x.item.slug, x.reason])).toEqual([['oscar', 'eatsIt'], ['pike', 'predator'], ['barb', 'semiAggressive']])
+  // No shop fish among them: the closest in size first, then the worse clash.
+  expect(avoid.map(x => [x.item.slug, x.reason])).toEqual([['pike', 'predator'], ['barb', 'semiAggressive'], ['nipper', 'finNipper']])
+})
+
+// The "Tránh" list used to be the worst clash first, which on most pages meant giants matched by size alone (an arowana,
+// a pangasius) "eating" a 3 cm fish no one keeps them with: 1,796 of 1,797 chips on aquatome.com on 2026-10-31.
+test('size class: tanks at most 2,5× apart, adult sizes at most 5×; an unknown figure doesn\'t rule a fish out', () => {
+  expect(sameClass(f('neon', { tankCm: 60 }), f('angel', { tankCm: 100 }))).toBe(true)
+  expect(sameClass(f('neon', { tankCm: 60 }), f('arowana', { tankCm: 200 }))).toBe(false)
+  expect(sameClass(f('neon', { sizeCm: 3.5 }), f('koi', { sizeCm: 90 }))).toBe(false) // no tank figure: by size
+  expect(sameClass(f('oscar', { sizeCm: 35, tankCm: 150 }), f('neon', { sizeCm: 3.5, tankCm: 60 }))).toBe(false) // tanks close, sizes 10× apart
+  expect(sameClass(f('a', { sizeCm: undefined }), f('b', { sizeCm: 90 }))).toBe(true)
+})
+
+test('avoid: only fish of its size class, shop fish first, then the closest in size; the clash itself only breaks ties', () => {
+  const ranked = [
+    { item: f('arowana', { sizeCm: 90, tankCm: 200, temperament: 'predator', group: 'other' }), pop: 1 },
+    { item: f('barb', { sizeCm: 6, tankCm: 80, finNipper: true, group: 'barbs' }), pop: 4 },
+    { item: f('angel', { sizeCm: 15, tankCm: 100, temperament: 'semi-aggressive', group: 'cichlids' }), pop: 2 },
+    { item: f('apisto', { sizeCm: 9, tankCm: 60, temperament: 'semi-aggressive', group: 'cichlids' }) },
+    { item: f('bigeye', { sizeCm: 16, tankCm: 120, group: 'other' }) },
+    { item: f('nipper', { sizeCm: 5, tankCm: 60, finNipper: true, group: 'danios' }) },
+  ]
+  const { avoid } = pickCompanions({ ...neon, tankCm: 60 }, ranked)
+  expect(avoid.map(x => [x.item.slug, x.reason])).toEqual([['angel', 'eatsIt'], ['barb', 'finNipper'], ['nipper', 'finNipper']])
 })
