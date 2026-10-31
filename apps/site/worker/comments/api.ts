@@ -32,8 +32,15 @@ export async function verifyCommenter(_req: Request, env: CommentsEnv): Promise<
   return env.COMMENT_VERIFICATION === 'phone' ? 'verification_required' : 'ok'
 }
 
-/** IPv6 users control a whole /64, so that is the unit we limit. */
-export const ipUnit = (ip: string) => (ip.includes(':') ? ip.split(':').concat(['0', '0', '0', '0']).slice(0, 4).join(':') : ip)
+/** IPv6 users control a whole /64, so that is the unit we limit (written out first: 2001:db8::1 is 2001:db8:0:0:…). */
+export function ipUnit(ip: string): string {
+  if (!ip.includes(':')) return ip
+  const [head = '', tail] = ip.toLowerCase().split('::')
+  const h = head ? head.split(':') : []
+  const t = tail ? tail.split(':') : []
+  const full = tail === undefined ? h : [...h, ...Array<string>(Math.max(0, 8 - h.length - t.length)).fill('0'), ...t]
+  return full.concat(['0', '0', '0', '0']).slice(0, 4).map(x => x.replace(/^0+(?=.)/, '')).join(':')
+}
 
 /** Per-day rate-limit key: HMAC(ip unit + day) — the raw IP is never written anywhere. */
 export async function ipDayKey(secret: string, ip: string, now: Date): Promise<string> {
@@ -58,7 +65,7 @@ export async function listComments(url: URL, env: CommentsEnv): Promise<Response
 }
 
 /** Body as text, or null past `max` bytes — without trusting content-length (chunked bodies have none). */
-async function readCapped(req: Request, max: number): Promise<string | null> {
+export async function readCapped(req: Request, max: number): Promise<string | null> {
   if (Number(req.headers.get('content-length') ?? 0) > max) return null
   if (!req.body) return ''
   const reader = req.body.getReader()

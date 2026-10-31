@@ -7,10 +7,12 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/.well-known/api-catalog", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*"]
+    "run_worker_first": ["/", "/.well-known/api-catalog", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"]
   },
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
+  // Accounts for saved tanks (/api/v1/*, worker/accounts/): off until ACCOUNTS is "on" ("preview": the owner only). Needs the
+  // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS; email also Turnstile and a mailer.
   "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],

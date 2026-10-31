@@ -95,5 +95,11 @@ account's copy only.
 
 ### Tombstones
 
-Kept as long as the account (they are a few bytes each), so a device that was offline for months can't bring a deleted
-tank back with an older copy.
+The server stores a tombstone as its three keys only, and keeps the newest 1000 tombstones of each kind per account.
+A device offline for so long that more than 1000 newer deletes happened since could bring back the oldest deleted
+records with an older copy; accepted.
+
+### Limits on the server
+
+Per account: 200 live tanks, 400 live devices, 1 MB of live records, one sync at a time. A sync past them is refused
+whole (`too_many`, `busy`); the device keeps its copy.

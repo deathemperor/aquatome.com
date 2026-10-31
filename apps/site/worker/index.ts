@@ -13,6 +13,8 @@ import { gonePage, isHidden, loadHidden, pagePath, updateHidden } from './hidden
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
+import { accounts, realDeps, type AccountDeps, type AccountsEnv } from './accounts/api'
+import { purgeExpired } from './accounts/ratelimit'
 
 export interface Env {
   ASSETS: Fetcher
@@ -33,7 +35,7 @@ export interface Env {
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
 }
-type FullEnv = Env & AffEnv & CommentsEnv
+type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv
 const MAX_EVENT_BYTES = 4096
 
 function finish(res: Response, env: Env, extra: Record<string, string> = {}): Response {
@@ -116,7 +118,7 @@ export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefine
   return v as 'vi' | 'id' | 'th' | undefined
 }
 
-export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
+export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps: AccountDeps = realDeps): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
@@ -151,6 +153,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
       : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
+  if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
   if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
@@ -230,11 +233,12 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
 
-  /** Daily: the affiliate checker and the removed-comment purge — independent, so one failing never blocks the other. */
+  /** Daily: the affiliate checker, the removed-comment purge and expired sign-in data — independent, so one failing never blocks the others. */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
       env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
+      env.DB ? purgeExpired(env.DB, new Date()) : Promise.resolve(),
     ])
     for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)
   },
