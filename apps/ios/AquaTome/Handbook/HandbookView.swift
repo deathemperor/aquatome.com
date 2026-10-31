@@ -39,7 +39,7 @@ struct HandbookView: View {
         if handbook.status == .loading { ProgressView() }
         else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }
       }
-      .task { await handbook.load() }
+      .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
   }

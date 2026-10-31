@@ -66,27 +66,47 @@ private struct WebPage: UIViewRepresentable {
   @MainActor
   final class Coordinator: NSObject, WKNavigationDelegate {
     let page: WebPage
+    /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
+    private var archive: WKNavigation?
+    /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
+    private var answered = true
+
     init(_ page: WebPage) { self.page = page }
 
     func webView(_ web: WKWebView, decidePolicyFor action: WKNavigationAction) async -> WKNavigationActionPolicy {
-      // Other sites open in the browser; the app stays on aquatome.com.
-      guard let u = action.request.url, action.navigationType == .linkActivated, u.host != page.url.host else { return .allow }
-      _ = await UIApplication.shared.open(u)
-      return .cancel
+      guard let u = action.request.url else { return .allow }
+      switch PageRoute.of(u, site: page.url, mainFrame: action.targetFrame?.isMainFrame ?? true, newWindow: action.targetFrame == nil) {
+      case .app: return .allow
+      case .none: return .cancel
+      case .outside:
+        _ = await UIApplication.shared.open(u)
+        return .cancel
+      }
+    }
+
+    func webView(_ web: WKWebView, decidePolicyFor response: WKNavigationResponse) async -> WKNavigationResponsePolicy {
+      if response.isForMainFrame, let http = response.response as? HTTPURLResponse { answered = (200..<300).contains(http.statusCode) }
+      return .allow
     }
 
     func webView(_ web: WKWebView, didFinish navigation: WKNavigation!) {
-      guard let u = web.url, u.host == page.url.host, !page.offline else { return }
+      if navigation === archive { return archive = nil }
+      // Online again: the notes go, and the page is kept for next time.
+      page.offline = false
+      page.failed = false
+      guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app, answered else { return }
       web.createWebArchiveData { result in
         if case .success(let data) = result { try? data.write(to: PageStore.file(for: u), options: .atomic) }
       }
     }
 
     func webView(_ web: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+      // Another load took its place (the reader tapped on, or went back): nothing failed.
+      if isInterruption(error) { return }
       let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
       if let data = try? Data(contentsOf: PageStore.file(for: u)) {
         page.offline = true
-        web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
+        archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
         page.failed = true
       }

@@ -13,11 +13,15 @@ final class HandbookModel {
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
   private(set) var count = 0
-  var query = ""
-  var kind: HandbookIndex.Kind?
+  var query = "" { didSet { if query != oldValue { refresh() } } }
+  var kind: HandbookIndex.Kind? { didSet { if kind != oldValue { refresh() } } }
+  /// What the list shows for the query and kind: worked out when they or the index change, not on every redraw.
+  private(set) var results: [HandbookIndex.Item] = []
 
   private var search = HandbookSearch([])
   private let source: Source
+  /// The site's copy has been read this run: showing the tab again doesn't fetch it again (pull to refresh does).
+  private var fetched = false
 
   /// Where the index comes from: the site, or (UI tests) a fixed one.
   enum Source {
@@ -30,22 +34,30 @@ final class HandbookModel {
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
   }
 
-  var results: [HandbookIndex.Item] { search.find(query, kind: kind) }
-
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
 
-  /// The kept copy first (instant, offline), then the site's current one.
+  /// When the tab shows: the index, unless this run already has the site's copy.
+  func appear() async {
+    if !fetched { await load() }
+  }
+
+  /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
   func load() async {
     if case .fixed(let ix) = source { return use(ix, .ready) }
     let file = Self.cacheFile(lang)
-    if let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) { use(ix, .offline) }
+    if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
+      use(ix, .offline)
+    }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
       guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
+      fetched = true
     } catch {
+      // Left for another tab or page: tried again when the tab shows next, nothing to report.
+      if isInterruption(error) { return }
       if count == 0 { status = .failed }
     }
   }
@@ -54,7 +66,10 @@ final class HandbookModel {
     search = HandbookSearch(ix.items)
     count = ix.items.count
     status = s
+    refresh()
   }
+
+  private func refresh() { results = search.find(query, kind: kind) }
 
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
   static func defaultSource() -> Source {
