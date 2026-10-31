@@ -11,7 +11,7 @@
   },
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
-  // Accounts for saved tanks (/api/v1/*, worker/accounts/): off until ACCOUNTS is "on" ("preview": the owner only). Needs the
+  // Accounts for saved tanks (/api/v1/*, worker/accounts/): ACCOUNTS "on" (unset: off; "preview": the owner only). Needs the
   // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS (public ids, below); email
   // also Turnstile and the EMAIL binding (Cloudflare Email Sending, aquatome.com onboarded); revoking Apple tokens when an
   // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
@@ -29,7 +29,8 @@
     "GOOGLE_CLIENT_IDS": "273529484726-536aat77a1fcgms9tspb2tg21lmvljqk.apps.googleusercontent.com,273529484726-i1brjj0oukqk1v1niudmu9f4q4ouo8or.apps.googleusercontent.com",
     "APPLE_CLIENT_IDS": "com.aquatome.web,com.aquatome.app",
     "APPLE_TEAM_ID": "Q783W6B4FA",
-    "APPLE_SIGNIN_KEY_ID": "YK437QPP8B"
+    "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
+    "ACCOUNTS": "on"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
