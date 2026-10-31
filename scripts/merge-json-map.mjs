@@ -2,7 +2,7 @@
 // git merge driver for the engine's keyed records (engine-state/_photo-*.json, _wanted.json, _gbif-names.json,
 // _sources.json): the parallel jobs of one engine run all add to them, so a plain merge conflicts on the last lines.
 // Per key, the side that changed it (added, edited, removed) wins; ours first.
-// .gitattributes: engine-state/_photo-*.json merge=jsonmap (and the others)
+// .gitattributes: engine-state/_photo-*.json merge=jsonmap (and the others; also the UI translations, which parallel PRs all add to)
 // git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'

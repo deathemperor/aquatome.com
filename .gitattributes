@@ -10,3 +10,5 @@ content/captions/*.json merge=jsonmap
 content/species/*/*.json merge=entity
 content/plants/*/*.json merge=entity
 engine-state/_topic-check.json merge=jsonmap
+apps/site/src/i18n/id.json merge=jsonmap
+apps/site/src/i18n/th.json merge=jsonmap
