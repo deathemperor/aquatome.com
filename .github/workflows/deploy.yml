@@ -1,5 +1,5 @@
 name: deploy
-# Merges to main go live. The engine's own pushes (GITHUB_TOKEN) don't trigger this; engine.yml deploys itself.
+# Merges to main go live, and the engine's pushes (over its deploy key, engine.yml) the same way.
 on:
   push:
     branches: [main]

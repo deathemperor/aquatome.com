@@ -1,5 +1,6 @@
 name: ios
-# The iOS app (apps/ios): its Chihiros protocol code is checked against the vectors the site uses (protocols/).
+# The iOS app (apps/ios): its Chihiros protocol and tank store code are checked against the vectors the site uses
+# (protocols/).
 on:
   pull_request:
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']

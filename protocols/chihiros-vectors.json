@@ -47,6 +47,26 @@
     { "reply": "5b 18 10 00 01 fe 00 00 00", "firmware": 24 },
     { "reply": "5a 18 00 00 00 00 00", "firmware": null }
   ],
+  "clockOf": [
+    { "note": "a minute after the clock was set to Saturday 10:51", "reply": "5b 18 30 00 01 fe 06 0a 34 00 00 00 00 00 00 0a 33 00 00 00 00 00 06 0a 34 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "clock": { "weekday": 6, "hour": 10, "minute": 52 } },
+    { "note": "after a power cut: weekday 0, counting from 00:00", "reply": "5b 18 30 00 01 fe 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "clock": { "weekday": 0, "hour": 0, "minute": 2 } },
+    { "note": "the short status reply has no clock", "reply": "5b 18 0a 00 01 0a 01 ff ff ff ff 00 05 1d", "clock": null }
+  ],
+  "clockDrift": [
+    { "clock": { "weekday": 6, "hour": 10, "minute": 52 }, "local": "2026-10-31T10:52:30", "minutes": 0 },
+    { "note": "seven hours behind (a clock left on UTC)", "clock": { "weekday": 6, "hour": 3, "minute": 52 }, "local": "2026-10-31T10:52:00", "minutes": -420 },
+    { "note": "across the week's end: Sunday 23:58 against Monday 00:03", "clock": { "weekday": 7, "hour": 23, "minute": 58 }, "local": "2026-11-02T00:03:00", "minutes": -5 },
+    { "note": "reset by a power cut: no real time", "clock": { "weekday": 0, "hour": 0, "minute": 2 }, "local": "2026-10-31T10:52:00", "minutes": null }
+  ],
+  "levelAt": [
+    { "schedule": { "on": "12:00", "off": "20:00", "ramp": 30 }, "minute": 719, "level": 0 },
+    { "schedule": { "on": "12:00", "off": "20:00", "ramp": 30 }, "minute": 735, "level": 0.5 },
+    { "schedule": { "on": "12:00", "off": "20:00", "ramp": 30 }, "minute": 900, "level": 1 },
+    { "schedule": { "on": "12:00", "off": "20:00", "ramp": 30 }, "minute": 1185, "level": 0.5 },
+    { "schedule": { "on": "12:00", "off": "20:00", "ramp": 30 }, "minute": 1200, "level": 0 },
+    { "note": "no ramp", "schedule": { "on": "08:00", "off": "16:00", "ramp": 0 }, "minute": 480, "level": 1 },
+    { "note": "off at 00:00 is midnight", "schedule": { "on": "18:00", "off": "00:00", "ramp": 60 }, "minute": 1410, "level": 0.5 }
+  ],
   "hoursLit": [
     { "on": "08:00", "off": "16:00", "hours": 8 },
     { "on": "22:00", "off": "06:00", "hours": 8 },

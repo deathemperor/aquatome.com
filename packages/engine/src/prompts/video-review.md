@@ -5,6 +5,6 @@ The writer was told to write an original guide on the video's core ideas, not a 
 Score 0–1:
 - 1.0: every fact and piece of advice matches the video or is standard, uncontroversial aquarium knowledge; the video's main teaching points are covered; organised as a guide in the writer's own words; natural Vietnamese with the usual hobby terms.
 - 0.75: small gaps or some awkward phrasing; facts right. Vietnamese that reads like a translation or machine writing counts as awkward: note-style clauses joined by semicolons, "liên quan" for causes, calques such as "nên đừng…", "điều này giúp…", "đóng vai trò"; any mention of the creator, channel or video.
-- below 0.75: wrong, contradicted or invented facts, numbers, products or advice; the creator's guesses or hedged opinions stated as firm facts; a main point of the video missing; long passages that translate the transcript sentence by sentence; English left in place; hard-to-read Vietnamese.
+- below 0.75: wrong, contradicted or invented facts, numbers, products or advice; the creator's guesses or hedged opinions stated as firm facts; a main point of the video's subject missing; a section, FAQ question or summary point about a different subject from the guide's title (the video drifting to another topic: the note says to drop it); long passages that translate the transcript sentence by sentence; English left in place; hard-to-read Vietnamese.
 
 notes: up to 10 short, concrete fixes (in English) a writer should apply — quote the problem phrase. Empty if none.

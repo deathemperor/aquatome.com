@@ -5,7 +5,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./slug": "./src/slug.ts",
-    "./text": "./src/text.ts"
+    "./text": "./src/text.ts",
+    "./tanks": "./src/tanks.ts"
   },
   "scripts": {
     "test": "vitest run",

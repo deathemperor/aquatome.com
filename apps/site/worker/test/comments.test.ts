@@ -96,6 +96,9 @@ test('duplicate body on the same page within 24 h is held; other pages are fine'
 
 test('IPv6 addresses are limited per /64', async () => {
   expect(ipUnit('2001:db8:1:2:aaaa::1')).toBe('2001:db8:1:2')
+  // Shortened forms of one /64 are one unit.
+  for (const ip of ['2001:db8::1', '2001:db8::2', '2001:0db8:0:0:5::', '2001:DB8:0000:0000:1:2:3:4']) expect(ipUnit(ip)).toBe('2001:db8:0:0')
+  expect(ipUnit('::1')).toBe('0:0:0:0')
   expect(ipUnit('203.0.113.9')).toBe('203.0.113.9')
   expect(await ipDayKey('k', '2001:db8:1:2::1', now)).toBe(await ipDayKey('k', '2001:db8:1:2:ffff::9', now))
 })

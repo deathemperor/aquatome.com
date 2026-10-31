@@ -762,6 +762,56 @@
       "Item 3: 'ทั้งกอใบแผ่กว้าง' is slightly awkward; consider 'ทั้งกอกว้าง 20–30 ซม.'. 'ใบที่อ่อนที่สุด/แก่ที่สุด' could be 'ใบอ่อน/ใบแก่'."
     ]
   },
+  "egeria-densa": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "สาหร่ายอีโลเดีย",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "\"อีโลเดียช่วยป้องกันตะไคร่\": the English says Egeria, and Elodea is a different genus. Use \"อีเจเรีย\" or \"Egeria densa\", or the Thai trade name \"สร้อยไข่มุก/เอโลเดียดำ\" only if it is correct. Don't swap the plant name.",
+      "Omitted: \"Remove the leaves from the lowest 5 cm (2\")\" is rendered as \"เด็ดใบที่โคนลำต้นออกประมาณ 5 ซม.\". That is fine, but \"ประมาณ\" (about) was added. The source gives an exact 5 cm.",
+      "\"ไม้ต้น (ไม้น้ำแบบมีลำต้น)\": \"Stem\" means a stem plant (ไม้ก้านยาว/ไม้ลำต้น). \"ไม้ต้น\" is misleading, so use \"ไม้น้ำแบบลำต้น (Stem)\".",
+      "\"ต้นไม้จะมาเป็นกำของลำต้นหรือต้นอ่อนที่มัดรวมกันไว้ด้วยตัวถ่วง\": awkward. Say \"จำหน่ายเป็นมัด\", and use \"แผ่นตะกั่ว/ตัวถ่วงตะกั่ว\" for the anchor.",
+      "\"ยอดจะเรียวเล็กลง\": \"tendrils\" here means the shoots or stems. Prefer \"ลำต้น/เถา\" so it isn't read as the shoot tips only.",
+      "\"ความต้องการแสง: น้อย\" and \"CO2: น้อย\" are acceptable. In item 1, \"20–30 ซม. ขึ้นไป\" is fine."
+    ]
+  },
+  "eleocharis-acicularis": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "แฮร์กราส",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"หลังปลูกในตู้ได้สองเดือน\" is slightly wordy; the English means 'after two months in the tank', so \"หลังอยู่ในตู้สองเดือน\" is closer.",
+      "\"พบได้ทั่วโลก\" for 'Cosmopolitan' is acceptable, but \"กระจายพันธุ์ทั่วโลก\" is the more usual hobby wording.",
+      "\"เป็นไม้น้ำที่พบได้ทั่วไปมาก\" adds a small amount of wording. \"พบได้ทั่วไปมาก\" is slightly awkward; \"พบได้ทั่วไป\" or \"เป็นที่นิยมมาก\" reads more naturally."
+    ]
+  },
+  "eleocharis-montevidensis": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eleocharis montevidensis",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"in transparent wads\" was rendered as \"โดยปลูกเป็นกอโปร่ง ๆ\" (planted as loose clumps). This is a reasonable reading, but it is slightly interpretive. Consider \"ปลูกเป็นกลุ่มโปร่งแสง/โปร่งตา\" to keep the original sense.",
+      "\"เพอร์สเปกทีฟ\" is a transliteration. Use \"มุมมอง\" or \"ทัศนมิติ\", or write \"มิติความลึกและระยะใกล้ไกล\", which reads more naturally.",
+      "\"เป็นไม้น้ำพื้นฐานที่ดูแลง่าย\": \"basic\" here means an undemanding, common plant. \"พื้นฐาน\" is a bit stiff. Consider \"เป็นไม้น้ำทั่วไปที่ปลูกง่าย\".",
+      "\"ต้นไม้จะคงทรงการเติบโตแบบโปร่ง\" is awkward. Use \"ลักษณะการเติบโตโปร่ง\".",
+      "\"แต่ละเส้น\" for \"each straw\": consider \"แต่ละก้าน/ใบ\", which matches Eleocharis stems better.",
+      "\"มาจากทวีปอเมริกา\" for \"American\": the item 1 spec says North America (อเมริกาเหนือ). Consider \"มาจากอเมริกาเหนือ\" for consistency, if that is what the source means."
+    ]
+  },
+  "eleocharis-parvula": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "หญ้าหัวเข็มแคระ",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",

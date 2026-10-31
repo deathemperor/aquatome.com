@@ -35,14 +35,15 @@ A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings`
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
+| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
 
 ```sh
 cd apps/ios/AquaTomeKit
 swift test
 ```
 
-The tests read `protocols/chihiros-vectors.json`, the same vectors as the site's tests. A protocol change updates the
-vectors and both implementations together.
+The tests read `protocols/chihiros-vectors.json` and `protocols/tanks-vectors.json`, the same vectors as the site's
+tests. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 

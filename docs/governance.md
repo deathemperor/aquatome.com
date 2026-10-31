@@ -94,6 +94,23 @@ that would have caught it).
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
   run closes the issue.
 
+## Content guards (the engine)
+
+The engine writes and changes pages without a PR, so its own steps guard what it publishes (`scripts/engine-cycle.sh`).
+The layers above still check the result.
+
+- **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
+  one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+- **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
+  video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
+  guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
+  guide: such a guide is reported instead. Found by the owner: a lighting-hours guide ended on pre-filters.
+- **Photos.** No people (faces dropped), each photo must show its species, open licences or permission only.
+- **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
+  (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
+- **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page
+  shows the range they all accept.
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest
@@ -104,6 +121,15 @@ that would have caught it).
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
 
+### main's ruleset (GitHub)
+
+- `main` can't be deleted or force-pushed. Changes arrive by pull request, squash-merged, after the `test` check
+  (ci.yml) passes. Merged branches are deleted.
+- Let through: repository admins (the owner, and the owner's Mac pushing video content), and deploy keys. The engine
+  pushes content over its deploy key (`ENGINE_DEPLOY_KEY`, engine.yml), since GitHub Actions' own token can't be let
+  through on a personal repository. That push starts deploy.yml like a merge does.
+- Secret scanning blocks pushes that contain a known kind of key. Dependabot opens PRs for vulnerable dependencies.
+
 ## Mobile apps
 
 The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push that touches `apps/ios/**` or
@@ -111,10 +137,10 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 
 | Check | Catches | Where |
 | --- | --- | --- |
-| **Protocol vectors**: the device frames and replies against `protocols/*-vectors.json`, which the site's tests read too | the app and the site sending different bytes; a reply misread | `swift test` in `apps/ios/AquaTomeKit` (job `kit`) |
+| **Shared vectors**: device frames and replies, and saved-tank records and merges, against `protocols/*-vectors.json`, which the site's tests read too | the app and the site sending different bytes, a reply misread, tanks checked or merged differently | `swift test` in `apps/ios/AquaTomeKit` (job `kit`) |
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
-| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock, write a preset and put the old one back, set a lost clock, old firmware refused, disconnect | `xcodebuild test` (job `app`) |
-| **Translations**: every string in the code has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`) |
+| **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
 
 Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
 against a real light from a Mac with `light-harness` (`apps/ios/README.md`), ending with `restore`. What the light

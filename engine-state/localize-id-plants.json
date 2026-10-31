@@ -804,6 +804,56 @@
     "score": 0.9,
     "notes": []
   },
+  "egeria-densa": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Elodea densa",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"warnanya jadi pucat dan sulur-sulurnya tumbuh kurus\": the source says the plant \"turns light in colour\" (lighter/paler), so \"pucat\" is acceptable. But \"tendrils grow thin\" is rendered with \"kurus\", which is unnatural for plant shoots. Use \"menipis\" or \"tumbuh kecil/tipis\". Also \"jadi\" is informal; use \"menjadi\".",
+      "\"Remove the leaves from the lowest 5 cm (2\\\")\": the translation says \"Buang daun pada 5 cm bagian bawah batang\", which is fine. However \"Plant the individual plants ... into the bottom substrate\" became \"Tanam setiap batang\"; it should be \"setiap tanaman\" to match the source (individual plants, not stems).",
+      "\"anchor\" is rendered as \"pemberat (anchor)\". The source's anchor is a lead/metal strip that binds the stems, so \"pemberat\" is okay, but \"disatukan dengan pemberat\" reads slightly odd; \"diikat dengan pemberat (timah)\" would be more natural.",
+      "\"Egeria densa yang tersebar di seluruh dunia ini\": \"cosmopolitan\" means widely distributed, so the meaning is fine. The phrase is a bit long. \"Egeria densa yang kosmopolit\" or \"tersebar luas\" would be tighter."
+    ]
+  },
+  "eleocharis-acicularis": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Hairgrass",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"(tersebar di seluruh dunia)\" is an added gloss not in the source; harmless but could be removed.",
+      "\"tanaman air lain\" is fine, but \"Kalau\" is colloquial for a handbook; consider \"Jika\"."
+    ]
+  },
+  "eleocharis-montevidensis": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Giant Hairgrass",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"Tanaman air ini termasuk dasar\": mistranslation of \"It is basic\" — \"dasar\" is unnatural and unclear; use \"tanaman yang sederhana/mudah\" or \"cocok untuk pemula\".",
+      "\"rumpun-rumpun yang renggang dan tembus pandang\": \"transparent wads\" rendered with added \"renggang\" (sparse) — not in source; use \"rumpun yang tembus pandang/jarang\" carefully, remove added detail.",
+      "\"mudah dirawat\" for \"low maintenance\" is fine, but \"Setiap batangnya\" for \"straw\" is OK; \"tetap tumbuh dengan bentuk yang terbuka\" is slightly awkward — use \"mempertahankan pola tumbuh yang terbuka\".",
+      "\"runner (sulur)\": keep one term; \"sulur\" alone or \"stolon\" is more natural; \"bisa ditanam di tempat lain\" is ambiguous about what is planted — clarify \"tunas/anakan hasil pangkasan bisa ditanam di tempat lain\"."
+    ]
+  },
+  "eleocharis-parvula": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Eleocharis parvula",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"geragih (runner)\": \"geragih\" is an unusual term; hobbyists usually say \"stolon\" or \"sulur\". Also it is inconsistent with item 1, which uses \"stolon\".",
+      "\"Tanaman latar depan yang ideal\": fine in meaning, but \"foreground\" is more naturally \"tanaman latar depan/foreground\" as a full sentence, e.g. \"Cocok sebagai tanaman latar depan\".",
+      "\"berjarak cukup rapat\" is slightly contradictory/awkward; use \"dengan jarak cukup rapat\" or \"ditanam cukup rapat\".",
+      "\"Asal: kosmopolitan\" is fine, but \"Tipe: stolon\" would be clearer as \"Tipe: berstolon\" or \"Tipe pertumbuhan: stolon\"."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",
