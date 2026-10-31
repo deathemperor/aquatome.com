@@ -15,6 +15,40 @@
       {
         "source": "planetcatfish",
         "value": 31.7
+      },
+      {
+        "source": "scotcat",
+        "value": 32
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 6
       }
     ]
   },
@@ -26,10 +60,22 @@
       "html": "<p>Scientific name: Aguarunichthys tocantinsensis Zuanon, Rapp Py-Daniel &amp; Jégu, 1993.</p><p>Common name: Tocantins Pimelodus.</p><p>Size: 317 mm (12.5 in) SL.</p><p>IUCN Red List: Endangered (last assessed 2018).</p><p>Etymology: Aguarun = a Peruvian Indian tribe that lives in Ecuador, and \"ichthys\" = Greek for fish. Named for the Rio Tocantins in Brazil.</p><p>Identification: Aguarunichthys tocantinsensis has a deeper body, larger eye, more gill rakers and more spots on the body than A. torosus.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<ul><li>Etymology: the specific name tocantinsensis means 'from the Tocantins river basin'.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
       "html": "<p>South America: Tocantins River basin. Type locality: rapids above Marabá, Rio Tocantins drainage, Pará State, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>South America: Tocantins River basin, Brazil. Type locality: Brazil: Pará State: Tocantins River drainage, rapids above Marabá.</p><p>Endemic to Brazil, it occurs in the Tocantins and Araguaia river basins, in the states of Goiás, Mato Grosso, Pará and Tocantins, where it is infrequent and not very abundant. The estimated area of occupancy is 6,140 km².</p>"
     },
     {
       "key": "habitat",
@@ -38,10 +84,28 @@
       "html": "<p>Collected in areas with strong currents and rocky bottom.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>Collected in areas with strong currents and rocky bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>A large tank is needed, no smaller than 2 metres (6 ft) long with a depth of 70 cm (28 in), with powerful filtration, to give it plenty of swimming space.</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
       "html": "<p>Will take dry food pellets, earthworms or fish fillet. Earthworms are perhaps the best staple.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>Earthworms, fish fillets, frozen foods such as whole and unbroken smelts, shrimp or mussel meat. Tablet and pellet foods will also be taken.</p>"
     },
     {
       "key": "behaviour",
@@ -50,16 +114,34 @@
       "html": "<p>A predator that will eat anything small enough. A loner, it shows considerable intra-species aggression around a large territory.</p><p>Tankmates must be large enough not to be considered edible. Competition for food is not an issue, as this species is a capable hunter.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>Very much a catfish for the larger aquarium and the more serious catfish keeper. As with most species in this genus it is predatory, so it needs tankmates that are not too small, although it is better kept on its own as other fish will be seen as prey.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
       "html": "<p>Unreported in the aquarium.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>Description: dorsal spines 1; dorsal soft rays 6; anal spines 5; anal soft rays 7-9.</p><p>IUCN Red List: Endangered (EN), criterion A4c (IUCN 2021). Habitat loss and fragmentation are the main threats; hydroelectric reservoirs have affected more than 60% of the species' area of occupancy, and a population reduction of more than 50% over three generations (27 years) is estimated.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1177",
       "html": "<p>Ichthyological Exploration of Freshwaters v. 4 (no. 3), pp 252, Figs. 2a, 4.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2021. Aguarunichthys tocantinsensis. IUCN Red List of Threatened Species 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p>"
     }
   ],
   "photos": [

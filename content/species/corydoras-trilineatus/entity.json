@@ -1,0 +1,120 @@
+{
+  "id": "corydoras-trilineatus",
+  "scientificName": "Corydoras trilineatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "html": "<ul><li>pH and hardness: not important for care (tap water), but should be soft and acidic for breeding</li><li>Diet: Omnivorous</li><li>Social behavior: Peaceful schooling fish</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "html": "<p>Hoplisoma trilineatum is one of the most popular armored catfish. However, this species is almost always sold as Corydoras julii. This isn't a big thing, since both species grow to the same size, have the same care requirements, and look nearly identical. Aquarists with a special interest in the subject know, however, that Hoplisoma julii has slightly different coloring in certain details (spots on the head in julii, a worm-line pattern in trilineatum). Due to high demand, H. trilineatum is one of the most commonly bred armored catfish in Southeast Asia. It was only a matter of time before mutations occurred.</p><p>The most common color mutation in animals is albinism. It occurs from time to time in all known animal species. In this condition, the body lacks the ability to produce black pigments. That is why albinos have red eyes and usually a white body. In such cases, the albino gene is located on a single locus. Very rarely, however, there may be different albino genes for different body parts. For example, the Chocolate Molly has red eyes and a dark body. In the case of the Albino Julii, however, there are at least three gene loci that determine the degree of albinism. First, there are wild-colored fish with red eyes; second, there are golden fish with red eyes in which the body coloration—albeit faded—is preserved. In some of these fish, the species-typical black dorsal fin spot is clearly visible, even if it is pale. In a third variant, this dorsal fin spot is absent, but remnants of the body pattern—especially around the head—are still present. And finally, there are nearly completely white specimens. All of the variants mentioned have red eyes. Such a case of multiple albinism has apparently never been reported before, which is very interesting.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/0c79f32cd9771307.webp",
+      "thumb": "https://media.aquatome.com/glaser/0c79f32cd9771307-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bd6ac03cb7bc7629.webp",
+      "thumb": "https://media.aquatome.com/glaser/bd6ac03cb7bc7629-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/74dbd4edd50008d6.webp",
+      "thumb": "https://media.aquatome.com/glaser/74dbd4edd50008d6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/db80cdfb24308bfc.webp",
+      "thumb": "https://media.aquatome.com/glaser/db80cdfb24308bfc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ nuôi cá chuột"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền nuôi cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc sponge"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

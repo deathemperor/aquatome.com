@@ -1,0 +1,153 @@
+{
+  "id": "caridina-mariae",
+  "scientificName": "Caridina mariae",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "china",
+    "guangdong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>Tiger shrimps were among the first dwarf shrimp species to enter the hobby around 30 years ago. At that time, they were still simply numbered, the “Tiger” was Caridina or Neocaridina sp. V. Only specialists can clarify the genus affiliation of dwarf shrimps, there are no recognizable characteristics on live animals. In 2015, Klotz &amp; von Rintelen finally gave the Tiger Shrimp its current scientific name, Caridina mariae. The animals grow up to 3 cm long (males remain smaller).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>The original home of the animals is Guangdong province in China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>In nature, the water is extremely soft.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>Under aquarium conditions a certain hardness (3-4° KH) is more favorable, as otherwise the pH value becomes unstable. In addition, the water temperature should not rise above 25°C, at least not permanently. At room temperature (18-22°C) the animals are lively and reproduce abundantly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>Tiger shrimps are growth eaters (grazers), but are happy to eat pretty much any common ornamental fish food. However, care should be taken to ensure that the protein content is not too high. Dead leaves (beech, oak, cattapa etc.) should always be available as a food source in every aquarium for dwarf shrimps.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>Under aquarium conditions, many species of dwarf shrimp cross, resulting in a constant stream of new color varieties. If you attach importance to pure breeding, you should therefore only keep one shrimp species per aquarium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>20-40 eggs per litter are normal, the hatchlings are not bothered by the parents and immediately live as miniature versions of mom and dad.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>The wild form is gray-brown transparent with the characteristic black tiger stripes. The first mutants soon appeared in the aquarium, and today the wild form is hardly ever seen in the hobby. Colorful cultivated forms have replaced them. These include a blue-colored mutant with yellow eyes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "html": "<p>Klotz, W.; von Rintelen, T. (2014). To “bee” or not to be—on some ornamental shrimp from Guangdong Province, Southern China and Hong Kong SAR, with descriptions of three new species. Zootaxa. 3889(2): 151-184</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/34da74e242212dcf.webp",
+      "thumb": "https://media.aquatome.com/glaser/34da74e242212dcf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/54e3cd274d53a24b.webp",
+      "thumb": "https://media.aquatome.com/glaser/54e3cd274d53a24b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7dcd6f6015fc5903.webp",
+      "thumb": "https://media.aquatome.com/glaser/7dcd6f6015fc5903-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8e534d6e369f2211.webp",
+      "thumb": "https://media.aquatome.com/glaser/8e534d6e369f2211-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tép cảnh",
+        "lá bàng khô cho tép"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tép cảnh",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test KH GH",
+        "bút đo pH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

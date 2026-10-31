@@ -1,0 +1,117 @@
+{
+  "id": "cephalosilurus-fowleri",
+  "scientificName": "Cephalosilurus fowleri",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Cephalosilurus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-francisco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 40.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<ul><li>Scientific name: Lophiosilurus fowleri (Haseman, 1911)</li><li>Common names: Rusty Jelly Catfish, Orange Catfish, Oremon Catfish, Pocoma (Brazilian)</li><li>Type locality: Rio São Francisco, Cidade de Barra, Bahia, Brazil.</li><li>Synonyms: Cephalosilurus fowleri, Pseudopimelodus fowleri</li><li>Etymology: Greek, lophos = crest + Greek, silouros = cat fish -&gt; Crested catfish. Named for the prolific ichthyologist, Henry Fowler.</li><li>Identification: Larger and with a more orange colouration than C. apurensis.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>South America: São Francisco River basin, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Temperature: 23.0-27.0°C (73.4-80.6°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Caves, driftwood, sand, floating plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Fish (fresh and frozen), krill, shrimp, earthworms, mice, rats, sinking pellets, shrimp pellets, any \"meaty\" type foods with a little variety thrown in.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Very aggressive and not shy. Best kept alone or in the most bullish of considerably larger company.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Females larger and much more aggressive, very distinguishable dimorphism by venting especially at larger sizes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1087",
+      "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 317, Pl. 46.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 150cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "tôm krill đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

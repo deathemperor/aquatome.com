@@ -5,13 +5,22 @@
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Brachyrhamdia heteropleura (Eigenmann, 1912)</li><li>Họ: Heptapteridae</li><li>Nơi thu mẫu chuẩn: Rupununi Pan, Guyana.</li><li>Tên đồng nghĩa: Pimelodus heteropleurus</li><li>Kích thước: 43 mm SL (chiều dài chuẩn, không tính vây đuôi).</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần gần nhất năm 2020).</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ. Cá có mặt trong vùng nước Guyana và các sông ven biển vùng Guiana, gồm sông Corantijn ở Suriname và sông Essequibo. Ở lưu vực Amazon, cá phân bố ở trung lưu Amazon (Solimões), sông Negro, hạ lưu sông Negro, sông Branco (bang Roraima) và sông Cauamé.</p>",
-    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 176, Pl. 16 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 176, Pl. 16 (fig. 2).</p>",
+    "quickFacts:scotcat": "<p>Họ: Heptapteridae. Kích thước: 4,5 cm. Nhiệt độ: 24-26°C. pH: 6,5-7,2.</p><p>Brachyrhamdia heteropleura có thể bắt chước hình dạng và màu sắc của các loài cá <em>Pimelodella</em> (Slobodian và Bockmann 2013).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực các sông Corantijn, Essequibo và Negro (Guyana, Suriname và miền bắc Brazil). Địa điểm mẫu chuẩn: Rupununi Pan [lưu vực sông Essequibo], Guiana thuộc Anh.</p><p>Brachyrhamdia heteropleura có mặt ở sông Essequibo (Guyana) và sông Coratijn (Suriname), dù các điểm ghi nhận cụ thể ở Coratijn hiện chưa rõ. Loài này còn sống ở sông Branco và sông Marauirá. Hai sông này là phụ lưu của sông Negro, chảy qua các bang Amazonas và Roraima của Brazil (Bockmann và Guazzelli 2003, GBIF 2019, SpLink 2020).</p>",
+    "habitat:scotcat": "<p>Các loài cùng chi sống sát đáy, ở những chỗ nền cát trong suối và đầm ven bờ. Chúng thường quanh quẩn gần đám cây cỏ mọc ven bờ (ICMBio 2018).</p>",
+    "maintenance:scotcat": "<p>Bể nuôi nên dài từ 60 cm trở lên, nền rải xen kẽ cát và sỏi. Trong bể cần có một khu trồng cây. Bạn có thể nuôi riêng loài này, hoặc nuôi chung với cá chuột <em>Corydoras</em>. Tầng nửa trên của bể có thể thả thêm cá characin cỡ lớn hoặc cá mê cung. Không nên thả chung với cá nhỏ như neon, vì loài này có thể săn chúng.</p>",
+    "diet:scotcat": "<p>Cá ăn được thức ăn dạng viên nén và viên. Thức ăn đông lạnh và thức ăn sống như trùng huyết cũng ăn tốt, ngoài ra còn có ấu trùng côn trùng. Đây là loài không kén ăn.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài heteropleura ghép từ héteros (tiếng Hy Lạp) nghĩa là khác biệt và pleurá (tiếng Hy Lạp) nghĩa là bên hông. Tên này chỉ hai bên thân có các chấm, cụ thể là \"các tế bào sắc tố ở vùng giữa vây lưng và vây hậu môn tập trung dọc theo các vách ngăn, cùng một dãy tế bào sắc tố chạy giữa dọc hai bên thân\".</p><p>Ghi chú: Loài này ít khi có trong các đợt cá nhập về.</p><p>Danh sách Đỏ IUCN: Thông tin về loài này còn ít. Tuy vậy, chúng phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì thế loài được xếp vào nhóm Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Froese, R. và D. Pauly, biên tập. 2025. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2025).</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Morris, J.T.; ScotCat Article: An Observation On a Spawning of Brachyrhamdia imitator, Myers 1927.</p><p>Salvador, G.N. 2023. Brachyrhamdia heteropleura. Danh sách Đỏ các loài bị đe dọa của IUCN 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.6,
+    "indexable": false,
     "bySource": {
-      "planetcatfish": 0.8
-    }
+      "planetcatfish": 0.8,
+      "scotcat": 0.6
+    },
+    "reason": "score"
   }
 }

@@ -1,0 +1,123 @@
+{
+  "id": "xiphophorus-continens",
+  "scientificName": "Xiphophorus continens",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Xiphophorus",
+  "group": "livebearers",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "html": "<p>A dwarf swordtail rarity, only 2-3 cm long. At first sight it resembles the also dwarf X. pygmaeus, but is not so closely related to this species. X. continens was first collected in 1984 and formally described in 1990.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "html": "<p>They are very pretty fish, which require attentive water care. They are inhabitants of running water and want low-germ, oxygen-rich water. Medium-hard water with a pH between 7 and 8 is best suited for care, temperatures can be between 20 and 24°C (occasionally a little below or above).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "html": "<p>Every common fish food is eaten when it is small enough. Without live food (2-3 times a week) the dwarf swordtails will wither; Artemia nauplii have proven to be very useful as supplementary food.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/282a7ace74128ec5.webp",
+      "thumb": "https://media.aquatome.com/glaser/282a7ace74128ec5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c59d8a74c9b778c5.webp",
+      "thumb": "https://media.aquatome.com/glaser/c59d8a74c9b778c5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f7b49f78f4e196bb.webp",
+      "thumb": "https://media.aquatome.com/glaser/f7b49f78f4e196bb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/77639dbc4c6618fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/77639dbc4c6618fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bể nhỏ",
+        "máy lọc nước giàu oxy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "thức ăn sống cho cá",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "bộ test nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

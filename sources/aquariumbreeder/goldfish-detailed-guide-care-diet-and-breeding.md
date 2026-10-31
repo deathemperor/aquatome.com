@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/
 title: Goldfish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
-fetchedAt: 2026-10-31T11:19:15.399Z
+fetchedAt: 2026-10-31T19:48:46.620Z
 hash: 83c4491dd8d8e4cf4be19b3986ffb57ce51bf1a4c91ac7d2d59a9a64fd746f83
 ---
 

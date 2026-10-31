@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/
+title: Hoplisoma trilineatum Albino ( = Corydoras julii Albino) - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T21:05:16.382Z
+hash: b228bb639907af23181b717f0a181706b2c168a64e9a0ede501dbaa0fca522a1
+---
+
+Hoplisoma trilineatum is one of the most popular armored catfish. However, this species is almost always sold as Corydoras julii. This isn’t a big thing, since both species grow to the same size, have the same care requirements, and look nearly identical. Aquarists with a special interest in the subject know, however, that Hoplisoma julii has slightly different coloring in certain details (spots on the head in julii, a worm-line pattern in trilineatum). Due to high demand, H. trilineatum is one of the most commonly bred armored catfish in Southeast Asia. It was only a matter of time before mutations occurred.
+The most common color mutation in animals is albinism. It occurs from time to time in all known animal species. In this condition, the body lacks the ability to produce black pigments. That is why albinos have red eyes and usually a white body. In such cases, the albino gene is located on a single locus. Very rarely, however, there may be different albino genes for different body parts. For example, the Chocolate Molly (https://www.aquariumglaser.de/en/fisharchive/poecilia-chocolate-2/) has red eyes and a dark body. In the case of the Albino Julii, however, there are at least three gene loci that determine the degree of albinism. First, there are wild-colored fish with red eyes; second, there are golden fish with red eyes in which the body coloration—albeit faded—is preserved. In some of these fish, the species-typical black dorsal fin spot is clearly visible, even if it is pale. In a third variant, this dorsal fin spot is absent, but remnants of the body pattern—especially around the head—are still present. And finally, there are nearly completely white specimens. All of the variants mentioned have red eyes. To our knowledge, such a case of multiple albinism has never been reported before—which is very interesting!
+Maximum size: approx. 6 cm; Temperature: 22–28°C; pH and hardness: not important for care (tap water), but should be soft and acidic for breeding; Diet: Omnivorous; Social behavior: Peaceful schooling fish.
+For our customers: These fish are listed under code 232518 on our stock list. Please note that we supply exclusively to wholesale customers.
+Text & photos: Frank Schäfer

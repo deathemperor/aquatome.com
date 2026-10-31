@@ -50,6 +50,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/ammania-gracilis-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:35:55+00:00",
+    "entityIds": [
+      "plants/ammannia-gracilis"
+    ],
+    "updatedAt": "2026-10-31T19:56:32.711Z",
+    "hash": "f86c4961c41eedac14688306515294817194b78b2f09cd962e00c41ac329d0f1",
+    "processedHash": "f86c4961c41eedac14688306515294817194b78b2f09cd962e00c41ac329d0f1",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/asellus-aquaticus-profile-water-louse-in-shrimp-and-fish-tank/": {
     "lastmod": "2026-06-06T17:35:39+00:00",
     "entityIds": [
@@ -96,11 +107,14 @@
   },
   "https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:35:55+00:00",
-    "entityIds": [],
-    "updatedAt": "2026-10-31T11:18:52.068Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+    "entityIds": [
+      "plants/blyxa-aubertii"
+    ],
+    "updatedAt": "2026-10-31T19:44:05.367Z",
+    "hash": "cd19c16a09c0fbf1066d521d6bad2e4bf46b37efdb4d70fc2b18c5fd9ad65b99",
+    "processedHash": "cd19c16a09c0fbf1066d521d6bad2e4bf46b37efdb4d70fc2b18c5fd9ad65b99",
+    "status": "processed",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/blyxa-japonica-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:36:51+00:00",
@@ -274,11 +288,14 @@
   },
   "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:35:38+00:00",
-    "entityIds": [],
-    "updatedAt": "2026-10-31T11:19:09.154Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+    "entityIds": [
+      "species/carassius-auratus"
+    ],
+    "updatedAt": "2026-10-31T19:48:40.336Z",
+    "hash": "83c4491dd8d8e4cf4be19b3986ffb57ce51bf1a4c91ac7d2d59a9a64fd746f83",
+    "processedHash": "83c4491dd8d8e4cf4be19b3986ffb57ce51bf1a4c91ac7d2d59a9a64fd746f83",
+    "status": "processed",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/hermit-crabs-as-pets-pros-and-cons/": {
     "lastmod": "2026-06-06T17:35:39+00:00",
@@ -315,6 +332,17 @@
     "updatedAt": "2026-10-31T15:26:47.052Z",
     "hash": "25736487bb58f71f14747bcaa15cf809024464214b59b25a0040ad5d76adcbdd",
     "processedHash": "25736487bb58f71f14747bcaa15cf809024464214b59b25a0040ad5d76adcbdd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-remove-red-algae-in-aquariums/": {
+    "lastmod": "2026-06-06T17:35:55+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-remove-red-algae-in-aquariums"
+    ],
+    "updatedAt": "2026-10-31T19:51:45.626Z",
+    "hash": "04f03ff45bf0dc273af2c550706b5f27b14373c8fda4dc7246848f6769590ad2",
+    "processedHash": "04f03ff45bf0dc273af2c550706b5f27b14373c8fda4dc7246848f6769590ad2",
     "status": "processed",
     "attempts": 0
   },
@@ -399,6 +427,17 @@
     "updatedAt": "2026-10-30T22:44:54.421Z",
     "hash": "f55bdc8f3c7abe6be08e8db966aa14f85c6185660b92a634ddce4c2cc9936c7b",
     "processedHash": "f55bdc8f3c7abe6be08e8db966aa14f85c6185660b92a634ddce4c2cc9936c7b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/ludwigia-arcuate-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:37:24+00:00",
+    "entityIds": [
+      "plants/ludwigia-arcuata"
+    ],
+    "updatedAt": "2026-10-31T19:49:57.568Z",
+    "hash": "a7a3eaef3489b66c1ac58bdbbdfbaec2ae8c335dfc7e99ea29eb83394bf1af17",
+    "processedHash": "a7a3eaef3489b66c1ac58bdbbdfbaec2ae8c335dfc7e99ea29eb83394bf1af17",
     "status": "processed",
     "attempts": 0
   },
@@ -551,6 +590,17 @@
     "updatedAt": "2026-10-30T22:36:46.970Z",
     "hash": "ede79ec09db4daa41b53717e4d2952c8c8e728b761ebc87bc5bd0d84dd5bf877",
     "processedHash": "ede79ec09db4daa41b53717e4d2952c8c8e728b761ebc87bc5bd0d84dd5bf877",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks/": {
+    "lastmod": "2026-06-06T17:35:55+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks"
+    ],
+    "updatedAt": "2026-10-31T20:01:12.190Z",
+    "hash": "20ef17f5c62ac80fd3b8c07c3a00a517e40762d94fb20174a5fa1a4ef1fa544c",
+    "processedHash": "20ef17f5c62ac80fd3b8c07c3a00a517e40762d94fb20174a5fa1a4ef1fa544c",
     "status": "processed",
     "attempts": 0
   },
@@ -786,11 +836,14 @@
   },
   "https://aquariumbreeder.com/willow-hygro-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:35:38+00:00",
-    "entityIds": [],
-    "updatedAt": "2026-10-31T11:19:01.154Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+    "entityIds": [
+      "plants/hygrophila-angustifolia"
+    ],
+    "updatedAt": "2026-10-31T19:46:07.765Z",
+    "hash": "dbe9a9bd5746cfa11a40f440dc0ef4a871af75a76c1a282328e77d14c19444c6",
+    "processedHash": "dbe9a9bd5746cfa11a40f440dc0ef4a871af75a76c1a282328e77d14c19444c6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/xiphophorus-pygmaeus-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:35:39+00:00",

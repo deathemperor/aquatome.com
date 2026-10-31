@@ -9,13 +9,21 @@
     "dimorphism:planetcatfish": "<p>Mọi loài trong chi Aphanotorulus đều dễ phân biệt đực cái. Khi vào mùa sinh sản, cá đực mọc các gai da (odontode) rất dài, trông như lông cứng. Lớp gai này phủ kín phần lưng và hai bên thân, tính từ sau vây lưng trở về đuôi.</p>",
     "reproduction:planetcatfish": "<p>Chưa được ghi nhận. Đến nay chưa có báo cáo nào về sinh sản của loài này.</p>",
     "notes:planetcatfish": "<p>Kích thước: 139 mm SL (chiều dài chuẩn, không tính vây đuôi).</p><p>Nhận dạng: Nhìn chung, các loài Aphanotorulus có thân dẹt hơn những chi khác trong nhóm hypostomine. Mép sau của đĩa miệng có răng cưa chứ không nhẵn. Bạn có thể phân biệt Aphanotorulus với Isorineloricaria qua hai điểm. Thứ nhất, cuống đuôi của Aphanotorulus không dài ra nhiều khi cá lớn, và mặt cắt ngang của nó có hình bầu dục. Ở Isorineloricaria, cuống đuôi càng lớn càng dài ra so với thân, và mặt cắt ngang của nó tròn. Thứ hai, Aphanotorulus có những đốm sẫm màu nhỏ, chưa bằng nửa đường kính một tấm xương, nằm trên nền nâu nhạt. Còn Isorineloricaria có đốm to gần bằng tấm xương bên, nằm trên nền gần như trắng.</p>",
-    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Klasse v. 45 (no. 11) (for 2 Apr. 1908), pp 164.</p>"
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Klasse v. 45 (no. 11) (for 2 Apr. 1908), pp 164.</p>",
+    "quickFacts:scotcat": "<p>Miệng cá có các núm nhú, còn môi trên có những phần nhô ra.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, vùng thượng lưu lưu vực sông Amazon.</p>",
+    "maintenance:scotcat": "<p>Loài này khá dễ nuôi. Bạn chỉ cần giữ nước ấm hơn mức thường và rải nền cát mịn.</p>",
+    "diet:scotcat": "<p>Cá không kén ăn. Nó ăn được phần lớn các loại thức ăn chế biến sẵn cho cá cảnh, như thức ăn viên chìm, thức ăn đông lạnh và thức ăn sống.</p>",
+    "dimorphism:scotcat": "<p>Nhìn chung cá giống các loài thuộc chi Hypostomus nhưng nhỏ con hơn. Vào mùa sinh sản, con đực mọc lông cứng trên các odontode (những gai da nhỏ), chủ yếu ở nửa sau thân.</p>",
+    "notes:scotcat": "<p><strong>Danh sách đỏ IUCN:</strong> Hiện có rất ít thông tin về loài này. Tuy vậy, nó phân bố rộng và không gặp mối đe dọa nào rõ ràng, nên được xếp vào mức Ít quan tâm (IUCN 2023).</p><p><strong>Nguồn gốc tên gọi:</strong> Tên loài unicolor ghép từ uni-, gốc unus (tiếng Latin) nghĩa là \"một\", ý chỉ màu nâu sô-cô-la đồng nhất của cá. Có thể loài này được mô tả dựa trên mẫu vật ngâm bảo quản hoặc đã phai màu, vì cá sống ngoài đời có đốm.</p>",
+    "references:scotcat": "<p>Salvador, G.N. 2023. Aphanotorulus unicolor. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, Ingo; Back to Nature guide to L-catfishes 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.85
     }
   }
 }

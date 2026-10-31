@@ -828,10 +828,11 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1082": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:21.128Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T21:23:02.789Z",
+    "hash": "31e88dda2a1b802aa51a6234eb4385003513d9979ec6aa4372030dfbcbc84d15",
+    "processedHash": "31e88dda2a1b802aa51a6234eb4385003513d9979ec6aa4372030dfbcbc84d15",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1083": {
     "entityIds": [
@@ -853,31 +854,39 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1085": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:22.928Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T21:23:13.613Z",
+    "hash": "062ac807781ebe0374c7ff942ecb0da18bd36519e9f1b0c77abfc783e3738df7",
+    "processedHash": "062ac807781ebe0374c7ff942ecb0da18bd36519e9f1b0c77abfc783e3738df7",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1086": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:27.947Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/ompok-pinnatus"
+    ],
+    "updatedAt": "2026-10-31T21:23:18.785Z",
+    "hash": "2ce27293024567d6533b3a3e981f8dea25ae3a55fb5e7637f16f14a592d3ad54",
+    "processedHash": "2ce27293024567d6533b3a3e981f8dea25ae3a55fb5e7637f16f14a592d3ad54",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1087": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:32.974Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/cephalosilurus-fowleri"
+    ],
+    "updatedAt": "2026-10-31T21:24:10.574Z",
+    "hash": "3454889a97ed0f355b8a6500b9de4d340f26ed2a6c3469b47e9f5fe865b59db0",
+    "processedHash": "3454889a97ed0f355b8a6500b9de4d340f26ed2a6c3469b47e9f5fe865b59db0",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1088": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:37.981Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "updatedAt": "2026-10-31T21:26:12.331Z",
+    "hash": "d04caac86d32e32f3211aa4084d957f00af36b26834b0561f6eee1c6c1ada631",
+    "processedHash": "d04caac86d32e32f3211aa4084d957f00af36b26834b0561f6eee1c6c1ada631",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1089": {
     "entityIds": [
@@ -958,32 +967,44 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1098": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:42.993Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/trachelyopterus-fisheri"
+    ],
+    "updatedAt": "2026-10-31T21:26:50.441Z",
+    "hash": "f4277c971611f002e3e28ee0f4feb6035dfd79f0efcd4e9d84dcd491ca544d5b",
+    "processedHash": "f4277c971611f002e3e28ee0f4feb6035dfd79f0efcd4e9d84dcd491ca544d5b",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1099": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:48.012Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/liobagrus-reinii"
+    ],
+    "updatedAt": "2026-10-31T21:29:04.718Z",
+    "hash": "e69a7570ded35ab6ffa05951071710886d08d848186cccfadcac0cbfeb255dd7",
+    "processedHash": "e69a7570ded35ab6ffa05951071710886d08d848186cccfadcac0cbfeb255dd7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=11": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:53.024Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/clarias-angolensis"
+    ],
+    "updatedAt": "2026-10-31T21:29:45.559Z",
+    "hash": "574ffd15e440a480b3a85fd3e11b5f6b87ab0695e7e7c544ecb4098907a3a111",
+    "processedHash": "574ffd15e440a480b3a85fd3e11b5f6b87ab0695e7e7c544ecb4098907a3a111",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=110": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T14:11:58.047Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/corydoras-elegans"
+    ],
+    "updatedAt": "2026-10-31T21:30:54.814Z",
+    "hash": "3f8dd7ad84410593450edf44de4e6b3ab7629005f4c31c25cf0851c259f9e4aa",
+    "processedHash": "3f8dd7ad84410593450edf44de4e6b3ab7629005f4c31c25cf0851c259f9e4aa",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1100": {
     "entityIds": [
@@ -997,9 +1018,9 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1101": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:12:03.067Z",
+    "updatedAt": "2026-10-31T21:31:44.230Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1102": {
@@ -1044,16 +1065,16 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1106": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:13:38.327Z",
+    "updatedAt": "2026-10-31T21:31:49.143Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1107": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T14:13:40.184Z",
+    "updatedAt": "2026-10-31T21:31:54.166Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1108": {

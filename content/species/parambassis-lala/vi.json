@@ -1,0 +1,26 @@
+{
+  "slug": "ca-parambassis-lala",
+  "name": "Cá Parambassis lala",
+  "altNames": [
+    "Cá thủy tinh lùn",
+    "Cá thủy tinh Ấn Độ lùn",
+    "Dwarf glass perch",
+    "Dwarf glassfish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Cá thủy tinh lùn (Parambassis lala) phân bố rộng khắp Nam Á. Bạn có thể gặp loài này ở Ấn Độ, Myanmar và Nepal.</p>",
+    "notes:glaser": "<p>Loài cá lùn này không bao giờ lớn quá 2–3 cm. Trước đây người ta từng nhầm nó với cá con của các loài khác. Vì thế trong tài liệu có những số liệu kích thước sai hoàn toàn (tới 8 cm), kèm cả thông tin sinh thái cũng sai hoàn toàn. Có tài liệu cho rằng đây là cá nước lợ, nhưng thực ra không phải. P. lala chỉ sống ở nước ngọt hoàn toàn và lúc trưởng thành vẫn nhỏ.</p><p>Loài này có vài dạng khác nhau. Khi nghiên cứu kỹ hơn, các dạng này có thể sẽ được tách thành những loài riêng. Thỉnh thoảng có cá bắt ngoài tự nhiên nhập từ Ấn Độ về, còn cá sinh sản nhân tạo thì nhập từ Đông Nam Á.</p>",
+    "waterConditions:glaser": "<p>Cá thủy tinh lùn dễ tính về nước, pH hay độ cứng đều không quá kén. Nhiệt độ có thể dao động từ 16 đến 30°C tùy theo mùa. Điều quan trọng là không để nhiệt độ thay đổi đột ngột!</p>",
+    "diet:glaser": "<p>Chúng chỉ ăn thức ăn đông lạnh và thức ăn sống. Thức ăn khô thì chúng nhất quyết không đụng tới.</p>",
+    "behaviour:glaser": "<p>Cá thủy tinh lùn nuôi rất thích mắt. Lúc nào chúng cũng \"diễu hành\" quanh bể như những chú lính chì tí hon. Cá đực tán cá cái rất hăng nhưng không trở nên hung dữ.</p>",
+    "reproduction:glaser": "<p>Cá đẻ trứng vào đám cây lá mảnh và không chăm trứng hay cá con. Ở Đức hiếm người cho loài này sinh sản được. Lý do là cá bột chỉ chịu đớp mồi khi gặp nauplii (ấu trùng) của một loài giáp xác nhỏ nhất định là Diaptomus. Không có loại thức ăn này thì gần như không thể nuôi cá bột lớn được.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

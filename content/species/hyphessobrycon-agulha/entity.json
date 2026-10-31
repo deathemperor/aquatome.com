@@ -1,0 +1,108 @@
+{
+  "id": "hyphessobrycon-agulha",
+  "scientificName": "Hyphessobrycon agulha",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-madeira"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_agulha_en/",
+      "html": "<p>This characin species will probably not grow much larger than 6 cm. They are friendly and lively schooling fish, very suitable for a community tank. These fish are not difficult to keep and will tolerate all types of water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_agulha_en/",
+      "html": "<p>This very attractive tetra originates from the Rio Madeira, which runs into the Amazon River downstream from Manaus in Brazil.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_agulha_en/",
+      "html": "<p>As with all representatives of the genus Hyphessobrycon, these fish will thrive in a well-planted aquarium with many small-leaved plants, but also enough room for swimming. They also prefer a dark-coloured substrate. They are ideal inhabitants for a so-called Dutch aquarium and will show their best colours under soft lighting.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/326b6896dd339b9b.webp",
+      "width": 960,
+      "height": 483,
+      "licence": "CC BY 4.0",
+      "author": "A. Zarske, D. Bork, H.J. Franke, illust. Jurgen Scholz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_agulha_(31536).png",
+      "caption": "Hyphessobrycon agulha (Fowler 1913). Live coloring.",
+      "thumb": "https://media.aquatome.com/commons/326b6896dd339b9b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2db0d2cf9d39f01e.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 2.0",
+      "author": "Oregon State University",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_agulha_by_Rafael_Leit%C3%A3o.jpg",
+      "caption": "Hyphessobrycon agulha - Photo provided by OSU College of Agricultural Sciences.",
+      "thumb": "https://media.aquatome.com/commons/2db0d2cf9d39f01e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f4dcb8c6c76eb211.webp",
+      "width": 960,
+      "height": 1221,
+      "licence": "CC BY 4.0",
+      "author": "Angelo Rodrigo Manzotti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_fish_from_recently_deforested_basins_in_the_Meridional_Amazon.jpg",
+      "caption": "Species that contributed the most for total abundance and occurrence in the Aripuanã and Juruena river basins. a. Moenkhausia levidorsa; b. Moenkhausia oligolepis; c. Knodus sp. 1; d. Hemigrammus cf. ",
+      "thumb": "https://media.aquatome.com/commons/f4dcb8c6c76eb211-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể cá 60 lít"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền thủy sinh màu tối"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

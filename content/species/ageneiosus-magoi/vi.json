@@ -3,17 +3,26 @@
   "name": "Cá trê cá heo Magoi",
   "altNames": [
     "Cá trê Ageneiosus magoi",
-    "Dolphin catfish"
+    "Dolphin catfish",
+    "Cá da trơn Ageneiosus magoi",
+    "Slopehead Catfish"
   ],
   "sections": {
     "reproduction:glaser": "<p>Ở mọi loài cá trê Ageneiosus, con đực vào mùa sinh sản sẽ mọc gai vây lưng rất to và một cơ quan giao phối trông giống dương vật. Mép sau hàm trên của chúng còn nổi lên những gai thịt lạ mắt, nhìn như răng. Con đực dùng gai vây lưng để kẹp con cái lúc giao phối. Trứng được thụ tinh bên trong cơ thể con cái. Đẻ xong, gai vây lưng rụng đi, giống như hươu rụng sừng sau mùa động dục. Cơ quan giao phối cũng teo lại, nên lúc này nhìn bên ngoài không còn phân biệt được đực cái.</p>",
-    "notes:glaser": "<p>Tiếc là những loài cá trê Ageneiosus cỡ tương đối nhỏ còn lại (dưới 10 cm) đều có màu khá nhạt nhòa. Mới đây đã nhập được từ Venezuela những con A. magoi đã thành thục, có thể sinh sản. Số cá này hiện dài khoảng 15 cm. Theo tài liệu, A. magoi dài tối đa 18-20 cm. Vì vậy, với người chơi cá cảnh, A. magoi chắc chắn là loài cá trê Ageneiosus đáng chơi nhất. Màu của nó rất đẹp, mà kích thước lại tương đối nhỏ.</p>"
+    "notes:glaser": "<p>Tiếc là những loài cá trê Ageneiosus cỡ tương đối nhỏ còn lại (dưới 10 cm) đều có màu khá nhạt nhòa. Mới đây đã nhập được từ Venezuela những con A. magoi đã thành thục, có thể sinh sản. Số cá này hiện dài khoảng 15 cm. Theo tài liệu, A. magoi dài tối đa 18-20 cm. Vì vậy, với người chơi cá cảnh, A. magoi chắc chắn là loài cá trê Ageneiosus đáng chơi nhất. Màu của nó rất đẹp, mà kích thước lại tương đối nhỏ.</p>",
+    "quickFacts:scotcat": "<p>Ageneiosus magoi Castillo &amp; Brull G., 1989. Tên thường gọi: Slopehead Catfish. Họ: Auchenipteridae. Kích thước: 24 cm. Nhiệt độ: 23-28°C. pH: 6,5-7,2.</p>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, cụ thể là lưu vực sông Orinoco thuộc Venezuela. Nơi thu mẫu chuẩn là Los esteros de Camaguán, km 270, bang Guárico, Venezuela.</p>",
+    "behaviour:scotcat": "<p>Nếu nuôi chung với loài khác, bạn cần chọn những loài cùng cỡ hoặc lớn hơn. Ví dụ hợp là cá loricariid và các loài characin cỡ lớn như cá Silver Dollar. Loài này cũng nuôi chung được với cá cùng loài có kích thước tương đương.</p>",
+    "dimorphism:scotcat": "<p>Cũng như các loài khác trong họ Auchenipteridae, cá đực có vây hậu môn dài và dày hơn, kèm theo một nhú sinh dục. Ở cá đực, vây hậu môn biến đổi thành cơ quan giao phối, với tia thứ nhất và tia thứ hai dày và dài hơn. Người ta cho rằng cá đực dùng bộ phận này để giữ chặt cá cái lúc hai con quấn nhau đẻ trứng. Cá đực đang vào mùa sinh sản còn có gai vây lưng dài ra và cong, râu hàm trên cũng dài hơn.</p>",
+    "notes:scotcat": "<p>Về mô tả, cá có đầu dẹt và hình nêm. Đường viền lưng gần như thẳng, hơi dốc xuống về phía mõm. Vây lưng có 6/7 tia. Cá có vây mỡ nhỏ và vây hậu môn dài. Vây bụng nằm phía sau vây lưng và có 7/8 tia. Mắt nằm ở hai bên đầu. Thân cá có vân loang như đá cẩm thạch. Dọc thân có hai dải đen, ngăn giữa là một dải trắng. Một số cá thể có ánh vàng, nhưng màu này có thể phai đi khi nuôi trong bể. Ngoại hình giữa các cá thể có thể khác nhau.</p><p>Về nguồn gốc tên gọi, tên chi Ageneiosus có nghĩa là \"không râu\", ám chỉ cặp râu hàm trên rất nhỏ của chúng. Tên loài magoi đặt để vinh danh Francisco Mago-Leccia (1931-2004). Ông có nhiều đóng góp cho công tác nghiên cứu và hiểu biết về cá ở Venezuela, đồng thời có công lớn trong việc đào tạo một thế hệ nhà ngư học mới.</p>",
+    "references:scotcat": "<p>ScotCat Factsheet no.159; Sept. 2009. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.8,
+      "scotcat": 0.85
     }
   }
 }

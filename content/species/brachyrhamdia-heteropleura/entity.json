@@ -19,6 +19,34 @@
       {
         "source": "planetcatfish",
         "value": 4.3
+      },
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 60
       }
     ]
   },
@@ -30,16 +58,58 @@
       "html": "<ul><li>Scientific name: Brachyrhamdia heteropleura (Eigenmann, 1912)</li><li>Family: Heptapteridae</li><li>Type locality: Rupununi Pan, Guyana.</li><li>Synonym: Pimelodus heteropleurus</li><li>Size: 43 mm (1.7 inches) SL.</li><li>IUCN Red List: Least Concern (last assessed 2020).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>Family: Heptapteridae. Size: 4.5 cm. Temperature: 24-26°C. pH: 6.5-7.2.</p><p>Brachyrhamdia heteropleura possibly mimics Pimelodella spp. (Slobodian and Bockmann 2013).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1063",
       "html": "<p>South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil). Type locality: Rupununi Pan [Essequibo River basin], British Guiana.</p><p>Brachyrhamdia heteropleura occurs in the Essequibo (in Guyana), Coratijn (in Suriname; albeit exact occurrence records are not known) and Branco and Marauirá rivers, tributaries of the Negro in the states of Amazonas and Roraima, Brazil (Bockmann and Guazzelli 2003, GBIF 2019, SpLink 2020).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>Congeners of the species inhabit benthic environments with sandy bottoms, in marginal streams and lagoons, and are generally associated with marginal vegetation (ICMBio 2018).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>House in aquaria (60 cm or over) with alternate sand and gravel substrate. Provide planted area. Keep in a species tank or with Corydoras and larger characins or anabantoids in the top half, as they can be predatory with small species such as Neon Tetras.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>Tablet and pellet foods. Frozen and live foods such as bloodworm. Insect larvae. Not a fussy eater.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>Etymology: The specific name heteropleura: héteros (Gr.), different; pleurá (Gr.), side, referring to \"punctate\" sides, \"the chromatophores in the median area between the dorsal and anal gathered along the septa; a median series of chromatophores along the sides\".</p><p>Remarks: Not often seen in imports.</p><p>IUCN Red List: Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1063",
       "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 176, Pl. 16 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2025. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2025).</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Morris, J.T.; ScotCat Article: An Observation On a Spawning of Brachyrhamdia imitator, Myers 1927.</p><p>Salvador, G.N. 2023. Brachyrhamdia heteropleura. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -97,5 +167,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -8,12 +8,20 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-purus"
+    "rio-purus",
+    "amazon"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 25,
           "max": 28
@@ -24,6 +32,19 @@
       {
         "source": "planetcatfish",
         "value": 13.9
+      },
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -35,10 +56,28 @@
       "html": "<p>Aphanotorulus unicolor (Steindachner, 1908). Type locality: Rio Purus, Brazil. Etymology: Greek aphanes = hidden + Latin torulus = muscle, little string.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>Mouth with papillae and upper lips have protrusions.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
       "html": "<p>South America: Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>South America: Brazil; Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>Relatively easy to keep with higher temperatures and a fine sand substrate.</p>"
     },
     {
       "key": "waterConditions",
@@ -47,10 +86,22 @@
       "html": "<p>Temperature: 25.0-28.0°C (77-82.4°F).</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>Not fussy and will eat most prepared aquarium foods such as tablet, frozen and live foods.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
       "html": "<p>In Aphanotorulus, all species show clear sexual dimorphism. Males in breeding condition possess extremely elongate, bristle-like odontodes. These cover the entire back and sides behind the dorsal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>Similar to the Hypostomus genera but remains smaller. Males have bristles on the odontodes, mainly on the posterior of the body during spawning time.</p>"
     },
     {
       "key": "reproduction",
@@ -65,10 +116,22 @@
       "html": "<p>Size: 139 mm (5.5\") SL.</p><p>Identification: In Aphanotorulus, all species have a generally flatter appearance than other hypostomine genera. The posterior edge of the oral disc is jagged rather than smooth. Aphanotorulus can be distinguished from Isorineloricaria by having caudal peduncles that do not become greatly lengthened with size and that are oval in cross section (vs. caudal peduncle proportions that get proportionately longer with size and become round in cross-section), and by having small dark spots (less than half plate diameter) on a light tan background (vs. spots almost as large as lateral plates on a nearly white background).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p><strong>IUCN Red List:</strong> Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p><p><strong>Etymology:</strong> The specific name unicolor: uni-, from unus (L.), one, referring to its uniform chocolate colouration (perhaps described from a preserved or colour-faded specimen since the catfish is spotted in life).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
       "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Klasse v. 45 (no. 11) (for 2 Apr. 1908), pp 164.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
+      "html": "<p>Salvador, G.N. 2023. Aphanotorulus unicolor. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, Ingo; Back to Nature guide to L-catfishes 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -107,23 +170,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/a6e1a857982ec1a4.webp",
+      "thumb": "https://media.aquatome.com/commons/a6e1a857982ec1a4-480.webp",
       "width": 960,
       "height": 684,
       "licence": "CC0",
       "author": "Whaldener Endo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphanotorulus_unicolor.jpg",
-      "caption": "Aphanotorulus unicolor",
-      "thumb": "https://media.aquatome.com/commons/a6e1a857982ec1a4-480.webp"
+      "caption": "Aphanotorulus unicolor"
     },
     {
       "url": "https://media.aquatome.com/commons/96aa04b3f3933668.webp",
+      "thumb": "https://media.aquatome.com/commons/96aa04b3f3933668-480.webp",
       "width": 960,
       "height": 485,
       "licence": "CC BY-SA 3.0",
       "author": "V.D.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypostomus_basilisko1.jpg",
-      "caption": "Hypostomus basilisko (syn. Cochliodon basilisko), also known as \"red bruno\" or Cochlidion sp. Paraguay)",
-      "thumb": "https://media.aquatome.com/commons/96aa04b3f3933668-480.webp"
+      "caption": "Hypostomus basilisko (syn. Cochliodon basilisko), also known as \"red bruno\" or Cochlidion sp. Paraguay)"
     }
   ],
   "videos": [],

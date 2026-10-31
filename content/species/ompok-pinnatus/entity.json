@@ -1,0 +1,116 @@
+{
+  "id": "ompok-pinnatus",
+  "scientificName": "Ompok pinnatus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Ompok",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "mekong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Ompok pinnatus Ng, H.H., 2003. Common name: Long-fin Glass Catfish. Type locality: Cambodia: Tonle Sap at Kompong Chhnang. Size: 81 mm (3.2\") SL. IUCN Red List status: Data Deficient.</p><p>The genus Ompok consists of medium-sized silurid fishes found in inland waters throughout South and Southeast Asia. It is traditionally diagnosed by a short dorsal fin with 4 rays, a strongly forked caudal fin, a subcutaneous eye set immediately posterior to the mouth rictus and two patches of palatal teeth (Weber &amp; de Beaufort, 1913). Bornbusch (1995) showed that Ompok, as currently understood, is probably paraphyletic.</p><p>Like O. eugeneiatus, it is easily distinguished from congeners by the very long barbels. Ompok pinnatus differs from O. eugeneiatus in having a deeper caudal peduncle, shorter mandibular barbels and fewer anal-fin rays.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Southeast Asia: Chao Phraya and Mekong River drainages in Thailand and Cambodia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>pH 6.0–7.0. Temperature 22–28°C (71.6–82.4°F).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Provide hiding spaces in the form of driftwood or PVC pipes as well as plenty of vegetation. Prefers an area of open water when active.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Readily feeds on live or frozen foods and other prepared foods such as pellets. May eat very small fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>A relatively peaceful species that is compatible with most fish. Not safe with very small fishes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Males are more slender and have strong serrations on the posterior edge of the pectoral spine (females lack these serrations).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1086",
+      "html": "<p>Proceedings of the Biological Society of Washington v. 116 (no. 1), pp 48, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

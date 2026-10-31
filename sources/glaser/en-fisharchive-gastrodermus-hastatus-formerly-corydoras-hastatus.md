@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/
+title: Gastrodermus hastatus (formerly: Corydoras hastatus) - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T20:53:56.008Z
+hash: 5a1bd02e12f74636e095a5ee99ee2c2552e325083d0b6c970eb05e81b226d069
+---
+
+Two species of armored catfish are commonly referred to as dwarf armored catfish. The northern species is Gastrodermus pygmaeus (upper Amazon in Peru, Ecuador, Brazil, and Colombia); see https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_pygmaeus_en/. The southern species is Gastrodermus hastatus; it is found in Argentina, Bolivia, Brazil, Paraguay, and Uruguay. Until recently, both species were classified in the large, catch-all genus Corydoras; both grow to only 2–3 cm in length.
+We typically source the southern dwarf armored catfish, G. hastatus, from Paraguay. Unlike most other armored catfish, dwarf armored catfish are less bottom-dwelling. They are just as happy swimming in open water. Schools of G. hastatus are often mixed with several species of tetras that have exactly the same coloration. You can read about the benefits of this here: https://www.aqualog.de/blog/die-paraguay-connection/ (German only).
+Dwarf armored catfish should be kept in as large a school as possible. There should never be fewer than 6 fish. The chemical composition of the water is not important; any drinking water is suitable. They will eat any commercially available ornamental fish food of the appropriate size, but they are reluctant to take food from the water’s surface, so it should sink. For the southern species, the water temperature can and should vary throughout the year. There should be a cool period with water temperatures between 16 and 22°C and a warm period with water temperatures between 24 and 28°C. Each period can last about six months, though when acclimating the fish, one should follow the corresponding season in their country of origin. In Paraguay, with its subtropical climate, there are two main seasons: a hot summer (October–March, up to over 40°C) and a mild to cool winter (May–August). Once G. hastatus have acclimated, the seasonal temperature cycle can be adapted to the temperature periods typical of our latitudes
+For our customers: Depending on their size, the animals are listed on our stock list under codes 232001 (sm) through 232005 (lg). Please note that we supply exclusively to wholesalers.
+Text & Photos: Frank Schäfer

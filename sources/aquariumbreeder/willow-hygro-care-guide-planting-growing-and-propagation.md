@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/willow-hygro-care-guide-planting-growing-and-propagation/
 title: Willow Hygro Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
-fetchedAt: 2026-10-31T11:19:07.677Z
+fetchedAt: 2026-10-31T19:46:14.123Z
 hash: dbe9a9bd5746cfa11a40f440dc0ef4a871af75a76c1a282328e77d14c19444c6
 ---
 

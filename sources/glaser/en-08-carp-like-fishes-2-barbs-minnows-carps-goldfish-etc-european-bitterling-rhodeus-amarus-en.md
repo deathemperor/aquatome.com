@@ -1,0 +1,14 @@
+---
+url: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/european_bitterling_rhodeus_amarus_en/
+title: European Bitterling - Rhodeus amarus - Aquarium Glaser GmbH
+fetchedAt: 2026-10-31T21:06:26.340Z
+hash: 9e884a7c63f423c7765ffde45a3f27084a49348649f0952ae8e680de09059d32
+---
+
+The Bitterling of Central Europe is a small cyprinid, reaching a total length of 6-8 cm. It is very famous, because it lays its eggs as a parasite of freshwater mussels in the gills of living mussels. The behaviour accompanying this parasitic breeding strategy is extremely interesting and makes the Bitterling an ideal aquarium or garden pond inhabitant.
+There are about 40 different species of Bitterling, all originating from Asia and all show the very same breeding behaviour. And in fact the European Bitterling isn´t a native European citizen at all, but an invasive species. The first Bitterlings appeared around the years 1150 and 1560 in Central Europe. They came along with the Common Carp (Cyprinus carpio) and survived in and nearby the artifical carp ponds. Then they became extinct again during the “Little Ice Age”. Bitterlings came back only in the end of the 18th century, again along with Common Carps. In the years between 1960 and 1980 the population of the Bitterling in Central Europe declined dramatically. It was thought at the time that this was due to the environmental pollution. But recent investigations make it much more likely that this decline was due to cold spring months during that period.
+So it is not only unnecessary, but in fact harmful to protect the Bitterling in natural invironments.
+Nevertheless makes the Bitterling a perfect aquarium and garden pond fish! It has brillant colours. It is unnecessary to heat the tank for this “coldwater fish”, but temperatures up to 26°C are acceptable. One needs mussels to breed Bitterlings. The species of mussel doesn´t matter for the Bitterling. The fish takes it as it comes. One should be aware that mussels are difficult to keep in a long time sight in aquaria. They die of starving, because in the clean aquarium water are not enough small algae and other infusoria on which the mussels can feed. But the mussel must not be released – under no circumstances! – in the wild after it has done its job! There are many different species of mussels in the trade, some of them exotic, and the could do a lot of harm in nature!
+It is a general rule: all animals and plants that are sold in petshops and garden centers are bred especially in farms for keeping them in aquaria and garden ponds. Not one specimen must be released ever in the wild!
+For our customers: the Bitterling has code 802303 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

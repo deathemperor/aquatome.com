@@ -18,6 +18,13 @@
           "min": 20,
           "max": 24
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -65,6 +72,12 @@
       "html": "<p>Danio erythromicron is a miniature danionin from Lake Inle and its surrounding watershed in Shan State, eastern Myanmar. Fully grown at just 20 mm, it is sold under trade names including 'emerald dwarf danio' and 'cross-banded dwarf rasbora'. It will not do well in acidic water, and there is limited evidence that it has been hybridised with D. margaritatus and the offspring sold as females of that species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>A small schooling nano fish that is perfect for those looking to add life and color into a blackwater biotope. They have a gray body with nice iridescent blue stripes running down the body to create tiger-like stripes. They also have some orange on their fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
@@ -95,16 +108,34 @@
       "html": "<ul><li>Temperature: 20–24°C (68–75°F). Temperatures in Lake Inle have been recorded to vary between 20–24 °C.</li><li>pH: 7.0–8.0. This species will not do well in acidic water.</li><li>Hardness: 12–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Prefers low TDS, acidic water but can adapt to a wide range of conditions.</p><p>Temperature: 22–26 °C (72–78 °F).</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "html": "<p>Likely to feed on small invertebrates, algae and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively, and as it rarely rises to the surface there's little point in offering floating products.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will not only result in the best colouration but encourage the fish to come into breeding condition.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life.</p><p>Small live foods are therefore recommended as an initial diet with dry and frozen products being introduced as the fish become settled.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Small foods such as crushed pellets and flakes; live baby brine shrimp are perfect.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "html": "<p>Likely to be intimidated or outcompeted for food by larger or more boisterous tankmates although the presence of similarly-sized, surface-dwelling species seems to help reduce its shyness.</p><p>Other small cyprinids from Myanmar such as Danio choprae or members of the genus Microdevario are suitable companions, and it might also do well alongside Dario hysginon or D. sp. 'Myanmar'.</p><p>The closely-related Danio margaritatus is not recommended as these two are probably capable of hybridisation.</p><p>A community based around fishes from Lake Inle would make an interesting project with species available in the trade including Sawbwa resplendens, Inlecypris auropurpureus, Microrasbora rubescens, Pethia stoliczkana, Parambassis lala and Yunnanilus brevis.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 20 or more, as when kept in larger groups the aggression is spread between individuals plus the fish are bolder, more often-seen, and exhibit better colouration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Temperament: peaceful.</p><p>They are aggressive eaters and can out-compete slower fish for food, so do not keep them with slow-moving and shy fish. Likewise, do not keep them with large fish that see them as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -175,6 +206,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-erythromicron",
       "caption": "...from where they display to ripe females.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/fd981e2f4732121a.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/fd981e2f4732121a-480.webp",
+      "width": 838,
+      "height": 713,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/copy-of-brevibora-dorsiocellata-emerald-eye-rasbora",
+      "source": "bwaquatics"
     }
   ],
   "videos": [

@@ -1,0 +1,137 @@
+{
+  "id": "corydoras-hastatus",
+  "scientificName": "Corydoras hastatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "bolivia",
+    "brazil",
+    "paraguay",
+    "uruguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "html": "<p>Two species of armored catfish are commonly referred to as dwarf armored catfish. The northern species is Gastrodermus pygmaeus (upper Amazon in Peru, Ecuador, Brazil and Colombia). The southern species is Gastrodermus hastatus. Until recently, both species were classified in the large genus Corydoras; both grow to only 2–3 cm in length.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "html": "<p>G. hastatus is found in Argentina, Bolivia, Brazil, Paraguay and Uruguay. The southern dwarf armored catfish is typically sourced from Paraguay.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "html": "<p>The chemical composition of the water is not important; any drinking water is suitable. For the southern species, the water temperature can and should vary throughout the year. There should be a cool period with water temperatures between 16 and 22°C and a warm period between 24 and 28°C. Each period can last about six months, though when acclimating the fish, one should follow the corresponding season in their country of origin. In Paraguay, with its subtropical climate, there are two main seasons: a hot summer (October–March, up to over 40°C) and a mild to cool winter (May–August). Once G. hastatus have acclimated, the seasonal temperature cycle can be adapted to the temperature periods typical of our latitudes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "html": "<p>They will eat any commercially available ornamental fish food of the appropriate size, but they are reluctant to take food from the water's surface, so it should sink.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "html": "<p>Unlike most other armored catfish, dwarf armored catfish are less bottom-dwelling. They are just as happy swimming in open water. Schools of G. hastatus are often mixed with several species of tetras that have exactly the same coloration.</p><p>Dwarf armored catfish should be kept in as large a school as possible. There should never be fewer than 6 fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bc71c036b4f04290.webp",
+      "thumb": "https://media.aquatome.com/glaser/bc71c036b4f04290-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fee842ac872657e3.webp",
+      "thumb": "https://media.aquatome.com/glaser/fee842ac872657e3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e9e614253ca52a8c.webp",
+      "thumb": "https://media.aquatome.com/glaser/e9e614253ca52a8c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6d9d78b5065d6915.webp",
+      "thumb": "https://media.aquatome.com/glaser/6d9d78b5065d6915-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ nuôi cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "thức ăn viên chìm cá nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

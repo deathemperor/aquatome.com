@@ -13,7 +13,8 @@
     "orinoco",
     "french-guiana",
     "suriname",
-    "colombia"
+    "colombia",
+    "guyana"
   ],
   "dataCard": {
     "tempC": [
@@ -21,6 +22,13 @@
         "source": "planetcatfish",
         "value": {
           "min": 24,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
           "max": 27
         }
       }
@@ -32,12 +40,23 @@
           "min": 6,
           "max": 7.6
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 150
+      },
+      {
+        "source": "scotcat",
+        "value": 140
       }
     ]
   },
@@ -49,10 +68,22 @@
       "html": "<ul><li>Scientific name: Brachyplatystoma vaillantii (Valenciennes, 1840)</li><li>Size: 1500 mm (59.1 in) SL</li><li>Temperature: 24.0–27.0°C</li><li>pH: 6.0–7.6</li><li>Identification: gray dorsal surface and underside. The large adipose fin clearly separates it from other congeners.</li><li>Etymology: Greek brachys = short, platys = flat, stoma = mouth.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2024). Despite the little information available, the species has a wide range and no apparent threats that put it at risk of extinction.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
       "html": "<p>South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil. Type locality: Cayenne, French Guiana; Suriname; Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -61,58 +92,109 @@
       "html": "<p>Naturally found in muddy, black water and clear waters as far downstream as freshwater estuary habitat.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "html": "<p>In the Amazon, they congregate in schools at the Rio Madeira rapids every four to five years (Goulding 1981). These schools apparently originate in the Amazon estuaries and migrate upstream as far as the Rio Solimoes. It can sometimes be caught in the upper part up to the foot of the Andean range, where it appears to be more rare than Brachyplatystoma filamentosum, but never in the zones prone to flood. Reproductive migrations probably occur like in other Brachyplatystoma. Usually caught with long lines and drift nets. Its flesh is of excellent quality and highly appreciated.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "html": "<p>Resembles B. filamentosum, but B. vaillantii has a larger adipose fin and does not grow as large as the former.</p><p>Etymology: the specific name vaillantii honours François Levaillant (1753–1824), French explorer, naturalist and zoological collector, who brought the types to Europe.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
       "html": "<p>Histoire naturelle des poissons v. 15, pp 21, Pl. 423.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011).</p><p>Salvador, G.N. 2024. Brachyplatystoma vaillantii. The IUCN Red List of Threatened Species 2024.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/3f1d9fcbe61938cd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3f1d9fcbe61938cd-480.webp",
+      "width": 500,
+      "height": 255,
+      "licence": "dùng với sự cho phép",
+      "author": "Nishant Kakani / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "caption": "Brachyplatystoma vaillantii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5593bd39111dff72.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5593bd39111dff72-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "caption": "Brachyplatystoma vaillantii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2021ae05821c798b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2021ae05821c798b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
+      "caption": "Brachyplatystoma vaillantii: juvenile",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d75d202d7b6a65f8.webp",
+      "thumb": "https://media.aquatome.com/commons/d75d202d7b6a65f8-480.webp",
       "width": 960,
       "height": 549,
       "licence": "CC BY 4.0",
       "author": "Clara Costa D'Elia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piramutaba.png",
-      "caption": "Desenho à lápis da piramutaba (Brachyplatystoma vaillant). Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/).",
-      "thumb": "https://media.aquatome.com/commons/d75d202d7b6a65f8-480.webp"
+      "caption": "Desenho à lápis da piramutaba (Brachyplatystoma vaillant). Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/)."
     },
     {
       "url": "https://media.aquatome.com/commons/9d5798afeca44766.webp",
+      "thumb": "https://media.aquatome.com/commons/9d5798afeca44766-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "NaturaLista.co user: juan_carlos_caicedo_hernandez",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_vaillantii.jpg",
-      "caption": "Laulao Catfish (Brachyplatystoma vaillantii). Species of fish.",
-      "thumb": "https://media.aquatome.com/commons/9d5798afeca44766-480.webp"
+      "caption": "Laulao Catfish (Brachyplatystoma vaillantii). Species of fish."
     },
     {
       "url": "https://media.aquatome.com/commons/fe091f77544a4b75.webp",
+      "thumb": "https://media.aquatome.com/commons/fe091f77544a4b75-480.webp",
       "width": 831,
       "height": 320,
       "licence": "CC BY 4.0",
       "author": "M. Goulding, from Ronaldo B. Barthem, Michael Goulding, Rosseval G. Leite, Carlos Cañas, Bruce Forsberg, Eduardo Venticinque, Paulo Petry, Mauro L. de B. Ribeiro, Junior Chuctaya & Armando Mercado",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vaillantii_piramutaba_pirabuton.png",
-      "caption": "B. vaillantii (piramutaba in Portuguese, pirabutón in Spanish)",
-      "thumb": "https://media.aquatome.com/commons/fe091f77544a4b75-480.webp"
+      "caption": "B. vaillantii (piramutaba in Portuguese, pirabutón in Spanish)"
     },
     {
       "url": "https://media.aquatome.com/commons/172533759dbac642.webp",
+      "thumb": "https://media.aquatome.com/commons/172533759dbac642-480.webp",
       "width": 960,
       "height": 657,
       "licence": "Public domain",
       "author": "Burkhardt, Jacques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_vaillantii_(Belem,_Para,_Brazil,_14_August_1865).jpg",
-      "caption": "Taxonomic Classification: Animalia--Pimelodidae--Brachyplatystoma vaillantii (Valenciennes 1840). Common Name: Laulao catfish. Original Name: Piramutaba",
-      "thumb": "https://media.aquatome.com/commons/172533759dbac642-480.webp"
+      "caption": "Taxonomic Classification: Animalia--Pimelodidae--Brachyplatystoma vaillantii (Valenciennes 1840). Common Name: Laulao catfish. Original Name: Piramutaba"
     }
   ],
   "videos": [],

@@ -517,6 +517,46 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
+    "entityIds": [
+      "species/ageneiosus-magoi"
+    ],
+    "updatedAt": "2026-10-31T19:33:09.192Z",
+    "hash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
+    "processedHash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm": {
+    "entityIds": [
+      "species/bagrichthys-hypselopterus"
+    ],
+    "updatedAt": "2026-10-31T19:38:39.910Z",
+    "hash": "be1b6d3fff18ffe8f8c6efb7098ab24097f883b997869fe44cc84b0a7bf7629e",
+    "processedHash": "be1b6d3fff18ffe8f8c6efb7098ab24097f883b997869fe44cc84b0a7bf7629e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm": {
+    "entityIds": [
+      "species/brachyrhamdia-heteropleura"
+    ],
+    "updatedAt": "2026-10-31T19:41:43.773Z",
+    "hash": "63aadf2c475b4ac65a73d8f833771c40ddfd289ec12e0e6975a690b8f8cacc79",
+    "processedHash": "63aadf2c475b4ac65a73d8f833771c40ddfd289ec12e0e6975a690b8f8cacc79",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm": {
+    "entityIds": [
+      "species/aphanotorulus-unicolor"
+    ],
+    "updatedAt": "2026-10-31T19:36:48.162Z",
+    "hash": "231f3ccf31279e99134c3f1248677f947fa7c79cefd81daefa5dd2af72864a43",
+    "processedHash": "231f3ccf31279e99134c3f1248677f947fa7c79cefd81daefa5dd2af72864a43",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -532,6 +572,26 @@
     "updatedAt": "2026-10-31T03:59:37.681Z",
     "hash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
     "processedHash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm": {
+    "entityIds": [
+      "species/aguarunichthys-tocantinsensis"
+    ],
+    "updatedAt": "2026-10-31T19:35:27.534Z",
+    "hash": "e91ba5f2b6998e05237fae056716aad6add4004f8ecbe98db06f174770dcadde",
+    "processedHash": "e91ba5f2b6998e05237fae056716aad6add4004f8ecbe98db06f174770dcadde",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm": {
+    "entityIds": [
+      "species/brachyplatystoma-vaillantii"
+    ],
+    "updatedAt": "2026-10-31T19:39:45.131Z",
+    "hash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
+    "processedHash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
     "status": "processed",
     "attempts": 0
   }

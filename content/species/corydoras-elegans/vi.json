@@ -2,17 +2,25 @@
   "slug": "ca-chuot-san-juan",
   "name": "Cá chuột San Juan",
   "altNames": [
-    "San Juan Cory"
+    "San Juan Cory",
+    "Cá chuột thanh lịch",
+    "Elegant Cory"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Corydoras (lineage 5) cf. elegans</li><li>Tên thường gọi: San Juan Cory</li><li>Cách phát âm: kor ee doh rass (lineage five)</li><li>Từ nguyên: Cory nghĩa là mũ trụ, doras nghĩa là da. Ở tên giống này, chữ doras bị dùng sai thành nghĩa áo giáp (cuirasse) thay vì da. Cái tên muốn nói đến hai hàng tấm xương chạy dọc hai bên thân của các loài trong giống.</li></ul>",
-    "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện loài này sinh sản.</p>"
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Gastrodermus elegans (Steindachner, 1876)</li><li>Tên thường gọi: Elegant Cory</li><li>Nơi thu mẫu chuẩn: sông Amazon tại Tefé, bang Amazonas, Brazil</li><li>Tính cách: hiền lành, sống theo đàn, hợp bể cộng đồng</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ. Loài này sống trong lưu vực Amazon, gồm trung lưu Amazon (Solimões), thượng lưu Amazon và các sông Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari, Japurá/Caquetá.</p>",
+    "waterConditions:planetcatfish": "<p>pH 6,0–7,4. Nhiệt độ 22–25°C. Độ cứng của nước không phải chuyện sống còn. Tuy vậy, nếu giữ nước hơi mềm trong các khoảng trên thì cá đực sẽ lên màu đẹp nhất.</p>",
+    "equipment:planetcatfish": "<p>Nền tốt nhất là cát. Sỏi tròn cạnh cũng dùng được, dù không bằng cát. Bạn nên tránh loại sỏi sắc cạnh, sứt mẻ, vì cá hay đào bới và dễ bị tổn thương râu. Hãy bố trí lũa và cây thủy sinh quanh rìa nền, chừa lại một khoảng trống ở giữa cho cá bơi và kiếm ăn. Chỉ cần có bóng râm từ đá nhô ra, lũa cong, cây cao hoặc cây thả nổi là cá đã thấy yên tâm.</p>",
+    "diet:planetcatfish": "<p>Loài này ăn tốt mọi loại thức ăn khô chìm xuống đáy, như viên nén, cám hạt và cám lá cỡ lớn. Cá cũng ăn ngon lành các loại thức ăn sống hoặc đông lạnh như trùng huyết, giun trắng, giun grindal (Enchytraeus), bo bo và trùng chỉ. Những món này còn rất tốt để vỗ béo đàn cá trước khi cho sinh sản.</p>",
+    "behaviour:planetcatfish": "<p>Đây là loài cá hiền lành, sống theo đàn và hợp bể cộng đồng.</p>",
+    "dimorphism:planetcatfish": "<p>Cá cái lớn hơn và thân đầy đặn hơn. Nhìn từ trên xuống là thấy rõ nhất. Khi trưởng thành, cá đực thường có đầu vây nhọn hơn, còn cá cái thì đầu vây tròn.</p>",
+    "references:planetcatfish": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 141 [93].</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.82
     }
   }
 }

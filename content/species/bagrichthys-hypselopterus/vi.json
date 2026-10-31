@@ -3,7 +3,11 @@
   "name": "Cá Bagrichthys hypselopterus",
   "altNames": [
     "Cá da trơn Bagrichthys đen",
-    "Black Lancer Catfish"
+    "Black Lancer Catfish",
+    "Cá lăng lancer đen",
+    "Blacklancer",
+    "Blacklancer Catfish",
+    "Black lancer"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Bagrichthys hypselopterus (Bleeker, 1852)</li><li><strong>Tên thường gọi:</strong> Black Lancer Catfish (chưa có tên tiếng Việt thông dụng)</li><li><strong>Nơi thu mẫu chuẩn (type locality):</strong> Palembang, Sumatra, Indonesia.</li><li><strong>Tên đồng nghĩa:</strong> Bagrus hypselopterus</li><li><strong>Kích thước:</strong> 400 mm SL (chiều dài chuẩn, tính từ mõm đến cuống đuôi).</li><li><strong>Sách Đỏ IUCN:</strong> Ít quan ngại (Least Concern), đánh giá lần gần nhất năm 2018.</li></ul>",
@@ -13,13 +17,20 @@
     "diet:planetcatfish": "<p>Ngoài tự nhiên, loài cá này ăn mùn bã hữu cơ.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực có nhú sinh dục dài và râu dài hơn cá cái.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Hiện chưa có tài liệu nào ghi lại loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>"
+    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>",
+    "distribution:scotcat": "<p>Châu Á: Sumatra và Borneo. Nơi thu mẫu chuẩn: Palembang, in fluviis.</p><p>Người ta đã ghi nhận loài này ở lưu vực sông Batang Hari và sông Musi trên đảo Sumatra. Nó cũng có mặt ở lưu vực sông Kapuas, miền tây Borneo.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở dòng chính của các con sông lớn. Chúng ở vùng nước sâu, nền bùn và dòng chảy xiết.</p>",
+    "behaviour:scotcat": "<p>Cá black lancer đực có thể rất hung hăng giữ lãnh thổ. Vì vậy mỗi bể chỉ nên nuôi một con đực, số còn lại là cá cái. Miệng loài này nhỏ nhưng mở được khá rộng. Dù vậy, chúng thường không gây nguy hiểm cho các loài cá khác. Có điều, nếu bạn nuôi chung với cá thật nhỏ thì đám cá nhỏ có thể bị nó ăn mất vào ban đêm, vì black lancer rất thích đi lùng sục lúc trời tối.</p>",
+    "diet:scotcat": "<p>Chúng ăn côn trùng và cá nhỏ.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên giống Bagrichthys bắt nguồn từ chữ 'bagre'. Đây là tên người Nam Mỹ gọi một loài cá da trơn, nhưng giới phân loại chỉ dùng tên giống này cho các loài ở châu Phi và châu Á. Tên loài hypselopterus có nghĩa là vây cao hoặc vây dài.</p><p>Danh lục đỏ IUCN: Phạm vi phân bố (EOO) của loài ước tính khoảng 247000 km2. Hiện chưa rõ tổng số lượng cá thể cũng như xu hướng tăng giảm của quần thể. Loài này có thể bị đe dọa do mất rừng vì khai thác gỗ, do chuyển đất sang làm nông nghiệp và do người dân đánh bắt để ăn. Tuy nhiên, mức độ ảnh hưởng của các mối đe dọa này vẫn chưa rõ. Số liệu khảo sát còn ít, nhưng cho thấy loài này không phổ biến ở bất cứ đâu trong vùng phân bố. Dù vậy, quần thể có vẻ vẫn ổn định. IUCN xếp loài này vào nhóm Ít quan tâm (IUCN 2019).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Bagrichthys hypselopterus. The IUCN Red List of Threatened Species 2019.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.82
+      "planetcatfish": 0.82,
+      "scotcat": 0.82
     }
   }
 }

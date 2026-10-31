@@ -4,20 +4,28 @@
   "altNames": [
     "Cá trê piramuta",
     "Laulao catfish",
-    "Piramuta catfish"
+    "Piramuta catfish",
+    "Cá piramutaba",
+    "Piramutaba"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Brachyplatystoma vaillantii (Valenciennes, 1840)</li><li>Kích thước: 1500 mm (150 cm) SL</li><li>Nhiệt độ: 24,0–27,0°C</li><li>pH: 6,0–7,6</li><li>Nhận dạng: mặt lưng và mặt bụng màu xám. Vây mỡ lớn là đặc điểm giúp phân biệt rõ loài này với các loài khác cùng chi.</li><li>Từ nguyên: tiếng Hy Lạp brachys = ngắn, platys = dẹt, stoma = miệng.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco, cùng các con sông lớn ở vùng Guiana và đông bắc Brazil. Nơi thu mẫu chuẩn: Cayenne, Guiana thuộc Pháp; Suriname; Colombia.</p>",
     "habitat:planetcatfish": "<p>Ngoài tự nhiên, loài này sống ở cả nước đục nhiều bùn, nước đen lẫn nước trong. Chúng có mặt xuôi về tận vùng cửa sông nước ngọt ở hạ lưu.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Hiện chưa có báo cáo nào về nhân giống loài này.</p>",
-    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 21, Pl. 423.</p>"
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 21, Pl. 423.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (IUCN 2024). Thông tin về loài này còn ít. Dù vậy, chúng phân bố rộng và chưa thấy mối đe dọa rõ ràng nào đẩy chúng đến nguy cơ tuyệt chủng.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco, cùng các sông lớn ở vùng Guiana và đông bắc Brazil.</p>",
+    "habitat:scotcat": "<p>Ở Amazon, cứ bốn đến năm năm một lần, loài cá này lại tụ thành đàn tại các ghềnh thác trên sông Rio Madeira (Goulding 1981). Những đàn này có vẻ xuất phát từ vùng cửa sông Amazon rồi bơi ngược dòng lên tận Rio Solimoes. Đôi khi người ta bắt được chúng ở vùng thượng nguồn, lên đến tận chân dãy Andes. Ở đó chúng có vẻ hiếm hơn Brachyplatystoma filamentosum, và chưa bao giờ xuất hiện ở những vùng hay bị ngập lũ. Nhiều khả năng chúng cũng di cư để sinh sản như các loài Brachyplatystoma khác. Ngư dân thường bắt chúng bằng câu giăng và lưới trôi. Thịt cá rất ngon và được người ta chuộng.</p>",
+    "notes:scotcat": "<p>Loài này trông giống B. filamentosum. Điểm khác là B. vaillantii có vây mỡ lớn hơn và không lớn bằng B. filamentosum.</p><p>Nguồn gốc tên gọi: tên loài vaillantii đặt để vinh danh François Levaillant (1753–1824). Ông là nhà thám hiểm, nhà tự nhiên học và nhà sưu tầm động vật người Pháp, và là người đã mang các mẫu chuẩn của loài về châu Âu.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011).</p><p>Salvador, G.N. 2024. Brachyplatystoma vaillantii. The IUCN Red List of Threatened Species 2024.</p>"
   },
   "quality": {
-    "score": 0.93,
+    "score": 0.88,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.93
+      "planetcatfish": 0.93,
+      "scotcat": 0.88
     }
   }
 }

@@ -5,7 +5,13 @@
   "family": "Cyprinidae",
   "genus": "Carassius",
   "group": "other",
-  "places": [],
+  "places": [
+    "asia",
+    "china",
+    "korea",
+    "japan",
+    "russia"
+  ],
   "dataCard": {
     "tempC": [
       {
@@ -13,6 +19,13 @@
         "value": {
           "min": 10,
           "max": 27
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 23
         }
       }
     ],
@@ -23,6 +36,13 @@
           "min": 6,
           "max": 9
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
       }
     ],
     "gh": [
@@ -32,12 +52,23 @@
           "min": 6,
           "max": 12
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 15
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 18
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -49,6 +80,10 @@
     "difficulty": [
       {
         "source": "sprucepets",
+        "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 2
       }
     ]
@@ -65,6 +100,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "html": "<ul><li>Common names: Fantail goldfish, double tail goldfish</li><li>Family: Cyprinidae</li><li>Origin: Asia</li><li>Adult size: 18 cm (7 inches)</li><li>Life expectancy: 10 to 15 years</li><li>Social: Peaceful</li><li>Tank level: Top, mid-dweller</li><li>Minimum tank size: 75 litres (20 gallons)</li><li>Diet: Omnivore</li><li>Breeding: Egg layer</li><li>Care: Easy</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Chinese goldfish or Asian goldfish</li><li>Water type: freshwater</li><li>Minimum tank size: 20 gallons (~80 litres)</li><li>Breeding: medium</li><li>Dwellers: top to bottom</li><li>Nitrate: less than 100</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 15 years</li></ul><p>The average lifespan is 6–7 years in the wild and 10–15 years in captivity. With excellent care, 30+ years has been reported.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -85,10 +126,28 @@
       "html": "<p>Although the original comet goldfish originated from the Crucian carp in Asia, the fantail goldfish does not occur in the wild and has been developed through human-led selective breeding. Classified as a type of fancy goldfish, the fantail goldfish was bred by selecting fish with desired features over numerous generations.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Originally native to East Asia, including areas of China, Korea, Japan, and eastern Russia, these fish are now widespread all over the world through releases from captivity and aquaculture escapees.</p><p>Goldfish have been collected from every US state except Alaska. They were first taken to Australia and New Zealand in the late 1860s and are now widespread and well-established there. They can be found on every continent except Antarctica.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "html": "<p>Fantail goldfish are distinguished by their double tails and typically short bodies, with the potential for elongated pectoral and anal fins. If your fantail has been bred with other fancy goldfish varieties like orandas, ryukins, or pearlscales, they may display features from these goldfish, such as a small wen (head swelling), a tall body, or an enlarged coelom. Typically, fantail goldfish range from orange to white in color, but they can also be red or multicolored if crossed with shubunkin or ryukin goldfish.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Goldfish usually inhabit still or slow-moving freshwater habitats like ponds, lakes, marshes, and pools with luxuriant vegetation and muddy bottoms. They are typically found at shallow to moderate depths, rarely exceeding 20–30 m even in deep lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Minimum tank size is 80 litres for a single Goldfish; a pair needs at least 160 litres. Bigger is always better, as Goldfish are prolific waste producers. Long tanks are better than tall tanks of the same size. Goldfish are good jumpers, especially slim-bodied ones like common or comet goldfish.</p>"
     },
     {
       "key": "maintenance",
@@ -103,10 +162,28 @@
       "html": "<ul><li>pH: 6.0 to 9.0</li><li>Hardness: 6 to 12 dGH</li><li>Temperature: 10 to 27 °C (55 to 80 °F)</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Temperature: 20–23°C recommended; goldfish tolerate high temperatures and survive winters outdoors.</li><li>pH: tolerance 4.5–10.5 in lab tests; in the aquarium keep 7.0–8.5.</li><li>Hardness: soft or hard water (6–15 GH).</li><li>Salinity: good growth up to 6‰.</li><li>Dissolved oxygen: can cope with low oxygen and prolonged anoxia, but this is not a good environment for them.</li><li>Ammonia and nitrate: highly tolerant, but long-term exposure to nitrate can still cause health issues.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Good filtration is highly recommended, as Goldfish produce a lot of waste and stir up debris. Aeration helps maintain an oxygen-rich environment. Water flow should be none or very slow. Subdued lighting is best, unless the tank is planted. Use smooth, rounded gravel large enough not to be swallowed; decorations should have no sharp edges, as varieties with modified eyes are prone to eye injuries. Some aquarists prefer a bare-bottom tank for easy cleaning.</p>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "html": "<p>Many pelleted diets are available for feeding fantail goldfish. When choosing a pellet, be sure to choose the correct pellet size for your fish to easily swallow. Since they do not have an acidic stomach, goldfish rely on their grinding molars to crush up their food in order to digest it properly. Most goldfish will require about 32-35% protein, but given their swimming difficulties, fancy goldfish should be on a slightly higher protein level in the diet. Choose a diet with a fat content around 4-5% and replace your food container every 6 months to ensure adequate vitamin C levels. Sinking diets are recommended to help with any fish prone to buoyancy disorders, so they don't gulp air at the surface while eating a floating food.</p><p>Feeding frequency depends on your tank's temperature. Below 21 °C (70 °F), feed goldfish once daily. At 21 °C and above, increase to twice daily. Provide a modest amount, allowing them to eat leisurely for about five minutes. Uneaten food indicates overfeeding. Remove leftover food to prevent waste buildup in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the wild, Goldfish are omnivorous benthic feeders, eating insects, insect larvae, fish eggs, fry, crustaceans, zooplankton, algae, vegetation and detritus. In the aquarium they can be fed spirulina, mosquito larvae, moina, detritus worms, grindal worms, bloodworms, blackworms, tubifex worms, etc.</p><p>Astaxanthin and canthaxanthin enhance red and orange coloration. Spirulina and krill are natural sources.</p><p>Feed in the morning. Feeding every day should be roughly 2% of body weight. The 5-minute rule: fish should eat all food within 5 minutes.</p>"
     },
     {
       "key": "behaviour",
@@ -115,62 +192,116 @@
       "html": "<p>When choosing tankmates for fantail goldfish, other goldfish species are the best options.</p><h3>None</h3><p>Some goldfish may prefer solitude, and that's perfectly acceptable. You can keep goldfish individually, but they still require a large, filtered aquarium to ensure optimal health. Remember to spend quality time with a single-housed goldfish, treating it as the cherished companion it is.</p><h3>Another Goldfish</h3><p>The ideal tankmate for a fantail goldfish is another fancy variety. Avoid pairing them with long-bodied goldfish, such as comets or shubunkins, as they can outpace your fancy goldfish and monopolize feeding. Select another fancy goldfish with similar slow swimming capabilities to ensure equitable access to food and space.</p><h3>Zebrafish</h3><p>When adding fish to a goldfish tank, the key factor is the temperate nature of the aquatic environment. Goldfish require lower temperatures than most tropical species, so compatibility is limited. However, a school of zebrafish, also known as zebra danios, can be a great addition. They thrive in groups, so maintain at least five in the tank. Zebrafish offer a variety of fin types and colors for added visual interest.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Goldfish are generally peaceful and calm, but may nip fins when stressed, overcrowded, or competing for food. They are active swimmers, sift through the substrate and may form shoals. They uproot and nibble plants. Avoid small fish that fit in their mouths; shrimp and snails are likely to be eaten.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "html": "<p>Like comet goldfish, male fantail goldfish have identifiable features. During spawning, males develop breeding tubercles—raised, white bumps—on the operculum (gill cover) and leading edge of the pectoral fin. Females generally appear rounder, but this is less reliable in fantails due to their naturally enlarged bellies.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexes cannot be distinguished until maturity. Males are thinner and longer and show breeding tubercles on head, operculum and pectoral fins; females are fatter and shorter with a large, rounded abdomen.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "html": "<p>Goldfish are prolific breeders, making it feasible even for novice caretakers. Before breeding, enhance your goldfish's protein and fat intake for full gonad development. Fantail goldfish should be placed in a breeding tank with one male and one female. Raising water temperature and adding live plants usually triggers breeding. Extended daylight hours in spring can also stimulate spawning, adjustable via indoor lighting. After spawning, remove the parents to prevent egg consumption. Feed fry powdered food once they are free-swimming post-hatch.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Goldfish are egg-layers with adhesive eggs attached to vegetation and no parental care. Females mature mostly by the 2nd year. Fecundity averages about 46,000 eggs. Eggs hatch in about 90 hours. To spawn: provide spawning mops or plants, increase feeding, and gradually raise temperature. Remove parents afterwards, as they are cannibalistic.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Taxonomy of the genus Carassius is poorly established. Many bred forms may be less hardy than wild ones.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/sprucepets/2981b9430064b24e.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/2981b9430064b24e-480.webp",
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/bubble-eye-goldfish-species-profile-6374323",
       "caption": "Goldfish in a tank",
-      "source": "sprucepets",
-      "thumb": "https://media.aquatome.com/sprucepets/2981b9430064b24e-480.webp"
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/sprucepets/3ab0cbb4dc8816b4.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/3ab0cbb4dc8816b4-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "caption": "Two fan tail goldfish in an aquarium",
-      "source": "sprucepets",
-      "thumb": "https://media.aquatome.com/sprucepets/3ab0cbb4dc8816b4-480.webp"
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/sprucepets/4cea8e44ba82a914.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/4cea8e44ba82a914-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/fantail-goldfish-fish-5322821",
       "caption": "A tank of fancy goldfish",
-      "source": "sprucepets",
-      "thumb": "https://media.aquatome.com/sprucepets/4cea8e44ba82a914-480.webp"
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/sprucepets/44cbe19d8d11c686.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/44cbe19d8d11c686-480.webp",
       "width": 1200,
       "height": 771,
       "licence": "dùng với sự cho phép",
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/bubble-eye-goldfish-species-profile-6374323",
       "caption": "Bubble Eye Goldfish",
-      "source": "sprucepets",
-      "thumb": "https://media.aquatome.com/sprucepets/44cbe19d8d11c686-480.webp"
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1addfcbdca7a0521.webp",
+      "thumb": "https://media.aquatome.com/glaser/1addfcbdca7a0521-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/carassius_auratus_comet_black_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad430ec65fa7c6c3.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad430ec65fa7c6c3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/carassius_auratus_comet_black_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/1a735822d7ac72b3.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/1a735822d7ac72b3-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [],
@@ -196,5 +327,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

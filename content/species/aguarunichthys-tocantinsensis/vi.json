@@ -12,13 +12,22 @@
     "diet:planetcatfish": "<p>Cá chịu ăn thức ăn viên khô, giun đất hoặc phi lê cá. Giun đất có lẽ là món ăn chính tốt nhất.</p>",
     "behaviour:planetcatfish": "<p>Đây là loài săn mồi. Con gì vừa miệng là nó ăn. Cá sống đơn độc và khá hung dữ với đồng loại, mỗi con giữ một lãnh thổ rộng.</p><p>Cá nuôi chung phải đủ lớn để nó không coi là mồi. Bạn không cần lo chuyện tranh ăn, vì loài này săn mồi rất giỏi.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
-    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 4 (no. 3), pp 252, Figs. 2a, 4.</p>"
+    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 4 (no. 3), pp 252, Figs. 2a, 4.</p>",
+    "quickFacts:scotcat": "<ul><li>Nguồn gốc tên: tên loài tocantinsensis có nghĩa là 'đến từ lưu vực sông Tocantins'.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Tocantins, Brazil. Địa điểm thu mẫu chuẩn nằm ở bang Pará, Brazil, thuộc hệ thống sông Tocantins, tại các ghềnh phía trên Marabá.</p><p>Đây là loài đặc hữu của Brazil. Cá sống ở lưu vực hai sông Tocantins và Araguaia, trải qua các bang Goiás, Mato Grosso, Pará và Tocantins. Ở những nơi này cá ít gặp và số lượng cũng không nhiều. Diện tích phân bố của loài ước tính khoảng 6.140 km².</p>",
+    "habitat:scotcat": "<p>Người ta bắt được loài này ở những khu vực nước chảy mạnh, đáy toàn đá.</p>",
+    "aquariumSize:scotcat": "<p>Loài này cần bể lớn, dài ít nhất 2 m và sâu 70 cm để cá có nhiều chỗ bơi. Bể cũng phải có lọc mạnh.</p>",
+    "behaviour:scotcat": "<p>Đây đúng là loài cá da trơn dành cho bể lớn và cho người chơi cá da trơn thật sự nghiêm túc. Giống phần lớn các loài cùng giống, cá này là cá săn mồi. Nếu nuôi chung thì bạn phải chọn cá không quá nhỏ. Dù vậy, nuôi riêng vẫn là cách tốt hơn, vì cá khác trong bể đều sẽ bị nó coi là mồi.</p>",
+    "diet:scotcat": "<p>Cá ăn giun đất, phi lê cá và đồ đông lạnh như cá ốt nguyên con còn lành lặn, tôm hoặc thịt trai. Cá cũng chịu ăn thức ăn dạng viên nén và viên hạt.</p>",
+    "notes:scotcat": "<p>Đặc điểm hình thái: vây lưng có 1 gai và 6 tia mềm, vây hậu môn có 5 gai và 7-9 tia mềm.</p><p>Danh sách Đỏ IUCN xếp loài này ở mức Nguy cấp (EN), theo tiêu chí A4c (IUCN 2021). Mối đe dọa chính là môi trường sống bị mất đi và bị chia cắt. Các hồ chứa thủy điện đã ảnh hưởng tới hơn 60% diện tích phân bố của loài. Người ta ước tính quần thể sẽ giảm hơn 50% trong ba thế hệ, tức khoảng 27 năm.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2021. Aguarunichthys tocantinsensis. IUCN Red List of Threatened Species 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p>"
   },
   "quality": {
-    "score": 0.88,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
+      "planetcatfish": 0.88,
+      "scotcat": 0.8
     }
   }
 }

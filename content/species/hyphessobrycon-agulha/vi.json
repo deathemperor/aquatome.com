@@ -1,0 +1,20 @@
+{
+  "slug": "ca-tetra-agulha",
+  "name": "Cá tetra agulha",
+  "altNames": [
+    "Agulha tetra"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài tetra rất đẹp này có nguồn gốc từ sông Madeira. Con sông này đổ vào sông Amazon ở đoạn hạ lưu thành phố Manaus, Brazil.</p>",
+    "quickFacts:glaser": "<p>Loài cá characin này có lẽ không lớn quá 6 cm bao nhiêu. Chúng sống thành đàn, hiền và hoạt bát, rất hợp với bể cộng đồng. Cá không khó nuôi và chịu được mọi loại nước.</p>",
+    "equipment:glaser": "<p>Cũng như mọi loài trong chi Hyphessobrycon, cá sống khỏe nhất trong bể trồng dày, có nhiều cây lá nhỏ. Dù vậy, bể vẫn phải chừa đủ chỗ cho cá bơi. Chúng cũng thích nền màu tối. Đây là loài cá lý tưởng cho bể kiểu Hà Lan (Dutch aquarium), và cá lên màu đẹp nhất dưới ánh sáng dịu.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

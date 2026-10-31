@@ -9,7 +9,8 @@
     "asia",
     "thailand",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "musi"
   ],
   "dataCard": {
     "ph": [
@@ -19,12 +20,32 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
       }
     ]
   },
@@ -48,6 +69,18 @@
       "html": "<p>Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>Asia: Sumatra and Borneo. Type locality: Palembang, in fluviis.</p><p>This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>Inhabits main rivers over muddy substrate, in deep waters with swift current.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
@@ -58,6 +91,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
       "html": "<p>In the wild, the fish are detritivorous.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>Feeds on insects and small fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>The male 'black lancers' can be very territorial and as such can only be kept one male to a tank with the rest females. Although they possess a small mouth it is wide, but they don't tend to be a threat to other fishes as such, although if you keep very small fish with them they could be picked off at night as the lancer enjoys its night-time forays.</p>"
     },
     {
       "key": "dimorphism",
@@ -72,10 +117,22 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>Etymology: The genus name Bagrichthys comes from 'bagre', a South American name for a catfish, but is only used for African and Asian species. The specific name hypselopterus means deep or long finned.</p><p>IUCN Red List: Extent of Occurrence (EOO) is estimated to be 247000 km2. Total population size and trend are unknown. Potential threats include deforestation resulting from logging, land conversion for agricultural use, and harvest for subsistence fisheries, but the impacts are unknown. Limited survey data suggests the species is uncommon throughout its range, but populations appear to be stable. It is assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1004",
       "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Bagrichthys hypselopterus. The IUCN Red List of Threatened Species 2019.</p>"
     }
   ],
   "photos": [
@@ -103,13 +160,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/0605645206a8c833.webp",
+      "thumb": "https://media.aquatome.com/commons/0605645206a8c833-480.webp",
       "width": 960,
       "height": 570,
       "licence": "Public domain",
       "author": "P. Bleeker",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrichthys_hypselopterus.jpg",
-      "caption": "Bagrichthys hypselopterus",
-      "thumb": "https://media.aquatome.com/commons/0605645206a8c833-480.webp"
+      "caption": "Bagrichthys hypselopterus"
     }
   ],
   "videos": [
@@ -138,6 +195,34 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-10-30"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
 }

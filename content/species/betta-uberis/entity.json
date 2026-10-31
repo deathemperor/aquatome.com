@@ -15,7 +15,7 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 24,
+          "min": 22,
           "max": 28
         }
       }
@@ -24,7 +24,7 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
+          "min": 4,
           "max": 6.5
         }
       }
@@ -32,13 +32,16 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 3.5
+        "value": 3.6
       }
     ],
-    "difficulty": [
+    "gh": [
       {
         "source": "bwaquatics",
-        "value": 5
+        "value": {
+          "min": 0,
+          "max": 2
+        }
       }
     ]
   },
@@ -46,62 +49,104 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Wild caught Betta uberis from Palangkaraya, part of the Betta coccina complex. IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</p><ul><li>Max size: 1.2-1.4 inches (about 3-3.5 cm)</li><li>Temperament: moderately aggressive</li><li>Diet: carnivorous</li><li>Breeding: bubblenester</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<ul><li>IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild)</li><li>Size: up to approximately 3.6 cm standard length</li><li>pH 4.0–6.5, GH ≤ 2 °d, KH ≤ 1 °d, TDS &lt; 100 ppm</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>These fish are wild-caught. Have the habitat ready before purchase. Because they are wild-caught, quarantine them carefully before introducing them to display tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Betta uberis is a small labyrinth fish native to the peat-swamp forests and blackwater streams of Borneo (Kalimantan, Indonesia), described in 2006.</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Colour is very similar to Burdigala, except male Uberis exhibit a green mid-lateral iridescence and generally a less robust body. Fins are shorter than those of the Burdigala. The spot on the Uberis varies from individual to individual, as some do not have the spot in the wild.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>In the wild it inhabits extremely soft, acidic, tannin-dark water beneath dense forest canopy.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<ul><li>TDS: 60-100</li><li>pH: 5.0-6.5</li><li>Temperature: 75-82°F (24-28°C)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Very soft and acidic blackwater conditions are ideal.</p><ul><li>pH 4.0–6.5</li><li>GH ≤ 2 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 22–28 °C; many keepers prefer 24–26 °C for stability</li></ul><p>Extremely clean, stable water is required.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Provide dense leaf litter, floating plants, and very subdued lighting. Avoid bright light or strong current — this species thrives in calm, shaded water.</p>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Carnivorous; feed tiny live or frozen foods such as micro-worms, daphnia, newly hatched brine shrimp, and blackworms. May accept fine-sized frozen or soft pellets once fully acclimated.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Best kept singly, as a pair, or in a small species group. If in a community, only with very peaceful, tiny soft-water fish such as Boraras rasboras or other micro blackwater species. Avoid active and aggressive larger fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>Males display an elegant form with numerous dorsal-fin rays (hence the species name uberis, meaning “abundant”) and subtle green iridescence.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "html": "<p>Bubblenester.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "html": "<p>A classic bubble-nesting species, with refined bubble-nesting behaviour typical of the Betta coccina complex. The male builds a bubble nest beneath floating leaves or at the water surface, often among Indian almond leaves or plant roots. Courtship involves gentle circling and embraces beneath the nest. After each spawning embrace, the male collects the eggs and places them carefully into the nest.</p><p>Once spawning is complete, the female should be removed to prevent aggression. The male guards and tends the nest until the fry hatch, typically within 24–48 hours. Fry become free-swimming after another 3–4 days and can be fed infusoria, followed by baby brine shrimp or microworms as they grow.</p><p>Maintain very gentle or still water during this period — excessive surface movement will destroy the nest and stress both male and fry.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp"
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/84aa7fd074ed1ac0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/84aa7fd074ed1ac0-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/08710ae987820f9b.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/08710ae987820f9b-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "source": "bwaquatics"
     }
   ],
   "videos": [],
@@ -135,5 +180,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

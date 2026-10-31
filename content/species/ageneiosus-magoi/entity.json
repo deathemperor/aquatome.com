@@ -7,17 +7,64 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "orinoco"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 24
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>Ageneiosus magoi Castillo &amp; Brull G., 1989. Common name: Slopehead Catfish. Family: Auchenipteridae. Size: 24 cm. Temperature: 23-28°C. pH: 6.5-7.2.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>South America: Venezuela; Orinoco basin. Type locality: Los esteros de Camaguán, km 270, Estado Guárico, Venezuela.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>If kept with other species they would need to be the same size or larger, such as loricariids and larger characins such as Silver Dollars. Can be kept with equal sized conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>In common with the rest of the Auchenipteridae family the males possess an elongated and thickened anal fin and a genital papilla. The male has it modified into a copulatory organ with the first and second ray thickened and longer; it is thought that the male uses this to clasp the female during the spawning embrace. Sexually active males also have an elongated and curved dorsal spine and elongated maxillary barbels.</p>"
+    },
     {
       "key": "reproduction",
       "source": "glaser",
@@ -29,9 +76,66 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ageneiosus-magoi-2/",
       "html": "<p>Unfortunately, the relatively small remaining (under 10 cm) dolphin catfishes are rather inconspicuous in color. Sexually active A. magoi could now be imported from Venezuela. The fish are currently about 15 cm long. The maximum length given in the literature for A. magoi is 18-20 cm. Thus A. magoi is surely the most interesting dolphin catfish for aquaristics: highly attractive colored and comparatively small.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>Description: Head flattened and wedge shaped. Profile almost straight, sloping slightly towards snout. Dorsal 6/7 rays. Small adipose fin and a long anal fin. The ventral fins are placed behind the dorsal fin and have 7/8 rays. Eyes lateral. Marbled markings on the body. Two black bands along the body split by a white band. Some specimens have a yellow tinge but may lose this in captivity. There can be differences between individuals.</p><p>Etymology: The genus name Ageneiosus means beardless, pertaining to the very small maxillary barbels. The specific epithet magoi is in honour of Francisco Mago-Leccia (1931-2004), for his contributions to the study and knowledge of Venezuelan fishes, and his valuable work forming a new generation of ichthyologists.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "html": "<p>ScotCat Factsheet no.159; Sept. 2009. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/cc67041e352363f5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cc67041e352363f5-480.webp",
+      "width": 500,
+      "height": 258,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "caption": "Ageneiosus magoi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0da1a89a89688059.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0da1a89a89688059-480.webp",
+      "width": 500,
+      "height": 265,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "caption": "Ageneiosus magoi: Pair-female to front",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/51009101791df168.webp",
+      "thumb": "https://media.aquatome.com/scotcat/51009101791df168-480.webp",
+      "width": 500,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "caption": "Ageneiosus magoi: close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/aa65519f6d4fa0ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/aa65519f6d4fa0ac-480.webp",
+      "width": 500,
+      "height": 254,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm",
+      "caption": "Ageneiosus magoi: female",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "MvvCLGXIiSI",

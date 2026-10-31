@@ -5,42 +5,113 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
-  "places": [],
-  "dataCard": {},
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "maranon",
+    "ecuador",
+    "napo",
+    "colombia",
+    "caqueta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.1
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1124",
-      "html": "<ul><li>Scientific name: Corydoras (lineage 5) cf. elegans</li><li>Common name: San Juan Cory</li><li>Pronunciation: kor ee doh rass (lineage five)</li><li>Etymology: Cory = helmet, doras = skin. In this case it was incorrectly used to mean armour (cuirasse) instead of skin in allusion to the dual rows of plates that run along the flanks of this genus.</li></ul>"
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<ul><li>Scientific name: Gastrodermus elegans (Steindachner, 1876)</li><li>Common name: Elegant Cory</li><li>Type locality: Amazon River at Tefé, Amazonas, Brazil</li><li>Temperament: peaceful, shoaling community fish</li></ul>"
     },
     {
-      "key": "reproduction",
+      "key": "distribution",
       "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1124",
-      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>South America: Amazon basin, including the Middle Amazon (Solimões), Upper Amazon, Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari and Japurá/Caquetá.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>pH 6.0–7.4. Temperature 22–25°C (71.6–77°F). Water composition is not vital, but slightly softer water within these ranges will bring out the best colouration in the males.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>Ideally the substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel, which increases the risk of damage to the barbels when the fish dig. Border the substrate with driftwood and aquatic plants, leaving an open area for foraging and swimming. Shade from overhanging rockwork, arching bogwood, and tall or floating plants is all that is required to settle these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>This species readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>Females grow larger and are more full-bodied, best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 141 [93].</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/f3ba2550161c0660.webp",
+      "thumb": "https://media.aquatome.com/commons/f3ba2550161c0660-480.webp",
       "width": 960,
       "height": 641,
       "licence": "CC BY 2.5",
       "author": "User:Toniher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_elegans.jpg",
-      "caption": "Corydoras elegans",
-      "thumb": "https://media.aquatome.com/commons/f3ba2550161c0660-480.webp"
+      "caption": "Corydoras elegans"
     },
     {
       "url": "https://media.aquatome.com/commons/eece3ec28edfbedb.webp",
+      "thumb": "https://media.aquatome.com/commons/eece3ec28edfbedb-480.webp",
       "width": 960,
       "height": 643,
       "licence": "CC BY-SA 3.0",
       "author": "Kennyannydenny",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elegant_corydoras_(Corydoras_elegans).JPG",
-      "caption": "The Elegant corydoras (Corydoras elegans).",
-      "thumb": "https://media.aquatome.com/commons/eece3ec28edfbedb-480.webp"
+      "caption": "The Elegant corydoras (Corydoras elegans)."
     }
   ],
   "videos": [],

@@ -22,6 +22,13 @@
           "min": 22,
           "max": 30
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -30,6 +37,13 @@
         "value": {
           "min": 5,
           "max": 8
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7
         }
       }
     ],
@@ -46,6 +60,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "bwaquatics",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -67,6 +85,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "html": "<p>The threadfin rainbowfish, Iriatherina werneri, is a small rainbowfish from southern New Guinea, Cape York in Queensland and the Northern Territory. Although widely traded and produced on a commercial scale, it is quite delicate with rather specific care requirements and is not a recommended beginner's fish. Easily outcompeted for food, and with long-finned males that some common species nip, it is best kept alone or with fishes of comparable size and disposition.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -99,16 +123,34 @@
       "html": "<ul><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Kept at around 72–77°F (22–25°C) and a pH of roughly 6–7.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "html": "<p>Feeds on floating or suspended phytoplankton, diatoms, and other zooplankton in nature, and in the aquarium must be offered items of a suitable size for its tiny mouth. Ideally much of the diet should comprise live foods such as Daphnia, Moina, Artemia nauplii, micro worm, copepods, etc., although small/crushed floating dried foods are also accepted.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Fed on crushed pellets, baby brine shrimp and black worms.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "html": "<p>Very peaceful but not suitable for the general community aquarium since it's easily outcompeted for food and the long fins of mature males may be nipped at by certain common species. It's best maintained alone or alongside fishes of comparable size and disposition such as Pseudomugil spp., or if geography isn't an issue Microdevario, Danionella, Eirmotus, Trigonostigma, pygmy Corydoras, small loricariids such as Otocinclus spp., and freshwater shrimp of the genera Caridina and Neocaridina are also suitable.</p><p>It's a shoaling species by nature and really should be kept in a group of at least 6 specimens, ideally 10 or more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display. Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>A beautiful schooling rainbowfish. It has several long, flowing fins on the top and bottom that resemble threads, which gave the fish its name. Males can show beautiful colours when dominant or breeding, and are a must-see when showing off to each other.</p>"
     },
     {
       "key": "dimorphism",
@@ -168,6 +210,26 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "caption": "Adult female post-spawning with some undeposited eggs still attached.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/f9a04ea1ec34391d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/f9a04ea1ec34391d-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/cf6a56a53ceb687f.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/cf6a56a53ceb687f-480.webp",
+      "width": 841,
+      "height": 931,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "source": "bwaquatics"
     }
   ],
   "videos": [],

@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/
 title: Blyxa Aubertii Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
-fetchedAt: 2026-10-31T11:19:00.008Z
+fetchedAt: 2026-10-31T19:44:11.996Z
 hash: cd19c16a09c0fbf1066d521d6bad2e4bf46b37efdb4d70fc2b18c5fd9ad65b99
 ---
 

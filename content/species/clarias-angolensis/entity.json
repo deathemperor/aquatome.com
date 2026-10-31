@@ -1,0 +1,171 @@
+{
+  "id": "clarias-angolensis",
+  "scientificName": "Clarias angolensis",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Clarias",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.8,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p><strong>Scientific name:</strong> Clarias angolensis Steindachner, 1866</p><p><strong>Common name:</strong> Angolan Walking Catfish</p><p><strong>Type locality:</strong> Angola.</p><p><strong>Size:</strong> 35 cm SL (13.8\")</p><p><strong>Etymology:</strong> Clarias: from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water. Named after Angola, its country of discovery.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Africa: Lower and Central Congo system. Trade restricted in Germany (Anl.3 BArtSchV).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<ul><li>pH: 6.8 - 8.5</li><li>Temperature: 22.0-25.0°C</li><li>Able to survive in most water conditions.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Open spaces for swimming and some cover is required.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Omnivorous and predatory. Will eat virtually anything that can be considered edible.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Must be housed with lively, robust large fish. Suggested tankmates: large cyprinids (silver sharks, tinfoil or spanner barbs for example) or Central American cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Males are brighter and more slender than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Sexually mature at 2.5 years. Spawning in pairs. Lithophilous species. Fecundity over 500 cream-coloured eggs (diameter of around 2 mm). The male protects the clutch. Incubation period 1.5 to 2 days, after 4-5 days the young start feeding. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Clarias species are characterized by an elongated body; a soft rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; head depressed, covered largely by firmly sutured, surface sculptured bony plates forming a protective helmet; four pairs of flagellate barbels (nasals, maxillaries, inner and outer mandibulars); air breathing organs derived from the 2nd and 4th epibranchials within a superbranchial chamber.</p><p>Coloration is brownish, albino varieties are also known.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=11",
+      "html": "<p>Verhandlungen der K.-K. zoologisch-botanischen Gesellschaft in Wien v. 16, pp 766, Pl. 13 (figs. 4-7).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/833c7c2bc5352270.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC BY-SA 3.0",
+      "author": "Хомелка",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_angolensis_in_Minsk_Zoo_02.JPG",
+      "caption": "Clarias angolensis in Minsk Zoo",
+      "thumb": "https://media.aquatome.com/commons/833c7c2bc5352270-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f608cbbe44751483.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC BY-SA 3.0",
+      "author": "Хомелка",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_angolensis_in_Minsk_Zoo_01.JPG",
+      "caption": "Clarias angolensis in Minsk Zoo",
+      "thumb": "https://media.aquatome.com/commons/f608cbbe44751483-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "sSXNJQOY91M",
+      "title": "Colossoma macropomum and Clarias angolensis",
+      "durationSec": 460,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7lujtiTrZYc",
+      "title": "Clarias angolensis and Colossoma macropomum",
+      "durationSec": 275,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dXVX9H25abg",
+      "title": "Клариас (Clarias angolensis)..wmv",
+      "durationSec": 212,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fR5i0ikn3Mk",
+      "title": "Clarias Angolensis",
+      "durationSec": 112,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

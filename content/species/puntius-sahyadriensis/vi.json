@@ -1,0 +1,23 @@
+{
+  "slug": "ca-barb-khavli",
+  "name": "Cá barb Khavli",
+  "altNames": [
+    "Khavlibarb"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Cá barb Khavli có nguồn gốc từ sông Yenna, thuộc quận Satara, bang Maharashtra của Ấn Độ.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá hiền. Dù vậy, chúng có thể gặm chồi non của cây thủy sinh. Bạn nuôi chung chúng với bất kỳ loài cá hiền nào cũng không gặp vấn đề gì.</p>",
+    "equipment:glaser": "<p>Bể nên trồng các loại cây khỏe. Bạn cũng nên chừa trống một phần đáy trải nền cát để cá có chỗ sàng cát.</p>",
+    "waterConditions:glaser": "<p>Loài này không kén thông số nước. Chúng cũng chịu được nhiệt độ trong một khoảng khá rộng.</p>",
+    "diet:glaser": "<p>Chúng ăn tạp, nhưng vẫn cần được cho ăn nhiều thức ăn thực vật.</p>",
+    "reproduction:glaser": "<p>Hiện chưa có ghi nhận nào về việc cho loài này sinh sản. Nhiều khả năng chúng sinh sản không khác mấy so với các loài barb khác, tức là rải trứng tự do vào đám cây.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}
