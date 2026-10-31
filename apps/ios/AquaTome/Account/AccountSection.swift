@@ -78,7 +78,7 @@ struct AccountSignIn: View {
           .font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
         SignInButton().frame(maxWidth: 300)
         AccountMessage()
-        Fine().multilineTextAlignment(.center)
+        Fine(centered: true)
       }
       .padding(.top, 8)
     } else if let m = account.message {
@@ -107,11 +107,17 @@ private struct AccountMessage: View {
 }
 
 private struct Fine: View {
+  /// Under the empty list's centred text; a list footer is set flush left.
+  var centered = false
   var body: some View {
-    VStack(alignment: .leading, spacing: 4) {
+    VStack(alignment: centered ? .center : .leading, spacing: 4) {
       Text("Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, email hay số điện thoại.")
+        .fixedSize(horizontal: false, vertical: true)
+        // A list footer is grey already.
+        .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
       Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
     }
+    .multilineTextAlignment(centered ? .center : .leading)
     .font(.footnote)
   }
 }
