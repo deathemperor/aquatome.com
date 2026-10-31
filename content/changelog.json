@@ -1,6 +1,41 @@
 [
   {
     "date": "2026-10-31",
+    "kind": "species",
+    "id": "barbodes-banksi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "badis-corycaeus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "pethia-didi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "metynnis-hypsauchen",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "jordanella-floridae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
     "kind": "guide",
     "id": "youtube-HuWHarbSQUk",
     "source": "youtube",
@@ -3462,41 +3497,6 @@
     "kind": "species",
     "id": "clarias-camerunensis",
     "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-clean-up-crew",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-vinegar-eels",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-discus-care-guide",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-aquarium-cleaning",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-easy-aquarium-plants",
-    "source": "aquariumcoop",
     "action": "new"
   }
 ]

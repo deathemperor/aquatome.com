@@ -1,0 +1,212 @@
+{
+  "id": "jordanella-floridae",
+  "scientificName": "Jordanella floridae",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Jordanella",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "united-states",
+    "st-johns"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>The Florida flagfish, Jordanella floridae, is a cyprinodontid endemic to peninsular Florida in the United States. It lives in shallow, weedy backwaters, marshes, canals and ditches. A long-standing aquarium favourite, it is produced commercially and wild fish are very rare outside the U.S.A. Contrary to many reports it does not dig pits or exhibit extended parental care, and breeds as a fractional spawner like other cyprinodontids.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Endemic to peninsular Florida in the United States, south of the Ochlockonee and St. Johns river basins and does not occur in Mexico.</p><p>Type locality is 'Lake Monroe, Florida, U.S.A.', one of numerous lakes within the St. Johns drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Mostly inhabits shallow, weedy freshwater habitats including backwaters, marshes, canals and ditches and has occasionally been recorded in lightly brackish water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) or equivalent (~54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<ul><li>Temperature: 18–30°C (64–86°F)</li><li>pH: 6.5–8.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is taken as well.</p><p>In the aquarium dried foods are accepted in most cases but regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm should also be offered.</p><p>If the aquarium or container doesn't contain filamentous algae introduce a good quality dried product with added vegetable, ideally algal, content to the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Best-maintained alone, especially if the intention is for the fish to breed, but can be maintained in a well-researched community provided sufficient space is available.</p><p>Individual males require space to form territories but in most cases two or more can be kept in the same aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Adult males possess more-extended dorsal and anal fins and are significantly more colorful than females, more so when in spawning condition.</p><p>Adult females tend to be rounder-bellied than males, particularly when gravid, and possess a dark blotch in the posterior portion of the dorsal-fin which is not present in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>Contrary to many reports, including a number of scientific papers, this species breeds in the same way as other cyprinodontids and does not dig pits or exhibit extended parental care.</p><p>It's a fractional spawner with females depositing eggs on a more-or-less continuous basis when a warm temperature is maintained though ideally it should be permitted to breed on a seasonal basis in spring and late summer as it would in nature.</p><p>Males form temporary territories which they defend against rivals while attempting to entice females to spawn, dominant individuals showing more intense colouration.</p><p>Eggs are released singly or in small batches and attached to algae or other surfaces by means of small filaments, and there is no additional care from either male or female once they're deposited.</p><p>While some may be eaten if left in situ this species isn't especially voracious and if plenty of cover is present fry will appear in with the adults although the most productive method is to remove the eggs and hatch them in a separate tank containing water of the same chemistry and temperature as that of the adults.</p><p>The incubation period is influenced by temperature but usually 7 - 14 days with the fry large enough to accept Artemia nauplii, microworm, etc., as soon as they become free-swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<p>This species is a long-standing aquarium favourite and is produced on a commercial basis with wild fish very rare in the aquarium hobby outside the U.S.A.</p><p>A highly-deformed 'balloon' strain has been line-bred and is available on occasion.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "html": "<ul><li>Goode, G. B. (1879). A preliminary catalogue of the fishes of the St. John's River and the east coast of Florida, with descriptions of a new genus and three new species. Proceedings of the United States National Museum v. 2 (no. 73), 108-121</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f1f93e5723adedf5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f1f93e5723adedf5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "caption": "Adult males in territorial display.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fd1c45f0e717ea01.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fd1c45f0e717ea01-480.webp",
+      "width": 800,
+      "height": 584,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "caption": "This species inhabits the St. Johns river system in Florida state, U.S.A., here seen south of Sanford city.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/eff1f8e5c7c1a5d8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eff1f8e5c7c1a5d8-480.webp",
+      "width": 850,
+      "height": 566,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "caption": "Adult pair in courtship behaviour.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ce0fdee8a0b25c70.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ce0fdee8a0b25c70-480.webp",
+      "width": 612,
+      "height": 406,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
+      "caption": "Young adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini 54 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt xốp",
+        "máy lọc mút xốp cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá có tảo spirulina",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

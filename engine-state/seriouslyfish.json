@@ -2217,11 +2217,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/badis-corycaeus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T03:59:06.068Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/badis-corycaeus"
+    ],
+    "updatedAt": "2026-10-31T06:48:44.706Z",
+    "hash": "c214977bb64b899f040d33c5184e7308833e504a2b553b8095d030ea71073ad6",
+    "processedHash": "c214977bb64b899f040d33c5184e7308833e504a2b553b8095d030ea71073ad6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/badis-ferrarisi": {
     "entityIds": [
@@ -2390,18 +2393,21 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/barbodes-banksi": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:01.129Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barbodes-banksi"
+    ],
+    "updatedAt": "2026-10-31T06:51:07.702Z",
+    "hash": "29ce46ea5cdf32c59f2175051b2c81801f1705b28ae5b02309cb593a0b7fb544",
+    "processedHash": "29ce46ea5cdf32c59f2175051b2c81801f1705b28ae5b02309cb593a0b7fb544",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbodes-binotatus": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:06.131Z",
+    "updatedAt": "2026-10-31T06:53:16.434Z",
     "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "attempts": 2,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
   },
   "https://www.seriouslyfish.com/species/barbodes-dunckeri": {
     "entityIds": [],
@@ -2419,10 +2425,10 @@
   },
   "https://www.seriouslyfish.com/species/barbodes-kuchingensis": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:21.136Z",
+    "updatedAt": "2026-10-31T06:54:22.285Z",
     "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "attempts": 2,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
   },
   "https://www.seriouslyfish.com/species/barbodes-semifasciolatus": {
     "entityIds": [],
@@ -2635,10 +2641,10 @@
   },
   "https://www.seriouslyfish.com/species/betadevario-ramachandrani": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:36.213Z",
+    "updatedAt": "2026-10-31T06:54:26.685Z",
     "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "attempts": 2,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
   },
   "https://www.seriouslyfish.com/species/betta-akarensis": {
     "entityIds": [],
@@ -4196,6 +4202,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/jordanella-floridae": {
+    "entityIds": [
+      "species/jordanella-floridae"
+    ],
+    "updatedAt": "2026-10-31T06:41:25.228Z",
+    "hash": "2f47dfd931ed37116ad7e93c6425d8991674882c7c504d3ff652d05e567cdeea",
+    "processedHash": "2f47dfd931ed37116ad7e93c6425d8991674882c7c504d3ff652d05e567cdeea",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/julidochromis-ornatus": {
     "entityIds": [
       "species/julidochromis-ornatus"
@@ -4556,6 +4572,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/metynnis-hypsauchen": {
+    "entityIds": [
+      "species/metynnis-hypsauchen"
+    ],
+    "updatedAt": "2026-10-31T06:43:10.090Z",
+    "hash": "cd429b79e28e0193b6a9ee7bf67a04b1cd5e9d61712eca2f054eaedf326f7e7a",
+    "processedHash": "cd429b79e28e0193b6a9ee7bf67a04b1cd5e9d61712eca2f054eaedf326f7e7a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/mikrogeophagus-altispinosus": {
     "entityIds": [
       "species/mikrogeophagus-altispinosus"
@@ -4843,6 +4869,16 @@
     "updatedAt": "2026-10-30T17:18:51.348Z",
     "hash": "a93e06250d1137f99f4548c0ca1c523fbc93d7d87738614477d22232dfb27329",
     "processedHash": "a93e06250d1137f99f4548c0ca1c523fbc93d7d87738614477d22232dfb27329",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/pethia-didi": {
+    "entityIds": [
+      "species/pethia-didi"
+    ],
+    "updatedAt": "2026-10-31T06:46:25.435Z",
+    "hash": "9405dfe070e4b26d23d17d30603ec9b5db83cf6116e012e42f87446dc1f1b4d0",
+    "processedHash": "9405dfe070e4b26d23d17d30603ec9b5db83cf6116e012e42f87446dc1f1b4d0",
     "status": "processed",
     "attempts": 0
   },
