@@ -1,0 +1,125 @@
+{
+  "id": "garra-fuliginosa",
+  "scientificName": "Garra fuliginosa",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Garra",
+  "group": "cyprinid",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong",
+    "laos",
+    "vietnam",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<p>Max size: 150 mm SL (6 in). Aquarium size: 150 × 45 cm (60 × 18 in). Temperature: 20–27°C (68–81°F). pH: not recorded. Hardness: not recorded.</p><p>Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand. It tends to inhabit swiftly-flowing headwaters and tributaries with clear, oxygen-saturated water. Like other Garra it has a lower lip modified to form a mental adhesive disc for clinging to surfaces. The body is dark with random lighter scales.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<p>Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.</p><p>Type locality is 'Metang [Nam Mae Taeng], River, 35 miles north of Chieng Mai [Chiang Mai], northern Thailand'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<p>Tends to inhabit swiftly-flowing sections of headwaters and tributaries rather than larger, lowland river channels. The most favourable habitats contain clear, oxygen-saturated water which, allied with the sun, facilitates the development of a rich biofilm carpeting submerged surfaces.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<p>Temperature: 20–27°C (68–81°F). pH: not recorded. Hardness: not recorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<p>Following Rainboth (1996) distinguishing characters for G. fuliginosa include: presence of rostral and maxillary barbels; a well-developed, trilobed rostrum; possession of 10 gill rakers on the lower portion of the first gill arch; no mid-lateral body stripe; 32-34 lateral line scales; body dark with random lighter scales in places.</p><p>Kottelat (2001) states that the species can be told apart from other Garra occurring in Laos by a combination of: snout with a secondary rostrum, proboscis about twice as wide as long, orientated downwards and in contact with snout along its inferior edge; dark brown body with 5-6 faint stripes and a dark blotch on the caudal peduncle.</p><p>The genus Garra is a particularly enigmatic grouping with new taxa described on a regular basis, while many of the existing ones may represent cases of misidentification or synonyms of other species. Some of the revisions have also been called into question, which has added further confusion. A full generic review would be ideal but is unlikely to materialise given the extensive distribution of its members which range from southern China across much of southeast Asia, India and the Middle East as far as north/central Africa.</p><p>Instead a number of less-extensive works published in recent years have resulted in a gradual, but continuing, improvement in knowledge, and it remains possible that the genus will be broken up into smaller taxa since the current assemblage is almost certainly polyphyletic.</p><p>Garra species are usually included in the subfamily Labeoninae/Cyprininae or tribe Labeonini (name varies with author) which by recent thinking is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). The putatively monophyletic Garraina comprises a number of genetic lineages including Garra sensu stricto (which also includes Horalabiosa, Phreatichthys and possibly other genera), a small clade comprising Garra cambodgiensis and G. fascicauda (thus rendering Garra polyphyletic), Paracrossocheilus, and Gonorhynchus (which includes Akrokolioplax).</p><p>Two species, G. micropulvinus and Ageneiogarra imberba, are placed in the Semilabeoina assemblage. The generic name Ageneiogarra Garman, 1912 was suggested for both, and the Catalog of Fishes and FishBase now use it for A. imberba. In addition, some genera which were previously considered to be close relatives of Garra species such as Discogobio, Discocheilus and Placocheilus, are now also placed in this subtribe.</p><p>All genera currently included in Garraina possess a lower lip modified to form a mental adhesive disc, allowing the fish to cling to surfaces in turbulent conditions. In most species the upper lip is almost entirely reduced and both the upper and lower jaw margins are keratinised, i.e., horny, and used to scrape food items from the substrate.</p><p>Garra species are distinguished from other Garraina members by the first two pectoral-fin rays usually being thickened, fleshy and unbranched, possession of 10-11 dorsal-fin rays, and a combination of internal characters. Some species have evolved particular environmental specialisms such as highly reduced eyes in hypogean forms or the ability to survive in thermal springs.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "html": "<ul><li>Fowler, H. W. (1934). Zoological results of the third De Schauensee Siamese Expedition, Part I.--Fishes. Proceedings of the Academy of Natural Sciences of Philadelphia 86, 67-163</li><li>Zhang, E. (2005). Phylogenetic relationships of labeonine cyprinids of the disc-bearing group (Pisces: Teleostei). Zoological Studies 44(1), 130-143</li><li>Stiassny, M. L. J. and A. Getahun (2007). An overview of labeonin relationships and the phylogenetic placement of the Afro-Asian genus Garra Hamilton, 1922 (Teleostei: Cyprinidae), with the description of five new species of Garra from Ethiopia, and a key to all African species. Zoological Journal of the Linnean Society 150(1), 41-83</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Nebeshwar, K. and W. Vishwanath (2013). Three new species of Garra (Pisces: Cyprinidae) from north-eastern India and redescription of G. gotyla. Ichthyological Exploration of Freshwaters 24(2), 97-120</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c1a3ecffc1aeca64.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c1a3ecffc1aeca64-480.webp",
+      "width": 800,
+      "height": 511,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "caption": "Specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/907fef6d2fbdfcf3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/907fef6d2fbdfcf3-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/garra-fuliginosa",
+      "caption": "Specimen in its natural habitat, Klong-lan waterfall, Kamphaeng Phet province, western Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước dòng mạnh",
+        "bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
