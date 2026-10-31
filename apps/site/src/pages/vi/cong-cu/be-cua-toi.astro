@@ -38,11 +38,11 @@ const { t } = i18n(Astro.url)
     </div>
   </form>
 
-  <p id="mt-loading" class="hint">{t('Đang mở các bể đã lưu…')}</p>
+  <p id="mt-loading" class="hint" hidden>{t('Đang mở các bể đã lưu…')}</p>
   <noscript><p class="hint">{t('Trang này cần JavaScript để lưu bể trên máy bạn.')}</p></noscript>
   <ol id="mt-list" class="tanks" aria-label={t('Các bể đã lưu')}></ol>
 
-  <div id="mt-empty" class="empty" hidden>
+  <div id="mt-empty" class="empty">
     <svg viewBox="0 0 240 150" aria-hidden="true">
       <path class="glass" d="M20 30 H220 V130 H20 Z" />
       <path class="water" d="M24 52 C64 46 92 58 120 52 S184 46 216 52 V126 H24 Z" />
@@ -53,6 +53,16 @@ const { t } = i18n(Astro.url)
     <p>{t('Thêm bể đầu tiên để ghi lại kích thước, nền, cá, cây và ghi chú. Đèn Chihiros bạn kết nối cũng được lưu vào đây cùng lịch đã đặt.')}</p>
     <p class="row"><button type="button" class="primary" data-add>{t('Thêm bể đầu tiên')}</button> <a href="/vi/cong-cu/den-chihiros/">{t('Kết nối đèn Chihiros →')}</a></p>
   </div>
+  {/* Before the first paint, so nothing jumps when the list is drawn: a reader with tanks here sees the loading line, not
+     the empty state (tank-store.ts: KEY 'aq.tanks', a record with deletedAt is deleted). */}
+  <script is:inline>(function(){try{var s=JSON.parse(localStorage.getItem('aq.tanks')||'null');if(s&&s.tanks&&s.tanks.some(function(t){return!('deletedAt' in t)})){document.getElementById('mt-empty').hidden=true;document.getElementById('mt-loading').hidden=false}}catch(e){}})()</script>
+
+  <section id="du-lieu" class="data" aria-labelledby="data-h">
+    <h2 id="data-h">{t('Dữ liệu ở đâu?')}</h2>
+    <p data-where="local">{t('Các bể chỉ nằm trong trình duyệt này, trên máy này: không gửi đi đâu. Xóa dữ liệu trình duyệt hoặc dùng chế độ ẩn danh thì mất. Tải bản sao để giữ lại.')}</p>
+    <p data-where="account" hidden>{t('Các bể nằm trong trình duyệt này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy. Xóa tài khoản thì bản trong tài khoản mất ngay.')}</p>
+    <p><button id="mt-export" type="button" class="quiet">{t('Tải bản sao (JSON)')}</button></p>
+  </section>
 
   <section id="tai-khoan" class="account" aria-labelledby="acc-h" hidden>
     <h2 id="acc-h">{t('Đồng bộ giữa các thiết bị')}</h2>
@@ -91,13 +101,6 @@ const { t } = i18n(Astro.url)
       </details>
     </div>
     <p id="acc-msg" class="msg" role="status" hidden></p>
-  </section>
-
-  <section id="du-lieu" class="data" aria-labelledby="data-h">
-    <h2 id="data-h">{t('Dữ liệu ở đâu?')}</h2>
-    <p data-where="local">{t('Các bể chỉ nằm trong trình duyệt này, trên máy này: không gửi đi đâu. Xóa dữ liệu trình duyệt hoặc dùng chế độ ẩn danh thì mất. Tải bản sao để giữ lại.')}</p>
-    <p data-where="account" hidden>{t('Các bể nằm trong trình duyệt này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy. Xóa tài khoản ở phần trên thì bản trong tài khoản mất ngay.')}</p>
-    <p><button id="mt-export" type="button" class="quiet">{t('Tải bản sao (JSON)')}</button></p>
   </section>
 </Browse>
 
@@ -332,9 +335,8 @@ const { t } = i18n(Astro.url)
 <style>
   .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-bottom: var(--space-5); }
   .where { margin: 0; color: var(--c-ink-soft); font-size: var(--step--1); }
-  .account { max-width: 40rem; margin: var(--space-8) 0 0; padding-top: var(--space-5); border-top: 1px solid var(--c-rule); }
+  .account { max-width: var(--measure); margin: var(--space-8) 0 0; padding-top: var(--space-4); border-top: 1px solid var(--c-rule); }
   .account h2 { font-size: var(--step-1); margin: 0 0 var(--space-3); }
-  .account + .data { margin-top: var(--space-6); }
   .account p { margin: 0 0 var(--space-3); }
   .ways { display: grid; gap: var(--space-3); margin-top: var(--space-4); max-width: 22rem; }
   .ways[hidden] { display: none; }
