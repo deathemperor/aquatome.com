@@ -188,13 +188,15 @@ public struct TankStore: Sendable, Equatable {
   public init() { json = ["v": .number(Double(storeVersion))]; tanks = []; devices = [] }
 
   /// A store read from disk or the server. Records that don't pass the schema are kept as they are (and saved again)
-  /// but not shown; a store of another version is refused, so it isn't overwritten.
+  /// but not shown; a store of another version, or with an entry that isn't an object, is refused, so it isn't overwritten.
   public init(_ value: JSON) throws {
     guard let o = value.object, let t = o["tanks"]?.array, let d = o["devices"]?.array else { throw TankStoreError.notAStore }
     guard o["v"] == .number(Double(storeVersion)) else { throw TankStoreError.unknownVersion }
+    let tanks = t.compactMap(\.object), devices = d.compactMap(\.object)
+    guard tanks.count == t.count, devices.count == d.count else { throw TankStoreError.notAStore }
     json = o
-    tanks = t.compactMap(\.object)
-    devices = d.compactMap(\.object)
+    self.tanks = tanks
+    self.devices = devices
   }
 
   public init(data: Data) throws { try self.init(JSON.parse(data)) }
@@ -228,6 +230,7 @@ public struct TankStore: Sendable, Equatable {
   public func device(_ id: String) -> Device? { liveDevices.first { $0.id == id } }
 
   // MARK: Edits (each stamped: docs/my-tanks-sync.md, "Writing")
+  // The limits count the records shown: live ones that pass the schema (a record hidden for failing it isn't counted).
 
   @discardableResult
   public mutating func addTank(name: String, now: Date = Date()) throws -> Tank {

@@ -100,8 +100,10 @@ let t0 = Date(timeIntervalSince1970: 1_790_000_000)
   #expect(s.liveTanks.count == maxTanks)
 }
 
-@Test func aStoreOfAnotherVersionIsRefused() {
+@Test func aStoreThisAppCannotKeepWholeIsRefused() {
   #expect(throws: TankStoreError.unknownVersion) { try TankStore(JSON.parse(Data(#"{"v":2,"tanks":[],"devices":[]}"#.utf8))) }
+  // Saving it again would drop the entry.
+  #expect(throws: TankStoreError.notAStore) { try TankStore(JSON.parse(Data(#"{"v":1,"tanks":["x"],"devices":[]}"#.utf8))) }
 }
 
 @Test func timestampsRoundTripAndRefuseOtherForms() {
