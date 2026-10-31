@@ -14,8 +14,8 @@
       "test": "PerformanceTests/testFlingingThroughTheFish()",
       "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.time",
       "unit": "s",
-      "max": 2.2,
-      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 1.74 s (RSD 1.7%), ×1.25. CPU time, not instructions: the runners' virtual Macs read instructions and cycles as 0"
+      "max": 3.1,
+      "reason": "raised 2026-11-01 from 2.2 s: not slower code but other runners. Main and the commit before the tanks tab measure the same on one machine (1.97 s vs 1.94 s), while CI medians on different hosted runners ran 1.44–2.49 s. Budget: the slowest seen, 2.49 s, ×1.25. It catches a list that gets about half again slower; anything finer needs both builds measured on one runner"
     },
     {
       "name": "Memory at its peak while flinging through 800 fish",
@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 840,
-      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 761 kB, ×1.1"
+      "max": 1150,
+      "reason": "raised 2026-11-01 from 840 kB for the Bể của tôi tab (the binary grew 659 → 949 kB when it merged, measured on both commits); the budgets had been set on a base from before it. Main's archive on CI: 1041 kB, ×1.1"
     }
   ]
 }
