@@ -39,6 +39,10 @@ const SCHEMA = {
   type: 'object', required: ['findings'], additionalProperties: false,
   properties: { findings: { type: 'array', items: { type: 'object', required: ['severity', 'title', 'evidence', 'fix'], additionalProperties: false, properties: { severity: { enum: ['high', 'medium', 'low'] }, title: { type: 'string' }, evidence: { type: 'string' }, fix: { type: 'string' } } } } },
 }
+// A local build (a PR's check) is built from test/fixture-content: a few sample entries, none in some languages.
+const TEST_BUILD = '\n\nThis is a test build made from a small sample of content: a section with few or no entries (for example no species in the Indonesian or Thai version) is expected here, and some sample captions contain HTML tags on purpose (to check they show as text). Don\'t report those; report everything else as usual.'
+/** The site's media host (photos, the hero); the checks block every other origin (fixtures.ts). A later route wins. */
+const MEDIA = (url: URL) => url.hostname === 'media.aquatome.com'
 type Finding = { severity: 'high' | 'medium' | 'low'; title: string; evidence: string; fix: string }
 
 /** Headless Claude Code (the owner's subscription in CI: CLAUDE_CODE_OAUTH_TOKEN), only able to read the screenshots. */
@@ -62,12 +66,16 @@ function ask(dir: string, prompt: string): Promise<Finding[]> {
   })
 }
 
+// No retry: it costs model time, and a second opinion that differs would turn a finding into a pass.
+test.describe.configure({ retries: 0 })
+
 for (const path of PAGES) {
   test(`review ${path}`, { tag: '@review' }, async ({ page, browser, baseURL }, info) => {
     test.skip(!ON, 'E2E_REVIEW=1 turns the AI review on')
     test.skip(info.project.name !== 'phone', 'one review per page: it takes the computer screenshot itself')
     test.setTimeout(8 * 60_000)
     const dir = mkdtempSync(join(tmpdir(), 'aq-review-'))
+    await page.route(MEDIA, r => r.continue()) // the site's own pictures, so the screenshots look like the real page
     await page.goto(path, { waitUntil: 'load' })
     await page.waitForTimeout(800) // the page's scripts (filters, counts) run after load
     const { width, height } = page.viewportSize()!
@@ -82,6 +90,7 @@ for (const path of PAGES) {
     const desk = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const dp = await desk.newPage()
     await dp.route(url => url.origin !== own || url.pathname === '/_e', r => r.abort())
+    await dp.route(MEDIA, r => r.continue())
     await dp.goto(new URL(path, baseURL).href, { waitUntil: 'load' })
     await dp.waitForTimeout(800)
     await dp.screenshot({ path: join(dir, 'desktop.png') })
@@ -90,9 +99,9 @@ for (const path of PAGES) {
     await info.attach('phone', { path: join(dir, 'phone.png'), contentType: 'image/png' })
     await info.attach('desktop', { path: join(dir, 'desktop.png'), contentType: 'image/png' })
 
-    const findings = await ask(dir, `Address: ${new URL(path, baseURL).href}\nOutline (visible headings, live status text): ${JSON.stringify(outline)}\n\nScreenshots in this folder: phone.png, desktop.png.`)
-    for (const f of findings.filter(f => f.severity !== 'high')) info.annotations.push({ type: `review ${f.severity}`, description: `${f.title}: ${f.evidence} Fix: ${f.fix}` })
-    const high = findings.filter(f => f.severity === 'high').map(f => `${f.title}\n  seen: ${f.evidence}\n  fix: ${f.fix}`)
-    expect(high, 'serious problems the review found').toEqual([])
+    const findings = await ask(dir, `Address: ${new URL(path, baseURL).href}\nOutline (visible headings, live status text): ${JSON.stringify(outline)}\n\nScreenshots in this folder: phone.png, desktop.png.${LIVE ? '' : TEST_BUILD}`)
+    // Every finding as an annotation: scripts/site-watch.mjs writes issues and PR comments from them.
+    for (const f of findings) info.annotations.push({ type: `review ${f.severity}`, description: `${f.title}: ${f.evidence} Fix: ${f.fix}` })
+    expect(findings.filter(f => f.severity === 'high').map(f => f.title), 'serious problems the review found').toEqual([])
   })
 }

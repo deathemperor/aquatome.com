@@ -80,10 +80,10 @@ function checks(report) {
   const walk = suite => {
     for (const spec of suite.specs ?? []) {
       const key = `${spec.file}: ${spec.title}`
-      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [], notes: [] }
+      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [], notes: [], highs: [] }
       for (const t of spec.tests) {
         if (t.status === 'skipped') continue
-        for (const a of t.annotations ?? []) if (a.type === 'review medium') c.notes.push(a.description)
+        for (const a of t.annotations ?? []) (a.type === 'review high' ? c.highs : a.type === 'review medium' ? c.notes : []).push(a.description)
         if (t.status === 'unexpected') {
           c.failed.push(t.projectName)
           const err = t.results.at(-1)?.error?.message
@@ -121,7 +121,9 @@ if (cmd === 'prepare') {
     // The page a check is about (a page check, or a review): rechecked every run until it passes (prepare).
     const path = /^(page|review) /.test(c.title) ? c.title.replace(/^(page|review) /, '').replace(/ @\w+$/, '') : undefined
     if (c.failed.length) {
-      const details = [`**Check:** \`${c.key}\``, `**Fails on:** ${c.failed.join(', ')}${path ? ` · [open the page](https://aquatome.com${path})` : ''}`, '', '```', ...c.errors, '```'].join('\n')
+      // A review's failure is its serious findings; any other check's is its error.
+      const what = c.highs.length ? [...new Set(c.highs)].map(h => `- ${h}`) : ['```', ...c.errors, '```']
+      const details = [`**Check:** \`${c.key}\``, `**Fails on:** ${c.failed.join(', ')}${path ? ` · [open the page](https://aquatome.com${path})` : ''}`, '', ...what].join('\n')
       failing(issues, { fp, path, title: `Site check failed: ${c.title.replace(/ @\w+$/, '')}`, details, runUrl, autofix: true })
     } else if (c.passed.length) passing(issues, fp, runUrl, 'Passed on ' + c.passed.join(' and '))
     if (c.notes.length) notes(c, runUrl)
@@ -134,7 +136,7 @@ if (cmd === 'prepare') {
 } else if (cmd === 'pr-comment') {
   const [file, pr, runUrl] = args
   const reviewed = existsSync(file) ? checks(JSON.parse(readFileSync(file, 'utf8'))).filter(c => c.title.startsWith('review ')) : []
-  const lines = reviewed.flatMap(c => [...c.errors.map(e => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${e.replace(/^\w+: /, '').split('\n').filter(l => l.trim().startsWith('+') || /seen:|fix:/.test(l)).join(' ').replace(/\s+/g, ' ').slice(0, 900)}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
+  const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
   const body = [`### AI page review (advisory)`, '', reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : 'The review did not run.', '', ...(lines.length ? lines : ['Nothing serious found.']), '', `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
   try { act('pr', 'comment', pr, '--edit-last', '--body', body) } catch { act('pr', 'comment', pr, '--body', body) }
 } else {
