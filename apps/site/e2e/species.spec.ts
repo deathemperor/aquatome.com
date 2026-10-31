@@ -23,6 +23,22 @@ test('species page on a phone: the name and the four key facts are on the first 
   for (const f of ['tempC', 'ph', 'tankCm', 'difficulty']) expect(await onFirstScreen(`main [data-field="${f}"]`), f).toBe(true)
 })
 
+// The strip's four facts never run into each other, also on a small phone in °F (73,4–80,6°F is the widest value).
+test('species page on a small phone in °F: each key fact stays in its own column', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'the phone layout')
+  await page.setViewportSize({ width: 360, height: 780 })
+  await page.addInitScript(() => localStorage.setItem('units', 'imperial'))
+  for (const path of ['/vi/ca/ca-neon-vua/', '/vi/ca/ca-dia/']) {
+    await page.goto(path)
+    await expect(page.locator('.keyfacts [data-field="tempC"] dd')).toContainText('°F')
+    const spill = await page.locator('.keyfacts > div').evaluateAll(cells => cells.flatMap(c => {
+      const box = c.getBoundingClientRect(), dd = c.querySelector('dd')!
+      return dd.scrollWidth > dd.clientWidth + 1 || [...dd.querySelectorAll('*')].some(e => e.getBoundingClientRect().right > box.right + 1) ? [c.getAttribute('data-field')] : []
+    }))
+    expect(spill, `${path}: facts wider than their column`).toEqual([])
+  }
+})
+
 // A long species page: a sticky row of its main parts. A tap brings that part into view (not under the row) and marks its
 // chip; on a phone the row scrolls sideways so the marked chip stays in sight. Read from the page, not from the content,
 // so it holds on aquatome.com too (production watch).

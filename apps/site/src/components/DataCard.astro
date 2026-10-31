@@ -39,7 +39,7 @@ const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' 
         </div>
       ))}
     </dl>
-    <details class="trust">
+    <details class="trust" data-pagefind-ignore>
       <summary>
         <span class="label">{t('Nguồn và độ tin cậy')}</span>
         {marked && <span class="legend" aria-hidden="true"><span class="mark" />{t('Các nguồn ghi khác nhau')}</span>}
