@@ -6,16 +6,16 @@
       "test": "PerformanceTests/testLaunch()",
       "metric": "com.apple.dt.XCTMetric_ApplicationLaunch-ApplicationFirstFramePresentationResponsive.duration",
       "unit": "s",
-      "max": 3.8,
-      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 3.06 s, ×1.25"
+      "max": 4.7,
+      "reason": "raised 2026-11-01 from 3.8 s: the same app launched in 2.64–3.73 s on different hosted runners (3.73 s on PR #265, which doesn't touch launch). Budget: the slowest seen ×1.25"
     },
     {
       "name": "CPU time flinging through 800 fish",
       "test": "PerformanceTests/testFlingingThroughTheFish()",
       "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.time",
       "unit": "s",
-      "max": 3.1,
-      "reason": "raised 2026-11-01 from 2.2 s: not slower code but other runners. Main and the commit before the tanks tab measure the same on one machine (1.97 s vs 1.94 s), while CI medians on different hosted runners ran 1.44–2.49 s. Budget: the slowest seen, 2.49 s, ×1.25. It catches a list that gets about half again slower; anything finer needs both builds measured on one runner"
+      "max": 3.4,
+      "reason": "raised 2026-11-01 from 2.2 s: not slower code but other runners. Main and the commit before the tanks tab measure the same on one machine (1.97 s vs 1.94 s), while CI medians on different hosted runners ran 1.44–2.72 s. Budget: the slowest seen, 2.72 s, ×1.25. It catches a list that gets about half again slower; anything finer needs both builds measured on one runner"
     },
     {
       "name": "Memory at its peak while flinging through 800 fish",
