@@ -425,31 +425,83 @@ test('every path in the API contract (protocols/accounts.openapi.json) is served
 
 test('deleting an account that signs in with Apple: a fresh Apple sign-in first, its tokens revoked, then the account goes', async () => {
   const t = setup()
-  const revoked: { clientId: string; code: string; redirectUri?: string }[] = []
-  // Fake Apple: a code `good-<sub>` belongs to that Apple user.
-  t.deps.revokeApple = async (clientId, code, redirectUri) => {
-    revoked.push({ clientId, code, ...(redirectUri ? { redirectUri } : {}) })
-    return code.startsWith('good-') ? { sub: code.slice(5) } : undefined
+  const calls: { clientId: string; code: string; redirectUri?: string }[] = []
+  const revoked: string[] = []
+  // Fake Apple: a code `good-<sub>` is that Apple user's; it is revoked only when `ours` accepts the user.
+  t.deps.revokeApple = async (clientId, code, redirectUri, ours) => {
+    calls.push({ clientId, code, ...(redirectUri ? { redirectUri } : {}) })
+    if (!code.startsWith('good-')) return 'refused'
+    if (!ours(code.slice(5))) return 'other_account'
+    revoked.push(code.slice(5))
+    return 'revoked'
   }
   const { json: { nonce } } = await t.call('POST', '/api/v1/auth/nonce', { body: {} })
   const r = await t.call('POST', '/api/v1/auth/apple', { body: { idToken: `apple-1|${nonce}|`, nonce } })
   const cookie = t.cookieOf(r)!
   const still = async () => (await t.call('GET', '/api/v1/session', { cookie })).json.user !== null
+  const del = (apple?: object) => t.call('DELETE', '/api/v1/account', { cookie, ...(apple ? { body: { apple } } : {}) })
 
-  expect((await t.call('DELETE', '/api/v1/account', { cookie })).json.error).toBe('apple_reauth')
-  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-apple-1', clientId: 'com.other' } } })).status).toBe(400)
-  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'expired', clientId: 'com.aquatome.web' } } })).status).toBe(502)
-  expect((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-someone-else', clientId: 'com.aquatome.web' } } })).json.error).toBe('apple_other_account')
+  expect((await del()).json.error).toBe('apple_reauth')
+  expect((await del({ code: 'good-apple-1', clientId: 'com.other' })).status).toBe(400)
+  expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: 'https://evil.test/' })).json.error).toBe('bad_redirect')
+  expect((await del({ code: 'expired', clientId: 'com.aquatome.web' })).status).toBe(502)
+  // Another Apple ID signed in on this device: told so, and its sign-in is not revoked.
+  expect((await del({ code: 'good-someone-else', clientId: 'com.aquatome.web' })).json.error).toBe('apple_other_account')
+  expect(revoked).toEqual([])
+  expect(calls.some(c => c.redirectUri === 'https://evil.test/')).toBe(false)
   expect(await still()).toBe(true)
 
-  // A redirect URI that isn't one of the tanks pages is not passed on to Apple.
   const page = `${ORIGIN}/vi/cong-cu/be-cua-toi/`
-  const d = await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: page } } })
-  expect(d.status).toBe(204)
-  expect(revoked.at(-1)).toEqual({ clientId: 'com.aquatome.web', code: 'good-apple-1', redirectUri: page })
+  expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: page })).status).toBe(204)
+  expect(calls.at(-1)).toEqual({ clientId: 'com.aquatome.web', code: 'good-apple-1', redirectUri: page })
+  expect(revoked).toEqual(['apple-1'])
   expect(await still()).toBe(false)
   expect((await t.db.prepare(`SELECT COUNT(*) AS n FROM credentials`).first<{ n: number }>())!.n).toBe(0)
-  expect(revoked.filter(x => x.redirectUri === 'https://evil.test/')).toEqual([])
+})
+
+test('the Apple step: rate-limited per account; an error inside it is a 502, the account untouched', async () => {
+  const t = setup()
+  let n = 0
+  t.deps.revokeApple = async () => { n++; return 'refused' }
+  const { json: { nonce } } = await t.call('POST', '/api/v1/auth/nonce', { body: {} })
+  const cookie = t.cookieOf(await t.call('POST', '/api/v1/auth/apple', { body: { idToken: `apple-2|${nonce}|`, nonce } }))!
+  const tries = []
+  for (let i = 0; i < 11; i++) tries.push((await t.call('DELETE', '/api/v1/account', { cookie, body: { apple: { code: 'x', clientId: 'com.aquatome.app' } } })).status)
+  expect(tries.slice(0, 10).every(s => s === 502)).toBe(true)
+  expect(tries[10]).toBe(429)
+  expect(n).toBe(10)
+  const u = setup()
+  u.deps.revokeApple = async () => { throw new TypeError('network') }
+  const { json: { nonce: n2 } } = await u.call('POST', '/api/v1/auth/nonce', { body: {} })
+  const c2 = u.cookieOf(await u.call('POST', '/api/v1/auth/apple', { body: { idToken: `apple-3|${n2}|`, nonce: n2 } }))!
+  expect((await u.call('DELETE', '/api/v1/account', { cookie: c2, body: { apple: { code: 'x', clientId: 'com.aquatome.app' } } })).json.error).toBe('apple_revoke_failed')
+  expect((await u.call('GET', '/api/v1/session', { cookie: c2 })).json.user).not.toBeNull()
+})
+
+test('one Apple ID per account; removing the Apple sign-in revokes it first (and never when it is the last method)', async () => {
+  const t = setup()
+  const revoked: string[] = []
+  t.deps.revokeApple = async (_c, code, _r, ours) => (ours(code) ? (revoked.push(code), 'revoked') : 'other_account')
+  const { cookie } = await t.google('g-1')
+  const apple = async (sub: string) => {
+    const { json: { nonce } } = await t.call('POST', '/api/v1/auth/nonce', { body: {} })
+    return t.call('POST', '/api/v1/auth/apple', { body: { idToken: `${sub}|${nonce}|`, nonce, link: true }, cookie })
+  }
+  expect((await apple('apple-a')).status).toBe(200)
+  expect((await apple('apple-b')).json.error).toBe('apple_already_linked')
+  const methods = (await t.call('GET', '/api/v1/session', { cookie })).json.user.methods as { id: string; kind: string }[]
+  const a = methods.find(m => m.kind === 'apple')!
+  expect((await t.call('DELETE', `/api/v1/account/methods/${a.id}`, { cookie })).json.error).toBe('apple_reauth')
+  expect((await t.call('DELETE', `/api/v1/account/methods/${a.id}`, { cookie, body: { apple: { code: 'apple-a', clientId: 'com.aquatome.app' } } })).status).toBe(204)
+  expect(revoked).toEqual(['apple-a'])
+
+  // Apple as the only method: refused before anything is revoked.
+  const u = setup()
+  u.deps.revokeApple = async () => { throw new Error('must not be called') }
+  const { json: { nonce } } = await u.call('POST', '/api/v1/auth/nonce', { body: {} })
+  const r = await u.call('POST', '/api/v1/auth/apple', { body: { idToken: `apple-z|${nonce}|`, nonce } })
+  const only = r.json.user.methods[0].id as string
+  expect((await u.call('DELETE', `/api/v1/account/methods/${only}`, { cookie: u.cookieOf(r)!, body: { apple: { code: 'apple-z', clientId: 'com.aquatome.app' } } })).json.error).toBe('last_method')
 })
 
 test('an account without Apple is deleted without any Apple step', async () => {

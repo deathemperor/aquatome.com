@@ -413,7 +413,7 @@
             }
           },
           "409": {
-            "description": "Error: credential_in_use (link: this sign-in belongs to another account)",
+            "description": "Error: credential_in_use (link: this sign-in belongs to another account), apple_already_linked (link: the account has another Apple ID; one per account)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1097,7 +1097,7 @@
                       },
                       "redirectUri": {
                         "type": "string",
-                        "description": "Web only: the tanks page the code was issued for."
+                        "description": "Web only: exactly the tanks page the code was asked from (as given to AppleID.auth.init)."
                       }
                     }
                   }
@@ -1111,7 +1111,7 @@
             "description": "Deleted (Apple tokens revoked first); the browser's cookie is cleared."
           },
           "400": {
-            "description": "Error: bad_request (clientId not ours)",
+            "description": "Error: bad_request (clientId not ours), bad_redirect (redirectUri is not a tanks page)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1141,7 +1141,17 @@
             }
           },
           "409": {
-            "description": "Error: apple_reauth (send a fresh Apple authorization code), apple_other_account (the code is for another Apple ID)",
+            "description": "Error: apple_reauth (send a fresh Apple authorization code), apple_other_account (the code is for another Apple ID: nothing revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited (10 Apple tries an hour per account)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1166,6 +1176,7 @@
     "/api/v1/account/methods/{id}": {
       "delete": {
         "summary": "Remove a sign-in method (not the last one)",
+        "description": "Removing a Sign in with Apple method takes the same fresh Apple authorization code as deleting the account (see DELETE /api/v1/account): its tokens are revoked first.",
         "security": [
           {
             "bearer": []
@@ -1185,9 +1196,52 @@
             }
           }
         ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apple": {
+                    "type": "object",
+                    "required": [
+                      "code",
+                      "clientId"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "A fresh authorization code (valid 5 minutes, once)."
+                      },
+                      "clientId": {
+                        "type": "string",
+                        "description": "com.aquatome.app (the app) or com.aquatome.web (the web)."
+                      },
+                      "redirectUri": {
+                        "type": "string",
+                        "description": "Web only: exactly the tanks page the code was asked from (as given to AppleID.auth.init)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "Removed."
+          },
+          "400": {
+            "description": "Error: bad_request (clientId not ours), bad_redirect (redirectUri is not a tanks page)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "401": {
             "description": "Error: signed_out",
@@ -1220,7 +1274,27 @@
             }
           },
           "409": {
-            "description": "Error: last_method",
+            "description": "Error: last_method, apple_reauth, apple_other_account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited (10 Apple tries an hour per account)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Error: apple_revoke_failed (Apple refused the code or the revoke: ask again)",
             "content": {
               "application/json": {
                 "schema": {

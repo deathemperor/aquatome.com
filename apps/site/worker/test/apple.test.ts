@@ -22,8 +22,8 @@ test("the client secret is Apple's ES256 JWT: our team, our key id, for one clie
   expect(payload.exp! - payload.iat!).toBe(300)
 })
 
-test('revoking: the fresh code is exchanged, its refresh token revoked at once, and the Apple user returned', async () => {
-  const { keys: k } = await keys()
+test("revoking: the fresh code is exchanged with our signed client secret, checked to be this account's, then revoked", async () => {
+  const { pair, keys: k } = await keys()
   const calls: { url: string; form: URLSearchParams }[] = []
   const idToken = idTokenFor('apple-user-1')
   const fetcher = async (url: string, init: RequestInit) => {
@@ -32,24 +32,33 @@ test('revoking: the fresh code is exchanged, its refresh token revoked at once, 
     return new Response(null, { status: 200 })
   }
   const revoke = appleRevoker(k, fetcher, () => NOW)
-  expect(await revoke('com.aquatome.web', 'code-1', 'https://aquatome.com/vi/cong-cu/be-cua-toi/')).toEqual({ sub: 'apple-user-1' })
+  const asked: string[] = []
+  expect(await revoke('com.aquatome.web', 'code-1', 'https://aquatome.com/vi/cong-cu/be-cua-toi/', sub => (asked.push(sub), true))).toBe('revoked')
+  expect(asked).toEqual(['apple-user-1'])
   expect(calls.map(c => c.url)).toEqual(['https://appleid.apple.com/auth/token', 'https://appleid.apple.com/auth/revoke'])
   expect(Object.fromEntries(calls[0]!.form)).toMatchObject({ client_id: 'com.aquatome.web', code: 'code-1', grant_type: 'authorization_code', redirect_uri: 'https://aquatome.com/vi/cong-cu/be-cua-toi/' })
   expect(Object.fromEntries(calls[1]!.form)).toMatchObject({ client_id: 'com.aquatome.web', token: 'r-1', token_type_hint: 'refresh_token' })
-  expect(calls[1]!.form.get('client_secret')).toBe(calls[0]!.form.get('client_secret'))
+  const secret = calls[0]!.form.get('client_secret')!
+  expect(calls[1]!.form.get('client_secret')).toBe(secret)
+  const { payload } = await jwtVerify(secret, pair.publicKey, { audience: 'https://appleid.apple.com', currentDate: NOW })
+  expect(payload).toMatchObject({ iss: 'TEAM123456', sub: 'com.aquatome.web' })
   // The app's code: no redirect_uri.
   calls.length = 0
-  await revoke('com.aquatome.app', 'code-2')
+  await revoke('com.aquatome.app', 'code-2', undefined, () => true)
   expect(calls[0]!.form.has('redirect_uri')).toBe(false)
+  // Another Apple ID's code: exchanged, but its sign-in is not revoked.
+  calls.length = 0
+  expect(await revoke('com.aquatome.app', 'code-3', undefined, () => false)).toBe('other_account')
+  expect(calls.map(c => c.url)).toEqual(['https://appleid.apple.com/auth/token'])
 })
 
 test('a code Apple refuses, or a revoke that fails, revokes nothing and says so', async () => {
   const { keys: k } = await keys()
   const idToken = idTokenFor('s')
   const refused = appleRevoker(k, async () => Response.json({ error: 'invalid_grant' }, { status: 400 }), () => NOW)
-  expect(await refused('com.aquatome.app', 'old')).toBeUndefined()
+  expect(await refused('com.aquatome.app', 'old', undefined, () => true)).toBe('refused')
   const revokeFails = appleRevoker(k, async url => (url.endsWith('/auth/token') ? Response.json({ refresh_token: 'r', id_token: idToken }) : new Response(null, { status: 503 })), () => NOW)
-  expect(await revokeFails('com.aquatome.app', 'c')).toBeUndefined()
+  expect(await revokeFails('com.aquatome.app', 'c', undefined, () => true)).toBe('refused')
 })
 
 test('sign-in mail goes out from dang-nhap@aquatome.com as text; a refusal is false and logs the code, not the address', async () => {
@@ -62,6 +71,8 @@ test('sign-in mail goes out from dang-nhap@aquatome.com as text; a refusal is fa
   const logged: unknown[][] = []
   const bad = cloudflareMailer({ send: async () => { throw Object.assign(new Error('nope reader@example.com'), { code: 'E_RECIPIENT_SUPPRESSED' }) } }, (...a) => logged.push(a))
   expect(await bad({ to: 'reader@example.com', subject: 'S', text: 'T' })).toBe(false)
+  const noCode = cloudflareMailer({ send: async () => { throw new Error('failed for reader@example.com') } }, (...a) => logged.push(a))
+  expect(await noCode({ to: 'reader@example.com', subject: 'S', text: 'T' })).toBe(false)
   expect(JSON.stringify(logged)).toContain('E_RECIPIENT_SUPPRESSED')
   expect(JSON.stringify(logged)).not.toContain('reader@example.com')
 })

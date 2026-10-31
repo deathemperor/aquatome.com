@@ -9,8 +9,12 @@ import { decodeJwt, importPKCS8, SignJWT } from 'jose'
  * The client secret is a short JWT signed with the Sign in with Apple key (APPLE_SIGNIN_KEY, a .p8 file's contents).
  */
 export type AppleKeys = { teamId: string; keyId: string; key: string }
-/** The Apple user (`sub`) whose tokens were revoked; undefined when Apple refused the code or the revoke. */
-export type RevokeApple = (clientId: string, code: string, redirectUri?: string) => Promise<{ sub: string } | undefined>
+/**
+ * Exchanges the code, checks with `ours` that it is this account's Apple ID, then revokes: 'revoked', 'other_account'
+ * (nothing revoked: someone else's Apple ID on this device keeps its sign-in), or 'refused' (Apple refused the code or
+ * the revoke).
+ */
+export type RevokeApple = (clientId: string, code: string, redirectUri: string | undefined, ours: (sub: string) => boolean) => Promise<'revoked' | 'other_account' | 'refused'>
 type Fetch = (input: string, init: RequestInit) => Promise<Response>
 
 const APPLE = 'https://appleid.apple.com'
@@ -28,16 +32,17 @@ export async function clientSecret(keys: AppleKeys, clientId: string, now: Date)
 }
 
 export function appleRevoker(keys: AppleKeys, fetcher: Fetch = (u, i) => fetch(u, i), clock = () => new Date()): RevokeApple {
-  return async (clientId, code, redirectUri) => {
+  return async (clientId, code, redirectUri, ours) => {
     const secret = await clientSecret(keys, clientId, clock())
     const form = (o: Record<string, string>) => ({ method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(o).toString() })
     const got = await fetcher(`${APPLE}/auth/token`, form({ client_id: clientId, client_secret: secret, code, grant_type: 'authorization_code', ...(redirectUri ? { redirect_uri: redirectUri } : {}) }))
-    if (!got.ok) return undefined
+    if (!got.ok) return 'refused'
     const tokens = (await got.json()) as { refresh_token?: string; id_token?: string }
-    if (!tokens.refresh_token || !tokens.id_token) return undefined
+    if (!tokens.refresh_token || !tokens.id_token) return 'refused'
     // Straight from Apple's token endpoint over TLS: its id_token can be read without checking the signature (OIDC 3.1.3.7).
     const sub = decodeJwt(tokens.id_token).sub
+    if (!sub || !ours(sub)) return 'other_account'
     const revoked = await fetcher(`${APPLE}/auth/revoke`, form({ client_id: clientId, client_secret: secret, token: tokens.refresh_token, token_type_hint: 'refresh_token' }))
-    return revoked.ok && sub ? { sub } : undefined
+    return revoked.ok ? 'revoked' : 'refused'
   }
 }

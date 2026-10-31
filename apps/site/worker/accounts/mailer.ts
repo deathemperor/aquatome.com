@@ -16,7 +16,7 @@ export function cloudflareMailer(binding: EmailBinding, log: (...a: unknown[]) =
       await binding.send({ to: mail.to, from: MAIL_FROM, subject: mail.subject, text: mail.text })
       return true
     } catch (e) {
-      log('sign-in mail not sent:', (e as { code?: string }).code ?? (e as Error).message)
+      log('sign-in mail not sent:', (e as { code?: string }).code ?? 'unknown')
       return false
     }
   }
