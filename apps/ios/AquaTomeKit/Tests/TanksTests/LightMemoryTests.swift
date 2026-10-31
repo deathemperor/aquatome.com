@@ -50,10 +50,46 @@ private func valid(_ s: TankStore) -> Bool {
   #expect(valid(s))
   for i in 0..<25 { try write((on: a.on, off: a.off, ramp: i, levels: a.levels), nil, met + 10 + Double(i)) }
   d = try #require(s.device(id))
+  // The 20 newest stay, the last written first and marked.
   #expect(d.schedules.count == 20)
+  #expect(d.schedules[0].ramp == 24 && d.activeScheduleId == d.schedules[0].id)
+  #expect(d.schedules.map(\.ramp) == Array((5...24).reversed()))
 }
 
-@Test func aLightWhoseTankWasDeletedElsewhereIsMetAgainOnALiveTank() throws {
+@Test func aLightOnATankDeletedElsewhereIsMetAgainOnALiveTank() throws {
+  // What a sync can bring: the tank deleted on another phone, the light's record still live (changed after it).
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể 60", now: met)
+  let d = try s.addDevice(tankId: t.id, kind: "light", brand: "chihiros", model: "WRGB II Slim", bleName: "DYSL30TEST", now: met)
+  s.tanks[0] = TankStore.tombstone(s.tanks[0], met + 1)
+  let again = try s.metLight(bleName: "DYSL30TEST", model: "WRGB II Slim", tankName: "Bể của tôi", now: met + 2)
+  #expect(again.id != d.id)
+  #expect(s.liveTanks.map(\.id).contains(again.tankId))
+  #expect(s.liveDevices.map(\.id) == [again.id])
+  #expect(s.devices.contains { $0["id"]?.string == d.id && $0["deletedAt"] == nil }, "the old record is left as it was")
+}
+
+@Test func aLightMetUnderAnotherModelNameIsUpdatedAndOnlyThen() throws {
+  var s = TankStore()
+  let d = try s.metLight(bleName: "DYSL30TEST", model: "WRGB II Slim", tankName: "Bể", now: met)
+  let same = try s.metLight(bleName: "DYSL30TEST", model: "WRGB II Slim", tankName: "Bể", now: met + 1)
+  #expect(same.updatedAt == d.updatedAt, "nothing changed, nothing stamped")
+  let renamed = try s.metLight(bleName: "DYSL30TEST", model: "WRGB II", tankName: "Bể", now: met + 2)
+  #expect(renamed.id == d.id && renamed.model == "WRGB II" && renamed.updatedAt > d.updatedAt)
+}
+
+@Test func twoRecordsOfOneLightTheOneChangedLastIsUsed() throws {
+  // Each phone met the light before they first synced: both records arrive.
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể", now: met)
+  let older = try s.addDevice(tankId: t.id, kind: "light", bleName: "DY1", now: met + 5)
+  let newer = try s.addDevice(tankId: t.id, kind: "light", bleName: "DY1", now: met + 1)
+  try s.updateDevice(newer.id, now: met + 9) { $0.nickname = "Đèn trái" }
+  #expect(s.light(bleName: "DY1")?.id == newer.id)
+  #expect(older.id != newer.id)
+}
+
+@Test func aLightWhoseTankWasDeletedWithItIsMetAgainOnALiveTank() throws {
   var s = TankStore()
   let t = try s.addTank(name: "Bể 60", now: met)
   let d = try s.addDevice(tankId: t.id, kind: "light", brand: "chihiros", model: "WRGB II Slim", bleName: "DYSL30TEST", now: met)

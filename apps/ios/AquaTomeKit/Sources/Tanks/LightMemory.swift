@@ -4,8 +4,11 @@ import Foundation
 // (apps/site/src/scripts/tank-store.ts: ensureTank, putDevice, currentLight, wroteSchedule).
 
 extension TankStore {
-  /// The saved light with this Bluetooth name, on a live tank.
-  public func light(bleName: String) -> Device? { liveDevices.first { $0.bleName == bleName } }
+  /// The saved light with this Bluetooth name, on a live tank: the one changed last when there are two (each phone met
+  /// it before they first synced), as the site picks it.
+  public func light(bleName: String) -> Device? {
+    liveDevices.filter { $0.bleName == bleName }.max { Array($0.updatedAt.utf16).lexicographicallyPrecedes(Array($1.updatedAt.utf16)) }
+  }
 
   /// The tank a newly met light goes on: the first one, or a new one named `name` when there is none.
   public mutating func ensureTank(name: String, now: Date = Date()) throws -> Tank {

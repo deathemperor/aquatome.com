@@ -43,7 +43,8 @@ final class LightFlowTests: XCTestCase {
     write(app)
     expect(app, "notice", contains: "Đã ghi lịch: bật 13:00, tắt 19:00.")
     app.tabBars.buttons["Bể của tôi"].tap()
-    XCTAssertTrue(text(app, "13:00 → 19:00 · sáng dần 30 phút").waitForExistence(timeout: 5), "the schedule written wasn't kept")
+    XCTAssertTrue(text(app, "13:00 → 19:00 · sáng dần 30 phút · Bể mới trồng").waitForExistence(timeout: 5),
+                  "the schedule written wasn't kept with its preset's name")
   }
 
   func testSetsAClockLostInAPowerCut() {

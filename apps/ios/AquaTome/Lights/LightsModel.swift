@@ -29,9 +29,12 @@ final class LightsModel {
   var notice: Notice?
 
   /// The schedule form.
-  var on = TimeOfDay(hour: 12, minute: 0)
-  var off = TimeOfDay(hour: 20, minute: 0)
-  var ramp = 30
+  var on = TimeOfDay(hour: 12, minute: 0) { didSet { if on != oldValue { planName = nil } } }
+  var off = TimeOfDay(hour: 20, minute: 0) { didSet { if off != oldValue { planName = nil } } }
+  var ramp = 30 { didSet { if ramp != oldValue { planName = nil } } }
+  /// The preset the form came from, kept with the schedule written (as the site does); changing its hours drops it,
+  /// changing only its levels keeps it.
+  private(set) var planName: String?
   var levels = [70, 70, 70, 70]
   /// The manual sliders, by channel.
   var manual: [Int: Int] = [:]
@@ -152,6 +155,7 @@ final class LightsModel {
     on = p.on
     off = p.off
     levels = levels.map { _ in p.level }
+    planName = String(localized: p.name)
   }
 
   /// Writes the form's schedule (after keeping the light's current one to put back).
@@ -165,7 +169,7 @@ final class LightsModel {
       let snap = try await session.writeSchedule(s)
       guard self.session === session else { return }
       self.show(snap)
-      if snap.holds(s, channels: self.channels.count) { self.remember(s, at: Date()) }
+      self.remember(snap.holds(s, channels: self.channels.count) ? s : nil, name: self.planName, at: Date())
       self.isManual = false
       // The light runs the schedule now: the manual levels no longer hold.
       self.manual = [:]
@@ -227,10 +231,11 @@ final class LightsModel {
     do { try await body() } catch { if session === s { notice = Notice(text: Self.describe(error), isError: true) } }
   }
 
-  /// A schedule the light now holds, kept on its record: the clock was set with it, and levels set by hand no longer hold.
-  private func remember(_ s: Schedule, at: Date) {
+  /// After a write: the clock was set and levels set by hand no longer hold, as the site keeps them. The schedule is kept
+  /// only when the light read it back (`s`): one it didn't confirm isn't recorded as on the light.
+  private func remember(_ s: Schedule?, name: String?, at: Date) {
     changeLight {
-      $0.wrote(on: s.on.description, off: s.off.description, ramp: s.ramp, levels: s.levels, at: at)
+      if let s { $0.wrote(on: s.on.description, off: s.off.description, ramp: s.ramp, levels: s.levels, name: name, at: at) }
       $0.manual = nil
       $0.clockSyncedAt = Timestamp.string(at)
     }
