@@ -12,14 +12,25 @@
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
   // Accounts for saved tanks (/api/v1/*, worker/accounts/): off until ACCOUNTS is "on" ("preview": the owner only). Needs the
-  // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS; email also Turnstile and a mailer.
+  // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS (public ids, below); email
+  // also Turnstile and the EMAIL binding (Cloudflare Email Sending, aquatome.com onboarded); revoking Apple tokens when an
+  // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
   "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "vars": { "CANONICAL_HOST": "aquatome.com", "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df", "TURNSTILE_SITEKEY": "0x4AAAAAAFqXNU0UVJNdZhcJ" },
+  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
+  "vars": {
+    "CANONICAL_HOST": "aquatome.com",
+    "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df",
+    "TURNSTILE_SITEKEY": "0x4AAAAAAFqXNU0UVJNdZhcJ",
+    "GOOGLE_CLIENT_IDS": "273529484726-536aat77a1fcgms9tspb2tg21lmvljqk.apps.googleusercontent.com,273529484726-i1brjj0oukqk1v1niudmu9f4q4ouo8or.apps.googleusercontent.com",
+    "APPLE_CLIENT_IDS": "com.aquatome.web,com.aquatome.app",
+    "APPLE_TEAM_ID": "Q783W6B4FA",
+    "APPLE_SIGNIN_KEY_ID": "YK437QPP8B"
+  },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
     { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
