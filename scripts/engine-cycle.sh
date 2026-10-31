@@ -16,7 +16,8 @@ case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|pho
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
-# GitHub: a push made with GITHUB_TOKEN starts no workflow, so start deploy.yml for it (one deploy at a time, the newest waiting).
+# GitHub: the engine pushes over a deploy key (engine.yml), and that push starts deploy.yml by itself; deploy() starts it
+# only when nothing was pushed (the hidden-pages redeploy). On the Mac: deploy from here.
 deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
@@ -156,5 +157,5 @@ fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 push || exit 1
-deploy || log "deploy: could not start it (the next push or merge deploys this content too)"
+if [ -z "${GITHUB_ACTIONS:-}" ]; then deploy || log "deploy failed (the next push or merge deploys this content too)"; fi
 log "cycle done"

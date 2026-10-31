@@ -47,6 +47,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          # Pushes to main go over this deploy key: main's ruleset lets deploy keys (and admins) push straight to it,
+          # GitHub Actions' own token can't be let through on a personal repo. Its pushes start deploy.yml themselves.
+          ssh-key: ${{ secrets.ENGINE_DEPLOY_KEY }}
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/engine-config
         env:
