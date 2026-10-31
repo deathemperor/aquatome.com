@@ -1,7 +1,7 @@
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, isAllowedLicence, STAPLE_SPECIES, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, isAllowedLicence, POPULAR, slugify, STAPLE_SPECIES, thumbOf, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError, type Llm } from './claude'
 import { contactSheet } from './video-images'
@@ -141,8 +141,8 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
 }
 
 /**
- * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (the staples, then the
- * species most sources write about): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
+ * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (the staples, the most-kept
+ * fish, then the species most sources write about): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
  * Stops on a model failure (usage limit). content/gallery/<id>.json.
  */
 export async function galleries(root: string, d: GalleryDeps, o: { limit: number; max?: number; only?: string; maxAgeDays?: number }) {
@@ -154,7 +154,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
     const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { source: string }[] }
     return [id, new Set((e.sections ?? []).map(s => s.source)).size] as const
   })))
-  const rank = (id: string) => { const i = STAPLE_SPECIES.indexOf(id); return i < 0 ? STAPLE_SPECIES.length : i }
+  const first = [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify)])]
+  const rank = (id: string) => { const i = first.indexOf(id); return i < 0 ? first.length : i }
   const ids = all.sort((a, b) => rank(a) - rank(b) || sources.get(b)! - sources.get(a)! || a.localeCompare(b))
   const today = d.now().toISOString().slice(0, 10)
   for (const id of ids) {

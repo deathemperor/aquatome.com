@@ -4,7 +4,7 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, slugify, SOURCE_IDS, STAPLE_SPECIES, type SourceId } from '@aq/schema'
+import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { makeProduct } from './products'
 import { readKit } from './video-items'
@@ -44,8 +44,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStorybo
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
 import { ArchiveFetcher } from './archive'
-import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, TARGETS, type TargetLang } from './localize'
-import { POPULAR } from './wanted'
+import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -362,9 +361,7 @@ if (cmd === 'run') {
   const kind = values.kind === 'plants' ? 'plants' : 'species'
   if (!(lang in TARGETS) || (values.kind && values.kind !== kind)) throw new Error('usage: pnpm engine localize --lang id|th [--kind plants] [--only id,id | --top N] [--limit N] [--redo]')
   const all = await readdir(join(ROOT, 'content', kind))
-  // Species: the staples, then the country's own wild fish (what hobbyists there keep and search for), then the rest.
-  const native = kind === 'plants' ? [] : [...await nativeTo(ROOT, TARGETS[lang].place)]
-  const ranked = kind === 'plants' ? [...all].sort() : [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...native, ...[...all].sort()])].filter(id => all.includes(id))
+  const ranked = kind === 'plants' ? [...all].sort() : await speciesOrder(ROOT, lang)
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? (values.top ? ranked.slice(0, Number(values.top)) : ranked)
   const limit = values.only || values.top ? undefined : Number(values.limit ?? 10)
   const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit, kind })
