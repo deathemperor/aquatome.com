@@ -1,0 +1,21 @@
+{
+  "slug": "eleocharis-acicularis",
+  "name": "แฮร์กราส",
+  "altNames": [
+    "Hair Grass",
+    "หญ้าแฮร์กราส",
+    "Dwarf Hair Grass",
+    "Needle Spikerush"
+  ],
+  "sections": {
+    "quickFacts:tropica": "<ul><li><strong>ถิ่นกำเนิด:</strong> พบได้ทั่วโลก</li><li><strong>อัตราการเติบโต:</strong> ปานกลาง</li><li><strong>ความสูง:</strong> 10–15+ ซม. (ความสูงเฉลี่ยหลังปลูกในตู้ได้สองเดือน)</li><li><strong>ความต้องการแสง:</strong> น้อย</li><li><strong>CO2:</strong> น้อย</li></ul>",
+    "maintenance:tropica": "<p>Eleocharis acicularis เป็นไม้น้ำที่พบได้ทั่วไปมาก และเติบโตได้ดีในตู้ปลาแทบทุกสภาพ แต่ถ้าได้อยู่ในพื้นที่โล่งที่ไม่มีไม้น้ำต้นอื่นบังแสงจะดีกว่า หลังปลูกแล้ว รากจะเริ่มแผ่ขยายออกไปรอบ ๆ จนกลายเป็นพรมสวยงามสูงประมาณ 6–15 ซม. หากพรมสูงเกินไป สามารถค่อย ๆ ตัดเล็มให้เหลือความสูงตามต้องการได้</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "tropica": 0.9
+    }
+  }
+}
