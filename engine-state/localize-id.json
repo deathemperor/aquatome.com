@@ -395,21 +395,18 @@
     "score": 0.93
   },
   "betta-uberis": {
-    "at": "2026-10-30",
+    "at": "2026-10-31",
     "from": "2026-10-29",
     "name": "Betta uberis",
-    "confidence": "high",
-    "score": 0.7,
+    "confidence": "medium",
+    "score": 0.8,
     "notes": [
-      "Item 5: the English gives 'Temperature: 75-82°F (24-28°C)'. The Indonesian '24–28 °C' is correct, since 75–82°F is about 24–28°C. This is not an error.",
-      "Item 1: 'Max size: 1.2-1.4 inches (about 3-3.5 cm)' is rendered 'sekitar 3–3,5 cm'. The conversion is fine, but 'sekitar' is added to a range the source gave as exact. Minor.",
-      "Item 1: 'Tipe pemijah: bubble nester' is a non-standard label for 'Breeding'. Use 'Pemijahan: bubble nester (membuat sarang busa)' or 'Perkembangbiakan'.",
-      "Item 1: 'Betta uberis tangkapan alam' is acceptable. 'Kompleks Betta coccina' is better written 'kompleks spesies Betta coccina' or 'kelompok Betta coccina'.",
-      "Item 2: 'habitat' is translated as 'akuarium untuk ikan ini'. This narrows the meaning, because habitat means the whole setup (tank, water parameters, plants). Use 'habitat/tank yang sesuai' or 'lingkungan pemeliharaan'.",
-      "Item 3: 'kilau hijau iridesen di sepanjang sisi tengah tubuh' is awkward. Use 'kilau hijau metalik di garis tengah sisi tubuh'.",
-      "Item 3: 'bahkan ada yang di alam sama sekali tidak memiliki bintik' changes the source. The source says some individuals do not have the spot in the wild, with no 'bahkan' or 'sama sekali' emphasis. Use 'karena sebagian ikan di alam tidak memiliki bintik'.",
-      "Item 4: '±19 liter' adds a '±' sign the source does not have. Use 'sekitar 19 liter'. Also, 'per ±19 liter air' reads clumsily. Use 'Disarankan 1 pasang per 19 liter'.",
-      "Item 6: 'Saat ini ikan ini diberi pakan' repeats 'ikan ini'. Also, the source says 'the seller currently feeds', which the Indonesian turns into a passive with no subject. This is acceptable, but could be 'Penjual saat ini memberi pakan...'. Minor."
+      "Item 1: \"Betta coccina complex\" is left in English; use \"kompleks Betta coccina\" or \"kelompok Betta coccina\" (the current \"kelompok ... complex\" is redundant).",
+      "Item 1: \"Pembuat sarang busa\" is a clumsy rendering of \"bubblenester\"; use \"Bubblenester (pembuat sarang gelembung)\". \"Sarang gelembung\" is the term hobbyists use, not \"sarang busa\".",
+      "Item 1: \"Pemijahan: pembuat sarang busa\" is also unclear as a label; \"Pemijahan: bubblenester (membuat sarang gelembung)\" would read better.",
+      "Item 4: \"1 pasang per sekitar 19 liter air\" drops the \"5 gallons\" original. Say \"1 pasang per 19 liter\"; the \"air\" and \"sekitar\" wording is awkward.",
+      "Item 6: The subject is missing. \"The seller currently feeds\" became a passive with no agent, so the fact that this is what the seller currently feeds is blurred. Write \"Saat ini penjual memberi pakan...\" or clarify. \"Blackworm\" is acceptable, but \"cacing hitam (blackworm)\" is more natural.",
+      "Item 3: \"kilau hijau di bagian tengah sisi tubuh\" is awkward for \"green mid-lateral iridescence\"; use \"kilau hijau metalik di sepanjang sisi tengah tubuh\". \"Bertubuh kurang kekar\" is also stiff; \"bertubuh lebih ramping\" is more natural."
     ]
   },
   "betta-unimaculata": {

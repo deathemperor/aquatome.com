@@ -2,24 +2,23 @@
   "slug": "desmopuntius-hexazona",
   "name": "ปลาเสือหกแถบ",
   "altNames": [
-    "ปลาเสือ 6 แถบ",
     "Six-banded tiger barb",
     "Six-banded barb",
-    "Hexazona barb"
+    "ปลาตะเพียนหกแถบ"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Desmopuntius hexazona ที่จับจากธรรมชาติ ขนาดโตเต็มวัย (5–6 ซม.)</p>",
-    "distribution:glaser": "<p>มีถิ่นกำเนิดในจังหวัดนราธิวาส ภาคใต้ของประเทศไทย</p>",
-    "waterConditions:glaser": "<p>ปลาชนิดนี้ชอบน้ำอ่อนและมีสภาพเป็นกรด</p>",
-    "equipment:glaser": "<p>ตู้ปลาที่ตกแต่งด้วยใบไม้แห้งจำนวนมาก ขอนไม้ และไม้น้ำ</p>",
+    "quickFacts:glaser": "<p>ขณะนี้มีจำหน่าย: Desmopuntius hexazona ที่จับจากธรรมชาติ โตเต็มวัย ขนาด 5–6 ซม. สวยงามมาก</p>",
+    "distribution:glaser": "<p>ปลาชนิดนี้มีถิ่นกำเนิดในจังหวัดนราธิวาส ภาคใต้ของประเทศไทย</p>",
+    "waterConditions:glaser": "<p>ปลาชอบน้ำอ่อนที่มีสภาพเป็นกรด</p>",
+    "equipment:glaser": "<p>ตู้ปลาที่จัดด้วยใบไม้แห้งจำนวนมาก ขอนไม้ และไม้น้ำ</p>",
     "behaviour:glaser": "<p>เช่นเดียวกับปลาในสกุล Desmopuntius ทุกชนิด ควรเลี้ยงเป็นฝูง</p>",
-    "notes:glaser": "<p>ปลาตะเพียนลายแถบจากเอเชียตะวันออกเฉียงใต้เป็นกลุ่มที่ได้รับความสนใจมาตลอด ทั้งจากผู้เลี้ยงปลาสวยงามและนักวิทยาศาสตร์ ตำแหน่งสกุลของปลากลุ่มนี้ไม่ชัดเจนอยู่นานพอสมควร โดยเคยถูกจัดไว้ในสกุล Barbus, Puntius หรือ Systomus แต่ดูเหมือนว่าปัญหานี้ได้ข้อยุติในที่สุดแล้ว ชนิดที่มีลำตัวเรียวยาวปัจจุบันถูกจัดอยู่ในสกุล Desmopuntius (ได้แก่ D. endecanalis, D. foerschi, D. gemellus, D. hexazona, D. johorensis, D. pentazona, D. rhomboocellatus และ D. trifasciatus) ส่วนชนิดที่มีลำตัวป้อมลึก (กลุ่ม \"ปลาเสือสุมาตรา\" หรือ tiger barbs) ถูกจัดอยู่ในสกุล Puntigrus (ได้แก่ P. anchisporus, P. navjotsodhii, P. partipentazona, P. pulcher และ P. tetrazona)</p>"
+    "notes:glaser": "<p>ปลาตะเพียนลายแถบจากเอเชียตะวันออกเฉียงใต้เป็นที่สนใจของทั้งผู้เลี้ยงปลาสวยงามและนักวิทยาศาสตร์มาโดยตลอด ตำแหน่งสกุลของปลากลุ่มนี้ไม่ชัดเจนอยู่นานพอสมควร โดยเคยถูกจัดไว้ในสกุล Barbus, Puntius หรือ Systomus แต่ดูเหมือนว่าปัญหานี้จะได้ข้อยุติในที่สุดแล้ว ชนิดที่มีลำตัวยาวถูกจัดอยู่ในสกุล Desmopuntius (ได้แก่ D. endecanalis, D. foerschi, D. gemellus, D. hexazona, D. johorensis, D. pentazona, D. rhomboocellatus และ D. trifasciatus) ส่วนชนิดที่มีลำตัวป้อมสูง (ปลาตะเพียนลายเสือ หรือ tiger barbs) อยู่ในสกุล Puntigrus (ได้แก่ P. anchisporus, P. navjotsodhii, P. partipentazona, P. pulcher และ P. tetrazona)</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.75,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.75
     }
   }
 }
