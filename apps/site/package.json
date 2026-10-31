@@ -23,6 +23,7 @@
     "@playwright/test": "~1.64.1",
     "@types/node": "^24.19.2",
     "@types/turndown": "^5.0.6",
+    "lighthouse": "12.8.2",
     "node-html-parser": "^9.0.5",
     "pagefind": "^1.5.2",
     "turndown": "^7.2.4",
