@@ -89,7 +89,7 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   import { ct } from '../../../scripts/ct'
 
   // The few Web Bluetooth pieces used here (TypeScript's DOM types don't include it).
-  type Char = EventTarget & { value?: DataView; properties: { writeWithoutResponse: boolean }; writeValueWithoutResponse(b: Uint8Array): Promise<void>; writeValueWithResponse(b: Uint8Array): Promise<void>; startNotifications(): Promise<Char> }
+  type Char = EventTarget & { value?: DataView; properties: { write: boolean }; writeValueWithoutResponse(b: Uint8Array): Promise<void>; writeValueWithResponse(b: Uint8Array): Promise<void>; startNotifications(): Promise<Char> }
   type Device = EventTarget & { name?: string; gatt?: { connect(): Promise<{ getPrimaryService(uuid: string): Promise<{ getCharacteristic(uuid: string): Promise<Char> }> }>; disconnect(): void } }
   const bt = (navigator as Navigator & { bluetooth?: { requestDevice(o: object): Promise<Device> } }).bluetooth
 
@@ -115,13 +115,16 @@ const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEnti
   let manual = false
   let queue: Promise<unknown> = Promise.resolve()
 
-  /** Writes go one at a time (the light drops frames sent too close together; Chrome refuses overlapping GATT writes). */
+  /**
+   * Writes go one at a time (the light drops frames sent too close together; Chrome refuses overlapping GATT writes), each
+   * acknowledged like the My Chihiros app's, so a lost frame fails here instead of silently.
+   */
   function send(make: (id: number) => Uint8Array, gap = 80): Promise<void> {
     const run = async () => {
       if (!tx) throw new Error('not connected')
       id = nextId(id)
       const f = make(id)
-      await (tx.properties.writeWithoutResponse ? tx.writeValueWithoutResponse(f) : tx.writeValueWithResponse(f))
+      await (tx.properties.write ? tx.writeValueWithResponse(f) : tx.writeValueWithoutResponse(f))
       await wait(gap)
     }
     const p = queue.then(run)

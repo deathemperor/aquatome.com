@@ -291,6 +291,9 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 - The light answered status (`5a/04 [1]`), per-channel brightness (`5a/07 [ch, level]`), mode (`5a/05`: 11 manual, 18 scene, 3 curve) and clock (`5a/09 [yy, mm, isoweekday, h, m, s]`).
 - The `0xfe` status snapshot carries the light's clock at bytes 6–8. It read zero after a power cut until a clock sync. This answers test 5: the on-device schedule runs on a clock that a power cut resets.
 - Lesson for the app: the snapshot does not hold the per-channel manual levels. Our test left the light in manual mode at 70 on R/G/B, and the levels set before the test could not be read back. The app must save the user's settings itself before it changes anything.
+- **The site's page works on the light (Chrome Beta and Edge on macOS, Web Bluetooth).** `/vi/cong-cu/den-chihiros/` found the light with its `namePrefix: 'DY'` filter, read firmware 24, and wrote two schedules in turn (14:00–20:00 at 50%, then 12:00–20:00 at 70%, 30-minute ramp). Its clock button, manual mode and per-channel sliders also worked, with acknowledged writes.
+- The `0xfe` snapshot holds the stored schedule as points (`hh mm level`) from byte 25: the second write read `0c 00 00 | 0c 1e 46 | 13 1e 46 | 14 00 00` (12:00 0%, 12:30 70%, 19:30 70%, 20:00 0%), and it replaced the first schedule rather than adding to it. A page can read this back to show what the light currently runs.
+- On this Mac, a second copy of stable Chrome (its own profile, started while the owner's Chrome was open) listed only paired devices and no live BLE advertisements. Chrome Beta and Edge saw the light at once. If the picker is empty on a Mac, try another Chromium browser.
 
 **Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007). Identified, but no commands were sent.
 - Chip: Beken `BK-BLE-1.0`. Service `fff0`: `fff2` write, `fff1` notify.
@@ -380,7 +383,7 @@ What this changes:
 
 ## Appendix: unconfirmed or weakly sourced items
 
-- Chihiros devices are only discoverable by BLE 5 hardware (claim by one author; not tested with Chrome).
+- Chihiros devices are only discoverable by BLE 5 hardware (claim by one author). Chrome Beta and Edge on a MacBook found a WRGB II Slim; Android not tested.
 - Hygger HG-028 uses the Tuya Smart app (one customer review on a retailer page).
 - Nicrew app control; Hidom Wi-Fi; SunsunHome transport and protocol; Kessil protocol; Zetlight's current app.
 - Jebao DMP-30 being Bluetooth (one VN shop listing).
