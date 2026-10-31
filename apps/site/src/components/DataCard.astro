@@ -9,20 +9,10 @@ interface Props { card: Partial<Record<DataCardField, { source: string; value: R
 const { card, sources } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-// Sources disagree: show the range they all accept (the safe target for a beginner), each source's own figure one tap away.
-const agreed = (vals: { value: number | { min: number; max: number } }[]) => {
-  if (vals.length < 2 || !vals.every(v => isRange(v.value))) return null
-  const rs = vals.map(v => v.value as { min: number; max: number })
-  const min = Math.max(...rs.map(r => r.min))
-  const max = Math.min(...rs.map(r => r.max))
-  return min <= max ? { min, max } : null
-}
 const rows = FIELD_ORDER.flatMap(field => {
   const vals = card[field] ?? []
-  const r = resolveDataCard(vals)
-  if (!r) return []
-  const both = r.conflict ? agreed(vals) : null
-  return [{ field, ...r, value: both ?? r.value, agreed: !!both, bySource: r.conflict ? vals : [] }]
+  const r = resolveDataCard(vals) // sources that disagree: the range they all accept, each source's own figure one tap away
+  return r ? [{ field, ...r, bySource: r.conflict ? vals : [] }] : []
 })
 const names = (ids: string[]) => ids.map(id => sources[id]?.name ?? id).join(', ')
 const unitAttrs = (field: string, v: number | { min: number; max: number }) => {
