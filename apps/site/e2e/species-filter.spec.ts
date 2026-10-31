@@ -1,8 +1,9 @@
 import { expect, test } from './fixtures'
 
 // The home tank form into the fish list. The bug this guards: 60 cm, 26 °C, pH 7 gave "327 loài phù hợp", 244 of them
-// with no temperature, pH or tank figure, because missing data counted as a match (2026-10-31). Fixture: Cá ông tiên
-// has only its size, so it can't be a sure match for any tank.
+// with no temperature, pH or tank figure, because missing data counted as a match (2026-10-31). Read from the page, not
+// from the test content, so they hold on aquatome.com too (production watch): each list shows 24 cards at a time.
+const PAGE = 24
 test('home tank form: sure matches first, species without the figures in a closed group, chips to drop filters', async ({ page }) => {
   await page.goto('/vi/')
   await page.locator('#tank button[type=submit]').click()
@@ -17,13 +18,13 @@ test('home tank form: sure matches first, species without the figures in a close
 
   // The sure ones are the list; the unsure ones wait, closed, below it.
   const group = page.locator('#species-unsure')
-  const angel = group.locator('[data-slug="ca-ong-tien"]')
-  await expect(page.locator('main [data-slug]:visible')).toHaveCount(sure)
+  const first = group.locator('[data-slug]').first()
+  await expect(page.locator('main [data-slug]:visible')).toHaveCount(Math.min(sure, PAGE))
   await expect(group.locator('summary')).toHaveText(`Chưa đủ dữ liệu để chắc (${unsure})`)
-  await expect(angel).toBeHidden()
+  await expect(first).toBeHidden()
   await group.locator('summary').click()
-  await expect(angel).toBeVisible()
-  await expect(group.locator('[data-slug]:visible')).toHaveCount(unsure)
+  await expect(first).toBeVisible()
+  await expect(group.locator('[data-slug]:visible')).toHaveCount(Math.min(unsure, PAGE))
 
   // One chip per filter; × drops that one, keeps the rest, and stays in the address.
   const chips = page.locator('#species-chips button')
@@ -41,13 +42,13 @@ test('home tank form: sure matches first, species without the figures in a close
   await expect(page.locator('#species-active')).toBeHidden()
   await expect(group).toBeHidden()
   const all = await page.locator('#species-index').evaluate(s => (JSON.parse(s.textContent!) as unknown[]).length)
-  await expect(page.locator('main [data-slug]:visible')).toHaveCount(Math.min(all, 24))
+  await expect(page.locator('main [data-slug]:visible')).toHaveCount(Math.min(all, PAGE))
 })
 
 test('a filter nothing surely matches opens the unsure group instead of showing an empty list', async ({ page }) => {
-  // 10 cm: no fixture species with a known tank fits it; Cá ông tiên has no tank figure.
+  // 10 cm: no species with a known smallest tank fits it; those with no tank figure are the possible ones.
   await page.goto('/vi/ca/?tankCm=10')
   await expect(page.locator('#species-count')).toHaveText(/^0 loài phù hợp · [1-9]\d* loài chưa đủ dữ liệu để chắc$/)
   await expect(page.locator('#species-unsure')).toHaveAttribute('open', '')
-  await expect(page.locator('#species-unsure [data-slug="ca-ong-tien"]')).toBeVisible()
+  await expect(page.locator('#species-unsure [data-slug]').first()).toBeVisible()
 })
