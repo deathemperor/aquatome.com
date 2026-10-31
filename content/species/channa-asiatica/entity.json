@@ -7,19 +7,63 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "china"
+    "china",
+    "yangtze",
+    "vietnam",
+    "red-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 35
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 100
       }
     ]
   },
@@ -31,10 +75,22 @@
       "html": "<p>Channa asiatica grows up to 40 cm long but reaches sexual maturity at half that length. The species does not build a nest; the eggs are laid on the water's surface and cared for by both parents.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>The Chinese snakehead, Channa asiatica, is a snakehead native to central and southern China and northern Vietnam. One of several Channa lacking pelvic fins, it is told apart from them by vertical black bars on a brownish body and numerous white spots on the body and fins. It is best kept in a species tank. Pairs build no bubble nest, and both parents defend several thousand floating eggs and the fry.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/channa-asiatica-platinum-2/",
       "html": "<p>There are currently very few cultivated varieties among Channa species. Only albinos of Channa striata have been bred in aquaculture, and, also from aquaculture, a silvery-white breed of Channa argus called \"Pearl White Lemon\"; these fish were described in 1936 as Channa argus kimurai.</p><p>Channa asiatica can be immediately distinguished from the similarly coloured Channa argus \"Pearl White Lemon\", which is classified as potentially invasive in the EU and therefore banned, by the lack of pelvic fins in C. asiatica.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p>"
     },
     {
       "key": "distribution",
@@ -43,10 +99,40 @@
       "html": "<p>Channa asiatica is primarily distributed in China and on nearby islands.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>Native to central and southern China and northern Vietnam.</p><p>In China the Yangtze River appears to represent the northern limit of its range, and to the south it's also present on Hainan Island and Hong Kong.</p><p>It's also been introduced to Taiwan and Ishigaki Shima Island in the Ryukyu Islands, Japan.</p><p>Records from Vietnam pertain only to the Red (also known as the Sông Cái or Yuan) River.</p><p>Type locality is given simply as 'Asia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>A generalist which has been collected in many different types of habitat although it does tend to avoid very fast-flowing water and is often associated with humid, rainforested areas.</p><p>It's found in ponds, lakes and slow moving streams and rivers where it typically hides in crevices, among roots or other similar hiding places.</p><p>Like others in the genus it can tolerate hypoxic conditions due to its ability to breath atmospheric air (see 'Notes'), and it's one of several species known to travel short distances over land when moving between habitats.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>An aquarium with base measuring at least 100 × 40 cm (about 160 litres) is recommended.</p><p>Water depth is less important but should not be less than 30 cm.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/channa-asiatica-platinum-2/",
       "html": "<p>Caring for Channa asiatica is very simple; these animals do not require a heater in home aquariums. The aquarium must be sized appropriately for the expected growth. When kept alone, you acquire a pet that becomes tame and can bring joy to its owner for many years.</p><p>Water parameters are irrelevant for care and breeding; any tap water is suitable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>Like most smaller Channa species it prefers a dimly-lit aquarium with plenty of cover in the form of live plants, driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots.</p><p>Surface vegetation such as Ceratopteris spp. is also appreciated and makes the fish less inclined to conceal themselves.</p><p>The provision of cover is especially important when the fish are breeding in order to give the female an opportunity to stay out of sight of the male.</p><p>It's essential to use a tightly-fitting cover since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<ul><li>Temperature: 15–25°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -55,10 +141,28 @@
       "html": "<p>They will eat any coarse food of meat origin, such as earthworms, live or frozen feeder fish, all kinds of seafood, gammarus, mealworms and other insects, but these fish will usually also accept cichlid sticks and coarse pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>An obligate predator feeding mostly on smaller fishes and insects in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Offer a meaty diet comprising shrimp, earthworms, superworms (larvae of the beetle Zophobas morio used to feed larger species of lizards) as well as frozen foods such as prawns, mussels and pieces of whole fish.</p><p>This species will not eat any kind of dried food.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/channa-asiatica-platinum-2/",
       "html": "<p>In the Western world, Channa asiatica is notorious among aquarists for its unpredictability. Even pairs that have frequently produced offspring together can suddenly fall out after years of harmonious coexistence and then fight to the death. For this reason, C. asiatica (in the broadest sense) is found only very rarely in the ornamental fish trade, although the species can be very beautiful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>Best maintained in a species-specific aquarium.</p><p>It can be kept in a group while young but once a pair has formed and established dominance the remaining fish will be in danger.</p><p>Either the excess specimens should be removed or the pair given a tank of their own.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>Males develop more-extended dorsal and anal fins and possess a far greater number of silvery spots on the body and fins than females.</p><p>Adult females tend to appear rounder-bellied than males.</p>"
     },
     {
       "key": "reproduction",
@@ -67,13 +171,75 @@
       "html": "<p>When attempting to breed them, care should be taken to ensure that the water temperature does not rise much above 22°C, as at higher temperatures the aggressive potential of these fish comes into full play.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>If a pair is well fed they will usually breed at least once a year once they have reached a size of about 18 cm.</p><p>The male and female will embrace in a manner similar to that seen in gouramis, bettas and other anabantoids.</p><p>No bubble nest is built and several thousand eggs simply float at the surface with both male and female remaining to defend the eggs and fry.</p><p>The eggs hatch after 24-36 hours depending on temperature and the fry are free swimming in a further 24 hours. At this point they resemble 6–7 mm long black tadpoles.</p><p>It is important to constantly feed the fry large amounts of small live foods like Artemia nauplii, cyclops and Daphnia.</p><p>When they are 1-2 weeks old they will even eat mosquito larvae and right from the start they catch their food in exactly the same way as their parents; the body is bent into an S-shape, the mouth is opened and while 'jumping' forward, the prey is sucked into the mouth.</p><p>It is equally important to sort the fry according to size on a weekly basis, since otherwise the largest will eat their smaller siblings.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/channa-asiatica-platinum-2/",
       "html": "<p>Channa asiatica is a species with many variants or, as is generally guessed today, a species complex of anatomically indistinguishable species that differ quite distinctly in color. Because the scientific community has so far assumed there is only one species, hobbyists breeding these fish have frequently interbred strains from different locations.</p><p>There are breeders in Taiwan who are now specifically breeding various color variants of Channa asiatica. A \"Platinum\" variant of Channa asiatica has now been imported for the first time from this source.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<p>This species is one of several in the genus to lack pelvic fins but can be distinguished from all of them by its colour pattern consisting of vertical black bars, usually extending from the lower to upper portion of the body, a brownish base colour and numerous white spots on the body and fins.</p><p>Its closest relative is Channa nox but that species has a plain darkish colour pattern with only a few irregular white spots, plus the two differ in several meristic characters including: number of vertebrae 49–53 in C. asiatica vs. 53–55 in C. nox; dorsal-fin rays 41–47, rarely 49 vs. 47–51; anal-fin rays 28-32 vs. 31–33; lateral line scales 52-61 vs. 55–63; cheek scales 7-11 vs. 9–13; predorsal length 28.9-33.3 % SL vs. 26.9–28.4 % SL; snout length 4.7-7.2 % SL vs. 3.6–5.1 % SL.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes.</p><p>There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium.</p><p>These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "html": "<ul><li>Zhang, C.-G., P. Musikasinthon and K. Watanabe (2002). Channa nox, a new channid fish lacking a pelvic fin from Guangxi, China. Ichthyological Research 49(2), 140-146</li><li>Kottelat, M. (2001). Freshwater fishes of northern Vietnam. A preliminary check-list of the fishes known or expected to occur in northern Vietnam with comments on systematics and nomenclature. Environment and Social Development Unit, East Asia and Pacific Region. The World Bank, i-iii + 1-123 + 1-18</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2d690aee86fd2260.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2d690aee86fd2260-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f46a86c0ad91eef8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f46a86c0ad91eef8-480.webp",
+      "width": 850,
+      "height": 564,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/71475e9bca91535d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/71475e9bca91535d-480.webp",
+      "width": 795,
+      "height": 530,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "caption": "Subadult.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0e017df20c190878.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0e017df20c190878-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-asiatica",
+      "caption": "Specimen from Hainan Island.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/e7c8e182702df0eb.webp",
       "thumb": "https://media.aquatome.com/glaser/e7c8e182702df0eb-480.webp",
@@ -115,7 +281,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "NfhnQWRVZgI",
+      "title": "Channa Asiatica FULL Guide (Care + All Variants Explained) | Cheap vs Expensive Channa Asiatica",
+      "durationSec": 951,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7M97upBQXpc",
+      "title": "Channa Asiatica / Chinese Snakehead Care Guide? Here's how to set up a tank and what not to do!",
+      "durationSec": 439,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "J6-A3rPSCdQ",
+      "title": "Settingan tank channa asiatica ws // set up tank channa asiatica ws batu kali",
+      "durationSec": 896,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Fn3Nld_7dV0",
+      "title": "Snakehead Grows Up In Paludarium Waterfall l Channa Asiatica l 9 Months Update",
+      "durationSec": 700,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

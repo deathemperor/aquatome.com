@@ -5,19 +5,33 @@
     "Cá ông tiên hoang dã Rio Xingu",
     "Angelfish",
     "Freshwater angelfish",
-    "Cá ông tiên Santa Isabel"
+    "Cá ông tiên Santa Isabel",
+    "Cá thần tiên",
+    "Cá ông tiên bạc"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Xuất xứ: Brazil</li><li>Kích cỡ hiện có: 10-15 cm</li></ul>",
     "distribution:glaser": "<p>Đây là cá ông tiên bắt ngoài tự nhiên ở đô thị Santa Isabel, nằm bên sông Rio Negro, Brazil.</p>",
     "waterConditions:glaser": "<p>Ở thượng nguồn Rio Negro, nước rất mềm và có tính axit.</p>",
-    "notes:glaser": "<p>Nhiều loài cá khác ở vùng này cũng lên màu đỏ đậm trên thân, rõ nhất là cá đĩa và Apistogramma. Dòng cá ông tiên này cũng vậy. Đến nay vẫn chưa ai biết vì sao.</p><p>Cũng như mọi loài cá hoang dã cỡ lớn, những con cá ông tiên này từng bị cá piranha cắn vây. Dù vậy, chúng rất khỏe, cứng cáp và mọc lại vây rất nhanh. Chỉ sau vài tuần, những vết thương từ ngoài tự nhiên sẽ không còn thấy nữa.</p>"
+    "notes:glaser": "<p>Nhiều loài cá khác ở vùng này cũng lên màu đỏ đậm trên thân, rõ nhất là cá đĩa và Apistogramma. Dòng cá ông tiên này cũng vậy. Đến nay vẫn chưa ai biết vì sao.</p><p>Cũng như mọi loài cá hoang dã cỡ lớn, những con cá ông tiên này từng bị cá piranha cắn vây. Dù vậy, chúng rất khỏe, cứng cáp và mọc lại vây rất nhanh. Chỉ sau vài tuần, những vết thương từ ngoài tự nhiên sẽ không còn thấy nữa.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá ông tiên (Pterophyllum scalare) là một loài cichlid sống ở sông Amazon, Essequibo, Oyapock và nhiều con sông khác ở miền bắc Nam Mỹ. Cá trưởng thành dài 15 cm và cao từ 20 cm trở lên, nên phải nuôi trong bể cao. Gần như toàn bộ cá bán ngoài thị trường là cá trại nhân giống hàng loạt. Ngoài dòng bạc truyền thống còn có các dòng đen, vàng và koi. Cá nhìn chung hiền nhưng vẫn có thể ăn cá nhỏ như tetra.</p>",
+    "distribution:seriouslyfish": "<p>Ngoài tự nhiên, loài này sống ở một số vùng thuộc Colombia, Guyana, Suriname, Guiana thuộc Pháp, Peru và Brazil. Cá có mặt ở nhiều hệ thống sông, trong đó có Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões và lưu vực chính của sông Amazon. Ở bang Amapá của Brazil, cá cũng sống trong nhiều con sông. Tuy vậy, cá hoang dã bây giờ rất hiếm gặp trong giới chơi cá. Phần lớn cá bán ra là cá nhân giống hàng loạt ở Viễn Đông và Đông Âu.</p>",
+    "habitat:seriouslyfish": "<p>Ngoài tự nhiên, loài này sống ở một số vùng thuộc Colombia, Guyana, Suriname, Guiana thuộc Pháp, Peru và Brazil. Cá có mặt ở nhiều hệ thống sông, trong đó có Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões và lưu vực chính của sông Amazon. Ở bang Amapá của Brazil, cá cũng sống trong nhiều con sông. Tuy vậy, cá hoang dã bây giờ rất hiếm gặp trong giới chơi cá. Phần lớn cá bán ra là cá nhân giống hàng loạt ở Viễn Đông và Đông Âu.</p>",
+    "aquariumSize:seriouslyfish": "<p>Bể nhỏ nhất nên dùng là bể 100 × 40 × 50 cm (khoảng 200 lít).</p>",
+    "maintenance:seriouslyfish": "<p>Bể nên trồng dày các loại cây lá cao như cây kiếm Amazon. Cá thích dòng chảy nhẹ. Cá trưởng thành nên nuôi trong bể cao ít nhất 50 cm.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–30 °C</li><li>pH: 6,0–7,4</li><li>Độ cứng: 0–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Cá ông tiên ăn tạp. Cá hoang dã chủ yếu ăn các sinh vật sống ở đáy như giáp xác nhỏ và những loài động vật không xương sống dưới nước khác. Cá nhân giống trong bể ngày nay đã khác xa tổ tiên của chúng. Trong bể, cá chịu ăn cám viên hoặc cám mảnh. Chúng rất khoái thức ăn sống và thức ăn đông lạnh.</p>",
+    "behaviour:seriouslyfish": "<p>Cá ông tiên nhìn chung là loài cichlid hiền, nhưng có thể gây gổ với đồng loại. Vì vậy tốt nhất bạn nên nuôi chúng thành nhóm nhỏ. Đây là loài hợp với bể cộng đồng, có điều cá vẫn có thể ăn các loài cá nhỏ như tetra.</p>",
+    "dimorphism:seriouslyfish": "<p>Phân biệt đực cái ở loài này khá khó. Cá đực có gai sinh dục nhỏ hơn và nhọn, nhưng thường chỉ nhìn thấy khi cá đẻ. Xem hành vi có thể đoán chính xác hơn. Cá đực nhiều khả năng hung hăng và giữ lãnh thổ dữ hơn, nhất là khi đang vào độ sinh sản. Nếu định cho cá đẻ, bạn nên bắt đầu với một nhóm sáu con non. Trong nhóm này chắc chắn sẽ có một cặp bắt đôi.</p>",
+    "reproduction:seriouslyfish": "<p>Cá ông tiên đẻ trứng lên các bề mặt thẳng đứng như tấm đá phiến, lá cây bản rộng, có khi ngay trên kính bể. Nếu đã có một cặp bắt đôi thì bạn gần như không phải làm gì nhiều để kích chúng đẻ. Chỉ cần vỗ béo cá thật tốt bằng thức ăn sống như trùng huyết và artemia. Cá ông tiên là bố mẹ chu đáo. Chúng canh trứng, rồi tiếp tục canh cá bột sau khi trứng nở. Bạn nhớ cho cá bố mẹ ăn đầy đủ, vì chuyện bố mẹ ăn cá bột không phải là hiếm. Khi cá bột đã tiêu hết túi noãn hoàng (thường sau hai ngày), bạn có thể cho ăn artemia mới nở, sau đó chuyển dần sang thức ăn cá bột bán sẵn.</p>",
+    "notes:seriouslyfish": "<p>Cá ông tiên là loài cá cảnh nổi tiếng và được nhiều người nuôi. Ngoài dòng bạc truyền thống, cá còn có nhiều dòng màu khác như đen, vàng và koi. Dù nhìn chung hiền, chúng vẫn là cichlid. Vì vậy bạn nên chuẩn bị tinh thần là thỉnh thoảng chúng sẽ gây gổ.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "seriouslyfish": 0.8
     }
   }
 }

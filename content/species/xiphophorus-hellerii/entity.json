@@ -11,7 +11,13 @@
     "central-america",
     "quintana-roo",
     "belize",
-    "golden-stream"
+    "golden-stream",
+    "nautla",
+    "guatemala",
+    "usumacinta",
+    "sarstoon",
+    "honduras",
+    "chamelecon"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +25,13 @@
         "source": "sprucepets",
         "value": {
           "min": 18,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
           "max": 28
         }
       }
@@ -30,6 +43,13 @@
           "min": 7,
           "max": 8.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -39,24 +59,43 @@
           "min": 12,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 14
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 75
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 1
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -66,6 +105,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<ul><li>Common name: Swordtail</li><li>Scientific name: Xiphophorus helleri</li><li>Adult size: 3-4 inches (about 8-10 cm)</li><li>Life expectancy: 3-5 years</li><li>Family: Poeciliidae</li><li>Origin: Mexico and Central America</li><li>Social: Peaceful</li><li>Tank level: Top, mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: Omnivore</li><li>Breeding: Livebearer</li><li>Care: Easy</li><li>pH 7.0-8.5</li><li>Hardness: 12-30 dGH</li><li>Temperature: 18 to 28 °C (64 to 82 °F)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>The green swordtail, Xiphophorus hellerii, is a livebearer native to southeastern Mexico, Guatemala, Belize and Honduras. Among the world's most recognisable aquarium fishes, it is ubiquitous in the trade, where selective breeding and hybridisation with X. maculatus and X. variatus have produced a bewildering array of ornamental forms. The name is often misspelled X. helleri.</p><ul><li>Max size: 140 mm SL (6 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 16–28°C (61–82°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -92,10 +137,40 @@
       "html": "<p>This unusual Green Swordtail originates from the surroundings of the Golden Stream preserve in Belize. The preserve covers an area of about 61 km² and contains a large number of rare and endangered species.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras. Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.</p><p>Within these boundaries it also occurs in various river systems in the Mexican states of Campeche, Chiapas, Oaxaca, Quintana Roo, and Tabasco.</p><p>Type locality is 'Orizaba, Mexico', which corresponds to the city of that name in Veracruz state.</p><p>It has been widely introduced to other river basins in Mexico and throughout the world, and is now present on all major continents except Antarctica. Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Natural populations are found in various types of habitat from sea level to around 1500 m altitude, including fast-flowing, rocky streams, to springs, ditches, ponds, and rivers containing clear to turbid water. In most cases the water is less than 1.5 m deep and there is no aquatic vegetation.</p><p>In flowing water adults tend to congregate in areas with greater current, while juveniles and subadults display a preference for quiet marginal zones.</p><p>Introduced populations may occur in springs, streams, rivers, canals, ditches, pools, artificial reservoirs and other environments, and the species exhibits a degree of tolerance to polluted conditions. Where X. hellerii occurs in large numbers outside its natural range it is thought to exert a number of negative impacts on native species and ecosystems.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>An aquarium with surface dimensions of 120 × 30 cm (48 × 12 in) or equivalent, about 108 litres (29 US gal), should be the smallest considered.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<p>Swordtails do well in many different aquarium setups. These easygoing fish are good for beginners and a colorful addition to any community tank. They are active fish, so make sure there are not too many decorative items in their way. The best combination is to keep décor and plants to the lower half to two-thirds of the tank and leave the top of the tank open for active swimming.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Choice of décor is not especially critical though it tends to look best in a heavily-planted set-up with a dark substrate. Wild forms should also suit an aquarium arranged to resemble a flowing stream with water-worn rocks and small boulders.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<ul><li>Temperature: 16–28°C (61–82°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -104,10 +179,22 @@
       "html": "<p>Swordtails are omnivores that enjoy a varied diet. Depending on the water temperature, you may need to feed your fish 2-3 times per day. Many tropical fish like to forage throughout the day, so fewer feedings are not ideal. Swordtails do well on most community micropelleted diets, and also enjoy occasional frozen and freeze-dried treats.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Stomach analyses of wild specimens have shown it to be a generalised omnivore, feeding on a range of aquatic and terrestrial invertebrates, organic detritus, algae, and other plant material.</p><p>In the aquarium it is unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and chironomid larvae (bloodworm).</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<p>Swordtails do best living in a group, so plan on at least 4-5 individuals per aquarium. You can mix different varieties together, but be ready for a swarm of baby swordtails if you mix males and females. Some potential tankmates include Neon Tetras, Coolie Loach or Corydoras.</p><p>Male swordtails may take up territory and become aggressive towards other fish. Be sure to have plenty of room for all your swordtails, despite their small size. It may help to add fake or live plants to give your fish more hiding areas.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>In confined spaces groups of males tend to form dominance hierarchies and may invest a significant proportion of time maintaining their respective positions.</p>"
     },
     {
       "key": "dimorphism",
@@ -122,16 +209,40 @@
       "html": "<p>One of the peculiarities of the \"Golden Stream\" is that a natural polymorphism still exists in males. From the same brood one can obtain small, tiny, often very colourful males and real bulls with about double the body mass of their small conspecifics. These so-called early and late males appear initially in any swordtail population, but in domesticated strains breeders often eliminate the small early males, so only large, late males exist.</p><p>The males often exhibit dark vertical stripes on the shoulder.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Adult males tend to be smaller than females and possess a prominent gonopodium, plus the characteristic extension of the lower caudal-fin lobe. In some ornamental strains the upper caudal-fin lobe or other fins may also be extended, however, including in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<p>Livebearers such as swordtails can easily overpopulate an aquarium. Many beginners are not aware of the swordtail's livebearing abilities and are surprised by a swarm of babies. Females may already be pregnant when acquired, and even one pregnant swordtail can cause a sudden population explosion.</p><p>Swordtails can mature as early as 3 months old and give birth to up to 50 fry per spawning. If you don't want more babies, separate males from females before they reach reproductive maturity.</p><p>Over several generations, you may note an increase in fry deaths, or your fish may not live as long. If you continue to breed the same population, you can expect health issues resulting from inbreeding. The best fix is adding genetic diversity by purchasing new fish or trading with another hobbyist. Unless you know the health history of new fish, it is always recommended to quarantine them before adding them to your aquarium.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>Like other members of the viviparous family Poeciliidae, male Xiphophorus have a gonopodium, essentially a modified anal-fin, which is used for internal fertilisation of females.</p><p>The reproductive behaviour of Xiphophorus is well-studied, and females are known to exhibit preferences for numerous physical and behavioural traits such as sword length (long, short, or without), colour pattern, body size, vertical barring on the body, chemical cues and specific nuptial behaviours. In some cases females show preferences for male traits of other species. Male behaviour is designed to both attract mates and drive away rivals, while some individuals, known as 'sneakers',</p><p>Females are also capable of storing viable male sperm for months,</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-hellerii-guentheri-golden-stream/",
       "html": "<p>The \"Golden Stream\" is a wonderful wild type of swordtail that can be recommended to hobbyists interested in studies of behaviour and genetics, but a hobbyist who simply enjoys beautiful fish will also make a good choice.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<p>This species is among the world's most recognisable aquarium fishes and ubiquitous in the ornamental trade, although its name is often misspelled X. helleri (with only a single i, vs. correct spelling X. hellerii) in both scientific and hobbyist literature.</p><p>Selective breeding has led to the development of a bewildering array of ornamental forms which tend to display colours, and often fin morphology, that are not present in wild fish. Some of these forms are also the result of artificial hybridisation with other members of the genus, particularly X. maculatus and X. variatus.</p><p>Xiphophorus species are naturally distributed throughout the Atlantic slope of Mexico and adjacent portions of Central America, although a number of members have been introduced to and become established in other countries and territories. In English they are commonly referred to as 'platyfishes' and 'swordtails', and are considered important in several fields of scientific research, including behavioural, genetic, and biomedical (including the cause and genetics of cancers) studies.</p><p>The genus is split into three main phylogeographic clades: the platies, or platyfishes, which occur throughout eastern Mexico and Central America; the northern swordtails, endemic to the Río Pánuco and Río Tuxpan watersheds in the Sierra Madre Oriental mountains of northeastern Mexico, and the southern swordtails of southern Mexico and northern Central America.</p><p>The relationships within these groups have also been studied in depth. X. hellerii is a member of the southern swordtail clade,</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
+      "html": "<ul><li>Heckel, J. J. (1848). Eine neue Gattung von Poecilien mit rochenartigem Anklammerungs-Organe. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 1 (pts 1-5), 289-303</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Page, L. M. and B. M. Burr (2011). Peterson Field Guide to Freshwater Fishes of North America North of Mexico (Second Edition). Houghton Mifflin Harcourt, 1-688</li><li>Larson, H. K., R. S. Williams and M. P. Hammer (2013). An annotated checklist of the fishes of the Northern Territory, Australia. Zootaxa 3696(1), 1-293</li><li>Eskmaeili, H. R. , B. W. Coad and A. Gholamifard, N. Nazari, A. Teimory (2010). Annotated checklist of the freshwater fishes of Iran. Zoosystematica Rossica 19(2), 361-386</li><li>Matamoros, W. A., J. F. Schaefer and B. R. Kreiser (2009). Annotated checklist of the freshwater fishes of continental and insular Honduras. Zootaxa 2307, 1-38</li><li>Miller, R. R. (2005). Freshwater fishes of México. University of Chicago Press, xxvi + 1-490</li><li>Rosen, D. E. (1960). Middle-American poeciliid fishes of the genus Xiphophorus. Bulletin of the Florida State Museum Biological Sciences 5(4), 57-242</li><li>Rosenthal, G. G, and F. J. García de León (2006). Sexual Behavior, Genes, and Evolution in Xiphophorus. Zebrafish 3(1), 85-90</li><li>Kazianis, S. (2006). Historical, Present, and Future Use of Xiphophorus Fishes for Research. Zebrafish 3(1), 9-10</li><li>McLennan, D. A. and M. J. Ryan (2008). Female swordtails, Xiphophorus continens, prefer the scent of heterospecific males. Animal Behaviour 75, 1731-1737</li><li>Kang, J. H., M. Schartl, R. B. Walter, and A. Meyer (2013). Comprehensive phylogenetic analysis of all species of swordtails and platies (Pisces: Genus Xiphophorus) uncovers a hybrid origin of a swordtail fish, Xiphophorus monticolus, and demonstrates that the sexually selected sword originated in the ancestral lineage of the genus, but was lost again secondarily. BMC Evolutionary Biology, 25</li><li>Kallman, K. D. and Steven Kazianis (2006). The genus Xiphophorus in Mexico and Central America. Zebrafish 3(3), 271-285</li><li>Cui, R., M. Schumer, K. Kruesi, R. Walter, P. Andolfatto, and G. G. Rosenthal (2013). Phylogenomics reveals extensive reticulate evolution in Xiphophorus fishes. Evolution 67(8), 2166-2179</li><li>Earley, R. L. and L. A. Dugatkin (2006). Merging social hierarchies: Effects on dominance rank in male green swordtail fish (Xiphophorus helleri). Behavioural Processes 73(3), 290-298</li><li>Franck, D., B. Klamroth, A. Taebel-Hellwig, and M. Schartl (1998). Home ranges and satellite tactics of male green swordtails (Xiphophorus helleri) in nature. Behavioural Processes 43(2), 115-123</li><li>Jones, J. C., S. Fan, P. Franchini, M. Schartl, and A. Meyer (2013). The evolutionary history of Xiphophorus fish and their sexually selected sword: a genome‐wide approach using restriction site‐associated DNA sequencing. Molecular Ecology 22(11), 2986-3001</li><li>Kallman, K. D., R. B. Walter, D. C. Morizot, and S. Kazianis (2004). Two new species of Xiphophorus (Poeciliidae) from the Isthmus of Tehuantepec, Oaxaca, Mexico, with a discussion of the distribution of the X. clemenciae clade. American Museum Novitates 3441, 1-34</li><li>Basolo, A. L. (1990). Female preference for male sword length in the green swordtail, Xiphophorus helleri (Pisces: Poeciliidae). Animal Behaviour 40(2), 332-338</li><li>Rauchenberger, M., K. D. Kallman, and D. C. Morizot (1990). Monophyly and geography of the Río Pánuco Basin swordtails (genus Xiphophorus) with descriptions of four new species. American Museum Novitates 2975, 1-41</li><li>Meyer, A., W. Salzburger, and M. Schartl (2006). Hybrid origin of a swordtail species (Teleostei: Xiphophorus clemenciae) driven by sexual selection. Molecular Ecology 15(3), 721-730</li></ul>"
     }
   ],
   "photos": [
@@ -217,7 +328,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "irH8o-tZME0",
+      "title": "55 gallon Xiphophorus hellerii planted aquarium",
+      "durationSec": 262,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R1nW2OgiPPE",
+      "title": "Red Tuxedo Swordtails (Xiphophorus Hellerii) 20 Gallon (75 Liter) Aquarium",
+      "durationSec": 181,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v-4__IhWrdw",
+      "title": "How to Keep Happy, Healthy Swordtails - Swordtail Fish Care and Breeding Guide",
+      "durationSec": 374,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5dS5YpP4GSI",
+      "title": "Swordtail Fish Care Guide | Xiphophorus hellerii – Tank Size, Food, Breeding & Fry",
+      "durationSec": 19,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -247,5 +383,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

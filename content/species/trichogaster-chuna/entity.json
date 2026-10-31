@@ -67,6 +67,12 @@
       "html": "<ul><li>Max size: 55 mm SL</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 22–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "html": "<p>The coloration of the honey gurami, Colisa chuna, is unique among the freshwater fish of the world and also among the labyrinth fish, to which the honey gurami belongs. All other Colisa species have a pattern of vertical stripes, only the honey gurami has no such pattern. In neutral mood the animals are beige with a dark longitudinal band. Males in breeding mood, on the other hand, become bright orange on the body, the throat deep black and the dorsal fin lemon yellow. With regard to these striking colours, the honey gurami can certainly be counted among the most beautiful freshwater fish of all.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
@@ -77,6 +83,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.</p><p>Type locality is given simply as 'Gangetic provinces, India'.</p><p>Wild examples are rare in the aquarium hobby with virtually all fish on sale produced commercially for the purpose.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "html": "<p>The honey gurami originates from India and Bangladesh. However, it is not as widespread there as the other members of the genus, which is probably the reason why the species was imported for aquaristics only in 1962.</p>"
     },
     {
       "key": "habitat",
@@ -183,9 +195,74 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "caption": "The 'red' colour form has been selectively-bred for the ornamental trade, possibly via hybridisation with the congener T. labiosa.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1fd92713384d0ba4.webp",
+      "thumb": "https://media.aquatome.com/glaser/1fd92713384d0ba4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4bbd5974ce0eb2e4.webp",
+      "thumb": "https://media.aquatome.com/glaser/4bbd5974ce0eb2e4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d9c16f13f858e516.webp",
+      "thumb": "https://media.aquatome.com/glaser/d9c16f13f858e516-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/72eda9fea632fc7f.webp",
+      "thumb": "https://media.aquatome.com/glaser/72eda9fea632fc7f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "92mMOEKPkk4",
+      "title": "Care Guide for Honey Gourami - Aquarium Co-Op",
+      "durationSec": 311,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PaXShZENWGY",
+      "title": "The Sweetest Gourami You Will Meet: Honey Gourami Care and Breeding",
+      "durationSec": 533,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vKETxg7Fd0c",
+      "title": "Watch This VIDEO Before You BUY Honey GOURAMIS! | Complete Care Guide (Trichogaster Chuna Mary Gold)",
+      "durationSec": 406,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "moCxgQ0mpVI",
+      "title": "Creating an UNDERWATER JUNGLE for my Honey Gourami: Step-by-Step! (low-tech)",
+      "durationSec": 601,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -217,5 +294,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "sumatra",
-    "borneo"
+    "borneo",
+    "jambi"
   ],
   "dataCard": {
     "tempC": [
@@ -19,11 +20,52 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 3
       }
     ]
@@ -36,10 +78,46 @@
       "html": "<p>Currently there are 5 species of harlequin barbs (Trigonostigma) scientifically named and accepted: the “classic” harlequin barb (T. heteromorpha), plus T. hengeli, T. espei, T. somphongsi and T. truncata. However, genetic studies showed that there are even more species.</p><p>From the great Sunda Islands of Sumatra and Borneo comes the glowlight harlequin barb, T. hengeli. Typically, this beautiful species has a bright orange-pink stripe around the comparatively small wedge spot, while the rest of the body is light colored and somewhat transparent. T. hengeli is unlikely to be confused with T. heteromorpha, but there is always confusion with T. espei. T. espei looks essentially like T. heteromorpha, the anterior body is colored in T. espei (light/transparent in T. hengeli).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Trigonostigma hengeli is a small rasbora from the Greater Sunda Islands, collected in Jambi province, Sumatra and apparently West Kalimantan, Borneo. It is sometimes sold as the 'glowlight rasbora', a name also applied to Trigonopoma pauciperforatum. Slightly smaller than T. espei and T. heteromorpha, it has a greyish body with bright orange along the upper and anterior edges of the 'lambchop' marking.</p><ul><li>Max size: 30 mm SL (1.2 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Certainly restricted to the Greater Sunda Islands although the exact extent of its range is unclear.</p><p>Collections have occured in Jambi province, Sumatra and apparently the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo though definitive information regarding the latter could not be obtained. The type specimens were collected from the Tambesi river, a tributary of the Batang Hari/Jambi river in Sumatra.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Mostly inhabits gently flowing sections of forest streams and tributaries where submerged aquatic plants such as Cryptocoryne species grow thickly.</p><p>The water is sometimes stained faintly brown/yellow due to the presence of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs, and branches. Such environments characteristically contain soft, weakly acidic to neutral water and are often dimly-lit due to dense marginal vegetation and the forest canopy above.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>An aquarium base of 60 × 30 cm (24 × 12 in) or equivalent (about 54 litres) should be the smallest considered since this species should be maintained in numbers.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Choice of decor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with a dark substrate, and it's a relatively popular choice for carefully-aquascaped arrangements.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating a blackwater environment. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under fairly dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne, and Anubias are recommended since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-hengeli-4/",
       "html": "<p>The water temperature can be between 22 and 28°C. After acclimation the water values hardly play a role for keeping, any drinking water is suitable, however, as mentioned, the colors are considerably more intensive in water that is slightly brownish colored with alder cones, dead leaves etc.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: Even though the majority of fish entering the trade are wild caught this species is quite happy within the range 5.0–7.5.</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -48,10 +126,28 @@
       "html": "<p>For feeding a good brand dry food is suitable as a basis, in addition frozen or live food should be given from time to time (1-2x per week), for breeding preparation also more often.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Probably a micropredator feeding on small insects, worms, crustaceans, and other zooplankton in nature. In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-hengeli-4/",
       "html": "<p>Overall, it can be said that T. hengeli is an ideal fish for blackwater aquariums with Southeast Asian character. Then their luminescent stripe comes perfectly into effect. The sociable animals also like to join shoals of other glowlight rasboras, in the current post e.g. Trigonopoma (formerly: Rasbora) pauciperforata. T. hengeli is absolutely peaceful and leaves even delicate plants untouched.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-maintained community tank. As it places no extreme demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, dwarf cichlids, catfishes, and loaches. As always when selecting a compatible community of fish thorough research is essential and its small adult size must be a consideration, however.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>Mature females are usually deeper-bodied and slightly larger than the slimmer, more intensely-coloured, males.</p>"
     },
     {
       "key": "reproduction",
@@ -60,13 +156,53 @@
       "html": "<p>Breeding is roughly similar to that of the harlequin barb. Like the latter, T. hengeli spawns in belly-up position under broad plant leaves. For breeding the water must be soft and acidic, otherwise the spawn will not develop.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>This species exhibits no parental care although it does utilise a different spawning method to most small cyprinids as the eggs are attached to the underside of broad plant leaves or other objects rather than scattered randomly. When the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of young may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but a separate tank should also be set up. This should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well.</p><p>The water itself should ideally be of pH 5.0-6.0, 1-5°H with a temperature towards the upper end of the range suggested above. A decent-sized clump of Microsorium, Cryptocoryne, other broad-leaved plant or artificial alternative should also be included. Filtration is not really necessary but you can use a small, air-powered sponge filter if you prefer.</p><p>Some breeders of other Trigonostigma spp. report that older fish aged a year or more make the best subjects for spawning which may be the reason why this species is often said to be difficult to breed. Apparently it is trickier to initiate spawning behaviour in younger individuals and they are also are less fecund.</p><p>At any rate the best way to condition them is by feeding small amounts of live and frozen foods 2 or 3 times a day in the weeks leading up to a spawning attempt. When the females appear full of eggs and the males are showing their best colours as they display to one another a large (40-50% of tank volume), cool water change should be performed and one or two pairs introduced to each spawning container a few hours later, preferably in the evening.</p><p>Spawning usually occurs in the morning hours and is preceded by a flurry of courtship activity by the male(s). Often a pair will perform a number of 'dry runs' over a chosen spawning surface and it may be several hours before any eggs are produced.</p><p>Eventually the female will begin to lay small batches of eggs which are fertilised by the male before the next batch is laid. The spawning process is particularly interesting as often a female will choose the underside of a plant leaf and thus the pair will be observed in an inverted position as eggs and sperm are released.</p><p>If the pair(s) fail to spawn immediately they can be left in situ but if no eggs have been observed after 3 or 4 days they should be returned to the main group and a different set of fish chosen. There is no need to feed the adults while they are in the spawning tank.</p><p>Post-spawning the adults will eat any eggs they find so either they or the eggs themselves should be removed as soon as possible. Incubation is temperature-dependant to an extent but usually takes between 24 and 48 hours with the young free-swimming in around a week. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-hengeli-4/",
       "html": "<p>The maximum length of the species is about 3 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<p>T. hengeli is sometimes seen for sale with the trade name of 'glowlight rasbora' due to the distinctive orange patterning on the posterior part of the body, but that name is avoided here because it's also commonly applied to Trigonopoma pauciperforatum.</p><p>It can be confused with the similar-looking T. heteromorpha and T. espei although on close inspection they're actually quite easy to tell apart. The basic body colouration of T. heteromorpha is pinkish, it has the deepest body shape of the three and the characteristic body marking is broader, more triangular in shape and darker in colour.</p><p>T. espei is generally a bright copper/reddish colour with a thinner, 'lambchop'-shaped body marking whereas T. hengeli is a slightly smaller fish with an overall greyish/colourless body colouration and a flash of bright orange pigmentation along the upper and anterior edges of the 'lambchop' marking.</p><p>T. somphongsi is the fourth, exceptionally rare, member of the genus but is very easy to distinguish from the others as the dark body marking is reduced to a thickish stripe.</p><p>The genus was erected by Kottelat and Witte (1999) in order to separate members from the larger Rasbora grouping on the basis of the following combination of characters: colour pattern comprising a reddish, pinkish or orange body (in life) with a conspicuous black stripe extending from below dorsal-fin origin to middle of caudal-fin base and usually broadened anteriorly so as to have a triangular or hatchet shape (except in T. somphongsi in which the stripe is only slightly broader anteriorly); reproductive strategy in which eggs are deposited on the underside of broad leaves or similar structures.</p><p>Other characters distinguishing the genus (but not unique to it) are: miniature size (maximum 32 mm (1.3 in) SL in nature, though captive specimens may grow slightly larger); incomplete lateral line reduced to 6-9 pores; absence of barbels; 5 branched anal-fin rays; relatively deep body (not quantified).</p><p>Rasbora has long been recognised as a polyphyletic lineage as noted by Kottelat (1999) among others, and in 2010 the results of a phylogenetic analysis by Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to represent a monophyletic grouping existing in six clades and erected four new genera containing former members of Rasbora in order to preserve monophyly of the existing groups.</p><p>The first two of these clades contain new groupings Kottelatia and Brevibora, respectively. The third comprises Boraras, Horadandia, Rasboroides, and Trigonostigma, plus new genera Trigonopoma and Rasbosoma. However the results for Boraras and Trigonostigma were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended.</p><p>The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis, and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita (plus allies), R. kobonensis, R. ornata, and R. cf. daniconius.</p><p>Clade six is subdivided into two groupings. The first contains R. einthovenii, R. elegans, and R. cephalotaenia, and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed related fish), R. caudimaculata, and R. trilineata.</p><p>As this final clade contains R. cephalotaenia, the type species of Rasbora, its members retain the generic name as do members of clade five because they don't differ sufficiently to warrant erection of a new genus or genera.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published (Tang et al. 2010). The results differed significantly and the four new genera of Liao et al., plus Boraras and Trigonostigma, were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach described as 'more conservative'.</p><p>Though neither conclusion can be deemed 100% the system of Liao et al. is followed here pending future studies, if only because the familiar genera Boraras and Trigonostigma are preferred.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "html": "<ul><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Kottelat, M. and K.-E. Witte (1999). Two new species of Microrasbora from Thailand and Myanmar, with two new generic names for small southeast Asian cyprinid fishes (Teleostei: Cyprinidae). Journal of South Asian Natural History 4(1), 49-56</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/de6627148604b6c3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/de6627148604b6c3-480.webp",
+      "width": 1024,
+      "height": 636,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "caption": "In T. hengeli the orange element of the colour pattern is reduced in comparison with congeners.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/800b8549bd6f39a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/800b8549bd6f39a7-480.webp",
+      "width": 640,
+      "height": 267,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-hengeli",
+      "caption": "Individual from the aquarium trade....",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/fdf3e6fa8dcf3d51.webp",
       "thumb": "https://media.aquatome.com/glaser/fdf3e6fa8dcf3d51-480.webp",
@@ -108,7 +244,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "iOC2Nn83YMk",
+      "title": "All About Hengeli Rasbora (Glowlight Rasbora): The Tiniest Schooling Fish?",
+      "durationSec": 613,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KZ_NKSX_ktQ",
+      "title": "Trigonostigma hengeli.The unique GLOW Light Rasbora! (Leopard Aquatic T006A)",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "V2tN72NYlxE",
+      "title": "Trigonostigma hengeli in natural planted aquarium",
+      "durationSec": 151,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ywt7LBB9ydE",
+      "title": "Asian Tank - Trigonostigma Hengeli",
+      "durationSec": 297,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",

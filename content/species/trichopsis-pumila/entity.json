@@ -22,6 +22,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -46,6 +53,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -67,6 +78,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
       "html": "<p>The sparkling gourami, Trichopsis pumila, is a small labyrinth fish from the lower Mekong basin and central and southern Thailand. Also known as the pygmy gourami, it has a solid dark midlateral stripe topped by a row of dark blotches, which with its small size separates it from T. schalleri. Both sexes produce audible 'croaking' sounds with a specialised pectoral mechanism, and most traded fish are produced commercially.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>The Sparkling Gourami (Trichopsis pumila) is one of the smallest species of anabantoid at all – and one of the prettiest! The charming and totally peaceful species attains a maximum length of only 3-4 cm and is perfectly suitable for a community tank with other tiny, peaceful species of fish.</p>"
     },
     {
       "key": "distribution",
@@ -93,10 +110,22 @@
       "html": "<p>This species fares best in a well-planted, shady aquarium with plenty of surface cover in the form of tall stem plants, floating varieties, or tropical lilies. Cryptocoryne spp. are also a good choice.</p><p>Driftwood can also be used and other plants such as Microsorum or Taxiphyllum spp. may be attached to it. Small clay plant pots, lengths of plastic piping or empty camera film cases can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial.</p><p>As it naturally inhabits sluggish environments strong water movement should be avoided, with an air-powered sponge filter set to turn over gently adequate. Keep the aquarium well-covered and do not fill it to the top since it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>The tank should be well planted. Some dead leaves (best choice is beech, but Indian almond or oak may also be used) and some caves (half coconut shells or something like that) should not be missing.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
       "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>The water temperature can be between 22 and 26°C.</p>"
     },
     {
       "key": "diet",
@@ -111,6 +140,12 @@
       "html": "<p>Best maintained in a pair or small group, either alone or with very peaceful, similarly-sized species, since much bigger or more vigorous tankmates are likely to both intimidate and outcompete it. Small, schooling cyprinids such as Microdevario, Boraras, or Trigonostigma spp. make good choices, as do diminutive loaches such as Pangio or Petruichthys.</p><p>Some aquarists have reported that this species preys on small freshwater shrimp from genera such as Caridina and Neocaridina.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>These fish bear their name \"sparkling\" with good reason; at least the males do, the females do not sparkle at all. But the males can produce barely audible croaking sounds. This is usually associated with mating behaviour or displaying. The sound is comparable with the sound produced by a flapper, but much less noisy. One has to listen carefully to hear it. The sound is produced by bones that stretch over sinews on the swim bladder. So one can say: these fish play the guitar!</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
@@ -121,6 +156,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
       "html": "<p>Bubble-nester. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>It should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male may construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapping himself around the female. At the point of climax milt and a few eggs are released in a cluster or 'packet', which the male collects and transports to the nest. This cycle is then repeated until the female is spent of eggs.</p><p>Post-spawning the adults can normally be left in situ, although the female is no longer actively involved with the male assuming sole responsibility for guarding and tending the nest. The eggs hatch in 24-48 hours, remaining in the nest for a further 2-3 days until the yolk sac is fully-absorbed, while the male continues to collect and return any that fall.</p><p>Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring. They require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "html": "<p>T. pumila prefers to build the small bubble-nests (maximum size of the nest is about as large as a hazelnut) in caves or under broad plant leaves about 10-15 cm over the bottom of the tank.</p>"
     },
     {
       "key": "notes",
@@ -179,9 +220,74 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
       "caption": "Adult female from the U.K. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1ac2e57b5920c962.webp",
+      "thumb": "https://media.aquatome.com/glaser/1ac2e57b5920c962-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/75fddb6f276af280.webp",
+      "thumb": "https://media.aquatome.com/glaser/75fddb6f276af280-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9bd623f5adc870b4.webp",
+      "thumb": "https://media.aquatome.com/glaser/9bd623f5adc870b4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/163f41119a3214e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/163f41119a3214e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/trichopsis_pumila_en/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Hu4chCGF7Io",
+      "title": "Is This the Most Underrated Nano Fish?! (Sparkling Gourami Care & Breeding Guide)",
+      "durationSec": 230,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "yzFsNcAERZM",
+      "title": "Sparkling Gourami Care and Breeding: A Little Fish Gem!",
+      "durationSec": 642,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9YM_hTFZtgY",
+      "title": "All About Sparkling Gourami - A Different Nano Fish",
+      "durationSec": 510,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5oPfC4_nmhg",
+      "title": "Sparkling Gourami Sound!",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -214,5 +320,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

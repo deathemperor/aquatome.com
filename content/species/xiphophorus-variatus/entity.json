@@ -10,9 +10,56 @@
     "mexico",
     "rio-pantepec",
     "san-luis-potosi",
-    "veracruz"
+    "veracruz",
+    "atlantic-slope"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 14,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -21,10 +68,52 @@
       "html": "<p>A wild strain of the variatus platy, available as German offspring. The ancestors were collected in 2002 in Puente Escalanar, Veracruz, Mexico by private hobbyists. To the supplier's knowledge, they have not yet appeared in regular trade.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>The variable platy, Xiphophorus variatus, is a livebearer native to the Atlantic slope of Mexico, with feral populations in several other countries. Most on sale are mass-produced in the Far East and Eastern Europe, and many commercially bred platies are not very hardy because of inbreeding. Wild fish are slimmer than X. maculatus with a slightly longer dorsal fin, and should be kept from crossbreeding with domestic forms. It lives in shallow, heavily vegetated streams, ponds, swamps and ditches.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-variatus-puente-escalanar/",
       "html": "<p>The ancestors of these animals were collected in 2002 in Puente Escalanar, Veracruz, Mexico.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong. Wild fish are rare in the hobby these days, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Typically found in shallow, heavily vegetated streams, ponds, swamps, canals and ditches. It's particularly associated with habitats where algae and other phytoplankton is present in large quantities.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Standard length: 50 mm.</p><p>Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Not critical but this species does appreciate a planted aquarium, and will be seen at its best if kept in this type of setup.</p><p>X. variatus must be maintained in moderately hard or harder water; it will not thrive in soft, acidic water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<ul><li>Temperature: 20–26 °C</li><li>pH: 7.0–8.2</li><li>Hardness: 14–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Omnivorous by nature, feeding on a variety of zoobenthos and detritus in the wild. Unfussy and will accept most foods, whether frozen, live or dried.</p>"
     },
     {
       "key": "behaviour",
@@ -33,10 +122,40 @@
       "html": "<p>They are lively, very healthy animals, whose behaviour has remained very original. When they are worried, they join together to form a swarm, which is very rarely observed among the domesticated strains that have been around for a hundred years.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>A good fish for the general community aquarium being both peaceful and hardy.</p><p>When males and females are to be housed in the same tank, there should be more females to spread out the attention of the males which can be relentless. Batches of fry will be continual.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-variatus-puente-escalanar/",
       "html": "<p>A special characteristic is the sickle-shaped tail-root spot, which all specimens, males and females, show. Males have two basic coloration types: specimens with tiger stripes on the flanks of the front body, and specimens that are dotted there. Dominant males of the tigered variety become quince-yellow, while the dotted ones show much blue shimmer in the front body. Particularly beautiful are the sky-blue scales that some males of the tigered form show along the middle of the front body.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Males are smaller and possess a gonopodium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Breeding is much the same as for many other livebearers. Several females should be kept to every male in order to dissipate vigorous harassment by males. Areas of dense planting will also help. Gestation takes around 4-7 weeks and large broods of over 100 fry are not uncommon. The adult fish will not eat their young but the best method of raising them is still to remove the gravid female to a separate tank and allow her to give birth there before returning her to the main aquarium. The use of breeding nets or traps is not recommended as their small size is not suitable for raising fry. The fry are quite large and will accept brine shrimp nauplii or powdered flake from birth. They grow very quickly if fed 2-3 times per day.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<p>Another massively popular aquarium fish, with dozens of selectively bred varieties available. Some of these are produced by crossbreeding with X. helleri or X. maculatus. Unfortunately many commercially bred platies are not very hardy due to inbreeding and over-production and are prone to disease and premature death.</p><p>The wild X. variatus can be distinguished from X. maculatus by its slimmer, more elongated body shape and slightly longer dorsal fin. This last feature has been seized upon by many breeders with some stunning high-finned varieties available. The wild form is sometimes seen in the hobby and is a very pretty fish indeed. If wild fish are obtained care must be taken to avoid crossbreeding with domestic forms.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-variatus",
+      "html": "<ul><li>Meek, S.E. (1904). The fresh-water fishes of Mexico north of the isthmus of Tehuantepec. Field Columbian Museum, Zoological Series v. 5, i-lxiii + 1-252</li></ul>"
     }
   ],
   "photos": [
@@ -121,7 +240,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Y-M6AG9fXpY",
+      "title": "Xiphophorus variatus, SKHC",
+      "durationSec": 90,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Sg7ILfyw-JM",
+      "title": "Xiphophorus variatus (red-tail black) in a planted 10 gallon",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j21QipgE89c",
+      "title": "Hawaiian Variatus Platy - The Ultimate Platy Fish",
+      "durationSec": 250,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xdvmSdfvUlo",
+      "title": "So kann ein WILDFORM Platy aussehen! 🐟👀",
+      "durationSec": 41,
+      "lang": "de-DE"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

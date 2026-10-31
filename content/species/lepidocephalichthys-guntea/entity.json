@@ -7,7 +7,15 @@
   "group": "loaches",
   "places": [
     "asia",
-    "india"
+    "india",
+    "ganges",
+    "nepal",
+    "koshi",
+    "bangladesh",
+    "brahmaputra",
+    "myanmar",
+    "ayeyarwady",
+    "pakistan"
   ],
   "dataCard": {
     "tempC": [
@@ -17,18 +25,57 @@
           "min": 16,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 1
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ]
   },
@@ -40,10 +87,46 @@
       "html": "<p>Lepidocephalichthys guntea usually reaches 6-8 cm; only very rarely are larger specimens of up to 15 cm reported in the literature. Available size: 6-8 cm. Origin: India.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Lepidocephalichthys guntea is a cobitid loach from the Ganges and Brahmaputra systems of northern India, Nepal and Bangladesh, and much of Myanmar. One of the most frequently-traded members of the group, it is an excellent choice for those new to keeping loaches. Males carry a solid, dark lateral stripe and females spotted flanks, and patterning varies with origin. It is also used as a food fish, eaten fresh and dried.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</li><li>Needs a soft, sandy substrate. Not difficult to keep but must be provided with a soft, sandy substrate since some of its time will be spent completely buried, or with only eyes protruding.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-guntea-the-ideal-aquarium-loach/",
       "html": "<p>The animal has a huge distribution area over the north of India and the adjacent countries. Here it often has to live under conditions that can be survived only due to the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Widespread throughout the Ganges and Brahmaputra river systems in northern India, Nepal and Bangladesh with type locality given simply as 'Bengal', and also occurs throughout much of Myanmar.</p><p>Records from central India and Pakistan also exist, and body patterning and colouration can vary depending on origin.</p><p>It's used as a food fish across some of its range and is eaten both fresh and dried.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of streams or calm habitats such as swamps, oxbows, backwaters and paddy fields.</p><p>These are often heavily-vegetated or littered with submerged roots, branches and leaf litter, with substrates composed of soft mud or silt.</p><p>Water clarity and depth vary on a seasonal basis across much of its range, and at certain times of year it probably enters temporarily-flooded zones. Conversely during dry periods some habitats may become stagnant with blooms of macrophytic algae and resultant hypoxia (oxygen depletion).</p><p>Under such conditions members of this genus are able to use the intestine as a supplementary breathing organ and have been observed darting to the surface to gulp atmospheric air, and some have even been recorded to survive dry periods in moist sand or mud.</p><p>A team from the Swedish Museum of Natural History recorded this species at a couple of localities in Myanmar during March 2008, one of which was the Dayame Chaung (Dayame stream), close to the township of Daik-u, Bago Division. From images it certainly appears that the stream undergoes seasonal drying as large sections of the muddy bed were exposed.</p><p>Sympatric fishes at the locality included Danio albolineatus, D. nigrofasciatus, Puntius sophore, Dermogenys pusillus, Badis ruber and Trichogaster labiosa plus unidentified members of Esomus, 'Puntius' and Microrasbora (probably Microdevario).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Base dimensions of 80 × 30 cm (31 × 12 in) or more are required, giving a volume of about 72 litres (19 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Not difficult to keep but must be provided with a soft, sandy substrate since some of its time will be spent completely buried, or with only eyes protruding. When coarser gravel is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited.</p><p>Other décor can include water-worn rocks and driftwood branches and tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity.</p><p>Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.</p><p>As this species hails from sluggish waters high flow rates are best avoided although a degree of oxygenation is recommended.</p><p>Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p>"
     },
     {
       "key": "waterConditions",
@@ -52,10 +135,28 @@
       "html": "<p>The water temperature can lie between 16 and 30°C, the span that the fish also face in nature. Water chemistry, e.g. hardness and pH, is of almost no importance. Any tap water fit for human consumption is also suitable for keeping Lepidocephalichthys guntea.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<ul><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Chiefly a micropredator sifting mouthfuls of substrate through the gills from which insect larvae, small crustaceans and suchlike are extracted.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-guntea-the-ideal-aquarium-loach/",
       "html": "<p>The fish are completely peaceful towards conspecifics and all other species of fish. Plants are not affected, but should be well rooted, as the loaches dig a bit.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Lepidocephalichthys spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>They fare best in the presence of conspecifics and should ideally be kept in a group of 4 or more specimens.</p><p>L. guntea should do well alongside fishes from similar environments that occupy the upper part of the water column such as Trichopodus, Trichogaster, Trichopsis or certain Danio species.</p><p>The presence of these should also make it less timid as the absence of fishes in the upper water column is often used as a signifier for approaching danger in nature.</p><p>Sand-dwelling loaches from the families Botiidae, Cobitidae and Nemacheilidae are also suitable but proper research is essential as some can be excessively territorial or otherwise aggressive.</p><p>A community based around fishes from its natural waters could include species such as Badis badis, Acanthocobitis zonalternans, Lepidocephalichthys berdmorei, Danio rerio, Trichogaster chuna and Trichogaster lalius.</p>"
     },
     {
       "key": "dimorphism",
@@ -64,19 +165,87 @@
       "html": "<p>The sexes can be distinguished best by a view from above. Males look quite lean compared with the females and have comparatively larger pectoral fins. The coloration varies a lot, which led to numerous synonyms. It is not sex-specific or population-specific and also varies with mood.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>In mature males the pectoral fins are enlarged with fused, thickened innermost (7th and 8th) rays forming a structure known as the lamina circularis.</p><p>This generally varies in form depending on species and is present in some other cobitid genera though formed by different rays.</p><p>Adult females are typically heavier-bodied, a little larger then males and have spotted patterning on the flanks as opposed to a dark stripe.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-guntea-the-ideal-aquarium-loach/",
       "html": "<p>No successful breeding is known, but it should not be very difficult. It is recommended to try to initiate a rainy season for breeding: after a period simulating the dry season (no water change for some weeks at high temperatures), make large water changes with cool (18°C) and soft water.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>Presumably a seasonal spawner in nature but hasn't been bred in captivity as far as is known.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/lepidocephalichthys-guntea-the-ideal-aquarium-loach/",
       "html": "<p>What the peppered corydoras (Corydoras paleatus) is for community tanks with South American fish, Lepidocephalichthys guntea can be for community tanks with Asian fish: a very hardy, nice bottom dweller that reliably feeds on leftover food of its tankmates.</p><p>Lexicon: Lepidocephalichthys means \"fish that looks like a Lepidocephalus\"; Lepidocephalus is another genus of loach. guntea comes from the vernacular name of the species in Bengal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<p>This is one of the most frequently-traded members of the group and is an excellent choice for those new to keeping loaches.</p><p>It's distinguishable from congeners by a combination of characters including: rounded/truncate caudal-fin; a scaleless patch on top of the head; relatively large adult size; flanks with spotted patterning in females and a solid, dark lateral stripe in males; caudal-fin with dark, reticulated markings; a black spot at the base of the caudal-fin, usually covering rays 2-7.</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).</p><p>In the most recent study Lepidocephalichthys was not found to be as closely-related to Pangio, Lepidocephalus or Kottelatlimia as previously hypothesised though unfortunately the authors stop short of proposing an alternative theory.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "html": "<ul><li>Arunkumar, L. (2000). Loaches of the genus Lepidocephalicthys (Lepidocephalichthys) from Manipur, with description of a new species. Journal of Fish Biology 57(5), 1093-1104</li><li>Havird, J. C. and L. M. Page (2010). A revision of Lepidocephalichthys (Teleostei: Cobitidae) with descriptions of two new species from Thailand, Laos, Vietnam, and Myanmar. Copeia 2010(1), 137-159</li><li>Mittal, S., P. Mittal and A.K. Mittal (2004). Operculum of peppered loach, Lepidocephalichthys guntea (Hamilton, 1822) (Cobitidae, Cypriniformes): a scanning electron microscopic and histochemical investigation. Belgian Journal of Zoology 134(1), 9-15</li><li>Moitra, A., O. N. Singh and J. S. D. Munshi (1989). Microanatomy and cytochemistry of the gastro-respiratory tract of an air-breathing cobitidid fish, Lepidocephalichthys guntea. Japanese Journal of Icthyology 36(2), 227-231</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/31e0363505be4f51.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/31e0363505be4f51-480.webp",
+      "width": 800,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "caption": "A typically-patterned specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8d88619d5ffc724f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8d88619d5ffc724f-480.webp",
+      "width": 800,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "caption": "Females are supposed to have spotted, rather than striped, flanks but the specimen at the top of this image is female and striped.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/eb03c70ae8a33a30.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eb03c70ae8a33a30-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "caption": "Lepidocephalichthys spp. do best when maintained in groups...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1db37b113c4ebcbe.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1db37b113c4ebcbe-480.webp",
+      "width": 800,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-guntea",
+      "caption": "...and are peaceful with other species. Here with Garra flavatra.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/eded4efeff490af1.webp",
       "thumb": "https://media.aquatome.com/glaser/eded4efeff490af1-480.webp",
@@ -100,7 +269,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "l50bEejQBUk",
+      "title": "Loach Fish Care & Tank Set up Guide (Lepidocephalichthys Guntea)",
+      "durationSec": 185,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dggfbUFQjvw",
+      "title": "Guntea Loach 🐠 Lepidocephalichthys Guntea in natural habitat #fish #aquarium",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gDJ0fQr64-o",
+      "title": "How about this Guntea Loach fish in mini aquarium? #aquarium #plant",
+      "durationSec": 33,
+      "lang": "bn"
+    },
+    {
+      "youtubeId": "tZnUpTY6sPM",
+      "title": "one the biggest guntea loach I have ever seen",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

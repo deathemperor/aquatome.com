@@ -9,13 +9,65 @@
     "south-america",
     "brazil",
     "rio-xingu",
-    "rio-negro"
+    "rio-negro",
+    "colombia",
+    "guyana",
+    "essequibo",
+    "suriname",
+    "french-guiana",
+    "oyapock",
+    "peru",
+    "ucayali",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 100
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -27,10 +79,40 @@
       "html": "<ul><li>Origin: Brazil</li><li>Available size: 10-15 cm</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America. Adults reach 15 cm in body length and 20 cm or more in height, so it needs a tall tank. Almost all fish on sale are mass-produced, in black, gold and koi strains as well as the standard silver, and while generally peaceful it may eat small fish such as tetras.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_scalare_santa_isabel_en/",
       "html": "<p>Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil. It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage. It also occurs in various rivers in the Brazilian state of Amapá. Wild fish are rare in the hobby these days though, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil. It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage. It also occurs in various rivers in the Brazilian state of Amapá. Wild fish are rare in the hobby these days though, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>An aquarium measuring 100 × 40 × 50 cm (about 200 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>Well planted with tall leafy plants such as Amazon Swords. Gentle water flow preferred. A tall tank of at least 50 cm is recommended for adult fish.</p>"
     },
     {
       "key": "waterConditions",
@@ -39,55 +121,116 @@
       "html": "<p>The water in the upper reaches of the Rio Negro is very soft and acidic.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<ul><li>Temperature: 24–30 °C</li><li>pH: 6.0–7.4</li><li>Hardness: 0–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>Omnivorous but wild fish feed predominantly on various items of zoobenthos such as small crustaceans and other aquatic invertebrates. Today's tank-bred fish are far removed from their ancestors. Will accept pellet or flake food in the aquarium. Relishes live or frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>Generally a peaceful cichlid but may squabble with its own kind, so best kept in small groups. Good community fish but may eat small fish such as tetras.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>Quite difficult to sex. Males have smaller, pointed genital papillae but this can only usually be seen when spawning. Behaviour may be a better indicator as males are likely to be more aggressive and territorial, especially when in breeding condition. If you are intending to breed, it is a good idea to start with a group of six juvenile fish. From this a pair is sure to form.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>Angels spawn on vertical surfaces such as slate, broad-leaved plants or even the aquarium glass. If you have a bonded pair, little needs to be done to encourage them to breed. Ensure the fish are well conditioned with live food such as bloodworm and brine shrimp. Angels make good parents and will guard the eggs and then the fry, once hatched. Ensure the adults are kept well fed as it is not unknown for them to eat their fry. Fry can be fed with newly hatched brine shrimp after they have absorbed their yolk sacs (usually after two days) and then moved on to commercially available fry food.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_scalare_santa_isabel_en/",
       "html": "<p>Like many other fishes from that area, mainly discus and Apistogramma, these angelfish show a high degree of red coloration on the body. The reason for this phenomenon is unknown.</p><p>Like all larger wild fish, these angels have had experience with fin-eating piranhas. However, they are very healthy and stable and regenerate their finnage very fast, so after a few weeks nothing of the injuries from the wild will be visible any more.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-scalare",
+      "html": "<p>A well known and popular aquarium fish. Angels are available in a number of colour forms including black, gold and koi strains, in addition to the standard silver. It is worth remembering that although angels are generally peaceful, they are still cichlids so some aggression should be expected from time to time.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/0c21cb038569ae13.webp",
+      "thumb": "https://media.aquatome.com/commons/0c21cb038569ae13-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Gannu03",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angelfish_2.jpg",
-      "caption": "Angelfish",
-      "thumb": "https://media.aquatome.com/commons/0c21cb038569ae13-480.webp"
+      "caption": "Angelfish"
     },
     {
       "url": "https://media.aquatome.com/commons/b1cfe1df20ed9810.webp",
+      "thumb": "https://media.aquatome.com/commons/b1cfe1df20ed9810-480.webp",
       "width": 960,
       "height": 679,
       "licence": "CC BY-SA 4.0",
       "author": "Ubs6u!d-pongsakorn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_map.jpg",
-      "caption": "Pterophyllum scalare map",
-      "thumb": "https://media.aquatome.com/commons/b1cfe1df20ed9810-480.webp"
+      "caption": "Pterophyllum scalare map"
     },
     {
       "url": "https://media.aquatome.com/commons/e4dd5f1be3dfb737.webp",
+      "thumb": "https://media.aquatome.com/commons/e4dd5f1be3dfb737-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC0",
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_couple_with_eggs.JPG",
-      "caption": "Ein melanistisches Segelflosser (Pterophyllum scalare) Paar mit Gelege.",
-      "thumb": "https://media.aquatome.com/commons/e4dd5f1be3dfb737-480.webp"
+      "caption": "Ein melanistisches Segelflosser (Pterophyllum scalare) Paar mit Gelege."
     },
     {
       "url": "https://media.aquatome.com/commons/809b7530f34f1369.webp",
+      "thumb": "https://media.aquatome.com/commons/809b7530f34f1369-480.webp",
       "width": 960,
       "height": 647,
       "licence": "CC BY 2.0",
       "author": "Bill Harrison",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mirror_mirror_on_the_wall.jpg",
-      "caption": "This series of shots come from the Melbourne Aquarium - it was really great - recommend it to all. Difficult to shoot through perspex but some of these are worth sharing. I shot this looking up into a",
-      "thumb": "https://media.aquatome.com/commons/809b7530f34f1369-480.webp"
+      "caption": "This series of shots come from the Melbourne Aquarium - it was really great - recommend it to all. Difficult to shoot through perspex but some of these are worth sharing. I shot this looking up into a"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "CB6H1wQS5RM",
+      "title": "Freshwater Angelfish | Complete Care Guide & Species Profile",
+      "durationSec": 523,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gEiu4_qt1-Q",
+      "title": "Freshwater Angelfish Care - 50 years of Experience!",
+      "durationSec": 829,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m1RqU8bQJDI",
+      "title": "Wild Pterophyllum scalare from Rio Cuiuni",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "l7dSguN1vOo",
+      "title": "Scalaire - Pterophyllum Scalare ✔",
+      "durationSec": 192,
+      "lang": "fr"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -115,5 +258,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

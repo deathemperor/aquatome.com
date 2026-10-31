@@ -14,7 +14,11 @@
     "thailand",
     "mae-klong",
     "laos",
-    "mekong"
+    "mekong",
+    "irrawaddy",
+    "chao-phraya",
+    "china",
+    "yunnan"
   ],
   "dataCard": {
     "tempC": [
@@ -23,6 +27,13 @@
         "value": {
           "min": 18,
           "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 14,
+          "max": 28
         }
       }
     ],
@@ -48,6 +59,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -60,6 +75,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 1
       }
     ]
   },
@@ -71,10 +90,22 @@
       "html": "<p>Pethia stoliczkana is a small cyprinid that appears to range from Manipur state in northeastern India through Myanmar and Thailand to western Laos. Much of the literature confuses it with P. ticto, but the two do not occur in the same waters and the lateral line is complete in this species and incomplete in P. ticto. The form from Mandalay division in Myanmar is sometimes sold as Puntius sp. 'pearlscale'. It mostly inhabits shady, flowing streams and tributaries.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>Pethia stoliczkana grows to approximately 5–6 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-stoliczkana",
       "html": "<p>Appears to be widely distributed from Manipur state in northeastern India, throughout much of Myanmar and Thailand as far as western Laos.</p><p>Records show occurences in various rivers including the Ayeyarwady, Chindwin, Ataran, Mae Klong, upper Mekong, and upper Chao Phraya.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>For a long time, it was believed that Pethia stoliczkana was native only to Burma; but it is now considered to be relatively widespread throughout Southeast Asia, and scientific databases list it as occurring in the basins of the Chindwin-Irrawaddy, Mae Klong, Chao Phraya, and Mekong rivers in India, Burma (= Myanmar), Thailand, Laos, and China (Yunnan).</p>"
     },
     {
       "key": "habitat",
@@ -95,10 +126,22 @@
       "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>Caring for and breeding this beautiful barb is completely hassle-free. Unfortunately, the juveniles display only silvery hues, which is why they are difficult to market these days.</p><p>In general, barbs should not be kept in overly sterile conditions. Mulm—the mixture of dead plant matter, feces, etc.—is an important and essential component of many barbs' diet and is crucial for their healthy gut microbiome.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-stoliczkana",
       "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>Water parameters are unimportant; any water suitable for drinking is also suitable for keeping these fish. The water temperature can range from 14 to 28°C; slightly higher or lower temperatures won't cause harm, as long as they don't persist for too long or occur abruptly.</p>"
     },
     {
       "key": "diet",
@@ -107,16 +150,34 @@
       "html": "<p>Wild fish are foraging omnivores feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>They will eat just about anything suitable for ornamental fish. They also have a need for plant-based food. This can easily be met with suitable flake food, etc. However, if this is not provided, they will nibble on delicate aquatic plants.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-stoliczkana",
       "html": "<p>Generally very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>Fishes inhabiting similar biotopes in nature, especially comparably-sized, open water-dwelling cyprinids perhaps constitute the best choices but other potential options include balitorid, cobitid, and nemacheilid loaches as well as benthic cyprinids such as Crossocheilus and Garra species.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is fascinating to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>To ensure the fish develop optimal coloration and display their full range of behaviors, they should never be kept in groups of fewer than 10–12 individuals.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-stoliczkana",
       "html": "<p>Adult males are noticeably slimmer and more colourful than females, especially the unpaired and ventral fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>Females differ from males in that their fins are colorless.</p>"
     },
     {
       "key": "reproduction",
@@ -129,6 +190,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-stoliczkana",
       "html": "<p>This species is confused with P. ticto in much of the available literature and the two are sometimes listed as synonymous with one another, with P. ticto often taking precedence.</p><p>Although some populations of the two possess a comparable colour pattern (there are reports of a P. ticto variant from the south of West Bengal state in India with a red, black-flecked dorsal-fin, for example) they do not occur in the same waters in nature and can be distinguished by examining the lateral line which is complete in P. stoliczkana but incomplete in P. ticto.</p><p>P. stoliczkana is further diagnosable via the following combination of characters: maximum head width 55-66% of head length; last simple dorsal-fin ray short, spinous, and finely serrated posteriorly with 12-16 serrae; spine length 16-20 % SL and 58-65.4% HL; lateral line complete with 19-23 pored scales, reaching at least to caudal peduncle; 18 preanal scales; presence of an oblong-shaped black marking above the pectoral-fin and a similarly-coloured blotch on the 17th-19th lateral line scales; two black bands on dorsal-fin, one of which is incomplete and covers the membrane of the 3rd-5th branched rays and another at the margin of the branched rays.</p><p>Wild populations can vary somewhat in colour pattern which adds further confusion in some cases with specimens from Thailand in the images lacking black bands in the dorsal-fin, for example.</p><p>The form from Mandalay division in Myanmar is generally considered the most attractive by hobbyists and is sometimes sold as 'Puntius sp. 'pearlscale'.</p><p>It was formerly included in the Puntius conchonius 'group' of closely-related species alongside P. ater, P. bandula, P. conchonius, P. cumingii, P. didi, P. erythromycter, P. gelius, P. khugae, P. macrogramma, P. manipurensis, P. meingangbii, P. nankyweensis, P. nigripinnis, P. nigrofasciatus, P. padamya, P. phutunio, P. punctatus, P. reval, P. shalynius, P. thelys, P. tiantian, and P. ticto, but all of these were moved to the new genus Pethia by Pethiyagoda et al. (2012), as were P. melanomaculata, P. pookodensis, P. muvattupuzhaensis, P. ornatus, and P. yuensis.</p><p>'Puntius' narayani was not moved to the new genus and is currently of uncertain generic placement since it uniquely possesses 9 branched dorsal-fin rays and 6 branched anal-fin rays.</p><p>Pethia species are defined by the following combination of characters: rostral barbels absent; maxillary barbels minute or absent; possession of a stiff, serrated last unbranched dorsal-fin ray; presence of a black blotch on the caudal peduncle, and frequently, black blotches, spots or bars on the side of the body; infraorbital 3 deep and partially overlapping the preoperculum.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "html": "<p>It was a popular aquarium fish until the 1960s, as the fish are very tolerant of low temperatures and do not require a heater in the aquarium. Later, it was supplanted by more colorful species, and today it is a rarity in the aquarium trade. In the past, it was generally considered a subspecies of Pethia ticto, and many alleged sightings of P. ticto outside of India actually refer to P. stoliczkana.</p><p>The photos in this post show specimens collected in the wild in Burma; the females differ from the males in that their fins are colorless. In the aquarium, the sunspot barb is identical to the well-known Odessa barb, Pethia padamya, with which it apparently also occasionally coexists. However, it is not entirely clear whether these two very closely related species merely inhabit the same range but are ecologically distinct, or whether they are actually found together in the same biotope.</p>"
     },
     {
       "key": "references",
@@ -172,6 +239,46 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/glaser/eeae7de65d88c963.webp",
+      "thumb": "https://media.aquatome.com/glaser/eeae7de65d88c963-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0d1da100dff2a5c1.webp",
+      "thumb": "https://media.aquatome.com/glaser/0d1da100dff2a5c1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4f6ec9dc0ec5f8d4.webp",
+      "thumb": "https://media.aquatome.com/glaser/4f6ec9dc0ec5f8d4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/58c555d5bd3c96b6.webp",
+      "thumb": "https://media.aquatome.com/glaser/58c555d5bd3c96b6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pethia-stoliczkana-formerly-barbus-stoliczkanus-or-puntius-stoliczkanus/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/panitvong/inat-179355488.webp",
       "thumb": "https://media.aquatome.com/panitvong/inat-179355488-480.webp",
       "width": 1024,
@@ -182,7 +289,32 @@
       "source": "panitvong"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "zl4r-17N6ts",
+      "title": "Stoliczka's Barb - Pethia stoliczkana Freshwater Aquarium Fish Species Spotlight & Care Guide",
+      "durationSec": 185,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "cAsKyDwZvQU",
+      "title": "Danio roseus and Pethia stoliczkana in natural habitat.",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "budmtS5xzhY",
+      "title": "Pethia stoliczkana (Day, 1871)",
+      "durationSec": 38,
+      "lang": "cs"
+    },
+    {
+      "youtubeId": "ojoAuyC8xf8",
+      "title": "ปลามะไฟปลากลางน้ำสวยๆ #Pethiastoliczkana #hillstreamtank #ปลามะไฟ #ตู้ปลาลำธาร",
+      "durationSec": 28,
+      "lang": "th"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -212,5 +344,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

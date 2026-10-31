@@ -13,12 +13,22 @@
     "mekong",
     "laos",
     "xe-bangfai",
-    "china"
+    "china",
+    "vietnam",
+    "dong-nai",
+    "yunnan"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 30
@@ -29,6 +39,40 @@
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -40,10 +84,28 @@
       "html": "<p>Typical open water fish are very rarely kept in the aquarium, as they are usually quite colorless. Opsarius koratensis grows to a maximum length of 10-12 cm (some sources even state 16 cm). Keeping these fish can still be very rewarding, as they are real \"eye-catchers\" in sufficiently large aquaria because they are extremely lively.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<ul><li>Max size: 100 mm SL (3.9 in)</li><li>Aquarium size: 150 × 45 cm</li><li>Temperature: 22–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li><li>Difficulty: moderate (6 of 8)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Needs a very large tank.</p><p>Opsarius koratensis is a cyprinid of the middle and lower Mekong in Thailand, Laos and Cambodia, and the Chao Phraya, Mae Klong and Dong Nai systems. It apparently inhabits larger, deeper and more turbid rivers than many congeners. Genetic evidence from Tang et al. (2010) suggests it may represent a distinct genus, and it occasionally appears in the ornamental trade.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/opsarius-koratensis-2/",
       "html": "<p>Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Type locality is 'Mun River at Tachang (Ta-Chang), Nakorn-Rajsima, Korat District, eastern Thailand'.</p><p>The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.</p><p>There also exists at least one record from the upper Mekong in southern China (Yunnan province).</p>"
     },
     {
       "key": "habitat",
@@ -52,10 +114,34 @@
       "html": "<p>Clear to turbid, but always flowing waters are the species' habitat.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Inhabits well-oxygenated, low-to-medium gradient, slow to moderate-flowing rivers and streams with substrates of gravel, cobbles, larger boulders and exposed bedrock.</p><p>At the habitat in the image, pH was 7.5, temperature 26 °C and conductivity 175 µS/cm. It apparently inhabits larger, deeper, and more turbid environments than many congeners.</p><p>In a survey of the Mun River conducted in Surin province, northeastern Thailand, it was collected alongside a host of other fish species including Acantopsis choirhynchos, Lepidocephalichthys hasselti, Yasuhikotakia lecontei, Y. modesta, Y. mortleti, Syncrossus helodes, Barbonymus altus, B. gonionotus, Cyclocheilichthys apogon, C. repasson, Discherodontus ashmeadi, Epalzeorhynchos frenatum, Esomus metallicus, Hampala dispar, H. macrolepidota, Mystacoleucus marginatus, Osteochilus vittatus, Raiamas guttatus, Rasbora borapetensis, R. dusonensis, R. rubrodorsalis, R. trilineata, Systomus orphoides, 'Puntius' partipentazona, Gyrinocheilus aymonieri, Trichopodus pectoralis, T. trichopterus, Trichopsis pumila, T. vittata, Pseudomystus siamensis, Mystus singaringan, Kryptopterus cryptopterus, and Mastacembelus favus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Standard length: 100 mm SL (3.9 in). Aquarium base: 150 × 45 cm. Volume: ~304 litres.</p><p>Requires a large aquarium with minimum surface area of 150 × 45 cm or equivalent.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>The aquarium should ideally be designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some larger water-worn boulders. This can be further furnished with driftwood roots and branches if you wish but be sure to leave plenty of open swimming space.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy genera such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>This species is intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high proportion of dissolved oxygen and moderate degree of water movement meaning external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria, and weekly water changes of 30-50% aquarium volume should be considered mandatory. A tightly-fitting cover is also essential as Opsarius spp. are prodigious jumpers.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/opsarius-koratensis-2/",
       "html": "<p>Scientific studies have shown that Opsarius koratensis prefers warmer water (around 30°C), but the species is still very lively even at 22°C. The chemical composition of the water is relatively unimportant, but the water should not be markedly acidic; pH values in the neutral to slightly alkaline range should be aimed for.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<ul><li>Temperature: 22–30°C; apparently prefers warmer conditions and in one study was particularly associated with habitats in which water temperature was around 30°C.</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -64,13 +150,60 @@
       "html": "<p>Opsarius are completely unproblematic when it comes to feeding. Due to their extreme agility, however, they have a high nutritional requirement and should therefore be fed several times a day.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Opsarius spp. are predominantly surface-feeders preying on aquatic and terrestrial insects in nature, with some small fishes and benthic invertebrates probably taken as well.</p><p>In the aquarium good quality dried products can be offered but should be supplemented with regular meals of live and frozen fare such as chironomid larvae (bloodworm), Artemia, chopped earthworms, etc. Drosophila fruit flies and small crickets are also suitable provided they are gut-loaded prior to use.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/opsarius-koratensis-2/",
       "html": "<p>The animals form a hierarchy among themselves; they should therefore be kept in as large a group as possible, from about seven specimens upwards. Opsarius koratensis is indifferent to other species of fish, although slower species easily come off worse at feeding time. Plants are ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Unsuitable for the general community due to its environmental requirements, and likely to outcompete or intimidate slow-moving and less bold species at meal times since it is an extremely fast swimmer and vigorous feeder. Much smaller fishes should also be omitted as they may be predated upon.</p><p>The best tankmates are similarly-sized, robust, pelagic cyprinids such as Dawkinsia, Barilius or larger Devario and Rasbora spp. while bottom-dwellers could consist of Garra, Crossocheilus, Botia and Schistura spp., for example. Many characids and loricariid catfishes should also work well, but be sure to perform thorough research before purchase.</p><p>Although gregarious by nature this is a shoaling rather than schooling species which develops a distinct pecking order and therefore should always be maintained in a group of five or more individuals. If only two or three are purchased the subdominant fish may be bullied incessantly whereas solitary specimens may become aggressive towards similar-looking species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Adult females are less-brightly-coloured, tend to grow a little larger and are thicker-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<p>This species occasionally appears in the ornamental trade. It exhibits some morphological differences when compared with relatives, and genetic evidence recovered by Tang et al. (2010) suggests that it may represent a distinct genus.</p><p>It can be distinguished from congeners by the following combination of characters: 32-36 lateral line scales; 15-18 predorsal scales; a faint, broad, longitudinal stripe on each flank; 2-9 faint (sometimes missing, more well-defined in preserved specimens) short vertical bars on each flank.</p><p>The generic placement of species currently referred to Opsarius has been open to question since Howes (1980) concluded that the Barilius grouping, within which they were included at the time, was not monophyletic and identified two separate lineages. The first group contained B. barila, the type species, plus B. bendelisis, B. radiolatus, B. vagra, and B. shacra, while the second included all other species, and initially these were referred to the subdivisions 'group i' and 'group ii' within Barilius itself.</p><p>The composition of these groups is confusing since in a later work Howes (1983) included B. evezardi and B. modestus in 'group i' whilst omitting B. bendelisis, B. radiolatus, and B. shacra without explicitly stating why.</p><p>Rainboth (1991) assigned the members of Howe's 'group ii' to the revalidated generic name Opsarius based on the fact it was the oldest available with 'group i' species retaining the name Barilius due to the presence of the type species.</p><p>This system has been followed by some subsequent authors, e.g., Tang et al. (2010) and Collins et al. (2012) but did not gain wider usage until Kottelat (2013), who included all former Barilius from Southeast Asia in Opsarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "html": "<ul><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Liao, T-Y, S. O. Kullander, and F. Fang (2011). Phylogenetic position of rasborin cyprinids and monophyly of major lineages among the Danioninae, based on morphological characters (Cypriniformes: Cyprinidae). Journal of Zoological Systematics and Evolutionary Research 49(3), 224-232</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid fishes. Bulletin of the British Museum (Natural History) : Zoology series 37(3), 129-198</li><li>Smith, H. M. (1931). Descriptions of new genera and species of Siamese fishes. Proceedings of the United States National Museum 79(2873), 1-48</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Fang, F. and M. Kottelat (1999). Danio species from northern Laos, with descriptions of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 10(3), 281-295</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>F. W. H. Beamish, P. Sa-ardrit, and S. Tongnunui (2006). Habitat Characteristics of the Cyprinidae in Small Rivers in Central Thailand. Environmental Biology of Fishes 76(2-4), 237-253</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/98c773a8c31c9b8c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/98c773a8c31c9b8c-480.webp",
+      "width": 800,
+      "height": 285,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-koratensis",
+      "caption": "Specimen photographed in the field.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/ab21e9cc4d4f0cef.webp",
       "thumb": "https://media.aquatome.com/glaser/ab21e9cc4d4f0cef-480.webp",
@@ -112,7 +245,14 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "GV6gY8LTQxw",
+      "title": "ปลาน้ำหมึกโคราช",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

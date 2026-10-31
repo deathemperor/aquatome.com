@@ -1,13 +1,19 @@
 {
   "slug": "ca-chuot-brochis-splendens",
-  "name": "Cá chuột Brochis splendens",
+  "name": "Cá chuột Brochis ngọc lục bảo",
   "altNames": [
     "Cá chuột xanh",
     "Brochis splendens CW 35",
     "Green cat",
     "Emerald catfish",
     "Cá chuột Brochis",
-    "Cá chuột emerald"
+    "Cá chuột emerald",
+    "Cá chuột Brochis splendens",
+    "Cá chuột emerald brochis",
+    "Cá chuột brochis thường",
+    "Hi-fin cory",
+    "Emerald brochis",
+    "Common brochis"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Cá dài gần 10 cm.</li><li>Nên nuôi theo đàn từ 6 con trở lên.</li><li>Nhiệt độ 18–28°C.</li><li>Hiền, không gây sự với bất kỳ loài nào nuôi chung.</li></ul>",
@@ -16,13 +22,26 @@
     "maintenance:glaser": "<p>Cách chăm Brochis splendens không khác mấy so với phần lớn các loài Corydoras. Bạn nên nuôi ít nhất 6 con một đàn. Bể đừng chọn loại quá nhỏ, vì B. splendens có thể dài gần 10 cm. Nền nên có cát mịn và mềm, ít nhất là ở một vài chỗ trong bể.</p>",
     "waterConditions:glaser": "<p>Nước máy nào uống được thì cũng nuôi được loài này. Nhiệt độ nước có thể nằm trong khoảng 18 đến 28°C.</p>",
     "diet:glaser": "<p>Cá ăn được mọi loại thức ăn cá cảnh thông dụng.</p>",
-    "behaviour:glaser": "<p>Đây là loài cá rất hiền, không gây sự với bất kỳ loài nào nuôi chung.</p>"
+    "behaviour:glaser": "<p>Đây là loài cá rất hiền, không gây sự với bất kỳ loài nào nuôi chung.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá chuột brochis ngọc lục bảo (emerald 'brochis'), Brochis splendens, từ lâu vẫn được biết đến dưới tên Corydoras splendens. Đây là một loài cá da trơn có giáp, đã được ghi nhận ở phần lớn lưu vực Amazon thuộc Brazil, Peru, Ecuador và Colombia. Loài này đôi khi còn được gọi là 'common brochis'. Cá con thỉnh thoảng được bán dưới tên 'hi-fin cory' vì có vây lưng to. Với 10–12 tia vây lưng, loài này phân biệt được với B. britskii và B. multiradiata, hai loài còn lại từ lâu cùng nằm trong chi Brochis. Người ta cho rằng nhiều khả năng một số quần thể thực ra là những loài riêng biệt.</p><ul><li>Kích thước tối đa: 80 mm SL</li><li>Kích thước bể: 120 × 45 cm</li><li>Nhiệt độ: 20–28°C</li><li>pH: 5,0–8,0</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "distribution:seriouslyfish": "<p>So với các loài khác trong chi, đây là một trong những loài phân bố rộng hơn cả. Loài này đã được ghi nhận ở phần lớn lưu vực Amazon thuộc Brazil, Peru, Ecuador và Colombia.</p><p>Người ta cho rằng sau này một số quần thể có thể sẽ được xác định là những loài riêng biệt. Khi đó, một số tên đồng nghĩa nêu trên có thể sẽ được phục hồi.</p><p>Nơi thu mẫu chuẩn chỉ được ghi gọn là 'Rio Tocantins, Brazil'.</p>",
+    "habitat:seriouslyfish": "<p>Loài này thường tụ thành đàn ở các nhánh sông nhỏ và những vùng nước tĩnh như vùng nước tù, hồ móng ngựa và hồ ven sông.</p>",
+    "aquariumSize:seriouslyfish": "<p>Đáy bể nên rộng tối thiểu 120 × 45 cm hoặc tương đương. Thể tích khoảng 243 lít.</p>",
+    "maintenance:seriouslyfish": "<p>Tốt nhất là dùng nền cát mịn. Sỏi tròn cũng được, miễn là bạn giữ nền thật sạch.</p><p>Phần bày trí còn lại phần lớn tùy sở thích. Dù vậy, bể vẫn nên có chỗ trú để cá thấy an toàn.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 5,0–8,0</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Corydoras spp. là cá ăn tạp, chuyên đi bới tìm mồi. Chúng ăn được hầu hết các loại thức ăn khô dạng chìm. Chúng cũng ăn các loại mồi sống và đông lạnh cỡ nhỏ như ấu trùng muỗi (trùng huyết), trùng chỉ, v.v.</p><p>Cho ăn đa dạng thì cá mới giữ được thể trạng tốt nhất.</p><p>Đừng bao giờ nghĩ chúng có thể sống nhờ thức ăn thừa của các cá khác trong bể. Cũng đừng trông vào chúng để 'dọn' bể.</p>",
+    "behaviour:seriouslyfish": "<p>Cá hiền và thích sống thành đàn. Bạn nên nuôi theo nhóm ít nhất 6–8 con.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành tròn mình hơn hẳn, thân cao hơn và lớn hơn cá đực một chút.</p>",
+    "reproduction:seriouslyfish": "<p>Cá đẻ trứng ở gần mặt nước. Vì vậy, bạn rất dễ gom trứng sang chỗ khác để ương.</p>",
+    "notes:seriouslyfish": "<p>Từ lâu, chi Brochis chỉ có ba loài là loài này, B. britskii và B. multiradiata. Loài này đôi khi còn được gọi là 'common brochis'. Cá con có màu loang lổ và thỉnh thoảng được bán dưới tên 'hi-fin cory' vì có vây lưng to.</p><p>B. splendens có 10–12 tia vây lưng, nhờ đó phân biệt được với B. britskii và B. multiradiata. B. britskii có 15–18 tia, thường là 15, còn B. multiradiata thường có 17–18 tia. Các loài cá da trơn khác trong phân họ Corydoradinae, kể cả những loài đã chuyển sang Brochis năm 2024, chỉ có 6–8 tia vây lưng.</p><p>Britto (2003) đã gộp Brochis vào Corydoras. Lý do là nếu vẫn tách Brochis riêng thì không thể coi Corydoras là một nhóm đơn ngành. Các nghiên cứu của Shimabukuro-Dias và cs. (2004) và Alexandrou và cs. (2011) cũng ủng hộ quan điểm này. Sau đó, Dias và cs. (2024) xem xét lại phân họ Corydoradinae dựa trên dữ liệu hình thái và hệ gen. Nhóm này đã phục hồi chi Brochis và chuyển vào đó nhiều loài trước đây xếp trong Corydoras.</p><p>Chi Brochis thuộc họ Callichthyidae. Các loài trong họ này thường được gọi chung là nhóm cá da trơn 'có giáp' ('armoured' hay 'mailed'), vì thân chúng phủ các tấm xương thay cho vảy. Phân loại của nhóm này khá rối, và người ta cho rằng còn nhiều loài chưa được mô tả. Vì vậy, những con chưa xác định chắc chắn được loài khi về tới giới chơi cá thường được gán một mã số 'C' hoặc 'CW' để tiện tra cứu và sắp xếp.</p><p>Chúng có thể thở bằng khí trời khi cần, gọi là thở khí tùy nghi. Ruột của chúng đã biến đổi và có rất nhiều mạch máu. Cấu tạo này hình thành qua tiến hóa để cá hấp thu được oxy từ không khí và sống sót ở những nơi nước thiếu oxy. Trong bể, thỉnh thoảng bạn sẽ thấy chúng ngoi lên mặt nước đớp vài ngụm không khí.</p>",
+    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Castelnau, F. L. (1855). Poissons. In: Animaux nouveaux or rares recueillis pendant l'expédition dans les parties centrales de l'Amérique du Sud, de Rio de Janeiro a Lima, et de Lima au Para; exécutée par ordre du gouvernement Français pendant les années 1843 a 1847 ... Part 7, Zoologie. Paris (P. Bertrand). v. 2, i-xii + 1-112</li></ul>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.8,
+      "seriouslyfish": 0.82
     }
   }
 }

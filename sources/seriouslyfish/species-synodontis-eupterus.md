@@ -1,13 +1,12 @@
 ---
 url: https://www.seriouslyfish.com/species/synodontis-eupterus
 title: Synodontis eupterus (Featherfin Synodontis) · Seriously Fish
-fetchedAt: 2026-10-31T04:41:55.935Z
-hash: 74def42310c933ca3558e120eec1730d11604d43aa52e56279a7eb8681ea17c4
+fetchedAt: 2026-10-31T10:16:09.273Z
+hash: b165666e21ca8cee10f052a5ad3404f0b843b8358d98c2e0d08ccd6d98bf39a4
 ---
 
 On this page
-11
-sections
+11 sections
 - Distribution
 - Habitat
 - Aquarium size

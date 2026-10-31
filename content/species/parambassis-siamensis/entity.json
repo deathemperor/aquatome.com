@@ -32,6 +32,13 @@
           "min": 6.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
       }
     ],
     "gh": [
@@ -46,6 +53,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 6
+      },
+      {
+        "source": "glaser",
         "value": 6
       }
     ],
@@ -70,10 +81,22 @@
       "html": "<p>Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia. An occasional import, it is sometimes sold as C. ranga, the Indian glass fish, but lacks patterning behind the eye and has a more elongate body. C. siamensis inhabits lowland rivers and flooded fields and is exclusively a freshwater fish, so it should never be kept under brackish conditions.</p><ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 8–15 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>Formerly this species of glass perch was the most common found in the trade. Parambassis siamensis was most often mis-identified and traded under the name “Chanda wolfi”. P. siamensis is very similar to the Indian species P. ranga. Both are distinguished by only minor details and both become about 6 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
       "html": "<p>Cambodia, Malaysia, Laos, Thailand, Vietnam, Singapore, Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.</p>"
     },
     {
       "key": "habitat",
@@ -100,16 +123,34 @@
       "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 8–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>The fish are undemanding in respect of the water, but the water should be not too soft and – more important – not too acidic. The best pH is between 7.5 and 8.5. It is not recommended to add salt to the water; both species are pure freshwater fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
       "html": "<p>Relatively unfussy, and will accept most live, frozen and dried foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>They do not accept dried food items, but can be easily fed with frozen or live food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
       "html": "<p>C. siamensis is peaceful and shy, and should not be combined with vigorous or aggressive species. Good tankmates include barbs, livebearers, smaller rainbowfish and loaches. It is a shoaling species and will not do well if kept singly or in pairs. Aim for a group of at least 6. Males do become somewhat territorial when spawning but physical damage is rare.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>These glass perches are wonderful aquarium fishes and very peaceful. It is important not to keep them alone or in pairs, but in larger schools. Ten specimens should be the minimum, otherwise the fish will be very shy and anxious.</p>"
     },
     {
       "key": "dimorphism",
@@ -122,6 +163,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
       "html": "<p>Not thought to have been bred in captivity, although the process is probably similar to that of C. ranga.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "html": "<p>They spawn in fine plant material. The mating rituals are very nice to look at. The fish do not care for eggs or brood. It is pretty difficult to raise the extremely tiny brood that accepts only live copepod nauplia for food. The best nauplia for raising glass perches are those from members of the genus Diaptomus.</p>"
     },
     {
       "key": "notes",
@@ -141,9 +188,54 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-siamensis",
       "caption": "Parambassis siamensis",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/512c7327f37a95d1.webp",
+      "thumb": "https://media.aquatome.com/glaser/512c7327f37a95d1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fea88ae4c30b0b55.webp",
+      "thumb": "https://media.aquatome.com/glaser/fea88ae4c30b0b55-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hFUekQ8WZNo",
+      "title": "Parambassis siamensis Siam Glasbarsch #Glasbarsch",
+      "durationSec": 357,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-Ko6igsynTU",
+      "title": "Two Minute Tuesday: Glass Fish",
+      "durationSec": 135,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4umAt7uvWgk",
+      "title": "Siam Glasbarsch, Parambassis siamensis",
+      "durationSec": 105,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "erwpII5QZ3M",
+      "title": "Malayan glass fish - Parambassis Siamensis",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -174,5 +266,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

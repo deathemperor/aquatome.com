@@ -8,13 +8,58 @@
   "places": [
     "africa",
     "lake-tanganyika",
-    "tanzania"
+    "tanzania",
+    "democratic-republic-of-the-congo",
+    "burundi"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 25.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -26,10 +71,52 @@
       "html": "<p>The humpheaded Frontosa (Cyphotilapia frontosa) from Lake Tanganyika has enjoyed great popularity for decades, although (or because) the species is one of the bulls among the cichlids. Old males, which look bizarre with their forehead hump, can grow to 30 cm. Females generally remain smaller.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>The humphead cichlid, Cyphotilapia frontosa, is a large cichlid endemic to the northern portion of Lake Tanganyika. Known in the hobby as 'frontosa' or 'front', it grows to 255 mm SL and is gregarious, forming a dominance hierarchy in groups of at least five. Populations are usually labelled by locality to preserve pure bloodlines, and forms referred to as 'Blue Zaire' belong to its only congener, C. gibberosa.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cyphotilapia-frontosa-2/",
       "html": "<p>C. frontosa has always been one of the more expensive fish. Wild catches have to be collected by diving with compressed air tanks, because they live at a depth of 30-40 metres. They then have to be decompressed slowly over several days, which is costly.</p><p>There are several geographic colour varieties of the species distributed throughout Lake Tanganyika. One has six body stripes plus a stripe through the eye, for a total of seven stripes; most have five body stripes plus the eye stripe, for a total of six. When looking for a specific variant, be careful: trade designations sometimes refer only to the body stripes and sometimes to the total number of stripes.</p><p>Captive-bred six-striped specimens from Taiwan stand out due to the beautiful blue coloration of the fins. The dark body stripes contrast nicely with the light, also bluish background. Animals of 4-6 cm show no sign of a head bump yet, and sex determination is still impossible at this size.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>Endemic to the northern portion of Lake Tanganyika where it is distributed between Cape Tembwe on the western coast and Bulu Point on the eastern coast.</p><p>It occurs throughout this area, but localities popular in the aquarium hobby include: Tembwe, Kitumba, Kavala, Kabimba, Kabobo, Ubwari, and Gitaza in Democratic Republic of the Congo (formerly known as Zaire, which is still used in reference to some populations; see 'Notes'); Bujumbura, Luhanga, Pemba (Bemba), Magara, Resha, and Nyanza in Burundi; Kigoma, Bulombora, Maswa, Halembe, and Bulu Point in Tanzania.</p><p>Type locality is 'Kigoma, Tanzania, Lake Tanganyika'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>Tanganyika is the most ancient of East Africa's Great Rift Lakes. It is estimated to be the second largest, second deepest, and longest freshwater body in the world, and contains a diverse array of endemic taxa including an ecologically complex assemblage of approximately 250 cichlid species.</p><p>C. frontosa is most commonly observed in littoral, sediment-rich, rocky environments at depths of 6-120 metres, typically among boulders with patches of open substrate between 15-70 metres. Such habitats contain relatively few available shelters, and this appears to have exerted a direct influence on the species' reproductive strategy (see 'Reproduction').</p><p>It forms large aggregations which sometimes contain 1000 individuals or more, with older, larger individuals displaying a preference for deeper water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>Dimensions of 240 × 60 × 60 cm (96 × 24 × 24 in) or equivalent are the minimum necessary for long-term maintenance, but greater width, and particularly depth are highly recommended. Volume is about 864 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>A well-structured aquarium comprising some sheltered areas with plenty of open space is considered ideal. A natural set-up could consist of a sandy substrate plus some piles of water-worn rocks of various sizes, some of which can be arranged to form cave-like structures, and perhaps a few large boulders.</p><p>Alternatively, aquarium gravel can be used as a substrate, and items such as earthenware flower pots utilised as refuges, but in all cases sharp edges should be avoided in order to prevent the fish injuring themselves.</p><p>The alpha male(s) tend to select a particular cave or other sheltered area, thus it is beneficial to provide enough structures of sufficient size to accommodate the largest males present. If some smaller caves are provided, females will make use of them when holding eggs (see 'Reproduction').</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality, and should never be introduced to a biologically immature aquarium. Cyphotilapia spp. also require hard, alkaline conditions and in most cases will not thrive in untreated tap water.</p><p>The best way to achieve the desired stability is to filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 30-50%. High flow rates should be avoided so position filter returns accordingly.</p><p>Lighting is essentially a matter of personal choice, although the fish themselves display a preference for somewhat murky conditions, in keeping with their natural habitat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<ul><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 8.0–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>This species is a generalised predator feeding on smaller fishes, macro-invertebrates, and molluscs, plus some algae and organic detritus which is presumably ingested when the fish are browsing the substrate or the surface of rocks.</p><p>In the aquarium it will accept high quality prepared foods plus live or frozen Artemia, mosquito larvae, shrimp, etc. At least some of the dried products should contain a significant proportion of vegetable matter, such as Spirulina or similar, while chopped peas and suchlike are also useful supplements.</p><p>It should not be offered mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
       "key": "behaviour",
@@ -38,49 +125,49 @@
       "html": "<p>C. frontosa is a crepuscular predator that prefers to feed on small fish and shrimp.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>This species may eat much smaller fishes but can form part of a well-chosen Tanganyikan community provided the aquarium is of a sufficient size.</p><p>It is gregarious and should be maintained in a group of at least five, ideally ten or more, specimens. Unlike many cichlids, males do not hold distinct territories, but form a distinct dominance hierarchy within which one or more alpha individuals develop depending on the size of the group and amount of available space.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cyphotilapia-frontosa-2/",
       "html": "<p>Old males develop a forehead hump and can reach 30 cm; females generally remain smaller.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>Juveniles are impossible to sex accurately but adult males grow larger, possess more extended fins, and develop a larger nuchal hump than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cyphotilapia-frontosa-2/",
       "html": "<p>Frontosa are mouthbrooders. Breeding succeeds relatively easily, but the fish are not very productive and the young grow very slowly.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>A maternal, ovophilous mouthbrooder that is commonly bred in aquaria.</p><p>Adult males are polygynous and should ideally be offered at least 3-4 females each, and it should be noted that sexual maturity is attained after several years so patience may be required if starting with young fish.</p><p>Little to no water movement is ideal and some aquarists recommend the use of undergravel filtration if using a separate aquarium for breeding purposes, while low lighting is also considered strongly beneficial.</p><p>The eggs are very large and brood size correspondingly small, normally 10-50 depending on the size of the female. Once fertilised they are immediately collected by the female, and remain in her mouth for a particularly long period of 35-50+ days.</p><p>Once the eggs have hatched, brooding females exhibit a behaviour known as buccal feeding, in which smaller items of food are taken and partially or entirely ingested by the fry in the buccal cavity. Buccal feeding begins while the fry are in an early developmental stage with large yolk sacs, and continues throughout the remainder of the mouthbrooding period. Regular meals of Artemia nauplii and suchlike can thus be offered to brooding female individuals and should benefit fry development since the fry are not released at all until they are able to survive independently. This appears to be an adaptation to the species' natural habitat which contains relatively few refuges.</p><p>Some breeders prefer to manually remove the eggs or fry from the mouth of the female and hatch them elsewhere, often using an air-powered device known as an egg tumbler. This process is known as 'stripping' and is not recommended for beginners.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<p>Cyphotilapia species are typically referred to as 'frontosa' or simply 'front' in the aquarium hobby, although other vernacular names include 'Tanganyika humphead'.</p><p>Populations of C. frontosa from different localities are often labelled as such in order to maintain accuracy and preserve pure bloodlines. The majority possess 6 vertical bands on the body with the exception of the form from Kigoma on the eastern side of the lake, which has 7. Forms referred to as 'Blue Zaire' are sometimes misidentified as C. frontosa but are representative of its congener C. gibberosa.</p><p>A few selectively-bred ornamental strains have been developed, including C. frontosa 'red' which is also known as 'copperband' due to the reddish-brown colour of the dark body bars and C. frontosa 'black widow' in which the dark body bars are reduced to a series of large blotches on the side of the body.</p><p>Prior to the description of C. gibberosa in 2003 the genus Cyphotilapia was considered monotypic for almost a century. Members are separated from other cichlid taxa inhabiting Lake Tanganyika by possession of a hump on the forehead and broad vertical bands on the body, although the latter tend not to be visible in large males.</p><p>C. frontosa can be separated from its only congener C. gibberosa by the following characters: presence of two scale rows between the upper and lower lateral lines (vs. three in C. gibberosa); 33–35 (mean 34.1, standard deviation ±0.6) scales in the longitudinal series (vs. 34-36, 34.9, ±0.8); 39–62 (48.8, ±5.4) outer teeth in the upper jaw (vs. 31–52, 42.7, ±4.7); less deep body (38.2-46.5 vs. 43.3-51.2% SL); shorter predorsal length (37.1-42.7 vs. 37.5–44.9% SL); shorter dorsal-fin base (53.8-60.9 vs. 57.1-64.6% SL); shorter pectoral-fin length (31.3-41.7 vs. 36.0–47.2% SL).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "html": "<ul><li>Takahashi, T. and K. Nakaya (2003). New species of Cyphotilapia (Perciformes: Cichlidae) from Lake Tanganyika, Africa. Copeia 2003(4), 824-832</li><li>Boulenger, G. A. (1906). Fourth contribution to the ichthyology of Lake Tanganyika.--Report on the collection of fishes made by Dr. W. A. Cunnington during the Third Tanganyika Expedition, 1904-1905. Transactions of the Zoological Society of London v. 17 (pt. 6, no. 1), 537-601</li><li>Takahashi, T., B. Ngatunga, and J. Snoeks (2007). Taxonomic status of the six-band morph of Cyphotilapia frontosa (Perciformes: Cichlidae) from Lake Tanganyika, Africa. Ichthyological Research 54(1), 55-60</li><li>Yanagisawa, Y. and H. Ochi (1991). Food intake by mouthbrooding females of Cyphotilapia frontosa (Cichlidae) to feed both themselves and their young. Environmental Biology of Fishes 30(3), 353-358</li><li>Konings, A. (2005). Back to Nature: Guide to Tanganyika Cichlids, Revised &amp; Expanded Second Edition. Hollywood Import &amp; Export Inc., 1-192</li></ul>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/c61a7aecabf37bf2.webp",
-      "width": 960,
-      "height": 693,
-      "licence": "CC BY-SA 3.0",
-      "author": "Maha Dinesh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frontosa_Cichlid.JPG",
-      "caption": "Male Frontosa Cichlid of 6 inches",
-      "thumb": "https://media.aquatome.com/commons/c61a7aecabf37bf2-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/db4107c76f991ec5.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Guérin Nicolas (messages)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_(Wroclaw_zoo)-2.JPG",
-      "caption": "Picture taken in the zoo of Wrocław (Poland): Cyphotilapia frontosa (Boulenger, 1906)",
-      "thumb": "https://media.aquatome.com/commons/db4107c76f991ec5-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/cd6330412d702634.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Lumixbx",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_public_de_Bruxelles-004.jpg",
-      "caption": "Aquarium public de Bruxelles, Belgique.",
-      "thumb": "https://media.aquatome.com/commons/cd6330412d702634-480.webp"
-    },
     {
       "url": "https://media.aquatome.com/glaser/394258eeb3b7c47b.webp",
       "thumb": "https://media.aquatome.com/glaser/394258eeb3b7c47b-480.webp",
@@ -122,17 +209,76 @@
       "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/a21ca2af5458bc22.webp",
-      "width": 960,
-      "height": 636,
-      "licence": "CC BY-SA 3.0",
-      "author": "Patrick Ch. Apfeld",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_Zoo_Cologne.jpg",
-      "caption": "Cyphotilapia frontosa in the Cologne Zoo",
-      "thumb": "https://media.aquatome.com/commons/a21ca2af5458bc22-480.webp"
+      "url": "https://media.aquatome.com/seriouslyfish/bc8fbf4c8d46e96b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bc8fbf4c8d46e96b-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "caption": "Male individual from Bulombora, Tanzania.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/856b4a9be034aa4d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/856b4a9be034aa4d-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "caption": "Subadult; Bulombora population.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9bb7db665b682fcc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9bb7db665b682fcc-480.webp",
+      "width": 600,
+      "height": 343,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "caption": "Juvenile measuring 15 mm TL; Bulombora population.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/776d9aaf6e5c576b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/776d9aaf6e5c576b-480.webp",
+      "width": 709,
+      "height": 435,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyphotilapia-frontosa",
+      "caption": "Adult male pictured in its natural habitat at Lusungura Point, Tanzania. Water depth 25 metres.",
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "YhWB9Y0FXig",
+      "title": "Species Profile Cyphotilapia Frontosa. Tank Talk Presented by KGTropicals",
+      "durationSec": 614,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AiA65HYZxzI",
+      "title": "Frontosa Care Guide (BIG and BEAUTIFUL)",
+      "durationSec": 534,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "q9-7jCvgD4Q",
+      "title": "Fish 101: Beginner’s Guide to Frontosa Cichlids (Care, Tank Setup & Tips)",
+      "durationSec": 275,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6-YTKrtKPgw",
+      "title": "Frontosa Mouthbrooding Magic! ✨ #africancichlids #aquariumfish #fishkeeping",
+      "durationSec": 180,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

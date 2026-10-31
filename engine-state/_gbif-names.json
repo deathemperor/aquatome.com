@@ -560,6 +560,20 @@
     "genus": "Akysis",
     "matchType": "EXACT"
   },
+  "Akysis similis": {
+    "canonicalName": "Pseudobagarius similis",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Pseudobagarius",
+    "matchType": "EXACT"
+  },
+  "Akysis subtilis": {
+    "canonicalName": "Pseudobagarius subtilis",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Pseudobagarius",
+    "matchType": "EXACT"
+  },
   "Akysis variegatus": {
     "canonicalName": "Akysis variegatus",
     "order": "Siluriformes",
@@ -686,6 +700,13 @@
     "genus": "Amatitlania",
     "matchType": "EXACT"
   },
+  "Ambassis miops": {
+    "canonicalName": "Ambassis miops",
+    "order": "Perciformes",
+    "family": "Ambassidae",
+    "genus": "Ambassis",
+    "matchType": "EXACT"
+  },
   "Ambassis trong": null,
   "Ambastaia nigrolineata": {
     "canonicalName": "Ambastaia nigrolineata",
@@ -706,6 +727,27 @@
     "order": "Cypriniformes",
     "family": "Cobitidae",
     "genus": "Ambastaia",
+    "matchType": "EXACT"
+  },
+  "Amblyceps arunachalense": {
+    "canonicalName": "Amblyceps arunachalense",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
+    "matchType": "EXACT"
+  },
+  "Amblyceps arunachalensis": {
+    "canonicalName": "Amblyceps arunchalensis",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
+    "matchType": "EXACT"
+  },
+  "Amblyceps arunchalensis": {
+    "canonicalName": "Amblyceps arunchalensis",
+    "order": "Siluriformes",
+    "family": "Amblycipitidae",
+    "genus": "Amblyceps",
     "matchType": "EXACT"
   },
   "Amblyceps caecutiens": {
@@ -2000,6 +2042,20 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Barbichthys",
+    "matchType": "EXACT"
+  },
+  "Barbodes banksi": {
+    "canonicalName": "Barbodes banksi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Barbodes",
+    "matchType": "EXACT"
+  },
+  "Barbodes everetti": {
+    "canonicalName": "Barbodes everetti",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Barbodes",
     "matchType": "EXACT"
   },
   "Barbodes kuchingensis": {
@@ -5084,6 +5140,8 @@
     "genus": "Helostoma",
     "matchType": "EXACT"
   },
+  "Hemdal ngh": null,
+  "Hemdal nghi": null,
   "Hemiancistrus guahiborum": {
     "canonicalName": "Hemiancistrus guahiborum",
     "order": "Siluriformes",
@@ -5230,6 +5288,13 @@
     "order": "Characiformes",
     "family": "Hemiodontidae",
     "genus": "Hemiodus",
+    "matchType": "EXACT"
+  },
+  "Hemirhamphodon kuekenthali": {
+    "canonicalName": "Hemirhamphodon kuekenthali",
+    "order": "Beloniformes",
+    "family": "Zenarchopteridae",
+    "genus": "Hemirhamphodon",
     "matchType": "EXACT"
   },
   "Hemirhamphodon pogonognathus": {
@@ -6355,6 +6420,13 @@
   },
   "Macrognathus circumcinctus": {
     "canonicalName": "Macrognathus circumcinctus",
+    "order": "Synbranchiformes",
+    "family": "Mastacembelidae",
+    "genus": "Macrognathus",
+    "matchType": "EXACT"
+  },
+  "Macrognathus maculatus": {
+    "canonicalName": "Macrognathus maculatus",
     "order": "Synbranchiformes",
     "family": "Mastacembelidae",
     "genus": "Macrognathus",
@@ -8263,6 +8335,13 @@
     "genus": "Pethia",
     "matchType": "EXACT"
   },
+  "Pethia thelys": {
+    "canonicalName": "Pethia thelys",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Pethia",
+    "matchType": "EXACT"
+  },
   "Pethia ticto": {
     "canonicalName": "Pethia ticto",
     "order": "Cypriniformes",
@@ -8746,6 +8825,20 @@
     "genus": "Pseudobagarius",
     "matchType": "EXACT"
   },
+  "Pseudobagarius similis": {
+    "canonicalName": "Pseudobagarius similis",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Pseudobagarius",
+    "matchType": "EXACT"
+  },
+  "Pseudobagarius subtilis": {
+    "canonicalName": "Pseudobagarius subtilis",
+    "order": "Siluriformes",
+    "family": "Akysidae",
+    "genus": "Pseudobagarius",
+    "matchType": "EXACT"
+  },
   "Pseudobunocephalus amazonicus": {
     "canonicalName": "Pseudobunocephalus amazonicus",
     "order": "Siluriformes",
@@ -8832,6 +8925,13 @@
   },
   "Pseudomystus leiacanthus": {
     "canonicalName": "Pseudomystus leiacanthus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Pseudomystus",
+    "matchType": "EXACT"
+  },
+  "Pseudomystus rugosus": {
+    "canonicalName": "Pseudomystus rugosus",
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Pseudomystus",
@@ -10110,6 +10210,13 @@
     "order": "Lamiales",
     "family": "Acanthaceae",
     "genus": "Staurogyne",
+    "matchType": "EXACT"
+  },
+  "Stenogobius ingeri": {
+    "canonicalName": "Stenogobius ingeri",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Stenogobius",
     "matchType": "EXACT"
   },
   "Stigmatogobius sadanundio": {

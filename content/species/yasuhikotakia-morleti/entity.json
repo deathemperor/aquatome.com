@@ -12,13 +12,57 @@
     "laos",
     "mekong",
     "vietnam",
-    "cambodia"
+    "cambodia",
+    "chao-phraya"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -30,10 +74,22 @@
       "html": "<p>The skunk loach (Yasuhikotakia morleti) has been one of the most popular loaches since 1953, as it remains manageably small (usually 6-8 cm, very rarely allegedly up to 10 cm, although this information was probably due to confusion with other species) and is very peaceful.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<ul><li>Max size: 85 mm SL (3.3 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/yasuhikotakia-morleti-2/",
       "html": "<p>What the armored catfish (Corydoras &amp; Co.) are in a South American tank, the clown loaches (Botia &amp; Co.) are in an Asian tank: interesting, beautiful and lively bottom fish. However, much more species knowledge is required for Botia than for armored catfish to avoid unpleasant surprises. Some species, such as the popular true clown loach (Chromobotia macracanthus) grow to 20-30 cm, while others, such as some tiger loaches (Syncrossus), can develop into real tyrants in the community aquarium.</p><p>However, the caveat here is that these fish are very social and individual animals often become behaviorally conspicuous. You should therefore always buy 5 or more specimens.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is also essential as these loaches do jump at times.</li></ul><p>The skunk loach, Yasuhikotakia morleti, is a botiid loach from the middle and lower Mekong and the Chao Phraya and Mae Klong drainages of Thailand. Common in the hobby, where most fish are farmed commercially, it is also sold as 'skunk botia' or 'Hora's loach'. The dark stripe over its dorsal surface separates it from the similar Y. longidorsalis. It can be combative, nipping fins and harassing tankmates, especially when kept in smaller groups.</p>"
     },
     {
       "key": "distribution",
@@ -42,10 +98,40 @@
       "html": "<p>The home of Y. morleti is the huge rivers Mae Klong, Chao Phraya and Mekong in Southeast Asia (Thailand, Laos, Vietnam, Cambodia). The species is considered to be very common.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>Described from a tributary of the lower Mekong River system in Samraong Tong district, Kampong Speu province, Cambodia, but since recorded throughout the middle and lower Mekong in Thailand, Laos, Cambodia and Vietnam plus the Chao Phraya and Mae Klong drainages in western and central Thailand.</p><p>The majority of those seen on sale in the shops will have been farmed commercially for the purpose, though.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>According to Rainboth (1996) this species can be found in both standing and flowing waters where it exists among crevices between or digs underneath rocks and submerged objects such as tree roots.</p><p>It undergoes seasonal migrations as part of its life cycle and can thus be found in various habitat-types depending on the time of year, from main river channels to smaller tributary drainages and temporarily-flooded zones.</p><p>It co-occurs with Yasuhikotakia lecontei, Y. modesta, and Syncrossus helodes across much of its range and in a survey of the Mun River conducted in Surin province, northeastern Thailand was collected alongside a host of other fish species including those three plus Acantopsis choirhynchos, Lepidocephalichthys hasselti, Barbonymus altus, B. gonionotus, Cyclocheilichthys apogon, C. repasson, Discherodontus ashmeadi, Epalzeorhynchos frenatum, Esomus metallicus, Hampala dispar, H. macrolepidota, Mystacoleucus marginatus, Barilius koratensis, Osteochilus vittatus, Raiamas guttatus, Rasbora borapetensis, R. dusonensis, R. rubrodorsalis, R. trilineata, Systomus orphoides, 'Puntius' partipentazona, Gyrinocheilus aymonieri, Trichopodus pectoralis, T. trichopterus, Trichopsis pumila, T. vittata, Pseudomystus siamensis, Mystus singaringan, Kryptopterus cryptopterus, and Mastacembelus favus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<ul><li>Standard length: 85 mm SL (3.3 in SL)</li><li>Aquarium base: 120 × 30 cm (48 × 12 in)</li><li>Volume: ~108 litres (~29 US gal)</li></ul><p>For long-term maintenance an aquarium with base measurements of 120 × 30 cm (48 × 12 in) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as Yasuhikotakia spp. are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/yasuhikotakia-morleti-2/",
       "html": "<p>It is undemanding in terms of water composition, but frequent partial water changes are the top priority for these fish, otherwise they will suffer.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -60,10 +146,28 @@
       "html": "<p>They will eat any common ornamental fish food. All Botia love to eat snails.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>While Yasuhikotakia spp. appear chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs and other benthic invertebrates.</p><p>They're largely unfussy feeders but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while most botiids also prey on aquatic snails they should never be considered the answer to an infestation since they're not obligate molluscivores.</p><p>Once settled into an aquarium they're bold feeders and often rise into midwater at meal times.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>Although Y. morleti displays similar behaviour to most other members of the genus it can be combative, tending to nip fins and generally harass tankmates, especially when maintained in smaller groups.</p><p>While the intensity of such aggressiveness varies to an extent depending on the individual this species is nevertheless only suitable for larger, well-structured community aquaria containing other robust fishes.</p><p>Even then slow-moving and/or long-finned species should be omitted with active, pelagic cyprinids such as many Devario, Rasbora, Puntius, Barilius, and some Danio spp. representing the most suitable choices for the upper levels.</p><p>In terms of other loaches it's proven to coexist successfully with other Yasuhikotakia species, plus more robust Botia such as B. almorhae or B. kubotai, and all members of the genus Syncrossus.</p><p>Some cobitid and nemacheilid loaches are also possibilities as are Epalzeorhynchos, Crossocheilus, and Garra spp., plus certain catfishes.</p><p>Sedate, peaceable bottom-dwellers such as Corydoras spp. are best avoided though, and as always thorough research prior to selecting a community of fishes is the best way to avoid potential problems.</p><p>Yasuhikotakia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or excessively aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual can stress the other(s) to the extent that they stop feeding.</p><p>That said they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/yasuhikotakia-morleti-2/",
       "html": "<p>There are no definite external differences between the sexes, the females are merely somewhat larger and fuller.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>Sexually mature females are normally fuller-bodied and grow a little larger than males.</p>"
     },
     {
       "key": "reproduction",
@@ -72,13 +176,75 @@
       "html": "<p>Targeted breeding in the aquarium is not practiced. In the wild, botias carry out spawning migrations. The species for which there is great aquarium demand are therefore bred in breeding facilities in the same way as food fish (trout and salmon). Such techniques are not used in hobby aquariums. Basically, loaches can be characterized as free spawners without brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>Some Yasuhikotakia species, including Y. morleti, are farmed commercially for the hobby via the use of hormones but reports of breeding by private aquarists are unheard of, possibly because the majority are seasonal, migratory spawners in the wild.</p><p>Juveniles have a series of dark, vertical bars on the flanks which fade as they reach maturity and in the lower Mekong basin apparently migrate from tributaries and flood plains into main river channels around the months of November and December each year.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/yasuhikotakia-morleti-2/",
       "html": "<p>The skunk loach has undergone several name changes. Until 1974 it was known as Botia horae (sometimes written as B. horai). It was then realized that B. horae was a younger name – and therefore invalid – for Botia morleti. It was then transferred to the genus Yasuhikotakia in 2002. If you look up this fish in the aquarium literature, you will have to look it up under several names.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<p>This species is common in the hobby and also sold as 'skunk botia' or 'Hora's loach', the latter in reference to Botia horae Smith, 1931, currently considered a synonym of Y. morleti.</p><p>It's similar in appearance to the rarely-seen Y. longidorsalis but can be told apart by the fact it has a dark stripe running over the dorsal surface (this giving rise to the vernacular name 'skunk loach') which is lacking in its relative.</p><p>The two can be further separated by the following combination of characters: vertical bars on flanks present in juveniles/subadults only (vs. present throughout life in Y. longidorsalis); 7-9 branched dorsal-fin rays, usually 8 (vs. 9-10); 28-30 total vertebrae (vs. 30-31); 9 predorsal vertebrae (vs. 10); longer snout measuring 50.3-55% of head length (vs. 48.5-51.3%); larger eyes with orbital diameter 19.4-21.5% of head length (vs. 14.5-17.7%); shorter suborbital spines measuring 23.1-28.0% of head length (vs. 29.6-34.4%).</p><p>The genus Yasuhikotakia was erected by Nalbant (2002) to include some former members of Botia which were previously referred to as the Botia modesta 'group' following Taki (1972).</p><p>Members are defined by the following combination of characters as given by Kottelat (2004): mental lobe not developed in a barbel, with a pair of fleshy papillae at its anterior edge; fronto-parietal fontanelle large and wide; anterior chamber of gas bladder partly covered by bony capsule; posterior chamber large; top of supraethmoid narrow; optic foramen small; anterior process of premaxilla entire, not surrounding a cavity; rostral process long, with a more or less distinct ridge along inner edge; suborbital spine strongly curved backwards and bifid; head naked.</p><p>The family Botiidae has been widely considered a genetically distinct grouping since Nalbant (2002), having previously been considered a subfamily (Botiinae) of the family Cobitidae. Nalbant also moved some previous members of Botia into the new genus Yasuhikotakia based on a number of morphological characters.</p><p>Later Kottelat (2004) made further modifications to the taxonomy, raising Chromobotia for B. macracanthus and confirming that species previously included in the genus Hymenophysa should instead be referred to Syncrossus.</p><p>The former alteration was based on colour pattern plus some morphological characters and the latter because Hymenophysa not only represents a spelling mistake (McClelland's original spelling was Hymenphysa) but is a junior synonym of Botia.</p><p>More recently Kottelat (2012) erected the genus Ambastaia to accommodate A. nigrolineata and A. sidthimunki, two former members of both Botia and Yasuhikotakia.</p><p>As a result of these works the family Botiidae is thus divided into two tribes within which Botia appears to be the most basal lineage:</p><p>Tribe Leptobotiini - Leptobotia, Parabotia, Sinibotia. Tribe Botiini - Ambastaia, Botia, Chromobotia, Syncrossus, Yasuhikotakia.</p><p>Phylogenetic studies by Tang et al. (2005) and Šlechtová et al. (2006) have largely confirmed this system to be correct although the latter disagreed with the placement of Sinibotia, finding it to be more closely related to the tribe Botiini.</p><p>Ambastaia nigrolineata and A. sidthimunki were found to be more closely-related to both Sinibotia and Syncrossus than Yasuhikotakia, despite being considered members of the latter at the time. Šlechtová et al. also proposed the use of subfamily names under the following system:</p><p>Subfamily Leptobotiinae - Leptobotia, Parabotia. Subfamily Botiinae - Botia, Chromobotia, Sinibotia, Syncrossus, Yasuhikotakia.</p><p>Within these Botia appears to be the basal, i.e., most ancient, lineage and in a more-detailed phylogenetic analysis Šlechtová et al. (2007) confirmed the validity of the family Botiidae with the genera listed above as members rather than being grouped into subfamilies. This more recent, simpler system is the one currently followed here.</p><p>Some behavioural routines exhibited by Yasuhikotakia spp. have been recorded often enough that they've been assigned non-scientific terms for ease of reference.</p><p>For example during dominance battles (these occur most frequently when the fish have been introduced to a new tank, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon that's come to be known as 'greying out'.</p><p>Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>Interestingly some observations suggest that the character of the highest-ranked, or alpha, fish appears to affect that of the whole group though it must be said that scientific studies of botiid loach behaviour are virtually non-existent.</p><p>It certainly seems that they display a degree of 'personality' with some specimens being naturally bolder or more aggressive than others, for example. The alpha is normally the largest specimen within the group and often female.</p><p>'Shadowing' is an interesting behaviour in which younger individuals swim flank-to-flank with older, mimicking their every movement. Some keepers report that more than one smaller fish may shadow a larger simultaneously, with even three or four on each side!</p><p>The reason for it is unknown; it may relate to a group staying in touch with one another when rivers swell during times of flooding, perhaps reducing drag by swimming 'in formation' or having some other communicative function.</p><p>It's been observed in aquaria with both high and low water flow and seems to be habitual to the extent whereby some individuals will shadow other fishes if no conspecifics are present.</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, these increasing in volume when the fish are excited. The behavioural aspects of this phenomenon remain largely unstudied but the sounds are thought to be produced by grinding of the pharyngeal (throat) teeth or subocular spines.</p><p>A further curiosity is the so-called 'loachy dance' which involves an entire group swimming in a constant, restless fashion around the sides of the tank, usually utilising the full length and height.</p><p>The reasons for this are unknown and reports as to when it occurs vary but the most common triggers appear to be the addition of food, fresh water or new conspecifics, and it can last anything from a few minutes to a day or more.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>Yasuhikotakia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus.</p><p>It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "html": "<ul><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Grant, S. (2001). The Botia modesta complex (Cobitidae, Botiinae). Ichthyofile No. 1, 1-8</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Nalbant, T. T. (2002). Sixty million years of evolution. Part one: family Botiidae (Pisces: Ostariophysi: Cobitoidea). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 44, 309-333</li><li>Nalbant, T. T. (2004). Hymenphysa, Hymenophysa, Syncrossus, Chromobotia and other problems in the systematics of Botiidae. A reply to Maurice Kottelat. Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 47, 269-277</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Šlechtová, V., J. Bohlen, J. Freyhof and P. Ráb (2006). Molecular phylogeny of the Southeast Asian freshwater fish family Botiidae (Teleostei: Cobitoidea) and the origin of polyploidy in their evolution. Molecular Phylogenetics and Evolution 39(2), 529-541</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Sokheng, C., C. K. Chhea, S. Viravong, K. Bouakhamvongsa, U. Suntornratana, N. Yoorong, N. T. Tung, T. Q. Bao, A. F. Poulsen, and J. V. Jørgensen (1999). Fish migrations and spawning habits in the Mekong mainstream: a survey using local knowledge (basin-wide). Assessment of Mekong Fisheries, AMFP Report 2/99. Vientiane, Lao, P.D.R.</li><li>Taki, Y. and A. Doi (1995). Two new species of the cobitid genus Botia from the Lao Mekong Basin. Japanese Journal of Ichthyology 42(2), 147-155</li><li>Tang, Q., B. Xiong, X. Yang and H. Liu (2005). Phylogeny of the East Asian botiine loaches (Cypriniformes, Botiidae) inferred from mitochondrial cytochrome b gene sequences. Hydrobiologia 544(1), 249-258</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/310bafabb58bdd78.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/310bafabb58bdd78-480.webp",
+      "width": 819,
+      "height": 547,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "caption": "This species is among the more-commonly-traded botiid loaches.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8cd554150b3a320e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8cd554150b3a320e-480.webp",
+      "width": 700,
+      "height": 406,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "caption": "Juveniles/subadults typically possess a series of dark, vertical bars on the body which fade as the fish mature.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9dea70656f148f4d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9dea70656f148f4d-480.webp",
+      "width": 799,
+      "height": 556,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "caption": "Slightly older subadult...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/16e9c42cd9a5eca3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/16e9c42cd9a5eca3-480.webp",
+      "width": 799,
+      "height": 592,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-morleti",
+      "caption": "...and these specimens are older still.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/c40ccf52df93ddbb.webp",
       "thumb": "https://media.aquatome.com/glaser/c40ccf52df93ddbb-480.webp",
@@ -120,7 +286,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "4ABmrfDZYs8",
+      "title": "Skunk Loach Doesn't Look Well (Yasuhikotakia morleti)",
+      "durationSec": 173,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aqfivHPXSZE",
+      "title": "Another Look at my Skunk Loaches in my Gourami Tank. (Yasuhikotakia morleti)",
+      "durationSec": 652,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QgeWtBjJ9Aw",
+      "title": "Yasuhikotakia morleti aquarium fish",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BSlAA3FZDds",
+      "title": "Yasuhikotakia morleti (Skunk loach)",
+      "durationSec": 357,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

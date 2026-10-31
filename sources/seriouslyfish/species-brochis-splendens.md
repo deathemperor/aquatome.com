@@ -1,12 +1,13 @@
 ---
 url: https://www.seriouslyfish.com/species/brochis-splendens
 title: Brochis splendens (Emerald 'Brochis') · Seriously Fish
-fetchedAt: 2026-10-30T22:25:34.146Z
-hash: 2776f1d69788580a15823dffc8f747c38b0b6f1665a6556e20dfd60e93089eb4
+fetchedAt: 2026-10-31T09:10:38.394Z
+hash: 5d8f6d7845107063db93cb688b697ad2700bf58afedd69dbdc6fd26793e9558e
 ---
 
 On this page
-13 sections
+13
+sections
 - Etymology
 - Distribution
 - Habitat

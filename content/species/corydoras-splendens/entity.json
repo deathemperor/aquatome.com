@@ -12,13 +12,20 @@
     "ambyiacu",
     "brazil",
     "tocantins",
-    "amazon"
+    "amazon",
+    "ucayali",
+    "ecuador",
+    "colombia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
       }
     ],
     "tempC": [
@@ -28,6 +35,43 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -39,10 +83,34 @@
       "html": "<ul><li>Reaches almost 10 cm in length.</li><li>Keep in a group of 6 or more.</li><li>Temperature 18–28°C.</li><li>Peaceful towards all tank mates.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>The emerald 'brochis', Brochis splendens, long known as Corydoras splendens, is an armoured catfish recorded throughout much of the Amazon basin in Brazil, Peru, Ecuador and Colombia. It is sometimes called the 'common brochis', and juveniles are sometimes traded as 'hi-fin cory' for their enlarged dorsal fin. Its 10 to 12 dorsal-fin rays separate it from B. britskii and B. multiradiata, the other two species long kept in Brochis, and certain populations are thought likely to represent distinct species.</p><ul><li>Max size: 80 mm SL (3.1 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 20–28°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
       "html": "<p>The emerald catfish is imported regularly from the upper Amazon drainage in Peru. The type specimen of Callichthys splendens (today Brochis splendens), described by Castelnau in 1855, came from the Rio Tocantins in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>This species is one of the more widespread than other members of the genus and has been recorded throughout much of the Amazon basin in Brazil, Peru, Ecuador and Colombia.</p><p>It is thought that certain populations may turn out to represent distinct species in the future, and this may involve revalidation of some of the synonyms above.</p><p>Type locality is given simply as 'Rio Tocantins, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>This species tends to form aggregations in smaller tributaries and still bodies of water such as backwaters, oxbows and marginal lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Minimum base dimensions of 120 × 45 cm (48 × 18 in) or equivalent are recommended. Volume approximately 243 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -51,10 +119,22 @@
       "html": "<p>In terms of care, Brochis splendens does not differ significantly from most Corydoras species. Keep these fish in a group of at least 6. The tank should not be too small, as B. splendens can reach almost 10 cm. The bottom should consist of fine, soft sand at least in places.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
       "html": "<p>Any tap water suitable as drinking water is suitable for keeping them. The water temperature can be between 18 and 28°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -63,19 +143,99 @@
       "html": "<p>Every usual ornamental fish food is eaten.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
       "html": "<p>Completely peaceful towards all tank mates.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 6-8 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Adult females are noticeably rounder, higher-bodied, and grow slightly larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>Eggs are laid close to the water surface and are easy to remove elsewhere for raising.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
       "html": "<p>From the Peru region, no fewer than four synonyms of this armored catfish, spread over three genera (Brochis, Chaenothorax and Corydoras), were described by Edward Drinker Cope (1840–1897). This shows how different the fish can look. It is agreed that several species hide behind the name Brochis splendens, but no comprehensive revision currently exists.</p><p>In a tank of Peru imports, animals with small dots in the dorsal fin were noticed; this fin is usually completely transparent in B. splendens. At the same time one male developed, possibly because of unusually high water temperatures during a heat wave, a courtship dress and distinctly long extended pectoral fin spines. The courtship dress is a darkening of the body and a brightening of the head area, the two zones sharply separated by a bright vertical line. The matching female and the other animals kept the usual shiny emerald green coloration.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<p>This species was long one of only three in the genus Brochis, alongside B. britskii and B. multiradiata, and is sometimes referred to as 'common brochis'. Juveniles have a mottled colour pattern and are sometimes traded as 'hi-fin cory' due to their enlarged dorsal-fin.</p><p>B. splendens can be told apart from B. britskii and B. multiradiata by possession of 10-12 dorsal-fin rays (vs. 15-18, normally 15, in B. britskii and usually 17-18 in B. multiradiata). Other corydoradine catfishes, including the species moved into Brochis in 2024, possess 6-8 dorsal-fin rays.</p><p>Brochis was synonymised with Corydoras by Britto (2003), because Corydoras could not be considered monophyletic while Brochis was kept separate, and studies by Shimabukuro-Dias et al. (2004) and Alexandrou et al. (2011) supported that view. Dias et al. (2024) then revised the subfamily Corydoradinae from morphological and genomic data, revalidated Brochis and moved many species previously placed in Corydoras into it.</p><p>The genus Brochis is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body. Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Castelnau, F. L. (1855). Poissons. In: Animaux nouveaux or rares recueillis pendant l'expédition dans les parties centrales de l'Amérique du Sud, de Rio de Janeiro a Lima, et de Lima au Para; exécutée par ordre du gouvernement Français pendant les années 1843 a 1847 ... Part 7, Zoologie. Paris (P. Bertrand). v. 2, i-xii + 1-112</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/be2ed44448874dfc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/be2ed44448874dfc-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "caption": "Adult individual from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4009f5fb40df1025.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4009f5fb40df1025-480.webp",
+      "width": 820,
+      "height": 544,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "caption": "Wild adult specimen from Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6d14c5457670936d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6d14c5457670936d-480.webp",
+      "width": 800,
+      "height": 468,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "caption": "Young adult from the Danish aquarium trade...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/852a96deda06095c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/852a96deda06095c-480.webp",
+      "width": 800,
+      "height": 482,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-splendens",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/glaser/d51fa91e7d6673c4.webp",
       "thumb": "https://media.aquatome.com/glaser/d51fa91e7d6673c4-480.webp",
@@ -115,49 +275,34 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-and-b-cf-splendens-cw-35/",
       "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/741d14dc785024f0.webp",
-      "thumb": "https://media.aquatome.com/glaser/741d14dc785024f0-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-and-b-cf-splendens-cw-35/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/c3ec4dbf68568772.webp",
-      "thumb": "https://media.aquatome.com/glaser/c3ec4dbf68568772-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/8b13d34b7c46f6dd.webp",
-      "thumb": "https://media.aquatome.com/glaser/8b13d34b7c46f6dd-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/c2ce5c09626e1557.webp",
-      "thumb": "https://media.aquatome.com/glaser/c2ce5c09626e1557-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-splendens-peru-2/",
-      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "aHR1huojBcg",
+      "title": "Emerald Cory Catfish (Corydoras splendens)",
+      "durationSec": 24,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "Fn1Invy3vQ8",
+      "title": "Corydoras splendens / Common brochis / 青銅鼠",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vuQtsXali8I",
+      "title": "corydoras brochis splendens #corydoras #catfish #iwakiwak #iwak2 #short #shorts #shortsvideo",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0JXTk3pmU_M",
+      "title": "emerald corydoras / Brochis Splendens.",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

@@ -18,6 +18,13 @@
           "min": 20,
           "max": 25
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -27,11 +34,22 @@
           "min": 7,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 9
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 12
+      },
+      {
+        "source": "seriouslyfish",
         "value": 12
       }
     ],
@@ -39,6 +57,25 @@
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ]
   },
@@ -50,10 +87,40 @@
       "html": "<p>Melanotaenia lacustris is easy to keep and breed. It reaches a maximum length of 12 cm, but usually remains under 10 cm. The aquarium strains consist exclusively of captive-bred specimens.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>The Lake Kutubu rainbowfish, Melanotaenia lacustris, is a rainbowfish endemic to Lake Kutubu and the River Soro in Papua New Guinea. The lake is threatened by overfishing, much of it for the aquarium trade, and by oil development, and the species has 'vulnerable' status on the IUCN red list. Juveniles are much drabber than the blue adults and are usually sold as 'blue' rainbowfish or similar. Full colour can take over 12 months to develop.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-lacustris-2/",
       "html": "<p>Melanotaenia lacustris is endemic to the largest lake in Papua New Guinea, Lake Kutubu, and its outflow. The lake is of volcanic origin and is home to the largest number of endemic fish species in Papua New Guinea, including five Mogurnda species alone. Unfortunately, all of the lake's species are now considered endangered. Natural gas is being extracted around the lake, which has already led to enormous water pollution and fish mortality. In addition, workers brought sport fish for fishing. These alien species are decimating the remaining populations of the native, smaller species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Papua New Guinea, Southern Highlands Province. Endemic to Lake Kutubu and the River Soro, which flows out of the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Lake Kutubu is one of Papua New Guinea's largest lakes, measuring around sixty square kilometers in area. It was formed when debris from an erupting volcano blocked off a valley. It's very remote and 10 of the 14 fish species thus far recorded there are endemic. The water is very clear and still, and the rainbowfish tend to congregate around areas of aquatic vegetation, or submerged roots and logs.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>An active species requiring an aquarium measuring at least 120 × 30 × 30 cm (48 × 12 × 12 in) - ~108 litres (~29 US gal).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>This species, like most rainbows, looks most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Other decor is not particularly important. The choice of plants should reflect the slightly hard, alkaline conditions preferred by the fish. Filtration and tank maintenance should be very efficient to encourage the male fish to develop their spectacular colouration. Water movement should be kept to a minimum.</p>"
     },
     {
       "key": "waterConditions",
@@ -62,16 +129,52 @@
       "html": "<p>Ideal are pH values above 8 and clear water between 20 and 25°C with plenty of plants, but the fish are very adaptable and tolerate pH values down to 7 just as well as higher water temperatures.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<ul><li>Temperature: 20–25 °C (68–77 °F)</li><li>pH: 7.0–9.0. It will not do well in soft, acidic conditions.</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Like most of its congeners, it's an unfussy, omnivorous species and will accept most dried, frozen and live foods. Regular feedings of the latter will help to ensure the fish exhibit their best colours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Very peaceful but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies and catfish such as Corydoras. It can also be kept with many species of Rift Lake cichlid, due to its water requirements. The Lake Kutubu rainbowfish can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously, a suitably-sized aquarium would be required for a very large group.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-lacustris-2/",
       "html": "<p>Often, but not always, these animals develop an ultramarine blue upper half of the body and a very pale belly. Many other colorations are possible. During courtship the males also get a sulphur-yellow or reddish stripe over the head. Otherwise, the sexes differ only slightly in color. A better distinguishing feature of the females is their much slimmer body shape.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer. The fry, however, can prove somewhat tricky to raise. The breeding aquarium should be at least 30\" long and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 22–24 °C (72–75 °F). A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned as a group in a separate aquarium with plenty of live and frozen foods. As the fish come into condition the females will appear noticeably plumper, and males will display to each other almost constantly. They also develop an orange patch above the gill flaps. Select the fattest, best-coloured pair for breeding and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. The adults tend to eat the spawn, and it's easier to raise the fry in a separate aquarium, so it is recommended to check the plants or mops regularly and remove any eggs found to a raising tank containing water from the spawning tank. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-lacustris-2/",
       "html": "<p>Rainbowfish are almost always very colorful, but they only show these colors from a certain age and grow comparatively slowly. They show their most intense colors during courtship and spawning. Semi-adult rainbowfish offered in the trade often appear boring and silvery. Melanotaenia lacustris is one of the few species that color early.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-lacustris",
+      "html": "<p>Unfortunately the pristine environment where this fish comes from is being threatened by overfishing (much of it for the aquarium trade) and industry, with an oil development being built at one end of the lake during the 1990s. M. lacustris has therefore been given \"vulnerable\" status on the IUCN red list. The lake was designated a Wetland of International Importance in 1998, as both it and the Kikori Basin where it lies contain some of the earth's greatest biodiversity in terms of rare fauna and endemism. The WWF and other conservation groups are now working to ensure that the lake is preserved in its natural state.</p><p>Adult specimens are rarely seen, and it's the much drabber juvenile fish that are almost always offered for sale, usually as \"blue\" rainbowfish or similar. However, even on a good diet, full colour development can take over 12 months. The colouration of adult fish can be somewhat variable depending on water conditions.</p>"
     }
   ],
   "photos": [
@@ -116,7 +219,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hJtdQfPhh3A",
+      "title": "Melanotaenia Lacustris",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FXFC4iHRw6s",
+      "title": "Melanotaenia Lacustris males",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AngSedkFUXc",
+      "title": "Melanotaenia Lacustris aka Turquoise Rainbowfish from Lake Kutubu",
+      "durationSec": 176,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VQ1PmGGdloE",
+      "title": "Melanotaenia lacustris 🧜‍♂️#rainbowfish #aquaristik #shorts",
+      "durationSec": 16,
+      "lang": "de-DE"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

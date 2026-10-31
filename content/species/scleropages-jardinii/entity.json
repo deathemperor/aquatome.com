@@ -7,13 +7,59 @@
   "group": "other",
   "places": [
     "oceania",
-    "australia"
+    "australia",
+    "papua-new-guinea",
+    "asia",
+    "indonesia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.8,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +71,58 @@
       "html": "<p>The bony tongues (Osteoglossidae) are ancient fish nobility. They bear witness to the time when Africa, India, Australia, Antarctica and South America still formed a coherent continent called Gondwana. It was during this time that the bony tongues evolved. About 150 million years ago, Gondwana broke apart and today's continents were formed. As if on rafts, the bony tongues drifted apart on the continental floes. Today they exist in South America (2 species Osteoglossum and 5 species Arapaima), in Africa (Heterotis niloticus) and with several species (the exact number is disputed) of the genus Scleropages in Asia and Australia.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<ul><li>Max size: 90 cm SL (35 in)</li><li>Aquarium size: 180 × 60 cm (72 × 24 in)</li><li>Temperature: 24–29°C (75–84°F)</li><li>pH: 6.8–7.5</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/scleropages-jardinii-2/",
       "html": "<p>The Australian species are colloquially called Saratoga and are traditionally divided into two species – Scleropages jardinii and S. leichardti. They are the least commonly imported of all the arowanas. They seem to retain their seasonal reproduction even in breeding facilities, so they can generally be offered only a few weeks a year. Wild caught fish of these species are not in the trade. Such rarities, which also grow very large, are acquired only by experienced aquarists, zoos and show aquariums with the appropriate aquarium equipment.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The tank should also have a very heavy, tightly fitting cover, as the fish are powerful jumpers.</p><p>The Australian arowana, Scleropages jardinii, is an osteoglossid from still and slow-moving waters in Australia, Papua New Guinea and Indonesia. Known in Australia as the gulf saratoga or northern-spotted barramundi, it has smaller scales, a bronze base colour and duller patterning than the Asian species. It is widely considered the most aggressive arowana in aquaria, and some individuals will not tolerate any tankmates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Indonesia, Papua New Guinea, Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Usually found in slow-moving or still bodies of water, including streams, creeks, billabongs and swamps. Tends to prefer areas of clear water, where there is some surface vegetation or overhanging branches.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Standard length: 900 mm SL (35 in). Aquarium base: 180 × 60 cm (72 × 24 in). Volume: ~648 litres (~171 US gal).</p><p>72\" × 24\" × 24\" (180 × 60 × 60 cm) – ~648 litres (~171 US gal) is the absolute bare minimum for an adult fish, though the bigger the tank the better.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>This species requires a lot of swimming space and decor is not really critical. Filtration needs to be strong and efficient, as if the fish are kept in sub-standard conditions for prolonged periods they can develop problems with their eyes and gills. Regular water changes must be strictly observed for the same reason. The tank should also have a very heavy, tightly fitting cover, as the fish are powerful jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<ul><li>Temperature: 24–29°C (75–84°F)</li><li>pH: 6.8–7.5. Take care that the pH does not rise above 7.5, as it can cause problems with the eyes of the fish.</li><li>Hardness: 8–15°H</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Many hobbyists feed their aros large quantities of live 'feeder' fish, but there is no real benefit to this, and there is always the risk of introducing disease or parasites when feeding live fish. Better alternatives include earthworms, gut-loaded mealworms, waxworms, and frozen and dried foods such as bloodworm, prawn (leave the shells on), mussel and pellets. Try to keep the diet varied, or the fish may become addicted to a particular type of food. While the fish are below around 30 cm (12\") in length, the best growth rate can be achieved by feeding small amounts several times a day. Above 30 cm in length, the fish only require a single feeding per day. Remove any uneaten food after each feeding in order to maintain water quality.</p>"
     },
     {
       "key": "behaviour",
@@ -37,10 +131,34 @@
       "html": "<p>Among themselves the young animals are a bit quarrelsome. There are no serious fights, but slightly damaged fins are the order of the day. They are predatory fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Will eat smaller fish but is suitable for some communities of larger species, although some individuals won't tolerate any tankmates whatsoever. Possible choices include large catfish, characins and cyprinids, knifefish, Datnioides sp., and cichlids such as Geophagus or Uaru sp. Add the aro last and keep a watchful eye on proceedings as it grows. Most specimens are very territorial and belligerent towards other arowana, unless you have enough space to comfortably house 6-10 individuals. Under these conditions, any fighting is dispersed amongst the group. The vast majority of fishkeepers do not have these kind of resources available, and so as a general rule this species should be kept singly.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>No data available.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Infrequently bred in captivity but is being spawned in fairly large numbers on Far-Eastern fish farms. The reasons for this are fairly obvious, as a truly enormous aquarium would be needed to obtain a successful spawn, whereas the fish farmers have the luxury of spawning the fish in outdoor ponds dug directly into the earth, which they apparently prefer. Not only this, but the cost associated with captive breeding of any species of arowana is considerable. This is a mouthbrooding species, but unlike with the asian species it is the female who cares for the brood. The fry remain with the female once they have hatched, leaving her mouth to forage. If danger approaches she will signal for the fry to return. Slowly the fry begin to spend more and more time away from the adult fish, until they are large enough to fend for themselves.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/scleropages-jardinii-2/",
       "html": "<p>The species grows to about 60 cm in length. Imported young animals are about 10-12 cm long; according to the supplier in Singapore, they come from breeding farms in Australia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-jardinii",
+      "html": "<p>Although S. jardinii superficially resembles its Asian cousins, it is not considered as desirable an aquarium inhabitant, nor is it classed as being at risk in nature. It can be easily distinguished from the asian species by its much smaller scale size, greater lateral scale count (32-35 as opposed to 21-25 in the asian aros) and duller patterning. It differs from its Australian relative S. leichardti by its more sloping head, downward-pointing barbels and patterned gill covers. The base colour of jardinii is also bronze, as opposed to the silver of leichardti. It's commonly known as the gulf saratoga or northern-spotted barramundi in Australia and is widely considered to be the most aggressive species of arowana under aquarium conditions.</p>"
     }
   ],
   "photos": [
@@ -85,7 +203,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "qKF3ih4g_eU",
+      "title": "Scleropages jardinii, the freshwater bony tongue is one of two endemic Australian arowanas",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yS6dQTgNDo8",
+      "title": "Scleropages jardinii @ Pearl Arowana (Australia)",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7QVnwufaIl0",
+      "title": "Rare Red spot jardini Arowana",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bbA1_JT4Les",
+      "title": "Scleropages jardinii (2 years 20“)",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

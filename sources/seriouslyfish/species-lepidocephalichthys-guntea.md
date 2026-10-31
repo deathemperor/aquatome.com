@@ -1,13 +1,12 @@
 ---
 url: https://www.seriouslyfish.com/species/lepidocephalichthys-guntea
 title: Lepidocephalichthys guntea · Seriously Fish
-fetchedAt: 2026-10-31T01:02:13.979Z
-hash: dcb142aca2e8465183352e7c5652ec2fbf3cea51ef38fb1d675b2a6ad491e66c
+fetchedAt: 2026-10-31T09:45:58.282Z
+hash: 12fea7a6e5249630d5de97e7f1a649f2391317bed96431fec57f9d9243b21f93
 ---
 
 On this page
-12
-sections
+12 sections
 - Distribution
 - Habitat
 - Aquarium size

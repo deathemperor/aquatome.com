@@ -8,7 +8,13 @@
   "places": [
     "asia",
     "india",
-    "assam"
+    "assam",
+    "brahmaputra",
+    "bangladesh",
+    "nepal",
+    "ganges",
+    "bhutan",
+    "myanmar"
   ],
   "dataCard": {
     "tempC": [
@@ -18,18 +24,48 @@
           "min": 20,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 29.7
       }
     ],
     "tankCm": [
       {
         "source": "glaser",
         "value": 100
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -41,10 +77,28 @@
       "html": "<p>This snakehead, often traded under the name Channa cf. barca, originates from the Indian province of Assam. Channa stewartii can reach a length of 30 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal. It is also listed from Bhutan and Myanmar and grows to about 30 cm TL. Keepers give it a cooler winter of about 16-18 °C, it is aggressive towards its own kind, and the male broods the eggs in his mouth.</p><ul><li>Max size: 297 mm TL (12 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 16–25 °C (61–77 °F)</li><li>pH: 6.0–8.0</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
       "html": "<p>India, Assam.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Described from Cachar in the Barak valley of Assam, northeastern India.</p><p>It's known from the Brahmaputra basin in India and Bangladesh, and from the Ganges basin from southern Nepal eastward (Bordoloi et al., 2024). The Catalog of Fishes also lists it from West Bengal and Bhutan.</p><p>Britz et al. (2024) include it among the snakeheads of Myanmar, without giving a locality there.</p><p>Type locality is 'Cachar, Assam, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Recorded from both flowing and still water, including streams and ponds.</p><p>The region has a monsoon climate with a warm, wet summer and a cool, dry winter, and keepers maintain it with a matching seasonal drop in temperature (see 'Maintenance').</p>"
     },
     {
       "key": "aquariumSize",
@@ -53,10 +107,28 @@
       "html": "<p>For a pair, a well-planted 200 l aquarium with slow-moving water and some hiding places would be ideal.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>An aquarium with base dimensions of at least 120 × 45 cm (48 × 18 in), about 243 litres, is large enough for a single fish or a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Furnish the tank densely with rocks, driftwood, plants and floating cover, arranged to give plenty of caves and to break up lines of sight between the fish.</p><p>It will escape through any gap, so the tank needs a tightly fitting cover. Leave a space between the cover and the water surface, as the fish breathe air and need access to a layer of humid air.</p><p>Keepers give it a seasonal cycle, with summer temperatures of about 24–25 °C and a cooler winter period of about 16–18 °C.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
       "html": "<p>Since their habitat does not lie in the tropical range, they can be kept well in an unheated aquarium. They tolerate temperatures between 20–30°C and have low requirements concerning other water parameters. They can tolerate low-oxygen conditions in water because they are air breathers from an early age.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<ul><li>Temperature: 16–25 °C (61–77 °F)</li><li>pH: 6.0–8.0</li><li>Hardness: not recorded</li></ul>"
     },
     {
       "key": "diet",
@@ -65,16 +137,52 @@
       "html": "<p>Besides live and dead fish, they accept food such as insects, worms and, after habituation, possibly also sticks.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>A predator. In the aquarium it takes meaty foods, live or frozen, such as earthworms, prawn and pieces of fish, and reports say it won't eat dried foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
       "html": "<p>As predators they should be kept together only with fishes whose length is at least 2/3 of their own body length.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Aggressive towards its own kind and best kept singly or as a pair in a tank of its own.</p><p>A pair is best formed by growing on a group and removing the others once two fish have paired, as the rest are likely to be attacked.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Females are slightly duller and more yellowish than males (Bordoloi et al., 2024).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_stewartii_en-2/",
       "html": "<p>Channa stewartii is probably a nest builder providing eggs and young with parental care. Other reports mention them as mouthbrooders.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>A mouthbrooder in which the male carries the eggs. In one aquarium spawning described in Practical Fishkeeping, the male brooded for ten days at 18 °C (64 °F) before releasing the young.</p><p>Weijola (2022) reported that in several snakeheads of the C. gachua group the female feeds the young with unfertilised eggs, and suggested that the behaviour may be found throughout the group. No account of it has been found in this species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<p>Also known as the Assamese snakehead.</p><p>A member of the C. gachua group. The group holds most of the species in the genus, and includes both mouthbrooders and species that guard floating eggs (Britz et al., 2024).</p><p>Britz et al. (2024) diagnose it among the Myanmar members of the group by its higher fin-ray counts, with 39–40 dorsal-fin rays and 26–27 anal-fin rays.</p><p>Playfair's two type specimens turned out to be two different species. Britz et al. (2024) designated the larger fish (204 mm SL, about 20 cm) illustrated in the original description as the lectotype, and identified the smaller one as C. gachua.</p><p>In the same study, DNA barcodes from fish identified as C. stewartii fell into two clades differing by 3.2–4.1%, and the authors called for a thorough revision of this group of snakeheads.</p><p>FishBase lists it as an obligate air-breather. All Channa species have a chamber above each gill, lined with respiratory tissue, that lets them breathe atmospheric air, so the fish must always be able to reach the surface.</p><p>The IUCN Red List assesses it as Least Concern (2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-stewartii",
+      "html": "<ul><li>Talwar, P. K. and A. G. Jhingran (1991). Inland Fishes of India and Adjacent Countries. Vol 1. A.A. Balkema, Rotterdam, 1-541</li><li>Playfair, R. L. (1867). On the fishes of Cachar Proceedings of the Zoological Society of London 1867(1), 14-17, pl. 3</li><li>Britz, R.; Tan, H. H.; Rüber, L. (2024). Four new species of Channa from Myanmar (Teleostei, Labyrinthici, Channidae) Raffles Bulletin of Zoology 72, 1-25 doi.org/10.26107/rbz-2024-0001</li><li>Bordoloi, R.; Baruah, C.; Das, P.; Pegu, A. (2024). Taxonomic Status, Length-Weight Relationship and Condition Factor of Channa stewartii (Playfair, 1867) in Morigaon District, Assam, India Journal of Fisheries and Environment 48(1), 83-91 doi.org/10.34044/j.jfe.2024.48.1.07</li><li>Kalita, Minakshi; Choudhury, Hrishikesh; Saikia, Anu; Sarma, Dandadhar (2018). Length-weight relationships of four endemic snakeheads [Channa andrao Britz, 2013, Channa aurantimaculata Musikasinthorn, 2000, Channa bleheri Vierke, 1991, and Channa stewartii (Playfair, 1876)] from the Brahmaputra drainage, northeast India Journal of Applied Ichthyology 34(6), 1367-1368 doi.org/10.1111/jai.13804</li><li>Eschmeyer's Catalog of Fishes: Channa stewartii California Academy of Sciences researcharchive.calacademy.org/research/ichthyology/catalog/fishcatget.asp?spid=34222</li><li>Channa stewartii summary page FishBase fishbase.se/summary/Channa-stewartii.html</li><li>Hill, N. Your tanks: Paul Jones, 'snake' charmer Practical Fishkeeping practicalfishkeeping.co.uk/readers-visits/your-tanks-paul-jones-snake-charmer</li><li>de Pijper, P. Channa stewartii, golden snakehead AquaInfo aquainfo.nl/en/article/channa-stewartii-golden-snakehead</li><li>Weijola, Valter (2022). Observations and evolutionary considerations on trophic egg provisioning in snakeheads (Teleostei: Channidae) Journal of Natural History 55(47-48), 2973-2983 doi.org/10.1080/00222933.2022.2037775</li></ul>"
     }
   ],
   "photos": [
@@ -89,7 +197,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Nux_3DS5LXU",
+      "title": "Perbedaan warna background dan pasir menghasilkan warna channa stewarti yang berbeda juga",
+      "durationSec": 438,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "oV_DrydYQ2c",
+      "title": "Got some new plants for my 3ft Channa Stewartii tank",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ag3r7c7hWGs",
+      "title": "Got A New Snakehead- Channa Stewartii Fish Unboxing",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uhETH7OXoBM",
+      "title": "3ft River Tank Setup for Channa Stewartii",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
