@@ -51,7 +51,8 @@ export function ensureTank(s: TankStore, name: string, env: Env = browser()): Ta
 export function putDevice(s: TankStore, d: Partial<Device> & Pick<Device, 'tankId' | 'kind'>, env: Env = browser()): Device {
   const i = d.id ? s.devices.findIndex(x => x.id === d.id) : -1
   const kept = i >= 0 && isLive(s.devices[i]!) ? (s.devices[i] as Device) : undefined
-  const at = stampAfter(env.now(), kept?.updatedAt)
+  // After the copy here, a tombstone too: a light written back after a delete must win over it.
+  const at = stampAfter(env.now(), i >= 0 ? s.devices[i]!.updatedAt : undefined)
   const next = { schedules: [], createdAt: at, ...kept, ...d, id: kept?.id ?? d.id ?? env.uuid(), updatedAt: at } as Device
   if (i >= 0) s.devices[i] = next
   else s.devices.push(next)
@@ -85,15 +86,18 @@ export const activeSchedule = (d: Device) => d.schedules?.find(x => x.id === d.a
 export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes'>>
 
 /**
- * A new tank, or the saved one with the given fields changed (a field given as undefined is removed). Its `updatedAt`
- * comes after the copy it changes (`stamp`), so an edit made after a sync wins even on a clock running behind.
+ * A new tank, or the saved one with the given fields changed (a field given as undefined is removed; other keys stay).
+ * Its `updatedAt` comes after the copy it changes, a tombstone included (`stamp`), so an edit made after a sync wins even
+ * on a clock running behind.
  */
 export function putTank(s: TankStore, fields: TankFields, id?: string, env: Env = browser()): Tank {
   const now = env.now()
   const i = id ? s.tanks.findIndex(x => x.id === id) : -1
   const kept = i >= 0 && isLive(s.tanks[i]!) ? (s.tanks[i] as Tank) : undefined
-  const at = stampAfter(now, kept?.updatedAt)
-  const next = { species: [], plants: [], createdAt: at, ...kept, ...fields, id: kept?.id ?? id ?? env.uuid(), name: fields.name.trim(), updatedAt: at } as Tank
+  const at = stampAfter(now, i >= 0 ? s.tanks[i]!.updatedAt : undefined)
+  // `dims` is merged, not replaced: keys another client added to it stay (docs/my-tanks-sync.md).
+  const dims = fields.dims ? { dims: { ...kept?.dims, ...fields.dims } } : {}
+  const next = { species: [], plants: [], createdAt: at, ...kept, ...fields, ...dims, id: kept?.id ?? id ?? env.uuid(), name: fields.name.trim(), updatedAt: at } as Tank
   for (const k of ['dims', 'litres', 'substrate', 'notes'] as const) if (k in fields && (fields[k] === undefined || fields[k] === '')) delete next[k]
   if (i >= 0) s.tanks[i] = next
   else s.tanks.push(next)

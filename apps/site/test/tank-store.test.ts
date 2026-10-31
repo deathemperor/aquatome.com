@@ -99,3 +99,25 @@ test('an edit on a clock running behind still comes after the copy it changes, s
   removeTank(s, t.id, e)
   expect(s.tanks[0]!.updatedAt > t.updatedAt).toBe(true)
 })
+
+test('an edit keeps what this page does not know: other keys of the tank and of its dims', () => {
+  const e = env()
+  const s = load(e)
+  const at = '2026-10-31T11:00:00.000Z'
+  s.tanks.push({ id: e.uuid(), name: 'Bể', dims: { l: 60, w: 30, h: 36, glass: 0.8 }, substrate: 'akadama', species: [], plants: [], createdAt: at, updatedAt: at, fromApp: true } as never)
+  const t = putTank(s, { name: 'Bể 60', dims: { l: 60, w: 30, h: 40 }, substrate: 'akadama' }, s.tanks[0]!.id, e)
+  expect(t.dims).toEqual({ l: 60, w: 30, h: 40, glass: 0.8 })
+  expect(t).toMatchObject({ substrate: 'akadama', fromApp: true })
+  expect(TankStore.safeParse(s).success).toBe(true)
+})
+
+test('a tank or light written over a tombstone is stamped after it, even when the delete came from a clock ahead', () => {
+  const e = env()
+  const s = load(e)
+  const ahead = '2026-11-01T12:00:00.000Z'
+  const tid = e.uuid(), did = e.uuid()
+  s.tanks.push({ id: tid, updatedAt: ahead, deletedAt: ahead })
+  s.devices.push({ id: did, updatedAt: ahead, deletedAt: ahead })
+  expect(putTank(s, { name: 'Bể' }, tid, e).updatedAt > ahead).toBe(true)
+  expect(putDevice(s, { id: did, tankId: tid, kind: 'light' }, e).updatedAt > ahead).toBe(true)
+})

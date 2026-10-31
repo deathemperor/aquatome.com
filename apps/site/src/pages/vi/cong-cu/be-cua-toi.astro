@@ -10,6 +10,7 @@ const { t } = i18n(Astro.url)
     <button id="mt-add" type="button" class="primary">{t('Thêm bể')}</button>
     <p class="where">{t('Lưu trên trình duyệt này.')} <a href="#du-lieu">{t('Dữ liệu ở đâu?')}</a></p>
   </div>
+  <p id="mt-gone" class="gone" role="status" hidden>{t('Bể này vừa bị xóa ở một thẻ khác nên thay đổi chưa được lưu.')}</p>
 
   <form id="mt-form" class="editor" hidden aria-labelledby="mt-form-h">
     <h2 id="mt-form-h" class="visually-hidden">{t('Thông tin bể')}</h2>
@@ -86,7 +87,7 @@ const { t } = i18n(Astro.url)
       const r = await fetch(`/app/${lang.slice(0, 2)}.json`)
       const idx = (await r.json()) as { items: { id?: string; name: string; path: string }[] }
       names = new Map(idx.items.flatMap(i => (i.id ? [[i.id, { name: i.name, path: i.path }] as const] : [])))
-      render()
+      if (editing === null) render()
     } catch { /* names stay ids */ }
   }
 
@@ -152,8 +153,9 @@ const { t } = i18n(Astro.url)
     $('mt-loading').hidden = true
     const tanks = store.liveTanks(db).sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1))
     const devices = store.liveDevices(db)
-    // The form is kept out of the list while it is redrawn, then put back where it was being used.
-    home.insertBefore(form, $('mt-loading'))
+    // The form is kept out of the list while it is redrawn, then put back where it was being used. Moved only when it
+    // has to be: moving a focused field drops the cursor.
+    if (form.parentElement !== home) home.insertBefore(form, $('mt-loading'))
     list.innerHTML = tanks.map(t => tankHtml(t, devices.filter(d => d.tankId === t.id))).join('')
     $('mt-empty').hidden = tanks.length > 0 || editing === undefined
     if (typeof editing === 'string') document.getElementById(`be-${editing}`)?.append(form)
@@ -168,22 +170,33 @@ const { t } = i18n(Astro.url)
     field('l').value = t?.dims ? String(t.dims.l) : ''
     field('w').value = t?.dims ? String(t.dims.w) : ''
     field('h').value = t?.dims ? String(t.dims.h) : ''
-    ;(form.elements.namedItem('substrate') as HTMLSelectElement).value = t?.substrate ?? ''
+    // A substrate this page doesn't list (from the app, or a newer page) is shown as it is, so saving keeps it.
+    const sub = form.elements.namedItem('substrate') as HTMLSelectElement
+    sub.querySelector('option[data-other]')?.remove()
+    if (t?.substrate && ![...sub.options].some(o => o.value === t.substrate)) {
+      const o = new Option(t.substrate, t.substrate)
+      o.dataset.other = ''
+      sub.add(o)
+    }
+    sub.value = t?.substrate ?? ''
     ;(form.elements.namedItem('notes') as HTMLTextAreaElement).value = t?.notes ?? ''
     $('mt-err').hidden = true
+    $('mt-gone').hidden = true
     form.hidden = false
     $('mt-add').hidden = true
     render()
     preview()
     field('name').focus()
   }
-  function close() {
+  /** Closes the form; focus goes to the tank it was about (`focus`, else the one edited), or to "Thêm bể". */
+  function close(focus?: string) {
     const was = editing
     editing = null
     form.hidden = true
     $('mt-add').hidden = false
     render()
-    if (typeof was === 'string') (document.querySelector(`#be-${was} [data-edit]`) as HTMLElement | null)?.focus()
+    const id = focus ?? (typeof was === 'string' ? was : undefined)
+    ;((id && document.querySelector<HTMLElement>(`#be-${id} [data-edit]`)) || $('mt-add')).focus()
   }
 
   function dims(): { l: number; w: number; h: number } | 'partial' | undefined {
@@ -209,18 +222,29 @@ const { t } = i18n(Astro.url)
     $('mt-err').hidden = !err
     if (err) return
     db = store.load()
+    const kept = typeof editing === 'string' ? store.liveTanks(db).find(x => x.id === editing) : undefined
+    if (typeof editing === 'string' && !kept) {
+      // Deleted in another tab while this form was open: saving would bring back a half of it.
+      close()
+      $('mt-gone').hidden = false
+      return
+    }
     if (editing === undefined && store.liveTanks(db).length >= 50) { $('mt-err').textContent = ct('Đã đủ 50 bể: xóa bớt bể cũ để thêm.'); $('mt-err').hidden = false; return }
+    const size = d === 'partial' ? undefined : d
+    const resized = !!size && (!kept?.dims || ['l', 'w', 'h'].some(k => kept.dims![k as 'l'] !== size[k as 'l']))
     const t = store.putTank(db, {
       name,
-      dims: d === 'partial' ? undefined : d,
+      dims: size,
+      // Litres someone entered for the old size would no longer match the new one.
+      ...(resized ? { litres: undefined } : {}),
       substrate: (form.elements.namedItem('substrate') as HTMLSelectElement).value || undefined,
       notes: (form.elements.namedItem('notes') as HTMLTextAreaElement).value.trim() || undefined,
     }, editing ?? undefined)
     store.save(db)
-    close()
+    close(t.id)
     document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })
   })
-  $('mt-cancel').addEventListener('click', close)
+  $('mt-cancel').addEventListener('click', () => close())
   form.addEventListener('keydown', e => { if (e.key === 'Escape') close() })
   $('mt-add').addEventListener('click', () => open())
   $('mt-empty').addEventListener('click', e => { if ((e.target as HTMLElement).closest('[data-add]')) open() })
@@ -233,10 +257,13 @@ const { t } = i18n(Astro.url)
       const t = store.liveTanks(db).find(x => x.id === id)
       const lights = store.liveDevices(db).filter(d => d.tankId === id).length
       if (!t || !confirm(lights ? ct('Xóa bể “{name}” cùng {n} đèn đã lưu trên bể?', { name: t.name, n: lights }) : ct('Xóa bể “{name}”?', { name: t.name }))) return
+      const li = el.closest('.tank')!
+      const next = ((li.nextElementSibling ?? li.previousElementSibling) as HTMLElement | null)?.dataset.id
       db = store.load()
       store.removeTank(db, id)
       store.save(db)
       render()
+      ;((next && document.querySelector<HTMLElement>(`#be-${next} [data-edit]`)) || $('mt-add')).focus()
     }
   })
   $('mt-export').addEventListener('click', () => {
@@ -246,16 +273,20 @@ const { t } = i18n(Astro.url)
     setTimeout(() => URL.revokeObjectURL(a.href), 1000)
   })
 
-  // Another tab (the light page, or this page) changed the store: show it, unless a form here is open.
-  const changed = () => { db = store.load(); if (editing === null) render() }
-  window.addEventListener('storage', e => { if (e.key === store.KEY) changed() })
-  try { new BroadcastChannel(store.KEY).onmessage = changed } catch { /* storage events still come */ }
+  // Another tab (the light page, or this page) changed the store: show it, unless a form here is open. Storage events
+  // only: they don't fire for this tab's own saves (a BroadcastChannel would, and redrawing then lost the focus).
+  window.addEventListener('storage', e => {
+    if (e.key !== store.KEY) return
+    db = store.load()
+    if (editing === null) render()
+  })
   render()
 </script>
 
 <style>
   .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-bottom: var(--space-5); }
   .where { margin: 0; color: var(--c-ink-soft); font-size: var(--step--1); }
+  .gone { margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border: 1px solid var(--c-cardinal); background: var(--c-plate); }
   /* Global: the script draws the tanks' buttons, which scoped styles don't reach. */
   :global(:is(.bar, .editor, .empty, .data, .tank) button) { font: 500 1rem var(--f-body); padding: 0.6rem 1.15rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; min-height: 44px; transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
   :global(:is(.bar, .editor, .empty, .data, .tank) button.primary) { background: var(--c-ink); color: var(--c-paper); }

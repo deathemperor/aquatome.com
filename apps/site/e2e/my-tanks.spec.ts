@@ -41,11 +41,15 @@ test('make a tank with no network, reload: it is still there; edit it; delete it
   await page.locator('#mt-form button[type=submit]').click()
   await expect(page.locator('.tank h2')).toHaveText('Bể 60')
   await expect(page.locator('.tank .facts')).toContainText('72 lít')
+  // Focus comes back to the tank's "Sửa" and stays there (a redraw after saving once dropped it to the page).
+  await page.waitForTimeout(300)
+  await expect(page.locator('.tank [data-edit]').first()).toBeFocused()
 
   page.once('dialog', d => d.accept())
   await page.locator('.tank [data-del]').click()
   await expect(page.locator('.tank')).toHaveCount(0)
   await expect(page.locator('#mt-empty')).toBeVisible()
+  await expect(page.locator('#mt-add')).toBeFocused()
   // What is left is a tombstone, so a synced copy elsewhere can't bring the tank back.
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))
   expect(stored.tanks).toEqual([expect.objectContaining({ deletedAt: expect.any(String) })])
@@ -53,7 +57,7 @@ test('make a tank with no network, reload: it is still there; edit it; delete it
   expect(errors).toEqual([])
 })
 
-test('a light saved from the Chihiros page shows on its tank with its schedule; fish and plants by name', async ({ page }) => {
+test('a light saved from the Chihiros page shows on its tank with its schedule; fish and plants by name', async ({ page, errors }) => {
   const store = {
     v: 1,
     tanks: [{ id: id(1), name: 'Bể thủy sinh', dims: { l: 90, w: 45, h: 45 }, species: [{ id: 'paracheirodon-axelrodi', count: 20 }], plants: [], createdAt: at, updatedAt: at }],
@@ -76,13 +80,51 @@ test('a light saved from the Chihiros page shows on its tank with its schedule; 
   await expect(fish.locator('a')).toHaveAttribute('href', /^\/vi\/ca\//)
   await expect(fish).toContainText('× 20')
   await expect(fish.locator('a')).not.toHaveText(/paracheirodon/)
+  expect(errors).toEqual([])
 })
 
-test('Indonesian page: its own address and words; a tank is saved the same way', async ({ page }) => {
+test('Indonesian page: its own address and words; a tank is saved the same way', async ({ page, errors }) => {
   await page.goto('/id/alat/akuarium-saya/')
   await page.locator('#mt-add').click()
   await page.locator('#mt-form input[name=name]').fill('Akuarium 60')
   await page.locator('#mt-form button[type=submit]').click()
   await expect(page.locator('.tank h2')).toHaveText('Akuarium 60')
   await expect(page.locator('.tank .stamp')).not.toHaveText(/Sửa/)
+  expect(errors).toEqual([])
+})
+
+test('editing keeps what the page does not know (a substrate from the app, extra keys); a new size drops old litres', async ({ page, errors }) => {
+  const store = {
+    v: 1,
+    tanks: [{ id: id(1), name: 'Bể app', dims: { l: 60, w: 30, h: 36, glass: 0.8 }, litres: 45, substrate: 'akadama', species: [], plants: [], createdAt: at, updatedAt: at, fromApp: 1 }],
+    devices: [],
+  }
+  await page.addInitScript(s => { if (!sessionStorage.getItem('seeded')) { localStorage.setItem('aq.tanks', s); sessionStorage.setItem('seeded', '1') } }, JSON.stringify(store))
+  await page.goto(PAGE)
+  await expect(page.locator('.tank .facts')).toHaveText('60 × 30 × 36 cm · 45 lít · akadama')
+  await page.locator('.tank [data-edit]').first().click()
+  await expect(page.locator('#mt-form select[name=substrate]')).toHaveValue('akadama')
+  await page.locator('#mt-form input[name=h]').fill('40')
+  await page.locator('#mt-form button[type=submit]').click()
+  await expect(page.locator('.tank .facts')).toHaveText('60 × 30 × 40 cm · 72 lít · akadama')
+  const t = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(t).toMatchObject({ substrate: 'akadama', dims: { l: 60, w: 30, h: 40, glass: 0.8 }, fromApp: 1 })
+  expect(t).not.toHaveProperty('litres')
+  expect(errors).toEqual([])
+})
+
+test('a tank deleted in another tab while its form is open is not brought back by saving', async ({ page, errors }) => {
+  const store = { v: 1, tanks: [{ id: id(1), name: 'Bể', species: [], plants: [], createdAt: at, updatedAt: at }], devices: [] }
+  await page.addInitScript(s => { if (!sessionStorage.getItem('seeded')) { localStorage.setItem('aq.tanks', s); sessionStorage.setItem('seeded', '1') } }, JSON.stringify(store))
+  await page.goto(PAGE)
+  await page.locator('.tank [data-edit]').first().click()
+  await page.locator('#mt-form input[name=name]').fill('Bể đổi tên')
+  // The other tab's delete: a tombstone in the store.
+  await page.evaluate(([tid, when]) => localStorage.setItem('aq.tanks', JSON.stringify({ v: 1, tanks: [{ id: tid, updatedAt: when, deletedAt: when }], devices: [] })), [id(1), '2026-10-31T09:00:00.000Z'])
+  await page.locator('#mt-form button[type=submit]').click()
+  await expect(page.locator('#mt-gone')).toBeVisible()
+  await expect(page.locator('.tank')).toHaveCount(0)
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))
+  expect(stored.tanks[0]).toHaveProperty('deletedAt')
+  expect(errors).toEqual([])
 })
