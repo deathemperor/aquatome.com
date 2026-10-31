@@ -1,7 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
-import { LIVE, sourcePages, templateOf } from './pages'
+import { LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
 // Lighthouse (what PageSpeed Insights runs) on one page of each kind readers open most: the phone run is PageSpeed's
 // mobile test, the computer run its desktop one. A score or a number past its budget fails the check, so a change that
@@ -35,9 +35,8 @@ const KNOWN: Record<string, Partial<Budget>> = {
 
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.
 const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/3', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
-const known = sourcePages()
 // Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
-const pages = [...KINDS.flatMap(k => known.find(p => templateOf(p) === k) ?? []), '/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/']
+const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'])
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {
