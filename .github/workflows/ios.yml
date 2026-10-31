@@ -38,10 +38,30 @@ jobs:
           xcrun simctl list devices available
           exit 1
       # The main flows (apps/ios/AquaTomeUITests) on the simulator's fake light, which answers like the real one.
+      # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
+      # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
+      # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
       - run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
+          -retry-tests-on-failure -test-iterations 2
+      # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
+      - name: Tests that passed only on a retry
+        if: always()
+        run: |
+          [ -d build/ui.xcresult ] || exit 0
+          xcrun xcresulttool get test-results tests --path build/ui.xcresult | python3 -c '
+          import json, os, sys
+          def walk(n, path):
+              runs = [c for c in n.get("children", []) if c.get("nodeType") == "Repetition"]
+              if n.get("nodeType") == "Test Case" and n.get("result") == "Passed" and any(r.get("result") == "Failed" for r in runs):
+                  name = "/".join(path + [n["name"]])
+                  print(f"::warning title=Passed only on a retry::{name}")
+                  with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f: f.write(f"- passed only on a retry: `{name}`\n")
+              for c in n.get("children", []): walk(c, path + ([n["name"]] if n.get("nodeType") == "Test Suite" else []))
+          for t in json.load(sys.stdin)["testNodes"]: walk(t, [])
+          '
       # Every string the app shows is translated into Indonesian and Thai.
       - run: python3 apps/ios/scripts/check-strings.py build/dd
       - if: failure()
