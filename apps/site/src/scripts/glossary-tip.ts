@@ -8,13 +8,16 @@ export function placeTip(term: Box, w: number, h: number, viewW: number, viewH: 
   return { left, top }
 }
 
+/** Glossary terms, and source marks (lib/cite.ts: a text source's number, a photo's ©), which use the same card. */
+const SEL = 'a.gl[data-tip], a.cite[data-tip]'
+
 /**
  * Glossary terms in the text (a.gl, dotted underline, with data-term / data-tip): hovering or focusing one shows what it
  * means and a click still opens its page. On a touch screen the first tap shows the card, with a link to the page; a second
  * tap on the term opens it too.
  */
 export function initGlossaryTips() {
-  if (!document.querySelector('a.gl[data-tip]')) return
+  if (!document.querySelector(SEL)) return
   const tip = document.createElement('div')
   tip.className = 'gl-tip'
   tip.id = 'gl-tip'
@@ -25,7 +28,7 @@ export function initGlossaryTips() {
   let touch = false
   let timer = 0
 
-  const termOf = (e: Event) => (e.target instanceof Element ? e.target.closest<HTMLAnchorElement>('a.gl[data-tip]') : null)
+  const termOf = (e: Event) => (e.target instanceof Element ? e.target.closest<HTMLAnchorElement>(SEL) : null)
   function show(a: HTMLAnchorElement, tapped: boolean) {
     const name = document.createElement('strong')
     name.textContent = a.dataset.term ?? a.textContent
@@ -35,7 +38,8 @@ export function initGlossaryTips() {
     if (tapped) {
       const more = document.createElement('a')
       more.href = a.href
-      more.textContent = ct('Đọc thêm →')
+      if (a.rel) more.rel = a.rel
+      more.textContent = a.dataset.more ?? ct('Đọc thêm →')
       tip.append(more)
     }
     tip.classList.toggle('tapped', tapped)

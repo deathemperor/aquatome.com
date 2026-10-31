@@ -1,7 +1,8 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
 import type { Content, GuideEntity, Localized, Photo, Series } from '@aq/schema'
-import { licenceLabel, translator, type Lang } from './i18n'
+import { translator, type Lang } from './i18n'
+import { photoMark } from './cite'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
 export const isVideo = (g: Localized<GuideEntity>): g is VideoGuide => !!g.video
@@ -68,7 +69,7 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
     const f = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
     if (!f) continue
     const photo = f.photo
-      ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')} <span class="by">${t('Ảnh:')} <a href="${esc(f.photo.sourceUrl)}" rel="noopener">${esc(f.photo.author)}</a>, ${esc(licenceLabel(t, f.photo.licence))}</span></figcaption></figure>`
+      ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')}${photoMark(lang, f.photo)}</figcaption></figure>`
       : ''
     const moments = f.moments.length
       ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`

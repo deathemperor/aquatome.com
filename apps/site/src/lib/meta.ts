@@ -26,7 +26,7 @@ export function speciesDescription(lang: Lang, name: string, sci: string, card: 
   return `${name} (${sci})${facts.length ? `: ${facts.join(', ')}` : ''}. ${t('Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.')}`
 }
 
-const plain = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
+const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?<\/a>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
 
 /** The first real paragraph (skipping photo captions and credits), cut at a word boundary. */
 export function excerpt(html: string, max = 155): string {

@@ -26,6 +26,16 @@ describe('species page', () => {
     expect(dom.querySelector('section[data-section="reproduction"] > h2')?.text.trim()).toBe('Sinh sản ra sao?')
     expect(dom.querySelectorAll('section[data-section="reproduction"] [data-source]').length).toBe(2)
   })
+  test('sources are numbered marks at the end of each block, listed once at the end; no credit line per block', () => {
+    const marks = dom.querySelectorAll('.body section[data-section] .prose a.cite')
+    expect(marks.length).toBe(dom.querySelectorAll('.body section[data-section] .prose').length)
+    expect(marks.every(m => ['P', 'LI'].includes(m.parentNode?.tagName ?? ''))).toBe(true) // inside the last sentence's element
+    const list = dom.querySelectorAll('#nguon li')
+    expect(list.length).toBe(new Set(marks.map(m => m.getAttribute('href'))).size)
+    expect(Number(marks.at(-1)!.text)).toBeLessThanOrEqual(list.length)
+    expect(marks[0]!.getAttribute('data-term')).toBe(list[0]!.querySelector('a')!.text)
+    expect(dom.querySelector('.body .credit')).toBeNull()
+  })
   test('product slots are sponsored /go/ links carrying the placement', () => {
     const a = dom.querySelector('a[href^="/go/shopee/?k="]')
     expect(a?.getAttribute('rel')).toContain('sponsored')
@@ -310,7 +320,7 @@ describe('video guide', () => {
   test('section pictures: licensed photo with credit, then video stills that play from their moment (captions escaped)', () => {
     const figs = dom.querySelector('h3#khoi-dong-be-moi')?.nextElementSibling?.nextElementSibling
     expect(figs?.classList.contains('vfigs')).toBe(true)
-    expect(figs?.querySelector('.vphoto .by a[href="https://commons.wikimedia.org/wiki/File:Oto.jpg"]')?.text).toBe('Fremen')
+    expect(figs?.querySelector('.vphoto a.cite[href="https://commons.wikimedia.org/wiki/File:Oto.jpg"]')?.getAttribute('data-term')).toBe('Ảnh: Fremen')
     const m = figs?.querySelector('button.moment')
     expect(m?.getAttribute('data-t')).toBe('95')
     expect(m?.getAttribute('data-vp-for')).toBe('vl1Lx9iWDYU')
