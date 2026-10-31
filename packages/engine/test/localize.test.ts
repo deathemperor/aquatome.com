@@ -1,8 +1,8 @@
-import { cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo } from '../src/localize'
+import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, speciesOrder } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -158,4 +158,18 @@ test('fish native to a country: listed under it or under a place inside it', asy
   await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), places: ['rio-negro'] }))
   expect([...await nativeTo(root, 'indonesia')]).toEqual(['boraras-brigittae'])
   expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'symphysodon-aequifasciatus'])
+})
+
+test('translation order: staples and most-kept fish, then pages the other language has, then the country\'s own fish, then the rest', async () => {
+  const root = await site()
+  const add = async (id: string, files: Record<string, object>) => {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    for (const [f, v] of Object.entries(files)) await writeFile(join(root, 'content/species', id, f), JSON.stringify(v))
+  }
+  await add('aaa-native', { 'entity.json': { places: ['indonesia'] } })
+  await add('zzz-elsewhere', { 'entity.json': {}, 'th.json': {} })
+  const id = await speciesOrder(root, 'id')
+  expect(id.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  expect(id.slice(-3)).toEqual(['zzz-elsewhere', 'aaa-native', 'apistogramma-cacatuoides'])
+  expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['aaa-native', 'apistogramma-cacatuoides', 'zzz-elsewhere'])
 })

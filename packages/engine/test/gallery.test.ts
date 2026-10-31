@@ -98,7 +98,7 @@ test('gallery: a recent gallery is left alone; rejected photos never come back; 
   expect(stopped.stopped).toMatch(/usage limit/)
 })
 
-test('gallery order: the staples first, then the species most sources write about', async () => {
+test('gallery order: the staples first, the most-kept fish, then the species most sources write about', async () => {
   const r = await root()
   const add = async (id: string, sources: string[]) => {
     await mkdir(join(r, 'content/species', id), { recursive: true })
@@ -106,8 +106,9 @@ test('gallery order: the staples first, then the species most sources write abou
   }
   await add('aaa-one-source', ['seriouslyfish'])
   await add('zzz-three-sources', ['seriouslyfish', 'glaser', 'sprucepets'])
-  const report = await galleries(r, deps(), { limit: 2 })
-  expect(report.done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'zzz-three-sources'])
+  await add('danio-margaritatus', ['seriouslyfish'])
+  const report = await galleries(r, deps(), { limit: 3 })
+  expect(report.done.map(d => d.split(':')[0])).toEqual(['betta-splendens', 'danio-margaritatus', 'zzz-three-sources'])
 })
 
 test('a photo that does not decode is skipped instead of breaking the contact sheet', async () => {

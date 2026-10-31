@@ -86,7 +86,7 @@ if part photos; then
   # Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries, a few species a cycle, popular species first (Commons + iNaturalist, open licences, screened, no faces).
-  pnpm engine gallery --limit "${GALLERY_LIMIT:-8}" || log "gallery: failed"
+  pnpm engine gallery --limit "${GALLERY_LIMIT:-16}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
   # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
@@ -106,7 +106,7 @@ if part rewrite; then
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
-  for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-8}" || log "localize $lang: failed"; done
+  for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
   for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
   # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
