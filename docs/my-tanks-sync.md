@@ -21,6 +21,10 @@ levels on the phone can't overwrite the tank's notes edited on the web at the sa
 
 Every record has `id`, `createdAt` and `updatedAt`.
 
+Why devices keep schedules and levels: a Chihiros light reports its clock (status reply `0xfe`, bytes 6–8: ISO weekday,
+hour, minute; `00 00 xx` after a power cut reset it) but not its sunrise/sunset schedule (`a5 19`) or its manual levels.
+What we wrote is the only record of them: `schedules`, `activeScheduleId` and `manual`.
+
 - **Ids**: lowercase UUIDs, made by the client that creates the record (`crypto.randomUUID()`; on iOS
   `UUID().uuidString.lowercased()`).
 - **Timestamps**: UTC with milliseconds, exactly `2026-10-31T12:00:00.000Z`. One form only, so comparing the strings
