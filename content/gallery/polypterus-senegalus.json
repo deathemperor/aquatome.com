@@ -2,6 +2,18 @@
   "id": "polypterus-senegalus",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/571662198/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/571662198/medium.jpg",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "dinomariobob",
+      "sourceUrl": "https://www.inaturalist.org/photos/571662198",
+      "caption": "Cá khủng long Senegal bơi giữa bể thủy sinh nhiều cây xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d7ac46635fc173c6.webp",
       "thumb": "https://media.aquatome.com/commons/d7ac46635fc173c6-480.webp",
       "width": 1200,
@@ -152,7 +164,7 @@
       "caption": "Cá khủng long Senegal bạch tạng bơi trong bể có cây thủy sinh"
     }
   ],
-  "seen": 32,
+  "seen": 34,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

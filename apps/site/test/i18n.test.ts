@@ -18,6 +18,7 @@ test('a page file mounted in each language', () => {
 test('paths: sections and fixed segments, never a slug; query and hash kept', () => {
   expect(localizePath('id', '/vi/ca/anh/')).toBe('/id/ikan/anh/') // a fish whose slug is "anh" stays
   expect(localizePath('id', '/vi/ca/x/anh/?a=1#b')).toBe('/id/ikan/x/foto/?a=1#b')
+  expect(localizePath('th', '/vi/cay/x/anh/')).toBe('/th/plants/x/photos/') // a plant's gallery
   expect(localizePath('th', '/vi/')).toBe('/th/')
   expect(localizePath('vi', '/vi/ca/')).toBe('/vi/ca/')
   expect(localizePath('id', '/go/shopee/')).toBe('/go/shopee/')
@@ -62,6 +63,7 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(localizeLinks('<a href="/vi/video/x/" class="x">Video</a> <a href="/vi/ca/">Fish</a> <a href="/vi/video/" hreflang="vi">vi</a>', 'id', ''))
     .toBe('Video <a href="/id/ikan/">Fish</a> <a href="/vi/video/" hreflang="vi">vi</a>')
   expect(toVi('/id/ikan/x/foto/')).toBe('/vi/ca/x/anh/')
+  expect(toVi('/id/tanaman/x/foto/')).toBe('/vi/cay/x/anh/')
   expect(toVi('/th/tools/tank-volume/')).toBe('/vi/cong-cu/the-tich-be/')
   expect(toVi('/id/alat/lampu-chihiros/')).toBe('/vi/cong-cu/den-chihiros/')
   expect(localizePath('id', '/vi/cong-cu/den-chihiros/#lich')).toBe('/id/alat/lampu-chihiros/#lich')

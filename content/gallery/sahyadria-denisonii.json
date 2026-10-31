@@ -2,6 +2,78 @@
   "id": "sahyadria-denisonii",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/309060947/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/309060947/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "deepachandran",
+      "sourceUrl": "https://www.inaturalist.org/photos/309060947",
+      "caption": "Đàn cá hồng mi Ấn Độ trên nền sỏi trong suối",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654351/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654351/medium.jpeg",
+      "width": 1021,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/313654351",
+      "caption": "Cá hồng mi Ấn Độ với sọc đỏ bơi trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/80515486/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/80515486/medium.jpg",
+      "width": 1024,
+      "height": 658,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/80515486",
+      "caption": "Cá hồng mi Ấn Độ bơi trên nền đen",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/553210753/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/553210753/medium.jpg",
+      "width": 881,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/553210753",
+      "caption": "Cá hồng mi Ấn Độ sọc đen đỏ bơi nghiêng trên sườn đá",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580717/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580717/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/723580717",
+      "caption": "Cá hồng mi Ấn Độ sọc đỏ trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580758/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580758/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/723580758",
+      "caption": "Cá hồng mi Ấn Độ bơi giữa cây thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fac072d0c3f3fd23.webp",
       "thumb": "https://media.aquatome.com/commons/fac072d0c3f3fd23-480.webp",
       "width": 1000,
@@ -130,9 +202,93 @@
       "author": "Горбунова М.С.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sahyadria_denisonii_in_the_Leningrad_zoo_2.jpg",
       "caption": "Cá hồng mi Ấn Độ đuôi viền vàng đen trong bể nền xanh"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617424679/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/617424679/medium.jpg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617424679",
+      "caption": "Hai cá hồng mi Ấn Độ trên nền sỏi trong bể",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/309060986/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/309060986/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "deepachandran",
+      "sourceUrl": "https://www.inaturalist.org/photos/309060986",
+      "caption": "Đàn cá hồng mi Ấn Độ bơi giữa sỏi đá dưới suối",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654933/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654933/medium.jpeg",
+      "width": 1005,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/313654933",
+      "caption": "Cá hồng mi Ấn Độ vây lưng đỏ trong môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580803/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/723580803/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/723580803",
+      "caption": "Cá hồng mi Ấn Độ nhìn nghiêng trong bể trồng cây",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654367/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654367/medium.jpeg",
+      "width": 1024,
+      "height": 928,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/313654367",
+      "caption": "Cá hồng mi Ấn Độ bơi gần đá trong suối",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/508159727/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/508159727/medium.jpg",
+      "width": 1024,
+      "height": 522,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/508159727",
+      "caption": "Cá hồng mi Ấn Độ cận cảnh thân vàng sọc đen",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/553210695/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/553210695/medium.jpg",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/553210695",
+      "caption": "Cá hồng mi Ấn Độ nhìn nghiêng với sọc đen ngang thân",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 33,
+  "seen": 63,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

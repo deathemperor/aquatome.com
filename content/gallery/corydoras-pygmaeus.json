@@ -2,6 +2,40 @@
   "id": "corydoras-pygmaeus",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/757259951/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/757259951/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/757259951",
+      "caption": "Cá chuột pygmy bên đá phủ rêu trong bể nuôi",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/696106999/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/696106999/medium.jpg",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "dinomariobob",
+      "sourceUrl": "https://www.inaturalist.org/photos/696106999",
+      "caption": "Cá chuột pygmy bơi trên nền sỏi nhiều màu trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3b26aee2573d5581.webp",
+      "thumb": "https://media.aquatome.com/commons/3b26aee2573d5581-480.webp",
+      "width": 1024,
+      "height": 776,
+      "licence": "CC BY 2.0",
+      "author": "Carnat Joel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus_carnat_joel_5.jpg",
+      "caption": "Cá chuột pygmy sọc đen bám trên lũa trong bể thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fb6f0354a2bf4b60.webp",
       "thumb": "https://media.aquatome.com/commons/fb6f0354a2bf4b60-480.webp",
       "width": 1200,
@@ -32,6 +66,26 @@
       "caption": "Cá chuột pygmy bơi giữa bể thủy sinh có sọc đen ngang thân"
     },
     {
+      "url": "https://media.aquatome.com/commons/0b0d6bf11f7218b3.webp",
+      "thumb": "https://media.aquatome.com/commons/0b0d6bf11f7218b3-480.webp",
+      "width": 1024,
+      "height": 592,
+      "licence": "CC BY 2.0",
+      "author": "Carnat Joel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus_carnat_joel.jpg",
+      "caption": "Cá chuột pygmy trên nền sỏi trong bể nuôi"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b18528ed4bb2c743.webp",
+      "thumb": "https://media.aquatome.com/commons/b18528ed4bb2c743-480.webp",
+      "width": 1024,
+      "height": 590,
+      "licence": "CC BY 2.0",
+      "author": "Carnat Joel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus_carnat_joel_2.jpg",
+      "caption": "Cá chuột pygmy bên lá khô và sỏi trong bể thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/commons/40a970f67cc6e69d.webp",
       "thumb": "https://media.aquatome.com/commons/40a970f67cc6e69d-480.webp",
       "width": 1200,
@@ -42,7 +96,7 @@
       "caption": "Cá chuột pygmy nghỉ trên đá trong bể trồng cây"
     }
   ],
-  "seen": 16,
+  "seen": 21,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

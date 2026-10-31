@@ -2,6 +2,114 @@
   "id": "xiphophorus-hellerii",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268032912/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/268032912/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/268032912",
+      "caption": "Cá kiếm xanh đực có kiếm dài trong bể chụp ảnh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/296295754/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/296295754/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/296295754",
+      "caption": "Cá kiếm xanh cái thân ánh xanh vàng trong bể chụp ảnh",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/66191914/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/66191914/medium.jpeg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Sam Stainsby",
+      "sourceUrl": "https://www.inaturalist.org/photos/66191914",
+      "caption": "Cá kiếm xanh bơi trên nền đá sỏi trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/223427768/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/223427768/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/223427768",
+      "caption": "Cá kiếm xanh có sọc ngang thân trong hộp chụp ảnh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298676261/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298676261/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298676261",
+      "caption": "Cá kiếm xanh đực đuôi kiếm dài bơi trong bể chụp",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177220108/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/177220108/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/177220108",
+      "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298703517/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298703517/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298703517",
+      "caption": "Cá kiếm xanh đực đuôi vàng trong bể chụp có thước đo",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298703386/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298703386/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298703386",
+      "caption": "Cá kiếm xanh đực với sọc đỏ bên hông trong bể đo",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347913338/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/347913338/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/347913338",
+      "caption": "Cá kiếm xanh đực có kiếm vàng dài trong hộp đo kích thước",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/97a075250167ebf1.webp",
       "thumb": "https://media.aquatome.com/commons/97a075250167ebf1-480.webp",
       "width": 1200,
@@ -460,9 +568,69 @@
       "author": "Abu Hamas",
       "sourceUrl": "https://www.inaturalist.org/photos/569741296",
       "caption": "Cá kiếm cái màu xanh ánh bạc trong bể nền sỏi"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298676351/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298676351/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298676351",
+      "caption": "Cá kiếm xanh đực bơi nghiêng trong bể chụp có thước",
+      "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298311229/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298311229/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "鍾惠名",
+      "sourceUrl": "https://www.inaturalist.org/photos/298311229",
+      "caption": "Cá kiếm xanh cái màu vàng trong bể chụp ảnh",
+      "best": false,
+      "kind": "female"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63361779/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/63361779/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Edgar Bovio",
+      "sourceUrl": "https://www.inaturalist.org/photos/63361779",
+      "caption": "Đàn cá kiếm xanh nhỏ bơi trên nền cát ngoài tự nhiên",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362399862/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/362399862/medium.jpeg",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY",
+      "author": "Carlos Martínez",
+      "sourceUrl": "https://www.inaturalist.org/photos/362399862",
+      "caption": "Cá kiếm xanh ngoài tự nhiên trong nước nông đáy sỏi",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/298682256/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/298682256/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298682256",
+      "caption": "Cá kiếm xanh cái nhỏ màu vàng trong bể chụp ảnh",
+      "best": false,
+      "kind": "female"
     }
   ],
-  "seen": 198,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 258,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

@@ -2,6 +2,42 @@
   "id": "channa-asiatica",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631236296/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/631236296/medium.jpg",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY-SA",
+      "author": "ncueeleo",
+      "sourceUrl": "https://www.inaturalist.org/photos/631236296",
+      "caption": "Cá quả Trung Quốc trong vùng nước trong, nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504131566/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/504131566/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "tbri_edu",
+      "sourceUrl": "https://www.inaturalist.org/photos/504131566",
+      "caption": "Cá quả Trung Quốc bơi trong nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/707105250/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/707105250/medium.jpg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "如此甚好",
+      "sourceUrl": "https://www.inaturalist.org/photos/707105250",
+      "caption": "Cá quả Trung Quốc trưởng thành trên nền bùn ven suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp",
       "thumb": "https://media.aquatome.com/commons/940d5c4b49fcb3d8-480.webp",
       "width": 1200,
@@ -32,7 +68,7 @@
       "caption": "Cá quả Trung Quốc đốm vàng giữa cỏ thủy sinh trong bể"
     }
   ],
-  "seen": 23,
+  "seen": 39,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

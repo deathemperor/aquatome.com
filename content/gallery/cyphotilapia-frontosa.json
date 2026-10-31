@@ -2,6 +2,42 @@
   "id": "cyphotilapia-frontosa",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/359142822/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/359142822/medium.jpg",
+      "width": 1024,
+      "height": 737,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/359142822",
+      "caption": "Cá frontosa đực cận cảnh với bướu đầu trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/327646525/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/327646525/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/327646525",
+      "caption": "Cá frontosa trưởng thành trong bể, ánh đèn tím",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/420403500/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/420403500/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/420403500",
+      "caption": "Cá frontosa bơi bên tảng đá trong bể lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/db4107c76f991ec5.webp",
       "thumb": "https://media.aquatome.com/commons/db4107c76f991ec5-480.webp",
       "width": 1200,
@@ -220,9 +256,45 @@
       "author": "Bruno Peixoto",
       "sourceUrl": "https://www.inaturalist.org/photos/360411140",
       "caption": "Cá frontosa sọc đen trắng bơi trong bể nền đá nâu"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617421328/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/617421328/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617421328",
+      "caption": "Đàn cá frontosa nhỏ trong bể cát",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/420403506/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/420403506/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/420403506",
+      "caption": "Cá frontosa sọc đen trắng bơi trong bể lớn",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/486530380/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/486530380/medium.jpeg",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/486530380",
+      "caption": "Cá frontosa xanh dương sẫm giữa đá trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 36,
+  "seen": 44,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

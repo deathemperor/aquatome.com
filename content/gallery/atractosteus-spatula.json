@@ -2,6 +2,90 @@
   "id": "atractosteus-spatula",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/666055063/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/666055063/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Chet Burrier",
+      "sourceUrl": "https://www.inaturalist.org/photos/666055063",
+      "caption": "Cá sấu hỏa tiễn bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11692087/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/11692087/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11692087",
+      "caption": "Cá sấu hỏa tiễn bơi trong bể thủy sinh có cây",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263380699/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/263380699/medium.jpg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Nathan Vaughn",
+      "sourceUrl": "https://www.inaturalist.org/photos/263380699",
+      "caption": "Cá sấu hỏa tiễn bơi dưới nước trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251152134/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251152134/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/251152134",
+      "caption": "Cá sấu hỏa tiễn trưởng thành bơi trong bể kính lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/589928706/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/589928706/medium.jpg",
+      "width": 634,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nicole",
+      "sourceUrl": "https://www.inaturalist.org/photos/589928706",
+      "caption": "Cá sấu hỏa tiễn bơi gần mặt nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/207230565/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/207230565/medium.jpeg",
+      "width": 1024,
+      "height": 615,
+      "licence": "CC BY",
+      "author": "RJ Baltierra",
+      "sourceUrl": "https://www.inaturalist.org/photos/207230565",
+      "caption": "Cá sấu hỏa tiễn bơi sát mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/589928733/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/589928733/medium.jpg",
+      "width": 587,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nicole",
+      "sourceUrl": "https://www.inaturalist.org/photos/589928733",
+      "caption": "Cá sấu hỏa tiễn nhìn từ trên xuống trong nước sông đục",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/885e914211e921f7.webp",
       "thumb": "https://media.aquatome.com/commons/885e914211e921f7-480.webp",
       "width": 1200,
@@ -342,7 +426,7 @@
       "caption": "Cá sấu hỏa tiễn nổi gần mặt nước ngoài tự nhiên"
     }
   ],
-  "seen": 235,
+  "seen": 394,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

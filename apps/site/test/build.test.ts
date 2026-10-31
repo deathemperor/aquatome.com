@@ -600,6 +600,21 @@ describe('photo gallery', () => {
   test('sitemap lists the gallery page', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/ca/ca-neon-vua/anh/')
   })
+  test('a plant gets a gallery too: the strip on its page, a gallery page naming each photo site (Indonesian and Thai addresses: i18n.test.ts)', () => {
+    const { dom } = page('/vi/cay/cryptocoryne-wendtii/')
+    const strip = dom.querySelector('section.strip')!
+    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/vi/cay/cryptocoryne-wendtii/anh/')
+    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh') // the CC BY-NC photo is left out
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
+    const g = page('/vi/cay/cryptocoryne-wendtii/anh/').dom
+    expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
+    expect(g.querySelector('.lead')!.textContent).toContain('6 ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
+    expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/vi/cay/cryptocoryne-wendtii/')
+    expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
+    expect(g.querySelector('.crumb a[href="/vi/cay/"]')).toBeTruthy()
+    expect(page('/vi/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/cay/cryptocoryne-wendtii/anh/')
+  })
 })
 
 describe('man-made fish (breeds)', () => {

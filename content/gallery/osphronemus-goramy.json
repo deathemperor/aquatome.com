@@ -2,6 +2,42 @@
   "id": "osphronemus-goramy",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251818239/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251818239/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/251818239",
+      "caption": "Cá tai tượng con có vằn sọc trong hộp kính",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544577/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544577/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "tlaloc27",
+      "sourceUrl": "https://www.inaturalist.org/photos/53544577",
+      "caption": "Cá tai tượng nổi lên mặt nước đớp mồi ở ao",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544572/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544572/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "tlaloc27",
+      "sourceUrl": "https://www.inaturalist.org/photos/53544572",
+      "caption": "Cá tai tượng ngoi lên mặt nước trong ao nuôi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/29089fdf32d82090.webp",
       "thumb": "https://media.aquatome.com/commons/29089fdf32d82090-480.webp",
       "width": 1200,
@@ -570,9 +606,21 @@
       "author": "Gabriel",
       "sourceUrl": "https://www.inaturalist.org/photos/617422593",
       "caption": "Cá tai tượng lớn màu xám bơi trong bể kính"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544569/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/53544569/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "tlaloc27",
+      "sourceUrl": "https://www.inaturalist.org/photos/53544569",
+      "caption": "Hai con cá tai tượng nổi lên mặt nước",
+      "best": false,
+      "kind": "group"
     }
   ],
-  "seen": 171,
+  "seen": 191,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

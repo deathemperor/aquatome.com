@@ -2,6 +2,42 @@
   "id": "paracheirodon-axelrodi",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/365422173/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/365422173/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/365422173",
+      "caption": "Đàn cá neon vua trong bể có đá và lũa",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258997729/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/258997729/medium.jpeg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/258997729",
+      "caption": "Cá neon vua bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258997770/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/258997770/medium.jpeg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/258997770",
+      "caption": "Cá neon vua thân đỏ xanh óng ánh giữa rêu và cây",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c8379e1afca4db8b.webp",
       "thumb": "https://media.aquatome.com/commons/c8379e1afca4db8b-480.webp",
       "width": 1000,
@@ -220,9 +256,57 @@
       "author": "Nico Hernandez",
       "sourceUrl": "https://www.inaturalist.org/photos/258997697",
       "caption": "Cá neon vua cận cảnh với sọc xanh lam đậm giữa cây thủy sinh"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/484104824/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/484104824/medium.jpeg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "adamcvean",
+      "sourceUrl": "https://www.inaturalist.org/photos/484104824",
+      "caption": "Hai cá neon vua bên lá cây thủy sinh",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329233696/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/329233696/medium.jpeg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/329233696",
+      "caption": "Cá neon vua trong bể cát vàng có cây thủy sinh",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/51692811/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/51692811/medium.jpeg",
+      "width": 802,
+      "height": 946,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/51692811",
+      "caption": "Cá neon vua đơn lẻ trong bể nền xanh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/271031046/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/271031046/medium.jpg",
+      "width": 1024,
+      "height": 737,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/271031046",
+      "caption": "Đàn cá neon vua bơi quanh khối đá trong bể",
+      "best": false,
+      "kind": "group"
     }
   ],
-  "seen": 79,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 99,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

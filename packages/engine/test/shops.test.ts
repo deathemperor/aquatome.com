@@ -76,3 +76,19 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
   expect(await names(root, 'symphysodon-aequifasciatus')).toEqual(['Discus'])
   expect(await addShopNames(root, 'id')).toEqual([]) // no Indonesian list
 })
+
+test('plant shop list: the prompt asks for plants and leaves fish out; written beside the fish lists; read as plants', async () => {
+  const root = await site()
+  const prompts: string[] = []
+  const research: Llm = async <T>({ prompt }: { prompt: string }) => { prompts.push(prompt); return { items: [item('Ráy nana', 'Anubias barteri', 0.9)], sources: [] } as T }
+  await makeShopList(root, research, 'vi', { goods: 'plants', now: () => new Date('2026-10-31T00:00:00Z') })
+  expect(prompts[0]).toContain('aquarium plant and moss')
+  expect(prompts[0]).toContain('Leave out fish, shrimp, snails, equipment and food')
+  expect(prompts[0]).toMatch(/Never open Shopee/)
+  expect(await shopIds(root, ['vi'], 'plants')).toEqual(['anubias-barteri'])
+  expect(await shopIds(root, ['vi'])).toEqual([])
+  // The fish prompt is as it was.
+  await makeShopList(root, research, 'vi', { now: () => new Date('2026-10-31T00:00:00Z') })
+  expect(prompts[1]).toContain('You compile what aquarium fish shops in Vietnam actually sell')
+  expect(prompts[1]).toContain('Leave out plants, equipment and food')
+})

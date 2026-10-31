@@ -2,6 +2,18 @@
   "id": "channa-andrao",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/80516645/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/80516645/medium.jpg",
+      "width": 1011,
+      "height": 665,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/80516645",
+      "caption": "Cận cảnh đuôi và vây xanh lam của cá lóc Channa andrao",
+      "best": true,
+      "kind": "detail"
+    },
+    {
       "url": "https://media.aquatome.com/commons/3657ec5c87f20a04.webp",
       "thumb": "https://media.aquatome.com/commons/3657ec5c87f20a04-480.webp",
       "width": 1200,
@@ -12,7 +24,7 @@
       "caption": "Cá lóc Channa andrao bơi trong bể có gỗ lũa và nền sỏi"
     }
   ],
-  "seen": 2,
+  "seen": 4,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

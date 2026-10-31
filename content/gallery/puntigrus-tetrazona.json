@@ -2,6 +2,30 @@
   "id": "puntigrus-tetrazona",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177678755/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/177678755/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/177678755",
+      "caption": "Cá tứ vân trong bể có đá và cây giả màu hồng",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/505901851/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/505901851/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/505901851",
+      "caption": "Đàn cá tứ vân bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2f41fe23061b89e3.webp",
       "thumb": "https://media.aquatome.com/commons/2f41fe23061b89e3-480.webp",
       "width": 800,
@@ -202,7 +226,7 @@
       "caption": "Đàn cá tứ vân bơi trong bể có đá và cây thủy sinh"
     }
   ],
-  "seen": 83,
+  "seen": 92,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

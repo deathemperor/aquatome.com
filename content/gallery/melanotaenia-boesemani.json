@@ -2,14 +2,40 @@
   "id": "melanotaenia-boesemani",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/6712af64c7f92839.webp",
-      "thumb": "https://media.aquatome.com/commons/6712af64c7f92839-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "Public domain",
-      "author": "Karelj.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_boesemani,_Mo%C5%99sk%C3%BD_sv%C4%9Bt,_Prague,_Czech_Republic_-_20081028.jpg",
-      "caption": "Cá cầu vồng Boeseman đực thân xanh tím, đuôi cam trong bể"
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747611469/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/747611469/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/747611469",
+      "caption": "Cá cầu vồng Boeseman đực màu cam xanh trong bể trồng cây",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747119978/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/747119978/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/747119978",
+      "caption": "Vài con cá cầu vồng Boeseman cam xanh trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://live.staticflickr.com/448/18815134980_704aa27f17_b.jpg",
+      "thumb": "https://live.staticflickr.com/448/18815134980_704aa27f17_z.jpg",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY 2.0",
+      "author": "Lux Machina",
+      "sourceUrl": "https://www.flickr.com/photos/33737215@N08/18815134980",
+      "caption": "Cá cầu vồng Boeseman đực màu vàng xanh bơi gần cây thủy sinh",
+      "best": true,
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/commons/915e9c52cb726226.webp",
@@ -192,7 +218,7 @@
       "caption": "Cá cầu vồng Boeseman đực màu cam bơi giữa cây thủy sinh"
     }
   ],
-  "seen": 51,
+  "seen": 67,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

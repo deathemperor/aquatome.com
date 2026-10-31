@@ -10,14 +10,21 @@ import type { Llm } from './claude'
  * shops and prices never reach the site, only the species' common names.
  */
 export type ShopLang = 'vi' | 'id' | 'th'
+/** Fish (with shrimp and snails), or plants: plant lists rank the plants' galleries (engine-state/shop-lists/plants-<lang>.json). */
+export type ShopGoods = 'fish' | 'plants'
 export type ShopItem = { trade: string; name: string | null; scientificName: string | null; confidence: number; evidence: string }
 export type ShopList = { lang: ShopLang; items: ShopItem[]; sources: { url: string; title: string }[]; updatedAt: string }
 
 const PROMPT = readFileSync(new URL('./prompts/shop-list.md', import.meta.url), 'utf8')
-const COUNTRY: Record<ShopLang, { country: string; lang: string; nameForm: string }> = {
-  vi: { country: 'Vietnam', lang: 'Vietnamese', nameForm: ', starting with "Cá", "Tép" or "Ốc" ("Cá cánh buồm", "Cá mún", "Tép đỏ")' },
-  id: { country: 'Indonesia', lang: 'Indonesian', nameForm: ' (often "Ikan …" or the trade name alone, e.g. "Neon Tetra", "Cupang")' },
-  th: { country: 'Thailand', lang: 'Thai', nameForm: ' in Thai script (e.g. "ปลาหางนกยูง")' },
+const COUNTRY: Record<ShopLang, { country: string; lang: string; nameForm: string; plantNameForm: string }> = {
+  vi: { country: 'Vietnam', lang: 'Vietnamese', nameForm: ', starting with "Cá", "Tép" or "Ốc" ("Cá cánh buồm", "Cá mún", "Tép đỏ")', plantNameForm: ' ("Cây ráy", "Rêu Java", "Trân châu Nhật")' },
+  id: { country: 'Indonesia', lang: 'Indonesian', nameForm: ' (often "Ikan …" or the trade name alone, e.g. "Neon Tetra", "Cupang")', plantNameForm: ' (often the trade name alone, e.g. "Anubias Nana", "Moss Java")' },
+  th: { country: 'Thailand', lang: 'Thai', nameForm: ' in Thai script (e.g. "ปลาหางนกยูง")', plantNameForm: ' in Thai script where shops use one (e.g. "อนูเบียส")' },
+}
+/** What a list covers, and what it leaves out, in the prompt's words. */
+const GOODS: Record<ShopGoods, { shops: string; sell: string; leaveOut: string }> = {
+  fish: { shops: 'aquarium fish shops', sell: 'fish, shrimp and snail', leaveOut: 'plants, equipment and food' },
+  plants: { shops: 'aquarium plant shops (or fish shops with a plant list)', sell: 'aquarium plant and moss', leaveOut: 'fish, shrimp, snails, equipment and food' },
 }
 /** Below this a mapping still orders the work; only at NAME_MIN does its name go on a page. */
 const RANK_MIN = 0.6
@@ -33,44 +40,46 @@ const SCHEMA = {
     sources: { type: 'array', items: { type: 'object', required: ['url', 'title'], properties: { url: { type: 'string' }, title: { type: 'string' } } } },
   },
 }
-const file = (root: string, lang: ShopLang) => join(root, 'engine-state/shop-lists', `${lang}.json`)
+const file = (root: string, lang: ShopLang, goods: ShopGoods = 'fish') => join(root, 'engine-state/shop-lists', goods === 'plants' ? `plants-${lang}.json` : `${lang}.json`)
 const key = (s: string) => s.normalize('NFC').toLowerCase().replace(/\s+/g, ' ').trim()
 /** A name that is only the genus ("Danio", "Ikan Monodactylus"): it covers every species in it. */
 const genusOnly = (name: string, sci: string) => key(name).replace(/^(cá|tép|ốc|ikan|udang|ปลา)\s*/, '') === key(sci.split(' ')[0]!)
 
-export async function readShopList(root: string, lang: ShopLang): Promise<ShopList | null> {
-  return JSON.parse(await readFile(file(root, lang), 'utf8').catch(() => 'null')) as ShopList | null
+export async function readShopList(root: string, lang: ShopLang, goods: ShopGoods = 'fish'): Promise<ShopList | null> {
+  return JSON.parse(await readFile(file(root, lang, goods), 'utf8').catch(() => 'null')) as ShopList | null
 }
 
 /**
  * Researches the country's shop lists (web, never marketplaces) and maps each item to a species and its local name.
  * `seed`: one shop's list the owner supplied (trade names as written), mapped item by item before anything else.
  */
-export async function makeShopList(root: string, research: Llm, lang: ShopLang, o: { seed?: string[]; model?: string; now: () => Date }): Promise<ShopList> {
+export async function makeShopList(root: string, research: Llm, lang: ShopLang, o: { seed?: string[]; model?: string; now: () => Date; goods?: ShopGoods }): Promise<ShopList> {
   const c = COUNTRY[lang]
+  const goods = o.goods ?? 'fish'
+  const g = GOODS[goods]
   const task = o.seed?.length
-    ? `Here is a current price list from a fish shop in ${c.country} (trade names as written). Map every item. Then add the other species that 2 or more other shop lists in ${c.country} sell and this list lacks.\n\n${o.seed.map(s => `- ${s}`).join('\n')}`
-    : `Find 3 to 6 current price or stock lists published by aquarium fish shops in ${c.country}, and list every fish, shrimp and snail they sell. Put the species that appear on more lists first.`
-  const prompt = PROMPT.replaceAll('{{COUNTRY}}', c.country).replaceAll('{{LANG}}', c.lang).replace('{{NAME_FORM}}', c.nameForm).replace('{{TASK}}', task)
+    ? `Here is a current price list from a ${goods === 'fish' ? 'fish' : 'plant'} shop in ${c.country} (trade names as written). Map every item. Then add the other species that 2 or more other shop lists in ${c.country} sell and this list lacks.\n\n${o.seed.map(s => `- ${s}`).join('\n')}`
+    : `Find 3 to 6 current price or stock lists published by ${g.shops} in ${c.country}, and list every ${g.sell} they sell. Put the species that appear on more lists first.`
+  const prompt = PROMPT.replaceAll('{{SHOPS}}', g.shops).replace('{{LEAVE_OUT}}', g.leaveOut).replaceAll('{{COUNTRY}}', c.country).replaceAll('{{LANG}}', c.lang).replace('{{NAME_FORM}}', goods === 'fish' ? c.nameForm : c.plantNameForm).replace('{{TASK}}', task)
   const r = await research<{ items: ShopItem[]; sources: { url: string; title: string }[] }>({ system: 'You research what aquarium shops sell and cite your sources. Reply only with JSON.', prompt, schema: SCHEMA, model: o.model })
   const items = r.items.map(i => ({ ...i, trade: i.trade.trim(), name: i.name?.trim() || null, scientificName: i.scientificName?.trim().replace(/\s+/g, ' ') || null, confidence: Math.max(0, Math.min(1, i.confidence)) }))
   const list: ShopList = { lang, items, sources: r.sources, updatedAt: o.now().toISOString().slice(0, 10) }
   await mkdir(join(root, 'engine-state/shop-lists'), { recursive: true })
-  await writeFile(file(root, lang), `${JSON.stringify(list, null, 2)}\n`)
+  await writeFile(file(root, lang, goods), `${JSON.stringify(list, null, 2)}\n`)
   return list
 }
 
 /** The species shops in these languages' countries sell (scientific names, list order, each once): sure enough to rank by. */
-export async function shopScientific(root: string, langs: ShopLang[], min = RANK_MIN): Promise<string[]> {
+export async function shopScientific(root: string, langs: ShopLang[], min = RANK_MIN, goods: ShopGoods = 'fish'): Promise<string[]> {
   const out = new Map<string, string>()
-  for (const lang of langs) for (const i of (await readShopList(root, lang))?.items ?? []) {
+  for (const lang of langs) for (const i of (await readShopList(root, lang, goods))?.items ?? []) {
     if (i.scientificName && i.confidence >= min && !out.has(slugify(i.scientificName))) out.set(slugify(i.scientificName), i.scientificName)
   }
   return [...out.values()]
 }
 
 /** Their page ids, in the same order. */
-export const shopIds = async (root: string, langs: ShopLang[]) => (await shopScientific(root, langs)).map(slugify)
+export const shopIds = async (root: string, langs: ShopLang[], goods: ShopGoods = 'fish') => (await shopScientific(root, langs, RANK_MIN, goods)).map(slugify)
 
 /** What the engine fetches new pages for first (wanted.ts): every country's shop species, then the most-kept fish. */
 export const popularFirst = async (root: string) => [...new Set([...await shopScientific(root, ['vi', 'id', 'th'], QUEUE_MIN), ...POPULAR])]

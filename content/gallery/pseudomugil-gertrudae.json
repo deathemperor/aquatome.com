@@ -2,84 +2,124 @@
   "id": "pseudomugil-gertrudae",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
-      "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp",
-      "width": 1000,
-      "height": 563,
-      "licence": "CC BY-SA 3.0 de",
-      "author": "Der Regenbogenfisch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
-      "caption": "Cá đực Pseudomugil gertrudae vàng cam đốm đen trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/691921393.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691921393-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/691921393",
-      "caption": "Cá đực vàng cam Pseudomugil gertrudae trong bể ảnh, nền đá"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/748819447.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/748819447-480.webp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/748819447/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/748819447/medium.jpg",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/748819447",
-      "caption": "Cá đực vàng cam Pseudomugil gertrudae trước nền đá"
+      "caption": "Cá đực vàng cam trên nền đá",
+      "best": true,
+      "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp",
-      "thumb": "https://media.aquatome.com/commons/7d9fae1ead0c1889-480.webp",
-      "width": 1200,
-      "height": 667,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
+      "width": 1280,
+      "height": 721,
+      "licence": "CC BY-SA 3.0 de",
+      "author": "Der Regenbogenfisch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
+      "caption": "Nhóm cá đực vây đốm đẹp trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Getrudae_Rainbowfish.jpg/1280px-Getrudae_Rainbowfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Getrudae_Rainbowfish.jpg/500px-Getrudae_Rainbowfish.jpg",
+      "width": 1280,
+      "height": 711,
       "licence": "CC BY-SA 4.0",
       "author": "Atulbhats",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
-      "caption": "Cá Pseudomugil gertrudae bơi trên thảm cỏ thủy sinh trong bể"
+      "caption": "Cá có đốm bơi trên thảm cỏ thủy sinh",
+      "best": true,
+      "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/682650379.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/682650379-480.webp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/691921393/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/691921393/medium.jpg",
       "width": 1024,
       "height": 1024,
       "licence": "CC BY",
       "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/682650379",
-      "caption": "Cá Pseudomugil gertrudae màu vàng bơi trong bể kính"
+      "sourceUrl": "https://www.inaturalist.org/photos/691921393",
+      "caption": "Cá đực màu vàng cam trong bể kính",
+      "best": false,
+      "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/691923446.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691923446-480.webp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/691924598/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/691924598/medium.jpg",
       "width": 1024,
       "height": 1024,
       "licence": "CC BY",
       "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/691923446",
-      "caption": "Cá Pseudomugil gertrudae vàng nhạt bơi trong bể ảnh"
+      "sourceUrl": "https://www.inaturalist.org/photos/691924598",
+      "caption": "Hai cá màu vàng cam trong bể",
+      "best": false,
+      "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/655883282.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/655883282-480.webp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/695711336/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/695711336/medium.jpg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/695711336",
+      "caption": "Hai cá bơi trong bể nền đá",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/655883282/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/655883282/medium.jpg",
       "width": 1024,
       "height": 1024,
       "licence": "CC BY",
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/655883282",
-      "caption": "Cá Pseudomugil gertrudae đực bơi gần thành bể"
+      "caption": "Cá trưởng thành sát kính bể",
+      "best": false,
+      "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/746460013.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/746460013-480.webp",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/682650379/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/682650379/medium.jpg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/682650379",
+      "caption": "Cá màu vàng bơi trong bể kính",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/691923446/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/691923446/medium.jpg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/691923446",
+      "caption": "Cá trưởng thành bơi trong bể nền đá tối",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/746460013/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/746460013/medium.jpg",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/746460013",
-      "caption": "Cá Pseudomugil gertrudae bơi trước nền đá trong bể"
+      "caption": "Cá có sọc đen trên nền đá",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 19,

@@ -2,14 +2,40 @@
   "id": "monopterus-albus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/7dea9976d1a9188f.webp",
-      "thumb": "https://media.aquatome.com/commons/7dea9976d1a9188f-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 2.5",
-      "author": "No machine-readable author provided. Earthengine assumed (based on copyright claims).",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monopterus_albus_7.jpg",
-      "caption": "Đàn lươn đồng màu nâu vàng sống trong khay nước"
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_16.jpg/1280px-SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_16.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_16.jpg/500px-SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_16.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "CC0",
+      "author": "MUKSWO msrdoow",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_16.jpg",
+      "caption": "Nhiều con lươn đồng sống trong thùng nước màu xanh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/21395055.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21395055-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Shawn Taylor",
+      "sourceUrl": "https://www.inaturalist.org/photos/21395055",
+      "caption": "Lươn đồng ngoi đầu lên ở mép nước bùn",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89034267.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89034267-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/89034267",
+      "caption": "Lươn đồng vàng nâu cận cảnh phần đầu",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/431472853029c2b8.webp",
@@ -19,7 +45,153 @@
       "licence": "Public domain",
       "author": "U.S. Geological Survey from Reston, VA, USA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asian_Swamp_Eels_(13145567903).jpg",
-      "caption": "Nhiều lươn đồng vàng nâu sống trong chậu nước"
+      "caption": "Đàn lươn đồng trong chậu, có một con màu vàng nhạt",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128995928/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/128995928/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ian Dugdale",
+      "sourceUrl": "https://www.inaturalist.org/photos/128995928",
+      "caption": "Lươn đồng bơi trong nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/404816254.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/404816254-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/404816254",
+      "caption": "Lươn đồng màu cam cuộn mình trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/472204886.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/472204886-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC0",
+      "author": "Светлана Царахова",
+      "sourceUrl": "https://www.inaturalist.org/photos/472204886",
+      "caption": "Nhiều lươn đồng nuôi chung trong bể kính",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/136173335.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136173335-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "雲一百香果",
+      "sourceUrl": "https://www.inaturalist.org/photos/136173335",
+      "caption": "Lươn đồng bơi trong vùng nước nông, đáy bùn cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/2799196.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/2799196-480.webp",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/2799196",
+      "caption": "Lươn đồng màu vàng nâu bơi trong nước nông",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744705668/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/744705668/medium.jpg",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Vladislav Isaev",
+      "sourceUrl": "https://www.inaturalist.org/photos/744705668",
+      "caption": "Đàn lươn đồng vàng nâu trong chậu nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469852828/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/469852828/medium.jpeg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "槲蕨Miu",
+      "sourceUrl": "https://www.inaturalist.org/photos/469852828",
+      "caption": "Lươn đồng bò trên nền bùn đất ẩm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2873738/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/2873738/medium.jpg",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/2873738",
+      "caption": "Lươn đồng lớn màu đen uốn mình trên rổ",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38659398/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/38659398/medium.jpg",
+      "width": 1024,
+      "height": 439,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/38659398",
+      "caption": "Nhiều con lươn đồng bơi trong khay nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/360720305.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/360720305-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/360720305",
+      "caption": "Lươn đồng vàng nâu bơi trong vũng nước nông giữa sỏi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/400685654.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/400685654-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Licheng Shih",
+      "sourceUrl": "https://www.inaturalist.org/photos/400685654",
+      "caption": "Lươn đồng ngóc đầu khỏi hang trên nền đất",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5682186.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5682186-480.webp",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/5682186",
+      "caption": "Lươn đồng ngoi đầu lên khỏi bùn ven bờ ruộng",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/2df4426aaeea5bb7.webp",
@@ -30,46 +202,6 @@
       "author": "MUKSWO msrdoow",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E4%B8%AD%E7%BF%A0%E8%B7%AF_ZhongCui_Road_%E6%9D%B1%E5%A4%A7%E8%A1%97_Dong_Da_Street_shop_%E5%AF%8C%E5%AE%B6%E6%AD%A1%E8%B6%85%E5%B8%82_FuJiaHuan_Supermarket_February_2025_R12S_14.jpg",
       "caption": "Đàn lươn đồng nâu sẫm bơi trong bể xanh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/2799196.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/2799196-480.webp",
-      "width": 900,
-      "height": 506,
-      "licence": "CC BY",
-      "author": "Kim, Hyun-tae",
-      "sourceUrl": "https://www.inaturalist.org/photos/2799196",
-      "caption": "Cá lươn đồng màu nâu cam đốm trên nền cát ở vùng nước nông"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/2799197.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/2799197-480.webp",
-      "width": 900,
-      "height": 506,
-      "licence": "CC BY",
-      "author": "Kim, Hyun-tae",
-      "sourceUrl": "https://www.inaturalist.org/photos/2799197",
-      "caption": "Cá lươn đồng thân nâu vàng bơi trên đáy cát"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/404816254.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/404816254-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/404816254",
-      "caption": "Cá lươn đồng màu cam cuộn thân trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/360720305.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/360720305-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Lawrence Hylton",
-      "sourceUrl": "https://www.inaturalist.org/photos/360720305",
-      "caption": "Cá lươn đồng màu nâu vàng bơi trên đáy sỏi trong bể"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/537305314.webp",
@@ -102,86 +234,6 @@
       "caption": "Lươn đồng bơi trong ruộng lúa nước nông"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/135629775.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/135629775-480.webp",
-      "width": 512,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "雲一百香果",
-      "sourceUrl": "https://www.inaturalist.org/photos/135629775",
-      "caption": "Lươn đồng nâu đỏ trên nền bùn ngập nước nông"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/136173335.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/136173335-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "雲一百香果",
-      "sourceUrl": "https://www.inaturalist.org/photos/136173335",
-      "caption": "Lươn đồng ngóc đầu trong nước nông trên nền cát bùn"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/5682186.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5682186-480.webp",
-      "width": 900,
-      "height": 506,
-      "licence": "CC BY",
-      "author": "Kim, Hyun-tae",
-      "sourceUrl": "https://www.inaturalist.org/photos/5682186",
-      "caption": "Lươn đồng màu vàng nâu trên bùn ướt ngoài tự nhiên"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/21395055.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/21395055-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Shawn Taylor",
-      "sourceUrl": "https://www.inaturalist.org/photos/21395055",
-      "caption": "Lươn đồng vàng nâu bò trên bùn cạnh bờ nước"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/89034267.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89034267-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/89034267",
-      "caption": "Lươn đồng màu vàng ô liu, cận cảnh phần đầu"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/89035211.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89035211-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/89035211",
-      "caption": "Cá lươn đồng màu vàng nâu bơi trong chậu nước"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/318737140.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/318737140-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/318737140",
-      "caption": "Cá lươn đồng màu hồng nâu ngoi đầu trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/318736956.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/318736956-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/318736956",
-      "caption": "Cá lươn đồng thò đầu lên trong bể kính nhỏ"
-    },
-    {
       "url": "https://media.aquatome.com/commons/73d5f9e16c12be92.webp",
       "thumb": "https://media.aquatome.com/commons/73d5f9e16c12be92-480.webp",
       "width": 1200,
@@ -192,26 +244,6 @@
       "caption": "Lươn đồng màu vàng nhạt và nâu trong nước"
     },
     {
-      "url": "https://media.aquatome.com/commons/1a6ca5bbc4c9b839.webp",
-      "thumb": "https://media.aquatome.com/commons/1a6ca5bbc4c9b839-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Ian Dugdale",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monopterus_albus_128995928.jpg",
-      "caption": "Cá lươn đồng màu vàng nhạt bơi trên nền rêu xanh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/398132140.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/398132140-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Jiao Sun (孙娇)",
-      "sourceUrl": "https://www.inaturalist.org/photos/398132140",
-      "caption": "Cá lươn đồng vàng đốm nâu trong nước xanh ngoài tự nhiên"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/404816204.webp",
       "thumb": "https://media.aquatome.com/inaturalist/404816204-480.webp",
       "width": 1024,
@@ -220,16 +252,6 @@
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/404816204",
       "caption": "Cá lươn đồng màu cam uốn lượn trong bể kính nhỏ"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/652759072.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/652759072-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "observe-syz",
-      "sourceUrl": "https://www.inaturalist.org/photos/652759072",
-      "caption": "Cá lươn đồng màu vàng nâu bơi trong chậu nước"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/617711276.webp",
@@ -252,36 +274,6 @@
       "caption": "Lươn đồng màu nâu sẫm uốn lượn trong vũng nước có cỏ khô"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/400685654.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/400685654-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Licheng Shih",
-      "sourceUrl": "https://www.inaturalist.org/photos/400685654",
-      "caption": "Lươn đồng màu nâu cam ngóc đầu lên khỏi nền đất ẩm"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/37888416.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/37888416-480.webp",
-      "width": 1024,
-      "height": 439,
-      "licence": "CC BY",
-      "author": "Kim, Hyun-tae",
-      "sourceUrl": "https://www.inaturalist.org/photos/37888416",
-      "caption": "Lươn đồng màu xám nhạt bơi trong nước nông có cỏ"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/5615178.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5615178-480.webp",
-      "width": 900,
-      "height": 506,
-      "licence": "CC BY",
-      "author": "Kim, Hyun-tae",
-      "sourceUrl": "https://www.inaturalist.org/photos/5615178",
-      "caption": "Lươn đồng màu nâu vàng trong ruộng lúa có nước nông"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/299463887.webp",
       "thumb": "https://media.aquatome.com/inaturalist/299463887-480.webp",
       "width": 768,
@@ -292,16 +284,6 @@
       "caption": "Lươn đồng nâu sẫm cuộn tròn trong chậu"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/472204886.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/472204886-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC0",
-      "author": "Светлана Царахова",
-      "sourceUrl": "https://www.inaturalist.org/photos/472204886",
-      "caption": "Đàn lươn đồng nâu trong bể kính"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/41430162.webp",
       "thumb": "https://media.aquatome.com/inaturalist/41430162-480.webp",
       "width": 1024,
@@ -310,9 +292,309 @@
       "author": "Kim, Hyun-tae",
       "sourceUrl": "https://www.inaturalist.org/photos/41430162",
       "caption": "Lươn đồng màu vàng nâu trong nước nông đục"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/652759072.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/652759072-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "observe-syz",
+      "sourceUrl": "https://www.inaturalist.org/photos/652759072",
+      "caption": "Lươn đồng nhỏ màu vàng nâu trong chậu",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7dea9976d1a9188f.webp",
+      "thumb": "https://media.aquatome.com/commons/7dea9976d1a9188f-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 2.5",
+      "author": "No machine-readable author provided. Earthengine assumed (based on copyright claims).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monopterus_albus_7.jpg",
+      "caption": "Nhiều con lươn đồng nâu quấn nhau trong rổ",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/632743971/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/632743971/medium.jpg",
+      "width": 1024,
+      "height": 725,
+      "licence": "CC BY",
+      "author": "TonyT",
+      "sourceUrl": "https://www.inaturalist.org/photos/632743971",
+      "caption": "Lươn đồng vàng thò đầu khỏi hang giữa cỏ",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89035211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89035211-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/89035211",
+      "caption": "Lươn đồng màu vàng nâu bơi trong chậu sáng",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/98844090/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/98844090/medium.jpeg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "雲一百香果",
+      "sourceUrl": "https://www.inaturalist.org/photos/98844090",
+      "caption": "Nhóm lươn đồng nâu sẫm trong chậu nước",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/398132140.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/398132140-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Jiao Sun (孙娇)",
+      "sourceUrl": "https://www.inaturalist.org/photos/398132140",
+      "caption": "Lươn đồng đốm vàng trong nước xanh ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173567463/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/173567463/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "葉子",
+      "sourceUrl": "https://www.inaturalist.org/photos/173567463",
+      "caption": "Lươn đồng màu xám xanh trên tấm lưới",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744704932/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/744704932/medium.jpg",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Vladislav Isaev",
+      "sourceUrl": "https://www.inaturalist.org/photos/744704932",
+      "caption": "Nhiều con lươn đồng sống bơi chung trong nước",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/400685600/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/400685600/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Licheng Shih",
+      "sourceUrl": "https://www.inaturalist.org/photos/400685600",
+      "caption": "Lươn đồng thò thân ra khỏi hang đất",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173567494/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/173567494/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "葉子",
+      "sourceUrl": "https://www.inaturalist.org/photos/173567494",
+      "caption": "Lươn đồng ngẩng đầu trên lưới",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5599203/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5599203/medium.jpg",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/5599203",
+      "caption": "Đàn lươn đồng có cá thể vàng trong chậu",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/400685610/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/400685610/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Licheng Shih",
+      "sourceUrl": "https://www.inaturalist.org/photos/400685610",
+      "caption": "Lươn đồng ngoi đầu lên khỏi hang trên nền đất",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/318737140.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/318737140-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/318737140",
+      "caption": "Đầu lươn đồng màu nâu hồng nhìn cận cảnh trong hộp trong",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32270385/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/32270385/medium.jpg",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC0",
+      "author": "Jess Miller-Camp",
+      "sourceUrl": "https://www.inaturalist.org/photos/32270385",
+      "caption": "Lươn đồng màu cam trong nước nông có cỏ thủy sinh",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/318736956.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/318736956-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/318736956",
+      "caption": "Lươn đồng cuộn tròn, đầu nhìn nghiêng trong hộp nhựa",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5776657/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5776657/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/5776657",
+      "caption": "Lươn đồng trong ổ rơm rạ bên bờ ruộng",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/404816340/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/404816340/medium.jpeg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/404816340",
+      "caption": "Lươn đồng màu cam trong bể kính nhìn nghiêng",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/135629775.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/135629775-480.webp",
+      "width": 512,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "雲一百香果",
+      "sourceUrl": "https://www.inaturalist.org/photos/135629775",
+      "caption": "Lươn đồng màu đỏ cam trong vũng nước nông",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/2799197.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/2799197-480.webp",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/2799197",
+      "caption": "Lươn đồng thân nâu cam uốn lượn trong nước nông",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2813136/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/2813136/medium.jpg",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/2813136",
+      "caption": "Lươn đồng trong vũng bùn đỏ ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2799198/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/2799198/medium.jpg",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/2799198",
+      "caption": "Lươn đồng màu cam nâu trên nền đáy sỏi",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5615178.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5615178-480.webp",
+      "width": 900,
+      "height": 506,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/5615178",
+      "caption": "Lươn đồng bơi giữa ruộng lúa, cạnh cây lúa non",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/37888416.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/37888416-480.webp",
+      "width": 1024,
+      "height": 439,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/37888416",
+      "caption": "Lươn đồng màu nhạt bơi trong ruộng nước",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38012279/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/38012279/medium.jpg",
+      "width": 1024,
+      "height": 439,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/38012279",
+      "caption": "Lươn đồng bò trên nền cát ẩm ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41430085/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/41430085/medium.jpg",
+      "width": 1024,
+      "height": 439,
+      "licence": "CC BY",
+      "author": "Kim, Hyun-tae",
+      "sourceUrl": "https://www.inaturalist.org/photos/41430085",
+      "caption": "Lươn đồng uốn mình trong vùng nước nông có cỏ",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 104,
+  "seen": 112,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

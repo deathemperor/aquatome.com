@@ -1,7 +1,50 @@
 {
   "id": "boraras-urophthalmoides",
-  "photos": [],
-  "seen": 5,
+  "photos": [
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251523954/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251523954/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/251523954",
+      "caption": "Cá trâm Boraras urophthalmoides thân đỏ cam bơi trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/16b2f4fa50fec1bd.webp",
+      "thumb": "https://media.aquatome.com/commons/16b2f4fa50fec1bd-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Least_rasbora_thai2.jpg",
+      "caption": "Cá trâm màu đỏ cam với sọc đen giữa thân trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6b44e3bc3af53e79.webp",
+      "thumb": "https://media.aquatome.com/commons/6b44e3bc3af53e79-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%872.jpg",
+      "caption": "Cá trâm thân ánh tím, đuôi đốm cam, trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/17722b47f560a8f7.webp",
+      "thumb": "https://media.aquatome.com/commons/17722b47f560a8f7-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%871.jpg",
+      "caption": "Hai cá trâm thân ánh tím, đuôi đốm cam, giữa cây thủy sinh"
+    }
+  ],
+  "seen": 6,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

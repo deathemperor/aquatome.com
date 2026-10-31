@@ -2,6 +2,42 @@
   "id": "gymnocorymbus-ternetzi",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/221942872/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/221942872/medium.jpeg",
+      "width": 1024,
+      "height": 788,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/221942872",
+      "caption": "Cá tetra góa phụ nhuộm màu đỏ và vàng xanh trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/552749101/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/552749101/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/552749101",
+      "caption": "Đàn cá tetra góa phụ đen màu tự nhiên trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/532067249/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/532067249/medium.jpg",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "dinomariobob",
+      "sourceUrl": "https://www.inaturalist.org/photos/532067249",
+      "caption": "Cá tetra góa phụ màu vàng xanh huỳnh quang trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9a6b94db8285e821.webp",
       "thumb": "https://media.aquatome.com/commons/9a6b94db8285e821-480.webp",
       "width": 1200,
@@ -410,9 +446,45 @@
       "author": "Afsar Nayakkan",
       "sourceUrl": "https://www.inaturalist.org/photos/221942058",
       "caption": "Cá tetra góa phụ màu xanh lá huỳnh quang giữa cây thủy sinh"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/309268462/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/309268462/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Vis M",
+      "sourceUrl": "https://www.inaturalist.org/photos/309268462",
+      "caption": "Cá tetra góa phụ màu hồng trong bể nền sỏi trắng",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/234756799/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/234756799/medium.jpeg",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY-SA",
+      "author": "Gannu03",
+      "sourceUrl": "https://www.inaturalist.org/photos/234756799",
+      "caption": "Đàn cá tetra góa phụ nhiều màu huỳnh quang trong bể",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/556431460/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/556431460/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Lena Struwe",
+      "sourceUrl": "https://www.inaturalist.org/photos/556431460",
+      "caption": "Cá tetra góa phụ màu hồng nhạt bơi trong bể",
+      "best": false,
+      "kind": "form"
     }
   ],
-  "seen": 110,
+  "seen": 130,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

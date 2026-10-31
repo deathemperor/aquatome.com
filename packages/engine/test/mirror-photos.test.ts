@@ -42,6 +42,15 @@ test('mirrorPlan: one key per Commons file whatever the size or query; iNaturali
   expect(mirrorPlan(OURS)).toBeUndefined()
 })
 
+test('mirrorPlan: Flickr (from Openverse) one key per photo id; GBIF one per occurrence photo, fetched at 1200 px; Unsplash stays hot-linked', () => {
+  expect(mirrorPlan('https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg')).toEqual({ key: 'flickr/8600709463.webp', fetch: ['https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg'] })
+  expect(mirrorPlan('https://live.staticflickr.com/139/326984998_c9d1e0f570.jpg')!.key).toBe('flickr/326984998.webp')
+  const g = 'https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/5008826009/media/8ef0275f1615a4c2927b22de444ec6a0'
+  expect(mirrorPlan(g)).toEqual({ key: 'gbif/5008826009-8ef0275f1615a4c2.webp', fetch: [g.replace('500x', '1200x')] })
+  expect(mirrorPlan('https://api.gbif.org/v1/occurrence/search?taxonKey=1')).toBeUndefined()
+  expect(mirrorPlan('https://images.unsplash.com/photo-1?w=1280&q=80&fm=jpg&fit=max')).toBeUndefined()
+})
+
 test('hot-linked photos move to our bucket once each; credit, licence, source link and file formatting are kept; caches follow the new URL', async () => {
   const r = await root()
   const { d, fetched, put } = deps()

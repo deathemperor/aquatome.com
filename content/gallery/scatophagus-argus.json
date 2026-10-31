@@ -2,24 +2,52 @@
   "id": "scatophagus-argus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/99fc02f7cd76fc91.webp",
-      "thumb": "https://media.aquatome.com/commons/99fc02f7cd76fc91-480.webp",
-      "width": 1200,
-      "height": 863,
-      "licence": "Public domain",
-      "author": "Karelj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_1.jpg",
-      "caption": "Cá nhàn thân đốm đen bơi trên nền cát trong bể"
+      "url": "https://media.aquatome.com/inaturalist/209443512.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/209443512-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/209443512",
+      "caption": "Cá nhàn đỏ (dạng màu đỏ) trong bể bán cá",
+      "best": true,
+      "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/commons/8db82d0f6f323b9e.webp",
-      "thumb": "https://media.aquatome.com/commons/8db82d0f6f323b9e-480.webp",
+      "url": "https://media.aquatome.com/commons/3d4bff35a1715c40.webp",
+      "thumb": "https://media.aquatome.com/commons/3d4bff35a1715c40-480.webp",
+      "width": 1200,
+      "height": 957,
+      "licence": "CC0",
+      "author": "雪野滾滾",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_(Young_fish,_Takeshima_aquarium).jpg",
+      "caption": "Cá nhàn sống với vằn đen đốm trên thân vàng trong bể nuôi",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/536b29b11408d523.webp",
+      "thumb": "https://media.aquatome.com/commons/536b29b11408d523-480.webp",
+      "width": 1200,
+      "height": 801,
+      "licence": "CC BY 2.0",
+      "author": "lwolfartist",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Georgia_aquarium_-_37561226931.jpg",
+      "caption": "Nhóm cá nhàn bơi cùng nhau trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/561355629.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/561355629-480.webp",
       "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA 3.0",
-      "author": "Fokko Toelstede, Wikipedia-User „Nyks“",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus.jpg",
-      "caption": "Cá nhàn trưởng thành đốm đen vây đỏ nâu trong bể nước xanh"
+      "height": 833,
+      "licence": "CC BY",
+      "author": "Andrew Parker",
+      "sourceUrl": "https://www.inaturalist.org/photos/561355629",
+      "caption": "Cá nhàn trưởng thành đốm đen bơi gần đáy trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/a31debc679ba8d81.webp",
@@ -29,7 +57,69 @@
       "licence": "CC BY 3.0",
       "author": "Dezidor",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryby_v_ZOO_(2).jpg",
-      "caption": "Cá nhàn đốm đen bơi trong bể kính lớn"
+      "caption": "Cá nhàn đốm đen bơi trong bể thủy cung",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105233998/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/105233998/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/105233998",
+      "caption": "Đàn cá nhàn con bơi gần mặt nước xanh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/418806798.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/418806798-480.webp",
+      "width": 1024,
+      "height": 829,
+      "licence": "CC BY",
+      "author": "Andrew Parker",
+      "sourceUrl": "https://www.inaturalist.org/photos/418806798",
+      "caption": "Cá nhàn sống bơi dưới nước, thân vàng lục đốm tròn",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/edc9caf1bb22537e.webp",
+      "thumb": "https://media.aquatome.com/commons/edc9caf1bb22537e-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 3.0",
+      "author": "Dezidor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryby_v_ZOO_(3).jpg",
+      "caption": "Cá nhàn đốm đen trong bể có rêu và đá",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105234004/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/105234004/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/105234004",
+      "caption": "Nhiều cá nhàn con bơi trong nước ven bờ",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/259121616/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/259121616/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/259121616",
+      "caption": "Cá nhàn đốm đen bơi trong nước xanh cùng đàn cá khác",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/2155bb90444537e5.webp",
@@ -39,7 +129,57 @@
       "licence": "CC BY-SA 4.0",
       "author": "Pelagic",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_scat_(Scatophagus_argus)_side_view_Sydney_Zoo_2023-02-05.jpg",
-      "caption": "Cá nhàn trưởng thành đốm đen thân bạc trong bể kính"
+      "caption": "Cá nhàn trưởng thành bơi trong bể kính có đá",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11721910/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/11721910/medium.jpg",
+      "width": 700,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11721910",
+      "caption": "Đàn cá nhàn đốm bơi trong bể thủy cung",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/642407786/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/642407786/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Oscar Hopgood",
+      "sourceUrl": "https://www.inaturalist.org/photos/642407786",
+      "caption": "Cá nhàn đốm đen bơi trong vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/99fc02f7cd76fc91.webp",
+      "thumb": "https://media.aquatome.com/commons/99fc02f7cd76fc91-480.webp",
+      "width": 1200,
+      "height": 863,
+      "licence": "Public domain",
+      "author": "Karelj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_1.jpg",
+      "caption": "Cá nhàn đốm đen rõ nét trên nền cát",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/711335147.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/711335147-480.webp",
+      "width": 1024,
+      "height": 703,
+      "licence": "CC BY",
+      "author": "Andrew Parker",
+      "sourceUrl": "https://www.inaturalist.org/photos/711335147",
+      "caption": "Cá nhàn trưởng thành màu sẫm bơi giữa đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/cee4a7243daf6b2f.webp",
@@ -49,17 +189,81 @@
       "licence": "CC BY 4.0",
       "author": "The Great Mule of Eupatoria",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_by_fahad.jpg",
-      "caption": "Cá nhàn đốm nâu bơi trong bể thủy cung tối"
+      "caption": "Cá nhàn đốm đen bơi trong bể nước",
+      "best": true,
+      "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/ed14094a8817bf70.webp",
-      "thumb": "https://media.aquatome.com/commons/ed14094a8817bf70-480.webp",
-      "width": 1200,
-      "height": 976,
-      "licence": "CC BY 4.0",
-      "author": "(c) Andrew Parker, some rights reserved (CC BY)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Scat,_Berry_Springs_NT_0838,_Australia_imported_from_iNaturalist_photo_561355629.jpg",
-      "caption": "Cá nhàn thân xanh lục đốm đen bơi ngoài tự nhiên"
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/642010090/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/642010090/medium.jpg",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC0",
+      "author": "Arthur Pearson",
+      "sourceUrl": "https://www.inaturalist.org/photos/642010090",
+      "caption": "Cá nhàn trong vùng nước nông ven bờ, nền bùn",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/561788864.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/561788864-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "angryphyco",
+      "sourceUrl": "https://www.inaturalist.org/photos/561788864",
+      "caption": "Cá nhàn đốm đen bơi trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/11721913.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/11721913-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11721913",
+      "caption": "Cá nhàn đốm vàng nâu bơi gần đá trang trí trong bể lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/327649536.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/327649536-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/327649536",
+      "caption": "Cá nhàn đốm đen bơi trong bể nền cát",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/241999066.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/241999066-480.webp",
+      "width": 755,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Aleksandr Novikov",
+      "sourceUrl": "https://www.inaturalist.org/photos/241999066",
+      "caption": "Cá nhàn trưởng thành đốm đen bên vách đá",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8db82d0f6f323b9e.webp",
+      "thumb": "https://media.aquatome.com/commons/8db82d0f6f323b9e-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 3.0",
+      "author": "Fokko Toelstede, Wikipedia-User „Nyks“",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus.jpg",
+      "caption": "Cá nhàn trưởng thành bơi trong bể kính nước xanh",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/2f726f4750f87a42.webp",
@@ -72,36 +276,6 @@
       "caption": "Cá nhàn con sọc vằn vàng đen bơi trong bể kính"
     },
     {
-      "url": "https://media.aquatome.com/commons/3d4bff35a1715c40.webp",
-      "thumb": "https://media.aquatome.com/commons/3d4bff35a1715c40-480.webp",
-      "width": 1200,
-      "height": 957,
-      "licence": "CC0",
-      "author": "雪野滾滾",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_(Young_fish,_Takeshima_aquarium).jpg",
-      "caption": "Cá nhàn trưởng thành thân đốm đen trên nền bạc trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/11721913.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/11721913-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "CK2AZ",
-      "sourceUrl": "https://www.inaturalist.org/photos/11721913",
-      "caption": "Cá nhàn trưởng thành đốm nâu vàng bơi trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/561788864.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/561788864-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "angryphyco",
-      "sourceUrl": "https://www.inaturalist.org/photos/561788864",
-      "caption": "Cá nhàn đốm đen thân vàng ánh xanh trong bể nuôi"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/737512960.webp",
       "thumb": "https://media.aquatome.com/inaturalist/737512960-480.webp",
       "width": 576,
@@ -110,66 +284,6 @@
       "author": "Frank Ashwood",
       "sourceUrl": "https://www.inaturalist.org/photos/737512960",
       "caption": "Hai con cá nhàn đốm đen bơi trong bể kính"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/30248973.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30248973-480.webp",
-      "width": 922,
-      "height": 692,
-      "licence": "CC BY",
-      "author": "Karim Haddad",
-      "sourceUrl": "https://www.inaturalist.org/photos/30248973",
-      "caption": "Cá nhàn đốm đen bơi trong bể thủy sinh có cỏ nước"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/625547104.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/625547104-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/625547104",
-      "caption": "Cá nhàn màu xám xanh đốm đen bơi trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/209443512.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/209443512-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Daniel Schelesky",
-      "sourceUrl": "https://www.inaturalist.org/photos/209443512",
-      "caption": "Cá nhàn màu đỏ bơi trong bể cảnh có cây thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/241999066.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/241999066-480.webp",
-      "width": 755,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Aleksandr Novikov",
-      "sourceUrl": "https://www.inaturalist.org/photos/241999066",
-      "caption": "Cá nhàn trưởng thành đốm đen trong bể nuôi"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/561355629.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/561355629-480.webp",
-      "width": 1024,
-      "height": 833,
-      "licence": "CC BY",
-      "author": "Andrew Parker",
-      "sourceUrl": "https://www.inaturalist.org/photos/561355629",
-      "caption": "Cá nhàn trưởng thành đốm đen trên thân xanh bạc, bơi dưới đáy tự nhiên"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/733604656.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/733604656-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "大澤風季 ohsawa_Fuki",
-      "sourceUrl": "https://www.inaturalist.org/photos/733604656",
-      "caption": "Cá nhàn con có sọc đen vằn trong bể kính"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/195025074.webp",
@@ -182,36 +296,6 @@
       "caption": "Cá nhàn đốm vàng nâu bơi gần đáy cát trong bể nuôi"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/307664209.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/307664209-480.webp",
-      "width": 1024,
-      "height": 578,
-      "licence": "CC BY-SA",
-      "author": "Ong Jyh Seng",
-      "sourceUrl": "https://www.inaturalist.org/photos/307664209",
-      "caption": "Đàn cá nhàn đốm trong bể thủy cung có nền cát san hô"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/747257188.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/747257188-480.webp",
-      "width": 1024,
-      "height": 970,
-      "licence": "CC0",
-      "author": "Ben Keen",
-      "sourceUrl": "https://www.inaturalist.org/photos/747257188",
-      "caption": "Cá nhàn thân đốm đen bơi trong nước xanh, nhìn nghiêng"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/327649536.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/327649536-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/327649536",
-      "caption": "Cá nhàn trưởng thành bơi trong bể kính có đáy cát"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/180991154.webp",
       "thumb": "https://media.aquatome.com/inaturalist/180991154-480.webp",
       "width": 1024,
@@ -222,36 +306,6 @@
       "caption": "Cá nhàn sẫm màu bơi trong bể nước xanh"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/711335147.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/711335147-480.webp",
-      "width": 1024,
-      "height": 703,
-      "licence": "CC BY",
-      "author": "Andrew Parker",
-      "sourceUrl": "https://www.inaturalist.org/photos/711335147",
-      "caption": "Cá nhàn sẫm màu bơi gần đá trong môi trường tự nhiên"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/485323455.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/485323455-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/485323455",
-      "caption": "Cá nhàn đốm xám bơi trong bể nuôi"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/418806798.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/418806798-480.webp",
-      "width": 1024,
-      "height": 829,
-      "licence": "CC BY",
-      "author": "Andrew Parker",
-      "sourceUrl": "https://www.inaturalist.org/photos/418806798",
-      "caption": "Cá nhàn màu xanh lục đốm vàng bơi dưới nước"
-    },
-    {
       "url": "https://media.aquatome.com/commons/2ce33fa1f95ec4c1.webp",
       "thumb": "https://media.aquatome.com/commons/2ce33fa1f95ec4c1-480.webp",
       "width": 1200,
@@ -260,46 +314,6 @@
       "author": "Guérin Nicolas (messages)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_(Wroclaw_zoo)-2.JPG",
       "caption": "Hai con cá nhàn bơi cạnh nhau trong bể có đá và lũa"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/edc9caf1bb22537e.webp",
-      "thumb": "https://media.aquatome.com/commons/edc9caf1bb22537e-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 3.0",
-      "author": "Dezidor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryby_v_ZOO_(3).jpg",
-      "caption": "Cá nhàn đốm đen nhìn nghiêng trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/536b29b11408d523.webp",
-      "thumb": "https://media.aquatome.com/commons/536b29b11408d523-480.webp",
-      "width": 1200,
-      "height": 801,
-      "licence": "CC BY 2.0",
-      "author": "lwolfartist",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Georgia_aquarium_-_37561226931.jpg",
-      "caption": "Đàn cá nhàn nhiều màu bơi trên nền cát trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0677037bc3fa786b.webp",
-      "thumb": "https://media.aquatome.com/commons/0677037bc3fa786b-480.webp",
-      "width": 1200,
-      "height": 971,
-      "licence": "CC BY 4.0",
-      "author": "(c) Andrew Parker, some rights reserved (CC BY)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Scat,_Berry_Springs_NT_0838,_Australia_imported_from_iNaturalist_photo_418806798.jpg",
-      "caption": "Cá nhàn màu xanh vàng nhạt bơi dưới nước"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7fe4a3dcda5a4ab1.webp",
-      "thumb": "https://media.aquatome.com/commons/7fe4a3dcda5a4ab1-480.webp",
-      "width": 1200,
-      "height": 824,
-      "licence": "CC BY 4.0",
-      "author": "(c) Andrew Parker, some rights reserved (CC BY)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Scat,_Litchfield_-_Pt_B,_Northern_Territory,_Australia_imported_from_iNaturalist_photo_711335147.jpg",
-      "caption": "Cá nhàn sẫm màu có sọc sáng bơi ngoài tự nhiên"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/223650990.webp",
@@ -330,9 +344,141 @@
       "author": "James Hardcastle",
       "sourceUrl": "https://www.inaturalist.org/photos/51019975",
       "caption": "Cá nhàn đốm nâu bơi giữa lũa trong bể nuôi"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/209443562/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/209443562/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/209443562",
+      "caption": "Cá nhàn đỏ sọc đậm bơi gần kính bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Scatophagus_argus_%28Wroclaw_zoo%29-1.JPG/1280px-Scatophagus_argus_%28Wroclaw_zoo%29-1.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Scatophagus_argus_%28Wroclaw_zoo%29-1.JPG/500px-Scatophagus_argus_%28Wroclaw_zoo%29-1.JPG",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Guérin Nicolas (messages)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_(Wroclaw_zoo)-1.JPG",
+      "caption": "Hai cá nhàn trong bể có đá san hô",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/733480761/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/733480761/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "大澤風季 ohsawa_Fuki",
+      "sourceUrl": "https://www.inaturalist.org/photos/733480761",
+      "caption": "Cá nhàn non màu đen sẫm trong hộp trắng",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/307664209.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/307664209-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/307664209",
+      "caption": "Nhóm cá nhàn trên nền cát trong bể",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Spotted_scat_%28Scatophagus_argus%29_front_view_Sydney_Zoo_2023-02-05.jpg/1280px-Spotted_scat_%28Scatophagus_argus%29_front_view_Sydney_Zoo_2023-02-05.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Spotted_scat_%28Scatophagus_argus%29_front_view_Sydney_Zoo_2023-02-05.jpg/500px-Spotted_scat_%28Scatophagus_argus%29_front_view_Sydney_Zoo_2023-02-05.jpg",
+      "width": 1280,
+      "height": 1997,
+      "licence": "CC BY-SA 4.0",
+      "author": "Pelagic",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_scat_(Scatophagus_argus)_front_view_Sydney_Zoo_2023-02-05.jpg",
+      "caption": "Cận cảnh đầu cá nhàn mắt vàng trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_118.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_118.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_118.jpg/500px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_118.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_118.jpg",
+      "caption": "Hai cá nhàn kiếm ăn dưới đáy bể cát",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/747257188.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/747257188-480.webp",
+      "width": 1024,
+      "height": 970,
+      "licence": "CC0",
+      "author": "Ben Keen",
+      "sourceUrl": "https://www.inaturalist.org/photos/747257188",
+      "caption": "Cá nhàn trưởng thành đốm sẫm bơi trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11721905/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/11721905/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11721905",
+      "caption": "Hai con cá nhàn đốm bơi bên nền đá trong bể",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/485323455.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/485323455-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/485323455",
+      "caption": "Cá nhàn màu xám nhạt bơi trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/625547104.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/625547104-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/625547104",
+      "caption": "Cá nhàn đốm đen nhìn nghiêng trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30248973.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30248973-480.webp",
+      "width": 922,
+      "height": 692,
+      "licence": "CC BY",
+      "author": "Karim Haddad",
+      "sourceUrl": "https://www.inaturalist.org/photos/30248973",
+      "caption": "Cá nhàn trong bể có cỏ thủy sinh và gỗ",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 379,
+  "seen": 400,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

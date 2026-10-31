@@ -2,6 +2,42 @@
   "id": "melanotaenia-trifasciata",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630677/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630677/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/17630677",
+      "caption": "Cá cầu vồng sọc đực ánh vàng xanh, thân cao",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/326117587/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/326117587/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://www.inaturalist.org/photos/326117587",
+      "caption": "Cá cầu vồng sọc có sọc đen dọc thân trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630542/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630542/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/17630542",
+      "caption": "Cá cầu vồng sọc trưởng thành chụp từ bên hông",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7b3b8b49bc0b0753.webp",
       "thumb": "https://media.aquatome.com/commons/7b3b8b49bc0b0753-480.webp",
       "width": 840,
@@ -70,9 +106,45 @@
       "author": "coenobita",
       "sourceUrl": "https://www.inaturalist.org/photos/17573964",
       "caption": "Cá cầu vồng sọc nhỏ bơi trong bể chụp ảnh nền trắng"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330689792/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/330689792/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kai Squires",
+      "sourceUrl": "https://www.inaturalist.org/photos/330689792",
+      "caption": "Cá cầu vồng sọc bơi trên nền đáy suối trong tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630482/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630482/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/17630482",
+      "caption": "Cá cầu vồng sọc nhỏ bơi trong khay nước trắng",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/326117586/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/326117586/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://www.inaturalist.org/photos/326117586",
+      "caption": "Hai cá cầu vồng sọc bơi trong môi trường tự nhiên",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 27,
+  "seen": 47,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

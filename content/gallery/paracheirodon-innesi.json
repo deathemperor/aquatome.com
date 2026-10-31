@@ -2,6 +2,30 @@
   "id": "paracheirodon-innesi",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/480358034/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/480358034/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Collier Sparks",
+      "sourceUrl": "https://www.inaturalist.org/photos/480358034",
+      "caption": "Đàn cá neon xanh bơi trong bể thủy sinh tối",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67091990/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/67091990/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Peter Gabler",
+      "sourceUrl": "https://www.inaturalist.org/photos/67091990",
+      "caption": "Cá neon xanh giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/f84ce69285f4c902.webp",
       "thumb": "https://media.aquatome.com/commons/f84ce69285f4c902-480.webp",
       "width": 1200,
@@ -182,6 +206,7 @@
       "caption": "Cá neon xanh với sọc xanh lam ánh kim bên tảng đá trong bể"
     }
   ],
-  "seen": 83,
-  "updatedAt": "2026-10-29"
+  "seen": 100,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

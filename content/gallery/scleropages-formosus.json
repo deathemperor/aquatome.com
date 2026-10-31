@@ -2,6 +2,42 @@
   "id": "scleropages-formosus",
   "photos": [
     {
+      "url": "https://live.staticflickr.com/4130/5100993520_d5a8c362ed_b.jpg",
+      "thumb": "https://live.staticflickr.com/4130/5100993520_d5a8c362ed_z.jpg",
+      "width": 1024,
+      "height": 597,
+      "licence": "CC BY 2.0",
+      "author": "whologwhy",
+      "sourceUrl": "https://www.flickr.com/photos/60417477@N00/5100993520",
+      "caption": "Cá rồng châu Á màu đồng vàng trong bể nuôi",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://live.staticflickr.com/8188/8445099001_6be80bc5c7_b.jpg",
+      "thumb": "https://live.staticflickr.com/8188/8445099001_6be80bc5c7_z.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "berniedup",
+      "sourceUrl": "https://www.flickr.com/photos/65695019@N07/8445099001",
+      "caption": "Cá rồng châu Á màu bạc trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://live.staticflickr.com/7453/13078654563_3b4945cd17_b.jpg",
+      "thumb": "https://live.staticflickr.com/7453/13078654563_3b4945cd17_z.jpg",
+      "width": 1024,
+      "height": 574,
+      "licence": "CC BY 2.0",
+      "author": "Aneo",
+      "sourceUrl": "https://www.flickr.com/photos/50668519@N00/13078654563",
+      "caption": "Cá rồng châu Á huyết long vàng đỏ nền đen",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/49cb95d4921bfdbe.webp",
       "thumb": "https://media.aquatome.com/commons/49cb95d4921bfdbe-480.webp",
       "width": 1200,
@@ -410,9 +446,33 @@
       "author": "Christian Dala",
       "sourceUrl": "https://unsplash.com/photos/a-couple-of-fish-swimming-next-to-each-other-U9i_KoKA0Bc?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá rồng châu Á vây vàng bơi trong bể nước xanh trong"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/288012739/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/288012739/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/288012739",
+      "caption": "Cá rồng châu Á bơi gần mặt nước trong hồ",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://live.staticflickr.com/1124/5100397121_86c2239fcb_b.jpg",
+      "thumb": "https://live.staticflickr.com/1124/5100397121_86c2239fcb_z.jpg",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY 2.0",
+      "author": "whologwhy",
+      "sourceUrl": "https://www.flickr.com/photos/60417477@N00/5100397121",
+      "caption": "Cận cảnh đầu cá rồng châu Á trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 124,
+  "seen": 136,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

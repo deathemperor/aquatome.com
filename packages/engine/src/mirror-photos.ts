@@ -10,7 +10,7 @@ export type MirrorDeps = { bytes: (url: string) => Promise<Uint8Array>; media: M
 const sha16 = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
 
 /**
- * A hot-linked Commons or iNaturalist photo: its R2 key (one per Commons file or iNaturalist photo, whatever size or
+ * A hot-linked Commons, iNaturalist, Flickr or GBIF photo: its R2 key (one per Commons file or iNaturalist photo, whatever size or
  * query string the URL carries) and the URLs to fetch it from, best first. Undefined for photos we serve already.
  */
 export function mirrorPlan(url: string): { key: string; fetch: string[] } | undefined {
@@ -22,6 +22,16 @@ export function mirrorPlan(url: string): { key: string; fetch: string[] } | unde
   if (u.host === 'inaturalist-open-data.s3.amazonaws.com' || u.host === 'static.inaturalist.org') {
     const m = u.pathname.match(/^\/photos\/(\d+)\/(square|small|medium|large|original)\.\w+$/)
     return m ? { key: `inaturalist/${m[1]}.webp`, fetch: [...new Set([url.replace(/\/(square|small|medium)\./, '/large.'), url])] } : undefined
+  }
+  // Flickr photos (found through Openverse): one key per photo id, whatever size the URL asks for.
+  if (/^(live|farm\d+)\.staticflickr\.com$/.test(u.host)) {
+    const m = u.pathname.match(/^\/\d+\/(\d+)_[0-9a-f]+(?:_[a-z0-9])?\.jpg$/)
+    return m ? { key: `flickr/${m[1]}.webp`, fetch: [url] } : undefined
+  }
+  // GBIF's copy of an occurrence photo: one key per occurrence and photo.
+  if (u.host === 'api.gbif.org') {
+    const m = u.pathname.match(/^\/v1\/image\/cache\/(?:fit-in\/)?[\dx]+\/occurrence\/(\d+)\/media\/([0-9a-f]{32})$/)
+    return m ? { key: `gbif/${m[1]}-${m[2]!.slice(0, 16)}.webp`, fetch: [url.replace(/\/fit-in\/[\dx]+\//, '/fit-in/1200x/')] } : undefined
   }
   return undefined
 }
@@ -46,7 +56,7 @@ async function files(content: string) {
 const URL_KEYED = ['_photo-check.json', '_photo-faces.json', '_photo-rejected.json', '_photo-watermarks.json']
 
 /**
- * Commons and iNaturalist photos are served from our media bucket instead of hot-linked: their hosts set third-party
+ * Commons, iNaturalist, Flickr and GBIF photos are served from our media bucket instead of hot-linked: their hosts set third-party
  * cookies (Lighthouse Best Practices), send JPEGs with a short cache life, and each is one more connection before the
  * page's main picture. Each photo becomes a ≤1200 px WebP plus a 480 px thumb; credit, licence and the link to the
  * photo's own page are kept. `limit`: uploads this run. Idempotent: a photo already on our host is left alone.

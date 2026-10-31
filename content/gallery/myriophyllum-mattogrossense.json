@@ -1,0 +1,56 @@
+{
+  "id": "myriophyllum-mattogrossense",
+  "photos": [
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323641718/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/323641718/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/323641718",
+      "caption": "Thân Cây myriophyllum Mato Grosso mọc dưới nước trong bể thủy sinh",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/5283401603/media/ce7522f583b0b1aaf4e5cabf2102dcde",
+      "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/5283401603/media/ce7522f583b0b1aaf4e5cabf2102dcde",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5283401603",
+      "caption": "Thảm Cây myriophyllum Mato Grosso mọc emersed xanh um",
+      "best": true,
+      "kind": "emersed"
+    },
+    {
+      "url": "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/5283401603/media/b98792816f7df2ee923620e0c7c316f9",
+      "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/5283401603/media/b98792816f7df2ee923620e0c7c316f9",
+      "width": 600,
+      "height": 800,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5283401603",
+      "caption": "Cận cảnh lá và ngọn Cây myriophyllum Mato Grosso màu xanh tươi",
+      "best": true,
+      "kind": "detail"
+    },
+    {
+      "url": "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/5283401603/media/39c538f07966c055d3ad06c760be0104",
+      "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/5283401603/media/39c538f07966c055d3ad06c760be0104",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5283401603",
+      "caption": "Cây myriophyllum Mato Grosso mọc thành mảng ven bờ ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    }
+  ],
+  "seen": 6,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
+}

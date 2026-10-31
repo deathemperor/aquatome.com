@@ -1,0 +1,108 @@
+---
+import type { Lang, Photo } from '@aq/schema'
+import Browse from '../layouts/Browse.astro'
+import { getContent } from '../lib/content'
+import { creditsFor } from '../lib/credits'
+import { licenceUrl, photoFrom } from '../lib/gallery'
+import { smallSrc } from '../lib/img'
+import { i18n, licenceLabel } from '../lib/i18n'
+/**
+ * A species', breed's or plant's photo gallery page: every photo credited (author, licence, its source page), a
+ * lightbox, ImageGallery data. `page`: the fish or plant's own page; `back`: the link text to it.
+ */
+interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>> }
+const { name, sci, photos, page, back, crumbs, indexable, alternates } = Astro.props
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const from = photoFrom(photos, c.sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
+// Photos a source let us use (not under an open licence) say so.
+const open = photos.every(p => !p.source)
+const jsonld = [{
+  '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,
+  image: photos.slice(0, 60).map(p => ({
+    '@type': 'ImageObject', contentUrl: p.url, thumbnailUrl: p.thumb ?? p.url, caption: p.caption, creditText: p.author, creator: { '@type': 'Person', name: p.author },
+    copyrightNotice: `${p.author}, ${p.licence}`, acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
+  })),
+}]
+---
+<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name, n: photos.length })} heading={t('Ảnh {name}', { name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name, sci: sci ? ` (${sci})` : '' })} crumbs={crumbs} noindex={!indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)} search={false}>
+  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.', { n: photos.length, from })} <a href={page}>{back}</a></p>
+  <ul class="grid" data-gallery>
+    {photos.map((p, i) => (
+      <li id={`a${i + 1}`}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(t, p.licence)} data-src={p.sourceUrl}>
+          <img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
+        </a>
+      </li>
+    ))}
+  </ul>
+  <dialog class="lb" aria-label={t('Xem ảnh')} data-pagefind-ignore>
+    <figure>
+      <img alt="" />
+      <figcaption><span class="cap" /><span class="by" /></figcaption>
+    </figure>
+    <button type="button" class="step prev" aria-label={t('Ảnh trước')}>‹</button>
+    <button type="button" class="step next" aria-label={t('Ảnh sau')}>›</button>
+    <button type="button" class="close" aria-label={t('Đóng')}>×</button>
+  </dialog>
+  <script>
+    import { ct } from '../scripts/ct'
+    const grid = document.querySelector<HTMLElement>('[data-gallery]')
+    const lb = document.querySelector<HTMLDialogElement>('dialog.lb')
+    if (grid && lb) {
+      const links = [...grid.querySelectorAll<HTMLAnchorElement>('a[data-i]')]
+      const img = lb.querySelector('img')!
+      const cap = lb.querySelector<HTMLElement>('.cap')!
+      const by = lb.querySelector<HTMLElement>('.by')!
+      let at = 0
+      const show = (i: number) => {
+        at = (i + links.length) % links.length
+        const a = links[at]!.dataset
+        img.src = a.full!; img.width = Number(a.w); img.height = Number(a.h); img.alt = a.cap || ''
+        cap.textContent = a.cap ? `${a.cap} ` : ''
+        by.innerHTML = ''
+        const l = document.createElement('a'); l.href = a.src!; l.rel = 'noopener'; l.target = '_blank'; l.textContent = a.author!
+        by.append(`${ct('Ảnh:')} `, l, `, ${a.lic} · ${at + 1}/${links.length}`)
+        history.replaceState(null, '', `#a${at + 1}`)
+      }
+      const open = (i: number) => { show(i); if (!lb.open) lb.showModal() }
+      grid.addEventListener('click', e => {
+        const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-i]')
+        if (!a || e.metaKey || e.ctrlKey) return
+        e.preventDefault(); open(Number(a.dataset.i))
+      })
+      lb.querySelector('.prev')!.addEventListener('click', () => show(at - 1))
+      lb.querySelector('.next')!.addEventListener('click', () => show(at + 1))
+      lb.querySelector('.close')!.addEventListener('click', () => lb.close())
+      lb.addEventListener('click', e => { if (e.target === lb) lb.close() })
+      lb.addEventListener('close', () => history.replaceState(null, '', location.pathname))
+      document.addEventListener('keydown', e => { if (!lb.open) return; if (e.key === 'ArrowLeft') show(at - 1); if (e.key === 'ArrowRight') show(at + 1) })
+      let x0 = 0
+      lb.addEventListener('touchstart', e => { x0 = e.touches[0]!.clientX }, { passive: true })
+      lb.addEventListener('touchend', e => { const dx = e.changedTouches[0]!.clientX - x0; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)) })
+      // Arriving from the species page on a photo (#a5): open it.
+      const m = location.hash.match(/^#a(\d+)$/)
+      if (m && links[Number(m[1]) - 1]) open(Number(m[1]) - 1)
+    }
+  </script>
+</Browse>
+<style>
+  .lead { color: var(--c-ink-soft); margin: calc(-1 * var(--space-3)) 0 var(--space-5); }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--space-2); }
+  .grid a { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-plate); }
+  .grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+  .grid a:hover img { transform: scale(1.04); }
+  .lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(5 12 14 / 0.96); color: #e6efec; }
+  .lb::backdrop { background: rgb(5 12 14 / 0.9); }
+  .lb figure { margin: 0; height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: var(--space-6) var(--space-7) var(--space-4); box-sizing: border-box; }
+  .lb img { max-width: 100%; max-height: calc(100dvh - 7rem); width: auto; height: auto; object-fit: contain; }
+  .lb figcaption { font-size: 0.9rem; text-align: center; padding-top: var(--space-3); max-width: 60ch; }
+  .lb .by { display: block; font-size: 0.8rem; color: #9db7b3; margin-top: var(--space-1); }
+  .lb .by a { color: inherit; }
+  .lb button { position: absolute; background: rgb(255 255 255 / 0.08); color: #fff; border: 0; cursor: pointer; font: 300 2.2rem/1 var(--f-body); width: 52px; height: 52px; border-radius: 50%; }
+  .lb button:hover { background: rgb(255 255 255 / 0.18); }
+  .lb .prev { left: var(--space-3); top: 50%; transform: translateY(-50%); }
+  .lb .next { right: var(--space-3); top: 50%; transform: translateY(-50%); }
+  .lb .close { right: var(--space-3); top: var(--space-3); font-size: 1.8rem; }
+  @media (max-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } .lb figure { padding: var(--space-6) var(--space-2) calc(52px + var(--space-5)); } .lb .prev, .lb .next { top: auto; bottom: var(--space-3); transform: none; } }
+</style>

@@ -2,6 +2,30 @@
   "id": "macropodus-opercularis",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/654836322/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/654836322/medium.jpg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "observe-syz",
+      "sourceUrl": "https://www.inaturalist.org/photos/654836322",
+      "caption": "Cá thiên đường đực màu sẫm, vây đỏ, trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25158995/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/25158995/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Austin 0201",
+      "sourceUrl": "https://www.inaturalist.org/photos/25158995",
+      "caption": "Cá thiên đường bơi giữa rong trong môi trường nước",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/be02c86c3b6ed203.webp",
       "thumb": "https://media.aquatome.com/commons/be02c86c3b6ed203-480.webp",
       "width": 1200,
@@ -162,7 +186,7 @@
       "caption": "Cá thiên đường màu hồng xanh trong bể nền sỏi"
     }
   ],
-  "seen": 68,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 84,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
 }

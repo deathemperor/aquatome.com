@@ -2,6 +2,18 @@
   "id": "gnathonemus-petersii",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/304494901/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/304494901/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/304494901",
+      "caption": "Hai cá mũi voi bơi trong bể có gỗ lũa và cây thủy sinh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/ec4e24b222338c31.webp",
       "thumb": "https://media.aquatome.com/commons/ec4e24b222338c31-480.webp",
       "width": 800,
@@ -132,7 +144,7 @@
       "caption": "Cá mũi voi bơi giữa cây thủy sinh và gỗ trong bể"
     }
   ],
-  "seen": 24,
+  "seen": 28,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

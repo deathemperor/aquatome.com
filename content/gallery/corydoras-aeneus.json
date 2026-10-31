@@ -2,6 +2,78 @@
   "id": "corydoras-aeneus",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151375/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151375/medium.jpeg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "oliverc29",
+      "sourceUrl": "https://www.inaturalist.org/photos/86151375",
+      "caption": "Cá chuột đồng albino trắng bơi trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347207428/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/347207428/medium.jpeg",
+      "width": 1024,
+      "height": 706,
+      "licence": "CC BY",
+      "author": "Douglas Lopes",
+      "sourceUrl": "https://www.inaturalist.org/photos/347207428",
+      "caption": "Cá chuột đồng màu đồng ánh xanh trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/269336027/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/269336027/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Lobed Homunculus",
+      "sourceUrl": "https://www.inaturalist.org/photos/269336027",
+      "caption": "Cận cảnh cá chuột đồng albino với râu dài",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339570100/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/339570100/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/339570100",
+      "caption": "Cá chuột đồng albino trong bể thủy sinh có cỏ và sỏi đen",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339570129/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/339570129/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/339570129",
+      "caption": "Cá chuột đồng albino bơi gần bụi cỏ trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/385740903/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/385740903/medium.jpeg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/385740903",
+      "caption": "Cá chuột đồng albino bơi bên đáy cát trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/230f7a4652570148.webp",
       "thumb": "https://media.aquatome.com/commons/230f7a4652570148-480.webp",
       "width": 1200,
@@ -170,9 +242,57 @@
       "author": "Gabriel Resende Veiga",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_aeneus_03.jpg",
       "caption": "Cá chuột đồng bạch tạng bơi trong bể thủy sinh"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151356/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151356/medium.jpeg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "oliverc29",
+      "sourceUrl": "https://www.inaturalist.org/photos/86151356",
+      "caption": "Cá chuột đồng albino trắng trên nền sỏi đen",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490757/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490757/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/179490757",
+      "caption": "Cá chuột đồng trên nền sỏi sáng trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151393/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/86151393/medium.jpeg",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "oliverc29",
+      "sourceUrl": "https://www.inaturalist.org/photos/86151393",
+      "caption": "Cá chuột đồng albino nhìn từ phía đuôi trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490773/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490773/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/179490773",
+      "caption": "Cá chuột đồng kiếm ăn trên nền sỏi sáng",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 38,
+  "seen": 65,
   "updatedAt": "2026-10-31",
   "builtAt": "2026-10-31"
 }

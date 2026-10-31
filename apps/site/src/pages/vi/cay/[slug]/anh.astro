@@ -1,0 +1,19 @@
+---
+import type { Localized, PlantEntity } from '@aq/schema'
+import GalleryPage from '../../../../components/GalleryPage.astro'
+import { getContent } from '../../../../lib/content'
+import { GALLERY_MIN } from '../../../../lib/gallery'
+import { i18n, langOf, localizePath, toVi, type Lang } from '../../../../lib/i18n'
+import { alternatesOf } from '../../../../lib/alternates'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
+  return c.plants.map(p => ({ p, photos: c.galleries[p.id] ?? [] }))
+    .filter(x => x.photos.length >= GALLERY_MIN).map(({ p, photos }) => ({ params: { slug: p.t.slug }, props: { p, photos } }))
+}
+const { p, photos } = Astro.props as { p: Localized<PlantEntity>; photos: PlantEntity['photos'] }
+const { t } = i18n(Astro.url)
+const page = `/vi/cay/${p.t.slug}/`
+// The same photos in every language: the gallery is there wherever its plant's page is.
+const alternates = Object.fromEntries(Object.entries(await alternatesOf('plants', p.id)).map(([l, x]) => [l, localizePath(l as Lang, `${toVi(x)}anh/`)]))
+---
+<GalleryPage name={p.t.name} sci={p.scientificName} photos={photos} page={page} back={t('Cách trồng {name} →', { name: p.t.name })} crumbs={[['/vi/cay/', t('Cây thủy sinh')], [page, p.t.name]]} indexable={p.t.quality.indexable} alternates={alternates} />

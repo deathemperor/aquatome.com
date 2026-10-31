@@ -38,7 +38,7 @@ import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
-import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps } from './gallery'
+import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
 import { englishName, unsplashPhotos } from './unsplash'
 import { breedPhotos, localizeBreed, makeBreed } from './breeds'
 import { localizeCaptions } from './captions'
@@ -73,13 +73,35 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' } } })
+
+/**
+ * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
+ * secret in OPENVERSE_CLIENT_ID / OPENVERSE_CLIENT_SECRET (or ~/.config/thuysinh/openverse-client-id, -secret).
+ */
+async function openverseApi() {
+  const opt = (env: string, file: string) => { try { return conf(env, file) } catch { return '' } }
+  const id = opt('OPENVERSE_CLIENT_ID', 'openverse-client-id')
+  const secret = opt('OPENVERSE_CLIENT_SECRET', 'openverse-client-secret')
+  let auth: Record<string, string> = {}
+  if (id && secret) {
+    const res = await fetch('https://api.openverse.org/v1/auth_tokens/token/', { method: 'POST', body: new URLSearchParams({ grant_type: 'client_credentials', client_id: id, client_secret: secret }), signal: AbortSignal.timeout(30_000) })
+    if (res.ok) auth = { authorization: `Bearer ${((await res.json()) as { access_token: string }).access_token}` }
+    else console.log(`openverse: token refused (HTTP ${res.status}), anonymous`)
+  }
+  return async (url: string) => {
+    const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json', ...auth }, signal: AbortSignal.timeout(60_000) }) // a new query takes it 20 s or more
+    if (!res.ok) throw new Error(`Openverse HTTP ${res.status}`)
+    const left = [...res.headers].filter(([k]) => /^x-ratelimit-available-.*sustained$/.test(k)).map(([, v]) => Number(v))
+    return { json: await res.json(), remaining: left.length ? Math.min(...left) : Infinity }
+  }
+}
 
 /** Photo fetching and screening for galleries and breed pages. */
 const galleryDeps = (): GalleryDeps => ({
   http, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date(), faces: visionFaces,
   get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-  look: (file, prompt) => claudeVision<{ keep: { n: number; caption: string }[]; best: number[] }>({ system: 'You pick photos for a fish photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
+  look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
 
@@ -316,9 +338,12 @@ if (cmd === 'run') {
   console.log(`video-items: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'gallery') {
-  // Many photos per species (Commons + iNaturalist, open licences, screened): pnpm engine gallery [--limit N] [--only <species id>]
-  const r = await galleries(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 8, ...(values.only ? { only: values.only } : {}) })
-  console.log(`gallery: ${r.done.length} species, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  // Galleries topped up to their tier's target, most popular first (iNaturalist, Commons, GBIF, Openverse; open licences,
+  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species or plant id>] [--shard i/n (n runs at once)]
+  const env = (k: string) => (process.env[k] ? Number(process.env[k]) : undefined)
+  const budget = Object.fromEntries((['inat', 'gbif', 'openverse'] as const).flatMap(k => (env(`GALLERY_${k.toUpperCase()}`) === undefined ? [] : [[k, env(`GALLERY_${k.toUpperCase()}`)!]])))
+  const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })
+  console.log(`gallery: ${r.done.length} pages, ${r.sheets} sheets, added ${JSON.stringify(r.added)}, ${r.short.length} short of target, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'breed-photos') {
   // Photos for breed pages that have none (a word search on Commons): pnpm engine breed-photos [--limit N]
@@ -482,12 +507,12 @@ if (cmd === 'run') {
   const added = await addWikidataNames(ROOT, http, lang)
   console.log(`wikidata-names ${lang}: ${added.length} pages\n${added.join('\n')}`)
 } else if (cmd === 'shop-list') {
-  // What fish shops in the language's country sell, from their own lists (web research, never marketplaces):
-  // pnpm engine shop-list --lang vi|id|th [--seed file.json (an array of trade names from one shop's list)]
+  // What fish (or plant) shops in the language's country sell, from their own lists (web research, never marketplaces):
+  // pnpm engine shop-list --lang vi|id|th [--kind plants] [--seed file.json (an array of trade names from one shop's list)]
   const lang = values.lang as ShopLang
-  if (!['vi', 'id', 'th'].includes(lang)) throw new Error('usage: pnpm engine shop-list --lang vi|id|th [--seed file.json]')
+  if (!['vi', 'id', 'th'].includes(lang) || (values.kind && values.kind !== 'plants')) throw new Error('usage: pnpm engine shop-list --lang vi|id|th [--kind plants] [--seed file.json]')
   const seed = values.seed ? (JSON.parse(await readFile(values.seed, 'utf8')) as string[]) : undefined
-  const r = await makeShopList(ROOT, claudeResearch, lang, { seed, model: process.env.RESEARCH_MODEL ?? 'opus', now: () => new Date() })
+  const r = await makeShopList(ROOT, claudeResearch, lang, { seed, model: process.env.RESEARCH_MODEL ?? 'opus', now: () => new Date(), ...(values.kind === 'plants' ? { goods: 'plants' as const } : {}) })
   const unmapped = r.items.filter(i => !i.scientificName)
   console.log(`shop-list ${lang}: ${r.items.length} items, ${r.items.length - unmapped.length} mapped, ${r.sources.length} sources\nunmapped: ${unmapped.map(i => i.trade).join('; ')}`)
 } else if (cmd === 'shop-names') {
@@ -513,6 +538,6 @@ if (cmd === 'run') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--limit N] [--only id] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine photos [--limit N] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
   process.exitCode = 1
 }
