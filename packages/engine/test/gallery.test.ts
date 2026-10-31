@@ -159,3 +159,12 @@ test('gallery: freshness counts the last build (builtAt), not updatedAt: built 1
   await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: [jim('1')], seen: 3, updatedAt: '2026-04-01', builtAt: '2026-10-20' }))
   expect((await galleries(r, okDeps(), { limit: 5 })).done).toEqual([])
 })
+
+test('commons author: the "(talk)" link beside a user name is not part of the name', async () => {
+  const { authorText } = await import('../src/wiki-author')
+  expect(authorText('<a href="//vi.wikipedia.org/wiki/User:Duyphuong">Duyphuong</a> (<a href="//vi.wikipedia.org/wiki/User_talk:Duyphuong">thảo luận</a>)')).toBe('Duyphuong')
+  expect(authorText('Hasemania_4.jpg: Filtropat derivative work: <a>Kyknos</a> (<a>talk</a>)')).toBe('Hasemania_4.jpg: Filtropat derivative work: Kyknos')
+  expect(authorText('--<a>Nightflyer</a> (<a>talk</a>) 19:58, 7 October 2019 (UTC)')).toBe('Nightflyer')
+  expect(authorText('<a>Neale_Monks</a> (<a>talk</a>) (<a>Uploads</a>)')).toBe('Neale_Monks')
+  expect(authorText('Ann (photographer)')).toBe('Ann (photographer)')
+})

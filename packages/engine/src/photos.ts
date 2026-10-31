@@ -1,4 +1,5 @@
 import { isAllowedLicence, type Photo } from '@aq/schema'
+import { authorText } from './wiki-author'
 
 type Info = { width: number; thumburl: string; thumbwidth: number; thumbheight: number; descriptionurl: string; extmetadata?: Record<string, { value: string }> }
 type Result = { query?: { pages?: Record<string, { index: number; title: string; imageinfo?: Info[] }> } }
@@ -24,7 +25,7 @@ export async function searchCommons(search: string, http: (url: string) => Promi
       const caption = text(i.extmetadata?.ImageDescription?.value).slice(0, 200)
       return {
         url: i.thumburl, width: i.thumbwidth, height: i.thumbheight, licence: i.extmetadata!.LicenseShortName!.value,
-        author: text(i.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: i.descriptionurl, caption: caption || p.title.replace(/^File:/, ''),
+        author: authorText(i.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: i.descriptionurl, caption: caption || p.title.replace(/^File:/, ''),
       }
     })
 }
