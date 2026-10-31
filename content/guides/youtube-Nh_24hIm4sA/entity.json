@@ -1,0 +1,119 @@
+{
+  "id": "youtube-Nh_24hIm4sA",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Nh_24hIm4sA",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "Nh_24hIm4sA",
+    "title": "AQUARIUM ALGAE GUIDE Ep #4 Cyanobacteria - Blue Green Algae Removal",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 425,
+    "publishedAt": "2021-02-05",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-howinG2d8o7Bbxn0P6awUj",
+      "position": 10
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Nh_24hIm4sA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Erythromycin",
+        "t": 289
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 130
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 340
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm sao biết bể bị rêu nhớt lam",
+        "moments": [
+          {
+            "t": 59,
+            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t59.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Mảng rêu nhớt lam xanh sẫm phủ dày trong bể thiếu sáng."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao rêu nhớt lam mọc",
+        "moments": [
+          {
+            "t": 109,
+            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t109.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Mặt cát nền bị rêu nhớt lam phủ thành từng mảng."
+          },
+          {
+            "t": 143,
+            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t143.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Thảm cây thủy sinh xanh mọc trên lớp đất nền đen."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p1-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p1-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát nền trong bể có màng nâu bám trên mặt, cạnh đá."
+        }
+      },
+      {
+        "heading": "Cách 3: kháng sinh, một cách chưa kiểm chứng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p5-Npbl9BXzNELnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p5-Npbl9BXzNELnBuZw-480.webp",
+          "width": 960,
+          "height": 795,
+          "licence": "CC BY-SA 4.0",
+          "author": "Jovan.gec",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythromycin_A_3D.png",
+          "caption": "Mô hình phân tử erythromycin, loại kháng sinh có người dùng để trị rêu nhớt."
+        }
+      },
+      {
+        "heading": "Làm sao để rêu nhớt lam không quay lại",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p7-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p7-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng bơi trong bể có nền sỏi và cây thủy sinh."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "youtube-S-FR9u--jVs",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=S-FR9u--jVs",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "S-FR9u--jVs",
+    "title": "Nuôi cá có cần thay nước?",
+    "channel": "Thuỷ Sinh Bền Vững",
+    "channelUrl": "https://www.youtube.com/channel/UCLBVref54jKx-D-F5RkbcJA",
+    "durationSec": 252,
+    "publishedAt": "2025-11-04",
+    "chapters": [],
+    "series": {
+      "id": "PLdMLe7iEZ--Xr2F0mz5QWKH55AM7cj78a",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/S-FR9u--jVs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Vision",
+        "model": "Bio",
+        "t": 94
+      },
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 94
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 155
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 155
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Có bắt buộc phải thay nước không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/S-FR9u--jVs/p0-bV9GaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/S-FR9u--jVs/p0-bV9GaXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
+          "caption": "Bể nuôi nước trong, nền sỏi sạch, đàn cá khỏe mạnh bơi lội."
+        }
+      },
+      {
+        "heading": "Chuẩn bị nước trước khi thay thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/S-FR9u--jVs/p1-oZ2FsbG9uKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/S-FR9u--jVs/p1-oZ2FsbG9uKS5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "SAgbley",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Veronica_Bucket_(gallon).jpg",
+          "caption": "Thùng nhựa lớn có vòi dùng chứa nước để qua đêm cho bay clo."
+        }
+      }
+    ]
+  }
+}

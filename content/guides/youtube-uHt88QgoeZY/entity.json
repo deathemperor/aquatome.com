@@ -1,0 +1,52 @@
+{
+  "id": "youtube-uHt88QgoeZY",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=uHt88QgoeZY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "uHt88QgoeZY",
+    "title": "Chuyện không của riêng ai",
+    "channel": "Thuỷ Sinh Bền Vững",
+    "channelUrl": "https://www.youtube.com/channel/UCLBVref54jKx-D-F5RkbcJA",
+    "durationSec": 133,
+    "publishedAt": "2025-10-03",
+    "chapters": [],
+    "series": {
+      "id": "PLdMLe7iEZ--Xr2F0mz5QWKH55AM7cj78a",
+      "position": 10
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/uHt88QgoeZY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [],
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Làm sao biết cá, tép đang nhảy ra ngoài",
+        "moments": [
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/uHt88QgoeZY/t25.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Bể thủy sinh có đàn tép đỏ bơi giữa rêu và cây."
+          },
+          {
+            "t": 41,
+            "url": "https://media.aquatome.com/video/uHt88QgoeZY/t41.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Tép đỏ bám quanh đá và cây trong bể dưới đèn LED."
+          }
+        ]
+      }
+    ]
+  }
+}

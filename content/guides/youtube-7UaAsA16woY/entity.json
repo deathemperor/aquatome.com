@@ -1,0 +1,130 @@
+{
+  "id": "youtube-7UaAsA16woY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=7UaAsA16woY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "bucephalandra-sp"
+  ],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "7UaAsA16woY",
+    "title": "SETUP Bể thủy sinh phong cách Nature | Tank 60/40/40cm #kenhthuysinh p40",
+    "channel": "KENHTHUYSINH Aqua channel",
+    "channelUrl": "https://www.youtube.com/channel/UCHuRa42v6HLFUBvWsQEH_ww",
+    "durationSec": 819,
+    "publishedAt": "2021-10-31",
+    "chapters": [],
+    "series": {
+      "id": "PL6z2lltApzUQgn02XtFB8_1yI8CHxdXq7",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/7UaAsA16woY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [
+      "Vesicularia sp.",
+      "Microsorum pteropus",
+      "Bucephalandra sp.",
+      "Hydrocotyle sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "WRGB2",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 314
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 314
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 390
+      },
+      {
+        "category": "co2",
+        "t": 660
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Dựng bố cục và xử lý lũa ra sao",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/7UaAsA16woY/t15.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh hoàn chỉnh với lũa phủ rêu và cây xung quanh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p0-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p0-YXJkc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Bể thủy sinh đã dựng xong bố cục lũa trên nền cát, chưa trồng cây."
+        }
+      },
+      {
+        "heading": "Trồng cây và rêu ở đâu",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/7UaAsA16woY/t20.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh với rêu weeping phủ trên cành lũa và cây xung quanh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p2-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p2-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taxiphyllum_sp.Peacock-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Rêu weeping phủ kín cành lũa, xung quanh có cây và đá trong bể."
+        }
+      },
+      {
+        "heading": "Chăm bể thế nào trong những tuần đầu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p4-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p4-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Bể cá vàng có sỏi nền và cây thủy sinh phía sau."
+        }
+      }
+    ]
+  }
+}

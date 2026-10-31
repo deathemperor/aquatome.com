@@ -1,4 +1,12 @@
 {
+  "-5dase5hg20": {
+    "status": "processed",
+    "entityIds": [
+      "youtube--5dase5hg20"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:47:57.245Z"
+  },
   "-MG8jX9LOvI": {
     "status": "processed",
     "entityIds": [
@@ -6,6 +14,21 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:32:32.333Z"
+  },
+  "-xaquAyqkjw": {
+    "status": "error",
+    "entityIds": [],
+    "error": "yt-dlp: ERROR: [youtube] -xaquAyqkjw: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.",
+    "attempts": 1,
+    "updatedAt": "2026-10-30T22:43:49.351Z"
+  },
+  "0ozJmYMk914": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-0ozJmYMk914"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:29:10.216Z"
   },
   "0sRRk-LEl9E": {
     "status": "processed",
@@ -47,6 +70,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:38:02.621Z"
   },
+  "5qe8mXaetcY": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-5qe8mXaetcY"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:28:03.905Z"
+  },
   "5uUPuLt0j2s": {
     "status": "processed",
     "entityIds": [
@@ -54,6 +85,21 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T05:07:27.968Z"
+  },
+  "6tqu7SyOjh8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:43:31.188Z"
+  },
+  "7UaAsA16woY": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-7UaAsA16woY"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:43:08.341Z"
   },
   "8ov1q3r56Kw": {
     "status": "processed",
@@ -69,6 +115,14 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:28:03.008Z"
+  },
+  "A7UY_Sa4t7s": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-A7UY_Sa4t7s"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:31:09.573Z"
   },
   "AsK_yxCXVrY": {
     "status": "processed",
@@ -86,6 +140,21 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:15:09.177Z"
   },
+  "EAjOb0V3Vnw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:53:14.575Z"
+  },
+  "EXF0vtu0bqI": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-EXF0vtu0bqI"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:35:59.694Z"
+  },
   "Ejng2T-a2Gk": {
     "status": "processed",
     "entityIds": [
@@ -102,6 +171,29 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:16:40.448Z"
   },
+  "FM-rkJsWX4k": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:44:41.185Z"
+  },
+  "FaGycOl_GyA": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-FaGycOl_GyA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:23:19.053Z"
+  },
+  "FlHv3rgDj6g": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-FlHv3rgDj6g"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:41:45.833Z"
+  },
   "GDaWgKk-hDo": {
     "status": "processed",
     "entityIds": [
@@ -109,6 +201,37 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:40:18.218Z"
+  },
+  "H-A6KwMSa9s": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-H-A6KwMSa9s"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:50:10.682Z"
+  },
+  "HQ_J1hv2Tyg": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-HQ_J1hv2Tyg"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:39:01.475Z"
+  },
+  "I_KBOUM1RXM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-I_KBOUM1RXM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:17:14.047Z"
+  },
+  "Iaq1XGBHBuE": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:42:08.686Z"
   },
   "J_PR999bgtw": {
     "status": "processed",
@@ -150,6 +273,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:50:52.638Z"
   },
+  "Kgld7vg_f7c": {
+    "status": "error",
+    "entityIds": [],
+    "error": "yt-dlp: ERROR: [youtube] Kgld7vg_f7c: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.",
+    "attempts": 1,
+    "updatedAt": "2026-10-30T22:42:30.103Z"
+  },
   "M0kds6giFrU": {
     "status": "processed",
     "entityIds": [
@@ -166,6 +296,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:30:36.050Z"
   },
+  "NOEpK-M6av4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-NOEpK-M6av4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:21:30.436Z"
+  },
   "Nbl2XlDFhY4": {
     "status": "processed",
     "entityIds": [
@@ -174,6 +312,29 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T03:42:15.889Z"
   },
+  "NgL0NcKUrBY": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:31:03.645Z"
+  },
+  "Nh_24hIm4sA": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Nh_24hIm4sA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:20:08.912Z"
+  },
+  "NuqFo5_oJ2s": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-NuqFo5_oJ2s"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:52:37.558Z"
+  },
   "O5kuU_-xMzo": {
     "status": "processed",
     "entityIds": [
@@ -181,6 +342,21 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:40:48.797Z"
+  },
+  "OSR9EPaO78Q": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-OSR9EPaO78Q"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:07:10.977Z"
+  },
+  "Oj1Czl2n4xU": {
+    "status": "error",
+    "entityIds": [],
+    "error": "yt-dlp: ERROR: [youtube] Oj1Czl2n4xU: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.",
+    "attempts": 1,
+    "updatedAt": "2026-10-30T22:43:28.072Z"
   },
   "Q8-gktwcXqQ": {
     "status": "processed",
@@ -204,6 +380,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T01:11:20.139Z"
   },
+  "S-FR9u--jVs": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-S-FR9u--jVs"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:15:17.045Z"
+  },
   "T5Vf6PGipG4": {
     "status": "processed",
     "entityIds": [
@@ -211,6 +395,22 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:05:23.253Z"
+  },
+  "TEZjYpuJFsU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-TEZjYpuJFsU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:13:01.024Z"
+  },
+  "TKP37sn5BC0": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-TKP37sn5BC0"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:04:12.825Z"
   },
   "ULCBqSQYaOY": {
     "status": "processed",
@@ -227,6 +427,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:09:52.454Z"
+  },
+  "Y6S_TH5qFoE": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-Y6S_TH5qFoE"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:30:40.159Z"
   },
   "Y9b2ac5eAFo": {
     "status": "processed",
@@ -252,6 +460,22 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T05:33:58.953Z"
   },
+  "ZYwZzYODC4Y": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-ZYwZzYODC4Y"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:19:10.225Z"
+  },
+  "ZyaIM3mNO4k": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-ZyaIM3mNO4k"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:37:27.892Z"
+  },
   "_6NIHP9P5jw": {
     "status": "processed",
     "entityIds": [
@@ -260,6 +484,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:10:44.597Z"
   },
+  "_AfM2Mwdig4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-_AfM2Mwdig4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:58:50.897Z"
+  },
   "_ZxeBxNRdPU": {
     "status": "processed",
     "entityIds": [
@@ -267,6 +499,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:14:41.943Z"
+  },
+  "_b7J9kKkkFU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-_b7J9kKkkFU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:40:58.137Z"
   },
   "ahN0nP8HLaI": {
     "status": "processed",
@@ -315,6 +555,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:08:47.957Z"
   },
+  "fTwWsNi06TA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:31:29.758Z"
+  },
   "g6Rqis9uO1Y": {
     "status": "processed",
     "entityIds": [
@@ -330,6 +577,20 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:12:53.737Z"
+  },
+  "gr0S6rrp5gw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:10:19.627Z"
+  },
+  "h8S2tqgB5JQ": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:34:01.999Z"
   },
   "hL920TrlANg": {
     "status": "processed",
@@ -354,6 +615,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:15:26.080Z"
   },
+  "jvEJpkByqJ0": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-jvEJpkByqJ0"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:23:52.963Z"
+  },
   "kDptmxazvGg": {
     "status": "processed",
     "entityIds": [
@@ -361,6 +630,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:37:02.009Z"
+  },
+  "kYFZT3em8GU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-kYFZT3em8GU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:25:44.903Z"
   },
   "kq-MchItRfo": {
     "status": "processed",
@@ -370,6 +647,21 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T03:44:39.005Z"
   },
+  "lVFJKBML5Ws": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-lVFJKBML5Ws"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:26:03.907Z"
+  },
+  "nHctovIFxDM": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:37:50.685Z"
+  },
   "niYfzSsPvZ8": {
     "status": "processed",
     "entityIds": [
@@ -377,6 +669,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:23:25.638Z"
+  },
+  "oHh1FU_k1jo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-oHh1FU_k1jo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:46:34.626Z"
   },
   "ohxFuNlRd2c": {
     "status": "processed",
@@ -386,6 +686,45 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T04:29:17.303Z"
   },
+  "pmAONHBduCw": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-pmAONHBduCw"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:17:54.903Z"
+  },
+  "qjVZkXOHBto": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-qjVZkXOHBto"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:01:39.461Z"
+  },
+  "qqHJr-5enM8": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-qqHJr-5enM8"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:05:36.015Z"
+  },
+  "sX_3GzJI_xo": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:43:06.589Z"
+  },
+  "t-QbuMlXLIg": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-t-QbuMlXLIg"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:09:49.053Z"
+  },
   "tPkJ5PEBVYA": {
     "status": "processed",
     "entityIds": [
@@ -393,6 +732,22 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T03:46:53.453Z"
+  },
+  "uHt88QgoeZY": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-uHt88QgoeZY"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:33:33.527Z"
+  },
+  "vZVXVNavk4g": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-vZVXVNavk4g"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:33:20.465Z"
   },
   "vg0xJoA0Vj4": {
     "status": "processed",
@@ -410,6 +765,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T05:30:55.743Z"
   },
+  "vyNU5afRdkU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-vyNU5afRdkU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-10-30T22:56:01.940Z"
+  },
   "wHma4dxeecU": {
     "status": "processed",
     "entityIds": [
@@ -417,6 +780,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:33:18.318Z"
+  },
+  "wO9lYIQxdwU": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-10-30T23:35:08.999Z"
   },
   "xaMPVEEhQzU": {
     "status": "processed",

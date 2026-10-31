@@ -1,0 +1,100 @@
+{
+  "id": "youtube-vyNU5afRdkU",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=vyNU5afRdkU",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-10-30",
+  "video": {
+    "youtubeId": "vyNU5afRdkU",
+    "title": "Hướng dẫn người mới chơi thủy sinh| lưu ý căn bản | Nguyễn Du aqua",
+    "channel": "Nguyễn Du Aqua",
+    "channelUrl": "https://www.youtube.com/channel/UCZOIIMEDvEh4aJYxynxZluw",
+    "durationSec": 1082,
+    "publishedAt": "2022-03-10",
+    "chapters": [],
+    "series": {
+      "id": "PLKfsAydxgAf8HXCb_k7CT9RztNnqz_t6l",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/vyNU5afRdkU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "t": 60
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 230
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 345
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 473
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 440
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chọn bể kính thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vyNU5afRdkU/p0-yMy0wMi0wNS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vyNU5afRdkU/p0-yMy0wMi0wNS5qcGc-480.webp",
+          "width": 960,
+          "height": 262,
+          "licence": "CC BY-SA 4.0",
+          "author": "Pelagic",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
+          "caption": "Bể kính lớn nhìn từ bên hông, thấy rõ mặt kính và cạnh bể."
+        }
+      },
+      {
+        "heading": "Chọn đèn theo túi tiền",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vyNU5afRdkU/p4-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vyNU5afRdkU/p4-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn LED gác trên thành bể, cây lên màu xanh tốt."
+        }
+      },
+      {
+        "heading": "Chọn cây theo bố cục",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vyNU5afRdkU/p6-FpbnNjYXBlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/vyNU5afRdkU/p6-FpbnNjYXBlLmpwZw-480.webp",
+          "width": 900,
+          "height": 434,
+          "licence": "CC BY-SA 3.0",
+          "author": "Peter Kirwan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peter_Kirwan_Mountainscape.jpg",
+          "caption": "Bể thủy sinh xếp đá nhọn, phủ thảm cây xanh mướt và đàn cá nhỏ."
+        }
+      }
+    ]
+  }
+}
