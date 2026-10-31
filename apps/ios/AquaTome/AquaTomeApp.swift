@@ -57,9 +57,8 @@ struct AquaTomeApp: App {
     #if DEBUG
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-fixed-handbook") || args.contains("-fake-accounts") {
-      if args.contains("-reset-defaults") { TokenStore().delete() }
       let fake = FakeServer(args)
-      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn())
+      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn(), keychain: TokenStore(inDefaults: true))
     }
     #endif
     return AccountModel(tanks: tanks)
