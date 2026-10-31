@@ -325,7 +325,11 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 - **Control works from a Mac (2026-10-31).** The Mac replayed a recorded "off", then "on", by advertising the same 12-UUID list through CoreBluetooth (`CBPeripheralManager`). The owner saw the light switch off and back on.
   - The light accepted old sequence numbers.
   - It sent no echo for these repeats. Our guess is that it relays only messages it hasn't seen before.
-  - Still open: whether a message with a new sequence number or new settings is accepted. That would show there is no integrity check, so the app could build any command rather than only replaying recorded ones.
+  - **Messages we build are ignored.** We took the same off/on messages and changed only the sequence byte to unused values. Both were scrambled correctly, and the light did nothing.
+    - Byte 0 XOR `0x1A` is a counter that goes up by 1 per command. Replays with older counters still worked, so the light isn't simply rejecting old counters.
+    - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 match no standard CRC-16.
+  - So for now this light supports **replay only**: an app could record a user's own commands from Fish lamp and play them back.
+  - Building arbitrary commands would mean finding the signature, most likely by reverse-engineering the app. That is a bigger job, with the ToS risk in 3.7. It is not worth it for v1.
 - The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
 - What this means for the app:
   - A website can't control this light, because Web Bluetooth can't broadcast.
