@@ -36,6 +36,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const triedFile = join(root, 'engine-state/_photo-backfill.json')
   const tried: Record<string, string> = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}'))
   const names: Record<string, { name?: string }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
+  const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
   const polite = <A extends unknown[], R>(source: SourceId, f: (...a: A) => Promise<R>) => async (...a: A) => {
@@ -72,7 +73,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], kind === 'guides' ? 6 : 4, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
-          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media }, e.photos)
+          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos)
           if (stored.length) e.photos = kind === 'guides' ? [...stored, ...e.photos.filter(p => p.sourceUrl !== url)].slice(0, 6) : mergePhotos(e.photos, source, url, stored)
           tried[url] = d.now().toISOString()
         } catch (err) {

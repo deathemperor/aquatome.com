@@ -102,6 +102,9 @@ fi
 if part pages sf photos; then
   # Commons and iNaturalist photos (new galleries, new pages) copied to our bucket: their hosts set third-party cookies.
   pnpm engine mirror-photos --limit "${MIRROR_LIMIT:-200}" || log "mirror-photos: failed"
+  # No watermarks (credits, dealer logos, site names): text on a photo is judged once by the model, a marked photo leaves
+  # every page and stays blocked. After mirroring, so a gallery's Commons photo is screened under the URL pages use.
+  pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 fi

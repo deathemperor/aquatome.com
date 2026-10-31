@@ -116,7 +116,9 @@ The layers above still check the result.
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
   guide: such a guide is reported instead. Found by the owner: a lighting-hours guide ended on pre-filters.
-- **Photos.** No people (faces dropped), each photo must show its species, open licences or permission only.
+- **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
+  photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
+  good), each photo must show its species, open licences or permission only.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped. Where sources disagree, every page

@@ -74,14 +74,18 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
   return out
 }
 
-/** Copy picked photos to our media bucket (once per image) and credit the source page. */
+/**
+ * Copy picked photos to our media bucket (once per image) and credit the source page. `blocked`: photos taken off the
+ * site before (engine-state/_photo-rejected.json: watermarks, other species), skipped so a re-read doesn't bring them back.
+ */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }> }, existing: Photo[],
+  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[],
 ): Promise<Photo[]> {
   const out: Photo[] = []
   for (const img of picked) {
     const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
+    if (deps.blocked?.[deps.media.urlFor(key)]) continue
     const known = existing.find(p => p.url === deps.media.urlFor(key))
     if (known) { out.push(known); continue }
     let bytes: Uint8Array
