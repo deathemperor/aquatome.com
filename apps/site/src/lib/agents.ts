@@ -8,7 +8,8 @@ const SECTIONS = [
   ['/vi/cay/', 'Cây', 'aquarium plant profiles'],
   ['/vi/huong-dan/', 'Hướng dẫn', 'guides: tank setup, care, breeding, planting'],
   ['/vi/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
-  ['/vi/cong-cu/', 'Công cụ', 'tools: tank-mates and stocking checker, tank volume and heater wattage calculators'],
+  ['/vi/cong-cu/', 'Công cụ', 'tools: an index of every tool, and the substrate, heater wattage and fertiliser dose calculators'],
+  ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', 'tank-mates and stocking checker: up to 6 species, whether they can share a tank, and how full the tank would be; ?ca=<slug>:<count>,…&l=&w=&h= in cm'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
   ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
   ['/vi/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
@@ -63,7 +64,7 @@ then sections such as "Nước cần thế nào?" (water), "Nuôi ở Việt Nam
 
 ## Check tank mates and stocking
 
-Link a person to ${u('/vi/cong-cu/')}?ca=<slug>:<count>,<slug>:<count> (up to 6 species; the count is optional) to see
+Link a person to ${u('/vi/cong-cu/nuoi-chung/')}?ca=<slug>:<count>,<slug>:<count> (up to 6 species; the count is optional) to see
 whether species can share a tank (overlapping temperature, pH and hardness, size and temperament) and how full the tank
 would be. Add &l=<cm>&w=<cm>&h=<cm> for the tank size (default 60 × 30 × 36 cm).
 

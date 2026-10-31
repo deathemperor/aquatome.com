@@ -51,7 +51,7 @@ export function appIndex(lang: Lang, c: Content): AppIndex {
     }
   }
   // The tools: the page of calculators, and the ones with pages of their own.
-  for (const [vi, name] of [['/vi/cong-cu/', t('Công cụ')], ['/vi/cong-cu/the-tich-be/', t('Bể bao nhiêu lít?')], ['/vi/cong-cu/den-chihiros/', t('Đèn Chihiros')], ['/vi/cong-cu/be-cua-toi/', t('Bể của tôi')]] as const) {
+  for (const [vi, name] of [['/vi/cong-cu/', t('Công cụ')], ['/vi/cong-cu/nuoi-chung/', t('Nuôi chung được không? Thả bao nhiêu con?')], ['/vi/cong-cu/the-tich-be/', t('Bể bao nhiêu lít?')], ['/vi/cong-cu/den-chihiros/', t('Đèn Chihiros')], ['/vi/cong-cu/be-cua-toi/', t('Bể của tôi')]] as const) {
     if (served(lang, vi)) items.push({ kind: 'tool', name, path: at(vi) })
   }
   return { version: 1, lang, items }

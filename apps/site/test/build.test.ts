@@ -48,7 +48,7 @@ describe('species page', () => {
     expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-boraras-do/'])
     expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/vi/ca/ca-apisto-cacatuoides/')
     expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ')
-    expect(box.querySelector('a[href="/vi/cong-cu/?ca=ca-neon-vua:8#nuoi-chung"]')).not.toBeNull()
+    expect(box.querySelector('a[href="/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
     expect(box.getAttribute('data-pagefind-ignore')).not.toBeNull()
   })
   test('videos are click-to-load facades', () => {

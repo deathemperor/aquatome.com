@@ -60,7 +60,7 @@ const alternates = await alternatesOf('species', s.id)
 const breeds = breedsOf(lang, c, s.id)
 const mates = await companionsOf(lang, c, s.id)
 const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
-const tool = `/vi/cong-cu/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}#nuoi-chung`
+const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
 // The jump row: the parts readers look for, in page order (the photo strip comes before the text).
 const written = (key: SectionKey) => s.sections.some(x => x.key === key && s.t.sections[`${key}:${x.source}`])
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
