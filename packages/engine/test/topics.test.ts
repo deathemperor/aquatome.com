@@ -11,9 +11,10 @@ const facts: TopicFacts = {
     { section: 'signs', fact: 'One or both eyes bulge out', source: 0 },
     { section: 'treatment', fact: 'Epsom salt 1 tablespoon per 5 gallons', source: 1 },
     { section: 'causes', fact: 'Poor water quality', source: 2 }, // its source is not a web page: dropped with it
+    { section: 'what', fact: 'Popeye is a symptom, not a disease', source: 3 }, // a page listed twice: cites its first listing
   ],
   species: ['Carassius auratus', 'Betta splendens (Siamese fighting fish)', 'Nothing here'],
-  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'article' }, { url: 'a book', title: 'Book', kind: 'other' }],
+  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'article' }, { url: 'a book', title: 'Book', kind: 'other' }, { url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS (search summary)', kind: 'university' }],
 }
 
 async function site() {
@@ -42,6 +43,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   // The writer saw only cited facts, renumbered; the rewrite carried the checker's note.
   expect(prompts[0]).toContain('Epsom salt 1 tablespoon per 5 gallons')
   expect(prompts[0]).not.toContain('Poor water quality')
+  expect(prompts[0]).toMatch(/"Popeye is a symptom, not a disease",\s*"source": 0/)
   expect(prompts[2]).toContain('"3 ngày" is not in the facts')
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens'], updatedAt: '2026-10-31' })
