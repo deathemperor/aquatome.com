@@ -70,7 +70,7 @@ const jsonld = [
   <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
   <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
 
-  <section class="sources" aria-labelledby="src-h">
+  <section class="sources" aria-labelledby="src-h" data-pagefind-ignore>
     <h2 id="src-h">{t('Nguồn')}</h2>
     <p>{t('AquaTome tổng hợp từ thông số của hãng, trang các shop thủy sinh và đánh giá của người chơi, rồi tự viết lại. Cập nhật {date}.', { date: dmy(p.updatedAt) })}</p>
     <ol>{p.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
