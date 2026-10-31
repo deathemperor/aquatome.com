@@ -26,6 +26,26 @@ final class LightFlowTests: XCTestCase {
     expect(app, "saved", contains: "12:00–20:00 · 70% · sáng dần 30 phút")
   }
 
+  func testKeepsTheLightAndWhatWasWrittenOnATank() {
+    let app = launch()
+    connect(app)
+    // Met: kept on a new tank, as the site does, with nothing written yet.
+    app.tabBars.buttons["Bể của tôi"].tap()
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
+    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("1 đèn"), row.label)
+    row.tap()
+    XCTAssertTrue(text(app, "WRGB II Slim").waitForExistence(timeout: 5))
+    XCTAssertTrue(text(app, "Chưa lưu lịch nào cho đèn này.").exists)
+
+    app.tabBars.buttons["Đèn"].tap()
+    tap(app, "preset-new")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi lịch: bật 13:00, tắt 19:00.")
+    app.tabBars.buttons["Bể của tôi"].tap()
+    XCTAssertTrue(text(app, "13:00 → 19:00 · sáng dần 30 phút").waitForExistence(timeout: 5), "the schedule written wasn't kept")
+  }
+
   func testSetsAClockLostInAPowerCut() {
     let app = launch("-fake-clock-unset")
     connect(app)
@@ -109,6 +129,10 @@ final class LightFlowTests: XCTestCase {
     let confirm = app.alerts.buttons["Ghi lịch"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
+  }
+
+  private func text(_ app: XCUIApplication, _ part: String) -> XCUIElement {
+    app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", part)).firstMatch
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
