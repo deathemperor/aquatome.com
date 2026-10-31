@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { join, resolve } from 'node:path'
 
 /** The built site's folder the local checks read (the same one serve.mjs serves). */
 export const DIST = resolve(process.env.E2E_DIST ?? 'dist')
@@ -38,6 +38,16 @@ export function samplePages(paths: string[], per = 2, seed = Number(process.env.
  * The first page of each kind in `kinds`, then `extra`: pages measured by name. A kind's first page that is also an extra
  * gives way to the next page of that kind, so no page is listed twice (a test title must be unique).
  */
-export const onePerKind = (paths: string[], kinds: string[], extra: string[] = []) =>
-  [...kinds.flatMap(k => paths.find(p => templateOf(p) === k && !extra.includes(p)) ?? []), ...extra]
+export const onePerKind = (paths: string[], kinds: string[], extra: string[] = [], ok: (path: string) => boolean = () => true) =>
+  [...kinds.flatMap(k => paths.find(p => templateOf(p) === k && !extra.includes(p) && ok(p)) ?? []), ...extra]
+
+/**
+ * Whether a page is offered to search engines: a live site's sitemap lists only those, and a local build's page is one
+ * unless it says noindex (a thin or poorly translated page). Lighthouse's SEO score counts noindex as a failure.
+ */
+export const indexed = (path: string, dist = DIST) => {
+  if (LIVE) return true
+  const file = join(dist, path, 'index.html')
+  return !existsSync(file) || !/<meta name="robots" content="[^"]*noindex/.test(readFileSync(file, 'utf8'))
+}
 
