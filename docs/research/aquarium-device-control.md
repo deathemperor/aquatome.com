@@ -297,10 +297,12 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
 - They also expose a firmware-update (OAD) service, `f000ffc0`. The app must never write to it.
 - The model code (test 3) is still unread. Per alokauz, these lights can't report their state.
 
-**The owner's Love Ecology device is a Tuya BLE device.** It advertises as `TY` (service data `a201`, company ID `0x07D0`).
-- How we know: it is always on. Before the lights were switched on, it was the only aquarium-type device with a strong signal (about −70 dBm, like the lights later). The Chihiros and the Week Aqua-type lights appeared only after.
-- Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`). Control needs the device's local key from a Tuya cloud project. So this brand belongs with the Tuya devices (rank 3), not the BLE lights.
-- The advertised product ID is the raw (type 1) form, so the device type can't be read without the Tuya cloud.
+**The owner's Love Ecology light uses the "Fish lamp" app.** The app is by [Shenzhen Miaoxiang Intelligent](https://apps.apple.com/mo/app/fish-lamp/id6738646596), which makes several "control lights over Bluetooth" apps. Its App Store label says it collects no data and has no account.
+- So it is not Tuya: Tuya devices need a cloud account.
+- The light is always on, yet no device in the scans matches it. Either it was connected to the owner's iPhone (a connected light stops advertising), or the phone controls it by broadcasting and the light never advertises.
+- Not yet tested.
+
+**An unidentified Tuya BLE device** was also near the tank. It advertises as `TY` (service data `a201`, company ID `0x07D0`) with a strong signal. Its traffic is encrypted (GATT `0x1910`, characteristics `2b11`/`2b10`), so control would need its local key from a Tuya cloud project.
 
 What this changes:
 - Test 1 is still open: Chrome on Android hasn't been tried.
