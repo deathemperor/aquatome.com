@@ -26,6 +26,21 @@
       "#1: the added gloss \"(tersebar luas di seluruh dunia)\" is not in the source; consider removing it or keeping just \"Kosmopolitan\""
     ]
   },
+  "alternanthera-bettzickiana": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "Alternanthera bettzickiana",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 4 emersed: \"growth is then moderate to high\" became \"sedang hingga cepat\" – acceptable, but \"Growth rate: low\" in the list is fine. The real error is in section 3: \"mesh areas\" was translated as \"daerah berawa\" (swampy areas); the source is likely \"marsh areas\", so check this, though the meaning is plausible.",
+      "Section 4 Emersed: \"it may lose its colours and turn green\" became \"warnanya bisa memudar dan berubah menjadi hijau\" – fine. But \"In winter it can only survive indoors\" is OK; no change needed.",
+      "Section 4: \"Liquid fertilizers are required at least a few times a month\" became \"Pupuk cair wajib diberikan minimal beberapa kali sebulan\" – \"wajib\" is a bit strong; use \"perlu\".",
+      "Section 5: \"narrow to broadly elliptic\" became \"sempit hingga lonjong lebar\" – use \"elips sempit hingga lebar\" for botanical accuracy.",
+      "Section 5: \"Hardness 1–12 GH\" and \"Poor growth ... low light, low nutrients\" are fine, but \"Relocation\" as \"Pemindahan\" is fine. Mistake: \"Seeds are disk-shaped\" is fine. Main issue: Section 2 \"menjadi tumbuhan liar\" for \"naturalized\" should be \"ternaturalisasi/menjadi liar\" – minor.",
+      "Section 2: \"British Virgin Islands\" as \"Kepulauan Virgin Britania Raya\" – use the usual \"Kepulauan Virgin Britania\"; \"St. Lucia\" should be \"Santa Lusia\"."
+    ]
+  },
   "alternanthera-reineckii": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -309,6 +324,25 @@
     "notes": [
       "\"biji yang viabel\" is stiff jargon; use \"biji yang subur/dapat berkecambah\".",
       "\"Disukai hewan\" for \"Palatable\" is vague; \"Dimakan hewan lain\" or \"Mudah dimakan ikan/siput\" is clearer."
+    ]
+  },
+  "bolbitis-heteroclita": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "Bolbitis heteroclita",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 8, Wilting: 'emergent plants submerged in water wilt because their leaves are not adapted' is rendered 'daunnya belum beradaptasi', which is fine. But 'Turning black ... hard water' is OK. The real problems are elsewhere, listed below.",
+      "Section 4: the 80 litres figure is kept, which is correct. The 'setengah emersed' for 'semi-emergent' is fine.",
+      "Section 7, Fertilization: 'tanaman ini tetap baik tanpa pupuk rutin' is a loose rendering of 'does fine without regular fertilizers'. Use 'tanaman ini tetap tumbuh baik tanpa pupuk rutin'.",
+      "Section 6, 'Di air basa, daun sering terlihat meleleh': 'leaf dissolution' is rendered acceptably, but 'air basa' is better written 'air basa/alkalis'.",
+      "Section 8, Tankmates: 'white cloud mountain minnows' becomes 'white cloud' and 'clown killifish' is left in English. 'crystal red shrimp', 'blue bolt shrimp', 'silver dollar' and 'Jack Dempsey' are also left in English. These are acceptable trade names, but 'ikan mas koki' for goldfish should be 'ikan mas' or 'koki'.",
+      "Section 8, Avoid: 'crayfish' is rendered 'lobster air tawar', which is correct. 'Soil types: tanah lempung berpasir' for 'loamy soil' is slightly off, since loam is 'tanah lempung/geluh' and not specifically sandy. Use 'tanah lempung (geluh)'.",
+      "Section 3: 'tanaman darat peneduh' for 'terrestrial shade plant' is awkward. Use 'tanaman darat yang menyukai naungan'.",
+      "Section 2: 'Papua (New Guinea)' narrows New Guinea to Papua, which is a changed fact. Use 'Pulau Papua/Nugini'. The place name 'Kalimantan' for Borneo is also narrower, since Borneo includes Sabah, Sarawak and Brunei. Use 'Borneo'.",
+      "Section 5: 'paling hanya beberapa daun per bulan' is awkward. Use 'hanya beberapa daun per bulan'. 'plastik wrap' is better as 'plastik wrap/cling wrap'.",
+      "Section 1, 'Bisa ditanam emersed' and 'Growth rate: low' are fine. But 'Aquarium size: 10–15 cm' translated as 'Ukuran di akuarium' is OK. Section 5 contradicts 'Growth rate: low' by saying emersed growth is 'sedang sampai cepat', which matches the source."
     ]
   },
   "bolbitis-heudelotii": {
@@ -890,6 +924,31 @@
     "score": 0.9,
     "notes": [
       "\"mirip daun pinus\": \"pine needles\" means jarum pinus; use \"mirip jarum pinus\" (daun pinus is slightly off but meaning is intact)."
+    ]
+  },
+  "fissidens-fontanus": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Phoenix Moss",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"punya helaian halus yang rapat berwarna hijau tua\": source says \"tight deep green down\" (fine, dense, down-like growth). \"helaian halus\" is a loose rendering; consider \"bulu halus rapat berwarna hijau tua\".",
+      "\"Moss Fissidens berbentuk seperti bulu ini\": a bit awkward; consider \"Moss Fissidens yang menyerupai bulu burung ini\" (featherlike).",
+      "\"Moss\" as the type is acceptable, but \"lumut\" is not used for aquarium moss, so keep \"moss\"."
+    ]
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "Glossostigma",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Asal\" is slightly awkward as a label; \"Asal\" alone is okay but \"Asal daerah\" or \"Asal negara\" is more natural.",
+      "Item 3: \"tanaman air terkecil\" – the source says aquarium plants; \"tanaman akuarium terkecil\" is more faithful.",
+      "Item 3: \"bergaya Jepang\" for \"Japanese-inspired\" is fine, but \"banyak dicari\" is slightly loose; \"sangat diminati\" would be more natural.",
+      "Item 2: \"menaunginya\" is a bit stiff; \"menutupi/menaungi\" is acceptable, but \"menutupi\" is more common among hobbyists."
     ]
   },
   "hygrophila-polysperma": {

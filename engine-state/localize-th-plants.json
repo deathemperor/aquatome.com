@@ -26,6 +26,22 @@
       "\"ตะไคร่และสาหร่ายในตู้\" adds \"ในตู้\" and \"ตะไคร่\", which the source does not have. Keep to \"สาหร่าย\"."
     ]
   },
+  "alternanthera-bettzickiana": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "ผักเป็ดแดง",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "\"mesh areas\" rendered as \"พื้นที่ชุ่มน้ำ\" (wetlands) – meaning changed/unclear; original says mesh areas, translate literally or fix to match source intent.",
+      "\"Emersed form\" heading translated \"แบบบก\"; fine, but \"it may lose its colours and turn green\" rendered \"สีซีดและกลายเป็นสีเขียว\" – adds \"pale\" (สีซีด) not in source; use \"สีสดหายไปและกลายเป็นสีเขียว\".",
+      "\"Hardness 1–12 GH\" and \"ความกระด้าง (GH)\": acceptable, but \"Experiments indicate it is not a halophyte\" → \"ไม่ใช่พืชทนเค็ม\" is inaccurate; halophyte = พืชชอบเค็ม/พืชทนเกลือ; clarify.",
+      "\"Seeds are disk-shaped\" / \"leaf melting\" → \"ใบละลาย\" is OK, but \"Fragile leaves\" → \"ใบเปราะ\" fine; \"Ancistrus\" left in Latin letters; hobbyists say \"ปลาเทพา/ปลาแพลโค\" – consider adding Thai trade name.",
+      "\"Let it float freely in the water\" omits that cutting is placed in water until roots form is fine, but \"Select a cutting with 4–5 leaves\" ok; \"Hardiness in winter can only survive indoors\" ok. \"Growth is then moderate to high\" rendered ok.",
+      "\"Grows extremely slowly even under optimal conditions\" – \"ธาตุอาหาร และค่าน้ำที่คงที่ในระดับสูง\" ambiguous; make clear that high requirements apply to all four items.",
+      "\"ปลูกแบบบก\" for \"emersed\" is fine; \"Growth rate: low\" is fine; \"Etymology: anthos, a pollen-bearing part of a flower\" → \"ส่วนของดอกที่มีละอองเกสร\" ok; \"fairly hardy\" ok."
+    ]
+  },
   "alternanthera-reineckii": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -286,6 +302,25 @@
       "Item 6: 'Discoloration' is translated 'สีซีด', which narrows the meaning. Use 'สีผิดปกติ/ใบเปลี่ยนสี'.",
       "Item 6: 'เป็นที่ชอบของสัตว์กินพืช' is stiff for 'Palatable'. Use 'ถูกกินง่าย: หอยและปลาบางชนิดกินใบ'.",
       "Item 9: 'ปลาคาร์ดินัลจีน (white cloud mountain minnow)' is acceptable but could use the more common Thai name 'ปลาซิวไวท์คลาวด์'. 'เนื่องจากใบบอบบางและสัตว์ชอบกิน' is awkward; say 'ใบบอบบางและเป็นที่ชอบของสัตว์กิน'."
+    ]
+  },
+  "bolbitis-heteroclita": {
+    "at": "2026-10-31",
+    "from": "2026-10-31",
+    "name": "บอลบิติส เฮเทอโรคลิตา (Bolbitis heteroclita)",
+    "confidence": "medium",
+    "score": 0.55,
+    "notes": [
+      "Item 4: '80 litres (20 gallons)' -> 20 US gallons is ~76 L; 80 L is OK as rounding, but this is fine. Real issue: 'ปลูกแบบกึ่งโผล่พ้นน้ำ' fine.",
+      "Item 8: 'ปลาแพะแคระ' for pygmy corydoras is wrong/odd; should be 'ปลาคอรี่แคระ' (corydoras). 'แพะ' is a different fish (goat fish).",
+      "Item 8: 'ปลาม้าลาย' ok, but 'ปลาสอด' for mollies is wrong: mollies = 'ปลาโมลลี่'; ปลาสอด is a general term for platies/swordtails (platies = เพลตี้) so mollies is mistranslated/duplicated.",
+      "Item 8: 'ปลาไวท์คลาวด์' fine; 'ปลาเตตร้าบัวโนสไอเรส' acceptable. 'ปลาซิลเวอร์ดอลลาร์' ok.",
+      "Item 8: 'ปลาอ็อตโต (ปลาซักเกอร์อ็อตโต)' - otocinclus: ok. 'ปลาคาร์ฟ' for koi: should be 'ปลาคราฟ/ปลาคาร์ปแฟนซี'.",
+      "Item 8: 'ใบย่อยที่สร้างสปอร์เกิดขึ้นได้น้อย' ok; 'สายพันธุ์ต่าง ๆ' for varieties better 'พันธุ์ย่อย/วาไรตี้'.",
+      "Item 8: 'กุ้งเครย์ฟิช' should be 'กุ้งเครย์ฟิช/กุ้งก้ามแดง' fine; but 'ปลานีออน' neon tetras OK.",
+      "Item 3: 'ชอบถิ่นอาศัยแบบมีโซไฟต์' is garbled; mesophyte habitat = 'ถิ่นอาศัยที่มีความชื้นปานกลาง (mesophyte)'. 'แหล่งนิเวศน์' should be 'แหล่งนิเวศ'.",
+      "Item 5: 'เฟิร์นใบมะพร้าว' is wrong for Java fern; should be 'เฟิร์นชวา'. 'พืชเกาะหิน' fine.",
+      "Item 2: 'หมู่เกาะโมลุกกะ' ok; 'Nansei-shoto' rendered as ริวกิว (narrower than Nansei) - minor."
     ]
   },
   "bolbitis-heudelotii": {
@@ -851,6 +886,25 @@
       "\"เรียงตัวเป็นกอทรงดอกกุหลาบ (rosette)\" is slightly awkward; \"เป็นกอรัศมีวงกลมที่โคนต้น\" or \"โรเซ็ตต์\" is more natural.",
       "\"การเติม CO2 จะช่วยให้เติบโตได้ดีที่สุด\" is a bit stiff; \"ควรเติม CO2 เพื่อให้เติบโตได้ดีที่สุด\" is more natural."
     ]
+  },
+  "fissidens-fontanus": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "ฟีนิกซ์มอส",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"ใบเรียงแน่น\" is a slight interpretation of \"tight deep green down\"; this is minor, and a plainer rendering such as \"ขนละเอียดแน่นสีเขียวเข้ม\" would stay closer to the source.",
+      "\"ผูกติดกับขอนไม้หรือหิน\" is fine, but the sentence order differs slightly from the source."
+    ]
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-10-31",
+    "from": "2026-10-30",
+    "name": "กลอสโซ่",
+    "confidence": "high",
+    "score": 0.97,
+    "notes": []
   },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
