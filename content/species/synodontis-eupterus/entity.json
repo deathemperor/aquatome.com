@@ -1,0 +1,180 @@
+{
+  "id": "synodontis-eupterus",
+  "scientificName": "Synodontis eupterus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria",
+    "cameroon",
+    "mali",
+    "ghana",
+    "sudan",
+    "chad",
+    "niger",
+    "burkina-faso",
+    "central-african-republic",
+    "guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>The featherfin Synodontis, Synodontis euptera, is a catfish from Nigeria, Cameroon, Mali, Ghana, Sudan, Chad and Niger. Juveniles are often sold as Synodontis 'Network' for their reticulated pattern, with no hint of an adult size of up to 300 mm SL. The pattern breaks up into simple spots with age as the long extensions of the 'feathered' dorsal fin develop. It can live for over 15 years in the aquarium.</p><ul><li>Max size: 300 mm SL (12 in)</li><li>Aquarium size: 120 × 30 cm</li><li>Temperature: 22–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Nigeria, Cameroon, Mali, Ghana, Sudan, Chad, Niger. It occurs in varying biotopes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Nigeria, Cameroon, Mali, Ghana, Sudan, Chad, Niger. It occurs in varying biotopes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Standard length: 300 mm SL (12 in). Aquarium base: 120 × 30 cm (48 × 12 in). Volume: ~108 litres (~29 US gal), based on 120 × 30 × 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>An aquarium with a soft substrate and rocks, pieces of driftwood and twisted roots arranged to form hiding places suits this species. Floating vegetation is also recommended in order to diffuse the light entering the tank. Other planting is beneficial but not essential.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 8–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Should not be kept with any fish so small as to be considered food. Ideal tankmates include Alestiid tetras, robust cichlids (particularly West African species), Mormyrids, Knifefish, Gouramis and larger rasboras and barbs. It tends to become slightly territorial as it matures, especially towards other Synos. However any aggression is usually far less pronounced than in some other members of the genus and it can be maintained in a small group in a suitably sized aquarium, provided each fish is given a refuge to call home. Not recommended for the general community due to its adult size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Adult females are much plumper than males. It can also be sexed by examining the genital papillae. This is not for the amateur however. The fish should be held ventral side up in the palm of your hand. The dorsal fin should be taken between your middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area you are looking for is concealed beneath the pelvic fins. This can be exposed by pulling (gently) on the caudal fin. A male fish will exhibit an extended papillae which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papillae but this is more rounded and the oviduct is on the opposite side to the male's spermatoduct. Most species of medium/large Synodontis can be sexed using this method but it should be noted that most species take 2 years or more to reach sexual maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>Not achieved under natural conditions in aquaria, although captive breeding has occured on commercial fish farms via the use of hormone injections. Many of the young fish that come onto the market have been produced in this way. In nature, S. eupterus breeds in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "html": "<p>One of the most popular and commonly seen Synos in the hobby, S. eupterus is usually offered for sale as a small (1-3\") juvenile with no information regarding its potential size. These young fish are often sold as Synodontis \"Network\" due to their attractive reticulated patterning. This patterning breaks up as the fish mature and adult specimens have a simple spotted colouration. The characteristic 'feathered' dorsal also develops with age, with the first few rays developing long extensions. This species is relatively secretive in the aquarium, and can often be found in the classic Synodontis inverted position underneath overhanging rocks or driftwood. However, it will learn to emerge for food, even when the tank lights are on with time. It can survive for over 15 years in the aquarium if maintained properly. Also known as the Featherfin Squeaker.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9c45abd501f2fcf3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9c45abd501f2fcf3-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
+      "caption": "Synodontis eupterus subadult",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mềm cho cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

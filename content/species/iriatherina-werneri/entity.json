@@ -1,0 +1,217 @@
+{
+  "id": "iriatherina-werneri",
+  "scientificName": "Iriatherina werneri",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Iriatherina",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "indonesia",
+    "merauke",
+    "papua-new-guinea",
+    "fly",
+    "australia",
+    "cape-york-peninsula"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>The threadfin rainbowfish, Iriatherina werneri, is a small rainbowfish from southern New Guinea, Cape York in Queensland and the Northern Territory. Although widely traded and produced on a commercial scale, it is quite delicate with rather specific care requirements and is not a recommended beginner's fish. Easily outcompeted for food, and with long-finned males that some common species nip, it is best kept alone or with fishes of comparable size and disposition.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Described from 'Merauke, Irian Jaya, Indonesia' which corresponds to modern day Merauke Regency, Papua province, Indonesia, on the island of New Guinea. It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland. Populations are also known from Lakes Bosset and Kala.</p><p>In Australia records exist from numerous river basins of the Cape York Peninsula, Queensland state, plus the Northern Territory to the west, including the Arafura wetland in Arnhem Land. The fish exhibit some differences in colour pattern and fin morphology depending on locality, but wild examples are virtually unknown in the aquarium hobby with all those seen on sale produced on a commercial basis.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Shows a preference for slow-moving streams, freshwater swamps, lagoons, and billabongs containing clear water and abundant macrophytes. It's most commonly-found in heavily-vegetated, marginal habitats less than 1.5 m in depth and is frequently associated with floating lily pads. A temperature range of 22 – 32 °C (72 – 90 °F) and pH of 5.2 - 7.5 have been recorded in field measurements.</p><p>Females and juveniles have been observed to group together in schools while sexually-active males form temporary territories in open water from which they display to other males and ripe females. Spawning takes place during warmer months of the year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Standard length: 40 mm SL (1.6 in). Aquarium base: 60 × 30 cm (24 × 12 in). Volume: ~54 litres (~14 US gal).</p><p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Best kept in a densely-planted tank and an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel. If you wish to raise fry alongside the adults the addition of a fine-leaved aquatic moss such as a Taxiphylum sp. is advisable (see 'Reproduction').</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. Do not add this fish to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<ul><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Feeds on floating or suspended phytoplankton, diatoms, and other zooplankton in nature, and in the aquarium must be offered items of a suitable size for its tiny mouth. Ideally much of the diet should comprise live foods such as Daphnia, Moina, Artemia nauplii, micro worm, copepods, etc., although small/crushed floating dried foods are also accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Very peaceful but not suitable for the general community aquarium since it's easily outcompeted for food and the long fins of mature males may be nipped at by certain common species. It's best maintained alone or alongside fishes of comparable size and disposition such as Pseudomugil spp., or if geography isn't an issue Microdevario, Danionella, Eirmotus, Trigonostigma, pygmy Corydoras, small loricariids such as Otocinclus spp., and freshwater shrimp of the genera Caridina and Neocaridina are also suitable.</p><p>It's a shoaling species by nature and really should be kept in a group of at least 6 specimens, ideally 10 or more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display. Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Adult males possess extended unpaired and pelvic fins, are larger and more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>This species is an egg-scatterer exhibiting no parental care and will consume its own eggs and fry given the opportunity. Spawning is more likely in temperatures towards the upper end of the range suggested above, with females capable of depositing a few eggs daily for a period of several days. An individual male may also mate with multiple females during a single day, and spawning usually continues throughout daylight hours during warmer periods.</p><p>Males will often display to females when in spawning condition and appear to prefer to do so under cover of floating vegetation. Overall colouration intensifies, the rounded first dorsal-fin is held erect and a 'flicking' gesture of the filamentous rays of the second dorsal and anal fins used to entice a mate. A responsive female will select a spawning site, typically the roots of floating plants or a bunch of fine-leaved vegetation, and signify she has done so by remaining still, at which point both fish enter the medium to release eggs and milt.</p><p>There exist two basic methods for aquarium breeding. The first involves isolating a single male and two or three females into a smaller tank set up with an air-powered sponge filter and spawning medium in the form of nylon mops or aquatic moss. The medium is checked on a daily basis and removed to a separate hatching container when eggs are found.</p><p>The alternative is to maintain a colony of adults in a larger, fully-decorated set-up which if well-planted should allow some fry to survive. Since they spend the early part of life close to the water surface aquatic mosses from the genus Taxiphylum attached to décor high in the water column apparently produce the most favourable results, but floating plants with trailing roots are also recommended.</p><p>The latter approach is less productive but simpler and more reliable as mature, planted aquaria normally facilitate relatively stable water conditions and the resident microfauna can constitute a valuable early food source for fish fry. When the eggs are isolated and fry raised artificially issues can arise with both feeding and water quality due to their incredibly small size and delicate nature.</p><p>Aged water can result in high mortality so regular, small water changes are essential and uneaten food should not be allowed to accumulate in the rearing tank. The fry are also quite selective in terms of preferred prey size as they grow, so if using live foods cultures of several types may be necessary. They can also be raised using good quality, powdered dry products of which some are available in incrementally-graded particle sizes. Small meals should be offered at least twice daily.</p><p>Growth rate is generally slow for the first couple of weeks, but can be improved by the use of live foods, and the faster and slower-growing fry may require separation at some point as the larger will outcompete and prey on the smaller.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<p>Although this species is widely-traded and produced on a commercial scale for the aquarium hobby, it's actually quite delicate with some rather specific care requirements so isn't a recommended beginner's fish. It's also sometimes referred to as 'featherfin rainbowfish'.</p><p>It possesses distinctive morphology and colour pattern compared with other members of the family Melanotaeniidae and the genus has remained monotypic since description by Meinken (1974). There exists some evidence to suggest that the populations from The Northern Territory, Queensland, and New Guinea exhibit a large enough degree of genetic separation to warrant recognition as distinct taxa, but this has not been confirmed at time of writing.</p><p>The genus can be told apart from other melanotaeniids by the following combination of characters: all spines of the first dorsal-fin relatively soft and flexible; 11-12 soft anal-fin rays; first few rays of second dorsal and anal fins extended into filaments in males; exposed premaxillary teeth reduced to a single row of 7-8 enlarged canines. In terms of evolutionary relatedness to others in the family it appears to fall between Melanotaenia and Rhadinocentrus.</p><p>There exists a sister-group relationship between the Melanotaeniidae and Malagasy family Bedotiidae, which may seem surprising given their respective modern-day distributional patterns. The precise origin and subsequent dispersal of the two families has been the subject of debate, with some palentologists suggesting that Madagascar's freshwater fishes derived froma trans-oceanic dispersal during the Cenozoic Era, but the most compelling arguments currently indicate a freshwater radiation which occurred during the Mezozoic break-up of Gondwana.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "html": "<ul><li>Sparks, J. S. and W. L. Smith (2004). Phylogeny and biogeography of the Malagasy and Australasian rainbowfishes (Teleostei: Melanotaenioidei): Gondwanan vicariance and evolution in freshwater. Molecular Phylogenetics and Evolution 33(3), 719-734</li><li>Allen, G. R. (1980). A Generic Classification of The Rainbowfishes (Family Melanotaeniidae). Records of the Western Australian Museum 8(3), 449-490</li><li>Tappin, A. R. (2010). Rainbowfishes - Their Care and Keeping in Captivity. Art Publications, 1-484</li><li>Allen, G. R., H. Midgley, and M. Allen (2002). Field guide to the freshwater fishes of Australia. Western Australian Museum, i-xiv + 1-394</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a931a357ef48f267.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a931a357ef48f267-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "caption": "Males spar often when in spawning condition...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/eb7032ff96fadf22.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eb7032ff96fadf22-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "caption": "...though physical damage is rare.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17-480.webp",
+      "width": 855,
+      "height": 641,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "caption": "Adult female post-spawning with some undeposited eggs still attached.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3303b683139df98b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3303b683139df98b-480.webp",
+      "width": 783,
+      "height": 587,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "caption": "More sparring males.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60x30 cm",
+        "bể thủy sinh 54 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển chạy bằng khí",
+        "lọc bọt biển cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "bo bo",
+        "thức ăn khô dạng bột cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

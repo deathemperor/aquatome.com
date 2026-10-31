@@ -1,0 +1,155 @@
+{
+  "id": "hasemania-nana",
+  "scientificName": "Hasemania nana",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hasemania",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-sao-francisco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>The silvertip tetra, Hasemania nana, is a characid from the Rio São Francisco basin in Brazil. It inhabits creeks and tributaries away from the main river channels. Hasemania is one of the few characid genera whose members lack an adipose fin. All the fish in the trade are captive bred and unfussy about water chemistry and diet, and it is sometimes sold as the 'copper tetra'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>Rio São Francisco basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>Tends to inhabit creeks and tributaries away from the main river channels. Apparently, it's found in both white and black water environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>Standard length: 50 mm (2.0 in). Aquarium base: 60 × 38 cm (24 × 15 in). Volume: ~68 litres (~18 US gal).</p><p>It's an active species, so a small shoal will need a tank of at least 60 × 38 × 30 cm (24 × 15 × 12 in), about 68 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>Adaptable and will do well in most types of setup, but is particularly well-suited to a heavily planted tank. Oddly enough, aquatic plants are not a feature of its natural environment. A biotope setup would be rather more simple, consisting of a sandy substrate, a few driftwood branches and twisted roots and a scattering of dried leaves over the tank base (oak and beech leaves are both aquarium-safe once thoroughly dried). It will show its best colours under slightly dimmed lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<ul><li>Temperature: 23–28 °C (73–82 °F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>Easy to feed. It will readily accept just about anything offered. For the best condition and colours, offer regular meals of small live and frozen foods such as bloodworm, Daphnia and brine shrimp, along with dried flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
+      "html": "<p>One of the best tetras for the 'general' community setup. It is lively, quite colourful and peaceful. It's a good tankmate for most livebearers, danios, rasboras, other tetras and peaceful bottom dwellers such as Corydoras or smaller Loricariids. It can also be kept with the majority of commonly available gouramis and dwarf cichlids. Obviously, it shouldn't be combined with larger species that may see it as food, such as angel fish. While some individuals can be a little nippy if kept alone, this behaviour is reduced dramatically when it is maintained in a group. It's therefore recommended to buy no less than 6 of these, preferably 10 or more.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/7bb530a5ab22ea78.webp",
+      "width": 940,
+      "height": 615,
+      "licence": "CC BY-SA 3.0",
+      "author": "Malene Thyssen (User Malene)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobbertetra_Hasemania_nana.jpg",
+      "caption": "Cupper tetra (Hasemania nana)",
+      "thumb": "https://media.aquatome.com/commons/7bb530a5ab22ea78-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a6bf512005c4b2f3.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hasemania_4.jpg: Filtropat derivative work: Kyknos (talk)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hasemania_4_cropped.jpg",
+      "caption": "Hasemania nana.",
+      "thumb": "https://media.aquatome.com/commons/a6bf512005c4b2f3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a260680977625a4c.webp",
+      "width": 960,
+      "height": 582,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dycyos2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:54l_Aquarium_mit_Innenfilter.png",
+      "caption": "Aquarium mit Wasserpflanzen, Deko-Schiff, Fischen, Innenfilter",
+      "thumb": "https://media.aquatome.com/commons/a260680977625a4c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2a4b5de304e67272.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Juan R. Lascorz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:04.Hasemania_nana.JPG",
+      "caption": "Hasemania nana",
+      "thumb": "https://media.aquatome.com/commons/2a4b5de304e67272-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

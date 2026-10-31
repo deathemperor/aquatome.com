@@ -1,0 +1,199 @@
+{
+  "id": "myxocyprinus-asiaticus",
+  "scientificName": "Myxocyprinus asiaticus",
+  "order": "Cypriniformes",
+  "family": "Catostomidae",
+  "genus": "Myxocyprinus",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "yangtze"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15.5,
+          "max": 21
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>This species is always offered for sale in its attractive juvenile form at 80–100 mm SL.</p><ul><li>Max size: 900 mm SL (35 in SL)</li><li>Temperature: 15.5–21°C (60–70°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul><p>The Chinese sailfin sucker, Myxocyprinus asiaticus, is a catostomid endemic to the upper and middle Yangtze River system in China, including the Min. The only Asian member of its family, it is traded as juveniles under names such as 'Chinese banded shark', almost always without mention of an adult size of almost a metre or a lifespan of 25 years or more. Wild populations are threatened by dams, pollution, overfishing and introduced species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River. It's known to be threatened across this range due to construction of dams impeding its migratory paths, pollution, overfishing and introduction of exotic species, notably carp.</p><p>It features in the China Red Data Book of Endangered Animals in which it's currently included as a 'second class state protected' animal, and the population from the Min may already have disappeared.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>A pelagic species primarily occuring in main river channels and larger streams. Juveniles tend to be found in slow-flowing, shallow water with rocky substrates while larger specimens show a preference for deeper areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Standard length: 900 mm SL (35 in SL)</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided. However should you possess the means to both provide and decorate a sufficiently-sized aquarium this species a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel, some large water-worn boulders and perhaps a couple of driftwood branches is recommended.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank so external filters, powerheads, etc., should be employed in order to obtain the desired effect.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Temperature: This species is subject to seasonal temperature fluctuations in nature and is active over the range 15–26.6°C (59–80°F), although prolonged exposure to conditions towards the upper end of this range is not recommended. Try to maintain a value between 15.5–21°C (60–70°F) for long-term care since there exist numerous reports of this fish developing fungal problems in aquaria which may be related to excessively high temperatures.</p><p>pH: 6.0–8.0</p><p>Hardness: 2–20 dGH</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>A benthic omnivore with insects, crustaceans, small molluscs, annelids, algae and other vegetable matter comprising the diet in nature. In the aquarium daily meals of small live and frozen foods such as bloodworm, Daphnia and Artemia should be offered alongside good quality, sinking dried products, ideally containing additional plant material such as Spirulina.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Not aggressive and can be maintained alongside other large, riverine species in a suitably-sized display. It apparently occurs in groups in the wild.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Almost impossible to sex by external characteristics at juvenile size but adult males develop intense red colouration on the flanks when in breeding condition whereas females are plainer. The striped subadult patterning begins to break up when the fish measure 12–14\" in length (about 30–36 cm) and are already several years old.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>Not thought to have been achieved in aquaria although the young fish available in the aquarium trade are produced and reared artificially via the use of hormones. In nature adults become sexually mature at around 6 years of age and undertake annual migrations into faster-flowing, shallow headwaters to spawn between the months of February-April, moving back into the main river channels in the autumn.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<p>This species is traded under various names including 'Chinese banded shark', 'Chinese sucker', 'freshwater batfish', 'high-fin banded loach', etc. It's currently illegal to import or own privately in several countries, including the UK, but continues to be available with only the attractive juvenile form traded, and almost always without information regarding adult size of almost a metre or potential lifepan of 25 years+.</p><p>Myxocyprinus is a monotypic genus and the only Asian representative of the family Catostomidae. The majority of catostomids, commonly referred to as 'suckers', are native to North America where there exist almost 70 species.</p><p>They are chiefly bottom-dwelling fishes with protrusible, fleshy lips and toothless mouths although they do possess a characteristically long pharyngeal bone with toothlike projections. Some exist over relatively small ranges and are threatened by pollution, introduction of exotic species and dessication of waterways while others are important food fish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "html": "<ul><li>Liu, J., J. Chen, Z. Yu and L. Liu (1995). Controlled Reproduction and Broodstock Rearing of the Chinese Sucker Myxocyprinus asiaticus. Asian Fisheries Science 8, 223-227</li><li>Gao, Z., Y. Li and W. Wang (2008). Threatened fishes of the world: Myxocyprinus asiaticus Bleeker 1864 (Catostomidae). Environmental Biology of Fishes 83(3), 345-346</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/da73e1f60a690fe1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/da73e1f60a690fe1-480.webp",
+      "width": 871,
+      "height": 655,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "caption": "This speciesis always offered for sale in its attractive juvenile form at 80 - 100 mm SL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3349b65463cec269.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3349b65463cec269-480.webp",
+      "width": 875,
+      "height": 658,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "caption": "Ventral view of head and mouthparts; juvenile specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/02ce2cfe9de30846.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/02ce2cfe9de30846-480.webp",
+      "width": 600,
+      "height": 399,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "caption": "These subadults have started to lose the juvenile patterning, body and fin morphology.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a4687c877ffcadbf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a4687c877ffcadbf-480.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
+      "caption": "Adult males develop red pigmentation on the flanks when in breeding condition.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc ngoài bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

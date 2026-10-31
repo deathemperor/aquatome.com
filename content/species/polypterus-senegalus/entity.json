@@ -1,0 +1,228 @@
+{
+  "id": "polypterus-senegalus",
+  "scientificName": "Polypterus senegalus",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Polypterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "benin",
+    "burkina-faso",
+    "cameroon",
+    "central-african-republic",
+    "chad",
+    "cote-d-ivoire",
+    "democratic-republic-of-the-congo",
+    "egypt",
+    "ethiopia",
+    "ghana",
+    "guinea",
+    "kenya",
+    "mali",
+    "niger",
+    "nigeria",
+    "senegal",
+    "sudan",
+    "tanzania",
+    "togo",
+    "uganda",
+    "south-sudan",
+    "gambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.2,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 50
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<ul><li>Max size: 500 mm SL (20 in)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.2–7.8</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p><p>The Senegal bichir, Polypterus senegalus, is the most widespread bichir, found in 26 African countries including Egypt and Senegal. It is usually found in shallow, slow-moving swamps, marshes and freshwater lagoons. One of the more peaceful and active Polypterus, it reaches 50 cm and is recommended for beginners with these fish. It has lived for over 30 years in aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>This species is more widespread than any other bichir and occurs in no less than 26 countries in Africa, including Egypt, Cameroon, Ethiopia, Kenya, Mali, Ivory Coast, Tanzania, Nigeria, Senegal and others. It is usually found in shallow, slow moving waters of swamps, marshes and freshwater lagoons.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>It is usually found in shallow, slow moving waters of swamps, marshes and freshwater lagoons.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Standard length: 500 mm SL (20 in SL). Aquarium base: 150 × 60 cm (60 × 24 in). Volume: ~540 litres (~143 US gal). 150 × 60 × 60 cm (60 × 24 × 24 in) - ~540 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Floor space is more important than depth with this species. A soft substrate with pieces of driftwood and smooth rocks arranged to form hiding places is ideal. Plants are not essential but are appreciated. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Temperature: 24–28°C (75–82°F)</p><p>pH: 6.2–7.8</p><p>Hardness: 5–20 dGH</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Predatory fish. Meaty foods such as prawn and white fish will be readily accepted. Also live or frozen foods such as bloodworm and brineshrimp. P. senegalus will sometimes accept good quality cichlid pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is relatively peaceful otherwise. Suitable tankmates include other Polypterus species, Synodontis, Datnoides, Knife Fish, larger Ctenopoma species, medium to large characins and African Butterfly Fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>The male has a thicker anal fin than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>Extremely difficult. Not achieved by the hobbyist but has occurred in aquaria though details are scarce. This species breeds during the rainy season in nature and changes in the temperature and chemistry of the water are likely to induce spawning behaviour. A large tank is required and should contain soft, slightly acidic water. It is an egg scatterer and therefore areas of dense planting and/or spawning mops should be provided. Courtship involves chasing and nudging of the female by the male. During spawning itself, the male receives the eggs from the female by cupping his anal and caudal fins around her genitals. He then fertilises the eggs before scattering them amongst vegetation. At this point, the adult fish should be removed as they may predate upon the eggs. The eggs hatch in 3-4 days, with the fry becoming free swimming around 3 days later. First foods should be brine shrimp nauplii or microworm. Apparently the fry are not particularly mobile, so care should be exercised to ensure they are well fed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
+      "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. senegalus relies on its excellent sense of smell to locate food. This species, along with others of its genus, are some of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occurred during the early development of the dinosaurs more than 200 million years ago.</p><p>They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like Anabantoid species, this fish may actually drown if it is denied access to atmospheric air.</p><p>Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibit the link these species form between fish and amphibians.</p><p>This is one of the more peaceful and active species of Polypterus and is recommended for beginners with these fish. It is very long-lived and individuals have been known to survive for over 30 years in aquaria.</p><p>P. senegalus meridionalis, once treated as a subspecies, is now a synonym of P. senegalus. This species is included in the \"upper-jawed\" tribe of polypterids so named on account of the upper jaw being longer than or equal in length to the lower jaw. It should be noted that most Polypterus offered for sale are wild caught and as such, may come in carrying infections or parasites. We suggest keeping a close eye on new fish for the first few weeks after purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/2d626aa2e5a4abae.webp",
+      "width": 960,
+      "height": 518,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_-_Senegal-Fl%C3%B6sselhecht_-_Albino.jpg",
+      "caption": "Ein Senegal-Flösselhecht (Polypterus senegalus), Albino.",
+      "thumb": "https://media.aquatome.com/commons/2d626aa2e5a4abae-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/037ec6faed48998a.webp",
+      "width": 960,
+      "height": 534,
+      "licence": "CC BY-SA 3.0",
+      "author": "uploaded by en:User:Zhyla",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_senegalus.jpg",
+      "caption": "Polypterus senegalus senegalus. Juvenile bichir in an aquarium",
+      "thumb": "https://media.aquatome.com/commons/037ec6faed48998a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1afbeef6682f87c7.webp",
+      "width": 960,
+      "height": 679,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_-_Senegal-Fl%C3%B6sselhechte_-_Albinos_%E2%99%82_oben_%26_%E2%99%80_unten.jpg",
+      "caption": "The Senegal bichir - Polypterus senegalus - albino, ♂ above & ♀ below",
+      "thumb": "https://media.aquatome.com/commons/1afbeef6682f87c7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/573f01e5b2d9fcec.webp",
+      "width": 960,
+      "height": 537,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_-_Senegal-Fl%C3%B6sselhecht_-_Albino_Portrait.jpg",
+      "caption": "Ein Senegal-Flösselhecht (Polypterus senegalus), Albino, im Aquarium.",
+      "thumb": "https://media.aquatome.com/commons/573f01e5b2d9fcec-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn 540 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "viên thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

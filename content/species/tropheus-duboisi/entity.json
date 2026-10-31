@@ -1,0 +1,204 @@
+{
+  "id": "tropheus-duboisi",
+  "scientificName": "Tropheus duboisi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Tropheus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>The white-spotted cichlid, Tropheus duboisi, is endemic to Lake Tanganyika, found in rocky areas in deeper water than its congeners. Young fish have white or light blue spots on a jet black body, which fade to blue-black with a yellow or white vertical bar as they mature. Like others in the genus it is very susceptible to 'bloat' and not a good species for the beginner.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Temperature: 23–27°C</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>Endemic to Lake Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>It is found in rocky areas in deeper water than its congeners.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>48\" x 12\" x 12\" (120cm x 30cm x 30cm) - 110 litres for a single specimen. A much larger tank is required for a group (see below).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>Many aquarists keep Tropheus in bare setups to reduce territorial behaviour but they can also be maintained in decorated aquaria. If you wish to decorate the tank, use piles of rockwork to form many cave-like structures and hiding places, interspersed with open areas for swimming. In either case, use sand as substrate, and ensure the water is well-oxygenated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<ul><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach, nori etc. should form the basis of the diet. This can be supplemented with small feeds of live and frozen varieties. Never feed beefheart or any other animal meat as it interferes with the digestive system of these fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>It has a somewhat dubious reputation for aggressive behaviour but this is undeserved. In fact, it is relatively peaceful towards other species but will squabble with conspecifics. The fish are very active however and should not be kept with shy species. Possible tankmates include Julidochromis, Eretmodus and Tanganicodus species, as these require a similar diet to the Tropheus.</p><p>Obtaining a peaceful species group of T. duboisi is, unfortunately, rather difficult. The fish do not school in nature, and will usually fight amongst themselves in the aquarium, until a natural pecking order is established. However, in smaller groups (5-6 fish), the fish do not settle easily and may fight to the death. It is therefore generally recommended to purchase a group of 15-20 fish in order to reduce territorial behaviour. There are exceptions to this and small groups and even pairs of Tropheus have been seen living peacefully together, but these are exceptions to the rule.</p><p>The main problems associated with successfully keeping a Tropheus colony are thus cost and tank size, with a 60\" x 18\" x 18\" (150cm x 45cm x 45cm) tank being the minimum size for a group. If it is maintained in a large group, the social interactions between the fish are truly fascinating. New individuals should never be introduced into an established community of Tropheus, as they will not be tolerated.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>The sexes are hard to distinguish. There are some subtle differences in growth rate and body shape, but the only guaranteed method is to examine the genital papillae of the fish, but this is recommended to experts only. The genital papillae is pointed in the male and rounded in the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>Possible. Maternal mouthbrooder. The tank should be set up as described above. It is recommended to purchase 20-30 young fish and allow them to grow on together, as adults are costly. If you can, try and obtain tank-bred fish, as wild specimens tend to be far more delicate, aggressive and expensive. It is difficult to obtain the perfect group, and some fish (particularly subdominant males) may be lost. The other method is to remove dominant males as they develop until you have the desired sex ratio. If you wish to keep more than one male, you should provide each with around 2 feet (60cm) of territory, each containing a rock pile which the male will defend. 6-10 females should be kept per male. If there are multiple males in the tank, but only a single or continuous rock pile, only one male will become dominant and spawn with the females.</p><p>The fish spawn in open water, usually over rocks. During spawning itself the female may either take the eggs into her mouth before they reach the substrate, or allow them to drop into spaces between the rocks before picking them up. She then nuzzles the vent of the male, who releases his milt directly into the female's mouth, thus fertilising the eggs. The female may carry the brood of 5-15 eggs for over 4 weeks before releasing the free swimming fry. She will usually continue to eat during this period and can be easily spotted by her distended mouth.</p><p>If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish. This is not recommended for Tropheus, as if a female is away from the colony for too long, she will lose her position in the pecking order of the group, and may be viciously attacked when she is returned. Conversely, if she is left in the main aquarium she may lose most of the brood due to harassment from other fish. If you do move the female, turn off the tank lights and cover it with a blanket for a few hours when she is reintroduced.</p><p>Most breeders who wish to raise large numbers of fry artificially strip them from the mother's mouth at the 2 week stage and raise them from that point. This approach is only for experts, however. The fry are large enough to take brine shrimp nauplii, microworm and powdered dry foods once they become free swimming. If they are left with the mother brood care continues for a time, with the fry seeking refuge in her mouth when they feel threatened.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-duboisi",
+      "html": "<p>Like others in the genus, Tropheus duboisi is something of an enigma in the aquarium hobby and despite its popularity, is not a good species for the beginner. There has been much argument and discussion about how best to maintain it in the aquarium, and some of these debates still rage on. The generally accepted method of keeping the fish is given here, but in reality what works for one aquarist may not for another. One aspect which is always true, is that water quality is of the utmost importance in a Tropheus tank, as they are very susceptible to \"bloat\".</p><p>The young of this species are stunning, with a patterning of white or light blue spots on a jet black body. This colouration fades to a blue-black with a yellow or white vertical bar on the body as the fish mature. There are several geographical morphs available. Obviously, these should not be mixed in aquaria, as they will hybridise freely.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/544d7ff2e7f88dbf.webp",
+      "width": 960,
+      "height": 785,
+      "licence": "CC BY-SA 3.0",
+      "author": "Manfred Werner / Tsui",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_Schoenbrunn2008.jpg",
+      "caption": "Tropheus duboisi at the Tiergarten Schönbrunn in Vienna",
+      "thumb": "https://media.aquatome.com/commons/544d7ff2e7f88dbf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7d4c2b3e6182f895.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 3.0",
+      "author": "Alexander Langer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_by_Alexander_Langer.jpg",
+      "caption": "Tropheus duboisi \"Maswa\"",
+      "thumb": "https://media.aquatome.com/commons/7d4c2b3e6182f895-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a20ac11af58e5ab0.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 3.0",
+      "author": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%8F%8D%E7%8F%A0%E8%9D%B4%E8%9D%B6_Tropheus_duboisi_-_panoramio.jpg",
+      "caption": "珍珠蝴蝶 Tropheus duboisi",
+      "thumb": "https://media.aquatome.com/commons/a20ac11af58e5ab0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/61ef762fa6ff6440.webp",
+      "width": 960,
+      "height": 641,
+      "licence": "CC BY-SA 4.0",
+      "author": "Mattia Nocciola",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus_duboisi_Natural_History_Museum_University_of_Pisa.jpg",
+      "caption": "Tropheus duboisi Marlier, 1959, Natural History Museum University of Pisa",
+      "thumb": "https://media.aquatome.com/commons/61ef762fa6ff6440-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "thức ăn cá cichlid Tanganyika"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá cichlid",
+        "đá tạo hang hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}
