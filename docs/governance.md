@@ -8,7 +8,7 @@ that would have caught it).
 
 | # | Layer | Catches | Runs | Status |
 | --- | --- | --- | --- | --- |
-| 1 | **Gate**: build tests + browser checks | broken pages, journeys that stop working, layout and translation slips | every PR (`ci.yml`), every deploy (`deploy.yml`, engine content too) | live |
+| 1 | **Gate**: build tests + browser checks | broken pages, journeys that stop working, layout and translation slips, pages that get slower, heavier or less accessible | every PR (`ci.yml`), every deploy (`deploy.yml`, engine content too) | live |
 | 2 | **Production watch**: the same checks against aquatome.com | page-specific content problems, deploy surprises | after each deploy and nightly (`watch.yml`); a failure opens or updates an issue | live |
 | 3 | **AI page review**: Claude looks at phone and computer screenshots against a rubric | problems no rule describes ("the results are five screens down") | nightly on key pages + 6 a day (`watch.yml`); on PRs that change site code, as a comment | live |
 | 4 | **Fix loop**: an agent turns a recorded problem into a failing check, then a fix, as a draft PR | what layers 2 and 3 record | each new `site-check` issue; any issue labelled `autofix` (`fix.yml`) | live |
@@ -28,13 +28,24 @@ that would have caught it).
     - links to this site's pages lead to pages that exist
     - no Vietnamese on Indonesian or Thai pages
     - no script errors
-- Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run the page checks on the **real** build
-  before uploading (`deploy.sh` with `E2E_GATE=1`).
+  - **Lighthouse** (`lighthouse.spec.ts`, what PageSpeed Insights runs) on one page of each kind readers open most, as
+    PageSpeed's mobile and desktop tests, run alone (`E2E_LIGHTHOUSE=1 … --workers=1`). Each page has a budget:
+    - accessibility, best practices and SEO at 100
+    - layout shift, the site's own script weight (KB) and page elements: where they are now
+    - performance, largest paint and blocking time: with room for run-to-run noise; a miss is measured again twice
+      before it fails
+    - pages that start below the budget are listed in `KNOWN` with the reason, held where they are until fixed
+    - locally nothing from other sites loads (ads, analytics, photos); live, the page as readers get it
+- Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run the page checks and Lighthouse on the
+  **real** build before uploading (`deploy.sh` with `E2E_GATE=1`).
 - Not gated yet: `deploy.sh` run on the owner's Mac (the video cycle). Layer 2 watches production for what slips through.
 
 ### 2. Production watch (live)
 
-- `watch.yml` runs the same browser checks against aquatome.com after every finished deploy and at 05:00 (Vietnam).
+- `watch.yml` runs the same browser checks against aquatome.com after every finished deploy and at 05:00 (Vietnam),
+  then Lighthouse on the live pages, ads and all: a page that drops below its budget becomes an issue like any other.
+  (PageSpeed Insights' own API needs a key from the owner's Google Cloud project for its quota; Lighthouse here is the
+  same test.)
 - It checks a **different sample each day** (`E2E_SEED` = day of the year, from the sitemap), so in time it covers every
   page, not one or two per kind.
 - Every page with an **open problem is checked again each run**, until it passes.
@@ -120,6 +131,8 @@ The layers above still check the result.
 3. **Never weaken a check to get a green run.** Fix the page. A real exception is written into the check with its
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
+5. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
+   PR. Loosening one needs the reason written next to it.
 
 ### main's ruleset (GitHub)
 
@@ -141,6 +154,7 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working: find and connect, read the saved schedule and clock into the form, write a preset and put the old one back, a write ending manual levels, set a lost clock, old firmware refused, disconnect (also mid-read) | `xcodebuild test` (job `app`) |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `app`) |
+| **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 
 Hands-on, by hand: the simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
 against a real light from a Mac with `light-harness` (`apps/ios/README.md`), ending with `restore`. What the light

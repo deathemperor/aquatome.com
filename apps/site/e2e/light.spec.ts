@@ -113,6 +113,26 @@ test('quick actions leave the schedule and come back to it; a dropped light reco
   expect(await page.evaluate(() => (window as unknown as { picks: number }).picks)).toBe(1)
 })
 
+test('a light whose tank another tab deleted is saved again on a tank that exists, not back onto the deleted one', async ({ page }) => {
+  await fakeLight(page)
+  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.locator('#ch-connect').click()
+  await expect(card(page)).toContainText('Đồng hồ đèn đúng giờ')
+  // "Bể của tôi" in another tab: the tank deleted, and the light on it (tombstones).
+  await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('aq.tanks')!) as { tanks: { id: string }[]; devices: { id: string }[] }
+    const at = new Date(Date.now() + 1000).toISOString()
+    const gone = (r: { id: string }) => ({ id: r.id, updatedAt: at, deletedAt: at })
+    localStorage.setItem('aq.tanks', JSON.stringify({ ...s, tanks: s.tanks.map(gone), devices: s.devices.map(gone) }))
+  })
+  await card(page).getByRole('button', { name: 'Tắt đèn' }).click()
+  await expect(card(page)).toContainText('Đèn đang tắt bằng tay')
+  const s = await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!) as { tanks: { id: string; deletedAt?: string }[]; devices: { tankId?: string; bleName?: string; deletedAt?: string }[] })
+  const lights = s.devices.filter(d => !d.deletedAt)
+  expect(lights.map(d => d.bleName)).toEqual(['DYSL30TEST'])
+  expect(s.tanks.filter(t => !t.deletedAt).map(t => t.id)).toContain(lights[0]!.tankId)
+})
+
 test('a clock reset by a power cut is reported', async ({ page }) => {
   await fakeLight(page, 'reset')
   await page.goto('/vi/cong-cu/den-chihiros/')

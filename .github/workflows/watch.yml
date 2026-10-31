@@ -29,7 +29,7 @@ jobs:
   check:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       GH_TOKEN: ${{ github.token }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -61,8 +61,18 @@ jobs:
           E2E_RECHECK: e2e-recheck.json
           E2E_JSON: e2e-results.json
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      # Lighthouse on the live pages, ads and all (what PageSpeed Insights measures), alone after the other checks.
+      - name: lighthouse
+        if: ${{ !cancelled() }}
+        working-directory: apps/site
+        run: pnpm e2e --grep @lighthouse --workers=1
+        env:
+          E2E_LIGHTHOUSE: '1'
+          E2E_BASE_URL: https://aquatome.com
+          E2E_PAGES: e2e-pages.json
+          E2E_JSON: lighthouse-results.json
       - if: always()
-        run: node scripts/site-watch.mjs report apps/site/e2e-results.json "$RUN_URL"
+        run: node scripts/site-watch.mjs report apps/site/e2e-results.json,apps/site/lighthouse-results.json "$RUN_URL"
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

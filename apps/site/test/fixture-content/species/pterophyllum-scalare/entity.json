@@ -1,0 +1,41 @@
+{
+  "id": "pterophyllum-scalare",
+  "scientificName": "Pterophyllum scalare",
+  "order": "Cichliformes",
+  "family": "Cichlidae",
+  "genus": "Pterophyllum",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "html": "<p>[EN source text placeholder for quickFacts]</p>",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fish-archives/pterophyllum-scalare/"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0c21cb038569ae13.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gannu03",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angelfish_2.jpg"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-31"
+}

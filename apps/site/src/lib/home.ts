@@ -1,4 +1,4 @@
-import { POPULAR, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
 import type { Lang } from './i18n'
@@ -20,13 +20,25 @@ export const richest = (lang: Lang) => (a: Localized<SpeciesEntity>, b: Localize
 const clean = (s: Localized<SpeciesEntity>) => s.photos.some(p => p.source !== 'glaser')
 const ok = (s: Localized<SpeciesEntity>) => clean(s) && s.t.quality.indexable
 
-/** Well-known species with an unwatermarked photo, topped up with the richest other profiles. */
-export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
+/** Well-known species with an unwatermarked photo, then the richest other profiles. */
+function knownFirst(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
   const byId = new Map(c.species.map(s => [s.id, s]))
   // Staples need only a clean photo: readers look for them first, even while a translation is below the indexing bar.
   const staples = STAPLE_SPECIES.flatMap(id => { const s = byId.get(id); return s && clean(s) ? [s] : [] })
   const rest = c.species.filter(s => ok(s) && !staples.includes(s)).sort(richest(lang))
-  return [...staples, ...rest].slice(0, n)
+  return [...staples, ...rest]
+}
+
+/** The data card's core figures: temperature, pH, adult size and the smallest tank. */
+const CORE = ['tempC', 'ph', 'sizeCm', 'tankCm'] as const
+const complete = (s: Localized<SpeciesEntity>) => CORE.every(f => resolveDataCard(s.dataCard[f] ?? []) !== null)
+
+/** Species with all core figures first, in their order; one missing a figure only fills a spot nothing complete can. */
+export const completeFirst = (list: Localized<SpeciesEntity>[]) => [...list.filter(complete), ...list.filter(s => !complete(s))]
+
+/** The home page's species: well-known ones and the richest profiles, but never a half-empty card while a full one is left. */
+export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
+  return completeFirst(knownFirst(lang, c)).slice(0, n)
 }
 
 /** The reader's own country for each language: its native fish get a place on the home page. */
@@ -41,9 +53,9 @@ export function nativeSpecies(lang: Lang, c: Content) {
   return { place, species: all.filter(ok).sort((a, b) => rank(a) - rank(b) || richest(lang)(a, b)), count: all.length }
 }
 
-/** The full species list in reading order: the featured species first, then the best-documented. */
+/** The full species list in reading order: the well-known species first, then the best-documented. */
 export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
-  const first = featuredSpecies(lang, c, Infinity)
+  const first = knownFirst(lang, c)
   return [...first, ...c.species.filter(s => !first.includes(s)).sort(richest(lang))]
 }
 

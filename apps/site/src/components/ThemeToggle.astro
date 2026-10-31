@@ -1,12 +1,15 @@
 ---
-/** Light / dark / follow the system: saved in localStorage aq_theme; Base applies it before first paint. */
+/** Light / dark / follow the system: saved in localStorage aq_theme; Base applies it before first paint. labelled: the mode in words beside the icon (the menu sheet). */
 import { i18n } from '../lib/i18n'
+interface Props { labelled?: boolean }
+const { labelled = false } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<button type="button" class="theme" data-theme-toggle hidden aria-label={t('Giao diện: tự động theo máy. Bấm để đổi')}>
+<button type="button" class:list={['theme', { labelled }]} data-theme-toggle hidden aria-label={t('Giao diện: tự động theo máy. Bấm để đổi')}>
   <svg class="i-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
   <svg class="i-dark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
   <svg class="i-light" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  {labelled && <span class="mode" data-theme-mode>{t('tự động theo máy')}</span>}
 </button>
 <script>
   // ct() from scripts/ct.ts, written out here: a script with no shared import is inlined into every page (no extra request).
@@ -24,6 +27,8 @@ const { t } = i18n(Astro.url)
       b.dataset.mode = mode
       b.setAttribute('aria-label', ct('Giao diện: {mode}. Bấm để đổi', { mode: LABEL[mode] }))
       b.title = ct('Giao diện: {mode}', { mode: LABEL[mode] })
+      const words = b.querySelector('[data-theme-mode]')
+      if (words) words.textContent = LABEL[mode]
     }
   }
   show(read())
@@ -39,4 +44,7 @@ const { t } = i18n(Astro.url)
   .theme:hover { color: var(--c-ink); }
   .theme svg { display: none; }
   .theme[data-mode='auto'] .i-auto, .theme[data-mode='dark'] .i-dark, .theme[data-mode='light'] .i-light { display: block; }
+  .labelled { display: inline-flex; gap: var(--space-2); width: auto; padding-inline: var(--space-1); font: 500 0.9rem var(--f-body); color: var(--c-ink); }
+  .mode { display: inline-block; }
+  .mode::first-letter { text-transform: uppercase; }
 </style>

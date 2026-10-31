@@ -1,0 +1,158 @@
+{
+  "id": "amblyceps-foratum",
+  "scientificName": "Amblyceps foratum",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "surat-thani",
+    "trat",
+    "chantaburi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<ul><li>Family: Amblycipitidae</li><li>Size: 8.5 cm</li><li>Temperature: 18-22°C</li><li>pH: 6.5-7.5</li><li>Described by Ng &amp; Kottelat, 2000</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<p>Asia: Thailand, southern peninsular (Khlong Sok at Ban Khlong Sok, Surat Thani Province) and south-eastern Thailand (provinces of Trat and Chantaburi).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<p>Inhabits rivers and streams with moderate to swift current and sandy or rocky bottoms. Individuals hide under rocks or submerged logs during the day and come out at night to feed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<p>Warning: the fish is capable of inflicting a painful sting with its dorsal and pectoral spines, with much swelling and excruciating pain in the afflicted area for several hours.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<p>Description: dorsal spines (total): 1; dorsal soft rays (total): 6; anal soft rays: 12-15; vertebrae: 38-41. Posterior edge of adipose fin rounded; length of adipose fin base 23.3-27.9% SL (versus 19.9-22.8 in A. variegatum); depth of caudal peduncle 13.2-15.9% SL; body depth at anus 11.2-14.2% SL; eyes small, dorsolaterally situated and subcutaneous, diameter 5.5-8.5% HL.</p><p>Etymology: the specific name foratum means 'to pierce', referring to its pungent sting.</p><p>IUCN Red List: although there is no information on the population and its trends, it is still relatively abundant in hill-streams and the upper parts of river drainages throughout the northern part of the Malay Peninsula, northwards from the Perak River drainage to the Isthmus of Kra (based on recent survey data). It is therefore assessed as Least Concern (IUCN 2019).</p><p>Remarks: the first thumbnail species was collected by the image contributor, Zhou Hang, in Chantaburi, Eastern Thailand.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010).</p><p>Ng, H.H. and M. Kottelat, 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</p><p>Ng, H.H. 2019. Amblyceps foratum. The IUCN Red List of Threatened Species 2019.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e52e50ddc4af23fe.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e52e50ddc4af23fe-480.webp",
+      "width": 500,
+      "height": 289,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "caption": "Amblyceps foratum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/16996918bd7ba6a0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/16996918bd7ba6a0-480.webp",
+      "width": 500,
+      "height": 354,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "caption": "Amblyceps foratum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fb490eab8625606c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fb490eab8625606c-480.webp",
+      "width": 500,
+      "height": 263,
+      "licence": "dùng với sự cho phép",
+      "author": "Adrian Taylor / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm",
+      "caption": "Amblyceps foratum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uouP4aeVAR8",
+      "title": "RARE Fish Albino Amblyceps foratum Predatory Fish Keepers Forum",
+      "durationSec": 180,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gWx3QehQQEI",
+      "title": "amblyceps foratum​ albino",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Sh536G-ONfU",
+      "title": "RARE Predatory Fish Forum Albino Hillstream Catfish Amblyceps foratum",
+      "durationSec": 180,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "sỏi nền hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

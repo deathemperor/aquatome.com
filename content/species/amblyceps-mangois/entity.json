@@ -1,0 +1,173 @@
+{
+  "id": "amblyceps-mangois",
+  "scientificName": "Amblyceps mangois",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "ganges"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<ul><li><strong>Common name:</strong> Indian Torrent Catfish</li><li><strong>Family:</strong> Amblycipitidae</li><li><strong>Size:</strong> 12.5 cm</li><li><strong>Temperature:</strong> 18-23°C</li><li><strong>pH:</strong> 7.0-7.5</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Asia: Ganges drainage in Northern India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Occurs in pebbly beds in swift currents at the base of hills. Found among rocks and boulders on the bottom of fast flowing upland streams.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>In their natural habitat their diet consists of aquatic insects and larvae. In an aquarium set-up they like worm foods such as frozen bloodworm and whiteworm. They feed very much like the Tatia species from South America, feeding frantically on the move, twisting and turning to take the food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Best kept with larger Danios such as the Giant Danio (Danio aequipinnatus), barbs and rasboras: medium-sized fish that like water movement in the aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Females have a pair of unbranched ovaries and are smaller than the males who have branched testes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Description: Differs from A. mucronatum, A. murraystuarti, A. platycephalus, A. foratum and A. variegatum in having a relatively short body with 34-36 (versus 38-40) vertebrae, and a caudal fin with upper and lower lobes of distinctly different shapes (versus truncate caudal fin in A. murraystuarti and with both lobes similar in shape in other Indochinese species). Pectoral spine smooth.</p><p>Etymology: The specific name mangois is a Latinisation of Manggoi, the local Gangetic name for this catfish.</p><p>IUCN Red List: Although some anthropogenic threats to this species have been documented (Prasad et al. 1997), these are deemed to be speculative and not based on hard evidence. Given that this species is relatively common and abundant throughout the sub-Himalayan region (in the Ganges and Brahmaputra river drainages), Amblyceps mangois is assessed as Least Concern here, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2008).</p><p>Pal, M. &amp; Ng, H.H. 2010. Amblyceps mangois. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/929551974b6e1076.webp",
+      "thumb": "https://media.aquatome.com/scotcat/929551974b6e1076-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "caption": "Amblyceps mangois",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9ebfabcb920df0df.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9ebfabcb920df0df-480.webp",
+      "width": 500,
+      "height": 183,
+      "licence": "dùng với sự cho phép",
+      "author": "Original Source / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "caption": "Amblyceps mangois",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f8353c7abf8253e5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f8353c7abf8253e5-480.webp",
+      "width": 600,
+      "height": 212,
+      "licence": "dùng với sự cho phép",
+      "author": "Tobias Koch / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "caption": "Amblyceps mangois",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9f8ed602d29c094c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9f8ed602d29c094c-480.webp",
+      "width": 597,
+      "height": 477,
+      "licence": "dùng với sự cho phép",
+      "author": "Tobias Koch / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm",
+      "caption": "Amblyceps mangois",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "qjtqZzdEaFo",
+      "title": "Amblyceps mangois feeding on tubifex",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UDVMDe8iMgk",
+      "title": "鬼！鬼！鬼顔！毒魚インドアカザ！Indian torrent catfish, Amblyceps mangois, 猗窩座!? 赤佐! #Shorts ≫ 加藤英明【公式】かとチャン",
+      "durationSec": 14,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "bộ lọc ngoài cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "giun trắng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

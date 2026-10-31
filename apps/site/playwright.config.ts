@@ -2,7 +2,8 @@ import { defineConfig, devices } from '@playwright/test'
 
 // Browser checks on the built site (e2e/README.md). Local: dist/ (the fixture build `pnpm test` leaves, or E2E_DIST)
 // served on PORT. E2E_BASE_URL instead points them at a live site (production checks).
-const PORT = 4419
+// E2E_PORT: another port, when another checkout's server holds 4419 (a local run would test that build instead).
+const PORT = Number(process.env.E2E_PORT ?? 4419)
 const live = process.env.E2E_BASE_URL
 export default defineConfig({
   testDir: 'e2e',

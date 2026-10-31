@@ -14,10 +14,14 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `invariants.spec.ts`: what every page must do, on one or two pages of each kind (`pages.ts` groups the build's pages
   by language, section and depth).
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
+- `lighthouse.spec.ts`: Lighthouse's scores and budgets on one page of each main kind (`E2E_LIGHTHOUSE=1`, alone:
+  `E2E_LIGHTHOUSE=1 pnpm --filter site e2e --grep @lighthouse --workers=1`). Each run's numbers are in the log.
 - `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/vi/ca/?q=neon,/vi/` reviews other pages once.
 - `fixtures.ts`: blocks every request that isn't the site itself (ads, analytics, photo hosts), and collects script
   errors in `errors`.
 - `E2E_DIST`: another build folder to serve.
+- `E2E_PORT`: another port for that server (default 4419). A server already on the port is reused, so with two
+  checkouts running checks, give each its own port or one tests the other's build.
 - `E2E_BASE_URL`: check a live site instead (no local server). Its pages come from `E2E_PAGES` (the sitemap as JSON) plus
   `E2E_RECHECK`. `scripts/site-watch.mjs prepare` writes both: `node scripts/site-watch.mjs prepare https://aquatome.com apps/site`.
 - `E2E_JSON`: results as JSON too (what `site-watch.mjs report` reads).

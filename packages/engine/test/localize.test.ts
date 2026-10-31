@@ -157,7 +157,7 @@ test('fish native to a country: listed under it or under a place inside it', asy
   const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
   await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), places: ['rio-negro'] }))
   expect([...await nativeTo(root, 'indonesia')]).toEqual(['boraras-brigittae'])
-  expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'symphysodon-aequifasciatus'])
+  expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'pterophyllum-scalare', 'symphysodon-aequifasciatus'])
 })
 
 test('translation order: staples and most-kept fish, then pages the other language has, then the country\'s own fish, then the rest', async () => {

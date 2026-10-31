@@ -1735,17 +1735,20 @@
     ]
   },
   "pterophyllum-scalare": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "Manfish",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.7,
     "notes": [
-      "\"Manfish\" is acceptable, but \"Kotamadya Santa Isabel\" is wrong for a Brazilian municipality; use \"munisipalitas Santa Isabel\" or \"kota Santa Isabel\" (\"kotamadya\" is an obsolete Indonesian term).",
-      "\"Sungai Rio Negro\" is redundant because \"Rio\" already means river; use \"Rio Negro\" or \"Sungai Negro\".",
-      "\"bekas luka dari alam\" is awkward; use \"bekas luka akibat kehidupan di alam liar\" or \"bekas luka dari habitat aslinya\".",
-      "\"sangat sehat dan kuat\" for \"healthy and stable\" is a slight shift; \"stable\" is closer to \"tangguh/stabil\".",
-      "\"Penyebab fenomena ini belum diketahui\" is fine, but \"warna merah yang cukup banyak\" is weaker than \"a high degree of red coloration\"; use \"warna merah yang sangat dominan/pekat\"."
+      "Item 2: \"tinggi 20 cm atau lebih\" ok, but \"mencapai panjang badan 15 cm\" fine; main issue elsewhere.",
+      "Item 12: \"From this a pair is sure to form\" translated \"hampir pasti\" – softens the claim; use \"pasti\" (faithful) or keep consistent.",
+      "Item 7: added \"idealnya ... rapat\" – \"Well planted\" means ditanami dengan baik, not \"rapat\" (densely); added fact.",
+      "Item 7: \"Amazon Sword\" fine, but \"minimal 50 cm\" refers to tank height; ok. Item 3: \"kota/kabupaten (munisipalitas)\" is clumsy; use \"munisipalitas Santa Isabel\" only.",
+      "Item 4/5: \"Far East\" -> \"Timur Jauh\" is unnatural in Indonesia; use \"Asia Timur/Asia Tenggara\" or keep \"Timur Jauh\" cautiously.",
+      "Item 12: \"saat sedang birahi\" is an odd term for fish in breeding condition; use \"siap memijah\".",
+      "Item 13: \"berbiak\" and \"berjodoh\" slightly non-standard; use \"berkembang biak/memijah\" and \"pasangan yang sudah terbentuk\".",
+      "Item 14: \"menunjukkan warna merah yang cukup banyak\" — \"high degree of red\" is stronger; use \"banyak sekali/dominan\"; \"kuat\" for \"stable\" is loose."
     ]
   },
   "puntigrus-tetrazona": {
@@ -1830,20 +1833,19 @@
     ]
   },
   "symphysodon-aequifasciatus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "Discus",
     "confidence": "high",
-    "score": 0.82,
+    "score": 0.6,
     "notes": [
-      "\"yang juga memiliki bintik-bintik oranye kemerahan\" – source says \"additionally\" (selain itu); \"juga\" is OK, but \"Royal... yang juga\" is slightly ambiguous; consider \"yang selain itu memiliki\".",
-      "\"kawin dengan mereka dalam satu populasi\" – source says they form a reproductive community; better \"berbiak bersama mereka dalam satu komunitas pembiakan\" / \"memijah bersama\".",
-      "\"lokalitas tipe\" – more natural: \"lokasi tipe (type locality)\".",
-      "\"Baru di stasiun ekspor ikan-ikan ini dipilah\" – awkward; use \"Baru di stasiun ekspor, ikan-ikan itu disortir berdasarkan warnanya\".",
-      "\"ikan tangkapan alam\" – hobbyists say \"ikan tangkapan liar\" or \"wild caught\".",
-      "\"Saat ini ikan-ikan tersebut berukuran 12–15 cm\" – source \"Currently the animals have a length\"; consider \"Saat ini panjang ikan ini 12–15 cm\" (ukuran/panjang precision).",
-      "\"Rajanya ikan discus\" – fine, but \"Raja di antara ikan discus\" matches \"kings\" (plural) more naturally.",
-      "\"bagian sisi tubuhnya\" – use \"sisi tubuhnya\" (flanks), wordy."
+      "Item 4: EN says 'around 6\"' (≈15 cm) - this is fine, but the original 'few juvenile fish or a pair' fine; however item 1 says wild fish reach 14 cm and item 4 gives 15 cm, consistent with source, no change needed.",
+      "Item 8: 'Di antara semua discus, yang paling istimewa' loses 'kings of the discus fishes' (raja discus); consider 'Rajanya discus adalah varian \"Royal\"'.",
+      "Item 8: 'Royal asal Tefé ... dikenal sebagai yang paling cantik' drops 'legendarily'; add 'secara legendaris/dikenal luas'.",
+      "Item 8: 'yang di mata para penghobi jauh kurang menarik' - source says 'in our eyes' (neutral); 'kawin satu sama lain sebagai satu populasi' is acceptable but 'form a reproductive community' fine.",
+      "Item 8: 'Saat ini ikan-ikan tersebut berukuran 12-15 cm' - 'Currently' fine; but 'banyak di antaranya juga punya' changes 'additionally' slightly; ok.",
+      "Item 8: 'cincin iris kuning maupun merah' - 'maupun' implies both in same fish; use 'kuning atau merah'.",
+      "Item 2: 'mengikuti Rio Solimões' - source 'extends down'; use 'membentang di sepanjang Rio Solimões'. Also mixed 'Rio Putumayo' / 'Sungai Amazon' fine."
     ]
   },
   "symphysodon-discus": {
@@ -1965,16 +1967,22 @@
     "notes": []
   },
   "xiphophorus-hellerii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-10-31",
+    "from": "2026-10-31",
     "name": "Ikan Pedang",
     "confidence": "high",
-    "score": 0.92,
+    "score": 0.6,
     "notes": [
-      "Item 10: \"induk/satu kelahiran (brood)\" is an awkward slash construction. Use one term, e.g. \"satu kelahiran (brood) yang sama\".",
-      "Item 10: \"para pembudidaya/breeder\" has the same slash problem. Use \"pembudidaya (breeder)\".",
-      "Item 10: \"matang dini\" and \"matang lambat\" are understandable but stiff. You could add the English \"early/late males\" in brackets once.",
-      "Item 11: \"Jika riwayat kesehatannya tidak diketahui, ikan baru selalu disarankan untuk dikarantina\" is slightly passive. \"Selalu karantina ikan baru terlebih dulu, kecuali riwayat kesehatannya diketahui\" is more natural."
+      "Item 1: 'Ukuran dewasa: 8–10 cm' is fine, but the 3-4 inch size is dropped consistently; OK. However, the 'sekitar 75 liter' minimum for 20 gallons is correct (≈76 L).",
+      "Item 21: the English source text is truncated ('known as sneakers,' and 'for months,'), and the translation keeps the dangling fragments. This mirrors the source, but the translated sentences end abruptly and read as incomplete.",
+      "Item 18: 'jantan cepat dewasa / lambat dewasa' for 'early/late males' is acceptable, but 'real bulls' was rendered as 'jantan besar'; the nuance is lost (minor).",
+      "Item 3: 'ventral aspect of the tail fin' became 'bagian bawah sirip ekor'; fine. But 'limited immune function and longevity' became 'umur yang lebih pendek', a mild interpretation.",
+      "Item 15: 'Coolie Loach' translated as 'kuli loach'; the common hobby name is 'kuli' or 'loach kuli'. Also 'despite their small size' conflicts with the 8-10 cm size, but it follows the source.",
+      "Item 2: 'begitu banyak varian hias yang membingungkan' is a clumsy rendering of 'bewildering array'; use 'beragam bentuk hias yang membingungkan'.",
+      "Item 14: 'kutu air (Daphnia)' fine; 'larva chironomid (cacing darah)' is okay. Item 2 and 9: the dropped 'in' conversions are fine, but item 2 omits '(6 in SL)'. This is acceptable as conversion.",
+      "Item 4: 'Hanya dengan begitu perilaku dan genetika ikan liar bisa dipelajari' drops the 'in the future' nuance partially, and 'pressing need' is fine; minor.",
+      "Item 9: 'sekitar 108 liter' is correct for 120×30 cm. No issue.",
+      "Item 7: 'Rio Usumacinta' became 'Sungai Usumacinta' while other rivers keep 'Río'; inconsistent."
     ]
   },
   "xiphophorus-maculatus": {

@@ -2,6 +2,69 @@
   {
     "date": "2026-10-31",
     "kind": "species",
+    "id": "amblyceps-mangois",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "amblyceps-laticeps",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "amblyceps-foratum",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "lepidocephalichthys-annandalei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "kryptopterus-bicirrhis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "hemibagrus-wyckii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "etroplus-suratensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "dario-hysginon",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
+    "id": "cyclocheilichthys-armatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-10-31",
+    "kind": "species",
     "id": "yasuhikotakia-morleti",
     "source": "seriouslyfish",
     "action": "updated"
@@ -248,20 +311,6 @@
     "date": "2026-10-31",
     "kind": "species",
     "id": "desmopuntius-pentazona",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-31",
-    "kind": "species",
-    "id": "yasuhikotakia-modesta",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-31",
-    "kind": "species",
-    "id": "trichogaster-chuna",
     "source": "glaser",
     "action": "updated"
   },
@@ -3448,55 +3497,6 @@
     "kind": "species",
     "id": "mollienisia",
     "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "astronotus-ocellatus",
-    "source": "sprucepets",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "sprucepets-triggerfish-family-balistidae-profile-2925851",
-    "source": "sprucepets",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "pethia-conchonius",
-    "source": "sprucepets",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "puntius-titteya",
-    "source": "sprucepets",
-    "action": "updated"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumbreeder-live-rocks-and-dry-rocks-pros-and-cons",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "species",
-    "id": "yunnanilus-cruciatus",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-30",
-    "kind": "guide",
-    "id": "aquariumbreeder-profile-gorilla-crabs-in-reef-tanks",
-    "source": "aquariumbreeder",
     "action": "new"
   }
 ]

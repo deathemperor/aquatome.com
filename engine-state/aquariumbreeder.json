@@ -61,6 +61,14 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:35:55+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:18:52.068Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+  },
   "https://aquariumbreeder.com/blyxa-japonica-care-guide-planting-growing-and-propagation/": {
     "lastmod": "2026-06-06T17:36:51+00:00",
     "entityIds": [
@@ -188,6 +196,14 @@
     "processedHash": "19b27f92a242c17579c6eafef07ef5771e4c6493774bcddd0dea968e48ac2b62",
     "status": "processed",
     "attempts": 0
+  },
+  "https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:19:09.154Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://aquariumbreeder.com/hibernation-and-land-snails/": {
     "lastmod": "2026-06-06T17:34:05+00:00",
@@ -603,6 +619,14 @@
     "processedHash": "3da3f53184cf39f7db4871ee40f7329dab1b4a70e097f386abd033542ea025f9",
     "status": "skipped",
     "attempts": 0
+  },
+  "https://aquariumbreeder.com/willow-hygro-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:35:38+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:19:01.154Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:56+00:00",

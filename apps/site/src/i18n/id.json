@@ -401,6 +401,7 @@
   "Ghi lịch vào đèn": "Simpan jadwal ke lampu",
   "Ghi từ trang này ngày {d}.": "Disimpan dari halaman ini pada {d}.",
   "Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.": "Penjelasan istilah akuarium dan aquascape, beserta nama bahasa Inggrisnya.",
+  "Giao diện": "Tampilan",
   "Giao diện: {mode}": "Tampilan: {mode}",
   "Giao diện: {mode}. Bấm để đổi": "Tampilan: {mode}. Klik untuk mengganti",
   "Giao diện: tự động theo máy. Bấm để đổi": "Tampilan: otomatis mengikuti perangkat. Klik untuk mengganti",
@@ -528,6 +529,7 @@
   "Màu trên màn hình chỉ gần đúng.": "Warna di layar hanya perkiraan.",
   "Màu và độ sáng": "Warna dan kecerahan",
   "Máy chủ": "Server",
+  "Menu": "Menu",
   "MgSO4·7H2O (muối Epsom)": "MgSO4·7H2O (garam Epsom)",
   "Mở bài gốc ↗": "Buka artikel asli ↗",
   "Mở sổ bể →": "Buka catatan akuarium →",
@@ -765,5 +767,10 @@
   "Xong. Đèn chạy lại theo lịch.": "Selesai. Lampu kembali mengikuti jadwal.",
   "Xung đột": "Konflik",
   "Yếu": "Lemah",
-  "yêu cầu xem, sửa hoặc xóa bình luận của bạn (xem": "meminta untuk melihat, mengubah, atau menghapus komentar Anda (lihat"
+  "yêu cầu xem, sửa hoặc xóa bình luận của bạn (xem": "meminta untuk melihat, mengubah, atau menghapus komentar Anda (lihat",
+  "{n} loài phù hợp · {m} loài chưa đủ dữ liệu để chắc": "{n} spesies cocok · {m} spesies datanya belum cukup untuk memastikan",
+  "Chưa đủ dữ liệu để chắc ({n})": "Data belum cukup untuk memastikan ({n})",
+  "Đang lọc": "Filter aktif",
+  "Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.": "Spesies ini belum punya sebagian data yang sedang Anda filter (suhu, pH, panjang akuarium, atau tingkat kesulitan). Data yang ada sudah cocok, tetapi belum cukup untuk memastikan.",
+  "Xóa lọc": "Hapus filter"
 }
