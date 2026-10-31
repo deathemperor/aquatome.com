@@ -59,6 +59,7 @@ const index: MateItem[] = c.species.map(s => {
   import { stocking } from '../../../scripts/stocking'
   import { cpath, ct } from '../../../scripts/ct'
   import { initSaveToTank, withSpecies } from '../../../scripts/save-to-tank'
+  import { noCookies } from '../../../lib/no-cookies'
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
   const items: MateItem[] = JSON.parse($('species-index').textContent!)
@@ -114,7 +115,7 @@ const index: MateItem[] = c.species.map(s => {
     list.innerHTML = shown.map((s, i) => {
       const has = chosen.some(c => c.slug === s.slug)
       return `<li role="option" id="tm-opt-${i}" data-i="${i}" aria-selected="false"${has ? ' aria-disabled="true"' : ''}>`
-        + `<span class="ph">${FISH}${s.img ? `<img src="${esc(s.img)}" alt="" decoding="async">` : ''}</span>`
+        + `<span class="ph">${FISH}${s.img ? `<img${noCookies(s.img) ? ' crossorigin="anonymous"' : ''} src="${esc(s.img)}" alt="" decoding="async">` : ''}</span>`
         + `<span class="nm"><span>${esc(s.name)}</span><i class="sci">${esc(s.scientificName)}</i></span>`
         + (has ? `<span class="tag">${ct('Đã thêm')}</span>` : '') + '</li>'
     }).join('')

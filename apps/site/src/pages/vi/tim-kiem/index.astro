@@ -24,6 +24,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
   </div>
   <script>
     import { ct } from '../../../scripts/ct'
+    import { noCookies } from '../../../lib/no-cookies'
 
     // Pagefind's browser API (built into /pagefind/ after `astro build`), the parts used here.
     type Doc = { url: string; excerpt: string; content: string; locations: number[]; meta: Record<string, string | undefined> }
@@ -89,6 +90,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
       const li = document.createElement('li')
       if (d.meta.image) {
         const img = document.createElement('img')
+        if (noCookies(d.meta.image)) img.crossOrigin = 'anonymous'
         img.src = d.meta.image; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.width = 160; img.height = 120
         li.append(img)
       }
