@@ -1,12 +1,12 @@
 {
   "slug": "boraras-maculatus",
-  "name": "ปลาซิวแคระ",
+  "name": "ปลาซิวแคระจุด",
   "altNames": [
-    "ปลาซิวแคระจุด",
     "ซิวจุดดำ",
     "Dwarf rasbora",
     "Spotted rasbora",
-    "Pygmy rasbora"
+    "Pygmy rasbora",
+    "ปลาซิวแคระ"
   ],
   "sections": {
     "quickFacts:bwaquatics": "<ul><li>วงศ์: Cyprinidae เป็นปลาที่ตัวเล็กที่สุดชนิดหนึ่งในวงการปลาสวยงาม</li><li>ขนาด: ยาวทั้งตัวประมาณ 1.5–2 ซม. แต่อีกแหล่งระบุว่ายาวได้ถึง 2.5 ซม.</li><li>อุณหภูมิ: 22–28 °C ช่วงที่เหมาะที่สุดต่อสุขภาพในระยะยาวและการเพาะพันธุ์คือ 25–26 °C</li><li>ค่า pH 4.0–6.5, GH ≤ 5 °d, KH ≤ 2 °d, TDS &lt; 100 ppm</li><li>ความยากในการเลี้ยง: ปานกลาง</li></ul>",
@@ -26,5 +26,6 @@
     "bySource": {
       "bwaquatics": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

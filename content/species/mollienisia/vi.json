@@ -1,6 +1,6 @@
 {
   "slug": "ca-molly-bryophila",
-  "name": "Cá molly",
+  "name": "Các loài cá molly",
   "altNames": [
     "Molly vây ngắn",
     "Molly vây buồm",
@@ -15,7 +15,8 @@
     "White molly",
     "Golden molly",
     "Lyretail molly",
-    "Dalmatian molly"
+    "Dalmatian molly",
+    "Cá molly"
   ],
   "sections": {
     "quickFacts:sprucepets": "<ul><li>Tên thường gọi: molly vây ngắn, molly vây buồm, molly đen, molly trắng, molly vàng, molly đuôi đàn lia, molly đốm (dalmatian)</li><li>Tên khoa học: Poecilia sp.</li><li>Kích thước trưởng thành: tối đa 14 cm</li><li>Tuổi thọ: 5 năm</li><li>Họ: Poeciliidae</li><li>Nguồn gốc: Nam Mỹ, Trung Mỹ, Mexico</li><li>Tính cách: hiền</li><li>Tầng bơi: tầng giữa</li><li>Bể tối thiểu: 76 lít</li><li>Thức ăn: ăn tạp</li><li>Sinh sản: đẻ con</li><li>Chăm sóc: dễ</li><li>pH 7,5 đến 8,5</li><li>Độ cứng: 15-30 dGH</li><li>Nhiệt độ: 26°C</li></ul>",
@@ -32,5 +33,6 @@
     "bySource": {
       "sprucepets": 0.7
     }
-  }
+  },
+  "nameFixed": true
 }

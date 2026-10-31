@@ -1,8 +1,8 @@
-import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
+import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import type { Taxon } from './gbif'
 import type { ProcessedPage } from './process'
 
-// takenNames: other items' names, lower-cased (two fish under one name can't be told apart, or picked by name in the tools).
+// takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
 type Item<E> = { entity: E; vi: Translation }
 type PagePlace = ProcessedPage['places'][number]
@@ -60,10 +60,12 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
 function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>): Translation {
   // Seriously Fish names the species itself, so it may replace a name an earlier source gave; an owner-fixed name stays,
   // and so does a name the new one would make ambiguous (another fish's name: "Cá đĩa nâu" became "Cá đĩa", #228).
-  const clash = !!prev?.name && !!page.viName && !!ctx.takenNames?.has(page.viName.trim().toLowerCase())
-  const name = (prev && (prev.nameFixed || clash || ctx.source !== 'seriouslyfish') ? prev.name : page.viName) || prev?.name || fallbackName
+  // A new item never starts under another's name either: it takes the fallback (its scientific name), the source's
+  // name staying findable as an alternative name.
+  const clash = !!page.viName && !!ctx.takenNames?.has(nameKey(page.viName))
+  const name = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
   // A replaced name stays findable as an alternative name.
-  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),

@@ -163,3 +163,13 @@ test('localizeBreed: the page in Thai written afresh from the same facts, withou
   expect(t).toMatchObject({ slug: 'x-hybrid-fish', name: 'ปลาลูกผสม X', altNames: ['X hybrid'], parents: ['ปลาทอง (Carassius auratus)', 'ปลาไน'], body: '<p>บ</p>', quality: { score: 0.9, indexable: true } })
   expect(await localizeBreed(r, th, 'x-hybrid', 'th')).toEqual({ id: 'x-hybrid', skipped: 'done' })
 })
+
+test("localizeBreed: a name a species already has in the language is refused; the breed takes its English name", async () => {
+  const r = await root()
+  await writeFile(join(r, 'content/species/carassius-auratus/th.json'), JSON.stringify({ slug: 'carassius-auratus', name: 'ปลาทอง' }))
+  const vi: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], parentNames: [], summary: ['s'], body: '<p>b</p>', faq: [] }) as T
+  await makeBreed(r, { research: (async () => facts) as Llm, llm: vi, gallery: gallery([]) }, { name: 'Ranchu' })
+  const th: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties ? { score: 0.9, notes: [] } : { name: 'ปลา ทอง', slug: 'ranchu', altNames: [], parentNames: [], summary: ['ส'], body: '<p>บ</p>', faq: [] }) as T
+  await localizeBreed(r, th, 'ranchu', 'th')
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu/th.json'), 'utf8'))).toMatchObject({ name: 'Ranchu goldfish', altNames: ['ปลา ทอง'] })
+})

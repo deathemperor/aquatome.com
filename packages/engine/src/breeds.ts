@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { BreedSchema, GallerySchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
+import { BreedSchema, GallerySchema, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
-import { TARGETS, type TargetLang } from './localize'
+import { localName, TARGETS, type TargetLang } from './localize'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -229,23 +229,26 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     const r = await check(again)
     if (r.score > review.score) { w = again; review = r }
   }
-  // Breeds share /ca/ with the species: an address neither has in this language.
+  // Breeds share /ca/ with the species: an address and a name neither has in this language.
   const taken = new Set<string>()
+  const names = new Set<string>()
   for (const kind of ['species', 'breeds']) for (const x of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
     if (kind === 'breeds' && x === id) continue
-    const t = JSON.parse(await readFile(join(root, 'content', kind, x, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
+    const t = JSON.parse(await readFile(join(root, 'content', kind, x, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string; name?: string }
     if (t.slug) taken.add(t.slug)
+    if (t.name) names.add(nameKey(t.name))
   }
-  const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
-  const name = w.name.trim()
+  const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
+  const name = localName(w.name, prev, names, forWriter.name)
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
   // The Vietnamese page's own names are not names in this language.
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
   const t = TranslationSchema.parse({
-    slug, name, altNames: [...new Set(w.altNames.map(n => n.trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
+    slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
     sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
     ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+    ...(prev?.nameFixed ? { nameFixed: true } : {}),
   })
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
   return { id, slug, score: review.score, notes: review.notes }

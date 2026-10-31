@@ -1,11 +1,12 @@
 {
   "slug": "anubias-barteri",
-  "name": "อนูเบียส บาร์เทอรี",
+  "name": "อนูเบียส คอยน์ลีฟ",
   "altNames": [
     "อนูเบียส",
     "อนูเบียสบาร์เทรี",
     "Anubias barteri",
-    "Anubias"
+    "Anubias",
+    "อนูเบียส บาร์เทอรี"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li><strong>ถิ่นกำเนิด:</strong> สายพันธุ์ปรับปรุง (cultivar)</li><li><strong>อัตราการเติบโต:</strong> ช้า</li><li><strong>ความสูง:</strong> 5–15+ ซม. (ความสูงเฉลี่ยหลังปลูกในตู้ปลาได้สองเดือน)</li><li><strong>ความต้องการแสง:</strong> ต่ำ</li><li><strong>CO2:</strong> ต่ำ</li></ul>",
@@ -18,5 +19,6 @@
     "bySource": {
       "tropica": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

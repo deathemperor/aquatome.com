@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, slugify, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, nameKey, slugify, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
@@ -19,7 +19,7 @@ import { SOURCES, sourceById } from './sources'
 import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
 import { popularFirst } from './shops'
-import { candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
+import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 
 export type Deps = {
   fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
@@ -70,11 +70,11 @@ function store(contentRoot: string) {
       if (own) set.delete(own)
       return set
     },
-    /** Names (lower-cased) of the other items of this kind. */
+    /** Names (nameKey) of the other items of this kind. */
     takenNames: async (kind: Kind, own?: string) => {
       if (!names.has(kind)) {
         const map = new Map<string, string>()
-        for (const id of await ids(kind)) { const t = await readJson<Translation>(join(contentRoot, kind, id, 'vi.json')); if (t) map.set(id, t.name.toLowerCase()) }
+        for (const id of await ids(kind)) { const t = await readJson<Translation>(join(contentRoot, kind, id, 'vi.json')); if (t) map.set(id, nameKey(t.name)) }
         names.set(kind, map)
       }
       return new Set([...names.get(kind)!].filter(([id]) => id !== own).map(([, n]) => n))
@@ -88,7 +88,7 @@ function store(contentRoot: string) {
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
       slugs.get(kind)?.add(vi.slug)
-      names.get(kind)?.set(entity.id, vi.name.toLowerCase())
+      names.get(kind)?.set(entity.id, nameKey(vi.name))
     },
   }
 }
@@ -137,17 +137,23 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
   const gbifNames: Record<string, Taxon | null> = (await readJson(gbifNamesFile)) ?? {}
-  // Shops' species first, then the most-kept fish (shops.ts).
-  const popular = await popularFirst(root)
+  const gbif = (n: string) => gbifMatch(n, http, gbifNames)
+  let gbifKept = Object.keys(gbifNames).length
+  /** GBIF's answers are kept for the next runs. */
+  const keepGbifNames = async () => {
+    if (Object.keys(gbifNames).length === gbifKept) return
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeJson(gbifNamesFile, Object.fromEntries(Object.entries(gbifNames).sort()))
+    gbifKept = Object.keys(gbifNames).length
+  }
+  // Shops' species first, then the most-kept fish (shops.ts), under the names GBIF accepts, as their pages would be kept.
+  const listed = await popularFirst(root)
+  const popular = await soft('popular names', () => acceptedNames(listed, gbif), listed)
   const wanted = await soft('wanted species', async () => {
     const words = new Set((await readFile('/usr/share/dict/words', 'utf8').catch(() => '')).split('\n').map(w => w.trim().toLowerCase()))
     const have = new Set([...(await s.ids('species')), ...(await s.ids('plants'))])
-    const before = Object.keys(gbifNames).length
-    const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, n => gbifMatch(n, http, gbifNames), n => n in gbifNames), have, popular)
-    if (Object.keys(gbifNames).length !== before) {
-      await mkdir(join(root, 'engine-state'), { recursive: true })
-      await writeJson(gbifNamesFile, Object.fromEntries(Object.entries(gbifNames).sort()))
-    }
+    const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, gbif, n => n in gbifNames), have, popular)
+    await keepGbifNames()
     return w
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
@@ -201,7 +207,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!taxon) return null
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
-      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: await s.takenNames('species', slugify(taxon.canonicalName)), quality: combineQuality(existing.vi?.quality, source, score) })
+      const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])
@@ -215,7 +221,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (!page.scientificName) return null
       const existing = await s.read<z.infer<typeof PlantSchema>>('plants', slugify(page.scientificName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`plants/${slugify(page.scientificName)}`]
-      const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), quality: combineQuality(existing.vi?.quality, source, score) })
+      const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http), [])
@@ -282,6 +288,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       found = kept
     }
     counts.discovered = found.length
+    // A wanted species this source keeps under another name (a synonym, a newer genus, another spelling) is fetched first too.
+    await soft('source names', async () => { await addSourceNames(found.map(f => f.url), wanted, gbif, n => n in gbifNames); await keepGbifNames() }, undefined)
     found = wantedFirst(found, wanted, popular)
     for (const f of found) { const w = wantedIn(f.url, wanted); if (w && !onSource[w]) onSource[w] = f.url }
     await setSourceBlock(root, id, undefined)
