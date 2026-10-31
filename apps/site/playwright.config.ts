@@ -13,7 +13,10 @@ export default defineConfig({
   workers: process.env.CI ? 4 : undefined, // GitHub's runners have 4 cores; Playwright's CI default is 1
   // E2E_JSON: results as JSON too, for scripts/site-watch.mjs (production checks).
   reporter: [...(process.env.CI ? [['github'], ['list'], ['html', { open: 'never', outputFolder: process.env.E2E_REPORT ?? 'e2e-report' }]] as const : [['list']] as const), ...(process.env.E2E_JSON ? [['json', { outputFile: process.env.E2E_JSON }]] as const : [])],
-  use: { baseURL: live ?? `http://127.0.0.1:${PORT}`, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
+  // A failed test keeps its trace (steps, screenshots, network, console), without the page's DOM copied at every step:
+  // on the fish list (~16,000 elements) those copies tripled a check's time and pushed it past its timeout on GitHub's
+  // runners (2026-10-31). The failure's screenshot and accessibility snapshot (error-context.md) still show the page.
+  use: { baseURL: live ?? `http://127.0.0.1:${PORT}`, trace: { mode: 'retain-on-failure', snapshots: false }, screenshot: 'only-on-failure' },
   projects: [
     { name: 'phone', use: { ...devices['Pixel 7'] } },
     { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 800 } } },
