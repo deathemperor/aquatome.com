@@ -3,20 +3,23 @@ import { ct } from './ct'
 /**
  * A list page's filter, the same on the fish and plant lists (components FilterBox and FilterResults, ids `<prefix>-…`):
  * the filters live in the address, one chip each (× drops one, "Xóa lọc" all); the sure matches come first, and the cards
- * missing a figure the filter asks about wait in a closed group after them. Every card stays in the HTML (crawlers follow
+ * missing a figure the filter asks about wait in a closed group after them. Every item is in the HTML (crawlers follow
  * every link); readers see each list a page of 24 at a time.
  *
  * `match`: the slugs that surely fit the address's filters, and those nothing known rules out but missing a figure.
  * `onRun`: anything else the page updates after each filter.
+ * `build`: the card for an item the first time it shows, when the HTML has only a link for it (the fish list past its
+ * first page, SpeciesGrid `full`); an item that is already a card comes back as it is.
  */
-export function filterList(prefix: string, match: (p: URLSearchParams) => { sure: string[]; unsure: string[] }, onRun?: (p: URLSearchParams) => void) {
+export function filterList(prefix: string, match: (p: URLSearchParams) => { sure: string[]; unsure: string[] }, onRun?: (p: URLSearchParams) => void, build?: (el: HTMLElement) => HTMLElement) {
   const PAGE = 24
   const $ = (id: string) => document.getElementById(`${prefix}-${id}`)!
   const form = $('filter') as HTMLFormElement
   const count = $('count')
   const chips = $('chips')
   const unsure = $('unsure') as HTMLDetailsElement
-  // Every card in reading order, taken once: each run deals them out again, so the order never drifts.
+  // Every item in reading order (a card, or a link until it first shows), taken once: each run deals them out again, so
+  // the order never drifts.
   const cards = [...document.querySelectorAll<HTMLElement>('[data-slug]')]
   const grid = cards[0]?.parentElement ?? document.createElement('div')
   // The unsure group's grid: a bare copy of the list's, so it carries the same (scoped) grid styles.
@@ -29,7 +32,15 @@ export function filterList(prefix: string, match: (p: URLSearchParams) => { sure
   const listOf = (el: HTMLElement) => lists.findIndex(l => l.keep.has(el.dataset.slug!))
   function render() {
     const n = lists.map(() => 0)
-    for (const el of cards) { const k = listOf(el); el.hidden = k < 0 || n[k]!++ >= lists[k]!.shown }
+    cards.forEach((el, j) => {
+      const k = listOf(el)
+      const show = k >= 0 && n[k]!++ < lists[k]!.shown
+      if (show && build) {
+        const card = build(el)
+        if (card !== el) { el.replaceWith(card); el = cards[j] = card }
+      }
+      el.hidden = !show
+    })
     for (const l of lists) {
       const left = l.keep.size - Math.min(l.shown, l.keep.size)
       l.more.hidden = left <= 0

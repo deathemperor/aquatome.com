@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { GallerySchema, isAllowedLicence, POPULAR, slugify, STAPLE_SPECIES, thumbOf, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError, type Llm } from './claude'
+import { mirrorPlan } from './mirror-photos'
 import { contactSheet } from './video-images'
 import { shopIds } from './shops'
 import { authorText } from './wiki-author'
@@ -151,6 +152,9 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
   const content = join(root, 'content')
   const report = { done: [] as string[], failed: [] as string[], stopped: '' }
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  // A Commons or iNaturalist photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
+  const rejectedKeys = new Set(Object.keys(rejected).map(u => u.replace(/^https?:\/\/[^/]+\//, '')))
+  const isRejected = (url: string) => !!rejected[url] || rejectedKeys.has(mirrorPlan(url)?.key ?? '')
   const all = (await readdir(join(content, 'species')).catch(() => [] as string[])).filter(id => !o.only || id === o.only)
   const sources = new Map(await Promise.all(all.map(async id => {
     const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { source: string }[] }
@@ -173,7 +177,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
       // A page photo by its URL or its source page (the same photo after it moved to our bucket).
       const seen = new Set(e.photos.flatMap(p => [p.url, p.sourceUrl]))
       const cands = [...await commonsCandidates(e.scientificName, d.http), ...await inatCandidates(e.scientificName, d.http, d.sleep)]
-        .filter(c => !rejected[c.url] && !seen.has(c.url) && !seen.has(c.sourceUrl) && !seen.has(c.key) && (seen.add(c.key), true))
+        .filter(c => !isRejected(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !seen.has(c.key) && (seen.add(c.key), true))
       const screened = (await screen(cands.slice(0, Math.round((o.max ?? 300) * 1.5)), e.scientificName, vi.name ?? e.scientificName, d)).slice(0, o.max ?? 300)
       // Photos from their own steps stay, after the open-licence ones: Unsplash (unsplash.ts) and those a source added with
       // permission (Jim Cumming's Facebook), unless the owner rejected them.

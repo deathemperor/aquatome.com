@@ -42,12 +42,12 @@ export function sections(body: string): { heading: string; text: string }[] {
   }).filter(s => s.heading)
 }
 
-/** Numbered contact sheet of equal tiles (the number in a corner), so the model can say which one. */
-export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: number): Promise<Buffer> {
+/** Numbered contact sheet of equal tiles (the number in a corner), so the model can say which one. `contain`: whole photos, corners and all. */
+export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: number, fit: 'cover' | 'contain' = 'cover'): Promise<Buffer> {
   const rows = Math.ceil(tiles.length / cols)
   const label = (n: number) => Buffer.from(`<svg width="44" height="30"><rect width="44" height="30" fill="#000" opacity="0.8"/><text x="22" y="22" font-size="20" font-family="Arial" font-weight="bold" fill="#fff" text-anchor="middle">${n}</text></svg>`)
   const parts = await Promise.all(tiles.map(async (t, i) => [
-    { input: await sharp(t).resize(w, h, { fit: 'cover' }).toBuffer(), left: (i % cols) * (w + 6), top: Math.floor(i / cols) * (h + 6) },
+    { input: await sharp(t).resize(w, h, { fit, background: '#888' }).toBuffer(), left: (i % cols) * (w + 6), top: Math.floor(i / cols) * (h + 6) },
     { input: label(i + 1), left: (i % cols) * (w + 6), top: Math.floor(i / cols) * (h + 6) },
   ]))
   return sharp({ create: { width: cols * (w + 6), height: rows * (h + 6), channels: 3, background: '#fff' } }).composite(parts.flat()).jpeg({ quality: 85 }).toBuffer()
@@ -117,7 +117,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
-    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is { t: number; jpg: Buffer } => !!f && !seen.has(f.t)) : []
+    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t)) : []
     const uniq = [...new Map(cands.map(c => [c.t, c])).values()].slice(0, 12)
     if (uniq.length) {
       const sheet = join(dir, `${v.youtubeId}-${i}-m.jpg`)

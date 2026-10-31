@@ -5,3 +5,8 @@ allowBuilds:
   esbuild: false
   sharp: false
   workerd: false
+# Lighthouse's error reporter (@sentry/node → @sentry/bundler-plugins) asks for glob 13 and minimatch 10, which have
+# advisories fixed in glob 14.0.2 and minimatch 11.0.1 (Dependabot alert 18). Only the Lighthouse checks use them.
+overrides:
+  glob@>=9 <14.0.2: ^14.0.2
+  minimatch@<11.0.1: ^11.0.3

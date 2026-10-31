@@ -152,7 +152,11 @@ export const TranslationSchema = z.object({
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),
   /** AquaTome's own guides in another language: the sources that page's facts come from (the entity's refs otherwise). */
   refs: z.array(z.object({ url: z.string(), title: z.string() })).optional(),
-  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional() }),
+  /**
+   * Species pages: `reason` is why the page is out of search: `thin` (below the depth bar with no in-depth source, depth.ts)
+   * or a low translation `score`; thin is named when both.
+   */
+  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional(), reason: z.enum(['thin', 'score']).optional() }),
 })
 
 export const ChangelogEntrySchema = z.object({

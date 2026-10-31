@@ -1,4 +1,4 @@
-import type { Content, Photo } from '@aq/schema'
+import { QUALITY_THRESHOLD, type Content, type Photo } from '@aq/schema'
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
 
@@ -30,7 +30,8 @@ export function appIndex(lang: Lang, c: Content): AppIndex {
   const items: AppItem[] = []
   if (served(lang, '/vi/ca/x/')) {
     for (const s of [...c.species, ...c.breeds]) {
-      if (!s.t.quality.indexable) continue
+      // A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short.
+      if (!s.t.quality.indexable && !(s.t.quality.reason === 'thin' && s.t.quality.score >= QUALITY_THRESHOLD)) continue
       const sub = 'scientificName' in s ? s.scientificName : undefined
       items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos) }))
     }

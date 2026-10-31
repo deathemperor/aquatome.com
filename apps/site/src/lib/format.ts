@@ -10,6 +10,9 @@ export function fmt(lang: Lang) {
   return { num, range }
 }
 
+/** Difficulty 1–8 in three steps (1–3 Dễ, 4–5 Vừa, 6–8 Khó): Difficulty.astro, and the fish list's script for the cards it builds. */
+export const difficultyLevel = (value: number) => (value <= 3 ? 'easy' : value <= 5 ? 'mid' : 'hard')
+
 /** Labels here are Vietnamese: a page shows them through t(). */
 export const FIELD_LABELS: Record<DataCardField, string> = {
   tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)', sizeCm: 'Kích thước', tankCm: 'Bể tối thiểu', difficulty: 'Độ khó',

@@ -1,6 +1,8 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
+import { tankIsVolume } from './card-facts'
+import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese } from './text'
 import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
@@ -74,10 +76,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence))).map(caption)
-  const cleanCard = (card: SpeciesEntity['dataCard']): SpeciesEntity['dataCard'] =>
+  /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
+  const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] =>
     Object.fromEntries(
       Object.entries(card)
-        .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source))] as const)
+        .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source)
+          && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(sections.filter(s => s.source === v.source).map(s => s.html).join('\n'), v.value)))] as const)
         .filter(([, values]) => values.length > 0),
     ) as Partial<Record<DataCardField, SpeciesEntity['dataCard'][DataCardField]>>
 
@@ -88,9 +92,19 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const score = Math.min(...by)
     return { ...x, t: { ...x.t, quality: { ...x.t.quality, score, indexable: score >= QUALITY_THRESHOLD } } }
   }
+  /**
+   * A species page is also judged on its depth (depth.ts), here at every build: a page that gained an in-depth source (an
+   * engine run, or two jobs' work merged) goes back in search by itself, whatever its translation file last recorded.
+   */
+  const judgeDepth = (x: Localized<SpeciesEntity>): Localized<SpeciesEntity> => {
+    const q = cleanQuality(x).t.quality
+    // A recorded `thin` was this rule's own call: the score alone decides the rest.
+    const scoreOk = q.reason === 'thin' ? q.score >= QUALITY_THRESHOLD : q.indexable
+    return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
+  }
 
   const species = (await loadKind(root, 'species', SpeciesSchema, lang))
-    .map(s => cleanQuality({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard) }))
+    .map(s => judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang))
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))

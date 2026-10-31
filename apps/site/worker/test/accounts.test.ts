@@ -387,7 +387,9 @@ test('sessions expire, and a session used again is extended', async () => {
   expect((await call('GET', '/api/v1/session', { cookie })).json.user).toBeNull()
 })
 
-test('ID tokens: Apple\'s and Google\'s signature, issuer, audience and expiry are all checked', async () => {
+// Generating an RSA key takes from 30 ms to several seconds (a random prime search), so 5 s wasn't enough on a busy
+// runner (deploy 41222798049).
+test('ID tokens: Apple\'s and Google\'s signature, issuer, audience and expiry are all checked', { timeout: 30_000 }, async () => {
   const { privateKey, publicKey } = await generateKeyPair('RS256')
   const jwk = { ...(await exportJWK(publicKey)), kid: 'k1', alg: 'RS256' }
   const keys = createLocalJWKSet({ keys: [jwk] })

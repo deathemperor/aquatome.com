@@ -14,7 +14,8 @@ import { i18n } from '../../../lib/i18n'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const index = c.species.map(s => toIndexItem(s))
+// Only what the filter reads (no gh, sizeCm): the index is a quarter of the page.
+const index = c.species.map(s => { const { gh, sizeCm, ...i } = toIndexItem(s); return i })
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 ---
 <Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...c.species.map(s => s.photos[0]), ...c.breeds.map(b => b.photos[0])])}>
@@ -32,14 +33,17 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
   </FilterBox>
   <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
   <FilterResults prefix="species" why={t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
-    <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} />
+    {/* The first page as cards; every other species as a link the script makes a card of when it shows (its PAGE). */}
+    <SpeciesGrid species={listOrder(lang, c)} heading={t('Danh sách loài')} full={24} />
   </FilterResults>
   <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
   import { filterSpecies, keepBreed, queryFromParams, unsureSpecies, type SpeciesIndexItem } from '../../../scripts/filter'
   import { filterList } from '../../../scripts/filter-list'
+  import { buildCard } from '../../../scripts/species-card'
   const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
+  const bySlug = new Map(items.map(i => [i.slug, i]))
   const breeds = document.querySelector<HTMLElement>('section.breeds')
   filterList('species', p => {
     const q = queryFromParams(p)
@@ -51,5 +55,7 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
     let n = 0
     breeds.querySelectorAll('li').forEach(li => { li.hidden = !keepBreed(li.querySelector('.n')!.textContent!, q); if (!li.hidden) n++ })
     breeds.hidden = n === 0
-  })
+  },
+  // A species the HTML only links to becomes a card the first time it shows.
+  el => (el instanceof HTMLAnchorElement ? buildCard(document.getElementById('species-card') as HTMLTemplateElement, el, bySlug.get(el.dataset.slug!)!) : el))
 </script>

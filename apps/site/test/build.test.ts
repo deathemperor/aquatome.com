@@ -132,6 +132,19 @@ test('low-quality page is noindex', () => {
   expect(page('/vi/ca/ca-neon-vua/').html).not.toMatch(/noindex/)
 })
 
+test('a thin page (one dealer\'s note) stays out of search; a heading over a few words is a quick fact instead', () => {
+  const { html, dom } = page('/vi/ca/ca-ong-tien/')
+  expect(html).toMatch(/<meta name="robots" content="noindex/)
+  expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/vi/ca/ca-ong-tien/')
+  // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
+  // is left out, the quick facts already say it.
+  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
+  const facts = dom.querySelector('#muc-quickFacts')!
+  expect(facts.querySelectorAll('li').map(li => li.text)).toEqual(['Sinh sản: Đẻ trứng trên lá.1'])
+  expect(facts.querySelector('li strong')?.text).toBe('Sinh sản:')
+  expect(dom.querySelectorAll('nav.jump a').map(a => a.text)).not.toContain('Sinh sản')
+})
+
 test('home features well-known species and links the full list instead of every card', () => {
   const { dom } = page('/vi/')
   const cards = dom.querySelectorAll('article.sc a[href^="/vi/ca/"]').map(a => a.getAttribute('href'))
@@ -344,9 +357,11 @@ test('home leads with the tank form (to the species filter) and three first step
   expect(dom.querySelector('#fresh-h')).toBeNull() // "Mới trên AquaTome" moved off the home page
 })
 
-test('species list: every card in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
+test('species list: a page of cards and a card template in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
   const { dom, html } = page('/vi/ca/')
   expect(dom.querySelector('#species-more')).toBeTruthy()
+  // The script builds every species past the first page from this template (scripts/species-card.ts).
+  expect(dom.querySelector('template#species-card .sc .diff')).toBeTruthy()
   expect(html.indexOf('id="species-filter"')).toBeLessThan(html.indexOf('id="breeds-h"')) // the search comes before the breed cards
   expect(dom.querySelector('details#filter-box[open] form#species-filter')).toBeTruthy()
   expect(dom.querySelectorAll('select[name="difficultyMax"] option').map(o => o.text)).toEqual(['Bất kỳ', 'Dễ', 'Dễ và vừa'])

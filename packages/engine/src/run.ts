@@ -1,9 +1,10 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, nameKey, slugify, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
+import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, type Taxon } from './gbif'
@@ -16,7 +17,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
-import { loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
+import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
 import { findVideos } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
@@ -33,7 +34,7 @@ export type Deps = {
   sleep: (ms: number) => Promise<void>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[] }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -42,6 +43,8 @@ const MAX_PHOTOS = 8
 const rank = (p: Photo) => (p.source ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
+/** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
+const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 
 /** This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. */
@@ -116,8 +119,6 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
 const outranked = (sections: Section[] | undefined, source: SourceId, url: string, incoming: number) =>
   (sections ?? []).filter(x => x.source === source && x.sourceUrl !== url).length > incoming
 
-const BROWSER_GONE = /Target page, context or browser has been closed|Browser has been closed|Target closed/i
-
 /** Optional enrichment never fails a page. */
 async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
   try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
@@ -128,8 +129,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
+  const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
@@ -194,7 +196,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const now = today()
     const minWidth = sourceById(source).minPhotoWidth
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked }, existing)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
@@ -208,6 +210,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
       const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
+      // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
+      item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => sourceNames[x.source]?.publish)).deep)
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])
@@ -241,6 +245,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     return null
   }
 
+  // Thin species pages (depth.ts), most popular first: their profiles on in-depth sources run before new species.
+  const thinNow = await soft('thin species', () => thinSpecies(contentRoot, popularityOrder(popular)), { pages: 0, thin: [], families: new Map<string, string>() })
+  const searchCache = await readSearchCache(root)
   let llmFailures = 0
   // Least-covered sources first, each capped at a fair share of the time left (unused time rolls forward),
   // so one large backlog (Seriously Fish) can't starve the others; the most-covered source runs last and gets the rest.
@@ -296,8 +303,20 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const state = await loadState(root, id)
     // `force` (with `only`): re-translate the matching pages now, even if unchanged since the last run (e.g. after a prompt fix).
     const forced = (url: string) => !!opts.force && !!opts.only?.test(url)
-    const todo = found.filter(f => (!opts.only || opts.only.test(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now()))).slice(0, opts.limit ?? Infinity)
+    const deeper = deeperPages(found, thinNow.thin, src)
+    // Not under our name in the index: the source's own search (not on targeted runs).
+    if (!opts.only) {
+      const searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      for (const [url, i] of searched) {
+        if (!found.some(f => f.url === url)) found.push({ url })
+        if (!deeper.has(url)) deeper.set(url, i)
+      }
+      if (src.search) await soft('search cache', () => saveSearchCache(root, searchCache), undefined)
+    }
+    const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
+    const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
 
+    let networkFailures = 0
     for (const { url, lastmod } of todo) {
       if (deps.now().getTime() > until) break
       const prev = state[url]
@@ -306,6 +325,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       counts.fetched++
       try {
         const r = await get(url)
+        networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()
@@ -329,14 +349,20 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
         llmFailures = 0
       } catch (e) {
+        const message = (e as Error).message
         counts.errors++
-        report.errors.push(`${url}: ${(e as Error).message}`)
-        // The browser itself is gone (crash, closed window): every later page would fail the same way, and this one isn't at fault.
-        if (BROWSER_GONE.test((e as Error).message)) {
+        report.errors.push(`${url}: ${message}`)
+        // A usage limit uses no attempt; a transient failure (browser, network, usage limit) runs first next time (state.ts, depth.ts).
+        await save({ ...base, ...keep(prev), status: 'error', attempts: attemptsAfter(prev, message), error: message.slice(0, 300) })
+        // The browser itself is gone (crash, closed window): every later page would fail the same way.
+        if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')
           break sources
         }
-        await save({ ...base, ...keep(prev), status: 'error', attempts: (prev?.status === 'error' ? prev.attempts : 0) + 1, error: (e as Error).message.slice(0, 300) })
+        if (!(e instanceof LlmError) && errorKind(message) === 'transient' && ++networkFailures >= MAX_NETWORK_FAILURES) {
+          report.errors.push(`${id}: stopping: ${MAX_NETWORK_FAILURES} pages in a row failed on the network (${message.slice(0, 120)})`)
+          break
+        }
         if (e instanceof LlmError && ++llmFailures >= MAX_LLM_FAILURES) {
           report.errors.push(`stopping: ${MAX_LLM_FAILURES} consecutive Claude failures (${(e as Error).message.slice(0, 120)})`)
           break sources
@@ -344,6 +370,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       }
     }
   }
+  report.depth = await soft('depth report', async () => { const t = await thinSpecies(contentRoot, popularityOrder(popular)); return depthReport(t.pages, t.thin) }, undefined)
   await soft('wanted report', () => writeJson(join(root, 'engine-state/_wanted.json'), Object.fromEntries([...wanted].map(([slug, w]) => [slug, { name: w.name, mentionedIn: w.mentionedIn.slice(0, 5), mentions: w.mentionedIn.length, ...(onSource[slug] ? { onSource: onSource[slug] } : {}) }]))), undefined)
   return report
 }

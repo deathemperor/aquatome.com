@@ -1,4 +1,4 @@
-import { copyFile, mkdtemp } from 'node:fs/promises'
+import { copyFile, cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -132,4 +132,35 @@ test('a translation whose entity was removed is no page, not a broken build', as
   const c = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
   expect(c.places).toEqual([])
   expect(c.species.map(s => s.id)).toEqual(['alpha'])
+})
+
+test('a thin species page is out of search with its reason, at every build: an in-depth source brings it back', async () => {
+  const { cp, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-depth-'))
+  await cp(root, dir, { recursive: true })
+  // beta: one Glaser note, recorded indexable when it was made.
+  const beta = (c: Awaited<ReturnType<typeof loadAll>>) => c.species.find(s => s.id === 'beta')!.t.quality
+  expect(beta(await loadAll({ root: dir, lang: 'vi', publicBuild: false }))).toEqual({ score: 0.9, indexable: false, reason: 'thin' })
+  // An engine run (or two jobs' work merged) adds a Seriously Fish section; the file still says thin.
+  const file = join(dir, 'species/beta/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...e, sections: [...e.sections, { key: 'diet', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/species/testus-beta', html: '<p>Omnivore.</p>' }] }))
+  await writeFile(join(dir, 'species/beta/vi.json'), JSON.stringify({ slug: 'ca-beta', name: 'Cá beta', altNames: [], sections: {}, quality: { score: 0.9, indexable: false, reason: 'thin' } }))
+  expect(beta(await loadAll({ root: dir, lang: 'vi', publicBuild: false }))).toEqual({ score: 0.9, indexable: true })
+  // A low score still keeps it out, now for that reason.
+  await writeFile(join(dir, 'species/beta/vi.json'), JSON.stringify({ slug: 'ca-beta', name: 'Cá beta', altNames: [], sections: {}, quality: { score: 0.6, indexable: false, reason: 'thin' } }))
+  expect(beta(await loadAll({ root: dir, lang: 'vi', publicBuild: false }))).toEqual({ score: 0.6, indexable: false, reason: 'score' })
+})
+
+test('a tank length that is its source\'s tank volume is left off the card', async () => {
+  const store = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, store, { recursive: true })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.dataCard.tankCm = [{ source: 'seriouslyfish', value: 60 }, { source: 'glaser', value: 284 }]
+  e.sections.push({ key: 'aquariumSize', source: 'glaser', sourceUrl: 'https://x', html: '<p>About 75 gallons (about 284 litres).</p>' },
+    { key: 'aquariumSize', source: 'seriouslyfish', sourceUrl: 'https://y', html: '<p>A tank 60 cm long.</p>' })
+  await writeFile(file, JSON.stringify(e))
+  const alpha = (await loadAll({ root: store, lang: 'vi', publicBuild: false })).species.find(s => s.id === 'alpha')!
+  expect(alpha.dataCard.tankCm).toEqual([{ source: 'seriouslyfish', value: 60 }])
 })
