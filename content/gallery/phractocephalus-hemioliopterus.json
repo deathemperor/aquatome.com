@@ -1,0 +1,568 @@
+{
+  "id": "phractocephalus-hemioliopterus",
+  "photos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Phractocephalus_hemioliopterus_-_1.jpg",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/49/Phractocephalus_hemioliopterus_-_1.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "Cliff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus_-_1.jpg",
+      "caption": "Cá da trơn đuôi đỏ đuôi đỏ cam bơi trong bể lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Phractocephalus_hemiliopterus_%28Zoo_in_Grodno%29.jpg/1280px-Phractocephalus_hemiliopterus_%28Zoo_in_Grodno%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Phractocephalus_hemiliopterus_%28Zoo_in_Grodno%29.jpg/500px-Phractocephalus_hemiliopterus_%28Zoo_in_Grodno%29.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Шатилло Г.В.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemiliopterus_(Zoo_in_Grodno).jpg",
+      "caption": "Cá da trơn đuôi đỏ trong bể thủy sinh nhiều cây"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/London_Aquarium_%28539810095%29.jpg/1280px-London_Aquarium_%28539810095%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/London_Aquarium_%28539810095%29.jpg/500px-London_Aquarium_%28539810095%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "Phalinn Ooi from Kuala Lumpur, Malaysia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:London_Aquarium_(539810095).jpg",
+      "caption": "Cá da trơn đuôi đỏ cận cảnh, vây lưng cam"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Pimelodidae_-_Phractocephalus_hemioliopterus.JPG/1280px-Pimelodidae_-_Phractocephalus_hemioliopterus.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Pimelodidae_-_Phractocephalus_hemioliopterus.JPG/500px-Pimelodidae_-_Phractocephalus_hemioliopterus.JPG",
+      "width": 1280,
+      "height": 962,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hectonichus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodidae_-_Phractocephalus_hemioliopterus.JPG",
+      "caption": "Cá da trơn đuôi đỏ đuôi cam rực trên nền sỏi trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hal_-_Phractocephalus_hemioliopterus_-_1.jpg/1280px-Hal_-_Phractocephalus_hemioliopterus_-_1.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hal_-_Phractocephalus_hemioliopterus_-_1.jpg/500px-Hal_-_Phractocephalus_hemioliopterus_-_1.jpg",
+      "width": 1280,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Phractocephalus_hemioliopterus_-_1.jpg",
+      "caption": "Cá da trơn đuôi đỏ đuôi đỏ cam trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Crvenorepi_som.jpg/1280px-Crvenorepi_som.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Crvenorepi_som.jpg/500px-Crvenorepi_som.jpg",
+      "width": 1280,
+      "height": 848,
+      "licence": "CC BY-SA 4.0",
+      "author": "Calivitamini",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crvenorepi_som.jpg",
+      "caption": "Cận cảnh đầu cá da trơn đuôi đỏ với râu dài"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Sunshine_international_aquarium%2C_Tokyo%2C_Japan_%28281209597%29.jpg/1280px-Sunshine_international_aquarium%2C_Tokyo%2C_Japan_%28281209597%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Sunshine_international_aquarium%2C_Tokyo%2C_Japan_%28281209597%29.jpg/500px-Sunshine_international_aquarium%2C_Tokyo%2C_Japan_%28281209597%29.jpg",
+      "width": 1280,
+      "height": 851,
+      "licence": "CC BY-SA 2.0",
+      "author": "pelican from Tokyo, Japan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunshine_international_aquarium,_Tokyo,_Japan_(281209597).jpg",
+      "caption": "Cận cảnh đầu cá da trơn đuôi đỏ trên nền sỏi"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Oga_Aquarium_39.jpg/1280px-Oga_Aquarium_39.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Oga_Aquarium_39.jpg/500px-Oga_Aquarium_39.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.0",
+      "author": "https://www.flickr.com/photos/fukapon/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oga_Aquarium_39.jpg",
+      "caption": "Cận cảnh cá da trơn đuôi đỏ với sọc trắng ở đầu"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/%D0%9C%D1%96%D0%BD%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%B0%D0%BF%D0%B0%D1%80%D0%BA_%D1%83_%D0%B6%D0%BD%D1%96%D1%9E%D0%BD%D1%96_2018_27.jpg/1280px-%D0%9C%D1%96%D0%BD%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%B0%D0%BF%D0%B0%D1%80%D0%BA_%D1%83_%D0%B6%D0%BD%D1%96%D1%9E%D0%BD%D1%96_2018_27.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/%D0%9C%D1%96%D0%BD%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%B0%D0%BF%D0%B0%D1%80%D0%BA_%D1%83_%D0%B6%D0%BD%D1%96%D1%9E%D0%BD%D1%96_2018_27.jpg/500px-%D0%9C%D1%96%D0%BD%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%B0%D0%BF%D0%B0%D1%80%D0%BA_%D1%83_%D0%B6%D0%BD%D1%96%D1%9E%D0%BD%D1%96_2018_27.jpg",
+      "width": 1280,
+      "height": 1707,
+      "licence": "CC BY-SA 4.0",
+      "author": "Хомелка",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9C%D1%96%D0%BD%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%B0%D0%BF%D0%B0%D1%80%D0%BA_%D1%83_%D0%B6%D0%BD%D1%96%D1%9E%D0%BD%D1%96_2018_27.jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể, sọc trắng nổi bật"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84885573/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/84885573/medium.jpeg",
+      "width": 1024,
+      "height": 678,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/84885573",
+      "caption": "Cá da trơn đuôi đỏ với râu dài bên gốc cây ngập nước"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/448759503/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/448759503/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/448759503",
+      "caption": "Cận cảnh cá da trơn đuôi đỏ với sọc trắng bên thân"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11697781/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/11697781/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/11697781",
+      "caption": "Cá da trơn đuôi đỏ sọc trắng trên nền cát trong bể"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/338828382/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/338828382/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/338828382",
+      "caption": "Cá da trơn đuôi đỏ với sọc trắng bên hông trong bể kính"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600079892/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600079892/medium.jpg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "David Garza",
+      "sourceUrl": "https://www.inaturalist.org/photos/600079892",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể nước xanh thủy cung"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/293537139/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/293537139/medium.jpeg",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/293537139",
+      "caption": "Cá da trơn đuôi đỏ cận cảnh đầu và vây lưng trong bể"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/430043307/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/430043307/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/430043307",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trong bể lớn"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/265255157/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/265255157/medium.jpg",
+      "width": 1024,
+      "height": 606,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/265255157",
+      "caption": "Cá da trơn đuôi đỏ non đuôi cam rực trong bể nền đá"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/386968361/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/386968361/medium.jpeg",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "scohlendorf",
+      "sourceUrl": "https://www.inaturalist.org/photos/386968361",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trên nền cát trong thủy cung"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Redtail_cat_01.jpg/1280px-Redtail_cat_01.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Redtail_cat_01.jpg/500px-Redtail_cat_01.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ginkgo100",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redtail_cat_01.jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể tối, đuôi cam"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Phractocephalus_hemioliopterus.jpg/1280px-Phractocephalus_hemioliopterus.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Phractocephalus_hemioliopterus.jpg/500px-Phractocephalus_hemioliopterus.jpg",
+      "width": 1280,
+      "height": 851,
+      "licence": "CC BY 2.0",
+      "author": "Maureen (amerune) from Buffalo, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus.jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi gần đá trong bể lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Pseudoras-niger.jpg/1280px-Pseudoras-niger.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Pseudoras-niger.jpg/500px-Pseudoras-niger.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Steven G. Johnson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudoras-niger.jpg",
+      "caption": "Cá da trơn đuôi đỏ nằm trên nền cát trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Red_tail.JPG/1280px-Red_tail.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Red_tail.JPG/500px-Red_tail.JPG",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Citron",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_tail.JPG",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể nước xanh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/RTC%2C_red_tail_catfish.jpg/1280px-RTC%2C_red_tail_catfish.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/RTC%2C_red_tail_catfish.jpg/500px-RTC%2C_red_tail_catfish.jpg",
+      "width": 1280,
+      "height": 854,
+      "licence": "CC BY 2.0",
+      "author": "Elma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RTC,_red_tail_catfish.jpg",
+      "caption": "Cá da trơn đuôi đỏ với râu dài trên nền sỏi"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Poisson_Chat_g%C3%A9ant_qui_vient_d%27Amazonie.jpg/1280px-Poisson_Chat_g%C3%A9ant_qui_vient_d%27Amazonie.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Poisson_Chat_g%C3%A9ant_qui_vient_d%27Amazonie.jpg/500px-Poisson_Chat_g%C3%A9ant_qui_vient_d%27Amazonie.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 3.0",
+      "author": "Maniacduhockey",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poisson_Chat_g%C3%A9ant_qui_vient_d%27Amazonie.jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi trên nền cát sáng"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Phractocephalus_hemioliopterus_%28Tiergarten_Schonbrunn%29.jpg/1280px-Phractocephalus_hemioliopterus_%28Tiergarten_Schonbrunn%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Phractocephalus_hemioliopterus_%28Tiergarten_Schonbrunn%29.jpg/500px-Phractocephalus_hemioliopterus_%28Tiergarten_Schonbrunn%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 3.0 at",
+      "author": "C.Stadler/Bwag",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus_(Tiergarten_Schonbrunn).jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi giữa bể, đuôi đỏ nhạt"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/London_Aquarium_%28539810037%29.jpg/1280px-London_Aquarium_%28539810037%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/London_Aquarium_%28539810037%29.jpg/500px-London_Aquarium_%28539810037%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "Phalinn Ooi from Kuala Lumpur, Malaysia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:London_Aquarium_(539810037).jpg",
+      "caption": "Cận cảnh đầu cá da trơn đuôi đỏ với râu dài"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/London_Aquarium_%28539810077%29.jpg/1280px-London_Aquarium_%28539810077%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/London_Aquarium_%28539810077%29.jpg/500px-London_Aquarium_%28539810077%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "Phalinn Ooi from Kuala Lumpur, Malaysia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:London_Aquarium_(539810077).jpg",
+      "caption": "Cá da trơn đuôi đỏ há miệng, cận cảnh đầu"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/EM_DSC_2150_%282877728961%29.jpg/1280px-EM_DSC_2150_%282877728961%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/EM_DSC_2150_%282877728961%29.jpg/500px-EM_DSC_2150_%282877728961%29.jpg",
+      "width": 1280,
+      "height": 857,
+      "licence": "CC BY-SA 2.0",
+      "author": "Eddie Maloney from North Las Vegas, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:EM_DSC_2150_(2877728961).jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi gần đáy trong bể công cộng"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Redtail_catfish_%28Phractocephalus_hemioliopterus%29_%2815594456228%29.jpg/1280px-Redtail_catfish_%28Phractocephalus_hemioliopterus%29_%2815594456228%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Redtail_catfish_%28Phractocephalus_hemioliopterus%29_%2815594456228%29.jpg/500px-Redtail_catfish_%28Phractocephalus_hemioliopterus%29_%2815594456228%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY-SA 2.0",
+      "author": "harum.koh from Kobe city, Japan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redtail_catfish_(Phractocephalus_hemioliopterus)_(15594456228).jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể kính xanh lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Brachyplatystoma_filamentosum_Riesen_Antennenwels.JPG/1280px-Brachyplatystoma_filamentosum_Riesen_Antennenwels.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Brachyplatystoma_filamentosum_Riesen_Antennenwels.JPG/500px-Brachyplatystoma_filamentosum_Riesen_Antennenwels.JPG",
+      "width": 1280,
+      "height": 688,
+      "licence": "CC0",
+      "author": "Usien",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_filamentosum_Riesen_Antennenwels.JPG",
+      "caption": "Cá da trơn đuôi đỏ bơi giữa cây thủy sinh trong bể"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Phractocephalus_hemioliopterus2.JPG/1280px-Phractocephalus_hemioliopterus2.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Phractocephalus_hemioliopterus2.JPG/500px-Phractocephalus_hemioliopterus2.JPG",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Serstef",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus2.JPG",
+      "caption": "Cá da trơn đuôi đỏ trên nền cát trong bể có đá"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Redtail_Catfish_in_Kasumigaura_General_Park.jpg/1280px-Redtail_Catfish_in_Kasumigaura_General_Park.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Redtail_Catfish_in_Kasumigaura_General_Park.jpg/500px-Redtail_Catfish_in_Kasumigaura_General_Park.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Miyuki Meinaka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redtail_Catfish_in_Kasumigaura_General_Park.jpg",
+      "caption": "Cá da trơn đuôi đỏ đuôi cam trong bể nền sỏi"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Hal_-_Phractocephalus_hemioliopterus_-_3.jpg/1280px-Hal_-_Phractocephalus_hemioliopterus_-_3.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Hal_-_Phractocephalus_hemioliopterus_-_3.jpg/500px-Hal_-_Phractocephalus_hemioliopterus_-_3.jpg",
+      "width": 1280,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Phractocephalus_hemioliopterus_-_3.jpg",
+      "caption": "Cá da trơn đuôi đỏ cùng cá khác trong bể lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Baltimore_Aquarium_fish_13.jpg/1280px-Baltimore_Aquarium_fish_13.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Baltimore_Aquarium_fish_13.jpg/500px-Baltimore_Aquarium_fish_13.jpg",
+      "width": 1280,
+      "height": 1015,
+      "licence": "CC BY-SA 4.0",
+      "author": "APK",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baltimore_Aquarium_fish_13.jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi gần đáy cát, cận cảnh đầu"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Baltimore_Aquarium_fish_14.jpg/1280px-Baltimore_Aquarium_fish_14.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Baltimore_Aquarium_fish_14.jpg/500px-Baltimore_Aquarium_fish_14.jpg",
+      "width": 1280,
+      "height": 991,
+      "licence": "CC BY-SA 4.0",
+      "author": "APK",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baltimore_Aquarium_fish_14.jpg",
+      "caption": "Cá da trơn đuôi đỏ nhìn từ phía trước, thân đốm"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Bangalore_Aquarium_18.jpg/1280px-Bangalore_Aquarium_18.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Bangalore_Aquarium_18.jpg/500px-Bangalore_Aquarium_18.jpg",
+      "width": 1280,
+      "height": 406,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gpkp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bangalore_Aquarium_18.jpg",
+      "caption": "Cá da trơn đuôi đỏ non bơi sát đáy cát trong bể kính"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Bangalore_Aquarium_19.jpg/1280px-Bangalore_Aquarium_19.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Bangalore_Aquarium_19.jpg/500px-Bangalore_Aquarium_19.jpg",
+      "width": 1280,
+      "height": 623,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gpkp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bangalore_Aquarium_19.jpg",
+      "caption": "Cá da trơn đuôi đỏ non có đốm, trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Pirarara_%283579277740%29.jpg/1280px-Pirarara_%283579277740%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Pirarara_%283579277740%29.jpg/500px-Pirarara_%283579277740%29.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 2.0",
+      "author": "salles1",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pirarara_(3579277740).jpg",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành trên nền sỏi vàng trong bể lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Den_Bl%C3%A5_Planet_%284%29_%2814251513818%29.jpg/1280px-Den_Bl%C3%A5_Planet_%284%29_%2814251513818%29.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Den_Bl%C3%A5_Planet_%284%29_%2814251513818%29.jpg/500px-Den_Bl%C3%A5_Planet_%284%29_%2814251513818%29.jpg",
+      "width": 1280,
+      "height": 853,
+      "licence": "CC BY 2.0",
+      "author": "Daniel from Glasgow, United Kingdom",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Den_Bl%C3%A5_Planet_(4)_(14251513818).jpg",
+      "caption": "Cá da trơn đuôi đỏ bơi giữa bể, đuôi đỏ cam rõ nét"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Sume%C4%8Dek_v_akv%C3%A1rku.jpg/1280px-Sume%C4%8Dek_v_akv%C3%A1rku.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Sume%C4%8Dek_v_akv%C3%A1rku.jpg/500px-Sume%C4%8Dek_v_akv%C3%A1rku.jpg",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY 3.0",
+      "author": "Dezidor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sume%C4%8Dek_v_akv%C3%A1rku.jpg",
+      "caption": "Cá da trơn đuôi đỏ với râu dài nằm trong bể thủy sinh"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/S%C3%A4rk%C3%A4nniemi_-_fish_3.jpg/1280px-S%C3%A4rk%C3%A4nniemi_-_fish_3.jpg",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/S%C3%A4rk%C3%A4nniemi_-_fish_3.jpg/500px-S%C3%A4rk%C3%A4nniemi_-_fish_3.jpg",
+      "width": 1280,
+      "height": 849,
+      "licence": "CC BY-SA 3.0",
+      "author": "Tiia Monto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:S%C3%A4rk%C3%A4nniemi_-_fish_3.jpg",
+      "caption": "Cá da trơn đuôi đỏ nhìn chính diện, râu dài trong bể lớn"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/%D0%97%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA_-_%2823-02-2013%29_-_038.JPG/1280px-%D0%97%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA_-_%2823-02-2013%29_-_038.JPG",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/%D0%97%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA_-_%2823-02-2013%29_-_038.JPG/500px-%D0%97%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA_-_%2823-02-2013%29_-_038.JPG",
+      "width": 1280,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "DmytroChapman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%97%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA_-_(23-02-2013)_-_038.JPG",
+      "caption": "Cá da trơn đuôi đỏ nhìn chính diện, thân có đốm, trên nền sỏi"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/%D0%A7%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%BE%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B8%D0%B9_%D1%81%D0%BE%D0%BC_%28Phractocephalus_hemioliopterus%29.png",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c2/%D0%A7%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%BE%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B8%D0%B9_%D1%81%D0%BE%D0%BC_%28Phractocephalus_hemioliopterus%29.png",
+      "width": 1280,
+      "height": 949,
+      "licence": "CC BY-SA 4.0",
+      "author": "Любмир",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%BE%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B8%D0%B9_%D1%81%D0%BE%D0%BC_(Phractocephalus_hemioliopterus).png",
+      "caption": "Hai cá da trơn đuôi đỏ bơi trong bể cảnh đá"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/726559559/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/726559559/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Francesco Baboni",
+      "sourceUrl": "https://www.inaturalist.org/photos/726559559",
+      "caption": "Cá da trơn đuôi đỏ nằm sát kính trong bể công cộng"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/726559622/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/726559622/medium.jpg",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Francesco Baboni",
+      "sourceUrl": "https://www.inaturalist.org/photos/726559622",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành trên nền đá trong bể"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625544280/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/625544280/medium.jpg",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/625544280",
+      "caption": "Cá da trơn đuôi đỏ bơi gần đáy bể có đá"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/427168503/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/427168503/medium.jpg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/427168503",
+      "caption": "Cá da trơn đuôi đỏ bơi trên nền cát trong bể lớn"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/291731400/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/291731400/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/291731400",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể lớn thủy cung"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/252615013/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/252615013/medium.jpeg",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/252615013",
+      "caption": "Cá da trơn đuôi đỏ nhỏ nằm trên sỏi trong bể"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179491799/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179491799/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/179491799",
+      "caption": "Cá da trơn đuôi đỏ gần gỗ lũa trong bể thủy cung"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/352059386/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/352059386/medium.jpeg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Ryan Lehning",
+      "sourceUrl": "https://www.inaturalist.org/photos/352059386",
+      "caption": "Cá da trơn đuôi đỏ non bên gỗ lũa trong bể nuôi"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/352059349/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/352059349/medium.jpeg",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Ryan Lehning",
+      "sourceUrl": "https://www.inaturalist.org/photos/352059349",
+      "caption": "Cá da trơn đuôi đỏ non trên nền sỏi trong bể nuôi"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30247661/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/30247661/medium.jpg",
+      "width": 922,
+      "height": 692,
+      "licence": "CC BY",
+      "author": "Karim Haddad",
+      "sourceUrl": "https://www.inaturalist.org/photos/30247661",
+      "caption": "Cá da trơn đuôi đỏ bơi trong nước xanh ngọc"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/727718782/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/727718782/medium.jpg",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/727718782",
+      "caption": "Cá da trơn đuôi đỏ lớn bơi sát kính trong thủy cung"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346195270/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/346195270/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/346195270",
+      "caption": "Cá da trơn đuôi đỏ đuôi cam trong bể có sỏi và đá"
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337740937/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/337740937/medium.jpeg",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/337740937",
+      "caption": "Cá da trơn đuôi đỏ bơi dưới gờ đá trong bể"
+    }
+  ],
+  "seen": 116,
+  "updatedAt": "2026-10-31",
+  "builtAt": "2026-10-31"
+}
