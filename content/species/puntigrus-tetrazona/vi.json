@@ -1,5 +1,5 @@
 {
-  "slug": "ca-tu-van-puntigrus",
+  "slug": "ca-tu-van",
   "name": "Cá tứ vân",
   "altNames": [
     "Cá tứ vân Sumatra",
@@ -26,5 +26,11 @@
       "seriouslyfish": 0.8
     }
   },
+  "redirectFrom": [
+    {
+      "slug": "ca-tu-van-puntigrus",
+      "name": "Cá tứ vân Sumatra"
+    }
+  ],
   "nameFixed": true
 }

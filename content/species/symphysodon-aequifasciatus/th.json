@@ -1,7 +1,8 @@
 {
   "slug": "symphysodon-aequifasciatus",
-  "name": "ปลาปอมปาดัวร์",
+  "name": "ปลาปอมปาดัวร์สีน้ำตาล",
   "altNames": [
+    "ปลาปอมปาดัวร์",
     "ปลาดิสคัส",
     "ดิสคัส",
     "ปอมปาดัวร์",
@@ -25,5 +26,6 @@
       "seriouslyfish": 0.9,
       "glaser": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }
