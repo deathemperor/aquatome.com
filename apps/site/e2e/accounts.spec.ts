@@ -375,3 +375,21 @@ test('with passkeys off neither passkey button shows', async ({ page, baseURL, e
   await expect(page.locator('#acc-passkey-add')).toBeHidden()
   expect(errors).toEqual([])
 })
+
+test.describe('inside the AquaTome app', () => {
+  // The app's web view (apps/ios PageView): its user agent ends in AquaTomeApp/<version>.
+  test.use({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AquaTomeApp/1.0' })
+
+  test('the app signs in and syncs: the page offers no sign-in and asks no session', async ({ page, errors }) => {
+    const b = backend()
+    await connect(page, b)
+    const asked: string[] = []
+    page.on('request', r => { if (r.url().includes('/api/') || SIGN_IN_SCRIPTS.test(r.url())) asked.push(new URL(r.url()).pathname) })
+    await page.goto(PAGE)
+    await addTank(page, 'Bể trong ứng dụng')
+    await expect(page.locator('#tai-khoan')).toBeHidden()
+    await page.waitForTimeout(300)
+    expect(asked).toEqual([])
+    expect(errors).toEqual([])
+  })
+})
