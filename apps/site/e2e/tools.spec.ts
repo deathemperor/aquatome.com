@@ -31,3 +31,12 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
   await page.locator('input[name=off]').fill('10:00')
   await expect(page.locator('#ch-hours')).toHaveText(/Giờ tắt phải sau giờ bật/)
 })
+
+test('wide tables on a phone show that they scroll sideways', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
+  await page.goto('/vi/cong-cu/the-tich-be/')
+  const box = page.locator('.scroll').first()
+  const { wide, hint } = await box.evaluate(el => ({ wide: el.scrollWidth > el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
+  expect(wide, 'the ready-made tank table is wider than a phone').toBe(true)
+  expect(hint, 'a shadow at the edge that has more to see').toContain('gradient')
+})
