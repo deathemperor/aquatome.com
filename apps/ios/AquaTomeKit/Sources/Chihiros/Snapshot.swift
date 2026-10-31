@@ -1,3 +1,5 @@
+import Foundation
+
 /// The status snapshot a light sends after `askStatus`: `5b <firmware> <length - 2> <id> fe <clock> … <points>`.
 /// Captured from a WRGB II Slim (firmware 24); the layout of bytes 9–24 is not known.
 public struct Snapshot: Sendable, Equatable {
@@ -6,6 +8,19 @@ public struct Snapshot: Sendable, Equatable {
     public let weekday: Int
     public let time: TimeOfDay
     public init(weekday: Int, time: TimeOfDay) { self.weekday = weekday; self.time = time }
+    /// What the light's clock reads when set to `date` in `timeZone` (Gregorian, as `Frame.setTime` sends it).
+    public init(date: Date, timeZone: TimeZone = .current) {
+      var cal = Calendar(identifier: .gregorian)
+      cal.timeZone = timeZone
+      let c = cal.dateComponents([.weekday, .hour, .minute], from: date)
+      self.init(weekday: (c.weekday! + 5) % 7 + 1, time: TimeOfDay(hour: c.hour!, minute: c.minute!))
+    }
+    /// Minutes between this clock and `date`'s time of day, the short way round midnight; nil if the clock isn't set.
+    public func minutesOff(from date: Date, timeZone: TimeZone = .current) -> Int? {
+      guard isSet else { return nil }
+      let d = abs(Clock(date: date, timeZone: timeZone).time.minutes - time.minutes)
+      return min(d, 1440 - d)
+    }
     /// Whether the clock has been set since the light last lost power.
     public var isSet: Bool { weekday != 0 }
   }

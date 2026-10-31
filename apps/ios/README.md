@@ -2,6 +2,30 @@
 
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
+## The app
+
+```text
+AquaTome.xcodeproj   # folders are synchronized: new files need no project edits
+AquaTome/            # the app (Vietnamese source strings; Indonesian and Thai in Localizable.xcstrings)
+AquaTomeUITests/     # the main flows, on the simulator's fake light
+Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
+```
+
+- **Simulator:** no setup. It has no Bluetooth, so the app gets a fake light (`FakeRadio`) that answers like the real
+  one. The UI tests run there:
+
+  ```sh
+  xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17'
+  python3 scripts/check-strings.py ~/Library/Developer/Xcode/DerivedData/AquaTome-*   # translations
+  ```
+
+- **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
+  public project never holds the team ID.
+
+A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings` (Xcode adds the key when it builds);
+`check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+(`apps/site/src/i18n/{id,th}.json`).
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:

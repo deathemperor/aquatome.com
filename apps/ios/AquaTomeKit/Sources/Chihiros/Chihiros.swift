@@ -149,3 +149,27 @@ public enum Reply {
   /// The firmware version in a status reply (`5b <firmware> …`), if this is one.
   public static func firmware(_ reply: [UInt8]) -> Int? { reply.count >= 7 && reply[0] == 0x5b ? Int(reply[1]) : nil }
 }
+
+/// Why the light can't take a schedule as entered.
+public enum ScheduleProblem: Sendable, Equatable {
+  /// Off must come after on, the same day (00:00 counts as the end of the day).
+  case offNotAfterOn
+  /// The ramp is 0–150 minutes.
+  case rampOutOfRange
+  /// Ramping up and down takes longer than the light is on.
+  case rampTooLong
+}
+
+extension Schedule {
+  /// Minutes the light is on, within one day: an off time of 00:00 is the end of the day (00:00–00:00 is 24 hours).
+  public var minutesLit: Int { (off.minutes == 0 ? 1440 : off.minutes) - on.minutes }
+
+  /// What's wrong with this schedule, if anything: the same rules as the site's form.
+  public var problem: ScheduleProblem? {
+    let lit = minutesLit
+    if lit <= 0 { return .offNotAfterOn }
+    if !(0...150).contains(ramp) { return .rampOutOfRange }
+    if ramp * 2 > lit { return .rampTooLong }
+    return nil
+  }
+}
