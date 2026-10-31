@@ -8,7 +8,10 @@
   "places": [
     "asia",
     "malaysia",
-    "marudi"
+    "marudi",
+    "brunei",
+    "mendarem",
+    "sarawak"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +20,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
         }
       }
     ],
@@ -27,18 +37,48 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 11.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ]
   },
@@ -50,10 +90,40 @@
       "html": "<ul><li>Wild-caught Betta macrostoma from Marudi, from the Betta unimaculata complex.</li><li>IUCN Red List: VU (Vulnerable)</li><li>Maximum size: 4.5 inches (about 11.5 cm)</li><li>Temperature: 72–82°F (22–28°C)</li><li>pH: 5.0–7.0</li><li>TDS: ~60–100</li><li>Breeding: mouthbrooder</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo. It grows to 100 mm SL, and males are red with a red patch on the opercle and an ocellus in the dorsal fin. It lives in still, shady pools at the top of rainforest waterfalls. Listed as Vulnerable by the IUCN, it has been banned from export by the Sultan of Brunei.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
       "html": "<p>This is one of the largest bettas and is highly sought after for its size and beauty. It turns red on the body and has a nice pattern on the dorsal fin. Betta macrostoma has been known to be more sensitive to water conditions and more susceptible to velvet than other large bettas. Its beauty, rarity and difficulty contribute to its higher cost. Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak. In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.</p><p>The Sarawak populations are restricted to the district of Baram, close to the town of Marudi. Populations from different localities have been observed to exhibit differences in colouration and patterning and these should therefore be maintained separately in aquaria.</p><p>The restricted natural range of this species has led it to be added to the IUCN Red List of Threatened Species, on which it is listed as Vulnerable (D2). The 'D2' criterion refers to the 'acute restriction in its area of occupancy' and signifies that a given species could become critically endangered or extinct in a very short space of time. As a result the Sultan of Brunei has banned the species from export, meaning that most of the fish in the hobby are likely to originate from Sarawak where the species is not protected by law.</p><p>Brunei fish are still available but it has not been possible to confirm whether these are being exported illegally or whether the ban applies only to wild caught specimens and the ones currently being exported are captive-bred. It also appears that the area in which the Sarawak habitats lie will be turned into an oil palm plantation in the future.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Has been collected from still, shady pools at the top of rainforest waterfalls in both Brunei and Sarawak. Substrates appear to be composed mainly of gravel/rocks of varying sizes plus some leaf litter from the surrounding vegetation, although one locality in Brunei is described as 'clayey'.</p><p>The water is relatively fast-flowing and quite clear although it seems to be slightly brown in colour, likely the artefact of dissolved humic acids and other chemicals released by decaying organic material.</p><p>The fish are found in still pools along the main river channels and quiet sections of tributaries, each of which contains just a single adult or adult pair, or several juveniles.</p><p>The dissolved mineral content is almost always negligible, the pH has been measured between 4.4-5.7 depending on habitat, and the only sympatric fish species recorded to date is Rasbora tubbi. A red-coloured shrimp Machrobrachium sp. shrimp is also typical at most localities and may comprise an important part of the natural diet.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm or equivalent is sufficient for a pair. Volume: about 72 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed.</p><p>If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark. Clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter, with beech, oak or Ketapang almond leaves all suitable, can further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or perhaps some potted Cryptocoryne spp., and a few patches of floating vegetation would be useful to diffuse the light entering the tank.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
       "key": "waterConditions",
@@ -62,10 +132,22 @@
       "html": "<p>TDS ~60–100; pH 5.0–7.0; temperature 72–82°F (22–28°C). Cooler temperatures are preferred, but higher temperatures induce coloration and breeding behaviour.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 4.0–6.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
       "html": "<p>Carnivorous. Fed on live, frozen and dry foods, such as blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Likely to prey on insects and other small invertebrates/zooplankton in nature, plus perhaps the shrimp that share its habitat.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition. Large specimens can be offered the occasional earthworm, but take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
     },
     {
       "key": "behaviour",
@@ -74,13 +156,87 @@
       "html": "<p>Like many species in this complex, with the largest bettas, they can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon. Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it. Some small cyprinids and loaches that inhabit similar environments in nature are compatible.</p><p>It's best maintained in a pair, though it may be necessary to maintain a group temporarily in order that the fish are able to choose their own partners. Males tend to fight incessantly when housed together and even females will squabble until a hierarchy of dominance forms.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Males tend to grow larger, are more colourful, have a broader head shape and more extended fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
       "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Though not always possible, the ideal way to obtain a compatible pair for breeding purposes is to allow one to form naturally from a group. If a male and female are selected randomly they do not always coexist peacefully and the weaker individual may even be killed. Once a pair has formed they do not usually display any aggression unless space is restricted.</p><p>Courtship is normally a protracted affair during which the intensely-coloured male approaches the female with mouth gaping and fins erect. The female usually orientates her body so that the male is facing one of her flanks and may gape and flare in response.</p><p>Eggs and milt are released in small batches during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and there may be several 'dummy' attempts before spawning commences.</p><p>Both adults have been observed to collect fertilised eggs, with those picked up by the female spat into the mouth of the male. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Post-spawning it is very important to give the male as much peace and quiet as possible. Males of this species are notorious for swallowing broods of eggs after a few days and the chances of this happening increase if the male is unduly disturbed.</p><p>For this reason many breeders leave the female in situ rather than risk unsettling the male by removing her though in smaller aquaria, in particular, she may harass the male excessively or eat fry and require removal regardless.</p><p>The incubation period appears to be capable of varying tremendously with reports suggesting a range of 14 - 35 days at the end of which the male will begin to release fully-formed, free-swimming fry. Success in raising them has been had when removed, left alongside the male or both adults.</p><p>The fry are big enough (5 mm+) to accept motile foods such as microworm and Artemia nauplii (see above notes on the feeding of Artemia to young Betta) immediately. Feed them small amounts of different foods several times per day for the best rate of growth but be very careful not to overfeed as young of this species can develop intestinal problems very easily if overfed. Small (5 - 10% of tank volume) daily water changes should also be introduced to prevent organic wastes accumulating.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<p>B. macrostoma is included in the Betta unimaculata complex of closely-related species within the genus, of which members share the following set of characters: body long and slender with depth at dorsal fin origin 18-25 % SL; head large and blunt with width 19-24 % SL; long maxilla and lower lip with distance from tip of lower jaw to posterior end of maxilla 27-54 % HL; caudal-fin rounded in shape, occasionally with elongated median rays; pelvic-fin short and filamentous; dorsal and anal fins relatively pointed.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: body of male red in colour; male with red patch on opercle and dorsal-fin ocellus; opercle lacking iridescent scales; 9-11 dorsal-fin rays; 25-28 anal-fin rays; 6-8 subdorsal scales.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Regan, C. T. (1910). The Asiatic fishes of the family Anabantidae. Proceedings of the Zoological Society of London 1909(4), 767-787</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/57c75f541430b0ed.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/57c75f541430b0ed-480.webp",
+      "width": 600,
+      "height": 401,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "caption": "Dominant male specimen collected from Marudi, Sarawak, Malaysian Borneo.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/081a24acda117a64.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/081a24acda117a64-480.webp",
+      "width": 608,
+      "height": 429,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "caption": "One of the localities close to Marudi where B. macrostoma can be found.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d-480.webp",
+      "width": 695,
+      "height": 346,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "caption": "Males from Marudi in dominance battle. The alpha fish is on the left, signified by more intense colouration and undamaged fins.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/24ba88ae63b18831.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/24ba88ae63b18831-480.webp",
+      "width": 775,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "caption": "Such battles are incredibly impressive to watch.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19-480.webp",

@@ -9,7 +9,8 @@
     "asia",
     "thailand",
     "cambodia",
-    "vietnam"
+    "vietnam",
+    "chao-phraya"
   ],
   "dataCard": {
     "tempC": [
@@ -19,12 +20,53 @@
           "min": 20,
           "max": 22
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 1.6
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -36,10 +78,28 @@
       "html": "<ul><li>Origin: Vietnam</li><li>Available size: 1-2 cm</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Boraras urophthalmoides is a miniature cyprinid from southern and central Thailand, Cambodia and Vietnam, including the moats of Angkor Wat. It inhabits shallow, clear, vegetated swamps, marshes, floodplains and rice paddies. Some populations develop an orange-red stripe that leads to confusion with B. brigittae, but B. urophthalmoides is smaller, with a distinct round, dark blotch on the caudal peduncle and a long, unbroken lateral stripe. It is sometimes sold as the 'exclamation-point rasbora'.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
       "html": "<p>Today the scientific name for the Least rasbora is Boraras urophthalmoides. It is known from Thailand, Cambodia, and Vietnam. For the aquarium hobby, it is imported mainly from the latter country.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Described from a freshwater swamp associated with the Sai Buri River in Pattani province, southern (peninsular) Thailand but currently considered to range throughout much of southern and central parts of the country, with the province of Narathiwat on the border with Peninsular Malaysia appearing to represent the southern limit of its range.</p><p>The full type locality is 'Thailand: Pattani Province: swamp near Sai Buri River, 43 km northwest of Naratiwat on road 42, Ban La Han'.</p><p>Additional records are not extensive but it seemingly occurs throughout the Mae Klong and Chao Phraya river basins and has been recorded in both Vietnam and Cambodia where one notable population inhabits the moats and ponds of the Angkor Wat temple complex near Siem Reap.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Inhabits shallow bodies of water such as swamps, marshes, floodplains and rice paddies where it's typically associated with submerged vegetation in predominantly clear water. It's also known to move into temporarily inundated areas during the wet season.</p>"
     },
     {
       "key": "aquariumSize",
@@ -48,10 +108,46 @@
       "html": "<p>Like all dwarf rasboras this species is best kept in small aquaria in a one-species tank.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Though small it still needs space to swim and dominant males will form temporary territories when spawning so a group is best kept in a tank with base dimensions of at least 45 × 30 cm (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Best kept in a densely-planted aquarium and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. Do not add this fish to a biologically immature tank as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
       "html": "<p>The water should be soft and acidic. Due to its origin, for regular keeping temperatures of 20-22°C are enough.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>This species is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with other diminutive species such as Microdevario, Sundadanio, Danionella, Eirmotus, Trigonostigma, pygmy Corydoras and small Loricariids such as Otocinclus.</p><p>It also makes an ideal companion for shy anabantoids such as Sphaerichthys, Parosphromenus or the more diminutive Betta species and in a planted set-up can be housed alongside freshwater shrimp of the genera Caridina and Neocaridina. We don't recommend keeping it with other Boraras as hybridisation might occur.</p><p>It's a shoaling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than the slightly more colourful males.</p>"
     },
     {
       "key": "reproduction",
@@ -60,35 +156,142 @@
       "html": "<p>For breeding the temperature should be raised to 26-28°C.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits zero parental care. That is to say when in good condition and in the presence of both males and females relatively small numbers of eggs will be laid daily. In a well-furnished, mature aquarium it is therefore possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but one or more separate, perhaps 10-15 litre, containers should also be set up.</p><p>These should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well. The water itself should be of pH 5.0-6.5, 1-5°H with a temperature towards the upper end of the range suggested above. A decent-sized clump of Java moss or other fine-leaved plant should also be added filling perhaps half the available space. Filtration is not really necessary but you can use a small, air-powered sponge filter if you prefer.</p><p>Two or three pairs of well-conditioned adult fish should then be introduced to each container. It is wise to make the transfer slowly in order to avoid excessive levels of stress but if conditions are to their liking they should begin to spawn the following morning.</p><p>While this species certainly will eat its eggs it appears not to actively hunt for them as is the case with many small cyprinids. Once spawning has commenced it should continue on a daily basis.</p><p>The pair(s) should be left in situ for no more than a couple of days before being removed as the first eggs should hatch by the second day after the initial spawning. The tiny young will survive on their yolk sacs for another 24 hours or so after which they will require Paramecium or other microscopic food.</p><p>After a week to ten days they should be large enough to accept Artemia nauplii/microworm etc. As the days pass additional fry should start to appear from later spawning events. It's best to wait a week or two before starting to perform small water changes in order to avoid unduly shocking the young fish.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_urophthalmoides_formerly_rasbora_urophthalma__en/",
       "html": "<p>As early as 1914 the then very prominent German aquarist J. P. Arnold illustrated a new species of Rasbora in a German aquarium magazine, imported by the company Scholze &amp; Pötzsche and said to be imported from Sumatra. In 1922 E. Ahl from Berlin Museum described this species scientifically as Rasbora urophthalma and since then this charming dwarf rasbora is known as R. urophthalma (common name: Least rasbora) in the aquarium hobby. In 1991 M. Kottelat found when re-examining Ahl's specimens in Berlin Museum that they were not identical with what is well known in the hobby. Thus the name Rasbora urophthalma was not available anymore for the Least rasbora and Kottelat gave a new name to them: Rasbora urophthalmoides. He also stated that the Least rasbora is not known from Indonesia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<p>This species appears to vary in colouration depending on collection locality which has led to some confusion with B. brigittae as some populations can develop a strong orange/red stripe above the dark lateral marking when in good condition.</p><p>B. urophthalmoides can be easily identified by its smaller adult size, distinct round, dark blotch on the caudal peduncle, comparatively long, unbroken lateral stripe and less uniformly red patterning. It's sometimes seen on sale under the trade names of 'sparrow rasbora' or 'exclamation-point rasbora', the latter in reference to the distinctive pattern formed by the dark body markings.</p><p>Boraras was erected in 1993 in order to separate a small group of species from the larger Rasbora assemblage on the basis of differences in morphology and reproductive strategy.</p><p>The small adult size in Boraras species evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm (0.8 in) SL.</p><p>Boraras species from the Malay Archipelago (B. brigittae, B. maculatus and B. merah) tend to have a slimmer, more elongate body profile than those from Indochina (B. micros, B. urophthalmoides, B. naevus) which may assist when attempting to identify them.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "html": "<ul><li>Conway, K. W. (2005). Monophyly of the genus Boraras (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 16(3), 249-264</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., et al. (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Conway, K. W. and M. Kottelat (2011). Boraras naevus, a new species of miniature and sexually dichromatic freshwater fish from peninsular Thailand (Ostariophysi: Cyprinidae). Zootaxa 3002, 45-51</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (1991). Notes on the taxonomy of some Sundaic and Indochinese species of Rasbora, with description of four new species (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 2(2), 177-191</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/e2a39aade3742c26.webp",
+      "thumb": "https://media.aquatome.com/commons/e2a39aade3742c26-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "R.workoran",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%99%E0%B8%B9.jpg",
-      "caption": "Boraras urophthalmoides",
-      "thumb": "https://media.aquatome.com/commons/e2a39aade3742c26-480.webp"
+      "caption": "Boraras urophthalmoides"
     },
     {
       "url": "https://media.aquatome.com/commons/cc5f6632ab6f69cc.webp",
+      "thumb": "https://media.aquatome.com/commons/cc5f6632ab6f69cc-480.webp",
       "width": 960,
       "height": 400,
       "licence": "CC BY-SA 4.0",
       "author": "R.workoran",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_uraphthalmoides_Thai_(cropped).jpg",
-      "caption": "Boraras uraphthalmoides",
-      "thumb": "https://media.aquatome.com/commons/cc5f6632ab6f69cc-480.webp"
+      "caption": "Boraras uraphthalmoides"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ee217bcb6a0117d4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ee217bcb6a0117d4-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "caption": "Male specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5db5a21d3211b295.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5db5a21d3211b295-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "caption": "...such as Daphnia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2d280a8f9a95fbc5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2d280a8f9a95fbc5-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "caption": "Chironomid larvae (bloodworm) are also accepted...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/258bb8522504d96c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/258bb8522504d96c-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-urophthalmoides",
+      "caption": "...but may prove difficult to swallow unless chopped to a suitable size.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b54c3545d67f5b9f.webp",
+      "thumb": "https://media.aquatome.com/commons/b54c3545d67f5b9f-480.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_uraphthalmoides_Thai.jpg",
+      "caption": "Boraras uraphthalmoides"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b7c902e843ef3037.webp",
+      "thumb": "https://media.aquatome.com/commons/b7c902e843ef3037-480.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "R.workoran",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LK-%E0%B8%8B%E0%B8%B4%E0%B8%A7%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%873.jpg",
+      "caption": "Boraras urophthalmoides"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "TknabUiHXuo",
+      "title": "Want Small Fish? You Need the Exclamation Point Rasbora -  Care and Breeding!",
+      "durationSec": 586,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ym9-5NaHamw",
+      "title": "All About Exclamation Point Rasboras: The Smallest Nano Fish? (AKA Least Rasbora)",
+      "durationSec": 488,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZOeodh27H4A",
+      "title": "Boraras Urophthalmoides (Least Rasbora) schooling in Nature Aquarium",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QqYY5628TBk",
+      "title": "Micro Rasboras in their Wild Habitat - Least Rasbora",
+      "durationSec": 43,
+      "lang": "en-GB"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -118,5 +321,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-31"
 }

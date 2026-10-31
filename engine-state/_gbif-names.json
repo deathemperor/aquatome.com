@@ -13456,5 +13456,486 @@
     "family": "Pimelodidae",
     "genus": "Zungaro",
     "matchType": "EXACT"
-  }
+  },
+  "Aphyocharax paraguayensis": {
+    "canonicalName": "Aphyocharax nattereri",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Aphyocharax",
+    "matchType": "EXACT"
+  },
+  "Aphyosemion striatum": {
+    "canonicalName": "Aphyosemion striatum",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Aphyosemion",
+    "matchType": "EXACT"
+  },
+  "Badis siamensis": {
+    "canonicalName": "Badis siamensis",
+    "order": "Perciformes",
+    "family": "Badidae",
+    "genus": "Badis",
+    "matchType": "EXACT"
+  },
+  "Bangana devdevi": {
+    "canonicalName": "Bangana devdevi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Bangana",
+    "matchType": "EXACT"
+  },
+  "Bario oligolepis": null,
+  "Batasio fluviatilis": {
+    "canonicalName": "Batasio fluviatilis",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Batasio",
+    "matchType": "EXACT"
+  },
+  "Batasio tigrinus": {
+    "canonicalName": "Batasio tigrinus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Batasio",
+    "matchType": "EXACT"
+  },
+  "Betta foerschi": {
+    "canonicalName": "Betta foerschi",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Betta",
+    "matchType": "EXACT"
+  },
+  "Betta picta": {
+    "canonicalName": "Betta picta",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Betta",
+    "matchType": "EXACT"
+  },
+  "Brachyplatystoma tigrinum": {
+    "canonicalName": "Brachyplatystoma tigrinum",
+    "order": "Siluriformes",
+    "family": "Pimelodidae",
+    "genus": "Brachyplatystoma",
+    "matchType": "EXACT"
+  },
+  "Brochis arcuata": {
+    "canonicalName": "Ditrupa arietina",
+    "order": "Sabellida",
+    "family": "Serpulidae",
+    "genus": "Ditrupa",
+    "matchType": "FUZZY"
+  },
+  "Brochis leopardus": null,
+  "Brochis ornata": null,
+  "Brochis reticulata": null,
+  "Brochis robusta": null,
+  "Bryconalestes longipinnis": {
+    "canonicalName": "Brycinus longipinnis",
+    "order": "Characiformes",
+    "family": "Alestidae",
+    "genus": "Brycinus",
+    "matchType": "EXACT"
+  },
+  "Carnegiella myersi": {
+    "canonicalName": "Carnegiella myersi",
+    "order": "Characiformes",
+    "family": "Gasteropelecidae",
+    "genus": "Carnegiella",
+    "matchType": "EXACT"
+  },
+  "Ceratogarra cambodgiensis": null,
+  "Chagunius baileyi": {
+    "canonicalName": "Chagunius baileyi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Chagunius",
+    "matchType": "EXACT"
+  },
+  "Champsochromis caeruleus": {
+    "canonicalName": "Champsochromis caeruleus",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Champsochromis",
+    "matchType": "EXACT"
+  },
+  "Channa burmanica": {
+    "canonicalName": "Channa burmanica",
+    "order": "Perciformes",
+    "family": "Channidae",
+    "genus": "Channa",
+    "matchType": "EXACT"
+  },
+  "Chilodus punctatus": {
+    "canonicalName": "Chilodus punctatus",
+    "order": "Characiformes",
+    "family": "Chilodontidae",
+    "genus": "Chilodus",
+    "matchType": "EXACT"
+  },
+  "Chindongo elongatus": {
+    "canonicalName": "Pseudotropheus elongatus",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Pseudotropheus",
+    "matchType": "EXACT"
+  },
+  "Chindongo socolofi": {
+    "canonicalName": "Pseudotropheus socolofi",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Pseudotropheus",
+    "matchType": "EXACT"
+  },
+  "Cichla ocellaris": {
+    "canonicalName": "Cichla ocellaris",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Cichla",
+    "matchType": "EXACT"
+  },
+  "Cobitis pumila": null,
+  "Copeina guttata": {
+    "canonicalName": "Copeina guttata",
+    "order": "Characiformes",
+    "family": "Lebiasinidae",
+    "genus": "Copeina",
+    "matchType": "EXACT"
+  },
+  "Danio nigrofasciatus": {
+    "canonicalName": "Danio nigrofasciatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Danio",
+    "matchType": "EXACT"
+  },
+  "Dawkinsia rubrotincta": {
+    "canonicalName": "Dawkinsia rubrotinctus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Dawkinsia",
+    "matchType": "FUZZY"
+  },
+  "Dekeyseria picta": {
+    "canonicalName": "Dekeyseria picta",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Dekeyseria",
+    "matchType": "EXACT"
+  },
+  "Dermogenys pusilla": {
+    "canonicalName": "Dermogenys pusilla",
+    "order": "Beloniformes",
+    "family": "Zenarchopteridae",
+    "genus": "Dermogenys",
+    "matchType": "EXACT"
+  },
+  "Desmopuntius foerschi": {
+    "canonicalName": "Desmopuntius foerschi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Desmopuntius",
+    "matchType": "EXACT"
+  },
+  "Desmopuntius trifasciatus": {
+    "canonicalName": "Desmopuntius trifasciatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Desmopuntius",
+    "matchType": "EXACT"
+  },
+  "Devario affinis": {
+    "canonicalName": "Devario affinis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Devario",
+    "matchType": "EXACT"
+  },
+  "Dichotomyctere fluviatilis": {
+    "canonicalName": "Dichotomyctere fluviatilis",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Dichotomyctere",
+    "matchType": "EXACT"
+  },
+  "Dicrossus filamentosus": {
+    "canonicalName": "Dicrossus filamentosus",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Dicrossus",
+    "matchType": "EXACT"
+  },
+  "Enteromius fasciolatus": {
+    "canonicalName": "Enteromius fasciolatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Enteromius",
+    "matchType": "EXACT"
+  },
+  "Epalzeorhynchos kalopterum": {
+    "canonicalName": "Epalzeorhynchos kalopterus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Epalzeorhynchos",
+    "matchType": "FUZZY"
+  },
+  "Epiplatys fasciolatus": {
+    "canonicalName": "Epiplatys fasciolatus",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Epiplatys",
+    "matchType": "EXACT"
+  },
+  "Erethistes filamentosus": {
+    "canonicalName": "Hara filamentosa",
+    "order": "Siluriformes",
+    "family": "Erethistidae",
+    "genus": "Hara",
+    "matchType": "EXACT"
+  },
+  "Esomus longimanus": {
+    "canonicalName": "Esomus longimanus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Esomus",
+    "matchType": "EXACT"
+  },
+  "Fundulopanchax marmoratus": {
+    "canonicalName": "Fundulopanchax marmoratus",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Fundulopanchax",
+    "matchType": "EXACT"
+  },
+  "Fundulopanchax walkeri": {
+    "canonicalName": "Fundulopanchax walkeri",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Fundulopanchax",
+    "matchType": "EXACT"
+  },
+  "Gambusia affinis": {
+    "canonicalName": "Gambusia affinis",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Gambusia",
+    "matchType": "EXACT"
+  },
+  "Garra orientalis": {
+    "canonicalName": "Garra orientalis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Garra",
+    "matchType": "EXACT"
+  },
+  "Gastrodermus pygmaeus": null,
+  "Gastromyzon monticola": {
+    "canonicalName": "Gastromyzon monticola",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Gastromyzon",
+    "matchType": "EXACT"
+  },
+  "Gastromyzon ocellatus": {
+    "canonicalName": "Gastromyzon ocellatus",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Gastromyzon",
+    "matchType": "EXACT"
+  },
+  "Genus cobitis": null,
+  "Hampala bimaculata": {
+    "canonicalName": "Hampala bimaculata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Hampala",
+    "matchType": "EXACT"
+  },
+  "Haplochromis latifasciatus": {
+    "canonicalName": "Haplochromis latifasciatus",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Haplochromis",
+    "matchType": "EXACT"
+  },
+  "Hemibagrus planiceps": {
+    "canonicalName": "Hemibagrus planiceps",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hemibagrus",
+    "matchType": "EXACT"
+  },
+  "Hemibagrus punctatus": {
+    "canonicalName": "Hemibagrus punctatus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hemibagrus",
+    "matchType": "EXACT"
+  },
+  "Hemibarbus maculatus": {
+    "canonicalName": "Hemibarbus maculatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Hemibarbus",
+    "matchType": "EXACT"
+  },
+  "Hemimyzon formosanus": {
+    "canonicalName": "Hemimyzon formosanus",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Hemimyzon",
+    "matchType": "EXACT"
+  },
+  "Henicorhynchus siamensis": {
+    "canonicalName": "Henicorhynchus siamensis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Henicorhynchus",
+    "matchType": "EXACT"
+  },
+  "Homalopteroides nebulosus": {
+    "canonicalName": "Homalopteroides nebulosus",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Homalopteroides",
+    "matchType": "EXACT"
+  },
+  "Hoplisoma axelrodi": null,
+  "Hoplisoma griseum": null,
+  "Hoplisoma habrosum": null,
+  "Hoplisoma julii": null,
+  "Hoplisoma leucomelas": null,
+  "Hoplisoma metae": null,
+  "Hoplisoma trilineatum": null,
+  "Hydrocynus vittatus": {
+    "canonicalName": "Hydrocynus vittatus",
+    "order": "Characiformes",
+    "family": "Alestidae",
+    "genus": "Hydrocynus",
+    "matchType": "EXACT"
+  },
+  "Hypergastromyzon humilis": {
+    "canonicalName": "Hypergastromyzon humilis",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Hypergastromyzon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon metae": {
+    "canonicalName": "Hyphessobrycon metae",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon roseus": {
+    "canonicalName": "Hyphessobrycon roseus",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hypostomus regani": {
+    "canonicalName": "Hypostomus regani",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypostomus",
+    "matchType": "EXACT"
+  },
+  "Hypseleotris compressa": {
+    "canonicalName": "Hypseleotris compressa",
+    "order": "Perciformes",
+    "family": "Eleotridae",
+    "genus": "Hypseleotris",
+    "matchType": "EXACT"
+  },
+  "Hypsibarbus pierrei": {
+    "canonicalName": "Hypsibarbus pierrei",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Hypsibarbus",
+    "matchType": "EXACT"
+  },
+  "Iguanodectes spilurus": {
+    "canonicalName": "Iguanodectes spilurus",
+    "order": "Characiformes",
+    "family": "Iguanodectidae",
+    "genus": "Iguanodectes",
+    "matchType": "EXACT"
+  },
+  "Inlecypris auropurpurea": {
+    "canonicalName": "Devario auropurpureus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Devario",
+    "matchType": "FUZZY"
+  },
+  "Jinshaia sinensis": {
+    "canonicalName": "Jinshaia sinensis",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Jinshaia",
+    "matchType": "EXACT"
+  },
+  "Kichulchoia multifasciata": null,
+  "Labiobarbus fasciatus": {
+    "canonicalName": "Labiobarbus fasciatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Labiobarbus",
+    "matchType": "EXACT"
+  },
+  "Labiobarbus ocellatus": {
+    "canonicalName": "Labiobarbus ocellatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Labiobarbus",
+    "matchType": "EXACT"
+  },
+  "Laubuka fasciata": {
+    "canonicalName": "Laubuka fasciata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Laubuka",
+    "matchType": "EXACT"
+  },
+  "Laubuka siamensis": {
+    "canonicalName": "Laubuka siamensis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Laubuka",
+    "matchType": "EXACT"
+  },
+  "Lepidocephalichthys micropogon": {
+    "canonicalName": "Lepidocephalichthys micropogon",
+    "order": "Cypriniformes",
+    "family": "Cobitidae",
+    "genus": "Lepidocephalichthys",
+    "matchType": "EXACT"
+  },
+  "Lepidosiren paradoxa": {
+    "canonicalName": "Lepidosiren paradoxa",
+    "order": "Ceratodontiformes",
+    "family": "Lepidosirenidae",
+    "genus": "Lepidosiren",
+    "matchType": "EXACT"
+  },
+  "Limia nigrofasciata": {
+    "canonicalName": "Limia nigrofasciata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Limia",
+    "matchType": "EXACT"
+  },
+  "Luciosoma bleekeri": {
+    "canonicalName": "Luciosoma bleekeri",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Luciosoma",
+    "matchType": "EXACT"
+  },
+  "Orientalis bloch": null,
+  "The modesta": null
 }

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/hemiancistrus-subviridis
 title: Hemiancistrus subviridis (Green Phantom Plec) · Seriously Fish
-fetchedAt: 2026-10-31T16:40:50.255Z
+fetchedAt: 2026-10-31T20:36:14.457Z
 hash: 80587946c2e70bc48cdad12e8ada0bc35ce75d424d472007dbb30520dd7fef42
 ---
 

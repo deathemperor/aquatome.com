@@ -10,7 +10,53 @@
     "india",
     "yenna"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
   "sections": [
     {
       "key": "distribution",
@@ -47,6 +93,78 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/puntius-sahyadriensis-2/",
       "html": "<p>There are no reports about breeding yet, but it would probably not be much different from other barb species, i.e. free laying into plants.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>The maharaja barb, Puntius sahyadriensis, is a cyprinid endemic to the northern and central Western Ghats mountains of India. It lives in hill streams shaded by the forest canopy and dense marginal vegetation, over boulders, stones, sand or gravel. The angular body, colour pattern and enlarged male dorsal fin make it difficult to confuse with any other member of the genus, and it is occasionally traded as the 'Khavli' barb.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Described from streams of the Yenna river basin, close to the city of Mahabaleshwar, in the Western Ghats mountain range, Satara district, Maharashtra state, India, and endemic to northern and central parts of the Western Ghats mountains.</p><p>It's been recorded from the Yenna, Koyana, Krishna, Sharavati, Tunga, Bhadra, Aghanashini, Bedti, and Sita drainages.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>This species' stream habitats are generally shaded by the forest canopy and dense marginal vegetation.</p><p>Substrates are typically composed of boulders, smaller stones, sand or gravel with submerged tree roots around the margins and quieter areas in which fallen branches and leaf litter collect.</p><p>It can be found alongside numerous other fish species, a few of those occurring in the Tunga River being Opsarius bakeri, Devario malabaricus, Dawkinsia arulius, D. assimilis, Pethia ticto, Dravidia fasciata, 'Puntius' setnai, Garra mullya, Psilorhynchus tenura, Nemacheilus anguilla, Schistura nilgiriensis, S. semiarmatus, S. denisoni, and Aplocheilus lineatus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Base dimensions of at least 80 × 30 cm (about 72 litres) or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though aquascaping the tank to resemble a flowing stream or river is recommended, with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This could be further furnished with driftwood branches and plants such as Microsorum, Bolbitis, or Anubias spp. which can be grown attached to the décor.</p><p>Since it naturally occurs in relatively pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and a degree of water movement.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–7.8</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Likely to be a foraging omnivore feeding on worms, insects and other small invertebrates, as well as plant material and organic detritus.</p><p>Silas (1953) noted that 90% of the stomach contents of specimens he dissected comprised filamentous green algae of the genus Spirogyra.</p><p>In the aquarium it's easily fed, but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Generally very peaceful, making it an ideal resident of a well-planned community aquarium.</p><p>Fishes inhabiting similar biotopes in nature, especially comparably-sized, open water-dwelling cyprinids, perhaps constitute the best choices, but other potential options include balitorid, cobitid, and nemacheilid loaches as well as benthic cyprinids such as Crossocheilus and Garra species.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens and include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is interesting to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Adult males develop a more intense colour pattern than females, possess white-tipped pelvic fins, and exhibit noticeable tubercles on the head when in spawning condition.</p><p>Females tend to grow a little larger, are heavier-bodied, and less colourful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>Possibly unrecorded, but recommendations for related species are as follows:</p><p>Like most small cyprinids, Puntius spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However, to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively, filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid, one or two pairs should be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>The eggs should hatch in 24-36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<p>This species is occasionally traded under the alternative name 'Khavli' barb but not a great deal has been written about it or its captive care.</p><p>It's difficult to confuse with any other member of the genus due to its somewhat angular body shape, unique colour pattern, and enlarged dorsal fin in males.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>P. sahyadriensis was tentatively retained in Puntius sensu stricto based on the fact it shares the external diagnostic characters for the genus, which consist of: adult size usually less than 120 mm (5 in) SL; rostral barbels absent; last unbranched dorsal-fin ray smooth; 8 branched dorsal-fin rays; post-epiphysial fontanelle present.</p><p>No species from Indochina, China, or Indonesia were included in the study, meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being, whereby the genus name is surrounded by quotation marks to denote its questionable usage.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "html": "<ul><li>Arunachalam, M. (2000). Assemblage structure of stream fishes in the Western Ghats (India). Hydrobiologia 430(1-3), 1-31</li><li>Silas, E. G. (1953). Notes on fishes from Mahableshwar and Wai (Satara district, Bombay state). Journal of the Bombay Natural History Society 51(3), 579-589</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
     }
   ],
   "photos": [
@@ -89,6 +207,50 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/puntius-sahyadriensis-2/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5a42e5602574b2ad.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5a42e5602574b2ad-480.webp",
+      "width": 800,
+      "height": 497,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "caption": "Individual collected at Gangamoola (aka Varaha Parvatha) mountain, Karnataka state.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f8a183cffe694ca0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f8a183cffe694ca0-480.webp",
+      "width": 640,
+      "height": 436,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "caption": "Male from the European aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/02f119376794abcc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/02f119376794abcc-480.webp",
+      "width": 800,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "caption": "Adult male in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f87e1d8254a102e8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f87e1d8254a102e8-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-sahyadriensis",
+      "caption": "Male from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -97,7 +259,9 @@
       "category": "phan-nen",
       "keywords": [
         "cát nền bể cá",
-        "cát thủy sinh"
+        "cát thủy sinh",
+        "cát sông",
+        "sỏi nhỏ"
       ]
     },
     {
@@ -111,7 +275,23 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá thực vật",
-        "thức ăn cá ăn tạp"
+        "thức ăn cá ăn tạp",
+        "thức ăn cá nhỏ dạng vảy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 80x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt biển sục khí"
       ]
     }
   ],

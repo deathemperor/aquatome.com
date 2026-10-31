@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/mystus-bleekeri
 title: Mystus bleekeri (Day's Mystus) · Seriously Fish
-fetchedAt: 2026-10-31T11:19:03.416Z
+fetchedAt: 2026-10-31T20:39:06.581Z
 hash: 5a322c43dbf5cd627dfee33b3d14539133c40b4483eb9fded88180f837b941bb
 ---
 

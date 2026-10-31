@@ -1,0 +1,136 @@
+---
+url: https://www.seriouslyfish.com/species/aulonocara-jacobfreibergi
+title: Aulonocara jacobfreibergi (Malawi Butterfly) · Seriously Fish
+fetchedAt: 2026-10-31T21:09:59.575Z
+hash: 35ae9a670db5618f3179c244c0e83a68bbcfcdb3ee76e4af4eae9303c435f910
+---
+
+On this page
+12 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 9
+Adult male specimen from Otter Point.Phil Sieradzan
+## Quick factsEdit
+Max size
+170mm SL7in SL
+Aquarium size
+120 × 60cm48 × 24in
+Temp
+25–29°C77–84°F
+pH
+7.5–9.0
+Hardness
+10–25dGH
+## Difficulty6 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+needs a steady temperature
+Diet
+unknown
+Temperament
+unknown
+Social
+one male with several females
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+needs a well-established tank
+The Malawi butterfly, Aulonocara jacobfreibergi, is a cichlid endemic to Lake Malawi, living where rocky shores give way to sand. One of the larger members of the genus, with males reaching 150 to 170 mm, it was among the first Aulonocara species in the hobby and is also sold as 'Freiberg's peacock' and 'fairy cichlid'. Males react aggressively to fish with a similar colour pattern, so tankmates need choosing with care.
+## Distribution
+Edit
+Endemic to Lake Malawi where it's known only from the southern portion of the lake with populations including Cape Maclear, Otter Point, Mumbo and Domwe Islands, Monkey Bay, Makokala reef, Chinyankhwazi and Chinyamwezi islands, Mpanga rocks, Namalenje Island, Mphandikucha Island and Undu reef.
+## Habitat
+Write a note
+Edit
+Inhabits the so-called intermediate zones of the lake, where rocky shores give way to sandy bottoms with scattered rocks. Towards the northern limit of its range it has been observed to show a distinct preference for rocky caves and crevices. This is in contrast to most other members of the genus, which tend to forage over sand, but similar to behaviour seen in A. hansbaenschi. Several males may possess territories in larger caves.
+## Aquarium size
+Write a note
+Edit
+Standard length
+170mm SL7in SL
+Aquarium base
+120 × 60cm48 × 24in
+Volume
+~432litres~114US gal
+Minimum base dimensions of 120 ∗ 60 cm48 ∗ 24 in or equivalent are recommended unless keeping the fish in smaller aquaria for breeding pruposes.
+## Maintenance
+Write a note
+Edit
+Arrange some piles of rockwork around the tank but leave some open spaces between them and use fine sand as substrate so that it's able to feed naturally (see 'diet'). Coarser options such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage/blockages. It will not harm plants so hard water-tolerant species such as Vallisneria, Anubias or Sagittaria species can be added if you wish. Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality/swings in chemical parameters and should never be introduced to a biologically immature aquarium. The best way to achieve the desired stability is to over-filter the tank using a combination of canister filters and/or a sump system, and perform minimum weekly water changes of 30-50%.
+## Water conditions
+Edit
+Temperature
+25–29°C77–84°F
+pH
+7.5–9.0
+Hardness
+10–25dGH
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Aulonocara spp. are benthophagous by nature, employing a method of feeding whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gills and mouth. They're equally-skilled at hunting as grazing, tending to hover above the substrate until tiny movements are detected, and possess enlarged sensory pores on the head which assist in this technique.
+The captive diet should contain a variety of high quality, fine-grade prepared foods plus small live and/or frozen chironomid larvae, Tubifex, Artemia, mosquito larvae, etc.. At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.
+Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, can also work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife. Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.
+## Behaviour and compatibility
+Write a note
+Edit
+Not as peaceful as some of its congeners and males tend to react aggressively any fish with a similar colour pattern, in particular, so take care when selecting tankmates. Possibilities could include differently-patterened Copadichromis or Placidochromis, Otopharynx lithobates and quieter Mbuna such as Labidochromis caeruleus. Other Aulonocara species are best avoided as most are able to hybridise, however, and the majority of Mbuna are excessively boisterous. In all but the largest aquaria it's best to maintain just a single male alongside 4-6 females.
+## Sexual dimorphism
+Write a note
+Edit
+Males are larger and more colourful than females.
+## Reproduction
+Write a note
+Edit
+Maternal mouthbrooder which will often spawn in a community set-up, but should be moved or maintained in a specific tank if the intention is to maximise yield. Males can be aggressive in pursuit of females so a ratio of a single male to 4 or more females is normally recommended in order to reduce the attention on any particular individual. Some flattish rocks and open areas of sand should be included to act as potential spawning sites. The male will select one such site and begin his courtship display and when a female is willing she will approach and lay a batch of eggs, after which she immediately picks them up in her mouth. The male possesses a number of 'egg spots' on the anal fin and the female is also attracted to these, but when she tries to add them to her mouth she actually recieves milt from the male, thus fertilising the eggs. The female will carry brood for up to 4 weeks before releasing fully free swimming fry. She will not normally eat during this period and can be easily spotted by her distended mouthparts combined with a distinctive 'chewing' motion. If overly stressed the eggs may be eaten or ejected prematurely meaning care must be taken if you decide to isolate a brooding female. It's also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group so try to wait as long as possible before moving a female unless she is being actively harassed. Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them separately from that point. The fry may still have some yolk sac remaining when released and do not require additional food until this has disappeared. If released with yolk sacs fully-absorbed, Artemia nauplii or similar can be offered immediately. They usually start to become sexable at around the 4 month stage.
+## Notes
+Edit
+This was one of the first Aulonocara spp. to enter the hobby and its popularity has endured. It's known by several other vernacular names including 'Freiberg's peacock', 'fairy cichlid' and 'African butterfly' as well as the erroneous 'scientific' names Trematocranus trevori, T. jacobfreigbergi and T. regina. There are also a number of selectively-bred ornamental forms including 'eureka', 'albino', and 'colour select'. A naturally-occurring, yellowish form from Undu reef, Tanzania is often referred to as 'lemon jake', although this name is now also applied to some ornamental strains. It can be told apart from most other members of the genus by the broad, pale distal margins in the dorsal, anal and caudal fins, more deeply-forked caudal fin and larger adult size.
+## References
+- Meyer, Riehl & Zetzsche (1987). A revision of the cichlid fishes of the genus Aulonocara Regan, 1922 from Lake Malawi, with descriptions of six new species (Pisces, Perciformes, Cichlidae). Courier ForschungsInstitut Senckenberg 94, 7-53
+- Grant, S. M., H. W. Dieckhoff, H. J. Mayland and M. K. Meyer (1987). Ecology of Aulonocara REGAN, 1922 in Lake Malawi. Courier ForschungsInstitut Senckenberg 94, 131-139
+## Species images · 9
+Adult male specimen from Otter Point.Phil Sieradzan
+Adult male from Undu Reef. This form is often referred to as 'lemon jake' in the hobby.Phil Sieradzan
+Adult male from Otter Point.Phil Sieradzan
+Young male specimen; population unspecified.Elma Ben
+Male of the 'Otter Point' population.Sam Borstein
+Another young male; population unspecified.Ted Judy
+A. jacobfreibergi 'eureka' is an ornamental strain which has been line-produced from the wild Otter Point population.Suephoto
+Adult female of the 'eureka' strain.Suephoto
+Male of the 'eureka' form with enlarged sensory pores typical of the genus clearly visible between mouth and eye.Suephoto
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Malawi
+- Mozambique
+- Tanzania
+- Lake Malawi
+In Lake Malawi this species is recorded at Cape Maclear, Chinyamwezi Island, Chinyankhwazi, Domwe Island, Makokala Reef, Monkey Bay, Mpanga Rocks, Mphandikucha Island, Mumbo Island, Namalenje Island, Otter Point and Undu Reef.
+## Profile completeness21 of 24
+88% complete
+- Add temperament
+Also missing: water condition notes, etymology.
+Report a mistake
+## Community
+Questions about Aulonocara jacobfreibergi?
+Ask on Discord
+→

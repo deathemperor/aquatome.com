@@ -8,7 +8,10 @@
   "places": [
     "asia",
     "indonesia",
-    "malinau"
+    "malinau",
+    "malaysia",
+    "sabah",
+    "sebuku"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +20,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 25
         }
       }
     ],
@@ -27,18 +37,48 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 7.6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 9
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ]
   },
@@ -50,10 +90,46 @@
       "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: N/A</li><li>Wild-caught Betta ocellata from Malinau.</li><li>Maximum size: 3+ inches (about 7.6 cm).</li><li>Breeding: Mouthbrooder.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan. A member of the B. unimaculata complex, it grows to 90 mm SL and has a pointed, slightly conical head. It has been collected from clear flowing streams, elevated headwater pools, turbid forest streams, ox-bow lakes and ponds in oil palm plantations.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.</p><p>In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin. Populations from such localities are often labelled with collection details by collectors/enthusiasts to maintain accuracy and preserve pure bloodlines.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Has been collected from numerous habitat-types including clear, flowing streams and isolated, elevated pools around headwaters (Sabah) as well as more turbid forested streams, ox-bow lakes (Kinabatangan) and quiet ponds in oil palm plantations (Tawau).</p><p>In flowing headwaters and streams the fish tend to lurk in slow-moving or stagnant pools (e.g. at Lahad Datu) whereas in the forest streams and ox-bow lakes it was caught among marginal vegetation or among leaf litter and submerged tree roots.</p><p>Tan and Ng (2005)[1] suggest that the specimens collected from the elevated pools may have got there by jumping as often only a single adult and numerous juveniles would be found in the leaf litter of each pool. In addition, the fish collected from the clearwater environments possess a marked blue/green colouration whereas those found in murkier waters are more of a yellow/brown colour.</p><p>In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water. In ox-bows it was found in shallow water among flooded grasses, and in the streams among submerged leaf litter and tree roots.</p><p>Sympatric species in the latter included Rasbora sumatrana, 'Puntius' sealei, 'P.' banksi, Pangio mariarum, Lepidocephalichthys sandakanensis, Nemacheilus olivaceus, Ompok sabanus and Trichopodus trichopterus.</p><p>In the Lahad Datu valley the species inhabits stagnant or slowly-moving pools of headwater streams containing clear water. Other fishes at these locations included Garra borneensis, Homaloptera stephensoni, Gastromyzon danumensis, G. lepidogaster, G. cf. punctulatus, Protomyzon griswoldi, P. whiteheadi, and Nemacheilus olivaceus.</p><p>At Tawau it was the most abundant fish species in quiet, murky pools among oil palm plantations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent, about 72 litres (19 US gal), is sufficient for a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed.</p><p>If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark. Clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter, with beech, oak or Ketapang almond leaves all suitable, can further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add Asian plant species that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or perhaps some potted Cryptocoryne spp., and a few patches of floating vegetation would be useful to diffuse the light entering the tank.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
       "html": "<ul><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<ul><li>Temperature: 21–25°C (70–77°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 0–10 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -62,10 +138,22 @@
       "html": "<p>Carnivorous. Currently fed live, frozen and dried foods, including blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Likely to prey on insects and other small invertebrates/zooplankton in nature. Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition. Large specimens can be offered the occasional earthworm, but take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
       "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon. It's requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it. Some small cyprinids and loaches that inhabit similar environments in nature are compatible.</p><p>It's best maintained in a pair if you wish to breed it, but a group could be maintained in a sufficiently large aquarium.</p>"
     },
     {
       "key": "dimorphism",
@@ -74,13 +162,82 @@
       "html": "<p>Light brown to tan base body with light blue iridescence on the opercular cheeks and lower jaws, body and tails; females are less iridescent. Fully grown adult males have longer ventral fins and larger bodies.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Males grow larger, are more colourful, possess a broader head shape, and develop more extended fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
       "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Though not always possible, the ideal way to obtain a compatible pair for breeding purposes is to allow one to form naturally from a group. If a male and female are selected randomly they do not always coexist peacefully and the weaker individual may even be killed. Once a pair has formed they do not usually display any aggression unless space is restricted.</p><p>Courtship is normally a protracted affair during which the intensely-coloured male approaches the female with mouth gaping and fins erect. The female usually orientates her body so that the male is facing one of her flanks and may gape and flare in response.</p><p>Eggs and milt are released in small batches during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and there may be several 'dummy' attempts before spawning commences. Both adults have been observed to collect fertilised eggs, with those picked up by the female spat into the mouth of the male. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Post-spawning it is very important to give the male as much peace and quiet as possible. Males are notorious for swallowing broods of eggs after a few days and the chances of this happening increase if the male is unduly disturbed. For this reason many breeders leave the female in situ rather than risk unsettling the male by removing her though in smaller aquaria, in particular, she may harass the male excessively or eat fry and require removal regardless.</p><p>The incubation period is 12-17 days at the end of which the male will begin to release fully-formed, free-swimming fry. Success in raising them has been had when removed, left alongside the male or both adults.</p><p>The fry are big enough (5 mm / 0.2 in+) to accept motile foods such as microworm and Artemia nauplii (see above notes on the feeding of Artemia to young Betta) immediately. Feed them small amounts of different foods several times per day for the best rate of growth but be very careful not to overfeed as young of this species can develop intestinal problems very easily if overfed. Small (5 - 10% of tank volume) daily water changes should also be introduced to prevent organic wastes accumulating.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<p>This species is included in the Betta unimaculata complex of closely-related species within the genus, of which members share the following set of characters: body long and slender with depth at dorsal fin origin 18-25 % SL; head large and blunt with width 19-24 % SL; long maxilla and lower lip with distance from tip of lower jaw to posterior end of maxilla 27-54 % HL; caudal-fin rounded in shape, occasionally with elongated median rays; pelvic-fin short and filamentous; dorsal and anal fins relatively pointed.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: head pointed, slightly conical; 30-31 anal-fin rays; 32-34 lateral scales; length of anal-fin base 52.2-54.5 % SL; length of dorsal-fin base 10.5-11.3 % SL; head width 21.0-24.0 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2cc660569be4146d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2cc660569be4146d-480.webp",
+      "width": 798,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "caption": "Young male; population unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3e21d861509062eb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3e21d861509062eb-480.webp",
+      "width": 640,
+      "height": 427,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "caption": "Female of Betta ocellata from Kudat, Sabah, Borneo.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fdfd0d6c503fd907.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fdfd0d6c503fd907-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "caption": "Pair in spawning embrace; female front.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e6f4c4bfe5e4da79.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e6f4c4bfe5e4da79-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
+      "caption": "The male catches each batch of eggs in his anal fin.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -111,5 +268,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/barbodes-binotatus
 title: Barbodes binotatus (Spotted Barb) · Seriously Fish
-fetchedAt: 2026-10-31T06:53:19.385Z
+fetchedAt: 2026-10-31T20:52:45.582Z
 hash: 8d79d69c386424b2148629ea52b351c12d26c1afb9b696e86239518e4c11eef2
 ---
 

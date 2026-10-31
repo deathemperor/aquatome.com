@@ -1,31 +1,48 @@
 {
- "slug": "ca-tram",
- "name": "Cá trâm",
- "altNames": [
-  "Cá Boraras urophthalmoides",
-  "Cá rasbora nhỏ nhất",
-  "Least rasbora"
- ],
- "sections": {
-  "quickFacts:glaser": "<ul><li>Xuất xứ: Việt Nam</li><li>Kích cỡ có sẵn: 1-2 cm</li></ul>",
-  "distribution:glaser": "<p>Hiện nay tên khoa học của cá Least rasbora là Boraras urophthalmoides. Loài này được biết đến ở Thái Lan, Campuchia và Việt Nam. Trong thú chơi cá cảnh, chúng chủ yếu được nhập khẩu từ Việt Nam.</p>",
-  "aquariumSize:glaser": "<p>Giống như tất cả các loài rasbora lùn, loài này tốt nhất nên nuôi trong bể nhỏ, chỉ nuôi một loài.</p>",
-  "waterConditions:glaser": "<p>Nước nên mềm và có tính axit. Do nguồn gốc của loài, nhiệt độ 20-22°C là đủ cho việc nuôi thông thường.</p>",
-  "reproduction:glaser": "<p>Để cho sinh sản, nên tăng nhiệt độ lên 26-28°C.</p>",
-  "notes:glaser": "<p>Ngay từ năm 1914, nhà chơi cá cảnh người Đức rất nổi tiếng thời đó là J. P. Arnold đã minh họa một loài Rasbora mới trên một tạp chí cá cảnh của Đức, được công ty Scholze &amp; Pötzsche nhập khẩu và được cho là đến từ Sumatra. Năm 1922, E. Ahl ở Bảo tàng Berlin đã mô tả khoa học loài này với tên Rasbora urophthalma, và từ đó loài rasbora lùn xinh xắn này được biết đến trong thú chơi cá cảnh với tên R. urophthalma (tên thường gọi: Least rasbora). Năm 1991, M. Kottelat khi kiểm tra lại các mẫu vật của Ahl tại Bảo tàng Berlin đã phát hiện chúng không giống với loài được biết đến trong thú chơi. Vì vậy, tên Rasbora urophthalma không còn dùng được cho Least rasbora, và Kottelat đặt cho chúng một tên mới: Rasbora urophthalmoides. Ông cũng cho biết Least rasbora không được ghi nhận ở Indonesia.</p>"
- },
- "quality": {
-  "score": 0.9,
-  "indexable": true,
-  "bySource": {
-   "glaser": 0.9
+  "slug": "ca-tram",
+  "name": "Cá trâm",
+  "altNames": [
+    "Cá Boraras urophthalmoides",
+    "Cá rasbora nhỏ nhất",
+    "Least rasbora",
+    "Cá rasbora sẻ",
+    "Cá rasbora dấu chấm than",
+    "Exclamation-point rasbora",
+    "Sparrow rasbora"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Việt Nam</li><li>Kích cỡ có sẵn: 1-2 cm</li></ul>",
+    "distribution:glaser": "<p>Hiện nay tên khoa học của cá Least rasbora là Boraras urophthalmoides. Loài này được biết đến ở Thái Lan, Campuchia và Việt Nam. Trong thú chơi cá cảnh, chúng chủ yếu được nhập khẩu từ Việt Nam.</p>",
+    "aquariumSize:glaser": "<p>Giống như tất cả các loài rasbora lùn, loài này tốt nhất nên nuôi trong bể nhỏ, chỉ nuôi một loài.</p>",
+    "waterConditions:glaser": "<p>Nước nên mềm và có tính axit. Do nguồn gốc của loài, nhiệt độ 20-22°C là đủ cho việc nuôi thông thường.</p>",
+    "reproduction:glaser": "<p>Để cho sinh sản, nên tăng nhiệt độ lên 26-28°C.</p>",
+    "notes:glaser": "<p>Ngay từ năm 1914, nhà chơi cá cảnh người Đức rất nổi tiếng thời đó là J. P. Arnold đã minh họa một loài Rasbora mới trên một tạp chí cá cảnh của Đức, được công ty Scholze &amp; Pötzsche nhập khẩu và được cho là đến từ Sumatra. Năm 1922, E. Ahl ở Bảo tàng Berlin đã mô tả khoa học loài này với tên Rasbora urophthalma, và từ đó loài rasbora lùn xinh xắn này được biết đến trong thú chơi cá cảnh với tên R. urophthalma (tên thường gọi: Least rasbora). Năm 1991, M. Kottelat khi kiểm tra lại các mẫu vật của Ahl tại Bảo tàng Berlin đã phát hiện chúng không giống với loài được biết đến trong thú chơi. Vì vậy, tên Rasbora urophthalma không còn dùng được cho Least rasbora, và Kottelat đặt cho chúng một tên mới: Rasbora urophthalmoides. Ông cũng cho biết Least rasbora không được ghi nhận ở Indonesia.</p>",
+    "quickFacts:seriouslyfish": "<p>Boraras urophthalmoides là một loài cá chép tí hon (cyprinid) sống ở miền nam và miền trung Thái Lan, Campuchia và Việt Nam, có cả trong các hào nước quanh Angkor Wat. Chúng sống ở những đầm lầy, bãi lầy, vùng ngập lũ và ruộng lúa nông, nước trong và nhiều cây thủy sinh. Một số quần thể lên sọc đỏ cam nên hay bị nhầm với B. brigittae. Tuy vậy, B. urophthalmoides nhỏ con hơn, có một đốm tròn sẫm màu rõ ở cuống đuôi và sọc dọc thân dài, liền một mạch. Ngoài tiệm, loài này đôi khi mang tên 'exclamation-point rasbora' (rasbora dấu chấm than).</p>",
+    "distribution:seriouslyfish": "<p>Loài này được mô tả từ mẫu thu ở một đầm nước ngọt gần sông Sai Buri, tỉnh Pattani, miền nam (phần bán đảo) Thái Lan. Hiện nay, người ta cho rằng chúng phân bố khắp phần lớn miền nam và miền trung nước này. Tỉnh Narathiwat, giáp bán đảo Malaysia, có vẻ là giới hạn phía nam của vùng phân bố.</p><p>Địa điểm điển hình đầy đủ là 'Thailand: Pattani Province: swamp near Sai Buri River, 43 km northwest of Naratiwat on road 42, Ban La Han'.</p><p>Ngoài ra không có nhiều ghi nhận khác. Dù vậy, có vẻ chúng có mặt khắp lưu vực sông Mae Klong và Chao Phraya. Loài này cũng đã được ghi nhận ở cả Việt Nam và Campuchia. Ở Campuchia có một quần thể đáng chú ý sống trong các hào và ao của quần thể đền Angkor Wat gần Siem Reap.</p>",
+    "habitat:seriouslyfish": "<p>Chúng sống ở các vùng nước nông như đầm lầy, bãi lầy, vùng ngập lũ và ruộng lúa. Ở đó chúng thường quanh quẩn bên đám cây thủy sinh mọc chìm, trong nước phần lớn là nước trong. Vào mùa mưa, chúng còn di chuyển vào những vùng bị ngập tạm thời.</p>",
+    "aquariumSize:seriouslyfish": "<p>Dù nhỏ, loài này vẫn cần chỗ để bơi. Khi sinh sản, những con đực trội còn chiếm lãnh thổ tạm thời. Vì thế, tốt nhất nên nuôi một đàn trong bể có đáy tối thiểu 45 × 30 cm (khoảng 41 lít).</p>",
+    "maintenance:seriouslyfish": "<p>Loài này hợp nhất với bể trồng cây dày và là lựa chọn rất tốt cho những bể bố cục chăm chút kỹ. Cá có vẻ cũng thích có thêm ít cây nổi cùng rễ hoặc cành lũa để ánh sáng vào bể dịu đi. Bố trí như vậy còn làm bể trông tự nhiên hơn.</p><p>Lọc không cần mạnh lắm. Ngoài tự nhiên, phần lớn chúng sống ở vùng nước chảy chậm, nên dòng chảy mạnh có thể khiến cá chật vật. Đừng thả loài này vào bể chưa ổn định vi sinh, vì chúng dễ bị ảnh hưởng khi thông số nước dao động.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 1–10 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Phân tích dạ dày của cá ngoài tự nhiên cho thấy đây là loài săn mồi cỡ nhỏ (micropredator). Chúng ăn côn trùng nhỏ, giun, giáp xác và các loại động vật phù du khác.</p><p>Trong bể, cá chịu ăn thức ăn khô có cỡ vừa miệng, nhưng không nên chỉ cho ăn mỗi thức ăn khô. Mỗi ngày cho ăn thêm thức ăn sống và đông lạnh cỡ nhỏ như Daphnia, Artemia và các loại tương tự thì cá lên màu đẹp nhất và dễ vào trạng thái sẵn sàng sinh sản hơn.</p>",
+    "behaviour:seriouslyfish": "<p>Loài này rất hiền, nhưng lại không hợp làm cá bể cộng đồng vì quá nhỏ và khá nhát. Chúng sống tốt nhất khi nuôi riêng hoặc nuôi chung với những loài tí hon khác như Microdevario, Sundadanio, Danionella, Eirmotus, Trigonostigma, Corydoras lùn và các loài Loricariid nhỏ như Otocinclus.</p><p>Chúng cũng là bạn cùng bể lý tưởng cho các loài anabantoid nhút nhát như Sphaerichthys, Parosphromenus hoặc những loài Betta cỡ nhỏ. Trong bể trồng cây, bạn có thể nuôi chúng chung với tép nước ngọt thuộc chi Caridina và Neocaridina. Không nên nuôi chung với các loài Boraras khác vì chúng có thể lai với nhau.</p><p>Bản tính loài này là sống theo đàn, nên thật sự cần nuôi thành nhóm ít nhất 8–10 con. Nuôi đủ đông thì cá bớt nhát hơn, và cả đàn trông bắt mắt, tự nhiên hơn hẳn. Cá đực cũng sẽ lên màu đẹp nhất và có nhiều hành vi thú vị khi tranh nhau sự chú ý của cá cái.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành có bụng tròn hơn thấy rõ và thường to hơn cá đực một chút. Cá đực thì có màu sặc sỡ hơn một chút.</p>",
+    "reproduction:seriouslyfish": "<p>Giống nhiều loài cá chép nhỏ khác, loài này đẻ trứng rải, đẻ liên tục và hoàn toàn không chăm con. Nghĩa là khi cá khỏe và có đủ cả đực lẫn cái, mỗi ngày chúng sẽ đẻ một ít trứng. Vì vậy, trong một bể đã chạy lâu và bài trí đầy đủ, có thể lác đác vài con cá bột tự xuất hiện mà bạn không cần làm gì.</p><p>Tuy nhiên, muốn thu được nhiều cá bột hơn thì phải làm bài bản hơn một chút. Đàn cá bố mẹ vẫn có thể vỗ chung với nhau, nhưng bạn nên set thêm một hoặc vài thùng đẻ riêng, cỡ chừng 10–15 lít.</p><p>Thùng đẻ nên để ánh sáng thật mờ. Đáy thùng có thể để trống, hoặc phủ một lớp lưới. Mắt lưới phải đủ lớn để trứng nào không bám được vào cây thì lọt xuống dưới, nhưng đủ nhỏ để cá bố mẹ không với tới được.</p><p>Bạn cũng có thể dùng loại thảm cỏ nhựa bán khắp nơi, loại này dùng rất tốt. Nước nên có pH 5,0–6,5, độ cứng 1–5°dH, nhiệt độ gần mức cao của khoảng đã nêu ở trên. Nên thả thêm một búi rêu Java kha khá hoặc cây lá nhỏ khác, chiếm chừng một nửa không gian trong thùng. Lọc không thật sự cần thiết, nhưng nếu muốn thì bạn có thể dùng một lọc mút nhỏ chạy bằng sủi khí.</p><p>Sau đó thả hai hoặc ba cặp cá bố mẹ đã vỗ kỹ vào mỗi thùng. Nên chuyển cá từ từ để cá khỏi bị stress quá mức. Nếu điều kiện hợp ý, cá thường sẽ bắt đầu đẻ vào sáng hôm sau.</p><p>Loài này chắc chắn có ăn trứng, nhưng có vẻ chúng không chủ động đi lùng trứng như nhiều loài cá chép nhỏ khác. Một khi đã bắt đầu, cá sẽ tiếp tục đẻ mỗi ngày.</p><p>Chỉ nên để cá bố mẹ trong thùng tối đa một hai ngày rồi vớt ra, vì lứa trứng đầu tiên thường nở vào ngày thứ hai sau lần đẻ đầu. Cá con mới nở rất nhỏ và sống nhờ túi noãn hoàng thêm khoảng 24 giờ. Sau đó chúng cần ăn Paramecium (trùng cỏ) hoặc thức ăn siêu nhỏ khác.</p><p>Sau một tuần đến mười ngày, cá con đủ lớn để ăn Artemia mới nở, giun vi (microworm) và các loại tương tự. Ngày qua ngày, sẽ có thêm cá bột từ các lần đẻ sau xuất hiện. Tốt nhất là đợi một hai tuần rồi mới bắt đầu thay nước ít một, để cá con khỏi bị sốc.</p>",
+    "notes:seriouslyfish": "<p>Màu sắc của loài này có vẻ khác nhau tùy nơi thu mẫu. Đây là lý do có sự nhầm lẫn với B. brigittae, vì khi cá khỏe, một số quần thể có thể lên sọc cam/đỏ đậm phía trên vệt sẫm dọc thân.</p><p>B. urophthalmoides dễ nhận ra nhờ cỡ trưởng thành nhỏ hơn và đốm tròn sẫm màu rõ ở cuống đuôi. Sọc dọc thân của nó cũng tương đối dài và liền mạch, còn hoa văn đỏ thì kém đồng đều hơn. Ngoài tiệm, loài này đôi khi mang tên thương mại 'sparrow rasbora' hoặc 'exclamation-point rasbora'. Tên thứ hai (rasbora dấu chấm than) ám chỉ họa tiết đặc trưng mà các vệt sẫm trên thân tạo thành.</p><p>Chi Boraras được lập năm 1993 nhằm tách một nhóm nhỏ các loài ra khỏi nhóm Rasbora đông đảo hơn, dựa trên khác biệt về hình thái và chiến lược sinh sản.</p><p>Các loài Boraras có cỡ trưởng thành nhỏ là nhờ một quá trình tiến hóa gọi là thu nhỏ cơ thể (miniaturisation). Đặc điểm của quá trình này là cá đã thành thục sinh dục nhưng kích thước giảm hẳn, chiều dài chuẩn (SL) dưới 20 mm.</p><p>Các loài Boraras ở quần đảo Mã Lai (B. brigittae, B. maculatus và B. merah) thường có dáng thân thon và dài hơn các loài ở Đông Dương (B. micros, B. urophthalmoides, B. naevus). Nhìn vào dáng thân, bạn có thể nhận dạng chúng dễ hơn phần nào.</p>",
+    "references:seriouslyfish": "<ul><li>Conway, K. W. (2005). Monophyly of the genus Boraras (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 16(3), 249-264</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., et al. (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Conway, K. W. and M. Kottelat (2011). Boraras naevus, a new species of miniature and sexually dichromatic freshwater fish from peninsular Thailand (Ostariophysi: Cyprinidae). Zootaxa 3002, 45-51</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (1991). Notes on the taxonomy of some Sundaic and Indochinese species of Rasbora, with description of four new species (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 2(2), 177-191</li></ul>"
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rasbora-lun-mat-duoi",
+      "name": "Cá rasbora lùn mắt đuôi"
+    }
+  ],
+  "quality": {
+    "score": 0.82,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9,
+      "seriouslyfish": 0.82
+    }
   }
- },
- "nameFixed": true,
- "redirectFrom": [
-  {
-   "slug": "ca-rasbora-lun-mat-duoi",
-   "name": "Cá rasbora lùn mắt đuôi"
-  }
- ]
 }

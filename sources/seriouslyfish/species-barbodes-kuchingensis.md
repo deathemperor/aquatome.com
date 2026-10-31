@@ -1,12 +1,13 @@
 ---
 url: https://www.seriouslyfish.com/species/barbodes-kuchingensis
 title: Barbodes kuchingensis (False Spanner Barb) · Seriously Fish
-fetchedAt: 2026-10-31T06:54:25.786Z
-hash: 959cd1a1a8b0cd9cdfdb80ece0b7e6f75200ab6c5092fd44c638b43245b38214
+fetchedAt: 2026-10-31T20:58:40.406Z
+hash: c5f0aa7c02e213aa45927222230d4424508cfc5c1f084bf7616c18481d787d3c
 ---
 
 On this page
-13 sections
+13
+sections
 - Etymology
 - Distribution
 - Habitat

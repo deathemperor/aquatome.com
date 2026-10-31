@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/hemiodus-ternetzi
 title: Hemiodus ternetzi · Seriously Fish
-fetchedAt: 2026-10-31T16:42:13.975Z
+fetchedAt: 2026-10-31T21:01:36.882Z
 hash: b2cd341262aee4408036cc66ad649a1a47f73b6074c1735736d47816364cca60
 ---
 

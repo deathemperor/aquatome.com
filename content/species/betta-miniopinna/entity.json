@@ -7,7 +7,8 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "bintan"
   ],
   "dataCard": {
     "tempC": [
@@ -15,6 +16,13 @@
         "source": "bwaquatics",
         "value": {
           "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
           "max": 28
         }
       }
@@ -26,18 +34,48 @@
           "min": 5,
           "max": 6.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 3.8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -47,6 +85,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
       "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Critically Endangered (CR).</li><li>Maximum size: 1.2–1.5 inches (about 3–3.8 cm).</li><li>Breeding: bubblenester.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p><em>Betta miniopinna</em> is a small bubble-nesting labyrinth fish endemic to Bintan Island, Indonesia, where it is known from a few northern localities. A dark member of the mostly red <em>B. coccina</em> group, it is most similar to <em>B. persephone</em>. Development for tourism and rubber plantations has left it restricted to a few pockets of primary peat swamp forest, and it has been listed as Critically Endangered on the IUCN Red List since 1996.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -61,10 +105,40 @@
       "html": "<p>Indonesia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.</p><p>Type locality is 'Indonesia: Riau archipelago: northern Pulau Bintan: swamp forest at Tanjong Bintan end near Pasir Segiling, 1°10'N 104°30'E'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>A stenotopic inhabitant of peat swamp forests and associated streams. The dense canopy of branches above means very little light penetrates the surface of such environments, although they are increasingly disturbed by human activity.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material. The dissolved mineral content tends to be negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks since permanent water is not always available.</p><p>During a trip to Bintan Island in August 2013, <em>B. miniopinna</em> was collected from a pocket of degraded peat swamp forest where much of the vegetation appeared to be dying back and a large inundated open area had formed due to construction of a road. The fish were collected only from black water puddles beneath relatively pristine canopy, and the congener <em>B. spilotogena</em> was found at the same location.</p><p>Bintan has been developed for tourism over the last decades and is heavily-promoted by Indonesia, with luxury beach resorts and golf courses increasing in number. Further deforestation has occurred in order to establish large rubber plantations in the interior of the island. <em>B. miniopinna</em> is now restricted to a few remaining pockets of primary peat swamp forest and has been listed as 'Critically Endangered' on the IUCN Red List of Threatened Species since 1996.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) should be the minimum considered, but is suitable for a pair or small group. Volume is about 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial for fishes from blackwater environments. There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. Aquatic plant species that can survive under such conditions include <em>Microsorum</em>, <em>Taxiphyllum</em> or <em>Cryptocoryne</em> spp., while floating vegetation is also appreciated by the fish.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness, meaning a reverse osmosis unit or other method of obtaining soft water may need to be employed. This can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all <em>Betta</em> spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
       "html": "<ul><li>TDS: 60–100</li><li>pH: 5.0–6.5</li><li>Temperature: 75–82°F (24–28°C)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -73,38 +147,118 @@
       "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Likely to prey on small aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as <em>Betta</em> spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
       "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, multiple pairs can be kept as long as there is enough space. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone or with very peaceful species. Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone.</p><p>Provided the aquarium contains plenty of cover this species can be maintained in a group, although it is preferable to isolate pairs for breeding purposes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Males are more intensely-coloured and develop more-extended fins than females as they mature.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
       "html": "<p>Bubblenester.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>Bubble nester. It is particularly important to provide plenty of cover for the female, and empty camera film canisters or lengths of plastic tubing can be used to offer potential nesting sites. Floating plants may be incorporated into the nest if present.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male might construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>The nuptial female becomes paler in colour and dark bars appear on the flanks. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released, which the female proceeds to catch between pelvic fins and body. The male then transfers these to the nest while the female recovers any loose eggs. The process is then repeated until the female is spent. This is not a particularly prolific species with less than 20 eggs being typical although bigger broods of up to 50 are not uncommon.</p><p>Post-spawning the adults can normally be left in situ, and normally both will participate in broodcare.</p><p>The eggs hatch in 24-72 hours, remaining in the nest for a further 3-4 days until the yolk sac is fully-absorbed, the male continuing to collect and return any that fall. Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<p>This species is included in the <em>B. coccina</em> group of closely-related species within the genus. This assemblage mostly comprises small, red-coloured fishes with the exceptions of <em>B. hendra</em>, <em>B. persephone</em> and <em>B. miniopinna</em> which are greenish or darkish.</p><p>Members of the <em>B. coccina</em> group possess the following shared characters: small adult size (up to 40 mm SL); either red or black body colouration; presence of midlateral blotch in some species; 9 abdominal vertebrae (vs. 10-12 in all other <em>Betta</em> species); stenotopic inhabitants of forest peat swamps.</p><p><em>B. miniopinna</em> can be told apart from other members of the group by the following characters: no lateral blotch; body blackish; lateral dorsal head profile relatively concave, sloping steeply posterior to eye; no parallel vertical iridescent gold opercle bars; pelvic-fin falcate with white filamentous tip, remainder always bright red; median fins covered diffusely with light green iridescence; dorsal fin-rays 9-10; anal-fin rays 24-27; subdorsal scales 6-7; lateral scales 30-31; predorsal scales 20.</p><p>It is most similar to <em>B. persephone</em> but can be distinguished most obviously by its more elongate body (30-31 lateral scales and 20 predorsal scales vs. 27-29, 17-18 respectively in <em>B. persephone</em>), relatively concave (vs. convex) lateral dorsal head profile, and red (vs. blackish to dull reddish) pelvic fins.</p><p>The genus <em>Betta</em> is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li><li>Tan, H. H. and S. H. Tan (1994). Betta miniopinna, a new species of fighting fish from Pulau Bintan, Riau Archipelago, Indonesia (Teleostei: Belontiidae). Ichthyological Exploration of Freshwaters 5(1), 41-44</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabanatoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/97cfa68609b98d01.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/97cfa68609b98d01-480.webp",
+      "width": 800,
+      "height": 496,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "caption": "Wild adult male individual, Bintan Island, Indonesia, August 2013.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4088cae0ef71986c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4088cae0ef71986c-480.webp",
+      "width": 850,
+      "height": 563,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "caption": "Construction of an embankment to allow passage of vehicles appeared to explain formation of the open inundated area.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/73cc74c763810d54.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/73cc74c763810d54-480.webp",
+      "width": 800,
+      "height": 522,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "caption": "Freshly-collected B. miniopinna, August 2013.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/77cc74f5082daff9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/77cc74f5082daff9-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/6b9121ad6d0c8324.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/6b9121ad6d0c8324-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/6b9121ad6d0c8324-480.webp"
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/2d893aa5d22efb17.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/2d893aa5d22efb17-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/2d893aa5d22efb17-480.webp"
+      "source": "bwaquatics"
     }
   ],
   "videos": [],
@@ -132,5 +286,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

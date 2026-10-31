@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/hemigrammus-stictus
 title: Hemigrammus stictus (Red-base Tetra) · Seriously Fish
-fetchedAt: 2026-10-31T16:42:05.929Z
+fetchedAt: 2026-10-31T21:00:20.447Z
 hash: 956e2e4a91d8225e5a7037786e9b12abdd09bcbe9c718a1d3df239bb4f463d91
 ---
 

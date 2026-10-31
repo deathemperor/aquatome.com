@@ -1,0 +1,180 @@
+{
+  "id": "aulonocara-hansbaenschi",
+  "scientificName": "Aulonocara hansbaenschi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Aulonocara",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi",
+    "mozambique"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.4,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>The red shoulder peacock, Aulonocara hansbaenschi, is a cichlid endemic to Lake Malawi, known from four localities on its southeastern shore. Some authors regard it as a geographical variant of the highly variable A. stuartgranti. It is also sold as the 'firebird cichlid' and 'red peacock'. At Masinje it shows a distinct preference for rocky caves and crevices in 3 to 6 metres of water, where most of the genus forage over sand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Endemic to Lake Malawi where it's known from just four localities: Masinje (type locality), Fort Maguire, Mara Point and Thumbi West Island. All these are located within a relatively small area on the lake's southeastern shoreline.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Inhabits the so-called intermediate zones of the lake, where rocky shores give way to sandy bottoms with scattered rocks. At Masinje it has been observed to show a distinct preference for rocky caves and crevices in relatively shallow (3-6 metres deep) water. This is in contrast to most other members of the genus, which tend to forage over sand, but similar to behaviour seen in A. jacobfreibergi.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Minimum base dimensions of 90 × 45 cm (36 × 18 in) or equivalent are recommended (about 182 litres / 48 US gal), unless keeping the fish in smaller aquaria for breeding purposes.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Arrange some piles of rockwork around the tank but leave some open spaces between them and use fine sand as substrate so that it's able to feed naturally (see 'diet'). Coarser options such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage/blockages. It will not harm plants so hard water-tolerant species such as Vallisneria, Anubias or Sagittaria species can be added if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality/swings in chemical parameters and should never be introduced to a biologically immature aquarium. The best way to achieve the desired stability is to over-filter the tank using a combination of canister filters and/or a sump system, and perform minimum weekly water changes of 30-50%.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<ul><li>Temperature: 24–29°C</li><li>pH: 7.4–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Aulonocara spp. are benthophagous by nature, employing a method of feeding whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gills and mouth. They're equally skilled at hunting as grazing, tending to hover above the substrate until tiny movements are detected, and possess enlarged sensory pores on the head which assist in this technique.</p><p>The captive diet should contain a variety of high quality, fine-grade prepared foods plus small live and/or frozen chironomid larvae, Tubifex, Artemia, mosquito larvae, etc. At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, can also work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife. Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>A relatively peaceful species although males tend to act aggressively towards any fish with a similar colour pattern, so take care when selecting tankmates. Possibilities could include differently-patterned Copadichromis, Placidochromis, Otopharynx lithobates and peaceful Mbuna such as Labidochromis caeruleus. Other Aulonocara species are best avoided as most are able to hybridise, however, and the majority of Mbuna are excessively boisterous and thus unsuitable. In all but the largest aquaria it's best to maintain just a single male alongside 4-6 females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Males are larger and more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Maternal mouthbrooder which will often spawn in a community set-up, but should be moved or maintained in a specific tank if the intention is to maximise yield. Males can be aggressive in pursuit of females so a ratio of a single male to 4 or more females is normally recommended in order to reduce the attention on any particular individual. Some flattish rocks and open areas of sand should be included to act as potential spawning sites.</p><p>The male will select one such site and begin his courtship display and when a female is willing she will approach and lay a batch of eggs, after which she immediately picks them up in her mouth. The male possesses a number of 'egg spots' on the anal fin and the female is also attracted to these, but when she tries to add them to her mouth she actually receives milt from the male, thus fertilising the eggs.</p><p>The female will carry the brood for up to 4 weeks before releasing fully free-swimming fry. She will not normally eat during this period and can be easily spotted by her distended mouthparts combined with a distinctive 'chewing' motion. If overly stressed the eggs may be eaten or ejected prematurely, meaning care must be taken if you decide to isolate a brooding female. It's also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group, so try to wait as long as possible before moving a female unless she is being actively harassed.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them separately from that point. The fry may still have some yolk sac remaining when released and do not require additional food until this has disappeared. If released with yolk sacs fully absorbed, Artemia nauplii or similar can be offered immediately. They usually start to become sexable at around the 4 month stage.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<p>Some eminent authors believe this species to be a geographical variant of the highly variable congener A. stuartgranti rather than a distinct taxon, but since most popular resources continue to view it as valid it is also listed here. It's known by several other vernacular names including 'firebird cichlid', Aulonocara 'Fort Maguire', 'African peacock', 'red peacock' and A. hansbaenschi 'red flash' or 'red flush'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "html": "<ul><li>Meyer, Riehl &amp; Zetzsche (1987). A revision of the cichlid fishes of the genus Aulonocara Regan, 1922 from Lake Malawi, with descriptions of six new species (Pisces, Perciformes, Cichlidae). Courier ForschungsInstitut Senckenberg 94, 7-53</li><li>Grant, S. M., H. W. Dieckhoff, H. J. Mayland and M. K. Meyer (1987). Ecology of Aulonocara REGAN, 1922 in Lake Malawi. Courier ForschungsInstitut Senckenberg 94, 131-139</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f643a578d539526e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f643a578d539526e-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-hansbaenschi",
+      "caption": "Aulonocara hansbaenschi male",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90x45",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cichlid",
+        "cát hồ Malawi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid Malawi",
+        "thức ăn spirulina cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -1,13 +1,12 @@
 ---
 url: https://www.seriouslyfish.com/species/betta-macrostoma
 title: Betta macrostoma (Brunei Beauty) · Seriously Fish
-fetchedAt: 2026-10-31T16:54:32.301Z
-hash: 3d3cb1bb8425d924c1ad22cb1ce67ef7dd259bdbe9aacd4711872e523d28b46c
+fetchedAt: 2026-10-31T20:01:43.112Z
+hash: ccfc9efaa3d408afcb0276a3333988fa738fce76a78d325f274b1e60d3666007
 ---
 
 On this page
-12
-sections
+12 sections
 - Distribution
 - Habitat
 - Aquarium size

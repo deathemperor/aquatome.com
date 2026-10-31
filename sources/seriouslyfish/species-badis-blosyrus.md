@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/badis-blosyrus
 title: Badis blosyrus · Seriously Fish
-fetchedAt: 2026-10-31T12:05:46.593Z
+fetchedAt: 2026-10-31T20:47:21.405Z
 hash: 56378795f80a8350e80de5e07d4f74bbf1b95380ce501b33609ffa2fb1896b20
 ---
 

@@ -7,13 +7,57 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "ayeyarwady"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +69,34 @@
       "html": "<p>This extremely rarely imported species originates from Burma. The charming fish attains a length of only 2-3 cm. This is the only species of anabantoid fish whose way of reproduction is still unknown. The only other member of the genus, P. lineatus, is a bubblenest builder although the eggs look like the eggs of mouthbrooders.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>The eyespot gourami, Parasphaerichthys ocellatus, is a small anabantoid from the upper Ayeyarwady basin in northern Myanmar, including Lake Indawgyi. In the trade it shares the names 'mini chocolate gourami' and 'Burmese chocolate gourami' with P. lineatus, but it grows larger, to 32 mm SL, and has an ocellus-type marking in the middle of each flank with no dark mid-lateral stripe. In nature it is subject to seasonal temperature fluctuations and is comfortable between 15 and 25 °C.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>To date the species is known mostly from the upper Ayeyarwady River basin in northern Myanmar, where it has been collected close to the city of Myitkyina in Kachin State as well as around nearby Lake Indawgyi, the largest inland lake in Southeast Asia and home to ten globally threatened bird species.</p><p>The lake and surrounding area were designated a protected zone by the Ministry of Ecotourism in 1999 and now form the Indawgyi Lake Wildlife Sanctuary.</p><p>Kachin State itself is one of the world's great biodiversity hotspots and contains many endemic species, although large portions of the area have been decimated due to illegal logging by both Myanmar and neighbouring China.</p><p>In 1983 a single adult female specimen was purchased from a market in the city of Mandalay, several hundred kilometres further south and also located within the Ayeyarwady drainage, meaning the full extent of its range remains unknown but may comprise much of the upper-to-middle Ayeyarwaddy.</p><p>Type locality is given as 'Muddy stream along Kamaing Jade Mines Road, Kamaing, Myitkyina District, Upper Myanmar'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichthys_ocellatus_en/",
       "html": "<p>In the habitats of P. ocellatus appear heavy day-night changes of the water temperature. The species lives in muddy, shallow pools. By day water temperature rises easily up to 25-28°C, while during the night the temperature becomes as low as 15°C.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>The type series was collected from 'small, muddy streams' but little additional information exists.</p><p>Presumably it spends much of its time among submerged or marginal vegetation and prefers slow-moving or standing water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm (18 × 12 in) or more is large enough to house a group. Volume: about 41 litres (11 US gal).</p>"
     },
     {
       "key": "maintenance",
@@ -37,19 +105,112 @@
       "html": "<p>The metabolism of the tiny fish is adapted to those changes. So one should try to imitate them (for example by switching off the heater along with the lamps), otherwise the fish will become very sensitive to various diseases in the long term.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Fares best in a well-planted set-up with a soft substrate although fine-grade gravel is acceptable.</p><p>Driftwood roots or branches, floating plants and leaf litter can all be added to lend a more natural feel and further increase structural complexity while also serving to diffuse the light entering the tank, while lengths of suitably-sized plastic piping or empty camera film container can also provide useful refuges.</p><p>It naturally inhabits sluggish or still environments, therefore filtration, or at least water flow, should not be very strong, and if using leaves and wood do not allow the water to become tannin-stained as this species naturally inhabits clear water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Temperature: 15–25 °C (59–77 °F). This species is subject to seasonal temperature fluctuations in nature and is comfortable between 15 and 25 °C, with even greater extremes tolerated for short periods.</p><p>pH: 6.5–7.5</p><p>Hardness: 5–10 dGH</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>It can be a little picky in the aquarium and initially may not accept dried or otherwise prepared foods, though in some cases will learn to take them over time.</p><p>It should be offered daily meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal worm, micro worm, etc., in order to develop ideal colour and conditioning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Given its rarity in the hobby, and possibly nature, the emphasis should be on captive reproduction, but if you intend to house it in a community, tankmates must be chosen with care.</p><p>It's slow-moving with a retiring nature and will easily be intimidated or outcompeted for food by larger or more boisterous tankmates.</p><p>Peaceful, pelagic cyprinids such as Danionella, Microdevario, smaller Rasbora species, or diminutive loaches such as some members of the genus Yunnanilus may constitute the best choices.</p><p>Though not gregarious in the sense of schooling or shoaling it does seem to require interaction with conspecifics and displays more interesting behaviour when maintained in numbers, meaning the purchase of no less than 6 individuals is recommended.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Fully-grown females are noticeably larger than males and thicker-bodied when full of eggs.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichthys_ocellatus_en/",
       "html": "<p>The surfaces of the eggs of P. ocellatus also have the very characteristic structures of eggs of mouthbrooding species (this is known from dissected specimens). But as long as no one has ever bred the species successfully in an aquarium nobody will know for sure how they do it.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Frank Strozyk has bred P. ocellatus and may have been the first to do so.</p><p>He achieved success by maintaining a pair alone in a small aquarium of which the water surface was almost entirely covered with pieces of floating cork bark and plastic camera film containers.</p><p>Eggs were deposited in a bubble nest within a film container, and a couple of days prior to this the pair could be seen exhibiting a highly contrasted, black-and-white colour pattern.</p><p>The male was responsible for guarding the nest directly while the female patrolled the surrounding area.</p><p>The incubation period was between 3–5 days and it appears that this species spawns repeatedly over a period of several days, as additional eggs were observed in the original nest on a daily basis, and eventually a second, smaller nest was constructed.</p><p>No courtship was observed after the initial spawn, however.</p><p>Although a number of fry hatched and started feeding on Paramecium after 3–4 days, none were raised beyond this initial stage.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichthys_ocellatus_en/",
       "html": "<p>Lexicon: Parasphaerichthys: ancient Greek, means \"similar to Sphaerichthys\". Sphaerichthys is another genus of fish. ocellatus: means \"bears an ocellus\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<p>Like its congener P. lineatus this species is sometimes traded under the names 'mini chocolate gourami' or 'Burmese chocolate gourami', these two comprising the only members of the genus known at present.</p><p>P. ocellatus can be told apart from P. lineatus via the following combination of characters: larger body size (maximum standard length 32.0 mm vs. 18.7 mm); presence of ocellus-type marking in middle of each flank (vs. absence); absence of dark, mid-lateral stripe (vs. presence); 11–16 anal-fin spines (vs. 8–10).</p><p>The two species also differ in some osteological characters.</p><p>The genus itself is separated from all other anabantoids by a couple of internal morphological characters, namely a reduced number of vertebrae (25–26, the lowest among the suborder Anabantoidei) plus the fact that Baudelot's ligament originates from a transversely orientated process on the first vertebrae close to the joint formed by the first intermuscular bone and the base of the neural arch.</p><p>Note: Baudelot's ligament helps anchor the pectoral girdles to the sides of the fish.</p><p>Parasphaerichthys species are often grouped within the Osphronemid subfamily Luciocephalinae along with the genera Trichogaster, Trichopodus, Luciocephalus, Sphaerichthys and Ctenops.</p><p>They share with the latter trio an egg structure that is unique among teleosts; the distinguishing factor consisting of a series of spiralling ridges on the outer surface.</p><p>This has given rise to the (as yet unproven) theory that the four genera form a monophyletic group, i.e., they share a common genetic ancestor.</p><p>In Luciocephalus and Sphaerichthys the eggs are also distinctively pear-shaped, suggesting that these two share even closer genetic roots.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth organ.</p><p>So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>It is formed by a modification of the first gill arch and consists of many highly vascularised, folded flaps of skin.</p><p>The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>Similarly, while most can be observed taking regular gulps of air from the surface, others, including Parasphaerichthys spp., do so less often.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "html": "<ul><li>Britz, R., M. Kokoscha, and R. Riehl (1995). The anabantoid genera Ctenops, Luciocephalus, Parasphaerichthys and Sphaerichthys as a monophyletic group: evidence from egg surface structure and reproductive behaviour. Japanese Journal of Ichthyology 42(1), 71-79</li><li>Britz, R. and M. Kottelat (2002). Parasphaerichthys lineatus, a new species of labyrinth fish from southern Myanmar (Teleostei: Osphronemidae). Ichthyological Exploration of Freshwaters 13(3), 243-250</li><li>Freyhof, J. (2002). Ein ganz anderer Schokoladen-Gurami. DATZ 2002(4), 11-13</li><li>Prashad, B. and D. D. Mukerji (1929). The fish of the Indawgyi Lake and the streams of the Myitkyina District (Upper Burma). Records of the Indian Museum (Calcutta) 31(3), 161-223</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d4084c7cce7fb2a5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d4084c7cce7fb2a5-480.webp",
+      "width": 639,
+      "height": 364,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "caption": "Nuptial adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0f1be69de08334a6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0f1be69de08334a6-480.webp",
+      "width": 639,
+      "height": 486,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "caption": "Nuptial adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fd6ef0ee65753ae9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fd6ef0ee65753ae9-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "caption": "A bubble nest constructed in a plastic camera film container.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/07f246d78b788c95.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/07f246d78b788c95-480.webp",
+      "width": 639,
+      "height": 372,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus",
+      "caption": "Closer view of the same nest; eggs were deposited here on a daily basis for several days...",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "pTEVeAeCAkI",

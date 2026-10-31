@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus
 title: Parasphaerichthys ocellatus (Eyespot Gourami) · Seriously Fish
-fetchedAt: 2026-10-31T12:05:30.746Z
+fetchedAt: 2026-10-31T20:32:21.720Z
 hash: 760e755b8491f677b9143246dcd640f86e44b7e66bfbbbd0928e77120de6024b
 ---
 

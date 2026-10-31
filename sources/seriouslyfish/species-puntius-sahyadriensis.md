@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/puntius-sahyadriensis
 title: Puntius sahyadriensis (Maharaja Barb) · Seriously Fish
-fetchedAt: 2026-10-31T12:05:38.768Z
+fetchedAt: 2026-10-31T20:44:51.039Z
 hash: 8c49d3bb315d9c26ae64fd89440cc135407c0a48f110f81a39edb63223597844
 ---
 

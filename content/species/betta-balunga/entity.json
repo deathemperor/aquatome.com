@@ -8,7 +8,10 @@
   "places": [
     "asia",
     "indonesia",
-    "tarakan"
+    "tarakan",
+    "malaysia",
+    "sabah",
+    "mahakam"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +20,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
         }
       }
     ],
@@ -27,18 +37,48 @@
           "min": 6.5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 6.4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -50,10 +90,40 @@
       "html": "<ul><li>Temperament: peaceful; can be kept in pairs or a group.</li><li>Max size: 6.4 cm (2.5 inches)</li><li>TDS: 60–200</li><li>pH: 6.5–7</li><li>Temperature: 24–28 °C (75–82 °F)</li><li>Diet: carnivorous</li><li>Breeding: mouthbrooder</li><li>IUCN Red List: Least Concern</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia. A member of the Betta akarensis group, it has a reddish-orange iris in life. In the Sebuku it lives in very shallow forest streams among roots and leaf litter, and in the Mahakam basin in sluggish blackwater streams among submerged marginal vegetation.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
       "html": "<p>Another mouthbrooder type betta found in Tarakan in Indonesia. It is the only one in its group, the Betta akarensis complex.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Type locality is a 'tiny brook tributary to the Balung River, 45 miles from Tawau, British North Borneo' which corresponds to a locality in Tawau Division, Sabah Province, Malaysia (Borneo).</p><p>Its distribution is currently considered to extend southwards from Tawau as far as the Sebuku and Mahakam watersheds in Kalimantan Timur (East Kalimantan) province, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>In Sebuku it's been collected alongside B. albimarginata from a flowing forest stream in very shallow (depth 5–10 cm) water among marginal plants roots and leaf litter.</p><p>In the Mahakam basin it typically inhabits sluggish, black water streams among submerged marginal vegetation and leaf litter.</p><p>Specimens from the Mahakam differ from Tawau fish in some meristic counts but Tan and Ng (2005) considered them conspecific with B. balunga due to a lack of comparative material from the type locality.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>An aquarium with base measurements of 60 × 30 cm (about 54 litres) or equivalent should prove large enough for a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
       "key": "waterConditions",
@@ -62,10 +132,22 @@
       "html": "<p>TDS 60–200, pH 6.5–7, temperature 24–28 °C. Kept in soft water with low TDS, but they are more tolerant of water conditions.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
       "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Likely to prey on insects, other small invertebrates and zooplankton in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use; it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
     },
     {
       "key": "behaviour",
@@ -74,19 +156,72 @@
       "html": "<p>This betta appears to be very peaceful and can be kept in groups, in a pair or a group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible but proper research is essential.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
       "html": "<p>Males are generally larger with longer fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Males grow larger, possess a greater amount of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-balunga-wild-type-bettas",
       "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The female plays the more active role in initiating courtship and defending the area against intruders.</p><p>Eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and several 'practice' embraces may be required beforehand.</p><p>Once spawning commences eggs are laid in small batches and picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>The incubation period is 14–21 days at which point the male will begin to release fully-formed, free-swimming fry.</p><p>While some breeders have never had a problem with this species eating its own young others have lost entire broods through predation, but many remove the female (plus any other fishes present) a few days after spawning. This needs to be done as carefully as possible in order to avoid disturbing the male as he may swallow or release the brood prematurely if stressed. Once the fry are swimming and foraging freely the male can also be removed if you wish.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<p>B. balunga is included in the Betta akarensis group of closely-related species within the genus.</p><p>Members share the following set of characters: possession of pre-orbital and post-orbital stripes (the post-orbital stripe is faint or interrupted in some species); chin bar present; caudal-fin lanceolate with highly extended median rays in mature males; caudal fin usually with transverse bars; greenish or bluish iridescent scales on body of males in some species; opercle without iridescent scales except in juveniles.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: presence of interrupted second postorbital stripe on opercle; reddish-orange iris of eye in life; 29-30 lateral scales; preanal length 48.5-52.6 % SL; length of anal-fin base 47.8-55.4 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. This organ allows the fish to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/48f232b5034a17a4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/48f232b5034a17a4-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "caption": "Adult male collected close to Bagun, Kalimantan Timur (East Kalimantan), Indonesia, Borneo.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6b102515bb85fb51.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6b102515bb85fb51-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-balunga",
+      "caption": "Adult female from Bagun.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -117,5 +252,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-31"
 }

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/betadevario-ramachandrani
 title: Betadevario ramachandrani · Seriously Fish
-fetchedAt: 2026-10-31T06:54:33.481Z
+fetchedAt: 2026-10-31T20:39:50.141Z
 hash: 7b15228512b68a9d9e749edfa03b78304f3de8d3544724bf28a2ceca23e77469
 ---
 

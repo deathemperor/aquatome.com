@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/mesonoemacheilus-herrei
 title: Mesonoemacheilus herrei · Seriously Fish
-fetchedAt: 2026-10-31T11:18:03.026Z
+fetchedAt: 2026-10-31T20:41:53.318Z
 hash: 505c60dfdf68fdfc592a51cb440c4b910d7fa3547a3ba3f1ba25b5c6cef0336b
 ---
 

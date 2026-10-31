@@ -5,13 +5,24 @@
   "family": "Osphronemidae",
   "genus": "Betta",
   "group": "labyrinth",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
         "value": {
           "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
           "max": 28
         }
       }
@@ -23,18 +34,48 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 5.7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -46,10 +87,28 @@
       "html": "<ul><li>Wild caught Betta foerschi, from the Betta foerschi complex.</li><li>IUCN Red List: Endangered (very high risk of extinction in the wild).</li><li>Temperament: somewhat territorial, but can be kept in groups as long as there is enough space.</li><li>Maximum size: 2.25 inches.</li><li>Breeding: mouthbrooder.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Betta foerschi is a paternal mouthbrooding labyrinth fish from a handful of localities in Central and West Kalimantan, Indonesian Borneo. It lends its name to the B. foerschi group, whose members have iridescent blue or green unpaired fins and two reddish-yellow bars on the opercle. Fish traded as B. foerschi are often the closely-related B. mandor, and the two can be difficult to tell apart.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
       "html": "<p>Imported on 5/09/25 (May 9, 2025); shipping starts on 5/19/25 (May 19, 2025). Be sure to have the habitat ready before purchase.</p><p>Mandor, foerschi and Strohi are notoriously difficult to sex at a young age; older fish with longer finnage are much easier.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Known from a handful of localities in Kalimantan Tengah (Central Kalimantan) province, and around the settlement of Kubu in Kalimantan Barat (Western Kalimantan) provinces, Indonesian Borneo.</p><p>Type locality is 'Mentaya River system, 250 kilometers northwest of Bandjarmasin, Borneo, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Typically inhabits forest swamp streams and pools, some of which have been measured at just a few centimetres deep. These are usually shaded from the sun, the dense canopy of branches above meaning very little light penetrates the water surface.</p><p>Marginal vegetation also tends to grow thickly. The water itself is often stained with humic acids and other chemicals released by decaying organic material. The dissolved mineral content is negligible, pH low, and substrate composed mainly of fallen leaves, branches, and submerged tree roots.</p>"
     },
     {
       "key": "aquariumSize",
@@ -58,10 +117,28 @@
       "html": "<p>We recommend a pair per 5 gallons of water.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>An aquarium with base measurements of 60 × 30 cm (24 × 12 in) or equivalent is sufficient for a single pair. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial for fishes from blackwater environments. There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. Aquatic plant species that can survive under such conditions include Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation is also appreciated by the fish.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness, meaning a reverse osmosis unit or other method of obtaining soft water may need to be employed. This can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
       "html": "<ul><li>TDS: ~60–100 (can tolerate high TDS water but prefers low TDS water).</li><li>pH: ~6.0–7.0 (prefers softer water).</li><li>Temperature: 75–83°F (does well in cooler temperatures, but higher temperatures induce coloration and breeding behaviours).</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -70,19 +147,109 @@
       "html": "<p>Carnivorous. Currently feeding on live foods but can be trained to eat frozen and dried foods. We currently feed them blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Likely to prey on aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone or with very peaceful species. Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone.</p><p>Mixed reports exist as to whether it can be maintained in multiple pairs or harem-type groups comprising a single male alongside several females. Some state that although some chasing and squabbling over territory occurs physical damage is rare, while others recommend keeping it in single pairs having observed sustained aggression by dominant individuals towards weaker conspecifics.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
       "html": "<p>With a black base body with red bars on the opercular cheeks, females will often have gold bars, but this is NOT a defining factor for their sex. Fully grown adult males have longer anal and caudal fins compared to females. Very similar to Mandor except for a slightly smaller, slimmer body and finnage. Like many species in the complex, females show vertical bars on the body when in breeding mode.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Males are more colourful than females, and develop extended unpaired fins. The opercular bars are usually orange-red and more well-defined in males, golden-yellow in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
       "html": "<p>Mouthbrooder.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate aquarium for breeding purposes, unless the fish are already being maintained alone.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of osphronemids, with the male wrapped around the female. Several 'dummy' embraces may be required before spawning commences.</p><p>However, in contrast to the majority of mouthbrooding Betta spp., the eggs are not caught in the anal-fin of the male but that of the female as is usual in bubble-nesting congeners. The male then collects the eggs directly in his mouth and the cycle is repeated until the female has released all her eggs.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it is preferable to leave the female and any other fishes in situ. The incubation period is 8-14 days, after which the male will begin to release free-swimming fry. Unusually, the male may accept food during this period. The adults tend not to eat fry, and some breeders have reported them to develop at a faster rate when left with the parents.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<p>In the aquarium hobby, populations from different localities are often labelled as such by collectors and enthusiasts in order to maintain accuracy and preserve pure bloodlines, e.g., Kubu, Pangkalanbun, Tangkiling, Tarantang, Pudukuali.</p><p>This species lends its name to the Betta foerschi group of closely-related species within the genus, of which members share the following set of characters: possession of iridescent blue or green unpaired fins; rays and interradial membranes in unpaired fins not contrasting; dorsal fin with thin, bright white distal band; opercle with two, reddish-yellow, vertical bars.</p><p>Members are regarded as being closely-related to bubble nesting Betta species since they share certain similarities in morphology, particularly in the structure of head and mouth, colour pattern, and reproductive strategy.</p><p>Fish traded as B. foerschi are often the closely-related congener B. mandor and these two can be difficult to tell apart.</p><p>They vary in the following characters: transverse scales 8½ in B. foerschi vs. 9½-10 in B. mandor; lateral scales 28½-31 vs. 32-34; caudal-fin length 127.2-133.5 % SL vs. 136.7-149.1; caudal peduncle length 17.5-21.0 % SL vs. 15.9-18.3; body depth at dorsal-fin origin 24.4-28.9 % SL vs. 21.2-24.2; dorsal-fin base length 10.0-12.2 % SL vs. 12.3-16.7; interorbital distance 9.6-13.4 % SL vs. 8.4-9.5; snout length 7.3-8.0 % SL vs. 3.9-7.0.</p><p>B. strohi is also very similar but can be told apart from B. foerschi since it possesses a line extending anteriorly from the caudal-fin base, through the base of the uppermost pectoral-fin ray and eye and reaching the tip of the snout. B. foerschi possesses a similar line but it passes below the eye and snout.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li><li>Vierke, J. (1979). Betta anabatoides und Betta foerschi spec. nov., zwei Kampffische aus Borneo. Aquarium Aqua Terra 13(123), 386-390</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li><li>Schaller, D. and M. Kottelat (1989). Betta strohi sp. n., ein neuer Kampffisch aus Südborneo (Osteichthyes: Belontiidae). Aquarien und Terrarien-Zeitschrift 43(1), 31, 33-37</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/846ae518162ec3ae.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/846ae518162ec3ae-480.webp",
+      "width": 707,
+      "height": 466,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "caption": "Male from the aquarium trade; population unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5e0e0f6c3f224669.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5e0e0f6c3f224669-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "caption": "Female from the aquarium trade; population unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f54eaa34f53a7a03.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f54eaa34f53a7a03-480.webp",
+      "width": 698,
+      "height": 488,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-foerschi",
+      "caption": "Adult male. This species is less-elongated and has a relatively shorter caudal-fin compared with the closely-related B. mandor.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/568ac630a47e34eb.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/568ac630a47e34eb-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/c5738355f8da99d6.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/c5738355f8da99d6-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay",
+      "source": "bwaquatics"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -108,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-31"
 }

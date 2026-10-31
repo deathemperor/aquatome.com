@@ -7,7 +7,8 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "kapuas"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +17,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
         }
       }
     ],
@@ -26,12 +34,44 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 12.7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -43,10 +83,40 @@
       "html": "<ul><li>Wild-caught, from Indonesia (\"LB\" location).</li><li>Belongs to the Betta unimaculata complex.</li><li>Maximum size: 5 inches (about 12.7 cm).</li><li>IUCN Red List: not listed (not found on IUCN).</li><li>Breeding: mouthbrooder.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Betta antoni is a mouthbrooding labyrinth fish that appears endemic to the lower Kapuas basin in West Kalimantan, Indonesian Borneo. Known as Betta sp. 'Sanggau' before its description, it belongs to the Betta akarensis group. It inhabits quiet margins and still pools in clear, flowing forest hill streams, and live fish show blue iridescence on the body scales and a distinct black lower lip.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
       "html": "<p>Imported from Indonesia. This batch is from a location designated as LB.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Appears to be endemic to the lower Kapuas river basin in the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo.</p><p>Type locality is given as 'Sanggau area, Kapuas basin, Kalimantan Barat, Borneo' although the fish themselves were from the aquarium trade.</p><p>Separate populations were collected from the Sekayan and Melawi rivers (both Kapuas tributaries) close to the townships of Sanggau and Nanga Pinoh, respectively.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Inhabits the upper reaches of clear, flowing forest hill streams where it can be found in quieter marginal zones and still pools which typically contain a mixture of leaf litter, gravel and rocks.</p><p>At some localities the water is stained weakly brown with humic acids and other chemicals released by decaying organic material.</p><p>The dense canopy of branches above allows very little light to penetrate the water surface and marginal vegetation also tends to grow thickly in the areas where the fish are found.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>An aquarium with base dimensions in excess of 60 × 30 cm (24 × 12 in) is recommended. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting.</p><p>You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
       "key": "waterConditions",
@@ -55,10 +125,22 @@
       "html": "<ul><li>TDS: about 60–100</li><li>pH: 5.0–7.0</li><li>Temperature: 22–28 °C (72–82 °F); cooler temperatures are preferred, but higher temperatures bring out coloration and breeding behaviour.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.5–7.0. In its natural habitats a range of 5.7–6.3 has been recorded.</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
       "html": "<p>Carnivorous. Fed on live, frozen and dried foods, such as blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Preys on insects and other invertebrates in nature with very small fish perhaps being taken as well.</p><p>In the aquarium it will normally accept dried foods once they are recognised as edible but like all fish does best when offered a varied diet.</p><p>In this case regular meals of live or frozen foods such as Daphnia, Artemia or bloodworm will ensure the development of the best colours and condition.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
     },
     {
       "key": "behaviour",
@@ -67,19 +149,94 @@
       "html": "<p>Like many of the species in this complex, and being among the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Not a recommended choice for the standard community set-up for reasons already touched upon.</p><p>Its care requirements and disposition mean it is best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate it.</p><p>Some small cyprinids are suitable and it could even be maintained alongside other anabantoids given sufficient space, but proper research is essential.</p><p>Provided the tank contains plenty of hiding places and broken lines of sight there's no reason why a group can't be maintained together, although a little squabbling is inevitable.</p><p>Exceptions may occur if a pair is spawning when females in particular can be aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Males grow larger, possess a greater amount of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
       "html": "<p>Mouthbrooder.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>A single pair or group of fish can be used but be aware that each male is capable of holding up to 60 fry so considerable space will be needed should you wish to raise them all.</p><p>The female plays the more active role in initiating courtship and defending the area against intruders.</p><p>Eggs and milt are released during an 'embrace' typical of anabantoids in which the male wraps his body around that of the female.</p><p>Several 'practice' embraces may be required before any eggs are released.</p><p>Once spawning commences eggs are laid in small batches and picked up in the mouth of the female before being spat out into the water for the male to catch.</p><p>Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>The incubation period is 12-17 days at which point the male will begin to release fully-formed, free-swimming fry.</p><p>While some breeders have never had a problem with this species eating its own young others have lost entire broods through predation, but many remove the female (plus any other fishes present) a few days after spawning.</p><p>This needs to be done as carefully as possible in order to avoid disturbing the male as he may swallow or release the brood prematurely if stressed.</p><p>Once the fry are swimming and foraging freely the male can also be removed if you wish.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2-3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
       "html": "<p>Brown base body with blue/green iridescence on the head and body. Best known for the larger dragon-like scales on the head. This location has a nice full blue mask on the head and good body masking.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<p>This species was referred to as Betta sp. 'Sanggau' prior to its formal description.</p><p>It's included in the Betta akarensis group of closely-related species within the genus, of which members share the following set of characters: possession of pre-orbital and post-orbital stripes (the post-orbital stripe is faint or interrupted in some species); chin bar present; caudal-fin lanceolate with highly extended median rays in mature males; caudal fin usually with transverse bars; greenish or bluish iridescent scales on body of males in some species; opercle without iridescent scales except in juveniles.</p><p>The unique combination of characters distinguishing B. antoni from others in the group is as follows: blue iridescence on body scales when live; distinct black lower lip with black chin bar; two black postorbital stripes, first interrupted, second short and running obliquely downwards from eye to edge of opercle; caudal-fin rounded with elongate median rays; pelvic-fin falcate with long, filamentous second ray; slim body (body depth at dorsal-fin origin 20.6-22.9 % SL, height at pectoral-fin origin 12.8-15.5 % SL); predorsal scales 23-24; lateral scales 31-33; anal-fin rays 25-27.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters.</p><p>Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8ba1334239a4e2b4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8ba1334239a4e2b4-480.webp",
+      "width": 799,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/340c3bfd3ecf8bc1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/340c3bfd3ecf8bc1-480.webp",
+      "width": 894,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/58654ff060e3cec7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/58654ff060e3cec7-480.webp",
+      "width": 640,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "caption": "Adult male in neutral mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4ec57ed161dc6d55.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4ec57ed161dc6d55-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
+      "caption": "Habitat in the lower Kapuas river basin, West Kalimantan province, Indonesian Borneo.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
