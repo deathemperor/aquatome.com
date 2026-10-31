@@ -65,9 +65,10 @@ const same = (a: Pick<SavedSchedule, 'on' | 'off' | 'ramp' | 'levels'>, b: typeo
  * when it has a name), and marked as the one on the light. At most 20 are kept; the oldest go.
  */
 export function wroteSchedule(s: TankStore, d: Device, sched: Pick<SavedSchedule, 'on' | 'off' | 'ramp' | 'levels'> & { name?: string }, env: Env = browser()): Device {
-  const old = d.schedules.find(x => same(x, sched))
+  const list = d.schedules ?? []
+  const old = list.find(x => same(x, sched))
   const rec: SavedSchedule = { ...old, on: sched.on, off: sched.off, ramp: sched.ramp, levels: sched.levels, id: old?.id ?? env.uuid(), savedAt: stamp(env), ...(sched.name ?? old?.name ? { name: sched.name ?? old?.name } : {}) }
-  const schedules = [rec, ...d.schedules.filter(x => x.id !== rec.id)].slice(0, 20)
+  const schedules = [rec, ...list.filter(x => x.id !== rec.id)].slice(0, 20)
   return putDevice(s, { ...d, schedules, activeScheduleId: rec.id }, env)
 }
 
@@ -78,4 +79,4 @@ export function forget(s: TankStore, id: string, env: Env = browser()) {
   if (i >= 0) s.devices[i] = { id, updatedAt: at, deletedAt: at }
 }
 
-export const activeSchedule = (d: Device) => d.schedules.find(x => x.id === d.activeScheduleId)
+export const activeSchedule = (d: Device) => d.schedules?.find(x => x.id === d.activeScheduleId)

@@ -270,7 +270,7 @@ function paintCard() {
 const span = (m: number) => (m < 60 ? ct('{n} phút', { n: m }) : ct('{n} tiếng', { n: fmt(Math.round(m / 6) / 10) }))
 
 function paintSaved() {
-  const list = device ? device.schedules.slice(0, 6) : []
+  const list = device?.schedules?.slice(0, 6) ?? []
   $('ch-saved').hidden = state !== 'ready' || list.length < 1
   $('ch-saved-list').innerHTML = list.map(s => `<li><span class="what"><strong class="num">${label(s)}</strong><span class="when">${s.name ? `${esc(s.name)} · ` : ''}${ct('sáng dần {n} phút', { n: s.ramp })} · ${day(s.savedAt)}</span></span>${s.id === device!.activeScheduleId ? `<span class="badge">${ct('Đang dùng')}</span>` : `<button type="button" class="quiet" data-use="${s.id}">${ct('Dùng lại')}</button>`}</li>`).join('')
 }
@@ -517,7 +517,7 @@ export function start() {
   })
   $('ch-saved-list').addEventListener('click', e => {
     const id = (e.target as HTMLElement).closest<HTMLButtonElement>('button')?.dataset.use
-    const s = device?.schedules.find(x => x.id === id)
+    const s = device?.schedules?.find(x => x.id === id)
     if (!s) return
     change({ on: s.on, off: s.off, ramp: s.ramp, levels: fit(s.levels, model.channels.length), name: s.name })
     say(ct('Đã mở lịch {l}. Bấm “Ghi lịch vào đèn” để dùng.', { l: label(s) }))
