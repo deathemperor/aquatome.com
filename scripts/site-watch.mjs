@@ -3,7 +3,7 @@
 // per problem. A problem still failing updates its issue; a check that passes again closes it. Uses the gh CLI (GH_TOKEN).
 //
 //   site-watch.mjs prepare <site> <dir>      sitemap → <dir>/e2e-pages.json; pages of open issues → <dir>/e2e-recheck.json
-//   site-watch.mjs report <results.json> <run-url>
+//   site-watch.mjs report <results.json>[,<more.json>] <run-url>    (the page checks, then Lighthouse's own run)
 //   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url>
 //   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR
 //
@@ -108,18 +108,19 @@ if (cmd === 'prepare') {
   writeFileSync(join(dir, 'e2e-recheck.json'), JSON.stringify(recheck))
   console.log(`${pages.length} pages in the sitemap, ${recheck.length} to recheck`)
 } else if (cmd === 'report') {
-  const [file, runUrl] = args
+  const [list, runUrl] = args
+  const files = list.split(',')
   ensureLabel()
   const issues = openIssues()
-  if (!existsSync(file)) {
+  if (!files.every(existsSync)) {
     failing(issues, { fp: fingerprint('no-results'), title: 'Site checks did not run', details: 'The browser checks ended without results: see the run log.', runUrl })
     process.exit(0)
   }
   passing(issues, fingerprint('no-results'), runUrl, 'The checks ran')
-  for (const c of checks(JSON.parse(readFileSync(file, 'utf8')))) {
+  for (const c of files.flatMap(f => checks(JSON.parse(readFileSync(f, 'utf8'))))) {
     const fp = fingerprint(c.key)
-    // The page a check is about (a page check, or a review): rechecked every run until it passes (prepare).
-    const path = /^(page|review) /.test(c.title) ? c.title.replace(/^(page|review) /, '').replace(/ @\w+$/, '') : undefined
+    // The page a check is about (a page check, a review, Lighthouse): rechecked every run until it passes (prepare).
+    const path = /^(page|review|lighthouse) /.test(c.title) ? c.title.replace(/^(page|review|lighthouse) /, '').replace(/ @\w+$/, '') : undefined
     if (c.failed.length) {
       // A review's failure is its serious findings; any other check's is its error.
       const what = c.highs.length ? [...new Set(c.highs)].map(h => `- ${h}`) : ['```', ...c.errors, '```']
@@ -140,6 +141,6 @@ if (cmd === 'prepare') {
   const body = [`### AI page review (advisory)`, '', reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : 'The review did not run.', '', ...(lines.length ? lines : ['Nothing serious found.']), '', `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
   try { act('pr', 'comment', pr, '--edit-last', '--body', body) } catch { act('pr', 'comment', pr, '--body', body) }
 } else {
-  console.error('usage: site-watch.mjs prepare <site> <dir> | report <results.json> <run-url> | deploy-failed <run-url> | deploy-ok <run-url> | pr-comment <results.json> <pr> <run-url>')
+  console.error('usage: site-watch.mjs prepare <site> <dir> | report <results.json>[,<more.json>] <run-url> | deploy-failed <run-url> | deploy-ok <run-url> | pr-comment <results.json> <pr> <run-url>')
   process.exit(2)
 }

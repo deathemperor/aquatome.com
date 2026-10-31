@@ -8,17 +8,31 @@ export type SpeciesIndexItem = {
 }
 export type SpeciesQuery = { difficultyMax?: number; tempC?: number; ph?: number; tankCm?: number; group?: string; text?: string }
 
-const inRange = (r: Range | undefined, v: number | undefined) => v === undefined || r === undefined || (v >= r.min && v <= r.max)
+/**
+ * Each figure the reader set (temperature, pH, tank length, difficulty), against the species' own: true when it fits,
+ * false when it doesn't, undefined when the species has no figure for it. A name or group is never unknown.
+ */
+function checks(i: SpeciesIndexItem, q: SpeciesQuery): (boolean | undefined)[] {
+  const within = (r: Range | undefined, v: number) => (r ? v >= r.min && v <= r.max : undefined)
+  const atMost = (x: number | undefined, v: number) => (x === undefined ? undefined : x <= v)
+  return [
+    q.tempC === undefined ? true : within(i.tempC, q.tempC),
+    q.ph === undefined ? true : within(i.ph, q.ph),
+    q.tankCm === undefined ? true : atMost(i.tankCm, q.tankCm),
+    q.difficultyMax === undefined ? true : atMost(i.difficulty, q.difficultyMax),
+  ]
+}
+const named = (i: SpeciesIndexItem, q: SpeciesQuery) =>
+  (!q.group || i.group === q.group) && (!q.text || slugify(`${i.name} ${i.scientificName}`).includes(slugify(q.text)))
 
+/** Species whose figures are all known and all fit the query. */
 export function filterSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): SpeciesIndexItem[] {
-  const text = q.text ? slugify(q.text) : ''
-  return items.filter(i =>
-    inRange(i.tempC, q.tempC) &&
-    inRange(i.ph, q.ph) &&
-    (q.tankCm === undefined || i.tankCm === undefined || i.tankCm <= q.tankCm) &&
-    (q.difficultyMax === undefined || i.difficulty === undefined || i.difficulty <= q.difficultyMax) &&
-    (!q.group || i.group === q.group) &&
-    (!text || slugify(`${i.name} ${i.scientificName}`).includes(text)))
+  return items.filter(i => named(i, q) && checks(i, q).every(c => c === true))
+}
+
+/** Species nothing known rules out, but missing a figure the query asks about: they may fit, the data can't say. */
+export function unsureSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): SpeciesIndexItem[] {
+  return items.filter(i => { const c = checks(i, q); return named(i, q) && !c.includes(false) && c.includes(undefined) })
 }
 
 /** Breeds carry no water data: with a filter set, one stays only when the filter is a name search that matches it. */

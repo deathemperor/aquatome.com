@@ -3692,6 +3692,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/cyclocheilichthys-armatus": {
+    "entityIds": [
+      "species/cyclocheilichthys-armatus"
+    ],
+    "updatedAt": "2026-10-31T11:01:13.372Z",
+    "hash": "33cca8e6923a00b4984cffb26ad609460f603656135d68f8af1e66d4686f1855",
+    "processedHash": "33cca8e6923a00b4984cffb26ad609460f603656135d68f8af1e66d4686f1855",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/cyphotilapia-frontosa": {
     "entityIds": [
       "species/cyphotilapia-frontosa"
@@ -3739,6 +3749,16 @@
     "updatedAt": "2026-10-31T09:17:49.258Z",
     "hash": "5968abf615f7a7d91bbcb0c1c6c2ae7f3b86448cca9fd15ff6c2ccb1edb4d168",
     "processedHash": "5968abf615f7a7d91bbcb0c1c6c2ae7f3b86448cca9fd15ff6c2ccb1edb4d168",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/dario-hysginon": {
+    "entityIds": [
+      "species/dario-hysginon"
+    ],
+    "updatedAt": "2026-10-31T11:03:26.925Z",
+    "hash": "1a5bf6d6c6e6f86214131b3f6000db7041f9db3218a30797b551b008dd39f72f",
+    "processedHash": "1a5bf6d6c6e6f86214131b3f6000db7041f9db3218a30797b551b008dd39f72f",
     "status": "processed",
     "attempts": 0
   },
@@ -3912,6 +3932,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/etroplus-suratensis": {
+    "entityIds": [
+      "species/etroplus-suratensis"
+    ],
+    "updatedAt": "2026-10-31T11:06:48.502Z",
+    "hash": "6d1055449367c55bfe2527907f78cb19b1d24fb8c0cd6de4f1e9d105c38f0ce7",
+    "processedHash": "6d1055449367c55bfe2527907f78cb19b1d24fb8c0cd6de4f1e9d105c38f0ce7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/garra-borneensis": {
     "entityIds": [
       "species/garra-borneensis"
@@ -4082,6 +4112,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/hemibagrus-wyckii": {
+    "entityIds": [
+      "species/hemibagrus-wyckii"
+    ],
+    "updatedAt": "2026-10-31T11:10:47.671Z",
+    "hash": "e47efd9947e30b59cd5959b0416c2095bc83403526cd5a52dba2ab9d1587f355",
+    "processedHash": "e47efd9947e30b59cd5959b0416c2095bc83403526cd5a52dba2ab9d1587f355",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/hemigrammus-bellottii": {
     "entityIds": [
       "species/hemigrammus-bellottii"
@@ -4232,6 +4272,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/kryptopterus-bicirrhis": {
+    "entityIds": [
+      "species/kryptopterus-bicirrhis"
+    ],
+    "updatedAt": "2026-10-31T11:12:50.858Z",
+    "hash": "2aa2eb859be033efe1218806f4d6f28f4e082e158dea316c5e62585ab1af860d",
+    "processedHash": "2aa2eb859be033efe1218806f4d6f28f4e082e158dea316c5e62585ab1af860d",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/kryptopterus-vitreolus": {
     "entityIds": [
       "species/kryptopterus-vitreolus"
@@ -4269,6 +4319,16 @@
     "updatedAt": "2026-10-31T05:31:23.193Z",
     "hash": "671b2be28eb83aca3d59d2873a5deee622a3573821441c71db8c7b7bc4b74f10",
     "processedHash": "671b2be28eb83aca3d59d2873a5deee622a3573821441c71db8c7b7bc4b74f10",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/lepidocephalichthys-annandalei": {
+    "entityIds": [
+      "species/lepidocephalichthys-annandalei"
+    ],
+    "updatedAt": "2026-10-31T11:14:17.763Z",
+    "hash": "90a9b9163f54a0a63ec46bae5dd73cfc35918b471cdda4b0f6e1c6cd54828f5a",
+    "processedHash": "90a9b9163f54a0a63ec46bae5dd73cfc35918b471cdda4b0f6e1c6cd54828f5a",
     "status": "processed",
     "attempts": 0
   },
@@ -4552,6 +4612,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/mesonoemacheilus-herrei": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:17:59.524Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+  },
   "https://www.seriouslyfish.com/species/mesonoemacheilus-triangularis": {
     "entityIds": [
       "species/nemacheilus-triangularis"
@@ -4621,6 +4688,13 @@
     "processedHash": "a5d3ef369490a4ff62877916fe9736a7d20a4b42f09d48aa26b56997ec8ffbba",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/mystus-bleekeri": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:19:00.615Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://www.seriouslyfish.com/species/mystus-singaringan": {
     "entityIds": [
@@ -4741,6 +4815,13 @@
     "processedHash": "90e9d78ca1796e48b4cb39bfb33473a95c6014477c99f0a9bba53136ee1c981a",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/opsarius-barna": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:19:04.605Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
   },
   "https://www.seriouslyfish.com/species/opsarius-koratensis": {
     "entityIds": [

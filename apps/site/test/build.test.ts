@@ -70,6 +70,10 @@ test('home features well-known species and links the full list instead of every 
   for (const slug of ['ca-neon-xanh', 'tep-red-cherry']) expect(cards, slug).toContain(`/vi/ca/${slug}/`)
   expect(cards.length).toBeLessThanOrEqual(8)
   expect(dom.querySelector('a[href="/vi/ca/"]')).toBeTruthy()
+  // Full data cards first: Cá ông tiên (a staple, only its size known) only fills a spot no complete species can.
+  const full = dom.querySelectorAll('section[aria-labelledby="featured-h"] article.sc').map(c => c.querySelectorAll('.label dd').length >= 2)
+  expect(full.length).toBeGreaterThan(0)
+  expect(full).toEqual([...full].sort((a, b) => Number(b) - Number(a)))
 })
 
 test('species page has JSON-LD', () => {
@@ -95,7 +99,7 @@ describe('browse pages', () => {
   })
   test('species list embeds a filter index and unit-tagged values', () => {
     const { dom, html } = page('/vi/ca/')
-    expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(8)
+    expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(9)
     expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })
@@ -173,8 +177,10 @@ describe('plants, guides, glossary, equipment, discovery', () => {
   test('Vietnam hub exists', () => {
     expect(page('/vi/nguon-goc/asia/vietnam/').html).toContain('Cá Việt Nam')
   })
-  test('every nav link resolves', () => {
-    for (const p of ['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/thiet-bi/', '/vi/kham-pha/']) expect(() => page(p), p).not.toThrow()
+  test('every link in the header, the menu sheet and the footer resolves; the old Khám phá address still does', () => {
+    const links = page('/vi/').dom.querySelectorAll('header.nav a, #site-menu a, footer a').map(a => a.getAttribute('href')!).filter(h => /^\/vi\/.+\/$/.test(h))
+    expect(links.length).toBeGreaterThan(10)
+    for (const p of [...links, '/vi/kham-pha/']) expect(() => page(p), p).not.toThrow()
   })
 })
 
@@ -357,8 +363,11 @@ describe('video pages', () => {
     const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.text))
     expect(ld.find(j => j['@type'] === 'ItemList').itemListElement[0].url).toContain('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
   })
-  test('video guides: Video marked in the nav, kept off the text-guide index (which links to /vi/video/)', () => {
-    expect(page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/').dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/video/')
+  test('video guides: Hướng dẫn marked in the nav, kept off the text-guide index (which links to /vi/video/)', () => {
+    const { dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    expect(dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
+    expect(dom.querySelector('#site-menu a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
+    expect(page('/vi/video/').dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
     const idx = page('/vi/huong-dan/').dom
     expect(idx.querySelector('a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
     expect(idx.querySelector('.vid a[href="/vi/video/"]')).not.toBeNull()
@@ -373,8 +382,8 @@ describe('video pages', () => {
     expect(g.querySelector('.facade .cc')).toBeNull()
     expect(page('/vi/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })
-  test('nav links to Video; sitemap has the video pages', () => {
-    expect(page('/vi/').dom.querySelector('.nav a[href="/vi/video/"]')).not.toBeNull()
+  test('Video is inside Hướng dẫn (no nav entry of its own); sitemap has the video pages', () => {
+    expect(page('/vi/').dom.querySelector('.nav a[href="/vi/video/"], #site-menu a[href="/vi/video/"]')).toBeNull()
     const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
     expect(sm).toContain('/vi/video/</loc>')
     expect(sm).toContain('/vi/video/reu-hai-tu-a-den-z/</loc>')
@@ -568,6 +577,25 @@ describe('man-made fish (breeds)', () => {
   })
 })
 
+describe('header and menu sheet', () => {
+  const sections = (dom: ReturnType<typeof page>['dom'], sel: string) => dom.querySelectorAll(`${sel} a`).map(a => a.getAttribute('href'))
+  test('five sections in the header row; the sheet adds Thiết bị and Mới cập nhật, then units, theme and language', () => {
+    const { dom } = page('/vi/')
+    expect(sections(dom, 'header.nav .sections')).toEqual(['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/cong-cu/', '/vi/thuat-ngu/'])
+    expect(sections(dom, '#site-menu .go')).toEqual(['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/cong-cu/', '/vi/thuat-ngu/'])
+    expect(sections(dom, '#site-menu .more')).toEqual(['/vi/thiet-bi/', '/vi/moi-cap-nhat/'])
+    for (const sel of ['[data-units-toggle]', '[data-theme-toggle] [data-theme-mode]', '[data-lang-menu]']) expect(dom.querySelector(`#site-menu ${sel}`), sel).not.toBeNull()
+    expect(dom.querySelector('header [data-menu-open]')?.getAttribute('aria-controls')).toBe('site-menu')
+    expect(dom.querySelectorAll('footer a').map(a => a.getAttribute('href'))).toEqual(expect.arrayContaining(['/vi/thiet-bi/', '/vi/moi-cap-nhat/']))
+  })
+  test('other languages: the sheet lists only pages they have, with translated labels', () => {
+    const { dom } = page('/id/')
+    expect(sections(dom, '#site-menu .more')).toEqual(['/id/peralatan/'])
+    expect(dom.querySelector('#site-menu-h')?.text).not.toBe('')
+    expect(dom.querySelector('#site-menu .go a[href="/id/istilah/"]')?.text).toBe('Istilah')
+  })
+})
+
 test('the logo link is named by its visible text (no aria-label that differs from it)', () => {
   const a = page('/vi/').dom.querySelector('a.logo')!
   expect(a.hasAttribute('aria-label')).toBe(false)
@@ -575,13 +603,16 @@ test('the logo link is named by its visible text (no aria-label that differs fro
 })
 
 test('every page has the language menu; a fish without other-language pages offers their fish lists', () => {
-  for (const path of ['/vi/', '/vi/ca/ca-neon-vua/', '/vi/video/', '/id/', '/th/']) {
-    const links = page(path).dom.querySelectorAll('header [data-lang-menu] a[data-lang]')
-    expect(links.map(a => a.getAttribute('data-lang')), path).toEqual(['vi', 'id', 'th'])
+  // The header's (computers) and the menu sheet's (phones).
+  for (const path of ['/vi/', '/vi/ca/ca-neon-vua/', '/vi/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
+    const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
+    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual(['vi', 'id', 'th'])
   }
-  const fish = page('/vi/ca/ca-neon-vua/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
-  expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
-  // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
-  const id = page('/id/').dom.querySelectorAll('[data-lang-menu] a[data-lang]')
-  expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')])).toEqual([['/vi/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+  for (const menu of ['header', '#site-menu']) {
+    const fish = page('/vi/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
+    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
+    // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
+    const id = page('/id/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
+    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/vi/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+  }
 })

@@ -18,6 +18,9 @@ const { t } = i18n(Astro.url)
   })
 </script>
 <style>
-  .units { background: none; border: 1px solid rgb(255 255 255 / 0.3); color: var(--c-on-dark); border-radius: 999px; font: 500 0.8rem var(--f-body); padding: 0.25rem 0.7rem; cursor: pointer; }
-  .units:hover { border-color: var(--c-neon); }
+  /* A 44px target around the smaller pill drawn by ::before. */
+  .units { position: relative; min-height: 44px; background: none; border: 0; color: var(--c-ink-soft); font: 500 0.8rem var(--f-body); padding: 0 0.7rem; white-space: nowrap; cursor: pointer; }
+  .units::before { content: ''; position: absolute; inset: 8px 0; border: 1px solid var(--c-rule); border-radius: 999px; }
+  .units:hover { color: var(--c-ink); }
+  .units:hover::before { border-color: var(--c-ink-soft); }
 </style>

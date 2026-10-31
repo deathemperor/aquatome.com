@@ -368,6 +368,44 @@
     "attempts": 1,
     "error": "claude failed (1): You've hit your 5-hour limit · resets 7:10am (UTC)"
   },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_foratum.htm": {
+    "entityIds": [
+      "species/amblyceps-foratum"
+    ],
+    "updatedAt": "2026-10-31T11:09:48.334Z",
+    "hash": "ecaf5670766bc5140b32f303836a006a723a858d3003b176818c54bded003b8e",
+    "processedHash": "ecaf5670766bc5140b32f303836a006a723a858d3003b176818c54bded003b8e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_hmolaii.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-10-31T11:11:56.391Z",
+    "hash": "13bbe6280bbfc93320f4376d1dfa9a9c081ce06ac348a6b40a04b7275678f3af",
+    "processedHash": "13bbe6280bbfc93320f4376d1dfa9a9c081ce06ac348a6b40a04b7275678f3af",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_laticeps.htm": {
+    "entityIds": [
+      "species/amblyceps-laticeps"
+    ],
+    "updatedAt": "2026-10-31T11:13:27.130Z",
+    "hash": "747cc920143bc0d3a5b8fdf94d4017232f9c46e650eecf7ed4845d0c263da69c",
+    "processedHash": "747cc920143bc0d3a5b8fdf94d4017232f9c46e650eecf7ed4845d0c263da69c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/amblyceps_mangois.htm": {
+    "entityIds": [
+      "species/amblyceps-mangois"
+    ],
+    "updatedAt": "2026-10-31T11:15:12.572Z",
+    "hash": "a9c0cecdde256d6ca3f1796e4f4318b9fa85a0783ae7a7e1791118f82a0eb892",
+    "processedHash": "a9c0cecdde256d6ca3f1796e4f4318b9fa85a0783ae7a7e1791118f82a0eb892",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",

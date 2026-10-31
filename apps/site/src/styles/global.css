@@ -49,6 +49,7 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
 .cite::before { content: ''; position: absolute; inset: -0.9rem -0.5rem; }
 .cite:hover, .cite:focus-visible, .cite[aria-describedby] { color: var(--c-paper); background: var(--c-moss); }
 .cite-line { margin: 0; }
-/* A photo's mark: the © alone (the glyph is already a ring), quiet until pointed at. */
-.cite.pic { min-width: 0; padding: 0; background: none; vertical-align: baseline; font-size: 0.85rem; font-weight: 500; color: var(--c-ink-faint); }
+/* A photo's mark: the © alone (the glyph is already a ring), quiet until pointed at. Its box is the 24 px a finger
+   needs (WCAG 2.5.8): in a caption it often sits right after a link, where the ::before alone doesn't count. */
+.cite.pic { min-width: 24px; height: 24px; margin-block: -0.2rem; margin-left: 0.1em; padding: 0; background: none; vertical-align: baseline; font-size: 0.85rem; font-weight: 500; color: var(--c-ink-faint); }
 .cite.pic:hover, .cite.pic:focus-visible, .cite.pic[aria-describedby] { background: none; color: var(--c-moss); }

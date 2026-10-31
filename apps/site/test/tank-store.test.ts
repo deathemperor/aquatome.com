@@ -1,6 +1,6 @@
 import { TankStore, type Device } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { deviceByBleName, ensureTank, forget, liveDevices, liveTanks, load, putDevice, putTank, removeTank, save, wroteSchedule, activeSchedule } from '../src/scripts/tank-store'
+import { currentLight, deviceByBleName, ensureTank, forget, liveDevices, liveTanks, load, putDevice, putTank, removeTank, save, wroteSchedule, activeSchedule } from '../src/scripts/tank-store'
 
 function env() {
   const data = new Map<string, string>()
@@ -120,4 +120,21 @@ test('a tank or light written over a tombstone is stamped after it, even when th
   s.devices.push({ id: did, updatedAt: ahead, deletedAt: ahead })
   expect(putTank(s, { name: 'Bể' }, tid, e).updatedAt > ahead).toBe(true)
   expect(putDevice(s, { id: did, tankId: tid, kind: 'light' }, e).updatedAt > ahead).toBe(true)
+})
+
+test('a connected light whose tank another tab deleted is met again on a live tank, not written back onto the deleted one', () => {
+  const e = env()
+  const s = load(e)
+  const t = putTank(s, { name: 'Bể 60' }, undefined, e)
+  const d = wroteSchedule(s, putDevice(s, { tankId: t.id, kind: 'light', brand: 'chihiros', model: 'WRGB II Slim', bleName: 'DYSL30TEST', nickname: 'Đèn phòng khách' }, e), { on: '13:00', off: '19:00', ramp: 30, levels: [40, 40, 40] }, e)
+  expect(currentLight(s, d, 'Bể của tôi', e).id).toBe(d.id) // still saved: the same record
+  removeTank(s, t.id, e) // the other tab
+  const again = currentLight(s, d, 'Bể của tôi', e)
+  expect(again.id).not.toBe(d.id)
+  expect(again).toMatchObject({ kind: 'light', brand: 'chihiros', model: 'WRGB II Slim', bleName: 'DYSL30TEST', schedules: [] })
+  expect(again).not.toHaveProperty('nickname') // deleted with its tank
+  expect(liveTanks(s).map(x => x.id)).toContain(again.tankId)
+  expect(liveDevices(s).map(x => x.id)).toEqual([again.id])
+  expect(s.devices.find(x => x.id === d.id)).toHaveProperty('deletedAt')
+  expect(TankStore.safeParse(s).success).toBe(true)
 })
