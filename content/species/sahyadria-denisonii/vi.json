@@ -1,34 +1,35 @@
 {
- "slug": "ca-hong-mi-an-do",
- "name": "Cá hồng mi Ấn Độ",
- "altNames": [
-  "Cá ngư lôi sọc đỏ Ấn Độ (bản vàng Gold)",
-  "Cá ngư lôi vạch đỏ Ấn Độ",
-  "Cá ngư lôi Redline",
-  "Indian Redline Torpedo Shark",
-  "Denison barb",
-  "Roseline shark"
- ],
- "sections": {
-  "notes:glaser": "<p>Ở bất kỳ loài cá nào được nhân giống với số lượng lớn thì sớm hay muộn cũng xuất hiện các dạng đột biến (sports). Điều này gần đây cũng đã xảy ra với loài cá ngư lôi sọc đỏ Ấn Độ tuyệt đẹp, Sahyadria denisonii. Bên cạnh những cá thể nhân giống \"bình thường\", các nhà nhân giống ở Indonesia hiện đã bán ra một dạng đột biến màu vàng ánh kim của loài cá này. Rõ ràng là từng cá thể khác nhau khá nhiều về màu sắc.</p>",
-  "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: loài cá này có mã 369498 trong danh mục hàng tồn kho. Xin lưu ý rằng chúng tôi chỉ cung cấp cho thương nhân bán buôn.</p><p>Văn bản &amp; ảnh: Frank Schäfer</p>"
- },
- "quality": {
-  "score": 0.82,
-  "indexable": true,
-  "bySource": {
-   "glaser": 0.82
-  }
- },
- "nameFixed": true,
- "redirectFrom": [
-  {
-   "slug": "ca-ngu-loi-soc-do-an-do-ban-vang-gold",
-   "name": "Cá ngư lôi sọc đỏ Ấn Độ (bản vàng Gold)"
+  "slug": "ca-hong-mi-an-do",
+  "name": "Cá hồng mi Ấn Độ",
+  "altNames": [
+    "Cá ngư lôi sọc đỏ Ấn Độ (bản vàng Gold)",
+    "Cá ngư lôi vạch đỏ Ấn Độ",
+    "Cá ngư lôi Redline",
+    "Indian Redline Torpedo Shark",
+    "Denison barb",
+    "Roseline shark",
+    "Cá hồng mi"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Ở bất kỳ loài cá nào được nhân giống với số lượng lớn thì sớm hay muộn cũng xuất hiện các dạng đột biến (sports). Điều này gần đây cũng đã xảy ra với loài cá ngư lôi sọc đỏ Ấn Độ tuyệt đẹp, Sahyadria denisonii. Bên cạnh những cá thể nhân giống \"bình thường\", các nhà nhân giống ở Indonesia hiện đã bán ra một dạng đột biến màu vàng ánh kim của loài cá này. Rõ ràng là từng cá thể khác nhau khá nhiều về màu sắc.</p>",
+    "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: loài cá này có mã 369498 trong danh mục hàng tồn kho. Xin lưu ý rằng chúng tôi chỉ cung cấp cho thương nhân bán buôn.</p><p>Văn bản &amp; ảnh: Frank Schäfer</p>"
   },
-  {
-   "slug": "ca-ngu-loi-soc-do-an-do",
-   "name": "Cá ngư lôi sọc đỏ Ấn Độ"
-  }
- ]
+  "quality": {
+    "score": 0.82,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.82
+    }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ngu-loi-soc-do-an-do-ban-vang-gold",
+      "name": "Cá ngư lôi sọc đỏ Ấn Độ (bản vàng Gold)"
+    },
+    {
+      "slug": "ca-ngu-loi-soc-do-an-do",
+      "name": "Cá ngư lôi sọc đỏ Ấn Độ"
+    }
+  ]
 }

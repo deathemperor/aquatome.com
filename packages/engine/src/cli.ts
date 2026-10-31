@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -45,6 +45,7 @@ import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
 import { ArchiveFetcher } from './archive'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
+import { addShopNames, makeShopList, type ShopLang } from './shops'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -65,7 +66,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' } } })
 
 /** Photo fetching and screening for galleries and breed pages. */
 const galleryDeps = (): GalleryDeps => ({
@@ -417,6 +418,21 @@ if (cmd === 'run') {
   if (!(lang in TARGETS)) throw new Error('usage: pnpm engine wikidata-names --lang id|th')
   const added = await addWikidataNames(ROOT, http, lang)
   console.log(`wikidata-names ${lang}: ${added.length} pages\n${added.join('\n')}`)
+} else if (cmd === 'shop-list') {
+  // What fish shops in the language's country sell, from their own lists (web research, never marketplaces):
+  // pnpm engine shop-list --lang vi|id|th [--seed file.json (an array of trade names from one shop's list)]
+  const lang = values.lang as ShopLang
+  if (!['vi', 'id', 'th'].includes(lang)) throw new Error('usage: pnpm engine shop-list --lang vi|id|th [--seed file.json]')
+  const seed = values.seed ? (JSON.parse(await readFile(values.seed, 'utf8')) as string[]) : undefined
+  const r = await makeShopList(ROOT, claudeResearch, lang, { seed, model: process.env.RESEARCH_MODEL ?? 'opus', now: () => new Date() })
+  const unmapped = r.items.filter(i => !i.scientificName)
+  console.log(`shop-list ${lang}: ${r.items.length} items, ${r.items.length - unmapped.length} mapped, ${r.sources.length} sources\nunmapped: ${unmapped.map(i => i.trade).join('; ')}`)
+} else if (cmd === 'shop-names') {
+  // The names shops use, added to the language's species pages as other names (engine-state/shop-lists/<lang>.json).
+  const lang = values.lang as ShopLang
+  if (!['vi', 'id', 'th'].includes(lang)) throw new Error('usage: pnpm engine shop-names --lang vi|id|th')
+  const added = await addShopNames(ROOT, lang)
+  console.log(`shop-names ${lang}: ${added.length} pages\n${added.join('\n')}`)
 } else if (cmd === 'localize-equipment') {
   // The equipment buying guides in Indonesian or Thai (--only categories; --redo).
   const lang = values.lang as TargetLang

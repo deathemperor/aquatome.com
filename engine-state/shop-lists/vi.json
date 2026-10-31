@@ -1,0 +1,773 @@
+{
+  "lang": "vi",
+  "items": [
+    {
+      "trade": "Ốc táo vàng lớn",
+      "name": "Ốc táo",
+      "scientificName": "Pomacea diffusa",
+      "confidence": 0.55,
+      "evidence": ""
+    },
+    {
+      "trade": "Ốc táo tím/hồng",
+      "name": "Ốc táo",
+      "scientificName": "Pomacea diffusa",
+      "confidence": 0.5,
+      "evidence": ""
+    },
+    {
+      "trade": "Ốc Nerita vằn",
+      "name": "Ốc nerita",
+      "scientificName": "Neritina natalensis",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Ốc Nerita thịt vàng mini",
+      "name": "Ốc nerita",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": ""
+    },
+    {
+      "trade": "Ốc Helena lớn",
+      "name": "Ốc helena",
+      "scientificName": "Anentome helena",
+      "confidence": 0.95,
+      "evidence": ""
+    },
+    {
+      "trade": "Trâm mồi",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Cánh buồm đủ màu",
+      "name": "Cá cánh buồm",
+      "scientificName": "Gymnocorymbus ternetzi",
+      "confidence": 0.9,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Sọc ngựa cánh tiên",
+      "name": "Cá sọc ngựa",
+      "scientificName": "Danio rerio",
+      "confidence": 0.9,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Molly Platinum Short",
+      "name": "Cá molly",
+      "scientificName": "Poecilia sphenops",
+      "confidence": 0.55,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Molly Ngựa",
+      "name": "Cá molly",
+      "scientificName": "Poecilia sphenops",
+      "confidence": 0.5,
+      "evidence": ""
+    },
+    {
+      "trade": "Mún Lửa Short",
+      "name": "Cá mún",
+      "scientificName": "Xiphophorus maculatus",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Mún Đỏ thường",
+      "name": "Cá mún",
+      "scientificName": "Xiphophorus maculatus",
+      "confidence": 0.85,
+      "evidence": "https://cacanhsonyen.com/index.php?path=64&route=product%2Fcategory"
+    },
+    {
+      "trade": "Diếc Anh Đào v.dài siêu đỏ",
+      "name": "Cá diếc anh đào",
+      "scientificName": "Pethia conchonius",
+      "confidence": 0.5,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh (AquaTome check 2026-10-31: unconfirmed; the long-fin super red form and our page names point to Puntius titteya, not Pethia conchonius)"
+    },
+    {
+      "trade": "Cắt kéo",
+      "name": "Cá cắt kéo",
+      "scientificName": "Rasbora trilineata",
+      "confidence": 0.45,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Sóc Đầu Đỏ",
+      "name": "Cá sóc đầu đỏ",
+      "scientificName": "Hemigrammus bleheri",
+      "confidence": 0.65,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Neon Vua",
+      "name": "Cá neon vua",
+      "scientificName": "Paracheirodon axelrodi",
+      "confidence": 0.95,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Neon Đen",
+      "name": "Cá neon đen",
+      "scientificName": "Hyphessobrycon herbertaxelrodi",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Neon Kim Cương",
+      "name": "Cá neon xanh",
+      "scientificName": "Paracheirodon innesi",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Hồng Mi size 4-5cm",
+      "name": "Cá hồng mi",
+      "scientificName": "Sahyadria denisonii",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Hồng Mi size 8-10cm",
+      "name": "Cá hồng mi",
+      "scientificName": "Sahyadria denisonii",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Hồng Mi Tambra",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.15,
+      "evidence": ""
+    },
+    {
+      "trade": "Táo Đỏ dài",
+      "name": "Cá táo đỏ",
+      "scientificName": "Glossolepis incisus",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Táo Đỏ Short",
+      "name": "Cá táo đỏ",
+      "scientificName": "Glossolepis incisus",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Trifas dài",
+      "name": "Cá cầu vồng trifas",
+      "scientificName": "Melanotaenia trifasciata",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Trifas short",
+      "name": "Cá cầu vồng trifas",
+      "scientificName": "Melanotaenia trifasciata",
+      "confidence": 0.8,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Diếc vảy rồng",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.15,
+      "evidence": ""
+    },
+    {
+      "trade": "Thạch Mỹ nhân 3-4",
+      "name": "Cá thạch mỹ nhân",
+      "scientificName": "Melanotaenia boesemani",
+      "confidence": 0.65,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Thạch Mỹ Nhân Đỏ 5-6",
+      "name": "Cá thạch mỹ nhân",
+      "scientificName": "Melanotaenia boesemani",
+      "confidence": 0.45,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Congo Tetra",
+      "name": "Cá congo",
+      "scientificName": "Phenacogrammus interruptus",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Phượng Hoàng Lam",
+      "name": "Cá phượng hoàng",
+      "scientificName": "Mikrogeophagus ramirezi",
+      "confidence": 0.9,
+      "evidence": "http://thuysinhhoa.blogspot.com/p/ca.html"
+    },
+    {
+      "trade": "Phượng Hoàng Ngũ sắc",
+      "name": "Cá phượng hoàng",
+      "scientificName": "Mikrogeophagus ramirezi",
+      "confidence": 0.8,
+      "evidence": "http://thuysinhhoa.blogspot.com/p/ca.html"
+    },
+    {
+      "trade": "Phượng hoàng Vàng",
+      "name": "Cá phượng hoàng",
+      "scientificName": "Mikrogeophagus ramirezi",
+      "confidence": 0.8,
+      "evidence": "http://thuysinhhoa.blogspot.com/p/ca.html"
+    },
+    {
+      "trade": "Xecan short vàng",
+      "name": "Cá xecan",
+      "scientificName": "Puntigrus tetrazona",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Xecan short xanh",
+      "name": "Cá xecan",
+      "scientificName": "Puntigrus tetrazona",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Xecan short tiger",
+      "name": "Cá xecan",
+      "scientificName": "Puntigrus tetrazona",
+      "confidence": 0.7,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Venezuela",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras aeneus",
+      "confidence": 0.45,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Cafe Cánh Tiên",
+      "name": "Cá chuột cafe",
+      "scientificName": "Corydoras aeneus",
+      "confidence": 0.75,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Cafe thường",
+      "name": "Cá chuột cafe",
+      "scientificName": "Corydoras aeneus",
+      "confidence": 0.8,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Mỹ",
+      "name": "Cá chuột Mỹ",
+      "scientificName": "Chromobotia macracanthus",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Julli",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras trilineatus",
+      "confidence": 0.55,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Sao",
+      "name": "Cá chuột",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Green lớn",
+      "name": "Cá chuột",
+      "scientificName": "Brochis splendens",
+      "confidence": 0.4,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Albino thường",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras aeneus",
+      "confidence": 0.65,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Albino Cánh Tiên",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras aeneus",
+      "confidence": 0.6,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Muối Tiêu Kỳ Cao",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras paleatus",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Pygmy",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras pygmaeus",
+      "confidence": 0.9,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Chuột Hastatus",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras hastatus",
+      "confidence": 0.9,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Similis",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras similis",
+      "confidence": 0.9,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Adofoi",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras adolfoi",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Black Vene",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras schultzei",
+      "confidence": 0.4,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Chuột Caudi",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras caudimaculatus",
+      "confidence": 0.6,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Fulleri",
+      "name": "Cá chuột",
+      "scientificName": "Corydoras fowleri",
+      "confidence": 0.35,
+      "evidence": ""
+    },
+    {
+      "trade": "Chuột Fullnli",
+      "name": "Cá chuột",
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Chạch Kuhli",
+      "name": "Cá chạch kuhli",
+      "scientificName": "Pangio kuhlii",
+      "confidence": 0.7,
+      "evidence": ""
+    },
+    {
+      "trade": "Bác sĩ Panda",
+      "name": "Cá bác sĩ panda",
+      "scientificName": "Garra flavatra",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Bút Chì Thái",
+      "name": "Cá bút chì",
+      "scientificName": "Crossocheilus oblongus",
+      "confidence": 0.7,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Otto",
+      "name": "Cá otto",
+      "scientificName": "Otocinclus vittatus",
+      "confidence": 0.4,
+      "evidence": "https://cabaymau.vn/san-pham/ca-otto/"
+    },
+    {
+      "trade": "Tỳ bà beo size 15-16cm",
+      "name": "Cá tỳ bà",
+      "scientificName": "Pterygoplichthys gibbiceps",
+      "confidence": 0.55,
+      "evidence": ""
+    },
+    {
+      "trade": "Tỳ bà beo size mini",
+      "name": "Cá tỳ bà",
+      "scientificName": "Pterygoplichthys gibbiceps",
+      "confidence": 0.5,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Bụng bự",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Sọc Dưa",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Petricola",
+      "name": "Cá mèo",
+      "scientificName": "Synodontis petricola",
+      "confidence": 0.8,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Mã Thiên",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Haplo Đen",
+      "name": "Cá mèo",
+      "scientificName": "Megalechis thoracata",
+      "confidence": 0.35,
+      "evidence": ""
+    },
+    {
+      "trade": "Mèo Haplo Albino",
+      "name": "Cá mèo",
+      "scientificName": "Megalechis thoracata",
+      "confidence": 0.3,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L397",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.3,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L333",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.3,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L183",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.3,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L134",
+      "name": "Cá pleco",
+      "scientificName": "Peckoltia compta",
+      "confidence": 0.8,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L155",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Vàng Đài",
+      "name": "Tép vàng",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Vàng Thái",
+      "name": "Tép vàng",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép BlueDream",
+      "name": "Tép blue dream",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Socola",
+      "name": "Tép socola",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.8,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Loạn Màu",
+      "name": "Tép loạn màu",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.75,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Đỏ",
+      "name": "Tép đỏ",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.9,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Rili Cam/Đỏ",
+      "name": "Tép rili",
+      "scientificName": "Neocaridina davidi",
+      "confidence": 0.85,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Mũi Đỏ",
+      "name": "Tép mũi đỏ",
+      "scientificName": "Caridina gracilirostris",
+      "confidence": 0.75,
+      "evidence": ""
+    },
+    {
+      "trade": "Tép Yamato (diệt rêu tóc)",
+      "name": "Tép yamato",
+      "scientificName": "Caridina multidentata",
+      "confidence": 0.95,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L200 size 7",
+      "name": "Cá pleco",
+      "scientificName": "Hemiancistrus subviridis",
+      "confidence": 0.5,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L191 size 7",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L600 size 4",
+      "name": "Cá pleco",
+      "scientificName": "Pseudacanthicus pirarara",
+      "confidence": 0.5,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L240 size ~3",
+      "name": "Cá pleco",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": ""
+    },
+    {
+      "trade": "Pleco L264 size ~3",
+      "name": "Cá pleco",
+      "scientificName": "Leporacanthicus joselimai",
+      "confidence": 0.65,
+      "evidence": ""
+    },
+    {
+      "trade": "Cầu vồng xanh indo",
+      "name": "Cá cầu vồng xanh",
+      "scientificName": "Melanotaenia lacustris",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Cầu vồng kẻ",
+      "name": "Cá cầu vồng",
+      "scientificName": null,
+      "confidence": 0.15,
+      "evidence": ""
+    },
+    {
+      "trade": "Cầu vồng pakingson",
+      "name": "Cá cầu vồng",
+      "scientificName": "Melanotaenia parkinsoni",
+      "confidence": 0.8,
+      "evidence": ""
+    },
+    {
+      "trade": "Hồng mi ấn size 7-8",
+      "name": "Cá hồng mi",
+      "scientificName": "Sahyadria denisonii",
+      "confidence": 0.9,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Red cherry tetra",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Lapis tetra",
+      "name": null,
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": ""
+    },
+    {
+      "trade": "Congo đuôi vàng",
+      "name": "Cá congo",
+      "scientificName": "Alestopetersius caudalis",
+      "confidence": 0.6,
+      "evidence": ""
+    },
+    {
+      "trade": "Sặc gấm",
+      "name": "Cá sặc gấm",
+      "scientificName": "Trichogaster lalius",
+      "confidence": 0.8,
+      "evidence": "http://thuysinhhoa.blogspot.com/p/ca.html"
+    },
+    {
+      "trade": "Tỳ bà bướm",
+      "name": "Cá tỳ bà bướm",
+      "scientificName": "Sewellia lineolata",
+      "confidence": 0.45,
+      "evidence": "https://cacanhsonyen.com/index.php?path=64&route=product%2Fcategory"
+    },
+    {
+      "trade": "Các dòng cá chuột",
+      "name": "Cá chuột",
+      "scientificName": null,
+      "confidence": 0,
+      "evidence": ""
+    },
+    {
+      "trade": "Neon xanh (added: Helena Saigon, Sơn Yến, Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá neon xanh",
+      "scientificName": "Paracheirodon innesi",
+      "confidence": 0.95,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Tam giác (added: Helena Saigon, Sơn Yến, Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá tam giác",
+      "scientificName": "Trigonostigma heteromorpha",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Nana (added: Helena Saigon, Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá nana",
+      "scientificName": "Hyphessobrycon elachys",
+      "confidence": 0.8,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Hồng nhung (added: Helena Saigon, Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá hồng nhung",
+      "scientificName": "Hyphessobrycon eques",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Mắt ngọc (added: Helena Saigon, Thủy sinh Hòa)",
+      "name": "Cá mắt ngọc",
+      "scientificName": "Hyphessobrycon pulchripinnis",
+      "confidence": 0.85,
+      "evidence": "https://helenasaigon.com/ca-thuy-sinh"
+    },
+    {
+      "trade": "Bảy màu (added: Sơn Yến, Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá bảy màu",
+      "scientificName": "Poecilia reticulata",
+      "confidence": 0.95,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Ông tiên / Thần tiên (added: Helena Saigon, Sơn Yến, Chợ Thủy Sinh)",
+      "name": "Cá ông tiên",
+      "scientificName": "Pterophyllum scalare",
+      "confidence": 0.9,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Thủy tinh (added: Sơn Yến, Chợ Thủy Sinh)",
+      "name": "Cá thủy tinh",
+      "scientificName": "Kryptopterus vitreolus",
+      "confidence": 0.7,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Chim cánh cụt (added: Sơn Yến, Chợ Thủy Sinh)",
+      "name": "Cá chim cánh cụt",
+      "scientificName": "Thayeria boehlkei",
+      "confidence": 0.8,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Dĩa (added: Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá dĩa",
+      "scientificName": null,
+      "confidence": 0.5,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    },
+    {
+      "trade": "Bống mắt tre (added: Thủy sinh Hòa, Chợ Thủy Sinh)",
+      "name": "Cá bống mắt tre",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": "http://thuysinhhoa.blogspot.com/p/ca.html"
+    },
+    {
+      "trade": "Đuôi kéo (added: Sơn Yến, Chợ Thủy Sinh)",
+      "name": "Cá đuôi kéo",
+      "scientificName": null,
+      "confidence": 0.2,
+      "evidence": "https://cacanhsonyen.com/index.php?path=64&route=product%2Fcategory"
+    },
+    {
+      "trade": "Mai quế (added: Sơn Yến, Chợ Thủy Sinh)",
+      "name": "Cá mai quế",
+      "scientificName": null,
+      "confidence": 0.1,
+      "evidence": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://helenasaigon.com/ca-thuy-sinh",
+      "title": "Cá thủy sinh - Thủy sinh cá cảnh Helena Saigon"
+    },
+    {
+      "url": "https://cacanhsonyen.com/index.php?path=64&route=product%2Fcategory",
+      "title": "Cá cảnh - Cá cảnh Sơn Yến"
+    },
+    {
+      "url": "http://thuysinhhoa.blogspot.com/p/ca.html",
+      "title": "Thủy sinh Hòa : Cá"
+    },
+    {
+      "url": "https://chothuysinh.com/danh-muc/ca-tep-oc-thuy-sinh/ca-thuy-sinh/",
+      "title": "Cá Thủy Sinh - Chợ Thủy Sinh"
+    }
+  ],
+  "updatedAt": "2026-10-31"
+}

@@ -5,6 +5,7 @@ import { GallerySchema, isAllowedLicence, POPULAR, slugify, STAPLE_SPECIES, thum
 import sharp from 'sharp'
 import { LlmError, type Llm } from './claude'
 import { contactSheet } from './video-images'
+import { shopIds } from './shops'
 
 /** A photo found for a species, before screening: `key` identifies it across runs (Commons title, iNaturalist photo id). */
 export type Candidate = Photo & { key: string }
@@ -141,8 +142,8 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
 }
 
 /**
- * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (the staples, the most-kept
- * fish, then the species most sources write about): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
+ * Galleries for species that have none (or one older than `maxAgeDays`), popular species first (the staples, what fish
+ * shops sell, the most-kept fish, then the species most sources write about): Commons + iNaturalist candidates, minus photos the owner rejected, screened, at most `max` per species.
  * Stops on a model failure (usage limit). content/gallery/<id>.json.
  */
 export async function galleries(root: string, d: GalleryDeps, o: { limit: number; max?: number; only?: string; maxAgeDays?: number }) {
@@ -154,7 +155,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { limit: number
     const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { source: string }[] }
     return [id, new Set((e.sections ?? []).map(s => s.source)).size] as const
   })))
-  const first = [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify)])]
+  const first = [...new Set([...STAPLE_SPECIES, ...await shopIds(root, ['vi', 'id', 'th']), ...POPULAR.map(slugify)])]
   const rank = (id: string) => { const i = first.indexOf(id); return i < 0 ? first.length : i }
   const ids = all.sort((a, b) => rank(a) - rank(b) || sources.get(b)! - sources.get(a)! || a.localeCompare(b))
   const today = d.now().toISOString().slice(0, 10)

@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
+import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8')
@@ -42,15 +43,16 @@ export async function nativeTo(root: string, place: string): Promise<Set<string>
 }
 
 /**
- * The order species pages get translated in: the staples, the most-kept fish, pages another site language already has (so
- * the sites end up with the same fish), the country's own wild fish, then the rest.
+ * The order species pages get translated in: the staples, what the country's fish shops sell (shops.ts), the most-kept
+ * fish, pages another site language already has (so the sites end up with the same fish), the country's own wild fish,
+ * then the rest.
  */
 export async function speciesOrder(root: string, lang: TargetLang): Promise<string[]> {
   const all = (await readdir(join(root, 'content/species'))).sort()
   const others = (Object.keys(TARGETS) as TargetLang[]).filter(l => l !== lang)
   const has = async (id: string) => (await readdir(join(root, 'content/species', id)).catch(() => [] as string[])).some(f => others.some(l => f === `${l}.json`))
   const elsewhere = (await Promise.all(all.map(async id => ((await has(id)) ? id : '')))).filter(Boolean)
-  return [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
+  return [...new Set([...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
 }
 
 const fill = (s: string, lang: TargetLang, species = '') =>
