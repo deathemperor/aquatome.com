@@ -38,11 +38,12 @@ for (const path of pages) {
     const broken = hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => /^\/(vi|id|th)\//.test(h) && !existsSync(join(DIST, h, h.endsWith('/') ? 'index.html' : '')))
     expect(broken, 'links to missing pages').toEqual([])
 
-    // Indonesian and Thai pages show no Vietnamese (a quoted Vietnamese title carries lang="vi" and is left out).
+    // Indonesian and Thai pages show no Vietnamese. Left out: a quoted Vietnamese title (lang="vi") and the photo credits
+    // (people's names, which can be Vietnamese on any page).
     if (/^\/(id|th)\//.test(path)) {
       const text = await page.evaluate(() => {
         const body = document.body.cloneNode(true) as HTMLElement
-        body.querySelectorAll('[lang="vi"], script, style, template').forEach(el => el.remove())
+        body.querySelectorAll('[lang="vi"], #photo-credits, script, style, template').forEach(el => el.remove())
         return body.textContent ?? ''
       })
       const plain = VIETNAMESE_ALLOWED.reduce((t, re) => t.replace(re, ''), text)
