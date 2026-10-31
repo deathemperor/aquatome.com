@@ -7,43 +7,141 @@ import { i18n, served, toVi } from '../lib/i18n'
 interface Props { overlay?: boolean; current?: string }
 const { overlay = false, current } = Astro.props
 const { t, lang } = i18n(Astro.url)
-const links = ([
-  ['/vi/ca/', t('Loài cá')], ['/vi/cay/', t('Cây')], ['/vi/huong-dan/', t('Hướng dẫn')], ['/vi/video/', t('Video')], ['/vi/thiet-bi/', t('Thiết bị')], ['/vi/kham-pha/', t('Khám phá')], ['/vi/cong-cu/', t('Công cụ')],
-] as const).filter(([href]) => served(lang, href))
 const path = current ?? toVi(Astro.url.pathname)
+// [href, label, another path the section owns]: videos are guides (the guide index links to /vi/video/).
+const pick = (links: (readonly [string, string, string?])[]) => links.filter(([href]) => served(lang, href))
+  .map(([href, label, also]) => ({ href, label, on: path.startsWith(href) || (!!also && path.startsWith(also)) }))
+const sections = pick([['/vi/ca/', t('Loài cá')], ['/vi/cay/', t('Cây')], ['/vi/huong-dan/', t('Hướng dẫn'), '/vi/video/'], ['/vi/cong-cu/', t('Công cụ')], ['/vi/thuat-ngu/', t('Thuật ngữ')]])
+// Not in the header row: in the menu sheet, and in the footer.
+const more = pick([['/vi/thiet-bi/', t('Thiết bị')], ['/vi/moi-cap-nhat/', t('Mới cập nhật')]])
 ---
 <header class:list={['nav', { overlay }]}>
   <div class="wrap row">
     <a class="logo" href="/vi/">Aqua<span>Tome</span> <small>{t('Cẩm nang cá cảnh & thủy sinh')}</small></a>
-    <nav aria-label={t('Chính')}>
+    <nav class="sections" aria-label={t('Chính')}>
       <ul>
-        {links.map(([href, label]) => <li><a href={href} aria-current={path.startsWith(href!) ? 'page' : undefined}>{label}</a></li>)}
+        {sections.map(l => <li><a href={l.href} aria-current={l.on ? 'page' : undefined}>{l.label}</a></li>)}
       </ul>
     </nav>
-    {served(lang, '/vi/tim-kiem/') && <a class="find" href="/vi/tim-kiem/">{t('Tìm')}</a>}
-    <UnitsToggle />
-    <ThemeToggle />
-    <LangMenu />
+    {served(lang, '/vi/tim-kiem/') && (
+      <a class="find" href="/vi/tim-kiem/">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span>{t('Tìm')}</span>
+      </a>
+    )}
+    <div class="prefs">
+      <UnitsToggle />
+      <ThemeToggle />
+      <LangMenu />
+    </div>
+    <button type="button" class="open" data-menu-open aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>{t('Menu')}</span>
+    </button>
     <slot />
   </div>
 </header>
+{/* Phones and tablets: the sections and settings the header row leaves out. Outside the header so its link styles (handbook.css .nav ul a) stay off it. */}
+<dialog id="site-menu" class="sheet" aria-labelledby="site-menu-h">
+  <div class="in">
+    <div class="head">
+      <h2 id="site-menu-h">{t('Menu')}</h2>
+      <button type="button" class="close" data-menu-close aria-label={t('Đóng')}>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav aria-label={t('Chính')}>
+      <ul class="go">
+        {sections.map(l => <li><a href={l.href} aria-current={l.on ? 'page' : undefined}>{l.label}</a></li>)}
+      </ul>
+      {more.length > 0 && (
+        <ul class="more">
+          {more.map(l => <li><a href={l.href} aria-current={l.on ? 'page' : undefined}>{l.label}</a></li>)}
+        </ul>
+      )}
+    </nav>
+    <div class="set">
+      <div class="pref"><span class="k">{t('Đơn vị')}</span><UnitsToggle /></div>
+      <div class="pref"><span class="k">{t('Giao diện')}</span><ThemeToggle labelled /></div>
+      <div class="pref"><span class="k">{t('Ngôn ngữ')}</span><LangMenu list /></div>
+    </div>
+  </div>
+</dialog>
+<script>
+  // The menu sheet: a modal <dialog> (the page behind it is inert, so focus stays in the sheet), closed by its button,
+  // Esc, a tap outside it, or the screen growing to the full header row; focus goes back to the menu button.
+  const sheet = document.getElementById('site-menu') as HTMLDialogElement | null
+  const open = document.querySelector<HTMLButtonElement>('[data-menu-open]')
+  if (sheet && open) {
+    open.addEventListener('click', () => { sheet.showModal(); open.setAttribute('aria-expanded', 'true') })
+    sheet.addEventListener('close', () => { open.setAttribute('aria-expanded', 'false'); open.focus() })
+    sheet.addEventListener('click', e => { if (e.target === sheet || (e.target as Element).closest('[data-menu-close]')) sheet.close() })
+    // The same width as the stylesheet's full-header query.
+    matchMedia('(min-width: 60rem)').addEventListener('change', e => { if (e.matches) sheet.close() })
+    // Leaving by a link: closed before the page goes into the back/forward cache, so Back shows the page, not the sheet.
+    addEventListener('pagehide', () => sheet.close())
+  }
+</script>
 <style>
   .nav { background: var(--c-blackwater); color: var(--c-on-dark); }
   .nav.overlay { position: absolute; inset: 0 0 auto; background: none; z-index: 3; }
-  .row { display: flex; align-items: center; gap: var(--space-5); min-height: 64px; flex-wrap: wrap; }
-  .logo { font: 600 1.35rem var(--f-display); color: #fff; text-decoration: none; margin-right: auto; letter-spacing: -0.01em; }
-  .find { color: var(--c-on-dark); font-size: 0.9rem; text-decoration: none; padding-block: 10px; }
-  .find:hover { color: #fff; }
+  /* Phones and tablets: one row of logo, search and menu. From 60rem (the script's query too): the sections and settings join it. */
+  .row { display: flex; align-items: center; gap: var(--space-2); min-height: 56px; }
+  .logo { display: inline-block; font: 600 1.35rem/44px var(--f-display); color: #fff; text-decoration: none; margin-right: auto; letter-spacing: -0.01em; }
   .logo span { color: var(--c-neon); }
-  .logo small { display: block; font: 500 0.7rem var(--f-body); color: var(--c-on-dark-soft); letter-spacing: 0.02em; margin-top: 1px; }
-  ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-  ul a { display: inline-block; color: var(--c-on-dark); text-decoration: none; font-size: 0.9rem; padding-block: 10px; white-space: nowrap; }
-  ul a:hover, ul a[aria-current] { color: #fff; box-shadow: inset 0 -2px var(--c-neon); }
-  @media (max-width: 640px) {
-    .row { gap: var(--space-2) var(--space-4); padding-block: var(--space-2); }
-    nav { order: 3; width: 100%; }
-    .logo small { max-width: 7.5rem; } /* tagline on two lines: logo, Tìm, units and theme fit one row at 360px */
-    ul { gap: 0 var(--space-4); } /* wraps to two rows: every section visible, nothing scrolled out of sight */
-    ul a { font-size: 0.95rem; }
+  .logo small { display: none; font: 500 0.7rem var(--f-body); color: var(--c-on-dark-soft); letter-spacing: 0.02em; margin-top: 1px; }
+  .find, .open { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 44px; min-height: 44px; padding: 0 var(--space-2); background: none; border: 0; color: var(--c-ink-soft); font: 400 0.9rem var(--f-body); text-decoration: none; cursor: pointer; }
+  .find:hover, .open:hover { color: var(--c-ink); }
+  .open { margin-right: calc(-1 * var(--space-2)); } /* its label lines up with the page's right edge */
+  .sections, .prefs { display: none; }
+  /* Padded links, tighter gaps: the same space between words, and short ones ("Cây") still 44px wide. */
+  .sections ul { display: flex; gap: var(--space-2); list-style: none; margin: 0; padding: 0; }
+  .sections a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding-inline: var(--space-2); color: var(--c-on-dark); text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
+  .sections a:hover, .sections a[aria-current] { color: #fff; box-shadow: inset 0 -2px var(--c-neon); }
+  .prefs { align-items: center; gap: var(--space-2); }
+  @media (min-width: 40rem) {
+    .logo { line-height: 1.2; padding-block: 4px; }
+    .logo small { display: block; }
   }
+  @media (min-width: 60rem) {
+    .row { gap: var(--space-5); min-height: 64px; }
+    .sections, .prefs { display: flex; }
+    .open { display: none; }
+  }
+
+  /* The sheet rises from the bottom edge, where the thumb is on a phone held in one hand. */
+  .sheet {
+    inset: auto 0 0; width: 100%; max-width: none; max-height: min(88dvh, 44rem); margin: 0; padding: 0;
+    border: 0; border-top: 2px solid var(--c-ink); background: var(--c-paper); color: var(--c-ink);
+    box-shadow: 0 -10px 30px rgb(0 0 0 / 0.16); overflow-y: auto; overscroll-behavior: contain;
+    transform: translateY(100%);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), overlay 0.32s allow-discrete, display 0.32s allow-discrete;
+  }
+  .sheet[open] { transform: none; }
+  .sheet::backdrop { background: rgb(10 26 29 / 0); transition: background 0.32s, overlay 0.32s allow-discrete, display 0.32s allow-discrete; }
+  .sheet[open]::backdrop { background: rgb(10 26 29 / 0.5); }
+  @starting-style {
+    .sheet[open] { transform: translateY(100%); }
+    .sheet[open]::backdrop { background: rgb(10 26 29 / 0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .sheet, .sheet::backdrop { transition: none; } }
+  :global(html:has(#site-menu[open])) { overflow: hidden; }
+  .in { max-width: 40rem; margin-inline: auto; padding: 0 var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom)); }
+  .head { display: flex; align-items: center; justify-content: space-between; min-height: 56px; }
+  .head h2 { font-size: var(--step-1); margin: 0; }
+  .close { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-right: -10px; padding: 0; background: none; border: 0; color: var(--c-ink-soft); cursor: pointer; }
+  .close:hover { color: var(--c-ink); }
+  .go, .more { list-style: none; margin: 0; padding: 0; }
+  .go { border-top: 1px solid var(--c-rule); }
+  .go li + li { border-top: 1px dotted var(--c-rule); }
+  .go a { display: flex; align-items: center; min-height: 52px; font: 450 1.3rem/1.2 var(--f-display); color: var(--c-ink); text-decoration: none; }
+  .more { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); padding-block: var(--space-1); border-top: 1px solid var(--c-rule); }
+  .more a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.95rem; color: var(--c-ink-soft); text-decoration: none; }
+  .go a:hover, .more a:hover { color: var(--c-moss); }
+  .go a[aria-current], .more a[aria-current] { color: var(--c-ink); text-decoration: underline 1px; text-underline-offset: 0.3em; }
+  .set { border-top: 1px solid var(--c-rule); }
+  .pref { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-4); min-height: 52px; }
+  .pref + .pref { border-top: 1px dotted var(--c-rule); }
+  .pref > :global(:last-child) { margin-left: auto; } /* right-aligned, also when it wraps under its label */
+  .k { font-size: 0.9rem; color: var(--c-ink-soft); }
 </style>
