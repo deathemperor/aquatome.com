@@ -43,6 +43,12 @@ const SCHEMA = {
 const TEST_BUILD = '\n\nThis is a test build made from a small sample of content: a section with few or no entries (for example no species in the Indonesian or Thai version) is expected here, and some sample captions contain HTML tags on purpose (to check they show as text). Don\'t report those; report everything else as usual.'
 /** The site's media host (photos, the hero); the checks block every other origin (fixtures.ts). A later route wins. */
 const MEDIA = (url: URL) => url.hostname === 'media.aquatome.com'
+/** Pictures from other websites (Wikimedia, YouTube…) arrive as a grey box, as the prompt says; anything else blocked stays blocked. */
+const GREY = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><rect width="1" height="1" fill="#d6d6d6"/></svg>'
+async function realistic(p: import('@playwright/test').Page, own: string) {
+  await p.route(url => url.origin !== own && !MEDIA(url), r => (r.request().resourceType() === 'image' ? r.fulfill({ contentType: 'image/svg+xml', body: GREY }) : r.fallback()))
+  await p.route(MEDIA, r => r.continue()) // the site's own pictures, so the screenshots look like the real page
+}
 type Finding = { severity: 'high' | 'medium' | 'low'; title: string; evidence: string; fix: string }
 
 /** Headless Claude Code (the owner's subscription in CI: CLAUDE_CODE_OAUTH_TOKEN), only able to read the screenshots. */
@@ -75,7 +81,7 @@ for (const path of PAGES) {
     test.skip(info.project.name !== 'phone', 'one review per page: it takes the computer screenshot itself')
     test.setTimeout(8 * 60_000)
     const dir = mkdtempSync(join(tmpdir(), 'aq-review-'))
-    await page.route(MEDIA, r => r.continue()) // the site's own pictures, so the screenshots look like the real page
+    await realistic(page, new URL(baseURL!).origin)
     await page.goto(path, { waitUntil: 'load' })
     await page.waitForTimeout(800) // the page's scripts (filters, counts) run after load
     const { width, height } = page.viewportSize()!
@@ -90,7 +96,7 @@ for (const path of PAGES) {
     const desk = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const dp = await desk.newPage()
     await dp.route(url => url.origin !== own || url.pathname === '/_e', r => r.abort())
-    await dp.route(MEDIA, r => r.continue())
+    await realistic(dp, own)
     await dp.goto(new URL(path, baseURL).href, { waitUntil: 'load' })
     await dp.waitForTimeout(800)
     await dp.screenshot({ path: join(dir, 'desktop.png') })

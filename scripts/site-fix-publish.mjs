@@ -34,7 +34,12 @@ if (changed && OK === '1' && result.status === 'fixed' && !forbidden.length) {
     'Draft: review before merging (docs/governance.md, layer 4).', '',
     '🤖 Generated with [Claude Code](https://claude.com/claude-code)',
   ].join('\n')
-  const pr = run('gh', 'pr', 'create', '-R', repo, '--draft', '--base', 'main', '--head', branch, '--title', `fix: ${title}`, '--body', body)
+  let pr
+  try { pr = run('gh', 'pr', 'create', '-R', repo, '--draft', '--base', 'main', '--head', branch, '--title', `fix: ${title}`, '--body', body) } catch (e) {
+    // The fix is pushed; say where, so a person can open the PR (e.g. the repository doesn't let Actions open PRs).
+    comment(`**Automatic fix: pushed, but no PR.** The change passed every check, on branch \`${branch}\`; opening the PR failed (${String(e.message).split('\n')[0].slice(0, 200)}). [Open it](${server}/${repo}/compare/main...${branch}?expand=1) · [run](${runUrl})`)
+    throw e
+  }
   run('gh', 'workflow', 'run', 'ci', '-R', repo, '--ref', branch)
   comment(`Draft fix: ${pr}`)
   console.log(`opened ${pr}`)
