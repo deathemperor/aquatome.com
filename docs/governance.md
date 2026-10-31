@@ -124,9 +124,10 @@ The layers above still check the result.
       fewer covers no topic.
   - The build judges every species page (`loadAll`), so a page that gains an in-depth source, by an engine run or two
     jobs' work merged, goes back in search by itself. The engine records the verdict when it merges a source into a page.
-  - Out of search also means out of the sitemap, the app's index, the home page's lists and other languages' alternates.
+  - Out of search means out of the sitemap, the home page's lists and other languages' alternates. A thin page stays in
+    the site's own search, the fish list and the app's index: its translation passed, it is only short.
   - A heading with 5 words or fewer under it ("Mouthbrooder.") is shown as a line of the quick facts, or left out when
-    they already say it.
+    they already say it or all it says is "Unknown.".
   - Thin species' profiles on in-depth sources are fetched before new species, most popular first. They are found by the
     name in the address (Seriously Fish, Loaches Online, ScotCat), same genus. Failing that, Seriously Fish's own search
     is used: a newer genus hides the page (Corydoras panda is Hoplisoma panda there). Searches are cached for a month in
