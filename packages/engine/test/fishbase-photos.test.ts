@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { collaboratorPhotos, fishbasePhotos, listUrl, PANITVONG, photoPage, type FishbaseDeps } from '../src/fishbase-photos'
+import { collaboratorPhotos, fishbasePhotos, inatPhotos, listUrl, PANITVONG, photoPage, type FishbaseDeps } from '../src/fishbase-photos'
 import { SOURCE_PHOTO_LICENCE } from '../src/source-photos'
 
 const row = (genus: string, species: string, pic: string) => `<tr class="even">
@@ -50,4 +50,33 @@ test('photos of species the site has go on their pages, credited and linked; a r
   }])
   expect(JSON.parse(await readFile(join(root, 'content/species/schistura-vinciguerrae/entity.json'), 'utf8')).photos).toEqual([])
   expect((await fishbasePhotos(root, d)).added).toEqual([])
+})
+
+test('his iNaturalist photos go on pages with fewer than 4 photos, only those credited to him', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-inat-'))
+  const p = (n: number) => ({ url: `https://media.aquatome.com/x/${n}.webp`, width: 800, height: 600, licence: 'CC BY 4.0', author: 'Bo', sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg` })
+  for (const [id, sci, photos] of [['rasbora-paviana', 'Rasbora paviana', [p(1)]], ['carassius-auratus', 'Carassius auratus', [p(1), p(2), p(3), p(4)]]] as const) {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ scientificName: sci, photos }))
+  }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ 'https://media.aquatome.com/panitvong/inat-11.webp': 'murky field shot' }))
+  const obs = [
+    { taxon: { name: 'Rasbora paviana', rank: 'species' }, photos: [{ id: 7, url: 'https://static.inaturalist.org/photos/7/square.jpg', attribution: '(c) Nonn Panitvong, all rights reserved' }, { id: 8, url: 'https://static.inaturalist.org/photos/8/square.jpg', attribution: '(c) Someone Else, some rights reserved (CC BY)' }] },
+    { taxon: { name: 'Carassius auratus', rank: 'species' }, photos: [{ id: 9, url: 'https://static.inaturalist.org/photos/9/square.jpg', attribution: '(c) Nonn Panitvong, all rights reserved' }] },
+    { taxon: { name: 'Rasbora paviana', rank: 'species' }, photos: [{ id: 11, url: 'https://static.inaturalist.org/photos/11/square.jpg', attribution: '(c) Nonn Panitvong, all rights reserved' }] },
+    { taxon: { name: 'Rasbora', rank: 'genus' }, photos: [{ id: 10, url: 'https://static.inaturalist.org/photos/10/square.jpg', attribution: '(c) Nonn Panitvong, all rights reserved' }] },
+  ]
+  const fetched: string[] = []
+  const d: FishbaseDeps = {
+    get: async u => (fetched.push(u), JSON.stringify({ results: obs })),
+    bytes: async (u, referer) => (fetched.push(`${u} <- ${referer}`), new Uint8Array([1])),
+    media: { urlFor: k => `https://media.aquatome.com/${k}`, put: async k => ({ url: `https://media.aquatome.com/${k}`, width: 1024, height: 680 }) },
+    sleep: async () => {},
+  }
+  expect(await inatPhotos(root, d)).toEqual({ added: ['rasbora-paviana: 7'], failed: [] })
+  expect(fetched).toEqual(['https://api.inaturalist.org/v1/observations?user_login=nonnp&per_page=200&page=1&order_by=id&order=asc', 'https://static.inaturalist.org/photos/7/large.jpg <- https://www.inaturalist.org/photos/7'])
+  const e = JSON.parse(await readFile(join(root, 'content/species/rasbora-paviana/entity.json'), 'utf8'))
+  expect(e.photos[1]).toEqual({ url: 'https://media.aquatome.com/panitvong/inat-7.webp', width: 1024, height: 680, licence: SOURCE_PHOTO_LICENCE, author: 'Nonn Panitvong', sourceUrl: 'https://www.inaturalist.org/photos/7', source: 'panitvong' })
+  expect((await inatPhotos(root, d)).added).toEqual([])
 })

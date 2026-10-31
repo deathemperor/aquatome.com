@@ -15,7 +15,7 @@ import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
 import { mirrorPhotos } from './mirror-photos'
-import { fishbasePhotos } from './fishbase-photos'
+import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
@@ -194,7 +194,7 @@ if (cmd === 'run') {
   console.log(`mirror-photos: ${r.mirrored} stored, ${r.files} files updated, ${r.pending} photos waiting, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'fishbase-photos') {
-  // Nonn Panitvong's FishBase photos (used with permission) on the pages of the species they show.
+  // Nonn Panitvong's FishBase and iNaturalist photos (used with permission) on the pages of the species they show.
   // fishbase.se takes ~20 s to accept a connection, past fetch's 10 s connect timeout; node:https leaves that to the OS.
   const load = (u: string, headers: Record<string, string>) => new Promise<Buffer>((ok, fail) => httpsGet(u, { headers: { 'user-agent': UA, ...headers } }, res => {
     if (res.statusCode !== 200) { res.resume(); fail(new Error(`HTTP ${res.statusCode}`)); return }
@@ -203,6 +203,11 @@ if (cmd === 'run') {
   }).on('error', fail))
   const r = await fishbasePhotos(ROOT, { get: async u => (await load(u, {})).toString('utf8'), bytes: async (u, referer) => new Uint8Array(await load(u, { referer })), media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) })
   console.log(`fishbase-photos: ${r.listed} listed, ${r.added.length} added, ${r.failed.length} failed\n${[...r.added, ...r.failed].join('\n')}`)
+  // His iNaturalist photos too, on pages with fewer than 4 photos.
+  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
+  const bytes = async (u: string, referer: string) => { const res = await fetch(u, { headers: { 'user-agent': UA, referer } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const i = await inatPhotos(ROOT, { get, bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) })
+  console.log(`inaturalist: ${i.added.length} added, ${i.failed.length} failed\n${[...i.added, ...i.failed].join('\n')}`)
 } else if (cmd === 'crypts-photos') {
   // Jan D. Bastmeijer's own photos (used with permission) on the Cryptocoryne pages.
   const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
