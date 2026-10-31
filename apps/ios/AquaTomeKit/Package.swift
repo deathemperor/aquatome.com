@@ -8,6 +8,7 @@ let package = Package(
   products: [
     .library(name: "Chihiros", targets: ["Chihiros"]),
     .library(name: "ChihirosBLE", targets: ["ChihirosBLE"]),
+    .library(name: "Tanks", targets: ["Tanks"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -17,5 +18,8 @@ let package = Package(
     // A Mac command line that drives a real light through ChihirosBLE (the iOS simulator has no Bluetooth).
     .executableTarget(name: "light-harness", dependencies: ["Chihiros", "ChihirosBLE"]),
     .testTarget(name: "ChihirosTests", dependencies: ["Chihiros"]),
+    // "Bể của tôi": tanks and devices, the site's model and merge rules (docs/my-tanks-sync.md). Pure.
+    .target(name: "Tanks"),
+    .testTarget(name: "TanksTests", dependencies: ["Tanks"]),
   ]
 )
