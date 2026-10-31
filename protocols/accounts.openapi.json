@@ -324,7 +324,7 @@
     "/api/v1/auth/apple": {
       "post": {
         "summary": "Sign in with Apple: the provider's ID token",
-        "description": "The identity token from ASAuthorizationAppleIDCredential (iOS, audience = the bundle id) or Sign in with Apple JS (web, audience = the Services ID). The authorization code is not used.",
+        "description": "The identity token from ASAuthorizationAppleIDCredential (iOS, audience = the bundle id) or Sign in with Apple JS (web, audience = the Services ID). The authorization code is not used here (only when deleting the account).",
         "security": [
           {},
           {
@@ -413,7 +413,7 @@
             }
           },
           "409": {
-            "description": "Error: credential_in_use (link: this sign-in belongs to another account)",
+            "description": "Error: credential_in_use (link: this sign-in belongs to another account), apple_already_linked (link: the account has another Apple ID; one per account)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1064,7 +1064,7 @@
     "/api/v1/account": {
       "delete": {
         "summary": "Delete the account now: its tanks, sign-in methods and every session",
-        "description": "Ask the reader to confirm first. The device keeps its own copy of the tanks unless the reader clears it too.",
+        "description": "Ask the reader to confirm first. The device keeps its own copy of the tanks unless the reader clears it too.\n\nAn account with Sign in with Apple: Apple requires its tokens to be revoked, and none are kept, so first ask the reader to sign in with Apple again and send that `authorizationCode` here (the app: ASAuthorizationAppleIDCredential.authorizationCode, clientId = the bundle id; the web: Sign in with Apple JS, clientId = the Services ID, redirectUri = the page's address as given to AppleID.auth.init). Without it the answer is 409 apple_reauth.",
         "security": [
           {
             "bearer": []
@@ -1073,9 +1073,52 @@
             "cookie": []
           }
         ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apple": {
+                    "type": "object",
+                    "required": [
+                      "code",
+                      "clientId"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "A fresh authorization code (valid 5 minutes, once)."
+                      },
+                      "clientId": {
+                        "type": "string",
+                        "description": "com.aquatome.app (the app) or com.aquatome.web (the web)."
+                      },
+                      "redirectUri": {
+                        "type": "string",
+                        "description": "Web only: exactly the tanks page the code was asked from (as given to AppleID.auth.init)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
-            "description": "Deleted; the browser's cookie is cleared."
+            "description": "Deleted (Apple tokens revoked first); the browser's cookie is cleared."
+          },
+          "400": {
+            "description": "Error: bad_request (clientId not ours), bad_redirect (redirectUri is not a tanks page)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "401": {
             "description": "Error: signed_out",
@@ -1096,6 +1139,36 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Error: apple_reauth (send a fresh Apple authorization code), apple_other_account (the code is for another Apple ID: nothing revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited (10 Apple tries an hour per account)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Error: apple_revoke_failed (Apple refused the code or the revoke: ask again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -1103,6 +1176,7 @@
     "/api/v1/account/methods/{id}": {
       "delete": {
         "summary": "Remove a sign-in method (not the last one)",
+        "description": "Removing a Sign in with Apple method takes the same fresh Apple authorization code as deleting the account (see DELETE /api/v1/account): its tokens are revoked first.",
         "security": [
           {
             "bearer": []
@@ -1122,9 +1196,52 @@
             }
           }
         ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apple": {
+                    "type": "object",
+                    "required": [
+                      "code",
+                      "clientId"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "A fresh authorization code (valid 5 minutes, once)."
+                      },
+                      "clientId": {
+                        "type": "string",
+                        "description": "com.aquatome.app (the app) or com.aquatome.web (the web)."
+                      },
+                      "redirectUri": {
+                        "type": "string",
+                        "description": "Web only: exactly the tanks page the code was asked from (as given to AppleID.auth.init)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "204": {
             "description": "Removed."
+          },
+          "400": {
+            "description": "Error: bad_request (clientId not ours), bad_redirect (redirectUri is not a tanks page)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "401": {
             "description": "Error: signed_out",
@@ -1157,7 +1274,27 @@
             }
           },
           "409": {
-            "description": "Error: last_method",
+            "description": "Error: last_method, apple_reauth, apple_other_account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited (10 Apple tries an hour per account)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Error: apple_revoke_failed (Apple refused the code or the revoke: ask again)",
             "content": {
               "application/json": {
                 "schema": {

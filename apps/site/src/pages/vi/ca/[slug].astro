@@ -1,5 +1,5 @@
 ---
-import type { Localized, SpeciesEntity } from '@aq/schema'
+import type { Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import DataCard from '../../../components/DataCard.astro'
@@ -11,6 +11,10 @@ import Comments from '../../../components/Comments.astro'
 import ReaderPhotos from '../../../components/ReaderPhotos.astro'
 import VnClimate from '../../../components/VnClimate.astro'
 import QuickSummary from '../../../components/QuickSummary.astro'
+import KeyFacts from '../../../components/KeyFacts.astro'
+import Companions from '../../../components/Companions.astro'
+import JumpChips from '../../../components/JumpChips.astro'
+import { companionsOf } from '../../../lib/companions'
 import GuideLinks from '../../../components/GuideLinks.astro'
 import RedirectNote from '../../../components/RedirectNote.astro'
 import { guidesMentioning } from '../../../lib/mentions'
@@ -22,7 +26,7 @@ import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { slugify } from '@aq/schema/slug'
+import { searchAliases } from '../../../lib/search'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
@@ -54,26 +58,40 @@ const vn = lang === 'vi'
 const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
 const alternates = await alternatesOf('species', s.id)
 const breeds = breedsOf(lang, c, s.id)
+const mates = await companionsOf(lang, c, s.id)
+const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
+const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
+// The jump row: the parts readers look for, in page order (the photo strip comes before the text).
+const written = (key: SectionKey) => s.sections.some(x => x.key === key && s.t.sections[`${key}:${x.source}`])
+const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
+const jumps = [
+  ...(strip.length > 0 ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
+  ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
+]
 ---
 <Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
   </nav>
-  <header class="wrap top">
-    <PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} />
-    <div>
+  <header class:list={['wrap top', s.photos.length === 0 && 'bare']}>
+    <div class="id">
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
-      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${s.t.name} ${s.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{s.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
-      {s.t.altNames.length > 0 && <p class="alt">{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
+      <KeyFacts card={s.dataCard} />
+      {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
+    </div>
+    {s.photos.length > 0 && <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>}
+    <div class="facts">
       <DataCard card={s.dataCard} sources={c.sources} />
       {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
+      {showMates ? <Companions {...mates} tool={tool} /> : <p class="srcline"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
       {vn && <VnClimate card={s.dataCard} />}
-      <p class="srcline"><a href={`/vi/cong-cu/?ca=${s.t.slug}#nuoi-chung`}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>
     </div>
   </header>
+  <JumpChips items={jumps} />
 
   {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
@@ -95,14 +113,23 @@ const breeds = breedsOf(lang, c, s.id)
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
   .crumb a { color: var(--c-ink-soft); }
-  .top { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
+  /* Computer: photo on the left, name then facts on the right. Phone: name and key facts, the photo, then the facts. */
+  .top { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: 'photo id' 'photo facts'; column-gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
+  .top.bare { grid-template-columns: minmax(0, 40rem); grid-template-areas: 'id' 'facts'; }
+  .id { grid-area: id; }
+  .photo { grid-area: photo; }
+  .facts { grid-area: facts; }
   .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
   .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-2); }
-  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: 0 0 var(--space-4); }
+  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
+  .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
   @media (max-width: 860px) {
     .top, .two { grid-template-columns: 1fr; }
+    .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts'; }
+    .photo { margin-top: var(--space-4); }
+    .photo :global(.plate img) { aspect-ratio: 16 / 9; }
   }
 </style>

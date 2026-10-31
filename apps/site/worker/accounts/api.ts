@@ -1,6 +1,8 @@
 import { readCapped, siteverify as realSiteverify } from '../comments/api'
-import { checkEmail, consume, emailHash, normalEmail, startEmail, type Lang, type SendMail } from './email'
+import { appleRevoker, type RevokeApple } from './apple'
+import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, type Lang, type SendMail } from './email'
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
+import { cloudflareMailer, type EmailBinding } from './mailer'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
@@ -22,10 +24,25 @@ export type AccountsEnv = {
   APPLE_CLIENT_IDS?: string
   TURNSTILE_SECRET?: string
   TURNSTILE_SITEKEY?: string
+  /** Cloudflare Email Sending (sign-in codes). Without it, email sign-in is off. */
+  EMAIL?: EmailBinding
+  /** Sign in with Apple key (secret, a .p8's contents), its Key ID and the team: to revoke Apple tokens on deletion. */
+  APPLE_SIGNIN_KEY?: string
+  APPLE_SIGNIN_KEY_ID?: string
+  APPLE_TEAM_ID?: string
 }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
-export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail }
-export const realDeps: AccountDeps = { verifyIdToken: realVerifyIdToken, siteverify: realSiteverify }
+export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail; revokeApple?: RevokeApple }
+/** The real outside world for this environment: what it has bindings and secrets for. */
+export function depsFor(env: AccountsEnv): AccountDeps {
+  const keys = env.APPLE_TEAM_ID && env.APPLE_SIGNIN_KEY_ID && env.APPLE_SIGNIN_KEY ? { teamId: env.APPLE_TEAM_ID, keyId: env.APPLE_SIGNIN_KEY_ID, key: env.APPLE_SIGNIN_KEY } : undefined
+  return {
+    verifyIdToken: realVerifyIdToken,
+    siteverify: realSiteverify,
+    ...(env.EMAIL ? { sendMail: cloudflareMailer(env.EMAIL) } : {}),
+    ...(keys ? { revokeApple: appleRevoker(keys) } : {}),
+  }
+}
 
 const HOUR_MS = 3_600_000
 const json = (data: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...headers } })
@@ -82,7 +99,34 @@ async function done(env: Live, userId: string, client: Client, adding: Session |
   return client === 'web' ? json({ user }, 200, { 'set-cookie': cookieFor(token, 'web') }) : json({ user, token })
 }
 
-export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Date, deps: AccountDeps = realDeps): Promise<Response> {
+/**
+ * Apple's rule for an account (or a sign-in method) going away: its Sign in with Apple tokens are revoked first, from a
+ * fresh Apple sign-in whose code the request carries (worker/accounts/apple.ts). Nothing to do: undefined. Otherwise the
+ * answer to give instead, when the revoke couldn't happen.
+ */
+async function revokeAppleFirst(env: Live, deps: AccountDeps, req: Request, url: URL, userId: string, subjects: string[], now: Date): Promise<Response | undefined> {
+  if (!subjects.length || !deps.revokeApple) return undefined
+  const body = await bodyOf(req)
+  if (body === 'too_large') return fail('too_large', 413)
+  const a = body?.apple as { code?: unknown; clientId?: unknown; redirectUri?: unknown } | undefined
+  if (typeof a?.code !== 'string' || typeof a.clientId !== 'string') return fail('apple_reauth', 409)
+  if (!ids(env.APPLE_CLIENT_IDS).includes(a.clientId)) return fail('bad_request', 400)
+  // The web's code is tied to the page it was asked from: one of the tanks pages, exactly, or Apple refuses it.
+  const pages = Object.values(TANKS_PAGE).map(p => `${url.origin}${p}`)
+  if (a.redirectUri !== undefined && !(typeof a.redirectUri === 'string' && pages.includes(a.redirectUri))) return fail('bad_redirect', 400)
+  // Every try costs a signed request to Apple.
+  if (!(await allow(env.DB, env.ACCOUNT_HMAC_KEY, `apple-revoke|${userId}`, 10, HOUR_MS, now))) return fail('rate_limited', 429)
+  try {
+    const r = await deps.revokeApple(a.clientId, a.code, a.redirectUri as string | undefined, sub => subjects.includes(sub))
+    if (r === 'other_account') return fail('apple_other_account', 409)
+    return r === 'revoked' ? undefined : fail('apple_revoke_failed', 502)
+  } catch (e) {
+    console.error('apple revoke:', (e as Error).name)
+    return fail('apple_revoke_failed', 502)
+  }
+}
+
+export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Date, deps: AccountDeps = depsFor(env)): Promise<Response> {
   const path = url.pathname.replace(/\/$/, '')
   const on = ready(env) && switchedOn(env, req)
   if (path === '/api/v1/session' && req.method === 'GET' && !on) return json({ accounts: false })
@@ -136,6 +180,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!claims) return fail('bad_token', 401)
       if (claims.nonce !== body.nonce && claims.nonce !== (await sha256(body.nonce))) return fail('bad_nonce', 401)
       const email = claims.emailVerified ? normalEmail(claims.email) : undefined
+      // One Apple ID per account: deleting the account revokes it from one fresh Apple sign-in.
+      if (provider === 'apple' && adding && (await db.prepare(`SELECT 1 FROM credentials WHERE user_id = ? AND kind = 'apple' AND subject != ?`).bind(adding.userId, claims.sub).first())) return fail('apple_already_linked', 409)
       try {
         const userId = await signInWith(db, { kind: provider, subject: claims.sub, ...(email ? { emailHash: await emailHash(env.ACCOUNT_HMAC_KEY, email) } : {}), ...(adding ? { signedIn: adding.userId } : {}) }, now)
         return done(env, userId, client, adding, session, now)
@@ -196,11 +242,22 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     return json(data, 200, { 'content-disposition': `attachment; filename="aquatome-${now.toISOString().slice(0, 10)}.json"` })
   }
   if (route === 'DELETE /api/v1/account') {
+    const apple = (await db.prepare(`SELECT subject FROM credentials WHERE user_id = ? AND kind = 'apple'`).bind(session.userId).all<{ subject: string }>()).results
+    const refused = await revokeAppleFirst(env, deps, req, url, session.userId, apple.map(x => x.subject), now)
+    if (refused) return refused
     await deleteUser(db, session.userId)
     return none(session.via === 'cookie' ? { 'set-cookie': CLEAR_COOKIE } : {})
   }
   const m = /^\/api\/v1\/account\/methods\/([0-9a-f-]{36})$/.exec(path)
   if (m && req.method === 'DELETE') {
+    const method = await db.prepare(`SELECT kind, subject, (SELECT COUNT(*) FROM credentials WHERE user_id = ?1) AS n FROM credentials WHERE id = ?2 AND user_id = ?1`)
+      .bind(session.userId, m[1]!).first<{ kind: string; subject: string; n: number }>()
+    if (!method) return fail('not_found', 404)
+    if (method.n <= 1) return fail('last_method', 409)
+    if (method.kind === 'apple') {
+      const refused = await revokeAppleFirst(env, deps, req, url, session.userId, [method.subject], now)
+      if (refused) return refused
+    }
     const r = await removeMethod(db, session.userId, m[1]!)
     return r === 'removed' ? none() : r === 'last' ? fail('last_method', 409) : fail('not_found', 404)
   }

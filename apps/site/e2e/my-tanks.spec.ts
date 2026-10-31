@@ -128,3 +128,29 @@ test('a tank deleted in another tab while its form is open is not brought back b
   expect(stored.tanks[0]).toHaveProperty('deletedAt')
   expect(errors).toEqual([])
 })
+
+test('drawn before the page script runs, so nothing jumps: a first visit has the empty state; a reader with tanks, the loading line', async ({ page }) => {
+  // Only what the HTML and its inline script draw: the page's own scripts never arrive.
+  await page.route(/\/_astro\/.+\.js$/, route => route.abort())
+  await page.goto(PAGE)
+  await expect(page.locator('#mt-empty')).toBeVisible()
+  await expect(page.locator('#mt-loading')).toBeHidden()
+
+  const tank = { id: id(1), name: 'Bể', species: [], plants: [], createdAt: at, updatedAt: at }
+  await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 1, tanks: [tank], devices: [] }))
+  await page.reload()
+  await expect(page.locator('#mt-loading')).toBeVisible()
+  await expect(page.locator('#mt-empty')).toBeHidden()
+
+  // A store this page can't read (another version): as good as none, like the page's own script decides.
+  await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 2, tanks: [tank], devices: [] }))
+  await page.reload()
+  await expect(page.locator('#mt-empty')).toBeVisible()
+  await expect(page.locator('#mt-loading')).toBeHidden()
+
+  // Only deleted tanks: as good as none.
+  await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 1, tanks: [{ id: id(1), updatedAt: at, deletedAt: at }], devices: [] }))
+  await page.reload()
+  await expect(page.locator('#mt-empty')).toBeVisible()
+  await expect(page.locator('#mt-loading')).toBeHidden()
+})

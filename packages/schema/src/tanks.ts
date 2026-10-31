@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { mergeRecords, minutesLit } from './tank-rules'
+import { minutesLit, STORE_VERSION } from './tank-rules'
 
 export * from './tank-rules'
 
@@ -14,7 +14,6 @@ export * from './tank-rules'
  * points (Swift's `unicodeScalars.count`; zod and JSON Schema count the same way).
  */
 
-export const STORE_VERSION = 1
 /** Live records a reader can make (checked when making one): a merge of two stores (signing in) can go past it. */
 export const MAX_TANKS = 50
 export const MAX_DEVICES = 100
@@ -125,7 +124,3 @@ export type TankRecord = z.infer<typeof TankRecord>
 export type DeviceRecord = z.infer<typeof DeviceRecord>
 export type TankStore = z.infer<typeof TankStore>
 
-/** Two stores as one: tanks and devices each merged by `mergeRecords`; any other key of `kept` stays. */
-export function mergeStores(kept: TankStore, incoming: TankStore): TankStore {
-  return { ...kept, v: STORE_VERSION, tanks: mergeRecords(kept.tanks, incoming.tanks), devices: mergeRecords(kept.devices, incoming.devices) }
-}

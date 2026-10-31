@@ -1,37 +1,48 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
-import { getContent } from '../../../lib/content'
-import { toIndexItem } from '../../../lib/species-index'
-import { jsonForScript } from '../../../lib/json'
 import { VN_WATER } from '../../../lib/climate'
-import { getTraits } from '../../../lib/traits'
 import { SUBSTRATES } from '../../../scripts/calc'
 import { EI_WEEK, SALTS } from '../../../scripts/ferts'
 import { fmt } from '../../../lib/format'
 import { i18n } from '../../../lib/i18n'
 
 const { lang, t } = i18n(Astro.url)
-const c = await getContent(lang)
-const traits = await getTraits()
-const index = c.species.map(s => toIndexItem(s, traits.get(s.id))).sort((a, b) => a.name.localeCompare(b.name, lang))
 // The heater's default room temperature: unheated tank water in a northern Vietnamese winter; elsewhere a neutral 20 °C to change.
 const room = lang === 'vi' ? VN_WATER.northWinter : 20
+// Every tool, drawn: three have pages of their own, the other three are calculators further down this page.
+const TOOLS: { href: string; name: string; what: string; icon: string }[] = [
+  { href: '/vi/cong-cu/nuoi-chung/', name: t('Nuôi chung'), what: t('Các loài có hợp nước, hợp tính không; thả bao nhiêu con là vừa.'),
+    icon: '<path d="M5 19c6-8 17-8 22 0-5 8-16 8-22 0z"/><path d="M27 19l7-6v12z"/><path d="M21 34c3-4 9-4 12 0-3 4-9 4-12 0z"/><path d="M33 34l5-4v8z"/>' },
+  { href: '/vi/cong-cu/the-tich-be/', name: t('Thể tích bể'), what: t('Bể bao nhiêu lít, 12 kiểu bể, kính dày bao nhiêu.'),
+    icon: '<path d="M7 9v29h34V9"/><path d="M7 16c4 2.5 7.5-2.5 11.5 0s7.5 2.5 11.5 0 7.5-2.5 11 0"/>' },
+  { href: '#nen', name: t('Lượng nền'), what: t('Trải trước thấp sau cao: bao nhiêu lít, mấy bao.'),
+    icon: '<path d="M7 9v29h34V9"/><path d="M7 33l34-9"/><circle cx="14" cy="35" r="1"/><circle cx="24" cy="32" r="1"/><circle cx="33" cy="30" r="1"/>' },
+  { href: '#suoi', name: t('Công suất sưởi'), what: t('Bể này cần sưởi bao nhiêu W cho mùa lạnh.'),
+    icon: '<rect x="20" y="6" width="8" height="34" rx="4"/><path d="M24 30v-6"/><path d="M12 14c-3 3 3 6 0 9s3 6 0 9M36 14c-3 3 3 6 0 9s3 6 0 9"/>' },
+  { href: '#phan-bon', name: t('Liều phân nước'), what: t('Mỗi lần châm bao nhiêu gam, ra bao nhiêu ppm.'),
+    icon: '<path d="M29 7l12 12"/><path d="M26 10l12 12"/><path d="M32 16 17 31l-6 1 1-6 15-15"/><path d="M11 37c-1.5 2-2.5 3.5-2.5 4.5a2.5 2.5 0 0 0 5 0c0-1-1-2.5-2.5-4.5z"/>' },
+  { href: '/vi/cong-cu/den-chihiros/', name: t('Đèn Chihiros'), what: t('Hẹn giờ, chỉnh độ sáng từng màu qua Bluetooth.'),
+    icon: '<rect x="6" y="10" width="36" height="6" rx="1.5"/><path d="M14 21l-3 8M24 21v10M34 21l3 8"/><path d="M9 40h30"/>' },
+  { href: '/vi/cong-cu/be-cua-toi/', name: t('Bể của tôi'), what: t('Ghi lại từng bể: kích thước, nền, cá, cây và lịch đèn, ngay trên máy này.'),
+    icon: '<rect x="10" y="6" width="28" height="36" rx="2"/><path d="M16 14h16M16 21h16M16 28h10"/><path d="M14 6v36"/>' },
+]
 ---
 <Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.')}>
-  <section class="tool" id="nuoi-chung" aria-labelledby="tm-h">
-    <h2 id="tm-h">{t('Nuôi chung được không? Thả bao nhiêu con?')}</h2>
-    <p class="lead">{t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')}</p>
-    <form id="tm-form" class="row">
-      <label class="grow">{t('Thêm loài')}
-        <input id="tm-input" list="tm-list" placeholder={t('Gõ tên Việt hoặc tên khoa học')} autocomplete="off" />
-      </label>
-      <button type="submit">{t('Thêm')}</button>
-    </form>
-    <datalist id="tm-list">{index.map(i => <option value={i.name}>{i.scientificName}</option>)}</datalist>
-    <ul id="tm-chosen" class="chips" aria-live="polite"></ul>
-    <div id="tm-out" aria-live="polite"></div>
-    <div id="st-out" aria-live="polite"></div>
-  </section>
+  <script is:inline>
+    // Old links to the tank-mates checker on this page (?ca=…, #nuoi-chung) open its own page, with the same species.
+    if (/[?&]ca=/.test(location.search) || location.hash === '#nuoi-chung') location.replace('/vi/cong-cu/nuoi-chung/' + location.search)
+  </script>
+  <ul class="tools" aria-label={t('Các công cụ')}>
+    {TOOLS.map(x => (
+      <li>
+        <a href={x.href}>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true" set:html={x.icon} />
+          <span class="tx"><strong>{x.name}</strong><span>{x.what}</span></span>
+          <svg class="go" viewBox="0 0 24 24" aria-hidden="true" set:html={x.href.startsWith('#') ? '<path d="M12 5v14M6 13l6 6 6-6"/>' : '<path d="M5 12h14M13 6l6 6-6 6"/>'} />
+        </a>
+      </li>
+    ))}
+  </ul>
 
   <section class="tool" id="the-tich" aria-labelledby="vol-h">
     <h2 id="vol-h">{t('Bể bao nhiêu lít?')}</h2>
@@ -39,7 +50,6 @@ const room = lang === 'vi' ? VN_WATER.northWinter : 20
       <label>{t('Dài (cm)')} <input name="l" type="number" inputmode="numeric" min="10" max="400" value="60" /></label>
       <label>{t('Rộng (cm)')} <input name="w" type="number" inputmode="numeric" min="10" max="200" value="30" /></label>
       <label>{t('Cao (cm)')} <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
-      <label>{t('Lọc (lít/giờ, không bắt buộc)')} <input name="flow" type="number" inputmode="numeric" min="0" max="20000" placeholder={t('vd. 600')} /></label>
     </form>
     <p id="vol-out" class="out" aria-live="polite"></p>
     <p class="note">{t('Bể lục giác, trụ tròn, bể góc, chữ L, hoặc cần biết kính dày bao nhiêu:')} <a href="/vi/cong-cu/the-tich-be/">{t('tính theo 12 kiểu bể →')}</a></p>
@@ -84,120 +94,22 @@ const room = lang === 'vi' ? VN_WATER.northWinter : 20
     <div id="fert-out" aria-live="polite"></div>
     <p class="note">{t('Mức EI (Estimative Index) mỗi tuần: NO₃ {no3} ppm, PO₄ {po4} ppm, K {k} ppm, Mg {mg} ppm, Fe {fe} ppm, chia 3 lần châm, thay 50% nước mỗi tuần. Đó là mức cho bể nhiều cây, đèn mạnh, có CO₂; bể ít cây, không CO₂ cần ít hơn nhiều. Châm phân đa lượng và vi lượng khác ngày.', { no3: EI_WEEK.NO3!, po4: EI_WEEK.PO4!, k: EI_WEEK.K!, mg: EI_WEEK.Mg!, fe: fmt(lang).num(EI_WEEK.Fe!) })}</p>
   </section>
-
-  <section class="tool" id="den" aria-labelledby="light-h">
-    <h2 id="light-h">{t('Đèn Chihiros: hẹn giờ, độ sáng')}</h2>
-    <p class="lead">{t('Kết nối đèn Chihiros qua Bluetooth ngay trên trình duyệt: đặt lịch bật tắt mỗi ngày, chỉnh độ sáng từng màu, chỉnh giờ cho đèn.')} <a href="/vi/cong-cu/den-chihiros/">{t('Mở trang điều khiển đèn →')}</a></p>
-  </section>
-
-  <section class="tool" id="be-cua-toi" aria-labelledby="mine-h">
-    <h2 id="mine-h">{t('Bể của tôi')}</h2>
-    <p class="lead">{t('Ghi lại từng bể: kích thước, nền, cá, cây, ghi chú và lịch đèn đã đặt. Lưu ngay trên máy này, không cần đăng ký.')} <a href="/vi/cong-cu/be-cua-toi/">{t('Mở sổ bể →')}</a></p>
-  </section>
-
-  <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
-  import type { SpeciesIndexItem } from '../../../scripts/filter'
-  import { checkTankmates, TEMPERAMENT_LABELS } from '../../../scripts/tankmates'
   import { heaterWatts, substrate, tankVolume, type SubstrateKind } from '../../../scripts/calc'
-  import { stocking } from '../../../scripts/stocking'
   import { EI_DOSES, EI_WEEK, gramsFor, MAIN, ppm, SALTS, type Ion, type SaltId } from '../../../scripts/ferts'
-  import { cpath, ct } from '../../../scripts/ct'
+  import { ct } from '../../../scripts/ct'
 
-  const items: SpeciesIndexItem[] = JSON.parse(document.getElementById('species-index')!.textContent!)
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
   const fmt = (n: number, d = 1) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: d }).format(n)
-  const esc = (s: string) => s.replace(/[&<>"']/g, ch => `&#${ch.charCodeAt(0)};`)
-  const LABEL = { tempC: ct('Nhiệt độ'), ph: 'pH', gh: ct('Độ cứng (dGH)') } as const
-  const unit = (f: keyof typeof LABEL) => (f === 'tempC' ? '°C' : '')
-  const rng = (r: { min: number; max: number }) => (r.min === r.max ? fmt(r.min) : `${fmt(r.min)}–${fmt(r.max)}`)
   const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
-
-  // Tank-mates: chosen species and their numbers live in the URL (?ca=slug:6,slug:2) so a result can be shared.
   const params = new URLSearchParams(location.search)
-  const counts = new Map<string, number>()
-  let chosen: SpeciesIndexItem[] = (params.get('ca') ?? '').split(',').map(s => {
-    const [slug, n] = s.split(':')
-    const hit = items.find(i => i.slug === slug)
-    if (hit && Number(n) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
-    return hit
-  }).filter((i): i is SpeciesIndexItem => !!i).slice(0, 6)
-  const count = (c: SpeciesIndexItem) => counts.get(c.slug) ?? c.schoolMin ?? 1
-  function renderTankmates() {
-    const url = new URL(location.href)
-    if (chosen.length) url.searchParams.set('ca', chosen.map(c => `${c.slug}:${count(c)}`).join(',')); else url.searchParams.delete('ca')
-    history.replaceState(null, '', url)
-    $('tm-chosen').innerHTML = chosen.map((c, i) => `<li><a href="${cpath(`/vi/ca/${c.slug}/`)}">${esc(c.name)}</a> <input type="number" inputmode="numeric" min="1" max="200" value="${count(c)}" data-qty="${i}" aria-label="${ct('Số con {name}', { name: esc(c.name) })}" /> <button type="button" data-rm="${i}" aria-label="${ct('Bỏ {name}', { name: esc(c.name) })}">×</button></li>`).join('')
-    renderStocking()
-    if (chosen.length < 2) { $('tm-out').innerHTML = chosen.length ? '' : `<p class="hint">${ct('Thêm loài cá bạn định nuôi.')}</p>`; return }
-    const r = checkTankmates(chosen, ct)
-    const cell = (c: SpeciesIndexItem, f: keyof typeof LABEL) => (c[f] ? `${rng(c[f]!)}${unit(f)}` : '—')
-    const rows = chosen.map(c => `<tr><th scope="row"><a href="${cpath(`/vi/ca/${c.slug}/`)}">${esc(c.name)}</a></th>${r.params.map(p => `<td>${cell(c, p.field)}</td>`).join('')}<td>${c.sizeCm ? `${fmt(c.sizeCm)} cm` : '—'}</td><td>${c.temperament ? ct(TEMPERAMENT_LABELS[c.temperament]) : '—'}</td></tr>`)
-    const verdict = r.params.map(p => `<td>${p.shared ? `<span class="ok">${rng(p.shared)}${unit(p.field)}</span>` : chosen.length - p.missing.length >= 2 ? `<span class="bad">${ct('Không có')}</span>` : `<span class="na">${ct('Thiếu dữ liệu')}</span>`}</td>`).join('')
-      + `<td>${r.eats.length ? `<span class="bad">${ct('Chênh lệch lớn')}</span>` : `<span class="ok">${ct('Ổn')}</span>`}</td>`
-      + `<td>${r.notes.some(n => n.level === 'bad') ? `<span class="bad">${ct('Xung đột')}</span>` : r.notes.some(n => n.level === 'warn') ? `<span class="bad">${ct('Cần lưu ý')}</span>` : chosen.every(c => c.temperament) ? `<span class="ok">${ct('Ổn')}</span>` : `<span class="na">${ct('Thiếu dữ liệu')}</span>`}</td>`
-    const head = `<tr><th scope="col">${ct('Loài')}</th>${r.params.map(p => `<th scope="col">${LABEL[p.field]}</th>`).join('')}<th scope="col">${ct('Kích thước')}</th><th scope="col">${ct('Tính cách')}</th></tr>`
-    const warn = [...r.eats.map(e => `<li>${ct('{big} ({bigCm} cm) có thể ăn {small} ({smallCm} cm).', { big: esc(e.big), bigCm: fmt(e.bigCm), small: esc(e.small), smallCm: fmt(e.smallCm) })}</li>`),
-      ...r.notes.filter(n => n.level !== 'info').map(n => `<li>${esc(n.text)}</li>`)].join('')
-    const info = r.notes.filter(n => n.level === 'info').map(n => `<li>${esc(n.text)}</li>`).join('')
-    $('tm-out').innerHTML = `<div class="scroll"><table><thead>${head}</thead><tbody>${rows.join('')}</tbody><tfoot><tr><th scope="row">${ct('Khoảng chung')}</th>${verdict}</tr></tfoot></table></div>`
-      + (warn ? `<ul class="warn">${warn}</ul>` : '')
-      + (info ? `<ul class="info">${info}</ul>` : '')
-      + (r.minTankCm ? `<p>${ct('Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.', { n: fmt(r.minTankCm) })}</p>` : '')
-  }
-  $('tm-form').addEventListener('submit', e => {
-    e.preventDefault()
-    const input = $<HTMLInputElement>('tm-input')
-    const q = input.value.trim().toLowerCase()
-    const hit = items.find(i => i.name.toLowerCase() === q || i.scientificName.toLowerCase() === q) ?? items.find(i => `${i.name} ${i.scientificName}`.toLowerCase().includes(q))
-    if (hit && !chosen.some(c => c.slug === hit.slug) && chosen.length < 6) chosen.push(hit)
-    input.value = ''
-    renderTankmates()
-  })
-  $('tm-chosen').addEventListener('input', e => {
-    const q = (e.target as Element).closest<HTMLInputElement>('[data-qty]')
-    const n = Math.round(Number(q?.value))
-    if (q && n > 0) { counts.set(chosen[Number(q.dataset.qty)]!.slug, Math.min(200, n)); renderTankmates() }
-  })
-  $('tm-chosen').addEventListener('click', e => {
-    const b = (e.target as Element).closest<HTMLButtonElement>('[data-rm]')
-    if (b) { chosen.splice(Number(b.dataset.rm), 1); renderTankmates() }
-  })
-
-  // Stocking: the chosen fish against the tank size and filter in the calculator below.
-  const LEVEL = {
-    light: [ct('Còn thưa'), ct('thả thêm được.')], ok: [ct('Vừa phải'), ct('bể ổn định với lọc và thay nước thường lệ.')],
-    full: [ct('Đã đầy'), ct('cần lọc tốt và thay nước đều mỗi tuần.')], over: [ct('Quá tải'), ct('bớt cá hoặc dùng bể lớn hơn.')],
-  } as const
-  function renderStocking() {
-    const v = $<HTMLFormElement>('vol-form')
-    const [l, w, ht, flow] = [num(v, 'l'), num(v, 'w'), num(v, 'h'), num(v, 'flow')]
-    if (!chosen.length || !(l > 0 && w > 0 && ht > 0)) { $('st-out').innerHTML = ''; return }
-    const vol = tankVolume(l, w, ht)
-    const r = stocking(chosen.map(c => ({ name: c.name, count: count(c), sizeCm: c.sizeCm, schoolMin: c.schoolMin, tankCm: c.tankCm })), vol.water, { tankCm: l, filterLph: flow, grossLitres: vol.litres })
-    const [label, advice] = LEVEL[r.level]
-    const notes = [
-      ...r.school.map(s => ct('{name} sống theo đàn: nên nuôi từ {min} con (đang chọn {count}).', { name: esc(s.name), min: s.min, count: s.count })),
-      ...r.tooShort.map(s => ct('{name} cần bể dài từ {n} cm.', { name: esc(s.name), n: fmt(s.tankCm) })),
-      ...(r.unknown.length ? [ct('Chưa có kích thước của {names}: chưa tính vào mật độ.', { names: r.unknown.map(esc).join(', ') })] : []),
-      ...(r.turnover === undefined ? [] : r.turnover < 4 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: hơi yếu, nên 4–10 lần.', { n: fmt(r.turnover) })] : r.turnover > 10 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: dòng mạnh, cá bơi yếu như betta, cá đuôi dài dễ bị cuốn.', { n: fmt(r.turnover) })] : []),
-    ]
-    $('st-out').innerHTML = `<h3>${ct('Mật độ cá')}</h3>`
-      + `<div class="meter ${r.level}" role="img" aria-label="${fmt(r.percent, 0)}%"><span style="width:${Math.min(100, r.percent / 1.5)}%"></span><i style="left:${100 / 1.5}%"></i></div>`
-      + `<p><strong>${fmt(r.percent, 0)}% · ${label}</strong>: ${advice} ${ct('Bể {l} × {w} × {h} cm, khoảng {water} lít nước.', { l: fmt(l), w: fmt(w), h: fmt(ht), water: fmt(vol.water, 0) })}</p>`
-      + (r.perFish.length > 1 ? `<ul class="shares">${r.perFish.map(f => `<li>${esc(f.name)}: ${fmt(f.share * 100, 0)}%</li>`).join('')}</ul>` : '')
-      + (notes.length ? `<ul class="warn">${notes.map(n => `<li>${n}</li>`).join('')}</ul>` : '')
-      + `<p class="note">${ct('Ước theo kích thước cá trưởng thành (cá lớn thải nhiều hơn hẳn cá nhỏ), cho bể có lọc. Cây thủy sinh nhiều, thay nước thường xuyên thì nuôi được dày hơn một chút.')}</p>`
-  }
-  renderTankmates()
 
   // Calculators: recompute on every input; ?l=&w=&h= (cm) fills the tank size (links from the tank volume page).
   for (const k of ['l', 'w', 'h']) { const v = params.get(k); if (v) ($<HTMLFormElement>('vol-form').elements.namedItem(k) as HTMLInputElement).value = v }
   function renderCalc() {
     const v = $<HTMLFormElement>('vol-form'), h = $<HTMLFormElement>('heat-form')
     const [l, w, ht] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
-    renderStocking()
     if (!(l > 0 && w > 0 && ht > 0)) { $('vol-out').textContent = ct('Nhập đủ dài, rộng, cao.'); $('heat-out').textContent = ''; return }
     const vol = tankVolume(l, w, ht)
     $('vol-out').innerHTML = ct('<strong>{litres} lít</strong> theo kích thước, thực tế khoảng <strong>{water} lít nước</strong> (≈ {water} kg, chưa tính kính, nền và đá).', { litres: fmt(vol.litres, 0), water: fmt(vol.water, 0) })
@@ -235,43 +147,29 @@ const room = lang === 'vi' ? VN_WATER.northWinter : 20
   renderCalc()
 </script>
 <style>
-  .tool { max-width: 52rem; padding-block: var(--space-5) var(--space-6); border-top: 1px solid var(--c-rule); }
+  /* The tools at a glance: a ruled index, one row each on a phone, three across on a computer. */
+  .tools { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); column-gap: var(--space-5); }
+  .tools li { border-top: 1px solid var(--c-rule); }
+  .tools a { display: flex; align-items: center; gap: var(--space-3); min-height: 4.5rem; padding: var(--space-3) var(--space-2) var(--space-3) 0; color: var(--c-ink); text-decoration: none; transition: background-color 0.15s ease-out; }
+  .tools a:hover { background: var(--c-plate); }
+  .tools a:hover .go { color: var(--c-moss); transform: translateX(2px); }
+  .tools a[href^="#"]:hover .go { transform: translateY(2px); }
+  .ico { flex: none; width: 3rem; height: 3rem; padding: 0.4rem; background: var(--c-plate); box-shadow: 0 0 0 1px var(--c-rule); color: var(--c-moss); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tx { display: grid; gap: 0.1rem; min-width: 0; flex: 1 1 auto; }
+  .tx strong { font-weight: 600; }
+  .tx span { font-size: 0.9rem; line-height: 1.4; color: var(--c-ink-soft); }
+  .go { flex: none; width: 1.1rem; height: 1.1rem; color: var(--c-ink-faint); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s ease-out, color 0.15s ease-out; }
+
+  .tool { max-width: 52rem; padding-block: var(--space-5) var(--space-6); border-top: 1px solid var(--c-rule); scroll-margin-top: var(--space-4); }
   .tool h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
   .lead, .note { color: var(--c-ink-soft); max-width: var(--measure); }
   .note { font-size: var(--step--1); }
   .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
   .row label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
   .row .grow { flex: 1 1 18rem; }
-  .row input, .row select { font: inherit; font-size: 1rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
-  .row button { font: 500 1rem var(--f-body); padding: 0.5rem 1rem; border: 0; border-radius: 8px; background: var(--c-ink); color: var(--c-paper); cursor: pointer; }
+  .row input, .row select { font: inherit; font-size: 1rem; min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
   .out { font-size: 1.05rem; }
-  :global(.chips) { list-style: none; padding: 0; margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-2); }
-  :global(.chips li) { padding: 0.25rem 0.4rem 0.25rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); }
-  :global(.chips button) { border: 0; background: none; cursor: pointer; font-size: 1.1rem; line-height: 1; color: var(--c-ink-soft); }
-  :global(#tm-out .scroll), :global(#fert-out .scroll) { overflow-x: auto; }
+  :global(#fert-out .scroll) { overflow-x: auto; }
   :global(#fert-out table) { border-collapse: collapse; font-size: 0.95rem; margin: var(--space-2) 0; }
   :global(#fert-out th), :global(#fert-out td) { text-align: left; padding: var(--space-1) var(--space-4) var(--space-1) 0; border-bottom: 1px solid var(--c-rule); font-variant-numeric: tabular-nums; }
-  :global(#tm-out table) { border-collapse: collapse; font-size: 0.9rem; min-width: 100%; }
-  :global(#tm-out th), :global(#tm-out td) { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--c-rule); white-space: nowrap; }
-  :global(#tm-out tbody th) { white-space: normal; font-weight: 500; min-width: 9rem; }
-  :global(#tm-out tfoot th), :global(#tm-out tfoot td) { border-top: 2px solid var(--c-ink); border-bottom: 0; }
-  :global(#tm-out .ok) { color: var(--c-moss); font-weight: 600; }
-  :global(#tm-out .bad) { color: var(--c-cardinal); font-weight: 600; }
-  :global(#tm-out .na), :global(#tm-out .hint) { color: var(--c-ink-faint); }
-  :global(#tm-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
-  :global(#tm-out .info) { padding-left: 1.2em; }
-  :global(.chips input) { width: 3.6rem; font: inherit; font-size: 0.9rem; padding: 0.1rem 0.3rem; border: 1px solid var(--c-rule); border-radius: 6px; background: var(--c-paper); color: var(--c-ink); }
-  :global(#st-out h3) { font-size: var(--step-1); margin: var(--space-4) 0 var(--space-2); }
-  :global(#st-out .meter) { position: relative; height: 0.7rem; border-radius: 999px; background: var(--c-plate); border: 1px solid var(--c-rule); max-width: 32rem; }
-  :global(#st-out .meter span) { display: block; height: 100%; border-radius: 999px; background: var(--c-moss); }
-  :global(#st-out .meter.full span) { background: #c9a227; }
-  :global(#st-out .meter.over span) { background: var(--c-cardinal); }
-  :global(#st-out .meter i) { position: absolute; top: -0.25rem; bottom: -0.25rem; width: 2px; background: var(--c-ink); }
-  :global(#st-out .shares) { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); padding: 0; list-style: none; color: var(--c-ink-soft); font-size: 0.9rem; }
-  :global(#st-out .warn) { color: var(--c-cardinal); padding-left: 1.2em; }
-  :global(#st-out .note) { font-size: var(--step--1); color: var(--c-ink-soft); }
-  @media (max-width: 640px) {
-    :global(#tm-out th), :global(#tm-out td) { padding: var(--space-2); }
-    :global(#tm-out tbody th) { min-width: 7rem; }
-  }
 </style>

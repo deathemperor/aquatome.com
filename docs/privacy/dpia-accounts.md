@@ -13,9 +13,9 @@
 > 2. **Use the official form.** Secondary sources disagree on whether the DPIA report is Mẫu số 09 or 10 (the other is
 >    the cross-border transfer assessment). Copy the content below into the official form from the decree's appendix
 >    (vbpl.vn / chinhphu.vn).
-> 3. **Cross-border transfer.** The data is stored on Cloudflare (US company; D1 database outside Vietnam) and, for email
->    sign-in, a mail service (AWS SES or Resend). That may also need the cross-border transfer impact assessment (the
->    other form). Section 8 below has its content.
+> 3. **Cross-border transfer.** The data is stored on Cloudflare (US company; D1 database outside Vietnam), which also
+>    sends the email sign-in codes (Cloudflare Email Sending). That may also need the cross-border transfer impact
+>    assessment (the other form). Section 8 below has its content.
 > 4. **Filing** goes to A05 (Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao, Bộ Công an), reportedly
 >    within 60 days of starting to process. A05 reviews it in 15 days, and missing items must be supplied within 30
 >    days. The file must be updated every 6 months when purposes, processors or third parties change, and within 10
@@ -79,11 +79,12 @@ nào yêu cầu thông tin cá nhân.
 | Bên | Vai trò | Dữ liệu | Nơi xử lý |
 | --- | --- | --- | --- |
 | Cloudflare, Inc. (Workers, D1, Turnstile) | Bên xử lý: chạy máy chủ, lưu cơ sở dữ liệu, chống bot | Toàn bộ mục 3; IP khi truy cập | Mạng toàn cầu; D1 đặt ở **[điền: vùng của cơ sở dữ liệu thuysinh]** |
-| AWS (Amazon SES) **hoặc** Resend **[điền: chọn một]** | Bên xử lý: gửi email đăng nhập | Địa chỉ email, nội dung email (mã một lần) | **[điền: vùng, ví dụ ap-southeast-1 Singapore]** |
-| Apple Inc. (Sign in with Apple) | Bên thứ ba người dùng chọn | Apple xác thực người dùng; chúng tôi nhận mã người dùng và (có thể) email ẩn danh của Apple | Theo chính sách của Apple |
+| Cloudflare, Inc. (Email Sending) | Bên xử lý: gửi email đăng nhập từ dang-nhap@aquatome.com | Địa chỉ email, nội dung email (mã một lần) | Mạng toàn cầu của Cloudflare |
+| Apple Inc. (Sign in with Apple) | Bên thứ ba người dùng chọn | Apple xác thực người dùng; chúng tôi nhận mã người dùng và (có thể) email ẩn danh của Apple. Khi xóa tài khoản, máy chủ gửi cho Apple một mã ủy quyền mới (người dùng đăng nhập Apple lại một lần) để thu hồi quyền đăng nhập của AquaTome | Theo chính sách của Apple |
 | Google LLC (Sign in with Google) | Bên thứ ba người dùng chọn | Tương tự Apple | Theo chính sách của Google |
 
-**[điền: bản sao hợp đồng/điều khoản xử lý dữ liệu]:** Cloudflare Data Processing Addendum; AWS DPA hoặc Resend DPA.
+**[điền: bản sao hợp đồng/điều khoản xử lý dữ liệu]:** Cloudflare Data Processing Addendum (bao gồm Workers, D1, Email
+Sending, Turnstile).
 
 ## 5. Luồng dữ liệu
 
@@ -92,11 +93,12 @@ Thiết bị người dùng (trình duyệt / ứng dụng iOS)
   ├─ không đăng nhập: dữ liệu bể chỉ ở bộ nhớ thiết bị
   └─ đăng nhập (tự chọn):
        Apple / Google ──ID token──► Worker (Cloudflare) ── kiểm tra chữ ký, lưu sub ──► D1
-       email ──► Worker ── Turnstile, giới hạn tần suất ── gửi mã ──► SES/Resend ──► hộp thư người dùng
+       email ──► Worker ── Turnstile, giới hạn tần suất ── gửi mã ──► Cloudflare Email Sending ──► hộp thư người dùng
                          └─ lưu HMAC(email), băm(mã) ──► D1
        đồng bộ: thiết bị ⇄ Worker ⇄ D1 (các bản ghi bể, gộp theo thời điểm sửa)
        xuất dữ liệu: D1 ──► Worker ──► tệp JSON trên thiết bị
-       xóa tài khoản: Worker xóa mọi bản ghi của tài khoản trong D1
+       xóa tài khoản: (tài khoản có Apple) mã Apple mới ──► Worker ──► Apple: thu hồi
+                      Worker xóa mọi bản ghi của tài khoản trong D1
 ```
 
 ## 6. Biện pháp bảo vệ
@@ -120,9 +122,9 @@ Thiết bị người dùng (trình duyệt / ứng dụng iOS)
 | Quyền | Cách thực hiện |
 | --- | --- |
 | Được biết | Chính sách bảo mật (`/vi/chinh-sach-bao-mat/`), câu thông báo cạnh nút đăng nhập |
-| Xem, nhận bản sao | Nút "Tải dữ liệu của tôi" (tệp JSON) trong trang và ứng dụng: ngay lập tức |
+| Xem, nhận bản sao | Nút "Tải dữ liệu tài khoản" (tệp JSON) trong trang và ứng dụng: ngay lập tức |
 | Sửa | Người dùng tự sửa thông tin bể trong trang/ứng dụng |
-| Xóa, rút lại đồng ý | Nút "Xóa tài khoản" trong trang và ứng dụng: xóa ngay mọi dữ liệu của tài khoản |
+| Xóa, rút lại đồng ý | Nút "Xóa tài khoản" trong trang và ứng dụng: xóa ngay mọi dữ liệu của tài khoản; với tài khoản Apple, thu hồi luôn quyền đăng nhập bằng Apple của AquaTome |
 | Khiếu nại, yêu cầu khác | Email **[điền]**; phản hồi đầu tiên trong 2 ngày làm việc, hoàn tất trong thời hạn Nghị định 356 |
 
 Bản sao lưu: **[điền: Cloudflare D1 Time Travel giữ trạng thái cơ sở dữ liệu tới 30 ngày; dữ liệu đã xóa còn trong bản
@@ -130,7 +132,7 @@ sao lưu đó tối đa 30 ngày rồi mất hẳn. Xác nhận cấu hình.]**
 
 ## 8. Chuyển dữ liệu ra nước ngoài (nội dung cho hồ sơ đánh giá tác động chuyển dữ liệu ra nước ngoài, nếu áp dụng)
 
-- **Bên nhận:** Cloudflare, Inc. (Hoa Kỳ); AWS hoặc Resend (Hoa Kỳ; vùng xử lý **[điền]**).
+- **Bên nhận:** Cloudflare, Inc. (Hoa Kỳ), cho cả máy chủ, cơ sở dữ liệu và gửi email.
 - **Dữ liệu:** như mục 3 (không có dữ liệu nhạy cảm; email chỉ đi qua dịch vụ gửi mail).
 - **Mục đích:** lưu trữ, vận hành máy chủ, gửi email đăng nhập.
 - **Biện pháp:** như mục 6; điều khoản xử lý dữ liệu của từng bên (mục 4).
@@ -156,5 +158,5 @@ Khi phát hiện vi phạm: khóa tính năng (`ACCOUNTS` tắt), thu hồi mọ
 
 ## 11. Cập nhật
 
-Lập: **[điền ngày]**. Cập nhật khi đổi mục đích, bên xử lý hoặc bên thứ ba (ví dụ: chọn SES hay Resend, thêm Android),
+Lập: **[điền ngày]**. Cập nhật khi đổi mục đích, bên xử lý hoặc bên thứ ba (ví dụ: đổi dịch vụ gửi email, thêm Android),
 và khi số tài khoản tiến gần 100.000.

@@ -13,7 +13,7 @@ import { gonePage, isHidden, loadHidden, pagePath, updateHidden } from './hidden
 import { OWNER_COOKIE } from './owner'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
-import { accounts, realDeps, type AccountDeps, type AccountsEnv } from './accounts/api'
+import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
 import { purgeExpired } from './accounts/ratelimit'
 
 export interface Env {
@@ -118,7 +118,7 @@ export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefine
   return v as 'vi' | 'id' | 'th' | undefined
 }
 
-export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps: AccountDeps = realDeps): Promise<Response> {
+export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
@@ -153,7 +153,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
       : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
-  if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps), env)
+  if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
   if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)

@@ -19,7 +19,8 @@
       "species/akysis-vespa",
       "species/batasio-feruminatus"
     ],
-    "mentions": 12
+    "mentions": 12,
+    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
   },
   "mystacoleucus-marginatus": {
     "name": "Mystacoleucus marginatus",
@@ -84,18 +85,6 @@
       "species/baryancistrus-beggini",
       "species/biotodoma-wavrini",
       "species/geophagus-abalios"
-    ],
-    "mentions": 7,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
-  },
-  "amblyceps-mangois": {
-    "name": "Amblyceps mangois",
-    "mentionedIn": [
-      "species/acanthocobitis-zonalternans",
-      "species/lepidocephalichthys-hasselti",
-      "species/nemacheilus-masyae",
-      "species/nemacheilus-ornatus",
-      "species/nemacheilus-pallidus"
     ],
     "mentions": 7
   },
@@ -753,7 +742,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -761,7 +751,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -771,13 +762,23 @@
     ],
     "mentions": 2
   },
+  "parasphaerichthys-ocellatus": {
+    "name": "Parasphaerichthys ocellatus",
+    "mentionedIn": [
+      "guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014",
+      "species/dario-hysginon"
+    ],
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/parasphaerichthys-ocellatus"
+  },
   "aphanius-mento": {
     "name": "Aphanius mento",
     "mentionedIn": [
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
   },
   "corydoras-adolfoi": {
     "name": "Corydoras adolfoi",
@@ -907,14 +908,6 @@
     ],
     "mentions": 2
   },
-  "cyclocheilichthys-armatus": {
-    "name": "Cyclocheilichthys armatus",
-    "mentionedIn": [
-      "species/acantopsis-dialuzona",
-      "species/barbodes-banksi"
-    ],
-    "mentions": 2
-  },
   "puntius-brevis": {
     "name": "Puntius brevis",
     "mentionedIn": [
@@ -1041,7 +1034,8 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
   },
   "akysis-clavulus": {
     "name": "Akysis clavulus",
@@ -1056,14 +1050,6 @@
     "mentionedIn": [
       "species/annamia-normani",
       "species/lepidocephalichthys-hasselti"
-    ],
-    "mentions": 2
-  },
-  "dario-hysginon": {
-    "name": "Dario hysginon",
-    "mentionedIn": [
-      "species/badis-corycaeus",
-      "species/danio-kyathit"
     ],
     "mentions": 2
   },
@@ -1083,21 +1069,14 @@
     ],
     "mentions": 2
   },
-  "lepidocephalichthys-annandalei": {
-    "name": "Lepidocephalichthys annandalei",
-    "mentionedIn": [
-      "species/botia-dario",
-      "species/danio-rerio"
-    ],
-    "mentions": 2
-  },
   "mystus-bleekeri": {
     "name": "Mystus bleekeri",
     "mentionedIn": [
       "species/botia-dario",
       "species/danio-rerio"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/mystus-bleekeri"
   },
   "dawkinsia-rubrotinctus": {
     "name": "Dawkinsia rubrotinctus",
@@ -1123,21 +1102,14 @@
     ],
     "mentions": 2
   },
-  "etroplus-suratensis": {
-    "name": "Etroplus suratensis",
-    "mentionedIn": [
-      "species/etroplus-maculatus",
-      "species/haludaria-fasciata"
-    ],
-    "mentions": 2
-  },
   "puntius-sahyadriensis": {
     "name": "Puntius sahyadriensis",
     "mentionedIn": [
       "species/haludaria-fasciata",
       "species/schistura-denisoni"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/puntius-sahyadriensis"
   },
   "devario-strigillifer": {
     "name": "Devario strigillifer",
@@ -1169,7 +1141,8 @@
       "species/nemacheilus-guentheri",
       "species/nemacheilus-triangularis"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/mesonoemacheilus-herrei"
   },
   "nemacheilus-menoni": {
     "name": "Nemacheilus menoni",
@@ -1227,24 +1200,8 @@
     ],
     "mentions": 2
   },
-  "hemibagrus-wyckii": {
-    "name": "Hemibagrus wyckii",
-    "mentionedIn": [
-      "species/syncrossus-hymenophysa",
-      "species/trigonopoma-pauciperforatum"
-    ],
-    "mentions": 2
-  },
   "mystus-castaneus": {
     "name": "Mystus castaneus",
-    "mentionedIn": [
-      "species/syncrossus-hymenophysa",
-      "species/trigonopoma-pauciperforatum"
-    ],
-    "mentions": 2
-  },
-  "kryptopterus-bicirrhis": {
-    "name": "Kryptopterus bicirrhis",
     "mentionedIn": [
       "species/syncrossus-hymenophysa",
       "species/trigonopoma-pauciperforatum"
@@ -1284,28 +1241,32 @@
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-coldwater-fish"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/epiplatys-annulatus"
   },
   "dianema-urostriatum": {
     "name": "Dianema urostriatum",
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-goldfish-tank-mates"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/dianema-urostriatum"
   },
   "megalechis-picta": {
     "name": "Megalechis picta",
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-goldfish-tank-mates"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/megalechis-picta"
   },
   "petitella-georgiae": {
     "name": "Petitella georgiae",
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/petitella-georgiae"
   },
   "corydoras-axelrodi": {
     "name": "Corydoras axelrodi",
@@ -1389,7 +1350,8 @@
     "mentionedIn": [
       "guides/loachesonline-articles-breeding-sewellia"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/schistura-balteata"
   },
   "balistoides-conspicillum": {
     "name": "Balistoides conspicillum",
@@ -1417,14 +1379,16 @@
     "mentionedIn": [
       "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/garra-fuliginosa"
   },
   "nemacheilus-corica": {
     "name": "Nemacheilus corica",
     "mentionedIn": [
       "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nemacheilus-corica"
   },
   "gastromyzon-borneensis": {
     "name": "Gastromyzon borneensis",
@@ -1445,7 +1409,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-a-passion-for-cichlids"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/iodotropheus-sprengerae"
   },
   "micropanchax-johnstoni": {
     "name": "Micropanchax johnstoni",
@@ -1487,14 +1452,16 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata"
   },
   "trigonostigma-somphongsi": {
     "name": "Trigonostigma somphongsi",
     "mentionedIn": [
       "guides/seriouslyfish-articles-ffsg-has-global-mission"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/trigonostigma-somphongsi"
   },
   "badis-andrewraoi": {
     "name": "Badis andrewraoi",
@@ -1515,14 +1482,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014"
     ],
-    "mentions": 1
-  },
-  "parasphaerichthys-ocellatus": {
-    "name": "Parasphaerichthys ocellatus",
-    "mentionedIn": [
-      "guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014"
-    ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/indostomus-paradoxus"
   },
   "dawkinsia-tambraparniei": {
     "name": "Dawkinsia tambraparniei",
@@ -1536,14 +1497,16 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/puntigrus-anchisporus"
   },
   "vieja-maculicauda": {
     "name": "Vieja maculicauda",
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/vieja-maculicauda"
   },
   "paraneetroplus-gibbiceps": {
     "name": "Paraneetroplus gibbiceps",
@@ -1578,7 +1541,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/cincelichthys-bocourti"
   },
   "rheoheros-lentiginosus": {
     "name": "Rheoheros lentiginosus",
@@ -1613,14 +1577,16 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/mesoheros-festae"
   },
   "herotilapia-multispinosa": {
     "name": "Herotilapia multispinosa",
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/herotilapia-multispinosa"
   },
   "characidium-kamakan": {
     "name": "Characidium kamakan",
@@ -1634,7 +1600,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-new-darter-characins-from-brazil"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani"
   },
   "characidium-fasciatum": {
     "name": "Characidium fasciatum",
@@ -1683,7 +1650,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-pupfish-form-evolutionary-mountain-ranges"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oreochromis-mossambicus"
   },
   "crenichthys-baileyi": {
     "name": "Crenichthys baileyi",
@@ -1788,14 +1756,16 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-the-desert-fish-habitat-partnership"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/cyprinodon-alvarezi"
   },
   "pterophyllum-altum": {
     "name": "Pterophyllum altum",
     "mentionedIn": [
       "guides/sprucepets-angelfish-gallery-4121742"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pterophyllum-altum"
   },
   "corydoras-leopardus": {
     "name": "Corydoras leopardus",
@@ -1816,14 +1786,16 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/julidochromis-transcriptus"
   },
   "periophthalmus-novemradiatus": {
     "name": "Periophthalmus novemradiatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/periophthalmus-novemradiatus"
   },
   "synbranchus-madeirae": {
     "name": "Synbranchus madeirae",
@@ -1844,7 +1816,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/melanochromis-auratus"
   },
   "parabotia-mantschurica": {
     "name": "Parabotia mantschurica",
@@ -1858,7 +1831,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/paratilapia-polleni"
   },
   "lepidiolamprologus-attenuatus": {
     "name": "Lepidiolamprologus attenuatus",
@@ -1872,35 +1846,40 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata"
   },
   "julidochromis-marlieri": {
     "name": "Julidochromis marlieri",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/julidochromis-marlieri"
   },
   "variabilichromis-moorii": {
     "name": "Variabilichromis moorii",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/variabilichromis-moorii"
   },
   "potamotrygon-motoro": {
     "name": "Potamotrygon motoro",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/potamotrygon-motoro"
   },
   "serrasalmus-serrulatus": {
     "name": "Serrasalmus serrulatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/serrasalmus-serrulatus"
   },
   "pterygoplichthys-gibbiceps": {
     "name": "Pterygoplichthys gibbiceps",
@@ -1949,14 +1928,16 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/ladigesia-roloffi"
   },
   "distichodus-affinis": {
     "name": "Distichodus affinis",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/distichodus-affinis"
   },
   "hemiodus-immaculatus": {
     "name": "Hemiodus immaculatus",
@@ -1984,14 +1965,16 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/neolamprologus-sexfasciatus"
   },
   "distichodus-sexfasciatus": {
     "name": "Distichodus sexfasciatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/distichodus-sexfasciatus"
   },
   "pseudotropheus-elongatus": {
     "name": "Pseudotropheus elongatus",
@@ -2005,7 +1988,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/buccochromis-lepturus"
   },
   "ictiobus-bubalus": {
     "name": "Ictiobus bubalus",
@@ -2033,7 +2017,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/gymnocorymbus-bondi"
   },
   "rhadinocentrus-ornatus": {
     "name": "Rhadinocentrus ornatus",
@@ -2047,7 +2032,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/satanoperca-acuticeps"
   },
   "lamprologus-speciosus": {
     "name": "Lamprologus speciosus",
@@ -2061,14 +2047,16 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/tanganicodus-irsacae"
   },
   "hypsophrys-nicaraguensis": {
     "name": "Hypsophrys nicaraguensis",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis"
   },
   "pseudacanthicus-spinosus": {
     "name": "Pseudacanthicus spinosus",
@@ -2082,7 +2070,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/copella-arnoldi"
   },
   "hyphessobrycon-erythrostigma": {
     "name": "Hyphessobrycon erythrostigma",
@@ -2096,21 +2085,24 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/cichla-temensis"
   },
   "barbodes-binotatus": {
     "name": "Barbodes binotatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/barbodes-binotatus"
   },
   "ctenopoma-acutirostre": {
     "name": "Ctenopoma acutirostre",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/ctenopoma-acutirostre"
   },
   "lepthoplosternum-pectorale": {
     "name": "Lepthoplosternum pectorale",
@@ -2124,7 +2116,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pimelodus-maculatus"
   },
   "hemisorubim-platyrhynchos": {
     "name": "Hemisorubim platyrhynchos",
@@ -2138,7 +2131,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/metynnis-lippincottianus"
   },
   "pseudoxiphophorus-bimaculatus": {
     "name": "Pseudoxiphophorus bimaculatus",
@@ -2215,14 +2209,16 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/julidochromis-regani"
   },
   "neolamprologus-buescheri": {
     "name": "Neolamprologus buescheri",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/neolamprologus-buescheri"
   },
   "metynnis-fasciatus": {
     "name": "Metynnis fasciatus",
@@ -2257,7 +2253,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus"
   },
   "alburnoides-taeniatus": {
     "name": "Alburnoides taeniatus",
@@ -2285,35 +2282,40 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/geophagus-proximus"
   },
   "corynopoma-riisei": {
     "name": "Corynopoma riisei",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/corynopoma-riisei"
   },
   "scleromystax-barbatus": {
     "name": "Scleromystax barbatus",
     "mentionedIn": [
       "guides/sprucepets-cory-species-1381075"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/scleromystax-barbatus"
   },
   "fundulopanchax-gardneri": {
     "name": "Fundulopanchax gardneri",
     "mentionedIn": [
       "guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/fundulopanchax-gardneri-gardneri"
   },
   "fundulopanchax-sjostedti": {
     "name": "Fundulopanchax sjostedti",
     "mentionedIn": [
       "guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/fundulopanchax-sjostedti"
   },
   "austrolebias-nigripinnis": {
     "name": "Austrolebias nigripinnis",
@@ -2327,7 +2329,8 @@
     "mentionedIn": [
       "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pseudoplatystoma-tigrinum"
   },
   "acanthobunocephalus-nicoi": {
     "name": "Acanthobunocephalus nicoi",
@@ -2341,7 +2344,8 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/labeo-chrysophekadion"
   },
   "corydoras-leucomelas": {
     "name": "Corydoras leucomelas",
@@ -2355,7 +2359,8 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-columbianus"
   },
   "pareutropius-debauwi": {
     "name": "Pareutropius debauwi",
@@ -2369,14 +2374,16 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/neolamprologus-leleupi"
   },
   "pygocentrus-piraya": {
     "name": "Pygocentrus piraya",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pygocentrus-piraya"
   },
   "moenkhausia-sanctaefilomenae": {
     "name": "Moenkhausia sanctaefilomenae",
@@ -2390,14 +2397,16 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus"
   },
   "maylandia-callainos": {
     "name": "Maylandia callainos",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/maylandia-callainos"
   },
   "rhinecanthus-aculeatus": {
     "name": "Rhinecanthus aculeatus",
@@ -2418,7 +2427,8 @@
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/melanotaenia-splendida"
   },
   "melanotaenia-duboulayi": {
     "name": "Melanotaenia duboulayi",
@@ -2432,7 +2442,8 @@
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/melanotaenia-fluviatilis"
   },
   "chilatherina-sentaniensis": {
     "name": "Chilatherina sentaniensis",
@@ -2572,7 +2583,8 @@
     "mentionedIn": [
       "guides/youtube-Q8-gktwcXqQ"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/danio-erythromicron"
   },
   "danionella-cerebrum": {
     "name": "Danionella cerebrum",
@@ -2642,7 +2654,8 @@
     "mentionedIn": [
       "species/abbottina-rivularis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/opsarius-caudiocellatus"
   },
   "schistura-latifasciata": {
     "name": "Schistura latifasciata",
@@ -2656,7 +2669,8 @@
     "mentionedIn": [
       "species/abbottina-rivularis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/garra-mirofrontis"
   },
   "pseudorasbora-parva": {
     "name": "Pseudorasbora parva",
@@ -2684,7 +2698,8 @@
     "mentionedIn": [
       "species/aborichthys-elongatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/schistura-devdevi"
   },
   "opsarius-barna": {
     "name": "Opsarius barna",
@@ -2692,21 +2707,24 @@
       "species/acanthocobitis-pavonacea",
       "species/danio-rerio"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/opsarius-barna"
   },
   "devario-acuticephala": {
     "name": "Devario acuticephala",
     "mentionedIn": [
       "species/acanthocobitis-pavonacea"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/devario-acuticephala"
   },
   "garra-arupi": {
     "name": "Garra arupi",
     "mentionedIn": [
       "species/acanthocobitis-pavonacea"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/garra-arupi"
   },
   "schistura-moeiensis": {
     "name": "Schistura moeiensis",
@@ -2720,7 +2738,8 @@
     "mentionedIn": [
       "species/acanthopsoides-molobrion"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pangio-shelfordii"
   },
   "rasbora-myersi": {
     "name": "Rasbora myersi",
@@ -2755,7 +2774,8 @@
     "mentionedIn": [
       "species/acestrorhynchus-falcatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus"
   },
   "otocinclus-vittatus": {
     "name": "Otocinclus vittatus",
@@ -2769,7 +2789,8 @@
     "mentionedIn": [
       "species/acestrorhynchus-falcatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/geophagus-altifrons"
   },
   "acheilognathus-changtingensis": {
     "name": "Acheilognathus changtingensis",
@@ -2783,21 +2804,24 @@
     "mentionedIn": [
       "species/acnodon-normani"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hemiodus-ternetzi"
   },
   "geophagus-neambi": {
     "name": "Geophagus neambi",
     "mentionedIn": [
       "species/acnodon-normani"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/geophagus-neambi"
   },
   "retroculus-lapidifer": {
     "name": "Retroculus lapidifer",
     "mentionedIn": [
       "species/acnodon-normani"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/retroculus-lapidifer"
   },
   "acnodon-senai": {
     "name": "Acnodon senai",
@@ -2867,7 +2891,8 @@
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hypselecara-temporalis"
   },
   "mesonauta-mirificus": {
     "name": "Mesonauta mirificus",
@@ -2902,7 +2927,8 @@
     "mentionedIn": [
       "species/akysis-hendricksoni"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pangio-cuneovirgata"
   },
   "akysis-microps": {
     "name": "Akysis microps",
@@ -2930,7 +2956,8 @@
     "mentionedIn": [
       "species/akysis-maculipinnis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/labiobarbus-siamensis"
   },
   "schistura-kohchangensis": {
     "name": "Schistura kohchangensis",
@@ -3000,7 +3027,8 @@
     "mentionedIn": [
       "species/allenbatrachus-grunniens"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/thalassophryne-amazonica"
   },
   "allenbatrachus-meridionalis": {
     "name": "Allenbatrachus meridionalis",
@@ -3070,7 +3098,8 @@
     "mentionedIn": [
       "species/anableps-anableps"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio"
   },
   "oxyura-leucocephala": {
     "name": "Oxyura leucocephala",
@@ -3098,7 +3127,8 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
   },
   "barbodes-rhombeus": {
     "name": "Barbodes rhombeus",
@@ -3112,7 +3142,8 @@
     "mentionedIn": [
       "species/apistogramma-barlowi"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nannostomus-marginatus"
   },
   "copella-vilmae": {
     "name": "Copella vilmae",
@@ -3147,7 +3178,8 @@
     "mentionedIn": [
       "species/apistogramma-pantalone"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri"
   },
   "pungitius-pungitius": {
     "name": "Pungitius pungitius",
@@ -3231,14 +3263,16 @@
     "mentionedIn": [
       "species/bangana-behri"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/labeo-pierrei"
   },
   "barbodes-everetti": {
     "name": "Barbodes everetti",
     "mentionedIn": [
       "species/barbodes-banksi"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/barbodes-everetti"
   },
   "pseudomystus-rugosus": {
     "name": "Pseudomystus rugosus",
@@ -3280,7 +3314,8 @@
     "mentionedIn": [
       "species/barbodes-lateristriga"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/barbodes-kuchingensis"
   },
   "hydrilla-verticillata": {
     "name": "Hydrilla verticillata",
@@ -3294,7 +3329,8 @@
     "mentionedIn": [
       "species/barbucca-diabolica"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pangio-myersi"
   },
   "ancistrus-macrophthalmus": {
     "name": "Ancistrus macrophthalmus",
@@ -3308,14 +3344,16 @@
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hemiancistrus-subviridis"
   },
   "hemiancistrus-guahiborum": {
     "name": "Hemiancistrus guahiborum",
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hemiancistrus-guahiborum"
   },
   "hypancistrus-contradens": {
     "name": "Hypancistrus contradens",
@@ -3350,7 +3388,8 @@
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/leporacanthicus-triactis"
   },
   "peckoltia-vittata": {
     "name": "Peckoltia vittata",
@@ -3532,6 +3571,14 @@
     "mentionedIn": [
       "species/crossocheilus-reticulatus"
     ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/crossocheilus-elegans"
+  },
+  "cyclocheilichthys-schoppeae": {
+    "name": "Cyclocheilichthys schoppeae",
+    "mentionedIn": [
+      "species/cyclocheilichthys-armatus"
+    ],
     "mentions": 1
   },
   "fossorochromis-rostratus": {
@@ -3539,7 +3586,8 @@
     "mentionedIn": [
       "species/cyrtocara-moorii"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/fossorochromis-rostratus"
   },
   "taeniolethrinops-praeorbitalis": {
     "name": "Taeniolethrinops praeorbitalis",
@@ -3553,28 +3601,32 @@
     "mentionedIn": [
       "species/danio-kyathit"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pethia-erythromycter"
   },
   "devario-assamensis": {
     "name": "Devario assamensis",
     "mentionedIn": [
       "species/danio-rerio"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/devario-assamensis"
   },
   "badis-blosyrus": {
     "name": "Badis blosyrus",
     "mentionedIn": [
       "species/danio-rerio"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/badis-blosyrus"
   },
   "ctenops-nobilis": {
     "name": "Ctenops nobilis",
     "mentionedIn": [
       "species/danio-rerio"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/ctenops-nobilis"
   },
   "pleistophora-hyphessobryconis": {
     "name": "Pleistophora hyphessobryconis",
@@ -3583,12 +3635,37 @@
     ],
     "mentions": 1
   },
+  "heteropneustes-fossilis": {
+    "name": "Heteropneustes fossilis",
+    "mentionedIn": [
+      "species/dario-hysginon"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/heteropneustes-fossilis"
+  },
+  "dario-kajal": {
+    "name": "Dario kajal",
+    "mentionedIn": [
+      "species/dario-hysginon"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/dario-kajal"
+  },
+  "dario-urops": {
+    "name": "Dario urops",
+    "mentionedIn": [
+      "species/dario-hysginon"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/dario-urops"
+  },
   "dawkinsia-assimilis": {
     "name": "Dawkinsia assimilis",
     "mentionedIn": [
       "species/dawkinsia-filamentosa"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/dawkinsia-assimilis"
   },
   "devario-ostreographus": {
     "name": "Devario ostreographus",
@@ -3609,14 +3686,16 @@
     "mentionedIn": [
       "species/devario-xyrops"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/betadevario-ramachandrani"
   },
   "gymnochanda-filamentosa": {
     "name": "Gymnochanda filamentosa",
     "mentionedIn": [
       "species/eirmotus-octozona"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/gymnochanda-filamentosa"
   },
   "amphiprion-ocellaris": {
     "name": "Amphiprion ocellaris",
@@ -3686,21 +3765,24 @@
     "mentionedIn": [
       "species/etroplus-canarensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/parambassis-wolffii"
   },
   "barilius-gatensis": {
     "name": "Barilius gatensis",
     "mentionedIn": [
       "species/etroplus-canarensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/opsarius-gatensis"
   },
   "hypselobarbus-jerdoni": {
     "name": "Hypselobarbus jerdoni",
     "mentionedIn": [
       "species/etroplus-canarensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni"
   },
   "hyporhamphus-limbatus": {
     "name": "Hyporhamphus limbatus",
@@ -3735,7 +3817,8 @@
     "mentionedIn": [
       "species/etroplus-maculatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oryzias-dancena"
   },
   "macrognathus-pancalus": {
     "name": "Macrognathus pancalus",
@@ -3749,21 +3832,24 @@
     "mentionedIn": [
       "species/garra-borneensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/rasbora-elegans"
   },
   "homalopteroides-stephensoni": {
     "name": "Homalopteroides stephensoni",
     "mentionedIn": [
       "species/garra-borneensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/homalopteroides-stephensoni"
   },
   "nemacheilus-spiniferus": {
     "name": "Nemacheilus spiniferus",
     "mentionedIn": [
       "species/garra-borneensis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nemacheilus-spiniferus"
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",
@@ -3861,8 +3947,7 @@
     "mentionedIn": [
       "species/haludaria-fasciata"
     ],
-    "mentions": 1,
-    "onSource": "https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/"
+    "mentions": 1
   },
   "rasbora-caverii": {
     "name": "Rasbora caverii",
@@ -3878,6 +3963,13 @@
     ],
     "mentions": 1
   },
+  "hemibagrus-caveatus": {
+    "name": "Hemibagrus caveatus",
+    "mentionedIn": [
+      "species/hemibagrus-wyckii"
+    ],
+    "mentions": 1
+  },
   "schistura-breviceps": {
     "name": "Schistura breviceps",
     "mentionedIn": [
@@ -3890,14 +3982,16 @@
     "mentionedIn": [
       "species/homalopteroides-smithi"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/rhinogobius-mekongianus"
   },
   "danionella-dracula": {
     "name": "Danionella dracula",
     "mentionedIn": [
       "species/horadandia-atukorali"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/danionella-dracula"
   },
   "hyphessobrycon-togoi": {
     "name": "Hyphessobrycon togoi",
@@ -3974,7 +4068,8 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus"
   },
   "hyphessobrycon-nigricinctus": {
     "name": "Hyphessobrycon nigricinctus",
@@ -3988,7 +4083,8 @@
     "mentionedIn": [
       "species/inpaichthys-kerri"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nematobrycon-palmeri"
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -4023,7 +4119,8 @@
     "mentionedIn": [
       "species/lepidocephalichthys-berdmorei"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/rasbora-rasbora"
   },
   "psilorhynchus-breviminor": {
     "name": "Psilorhynchus breviminor",
@@ -4114,7 +4211,8 @@
     "mentionedIn": [
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-agulha"
   },
   "tyttocharax-tambopatensis": {
     "name": "Tyttocharax tambopatensis",
@@ -4128,14 +4226,16 @@
     "mentionedIn": [
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nannostomus-trifasciatus"
   },
   "corydoras-acutus": {
     "name": "Corydoras acutus",
     "mentionedIn": [
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/corydoras-acutus"
   },
   "apistogramma-linkei": {
     "name": "Apistogramma linkei",
@@ -4149,7 +4249,8 @@
     "mentionedIn": [
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/geophagus-megasema"
   },
   "misgurnus-fossilis": {
     "name": "Misgurnus fossilis",
@@ -4177,28 +4278,32 @@
     "mentionedIn": [
       "species/nannostomus-eques"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hemigrammus-stictus"
   },
   "copella-meinkeni": {
     "name": "Copella meinkeni",
     "mentionedIn": [
       "species/nannostomus-eques"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/copella-meinkeni"
   },
   "rhinogobius-chiengmaiensis": {
     "name": "Rhinogobius chiengmaiensis",
     "mentionedIn": [
       "species/nemacheilus-binotatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/rhinogobius-chiengmaiensis"
   },
   "pao-cochinchinensis": {
     "name": "Pao cochinchinensis",
     "mentionedIn": [
       "species/nemacheilus-binotatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pao-cochinchinensis"
   },
   "labiobarbus-lineatus": {
     "name": "Labiobarbus lineatus",
@@ -4212,21 +4317,24 @@
     "mentionedIn": [
       "species/nemacheilus-masyae"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/cyclocheilichthys-heteronema"
   },
   "opsarius-bernatziki": {
     "name": "Opsarius bernatziki",
     "mentionedIn": [
       "species/nemacheilus-masyae"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/opsarius-bernatziki"
   },
   "mystacoleucus-chilopterus": {
     "name": "Mystacoleucus chilopterus",
     "mentionedIn": [
       "species/nemacheilus-masyae"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/mystacoleucus-chilopterus"
   },
   "mystus-nigriceps": {
     "name": "Mystus nigriceps",
@@ -4254,21 +4362,24 @@
     "mentionedIn": [
       "species/neolamprologus-multifasciatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/neolamprologus-brichardi"
   },
   "heterandria-formosa": {
     "name": "Heterandria formosa",
     "mentionedIn": [
       "species/nothobranchius-rachovii"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/heterandria-formosa"
   },
   "nothobranchius-foerschi": {
     "name": "Nothobranchius foerschi",
     "mentionedIn": [
       "species/nothobranchius-rachovii"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nothobranchius-foerschi"
   },
   "enteromius-camptacanthus": {
     "name": "Enteromius camptacanthus",
@@ -4282,7 +4393,8 @@
     "mentionedIn": [
       "species/oryzias-latipes"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oryzias-sarasinorum"
   },
   "oryzias-setnai": {
     "name": "Oryzias setnai",
@@ -4303,7 +4415,8 @@
     "mentionedIn": [
       "species/oryzias-latipes"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oryzias-songkhramensis"
   },
   "adrianichthys-roseni": {
     "name": "Adrianichthys roseni",
@@ -4324,28 +4437,32 @@
     "mentionedIn": [
       "species/oryzias-latipes"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oryzias-mekongensis"
   },
   "osphronemus-laticlavius": {
     "name": "Osphronemus laticlavius",
     "mentionedIn": [
       "species/osphronemus-goramy"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/osphronemus-laticlavius"
   },
   "kottelatlimia-pristes": {
     "name": "Kottelatlimia pristes",
     "mentionedIn": [
       "species/pangio-anguillaris"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/kottelatlimia-pristes"
   },
   "pangio-malayana": {
     "name": "Pangio malayana",
     "mentionedIn": [
       "species/pangio-anguillaris"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pangio-malayana"
   },
   "sundadanio-margarition": {
     "name": "Sundadanio margarition",
@@ -4366,21 +4483,24 @@
     "mentionedIn": [
       "species/paracanthocobitis-pictilis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/homalopteroides-modestus"
   },
   "geophagus-dicrozoster": {
     "name": "Geophagus dicrozoster",
     "mentionedIn": [
       "species/paracheirodon-axelrodi"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/geophagus-dicrozoster"
   },
   "hyphessobrycon-amapaensis": {
     "name": "Hyphessobrycon amapaensis",
     "mentionedIn": [
       "species/paracheirodon-simulans"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-amapaensis"
   },
   "parambassis-lala": {
     "name": "Parambassis lala",
@@ -4401,7 +4521,8 @@
     "mentionedIn": [
       "species/parosphromenus-sumatranus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/parosphromenus-bintan"
   },
   "hypostomus-punctatus": {
     "name": "Hypostomus punctatus",
@@ -4443,14 +4564,16 @@
     "mentionedIn": [
       "species/pethia-gelius"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/pethia-aurea"
   },
   "synodontis-angelicus": {
     "name": "Synodontis angelicus",
     "mentionedIn": [
       "species/pimelodus-pictus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/synodontis-angelicus"
   },
   "platydoras-brachylecis": {
     "name": "Platydoras brachylecis",
@@ -4513,7 +4636,8 @@
     "mentionedIn": [
       "species/rhinogobius-duospilus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/rhinogobius-zhoui"
   },
   "systomus-sarana": {
     "name": "Systomus sarana",
@@ -4569,7 +4693,8 @@
     "mentionedIn": [
       "species/sewellia-lineolata"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/sewellia-albisuera"
   },
   "traccatichthys-pulcher": {
     "name": "Traccatichthys pulcher",
@@ -4590,7 +4715,8 @@
     "mentionedIn": [
       "species/sinogastromyzon-wui"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis"
   },
   "filopaludina-javanica": {
     "name": "Filopaludina javanica",
@@ -4604,7 +4730,8 @@
     "mentionedIn": [
       "species/tanichthys-albonubes"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/tanichthys-micagemmae"
   },
   "tanichthys-thacbaensis": {
     "name": "Tanichthys thacbaensis",
@@ -4632,7 +4759,8 @@
     "mentionedIn": [
       "species/thorichthys-meeki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/mayaheros-urophthalmus"
   },
   "petenia-splendida": {
     "name": "Petenia splendida",
@@ -4695,7 +4823,8 @@
     "mentionedIn": [
       "species/thorichthys-meeki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus"
   },
   "thorichthys-socolofi": {
     "name": "Thorichthys socolofi",
@@ -4716,7 +4845,8 @@
     "mentionedIn": [
       "species/xenentodon-cancila"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/garra-rakhinica"
   },
   "xiphophorus-continens": {
     "name": "Xiphophorus continens",
@@ -4744,14 +4874,16 @@
     "mentionedIn": [
       "species/yasuhikotakia-eos"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/lobocheilos-melanotaenia"
   },
   "mystus-mysticetus": {
     "name": "Mystus mysticetus",
     "mentionedIn": [
       "species/yasuhikotakia-eos"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/mystus-mysticetus"
   },
   "yunnanilus-pulcherrimus": {
     "name": "Yunnanilus pulcherrimus",
@@ -4778,7 +4910,8 @@
   "epalzeorhynchos-frenatum": {
     "name": "Epalzeorhynchos frenatum",
     "mentionedIn": [],
-    "mentions": 0
+    "mentions": 0,
+    "onSource": "https://www.seriouslyfish.com/species/epalzeorhynchos-frenatum"
   },
   "arapaima-gigas": {
     "name": "Arapaima gigas",
@@ -4818,7 +4951,8 @@
   "chindongo-demasoni": {
     "name": "Chindongo demasoni",
     "mentionedIn": [],
-    "mentions": 0
+    "mentions": 0,
+    "onSource": "https://www.seriouslyfish.com/species/chindongo-demasoni"
   },
   "scatophagus-argus": {
     "name": "Scatophagus argus",

@@ -33,3 +33,11 @@ export function samplePages(paths: string[], per = 2, seed = Number(process.env.
   for (const p of paths) groups.set(templateOf(p), [...(groups.get(templateOf(p)) ?? []), p])
   return [...groups.values()].flatMap(g => (g.length <= 3 ? g : Array.from({ length: per }, (_, i) => g[(seed * per + i) % g.length]!)))
 }
+
+/**
+ * The first page of each kind in `kinds`, then `extra`: pages measured by name. A kind's first page that is also an extra
+ * gives way to the next page of that kind, so no page is listed twice (a test title must be unique).
+ */
+export const onePerKind = (paths: string[], kinds: string[], extra: string[] = []) =>
+  [...kinds.flatMap(k => paths.find(p => templateOf(p) === k && !extra.includes(p)) ?? []), ...extra]
+

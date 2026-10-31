@@ -11,7 +11,7 @@ import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
 import { plantTitle } from '../../../lib/meta'
 import { getContent } from '../../../lib/content'
-import { slugify } from '@aq/schema/slug'
+import { searchAliases } from '../../../lib/search'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { i18n, langOf } from '../../../lib/i18n'
@@ -42,7 +42,7 @@ const alternates = await alternatesOf('plants', p.id)
   <header class="wrap top">
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
-      <h1 data-pagefind-index-attrs="data-ascii" data-ascii={slugify(`${p.t.name} ${p.t.altNames.join(' ')}`).replaceAll('-', ' ')}>{p.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName)}>{p.t.name}</h1>
       <RedirectNote from={p.t.redirectFrom} />
       <p class="sci binomial">{p.scientificName}</p>
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>

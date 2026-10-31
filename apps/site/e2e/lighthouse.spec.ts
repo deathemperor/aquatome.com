@@ -1,7 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
-import { LIVE, sourcePages, templateOf } from './pages'
+import { LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
 // Lighthouse (what PageSpeed Insights runs) on one page of each kind readers open most: the phone run is PageSpeed's
 // mobile test, the computer run its desktop one. A score or a number past its budget fails the check, so a change that
@@ -28,17 +28,15 @@ const BUDGET: Record<'phone' | 'desktop', Budget> = {
 const KNOWN: Record<string, Partial<Budget>> = {
   // Every species card at once: ~15,400 elements on aquatome.com (more with each species added): phone 54, LCP 9.5 s.
   'vi/ca/2': { performance: 45, lcp: 12000, tbt: 800, dom: 20000 },
-  // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its footer
-  // jumps when the results arrive (CLS 0.41); the search index's script is ~200 KB.
-  'vi/tim-kiem/2': { performance: 55, seo: 55, cls: 0.45, js: 210 },
-  // The tank list is drawn after the page loads, from this browser's storage: CLS 0.10–0.17 on a phone.
-  '/vi/cong-cu/be-cua-toi/': { cls: 0.2 },
+  // A search page asks not to be indexed (SEO's "crawlable" fails on purpose) and has no description; its search
+  // script is ~90 KB.
+  'vi/tim-kiem/2': { seo: 55, js: 100 },
 }
 
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time.
 const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/3', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
-const known = sourcePages()
-const pages = [...KINDS.flatMap(k => known.find(p => templateOf(p) === k) ?? []), '/vi/tim-kiem/?q=neon']
+// Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
+const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'])
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {
@@ -58,9 +56,9 @@ for (const path of pages) {
         skipAudits: ['robots-txt'],
         // Never the site's visit counter (a check is not a reader). Locally, nothing from other sites either (ads,
         // analytics, photos: the build is served over http, everything else is https), nor the Worker's answers the
-        // pages ask for (likes, comments, products: the files alone have none, and a 404 is a console error).
+        // pages ask for (likes, comments, products, accounts: the files alone have none, and a 404 is a console error).
         // Live, the page as readers get it.
-        blockedUrlPatterns: ['*/_e', ...(LIVE ? [] : ['https://*', '*/_p?*', '*/_c?*', '*/_aff/*'])],
+        blockedUrlPatterns: ['*/_e', ...(LIVE ? [] : ['https://*', '*/_p?*', '*/_c?*', '*/_aff/*', '*/api/v1/*'])],
       }, form === 'desktop' ? desktopConfig : undefined)
       const lhr = result!.lhr
       await info.attach('lighthouse.json', { body: result!.report as string, contentType: 'application/json' })

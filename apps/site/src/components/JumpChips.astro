@@ -1,0 +1,47 @@
+---
+import { i18n } from '../lib/i18n'
+/** A sticky row of links to a long page's main parts, in page order; the part being read is marked as the reader scrolls. */
+interface Props { items: { href: string; label: string }[] }
+const { items } = Astro.props
+const { t } = i18n(Astro.url)
+---
+{items.length >= 2 && (
+  <nav class="jump" aria-label={t('Các mục trong trang')} data-jump data-pagefind-ignore>
+    <ul class="wrap scroll">{items.map(i => <li><a href={i.href}>{i.label}</a></li>)}</ul>
+  </nav>
+)}
+<script>
+  const nav = document.querySelector<HTMLElement>('[data-jump]')
+  if (nav) {
+    const row = nav.querySelector('ul')!
+    const links = [...row.querySelectorAll('a')]
+    const targets = links.map(a => document.getElementById(a.hash.slice(1)))
+    const calm = matchMedia('(prefers-reduced-motion: reduce)')
+    let current = -2
+    const update = () => {
+      // The part being read: the last one whose heading has passed under the row.
+      const line = nav.getBoundingClientRect().bottom + 24
+      const i = targets.reduce((at, el, k) => (el && el.getBoundingClientRect().top <= line ? k : at), -1)
+      if (i === current) return
+      current = i
+      links.forEach((a, k) => (k === i ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')))
+      // Keep the marked chip in view in the row: the row scrolls sideways only, never the page.
+      const a = links[i]
+      if (a) row.scrollTo({ left: a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2, behavior: calm.matches ? 'auto' : 'smooth' })
+    }
+    let frame = 0
+    addEventListener('scroll', () => { frame ||= requestAnimationFrame(() => { frame = 0; update() }) }, { passive: true })
+    update()
+  }
+</script>
+<style>
+  /* --sticky-top: the height of a header that stays on screen, if the page has one (none today). */
+  :global(html) { scroll-padding-top: calc(var(--sticky-top, 0px) + 4.5rem); scroll-behavior: smooth; }
+  .jump { position: sticky; top: var(--sticky-top, 0px); z-index: 2; background: var(--c-paper); border-block: 1px solid var(--c-rule); }
+  ul { position: relative; list-style: none; margin-block: 0; display: flex; gap: var(--space-2); padding-block: var(--space-2); overflow-x: auto; scrollbar-width: none; }
+  ul::-webkit-scrollbar { display: none; }
+  li { flex: none; }
+  a { display: flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink-soft); font: 500 0.9rem/1 var(--f-body); text-decoration: none; white-space: nowrap; transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out; }
+  a:hover { color: var(--c-ink); border-color: var(--c-ink-soft); }
+  a[aria-current] { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
+</style>
