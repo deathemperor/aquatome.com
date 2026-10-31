@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 /** The built site's folder the local checks read (the same one serve.mjs serves). */
@@ -11,6 +11,14 @@ export const allPages = (dist = DIST) =>
     .map(f => `/${f.replace(/\\/g, '/').replace(/index\.html$/, '')}`)
     .filter(p => !p.startsWith('/go/'))
     .sort()
+
+/** Checking a live site (E2E_BASE_URL) rather than a local build. */
+export const LIVE = !!process.env.E2E_BASE_URL
+const readList = (file?: string): string[] => (file && existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as string[]) : [])
+/** The pages to choose from: a live site's sitemap (E2E_PAGES, written by scripts/site-watch.mjs), else the local build. */
+export const sourcePages = () => (LIVE ? readList(process.env.E2E_PAGES) : allPages())
+/** Pages to check whatever the sample: those with an open problem (E2E_RECHECK), until they pass. */
+export const recheckPages = () => readList(process.env.E2E_RECHECK)
 
 /** A page's template: language, section and depth ("/vi/ca/x/anh/" → "vi/ca/4"). */
 export const templateOf = (path: string) => { const s = path.split('/').filter(Boolean); return `${s[0] ?? ''}/${s[1] ?? ''}/${s.length}` }

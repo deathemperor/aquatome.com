@@ -8,7 +8,8 @@ import { test as base, expect } from '@playwright/test'
 export const test = base.extend<{ errors: string[] }>({
   errors: [async ({ page, baseURL }, use) => {
     const own = new URL(baseURL!).origin
-    await page.route(url => url.origin !== own, route => route.abort())
+    // The site's own visit beacon too: a check is not a reader.
+    await page.route(url => url.origin !== own || url.pathname === '/_e', route => route.abort())
     const errors: string[] = []
     page.on('pageerror', e => errors.push(`exception: ${e.message}`))
     page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_FAILED/.test(m.text())) errors.push(`console: ${m.text()}`) })

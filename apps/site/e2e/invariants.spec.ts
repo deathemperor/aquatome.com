@@ -1,13 +1,26 @@
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { DIST, allPages, samplePages } from './pages'
+import type { APIRequestContext } from '@playwright/test'
+import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
 import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
 
 // What every page must do, on a phone and a computer, checked on a sample of each kind of page (pages.ts).
-const pages = samplePages(allPages())
+const known = new Set(sourcePages())
+const pages = [...new Set([...samplePages([...known]), ...recheckPages()])]
+
+// Does this site path lead to a page? A build: its file. A live site: in the sitemap, else asked once per worker
+// (pages left out of the sitemap, like photo galleries, still answer 200). Only a clear "not here" (404, 410) counts as
+// missing: a timeout or a "slow down" (429) says nothing about the page.
+const answered = new Map<string, Promise<boolean>>()
+const exists = (path: string, request: APIRequestContext) => {
+  if (!LIVE) return Promise.resolve(existsSync(join(DIST, path, path.endsWith('/') ? 'index.html' : '')))
+  if (known.has(path)) return Promise.resolve(true)
+  if (!answered.has(path)) answered.set(path, request.get(path, { maxRedirects: 3 }).then(r => ![404, 410].includes(r.status()), () => true))
+  return answered.get(path)!
+}
 
 for (const path of pages) {
-  test(`page ${path}`, { tag: '@invariants' }, async ({ page, errors }, info) => {
+  test(`page ${path}`, { tag: '@invariants' }, async ({ page, request, errors }, info) => {
     const res = await page.goto(path, { waitUntil: 'load' })
     expect(res?.status(), 'status').toBe(200)
 
@@ -35,7 +48,8 @@ for (const path of pages) {
 
     // Links to this site's pages lead to pages that exist.
     const hrefs = await page.$$eval('a[href^="/"]', as => [...new Set(as.map(a => a.getAttribute('href')!))])
-    const broken = hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => /^\/(vi|id|th)\//.test(h) && !existsSync(join(DIST, h, h.endsWith('/') ? 'index.html' : '')))
+    const paths = [...new Set(hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => /^\/(vi|id|th)\//.test(h)))]
+    const broken = (await Promise.all(paths.map(async h => ((await exists(h, request)) ? null : h)))).filter(Boolean)
     expect(broken, 'links to missing pages').toEqual([])
 
     // Indonesian and Thai pages show no Vietnamese. Left out: a quoted Vietnamese title (lang="vi") and the photo credits

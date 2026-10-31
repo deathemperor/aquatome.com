@@ -1,0 +1,59 @@
+name: watch
+# Layer 2 of docs/governance.md: the browser checks against aquatome.com after every deploy and each night, a different
+# sample of pages each day plus every page with an open problem. Problems become issues (label site-check) and close
+# themselves once the check passes. A failed deploy opens one too (its run was started by the engine: nobody else hears).
+on:
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+  schedule:
+    - cron: '0 22 * * *' # 05:00 in Vietnam
+  workflow_dispatch:
+concurrency:
+  group: watch
+  cancel-in-progress: false
+permissions:
+  contents: read
+  issues: write
+jobs:
+  deploy-failed:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: node scripts/site-watch.mjs deploy-failed "$DEPLOY_RUN"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN: ${{ github.event.workflow_run.html_url }}
+  check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - if: github.event_name == 'workflow_run'
+        run: node scripts/site-watch.mjs deploy-ok "$DEPLOY_RUN"
+        env:
+          DEPLOY_RUN: ${{ github.event.workflow_run.html_url }}
+      - run: pnpm --filter site exec playwright install --with-deps chromium
+      - run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
+      - name: checks
+        working-directory: apps/site
+        run: E2E_SEED=$((10#$(date -u +%j))) pnpm e2e
+        env:
+          E2E_BASE_URL: https://aquatome.com
+          E2E_PAGES: e2e-pages.json
+          E2E_RECHECK: e2e-recheck.json
+          E2E_JSON: e2e-results.json
+      - if: always()
+        run: node scripts/site-watch.mjs report apps/site/e2e-results.json "$RUN_URL"
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: e2e-report
+          path: apps/site/e2e-report
+          if-no-files-found: ignore

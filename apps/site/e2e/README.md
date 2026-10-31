@@ -16,7 +16,10 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
 - `fixtures.ts`: blocks every request that isn't the site itself (ads, analytics, photo hosts), and collects script
   errors in `errors`.
-- `E2E_DIST`: another build folder to serve. `E2E_BASE_URL`: run against a live site instead (no local server); the page list and the link check still read the local build.
+- `E2E_DIST`: another build folder to serve.
+- `E2E_BASE_URL`: check a live site instead (no local server). Its pages come from `E2E_PAGES` (the sitemap as JSON) plus
+  `E2E_RECHECK`. `scripts/site-watch.mjs prepare` writes both: `node scripts/site-watch.mjs prepare https://aquatome.com apps/site`.
+- `E2E_JSON`: results as JSON too (what `site-watch.mjs report` reads).
 
 A failure leaves a screenshot and a trace in `test-results/` (in CI: the `e2e-report` artifact).
 `npx playwright show-trace <trace.zip>` replays it.

@@ -2,7 +2,8 @@ import { expect, test } from './fixtures'
 
 // Dotted glossary terms (a.gl): hover shows the term and its meaning, a click opens its page; on a touch screen the
 // first tap shows the card and a second tap (or "Đọc thêm") opens the page.
-const GUIDE = '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'
+// A guide with glossary terms: in the fixture content, and on aquatome.com (production checks).
+const GUIDE = process.env.E2E_BASE_URL ? '/vi/huong-dan/10-cach-tri-reu-hai-nhanh-va-de-trong-be-thuy-sinh/' : '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'
 
 test('hover shows the card; a click still opens the term page', async ({ page, errors }, info) => {
   test.skip(info.project.name === 'phone', 'mouse only')
