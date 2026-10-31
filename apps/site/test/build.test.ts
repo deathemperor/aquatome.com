@@ -70,6 +70,10 @@ test('home features well-known species and links the full list instead of every 
   for (const slug of ['ca-neon-xanh', 'tep-red-cherry']) expect(cards, slug).toContain(`/vi/ca/${slug}/`)
   expect(cards.length).toBeLessThanOrEqual(8)
   expect(dom.querySelector('a[href="/vi/ca/"]')).toBeTruthy()
+  // Full data cards first: Cá ông tiên (a staple, only its size known) only fills a spot no complete species can.
+  const full = dom.querySelectorAll('section[aria-labelledby="featured-h"] article.sc').map(c => c.querySelectorAll('.label dd').length >= 2)
+  expect(full.length).toBeGreaterThan(0)
+  expect(full).toEqual([...full].sort((a, b) => Number(b) - Number(a)))
 })
 
 test('species page has JSON-LD', () => {
@@ -95,7 +99,7 @@ describe('browse pages', () => {
   })
   test('species list embeds a filter index and unit-tagged values', () => {
     const { dom, html } = page('/vi/ca/')
-    expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(8)
+    expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(9)
     expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })
