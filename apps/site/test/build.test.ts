@@ -188,6 +188,12 @@ describe('browse pages', () => {
     expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })
+  // The angelfish card ended at its Latin name, beside cards with figures, and read as unfinished (page review 2026-11-01).
+  test('a species card with no temperature, pH or difficulty says so where the figures go', () => {
+    const card = (path: string, slug: string) => page(path).dom.querySelector(`[data-slug="${slug}"] article`)!
+    expect(card('/vi/ca/', 'ca-ong-tien').querySelector('.label.none')?.text).toBe('Chưa có số liệu')
+    expect(card('/vi/ca/', 'ca-dia').querySelector('.label.none')).toBeNull()
+  })
 })
 
 describe('plants, guides, glossary, equipment, discovery', () => {

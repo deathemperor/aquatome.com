@@ -51,6 +51,13 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
     d.title = ct('Độ khó {value}/8', { value })
     d.textContent = word
   } else level!.remove()
-  if (!i.tempC && !i.ph && i.difficulty === undefined) $('dl').remove()
+  if (!i.tempC && !i.ph && i.difficulty === undefined) {
+    // As SpeciesCard says it: the figures' place, with the list's scoped attributes, holds the note.
+    const dl = $('dl'), note = document.createElement('p')
+    for (const a of dl.attributes) note.setAttribute(a.name, a.value)
+    note.className = 'label none'
+    note.textContent = ct('Chưa có số liệu')
+    dl.replaceWith(note)
+  }
   return card
 }

@@ -31,13 +31,13 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
     <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p ? <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} /> : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
     {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p></>}
   </a>
-  {(t || h || diff) && (
+  {t || h || diff ? (
     <dl class="label">
       {t && <div><dt>{tr('Nhiệt độ')}</dt><dd data-c={`${t.min},${t.max}`}>{range(t)}°C</dd><RangeBar kind="temp" min={t.min} max={t.max} /></div>}
       {h && <div><dt>pH</dt><dd>{range(h)}</dd><RangeBar kind="ph" min={h.min} max={h.max} /></div>}
       {diff && typeof diff.value === 'number' && <div class="lvl"><dt>{tr('Độ khó')}</dt><dd><Difficulty value={diff.value} /></dd></div>}
     </dl>
-  )}
+  ) : !breed && <p class="label none">{tr('Chưa có số liệu')}</p>}
 </article>
 <style>
   /* Labels sit at the card's foot so neighbouring cards' rows line up whatever the name's length. */
@@ -55,6 +55,8 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
   .label { margin: auto 0 0; padding-top: var(--space-2); border-top: 1px solid var(--c-ink); display: grid; gap: var(--space-2); font-size: 0.8rem; }
   .label > div { display: grid; grid-template-columns: 1fr auto; align-items: baseline; row-gap: 3px; }
   .label > div > :global(.rb) { grid-column: 1 / -1; }
+  /* No temperature, pH or difficulty yet: said at the card's foot, where its neighbours' figures start. */
+  .none { display: block; color: var(--c-ink-faint); }
   dt { color: var(--c-ink-faint); }
   dd { margin: 0; color: var(--c-ink); font-variant-numeric: tabular-nums; }
 </style>
