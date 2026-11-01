@@ -98,10 +98,10 @@ struct AquaTomeApp: App {
     return PlugsModel()
   }
 
-  /// Bluetooth on a device; the simulator has none, so it gets a fake light (UI tests run on it too).
+  /// Bluetooth on a device; the simulator has none, so a debug build there (every UI test) gets a fake light.
   @MainActor
   private static func radio() -> Radio {
-    #if targetEnvironment(simulator)
+    #if DEBUG && targetEnvironment(simulator)
     FakeRadio()
     #else
     BluetoothRadio()

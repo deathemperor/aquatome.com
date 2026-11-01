@@ -126,10 +126,18 @@ final class TanksModel {
   }
 
   /// A change to a connected light, made to its record as the store has it now (met again if its tank went).
-  func changeLight(bleName: String, model: String, _ change: (inout Device) -> Void) {
+  @discardableResult
+  func changeLight(bleName: String, model: String, _ change: (inout Device) -> Void) -> Bool {
     var s = store
     guard let d = try? s.metLight(bleName: bleName, model: model, tankName: Self.newTankName),
-          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return }
+          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return false }
+    return (try? commit(s)) != nil
+  }
+
+  /// "Quên đèn này" on the lights screen: a tombstone, so a copy elsewhere doesn't bring it back when they sync.
+  func forgetLight(_ id: String) {
+    var s = store
+    guard (try? s.deleteDevice(id)) != nil else { return }
     try? commit(s)
   }
 

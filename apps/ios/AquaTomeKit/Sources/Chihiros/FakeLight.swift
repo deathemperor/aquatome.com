@@ -1,3 +1,5 @@
+// Debug builds only (the kit's tests, the app's simulator builds): kept out of the App Store build.
+#if DEBUG
 /// A light that isn't there, for tests and the simulator (which has no Bluetooth). It answers the way the WRGB II Slim
 /// (firmware 24) did in hands-on tests on 2026-10-31:
 /// - `askStatus` → a runtime reply, then a status snapshot (`Snapshot`).
@@ -22,6 +24,8 @@ public final class FakeLight: LightLink {
   /// How long each write takes to be acknowledged.
   public var writeDelay: Duration = .zero
   public private(set) var isConnected = true
+  /// Runs after each frame is taken (the simulator's light drops the connection on one, for a UI test).
+  public var afterWrite: (@MainActor ([UInt8]) -> Void)?
 
   public init(firmware: Int = 24, clock: Snapshot.Clock = .init(weekday: 6, time: TimeOfDay(hour: 15, minute: 41)), points: [Snapshot.Point]) {
     self.firmware = firmware
@@ -63,6 +67,7 @@ public final class FakeLight: LightLink {
     default:
       break
     }
+    afterWrite?(f)
   }
 
   public func disconnect() {
@@ -92,3 +97,4 @@ public final class FakeLight: LightLink {
 }
 
 public enum FakeLightError: Error { case disconnected }
+#endif

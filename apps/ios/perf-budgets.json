@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 1730,
-      "reason": "raised 2026-11-01 from 1340 kB for smart plugs on a tank (#308): +306 kB measured on both commits (Release archive on one Mac, 1266.9 → 1573.0 kB): the kit's plugs module 97 kB (the Tuya client 23, the switching rules 19, standard-library generics specialized for it 34, signing, data centers and types the rest), the tank's plug section 47 kB, the add and edit forms 44 kB, the setup screen 44 kB, the plugs model, Keychain store and plug records 20 kB, the id/th strings 26 kB, growth in existing views, the linker and padding 27 kB; the stand-in cloud and simulator setup are already out of release builds. Worth it: the owner asked for plugs, the first control beyond the lights. Budget: 1573 kB ×1.1. Then the tank-mates check on a tank (#306) on top, measured on one Mac: main with plugs 1610.3 → 1682.6 kB (+72.3 kB: the check's code, its section, the site's script), under this budget, so it stays"
+      "max": 1978,
+      "reason": "raised 2026-11-01 from 1730 kB for the Lights tab as the site's Chihiros page, starting with the light card (#305): +115.2 kB measured on both commits (Release archive on one Mac, 1682.6 → 1797.8 kB, main with smart plugs and the tank-mates check): its views 79.3 kB, its model 34.0 kB, the id/th strings 8.0 kB, after taking the fake light and radio out of release builds (−18.6 kB). The day (#309) measures 1867.1 kB under it. Worth it: the owner asked for the site's light page in the app. Budget: 1797.8 kB ×1.1"
     }
   ]
 }

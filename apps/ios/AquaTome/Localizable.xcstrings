@@ -17,18 +17,18 @@
         }
       }
     },
-    "%@–%@ · %lld%% · sáng dần %lld phút": {
+    "%@ tiếng": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@–%2$@ · %3$lld%% · terang bertahap %4$lld menit"
+            "value": "%@ jam"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@–%2$@ · %3$lld%% · ค่อย ๆ สว่าง %4$lld นาที"
+            "value": "%@ ชั่วโมง"
           }
         }
       }
@@ -45,6 +45,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "มี %lld รายการที่ไม่ถูกต้อง จึงยังไม่ได้เพิ่มเข้าบัญชี"
+          }
+        }
+      }
+    },
+    "%lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld menit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld นาที"
           }
         }
       }
@@ -125,6 +141,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld ช่อง · ขาดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "(xong)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "(selesai)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "(เสร็จแล้ว)"
           }
         }
       }
@@ -241,6 +273,22 @@
         }
       }
     },
+    "Bấm vào tên để đổi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ketuk nama untuk mengubah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แตะที่ชื่อเพื่อเปลี่ยน"
+          }
+        }
+      }
+    },
     "Bật": {
       "localizations": {
         "id": {
@@ -253,6 +301,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิด"
+          }
+        }
+      }
+    },
+    "Bật Bluetooth, đứng gần đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan Bluetooth, berdirilah di dekat lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด Bluetooth และอยู่ใกล้โคมไฟ"
           }
         }
       }
@@ -289,6 +353,22 @@
         }
       }
     },
+    "Bật tắt nhanh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala/mati cepat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด/ปิดด่วน"
+          }
+        }
+      }
+    },
     "Bật tắt ổ cắm Smart Life ngay trên bể, bằng dự án Tuya của riêng bạn: không cần tài khoản AquaTome.": {
       "localizations": {
         "id": {
@@ -301,22 +381,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดปิดปลั๊กไฟ Smart Life ได้จากหน้าตู้ ด้วยโปรเจกต์ Tuya ของคุณเอง ไม่ต้องมีบัญชี AquaTome"
-          }
-        }
-      }
-    },
-    "Bật đèn, bật Bluetooth và lại gần đèn. Đóng ứng dụng My Chihiros trên các máy khác: mỗi lúc đèn chỉ nhận một kết nối.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nyalakan lampu dan Bluetooth, lalu dekati lampu. Tutup aplikasi My Chihiros di perangkat lain: lampu hanya menerima satu koneksi dalam satu waktu."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เปิดโคมไฟและบลูทูธ แล้วเข้าใกล้โคมไฟ ปิดแอป My Chihiros บนเครื่องอื่น เพราะโคมไฟรับการเชื่อมต่อได้ครั้งละหนึ่งเครื่องเท่านั้น"
           }
         }
       }
@@ -545,18 +609,18 @@
         }
       }
     },
-    "Chưa có lịch": {
+    "Chưa ghi lịch nào từ AquaTome.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Belum ada jadwal"
+            "value": "Belum ada jadwal yang disimpan dari AquaTome."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ยังไม่มีตาราง"
+            "value": "ยังไม่ได้บันทึกตารางเวลาใดจาก AquaTome"
           }
         }
       }
@@ -589,6 +653,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่ได้ส่งคำสั่ง: %@"
+          }
+        }
+      }
+    },
+    "Chưa kết nối được đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa terhubung ke lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังเชื่อมต่อโคมไฟไม่ได้"
           }
         }
       }
@@ -657,6 +737,22 @@
         }
       }
     },
+    "Chưa đọc được giờ của đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam lampu belum bisa dibaca."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังอ่านเวลาของโคมไฟไม่ได้"
+          }
+        }
+      }
+    },
     "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
@@ -705,6 +801,22 @@
         }
       }
     },
+    "Chỉnh giờ đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atur jam lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งเวลาโคมไฟ"
+          }
+        }
+      }
+    },
     "Chỉnh giờ đèn theo máy này": {
       "localizations": {
         "id": {
@@ -737,6 +849,22 @@
         }
       }
     },
+    "Chọn lịch và màu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih jadwal dan warna"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกตารางเวลาและสี"
+          }
+        }
+      }
+    },
     "Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.": {
       "localizations": {
         "id": {
@@ -765,6 +893,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home” และ Data Center ภูมิภาคเดียวกับบัญชี Smart Life ของคุณ"
+          }
+        }
+      }
+    },
+    "Cài đèn mới": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atur lampu baru"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งค่าโคมไฟใหม่"
           }
         }
       }
@@ -961,6 +1105,22 @@
         }
       }
     },
+    "Cắm điện, bật đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokkan listrik, nyalakan lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียบปลั๊กและเปิดโคมไฟ"
+          }
+        }
+      }
+    },
     "Dài": {
       "localizations": {
         "id": {
@@ -1121,18 +1281,18 @@
         }
       }
     },
-    "Giờ của đèn": {
+    "Ghi từ AquaTome ngày %@.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jam lampu"
+            "value": "Disimpan dari AquaTome pada %@."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "เวลาของโคมไฟ"
+            "value": "บันทึกจาก AquaTome เมื่อ %@"
           }
         }
       }
@@ -1233,6 +1393,22 @@
         }
       }
     },
+    "Hoàn tác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batalkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยกเลิกการเปลี่ยนแปลง"
+          }
+        }
+      }
+    },
     "Hướng dẫn": {
       "localizations": {
         "id": {
@@ -1261,22 +1437,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตั้งเวลาเปิดปิดทุกวัน"
-          }
-        }
-      }
-    },
-    "Hẹn giờ bật tắt, chỉnh độ sáng từng màu và chỉnh giờ cho đèn Chihiros qua Bluetooth.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atur timer nyala-mati, kecerahan tiap warna, dan jam lampu Chihiros lewat Bluetooth."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตั้งเวลาเปิดปิด ปรับความสว่างแต่ละสี และตั้งเวลาให้โคมไฟ Chihiros ผ่านบลูทูธ"
           }
         }
       }
@@ -1409,22 +1569,6 @@
         }
       }
     },
-    "Khôi phục lịch trước: %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pulihkan jadwal sebelumnya: %@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "คืนค่าตารางก่อนหน้า: %@"
-          }
-        }
-      }
-    },
     "Không có mạng hoặc Tuya không trả lời: thử lại khi có mạng.": {
       "localizations": {
         "id": {
@@ -1457,18 +1601,18 @@
         }
       }
     },
-    "Không gửi được lệnh tới đèn.": {
+    "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gagal mengirim perintah ke lampu."
+            "value": "Perintah tidak terkirim ke lampu. Dekati lampu lalu coba lagi."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ส่งคำสั่งไปยังโคมไฟไม่ได้"
+            "value": "ส่งคำสั่งไปยังโคมไฟไม่ได้ ขยับเข้าใกล้โคมไฟแล้วลองอีกครั้ง"
           }
         }
       }
@@ -1501,6 +1645,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่ทราบสถานะ"
+          }
+        }
+      }
+    },
+    "Không thấy %@ quanh đây. Bật đèn, lại gần rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ tidak ditemukan di sekitar sini. Nyalakan lampu, mendekatlah, lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบ %@ ในบริเวณนี้ เปิดโคมไฟ ขยับเข้าใกล้แล้วลองอีกครั้ง"
           }
         }
       }
@@ -1617,18 +1777,18 @@
         }
       }
     },
-    "Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.": {
+    "Kéo để đổi độ sáng ngay. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch” hoặc ghi lịch mới.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geser untuk langsung mengubah kecerahan. Lampu beralih ke mode manual dan mengabaikan jadwal timer sampai Anda menyimpan jadwal lagi."
+            "value": "Geser untuk mengubah kecerahan sekarang. Lampu mengabaikan jadwal sampai Anda mengetuk “Sesuai jadwal” atau menyimpan jadwal baru."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ลากเพื่อเปลี่ยนความสว่างทันที โคมไฟจะเปลี่ยนเป็นโหมดปรับเองและไม่ทำตามตารางเวลา จนกว่าจะบันทึกตารางใหม่"
+            "value": "ลากเพื่อเปลี่ยนความสว่างทันที โคมไฟจะไม่ทำงานตามตารางเวลาจนกว่าจะกด “ตามตารางเวลา” หรือบันทึกตารางเวลาใหม่"
           }
         }
       }
@@ -1649,6 +1809,38 @@
         }
       }
     },
+    "Kết nối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "Kết nối lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan ulang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่ออีกครั้ง"
+          }
+        }
+      }
+    },
     "Kết nối đèn": {
       "localizations": {
         "id": {
@@ -1661,6 +1853,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อโคมไฟ"
+          }
+        }
+      }
+    },
+    "Kết nối đèn của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan lampu Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟของคุณ"
+          }
+        }
+      }
+    },
+    "Kết nối đèn khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan lampu lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟอื่น"
+          }
+        }
+      }
+    },
+    "Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan lampu untuk menyimpan jadwal. Jadwal ini diingat di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อโคมไฟเพื่อบันทึกตารางเวลา ตารางเวลานี้จะถูกจำไว้บนเครื่อง"
           }
         }
       }
@@ -1729,18 +1969,18 @@
         }
       }
     },
-    "Lịch": {
+    "Lịch %@, sáng dần %lld phút": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jadwal"
+            "value": "Jadwal %1$@, terang bertahap %2$lld menit"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ตาราง"
+            "value": "ตารางเวลา %1$@ ค่อยๆ สว่างขึ้น %2$lld นาที"
           }
         }
       }
@@ -1761,34 +2001,34 @@
         }
       }
     },
-    "Lịch đang lưu trên đèn sẽ bị xóa và thay bằng lịch này. Ghi lịch?": {
+    "Lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, sẽ bị thay bằng lịch này. Ghi lịch?": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jadwal yang tersimpan di lampu akan dihapus dan diganti dengan jadwal ini. Simpan jadwal?"
+            "value": "Jadwal yang tersimpan di lampu, termasuk yang diatur lewat aplikasi My Chihiros, akan diganti dengan jadwal ini. Simpan jadwal?"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ตารางที่บันทึกไว้ในโคมไฟจะถูกลบและแทนที่ด้วยตารางนี้ บันทึกตารางหรือไม่?"
+            "value": "ตารางเวลาที่เก็บอยู่ในโคมไฟ รวมถึงตารางเวลาที่ตั้งด้วยแอป My Chihiros จะถูกแทนที่ด้วยตารางเวลานี้ บันทึกตารางเวลาหรือไม่"
           }
         }
       }
     },
-    "Lịch đặt bằng ứng dụng khác": {
+    "Lịch đặt bằng ứng dụng My Chihiros (nếu có) vẫn chạy; đèn không cho đọc lại lịch đó.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jadwal dari aplikasi lain"
+            "value": "Jadwal yang diatur lewat aplikasi My Chihiros (jika ada) tetap berjalan; lampu tidak mengizinkan jadwal itu dibaca kembali."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ตารางที่ตั้งจากแอปอื่น"
+            "value": "ตารางเวลาที่ตั้งด้วยแอป My Chihiros (ถ้ามี) ยังทำงานอยู่ แต่โคมไฟไม่อนุญาตให้อ่านตารางเวลานั้น"
           }
         }
       }
@@ -1857,6 +2097,38 @@
         }
       }
     },
+    "Mất kết nối với %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi ke %@ terputus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อกับ %@"
+          }
+        }
+      }
+    },
+    "Mất kết nối với đèn. Lại gần đèn rồi bấm “Kết nối lại”.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi ke lampu terputus. Dekati lampu lalu ketuk “Hubungkan ulang”."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อกับโคมไฟ ขยับเข้าใกล้โคมไฟแล้วแตะ “เชื่อมต่ออีกครั้ง”"
+          }
+        }
+      }
+    },
     "Mọi ổ cắm trong dự án Tuya đã ở trên một bể.": {
       "localizations": {
         "id": {
@@ -1869,6 +2141,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊กไฟทุกตัวในโปรเจกต์ Tuya อยู่บนตู้แล้ว"
+          }
+        }
+      }
+    },
+    "Mở Cài đặt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka Pengaturan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดการตั้งค่า"
           }
         }
       }
@@ -2017,6 +2305,22 @@
         }
       }
     },
+    "Quên đèn này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lupakan lampu ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลืมโคมไฟนี้"
+          }
+        }
+      }
+    },
     "Quạt": {
       "localizations": {
         "id": {
@@ -2097,6 +2401,22 @@
         }
       }
     },
+    "Sáng hết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สว่างเต็มที่"
+          }
+        }
+      }
+    },
     "Sưởi": {
       "localizations": {
         "id": {
@@ -2173,6 +2493,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "แก้ไข"
+          }
+        }
+      }
+    },
+    "Theo lịch": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesuai jadwal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตามตารางเวลา"
           }
         }
       }
@@ -2625,6 +2961,22 @@
         }
       }
     },
+    "Tên đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อโคมไฟ"
+          }
+        }
+      }
+    },
     "Tìm": {
       "localizations": {
         "id": {
@@ -2669,22 +3021,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค้นหาชนิดปลา ไม้น้ำ คู่มือ"
-          }
-        }
-      }
-    },
-    "Tìm đèn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cari lampu"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ค้นหาโคมไฟ"
           }
         }
       }
@@ -2769,6 +3105,22 @@
         }
       }
     },
+    "Tắt đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดไฟ"
+          }
+        }
+      }
+    },
     "Tắt “%@”?": {
       "localizations": {
         "id": {
@@ -2797,6 +3149,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เช่น ตู้ 60 ห้องนั่งเล่น"
+          }
+        }
+      }
+    },
+    "Vẫn lập lịch được ở dưới: ứng dụng nhớ lịch trên máy này để ghi vào đèn sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jadwal tetap bisa dibuat di bawah: aplikasi menyimpannya di perangkat ini untuk ditulis ke lampu nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังตั้งตารางเวลาด้านล่างได้: แอปจะจำตารางเวลาไว้ในเครื่องนี้เพื่อบันทึกลงโคมไฟภายหลัง"
           }
         }
       }
@@ -3041,18 +3409,18 @@
         }
       }
     },
-    "chưa đặt": {
+    "chậm": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "belum diatur"
+            "value": "lambat"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ยังไม่ได้ตั้ง"
+            "value": "ช้า"
           }
         }
       }
@@ -3073,6 +3441,38 @@
         }
       }
     },
+    "lịch %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "jadwal %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตารางเวลา %@"
+          }
+        }
+      }
+    },
+    "nhanh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "cepat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เร็ว"
+          }
+        }
+      }
+    },
     "sáng dần %lld phút": {
       "localizations": {
         "id": {
@@ -3085,22 +3485,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ สว่างขึ้น %lld นาที"
-          }
-        }
-      }
-    },
-    "Đang chạy trên đèn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yang berjalan di lampu"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ที่โคมไฟใช้อยู่"
           }
         }
       }
@@ -3121,6 +3505,22 @@
         }
       }
     },
+    "Đang ghi…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang menulis…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังบันทึก…"
+          }
+        }
+      }
+    },
     "Đang gửi lệnh…": {
       "localizations": {
         "id": {
@@ -3137,6 +3537,22 @@
         }
       }
     },
+    "Đang kết nối lại…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghubungkan ulang…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังเชื่อมต่อใหม่…"
+          }
+        }
+      }
+    },
     "Đang kết nối…": {
       "localizations": {
         "id": {
@@ -3149,6 +3565,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังเชื่อมต่อ…"
+          }
+        }
+      }
+    },
+    "Đang tìm %@…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mencari %@…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังค้นหา %@…"
           }
         }
       }
@@ -3233,50 +3665,66 @@
         }
       }
     },
-    "Đã ghi lịch: bật %@, tắt %@. Đèn chạy theo lịch từ bây giờ.": {
+    "Đã ghi: bật %@, tắt %@. Đèn chạy theo lịch từ bây giờ.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jadwal tersimpan: nyala %1$@, mati %2$@. Lampu mulai mengikuti jadwal sekarang."
+            "value": "Tersimpan: nyala %1$@, mati %2$@. Mulai sekarang lampu mengikuti jadwal."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "บันทึกตารางแล้ว: เปิด %1$@ ปิด %2$@ โคมไฟจะทำงานตามตารางตั้งแต่ตอนนี้"
+            "value": "บันทึกแล้ว: เปิด %1$@ ปิด %2$@ โคมไฟจะทำงานตามตารางเวลาตั้งแต่นี้"
           }
         }
       }
     },
-    "Đã kết nối %@ (%@), firmware %lld.": {
+    "Đã kết nối %@, firmware %lld: bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Terhubung ke %1$@ (%2$@), firmware %3$lld."
+            "value": "Terhubung ke %1$@, firmware %2$lld: versi ini belum bisa diatur timernya dari aplikasi, perbarui firmware lewat aplikasi My Chihiros."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "เชื่อมต่อ %1$@ (%2$@) แล้ว firmware %3$lld"
+            "value": "เชื่อมต่อ %1$@ แล้ว firmware %2$lld: เวอร์ชันนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดต firmware ด้วยแอป My Chihiros"
           }
         }
       }
     },
-    "Đã kết nối %@ (%@), firmware %lld: bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.": {
+    "Đã kết nối %@.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Terhubung ke %1$@ (%2$@), firmware %3$lld: versi ini belum bisa diatur timernya dari aplikasi, perbarui firmware lewat aplikasi My Chihiros."
+            "value": "%@ terhubung."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "เชื่อมต่อ %1$@ (%2$@) แล้ว firmware %3$lld: เวอร์ชันนี้ยังตั้งเวลาจากแอปไม่ได้ ให้อัปเดต firmware ด้วยแอป My Chihiros"
+            "value": "เชื่อมต่อ %@ แล้ว"
+          }
+        }
+      }
+    },
+    "Đã kết nối %@. Đèn mới: làm theo các bước trong khung này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ terhubung. Lampu baru: ikuti langkah-langkah di kotak ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อ %@ แล้ว หากเป็นโคมไฟใหม่ ให้ทำตามขั้นตอนในกรอบนี้"
           }
         }
       }
@@ -3345,6 +3793,22 @@
         }
       }
     },
+    "Đã quên đèn trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu sudah dihapus dari perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบโคมไฟออกจากเครื่องนี้แล้ว"
+          }
+        }
+      }
+    },
     "Đã thêm %lld bể từ tài khoản.": {
       "localizations": {
         "id": {
@@ -3357,6 +3821,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มตู้ปลา %lld ตู้จากบัญชีแล้ว"
+          }
+        }
+      }
+    },
+    "Đã tắt đèn. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu dimatikan. Lampu mengabaikan jadwal sampai Anda mengetuk “Sesuai jadwal”."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดไฟแล้ว โคมไฟจะไม่ทำงานตามตารางเวลาจนกว่าจะกด “ตามตารางเวลา”"
           }
         }
       }
@@ -3441,6 +3921,22 @@
         }
       }
     },
+    "Đã đổi tên đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama lampu sudah diganti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนชื่อโคมไฟแล้ว"
+          }
+        }
+      }
+    },
     "Đèn": {
       "localizations": {
         "id": {
@@ -3505,6 +4001,22 @@
         }
       }
     },
+    "Đèn chạy lại theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu kembali mengikuti jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟกลับมาทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
     "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.": {
       "localizations": {
         "id": {
@@ -3517,6 +4029,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โคมไฟไม่ตอบสนอง ตัดการเชื่อมต่อแล้วเชื่อมต่อใหม่"
+          }
+        }
+      }
+    },
+    "Đèn mất giờ, có thể do mất điện: lịch sẽ chạy sai giờ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam lampu hilang, mungkin karena listrik padam: jadwal akan berjalan di jam yang salah."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาในโคมไฟหายไป อาจเกิดจากไฟดับ: ตารางเวลาจะทำงานผิดเวลา"
           }
         }
       }
@@ -3537,6 +4065,22 @@
         }
       }
     },
+    "Đèn sáng hết. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala penuh. Lampu mengabaikan jadwal sampai Anda mengetuk “Sesuai jadwal”."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดไฟสว่างเต็มที่แล้ว โคมไฟจะไม่ทำงานตามตารางเวลาจนกว่าจะกด “ตามตารางเวลา”"
+          }
+        }
+      }
+    },
     "Đèn tìm thấy": {
       "localizations": {
         "id": {
@@ -3553,18 +4097,66 @@
         }
       }
     },
-    "Đèn đã ngắt kết nối.": {
+    "Đèn đang chỉnh tay (%lld%%), không chạy theo lịch.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Koneksi lampu terputus."
+            "value": "Lampu sedang diatur manual (%lld%%), tidak mengikuti jadwal."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ไฟตัดการเชื่อมต่อแล้ว"
+            "value": "โคมไฟกำลังปรับด้วยตนเอง (%lld%%) ไม่ได้ทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Đèn đang dùng lịch này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu sedang memakai jadwal ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟกำลังใช้ตารางเวลานี้"
+          }
+        }
+      }
+    },
+    "Đèn đang tắt bằng tay, không chạy theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu dimatikan manual, tidak mengikuti jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟถูกปิดด้วยตนเอง ไม่ได้ทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Đèn đã lưu trên máy này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu yang tersimpan di perangkat ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟที่บันทึกไว้ในเครื่องนี้"
           }
         }
       }
@@ -3581,6 +4173,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นี่เป็น Apple ID อื่น โปรดเข้าสู่ระบบด้วย Apple ID ของบัญชีนี้"
+          }
+        }
+      }
+    },
+    "Đóng ứng dụng My Chihiros trên các điện thoại khác: đèn chỉ nhận một kết nối.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutup aplikasi My Chihiros di ponsel lain: lampu hanya menerima satu koneksi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดแอป My Chihiros ในโทรศัพท์เครื่องอื่น: โคมไฟรับการเชื่อมต่อได้ครั้งละหนึ่งเครื่องเท่านั้น"
           }
         }
       }
@@ -3665,34 +4273,34 @@
         }
       }
     },
-    "Đồng hồ trong đèn chưa được đặt, thường do mất điện. Đèn sẽ bật tắt sai giờ cho tới khi chỉnh lại.": {
+    "Đồng hồ đèn %@ %@: lịch sẽ chạy lệch.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jam di lampu belum diatur, biasanya karena listrik padam. Lampu akan menyala dan mati di jam yang salah sampai jamnya disamakan."
+            "value": "Jam lampu %1$@ %2$@: jadwal akan bergeser."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "นาฬิกาในโคมไฟยังไม่ได้ตั้ง มักเกิดจากไฟดับ โคมไฟจะเปิดปิดผิดเวลาจนกว่าจะตั้งใหม่"
+            "value": "นาฬิกาของโคมไฟ%1$@ %2$@: ตารางเวลาจะคลาดเคลื่อน"
           }
         }
       }
     },
-    "Đồng hồ trong đèn lệch %lld phút so với điện thoại.": {
+    "Đồng hồ đèn đúng giờ.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jam di lampu selisih %lld menit dari ponsel."
+            "value": "Jam lampu sudah tepat."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "นาฬิกาในโคมไฟคลาดจากโทรศัพท์ %lld นาที"
+            "value": "นาฬิกาของโคมไฟตรงเวลา"
           }
         }
       }
