@@ -6,8 +6,8 @@
       "test": "PerformanceTests/testLaunch()",
       "metric": "com.apple.dt.XCTMetric_ApplicationLaunch-ApplicationFirstFramePresentationResponsive.duration",
       "unit": "s",
-      "max": 4.7,
-      "reason": "raised 2026-11-01 from 3.8 s: the same app launched in 2.64–3.73 s on different hosted runners (3.73 s on PR #265, which doesn't touch launch). Budget: the slowest seen ×1.25"
+      "max": 6.1,
+      "reason": "raised 2026-11-01 from 4.7 s: the same app launched in 2.45–4.86 s on hosted runners (2.45 on #312, 2.88, 3.44, 3.80, 3.90, 4.02 on main after #333, 4.16, 4.28, 4.61, and 4.86 on PR #333). #333 made no difference measured on one Mac: medians 1.467 and 1.445 s before it, 1.407 and 1.427 s after, runs interleaved on one simulator. Budget: the slowest seen ×1.25"
     },
     {
       "name": "CPU time flinging through 800 fish",
