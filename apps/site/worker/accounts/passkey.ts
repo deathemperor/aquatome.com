@@ -74,8 +74,11 @@ export async function addPasskey(db: D1Database, rp: Rp, userId: string, respons
     return 'bad_passkey'
   }
   const { id, publicKey, counter } = info.credential
-  // As the browser sent them: only the names WebAuthn knows are kept.
-  const transports = info.credential.transports?.filter(t => TRANSPORTS.has(t))
+  // WebAuthn: a credential id is at most 1023 bytes.
+  if (isoBase64URL.toBuffer(id).length > 1023) return 'bad_passkey'
+  // As the browser sent them: a list, and only the names WebAuthn knows are kept.
+  const sent: unknown = info.credential.transports
+  const transports = Array.isArray(sent) ? sent.filter((t): t is AuthenticatorTransport => TRANSPORTS.has(t)) : undefined
   try {
     await db.prepare(`INSERT INTO credentials (id, user_id, kind, subject, public_key, counter, transports, created_at) VALUES (?, ?, 'passkey', ?, ?, ?, ?, ?)`)
       .bind(crypto.randomUUID(), userId, id, isoBase64URL.fromBuffer(publicKey), counter, transports?.length ? JSON.stringify(transports) : null, now.toISOString()).run()
@@ -114,6 +117,10 @@ export async function checkPasskey(db: D1Database, rp: Rp, response: unknown, no
   } catch {
     return undefined
   }
-  await db.prepare(`UPDATE credentials SET counter = ?, last_used_at = ? WHERE kind = 'passkey' AND subject = ?`).bind(newCounter, now.toISOString(), row.subject).run()
+  // A counter that moves on moves past the one stored now, not the one read before: two answers with the same counter at
+  // once (a cloned key) sign in once. Synced passkeys say 0, always.
+  const moved = await db.prepare(`UPDATE credentials SET counter = ?1, last_used_at = ?2 WHERE kind = 'passkey' AND subject = ?3 AND (?1 = 0 OR counter < ?1)`)
+    .bind(newCounter, now.toISOString(), row.subject).run()
+  if (!moved.meta.changes) return undefined
   return row.user_id
 }

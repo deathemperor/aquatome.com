@@ -45,7 +45,7 @@ test('the email sign-in waiting for its code: kept until it expires; the code co
   const data = new Map<string, string>()
   const s = { getItem: (k: string) => data.get(k) ?? null, removeItem: (k: string) => void data.delete(k) }
   data.set(PENDING, JSON.stringify({ flow: 'f1', until: '2026-10-31T10:15:00.000Z' }))
-  expect(pendingFlow(s, new Date('2026-10-31T10:14:00.000Z'))).toBe('f1')
+  expect(pendingFlow(s, new Date('2026-10-31T10:14:00.000Z'))).toEqual({ flow: 'f1', until: '2026-10-31T10:15:00.000Z' })
   expect(pendingFlow(s, new Date('2026-10-31T10:16:00.000Z'))).toBeUndefined()
   expect(data.has(PENDING)).toBe(false)
   expect(codeInHash('#ma=012345')).toBe('012345')

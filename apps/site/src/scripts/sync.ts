@@ -10,7 +10,8 @@ import { mergeStores } from '@aq/schema/tank-rules'
 export type Method = { id: string; kind: 'apple' | 'google' | 'passkey' | 'email'; createdAt: string; lastUsedAt: string | null }
 export type User = { id: string; createdAt: string | null; methods: Method[] }
 export type Providers = { google: { clientId: string } | null; apple: { clientId: string } | null; email: boolean; passkey: boolean }
-export type Session = { accounts: false } | { accounts: true; providers: Providers; turnstileSitekey: string | null; user: User | null }
+/** `signedInAt`: when this browser signed in, if it is (adding a way to sign in needs it recent). */
+export type Session = { accounts: false } | { accounts: true; providers: Providers; turnstileSitekey: string | null; user: User | null; signedInAt?: string }
 export type Fail = { error: string }
 type Fetch = (input: string, init?: RequestInit) => Promise<Response>
 
@@ -61,14 +62,16 @@ export const signOut = (f: Fetch = fetch) => call<object>(f, 'POST', '/api/v1/au
 
 /**
  * The email sign-in waiting for its code, kept in localStorage: the mail's link opens a new tab of this browser, which
- * finishes it. Never the address: only the flow secret, until it expires.
+ * finishes it. Never the address: only the flow secret, until it expires, and what it is for.
  */
 export const PENDING = 'aq.signin'
-export type Pending = { flow: string; until: string }
-export function pendingFlow(storage: Pick<Storage, 'getItem' | 'removeItem'>, now: Date): string | undefined {
+/** What a sign-in is for: adding a way to the account signed in here, or signing in to it again first. None: signing in. */
+export type Mode = 'add' | 'again'
+export type Pending = { flow: string; until: string; mode?: Mode }
+export function pendingFlow(storage: Pick<Storage, 'getItem' | 'removeItem'>, now: Date): Pending | undefined {
   try {
     const p = JSON.parse(storage.getItem(PENDING) ?? 'null') as Pending | null
-    if (p && typeof p.flow === 'string' && p.until > now.toISOString()) return p.flow
+    if (p && typeof p.flow === 'string' && p.until > now.toISOString()) return p
   } catch { /* unreadable: none */ }
   storage.removeItem(PENDING)
   return undefined

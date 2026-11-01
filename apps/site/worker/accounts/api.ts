@@ -50,6 +50,13 @@ export function depsFor(env: AccountsEnv): AccountDeps {
 }
 
 const HOUR_MS = 3_600_000
+/**
+ * Adding or removing a way to sign in: only this long after signing in on that client. A session someone else got
+ * hold of (a shared computer left signed in, a stolen phone) could otherwise add their own way in, sign in with it,
+ * and remove the owner's.
+ */
+const REAUTH_MS = 10 * 60_000
+const recent = (s: Session, now: Date) => now.getTime() - Date.parse(s.createdAt) <= REAUTH_MS
 const json = (data: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...headers } })
 const fail = (error: string, status: number, headers: Record<string, string> = {}) => json({ error }, status, headers)
 const none = (headers: Record<string, string> = {}) => new Response(null, { status: 204, headers: { 'cache-control': 'no-store', ...headers } })
@@ -180,7 +187,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   const route = `${req.method} ${path}`
 
   if (route === 'GET /api/v1/session') {
-    const out = { accounts: true, providers: providers(env, deps), turnstileSitekey: env.TURNSTILE_SITEKEY ?? null, user: session ? await userView(db, session.userId) : null }
+    // `signedInAt`: when this client signed in (adding or removing a way to sign in needs it recent).
+    const out = { accounts: true, providers: providers(env, deps), turnstileSitekey: env.TURNSTILE_SITEKEY ?? null, user: session ? await userView(db, session.userId) : null, ...(session ? { signedInAt: session.createdAt } : {}) }
     // A browser that comes back gets its cookie's lifetime renewed, as its session's was.
     return session?.via === 'cookie' ? json(out, 200, { 'set-cookie': cookieFor(tokenOf(req)!.token, 'web') }) : json(out)
   }
@@ -228,6 +236,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     // `link: true`: add this sign-in method to the account signed in here, only when asked for (a shared computer).
     const adding = body.link === true ? session : undefined
     if (body.link === true && !session) return fail('signed_out', 401)
+    if (adding && !recent(adding, now)) return fail('reauth_needed', 403)
 
     if (path === '/api/v1/auth/google' || path === '/api/v1/auth/apple') {
       const provider = path.slice('/api/v1/auth/'.length) as Provider
@@ -292,6 +301,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   if (route === 'POST /api/v1/account/passkey/options' || route === 'POST /api/v1/account/passkey') {
     const rp = rpOf(env, url)
     if (!rp) return fail('provider_off', 503)
+    if (!recent(session, now)) return fail('reauth_needed', 403)
     if (!(await allow(db, env.ACCOUNT_HMAC_KEY, `passkey-add|${session.userId}`, 20, HOUR_MS, now))) return fail('rate_limited', 429)
     if (route === 'POST /api/v1/account/passkey/options') return json(await registrationOptions(db, rp, session.userId, now))
     const body = await bodyOf(req, 16_384)
@@ -324,15 +334,18 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   }
   const m = /^\/api\/v1\/account\/methods\/([0-9a-f-]{36})$/.exec(path)
   if (m && req.method === 'DELETE') {
-    const method = await db.prepare(`SELECT kind, subject, (SELECT COUNT(*) FROM credentials WHERE user_id = ?1) AS n FROM credentials WHERE id = ?2 AND user_id = ?1`)
-      .bind(session.userId, m[1]!).first<{ kind: string; subject: string; n: number }>()
+    const method = await db.prepare(`SELECT kind, subject, (SELECT COUNT(*) FROM credentials WHERE user_id = ?1 AND kind != 'passkey' AND id != ?2) AS others FROM credentials WHERE id = ?2 AND user_id = ?1`)
+      .bind(session.userId, m[1]!).first<{ kind: string; subject: string; others: number }>()
     if (!method) return fail('not_found', 404)
-    if (method.n <= 1) return fail('last_method', 409)
+    // Only right after signing in on this client: a session taken (a shared computer left signed in, a stolen phone)
+    // can't remove the owner's ways in and keep the account.
+    if (!recent(session, now)) return fail('reauth_needed', 403)
+    if (method.others === 0) return fail('last_method', 409)
     if (method.kind === 'apple') {
       const refused = await revokeAppleFirst(env, deps, req, url, session.userId, [method.subject], now)
       if (refused) return refused
     }
-    const r = await removeMethod(db, session.userId, m[1]!)
+    const r = await removeMethod(db, session.userId, m[1]!, session.id)
     return r === 'removed' ? none() : r === 'last' ? fail('last_method', 409) : fail('not_found', 404)
   }
   return fail('not_found', 404)

@@ -293,6 +293,22 @@ test('signing in as someone else on a signed-in browser switches accounts: never
   expect((await google('g-a')).json.user.methods).toMatchObject([{ kind: 'google' }])
 })
 
+test('adding a way to sign in: only within 10 minutes of signing in on this client; signing in again makes it recent', async () => {
+  const { call, google, ask, setNow } = setup()
+  const g = await google('g-1')
+  expect((await call('GET', '/api/v1/session', { cookie: g.cookie })).json.signedInAt).toBe(NOW.toISOString())
+  setNow(new Date(NOW.getTime() + 11 * 60_000))
+  // A session someone else got hold of can't add their own way in (then sign in with it, and remove the owner's).
+  expect((await google('g-2', { cookie: g.cookie, link: true })).json).toEqual({ error: 'reauth_needed' })
+  expect((await call('POST', '/api/v1/auth/email/start', { body: { email: 'x@example.com', turnstile: 't', link: true }, cookie: g.cookie })).json).toEqual({ error: 'reauth_needed' })
+  // Signing in again with a way the account has: the same account, a new session, and adding works.
+  const again = await google('g-1', { cookie: g.cookie })
+  expect(again.json.user.id).toBe(g.json.user.id)
+  expect((await google('g-2', { cookie: again.cookie, link: true })).status).toBe(200)
+  const { flow, code } = await ask('x@example.com', { cookie: again.cookie, link: true })
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: again.cookie })).json.user.methods.map((m: { kind: string }) => m.kind)).toEqual(['google', 'google', 'email'])
+})
+
 test('removing a sign-in method, but never the last', async () => {
   const { call, google, emailIn } = setup()
   const e = await emailIn('reader@example.com')

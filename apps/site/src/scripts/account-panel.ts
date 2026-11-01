@@ -1,7 +1,7 @@
 import { loadTurnstile, type Turnstile } from './comments'
 import { ct } from './ct'
 import * as store from './tank-store'
-import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Providers, type User } from './sync'
+import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
 
 /**
  * "Đồng bộ giữa các thiết bị" on "Bể của tôi": optional sign-in and sync. The section stays hidden unless the server
@@ -53,11 +53,20 @@ export function initAccount(o: { onStore: () => void }) {
   let timer: ReturnType<typeof setTimeout> | undefined
   let turnstile: { ts: Turnstile; widget: string } | undefined
   let token = ''
-  let flow: string | undefined
+  let flow: Pending | undefined
   /** The sign-in buttons are set up once; each later opening only gives them fresh nonces. */
   let wired = false
   /** Opened from "Thêm cách đăng nhập": a way pressed is added to the account signed in here. */
   let linking = false
+  /**
+   * Opened from "Thêm cách đăng nhập" with this browser signed in too long ago (the server adds a way only within 10
+   * minutes of a sign-in): a way the account has signs in again first, then the ways are for adding.
+   */
+  let reauth = false
+  /** When this browser signed in (ms). */
+  let signedInAt = 0
+  // The server allows 10 minutes; a minute for the clocks. When it disagrees, it says so (reauth_needed).
+  const recent = () => Date.now() - signedInAt < 9 * 60_000
   const rearm: (() => Promise<void>)[] = []
   /** Apple, ready before "Xóa tài khoản vĩnh viễn" is pressed, so its popup opens straight from the click. */
   let appleForDelete: ReturnType<typeof appleReady> | undefined
@@ -84,13 +93,15 @@ export function initAccount(o: { onStore: () => void }) {
     bad_passkey: ct('Passkey này không mở được tài khoản nào: đăng nhập cách khác.'),
   } as Record<string, string>)[f.error] ?? ct('Có lỗi, chưa làm được: thử lại.')
 
+  const waysOf = (u: User) => [...new Set(u.methods.map(m => KIND[m.kind] ?? m.kind))].join(', ')
+
   function show() {
     $('acc-out').hidden = !!user
     $('acc-in').hidden = !user
     document.querySelector<HTMLElement>('[data-where="local"]')!.hidden = !!user
     document.querySelector<HTMLElement>('[data-where="account"]')!.hidden = !user
     if (user) {
-      const ways = [...new Set(user.methods.map(m => KIND[m.kind] ?? m.kind))].join(', ')
+      const ways = waysOf(user)
       const time = syncedAt ? new Intl.DateTimeFormat(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }).format(syncedAt) : ''
       $('acc-status').textContent = time ? ct('Đã đăng nhập bằng {ways}. Đồng bộ lúc {time}.', { ways, time }) : ct('Đã đăng nhập bằng {ways}.', { ways })
     }
@@ -124,6 +135,7 @@ export function initAccount(o: { onStore: () => void }) {
   }
 
   function closeWays() {
+    reauth = false
     $('acc-ways').hidden = true
     $('acc-code').hidden = true
     for (const id of ['acc-open', 'acc-add']) {
@@ -144,16 +156,37 @@ export function initAccount(o: { onStore: () => void }) {
   /** `pressed`: signed in from this page (not found signed in as it opens, an address still on its way perhaps). */
   async function signedIn(u: User, pressed = true) {
     user = u
-    if (pressed) finished()
+    if (pressed) { finished(); signedInAt = Date.now() }
     show()
     say('')
     await sync(true)
     $('acc-sync').focus()
   }
 
-  /** A sign-in's answer. Signed in here already to that account: the way was added to it (the session goes on). */
-  async function got(u: User) {
-    if (!user || user.id !== u.id) { await signedIn(u); return }
+  /** What pressing a way does now (a sign-in remembers it as it is sent: the ways may turn before its answer). */
+  const mode = (): Mode | undefined => (linking ? 'add' : reauth ? 'again' : undefined)
+
+  /** A sign-in's answer, and what it was for. A way added: to the account signed in here (the session goes on). */
+  async function got(u: User, m: Mode | undefined) {
+    if (!user || user.id !== u.id || !m) { await signedIn(u); return }
+    if (m === 'again') {
+      // Signed in again to this account: now the ways add to it. From the mail's link, in a tab with them closed: they open.
+      user = u
+      signedInAt = Date.now()
+      localStorage.removeItem(PENDING)
+      flow = undefined
+      $<HTMLFormElement>('acc-email').reset()
+      $<HTMLFormElement>('acc-code').reset()
+      $('acc-code').hidden = true
+      show()
+      say(ct('Đã đăng nhập lại. Giờ chọn cách muốn thêm.'))
+      if ($('acc-ways').hidden) { await openWays(true); return }
+      reauth = false
+      linking = true
+      explain()
+      await Promise.all(rearm.map(f => f()))
+      return
+    }
     const had = new Set(user.methods.map(m => m.id))
     const added = u.methods.find(m => !had.has(m.id))
     user = u
@@ -164,8 +197,38 @@ export function initAccount(o: { onStore: () => void }) {
     $('acc-add').focus()
   }
 
-  /** A sign-in, or adding a way, refused. Adding one with the session ended elsewhere: signed out here too. */
-  const refused = (f: Fail) => (f.error === 'signed_out' ? signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true) : say(problem(f), true))
+  /**
+   * A sign-in, or adding a way, refused. Adding one with the session ended elsewhere: signed out here too. Adding one
+   * longer after signing in than the server allows: sign in again first.
+   */
+  const refused = (f: Fail) => {
+    if (f.error === 'signed_out') signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true)
+    else if (f.error === 'reauth_needed') void signInAgain()
+    else say(problem(f), true)
+  }
+
+  /** The line above the ways: what pressing one does now. The passkey sign-in is a way back in, not one to add. */
+  function explain() {
+    $('acc-ways-add').hidden = !linking
+    const again = $('acc-ways-reauth')
+    again.hidden = !reauth
+    if (reauth && user) again.textContent = ct('Vì an toàn, đăng nhập lại trước khi thêm: chọn một cách tài khoản này đang dùng ({ways}).', { ways: waysOf(user) })
+    $('acc-passkey').hidden = linking || !(providers?.passkey && canPasskey())
+  }
+
+  /** The server wants a recent sign-in before adding a way: the ways open (or turn) to signing in again. */
+  async function signInAgain() {
+    signedInAt = 0
+    if ($('acc-ways').hidden) { await openWays(true); return }
+    reauth = true
+    linking = false
+    // An address being added: its code form closes, and its mail's link still adds it (until a sign-in replaces it).
+    $<HTMLFormElement>('acc-code').reset()
+    $('acc-code').hidden = true
+    explain()
+    say('')
+    await Promise.all(rearm.map(f => f()))
+  }
 
   /** Signed out here, elsewhere, or the account deleted: the sign-in button again, closed. */
   function signedOut(message: string, bad = false) {
@@ -191,9 +254,10 @@ export function initAccount(o: { onStore: () => void }) {
         g.accounts.id.initialize({
           client_id: clientId, nonce, ux_mode: 'popup', itp_support: true,
           callback: async ({ credential }) => {
-            const r = await signInWith('google', credential, nonce, linking)
+            const m = mode()
+            const r = await signInWith('google', credential, nonce, m === 'add')
             if (isFail(r)) { refused(r); void arm(); return }
-            await got(r.user)
+            await got(r.user, m)
           },
         })
         return true
@@ -231,9 +295,10 @@ export function initAccount(o: { onStore: () => void }) {
       btn.disabled = true
       try {
         const r = await ready.signIn()
-        const out = await signInWith('apple', r.authorization.id_token, ready.nonce, linking)
+        const m = mode()
+        const out = await signInWith('apple', r.authorization.id_token, ready.nonce, m === 'add')
         if (isFail(out)) refused(out)
-        else await got(out.user)
+        else await got(out.user, m)
       } catch { /* the popup was closed */ }
       // A nonce is used once: a new one for the next try.
       if (!$('acc-ways').hidden) ready = await appleReady(clientId)
@@ -271,13 +336,14 @@ export function initAccount(o: { onStore: () => void }) {
       }
       waiting = false
       btn.disabled = true
-      const r = await emailStart(address, token, lang, linking)
+      const m = mode()
+      const r = await emailStart(address, token, lang, m === 'add')
       btn.disabled = false
       token = ''
       turnstile?.ts.reset(turnstile.widget)
       if (isFail(r)) { refused(r); return }
-      flow = r.flow
-      localStorage.setItem(PENDING, JSON.stringify({ flow, until: new Date(Date.now() + 15 * 60_000).toISOString() }))
+      flow = { flow: r.flow, until: new Date(Date.now() + 15 * 60_000).toISOString(), ...(m ? { mode: m } : {}) }
+      localStorage.setItem(PENDING, JSON.stringify(flow))
       $('acc-code').hidden = false
       say(ct('Đã gửi mã tới {email}. Mở email và nhập mã, hoặc bấm link trong email trên trình duyệt này.', { email: address }))
       ;($('acc-code').querySelector('input') as HTMLInputElement).focus()
@@ -287,13 +353,13 @@ export function initAccount(o: { onStore: () => void }) {
       e.preventDefault()
       if (codeBtn.disabled) return
       const code = ($('acc-code').querySelector('input') as HTMLInputElement).value.trim()
-      flow ??= pendingFlow(localStorage, new Date())
-      if (!/^\d{6}$/.test(code) || !flow) { say(problem({ error: 'bad_code' }), true); return }
+      const f = (flow ??= pendingFlow(localStorage, new Date()))
+      if (!/^\d{6}$/.test(code) || !f) { say(problem({ error: 'bad_code' }), true); return }
       codeBtn.disabled = true
-      const r = await emailVerify(flow, code)
+      const r = await emailVerify(f.flow, code)
       codeBtn.disabled = false
       if (isFail(r)) { say(problem(r), true); return }
-      await got(r.user)
+      await got(r.user, f.mode)
     })
   }
 
@@ -309,9 +375,10 @@ export function initAccount(o: { onStore: () => void }) {
         const { startAuthentication } = await webauthn()
         const options = await passkeyLoginOptions()
         if (isFail(options)) { say(problem(options), true); return }
+        const m = reauth ? 'again' : undefined
         const r = await signInWithPasskey(await startAuthentication({ optionsJSON: options }))
         if (isFail(r)) say(problem(r), true)
-        else await signedIn(r.user)
+        else await got(r.user, m)
       } catch (e) {
         if (!closed(e)) say(problem({ error: 'failed' }), true)
       } finally {
@@ -323,15 +390,15 @@ export function initAccount(o: { onStore: () => void }) {
   async function openWays(link: boolean) {
     const ways = $('acc-ways')
     if (!ways.hidden) return
-    linking = link
+    reauth = link && !recent()
+    linking = link && !reauth
     ways.hidden = false
-    $('acc-ways-add').hidden = !link
     const opener = $(link ? 'acc-add' : 'acc-open')
     opener.setAttribute('aria-expanded', 'true')
     opener.hidden = true
     if (!providers) return
     // A passkey is added with its own button ("Thêm passkey").
-    $('acc-passkey').hidden = link || !(providers.passkey && canPasskey())
+    explain()
     if (wired) { await Promise.all(rearm.map(f => f())); return }
     wired = true
     await Promise.all([
@@ -354,6 +421,8 @@ export function initAccount(o: { onStore: () => void }) {
   $('acc-passkey-add').addEventListener('click', async () => {
     const btn = $<HTMLButtonElement>('acc-passkey-add')
     if (!user || btn.disabled) return
+    // Signed in too long ago here: a way the account has signs in again first.
+    if (!recent()) { await signInAgain(); return }
     const who = user
     btn.disabled = true
     say('')
@@ -363,7 +432,7 @@ export function initAccount(o: { onStore: () => void }) {
       const r = isFail(options) ? options : await addPasskey(await startRegistration({ optionsJSON: options }))
       if (user !== who) return
       if (isFail(r)) {
-        if (r.error === 'signed_out') signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true)
+        if (r.error === 'signed_out' || r.error === 'reauth_needed') refused(r)
         else say(r.error === 'bad_passkey' ? ct('Chưa thêm được passkey: thử lại.') : problem(r), true)
         return
       }
@@ -444,15 +513,15 @@ export function initAccount(o: { onStore: () => void }) {
     const code = codeInHash(location.hash)
     const f = pendingFlow(localStorage, new Date())
     if (code) history.replaceState(null, '', location.pathname + location.search)
-    if (s.user) await signedIn(s.user, false)
+    if (s.user) { signedInAt = Date.parse(s.signedInAt ?? '') || 0; await signedIn(s.user, false) }
     else show()
     if (!code) return
     if (!f) { section.scrollIntoView(); say(ct('Link này cần mở trên đúng trình duyệt đã gửi mã. Hoặc nhập mã 6 số ở đó.'), true); return }
     flow = f
-    const r = await emailVerify(f, code)
+    const r = await emailVerify(f.flow, code)
     section.scrollIntoView()
     if (isFail(r)) { say(problem(r), true); return }
-    await got(r.user)
+    await got(r.user, f.mode)
   })()
 
   return { changed }

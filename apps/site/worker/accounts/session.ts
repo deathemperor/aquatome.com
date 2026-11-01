@@ -39,15 +39,16 @@ export function tokenOf(req: Request): { token: string; via: 'bearer' | 'cookie'
   return c ? { token: c[1]!, via: 'cookie' } : undefined
 }
 
-export type Session = { id: string; userId: string; client: Client; via: 'bearer' | 'cookie' }
+/** `createdAt`: when this client signed in (adding a way to sign in keeps the session, and its time). */
+export type Session = { id: string; userId: string; client: Client; via: 'bearer' | 'cookie'; createdAt: string }
 
 /** The request's live session, if any. A session used on a new day is extended (sliding expiry). */
 export async function sessionOf(req: Request, db: D1Database, now: Date): Promise<Session | undefined> {
   const t = tokenOf(req)
   if (!t) return undefined
   const id = await sha256(t.token)
-  const row = await db.prepare(`SELECT user_id, client, expires_at, last_seen_at FROM sessions WHERE id = ?`).bind(id)
-    .first<{ user_id: string; client: Client; expires_at: string; last_seen_at: string }>()
+  const row = await db.prepare(`SELECT user_id, client, created_at, expires_at, last_seen_at FROM sessions WHERE id = ?`).bind(id)
+    .first<{ user_id: string; client: Client; created_at: string; expires_at: string; last_seen_at: string }>()
   if (!row || row.expires_at <= now.toISOString()) return undefined
   // A cookie only signs in a browser session, a bearer token only an app session.
   if ((t.via === 'cookie') !== (row.client === 'web')) return undefined
@@ -55,7 +56,7 @@ export async function sessionOf(req: Request, db: D1Database, now: Date): Promis
     await db.prepare(`UPDATE sessions SET last_seen_at = ?, expires_at = ? WHERE id = ?`)
       .bind(now.toISOString(), new Date(now.getTime() + SESSION_DAYS[row.client] * DAY_MS).toISOString(), id).run()
   }
-  return { id, userId: row.user_id, client: row.client, via: t.via }
+  return { id, userId: row.user_id, client: row.client, via: t.via, createdAt: row.created_at }
 }
 
 /**
