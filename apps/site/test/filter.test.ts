@@ -59,3 +59,23 @@ test('breeds: all with no query, a name search keeps the matches, any water filt
   expect(keepBreed('Cá La Hán (Flowerhorn)', { text: 'la han', tempC: 26 })).toBe(false)
   expect(keepBreed('Cá La Hán (Flowerhorn)', { group: 'cichlid' })).toBe(false)
 })
+
+// "Ca dia" listed Barbucca diabolica above the discus (2026-11-01): the search matched across two words, barbuc-ca dia-bolica.
+test('a name search starts where a word does, never inside one', () => {
+  const loach: SpeciesIndexItem = { slug: 'ca-chach-gai', name: 'Cá chạch gai', scientificName: 'Barbucca diabolica', group: 'loaches' }
+  const all = [...items, loach]
+  expect(filterSpecies(all, { text: 'Ca dia' }).map(i => i.slug)).toEqual(['ca-dia'])
+  expect(filterSpecies(all, { text: 'diabol' }).map(i => i.slug)).toEqual(['ca-chach-gai'])
+  expect(filterSpecies(all, { text: 'innesi' }).map(i => i.slug)).toEqual(['ca-neon-xanh'])
+  expect(keepBreed('Barbucca diabolica', { text: 'ca dia' })).toBe(false)
+  expect(keepBreed('Cá dĩa Lam Đức (Blue Diamond discus)', { text: 'ca dia' })).toBe(true)
+})
+// Thai writes no spaces between words, and its letters used to fold to nothing: a Thai search matched every species.
+test('a Thai name search matches Thai names, anywhere in the word', () => {
+  const th: SpeciesIndexItem[] = [
+    { slug: 'pomp', name: 'ปลาปอมปาดัวร์สีน้ำตาล', scientificName: 'Symphysodon aequifasciatus', group: 'cichlids' },
+    { slug: 'thong', name: 'ปลาทอง', scientificName: 'Carassius auratus', group: 'cyprinids' },
+  ]
+  expect(filterSpecies(th, { text: 'ปอมปาดัวร์' }).map(i => i.slug)).toEqual(['pomp'])
+  expect(filterSpecies(th, { text: 'ปลาทอง' }).map(i => i.slug)).toEqual(['thong'])
+})
