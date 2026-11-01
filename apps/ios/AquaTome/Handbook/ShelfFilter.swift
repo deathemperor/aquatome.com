@@ -32,7 +32,8 @@ struct PlantShelf: View {
 }
 
 /// Pages as photo cards, two or more to a row as the screen allows, drawn as they scroll into view. While filtering:
-/// how many fit, then the ones that fit, then the ones a missing figure leaves unsure, with why.
+/// how many fit, then the ones that fit, then the ones a missing figure leaves unsure, with why. Headings and grids are
+/// stacked, not sections of one grid: a grid's sections cost every card it draws.
 private struct FilteredGrid: View {
   let fit: [HandbookIndex.Item]
   let unsure: [HandbookIndex.Item]
@@ -42,29 +43,22 @@ private struct FilteredGrid: View {
 
   var body: some View {
     ScrollView {
-      LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12, alignment: .top)], alignment: .leading, spacing: 16) {
-        Section {
-          cards(fit)
-        } header: {
-          if filtering {
-            HStack(alignment: .firstTextBaseline) {
-              count.font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("filter-count")
-              Spacer()
-              Button("Xóa lọc", action: clear)
-            }
+      VStack(alignment: .leading, spacing: 16) {
+        if filtering {
+          HStack(alignment: .firstTextBaseline) {
+            count.font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("filter-count")
+            Spacer()
+            Button("Xóa lọc", action: clear)
           }
         }
+        if !fit.isEmpty { cards(fit) }
         if !unsure.isEmpty {
-          Section {
-            cards(unsure)
-          } header: {
-            VStack(alignment: .leading, spacing: 4) {
-              Text("Chưa đủ dữ liệu để chắc (\(unsure.count))").font(.headline)
-              Text(why).font(.footnote).foregroundStyle(.secondary)
-            }
-            .padding(.top, 8)
-            .frame(maxWidth: .infinity, alignment: .leading)
+          VStack(alignment: .leading, spacing: 4) {
+            Text("Chưa đủ dữ liệu để chắc (\(unsure.count))").font(.headline)
+            Text(why).font(.footnote).foregroundStyle(.secondary)
           }
+          .padding(.top, 8)
+          cards(unsure)
         }
       }
       .padding()
@@ -79,7 +73,9 @@ private struct FilteredGrid: View {
   }
 
   private func cards(_ items: [HandbookIndex.Item]) -> some View {
-    ForEach(items) { item in NavigationLink(value: item) { Card(item: item) }.buttonStyle(.plain) }
+    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12, alignment: .top)], spacing: 16) {
+      ForEach(items) { item in NavigationLink(value: item) { Card(item: item) }.buttonStyle(.plain) }
+    }
   }
 }
 
