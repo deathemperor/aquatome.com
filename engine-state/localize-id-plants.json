@@ -74,6 +74,18 @@
     "score": 0.95,
     "notes": []
   },
+  "ammannia-gracilis": {
+    "at": "2026-11-01",
+    "from": "2026-10-31",
+    "name": "Ammania gracilis",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 8, Flower: \"4 kelopak ungu\" is botanically imprecise for \"petals\". Use \"4 mahkota bunga ungu\" or \"4 helai petal ungu\".",
+      "Item 8, \"Teman satu akuarium (tankmate)\" is a little wordy. \"Tankmate yang cocok\" or \"Penghuni akuarium yang cocok\" is more natural.",
+      "Item 8, \"itu pun kalau beruntung\" adds a casual tone that the English \"at best\" does not have. Consider \"paling-paling hijau biasa\"."
+    ]
+  },
   "anubias-barteri": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -313,6 +325,22 @@
     "notes": [
       "Item 2: \"Tanaman air yang tangguh ini\" is fine, but \"penghobi\" for \"aquarists\" could be \"aquascaper/penghobi akuarium\"; minor.",
       "Item 3: \"Warna ungu yang khas\" for \"Unique purple coloration\" is slightly softer than \"unique\"; could be \"Warna ungu yang unik\"."
+    ]
+  },
+  "blyxa-aubertii": {
+    "at": "2026-11-01",
+    "from": "2026-10-31",
+    "name": "Blyxa aubertii",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 3: \"Biasanya ditemukan di air yang tenang\" — the source says \"slow\" water (slow-flowing), so \"tenang\" shifts the meaning; use \"air mengalir pelan\".",
+      "Item 9: \"halus atau sedikit bergerigi\" for \"ridged\" — \"bergerigi\" means serrated; use \"berusuk/beralur\".",
+      "Item 5: \"melting\" is left untranslated in the problems list; add a gloss such as \"rontok/meleleh (melting)\".",
+      "Item 5: \"Removing them may turn the annual plant into a perennial\" — \"mungkin bisa menjadi tanaman tahunan\" is hedged twice and \"semusim\" vs \"tahunan\" is confusing (annual is semusim, perennial is menahun); use \"menahun\".",
+      "Item 5: \"daun yang jelek\" for \"bad leaves\" is too colloquial; use \"daun yang rusak\".",
+      "Item 8: \"Lobster air tawar\" for crayfish is acceptable, but \"botia (clown loach)\" and \"ikan mas koki\" are fine; \"burayak\" is correct only for fish fry, so check it fits the context.",
+      "Item 4: \"Itu pun lama-kelamaan\" is awkward; use \"Bahkan di akuarium sebesar itu, lama-kelamaan tanaman ini bisa menjadi begitu besar...\"."
     ]
   },
   "blyxa-japonica": {
@@ -949,6 +977,30 @@
       "Item 3: \"tanaman air terkecil\" – the source says aquarium plants; \"tanaman akuarium terkecil\" is more faithful.",
       "Item 3: \"bergaya Jepang\" for \"Japanese-inspired\" is fine, but \"banyak dicari\" is slightly loose; \"sangat diminati\" would be more natural.",
       "Item 2: \"menaunginya\" is a bit stiff; \"menutupi/menaungi\" is acceptable, but \"menutupi\" is more common among hobbyists."
+    ]
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-01",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"submersed-nya\" leaves English with an Indonesian suffix; use \"bentuk terendam\" (submersed) instead.",
+      "\"trimming rutin\" is acceptable hobby jargon, but \"pemangkasan rutin\" is more natural Indonesian.",
+      "\"tanaman bantalan\" for \"cushion-plant\" is a literal rendering; \"tanaman rumpun padat seperti bantal\" would be clearer."
+    ]
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-01",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "\"Very light leaves\" is translated as \"sangat pucat\" (very pale); acceptable, but \"hijau sangat muda/pucat\" would be closer.",
+      "\"punya\", \"jadi\", \"kalau\" are colloquial for a handbook; use \"memiliki\", \"menjadi\", \"jika\".",
+      "\"Previously known as Echinodorus 'Quadricostatus'\" is repeated faithfully, but \"Sebelumnya dikenal sebagai\" is fine; consider \"Rosulate\" -> \"Roset\" is OK, so no change needed there. Ensure \"geragih\" is paired with \"stolon/sulur\", which hobbyists use more commonly than \"geragih\"."
     ]
   },
   "hygrophila-polysperma": {
