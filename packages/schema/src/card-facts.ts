@@ -35,7 +35,8 @@ const FIGURE_WORDS = new Set(('c f cm mm in inch inches sl tl l litres liters ga
 /** The value is the figure and nothing more: "23–29°C (73–84°F)", "Easy", "150 mm SL"; not "5 of 8; needs a very large tank". */
 const bare = (value: string) => value.toLowerCase().replace(/\([^)]*\)/g, ' ').match(/\p{L}+/gu)?.every(w => FIGURE_WORDS.has(w)) ?? true
 
-const text = (html: string) => parse(html).textContent.replace(/\s+/g, ' ').trim()
+// Block elements apart: "…size: 20 gallons</li><li>Diet…" is not "20 gallonsDiet".
+const text = (html: string) => parse(html).structuredText.replace(/\s+/g, ' ').trim()
 
 /** What an English quick-facts item repeats, if it is nothing but that: the fields it gives (several for a water line), or the family. */
 function repeats(item: string): (DataCardField | 'family')[] {
@@ -115,13 +116,21 @@ export function states(html: string, field: DataCardField, value: Figure): boole
 const VOLUME = String.raw`${NOT_SIDE}${NUM}\s*(litres?|liters?|l\b|(?:us\s*)?gal(?:lons?)?\b)`
 const GALLON = 3.785
 
+/** A tank's length or sides in any unit: "120 × 30 cm", "48 x 12 in", "a 4-foot tank", "a tank 90 cm long". */
+const TANK_LENGTH = String.raw`\d\s*(?:×|\*|x(?=\s*\d))\s*\d|\d\s*-?\s*(?:cm|in(?:ch(?:es)?)?|foot|feet|ft)\b\.?\s+(?:long\s+)?(?:tank|aquarium)|(?:tank|aquarium)\s+(?:(?:of|at least|measuring)\s+)*\d+(?:[.,]\d+)?\s*(?:cm|in(?:ch(?:es)?)?|foot|feet|ft)\b`
+
 /**
  * Whether a minimum tank length is really the source's tank volume: the text gives that figure as litres or gallons
- * ("75 litres (20 gallons)" read as 75 cm; "75 gallons (about 284 litres)" as 284 cm) and never as a length.
+ * ("75 litres (20 gallons)" read as 75 cm; "75 gallons (about 284 litres)" as 284 cm) and never as a length, or it gives
+ * the tank only as a volume, so a length was made up from it (The Spruce Pets' "10 gallons (about 38 litres)" became
+ * 40 cm, its "2 gallons" 30 cm: 19 cards in 2026-11).
  */
 export function tankIsVolume(html: string, value: number): boolean {
   if (states(html, 'tankCm', value)) return false
-  return [...text(html).matchAll(new RegExp(VOLUME, 'gi'))].some(m => {
+  const t = text(html)
+  const volumes = [...t.matchAll(new RegExp(VOLUME, 'gi'))]
+  if (volumes.length && !new RegExp(TANK_LENGTH, 'i').test(t)) return true
+  return volumes.some(m => {
     const litres = /^l/i.test(m[2]!) ? num(m[1]!) : num(m[1]!) * GALLON
     return Math.abs(litres - value) <= Math.max(1.5, value * 0.03)
   })

@@ -17,7 +17,7 @@ const species = {
   sections: [{ key: 'habitat', en: '<p>Blackwater.</p>', vi: '<p>Nước đen.</p>' }], productSlots: [],
 }
 
-function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean } = {}) {
+function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
@@ -34,7 +34,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
     calls.prompts.push(a.prompt)
     if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { calls.review++; return { score: opts.score ?? 0.9, notes: ['fix "Nước đen"'] } as T }
     if (opts.llmFails) throw new LlmError('claude failed (1): usage limit')
-    if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: `<p>Viết lại ${m[1]}</p>` })) } as T }
+    if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: opts.rewritten ?? `<p>Viết lại ${m[1]}</p>` })) } as T }
     calls.process++
     return structuredClone(opts.page ?? species) as T
   }
@@ -93,6 +93,13 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
   expect(r.changed).toHaveLength(1)
 })
 
+test('a new page is written in metric only, whatever the writer kept of the source\'s units', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { rewritten: '<p>Nhiệt độ 23–29°C (73–84°F), cá dài 2 inch (khoảng 5 cm), bể 10 gallon.</p>' })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect(Object.values(vi.sections)).toContain('<p>Nhiệt độ 23–29°C, cá dài 5 cm, bể 38 lít.</p>')
+})
 test('second identical run makes no llm calls and changes no file', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { BreedSchema, GallerySchema, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
+import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
@@ -79,7 +79,7 @@ const WRITE_SCHEMA = {
 type Written = { name: string; altNames: string[]; parentNames?: string[]; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around.
+const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 const BOUNDS: Record<CareField, [number, number]> = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000] }
@@ -189,14 +189,14 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   })
   // A name the owner fixed, and the addresses it had before, survive a --redo.
   const name = (prev?.nameFixed ? prev.name : w.name).trim()
-  const vi: Translation = TranslationSchema.parse({
+  const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name.replace(/\s*\(.*\)\s*$/, ''), facts.kind === 'hybrid' ? 'lai' : 'dong', await speciesSlugs(content)),
     // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)").
     name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => s.trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
     sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
-  })
+  }, 'vi'))
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
@@ -248,13 +248,13 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
   // The Vietnamese page's own names are not names in this language.
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
-  const t = TranslationSchema.parse({
+  const t = TranslationSchema.parse(metricPage({
     slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
     sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
     ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}),
-  })
+  }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
   return { id, slug, score: review.score, notes: review.notes }
 }

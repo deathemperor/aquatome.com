@@ -1,8 +1,9 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { QUALITY_THRESHOLD, judgeQuality } from '@aq/schema'
+import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { reviewRewrite, reviewTranslation } from './quality'
+import { METRIC_KINDS } from './metric'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 
 /** Kinds in the order they are rewritten: guides are read most, glossary least. */
@@ -126,7 +127,7 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
-    if (rewritten) await writeFile(file, `${JSON.stringify(vi, null, 2)}\n`)
+    if (rewritten) await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(job.kind) ? metricPage(vi, 'vi') : vi, null, 2)}\n`)
     state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)

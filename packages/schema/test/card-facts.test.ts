@@ -85,7 +85,17 @@ test('a tank length that the page gives only as a volume is that volume, not a l
   expect(tankIsVolume('<p>A tank of 60 cm (54 litres).</p>', 60)).toBe(false)
   expect(tankIsVolume('<p>60 × 30 × 30 cm, about 54 l.</p>', 60)).toBe(false)
   expect(tankIsVolume('<p>At least 60 cm long, or 60 litres.</p>', 60)).toBe(false)
-  // No volume near the figure: nothing to say.
+  // No volume: nothing to say.
   expect(tankIsVolume('<p>Keep them in a long tank.</p>', 80)).toBe(false)
-  expect(tankIsVolume('<p>A 100 litre tank.</p>', 80)).toBe(false)
+  // A tank given only as a volume has no length: a length on the card was made up from it. The Spruce Pets' neon tetra,
+  // Siamese fighting fish and molly, BW Aquatics' Macropodus spechti (2026-11-01): the card said 40, 30, 76 and 40 cm.
+  expect(tankIsVolume('<li>Minimum tank size: 10 gallons (about 38 litres)</li><li>Diet: omnivore</li>', 40)).toBe(true)
+  expect(tankIsVolume('<li>Minimum tank size: 2 gallons (about 8 litres)</li>', 30)).toBe(true)
+  expect(tankIsVolume('<li>Minimum tank size: 20 gallons</li><li>Diet: omnivores</li>', 76)).toBe(true)
+  expect(tankIsVolume('<p>A pair can be kept together in a 10 to 20-gallon tank (about 40–75 litres).</p>', 40)).toBe(true)
+  expect(tankIsVolume('<p>A 100 litre tank.</p>', 80)).toBe(true)
+  // A page that gives a length too keeps a figure that isn't one of its volumes.
+  expect(tankIsVolume('<p>A 100 litre tank, 80 × 35 cm.</p>', 90)).toBe(false)
+  expect(tankIsVolume('<p>Use a 4-foot tank or about 200 litres.</p>', 120)).toBe(false)
+  expect(tankIsVolume('<p>An aquarium of at least 48 inches, about 200 litres.</p>', 120)).toBe(false)
 })

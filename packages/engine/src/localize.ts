@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
+import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { shopIds } from './shops'
@@ -167,12 +167,12 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
       // The translator's name, when another page has it, stays findable as another name; an owner-fixed page keeps its own.
       const fresh = [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5)
-      const t = TranslationSchema.parse({
+      const t = TranslationSchema.parse(metricPage({
         slug, name, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...fresh])].filter(n => n !== name),
         sections: Object.fromEntries(parts.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])),
         quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) },
         ...(prev?.nameFixed ? { nameFixed: true } : {}),
-      })
+      }, lang))
       names.set(`${kind}/${id}`, nameKey(name))
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
       state[id] = { at: (o.now?.() ?? new Date()).toISOString().slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes }

@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, mayPublish, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
@@ -9,6 +9,7 @@ import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, type Taxon } from './gbif'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
+import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
 import { findPhotos } from './photos'
 import { processPage, type ProcessedPage } from './process'
@@ -84,7 +85,7 @@ function store(contentRoot: string) {
     },
     write: async (kind: Kind, schema: z.ZodType, item: { entity: { id: string }; vi: Translation }) => {
       const entity = schema.parse(item.entity) as { id: string }
-      const vi = TranslationSchema.parse(item.vi)
+      const vi = TranslationSchema.parse(METRIC_KINDS.includes(kind) ? metricPage(item.vi, 'vi') : item.vi)
       if (!entity.id || !vi.slug) throw new Error(`empty id or slug for ${kind}`)
       const dir = join(contentRoot, kind, entity.id)
       await mkdir(dir, { recursive: true })

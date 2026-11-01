@@ -1,25 +1,25 @@
 {
- "slug": "ca-killi-aphyosemion-mimbon",
- "name": "Cá killi Aphyosemion mimbon",
- "altNames": [],
- "sections": {
-  "quickFacts:seriouslyfish": "<p>Aphyosemion mimbon là một loài cá killi nhỏ (killifish) sống ở các vùng đầu nguồn tây bắc Gabon, được mô tả từ một nhánh của sông Mvé. Loài này cũng được ghi nhận ở các sông Abanga, Mbei, Komo và Nkam, và có thể xuất hiện bên kia biên giới ở đông nam Guinea Xích Đạo.</p><ul><li>Kích thước tối đa: 45 mm SL (1,8 inch SL)</li><li>Nhiệt độ: 18–22°C (64–72°F)</li><li>pH: 5,5–6,5</li><li>Độ cứng: 0–5 dGH</li></ul>",
-  "distribution:seriouslyfish": "<p>Được mô tả từ một nhánh nhỏ của sông Mvé chảy qua làng Akoga, tây bắc Gabon và đã được ghi nhận ở các vùng đầu nguồn khác trong khu vực, gồm Abanga, Mbei, Komo và Nkam. Có thể xuất hiện bên kia biên giới ở đông nam Guinea Xích Đạo.</p>",
-  "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 18–22°C (64–72°F)</li><li>pH: 5,5–6,5</li><li>Độ cứng: 0–5 dGH</li></ul>",
-  "notes:seriouslyfish": "<p><strong>Nguồn gốc tên gọi</strong></p><p>Aphyosemion: từ tiếng Hy Lạp aphúe (ἀφύη), nghĩa là 'cá nhỏ', và semeion (σημεῖον), nghĩa là 'biểu ngữ, lá cờ', ám chỉ vây đuôi \"được trang trí, thường có hình đàn lyre\" ở cá đực của các thành viên trong chi này.</p><p>mimbon: từ \"M'bon\", tên gọi bản địa được người Fang ở miền bắc Gabon dùng để chỉ các loài Aphyosemion.</p>"
- },
- "quality": {
-  "score": 0.93,
-  "indexable": true,
-  "bySource": {
-   "seriouslyfish": 0.93
-  }
- },
- "nameFixed": true,
- "redirectFrom": [
-  {
-   "slug": "ca-killifish-aphyosemion-mimbon",
-   "name": "Cá killifish Aphyosemion mimbon"
-  }
- ]
+  "slug": "ca-killi-aphyosemion-mimbon",
+  "name": "Cá killi Aphyosemion mimbon",
+  "altNames": [],
+  "sections": {
+    "quickFacts:seriouslyfish": "<p>Aphyosemion mimbon là một loài cá killi nhỏ (killifish) sống ở các vùng đầu nguồn tây bắc Gabon, được mô tả từ một nhánh của sông Mvé. Loài này cũng được ghi nhận ở các sông Abanga, Mbei, Komo và Nkam, và có thể xuất hiện bên kia biên giới ở đông nam Guinea Xích Đạo.</p><ul><li>Kích thước tối đa: 45 mm SL</li><li>Nhiệt độ: 18–22°C</li><li>pH: 5,5–6,5</li><li>Độ cứng: 0–5 dGH</li></ul>",
+    "distribution:seriouslyfish": "<p>Được mô tả từ một nhánh nhỏ của sông Mvé chảy qua làng Akoga, tây bắc Gabon và đã được ghi nhận ở các vùng đầu nguồn khác trong khu vực, gồm Abanga, Mbei, Komo và Nkam. Có thể xuất hiện bên kia biên giới ở đông nam Guinea Xích Đạo.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 18–22°C</li><li>pH: 5,5–6,5</li><li>Độ cứng: 0–5 dGH</li></ul>",
+    "notes:seriouslyfish": "<p><strong>Nguồn gốc tên gọi</strong></p><p>Aphyosemion: từ tiếng Hy Lạp aphúe (ἀφύη), nghĩa là 'cá nhỏ', và semeion (σημεῖον), nghĩa là 'biểu ngữ, lá cờ', ám chỉ vây đuôi \"được trang trí, thường có hình đàn lyre\" ở cá đực của các thành viên trong chi này.</p><p>mimbon: từ \"M'bon\", tên gọi bản địa được người Fang ở miền bắc Gabon dùng để chỉ các loài Aphyosemion.</p>"
+  },
+  "quality": {
+    "score": 0.93,
+    "indexable": true,
+    "bySource": {
+      "seriouslyfish": 0.93
+    }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-killifish-aphyosemion-mimbon",
+      "name": "Cá killifish Aphyosemion mimbon"
+    }
+  ]
 }
