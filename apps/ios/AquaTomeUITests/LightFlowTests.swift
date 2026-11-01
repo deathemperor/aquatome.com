@@ -320,11 +320,13 @@ final class LightFlowTests: XCTestCase {
     expect(app, "level-1", value: "56%")
     expect(app, "level-2", value: "53%")
     // One brightness for every channel: the mix stays the look.
-    // Down to almost nothing and back up: the look as it is at full, not a mix rounded at 5% (100/80/80) or at 70%
-    // (100/80/76).
-    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.05)
-    XCTAssertNotEqual(element(app, "master").value as? String, "70%", "the brightness didn't move")
-    XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness")
+    // Down to almost nothing and back up: the look as it is at full, not a mix rounded low (100/80/80) or at 70%
+    // (100/80/76). Not to 0%, which is no look at all, as on the site: a drag is only "best effort" (XCUIElement), and
+    // one aimed at 5% landed on 0% on CI's iPhone.
+    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.1)
+    let low = element(app, "master").value as? String
+    XCTAssertFalse(["70%", "0%"].contains(low ?? ""), "the brightness at \(low ?? "?"), not low and above 0")
+    XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness (at \(low ?? "?"))")
     scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 1)
     expect(app, "master", value: "100%")
     expect(app, "level-0", value: "100%")
