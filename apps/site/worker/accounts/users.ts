@@ -56,9 +56,17 @@ export async function deleteUser(db: D1Database, userId: string): Promise<void> 
   ])
 }
 
-/** Removes a sign-in method unless it is the account's last (checked in the same statement, so two at once can't both go). */
-export async function removeMethod(db: D1Database, userId: string, id: string): Promise<'removed' | 'last' | 'not_found'> {
-  const r = await db.prepare(`DELETE FROM credentials WHERE id = ? AND user_id = ? AND (SELECT COUNT(*) FROM credentials WHERE user_id = ?) > 1`).bind(id, userId, userId).run()
-  if (r.meta.changes) return 'removed'
+/**
+ * Removes a sign-in method, unless the account would be left with no way in but a passkey (a passkey lives on one
+ * device or one password manager, and can be lost with it): one Apple, Google or email method always stays. Checked in
+ * the same statement, so two at once can't both go. Every other session of the account ends with it: one opened with
+ * the method removed (a lost phone's passkey, say) mustn't go on.
+ */
+export async function removeMethod(db: D1Database, userId: string, id: string, keepSession: string): Promise<'removed' | 'last' | 'not_found'> {
+  const r = await db.prepare(`DELETE FROM credentials WHERE id = ?1 AND user_id = ?2 AND (SELECT COUNT(*) FROM credentials WHERE user_id = ?2 AND kind != 'passkey' AND id != ?1) > 0`).bind(id, userId).run()
+  if (r.meta.changes) {
+    await db.prepare(`DELETE FROM sessions WHERE user_id = ? AND id != ?`).bind(userId, keepSession).run()
+    return 'removed'
+  }
   return (await db.prepare(`SELECT 1 FROM credentials WHERE id = ? AND user_id = ?`).bind(id, userId).first()) ? 'last' : 'not_found'
 }

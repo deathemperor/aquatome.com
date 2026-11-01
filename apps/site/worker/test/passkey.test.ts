@@ -1,6 +1,7 @@
 import { isoBase64URL, isoCBOR } from '@simplewebauthn/server/helpers'
 import { expect, test } from 'vitest'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
+import { removeMethod } from '../accounts/users'
 import { testD1 } from './d1'
 
 const NOW = new Date('2026-11-01T00:00:00.000Z')
@@ -23,10 +24,10 @@ function der(raw: Uint8Array) {
 }
 
 /** A software authenticator for one passkey: makes and uses it as a browser's would (no attestation). */
-async function authenticator(o: { rpId?: string; counter?: number } = {}) {
+async function authenticator(o: { rpId?: string; counter?: number; idBytes?: number } = {}) {
   const keys = (await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify'])) as CryptoKeyPair
   const jwk = (await crypto.subtle.exportKey('jwk', keys.publicKey)) as JsonWebKey
-  const rawId = crypto.getRandomValues(new Uint8Array(16))
+  const rawId = crypto.getRandomValues(new Uint8Array(o.idBytes ?? 16))
   const id = b64(rawId)
   const cose = isoCBOR.encode(new Map<number, number | Uint8Array>([[1, 2], [3, -7], [-1, 1], [-2, isoBase64URL.toBuffer(jwk.x!)], [-3, isoBase64URL.toBuffer(jwk.y!)]]))
   let counter = o.counter ?? 0
@@ -40,7 +41,7 @@ async function authenticator(o: { rpId?: string; counter?: number } = {}) {
     id,
     setCounter: (n: number) => { counter = n },
     /** navigator.credentials.create(), as RegistrationResponseJSON. Flags: user present (1) and verified (4). */
-    async create(options: { challenge: string; user: { id: string } }, opt: { origin?: string; flags?: number; transports?: string[] } = {}) {
+    async create(options: { challenge: string; user: { id: string } }, opt: { origin?: string; flags?: number; transports?: string[] | string } = {}) {
       handle = options.user.id
       const attestationObject = isoCBOR.encode(new Map<string, unknown>([['fmt', 'none'], ['attStmt', new Map()], ['authData', await authData(true, opt.flags ?? 0x05)]]) as never)
       return { id, rawId: id, type: 'public-key', clientExtensionResults: {}, response: { clientDataJSON: b64(client('webauthn.create', options.challenge, opt.origin ?? ORIGIN)), attestationObject: b64(attestationObject), transports: opt.transports ?? ['internal'] } }
@@ -90,6 +91,56 @@ function setup(over: Partial<AccountsEnv> = {}) {
   }
   return { db, env, call, cookieOf, google, add, signIn }
 }
+
+test('a passkey answer sent twice at once with the same counter (a cloned key) signs in once', async () => {
+  const { google, add, call } = setup()
+  const a = await authenticator({ counter: 1 })
+  expect((await add(await google('g-1'), a)).status).toBe(200)
+  a.setCounter(5)
+  const answers = await Promise.all([0, 1].map(async () => a.get((await call('POST', '/api/v1/auth/passkey/options', { body: {} })).json)))
+  const both = await Promise.all(answers.map(response => call('POST', '/api/v1/auth/passkey', { body: { response } })))
+  expect(both.map(r => r.status).sort()).toEqual([200, 401])
+})
+
+test('adding a passkey: a credential id over 1023 bytes and transports that are not a list are refused, not a server error', async () => {
+  const { google, add, db } = setup()
+  const cookie = await google('g-1')
+  expect((await add(cookie, await authenticator({ idBytes: 1024 }))).json).toEqual({ error: 'bad_passkey' })
+  const odd = await add(cookie, await authenticator(), { transports: 'internal' })
+  expect(odd.status).toBe(200)
+  expect((await db.prepare(`SELECT transports FROM credentials WHERE kind = 'passkey'`).first<{ transports: string | null }>())!.transports).toBeNull()
+})
+
+test('removing a method keeps one way in that is not a passkey, only right after signing in, and ends the other sessions', async () => {
+  const { google, add, call, signIn, cookieOf, db } = setup()
+  const cookie = await google('g-1')
+  const a = await authenticator()
+  expect((await add(cookie, a)).status).toBe(200)
+  const elsewhere = cookieOf(await signIn(a))!
+  const methods = (await call('GET', '/api/v1/session', { cookie })).json.user.methods as { id: string; kind: string }[]
+  const id = (kind: string) => methods.find(m => m.kind === kind)!.id
+  // Google is the only way in that isn't the passkey: it stays.
+  expect((await call('DELETE', `/api/v1/account/methods/${id('google')}`, { cookie })).json).toEqual({ error: 'last_method' })
+  // A session opened more than ten minutes ago removes nothing: sign in again first.
+  await db.prepare(`UPDATE sessions SET created_at = ?`).bind(new Date(NOW.getTime() - 11 * 60_000).toISOString()).run()
+  expect((await call('DELETE', `/api/v1/account/methods/${id('passkey')}`, { cookie })).json).toEqual({ error: 'reauth_needed' })
+  await db.prepare(`UPDATE sessions SET created_at = ?`).bind(NOW.toISOString()).run()
+  // The passkey goes, and the session it opened elsewhere with it; this one goes on.
+  expect((await call('DELETE', `/api/v1/account/methods/${id('passkey')}`, { cookie })).status).toBe(204)
+  expect((await call('GET', '/api/v1/session', { cookie: elsewhere })).json.user).toBeNull()
+  expect((await call('GET', '/api/v1/session', { cookie })).json.user.methods.map((m: { kind: string }) => m.kind)).toEqual(['google'])
+})
+
+test('the removal itself (not only the route\'s check before it) leaves a way in that is not a passkey', async () => {
+  const { google, add, call, db } = setup()
+  const cookie = await google('g-1')
+  expect((await add(cookie, await authenticator())).status).toBe(200)
+  const { user } = (await call('GET', '/api/v1/session', { cookie })).json as { user: { id: string; methods: { id: string; kind: string }[] } }
+  const id = (kind: string) => user.methods.find(m => m.kind === kind)!.id
+  // As a second removal at once would find it: the route's check passed, then this runs.
+  expect(await removeMethod(db, user.id, id('google'), 'none')).toBe('last')
+  expect(await removeMethod(db, user.id, id('passkey'), 'none')).toBe('removed')
+})
 
 test('a passkey added to a signed-in account then signs in to it on its own: a cookie on the web, a token in the app', async () => {
   const { call, cookieOf, google, add, signIn, db } = setup()

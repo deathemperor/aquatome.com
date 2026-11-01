@@ -50,6 +50,8 @@ export function depsFor(env: AccountsEnv): AccountDeps {
 }
 
 const HOUR_MS = 3_600_000
+/** Removing a sign-in method: only this long after signing in. */
+const REAUTH_MS = 10 * 60_000
 const json = (data: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...headers } })
 const fail = (error: string, status: number, headers: Record<string, string> = {}) => json({ error }, status, headers)
 const none = (headers: Record<string, string> = {}) => new Response(null, { status: 204, headers: { 'cache-control': 'no-store', ...headers } })
@@ -324,15 +326,18 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   }
   const m = /^\/api\/v1\/account\/methods\/([0-9a-f-]{36})$/.exec(path)
   if (m && req.method === 'DELETE') {
-    const method = await db.prepare(`SELECT kind, subject, (SELECT COUNT(*) FROM credentials WHERE user_id = ?1) AS n FROM credentials WHERE id = ?2 AND user_id = ?1`)
-      .bind(session.userId, m[1]!).first<{ kind: string; subject: string; n: number }>()
+    const method = await db.prepare(`SELECT kind, subject, (SELECT COUNT(*) FROM credentials WHERE user_id = ?1 AND kind != 'passkey' AND id != ?2) AS others FROM credentials WHERE id = ?2 AND user_id = ?1`)
+      .bind(session.userId, m[1]!).first<{ kind: string; subject: string; others: number }>()
     if (!method) return fail('not_found', 404)
-    if (method.n <= 1) return fail('last_method', 409)
+    // Only right after signing in on this client: a session taken (a shared computer left signed in, a stolen phone)
+    // can't remove the owner's ways in and keep the account.
+    if (now.getTime() - Date.parse(session.createdAt) > REAUTH_MS) return fail('reauth_needed', 403)
+    if (method.others === 0) return fail('last_method', 409)
     if (method.kind === 'apple') {
       const refused = await revokeAppleFirst(env, deps, req, url, session.userId, [method.subject], now)
       if (refused) return refused
     }
-    const r = await removeMethod(db, session.userId, m[1]!)
+    const r = await removeMethod(db, session.userId, m[1]!, session.id)
     return r === 'removed' ? none() : r === 'last' ? fail('last_method', 409) : fail('not_found', 404)
   }
   return fail('not_found', 404)

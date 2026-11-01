@@ -1363,8 +1363,8 @@
     },
     "/api/v1/account/methods/{id}": {
       "delete": {
-        "summary": "Remove a sign-in method (not the last one)",
-        "description": "Removing a Sign in with Apple method takes the same fresh Apple authorization code as deleting the account (see DELETE /api/v1/account): its tokens are revoked first.",
+        "summary": "Remove a sign-in method (one that isn't a passkey always stays), right after signing in",
+        "description": "Only within 10 minutes of this client's sign-in (403 reauth_needed: sign in again, then remove), so a session someone else got hold of can't take the account's ways in away. One Apple, Google or email method always stays (409 last_method): a passkey alone can be lost with its device. Every other session of the account ends (the one making the request goes on), so one opened with the method removed doesn't go on.\n\nRemoving a Sign in with Apple method takes the same fresh Apple authorization code as deleting the account (see DELETE /api/v1/account): its tokens are revoked first.",
         "security": [
           {
             "bearer": []
@@ -1442,7 +1442,7 @@
             }
           },
           "403": {
-            "description": "Error: cross_site",
+            "description": "Error: cross_site, or reauth_needed (signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
