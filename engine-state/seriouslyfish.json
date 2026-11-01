@@ -2334,67 +2334,94 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/badis-tuivaiei": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T03:59:51.091Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/badis-tuivaiei"
+    ],
+    "updatedAt": "2026-11-01T00:22:36.637Z",
+    "hash": "f5184f86ef72d2e848b665de92e650e19d441be2030a2e37fe6002d6508e593d",
+    "processedHash": "f5184f86ef72d2e848b665de92e650e19d441be2030a2e37fe6002d6508e593d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagarius-bagarius": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T03:59:56.093Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagarius-bagarius"
+    ],
+    "updatedAt": "2026-11-01T00:24:45.111Z",
+    "hash": "8cee02c1ecfc08e79ef490b53fc10b0451513590e60eca29ad187b94fe52d09e",
+    "processedHash": "8cee02c1ecfc08e79ef490b53fc10b0451513590e60eca29ad187b94fe52d09e",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagarius-lica": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:01.094Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagarius-yarrelli"
+    ],
+    "updatedAt": "2026-11-01T00:26:04.387Z",
+    "hash": "6cf09083f1e08a23535774cae7b8581c6ae19aaada3857df0d1ba1a9dc02bf8b",
+    "processedHash": "6cf09083f1e08a23535774cae7b8581c6ae19aaada3857df0d1ba1a9dc02bf8b",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagarius-rutilus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:06.097Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagarius-rutilus"
+    ],
+    "updatedAt": "2026-11-01T00:27:04.860Z",
+    "hash": "06964b47ed0b3958617df5ca5f3ec11a4e52fd54cc0aa214bdbcc804797256c8",
+    "processedHash": "06964b47ed0b3958617df5ca5f3ec11a4e52fd54cc0aa214bdbcc804797256c8",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagarius-suchus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:11.099Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagarius-suchus"
+    ],
+    "updatedAt": "2026-11-01T00:28:21.802Z",
+    "hash": "f4a3adbb6b28bbb7f076df73f625739a57e8e5c11660ef8ed6a47428fdb86f2b",
+    "processedHash": "f4a3adbb6b28bbb7f076df73f625739a57e8e5c11660ef8ed6a47428fdb86f2b",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagarius-vegrandis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:16.102Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagarius-vegrandis"
+    ],
+    "updatedAt": "2026-11-01T00:31:00.686Z",
+    "hash": "9fbd911ff21e0a10ae3f3d1d2be8b71461e0480cd7bac1d8daa4ae275167f958",
+    "processedHash": "9fbd911ff21e0a10ae3f3d1d2be8b71461e0480cd7bac1d8daa4ae275167f958",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagrichthys-macracanthus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:21.104Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagrichthys-macracanthus"
+    ],
+    "updatedAt": "2026-11-01T00:31:49.882Z",
+    "hash": "7315a53c3892c7480bb75d20357ffe3775a74b47e7918f92fffeec96938a1fec",
+    "processedHash": "7315a53c3892c7480bb75d20357ffe3775a74b47e7918f92fffeec96938a1fec",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagrichthys-majusculus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:26.104Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagrichthys-majusculus"
+    ],
+    "updatedAt": "2026-11-01T00:33:17.224Z",
+    "hash": "75b70573c195366806bbe64f9243410a0b4864bc252e520c940be59deb82df01",
+    "processedHash": "75b70573c195366806bbe64f9243410a0b4864bc252e520c940be59deb82df01",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bagrichthys-obscurus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:31.108Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bagrichthys-obscurus"
+    ],
+    "updatedAt": "2026-11-01T00:34:26.396Z",
+    "hash": "7a55b675b6190762d42b08d6a143cbd17e785d6f64717538750f902993dab421",
+    "processedHash": "7a55b675b6190762d42b08d6a143cbd17e785d6f64717538750f902993dab421",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/balantiocheilos-melanopterus": {
     "entityIds": [
@@ -2407,32 +2434,44 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/balitoropsis-zollingeri": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:41.113Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/balitoropsis-zollingeri"
+    ],
+    "updatedAt": "2026-11-01T00:35:41.091Z",
+    "hash": "60be46b21eddbc2faea58bf2a1137524a5264e2597f12e141e52f59183552a35",
+    "processedHash": "60be46b21eddbc2faea58bf2a1137524a5264e2597f12e141e52f59183552a35",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/balroglanis-macracanthus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:46.115Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/centromochlus-macracanthus"
+    ],
+    "updatedAt": "2026-11-01T00:38:02.844Z",
+    "hash": "2e34a356bf856ac355c4f239fa07d4643f977d8707fd1eafb955a861d9147f91",
+    "processedHash": "2e34a356bf856ac355c4f239fa07d4643f977d8707fd1eafb955a861d9147f91",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bangana-devdevi": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:51.124Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bangana-devdevi"
+    ],
+    "updatedAt": "2026-11-01T00:39:04.950Z",
+    "hash": "ee62f48a2c84c060e129c8de65d6be8f7bac622fc448adfe300c13c80cf26368",
+    "processedHash": "ee62f48a2c84c060e129c8de65d6be8f7bac622fc448adfe300c13c80cf26368",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbodes-aurotaeniatus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:00:56.126Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barbodes-aurotaeniatus"
+    ],
+    "updatedAt": "2026-11-01T00:39:37.541Z",
+    "hash": "45f806574c58cb9f593413de95c3bdc35e885494dd64fcf6ab81e5cbf649043f",
+    "processedHash": "45f806574c58cb9f593413de95c3bdc35e885494dd64fcf6ab81e5cbf649043f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbodes-banksi": {
     "entityIds": [
@@ -2485,18 +2524,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbodes-semifasciolatus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:26.143Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barbodes-semifasciolatus"
+    ],
+    "updatedAt": "2026-11-01T00:42:04.728Z",
+    "hash": "5b84cc4bdbdce0fb59bb7b7acdd6c030b6d517a213cad0a6717a9f041e241092",
+    "processedHash": "5b84cc4bdbdce0fb59bb7b7acdd6c030b6d517a213cad0a6717a9f041e241092",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barboides-gracilis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:31.145Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barboides-gracilis"
+    ],
+    "updatedAt": "2026-11-01T00:45:09.412Z",
+    "hash": "22d40c24188761b97ccf149753c792f497189738e71755a593d6904c03555fe3",
+    "processedHash": "22d40c24188761b97ccf149753c792f497189738e71755a593d6904c03555fe3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barbonymus-altus": {
     "entityIds": [
@@ -2539,18 +2584,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/barilius-vagra": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:01:56.169Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/barilius-vagra"
+    ],
+    "updatedAt": "2026-11-01T00:47:32.319Z",
+    "hash": "5c7587346269628e220d7c550bda6132f1723fae325af9348476653751227bcb",
+    "processedHash": "5c7587346269628e220d7c550bda6132f1723fae325af9348476653751227bcb",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bario-oligolepis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:01.176Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/moenkhausia-oligolepis"
+    ],
+    "updatedAt": "2026-11-01T00:49:14.204Z",
+    "hash": "51843f74564fbc80fc426c72304814db1c9d0cc1d9ec96c5e8f943b05fcd7469",
+    "processedHash": "51843f74564fbc80fc426c72304814db1c9d0cc1d9ec96c5e8f943b05fcd7469",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bario-sanctaefilomenae": {
     "entityIds": [
@@ -2573,32 +2624,42 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/baryancistrus-chrysolomus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:16.183Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/baryancistrus-chrysolomus"
+    ],
+    "updatedAt": "2026-11-01T00:50:50.755Z",
+    "hash": "eb24a601560b4d68183b92bc6f42dc1db1923f02fbe375bce348b69e0a5ee114",
+    "processedHash": "eb24a601560b4d68183b92bc6f42dc1db1923f02fbe375bce348b69e0a5ee114",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/baryancistrus-demantoides": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:21.185Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/baryancistrus-demantoides"
+    ],
+    "updatedAt": "2026-11-01T00:54:53.050Z",
+    "hash": "e6607b0a25207e60dd2f06bbd5a9457551108f700c8e49f6f631bfe8e52523c6",
+    "processedHash": "e6607b0a25207e60dd2f06bbd5a9457551108f700c8e49f6f631bfe8e52523c6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/baryancistrus-sp-l142": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:26.188Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "updatedAt": "2026-11-01T00:58:53.707Z",
+    "hash": "5c3c2c10e303c8ec93b96c0424aadd01127c109655a1e5695233957a76f81452",
+    "processedHash": "5c3c2c10e303c8ec93b96c0424aadd01127c109655a1e5695233957a76f81452",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/baryancistrus-xanthellus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:31.188Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/baryancistrus-xanthellus"
+    ],
+    "updatedAt": "2026-11-01T00:17:52.584Z",
+    "hash": "857b95edf43e4f7fa5ece54bafa5523189bb341c9a34971d18737cccd4d1fbc6",
+    "processedHash": "857b95edf43e4f7fa5ece54bafa5523189bb341c9a34971d18737cccd4d1fbc6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/batasio-feruminatus": {
     "entityIds": [
@@ -2611,18 +2672,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/batasio-fluviatilis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:41.194Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/batasio-fluviatilis"
+    ],
+    "updatedAt": "2026-11-01T01:00:31.571Z",
+    "hash": "ef8885c0b2f11b61be0cc13f2a0fa811c6d7953d3e8089a4a09828f9ed0f5992",
+    "processedHash": "ef8885c0b2f11b61be0cc13f2a0fa811c6d7953d3e8089a4a09828f9ed0f5992",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/batasio-tigrinus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:46.195Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/batasio-tigrinus"
+    ],
+    "updatedAt": "2026-11-01T01:03:02.561Z",
+    "hash": "50eea877bae023d5af18400620667183d4366c1356539c101d3cd38f55bfd605",
+    "processedHash": "50eea877bae023d5af18400620667183d4366c1356539c101d3cd38f55bfd605",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/batasio-travancoria": {
     "entityIds": [
@@ -2635,11 +2702,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/beaufortia-cyclica": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:02:56.198Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/beaufortia-cyclica"
+    ],
+    "updatedAt": "2026-11-01T01:04:24.814Z",
+    "hash": "ff793be5895c2d541b2b99c69f197c7bd591d9cefc41a288e989169eee411c9d",
+    "processedHash": "ff793be5895c2d541b2b99c69f197c7bd591d9cefc41a288e989169eee411c9d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/beaufortia-kweichowensis": {
     "entityIds": [
@@ -2652,25 +2722,34 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/beaufortia-szechuanensis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:06.205Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/beaufortia-szechuanensis"
+    ],
+    "updatedAt": "2026-11-01T01:06:36.688Z",
+    "hash": "58afb19c573da14e08f18de3f333132cb5ba5db6a30578ed54cb7fb70fc0be93",
+    "processedHash": "58afb19c573da14e08f18de3f333132cb5ba5db6a30578ed54cb7fb70fc0be93",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/bedotia-madagascariensis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:11.205Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/bedotia-madagascariensis"
+    ],
+    "updatedAt": "2026-11-01T01:10:23.312Z",
+    "hash": "2f1ef4c19e53af2e0e986af11f4a0db46db51ba211cd2767bfdc7916e1ffa4df",
+    "processedHash": "2f1ef4c19e53af2e0e986af11f4a0db46db51ba211cd2767bfdc7916e1ffa4df",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/belodontichthys-dinema": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:16.207Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/belodontichthys-dinema"
+    ],
+    "updatedAt": "2026-11-01T01:14:23.824Z",
+    "hash": "ece6d3bd55de7cac946b7c9cfe6557d3aa570ba83dba11aff5d8923f430e8b0d",
+    "processedHash": "ece6d3bd55de7cac946b7c9cfe6557d3aa570ba83dba11aff5d8923f430e8b0d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/belontia-hasselti": {
     "entityIds": [
@@ -2683,18 +2762,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/belontia-signata": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:26.213Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/belontia-signata"
+    ],
+    "updatedAt": "2026-11-01T01:15:33.299Z",
+    "hash": "7da837760e6f31fe3150b1173ff09e21b9a9268a2ccdb98b7075d787d9477cbc",
+    "processedHash": "7da837760e6f31fe3150b1173ff09e21b9a9268a2ccdb98b7075d787d9477cbc",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/benthochromis-tricoti": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:31.213Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/benthochromis-tricoti"
+    ],
+    "updatedAt": "2026-11-01T01:17:36.960Z",
+    "hash": "a5039059ad76ecb5dc949f45f12f8d04ad6d6161a0969a4b6667a56f011ed765",
+    "processedHash": "a5039059ad76ecb5dc949f45f12f8d04ad6d6161a0969a4b6667a56f011ed765",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betadevario-ramachandrani": {
     "entityIds": [
@@ -2707,18 +2792,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-akarensis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:41.218Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-akarensis"
+    ],
+    "updatedAt": "2026-11-01T01:19:09.938Z",
+    "hash": "0f11e35cd861c39b9640b6a8b0b23e1e1a8b65e6617caf9044ae4640e8951691",
+    "processedHash": "0f11e35cd861c39b9640b6a8b0b23e1e1a8b65e6617caf9044ae4640e8951691",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-albimarginata": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:03:46.223Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-albimarginata"
+    ],
+    "updatedAt": "2026-11-01T01:22:05.818Z",
+    "hash": "35acb7a70f7f8ec8204c298d1ce59e50cb1b54a983ab2fb5080b650dda4483a3",
+    "processedHash": "35acb7a70f7f8ec8204c298d1ce59e50cb1b54a983ab2fb5080b650dda4483a3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-antoni": {
     "entityIds": [
@@ -2781,39 +2872,54 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-chloropharynx": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:21.239Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-chloropharynx"
+    ],
+    "updatedAt": "2026-11-01T01:24:17.486Z",
+    "hash": "83a49c070fff1f857bfa87a2d62e74cc1a2c243da63ffff1a535e9d7e178caa3",
+    "processedHash": "83a49c070fff1f857bfa87a2d62e74cc1a2c243da63ffff1a535e9d7e178caa3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-coccina": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:26.242Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-coccina"
+    ],
+    "updatedAt": "2026-11-01T01:26:22.180Z",
+    "hash": "485ed005cf2f6e40b3266d8be7da9a1508611c2f868057745fc3d8311483df5a",
+    "processedHash": "485ed005cf2f6e40b3266d8be7da9a1508611c2f868057745fc3d8311483df5a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-cracens": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:31.243Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-cracens"
+    ],
+    "updatedAt": "2026-11-01T01:29:04.992Z",
+    "hash": "33c71282989a2c8d3cc26a9adccc7ec1edd3e0721f1d4468778e79451704a2da",
+    "processedHash": "33c71282989a2c8d3cc26a9adccc7ec1edd3e0721f1d4468778e79451704a2da",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-dennisyongi": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:36.245Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-dennisyongi"
+    ],
+    "updatedAt": "2026-11-01T01:31:29.119Z",
+    "hash": "87645cf5dc49944d752a1b5a7b2dda5788e7367324a8c139d6a9195e0b6662f8",
+    "processedHash": "87645cf5dc49944d752a1b5a7b2dda5788e7367324a8c139d6a9195e0b6662f8",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-dimidiata": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:41.247Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-dimidiata"
+    ],
+    "updatedAt": "2026-11-01T01:34:13.177Z",
+    "hash": "4c361164a24d344b25bace5416cd57e99e882860a9172e70e65f6ea7d8415609",
+    "processedHash": "4c361164a24d344b25bace5416cd57e99e882860a9172e70e65f6ea7d8415609",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-edithae": {
     "entityIds": [
@@ -2826,18 +2932,24 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-enisae": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:51.250Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-enisae"
+    ],
+    "updatedAt": "2026-11-01T01:37:03.460Z",
+    "hash": "5186f2504dbdf65e5afd52f2502616daeb2feee4dd4c2873e1423944108e5d85",
+    "processedHash": "5186f2504dbdf65e5afd52f2502616daeb2feee4dd4c2873e1423944108e5d85",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-falx": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:04:56.251Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-falx"
+    ],
+    "updatedAt": "2026-11-01T01:40:04.561Z",
+    "hash": "3ee2ce81509616860b2037ebbbd42b08fec3baa5add2c88d13f98c8c8accd337",
+    "processedHash": "3ee2ce81509616860b2037ebbbd42b08fec3baa5add2c88d13f98c8c8accd337",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-foerschi": {
     "entityIds": [
@@ -2850,32 +2962,44 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-gladiator": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:06.252Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-gladiator"
+    ],
+    "updatedAt": "2026-11-01T01:42:40.910Z",
+    "hash": "5e700b8a73e404508141cd5076c39ae3c1520642b0a1dc1017a8cfc7cd5e8d73",
+    "processedHash": "5e700b8a73e404508141cd5076c39ae3c1520642b0a1dc1017a8cfc7cd5e8d73",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-hendra": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:11.253Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-hendra"
+    ],
+    "updatedAt": "2026-11-01T01:47:47.448Z",
+    "hash": "437c4dd7f5444260a69212ee0e8147708cff0c471adcc500fbc957c4f706e59f",
+    "processedHash": "437c4dd7f5444260a69212ee0e8147708cff0c471adcc500fbc957c4f706e59f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-hipposideros": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:16.257Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-hipposideros"
+    ],
+    "updatedAt": "2026-11-01T01:50:49.600Z",
+    "hash": "c4a95b1b8e9c7fc4b792c3ee13009b6df5027678dcff99af38e12e725520ecc5",
+    "processedHash": "c4a95b1b8e9c7fc4b792c3ee13009b6df5027678dcff99af38e12e725520ecc5",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-ibanorum": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:21.256Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-ibanorum"
+    ],
+    "updatedAt": "2026-11-01T01:52:51.766Z",
+    "hash": "26f3c2e294ee23c5e0234461f3aaa731d3784b277888cc1bd8cc80bc0c68f2e8",
+    "processedHash": "26f3c2e294ee23c5e0234461f3aaa731d3784b277888cc1bd8cc80bc0c68f2e8",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-ideii": {
     "entityIds": [
@@ -2888,32 +3012,44 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-imbellis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:31.260Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-imbellis"
+    ],
+    "updatedAt": "2026-11-01T01:55:50.696Z",
+    "hash": "d291171714e0365d7c5044a953b6b410335b108018387ee7ca77f08f71864539",
+    "processedHash": "d291171714e0365d7c5044a953b6b410335b108018387ee7ca77f08f71864539",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-krataios": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:36.262Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-krataios"
+    ],
+    "updatedAt": "2026-11-01T01:58:32.566Z",
+    "hash": "43e1c3e33b893f39bd213b4b42d60ab203a2ece325c54a2180f50b9c60380d26",
+    "processedHash": "43e1c3e33b893f39bd213b4b42d60ab203a2ece325c54a2180f50b9c60380d26",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-kuehnei": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:41.265Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-kuehnei"
+    ],
+    "updatedAt": "2026-11-01T02:01:10.541Z",
+    "hash": "81fec84322f11ac5aa3274c412762d812cc6c46e805c2bf94069c4a333517e63",
+    "processedHash": "81fec84322f11ac5aa3274c412762d812cc6c46e805c2bf94069c4a333517e63",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-lehi": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:05:46.273Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-lehi"
+    ],
+    "updatedAt": "2026-11-01T02:03:49.446Z",
+    "hash": "45d1f4f010004d082dfc4798a57e3095621860c1e6c0c6b156b50ba075ade2f3",
+    "processedHash": "45d1f4f010004d082dfc4798a57e3095621860c1e6c0c6b156b50ba075ade2f3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-livida": {
     "entityIds": [
@@ -2936,25 +3072,34 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-mahachaiensis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:01.274Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-mahachaiensis"
+    ],
+    "updatedAt": "2026-11-01T02:06:38.447Z",
+    "hash": "d0a073ef88505a0804a5c94c16c7b99821d1846616000e7a8b1c18db66bf1c47",
+    "processedHash": "d0a073ef88505a0804a5c94c16c7b99821d1846616000e7a8b1c18db66bf1c47",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-mandor": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:06.274Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-mandor"
+    ],
+    "updatedAt": "2026-11-01T02:09:33.651Z",
+    "hash": "2bd645f8890031b9cb00459628040dd60964ee32766df7a80d768fc75338bee1",
+    "processedHash": "2bd645f8890031b9cb00459628040dd60964ee32766df7a80d768fc75338bee1",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-midas": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:11.278Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-midas"
+    ],
+    "updatedAt": "2026-11-01T02:12:44.578Z",
+    "hash": "5f04445fca6cd1341b1f663445a5751183467ab1c37924eb4dbbed4adcd912a3",
+    "processedHash": "5f04445fca6cd1341b1f663445a5751183467ab1c37924eb4dbbed4adcd912a3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-miniopinna": {
     "entityIds": [
@@ -2977,11 +3122,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pallida": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:26.295Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pallida"
+    ],
+    "updatedAt": "2026-11-01T02:14:33.635Z",
+    "hash": "92a5ffd294706a4061f565eb0db2f60f6a68c3171f90f1f3dd2e5eb0aa414ef5",
+    "processedHash": "92a5ffd294706a4061f565eb0db2f60f6a68c3171f90f1f3dd2e5eb0aa414ef5",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pallifina": {
     "entityIds": [
@@ -2994,11 +3142,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pardalotos": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:36.297Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pardalotos"
+    ],
+    "updatedAt": "2026-11-01T02:16:24.651Z",
+    "hash": "5cb39f7105281ee165a6c0a9ed7308c557d19317951cb709e127fca1beb30d0b",
+    "processedHash": "5cb39f7105281ee165a6c0a9ed7308c557d19317951cb709e127fca1beb30d0b",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-patoti": {
     "entityIds": [
@@ -3011,53 +3162,74 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-persephone": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:46.302Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-persephone"
+    ],
+    "updatedAt": "2026-11-01T02:18:52.341Z",
+    "hash": "6ab3c95207d9db612c3e61ed511bea87e9dc3912ed914a8793ec7ba3ba5263bb",
+    "processedHash": "6ab3c95207d9db612c3e61ed511bea87e9dc3912ed914a8793ec7ba3ba5263bb",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pi": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:51.304Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pi"
+    ],
+    "updatedAt": "2026-11-01T02:21:38.275Z",
+    "hash": "c530bdaa8d8d7ca06580a6bf54ac545fff6cd5d2483ea3834f4879c15262eb10",
+    "processedHash": "c530bdaa8d8d7ca06580a6bf54ac545fff6cd5d2483ea3834f4879c15262eb10",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-picta": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:06:56.309Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-picta"
+    ],
+    "updatedAt": "2026-11-01T02:24:09.393Z",
+    "hash": "dc48df6f25e37393a44c1f8eca4c4c0dff1dd72e93d3d7a4dfd6a30bdea50e93",
+    "processedHash": "dc48df6f25e37393a44c1f8eca4c4c0dff1dd72e93d3d7a4dfd6a30bdea50e93",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pinguis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:01.311Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pinguis"
+    ],
+    "updatedAt": "2026-11-01T02:28:03.304Z",
+    "hash": "3ebd7e5b69cf55bdd2babbe33a7a0cdeab01b92843efeaca28e0f6a3def7bca7",
+    "processedHash": "3ebd7e5b69cf55bdd2babbe33a7a0cdeab01b92843efeaca28e0f6a3def7bca7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-prima": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:06.310Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-prima"
+    ],
+    "updatedAt": "2026-11-01T02:30:09.265Z",
+    "hash": "39bd823f2d3bf21ae3165d0e6d3f6021a597190f3d32debaa0df546ef5781484",
+    "processedHash": "39bd823f2d3bf21ae3165d0e6d3f6021a597190f3d32debaa0df546ef5781484",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pugnax": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:11.312Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pugnax"
+    ],
+    "updatedAt": "2026-11-01T02:32:23.925Z",
+    "hash": "97f82348d50931260eb383fee1fdc29a343174c53e130175ef215c45c7cb5a92",
+    "processedHash": "97f82348d50931260eb383fee1fdc29a343174c53e130175ef215c45c7cb5a92",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-pulchra": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:16.314Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-pulchra"
+    ],
+    "updatedAt": "2026-11-01T02:35:07.836Z",
+    "hash": "474efcd254fd452d2e5d87ac92472469c903b54b920cd30552306d2013ac3005",
+    "processedHash": "474efcd254fd452d2e5d87ac92472469c903b54b920cd30552306d2013ac3005",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-raja": {
     "entityIds": [
@@ -3070,18 +3242,21 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-renata": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:26.318Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-renata"
+    ],
+    "updatedAt": "2026-11-01T02:37:35.661Z",
+    "hash": "76a06aee83b4cd61977fb475a2993507f1d3adaee0a135f3c1021f793ae5680e",
+    "processedHash": "76a06aee83b4cd61977fb475a2993507f1d3adaee0a135f3c1021f793ae5680e",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-rubra": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:31.320Z",
+    "updatedAt": "2026-11-01T02:40:04.940Z",
     "status": "error",
     "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
   },
   "https://www.seriouslyfish.com/species/betta-rutilans": {
     "entityIds": [
@@ -3095,10 +3270,10 @@
   },
   "https://www.seriouslyfish.com/species/betta-siamorientalis": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:41.325Z",
+    "updatedAt": "2026-11-01T02:43:00.280Z",
     "status": "error",
     "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
   },
   "https://www.seriouslyfish.com/species/betta-simorum": {
     "entityIds": [
@@ -3112,10 +3287,10 @@
   },
   "https://www.seriouslyfish.com/species/betta-simplex": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:07:51.333Z",
+    "updatedAt": "2026-11-01T02:43:05.267Z",
     "status": "error",
     "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
   },
   "https://www.seriouslyfish.com/species/betta-smaragdina": {
     "entityIds": [],
@@ -3252,11 +3427,14 @@
     "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/boraras-naevus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:09:21.384Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/boraras-naevus"
+    ],
+    "updatedAt": "2026-11-01T00:19:48.858Z",
+    "hash": "da6a634f535bb8074c23580cf668dfa866e8143d94e119e0124c687497a86ceb",
+    "processedHash": "da6a634f535bb8074c23580cf668dfa866e8143d94e119e0124c687497a86ceb",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-urophthalmoides": {
     "entityIds": [

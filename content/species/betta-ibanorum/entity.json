@@ -1,0 +1,212 @@
+{
+  "id": "betta-ibanorum",
+  "scientificName": "Betta ibanorum",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Betta ibanorum is a paternal mouthbrooding labyrinth fish from southern and western Sarawak, Borneo, where it exists in several colour forms. Most known localities are blackwater peat swamps, but it has also been collected from clear streams, roadside ditches and a pool at the top of a waterfall. A member of the B. akarensis group, it is uncommon in the hobby and apparently more often fished for food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Native to the Malaysian state of Sarawak on the island of Borneo. It's widely distributed throughout the south and west of the state and exists in several colour forms depending on locality.</p><p>Type locality is 'Kuching, Bako National Park, Bukit Gondol, Sarawak, Borneo', and it's known from other areas around the city of Kuching, plus the districts of Matang, Serian, Gedong, Simunjan and Sri Aman with known range extending eastwards as far as the gold-mining town of Bau.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Sometimes inhabits clear streams with flowing water although most known localities consist of blackwater environments in ancient peat swamps, though it's also been collected from roadside ditches and one population has been discovered living in a small pool at the top of a waterfall.</p><p>Both types of habitat are typically shaded from the sun with abundant riparian vegetation.</p><p>Blackwaters are characteristically stained brown with humic acids and other chemicals released by decaying organic material. The dissolved mineral content is almost always negligible, pH as low as 3.0-4.0 and substrate composed predominantly of fallen leaves, branches and submerged tree roots.</p><p>Clearwater streams usually have sandy or rocky substrates covered with a layer of biofilm, and the fish tend to be found in marginal zones where the flow is weaker or aquatic plants growing.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent, about 72 litres, is large enough for a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed in such a way that a few shady spots are formed, while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 4.0–7.0. The pH in its natural waters has been recorded from 4.2 (blackwater) to 6.8 (clearwater stream).</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Likely to feed mostly on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but in most cases it's best maintained alone.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Adult males are larger, develop more-extended fins and have a broader head shape than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>A single pair or group of fish can be used but be aware that each male is capable of holding up to 60 fry so considerable space will be needed should you wish to raise them all.</p><p>The female plays the more active role in initiating courtship and defending the area against intruders.</p><p>Eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and several 'practice' embraces may be required before any eggs are released.</p><p>Once spawning commences eggs are laid in small batches and picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>The incubation period is 14–21 days at which point the male will begin to release fully-formed, free-swimming fry.</p><p>While some breeders have never had a problem with this species eating its own young others have lost entire broods through predation, but many remove the female (plus any other fishes present) a few days after spawning. This needs to be done as carefully as possible in order to avoid disturbing the male as he may swallow or release the brood prematurely if stressed. Once the fry are swimming and foraging freely the male can also be removed if you wish.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<p>B. ibanorum is uncommon in the hobby and is apparently more frequently fished for food than the aquarium trade.</p><p>It's included in the Betta akarensis group of closely-related species within the genus, of which members share the following set of characters: possession of pre-orbital and post-orbital stripes (the post-orbital stripe is faint or interrupted in some species); chin bar present; caudal-fin lanceolate with highly extended median rays in mature males; caudal fin usually with transverse bars; greenish or bluish iridescent scales on body of males in some species; opercle without iridescent scales except in juveniles.</p><p>The unique combination of characters distinguishing B. ibanorum from others in the group is as follows: posterior half of scales iridescent green to blue; opercle without second postorbital stripe; eye yellow in life; anal-fin rays 27-29 (mode 28); subdorsal scales 5-6 (mode 6); lateral scales 30-32 (mode 30); predorsal scales 21-23 (mode 22); postdorsal scales 10-11 (mode 11); preanal length 45.8-49.4 % SL; head length 31.7-36.4 % SL; length of anal-fin base 50.0-55.8 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters. Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, so-called due to its maze-like structure which allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. and P. K. L. Ng (2004). Two new species of freshwater fish (Teleostei: Balitoridae, Osphronemidae) from southern Sarawak. Sarawak Bau Limestone Biodiversity. Sarawak Museum Journal Special issue 6, 267-284</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6d8a0b6e90b86580.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6d8a0b6e90b86580-480.webp",
+      "width": 640,
+      "height": 383,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "caption": "Male of Betta ibanorum from Lundu, Sarawak state, Borneo.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/341f45791b1870fe.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/341f45791b1870fe-480.webp",
+      "width": 818,
+      "height": 543,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "caption": "A pair from Matang spawning in the aquarium, and the fish are moving into position for...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/46b076541d13593a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/46b076541d13593a-480.webp",
+      "width": 715,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "caption": "...the next embrace.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f449a89ded75b16a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f449a89ded75b16a-480.webp",
+      "width": 671,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-ibanorum",
+      "caption": "Captive-bred juveniles of Betta ibanorum from Matang.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá betta"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí",
+        "lọc sponge cho betta"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

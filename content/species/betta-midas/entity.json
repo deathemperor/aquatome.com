@@ -1,0 +1,187 @@
+{
+  "id": "betta-midas",
+  "scientificName": "Betta midas",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas",
+    "malaysia",
+    "sarawak"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Betta midas is a stout-bodied labyrinth fish from the lower Kapuas basin in West Kalimantan, Indonesian Borneo, and may also occur in western Sarawak. It has been traded as B. anabatoides in the past, and most images of it are labelled as such. It has gold iridescent scales on the opercle, belly and body. The paratype series came from a blackwater river in peat swamp forest with a pH of 4.1.</p><p>Max size: 66 mm SL (6.6 cm).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Known from the lower Kapuas river basin in West Kalimantan province, Indonesian Borneo near the village of Anjungan, about 60 km away from the town of Pontianak towards Mandor and Tayan.</p><p>It may also occur in the Sambas river drainage and extreme western Sarawak (Malaysian Borneo), in heath forest streams near the town of Lundu (Batang Kayan river system).</p><p>Type locality is a 'small stream draining into Sungau Sepatah, a tributary to Sungai Mandor, 24 kilometers northeast of Pontianak (0°07.5'N, 109°30'E), Kabupaten Pontianak, West Kalimantan, Borneo'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>The paratype series was collected in 1998 from a blackwater river known as the Sungai Kepayan, which flows through remnant and intact peat swamp forest.</p><p>pH was measured at 4.1 and depth ranged from 20 cm (8 in) to 2 metres or more.</p><p>Syntopic fish species included Betta edithae plus Osteochilus spilurus, 'Puntius' rhomboocellatus, Brevibora dorsiocellata, Trigonopoma gracile, T. pauciperforatum, Sundadanio cf. axelrodi, Kottelatlimia pristes, Neohomaloptera johorensis, Nanobagrus fuscus, Kryptopterus macrocephalus, Ompok weberi, Silurichthys phaiosoma, Hemirhamphodon phaiosoma, Nandus nebulosus, Belontia hasseltii, Luciocephalus pulcher, Parosphromenus anjunganensis, P. ornaticauda, and Sphaerichthys osphromenoides.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in), about 72 litres, could house a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed in such a way that a few shady spots are formed, while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and, as well as offering additional cover for the fish, brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as, like all Betta spp., it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 3.5–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Likely to feed mostly on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use; it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but be sure to research your choices before purchase.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>Adult males have a stronger colour pattern, develop more-extended fins and have a broader head shape than females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<p>This species has been traded as B. anabatoides in the past and most images of it are labelled as such, while photos of the real B. anabatoides appear quite rare. Together with B. anabatoides, B. midas is a member of the B. anabatoides species group within the genus.</p><p>Members of this group are told apart from other Betta spp. by the following characters: body relatively short and stout (body depth greater than 31.0 % SL); chin-bar absent; throat unpatterned; presence of iridescent gold opercular scales; possession of caudal-fin rays extending beyond the margin of the caudal-fin membrane; transverse bars in caudal-fin present or absent; head dorsally convex; body stout, superficially reminiscent of Anabas spp., the climbing perches.</p><p>It can be diagnosed by the following combination of characters: body relatively thick-set (body depth 24.3–29.0 % SL); lateral head profile blunt; head patternless except for a black stripe extending from the lower lip, which is itself black, through the eye to the opercle; in life opercle with distinct gold iridescent scales; belly and body also with gold iridescent scales; caudal-fin lanceolate with some median rays projecting beyond its margin; caudal-fin with dark transverse bars.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century. Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters. Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "html": "<ul><li>Tan, H. H. (2009). Redescription of Betta anabatoides Bleeker, and a new species of Betta from West Kalimantan, Borneo (Teleostei: Osphronemidae). Zootaxa 2165, 59-68</li><li>Bleeker, P. (1851). Nieuwe bijdrage tot de kennis der ichthyologische fauna van Borneo met beschrijving van eenige nieuwe soorten van zoetwatervisschen. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1, 259-275</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2663c064cdac9e72.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2663c064cdac9e72-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "caption": "Freshly-collected specimen. Note the iridescent gold flank scales, a feature lacking in its closest relative B. anabatoides.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1841ed6140ad2b40.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1841ed6140ad2b40-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-midas",
+      "caption": "Wild adult male from an unconfirmed locality.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 80x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt",
+        "lọc mút sponge"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bút đo pH",
+        "bộ test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

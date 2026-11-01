@@ -1,0 +1,194 @@
+{
+  "id": "bagarius-suchus",
+  "scientificName": "Bagarius suchus",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Bagarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 70
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>The crocodile catfish, Bagarius suchus, is a sisorid catfish from the Mekong system in Thailand, Laos and Cambodia and the Chao Phraya in Thailand. Reaching 650 to 700 mm SL, it is clearly unsuitable for the home aquarium. An exposed, rugose cranium, sharp ridges on the predorsal plate and a row of prominent humps along the back separate it from congeners. It is mostly collected from turbulent rapids in larger rivers, where it shelters among boulders and large rocks.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Known from the Mekong river system in Thailand, Laos, and Cambodia, plus the Chao Phraya drainage in Thailand.</p><p>Type locality is 'Kemrat, Thailand'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Mostly collected from larger river channels and typically associated with fast-flowing, turbulent rapids where it takes shelter among boulders and large rocks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Standard length 700 mm (28 in).</p><p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with plenty of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<ul><li>Temperature: 18–23°C (64–73°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>An obligate predator feeding on smaller fishes, amphibians, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Best maintained alone.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<p>B. suchus is clearly unsuitable for the home aquarium given its eventual size and natural behaviour, and we know of only a handful of private aquarists with the facilities required to house it long-term.</p><p>Following Roberts (1983) it is told apart from congeners by the following combination of characters: rugose dorsal surface of bony cranium and predorsal plate exposed (not covered by skin); a median sharp ridge on supraoccipital crest and paired sharp longitudinal ridges on predorsal plate; skin on sides of head and on body with closely set beadlike or granular protuberances of similar size; body depth 7.9-9.3 (mean 8.5); a darkly pigmented spot or blotch on side of body midway between darkly pigmented bands associated with bases of dorsal and adipose fins.</p><p>In addition, the skin above the neural spines anterior and posterior to the adipose fin always forms large ridges or humps (seven to nine in front of the adipose fin, three to five behind it), much more prominent and more numerous than the relatively weak humps or ridges sometimes formed over the neural spines in B. bagarius and rarely present and even more weakly developed in B. yarrelli. In B. suchus the adipose fin origin tends to lie even further posterior than in B. bagarius (and therefore much further posteriorly than in B. yarrelli), and the distance separating the dorsal and adipose fins is much greater in B. suchus than in B. bagarius or B. yarrelli.</p><p>The genus Bagarius is distinguished from all other genera in the putative subfamily Sisoridae by having markedly heterodont teeth in the lower jaw. Teeth are present in two or three outer rows of relatively numerous, close-set conical teeth, and one or two inner rows of less numerous, widely separated, and much larger conical teeth (vs. dentition of the lower jaw consisting of only small conical teeth, or a roughened bony plate).</p><p>The grouping currently contains four species but is in urgent need of review with a number of additional taxa thought to exist and B. yarrelli possibly representing a synonym of B. bagarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Thomson, A. W. and L. M. Page (2006). Genera of the Asian catfish families Sisoridae and Erethistidae (Teleostei: Siluriformes). Zootaxa 1345, 1-96</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Ng, H. H. and M. Kottelat (2000). Description of three new species of catfishes (Teleostei: Akysidae and Sisoridae) from Laos and Vietnam. Journal of South Asian Natural History 5(1), 7-15</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Roberts, T. R. (1983). Revision of the South and Southeast Asian Sisorid Catfish Genus Bagarius, with Description of a New Species from the Mekong. Copeia 1983(2), 435-445</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b580bf057d8f6907.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b580bf057d8f6907-480.webp",
+      "width": 800,
+      "height": 573,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "caption": "This species is easily told apart from congeners by presence of dark blotches on the flanks.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fb5d5e38202d921d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fb5d5e38202d921d-480.webp",
+      "width": 700,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "caption": "Specimen from Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b039e58157fb0b59.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b039e58157fb0b59-480.webp",
+      "width": 800,
+      "height": 581,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "caption": "This species requires a very large, specialised aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/280467d3ad082bd0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/280467d3ad082bd0-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
+      "caption": "Detail of head and body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "bộ lọc bể cá lớn",
+        "máy bơm tạo dòng chảy mạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá kích thước lớn dài 2m"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

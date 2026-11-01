@@ -1,0 +1,188 @@
+{
+  "id": "belontia-signata",
+  "scientificName": "Belontia signata",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Belontia",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "sri-lanka",
+    "mahaweli"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>The Ceylonese combtail, Belontia signata, is a labyrinth fish endemic to the central and southern river systems of Sri Lanka. Also referred to as the 'Ceylon fighting fish', it differs from B. hasselti in its reddish body and the absence of mosaic patterning in the unpaired fins. At least three putative phenotypes have been recorded, one described as the questionably valid subspecies B. s. jonklaasi. It is not recommended for the average community aquarium.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Endemic to Sri Lanka where it occurs throughout central and southern river systems including the Mahaweli, Kelani, Kalu and Nilwala drainages.</p><p>Type locality is given simply as 'Sri Lanka'.</p><p>It exhibits some differences in patterning and morphology depending on locality (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>This species mostly inhabits shallow forested streams containing clear water and substrates of sand and small rocks. It appears to show a preference for slower-moving stretches and is often found among marginal tree roots or vegetation.</p><p>In the Nilwala river basin it was recorded at the type locality of Devario pathirana which comprised a low gradient stream flowing slowly over lateritic clay. In 1990 it was between 4-8 m in width and up to 3 m deep, though along much of the sampled stretch average depth was just 10 – 150 cm. The substrate was composed of small, smooth, sandstone boulders interspersed with patches of sand or silt and the water very clear. Emerse vegetation consisted of Aponogeton and Lagenandra species while much of the surrounding land had been turned over to rice, tea or coconut plantations.</p><p>Sympatric species included Devario pathirana, Puntius bimaculatus, P. kamalika (probable), P. vittatus, Pethia nigrofasciata, Dawkinsia singhala (probable, identified as D. filamentosa in 1990), Systomus pleurotaenia, S. sarana, Rasboroides vaterifloris, Rasbora dandia (probable, identified as R. daniconius in 1990), Laubuca laubuca, Awaous grammepomus, Sicyopus jonklaasi and Ompok ceylonensis (probable, identified as O. bimaculatus in 1990).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>An aquarium for even a single pair should have base dimensions of 120 × 30 cm or equivalent (about 108 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Ideally a soft, sandy substrate should be used though it is not essential. Additional furnishings are as much a case of personal taste as anything else although ideally plenty of cover should be provided.</p><p>The most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood, scattered roots/branches and a layer of floating vegetation such as Ceratopteris thalictroides or similar. Other plant species can also be added according to preference.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Primarily carnivorous, and apparently feeds mostly on invertebrates and molluscs in nature.</p><p>In the aquarium larger live and frozen foods such as earthworms or shellfish are taken and most specimens will also learn to accept dried alternatives, with pelleted products generally preferred to flake. Smaller food stuffs such as chironomid larvae (bloodworm) or Artemia are accepted by smaller specimens but may be ignored by adults.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Not recommended for the average community aquarium but can be maintained alongside other fishes in larger set-ups.</p><p>Very small fishes are best avoided as they may be eaten but peaceful, medium-sized, schooling cyprinids are suitable. Similarly-shaped fishes such as other anabantoids and some cichlids should be omitted, since under the majority of circumstances they will not be tolerated.</p><p>Belontia species are not gregarious except when juvenile, with males aggressive towards conspecifics including non-nuptial females.</p><p>Particular care should be exercised when introducing new specimens to an existing individual or group as they may even be killed. Unless your aquarium is very large a single sexed pair is therefore the recommended option.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Fully-grown males are noticeably larger and possess more elongate unpaired fins than females, plus they develop longer filamentous extensions to the caudal fin rays. Live juveniles cannot be sexed accurately.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>Biparental bubble nester and apparently very fecund, but precise details are not available to date.</p><p>The nest constructed is supposedly quite primitive, and both parents participate in extended broodcare with the female protecting and tending the eggs and male defending the surrounding area.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<p>This species is also referred to by the vernacular name 'Ceylon fighting fish'. It differs from its only congener, B. hasselti, by its overall reddish (vs. brownish-grey) body colouration, and absence (vs. presence) of a mosaic-like patterning in the unpaired fins.</p><p>At least three putative phenotypes have been recorded. The nominative, and commonest, mostly inhabits clear streams in rainier zones, has no spot at the base of the pectoral fin and exhibits the reddest base body colouration, brightest eye, and deepest body.</p><p>The second, described as the questionably valid subspecies B. s. jonklaasi (Benl and Terofal, 1975), occurs in more turbid, slower-moving waters and possesses a reflective, turquoise spot at the base of the pectoral fin, some blue iridescent scales concentrated in the lower half of the body, and a slimmer body shape.</p><p>The third form, usually described as intermediate between the other two, is distributed in lowland habitats, lacks reddish body colouration, and the filaments extending from the caudal fin tend to be bluish as opposed to black.</p><p>The position of relatedness of the genus Belontia with respect to other anabantoids remains somewhat unresolved with neither morphological nor molecular evidence proving conclusive to date.</p><p>Britz (1995) suggested it may represent the sister group to all other members of the family Osphronemidae based on the fact that the second external levator muscle of the second gill arch is unmodified (as in Helostoma and the family Anabantidae), whereas in other osphronemids it is modified into a thin layer covering the entire posterior part of the suprabranchial chamber.</p><p>In the molecular phylogeny of Rüber et al. (2006) Belontia was found to be most closely-related to the 'giant gouramis' of the genus Osphronemus, although basal relationships among osphronemids were not recovered.</p><p>Like other taxa in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "html": "<ul><li>Benl, G. and F. Terofal (1975). Beiträge zur Kenntnis der Belontiinae (Pisces, Perciformes, Anabantoidei, Belontiidae). Teil 2. Veroeffentlichungen des Zoologischen Stattssammlung (München) 18, 227-250</li><li>Günther, A. (1861). Catalogue of the acanthopterygian fishes in the collection of the British Museum. 3. Gobiidae, Discoboli, Pediculati, Blenniidae, Labyrinthici, Mugilidae, Notacanthi. London. Catalogue of the fishes in the British Museum Vol. 3, 1-586</li><li>Linke, H. (1992). Labyrinth Fish: The Bubble Nest Builders. Tetra Press, 1-176</li><li>Kottelat, M. and R. Pethiyagoda (1990). Danio pathirana, a new species of cyprinid fish endemic to southern Sri Lanka. Ichthyological Exploration of Freshwaters 1(3), 247-252</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0219cf59339669ba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0219cf59339669ba-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "caption": "Subadult specimen of nominate form (see 'notes' for explanation).",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1bcccbb409b41251.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1bcccbb409b41251-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/belontia-signata",
+      "caption": "Captive-bred juvenile of nominative form.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 120x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá ăn thịt",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}
