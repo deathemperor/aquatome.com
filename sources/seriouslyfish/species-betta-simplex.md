@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/betta-simplex
 title: Betta simplex · Seriously Fish
-fetchedAt: 2026-11-01T16:30:39.438Z
+fetchedAt: 2026-11-01T22:24:50.781Z
 hash: 5038a3a0c52b55286b88556751869944fb6e4fd27b77c8b94f31eb21d8ba0df2
 ---
 

@@ -495,6 +495,7 @@
     "matchType": "EXACT"
   },
   "Akademie der": null,
+  "Akademie des": null,
   "Akysis armatus": {
     "canonicalName": "Nanobagrus armatus",
     "order": "Siluriformes",
@@ -1373,6 +1374,7 @@
     "genus": "Aphyocharax",
     "matchType": "EXACT"
   },
+  "Aphyocypris pooni": null,
   "Aphyosemion australe": {
     "canonicalName": "Aphyosemion australe",
     "order": "Cyprinodontiformes",
@@ -2159,6 +2161,13 @@
   },
   "Awaous grammepomus": {
     "canonicalName": "Awaous grammepomus",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Awaous",
+    "matchType": "EXACT"
+  },
+  "Awaous personatus": {
+    "canonicalName": "Awaous personatus",
     "order": "Perciformes",
     "family": "Gobiidae",
     "genus": "Awaous",
@@ -3049,6 +3058,7 @@
   "Bentosi bentosi": null,
   "Beobachtungen und": null,
   "Beschreibung einer": null,
+  "Beschreibung von": null,
   "Betadevario ramachandrani": {
     "canonicalName": "Betadevario ramachandrani",
     "order": "Cypriniformes",
@@ -4421,6 +4431,13 @@
     "order": "Stylommatophora",
     "family": "Chondrinidae",
     "genus": "Chondrina",
+    "matchType": "EXACT"
+  },
+  "Chonerhinos africanus": {
+    "canonicalName": "Auriglobus modestus",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Auriglobus",
     "matchType": "EXACT"
   },
   "Chromobotia macracantha": {
@@ -5880,6 +5897,13 @@
     "genus": "Devario",
     "matchType": "EXACT"
   },
+  "Devario sondhii": {
+    "canonicalName": "Devario sondhii",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Devario",
+    "matchType": "EXACT"
+  },
   "Devario strigillifer": {
     "canonicalName": "Devario strigillifer",
     "order": "Cypriniformes",
@@ -6080,6 +6104,7 @@
   },
   "Ein farbenfroher": null,
   "Ein ganz": null,
+  "Ein neuer": null,
   "Eine neue": null,
   "Eirmotus octozona": {
     "canonicalName": "Eirmotus octozona",
@@ -6434,6 +6459,7 @@
     "matchType": "EXACT"
   },
   "Eye rasbora": null,
+  "Fachzeitschrift des": null,
   "Farlowella amazonum": {
     "canonicalName": "Farlowella amazonum",
     "order": "Siluriformes",
@@ -6908,6 +6934,13 @@
     "family": "Gobiidae",
     "genus": "Glossogobius",
     "matchType": "EXACT"
+  },
+  "Glossolepis incisa": {
+    "canonicalName": "Glossolepis incisus",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Glossolepis",
+    "matchType": "FUZZY"
   },
   "Glossolepis incisus": {
     "canonicalName": "Glossolepis incisus",
@@ -7948,6 +7981,7 @@
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
   },
+  "Hyphessobrycon has": null,
   "Hyphessobrycon herbertaxelrodi": {
     "canonicalName": "Hyphessobrycon herbertaxelrodi",
     "order": "Characiformes",
@@ -8016,6 +8050,13 @@
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon simulans": {
+    "canonicalName": "Paracheirodon simulans",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Paracheirodon",
     "matchType": "EXACT"
   },
   "Hyphessobrycon socolofi": {
@@ -8240,6 +8281,7 @@
     "genus": "Bangana",
     "matchType": "EXACT"
   },
+  "Indischen und": null,
   "Indo dat": null,
   "Indo datnoid": null,
   "Indochinese nemacheilines": null,
@@ -8430,6 +8472,8 @@
     "matchType": "EXACT"
   },
   "Kottelat described": null,
+  "Kottelat moved": null,
+  "Kottelat revalidated": null,
   "Kottelatia brittani": {
     "canonicalName": "Kottelatia brittani",
     "order": "Cypriniformes",
@@ -8637,6 +8681,7 @@
     "genus": "Lamprologus",
     "matchType": "EXACT"
   },
+  "Lampung provinces": null,
   "Lankan rasboras": null,
   "Lasiancistrus caucanus": {
     "canonicalName": "Lasiancistrus caucanus",
@@ -9148,6 +9193,13 @@
     "genus": "Ludwigia",
     "matchType": "EXACT"
   },
+  "Ludwigia prostrata": {
+    "canonicalName": "Ludwigia prostrata",
+    "order": "Myrtales",
+    "family": "Onagraceae",
+    "genus": "Ludwigia",
+    "matchType": "EXACT"
+  },
   "Lugubria lugubris": null,
   "Lugubria strigata": null,
   "Lugubria tigrina": null,
@@ -9217,6 +9269,13 @@
   },
   "Macropodus opercularis": {
     "canonicalName": "Macropodus opercularis",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Macropodus",
+    "matchType": "EXACT"
+  },
+  "Macropodus spechti": {
+    "canonicalName": "Macropodus spechti",
     "order": "Perciformes",
     "family": "Osphronemidae",
     "genus": "Macropodus",
@@ -9355,6 +9414,7 @@
     "matchType": "EXACT"
   },
   "Medaka ricefish": null,
+  "Meere gefangene": null,
   "Megalamphodus bentosi": null,
   "Megalamphodus eques": {
     "canonicalName": "Hyphessobrycon eques",
@@ -9682,6 +9742,13 @@
     "matchType": "EXACT"
   },
   "Mexico including": null,
+  "Micracanthus marchei": {
+    "canonicalName": "Betta splendens",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Betta",
+    "matchType": "EXACT"
+  },
   "Micralestes acutidens": {
     "canonicalName": "Micralestes acutidens",
     "order": "Characiformes",
@@ -9731,6 +9798,7 @@
     "genus": "Microctenopoma",
     "matchType": "EXACT"
   },
+  "Microdevario has": null,
   "Microdevario kubotai": {
     "canonicalName": "Microdevario kubotai",
     "order": "Cypriniformes",
@@ -9927,6 +9995,7 @@
     "genus": "Moenkhausia",
     "matchType": "EXACT"
   },
+  "Monatsberichte der": null,
   "Monetaria moneta": {
     "canonicalName": "Monetaria moneta",
     "order": "Littorinimorpha",
@@ -9977,6 +10046,7 @@
   "Mulm trong": null,
   "Mundakayam lies": null,
   "Mustura maepaiensis": null,
+  "Myanmar banned": null,
   "Myanmar trong": null,
   "Myitmaka thu": null,
   "Myloplus schomburgkii": {
@@ -10560,6 +10630,7 @@
     "matchType": "EXACT"
   },
   "New ornate": null,
+  "Nga provinces": null,
   "Ngay sau": null,
   "Ngay trong": null,
   "Nghe nhi": null,
@@ -12388,6 +12459,13 @@
     "matchType": "EXACT"
   },
   "Pontchartrain drainages": null,
+  "Popondetta connieae": {
+    "canonicalName": "Pseudomugil connieae",
+    "order": "Atheriniformes",
+    "family": "Pseudomugilidae",
+    "genus": "Pseudomugil",
+    "matchType": "EXACT"
+  },
   "Poptella paraguayensis": {
     "canonicalName": "Poptella paraguayensis",
     "order": "Characiformes",
@@ -12444,6 +12522,7 @@
     "genus": "Potamotrygon",
     "matchType": "EXACT"
   },
+  "Prachtschmerlenfang einmal": null,
   "Pradesh states": null,
   "Prakan provinces": null,
   "Priapella compressa": {
@@ -13226,6 +13305,13 @@
     "genus": "Desmopuntius",
     "matchType": "EXACT"
   },
+  "Puntius kamalika": {
+    "canonicalName": "Puntius kamalika",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Puntius",
+    "matchType": "EXACT"
+  },
   "Puntius kelumi": {
     "canonicalName": "Puntius kelumi",
     "order": "Cypriniformes",
@@ -13744,6 +13830,13 @@
     "family": "Cyprinidae",
     "genus": "Boraras",
     "matchType": "EXACT"
+  },
+  "Rasbora uropthalma": {
+    "canonicalName": "Boraras urophthalmoides",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Boraras",
+    "matchType": "FUZZY"
   },
   "Rasbora vaterifloris": {
     "canonicalName": "Rasboroides vaterifloris",
@@ -14489,6 +14582,7 @@
     "genus": "Sicyopterus",
     "matchType": "EXACT"
   },
+  "Sicyopterus punctatus": null,
   "Sicyopus jonklaasi": {
     "canonicalName": "Sicyopus jonklaasi",
     "order": "Perciformes",
@@ -15046,6 +15140,13 @@
     "genus": "Crossocheilus",
     "matchType": "EXACT"
   },
+  "Tateurndina ocellicauda": {
+    "canonicalName": "Tateurndina ocellicauda",
+    "order": "Perciformes",
+    "family": "Eleotridae",
+    "genus": "Tateurndina",
+    "matchType": "EXACT"
+  },
   "Tatia neivai": {
     "canonicalName": "Tatia neivai",
     "order": "Siluriformes",
@@ -15139,6 +15240,7 @@
     "genus": "Tetraodon",
     "matchType": "EXACT"
   },
+  "Thailand having": null,
   "Thailand including": null,
   "Thailand using": null,
   "Thalassophryne amazonica": {
@@ -15677,6 +15779,7 @@
     "matchType": "EXACT"
   },
   "Vietnam mini": null,
+  "Vijfde bijdrage": null,
   "Vittina natalensis": {
     "canonicalName": "Vittina natalensis",
     "order": "Cycloneritida",
@@ -16015,101 +16118,5 @@
     "family": "Pimelodidae",
     "genus": "Zungaro",
     "matchType": "EXACT"
-  },
-  "Akademie des": null,
-  "Aphyocypris pooni": null,
-  "Awaous personatus": {
-    "canonicalName": "Awaous personatus",
-    "order": "Perciformes",
-    "family": "Gobiidae",
-    "genus": "Awaous",
-    "matchType": "EXACT"
-  },
-  "Beschreibung von": null,
-  "Chonerhinos africanus": {
-    "canonicalName": "Auriglobus modestus",
-    "order": "Tetraodontiformes",
-    "family": "Tetraodontidae",
-    "genus": "Auriglobus",
-    "matchType": "EXACT"
-  },
-  "Devario sondhii": {
-    "canonicalName": "Devario sondhii",
-    "order": "Cypriniformes",
-    "family": "Cyprinidae",
-    "genus": "Devario",
-    "matchType": "EXACT"
-  },
-  "Ein neuer": null,
-  "Fachzeitschrift des": null,
-  "Hyphessobrycon has": null,
-  "Hyphessobrycon simulans": {
-    "canonicalName": "Paracheirodon simulans",
-    "order": "Characiformes",
-    "family": "Characidae",
-    "genus": "Paracheirodon",
-    "matchType": "EXACT"
-  },
-  "Indischen und": null,
-  "Kottelat moved": null,
-  "Kottelat revalidated": null,
-  "Lampung provinces": null,
-  "Ludwigia prostrata": {
-    "canonicalName": "Ludwigia prostrata",
-    "order": "Myrtales",
-    "family": "Onagraceae",
-    "genus": "Ludwigia",
-    "matchType": "EXACT"
-  },
-  "Macropodus spechti": {
-    "canonicalName": "Macropodus spechti",
-    "order": "Perciformes",
-    "family": "Osphronemidae",
-    "genus": "Macropodus",
-    "matchType": "EXACT"
-  },
-  "Meere gefangene": null,
-  "Micracanthus marchei": {
-    "canonicalName": "Betta splendens",
-    "order": "Perciformes",
-    "family": "Osphronemidae",
-    "genus": "Betta",
-    "matchType": "EXACT"
-  },
-  "Microdevario has": null,
-  "Monatsberichte der": null,
-  "Myanmar banned": null,
-  "Nga provinces": null,
-  "Popondetta connieae": {
-    "canonicalName": "Pseudomugil connieae",
-    "order": "Atheriniformes",
-    "family": "Pseudomugilidae",
-    "genus": "Pseudomugil",
-    "matchType": "EXACT"
-  },
-  "Prachtschmerlenfang einmal": null,
-  "Puntius kamalika": {
-    "canonicalName": "Puntius kamalika",
-    "order": "Cypriniformes",
-    "family": "Cyprinidae",
-    "genus": "Puntius",
-    "matchType": "EXACT"
-  },
-  "Rasbora uropthalma": {
-    "canonicalName": "Boraras urophthalmoides",
-    "order": "Cypriniformes",
-    "family": "Cyprinidae",
-    "genus": "Boraras",
-    "matchType": "FUZZY"
-  },
-  "Sicyopterus punctatus": null,
-  "Tateurndina ocellicauda": {
-    "canonicalName": "Tateurndina ocellicauda",
-    "order": "Perciformes",
-    "family": "Eleotridae",
-    "genus": "Tateurndina",
-    "matchType": "EXACT"
-  },
-  "Thailand having": null,
-  "Vijfde bijdrage": null
+  }
 }
