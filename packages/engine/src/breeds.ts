@@ -137,9 +137,13 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const species = (name?: string) => (sci(name) ? ids.get(sci(name)!.toLowerCase()) : undefined)
 
   const forWriter = { name: a.name, kind: facts.kind, enNames: facts.enNames, viNames: facts.viNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }
+  // A name the owner fixed is the page's name in the text too, not only in its title (other names stay other names).
+  const dir = join(content, 'breeds', id)
+  const prev = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
+  const fixed = prev?.nameFixed ? `\n\nTên trang đã chốt: "${prev.name}". Gọi cá bằng tên này trong cả bài; các tên khác chỉ nhắc như tên gọi khác.` : ''
   const write = (notes?: string[]) => d.llm<Written>({
     system: 'You write Vietnamese aquarium fish profiles from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
+    prompt: `${WRITE}\n\n${STYLE}${fixed}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
   const check = async (x: Written) => {
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
@@ -156,7 +160,6 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
 
   // Photos: its Commons category (else a search for its name), screened for this line only, best first.
   // A rewrite from kept research keeps the photos already screened.
-  const dir = join(content, 'breeds', id)
   const prevPhotos = kept ? JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as BreedEntity | null : null
   const prevGallery = prevPhotos ? JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number } | null : null
   const enName = facts.enNames[0] ?? a.name
@@ -165,7 +168,6 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const seen = prevPhotos ? prevGallery?.seen ?? photos.length : cands.length
 
   const today = d.gallery.now().toISOString().slice(0, 10)
-  const prev = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
   const care: BreedEntity['care'] = {}
   for (const c of facts.care) {
     const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]

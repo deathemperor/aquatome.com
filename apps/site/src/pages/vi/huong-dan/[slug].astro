@@ -28,7 +28,7 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { g } = Astro.props as { g: Localized<GuideEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const { m, species, plants, ph, gear, toc, prose, minutes, series, inSeries, pos, next, refs } = guideParts(lang, c, g)
+const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs } = guideParts(lang, c, g)
 const v = g.video
 const description = excerpt(g.t.body ?? '')
 const jsonld: object[] = []
@@ -58,7 +58,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={refs} />
-      {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : ph && <img class="lead" src={ph.url} width={ph.width} height={ph.height} alt="" />}
+      {v ? <VideoPlayer video={v} chapters={g.t.chapters} cover={g.t.cover} /> : lead && <img class="lead" src={lead.url} width={lead.width} height={lead.height} alt="" />}
       {g.t.summary && g.t.summary.length > 0 && (
         <section class="takeaways" aria-labelledby="sum-h">
           <h2 id="sum-h">{t('Tóm tắt nhanh')}</h2>

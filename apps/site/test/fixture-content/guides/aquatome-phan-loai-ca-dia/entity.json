@@ -1,0 +1,61 @@
+{
+  "id": "aquatome-phan-loai-ca-dia",
+  "kind": "discovery",
+  "source": "aquatome",
+  "sourceUrl": "https://aquatome.com/vi/huong-dan/phan-loai-ca-dia/",
+  "html": "",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/00000000000000a1.webp",
+      "thumb": "https://media.aquatome.com/commons/00000000000000a1-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brown_Discus_Symphysodon_aequifasciatus.jpg",
+      "caption": "Cá dĩa nâu hoang dã"
+    },
+    {
+      "url": "https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-ca-dia-giai-phau.webp",
+      "width": 1200,
+      "height": 940,
+      "licence": "dùng với sự cho phép",
+      "author": "AquaTome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "source": "aquatome",
+      "caption": "Các bộ phận của cá dĩa",
+      "section": {
+        "vi": "Can, chỉ và hoa văn",
+        "id": "Istilah dasar"
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/00000000000000a2.webp",
+      "thumb": "https://media.aquatome.com/commons/00000000000000a2-480.webp",
+      "width": 1200,
+      "height": 1288,
+      "licence": "CC BY 2.0",
+      "author": "David J",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Pigeon_Blood_Discus.jpg",
+      "caption": "Lớp 12: bồ câu (Pigeon Blood)",
+      "section": {
+        "vi": "Một mục không có trong bài"
+      }
+    }
+  ],
+  "mentions": [
+    "symphysodon-aequifasciatus",
+    "pigeon-blood-discus"
+  ],
+  "updatedAt": "2026-11-01",
+  "refs": [
+    {
+      "url": "https://discusnada.org/?p=280",
+      "title": "Discus Classification"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phan-2-phan-loai-ca-dia-thuan-duong.31268/",
+      "title": "Phần 2: Phân loại cá dĩa thuần dưỡng"
+    }
+  ]
+}

@@ -60,9 +60,14 @@ export const VideoRef = z.object({
     photo: Photo.optional(),
   })).optional(),
 })
+/**
+ * A guide's photo can name the section it illustrates, by the h3 each language's text gives it (translations are written
+ * on their own, so their headings differ): the page puts it under that heading.
+ */
+const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), id: z.string().optional(), th: z.string().optional() }).optional() })
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
-  source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(Photo), mentions: z.array(z.string()), updatedAt: z.string(),
+  source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(GuidePhoto), mentions: z.array(z.string()), updatedAt: z.string(),
   video: VideoRef.optional(),
   /** Guides AquaTome writes itself from web research (source 'aquatome'): the pages the facts came from. */
   refs: z.array(z.object({ url: z.string(), title: z.string() })).optional(),

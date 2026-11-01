@@ -93,11 +93,12 @@ export function mentionIndex(c: Content): Index {
   const targets = linkTargets(c)
   const species = new Map(c.species.map(s => [`species:${s.id}`, s]))
   const plants = new Map(c.plants.map(p => [`plant:${p.id}`, p]))
+  const breeds = new Set(c.breeds.map(b => b.id))
   const guides = new Map<string, GuideLinks>()
   for (const g of c.guides) {
     const { html, keys: named } = linkTerms(g.t.body ?? '', targets, 'ml')
-    // Plus what a video shows (engine video-items), even when the text never names it.
-    const shown = g.mentions.flatMap(id => (species.has(`species:${id}`) ? [`species:${id}`] : plants.has(`plant:${id}`) ? [`plant:${id}`] : []))
+    // Plus what a video shows (engine video-items), and the breeds the engine found named, even when no link was made.
+    const shown = g.mentions.flatMap(id => (species.has(`species:${id}`) ? [`species:${id}`] : plants.has(`plant:${id}`) ? [`plant:${id}`] : breeds.has(id) ? [`breed:${id}`] : []))
     const keys = [...new Set([...named, ...shown])]
     guides.set(g.id, {
       html, keys,

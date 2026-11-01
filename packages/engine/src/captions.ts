@@ -14,7 +14,7 @@ const THAI = /[฀-๿]/
 type Photos = { photos?: { caption?: string }[] }
 
 /**
- * Photo captions written in Vietnamese (galleries, breed photos) in another site language, for the pages that language
+ * Photo captions written in Vietnamese (galleries, breed photos, guide photos) in another site language, for the pages that language
  * has: one call per page, given the page's name in that language so the captions use it. content/captions/<lang>.json,
  * keyed by the Vietnamese caption; the site shows the translation, and leaves a caption off until it has one.
  */
@@ -27,7 +27,7 @@ export async function localizeCaptions(root: string, llm: Llm, lang: TargetLang,
   }
   const read = async <T>(path: string) => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) as T | null
   const pages: { id: string; subject: string; todo: string[] }[] = []
-  for (const kind of ['species', 'breeds', 'plants']) for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
+  for (const kind of ['species', 'breeds', 'plants', 'guides']) for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
     const t = await read<{ name: string }>(join(root, 'content', kind, id, `${lang}.json`))
     if (!t) continue
     const e = await read<Photos & { scientificName?: string }>(join(root, 'content', kind, id, 'entity.json'))

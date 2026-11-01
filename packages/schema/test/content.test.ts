@@ -12,10 +12,10 @@ test('sample store loads with minimum counts', async () => {
   expect(c.guides.length).toBeGreaterThanOrEqual(2)
   expect(c.glossary.length).toBeGreaterThanOrEqual(4)
 })
-test('every photo has an allowed licence and an author', async () => {
+test('every photo has an allowed licence, or is from a listed source (its publish gate decides), and an author', async () => {
   const c = await load()
   for (const e of [...c.species, ...c.plants, ...c.guides]) for (const p of e.photos) {
-    expect(isAllowedLicence(p.licence), p.url).toBe(true)
+    expect(p.source ? c.sources[p.source] !== undefined : isAllowedLicence(p.licence), p.url).toBe(true)
     expect(p.author.length, p.url).toBeGreaterThan(0)
   }
 })

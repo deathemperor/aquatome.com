@@ -95,14 +95,18 @@ test('a hybrid: parents keep their doubt and link the species we have', async ()
 
 test('--redo keeps a name the owner fixed and the addresses the page had', async () => {
   const r = await root()
-  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], summary: [], body: '', faq: [] }) as T
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { schema: object; prompt: string }) => (prompts.push(a.prompt), 'score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], summary: [], body: '', faq: [] }) as T
   const d = { research: (async () => facts) as Llm, llm, gallery: gallery([]) }
   await makeBreed(r, d, { name: 'Ranchu goldfish' })
+  expect(prompts[0]).not.toContain('Tên trang đã chốt')
   const file = join(r, 'content/breeds/ranchu-goldfish/vi.json')
   const vi = JSON.parse(await readFile(file, 'utf8'))
   await writeFile(file, JSON.stringify({ ...vi, slug: 'ca-vang-lan-tho', name: 'Cá vàng Lan thọ (Ranchu)', nameFixed: true, redirectFrom: [{ slug: vi.slug, name: vi.name }] }))
   await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ slug: 'ca-vang-lan-tho', name: 'Cá vàng Lan thọ (Ranchu)', nameFixed: true, redirectFrom: [{ slug: 'ca-vang-ranchu-dong' }] })
+  // The text calls the fish by the fixed name too.
+  expect(prompts.at(-2)).toContain('Tên trang đã chốt: "Cá vàng Lan thọ (Ranchu)"')
 })
 
 test('something research could not find (or a wild species) is skipped, nothing written', async () => {

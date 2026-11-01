@@ -34,3 +34,13 @@ test('Vietnamese captions of pages the language has are translated, with the pag
   expect(prompts[1]).toContain('1. Cá betta cái')
   expect(prompts[1]).not.toContain('màu đỏ')
 })
+
+test("a guide's Vietnamese photo captions (its diagrams) are translated once the guide is in the language", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-cap-guide-'))
+  await mkdir(join(root, 'content/guides/g1'), { recursive: true })
+  await writeFile(join(root, 'content/guides/g1/entity.json'), JSON.stringify({ photos: [photo('Bốn màu gốc của cá dĩa')] }))
+  await writeFile(join(root, 'content/guides/g1/id.json'), JSON.stringify({ name: 'Klasifikasi diskus' }))
+  const llm = (async () => ({ captions: [{ n: 1, text: 'Empat warna dasar diskus' }] })) as unknown as Llm
+  expect((await localizeCaptions(root, llm, 'id')).done).toEqual(['g1: 1/1'])
+  expect(JSON.parse(await readFile(join(root, 'content/captions/id.json'), 'utf8'))).toEqual({ 'Bốn màu gốc của cá dĩa': 'Empat warna dasar diskus' })
+})

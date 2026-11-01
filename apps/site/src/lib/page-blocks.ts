@@ -69,8 +69,8 @@ function toBlocks(parent: HTMLElement, unknown: Set<string>): Block[] {
       }
       case 'div': {
         const cls = n.getAttribute('class')
-        // A plain box, or a video section's pictures (lib/video.ts): what's inside.
-        if (!cls || cls === 'vfigs') out.push(...toBlocks(n, unknown))
+        // A plain box, a video section's pictures (lib/video.ts) or a guide section's (lib/figures.ts): what's inside.
+        if (!cls || cls === 'vfigs' || cls === 'figs') out.push(...toBlocks(n, unknown))
         else if (n.classList.contains('moments')) {
           const m = moments(n)
           if (m) out.push(m)
