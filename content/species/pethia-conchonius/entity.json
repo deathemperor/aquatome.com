@@ -8,7 +8,12 @@
   "places": [
     "asia",
     "india",
-    "calcutta"
+    "calcutta",
+    "pakistan",
+    "ganges",
+    "nepal",
+    "bangladesh",
+    "afghanistan"
   ],
   "dataCard": {
     "difficulty": [
@@ -19,6 +24,10 @@
       {
         "source": "sprucepets",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ],
     "tempC": [
@@ -27,6 +36,13 @@
         "value": {
           "min": 18,
           "max": 22
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 24
         }
       }
     ],
@@ -37,6 +53,13 @@
           "min": 6.5,
           "max": 6.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -46,18 +69,33 @@
           "min": 0,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 90
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 100
       }
     ]
   },
@@ -75,10 +113,28 @@
       "html": "<ul><li>Common names: Red barb, rosy barb</li><li>Scientific name: Puntius conchonius</li><li>Family: Cyprinidae</li><li>Adult size: 6 inches (15 cm)</li><li>Life expectancy: 5 years</li><li>Social: Active, peaceful</li><li>Tank level: All areas</li><li>Minimum tank size: 30 gallons (about 110 litres)</li><li>Diet: Omnivore</li><li>Breeding: Egglayer</li><li>Care: Easy to intermediate</li><li>pH: 6.5</li><li>Hardiness: up to 10 dGH</li><li>Temperature: 18 to 22°C (64 to 72°F)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh. Generally considered one of the hardiest small cyprinids in the hobby, it is an excellent choice for newcomers. Wild specimens are not usually available and the vast majority are commercially bred, with long-finned, 'veil-tail', 'super red', 'neon' and 'golden' strains among the forms selective breeding has produced. Feral populations exist in several countries.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
       "html": "<p>Rosy barbs originate from northern India, specifically in the states of West Bengal and Assam. Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia. In the wild, they inhabit lakes and fast-flowing waters in subtropical climates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.</p><p>Populations exhibit a degree of variation depending on locality, with some forms growing larger than others or exhibiting further variation in colouration and patterning.</p><p>For example, fish collected from the Darjeeling area in the Siwalik mountains, West Bengal are said to be particularly well-coloured with highly-reflective scales.</p><p>Wild specimens are not usually available in the aquarium trade, though, with the vast majority bred on a commercial basis (see 'Notes').</p><p>Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Occurs in numerous habitat-types, from flowing hill streams and tributaries of rivers to stiller waters such as lakes, ponds, and swamps.</p>"
     },
     {
       "key": "aquariumSize",
@@ -87,10 +143,22 @@
       "html": "<p>While a 20-gallon aquarium will suffice for a school of rosy barbs, a 30-gallon or larger tank is preferable.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Base dimensions of at least 100 × 30 cm or equivalent are required. Volume is approximately 90 litres.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
       "html": "<p>As one of the hardiest barbs, rosy barbs are relatively easy to care for in captivity. Ensure your aquarium has a secure lid, as rosy barbs are proficient jumpers.</p><p>Rosy barbs can adapt to various conditions, provided extreme water conditions are avoided. They are known to tolerate higher nitrate levels, making them ideal for new tanks; they have a higher likelihood of surviving the initial nitrogen cycling.</p><p>Live plants are recommended, but avoid soft-leaved varieties, as rosy barbs may nibble on them. Java moss proves beneficial, providing shade and shelter.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong given its natural habitat preferences though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
     },
     {
       "key": "waterConditions",
@@ -99,10 +167,22 @@
       "html": "<p>Rosy barbs tolerate cooler temperatures than most tropical fish, ranging from 18 to 22°C (64 to 72°F). This allows them to be kept as pond fish. However, they should be moved indoors during winter, especially in regions susceptible to cold weather.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<ul><li>Temperature: 16–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
       "html": "<p>Rosy barbs are omnivorous and opportunistic feeders. They thrive on a diverse diet, consuming both vegetables and protein sources. Offer them plant matter, insects, worms, crustaceans, flakes, pellets, and frozen foods. They will also eat small live foods such as insects, worms, and crustaceans, including brine shrimp and bloodworms.</p><p>Provide variety by offering boiled zucchini or peas as treats. Due to their grazing behavior, rosy barbs help control hair algae growth in aquariums. They are enthusiastic eaters, so take caution to avoid overfeeding.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Studies have shown it to be a generalised omnivore feeding on worms, insects and other small invertebrates, as well as plant material and organic detritus.</p><p>In the aquarium it's easily fed, but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
       "key": "behaviour",
@@ -111,10 +191,22 @@
       "html": "<p>Ideally, house a minimum of five rosy barbs in an aquarium, as they are schooling fish that become stressed when alone. They may exhibit aggressive or \"fin-nipping\" behavior, which is mitigated by keeping them in a group of five or more. Due to their fin-nipping tendency, avoid pairing them with slower-moving, long-finned fish.</p><p>Rosy barbs are excellent community fish, socializing well with other nonaggressive, similarly sized species that thrive in cooler water. Suitable tankmates include swordtails, gouramis, angelfish, knifefish, ropefish, paradise fish, danios, tetras, many American cichlids, and other barbs. Hobbyists often use rosy barbs as dither fish in cichlid tanks, as their vibrant presence indicates a predator-free environment, coaxing shy cichlids out of hiding. Rosy barbs are agile and can outswim most similarly sized cichlids.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>This species is generally peaceful and an ideal resident of the well-researched community aquarium.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display, plus males will display their best colours as they compete with one another for female attention.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/rosy-barb-1378467",
       "html": "<p>Males have a brighter red coloration, while females appear more gold or silver. Both genders display black markings on their fins and sides. The rosy barb has a torpedo-shaped body with a forked tail and a single dorsal fin. Like other cyprinid fish, rosy barbs lack an adipose fin.</p><p>Rosy barbs are challenging to sex when young. As they mature, males develop a redder, more slender appearance, while females remain smaller and plumper, typically lacking the males' bright red coloration, appearing more yellow, olive, or gold.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Adult males are noticeably smaller, slimmer, and more colourful than females, especially during the spawning season when they also develop tubercles on the head and snout.</p><p>Some ornamental strains retain bright colouration at all times.</p>"
     },
     {
       "key": "reproduction",
@@ -123,13 +215,75 @@
       "html": "<p>Rosy barbs are relatively easy to breed, reaching sexual maturity at approximately 6 cm (2.5 inches). For breeding, a 20- or 30-gallon aquarium is ideal. They breed in shallow water, but fry require a larger tank to prevent stunting. Provide ample plants, offering seclusion and egg-laying surfaces.</p><p>For breeding, select one male and two females from a school with exceptional markings and strong coloration. When ready to breed, the female becomes more vibrant. Typically, they lay eggs at dawn as it becomes light.</p><p>During breeding, the male and female exhibit chasing and mock mating behaviors. The male fertilizes the eggs as the female scatters several hundred eggs onto the substrate, plants, decorations, or releases them into open water. These adhesive eggs require prompt removal, as parents do not care for them and may consume them if left in the tank.</p><p>Eggs hatch in approximately 30 hours. Feed free-swimming fry infusoria, liquid fry food, or newly hatched baby brine shrimp at least three times daily. Monitor closely during feeding, as uneaten food quickly fouls the water, and clean conditions are vital for fry survival.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Like most small cyprinids Pethia spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They should be offered an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_conchonius_en/",
       "html": "<p>Wild-collected rosy barbs, originating from the vicinity of Calcutta (the type locality of Barbus conchonius), look completely different from the aquarium strains. Males of the wild fish become metallic black and get a red caudal peduncle. Each scale is ornamented with a bright silver spot.</p><p>The aquarium strains of the rosy barb apparently do not belong to the species Barbus conchonius at all.</p><p>Keeping wild-collected rosy barbs is no different from keeping the domesticated ones. They are hardy fish and very easy to keep.</p><p>Barbus: Latin, meaning \"the bearded one\", referring to the barbels. conchonius: after the common name of the fish in Bengal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<p>Generally considered one of the hardiest small cyprinids available in the aquarium hobby, P. conchonius is an excellent choice for newcomers.</p><p>Selective breeding has produced various ornamental strains including long-finned, 'veil-tail', 'super red', 'neon', and 'golden' forms.</p><p>It's also been hybridised with some congeners although apparently the offspring of such experiments are infertile.</p><p>It was formerly included in the Puntius conchonius 'group' of closely-related species alongside P. ater, P. bandula, P. cumingii, P. didi, P. erythromycter, P. gelius, P. khugae, P. macrogramma, P. manipurensis, P. meingangbii, P. nankyweensis, P. nigripinnis, P. nigrofasciatus, P. padamya, P. phutunio, P. punctatus, P. reval, P. setnai, P. shalynius, P. stoliczkanus, P. thelys, P. tiantian, and P. ticto, but all of these were moved to the new genus Pethia by Pethiyagoda et al. (2012), as were P. melanomaculata, P. pookodensis, P. muvattupuzhaensis, P. ornatus and P. yuensis.</p><p>'Puntius' narayani was not moved to the new genus since it uniquely possesses 9 branched dorsal-fin rays and 6 branched anal-fin rays and is currently of uncertain generic placement.</p><p>Pethia species are diagnosed by the following combination of characters: rostral barbels absent; maxillary barbels minute or absent; possession of a stiff, serrated last unbranched dorsal-fin ray; presence of a black blotch on the caudal peduncle, and frequently, black blotches, spots or bars on the side of the body; infraorbital 3 deep and partially overlapping the preoperculum.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here on SF at the moment.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "html": "<ul><li>Kullander, S. O. and R. Britz (2008). Puntius padamya, a new species of cyprinid fish from Myanmar (Teleostei: Cyprinidae). Electronic Journal of Ichthyology, Bulletin of the European Ichthyology Society 2, 56-66</li><li>Kullander, S. O. (2008). Five new species of Puntius from Myanmar (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 19(1), 59-84</li><li>Shantakumar, M. and W. Vishwanath (2006). Inter-relationships of Puntius Hamilton-Buchanan (Cyprinidae: Cyprininae) found in Manipur, India. Zoos' Print Journal 21(6), 2279-2283</li><li>Kullander, S. O. and F. Fang (2005). Two new species of Puntius from northern Myanmar (Teleostei: Cyprinidae). Copeia 2005(2), 290-302</li><li>Linthoingambi, I. and W. Vishwanath. (2007). Two new fish species of the genus Puntius Hamilton (Cyprinidae) from Manipur, India, with notes on P. ticto (Hamilton) and P. stoliczkanus (Day). Zootaxa 1450, 45–56</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0b4535bc33aa1163.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0b4535bc33aa1163-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "caption": "Wild specimen collected from Shivanasamudra, Karnataka state, southern India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5326192be7658b62.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5326192be7658b62-480.webp",
+      "width": 768,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "caption": "Adult pair (male at front) collected from Mirik Lake at around 1490 m AMSL at West Bengal state, India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e17ced852d5eb7aa.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e17ced852d5eb7aa-480.webp",
+      "width": 794,
+      "height": 521,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "caption": "Adult male of the ornamental 'neon' strain.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2f5165e9231f232f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2f5165e9231f232f-480.webp",
+      "width": 800,
+      "height": 511,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-conchonius",
+      "caption": "Wild specimen collected close to Bangalore, Karnataka state, southern India.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/27e4299594bc51a4.webp",
       "thumb": "https://media.aquatome.com/sprucepets/27e4299594bc51a4-480.webp",
@@ -213,5 +367,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

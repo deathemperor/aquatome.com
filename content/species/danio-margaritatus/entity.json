@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "myanmar",
-    "shan-state"
+    "shan-state",
+    "salween",
+    "thailand"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +18,13 @@
         "source": "bwaquatics",
         "value": {
           "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
           "max": 26
         }
       }
@@ -27,12 +36,44 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 2.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.1
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -44,16 +85,52 @@
       "html": "<p>Danio margaritatus, also known as the celestial pearl danio or galaxy rasbora, is a freshwater fish species that belongs to the family Cyprinidae. It is a small, colorful fish, with a maximum size of around 1 inch (2.5 cm) in length.</p><ul><li>pH: 6.0-7.5</li><li>Temperature: 72-79°F (22-26°C)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>The celestial pearl danio, Danio margaritatus, is a miniature cyprinid from the Salween drainage in Shan State, eastern Myanmar. First marketed as 'Galaxy Rasbora' after its discovery in 2006, it became one of the most hyped fishes the hobby has known, and Myanmar banned exports in 2007 after reports of overfishing. Intensive commercial breeding means specimens with spotted fins or deformities are now common in the ornamental trade.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
       "html": "<p>It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Type locality is 'Pools at foot of mountain near Hopong town 30 kilometers east of Taunggyi, Myanmar, elevation 1040 meters', thought restricted to a single locality around 1,040 m AMSL near the town of Hopong in Shan State, eastern Myanmar.</p><p>It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
       "html": "<p>Danio margaritatus is found in slow-moving streams and pools, and prefers clear, shallow water with plenty of vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>The type locality is an area of permanently-flooded grassland formed by the damming of a spring for agricultural purposes.</p><p>The water is only around 30 cm deep, transparent and supports dense growths of aquatic plants, mostly from the family Hydrocharitaceae which includes such genera as Elodea, Egeria and Blyxa.</p><p>Sympatric species included Devario sondhii, a Microrasbora cf. rubescens, an undescribed Petruichthys species known to aquarists as the 'rosy' loach and Channa harcourtbutleri.</p><p>From images most of the the other habitats look broadly similar, i.e., shallow areas of wetland surrounded by open grassland though at least one population was supposedly discovered in 'deep forest'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Despite its small size we wouldn't keep a group of these in anything with base dimensions measuring less than 45 × 30 cm due to the sometimes combative behaviour of dominant males (see 'Behaviour and Compatibility').</p><ul><li>Standard length: 21 mm SL</li><li>Aquarium base: 45 × 30 cm</li><li>Volume: ~41 litres</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>This timid species should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness.</p><p>Floating plants are a useful addition but driftwood and oak/beech/almond leaf litter are best avoided as the tannins they release are not a feature of its natural waters.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–7.5; a value of 7.3 was recorded at the type locality.</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -68,51 +145,156 @@
       "html": "<p>In the wild, the celestial pearl danio feeds on small invertebrates such as insect larvae, crustaceans, and worms. In captivity, they will readily accept a variety of foods, including high-quality flake foods, freeze-dried or frozen foods, and live foods such as brine shrimp or daphnia.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Likely to feed on small invertebrates, algae and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively, and as it rarely rises to the surface there's little point in offering floating products.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will not only result in the best colouration but encourage the fish to come into breeding condition.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life, so small live foods are recommended as an initial diet with dry and frozen products being introduced as the fish become settled.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
       "html": "<p>They are a peaceful species and are best kept in groups of at least 6 individuals. They are active swimmers and require plenty of open space to swim.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized, surface-dwelling species seems to help reduce its shyness.</p><p>Other small cyprinids from Myanmar such as Danio choprae or members of the genus Microdevario are suitable companions, and we suspect it might also do well alongside Dario hysginon or D. sp. 'Myanmar'.</p><p>The closely-related Danio erythromicron is not recommended as it's probably capable of hybridising with D. margaritatus (see 'Notes').</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 20 or more, as when larger numbers are present the aggression is spread between individuals plus the fish are bolder, more often-seen, and exhibit better colouration.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Males have a steel-to-deep blue body colouration extending over the majority of the flanks and intense red and black striping in all fins except the pectorals.</p><p>The spots on the body are pearly white to cream-coloured and in nuptial individuals the abdomen turns reddish, overall body colour intensifies and as a result the pale stripe running lengthways over the top of the head becomes better-defined.</p><p>Females have a blue-green base body colouration and less prominent, weakly red to orange colour patches in the fins with the ventrals patternless.</p><p>The body spots are cream to golden and don't extend into the anterior portion of the abdomen.</p><p>They tend to grow a little larger than males and have a more rounded overall body shape, especially when gravid.</p><p>When in spawning condition they display a small dark marking at the vent.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering spawner that shows no parental care.</p><p>It was first bred by SF members Pete Liptrot and Paul Dixon of the Bolton Museum Aquarium, U.K., only a week or two after entering the country in 2006.</p><p>If the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller, perhaps 10-15 litre, containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant.</p><p>Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>Spawning normally presents few problems with around 30 mildly adhesive eggs deposited in a typical event.</p><p>At this point the adults are best removed as they will eat any they find, plus females need a recovery period before spawning again as they're unable to produce eggs on a daily basis.</p><p>In nature it apparently breeds year-round so you could always select another pair and work a rotation system if continuous production is the aim.</p><p>Incubation is temperature-dependant to an extent but usually takes around 72 hours with the young free-swimming 3-4 days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
       "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p><p>Be sure to have the habitat ready before purchase.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<p>This species was discovered in August 2006, with the first image posted by fish exporter Kamphol Udomritthiruj on the website www.petfrd.com the following month.</p><p>After a few sceptics voiced concerns that it had been computer-generated or enhanced more-detailed pictures were supplied and these, along with the ensuing media reaction, caused D. margaritatus to quickly become one of the most hyped fishes the hobby has ever known.</p><p>Initially marketed as Microrasbora sp. 'Galaxy' or 'Galaxy Rasbora' it went on sale in Singapore a fortnight later and reached the international trade soon after.</p><p>Initial prices were high for such a small fish but quickly fell as many thousands were exported in just a few months.</p><p>However by February 2007 images of the type locality with heavily-trampled margins accompanied reports that it had been overfished to near-extinction, and the Myanmar Department of Fisheries officially banned exports.</p><p>By June 2007 the authorities had conducted a survey of wetlands close to Hopong and discovered 5 additional populations, and current evidence suggests the species is not under any immediate threat of over-collection.</p><p>Demand has also reduced since it became clear the species is easy to breed and not particularly suited to the 'general' community tank, and prices have now stabilised.</p><p>It's also been subject to intensive commercial breeding and specimens with spots or blotches instead of stripes in the pelvic and anal fins or morphological deformities are now common in the ornamental trade (see images).</p><p>There also exists limited evidence to suggest it might have been hybridised with the related D. erythromicron although these fish appear not to have reached the trade.</p><p>One interesting, apparently wild caught, form has been sold as female D. margaritatus. It has no stripes in the fins plus a dark spot at the base of the caudal peduncle as in D. erythromicron, but spotted colour pattern on the body like D. margaritatus (see images) and it remains unclear if it's conspecific with either described species or not.</p><p>The official description arrived in February 2007 and the fish was placed into new genus Celestichthys by Tyson Roberts despite morphological and behavioural similarities with Danio (formerly Microrasbora) erythromicron.</p><p>Roberts suggested the two appear to be closely-related but separated them primarily on the basis of their differing colouration while remarking that D. erythromicron may be moved into Celestichthys later. The other main reason for the separation was the possibility that the pair evolved independently from different species.</p><p>Conway et al. (2008) revalidated the species based on aspects of its osteology and a phylogenetic analysis, concluding that it's related to the genus Danio and the closest relative of D. erythromicron.</p><p>They also found that the combination of apomorphies characterising members of Danio (A stripe on the anal-fin, two or more P stripes on the caudal; see below for explanation) is present in this species, and that the spotted body patterning is not unique but a derivation of the striped pattern seen in other danios.</p><p>Other morphological similarities, such as the presence of the 'danionin notch' on the lower jaw, were also recorded, and as a result Celestichthys was placed in synonymy of Danio with the authors preferring to recognise a broader concept of the latter rather than maintain the former. This situation lasted until 2013 when Kottelat revalidated Celestichthys.</p><p>The small adult size evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL.</p><p>Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Paedocypris, Sawbwa and Sundadanio species representing miniaturised taxa along with a few members of Danio, Laubuca and Rasbora.</p><p>All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps.</p><p>The anatomical structure of miniaturised cyprinids can vary greatly, and there are two principle 'groupings' with some species possessing intermediate features to some degree.</p><p>The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives, e.g., Barboides, Microdevario, Microrasbora, Horadandia, Boraras, Sawbwa, Sundadanio, Danio, Laubuca and Rasbora.</p><p>The other includes those in which anatomical development stops at a point where adult still resemble a larval form of their larger ancestor, i.e., Danionella and Paedocypris.</p><p>The latter are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis', i.e., paedomorphosis brought about by accelerated maturation.</p><p>They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities such as the tooth-like projections in male Danionella dracula.</p><p>Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties 'by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes'.</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or 'pigment stripe' is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc., and those beneath P-1, P-2, P-3, etc.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>The putative danionin grouping has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "html": "<ul><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Roberts, T. R. (2007). The 'Celestial Pearl Danio', a new genus and species of colourful minute cyprinid fish from Myanmar (Pisces: Cypriniformes). Raffles Bulletin of Zoology 55(1), 131-140</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/a492277a91ea54ef.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a492277a91ea54ef-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "Some males display a greater proportion of red pigmentation on the body and fins than others, and this intensifies during bouts of sparring.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "Rival males spar often, especially when in spawning condition. These two have aberrant patterning in the anal-fin (see 'Notes').",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5-480.webp",
+      "width": 641,
+      "height": 419,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f78423032f560e58.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f78423032f560e58-480.webp",
+      "width": 900,
+      "height": 676,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "...but will also eat its own eggs given the opportunity.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/45fd89c099bfebce.webp",
+      "thumb": "https://media.aquatome.com/commons/45fd89c099bfebce-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Cisamarc",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_margaritatus_(zoom).jpg",
-      "caption": "Danio margaritatus male",
-      "thumb": "https://media.aquatome.com/commons/45fd89c099bfebce-480.webp"
+      "caption": "Danio margaritatus male"
     },
     {
       "url": "https://media.aquatome.com/commons/f407695320fbd9f0.webp",
+      "thumb": "https://media.aquatome.com/commons/f407695320fbd9f0-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Cassius Chaerea",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:D%C3%A1nio_perlov%C3%A9_-_samec.jpg",
-      "caption": "Samec dánio perlové.",
-      "thumb": "https://media.aquatome.com/commons/f407695320fbd9f0-480.webp"
+      "caption": "Samec dánio perlové."
     },
     {
       "url": "https://media.aquatome.com/commons/c895d5fc74d1c9d6.webp",
+      "thumb": "https://media.aquatome.com/commons/c895d5fc74d1c9d6-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Danio_margaritatus_1.jpg",
-      "caption": "Danio margaritatus CELESTIAL PEARL DANIO. Zoo Frankfurt.",
-      "thumb": "https://media.aquatome.com/commons/c895d5fc74d1c9d6-480.webp"
+      "caption": "Danio margaritatus CELESTIAL PEARL DANIO. Zoo Frankfurt."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "pU1FP6BV7t4",
+      "title": "Celestial Pearl Danio (CPD) EVERYTHING you need to know! Complete care guide and history.",
+      "durationSec": 1015,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JQiui3Wmurs",
+      "title": "THE CPD RIVER: EPIC NATURAL NANO AQUASCAPE FOR CELESTIAL PEARL DANIOS (AQUASCAPE TUTORIAL)",
+      "durationSec": 1387,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j2hzGACb1PE",
+      "title": "Species Spotlight: Celestial Pearl Danio (Care + Breeding Guide)",
+      "durationSec": 612,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PGnlkO3asZg",
+      "title": "Should YOU get a Celestial Pearl Danio? (Care Guide)",
+      "durationSec": 523,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -143,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

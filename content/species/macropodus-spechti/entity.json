@@ -18,6 +18,13 @@
           "min": 21,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -27,24 +34,52 @@
           "min": 6,
           "max": 7.8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 13
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
       }
     ],
     "tankCm": [
       {
         "source": "bwaquatics",
         "value": 40
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ]
   },
@@ -56,10 +91,28 @@
       "html": "<p>Type of paradise fish. IUCN Red List: LC.</p><p>The Black paradise fish is a dark-colored, gourami-like fish with a beautiful black outline on the scales. Unlike bettas, these fish tolerate their peers and usually establish a pecking order in groups. They are very hardy and tolerant of different water temperatures, making them great beginner fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>The black paradise fish, Macropodus spechti, is a labyrinth fish from central Vietnam, known with certainty from the Thu Bồn and Hương river systems. Its name is frequently misapplied to the similar-looking M. erythropterus, easily identified by reddish pigmentation in the dorsal, anal and caudal fins. Older literature sometimes refers to it as M. concolor. Relatively peaceful unless breeding, it is kept in pairs.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
       "html": "<p>Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Known with certainty from the Thu Bồn River system in Quảng Nam province, and the Hương (aka Perfume) River basin in Thừa Thiên-Huế province, central Vietnam.</p><p>Type locality is erroneously given as 'Dutch Indies [Indonesia]'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Has been collected from irrigation ditches, rice paddies, pools, marshes, hill streams, and backwaters of larger rivers.</p>"
     },
     {
       "key": "aquariumSize",
@@ -68,10 +121,28 @@
       "html": "<p>A pair can be kept together in a 10 to 20-gallon tank (about 40–75 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>An aquarium with base dimensions measuring 80 × 30 cm or equivalent should be the minimum considered for a single pair (approximately 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, while some floating or surface vegetation should be included if the aim is to breed the fish (see 'Reproduction').</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover brings with it development of microbe colonies which can provide a valuable early food source for fry.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
       "html": "<ul><li>TDS: ~60+ (can tolerate high TDS water)</li><li>pH: 6.0–7.8 (water quality isn't that important)</li><li>Temperature: 21–28 °C (70–83 °F); does well in cooler temperatures, but higher temperatures induce coloration and breeding behaviour</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<ul><li>Temperature: 20–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -80,10 +151,22 @@
       "html": "<p>Carnivorous. Readily take dried foods. Fed on blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Likely to prey on insect larvae and suchlike in nature, and should be offered small live or frozen Daphnia, Artemia, white worm, grindal worm, etc., in captivity. Some high quality dried products may also be accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
       "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. A pair per 5 gallons (about 19 litres) of water is recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>This species is relatively peaceful unless breeding. It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
     },
     {
       "key": "dimorphism",
@@ -92,61 +175,154 @@
       "html": "<p>Males have extended anal, dorsal and caudal fins, while females have a much rounder body.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Males are larger than females and possess extended soft rays in the dorsal, anal, and caudal fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
       "html": "<p>Bubble nester.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>Bubble nester. Soft water with a slightly raised temperature is said to induce reproductive behaviour.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air, without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male tends to construct his nest within a raft of surface vegetation, and the female(s) are usually tolerated during this period. Once the nest is complete, the male displays to potential mates using his elongated dorsal, anal, and caudal fins.</p><p>The nuptial female becomes paler in colour. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released. The latter contain a globule of oil and are lighter than water, therefore they float upwards to the nest, often assisted by the male. The process is then repeated until the female is spent, with several hundred eggs typically deposited.</p><p>Post-spawning the adults can normally be left in situ. The female is normally tolerated by the male and may even play an active role in defending the area around the nest from intruders.</p><p>Once the eggs hatch they remain in the nest until the yolk sac is fully-absorbed. When the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
       "html": "<p>Maximum size: about 13 cm (5 inches) including tail.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<p>M. spechti is also sometimes referred to as M. concolor, particularly in older literature. A dispute regarding conservation of that name was resolved by the ICZN in 2006, however, since M. concolor Ahl, 1937 is a junior primary homonym of M. concolor Schreitmüller, 1936 and thus permanently invalid.</p><p>M. spechti can be distinguished from congeners by the following combination of characters: caudal-fin forked; opercular spot pale or absent; body lacking dark bars, or with 4-12 faint and inconspicuous dark bars on pale brown to dark greyish background; dorsal surface of head and predorsum without dark spots or saddle-like blotches; posterior tip or margin of scales on head and body conspicuously darker than scales; distal portion of anterior soft pelvic-fin ray red; spots and bars on dorsal and caudal-fin membranes black; posterior dorsal-fin membranes and caudal-fin membranes blue; filamentous caudal-fin rays with white or black posterior extremity; no red pigmentation in the unpaired fins.</p><p>Its name is frequently misapplied to the similar-looking congener M. erythropterus Freyhof &amp; Herder 2002, which is easily-identified by the presence of reddish pigmentation in the dorsal, anal, and caudal fins. There has been some debate as to whether these two represent the same taxon, however, with Winstanley and Clements (2008) proposing that M. erythropterus be considered a synonym of M. spechti because they were unable to separate the two species by morphological characters, and specimens with red pigmentation on the unpaired fins were collected within the distributional range of M. spechti during the course of their study. This was rejected by Herder et al. (2010), who argued that Winstanley and Clements did not use material from the type locality of M. erythropterus, and that their study used a limited number of mainly juvenile specimens from only a part of the species' known distribution. Both species are thus considered valid at the present time, with Kottelat (2013) remarking that additional study is necessary to determine whether they represent distinct taxa or not.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "html": "<ul><li>Schreitmüller, W. (1936). Ein neuer Makropode (?). Macropodus opercularis L. var. spechti Schreitm. (1936), (Netz- oder Gitterparadiesfisch). Das Aquarium: die Fachzeitschrift des Naturfreundes, Berlin v. 10, 181-182</li><li>Winstanley, T. and K. D. Clements (2008). Morphological re-examination and taxonomy of the genus Macropodus (Perciformes: Osphronemidae). Zootaxa 1908, 1-27</li><li>Freyhof, J. and F. Herder (2002). Review of the paradise fishes of the genus Macropodus in Vietnam, with description of two new species from Vietnam and southern China (Perciformes: Osphronemidae). Ichthyological Exploration of Freshwaters 13(2), 147-167</li><li>Endruweit, M. (2014). Taxonomical notes on selected freshwater fish species described from northern and central Vietnam (Cypriniformes: Balitoridae, Cobitidae, Cyprinidae, Nemacheilidae; Perciformes: Channidae, Osphronemidae; Synbranchiformes: Mastacembelidae). Zoological Research 35(2), 142-159</li><li>Herder, F., J. Huykebrouck and K. Busse (2010). Catalogue of type specimens of fishes in the Zoologisches Forschungsmuseum Alexander Koenig, Bonn. Bonn Zoological Bulletin 59, 109-136</li><li>Schindler, I. (2009). News on the taxonomy and distribution of Macropodus species. Der Makropode 31(1), 9-12</li><li>Schindler, I. and W. Staeck (2003). Macropodus concolor Ahl, 1937 (Osteichthyes, Perciformes): proposed conservation of the specific name. Bulletin of Zoological Nomenclature 60(3), 206-207</li><li>Kottelat, M., S. O. Kullander, F. Fang and R. Britz (2004). Comment on the proposed conservation of the specific name of Macropodus concolor Ahl, 1937 (Osteichthyes, Osphronemidae). Bulletin of Zoological Nomenclature 61(2), 114-116</li><li>Ahl, E. (1937). Neue Süßwasserfische aus dem Indischen und Malaiischen Gebiet. Zoologischer Anzeiger 117(5/6), 113-119</li><li>ICZN (2006). Macropodus spechti Schreitmüller, 1936 (Osteichthyes, Perciformes): priority maintained. Bulletin of Zoological Nomenclature 63(1), 78-79</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Paepke, H-J. (1994). Die Paradiesfische. Neue Brehm Bücherei 616, Westarp Wissenschaften, Magdeburg, 1-144</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/edae2830460bcef9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/edae2830460bcef9-480.webp",
+      "width": 762,
+      "height": 526,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "caption": "Adult male in courtship/territorial display.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e1848bc34499f5db.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e1848bc34499f5db-480.webp",
+      "width": 820,
+      "height": 461,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "caption": "Adult male from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ed3a843fd4d4bd68.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ed3a843fd4d4bd68-480.webp",
+      "width": 800,
+      "height": 492,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "caption": "Aquarium-bred juvenile.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e73358d5ce83d264.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e73358d5ce83d264-480.webp",
+      "width": 600,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
+      "caption": "Young male individual from the Indian aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6db772ab3060692b.webp",
+      "thumb": "https://media.aquatome.com/commons/6db772ab3060692b-480.webp",
       "width": 960,
       "height": 650,
       "licence": "CC BY-SA 4.0",
       "author": "Andrew Bogott",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_spechti_male.png",
-      "caption": "Male wild-caught black paradisefish (Macropodus spechti)",
-      "thumb": "https://media.aquatome.com/commons/6db772ab3060692b-480.webp"
+      "caption": "Male wild-caught black paradisefish (Macropodus spechti)"
     },
     {
       "url": "https://media.aquatome.com/commons/d3be10a78eb5e352.webp",
+      "thumb": "https://media.aquatome.com/commons/d3be10a78eb5e352-480.webp",
       "width": 960,
       "height": 1080,
       "licence": "CC BY-SA 4.0",
       "author": "Andrew Bogott",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_spechti_males.png",
-      "caption": "Two male Macropodus spechti males sparring",
-      "thumb": "https://media.aquatome.com/commons/d3be10a78eb5e352-480.webp"
+      "caption": "Two male Macropodus spechti males sparring"
     },
     {
       "url": "https://media.aquatome.com/commons/c1ce7ddbaafde399.webp",
+      "thumb": "https://media.aquatome.com/commons/c1ce7ddbaafde399-480.webp",
       "width": 960,
       "height": 870,
       "licence": "CC BY-SA 4.0",
       "author": "Ubs6u!d-pongsakorn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_spechti_Map.jpg",
-      "caption": "Macropodus spechti Map",
-      "thumb": "https://media.aquatome.com/commons/c1ce7ddbaafde399-480.webp"
+      "caption": "Macropodus spechti Map"
     },
     {
       "url": "https://media.aquatome.com/commons/830bbaa63f7b96ed.webp",
+      "thumb": "https://media.aquatome.com/commons/830bbaa63f7b96ed-480.webp",
       "width": 960,
       "height": 537,
       "licence": "Public domain",
       "author": "No machine-readable author provided. BS Thurner Hof assumed (based on copyright claims).",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makropode_Quang_Binh-Makropode_060114_5.jpg",
-      "caption": "Nov2005 Photo taken by user de:Benutzer:BS Thurner Hof",
-      "thumb": "https://media.aquatome.com/commons/830bbaa63f7b96ed-480.webp"
+      "caption": "Nov2005 Photo taken by user de:Benutzer:BS Thurner Hof"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hXvi1wxCPAM",
+      "title": "Cờ đen Huế size khủng (giant Macropodus Spechti - Black paradise fishes of Hue)",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R4uoCbqDt6k",
+      "title": "Macropodus spechti",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "g41lbHC0TwA",
+      "title": "Macropodus spechti ( black Paradise fish ) from Guangxi province China",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RKLE4HXf4N4",
+      "title": "Paludarium Versi Gue, Surga Mini buat Macropodus Spechti",
+      "durationSec": 174,
+      "lang": "id"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -169,5 +345,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }
