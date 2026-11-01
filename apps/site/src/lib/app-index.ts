@@ -1,6 +1,8 @@
-import { QUALITY_THRESHOLD, type Content, type Photo } from '@aq/schema'
+import { QUALITY_THRESHOLD, type Content, type Photo, type Traits } from '@aq/schema'
+import type { SpeciesIndexItem } from '../scripts/filter'
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
+import { toIndexItem } from './species-index'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): every indexable page of one language that the app can
@@ -19,21 +21,33 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
-}
+} & Partial<Facts>
+/**
+ * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
+ * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
+ */
+export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
+const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = { version: 1; lang: Lang; items: AppItem[] }
 
-export function appIndex(lang: Lang, c: Content): AppIndex {
+/** `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. */
+export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map()): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => localizePath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   if (served(lang, '/vi/ca/x/')) {
-    for (const s of [...c.species, ...c.breeds]) {
-      // A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short.
-      if (!s.t.quality.indexable && !(s.t.quality.reason === 'thin' && s.t.quality.score >= QUALITY_THRESHOLD)) continue
-      const sub = 'scientificName' in s ? s.scientificName : undefined
-      items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos) }))
+    // A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short.
+    const listed = (q: Content['species'][number]['t']['quality']) => q.indexable || (q.reason === 'thin' && q.score >= QUALITY_THRESHOLD)
+    for (const s of c.species) {
+      if (!listed(s.t.quality)) continue
+      const f = toIndexItem(s, traits.get(s.id))
+      const facts = Object.fromEntries(FACTS.map(k => [k, f[k]]))
+      items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), ...facts }))
+    }
+    for (const b of c.breeds) {
+      if (listed(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos) }))
     }
   }
   if (served(lang, '/vi/cay/x/')) {

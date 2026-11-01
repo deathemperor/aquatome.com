@@ -54,3 +54,19 @@ test('a thin page (out of search engines) is still in the app: its translation p
   // A low score still keeps a page out (Cá boraras đỏ: 0.5).
   expect(index('vi').items.some(i => i.id === 'boraras-brigittae')).toBe(false)
 })
+
+// The fixture build has fish pages in Vietnamese only (the other languages' indexes hold the tools).
+test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s names; missing ones are left out', () => {
+  const vi = index('vi').items
+  const cardinal = vi.find(i => i.id === 'paracheirodon-axelrodi')!
+  expect(cardinal).toMatchObject({ ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, sizeCm: 5, tankCm: 60, difficulty: 3, temperament: 'peaceful', schoolMin: 8 })
+  expect(cardinal.tempC).toEqual({ min: expect.any(Number), max: expect.any(Number) })
+  expect('finNipper' in cardinal, 'false is left out').toBe(false)
+  // No traits file: its figures, no behaviour.
+  const discus = vi.find(i => i.id === 'symphysodon-aequifasciatus')!
+  expect(discus).toMatchObject({ sizeCm: 15, tankCm: 120, ph: { min: 4.5, max: 6.5 } })
+  expect(discus.temperament).toBeUndefined()
+  expect(discus.gh).toBeUndefined()
+  // Guides, plants and breeds have none.
+  for (const i of vi.filter(x => x.kind !== 'fish' || !x.sub)) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
+})
