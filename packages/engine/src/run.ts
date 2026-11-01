@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
+import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
@@ -125,7 +126,11 @@ async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<
   try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
-export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number; only?: RegExp; retryBlocked?: boolean; force?: boolean } = {}): Promise<RunReport> {
+/**
+ * `cardFill` (the card-fill step): only the profiles of species pages whose data card lacks a figure (card-fill.ts), on
+ * sources that haven't given the page any text yet, most popular first; `limit` pages a source.
+ */
+export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?: number; maxMinutes?: number; only?: RegExp; retryBlocked?: boolean; force?: boolean; cardFill?: boolean } = {}): Promise<RunReport> {
   const { llm, http, root } = deps
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
@@ -248,6 +253,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
 
   // Thin species pages (depth.ts), most popular first: their profiles on in-depth sources run before new species.
   const thinNow = await soft('thin species', () => thinSpecies(contentRoot, popularityOrder(popular)), { pages: 0, thin: [], families: new Map<string, string>() })
+  // Species pages whose card lacks a figure, most popular first (the card-fill step reads only their profiles).
+  const gaps = opts.cardFill ? await soft('card gaps', () => cardGaps(contentRoot, popularityOrder(popular)), []) : []
   const searchCache = await readSearchCache(root)
   let llmFailures = 0
   // Least-covered sources first, each capped at a fair share of the time left (unused time rolls forward),
@@ -304,9 +311,10 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const state = await loadState(root, id)
     // `force` (with `only`): re-translate the matching pages now, even if unchanged since the last run (e.g. after a prompt fix).
     const forced = (url: string) => !!opts.force && !!opts.only?.test(url)
-    const deeper = deeperPages(found, thinNow.thin, src)
-    // Not under our name in the index: the source's own search (not on targeted runs).
-    if (!opts.only) {
+    // card-fill: a page that already has this source's text has had its figures from it.
+    const deeper = opts.cardFill ? deeperPages(found, gaps.filter(g => !g.sources.includes(id)), src) : deeperPages(found, thinNow.thin, src)
+    // Not under our name in the index: the source's own search (not on targeted runs or card-fill).
+    if (!opts.only && !opts.cardFill) {
       const searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
       for (const [url, i] of searched) {
         if (!found.some(f => f.url === url)) found.push({ url })
@@ -314,7 +322,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       }
       if (src.search) await soft('search cache', () => saveSearchCache(root, searchCache), undefined)
     }
-    const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
+    const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
 
     let networkFailures = 0
