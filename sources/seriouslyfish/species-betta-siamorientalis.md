@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/betta-siamorientalis
 title: Betta siamorientalis · Seriously Fish
-fetchedAt: 2026-11-01T06:30:41.136Z
+fetchedAt: 2026-11-01T11:58:00.631Z
 hash: a111478ed1a7ebbae23e190cd346570bd2810bb73f93c60680ef72fb6ec655d9
 ---
 
