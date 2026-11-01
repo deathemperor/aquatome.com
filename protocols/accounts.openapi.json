@@ -553,7 +553,7 @@
     "/api/v1/auth/email/start": {
       "post": {
         "summary": "Email a 6-digit sign-in code (15 minutes, once)",
-        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The reply's `flow` is a secret only this browser or app may hold: keep it (web: localStorage, so a link opened in another tab of the same browser works; app: memory) and never put it in a URL. The mail holds the code and a link https://aquatome.com/<language page>#ma=<code> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/), which the page (or the app, through a universal link) fills in. With link: true (signed in), the address is added to that account. The address is not stored. Limits: 3 codes an hour per address, 10 an hour per network.",
+        "description": "Needs a Cloudflare Turnstile token for the site key in /api/v1/session. The reply's `flow` is a secret only this browser or app may hold: keep it (web: localStorage, so a link opened in another tab of the same browser works; app: memory) and never put it in a URL. For a browser, the mail holds the code and a link https://aquatome.com/<language page>#ma=<code> (vi: /vi/cong-cu/be-cua-toi/, id: /id/alat/akuarium-saya/, th: /th/tools/my-tanks/), which the page fills in. With client: \"app\", the mail holds the code alone and says to type it into the app. The app gets its Turnstile token from GET /api/v1/auth/email/turnstile. With link: true (signed in), the address is added to that account. The address is not stored. Limits: 3 codes an hour per address, 10 an hour per network.",
         "security": [
           {},
           {
@@ -776,6 +776,47 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/email/turnstile": {
+      "get": {
+        "summary": "The Turnstile check alone, as a web page for the app's email sign-in",
+        "description": "Turnstile runs only in a web page, and its token is checked against this site's host, so the app opens this page in a web view (WKWebView with a script message handler named `turnstile`; keep the web view's user agent the same throughout). The page posts {\"token\": \"…\"} when solved, {\"expired\": true} when that token runs out, and {\"error\": \"…\"} when the check fails; calling `again()` in the page gives a new token (each is used once, by POST /api/v1/auth/email/start). No other page may frame it. 503 provider_off when email sign-in is off.",
+        "security": [
+          {}
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "vi",
+                "id",
+                "th"
+              ],
+              "default": "vi"
+            },
+            "description": "The widget's language."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The page.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "provider_off"
           }
         }
       }

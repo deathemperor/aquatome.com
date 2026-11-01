@@ -38,7 +38,7 @@ function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = 
     const req = new Request(`${ORIGIN}${path}`, { method, headers, ...(o.body !== undefined ? { body: typeof o.body === 'string' ? o.body : JSON.stringify(o.body) } : {}) })
     const res = await accounts(req, new URL(req.url), env, now, deps)
     const text = await res.text()
-    return { status: res.status, headers: res.headers, json: text ? JSON.parse(text) : undefined }
+    return { status: res.status, headers: res.headers, text, json: text && !res.headers.get('content-type')?.startsWith('text/html') ? JSON.parse(text) : undefined }
   }
   const cookieOf = (r: { headers: Headers }) => /^(__Host-aq_session=[^;]+)/.exec(r.headers.get('set-cookie') ?? '')?.[1]
   /** Signs in with the fake Google: the session cookie (web) or token (app). */
@@ -48,10 +48,10 @@ function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = 
     return { ...r, cookie: cookieOf(r), token: r.json?.token as string | undefined }
   }
   /** Asks for a code (signed in or not) and returns the flow secret and the mailed code. */
-  const ask = async (email: string, o: { cookie?: string; lang?: string; link?: boolean } = {}) => {
-    const r = await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: o.lang ?? 'id', ...(o.link ? { link: true } : {}) }, cookie: o.cookie })
+  const ask = async (email: string, o: { cookie?: string; lang?: string; link?: boolean; app?: boolean } = {}) => {
+    const r = await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't', lang: o.lang ?? 'id', ...(o.link ? { link: true } : {}), ...(o.app ? { client: 'app' } : {}) }, cookie: o.cookie, origin: o.app ? null : undefined })
     expect(r.status).toBe(200)
-    return { flow: r.json.flow as string, code: /#ma=(\d{6})/.exec(mails.at(-1)!.text)![1]! }
+    return { flow: r.json.flow as string, code: /(?:#ma=|: )(\d{6})/.exec(mails.at(-1)!.text)![1]! }
   }
   const emailIn = async (email: string, o: { cookie?: string; link?: boolean } = {}) => {
     const { flow, code } = await ask(email, o)
@@ -154,6 +154,50 @@ test('email: Turnstile, a one-time code in the reader\'s language, with a link t
   const late = await ask('late@example.com')
   setNow(new Date(NOW.getTime() + 16 * 60_000))
   expect((await call('POST', '/api/v1/auth/email/verify', { body: late })).json.error).toBe('bad_code')
+})
+
+test('email from the app: a mail with the code and no link, and a token for the app (no cookie)', async () => {
+  const { call, mails, ask } = setup()
+  const { flow, code } = await ask('Reader@Example.com', { app: true, lang: 'vi' })
+  expect(mails[0]!.subject).toBe(`${code} là mã đăng nhập AquaTome`)
+  expect(mails[0]!.text).toContain('Nhập mã vào ứng dụng AquaTome')
+  expect(mails[0]!.text).not.toMatch(/https?:|#ma=/)
+  const r = await call('POST', '/api/v1/auth/email/verify', { body: { flow, code, client: 'app' }, origin: null })
+  expect(r.status).toBe(200)
+  expect(r.headers.get('set-cookie')).toBeNull()
+  expect(r.json.token).toMatch(/^[\w-]{40,}$/)
+  expect(r.json.user.methods).toMatchObject([{ kind: 'email' }])
+  // Each language says so in its own words.
+  for (const [lang, words] of [['id', 'aplikasi AquaTome'], ['th', 'แอป AquaTome']]) {
+    await ask('reader@example.com', { app: true, lang })
+    expect(mails.at(-1)!.text).toContain(words)
+    expect(mails.at(-1)!.text).not.toContain('http')
+  }
+})
+
+test('the app\'s Turnstile page: the widget alone, in the asked language, framed by no other page, its scripts by nonce', async () => {
+  const { call } = setup()
+  const r = await call('GET', '/api/v1/auth/email/turnstile?lang=th')
+  expect(r.status).toBe(200)
+  expect(r.headers.get('content-type')).toBe('text/html; charset=utf-8')
+  expect(r.headers.get('x-robots-tag')).toBe('noindex, nofollow')
+  expect(r.headers.get('cache-control')).toBe('no-store')
+  const csp = r.headers.get('content-security-policy')!
+  const nonce = /'nonce-([\w-]+)'/.exec(csp)![1]!
+  expect(csp).toContain("frame-ancestors 'none'")
+  expect(csp).toContain('frame-src https://challenges.cloudflare.com')
+  expect(r.text.match(new RegExp(`<script nonce="${nonce}"`, 'g'))).toHaveLength(2)
+  expect(r.text).toContain('<html lang="th">')
+  expect(r.text).toContain('"sitekey":"sk","language":"th"')
+  expect(r.text).toContain('messageHandlers?.turnstile?.postMessage')
+  // Another nonce each time; a language the site doesn't have: Vietnamese.
+  const again = await call('GET', '/api/v1/auth/email/turnstile?lang=<x>')
+  expect(again.headers.get('content-security-policy')).not.toContain(nonce)
+  expect(again.text).toContain('"language":"vi"')
+  expect(again.text).not.toContain('<x>')
+  // No email sign-in (no Turnstile keys), or no accounts: no page.
+  expect((await setup({ TURNSTILE_SITEKEY: undefined }).call('GET', '/api/v1/auth/email/turnstile')).status).toBe(503)
+  expect((await setup({ ACCOUNTS: undefined }).call('GET', '/api/v1/auth/email/turnstile')).status).toBe(404)
 })
 
 test('email: five wrong codes and the flow is gone', async () => {

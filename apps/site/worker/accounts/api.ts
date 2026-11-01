@@ -73,6 +73,35 @@ function providers(env: Live, deps: AccountDeps) {
   }
 }
 
+/**
+ * The Turnstile widget alone, for the app's web view (WKWebView, a script message handler named `turnstile`): it posts
+ * `{ token }` when solved, `{ expired: true }` when that token runs out, `{ error }` when the check fails, and `again()`
+ * gives a new token. No other page may frame it; nothing to index.
+ */
+function turnstilePage(sitekey: string, lang: string | null): Response {
+  const nonce = randomToken(16)
+  const hl = LANGS.includes(lang as Lang) ? (lang as Lang) : 'vi'
+  const settings = JSON.stringify({ sitekey, language: hl, size: 'flexible' }).replace(/</g, '\\u003c')
+  const html = `<!doctype html><html lang="${hl}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AquaTome</title>
+<style>html,body{margin:0;background:transparent}</style>
+<script nonce="${nonce}">
+const post = m => window.webkit?.messageHandlers?.turnstile?.postMessage(m)
+let widget
+window.onTurnstile = () => {
+  widget = turnstile.render('#check', { ...${settings}, callback: token => post({ token }), 'expired-callback': () => post({ expired: true }), 'error-callback': error => { post({ error: String(error) }); return true } })
+}
+window.again = () => turnstile.reset(widget)
+</script>
+<script nonce="${nonce}" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=onTurnstile" async></script>
+</head><body><div id="check"></div></body></html>`
+  return new Response(html, {
+    headers: {
+      'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer',
+      'content-security-policy': `default-src 'none'; script-src 'nonce-${nonce}' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'`,
+    },
+  })
+}
+
 /** Passkeys' relying party: this site's own host and origin, when they are on and the request came to it. */
 const rpOf = (env: Live, url: URL): Rp | undefined =>
   env.PASSKEYS === 'on' && (!env.CANONICAL_HOST || url.hostname === env.CANONICAL_HOST) ? { id: url.hostname, origin: url.origin } : undefined
@@ -150,6 +179,13 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     return session?.via === 'cookie' ? json(out, 200, { 'set-cookie': cookieFor(tokenOf(req)!.token, 'web') }) : json(out)
   }
 
+  // The app's email sign-in: Turnstile runs only in a web page, on this site's host (siteverify checks the hostname), so the
+  // app shows this one in a web view and takes the token from it.
+  if (route === 'GET /api/v1/auth/email/turnstile') {
+    if (!providers(env, deps).email) return fail('provider_off', 503)
+    return turnstilePage(env.TURNSTILE_SITEKEY!, url.searchParams.get('lang'))
+  }
+
   // Everything below changes something: from this site's pages, or from the app with no cookie.
   if (req.method !== 'GET' && !sameSiteOk(req, tokenOf(req)?.via === 'cookie')) return fail('cross_site', 403)
 
@@ -219,7 +255,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       const hash = await emailHash(k, email)
       const ok = (await allow(db, k, `mail-ip|${ipOf(req)}`, 10, HOUR_MS, now)) && (await allow(db, k, `mail-to|${hash}`, 3, HOUR_MS, now)) && (await allow(db, k, `mail-day|${now.toISOString().slice(0, 10)}`, 2000, 24 * HOUR_MS, now))
       if (!ok) return fail('rate_limited', 429)
-      const { flow, mail } = await startEmail(db, k, email, lang, url.origin, adding?.userId, now)
+      const { flow, mail } = await startEmail(db, k, email, lang, url.origin, adding?.userId, now, client === 'app')
       return (await deps.sendMail!(mail)) ? json({ flow }) : fail('mail_failed', 502)
     }
 
