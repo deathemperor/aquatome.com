@@ -60,6 +60,8 @@ type Live = AccountsEnv & { DB: D1Database; ACCOUNT_HMAC_KEY: string }
 const ready = (env: AccountsEnv): env is Live => Boolean(env.DB && env.ACCOUNT_HMAC_KEY)
 const switchedOn = (env: AccountsEnv, req: Request) =>
   env.ACCOUNTS === 'on' || (env.ACCOUNTS === 'preview' && /(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? ''))
+/** Accounts are on for this request: the other /api/v1 modules (worker/plugs) answer under the same switch. */
+export const accountsOn = (env: AccountsEnv, req: Request): env is Live => ready(env) && switchedOn(env, req)
 
 /** What the page and the app may offer: providers with their public client ids, email when it can send and check Turnstile. */
 function providers(env: Live, deps: AccountDeps) {
