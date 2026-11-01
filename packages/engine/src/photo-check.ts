@@ -32,7 +32,8 @@ const PER_SHEET = 6
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
 
-export const subjectPrompt = (s: Subject) => {
+/** `captions`: per photo on the sheet, the caption of a guide photo judged here because the caption names the subject. */
+export const subjectPrompt = (s: Subject, captions: (string | undefined)[] = []) => {
   const names = s.names.length ? ` (${s.names.slice(0, 4).join(', ')})` : ''
   const what = s.kind === 'breeds'
     ? `the breed or line ${s.names[0] ?? s.id}${s.sci ? ` of ${s.sci}` : ''}. What sets it apart: ${s.breed ?? 'its name'}`
@@ -48,7 +49,8 @@ For each photo n:
   "habitat" if it shows the wild place it lives (a river, stream, lake, swamp or shore), with or without it.
   "unsure" if you cannot tell (a species you do not know well, a poor or distant view, a look-alike you cannot rule out).
 - typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise.
-- note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body").`
+- note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body").${captions.some(Boolean) ? `
+Some photos are from a guide, with this caption: ${captions.flatMap((c, i) => (c ? [`${i + 1}: "${c.slice(0, 160)}"`] : [])).join('; ')}. Judge them the same way, but if the caption is about another fish or plant, not the page's subject, answer "unsure" and say what the caption is about.` : ''}`
 }
 
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -118,7 +120,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; galleryOnly?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean }
 
 /**
  * Every photo on a species, plant or breed page (its own photos and its gallery) must show that page's subject, judged
@@ -159,7 +161,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
     for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))]) {
       const page = p.caption ? captionSubject(p.caption, index) : undefined
-      shown.push({ file, url: p.url, guide: true, ...(page ? { page } : {}) })
+      shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
     }
   }
   // The first check judged a page's own photos one page at a time: its verdict holds where the photo is on one page only.
@@ -188,10 +190,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         try { ok.push({ url, b: Buffer.from(await d.get(url)) }) } catch (err) { report.failed.push(`${s.id}: ${url}: ${(err as Error).message.slice(0, 120)}`) }
       }
       if (!ok.length) return
+      // A guide's caption goes with a photo judged here only because of it (a photo on the page itself is the page's).
+      const caption = (url: string) => (shown.some(x => x.url === url && x.page === s.id && !x.guide) ? undefined : shown.find(x => x.url === url && x.page === s.id)?.caption)
       try {
         const sheet = join(dir, `sheet-${i}.jpg`)
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await d.look(sheet, subjectPrompt(s))
+        const v = await d.look(sheet, subjectPrompt(s, ok.map(x => caption(x.url))))
         report.sheets++
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]
