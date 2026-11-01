@@ -122,6 +122,8 @@ private struct TankDetail: View {
         // Whether its fish go together and fit the tank, as the site's tank-mates tool says (TankCheckView.swift): after
         // them, so a long answer never hides what's in the tank.
         TankCheckSection(tank: t)
+        // Guides that name its fish and plants (TankGuides.swift).
+        TankGuidesSection(tank: t)
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }

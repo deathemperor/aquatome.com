@@ -182,3 +182,24 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(!F().any && !F(temperament: "shy").any)
   #expect(F(temperament: "predator").any && F(difficulty: 2).any)
 }
+
+@Test func guidesAboutATanksFishTheMostOfThemFirst() {
+  let g = { (name: String, section: String, about: [String]) in HandbookIndex.Item(kind: .guide, name: name, path: "/vi/huong-dan/\(name)/", section: section, about: about) }
+  let items = [
+    g("Neon", "care", ["neon"]),
+    g("Bể cộng đồng", "setup", ["neon", "corydoras", "anubias"]),
+    g("Hàng mới về", "discovery", ["neon", "corydoras"]),
+    g("Cá đĩa", "care", ["discus"]),
+    g("Anubias", "plantCare", ["anubias"]),
+    HandbookIndex.Item(kind: .fish, contentId: "neon", name: "Cá neon", path: "/vi/ca/neon/"),
+  ]
+  // Two fish of the tank's first, then the ones naming one, in the order given (the app gives name order).
+  #expect(HandbookIndex.guides(about: ["neon", "anubias"], in: items).map(\.name) == ["Bể cộng đồng", "Neon", "Anubias"])
+  #expect(HandbookIndex.guides(about: ["neon", "anubias"], in: items.reversed()).map(\.name) == ["Bể cộng đồng", "Anubias", "Neon"])
+  #expect(HandbookIndex.guides(about: ["neon", "anubias"], in: items, limit: 1).map(\.name) == ["Bể cộng đồng"])
+  #expect(HandbookIndex.guides(about: [], in: items).isEmpty)
+  #expect(HandbookIndex.guides(about: ["betta"], in: items).isEmpty)
+  // Five at most, unless asked otherwise.
+  let many = (1...7).map { g("Neon \($0)", "care", ["neon"]) }
+  #expect(HandbookIndex.guides(about: ["neon"], in: many).map(\.name) == ["Neon 1", "Neon 2", "Neon 3", "Neon 4", "Neon 5"])
+}
