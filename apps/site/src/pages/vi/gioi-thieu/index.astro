@@ -2,7 +2,7 @@
 import Doc from '../../../layouts/Doc.astro'
 import { getContent } from '../../../lib/content'
 import { CONTACT_EMAIL } from '../../../lib/site'
-import { i18n } from '../../../lib/i18n'
+import { i18n, isVietnamese } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BUILD !== '1' || s.publish))
@@ -14,7 +14,8 @@ const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BU
 
   <h2 id="nguon">{t('Nguồn nội dung')}</h2>
   <ul>
-    {sources.map(s => <li><a href={s!.homepage} rel="noopener">{s!.name}</a></li>)}
+    {/* A source's own Vietnamese name (Diễn Đàn Cá Cảnh) is a name, marked as Vietnamese on every language's page. */}
+    {sources.map(s => <li><a href={s!.homepage} rel="noopener" lang={isVietnamese(s!.name) ? 'vi' : undefined}>{s!.name}</a></li>)}
   </ul>
   <p>{t('Ảnh thuộc về tác giả và được dùng theo giấy phép ghi ở cuối mỗi trang. Nếu bạn là tác giả và muốn chỉnh sửa cách ghi nguồn hoặc gỡ nội dung, hãy')} <a href="/vi/lien-he/">{t('liên hệ')}</a>{t(', chúng tôi xử lý trong vòng vài ngày.')}</p>
 

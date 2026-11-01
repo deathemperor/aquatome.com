@@ -45,6 +45,7 @@ A pull request runs `ci.yml`. A squash merge to `main` runs `deploy.yml`, which 
 
 - Every source in `content/sources.json` starts with `"publish": false`. It turns `true` only once its written permission
   (translation, automated copying, restating facts, commercial use with ads and affiliate links) is recorded in its
-  `permission` field. Public builds drop the rest.
+  `permission` field. A permission for photos only is `"publish": "photos"`: public builds show its photos and nothing
+  written from its text. Public builds drop the rest.
 - Photos: CC0, CC BY, CC BY-SA, public domain, or recorded permission; no people.
 - Product links go through `/go/…` ([affiliate](apps/site/worker/affiliate/README.md)).

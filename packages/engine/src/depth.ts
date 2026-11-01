@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { speciesDepth, STAPLE_SPECIES, slugify, type Depth, type Section, type SourceId } from '@aq/schema'
+import { mayPublish, speciesDepth, STAPLE_SPECIES, slugify, type Depth, type Section, type SourceId } from '@aq/schema'
 import type { SourceConfig } from './sources'
 import { retryFirst, type UrlState } from './state'
 
@@ -19,7 +19,7 @@ export const popularityOrder = (popular: string[]) => [...new Set([...STAPLE_SPE
 
 /** Every thin species page, as a public build shows it (published sources only), most popular first (`order`: ids). */
 export async function thinSpecies(contentRoot: string, order: string[]): Promise<{ pages: number; thin: Thin[]; families: Map<string, string> }> {
-  const published = (await readJson<Partial<Record<SourceId, { publish?: boolean }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const published = (await readJson<Partial<Record<SourceId, { publish?: boolean | 'photos' }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const thin: Thin[] = []
   const families = new Map<string, string>()
   let pages = 0
@@ -28,7 +28,7 @@ export async function thinSpecies(contentRoot: string, order: string[]): Promise
     const vi = await readJson<{ name: string }>(join(contentRoot, 'species', id, 'vi.json'))
     if (!e || !vi) continue
     if (e.genus && e.family) families.set(e.genus.toLowerCase(), e.family)
-    const shown = e.sections.filter(s => published[s.source]?.publish)
+    const shown = e.sections.filter(s => mayPublish(published[s.source], 'text'))
     if (!shown.length) continue
     pages++
     const depth = speciesDepth(shown)

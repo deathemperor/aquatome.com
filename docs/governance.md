@@ -186,6 +186,15 @@ The layers above still check the result.
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws
     permission is set to `"publish": false` in `content/sources.json`, which takes its photos off public builds.
+- **Diễn Đàn Cá Cảnh: orientation, and some photos.** On 2026-11-01 the owner approved the forum's images, not its text.
+  `content/sources.json` records it as `"publish": "photos"`: a public build shows its photos and nothing written from it
+  (sections, guides, card values).
+  - Photos: the diagrams of the discus classification thread, and images the poster made or took in the forum's own
+    original guide posts. A translated post's images belong to the original's authors and stay out. The watermark,
+    people and hands screens apply as to any photo.
+  - Text: orientation only (structure, Vietnamese trade names and terms, what local keepers care about). It is never
+    copied or translated, into `content/` or `engine-state/`. Pages are written in our own words, and a post that is a
+    translation leads to its original, which is the source cited.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that

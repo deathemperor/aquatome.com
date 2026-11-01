@@ -176,3 +176,32 @@ test('a public build shows no photo from a host that sets third-party cookies; a
   expect(await urls(true)).not.toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
   expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
 })
+
+test('a photos-only source shows its photos in a public build, and nothing written from its text', async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const store = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, store, { recursive: true })
+  const sources = JSON.parse(await readFile(join(store, 'sources.json'), 'utf8'))
+  sources.diendancacanh = { name: 'Diễn Đàn Cá Cảnh', homepage: 'https://www.diendancacanh.com', publish: 'photos', permission: { date: '2026-11-01', file: 'owner statement', scope: ['photos'] } }
+  await writeFile(join(store, 'sources.json'), JSON.stringify(sources))
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.sections.push({ key: 'notes', source: 'diendancacanh', sourceUrl: 'https://www.diendancacanh.com/threads/x.1/', html: '<p>Forum text</p>' })
+  e.photos.push({ url: 'https://media.test/diendancacanh/d.webp', width: 500, height: 400, licence: 'dùng với sự cho phép', author: 'vnreddevil / Diễn Đàn Cá Cảnh', sourceUrl: 'https://www.diendancacanh.com/threads/x.1/', source: 'diendancacanh' })
+  e.dataCard.ph = [...(e.dataCard.ph ?? []), { source: 'diendancacanh', value: { min: 6, max: 7 } }]
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(store, 'guides', 'forum-guide'), { recursive: true })
+  await writeFile(join(store, 'guides', 'forum-guide', 'entity.json'), JSON.stringify({ id: 'forum-guide', kind: 'care', source: 'diendancacanh', sourceUrl: 'https://www.diendancacanh.com/threads/x.1/', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
+  await writeFile(join(store, 'guides', 'forum-guide', 'vi.json'), JSON.stringify({ slug: 'bai-dien-dan', name: 'Bài diễn đàn', altNames: [], sections: {}, body: '<p>x</p>', quality: { score: 0.9, indexable: true } }))
+
+  const pub = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  const alpha = pub.species.find(s => s.id === 'alpha')!
+  expect(alpha.photos.map(p => p.source)).toContain('diendancacanh')
+  expect(alpha.sections.map(s => s.source)).not.toContain('diendancacanh')
+  expect(alpha.dataCard.ph?.map(v => v.source) ?? []).not.toContain('diendancacanh')
+  expect(pub.guides.map(g => g.id)).not.toContain('forum-guide')
+  expect(pub.sources.diendancacanh?.publish).toBe('photos')
+  // A local build shows everything, as for any source.
+  const local = await loadAll({ root: store, lang: 'vi', publicBuild: false })
+  expect(local.guides.map(g => g.id)).toContain('forum-guide')
+})
