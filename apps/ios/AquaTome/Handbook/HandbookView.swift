@@ -1,8 +1,10 @@
 import Handbook
 import SwiftUI
 
-/// Search and browse the handbook natively; a result opens the site's page, or the app's own screen for it (the Chihiros
-/// tool is the Lights tab, "Bể của tôi" the tanks tab).
+/// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
+/// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
+/// picked. A page opens the site's page, or the app's own screen for it (the Chihiros tool is the Lights tab, "Bể của
+/// tôi" the tanks tab).
 struct HandbookView: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -10,39 +12,24 @@ struct HandbookView: View {
     @Bindable var handbook = handbook
     NavigationStack {
       List {
-        Section {
-          Picker("Loại", selection: $handbook.kind) {
-            Text("Tất cả").tag(HandbookIndex.Kind?.none)
-            ForEach(HandbookIndex.Kind.allCases, id: \.self) { k in Text(k.title).tag(Optional(k)) }
-          }
-          .pickerStyle(.menu)
-          .accessibilityIdentifier("kind")
-        } footer: {
-          StatusText()
-        }
-        // Before a search: what the reader saved to read later, and read last (of the kind picked).
         if handbook.query.isEmpty {
-          let saved = handbook.saved(handbook.kind), recent = handbook.recent(handbook.kind)
-          if !saved.isEmpty {
-            Section("Đã lưu để đọc sau") {
-              ForEach(saved) { item in
-                Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
-              }
-            }
-            .accessibilityIdentifier("saved")
+          HomeList()
+        } else {
+          Section {
+            ForEach(handbook.results) { item in Row(item: item) }
           }
-          if !recent.isEmpty {
-            Section("Đọc gần đây") { ForEach(recent) { item in Row(item: item) } }
-          }
-        }
-        Section {
-          ForEach(handbook.results) { item in Row(item: item) }
         }
       }
       .listStyle(.insetGrouped)
       .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
+      // Shown once the reader types: before that, the home shows, which a scope doesn't change.
+      .searchScopes($handbook.kind, activation: .onTextEntry) {
+        Text("Tất cả").tag(HandbookIndex.Kind?.none)
+        ForEach(HandbookIndex.Kind.allCases, id: \.self) { k in Text(k.title).tag(Optional(k)) }
+      }
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
+      .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
         else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }
@@ -53,8 +40,8 @@ struct HandbookView: View {
   }
 }
 
-/// A page in the list: the site's page, or the app's own screen for it.
-private struct Row: View {
+/// A page in a list: the site's page, or the app's own screen for it.
+struct Row: View {
   let item: HandbookIndex.Item
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -68,7 +55,7 @@ private struct Row: View {
   }
 }
 
-private struct StatusText: View {
+struct StatusText: View {
   @Environment(HandbookModel.self) private var handbook
   var body: some View {
     switch handbook.status {
@@ -80,7 +67,7 @@ private struct StatusText: View {
   }
 }
 
-private struct ItemRow: View {
+struct ItemRow: View {
   let item: HandbookIndex.Item
   var body: some View {
     HStack(spacing: 12) {
