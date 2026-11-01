@@ -30,7 +30,8 @@
     "APPLE_CLIENT_IDS": "com.aquatome.web,com.aquatome.app",
     "APPLE_TEAM_ID": "Q783W6B4FA",
     "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
-    "ACCOUNTS": "on"
+    "ACCOUNTS": "on",
+    "PASSKEYS": "on"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
