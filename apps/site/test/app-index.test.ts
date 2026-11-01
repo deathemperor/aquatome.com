@@ -70,3 +70,21 @@ test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s 
   // Guides, plants and breeds have none.
   for (const i of vi.filter(x => x.kind !== 'fish' || !x.sub)) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
 })
+
+test('guides carry their subject and the fish and plants they name, as their pages link them', () => {
+  const guides = index('vi').items.filter(i => i.kind === 'guide')
+  expect(guides.every(g => typeof g.section === 'string')).toBe(true)
+  const first = guides.find(g => g.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')!
+  expect(first.section).toBe('setup')
+  expect(first.about).toEqual(expect.arrayContaining(['paracheirodon-innesi', 'anubias-barteri-nana']))
+  // A fish its text names, with no tag from the engine (entity.json `mentions` is empty): from the page's own links.
+  expect(guides.find(g => g.path === '/vi/huong-dan/thay-nuoc-dung-cach/')?.about).toEqual(['paracheirodon-axelrodi'])
+  // A video guide names what it shows, even when its text doesn't.
+  const video = guides.find(g => g.about?.includes('neocaridina-davidi') && g.section === 'plantCare')
+  expect(video, 'the shrimp a plant video shows').toBeDefined()
+  // Content ids, as a saved tank lists its fish: one whose page isn't in the app (too thin) still matches a tank that has it.
+  for (const g of guides) for (const id of g.about ?? []) expect(id, g.path).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+  expect(guides.find(g => g.section === 'discovery')?.about).toContain('boraras-brigittae')
+  // Fish and plants have neither.
+  expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'section' in i || 'about' in i)).toBe(false)
+})
