@@ -1,23 +1,30 @@
 ---
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
-import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import PagedSpecies from '../../../components/PagedSpecies.astro'
 import { getContent } from '../../../lib/content'
 import { groupLabel } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
+import { cleanPhoto } from '../../../lib/home'
+import { speciesLists } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesWhere } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
-  const c = await getContent(langOf(routePattern))
+  const lang = langOf(routePattern)
+  const c = await getContent(lang)
+  const lists = speciesLists(lang, c)
   const groups = [...new Set(c.species.map(s => s.group))]
-  return groups.map(group => ({ params: { group }, props: { species: c.species.filter(s => s.group === group) } }))
+  return groups.map(group => ({ params: { group }, props: { species: lists.get(`nhom/${group}`)! } }))
 }
 const { group } = Astro.params
 const { species } = Astro.props as { species: Localized<SpeciesEntity>[] }
 const { t } = i18n(Astro.url)
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => s.group === group))
+// The first page as cards; every species of the group is in its data file and on its numbered pages (/vi/nhom/<group>/trang/2/…).
+const first = species.slice(0, PAGE)
 ---
-<Browse title={t('{group}: {n} loài, cách nuôi', { group: t(groupLabel(group!)), n: species.length })} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
-  <SpeciesGrid species={species} heading={t('Danh sách loài')} />
+<Browse title={t('{group}: {n} loài, cách nuôi', { group: t(groupLabel(group!)), n: species.length })} heading={t(groupLabel(group!))} crumbs={[['/vi/ca/', t('Loài cá')]]} intro={t('{n} loài trong nhóm {group}.', { n: species.length, group: t(groupLabel(group!)).toLowerCase() })} credits={creditsFor(first.map(s => cleanPhoto(s.photos)))} creditsLater={species.length > PAGE} alternates={alternates}>
+  <PagedSpecies species={species} list={`nhom/${group}`} heading={t('Danh sách loài')} pages />
 </Browse>

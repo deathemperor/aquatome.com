@@ -1,0 +1,40 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import SpeciesGrid from './SpeciesGrid.astro'
+import { PAGE } from '../scripts/filter-list'
+import { i18n } from '../lib/i18n'
+/**
+ * A species list a page at a time: a fish group's, taxon's or origin's (lib/list-data.ts speciesLists; `list` is its
+ * address under /vi/, "nhom/catfish"). The HTML has the first page of cards; past it, a template card and "Xem thêm",
+ * which builds the next page in place from the list's data file (/data/<lang>/species/<list>.json, scripts/list-more.ts).
+ * `pages`: the list has numbered pages (/vi/<list>/trang/2/…), and "Xem thêm" is a link to the next one. A list of one
+ * page is the grid alone, as before.
+ */
+interface Props { species: Localized<SpeciesEntity>[]; list: string; heading?: string; pages?: boolean }
+const { species, list, heading, pages = false } = Astro.props
+const { t, lang } = i18n(Astro.url)
+const left = species.length - PAGE
+const words = t('Xem thêm {n} loài (còn {left})', { n: Math.min(left, PAGE), left })
+---
+{left <= 0 ? <SpeciesGrid species={species} heading={heading} /> : (
+  <div data-paged data-src={`/data/${lang}/species/${list}.json`}>
+    <SpeciesGrid species={species.slice(0, PAGE)} heading={heading} template />
+    <p class="status" data-status aria-live="polite"></p>
+    <p class="more">{pages ? <a data-more href={`/vi/${list}/trang/2/`}>{words}</a> : <button type="button" data-more>{words}</button>}</p>
+    <script>
+      import type { SpeciesListItem } from '../lib/list-data'
+      import { ct } from '../scripts/ct'
+      import { listMore } from '../scripts/list-more'
+      import { buildCard } from '../scripts/species-card'
+      for (const el of document.querySelectorAll<HTMLElement>('[data-paged]')) listMore<SpeciesListItem>(el, buildCard, (n, left) => ct('Xem thêm {n} loài (còn {left})', { n, left }))
+    </script>
+  </div>
+)}
+<style>
+  .status:empty { display: none; }
+  .status { color: var(--c-ink-soft); margin-top: var(--space-5); }
+  /* The guide list's "Xem thêm" (pages/vi/huong-dan), a link or a button. */
+  .more { text-align: center; margin-top: var(--space-6); }
+  .more a, .more button { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; cursor: pointer; }
+  .more a:hover, .more button:hover { background: var(--c-ink); color: var(--c-paper); }
+</style>

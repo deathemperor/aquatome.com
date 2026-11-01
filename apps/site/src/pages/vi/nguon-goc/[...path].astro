@@ -1,9 +1,12 @@
 ---
 import type { Localized, PlaceEntity, SpeciesEntity } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
-import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import PagedSpecies from '../../../components/PagedSpecies.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { cleanPhoto } from '../../../lib/home'
+import { speciesLists } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesWhere } from '../../../lib/alternates'
 
@@ -16,13 +19,15 @@ const TITLES: Record<string, string> = { vietnam: t('Cá Việt Nam') }
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const lang = langOf(routePattern)
   const c = await getContent(lang)
-  const of = (id: string) => c.species.filter(s => s.places.includes(id))
+  // A place's species are its list's (lib/list-data.ts), in the fish list's order.
+  const lists = speciesLists(lang, c)
+  const of = (path: string) => lists.get(`nguon-goc/${path}`) ?? []
   const places = c.places
   const tops = places.filter(p => p.kind === 'continent')
   const index = { params: { path: undefined }, props: { place: undefined, species: [] as Localized<SpeciesEntity>[], kids: tops } }
   const continents = tops.map(p => ({ params: { path: p.id }, props: { place: p, species: of(p.id), kids: places.filter(x => x.parent === p.id && x.kind === 'country'), parent: undefined } }))
   const countries = places.filter(p => p.kind === 'country' && p.parent).map(p => ({
-    params: { path: `${p.parent}/${p.id}` }, props: { place: p, species: of(p.id), kids: places.filter(x => x.parent === p.id), parent: places.find(x => x.id === p.parent) },
+    params: { path: `${p.parent}/${p.id}` }, props: { place: p, species: of(`${p.parent}/${p.id}`), kids: places.filter(x => x.parent === p.id), parent: places.find(x => x.id === p.parent) },
   }))
   return [index, ...continents, ...countries]
 }
@@ -34,11 +39,11 @@ const intro = place ? INTROS[place.id] ?? t('{n} loài có nguồn gốc từ {p
 const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.map(s => s.photos[0]))} alternates={alternates}>
+<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.slice(0, PAGE).map(s => cleanPhoto(s.photos)))} creditsLater={species.length > PAGE} alternates={alternates}>
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
   )}
-  {place && <SpeciesGrid species={species} heading={t('Danh sách loài')} />}
+  {place && <PagedSpecies species={species} list={`nguon-goc/${Astro.params.path}`} heading={t('Danh sách loài')} />}
 </Browse>
 <style>
   .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-2); }

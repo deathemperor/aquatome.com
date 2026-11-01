@@ -1,6 +1,7 @@
 ---
 import Browse from '../../../../layouts/Browse.astro'
 import GuideCard from '../../../../components/GuideCard.astro'
+import PageNav from '../../../../components/PageNav.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
 import { listedGuides } from '../../../../lib/list-data'
@@ -26,16 +27,9 @@ const prev = n === 2 ? '/vi/huong-dan/' : `/vi/huong-dan/trang/${n - 1}/`
 ---
 <Browse title={t('Hướng dẫn, trang {n}', { n })} heading={t('Hướng dẫn, trang {n}', { n })} crumbs={[['/vi/huong-dan/', t('Hướng dẫn')]]} credits={creditsFor(here.map(g => guideImage(c, g)))}>
   <div class="grid">{here.map(g => <GuideCard g={g} row />)}</div>
-  <nav class="pages" aria-label={t('Các trang')}>
-    <a href={prev} rel="prev">{t('Trang trước')}</a>
-    {n < pages && <a href={`/vi/huong-dan/trang/${n + 1}/`} rel="next">{t('Trang sau')}</a>}
-  </nav>
+  <PageNav prev={prev} next={n < pages ? `/vi/huong-dan/trang/${n + 1}/` : undefined} />
 </Browse>
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }
-  .pages { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-6); }
-  .pages a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; }
-  .pages a:hover { background: var(--c-ink); color: var(--c-paper); }
-  .pages a[rel='next'] { margin-left: auto; }
   @media (max-width: 520px) { .grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); } }
 </style>

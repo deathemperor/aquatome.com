@@ -1,29 +1,30 @@
 ---
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
-import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import PagedSpecies from '../../../components/PagedSpecies.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { cleanPhoto } from '../../../lib/home'
+import { speciesLists } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesWhere } from '../../../lib/alternates'
 
 type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
-  const c = await getContent(langOf(routePattern))
-  // The index always exists (a language with no species yet still has the page its menus link to).
+  const lang = langOf(routePattern)
+  const c = await getContent(lang)
+  const lists = speciesLists(lang, c)
+  // The index always exists (a language with no species yet still has the page its menus link to). Each taxon's
+  // species are its list's (lib/list-data.ts), in the fish list's order.
   const nodes = new Map<string, Node>([['', { path: [], name: 'Phân loại', species: [] }]])
-  const add = (path: string[], name: string, s: Localized<SpeciesEntity>) => {
-    const k = path.join('/')
-    const n = nodes.get(k) ?? { path, name, species: [] }
-    n.species.push(s)
-    nodes.set(k, n)
-  }
   for (const s of c.species) {
-    const [o, f, g] = [s.order, s.family, s.genus].map(x => x.toLowerCase()) as [string, string, string]
-    add([], 'Phân loại', s)
-    add([o], s.order, s)
-    add([o, f], s.family, s)
-    add([o, f, g], s.genus, s)
+    const names = [s.order, s.family, s.genus]
+    const path = names.map(x => x.toLowerCase())
+    for (let i = 1; i <= 3; i++) {
+      const k = path.slice(0, i).join('/')
+      if (!nodes.has(k)) nodes.set(k, { path: path.slice(0, i), name: names[i - 1]!, species: lists.get(`phan-loai/${k}`)! })
+    }
   }
   const children = (n: Node) => [...nodes.values()].filter(m => m.path.length === n.path.length + 1 && m.path.slice(0, -1).join('/') === n.path.join('/'))
   return [...nodes.values()].map(n => ({ params: { path: n.path.join('/') || undefined }, props: { node: n, kids: children(n) } }))
@@ -39,7 +40,7 @@ const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t('Phân loại')], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
-<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={node.path.length ? creditsFor(node.species.map(s => s.photos[0])) : []} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
+<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={creditsFor(node.species.slice(0, PAGE).map(s => cleanPhoto(s.photos)))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
   {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
   <span slot="heading" class:list={{ sci: node.path.length === 3 }}>{node.path.length ? node.name : t('Phân loại')}</span>
   {kids.length > 0 && (
@@ -47,7 +48,7 @@ const crumbs: [string, string][] = node.path.length
       {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}
     </ul>
   )}
-  {node.path.length > 0 && <SpeciesGrid species={node.species} heading={t('Danh sách loài')} />}
+  {node.path.length > 0 && <PagedSpecies species={node.species} list={`phan-loai/${node.path.join('/')}`} heading={t('Danh sách loài')} />}
 </Browse>
 <style>
   .kids { list-style: none; padding: 0; margin: 0 0 var(--space-6); columns: 3 14rem; }

@@ -1,0 +1,40 @@
+---
+import type { Localized, SpeciesEntity } from '@aq/schema'
+import Browse from '../../../../../layouts/Browse.astro'
+import PageNav from '../../../../../components/PageNav.astro'
+import SpeciesGrid from '../../../../../components/SpeciesGrid.astro'
+import { getContent } from '../../../../../lib/content'
+import { creditsFor } from '../../../../../lib/credits'
+import { groupLabel } from '../../../../../lib/format'
+import { cleanPhoto } from '../../../../../lib/home'
+import { speciesLists } from '../../../../../lib/list-data'
+import { PAGE } from '../../../../../scripts/filter-list'
+import { i18n, langOf } from '../../../../../lib/i18n'
+import { alternatesWhere } from '../../../../../lib/alternates'
+
+/**
+ * A fish group's later pages, a page of species each (2, 3, …): what "Xem thêm" on /vi/nhom/<group>/ links to. The
+ * group's page adds species in place instead; these are for crawlers and readers without its script, so every species
+ * has a link to it (the taxon and origin pages show more in place only).
+ */
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const lang = langOf(routePattern)
+  return [...speciesLists(lang, await getContent(lang))].filter(([list]) => list.startsWith('nhom/')).flatMap(([list, species]) => {
+    const pages = Math.ceil(species.length / PAGE)
+    return Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => ({ params: { group: list.slice('nhom/'.length), n: String(i + 2) }, props: { species, pages } }))
+  })
+}
+const { group } = Astro.params
+const n = Number(Astro.params.n)
+const { species, pages } = Astro.props as { species: Localized<SpeciesEntity>[]; pages: number }
+const { t } = i18n(Astro.url)
+const name = t(groupLabel(group!))
+const here = species.slice((n - 1) * PAGE, n * PAGE)
+const base = `/vi/nhom/${group}/`
+// The same page in another language: its group has as many pages there.
+const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.filter(s => s.group === group).length > (n - 1) * PAGE)
+---
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/ca/', t('Loài cá')], [base, name]]} credits={creditsFor(here.map(s => cleanPhoto(s.photos)))} alternates={alternates}>
+  <SpeciesGrid species={here} heading={t('Danh sách loài')} />
+  <PageNav prev={n === 2 ? base : `${base}trang/${n - 1}/`} next={n < pages ? `${base}trang/${n + 1}/` : undefined} />
+</Browse>

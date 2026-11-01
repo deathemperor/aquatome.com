@@ -1,0 +1,17 @@
+---
+import { i18n } from '../lib/i18n'
+/** A list's numbered page (/trang/<n>/): the way back to the page before, and on to the next when there is one. */
+interface Props { prev: string; next?: string }
+const { prev, next } = Astro.props
+const { t } = i18n(Astro.url)
+---
+<nav class="pages" aria-label={t('Các trang')}>
+  <a href={prev} rel="prev">{t('Trang trước')}</a>
+  {next && <a href={next} rel="next">{t('Trang sau')}</a>}
+</nav>
+<style>
+  .pages { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-6); }
+  .pages a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; }
+  .pages a:hover { background: var(--c-ink); color: var(--c-paper); }
+  .pages a[rel='next'] { margin-left: auto; }
+</style>

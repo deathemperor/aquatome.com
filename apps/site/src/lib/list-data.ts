@@ -1,4 +1,4 @@
-import type { Content, GuideEntity, Localized, Photo, PlantEntity } from '@aq/schema'
+import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { cleanPhoto, listOrder } from './home'
@@ -11,7 +11,8 @@ import { toIndexItem } from './species-index'
  * The fish and plant lists' data, a file per language (/data/<lang>/species.json, /data/<lang>/plants.json) that the
  * list's script fetches when a reader filters or goes past the first page: the HTML has only that page's cards, so it
  * stays the same size however many species and plants there are. One item per card, in the list's order: what the
- * filter reads, and what a card built in the browser shows and credits (scripts/species-card.ts, plant-card.ts).
+ * filter reads, and what a card built in the browser shows and credits (scripts/species-card.ts, plant-card.ts). The
+ * group, taxon and origin pages' longer lists have a file each too (`speciesLists`, /data/<lang>/species/<list>.json).
  */
 
 /** The photo a card shows: its small picture, and its credit (author, licence, its page on the source). */
@@ -23,13 +24,35 @@ export type PlantListItem = PlantIndexItem & { name: string; scientificName: str
 
 const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, licence: p.licence, url: p.sourceUrl })
 
-/** Every species in the fish list's order, with the photo its card shows (SpeciesCard: cleanPhoto). */
-export function speciesList(lang: Lang, c: Content): SpeciesListItem[] {
-  return listOrder(lang, c).map(s => {
-    const { gh, sizeCm, ...i } = toIndexItem(s)
-    const p = cleanPhoto(s.photos)
-    return p ? { ...i, photo: cardPhoto(p) } : i
-  })
+/** Species as a list's data file has them, with the photo each card shows (SpeciesCard: cleanPhoto). */
+export const speciesItems = (species: Localized<SpeciesEntity>[]): SpeciesListItem[] => species.map(s => {
+  const { gh, sizeCm, ...i } = toIndexItem(s)
+  const p = cleanPhoto(s.photos)
+  return p ? { ...i, photo: cardPhoto(p) } : i
+})
+
+/** Every species in the fish list's order. */
+export const speciesList = (lang: Lang, c: Content): SpeciesListItem[] => speciesItems(listOrder(lang, c))
+
+/**
+ * The species lists of the group, taxon and origin pages, by the page's address under /vi/ ("nhom/catfish",
+ * "phan-loai/perciformes/cichlidae", "nguon-goc/asia/india"), each in the fish list's order. The pages, their numbered
+ * pages and their data files (/data/<lang>/species/<address>.json) all read them, so they can't disagree on who is on a
+ * list or in what order.
+ */
+export function speciesLists(lang: Lang, c: Content): Map<string, Localized<SpeciesEntity>[]> {
+  const places = new Map(c.places.map(p => [p.id, p]))
+  const lists = new Map<string, Localized<SpeciesEntity>[]>()
+  for (const s of listOrder(lang, c)) {
+    const [o, f, g] = [s.order, s.family, s.genus].map(x => x.toLowerCase())
+    // A continent's page and a country's (under its parent): the places with a page of their own.
+    const from = [...new Set(s.places)].flatMap(id => {
+      const p = places.get(id)
+      return p?.kind === 'continent' ? [`nguon-goc/${id}`] : p?.kind === 'country' && p.parent ? [`nguon-goc/${p.parent}/${id}`] : []
+    })
+    for (const k of [`nhom/${s.group}`, `phan-loai/${o}`, `phan-loai/${o}/${f}`, `phan-loai/${o}/${f}/${g}`, ...from]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
+  }
+  return lists
 }
 
 /** A plant card's line: "Ánh sáng yếu, CO₂ không cần" (PlantCard). */
