@@ -5,7 +5,7 @@ import { tankIsVolume } from './card-facts'
 import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
-import { isVietnamese } from './text'
+import { isVietnamese, markVietnameseNames } from './text'
 import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
@@ -46,6 +46,14 @@ async function exists(path: string): Promise<boolean> {
   return readFile(path).then(() => true, () => false)
 }
 
+/** Indonesian and Thai text with the Vietnamese names in it marked as Vietnamese (text.ts markVietnameseNames). */
+const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : {
+  ...t,
+  sections: Object.fromEntries(Object.entries(t.sections).map(([k, html]) => [k, markVietnameseNames(html)])),
+  ...(t.body !== undefined ? { body: markVietnameseNames(t.body) } : {}),
+  ...(t.definition !== undefined ? { definition: markVietnameseNames(t.definition) } : {}),
+}
+
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
   const ids = await readdir(base).catch(() => [] as string[])
@@ -55,7 +63,7 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
     // A translation left behind with no entity (an engine run named it while a merged change removed the page) is no page.
     if (!(await exists(tPath)) || !(await exists(join(base, id, 'entity.json')))) continue
     const entity = await readJson(join(base, id, 'entity.json'), schema)
-    const t = await readJson(tPath, TranslationSchema)
+    const t = marked(lang, await readJson(tPath, TranslationSchema))
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
   }
   return out

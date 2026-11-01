@@ -205,3 +205,17 @@ test('a photos-only source shows its photos in a public build, and nothing writt
   const local = await loadAll({ root: store, lang: 'vi', publicBuild: false })
   expect(local.guides.map(g => g.id)).toContain('forum-guide')
 })
+
+// /id/ikan/datz-siam/ failed the live check for Vietnamese on Indonesian pages (2026-11-01): "sungai Đồng Nai".
+test('Indonesian and Thai text marks the Vietnamese names in it as Vietnamese; Vietnamese pages are left as written', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, dir, { recursive: true })
+  const vi = JSON.parse(await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  const key = Object.keys(vi.sections)[0]!
+  const html = '<p>Ditemukan di sungai Đồng Nai, Vietnam.</p>'
+  await writeFile(join(dir, 'species/alpha/id.json'), JSON.stringify({ ...vi, sections: { [key]: html } }))
+  await writeFile(join(dir, 'species/alpha/vi.json'), JSON.stringify({ ...vi, sections: { ...vi.sections, [key]: '<p>Sống ở sông Đồng Nai.</p>' } }))
+  const alpha = async (lang: 'vi' | 'id') => (await loadAll({ root: dir, lang, publicBuild: false })).species.find(s => s.id === 'alpha')!.t.sections[key]
+  expect(await alpha('id')).toBe('<p>Ditemukan di sungai <span lang="vi">Đồng Nai</span>, Vietnam.</p>')
+  expect(await alpha('vi')).toBe('<p>Sống ở sông Đồng Nai.</p>')
+})
