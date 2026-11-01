@@ -3,11 +3,12 @@ import type { Localized, PlantEntity } from '@aq/schema'
 import GalleryPage from '../../../../components/GalleryPage.astro'
 import { getContent } from '../../../../lib/content'
 import { GALLERY_MIN } from '../../../../lib/gallery'
+import { distinctPhotos } from '../../../../lib/pictures'
 import { i18n, langOf, localizePath, toVi, type Lang } from '../../../../lib/i18n'
 import { alternatesOf } from '../../../../lib/alternates'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
-  return c.plants.map(p => ({ p, photos: c.galleries[p.id] ?? [] }))
+  return c.plants.map(p => ({ p, photos: distinctPhotos(c, c.galleries[p.id] ?? []) }))
     .filter(x => x.photos.length >= GALLERY_MIN).map(({ p, photos }) => ({ params: { slug: p.t.slug }, props: { p, photos } }))
 }
 const { p, photos } = Astro.props as { p: Localized<PlantEntity>; photos: PlantEntity['photos'] }

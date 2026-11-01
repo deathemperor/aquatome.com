@@ -4,8 +4,7 @@ import GuideCard from '../../../../components/GuideCard.astro'
 import PageNav from '../../../../components/PageNav.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
-import { guideLists } from '../../../../lib/list-data'
-import { guideImage } from '../../../../lib/mentions'
+import { guideListCovers, guideLists } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 import { i18n, langOf } from '../../../../lib/i18n'
 
@@ -24,9 +23,11 @@ const all = guideLists(c).get('kham-pha')!
 const pages = Math.ceil(all.length / PAGE)
 const here = all.slice((n - 1) * PAGE, n * PAGE)
 const name = t('Khám phá')
+// The covers the list's cards show wherever they are built (lib/list-data.ts), none twice.
+const covers = guideListCovers(c, 'kham-pha', all).slice((n - 1) * PAGE, n * PAGE)
 ---
-<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/kham-pha/', name]]} credits={creditsFor(here.map(g => guideImage(c, g)))}>
-  <div class="grid">{here.map(g => <GuideCard g={g} />)}</div>
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/kham-pha/', name]]} credits={creditsFor(covers.map(p => p ?? undefined))}>
+  <div class="grid">{here.map((g, i) => <GuideCard g={g} photo={covers[i]} />)}</div>
   <PageNav prev={n === 2 ? '/vi/kham-pha/' : `/vi/kham-pha/trang/${n - 1}/`} next={n < pages ? `/vi/kham-pha/trang/${n + 1}/` : undefined} />
 </Browse>
 <style>

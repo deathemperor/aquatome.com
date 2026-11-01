@@ -1,5 +1,5 @@
 ---
-import type { Localized, SpeciesEntity } from '@aq/schema'
+import type { Localized, Photo, SpeciesEntity } from '@aq/schema'
 import MoreList from './MoreList.astro'
 import SpeciesGrid from './SpeciesGrid.astro'
 import { PAGE } from '../scripts/filter-list'
@@ -11,12 +11,13 @@ import { i18n } from '../lib/i18n'
  * components/MoreList). `pages`: the list has numbered pages (/vi/<list>/trang/2/…), and "Xem thêm" is a link to the
  * next one. A list of one page is the grid alone, as before.
  */
-interface Props { species: Localized<SpeciesEntity>[]; list: string; heading?: string; pages?: boolean }
-const { species, list, heading, pages = false } = Astro.props
+/** `photos`: the first page's pictures, as the page chose them (lib/pictures.ts). */
+interface Props { species: Localized<SpeciesEntity>[]; list: string; heading?: string; pages?: boolean; photos?: (Photo | null)[] }
+const { species, list, heading, pages = false, photos } = Astro.props
 const { lang } = i18n(Astro.url)
 ---
-{species.length <= PAGE ? <SpeciesGrid species={species} heading={heading} /> : (
+{species.length <= PAGE ? <SpeciesGrid species={species} heading={heading} photos={photos} /> : (
   <MoreList kind="species" src={`/data/${lang}/species/${list}.json`} total={species.length} next={pages ? `/vi/${list}/trang/2/` : undefined}>
-    <SpeciesGrid species={species.slice(0, PAGE)} heading={heading} template />
+    <SpeciesGrid species={species.slice(0, PAGE)} heading={heading} photos={photos} template />
   </MoreList>
 )}

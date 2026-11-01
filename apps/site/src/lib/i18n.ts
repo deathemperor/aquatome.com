@@ -1,5 +1,5 @@
-import id from '../i18n/id.json'
-import th from '../i18n/th.json'
+import id from '../i18n/id.json' with { type: 'json' }
+import th from '../i18n/th.json' with { type: 'json' }
 
 /**
  * Site languages. Pages are written once, under src/pages/vi/, with Vietnamese UI text wrapped in t(); a language

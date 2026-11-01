@@ -1,8 +1,8 @@
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import type { APIRoute, GetStaticPaths } from 'astro'
 import { getContent } from '../../../../lib/content'
-import { LANGS } from '../../../../lib/i18n'
-import { speciesItems, speciesLists } from '../../../../lib/list-data'
+import { LANGS, type Lang } from '../../../../lib/i18n'
+import { speciesItems, speciesListPhotos, speciesLists } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 
 // A group's, taxon's or origin's species (lib/list-data.ts speciesLists), one file per list longer than a page: the
@@ -11,4 +11,7 @@ export const getStaticPaths: GetStaticPaths = async () => (await Promise.all(LAN
   [...speciesLists(lang, await getContent(lang))].filter(([, species]) => species.length > PAGE).map(([list, species]) => ({ params: { lang, list }, props: { species } })),
 ))).flat()
 
-export const GET: APIRoute = ({ props }) => Response.json(speciesItems((props as { species: Localized<SpeciesEntity>[] }).species))
+export const GET: APIRoute = async ({ params, props }) => {
+  const { species } = props as { species: Localized<SpeciesEntity>[] }
+  return Response.json(speciesItems(species, speciesListPhotos(await getContent(params.lang as Lang), params.list!, species)))
+}

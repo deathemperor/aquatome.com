@@ -1,5 +1,5 @@
 ---
-import { guideImage } from '../../lib/mentions'
+import { guideImages } from '../../lib/mentions'
 import Base from '../../layouts/Base.astro'
 import Nav from '../../components/Nav.astro'
 import SpeciesCard from '../../components/SpeciesCard.astro'
@@ -12,6 +12,7 @@ import { smallSrc } from '../../lib/img'
 import { homeVideos } from '../../lib/video'
 import { completeFirst, easyPlants, featuredSpecies, groupTiles, leadGuides, nativeSpecies, STEP_GUIDES } from '../../lib/home'
 import { i18n } from '../../lib/i18n'
+import { pagePictures, photosOf, takeEach } from '../../lib/pictures'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -27,15 +28,22 @@ const steps = [
 const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
-const groups = groupTiles(lang, c)
 const plants = easyPlants(c)
 const equipment = c.equipment
 const native = nativeSpecies(lang, c)
 // The country's own fish, besides those already featured above; full data cards first, like the featured ones.
 const nativeShown = completeFirst(native.species.filter(s => !featured.includes(s))).slice(0, 4)
-const credits = [HERO, ...creditsFor([
-  ...featured.map(s => s.photos[0]), ...nativeShown.map(s => s.photos[0]), ...groups.map(g => g.photo), ...guides.map(g => guideImage(c, g)), ...videos.map(g => guideImage(c, g)), ...plants.map(p => p.photos[0]),
-])]
+// Every picture once, chosen in page order (lib/pictures.ts): a group's tile takes its next fish's photo when the
+// cards above show its best one.
+const pics = pagePictures(c)
+pics.add(HERO.url)
+const featuredPhotos = takeEach(pics, featured, s => photosOf(s.photos))
+const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => photosOf(s.photos)) : []
+const groups = groupTiles(lang, c, pics)
+const guidePhotos = takeEach(pics, guides, g => guideImages(c, g))
+const videoPhotos = takeEach(pics, videos, g => guideImages(c, g))
+const plantPhotos = takeEach(pics, plants, p => photosOf(p.photos))
+const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...groups.map(g => g.photo), ...guidePhotos, ...videoPhotos, ...plantPhotos].map(p => p ?? undefined))]
 ---
 <Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="(min-width: 900px) 40vw, 100vw" fetchpriority="high" />
@@ -76,13 +84,13 @@ const credits = [HERO, ...creditsFor([
     <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: c.species.length })}</a></div>
     {featured.length === 0
       ? <p class="empty">{t('Chưa có hồ sơ loài nào được xuất bản.')}</p>
-      : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} />)}</div>}
+      : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} photo={featuredPhotos[i]} />)}</div>}
   </section>
 
   {native.place?.parent && nativeShown.length === 4 && (
     <section class="wrap block" aria-labelledby="native-h">
       <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: native.count })}</a></div>
-      <div class="grid">{nativeShown.map(s => <SpeciesCard s={s} />)}</div>
+      <div class="grid">{nativeShown.map((s, i) => <SpeciesCard s={s} photo={nativePhotos[i]} />)}</div>
     </section>
   )}
 
@@ -103,21 +111,21 @@ const credits = [HERO, ...creditsFor([
   {guides.length > 0 && (
     <section class="wrap block" aria-labelledby="guides-h">
       <div class="head"><h2 id="guides-h" class="h">{t('Hướng dẫn cơ bản')}</h2><a href="/vi/huong-dan/">{t('Tất cả hướng dẫn →')}</a></div>
-      <div class="grid">{guides.map(g => <GuideCard g={g} />)}</div>
+      <div class="grid">{guides.map((g, i) => <GuideCard g={g} photo={guidePhotos[i]} />)}</div>
     </section>
   )}
 
   {videos.length > 0 && (
     <section class="wrap block" aria-labelledby="videos-h">
       <div class="head"><h2 id="videos-h" class="h">{t('Video hướng dẫn')}</h2><a href="/vi/video/">{t('Tất cả video →')}</a></div>
-      <div class="grid">{videos.map(g => <GuideCard g={g} />)}</div>
+      <div class="grid">{videos.map((g, i) => <GuideCard g={g} photo={videoPhotos[i]} />)}</div>
     </section>
   )}
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
       <h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO₂')}</h2>
-      <div class="grid">{plants.map(p => <PlantCard p={p} />)}</div>
+      <div class="grid">{plants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     </section>
   )}
 

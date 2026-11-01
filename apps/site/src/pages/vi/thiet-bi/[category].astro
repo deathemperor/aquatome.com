@@ -11,11 +11,11 @@ import { categoriesIn, normKeyword, typeUses, type CategoryUse } from '../../../
 import { alternatesWhere } from '../../../lib/alternates'
 import { categoryLabel, goLink } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto } from '../../../lib/home'
+import { gridPhotos, pagePictures, photosOf, takeEach } from '../../../lib/pictures'
 import { speciesLists } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { smallSrc } from '../../../lib/img'
-import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
+import { guideImages, guidesMentioning, mentionIndex } from '../../../lib/mentions'
 import { creatorsUse } from '../../../lib/gear'
 import { productHref } from '../../../lib/products'
 import { i18n, langOf } from '../../../lib/i18n'
@@ -54,9 +54,16 @@ const keywords = [...suggested].sort((a, b) => b[1] - a[1]).slice(0, PAGE).map((
 const shops = ['shopee', 'lazada', 'tiki'] as const
 const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
-// Every photo shown: the guide's, the species beside each type, the first page of species and plants.
-const credits = creditsFor([...(g ? [g.hero, ...g.types.map(t => t.photo)] : []), ...types.flatMap(ty => ty.species.slice(0, 6).map(s => s.photos[0])),
-  ...(plantsPage ? [] : users.slice(0, PAGE).map(s => cleanPhoto(s.photos))), ...plants.slice(0, PAGE).map(p => p.photos[0])])
+// Every picture once, in page order (lib/pictures.ts): the guide's, each type's, the fish beside each type (a fish under
+// two types, or in the list below, shows its next photo there, or none), the plants, the first page of fish, the guides.
+const pics = pagePictures(c)
+pics.add(g?.hero.url)
+const typePhotos = types.map(ty => pics.take([ty.photo]) ?? null)
+const whoPhotos = types.map(ty => takeEach(pics, ty.species.slice(0, 6), s => photosOf(s.photos)))
+const plantPhotos = takeEach(pics, plants.slice(0, PAGE), p => photosOf(p.photos))
+const userPhotos = plantsPage ? [] : gridPhotos(c, users.slice(0, PAGE), pics)
+const guidePhotos = takeEach(pics, guides, x => guideImages(c, x))
+const credits = creditsFor([g?.hero, ...typePhotos, ...whoPhotos.flat(), ...plantPhotos, ...userPhotos, ...guidePhotos].map(p => p ?? undefined))
 // Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
 const vn = lang === 'vi'
 const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
@@ -76,9 +83,9 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   {types.length > 0 && <>
     <h2 class="h">{t('Các loại {label}', { label: label.toLowerCase() })}</h2>
     <div class="types">
-      {types.map(ty => (
-        <article class:list={['type', { bare: !ty.photo }]} id={ty.id}>
-          {ty.photo && <div class="ph"><img src={smallSrc(ty.photo)} width={ty.photo.width} height={ty.photo.height} alt={ty.name} loading="lazy" /></div>}
+      {types.map((ty, k) => (
+        <article class:list={['type', { bare: !typePhotos[k] }]} id={ty.id}>
+          {typePhotos[k] && <div class="ph"><img src={smallSrc(typePhotos[k])} width={typePhotos[k].width} height={typePhotos[k].height} alt={ty.name} loading="lazy" /></div>}
           <div class="body">
             <h3>{ty.name}</h3>
             <p set:html={link(ty.desc)} />
@@ -88,7 +95,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
             {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
             {ty.species.length > 0 && (
               <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
-                {ty.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
+                {ty.species.slice(0, 6).map((s, i) => { const p = whoPhotos[k]![i]; return <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li> })}
                 {ty.species.length > 6 && <li class="n">{t('+{n} loài', { n: ty.species.length - 6 })}</li>}
               </ul>
             )}
@@ -116,12 +123,12 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {plants.length > 0 && <>
     <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
-    <div class="plants">{plants.slice(0, PAGE).map(p => <PlantCard p={p} />)}</div>
+    <div class="plants">{plants.slice(0, PAGE).map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     {plants.length > PAGE && (plantsPage || needCo2 > 0) && <p class="list"><a href={plantsPage ? '/vi/cay/' : '/vi/cay/?co2=required'}>{plantsPage ? t('Xem cả {n} loài cây', { n: plants.length }) : t('Xem cả {n} loài cây bắt buộc có CO₂', { n: needCo2 })}</a></p>}
   </>}
   {!plantsPage && users.length > 0 && <>
     <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
-    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} />
+    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} photos={userPhotos} />
   </>}
 
   {g && g.faq.length > 0 && <>
@@ -131,7 +138,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {guides.length > 0 && <>
     <h2 class="h">{t('Bài viết liên quan')}</h2>
-    <div class="guides">{guides.map(x => <GuideCard g={x} />)}</div>
+    <div class="guides">{guides.map((x, i) => <GuideCard g={x} photo={guidePhotos[i]} />)}</div>
   </>}
 
   {vn && (

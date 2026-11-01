@@ -6,8 +6,7 @@ import SpeciesGrid from '../../../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../../../lib/content'
 import { creditsFor } from '../../../../../lib/credits'
 import { groupLabel } from '../../../../../lib/format'
-import { cleanPhoto } from '../../../../../lib/home'
-import { speciesLists } from '../../../../../lib/list-data'
+import { speciesListPhotos, speciesLists } from '../../../../../lib/list-data'
 import { PAGE } from '../../../../../scripts/filter-list'
 import { i18n, langOf } from '../../../../../lib/i18n'
 import { alternatesWhere } from '../../../../../lib/alternates'
@@ -27,14 +26,17 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { group } = Astro.params
 const n = Number(Astro.params.n)
 const { species, pages } = Astro.props as { species: Localized<SpeciesEntity>[]; pages: number }
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const name = t(groupLabel(group!))
 const here = species.slice((n - 1) * PAGE, n * PAGE)
+// The pictures the list's cards show wherever they are built (lib/list-data.ts), none twice.
+const photos = speciesListPhotos(c, `nhom/${group}`, species).slice((n - 1) * PAGE, n * PAGE)
 const base = `/vi/nhom/${group}/`
 // The same page in another language: its group has as many pages there.
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.filter(s => s.group === group).length > (n - 1) * PAGE)
 ---
-<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/ca/', t('Loài cá')], [base, name]]} credits={creditsFor(here.map(s => cleanPhoto(s.photos)))} alternates={alternates}>
-  <SpeciesGrid species={here} heading={t('Danh sách loài')} />
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/ca/', t('Loài cá')], [base, name]]} credits={creditsFor(photos.map(p => p ?? undefined))} alternates={alternates}>
+  <SpeciesGrid species={here} photos={photos} heading={t('Danh sách loài')} />
   <PageNav prev={n === 2 ? base : `${base}trang/${n - 1}/`} next={n < pages ? `${base}trang/${n + 1}/` : undefined} />
 </Browse>

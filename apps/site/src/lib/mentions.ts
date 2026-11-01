@@ -1,4 +1,4 @@
-import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { videoPhoto } from './video'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
@@ -116,8 +116,14 @@ export function mentionIndex(c: Content): Index {
 export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity>[] =>
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
-/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
-export function guideImage(c: Content, g: Localized<GuideEntity>) {
+/**
+ * A guide's possible pictures, best first: its own photos, its video's thumbnail, then the first photo of each fish and
+ * plant it talks about. A card takes the first one its page doesn't show yet (lib/pictures.ts).
+ */
+export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const m = mentionIndex(c).guides.get(g.id)
-  return g.photos[0] ?? (g.video && videoPhoto(g.video)) ?? m?.species.find(s => s.photos[0])?.photos[0] ?? m?.plants.find(p => p.photos[0])?.photos[0]
+  return [...g.photos, ...(g.video ? [videoPhoto(g.video)] : []), ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])]
 }
+
+/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
+export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

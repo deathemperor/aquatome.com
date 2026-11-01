@@ -3,17 +3,21 @@ import type { Photo } from '@aq/schema'
 import { GALLERY_STRIP } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n, served } from '../lib/i18n'
-/** `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo. */
-interface Props { photos: Photo[]; href?: string; name: string }
+/**
+ * `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo.
+ * `shown`: of the first photos, those the page doesn't show already (lib/pictures.ts), null for the others: each thumb
+ * keeps its place, so it still opens its own photo on the gallery page.
+ */
+interface Props { photos: Photo[]; href?: string; name: string; shown?: (Photo | null)[] }
 const { t, lang } = i18n(Astro.url)
 const href = Astro.props.href && served(lang, Astro.props.href) ? Astro.props.href : undefined
 const { photos, name } = Astro.props
-const shown = photos.slice(0, GALLERY_STRIP)
+const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 ---
 <section class="wrap strip" aria-labelledby="gal-h">
   <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{href && <a href={href}>{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}</div>
   <ul>
-    {shown.map((p, i) => (
+    {shown.map((p, i) => p && (
       <li><a href={href ? `${href}#a${i + 1}` : p.url}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /></a></li>
     ))}
   </ul>

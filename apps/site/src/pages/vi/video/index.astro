@@ -3,7 +3,8 @@ import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { guideImage } from '../../../lib/mentions'
+import { guideImages } from '../../../lib/mentions'
+import { pagePictures } from '../../../lib/pictures'
 import { hours, isVideo, seriesGuides, seriesSeconds, videoChannels } from '../../../lib/video'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
@@ -14,10 +15,13 @@ const withSingles = channels.filter(ch => ch.singles.length)
 const all = c.guides.filter(isVideo)
 // The cards on the page: each series' and each channel's single videos' first four.
 const shown = [...series.flatMap(x => x.guides.slice(0, 4)), ...withSingles.flatMap(ch => ch.singles.slice(0, 4))]
+// Every picture once, in page order (lib/pictures.ts).
+const pics = pagePictures(c)
+const cover = new Map(shown.map(g => [g, pics.take(guideImages(c, g)) ?? null]))
 ---
 <Browse title={t('Video hướng dẫn')} heading={t('Video hướng dẫn')}
   intro={t('Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem.')}
-  credits={creditsFor(shown.map(g => guideImage(c, g)))}>
+  credits={creditsFor(shown.map(g => cover.get(g) ?? undefined))}>
   {all.length === 0 && <p>{t('Chưa có video hướng dẫn nào.')}</p>}
   {series.map(({ s, guides }) => (
     <section class="series" aria-labelledby={`s-${s.vi.slug}`}>
@@ -26,7 +30,7 @@ const shown = [...series.flatMap(x => x.guides.slice(0, 4)), ...withSingles.flat
         <p class="meta">{t('{n} video', { n: guides.length })} · {hours(lang, seriesSeconds(c, s))} · {t('kênh {name}', { name: s.channel })}</p>
         <p class="intro">{s.vi.intro}</p>
       </header>
-      <div class="grid">{guides.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
+      <div class="grid">{guides.slice(0, 4).map(g => <GuideCard g={g} photo={cover.get(g)} />)}</div>
       {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>{t('Xem cả {n} bài trong loạt', { n: guides.length })}</a></p>}
     </section>
   ))}
@@ -36,7 +40,7 @@ const shown = [...series.flatMap(x => x.guides.slice(0, 4)), ...withSingles.flat
         <h2 id={`c-${ch.slug}`}><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Video lẻ của {name}', { name: ch.name })}</a></h2>
         <p class="meta">{t('{n} video', { n: ch.singles.length })}</p>
       </header>
-      <div class="grid">{ch.singles.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
+      <div class="grid">{ch.singles.slice(0, 4).map(g => <GuideCard g={g} photo={cover.get(g)} />)}</div>
       {ch.singles.length > 4 && <p class="more"><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Xem cả {n} bài của kênh', { n: ch.guides.length })}</a></p>}
     </section>
   ))}

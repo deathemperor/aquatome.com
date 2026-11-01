@@ -11,8 +11,6 @@ import Comments from '../../../components/Comments.astro'
 import { getContent } from '../../../lib/content'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto } from '../../../lib/home'
-import { PAGE } from '../../../scripts/filter-list'
 import { excerpt } from '../../../lib/meta'
 import GearList from '../../../components/GearList.astro'
 import { categoryLabel } from '../../../lib/format'
@@ -30,13 +28,11 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { g } = Astro.props as { g: Localized<GuideEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs } = guideParts(lang, c, g)
+// Every picture on the page, none twice, chosen in page order (lib/guide-page.ts): the cards get theirs from there.
 // A page of cards for the fish and plants the guide names, fish first: a listicle names a hundred or more (2026-11-01,
 // one was 2,203 page elements). The text links each by name.
-const cardSpecies = species.slice(0, PAGE), cardPlants = plants.slice(0, PAGE - cardSpecies.length)
+const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited } = guideParts(lang, c, g)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
-// The fish and plant photos inside the text (lib/guide-page.ts: the first six that aren't the lead).
-const figured = [...species, ...plants].flatMap(x => x.photos[0] ?? []).filter(p => p.url !== lead?.url).slice(0, 6)
 const v = g.video
 const description = excerpt(g.t.body ?? '')
 const jsonld: object[] = []
@@ -56,7 +52,7 @@ if (g.t.faq?.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'F
 const alternates = await alternatesOf('guides', g.id)
 const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi/huong-dan/', t('Hướng dẫn')]
 ---
-<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([ph, ...g.photos, ...(g.video?.figures ?? []).map(f => f.photo), ...figured, ...cardSpecies.map(s => cleanPhoto(s.photos)), ...cardPlants.map(p => p.photos[0])])}>
+<Base title={`${g.t.name} — AquaTome`} description={description} image={ph?.url} jsonld={jsonld} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor(credited)}>
   {/* The video's thumbnail is the page's largest image: open the connection while the page is still arriving. */}
   {v && <link slot="head" rel="preconnect" href="https://i.ytimg.com" />}
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
@@ -77,7 +73,8 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
     {toc.length >= 3 && (
       <nav class="toc" aria-labelledby="toc-h">
         <h2 id="toc-h">{t('Trong bài này')}</h2>
-        <ol>{toc.map(t => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
+        {/* Numbered headings keep their own numbers ("1." after an unnumbered introduction is still 1); the others none. */}
+        <ol>{toc.map(t => (toc.some(x => x.n) ? <li value={t.n} class:list={[{ un: !t.n }]}><a href={`#${t.id}`}>{t.text}</a></li> : <li><a href={`#${t.id}`}>{t.text}</a></li>))}</ol>
       </nav>
     )}
     <div class="prose" set:html={prose} />
@@ -97,13 +94,13 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   {next.length > 0 && (
     <section class="wrap related" aria-labelledby="next-h">
       <h2 id="next-h">{series && pos + 1 < inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo')}</h2>
-      <div class="grid">{next.map(x => <GuideCard g={x} />)}</div>
+      <div class="grid">{next.map((x, i) => <GuideCard g={x} photo={covers[i]} />)}</div>
     </section>
   )}
   {(species.length > 0 || plants.length > 0) && (
     <section class="wrap related" aria-labelledby="rel-h">
       <h2 id="rel-h">{t('Loài và cây trong bài')}</h2>
-      <div class="grid">{cardSpecies.map(s => <SpeciesCard s={s} />)}{cardPlants.map(p => <PlantCard p={p} />)}</div>
+      <div class="grid">{cardSpecies.map((s, i) => <SpeciesCard s={s} photo={speciesPhotos[i]} />)}{cardPlants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
       {uncarded > 0 && <p class="rest">{t('Còn {n} loài cá và cây khác trong bài.', { n: uncarded })}</p>}
     </section>
   )}
@@ -127,6 +124,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   .toc h2 { font: 600 0.8rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); margin-bottom: var(--space-2); }
   .toc ol { margin: 0; padding-left: 1.4em; font-size: 0.95rem; }
   .toc li { padding-block: 4px; }
+  .toc li.un { list-style: none; }
   .toc a { color: var(--c-ink); text-decoration-color: var(--c-rule); }
   .toc a:hover { text-decoration-color: var(--c-ink); }
   .prose :global(h3) { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-3); scroll-margin-top: var(--space-5); }

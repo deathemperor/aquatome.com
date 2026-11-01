@@ -8,9 +8,9 @@ test('h3s get unique ids from their text and become the table of contents', () =
   expect(html).toContain('<h3 id="thay-nuoc-bao-lau-2">')
 })
 
-test('a heading\'s own number is dropped from the (already numbered) list; its id keeps it', () => {
+test('a heading\'s own number leaves its words and becomes its entry\'s number; its id keeps it', () => {
   const { toc } = withToc('<h3>1. Rasbora</h3><h3>2) Cá neon</h3><h3>10 loài cá</h3>')
-  expect(toc).toEqual([{ id: '1-rasbora', text: 'Rasbora' }, { id: '2-ca-neon', text: 'Cá neon' }, { id: '10-loai-ca', text: '10 loài cá' }])
+  expect(toc).toEqual([{ id: '1-rasbora', text: 'Rasbora', n: 1 }, { id: '2-ca-neon', text: 'Cá neon', n: 2 }, { id: '10-loai-ca', text: '10 loài cá' }])
 })
 
 test('no headings: html untouched; reading time is at least a minute', () => {
