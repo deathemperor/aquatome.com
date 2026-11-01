@@ -67,6 +67,34 @@ final class TanksModel {
   /// A sync's result (AccountModel): the account's store with the phone's changes since, saved as an edit is.
   func commitSynced(_ s: TankStore) throws { try commit(s) }
 
+  // MARK: Plugs on a tank (docs/smart-plugs.md): records only; what a plug reports is never kept
+
+  func plugs(in tank: Tank) -> [Device] { store.plugs(in: tank.id) }
+  /// The tank a plug is on, if it is on one: a strip is on one tank.
+  func tankOf(plug brand: String, _ remoteId: String) -> String? { store.plug(brand: brand, remoteId: remoteId)?.tankId }
+
+  /// One of the account's plugs put on a tank, its outlets labelled with the maker's names for them.
+  @discardableResult
+  func addPlug(tankId: String, brand: String, remoteId: String, name: String, outlets: [(code: String, name: String?)]) throws -> Device {
+    var s = store
+    let d = try s.addPlug(tankId: tankId, brand: brand, remoteId: remoteId, name: name, outlets: outlets)
+    try commit(s)
+    return d
+  }
+
+  func updatePlug(_ id: String, outlets: [PlugOutlet]) throws {
+    var s = store
+    try s.updateDevice(id) { $0.outlets = outlets }
+    try commit(s)
+  }
+
+  /// Takes a plug off its tank: its record becomes a tombstone. The plug itself is left as it is.
+  func removePlug(_ id: String) throws {
+    var s = store
+    try s.deleteDevice(id)
+    try commit(s)
+  }
+
   // MARK: The site's pages in the app (PageBridge): they save to these same tanks
 
   /// The store for a page of the site, or nil while this phone's store isn't this app's to write (a page won't get a

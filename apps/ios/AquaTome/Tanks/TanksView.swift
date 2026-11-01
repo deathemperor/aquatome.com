@@ -30,7 +30,7 @@ struct TanksView: View {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
             Section {
               ForEach(tanks.tanks) { t in
-                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).count) }
+                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" }.count) }
                   .accessibilityIdentifier("tank")
               }
             } footer: {
@@ -103,7 +103,7 @@ private struct TankDetail: View {
 
   var body: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
-      let lights = tanks.devices(in: t)
+      let lights = tanks.devices(in: t).filter { $0.kind == "light" }
       List {
         Section("Thông tin bể") {
           let f = facts(t)
@@ -115,10 +115,12 @@ private struct TankDetail: View {
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }
+        PlugsSection(tank: t)
         Section {
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
         }
       }
+      .readsPlugs()
       .navigationTitle(t.name)
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
       .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }

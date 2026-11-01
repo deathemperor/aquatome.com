@@ -14,6 +14,7 @@ let package = Package(
     .library(name: "Tanks", targets: ["Tanks"]),
     .library(name: "Handbook", targets: ["Handbook"]),
     .library(name: "AccountSync", targets: ["AccountSync"]),
+    .library(name: "Plugs", targets: ["Plugs"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -33,5 +34,10 @@ let package = Package(
     // stand-in server for tests and the simulator. Not "Accounts": that is an Apple framework's name.
     .target(name: "AccountSync", dependencies: ["Tanks"], swiftSettings: small),
     .testTarget(name: "AccountSyncTests", dependencies: ["AccountSync", "Tanks"]),
+    // Smart plugs (docs/smart-plugs.md): where they come from (`PlugSource`: Tuya's cloud with the reader's own project
+    // keys), what the app shows of them and the switching rules (`PlugBoard`), and a stand-in Tuya cloud for tests and
+    // the simulator.
+    .target(name: "Plugs", dependencies: ["Tanks"], swiftSettings: small),
+    .testTarget(name: "PlugsTests", dependencies: ["Plugs", "Tanks"]),
   ]
 )

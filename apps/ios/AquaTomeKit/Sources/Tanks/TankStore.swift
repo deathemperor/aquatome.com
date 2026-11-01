@@ -313,12 +313,12 @@ public struct TankStore: Sendable, Equatable {
     return Set(ids).count != ids.count
   }
 
-  private static func check(_ problems: [Problem]) throws {
+  static func check(_ problems: [Problem]) throws {
     if !problems.isEmpty { throw TankStoreError.invalid(problems) }
   }
 
   /// As JavaScript's `trim()`.
-  private static func trim(_ s: String) -> String {
+  static func trim(_ s: String) -> String {
     let u = s.unicodeScalars
     guard let first = u.firstIndex(where: { !$0.isJavaScriptSpace }), let last = u.lastIndex(where: { !$0.isJavaScriptSpace }) else { return "" }
     return String(u[first...last])
