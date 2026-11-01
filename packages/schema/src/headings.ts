@@ -11,8 +11,13 @@ export const ownNumber = (heading: string) => { const m = heading.trim().match(O
 export type HeadingRole = { el: HTMLElement; text: string; role: 'group' | 'section' | 'empty'; sub: boolean }
 
 const shape = (s: string) => s.toLowerCase().replace(/\d+/g, '#')
-/** Two headings of one list: both numbered ("1. …", "2. …"), or the same words but for their numbers ("Ngày 16…", "Ngày 26…"). */
-const peers = (a: string, b: string) => (ownNumber(a) !== undefined && ownNumber(b) !== undefined) || shape(a) === shape(b)
+/** How a heading's own number is written: "#", "1." or the word before it ("bước", "top"). */
+const numbering = (h: string) => { const m = h.trim().match(OWN_NUMBER); return m ? (m[1] ? '#' : m[2] ? '1.' : m[0].replace(/[\s\d]+$/, '').toLowerCase()) : undefined }
+/**
+ * Two headings of one list: numbered the same way ("1. …", "2. …"; "Bước 2: …", "Bước 3: …"), or the same words but
+ * for their numbers ("Ngày 16…", "Ngày 26…"). "Top 5 lý do" over "5. …" is a group over its countdown.
+ */
+const peers = (a: string, b: string) => { const k = numbering(a); return (k !== undefined && k === numbering(b)) || shape(a) === shape(b) }
 
 /**
  * What each heading of a stored text is. The engine writes every heading as an h3 (sanitize.ts), so a heading over

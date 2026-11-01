@@ -21,5 +21,8 @@ test('a heading at the end, or over one not its sub-section (an empty one, a gro
   expect(roles('<h3>Phần một</h3><h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')).toEqual(['empty: Phần một', 'group: Các loài', 'section: Tép ong'])
   expect(roles('<h3>Ngày 16 tháng 11 năm 2006</h3><h3>Ngày 26 tháng 11 năm 2006</h3><p>a</p>')).toEqual(['empty: Ngày 16 tháng 11 năm 2006', 'section: Ngày 26 tháng 11 năm 2006'])
   expect(roles('<h3>1. A</h3><p>a</p><h3>2. B</h3><h3>3. C</h3><p>c</p>')).toEqual(['section: 1. A', 'empty: 2. B', 'section: 3. C'])
+  expect(roles('<h3>Bước 2: Đổ nền</h3><h3>Bước 3: Trồng cây</h3><p>a</p>')).toEqual(['empty: Bước 2: Đổ nền', 'section: Bước 3: Trồng cây'])
+  // Numbered another way: a group over its run.
+  expect(roles('<h3>Top 5 lý do</h3><h3>5. A</h3><p>a</p><h3>4. B</h3><p>b</p>')).toEqual(['group: Top 5 lý do', 'section sub: 5. A', 'section sub: 4. B'])
   expect(roles('<h3></h3><p>a</p>')).toEqual([]) // an empty block, not a heading (tidyHtml drops it)
 })
