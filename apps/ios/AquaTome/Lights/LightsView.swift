@@ -383,21 +383,19 @@ private struct ScheduleSection: View {
   var body: some View {
     @Bindable var lights = lights
     VStack(alignment: .leading, spacing: 12) {
-      Text("Hẹn giờ bật tắt mỗi ngày").font(.title3.weight(.semibold))
-      PresetRow()
-      TimePicker(title: "Bật lúc", time: $lights.on).accessibilityIdentifier("on")
-      TimePicker(title: "Tắt lúc", time: $lights.off).accessibilityIdentifier("off")
-      Stepper(value: $lights.ramp, in: 0...150, step: 5) {
-        LabeledContent("Sáng dần, tối dần (phút)") { Text(verbatim: "\(lights.ramp)") }
-      }
-      .accessibilityIdentifier("ramp")
+      Text("Lịch mỗi ngày").font(.title3.weight(.semibold))
+      Text("Chọn kiểu bể để có lịch gợi ý, rồi kéo giờ bật, giờ tắt trên thanh ngày. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.")
+        .font(.footnote).foregroundStyle(.secondary)
+      PresetGrid()
+      Timeline().padding(.top, 8)
+      Readout(schedule: lights.form)
+      ScheduleFields()
       ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
         Stepper(value: $lights.levels[i], in: 0...100, step: 5) {
           LabeledContent(c.title) { Text(verbatim: "\(lights.levels[i])%") }
         }
         .accessibilityIdentifier("level-\(i)")
       }
-      HoursText(schedule: lights.form)
       Button {
         if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
       } label: {
@@ -438,75 +436,6 @@ private struct ManualSection: View {
         .font(.footnote).foregroundStyle(.secondary)
     }
     .modifier(Panel())
-  }
-}
-
-private struct PresetRow: View {
-  @Environment(LightsModel.self) private var lights
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 8) {
-      Text("Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.")
-        .font(.footnote).foregroundStyle(.secondary)
-      // A grid, not a sideways strip: every preset in view at once (and not lazy: each one is there to find).
-      Grid(horizontalSpacing: 8, verticalSpacing: 8) {
-        ForEach(Array(stride(from: 0, to: Preset.all.count, by: 2)), id: \.self) { i in
-          GridRow(alignment: .top) {
-            ForEach(Preset.all[i..<min(i + 2, Preset.all.count)]) { p in button(p) }
-          }
-        }
-      }
-    }
-  }
-
-  private func button(_ p: Preset) -> some View {
-    Button {
-      lights.applyPreset(p)
-    } label: {
-      VStack(alignment: .leading) {
-        Text(p.name).font(.subheadline.weight(.semibold))
-        HStack(spacing: 0) { Text(verbatim: "\(p.on)–\(p.off) · "); Text("\(Int(Schedule.hoursLit(on: p.on, off: p.off))) tiếng, \(p.level)%") }
-          .font(.caption).foregroundStyle(.secondary)
-      }
-      .frame(maxWidth: .infinity, alignment: .leading)
-    }
-    .buttonStyle(.bordered)
-    .accessibilityIdentifier("preset-\(p.id)")
-  }
-}
-
-private struct HoursText: View {
-  let schedule: Schedule
-
-  var body: some View {
-    Group {
-      switch schedule.problem {
-      case .offNotAfterOn?: Text("Giờ tắt phải sau giờ bật, trong cùng một ngày.").foregroundStyle(Color.warning)
-      case .rampOutOfRange?: Text("Sáng dần, tối dần từ 0 đến 150 phút.").foregroundStyle(Color.warning)
-      case .rampTooLong?: Text("Sáng dần, tối dần dài hơn nửa thời gian bật đèn.").foregroundStyle(Color.warning)
-      case nil:
-        let h = Double(schedule.minutesLit) / 60
-        VStack(alignment: .leading) {
-          Text("Đèn sáng \(h.formatted(.number.precision(.fractionLength(0...1)))) tiếng mỗi ngày.")
-          if h > 8 { Text("Trên 8 tiếng dễ lên rêu.").foregroundStyle(Color.warning) }
-        }
-      }
-    }
-    .accessibilityIdentifier("hours")
-  }
-}
-
-private struct TimePicker: View {
-  let title: LocalizedStringKey
-  @Binding var time: TimeOfDay
-
-  var body: some View {
-    DatePicker(title, selection: Binding {
-      Calendar.current.date(bySettingHour: time.hour, minute: time.minute, second: 0, of: Date()) ?? Date()
-    } set: {
-      let c = Calendar.current.dateComponents([.hour, .minute], from: $0)
-      time = TimeOfDay(hour: c.hour ?? 0, minute: c.minute ?? 0)
-    }, displayedComponents: .hourAndMinute)
   }
 }
 
