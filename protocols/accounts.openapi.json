@@ -593,6 +593,15 @@
                     "type": "boolean",
                     "default": false,
                     "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
+                  },
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "app"
+                    ],
+                    "default": "web",
+                    "description": "\"app\": the mail holds the code alone, to type into the app (no link to the page)."
                   }
                 }
               }

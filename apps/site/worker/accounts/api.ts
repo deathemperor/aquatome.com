@@ -75,8 +75,9 @@ function providers(env: Live, deps: AccountDeps) {
 
 /**
  * The Turnstile widget alone, for the app's web view (WKWebView, a script message handler named `turnstile`): it posts
- * `{ token }` when solved, `{ expired: true }` when that token runs out, `{ error }` when the check fails, and `again()`
- * gives a new token. No other page may frame it; nothing to index.
+ * `{ token }` when solved, `{ expired: true }` when that token runs out, `{ error }` when the check fails or Cloudflare's
+ * script can't load (a network or blocker that stops challenges.cloudflare.com), and `again()` gives a new token. No
+ * other page may frame it; nothing to index.
  */
 function turnstilePage(sitekey: string, lang: string | null): Response {
   const nonce = randomToken(16)
@@ -87,16 +88,21 @@ function turnstilePage(sitekey: string, lang: string | null): Response {
 <script nonce="${nonce}">
 const post = m => window.webkit?.messageHandlers?.turnstile?.postMessage(m)
 let widget
+// Cloudflare's script didn't load: say so, or the app waits for a token that never comes.
+window.addEventListener('error', e => { if (e.target?.tagName === 'SCRIPT') post({ error: 'load' }) }, true)
 window.onTurnstile = () => {
-  widget = turnstile.render('#check', { ...${settings}, callback: token => post({ token }), 'expired-callback': () => post({ expired: true }), 'error-callback': error => { post({ error: String(error) }); return true } })
+  try {
+    widget = turnstile.render('#check', { ...${settings}, callback: token => post({ token }), 'expired-callback': () => post({ expired: true }), 'error-callback': error => { post({ error: String(error) }); return true } })
+  } catch (e) { post({ error: 'render' }) }
 }
-window.again = () => turnstile.reset(widget)
+window.again = () => { if (widget === undefined) post({ error: 'none' }); else turnstile.reset(widget) }
 </script>
 <script nonce="${nonce}" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=onTurnstile" async></script>
 </head><body><div id="check"></div></body></html>`
   return new Response(html, {
     headers: {
-      'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer',
+      // No referrer policy of its own: Turnstile may read where it runs from it, and siteverify checks that host.
+      'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow',
       'content-security-policy': `default-src 'none'; script-src 'nonce-${nonce}' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'`,
     },
   })
