@@ -195,6 +195,12 @@ The layers above still check the result.
   - Text: orientation only (structure, Vietnamese trade names and terms, what local keepers care about). It is never
     copied or translated, into `content/` or `engine-state/`. Pages are written in our own words, and a post that is a
     translation leads to its original, which is the source cited.
+  - The engine reads its guide sections (`pnpm engine forum`, `packages/engine/src/forum.ts`): each section's thread list,
+    5 s between requests, then each new thread's opening posts by its author. The model notes, in
+    `engine-state/forum/diendancacanh.json`, whether a post is translated or original and why, the original it names,
+    the Vietnamese terms it uses, and its pictures (own only in an original post, on the forum's host). Breed research
+    gets the Vietnamese names as leads to check and cite; guide research gets the threads on its topic, and is told to
+    find and cite a translation's original. Each cycle's rewrite job reads 10 threads (`FORUM_LIMIT`).
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
