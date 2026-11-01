@@ -32,19 +32,13 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 3.5
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "bwaquatics",
-        "value": 40
+        "value": 4
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -53,7 +47,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<ul><li><strong>Scientific name:</strong> Pseudomugil gertrudae</li><li><strong>Common names:</strong> Gertrude's Spotted Blue Eye, Spotted Blue Eye Rainbowfish, Gertrudae Rainbowfish</li><li><strong>Temperament:</strong> Peaceful</li><li><strong>Adult size:</strong> approximately 2.5–4 cm (1–1.5 inches)</li></ul>"
+      "html": "<ul><li><strong>Scientific name:</strong> Pseudomugil gertrudae</li><li><strong>Common names:</strong> Gertrude's Spotted Blue Eye, Spotted Blue Eye Rainbowfish, Gertrudae Rainbowfish</li><li><strong>Temperament:</strong> Peaceful</li></ul>"
     },
     {
       "key": "distribution",
@@ -65,53 +59,53 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<p>Tank size: 10 gallons (about 40 litres) or larger. Keep them in groups of at least 6–8 individuals to encourage natural schooling behaviour and male display activity.</p>"
+      "html": "<p>Tank size: 10 gallons (about 38 litres) or larger.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<ul><li>Temperature: 23–28°C (74–82°F)</li><li>pH: 6.0–7.5</li><li>Water flow: gentle to moderate</li></ul><p>They appreciate stable water quality and mature aquariums with plenty of plant cover.</p>"
+      "html": "<ul><li>Temperature: 23–28°C (74–82°F)</li><li>pH: 6.0–7.5</li><li>Water flow: gentle to moderate</li></ul><p>These fish appreciate stable water quality and mature aquariums.</p>"
     },
     {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<p>They thrive in heavily planted aquariums with:</p><ul><li>Dense aquatic plants</li><li>Floating plants for cover</li><li>Dark substrate</li><li>Open swimming areas</li><li>Stable water conditions</li></ul><p>Their colours become especially vibrant under natural-style lighting and planted aquascapes.</p>"
+      "html": "<p>Pseudomugil gertrudae thrive in heavily planted aquariums with:</p><ul><li>Dense aquatic plants</li><li>Floating plants for cover</li><li>Dark substrate</li><li>Open swimming areas</li><li>Stable water conditions</li></ul><p>Their colours become especially vibrant under natural-style lighting and planted aquascapes.</p>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<p>Omnivorous nano fish that readily accept:</p><ul><li>High-quality micro pellets</li><li>Crushed flakes</li><li>Baby brine shrimp</li><li>Daphnia</li><li>Frozen cyclops</li><li>Small live foods</li></ul><p>A varied diet helps maximise coloration and breeding behaviour.</p>"
+      "html": "<p>These omnivorous nano fish readily accept:</p><ul><li>High-quality micro pellets</li><li>Crushed flakes</li><li>Baby brine shrimp</li><li>Daphnia</li><li>Frozen cyclops</li><li>Small live foods</li></ul><p>A varied diet helps maximise coloration and breeding behaviour.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
-      "html": "<p>Peaceful, active mid-to-top water swimmers that school. Males display vibrant finnage and flashing behaviour when competing for attention. Compatible tank mates include small rasboras, Corydoras, peaceful shrimp, kuhli loaches, small tetras and other nano rainbowfish. Avoid aggressive or fin-nipping fish; due to their small size they should not be housed with large or aggressive fish.</p>"
+      "html": "<p>Peaceful, active schooling fish that swim in the mid to upper water. Keep them in groups of at least 6–8 individuals to encourage natural schooling behaviour and male display activity. Males display vibrant finnage and flashing behaviour when competing for attention.</p><p>Compatible tank mates: small rasboras, Corydoras, peaceful shrimp, kuhli loaches, small tetras and other nano rainbowfish. Avoid aggressive or fin-nipping fish. Due to their small size, they should not be housed with large or aggressive fish.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
+      "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 3.0 de",
       "author": "Der Regenbogenfisch",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
-      "caption": "Spotted Blue Eye (Pseudomugil gertrudae)",
-      "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp"
+      "caption": "Spotted Blue Eye (Pseudomugil gertrudae)"
     },
     {
       "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp",
+      "thumb": "https://media.aquatome.com/commons/7d9fae1ead0c1889-480.webp",
       "width": 960,
       "height": 533,
       "licence": "CC BY-SA 4.0",
       "author": "Atulbhats",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
-      "caption": "A Pseudomugil gertrudae also known as Spotted blue-eye rainbow fish searching for food.",
-      "thumb": "https://media.aquatome.com/commons/7d9fae1ead0c1889-480.webp"
+      "caption": "A Pseudomugil gertrudae also known as Spotted blue-eye rainbow fish searching for food."
     }
   ],
   "videos": [
@@ -169,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

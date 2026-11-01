@@ -22,67 +22,63 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "sprucepets",
+        "source": "seriouslyfish",
         "value": {
-          "min": 18,
+          "min": 16,
           "max": 28
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "sprucepets",
         "value": {
-          "min": 16,
+          "min": 18,
           "max": 28
         }
       }
     ],
     "ph": [
       {
-        "source": "sprucepets",
-        "value": {
-          "min": 7,
-          "max": 8.5
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 7,
           "max": 8
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "sprucepets",
         "value": {
-          "min": 12,
-          "max": 30
+          "min": 7,
+          "max": 8.5
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 10,
           "max": 25
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 12,
+          "max": 30
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "sprucepets",
-        "value": 10
-      },
-      {
         "source": "seriouslyfish",
         "value": 14
+      },
+      {
+        "source": "sprucepets",
+        "value": 10
       }
     ],
     "tankCm": [
-      {
-        "source": "sprucepets",
-        "value": 75
-      },
       {
         "source": "seriouslyfish",
         "value": 120
@@ -90,22 +86,16 @@
     ],
     "difficulty": [
       {
-        "source": "sprucepets",
-        "value": 1
-      },
-      {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "sprucepets",
+        "value": 2
       }
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<ul><li>Common name: Swordtail</li><li>Scientific name: Xiphophorus helleri</li><li>Adult size: 3-4 inches (about 8-10 cm)</li><li>Life expectancy: 3-5 years</li><li>Family: Poeciliidae</li><li>Origin: Mexico and Central America</li><li>Social: Peaceful</li><li>Tank level: Top, mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: Omnivore</li><li>Breeding: Livebearer</li><li>Care: Easy</li><li>pH 7.0-8.5</li><li>Hardness: 12-30 dGH</li><li>Temperature: 18 to 28 °C (64 to 82 °F)</li></ul>"
-    },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
@@ -113,10 +103,10 @@
       "html": "<p>The green swordtail, Xiphophorus hellerii, is a livebearer native to southeastern Mexico, Guatemala, Belize and Honduras. Among the world's most recognisable aquarium fishes, it is ubiquitous in the trade, where selective breeding and hybridisation with X. maculatus and X. variatus have produced a bewildering array of ornamental forms. The name is often misspelled X. helleri.</p><ul><li>Max size: 140 mm SL (6 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 16–28°C (61–82°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
-      "key": "beforeYouBuy",
+      "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Some websites and pet stores offer \"specialty\" varieties that are not found anywhere else. Keep in mind that many of these unique breeds are generated through several generations of inbreeding. Although their external appearances may be very distinctive, they may also have internal issues with limited immune function and longevity.</p><p>Swordtails are named for the male's elongated ventral aspect of the tail fin, creating a \"sword\"-like appearance. They are bred in a wide variety of colorations. Among the varieties of swordtails, you can expect vibrant reds, yellows and blacks with a mix of bars and stripes. There are also longfin varieties of swordtails that have elongated dorsal, pectoral and tail fins.</p>"
+      "html": "<ul><li><strong>Life expectancy:</strong> 3-5 years</li><li><strong>Origin:</strong> Mexico and Central America</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Top and mid-dweller</li><li><strong>Minimum tank size:</strong> 20 gallons (about 75 litres)</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Livebearer</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -125,10 +115,10 @@
       "html": "<p>The specimens offered are bred ones from Southeast Asia.</p><p>The subspecies Xiphophorus hellerii guentheri has been described from Guatemala. In Germany spotted swordtails are usually called \"guentheri\". The \"Golden Stream\" does not fit what is thought of as a guentheri, but the name has been widely accepted in the livebearer community, so it should not be changed without pressing need. It is far more important that such animals are bred in pure strains. Only then will it be possible in the future to study the behaviour and genetics of wild fish. There already exist enough artificial sports and crosses.</p>"
     },
     {
-      "key": "distribution",
+      "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Swordtail fish have been a vibrant component of the aquarium hobbyist community for many years. Originating from Mexico and Central America, the Swordtail has been bred in captivity for countless generations. There are many varieties widely available to the aquarium community, including the naturally colored green swordtail, as well as neon, pineapple, painted, marigold wag, red wag and hi fin lyretail.</p>"
+      "html": "<p>Swordtails are well-known beginner-friendly community fish, compatible with various other fish and environments. They have been bred for many generations, resulting in many different varieties.</p><p>Some websites and pet stores offer \"specialty\" varieties that are not found anywhere else. Many of these unique breeds are produced through several generations of inbreeding. Although their external appearance may be very distinctive, they may also have internal issues with limited immune function and longevity.</p>"
     },
     {
       "key": "distribution",
@@ -143,6 +133,12 @@
       "html": "<p>Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras. Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.</p><p>Within these boundaries it also occurs in various river systems in the Mexican states of Campeche, Chiapas, Oaxaca, Quintana Roo, and Tabasco.</p><p>Type locality is 'Orizaba, Mexico', which corresponds to the city of that name in Veracruz state.</p><p>It has been widely introduced to other river basins in Mexico and throughout the world, and is now present on all major continents except Antarctica. Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.</p>"
     },
     {
+      "key": "distribution",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
+      "html": "<p>Swordtails originate from Mexico and Central America and have been bred in captivity for countless generations. Many varieties are widely available, including the naturally coloured green swordtail, as well as neon, pineapple, painted, marigold wag, red wag and hi-fin lyretail.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
@@ -155,16 +151,22 @@
       "html": "<p>An aquarium with surface dimensions of 120 × 30 cm (48 × 12 in) or equivalent, about 108 litres (29 US gal), should be the smallest considered.</p>"
     },
     {
-      "key": "maintenance",
+      "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Swordtails do well in many different aquarium setups. These easygoing fish are good for beginners and a colorful addition to any community tank. They are active fish, so make sure there are not too many decorative items in their way. The best combination is to keep décor and plants to the lower half to two-thirds of the tank and leave the top of the tank open for active swimming.</p>"
+      "html": "<p>Minimum tank size is 20 gallons (about 75 litres). They are active fish, so make sure there are not too many decorative items in their way. Keep decor and plants to the lower half to two thirds of the tank and leave the top open for swimming.</p>"
     },
     {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<p>Choice of décor is not especially critical though it tends to look best in a heavily-planted set-up with a dark substrate. Wild forms should also suit an aquarium arranged to resemble a flowing stream with water-worn rocks and small boulders.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
+      "html": "<p>Swordtails do well in many different aquarium setups. These easygoing fish are good for beginners and a colourful addition to any community tank. Adding artificial or live plants gives the fish more hiding places.</p>"
     },
     {
       "key": "waterConditions",
@@ -174,21 +176,15 @@
     },
     {
       "key": "diet",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Swordtails are omnivores that enjoy a varied diet. Depending on the water temperature, you may need to feed your fish 2-3 times per day. Many tropical fish like to forage throughout the day, so fewer feedings are not ideal. Swordtails do well on most community micropelleted diets, and also enjoy occasional frozen and freeze-dried treats.</p>"
-    },
-    {
-      "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<p>Stomach analyses of wild specimens have shown it to be a generalised omnivore, feeding on a range of aquatic and terrestrial invertebrates, organic detritus, algae, and other plant material.</p><p>In the aquarium it is unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and chironomid larvae (bloodworm).</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Swordtails do best living in a group, so plan on at least 4-5 individuals per aquarium. You can mix different varieties together, but be ready for a swarm of baby swordtails if you mix males and females. Some potential tankmates include Neon Tetras, Coolie Loach or Corydoras.</p><p>Male swordtails may take up territory and become aggressive towards other fish. Be sure to have plenty of room for all your swordtails, despite their small size. It may help to add fake or live plants to give your fish more hiding areas.</p>"
+      "html": "<p>Swordtails are omnivores that enjoy a varied diet. Depending on water temperature, you may need to feed 2-3 times per day. Many tropical fish forage throughout the day, so fewer feedings are not ideal. They do well on most micropelleted community diets and also enjoy occasional frozen and freeze-dried treats.</p>"
     },
     {
       "key": "behaviour",
@@ -197,10 +193,10 @@
       "html": "<p>In confined spaces groups of males tend to form dominance hierarchies and may invest a significant proportion of time maintaining their respective positions.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Males have the characteristic \"sword\" on the ventral aspect of the tail. Females have a rounded tail edge and tend to have thicker bodies, from carrying live fry. The anal fin is also pointed in males and fan-shaped in females. This can be used to determine sex in young fish before the males develop their long sword.</p>"
+      "html": "<p>Swordtails do best in a group, so plan on at least 4-5 individuals per aquarium. Different varieties can be mixed. Potential tankmates include neon tetras, coolie loaches or Corydoras.</p><p>Male swordtails may take up territory and become aggressive towards other fish. Provide plenty of room for all your swordtails despite their small size.</p>"
     },
     {
       "key": "dimorphism",
@@ -215,16 +211,22 @@
       "html": "<p>Adult males tend to be smaller than females and possess a prominent gonopodium, plus the characteristic extension of the lower caudal-fin lobe. In some ornamental strains the upper caudal-fin lobe or other fins may also be extended, however, including in females.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
-      "html": "<p>Livebearers such as swordtails can easily overpopulate an aquarium. Many beginners are not aware of the swordtail's livebearing abilities and are surprised by a swarm of babies. Females may already be pregnant when acquired, and even one pregnant swordtail can cause a sudden population explosion.</p><p>Swordtails can mature as early as 3 months old and give birth to up to 50 fry per spawning. If you don't want more babies, separate males from females before they reach reproductive maturity.</p><p>Over several generations, you may note an increase in fry deaths, or your fish may not live as long. If you continue to breed the same population, you can expect health issues resulting from inbreeding. The best fix is adding genetic diversity by purchasing new fish or trading with another hobbyist. Unless you know the health history of new fish, it is always recommended to quarantine them before adding them to your aquarium.</p>"
+      "html": "<p>Males have the characteristic \"sword\" on the lower edge of the tail fin (caudal fin) and a pointed anal fin. Females have a rounded tail edge, a fan-shaped anal fin and tend to have thicker bodies. The anal fin can be used to sex young fish before males develop their long sword. Some varieties have elongated dorsal, pectoral and tail fins.</p>"
     },
     {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<p>Like other members of the viviparous family Poeciliidae, male Xiphophorus have a gonopodium, essentially a modified anal-fin, which is used for internal fertilisation of females.</p><p>The reproductive behaviour of Xiphophorus is well-studied, and females are known to exhibit preferences for numerous physical and behavioural traits such as sword length (long, short, or without), colour pattern, body size, vertical barring on the body, chemical cues and specific nuptial behaviours. In some cases females show preferences for male traits of other species. Male behaviour is designed to both attract mates and drive away rivals, while some individuals, known as 'sneakers',</p><p>Females are also capable of storing viable male sperm for months,</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
+      "html": "<p>Swordtails are livebearers and can easily overpopulate an aquarium. Females may already be pregnant when purchased, and even one pregnant female can cause a sudden population explosion.</p><p>They can mature as early as 3 months old and give birth to up to 50 fry per spawning. To avoid more fry, separate males from females before they reach sexual maturity.</p><p>Over several generations you may notice more fry deaths or shorter lifespans, from inbreeding. The best fix is adding genetic diversity by buying new fish or trading with another hobbyist. Unless you know the health history of new fish, quarantine them before adding them to your aquarium.</p>"
     },
     {
       "key": "notes",
@@ -247,44 +249,66 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/sprucepets/bc3d2ac8090215ea.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/bc3d2ac8090215ea-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
+      "caption": "Swordtail fish profile",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/e58c2591dbee3386.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/e58c2591dbee3386-480.webp",
+      "width": 1024,
+      "height": 652,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
+      "caption": "Swordtail male and female",
+      "source": "sprucepets"
+    },
+    {
       "url": "https://media.aquatome.com/commons/68801199a60ac1b4.webp",
+      "thumb": "https://media.aquatome.com/commons/68801199a60ac1b4-480.webp",
       "width": 960,
       "height": 1033,
       "licence": "CC BY-SA 3.0",
       "author": "Bastet78",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akwarium_14.12.05_r._001.jpg",
-      "caption": "The species green swordtail (Xiphophorus hellerii; IPA pronounciation for Latin: [ksɪ'foːfɔrʊs hɛleːrɪɪ]).",
-      "thumb": "https://media.aquatome.com/commons/68801199a60ac1b4-480.webp"
+      "caption": "The species green swordtail (Xiphophorus hellerii; IPA pronounciation for Latin: [ksɪ'foːfɔrʊs hɛleːrɪɪ])."
     },
     {
       "url": "https://media.aquatome.com/commons/c740a3ce403f3fd8.webp",
+      "thumb": "https://media.aquatome.com/commons/c740a3ce403f3fd8-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Wojciech J. Płuciennik",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_red_wagtail_female_01.jpg",
-      "caption": "Xiphophorus Hellerii, Swordtail, wagtail (female)",
-      "thumb": "https://media.aquatome.com/commons/c740a3ce403f3fd8-480.webp"
+      "caption": "Xiphophorus Hellerii, Swordtail, wagtail (female)"
     },
     {
       "url": "https://media.aquatome.com/commons/a5d2543179c2137b.webp",
+      "thumb": "https://media.aquatome.com/commons/a5d2543179c2137b-480.webp",
       "width": 960,
       "height": 349,
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_helleri_(aka).jpg",
-      "caption": "This image shows a Green swordtail (Xiphophorus helleri).",
-      "thumb": "https://media.aquatome.com/commons/a5d2543179c2137b-480.webp"
+      "caption": "This image shows a Green swordtail (Xiphophorus helleri)."
     },
     {
       "url": "https://media.aquatome.com/commons/fc467aa2fef340c2.webp",
+      "thumb": "https://media.aquatome.com/commons/fc467aa2fef340c2-480.webp",
       "width": 960,
       "height": 493,
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC_0690_-_Edited.jpg",
-      "caption": "A male swordtail (Xiphophorus hellerii) fish.",
-      "thumb": "https://media.aquatome.com/commons/fc467aa2fef340c2-480.webp"
+      "caption": "A male swordtail (Xiphophorus hellerii) fish."
     }
   ],
   "videos": [
@@ -342,5 +366,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

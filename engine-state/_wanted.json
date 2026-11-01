@@ -63,8 +63,7 @@
       "species/baryancistrus-demantoides",
       "species/biotodoma-wavrini"
     ],
-    "mentions": 9,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 9
   },
   "channa-striata": {
     "name": "Channa striata",
@@ -4495,13 +4494,6 @@
     ],
     "mentions": 1
   },
-  "heterandria-formosa": {
-    "name": "Heterandria formosa",
-    "mentionedIn": [
-      "species/nothobranchius-rachovii"
-    ],
-    "mentions": 1
-  },
   "nothobranchius-foerschi": {
     "name": "Nothobranchius foerschi",
     "mentionedIn": [
@@ -4922,15 +4914,22 @@
     ],
     "mentions": 1
   },
-  "xiphophorus-nigrensis": {
-    "name": "Xiphophorus nigrensis",
+  "xiphophorus-multilineatus": {
+    "name": "Xiphophorus multilineatus",
     "mentionedIn": [
       "species/xiphophorus-pygmaeus"
     ],
     "mentions": 1
   },
-  "xiphophorus-multilineatus": {
-    "name": "Xiphophorus multilineatus",
+  "heterandria-formosa": {
+    "name": "Heterandria formosa",
+    "mentionedIn": [
+      "species/xiphophorus-pygmaeus"
+    ],
+    "mentions": 1
+  },
+  "xiphophorus-nigrensis": {
+    "name": "Xiphophorus nigrensis",
     "mentionedIn": [
       "species/xiphophorus-pygmaeus"
     ],

@@ -44,12 +44,6 @@
         "value": 7.5
       }
     ],
-    "tankCm": [
-      {
-        "source": "aquariumbreeder",
-        "value": 40
-      }
-    ],
     "difficulty": [
       {
         "source": "aquariumbreeder",
@@ -62,80 +56,82 @@
       "key": "quickFacts",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Name: Black Panther Snails</li><li>Other names: Javanese snails, Susuh Kura snails</li><li>Scientific name: Sulcospira testudinaria</li><li>Optimal tank size: 10 gallons (~40 liters)</li><li>Keeping: Medium</li><li>Size: up to 3 inches (7.5 cm)</li><li>Optimal temperature: 79–89°F (26–32°C)</li><li>Optimal pH: 7.0–8.5</li><li>Optimal GH: 6–15</li><li>Nitrate: less than 60 ppm</li><li>Diet: Algae eater/Omnivore</li><li>Temperament: Peaceful</li><li>Life span: up to 5 years</li><li>Color form: Dark brown to black</li></ul><p>Etymology: the genus name \"Sulcospira\" is derived from the Latin words \"Sulcus\" (groove) and \"Spira\" (spiral shape). The species name \"testudinaria\" is derived from the New Latin word \"Testudo\" (tortoise) and \"-aria\" (relating to), so it can be interpreted as resembling a tortoise or having characteristics similar to a tortoise.</p><p>Taxonomy:</p><ul><li>Kingdom: Animalia (animals)</li><li>Phylum: Mollusca (mollusks)</li><li>Class: Gastropoda (snails and slugs)</li><li>Subclass: Prosobranchia (gilled gastropods)</li><li>Order: Caenogastropoda (snails)</li><li>Family: Pachychilidae (river snails)</li><li>Genus: Sulcospira</li><li>Species: Sulcospira testudinaria</li></ul><p>Even though Sulcospira is one of the oldest taxonomically recognized genera within the Pachychilidae, it is also one of the most poorly known genera of the family.</p><p>Sulcospira testudinaria is a species of freshwater gilled gastropod.</p><ul><li>Size: a relatively large snail. It can grow up to 3 inches (about 7.5 cm) long, but the average shell is around 1–2 inches (2.5–5 cm) in length and 0.4–0.8 inches (1–2 cm) in width.</li><li>Shell: quite variable. It can be turreted or elongate conic, with a spire angle of about 30 degrees. The surface is smooth. The suture is narrow and shallow. The shell usually has 7 to 9 flattened whorls. In adults, the apex is often completely eroded.</li><li>Operculum: oval, with 3 to 4 whorls increasing in diameter.</li><li>Aperture: oval, with a straight outer lip.</li><li>Shell color: dark brown to black, or yellowish to brown, often adorned with brownish flames.</li><li>Body color: the head and foot are usually dark grey to black. The mantle edge is dark grey or palely pigmented. The head, tentacles and neck are pigmented dark grey to black.</li></ul><p>Lifespan: there is no data on the maximum lifespan of Sulcospira testudinaria in the wild. Based on their size, with appropriate care the expected average lifespan is 3 to 5 years.</p>"
+      "html": "<ul><li><strong>Common name:</strong> Black Panther Snails</li><li><strong>Other names:</strong> Javanese snails, Susuh Kura snails</li><li><strong>Scientific name:</strong> Sulcospira testudinaria</li><li><strong>Optimal tank size:</strong> 10 gallons (about 40 litres)</li><li><strong>Nitrate:</strong> less than 60 ppm</li><li><strong>Diet:</strong> Algae eater/omnivore</li><li><strong>Temperament:</strong> Peaceful</li><li><strong>Life span:</strong> up to 5 years</li><li><strong>Colour:</strong> dark brown to black</li></ul>"
     },
     {
       "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Sulcospira testudinaria is endemic to Indonesia, with a wide distribution across freshwater habitats, particularly on the island of Java.</p><p>It has been recorded in Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River) and East Java (Meru Betiri National Park, the Brantas River).</p>"
+      "html": "<p>Sulcospira testudinaria is endemic to Indonesia, with a wide distribution across freshwater habitats, particularly on the island of Java.</p><p>It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).</p>"
     },
     {
       "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>In the wild, Black Panther Snails mainly occur in relatively fast-running waters such as rivers, streams or creeks. Sometimes they are found in lakes and even in irrigation canals of rice fields.</p><p>They inhabit rivers with sandy, muddy and rocky substrates. They live in shallow streams and rivers where the current is moderate or even fast, and in nature they inhabit water at around 86°F (30°C).</p>"
+      "html": "<p>In the wild, Black Panther Snails mainly occur in relatively fast-running waters such as rivers, streams or creeks. Sometimes they can also be found in lakes and even irrigation canals of rice fields.</p><p>They inhabit rivers with sandy, muddy and rocky substrates. They live in shallow streams and rivers where the current is moderate or even fast, are morphologically suited to life in streams and need high levels of oxygen to thrive.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>The minimum recommended tank size for Black Panther Snails is 10 gallons (40 liters). These snails need a lot of room to crawl, eat and explore.</p><p>In a smaller tank, feeding problems may occur unless the diet is supplemented, as there may not be enough algae and biofilm to sustain them.</p>"
+      "html": "<p>The minimum recommended tank size is 10 gallons (40 litres). These snails need a lot of room to crawl, eat and explore.</p><p>In a smaller tank there may be feeding problems unless the diet is supplemented, since there may not be enough algae and biofilm to sustain them.</p>"
     },
     {
       "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Care is quite easy and straightforward. They are low-maintenance and can withstand varied ranges of water parameters. According to a study, Sulcospira testudinaria is quite tolerant even of polluted waters.</p><p>To keep them healthy, it is important to cycle the tank before bringing snails home. Once the tank is cycled, check the water quality with a test kit.</p><p><strong>Lighting:</strong> no special requirements. The snails are nocturnal, so lighting should be adapted to the needs of the plants (and/or algae if needed) in the tank.</p><p><strong>Filtration:</strong> no special requirements. A filter suited to the size of the tank is enough.</p><p><strong>Substrate:</strong> they can be kept on any substrate, but smooth gravel is a better choice because algae grow more easily on it. These snails do not burrow much or too deeply, so soil or sand substrates are not necessary.</p><p><strong>Decorations:</strong> the purpose of decor is to recreate natural habitats. Driftwood, PVC pipes, leaves, rocks, live plants, fake plants and other decorations offer ample surface area for algae and biofilm, so any decor is a good choice.</p><p><strong>Acclimation:</strong> avoid placing the snails directly into the tank, as sudden changes can harm them. Acclimate them gradually, as with all invertebrates, very slowly to prevent unnecessary stress.</p>"
+      "html": "<p>Care is quite easy and straightforward. They are low-maintenance and can withstand a varied range of water parameters. According to one study, Sulcospira testudinaria is quite tolerant of even polluted waters.</p><p>To keep them healthy, their core needs still have to be addressed. Cycle the tank before bringing snails home, then check water quality with a test kit.</p><p><strong>Acclimation:</strong> do not place the snails directly into the tank, as sudden changes can harm them. Acclimate them gradually, as with all invertebrates, and do it very slowly to prevent unnecessary stress.</p>"
     },
     {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li><strong>Temperature:</strong> these snails require warm water. The optimal temperature in the aquarium is 79–89°F (26–32°C). In some cases they may be found at temperatures as low as 71–75°F (22–24°C), but this is not ideal.</li><li><strong>pH:</strong> aim for 7.0–8.5. They do not like acidic water (below 7.0), which slowly dissolves the shell and makes it fragile.</li><li><strong>Hardness:</strong> 6–15 GH. Harder water benefits their shells.</li><li><strong>Dissolved oxygen:</strong> &gt;6 mg/l.</li><li><strong>Nitrate:</strong> less than 60 ppm.</li><li><strong>Salinity:</strong> a freshwater snail that does not tolerate salinity well. When transferred to freshwater they usually retract into the shell and immediately regain activity.</li></ul><p><strong>Aeration and flow:</strong> they are morphologically suited to life in streams and need high levels of oxygen to thrive. It is possible to keep them in an aquarium without a strong current, but ample oxygen supply is essential in such setups.</p>"
+      "html": "<ul><li><strong>Temperature:</strong> these snails need warm water. In the wild they live at around 30°C, so the optimal aquarium temperature is 26–32°C. They may sometimes be found at temperatures as low as 22–24°C, but this is not ideal.</li><li><strong>pH:</strong> aim for 7.0–8.5. They do not like acidic water (below 7.0), which slowly dissolves the shell and makes it fragile.</li><li><strong>Hardness:</strong> 6–15 GH. Harder water benefits their shells.</li><li><strong>Dissolved oxygen:</strong> above 6 mg/l.</li><li><strong>Salinity:</strong> a freshwater snail that does not tolerate salinity well. When moved to freshwater they usually retract into the shell and regain activity immediately.</li><li><strong>Nitrate:</strong> less than 60 ppm.</li></ul><p><strong>Aeration and flow:</strong> they can be kept in an aquarium without a strong current, but ample oxygen supply is essential in such setups.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Lighting:</strong> no special requirements. The snails are nocturnal, so lighting should be adapted to the needs of the plants (and/or algae if needed) in the tank.</p><p><strong>Filtration:</strong> no special requirements. A filter suited to the size of the tank is enough.</p><p><strong>Substrate:</strong> they can be kept in any tank with any substrate, but smooth gravel is a better choice because algae grows more easily on it. These snails do not burrow much or too deep, so soil or sand substrates are not necessary.</p><p><strong>Decorations:</strong> the purpose of decor is to recreate natural habitats. Driftwood, PVC pipes, leaves, rocks, live plants, fake plants and other decorations offer ample surface area for algae and biofilm to thrive, so any decor is a good choice.</p>"
     },
     {
       "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>These snails are omnivorous and great scavengers. According to a study, Black Panther Snails can reduce the total organic matter in waste by up to 87%. They are not a total substitute for tank maintenance, but they help keep the tank clean.</p><p>In aquariums their diet consists mainly of grazing on:</p><ul><li>detritus,</li><li>biofilm,</li><li>various types of algae (including diatoms (brown algae), green spot algae, green dust algae).</li></ul><p>Their diet can be supplemented with vegetables and commercial foods. They will eat the same food given to fish and shrimp (flakes, algae wafers, pellets and granules).</p><p>Calcium plays a huge role in snails. It is needed for several vital life processes, the most obvious being the formation of shells.</p><ul><li>Diet type: Omnivore</li><li>Feeding frequency: 1–2 times a week</li></ul><p><strong>Planted tanks:</strong> no mention was found of these snails eating live, healthy plants, so there should be no issues in planted aquariums.</p>"
+      "html": "<p>These snails are omnivorous and great scavengers. According to one study, Black Panther Snails can reduce the total organic matter in waste by up to 87%. They are not a total substitute for tank maintenance, but they help keep the tank clean.</p><p>In aquariums, their diet consists mainly of grazing on:</p><ul><li>detritus,</li><li>biofilm,</li><li>various types of algae (including diatoms (brown algae), green spot algae, green dust algae)</li></ul><p>Their diet can be supplemented with vegetables and commercial foods. They will eat the same food fed to fish and shrimp (flakes, algae wafers, pellets and granules).</p><p>Calcium plays a huge role in snails: it is needed for several vital life processes, the most obvious being the formation of the shell.</p><ul><li>Diet type: Omnivore</li><li>Feeding frequency: 1–2 times a week</li></ul><p><strong>Planted tanks:</strong> no mention was found of these snails eating live, healthy plants, so there should be no issues in planted aquariums.</p>"
     },
     {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Black Panther Snails are completely non-aggressive. They have no means to attack other tank inhabitants and only their operculum (trap-door) and shell for protection.</p><p>They are not obligate diggers. Although they can burrow in soft substrates, they generally do not move under it.</p><p>They are nocturnal: at night they crawl on the surface and may hide during the day. Nocturnal behaviour is not uncommon in grazing invertebrates and is mainly associated with avoiding visual predators while feeding.</p><ul><li>Social: yes</li><li>Activity level: average</li><li>Peaceful: yes</li><li>Burrowers: yes (but not obligate diggers)</li></ul><p>These snails are completely harmless and can be a fantastic option for any peaceful community tank, as long as tankmates share similar water preferences and do not bother them.</p><p><strong>Fish:</strong> calm and peaceful fish such as Danio rerio, Endler's livebearers, least killifish, brilliant rummynose tetras, southern platyfish, pygmy swordtails, ghost glass catfish, medaka ricefish, etc.</p><p><strong>Dwarf shrimp:</strong> shrimp species that prefer slightly alkaline water are the best choice, for example vampire shrimp, bamboo shrimp, Amano shrimp, ghost shrimp, cherry shrimp, blue tiger shrimp, snowball shrimp, Caridina cf. babaulti, Blue Velvet shrimp, Malawa shrimp, etc.</p><p><strong>Snails:</strong> any freshwater snails are good tankmates, except assassin snails.</p><p><strong>Avoid:</strong> all types of crayfish (even dwarf Mexican crayfish), most freshwater crabs, and some predatory shrimp such as the Macrobrachium genus (red claw shrimp, whisker shrimp, etc.). Also avoid large fish and snail-eating fish such as puffers, including dwarf puffers.</p>"
+      "html": "<p>Black Panther Snails are completely non-aggressive. They have no means to attack other tank inhabitants and only their operculum (trap-door) and shell for protection.</p><p>They are not obligate diggers. Although they can burrow in soft substrates, they generally do not move under it.</p><p>They are nocturnal: at night they crawl on the surface and may hide during the day. Nocturnal behaviour is not uncommon in grazing invertebrates and is mainly associated with avoiding visual predators while feeding.</p><ul><li>Social: Yes</li><li>Activity level: Average</li><li>Peaceful: Yes</li><li>Burrowers: Yes</li></ul><p>They are completely harmless and can be a fantastic option for any peaceful community tank, as long as tankmates share similar water preferences and don't bother them.</p><p><strong>Fish:</strong> calm and peaceful fish such as Danio rerio, Endlers, Least Killifish, Brilliant Rummynose Tetras, Southern platyfish, Pygmy Swordtail, Ghost Glass Catfish, Medaka Ricefish, etc.</p><p><strong>Dwarf shrimp:</strong> shrimp species that prefer slightly alkaline water are the best choice, for example Vampire shrimp, Bamboo Shrimp, Amano Shrimp, Ghost shrimp, Cherry shrimp, Blue tiger shrimp, Snowball shrimp, Caridina cf. babaulti, Blue Velvet Shrimp, Malawa Shrimp, etc.</p><p><strong>Snails:</strong> any type of freshwater snail is a good tankmate, except Assassin snails.</p><p><strong>Avoid:</strong> all types of crayfish (even Dwarf Mexican crayfish), most freshwater crabs, and some predatory shrimp such as the Macrobrachium family (Red Claw Shrimp, Whisker shrimp, etc.). Also keep them away from large or snail-eating fish, such as puffers, including Dwarf puffers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is currently unknown how these snails differ by gender.</p>"
     },
     {
       "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Very little is known about the life cycle requirements of these snails. The following is from scientific literature:</p><ul><li>Sulcospira testudinaria is not a hermaphrodite species.</li><li>Females are fertilized internally.</li><li>They are viviparous.</li><li>On average, females can produce 100 to 150 similarly sized embryonic shells.</li><li>After hatching, the embryo is about 1.00 mm in length.</li></ul><p>It is currently unknown how the sexes differ, nor the gestation period or the rate at which they reach sexual maturity.</p>"
+      "html": "<p>Very little is known about the life cycle requirements of these snails. The following comes from scientific literature:</p><ul><li>Sulcospira testudinaria is not a hermaphrodite species.</li><li>Females are fertilized internally.</li><li>They are viviparous.</li><li>On average, females can produce 100 to 150 similarly sized embryonic shells.</li><li>After hatching, the embryo is about 1.00 mm long.</li></ul><p>The gestation period and the rate at which they reach sexual maturity are currently unknown.</p>"
     },
     {
       "key": "notes",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Sulcospira testudinaria can be a great addition to an aquarium. However, there are several significant drawbacks that may hinder their popularity among aquarists:</p><ul><li>These snails are highly heat-loving and prefer relatively strong water currents.</li><li>They resemble black devil snails.</li><li>As they age, the apex of the shell is often completely eroded, significantly affecting their ornamented appearance.</li></ul>"
+      "html": "<p>Sulcospira testudinaria is a species of freshwater gilled gastropod (family Pachychilidae). Sulcospira is one of the oldest taxonomically recognized genera in the family, yet also one of its most poorly known.</p><p>Etymology: \"Sulcospira\" derives from the Latin \"sulcus\" (groove) and \"spira\" (spiral). \"Testudinaria\" derives from New Latin \"testudo\" (tortoise) and \"-aria\" (relating to), so it can be read as resembling a tortoise.</p><ul><li><strong>Size:</strong> a relatively large snail, up to about 7.5 cm long. Average shell length is usually 2.5–5 cm, and width 1–2 cm.</li><li><strong>Shell:</strong> quite variable, turreted or elongate conic, with a spire angle of about 30 degrees. The surface is smooth, the suture narrow and shallow. Shells usually have 7 to 9 flattened whorls. In adults the apex is often completely eroded.</li><li><strong>Operculum:</strong> oval, with 3 to 4 whorls increasing in diameter.</li><li><strong>Aperture:</strong> oval with a straight outer lip.</li><li><strong>Shell colour:</strong> dark brown to black, or yellowish to brown, often adorned with brownish flames.</li><li><strong>Body colour:</strong> head and foot usually dark grey to black. The mantle edge is dark grey or palely pigmented. Head, tentacles and neck are dark grey to black.</li></ul><p><strong>Lifespan:</strong> there is no data on maximum lifespan in the wild. Based on their size, with proper care the expected average lifespan is 3 to 5 years.</p><p><strong>Drawbacks:</strong></p><ul><li>These snails are highly heat-loving and prefer relatively strong water currents.</li><li>They resemble Black devil snails.</li><li>As they age, the apex of the shell is often completely eroded, significantly affecting their ornamented appearance.</li></ul>"
     },
     {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Marwoto, Ristiyanti M., and Nur R. Isnaningsih. “The freshwater snail genus Sulcospira Troschel, 1857 from Java, with description of a new species from Tasikmalaya, West Java, Indonesia (Mollusca: Gastropoda: Pachychilidae).” The Raffles Bulletin of Zoology 60, no. 1 (2012): 1-10.</li><li>Hertika, Asus Maizar Suryanto, Diana Arfiati, Evellin Dewi Lusiana, and Renanda BDS Putra. “Performance of Metallothionein Biomarker from Sulcospira testudinaria to Assess Heavy Metal Pollution in the Brantas River Watershed, Indonesia.” Journal of Ecological Engineering 24, no. 3 (2023).</li><li>Adharini, Ratih Ida, and Putri Latifa Arumsari. “Structure and Distribution of Macrobenthos Community in Code River, Yogyakarta, Indonesia.” Indonesian Journal of Limnology 2, no. 2 (2021): 21-27.</li><li>Susilo, V. E., V. Doviyana, and N. Mujiono. “The diversity of gastropoda in meru betiri national park.” In Journal of Physics: Conference Series, vol. 1465, no. 1, p. 012011. IOP Publishing, 2020.</li><li>Lailiyah S, Arfiati D, Hertika AMS, Arum NDK, Noviya CB. 2021. The effectiveness of Filopaludina javanica and Sulcospira testudinaria in reducing organic matter in catfish (Clarias sp.) aquaculture wastewater. Jurnal Ilmiah Perikanan Kelautan 13 (1): 106-113. DOI: 10.20473/jipk.v13i1.23085.</li></ul>"
+      "html": "<ul><li>Marwoto, Ristiyanti M., and Nur R. Isnaningsih. “The freshwater snail genus Sulcospira Troschel, 1857 from Java, with description of a new species from Tasikmalaya, West Java, Indonesia (Mollusca: Gastropoda: Pachychilidae).” The raffles bulletin of zoology60, no. 1 (2012): 1-10.</li><li>Hertika, Asus Maizar Suryanto, Diana Arfiati, Evellin Dewi Lusiana, and Renanda BDS Putra. “Performance of Metallothionein Biomarker from Sulcospira testudinaria to Assess Heavy Metal Pollution in the Brantas River Watershed, Indonesia.” Journal of Ecological Engineering24, no. 3 (2023).</li><li>Adharini, Ratih Ida, and Putri Latifa Arumsari. “Structure and Distribution of Macrobenthos Community in Code River, Yogyakarta, Indonesia.” Indonesian Journal of Limnology2, no. 2 (2021): 21-27.</li><li>Susilo, V. E., V. Doviyana, and N. Mujiono. “The diversity of gastropoda in meru betiri national park.” In Journal of Physics: Conference Series, vol. 1465, no. 1, p. 012011. IOP Publishing, 2020.</li><li>Lailiyah S, Arfiati D, Hertika AMS, Arum NDK, Noviya CB. 2021. The effectiveness of Filopaludina javanica and Sulcospira testudinaria in reducing organic matter in catfish (Clarias sp.) aquaculture wastewater. Jurnal Ilmiah Perikanan Kelautan 13 (1): 106-113. DOI: 10.20473/jipk.v13i1.23085.</li></ul>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/f19a28fc46ba85e8.webp",
-      "thumb": "https://media.aquatome.com/commons/f19a28fc46ba85e8-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wibowo Djatmiko (Wie146)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sulcos_testud_150107-48525_tdp.JPG",
-      "caption": "Sulcospira testudinaria in hand, ca. 30 mm height w/ truncated apex. From Cihideung River, Bogor, West Java, Indonesia."
-    },
     {
       "url": "https://media.aquatome.com/aquariumbreeder/4920b39b0bb2cb9d.webp",
       "thumb": "https://media.aquatome.com/aquariumbreeder/4920b39b0bb2cb9d-480.webp",
@@ -145,6 +141,16 @@
       "author": "Aquarium Breeder",
       "sourceUrl": "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/",
       "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f19a28fc46ba85e8.webp",
+      "thumb": "https://media.aquatome.com/commons/f19a28fc46ba85e8-480.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wibowo Djatmiko (Wie146)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sulcos_testud_150107-48525_tdp.JPG",
+      "caption": "Sulcospira testudinaria in hand, ca. 30 mm height w/ truncated apex. From Cihideung River, Bogor, West Java, Indonesia."
     },
     {
       "url": "https://media.aquatome.com/commons/386f07ebbfcd7551.webp",
@@ -209,5 +215,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

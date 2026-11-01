@@ -111,13 +111,7 @@
       "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<ul><li>Family: Cyprinidae</li><li>Adult size: 10 cm (4 inches)</li><li>Life expectancy: 5 years</li><li>Social: peaceful schooling fish</li><li>Tank level: bottom, mid-dweller</li><li>Minimum tank size: 75 litres (20 gallons)</li><li>Diet: omnivore</li><li>Breeding: egg scatterer</li><li>Care: easy</li><li>pH: 6.0 to 8.0</li><li>Hardness: up to 10 dGH</li><li>Temperature: 18 to 24 °C (64 to 75 °F)</li></ul>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
-      "html": "<p>Barbodes semifasciolatus, the green or Chinese barb, is a cyprinid from Vietnam, Taiwan, southwestern China and northern Laos. The natural green form is an infrequent find in the trade, but the selectively-bred golden variant, first produced in the 1960s, is farmed in huge numbers. Commercial fish are largely inbred, with reduced fins and other deformities not uncommon. The name 'Puntius schuberti' often given to the golden form is not an official scientific name.</p>"
+      "html": "<ul><li>Life expectancy: 5 years</li><li>Social: peaceful schooling fish</li><li>Tank level: bottom, mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: omnivore</li><li>Breeding: egg scatterer</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -126,22 +120,82 @@
       "html": "<p>Origin: bred. Available size: 3-4 cm.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>The gold-colored, captive-bred variant is highly popular in the aquarium trade, giving rise to the name gold barb, by which it is commonly sold. It is a flashy, peaceful fish for a community tank, but in the wild, this man-made shiny coloring would make it quick prey for predators.</p><p>The gold barb has a steeply-sloped back and short barbels positioned at the corners of the mouth. A number of dark vertical bars or blotches are visible along the flanks of the fish. Well-conditioned specimens may also have red coloration on the fins.</p><p>The naturally occurring color of this barb is green, but the green P. semifasciolatus is rarely seen in the aquarium trade due to the overwhelming popularity of the gold form. Virtually all specimens currently sold are captive-bred, and a few other color variations have subsequently arisen, including an albino variant as well as a tricolor variation.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>Originating from China, Laos, Vietnam, and Thailand, this fish is known worldwide as the Chinese barb, but the species is naturally green in color. Listed origin: Red River Basin, China, Taiwan, Vietnam.</p>"
+      "html": "<p>Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>Gold barbs are quite hardy and undemanding of water conditions or habitat essentials. They originate in free-flowing streams and rivers, so use a powerhead to provide a decent current.</p><p>They should be provided with a good-sized open space for swimming, along with plants, driftwood, or other decors for use as hiding spots. Use a fine-grade substrate, preferably of a darker color to showcase the colors of the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
+      "html": "<p>It thrives very well both at room temperature and at 28°C. Hardness and pH are of no meaning for the fish. As long as the water is drinkable for humans, the Golden barb will like it.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
+      "html": "<p>The species feeds virtually on any type of food that is produced for ornamental fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>In their natural habitat, this species lives on a diet of insects and their larva, as well as worms, vegetation, and even detritus. It's a prime example of an omnivore, eating just about anything available. To maintain optimal health, a varied diet is advisable.</p><p>Flake, pellet, freeze-dried and frozen foods will all be readily accepted. When possible, include live foods such as insects, brine shrimp, and worms of all types. Fresh vegetables are an excellent added supplement.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>Gold barbs are schooling fish and should be kept in groups of at least a half-dozen or more. The peaceful nature of this species makes it an excellent choice for community aquariums with other similarly-sized peaceful fish, such as tetras, danios, and other small barbs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>Females are overall much duller in coloration and larger than the male, as well as rounder in the belly. The belly of mature males who are ready to spawn will turn red to red-orange in color.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>Gold barbs are relatively easy to breed, but as with breeding most fish species, a separate breeding tank is recommended. The tank should be well-planted with fine-leafed plants such as java moss. Spawning mops can also be used. Place a mesh cover over the bottom of the tank to allow the eggs to fall through safely.</p><p>Regardless of which medium is used for spawning, make sure there are plenty of hiding spots for the female, as the male can be quite aggressive during the spawning process. Lighting should be dim, and the water should be soft at about 8 dGH, with a pH between 6 and 7. Use a sponge filter with a very gentle flow.</p><p>Spawning can be attempted with pairs or by using the group method. When spawning in a group, use a half-dozen of each sex. If spawning in pairs, maintain separate tanks of males and females. Select the plumpest female and most brightly colored male, and introduce them to the spawning tank late in the day. Prior to spawning with either method, condition the breeders for several days with live foods.</p><p>Typically, spawning occurs in the early morning around dawn. Males will begin to circle the female, nudging her in order to position her near the area he has selected for spawning. The female will release up to 300 eggs, which will then be fertilized by the male. Adults will readily eat the eggs, so as soon as the eggs have been fertilized, the adults should be removed from the tank.</p><p>The pale yellow eggs will hatch in about 48 hours, and the fry will be free swimming in a few days. Feed the fry on infusoria, fine fry food, and freshly hatched brine shrimp. Both the eggs and fry are rather sensitive to light, so keep the tank as dark as possible until the fry are several weeks old.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
+      "html": "<p>The fish appeared in the 1960s in the aquarium trade and is said to have been bred by an aquarist named Thomas Schubert of Camden, New Jersey, US. That is the reason why the fish is often referred to as \"Barbus (or Puntius, both is wrong) schuberti\".</p><p>The Golden barb never disappeared again and is always available in pet shops all over the world. In more recent times other sports have been developed, among them animals that have two or three colours on the body. These fish are called \"Koi Golden barb\" in the trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "html": "<p>This gold form was selectively bred by Thomas Schubert in the 1960s and was at one time thought to be a distinct species, referred to as Barbus schuberti or P. semifasciolatus var. schuberti. It is now known to be the same species as the wild form.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
+      "html": "<p>Barbodes semifasciolatus, the green or Chinese barb, is a cyprinid from Vietnam, Taiwan, southwestern China and northern Laos. The natural green form is an infrequent find in the trade, but the selectively-bred golden variant, first produced in the 1960s, is farmed in huge numbers. Commercial fish are largely inbred, with reduced fins and other deformities not uncommon. The name 'Puntius schuberti' often given to the golden form is not an official scientific name.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "html": "<p>Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.</p><p>Type locality is given as 'China' but the type specimens appear to have been collected from the Red River drainage (probably the northern Vietnam section although the river originates in Yunnan province, China), and occurence records show that it's also been collected from numerous other localities in northern Vietnam, the Chinese provinces of Guangxi and Guangdong and the islands of Hainan, Hong Kong, and Taiwan.</p><p>Information pertaining to Laos is scant but the species certainly occurs in the Nam Ou river watershed, Phôngsali Province. In Taiwan the species is known to be at risk through habitat loss/degradation and the introduction of exotic species, while feral populations exist in both Singapore and Hawaii.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>They originate in free-flowing streams and rivers. In the wild, the man-made shiny coloring of the gold form would make it quick prey for predators.</p>"
     },
     {
       "key": "habitat",
@@ -157,21 +211,9 @@
     },
     {
       "key": "maintenance",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>Gold barbs are quite hardy and undemanding of water conditions or habitat essentials. They originate in free-flowing streams and rivers, so use a powerhead to provide a decent current.</p><p>They should be provided with a good-sized open space for swimming, along with plants, driftwood, or other decors for use as hiding spots. Use a fine-grade substrate, preferably of a darker color to showcase the colors of the fish.</p>"
-    },
-    {
-      "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "html": "<p>The golden form (see 'Notes') is among the hardier, most undemanding species available in the aquarium hobby and as such is a good choice for beginners.</p><p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>It thrives very well both at room temperature and at 28°C. Hardness and pH are of no meaning for the fish. As long as the water is drinkable for humans, the Golden barb will like it.</p>"
     },
     {
       "key": "waterConditions",
@@ -181,27 +223,9 @@
     },
     {
       "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>The species feeds virtually on any type of food that is produced for ornamental fish.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>In their natural habitat, this species lives on a diet of insects and their larva, as well as worms, vegetation, and even detritus. It's a prime example of an omnivore, eating just about anything available. To maintain optimal health, a varied diet is advisable.</p><p>Flake, pellet, freeze-dried and frozen foods will all be readily accepted. When possible, include live foods such as insects, brine shrimp, and worms of all types. Fresh vegetables are an excellent added supplement.</p>"
-    },
-    {
-      "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "html": "<p>A foraging omnivore feeding mostly on benthic diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton in nature.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>Gold barbs are schooling fish and should be kept in groups of at least a half-dozen or more. The peaceful nature of this species makes it an excellent choice for community aquariums with other similarly-sized peaceful fish, such as tetras, danios, and other small barbs.</p>"
     },
     {
       "key": "behaviour",
@@ -211,39 +235,15 @@
     },
     {
       "key": "dimorphism",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>Females are overall much duller in coloration and larger than the male, as well as rounder in the belly. The belly of mature males who are ready to spawn will turn red to red-orange in color.</p>"
-    },
-    {
-      "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "html": "<p>Adult females tend to be rounder-bellied and grow slightly larger than the males.</p><p>In the natural colour form sexually mature males develop red pigmentation in the lower portion of the body.</p>"
     },
     {
       "key": "reproduction",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>Gold barbs are relatively easy to breed, but as with breeding most fish species, a separate breeding tank is recommended. The tank should be well-planted with fine-leafed plants such as java moss. Spawning mops can also be used. Place a mesh cover over the bottom of the tank to allow the eggs to fall through safely.</p><p>Regardless of which medium is used for spawning, make sure there are plenty of hiding spots for the female, as the male can be quite aggressive during the spawning process. Lighting should be dim, and the water should be soft at about 8 dGH, with a pH between 6 and 7. Use a sponge filter with a very gentle flow.</p><p>Spawning can be attempted with pairs or by using the group method. When spawning in a group, use a half-dozen of each sex. If spawning in pairs, maintain separate tanks of males and females. Select the plumpest female and most brightly colored male, and introduce them to the spawning tank late in the day. Prior to spawning with either method, condition the breeders for several days with live foods.</p><p>Typically, spawning occurs in the early morning around dawn. Males will begin to circle the female, nudging her in order to position her near the area he has selected for spawning. The female will release up to 300 eggs, which will then be fertilized by the male. Adults will readily eat the eggs, so as soon as the eggs have been fertilized, the adults should be removed from the tank.</p><p>The pale yellow eggs will hatch in about 48 hours, and the fry (baby fish) will be free swimming in a few days. Feed the fry on infusoria, fine fry food, and freshly hatched brine shrimp. Both the eggs and fry are rather sensitive to light, so keep the tank as dark as possible until the fry are several weeks old.</p>"
-    },
-    {
-      "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "html": "<p>Like most small cyprinids 'Puntius' spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>The fish appeared in the 1960s in the aquarium trade and is said to have been bred by an aquarist named Thomas Schubert of Camden, New Jersey, US. That is the reason why the fish is often referred to as \"Barbus (or Puntius, both is wrong) schuberti\".</p><p>The Golden barb never disappeared again and is always available in pet shops all over the world. In more recent times other sports have been developed, among them animals that have two or three colours on the body. These fish are called \"Koi Golden barb\" in the trade.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "html": "<p>The gold barb has a steeply-sloped back and short barbels positioned at the corners of the mouth. A number of dark vertical bars or blotches are visible along the flanks of the fish. Well-conditioned specimens may also have red coloration on the fins.</p><p>The naturally occurring color of this barb is green, but the green P. semifasciolatus is rarely seen in the aquarium trade due to the overwhelming popularity of the gold form. Virtually all specimens currently sold are captive-bred, and a few other color variations have subsequently arisen, including an albino variant as well as a tricolor variation.</p><p>This gold form was selectively bred by Thomas Schubert in the 1960s and was at one time thought to be a distinct species, referred to as Barbus schuberti or P. semifasciolatus var. schuberti. It is now known to be the same species as the wild form.</p>"
     },
     {
       "key": "notes",
@@ -259,6 +259,28 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4-480.webp",
+      "width": 1200,
+      "height": 664,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "caption": "Gold Barb - Puntius semifasciolatus",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/3213eda1134f0646-480.webp",
+      "width": 600,
+      "height": 395,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
+      "caption": "Cherry barb in an aquarium",
+      "source": "sprucepets"
+    },
     {
       "url": "https://media.aquatome.com/commons/e1b2263441dee11d.webp",
       "thumb": "https://media.aquatome.com/commons/e1b2263441dee11d-480.webp",
@@ -278,6 +300,26 @@
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_semifasciolatus_(aka).jpg",
       "caption": "This image shows a Gold barb (Puntius semifasciolatus)."
+    },
+    {
+      "url": "https://media.aquatome.com/commons/917f68395aec5dbc.webp",
+      "thumb": "https://media.aquatome.com/commons/917f68395aec5dbc-480.webp",
+      "width": 900,
+      "height": 672,
+      "licence": "CC BY-SA 3.0",
+      "author": "Fred Hsu (Wikipedia:User:Fredhsu on en.wikipedia)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_Barb_Puntius_semifasciolatus_6.png",
+      "caption": "Gold Barb (Puntius semifasciolatus)"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/270e0528ebbed75f.webp",
+      "thumb": "https://media.aquatome.com/commons/270e0528ebbed75f-480.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Fred Hsu (Wikipedia:User:Fredhsu on en.wikipedia)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_Barb_Puntius_semifasciolatus_4.png",
+      "caption": "Gold Barb (Puntius semifasciolatus)"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/c90cba9cb52def74.webp",
@@ -322,28 +364,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-semifasciolatus",
       "caption": "Adult male from the UK aquarium trade.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4-480.webp",
-      "width": 1200,
-      "height": 664,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "caption": "Gold Barb - Puntius semifasciolatus",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/3213eda1134f0646-480.webp",
-      "width": 600,
-      "height": 395,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "caption": "Cherry barb in an aquarium",
-      "source": "sprucepets"
     }
   ],
   "videos": [],

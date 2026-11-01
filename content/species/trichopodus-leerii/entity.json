@@ -18,46 +18,46 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "sprucepets",
-        "value": {
-          "min": 25,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 24,
           "max": 30
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "sprucepets",
         "value": {
-          "min": 5.5,
-          "max": 7.5
+          "min": 25,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
           "max": 8
         }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
       {
-        "source": "sprucepets",
+        "source": "seriouslyfish",
         "value": {
           "min": 2,
           "max": 30
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "sprucepets",
         "value": {
           "min": 2,
           "max": 30
@@ -66,19 +66,15 @@
     ],
     "sizeCm": [
       {
-        "source": "sprucepets",
+        "source": "seriouslyfish",
         "value": 12
       },
       {
-        "source": "seriouslyfish",
+        "source": "sprucepets",
         "value": 12
       }
     ],
     "tankCm": [
-      {
-        "source": "sprucepets",
-        "value": 76
-      },
       {
         "source": "seriouslyfish",
         "value": 90
@@ -86,11 +82,11 @@
     ],
     "difficulty": [
       {
-        "source": "sprucepets",
+        "source": "seriouslyfish",
         "value": 2
       },
       {
-        "source": "seriouslyfish",
+        "source": "sprucepets",
         "value": 2
       }
     ]
@@ -98,21 +94,15 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<ul><li>Family: Osphronemidae</li><li>Adult size: 12 cm (4.5 inches)</li><li>Life expectancy: 4 to 5 years</li><li>Social: peaceful, but males may be territorial</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: about 76 litres (20 gallons)</li><li>Diet: omnivore</li><li>Breeding: bubble nest builder</li><li>Care: easy</li></ul><p>The pearl gourami is among the most visually striking gouramis and is renowned for its resilience and ease of care. As a labyrinth fish, it can take in air from the water surface and retain it within its labyrinth chamber, a lung-like structure that aids in breathing air alongside gills. Unlike other fish, the pearl gourami can vocalize, often producing growling or croaking sounds during breeding or interactions with other males.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
       "html": "<p>The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps. One of the most peaceful gouramis, it is hardy and fairly long-lived, surviving 8 years or more in the aquarium. Wild fish are rare in the hobby, and most on sale are mass-produced in the Far East and Eastern Europe.</p>"
     },
     {
-      "key": "distribution",
+      "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>This species originates in Thailand, Malaysia, and the Indonesian islands of Sumatra and Borneo. Some pearl gouramis have been introduced to Singapore and Colombia. It's rare to find wild pearl gouramis for sale as aquarium fish as they are readily bred in captivity.</p><p>The International Union for Conservation of Nature (IUCN) Red List categorizes the pearl gourami as Near Threatened. This status is due to river damming, water management practices, ecosystem alterations from logging, and direct harvesting of wild specimens.</p>"
+      "html": "<ul><li>Common names: pearl gourami, mosaic gourami, lace gourami, diamond gourami, leeri gourami</li><li>Life expectancy: 4 to 5 years</li><li>Social: peaceful, but males may be territorial</li><li>Tank level: top and mid-dweller</li><li>Diet: omnivore</li><li>Breeding: bubble nest builder</li></ul><p>The pearl gourami is among the most visually striking gouramis and is renowned for its resilience and ease of care. As a labyrinth fish, it can take in air from the water surface and retain it within its labyrinth chamber, a lung-like structure that aids in breathing air alongside gills. Unlike other fish, the pearl gourami can vocalize, often producing growling or croaking sounds during breeding or interactions with other males.</p>"
     },
     {
       "key": "distribution",
@@ -121,10 +111,10 @@
       "html": "<p>Found in Thailand, Malaysia and the islands of Borneo and Sumatra. There are now also introduced populations living in both Singapore and Colombia. Wild fish are rare in the hobby these days, with the vast majority of the ones on sale being mass-produced in the Far East and Eastern Europe.</p>"
     },
     {
-      "key": "habitat",
+      "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>They prefer acidic water found in lowland swamps near the sea. In their natural habitat filled with vegetation, pearl gouramis flourish with similar conditions in the aquarium. Optimal setups include floating plants, subdued lighting, and a dark substrate. While preferring soft, acidic water, they adapt well to varied conditions, making them ideal for community tanks due to their peaceful disposition.</p>"
+      "html": "<p>This species originates in Thailand, Malaysia, and the Indonesian islands of Sumatra and Borneo. Some pearl gouramis have been introduced to Singapore and Colombia. It's rare to find wild pearl gouramis for sale as aquarium fish as they are readily bred in captivity.</p><p>The International Union for Conservation of Nature (IUCN) Red List categorizes the pearl gourami as Near Threatened. This status is due to river damming, water management practices, ecosystem alterations from logging, and direct harvesting of wild specimens.</p>"
     },
     {
       "key": "habitat",
@@ -133,16 +123,22 @@
       "html": "<p>Inhabits lowland swamps, often in coastal regions.</p>"
     },
     {
-      "key": "aquariumSize",
+      "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>Minimum tank size is 20 gallons (about 76 litres). Keeping a pearl gourami in a 10-gallon aquarium is not advised. Though young gouramis may initially fit in small tanks, they require more space for healthy development. A 20-gallon tank is ideal for one pearl gourami, while a 40-gallon (about 150 litres) or larger tank is recommended for groups.</p>"
+      "html": "<p>They prefer acidic water found in lowland swamps near the sea. In their natural habitat filled with vegetation, pearl gouramis flourish with similar conditions in the aquarium.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
       "html": "<p>Standard length: 120 mm SL (5 in). Aquarium base: 90 × 30 cm (36 × 12 in). Volume: ~81 litres (~21 US gal), tank 90 × 30 × 30 cm.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
+      "html": "<p>Minimum tank size: 20 gallons (about 76 litres). Keeping a pearl gourami in a 10-gallon (about 38 litres) aquarium is not advised. Though young gouramis may initially fit in small tanks, they require more space for healthy development. A 20-gallon tank is ideal for one pearl gourami, while a 40-gallon (about 150 litres) or larger tank is recommended for groups.</p>"
     },
     {
       "key": "maintenance",
@@ -152,21 +148,21 @@
     },
     {
       "key": "waterConditions",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<ul><li>pH: 5.5 to 7.5</li><li>Hardness: 2 to 30 dH</li><li>Temperature: 25 to 28 °C (77 to 82 °F)</li></ul>"
-    },
-    {
-      "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
       "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.0</li><li>Hardness: 2–30 dGH</li></ul>"
     },
     {
-      "key": "diet",
+      "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>Pearl gouramis are easy to feed, accepting a wide range of foods such as flakes, freeze-dried, and frozen options. For optimal health, supplement their diet with fresh vegetables like romaine lettuce, cooked peas, and spinach. Live foods, including blackworms, brine shrimp, and glass worms, are excellent supplements, especially when conditioning them for breeding.</p>"
+      "html": "<ul><li>pH: 5.5 to 7.5</li><li>Hardness: 2 to 30 dH</li><li>Temperature: 25 to 28 °C (77 to 82 °F)</li></ul><p>While preferring soft, acidic water, they adapt well to varied conditions, making them ideal for community tanks due to their peaceful disposition.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
+      "html": "<p>Optimal setups include floating plants, subdued lighting, and a dark substrate.</p>"
     },
     {
       "key": "diet",
@@ -175,10 +171,10 @@
       "html": "<p>Unfussy and will accept most foods offered.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>Pearl gouramis thrive in a peaceful community aquarium but should not be housed with overly aggressive species. Males can exhibit aggression towards other males or gouramis. They are best kept with similarly sized, temperament-matched species, or alongside small schooling fish. A recommended grouping is one male with several females to minimize aggression.</p><p>It is possible to keep a single pearl gourami, yet as social and peaceful fish, they are generally happier and experience less stress when kept in small groups. Naturally, they form small communities and interact actively with their kind. Ideally, house them in groups of at least 3 to 5 individuals, which encourages natural behaviors and establishes social hierarchy while ensuring a higher female-to-male ratio to reduce male territorial disputes.</p>"
+      "html": "<p>Pearl gouramis are easy to feed, accepting a wide range of foods such as flakes, freeze-dried, and frozen options. For optimal health, supplement their diet with fresh vegetables like romaine lettuce, cooked peas, and spinach. Live foods, including blackworms, brine shrimp, and glass worms, are excellent supplements, especially when conditioning them for breeding.</p>"
     },
     {
       "key": "behaviour",
@@ -187,10 +183,10 @@
       "html": "<p>One of the most peaceful gouramis and an excellent community fish. Males are territorial with one another however and can also be quite hard on the females when they want to breed, so ensure there are adequate hiding places in the aquarium. Do not keep the pearl gourami with aggressive or very vigorous fish or it will become withdrawn.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>Male pearl gouramis are distinguished by thinner, more angular bodies, with slightly longer fins and a noticeable red breast, exhibiting richer colors than females. Males have a distinct deep red-orange on their throat and breast, and their dorsal fin is longer and more pointed. Females display a plumper body when ready to spawn.</p>"
+      "html": "<p>Pearl gouramis thrive in a peaceful community aquarium but should not be housed with overly aggressive species. Males can exhibit aggression towards other males or gouramis. They are best kept with similarly sized, temperament-matched species, or alongside small schooling fish. A recommended grouping is one male with several females to minimize aggression.</p><p>It is possible to keep a single pearl gourami, yet as social and peaceful fish, they are generally happier and experience less stress when kept in small groups. Ideally, house them in groups of at least 3 to 5 individuals, with a higher female-to-male ratio to reduce male territorial disputes.</p>"
     },
     {
       "key": "dimorphism",
@@ -199,10 +195,10 @@
       "html": "<p>Mature males are much more colourful than females, developing a stunning orange or red colouration around the throat area. They also have extensions to the dorsal and anal fins. Females are blander and plumper.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>Breeding pearl gouramis is straightforward. Condition the pair with live or frozen brine shrimp and worms beforehand. Ensure abundant floating plants and increase the water temperature to around 27 °C (80 °F). Lower the water level to approximately 15 cm (six inches), facilitating fry access to surface air, aiding labyrinth organ development.</p><p>The male initiates breeding by constructing a bubble nest, up to 25 cm (10 inches) wide, among floating plants, where spawning occurs. Once the nest is built, he displays courting behaviors towards the female. When the female approaches, the pair interacts using their pelvic fin feelers.</p><p>During spawning, the male encircles the female to facilitate the release of hundreds of eggs, which he fertilizes simultaneously. The eggs drift up into the nest, where the male collects any strays. Additional spawning actions may produce 200 to 300 eggs. After laying, the female is often chased away, necessitating her removal to prevent harm. The male alone guards the eggs, until after four days, when the fry become free-swimming, at which point the male should be removed to prevent him from mistaking them for food.</p><p>Feed the fry liquid food or infusoria culture multiple times daily. Introduce newly hatched or frozen brine shrimp after about two weeks, and transition to finely-ground flake foods at one month old. Conduct water changes every two to three days. As the fry increase in size, distribute them across several tanks to mitigate waste accumulation. Crowding can impair growth and lead to increased mortality due to poor water quality.</p>"
+      "html": "<p>Male pearl gouramis are distinguished by thinner, more angular bodies, with slightly longer fins and a noticeable red breast, exhibiting richer colors than females. Males have a distinct deep red-orange on their throat and breast, and their dorsal fin is longer and more pointed. Females display a plumper body when ready to spawn.</p>"
     },
     {
       "key": "reproduction",
@@ -211,10 +207,10 @@
       "html": "<p>Easy. Bubblenester. The breeding tank should contain water of no more than 6-8\" in depth with lots of floating plants. Filtration should be gentle and air-powered filters are ideal. Condition the fish with live food. When the female becomes plump with eggs the male will construct a large bubblenest of up to 10\" diameter amongst the floating plants. He will then begin to display to the female. As the female approaches the nest the fish can be seen touching each other with their modified ventral fins. Spawning occurs under the nest in the typical anabantoid embrace. The eggs float upwards and the male shepherds them into the nest. Several more spawnings occur and between 200-300 eggs may be produced. When there are no more eggs the female is chased away. It is best to remove her at this point or she may be seriously harmed. The male then tends to the nest until the eggs hatch, usually in around 20-30 hours. The fry become free swimming in another 4-5 days, at which point the male should also be removed. They should be fed infusoria or liquid fry food for the first week, after which they are large enough to accept brine shrimp nauplii, microworm and powdered flake. The fry grow very slowly and care must be exercised when doing water changes as they are very susceptible to changes in water temperature for the first 3 months or so.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<p>The pearl gourami features an elongated, laterally compressed body. Its ventral (pelvic) fins resemble long feelers, as reflected in the Genus name Trichopodus (\"hair-feet\"). The small, upturned mouth signifies a surface-feeding habit. White pearly spots on its brown body create a mother-of-pearl effect, from which the fish derives its name. A black line extends horizontally from mouth to tail, ending with a spot. The ventral head shows an orange hue, intensifying during breeding to attract mates.</p><p>Pearl gouramis are relatively large, reaching 4 to 5 inches (10 to 12 centimeters) as adults. With proper care, including ample space and a balanced diet, they attain their full size within one to two years.</p>"
+      "html": "<p>Breeding pearl gouramis is straightforward. Condition the pair with live or frozen brine shrimp and worms beforehand. Ensure abundant floating plants and increase the water temperature to around 27 °C (80 °F). Lower the water level to approximately 15 cm (six inches), facilitating fry access to surface air, aiding labyrinth organ development.</p><p>The male initiates breeding by constructing a bubble nest, up to 25 cm wide, among floating plants, where spawning occurs. Once the nest is built, he displays courting behaviors towards the female. When the female approaches, the pair interacts using their pelvic fin feelers.</p><p>During spawning, the male encircles the female to facilitate the release of hundreds of eggs, which he fertilizes simultaneously. The eggs drift up into the nest, where the male collects any strays. Additional spawning actions may produce 200 to 300 eggs. After laying, the female is often chased away, necessitating her removal to prevent harm. The male exclusively guards the eggs until after four days, when the fry become free-swimming, at which point the male should be removed to prevent him from mistaking them for food.</p><p>Feed the fry liquid food or infusoria culture multiple times daily. Introduce newly hatched or frozen brine shrimp after about two weeks, and transition to finely-ground flake foods at one month old. Conduct water changes every two to three days. As the fry increase in size, distribute them across several tanks to mitigate waste accumulation. Crowding can impair growth and lead to increased mortality due to poor water quality.</p>"
     },
     {
       "key": "notes",
@@ -223,10 +219,10 @@
       "html": "<p>A very hardy, beautiful species which is highly recommended to the beginner. A male in full breeding dress is one of the most stunning fish available in the hobby. T. leerii is alo fairly long-lived and may survive for 8 years or more in the aquarium. These fish will also consume the aquarium pest hydra.</p>"
     },
     {
-      "key": "references",
+      "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
-      "html": "<ul><li>IUCN Red List Of Threatened Species: Trichopodus Leerii. International Union for Conservation of Nature Red List Of Threatened Species</li></ul>"
+      "html": "<p>The pearl gourami features an elongated, laterally compressed body. Its ventral (pelvic) fins resemble long feelers, as reflected in the genus name Trichopodus (\"hair-feet\"). The small, upturned mouth signifies a surface-feeding habit. White pearly spots on its brown body create a mother-of-pearl effect, from which the fish derives its name. A black line extends horizontally from mouth to tail, ending with a spot. The ventral head shows an orange hue, intensifying during breeding to attract mates.</p><p>Pearl gouramis are relatively large, reaching 10 to 12 cm as adults. With proper care, including ample space and a balanced diet, they attain their full size within one to two years.</p>"
     }
   ],
   "photos": [
@@ -308,5 +304,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }
