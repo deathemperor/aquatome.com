@@ -55,9 +55,16 @@ function buildWith(extra: number) {
   for (let i = 1; i <= extra + 10; i++) {
     const id = `zz-bai-thu-${nnn(i)}`
     mkdirSync(join(content, 'guides', id), { recursive: true })
-    writeFileSync(join(content, 'guides', id, 'entity.json'), JSON.stringify({ ...guide, id, sourceUrl: `https://example.invalid/${id}`, photos: [{ ...guide.photos[0], url: `https://media.aquatome.com/test/${id}.webp`, author: `Tác giả ${id}`, sourceUrl: `https://example.org/${id}` }] }))
+    // The first one names every made-up fish, as a listicle names a hundred (its page once showed a card for each).
+    const mentions = i === 1 ? [...guide.mentions, ...Array.from({ length: extra + 10 }, (_, k) => `testus-thu-${nn(k + 1)}`)] : guide.mentions
+    writeFileSync(join(content, 'guides', id, 'entity.json'), JSON.stringify({ ...guide, id, mentions, sourceUrl: `https://example.invalid/${id}`, photos: [{ ...guide.photos[0], url: `https://media.aquatome.com/test/${id}.webp`, author: `Tác giả ${id}`, sourceUrl: `https://example.org/${id}` }] }))
     writeFileSync(join(content, 'guides', id, 'vi.json'), JSON.stringify({ ...gvi, name: `Bài thử ${nnn(i)}`, slug: `bai-thu-${nnn(i)}` }))
   }
+  // The changelog: a page of entries and some (the engine keeps 500, 2,641 page elements as one list). Older than the test
+  // content's, each a made-up fish both builds have.
+  const log = read(join(FIXTURE, 'changelog.json'))
+  for (let i = 0; i < 100 + extra; i++) log.push({ date: '2026-01-01', kind: 'species', id: `testus-thu-${nn((i % 50) + 1)}`, source: 'seriouslyfish', action: 'updated' })
+  writeFileSync(join(content, 'changelog.json'), JSON.stringify(log))
   const out = join(root, 'dist')
   execFileSync('pnpm', ['exec', 'astro', 'build'], { cwd: SITE, env: { ...process.env, CONTENT_ROOT: content, OUT_DIR: out }, stdio: 'pipe' })
   return { dist: out, page: (path: string) => readFileSync(join(out, path, 'index.html'), 'utf8') }
@@ -167,6 +174,24 @@ test('the plant list and its numbered pages link every plant, a page at a time',
   expect(made.filter(s => !seen.includes(s)), 'plants no page links').toEqual([])
   expect(new Set(seen).size, 'no plant on two pages').toBe(seen.length)
   expect(pages).toBe(Math.ceil(seen.length / 24))
+})
+
+// The changelog's first page: the newest entries, then a link to the older ones (/vi/moi-cap-nhat/trang/2/).
+test("the changelog's page is the same with 140 or 180 entries", () => {
+  expect(otherDifference(small('vi/moi-cap-nhat'), large('vi/moi-cap-nhat'))).toBeUndefined()
+  expect(large('vi/moi-cap-nhat')).toMatch(/<a href="\/vi\/moi-cap-nhat\/trang\/2\/" rel="next"/)
+  expect(large('vi/moi-cap-nhat/trang/2')).toMatch(/<a href="\/vi\/moi-cap-nhat\/" rel="prev"/)
+})
+
+// A guide naming every made-up fish: a page of cards and a line for the rest, and credits for the photos it shows.
+test('a guide that names 50 or 90 fish has the same cards and credits', () => {
+  const part = (html: string, from: string, to: string) => { const i = html.indexOf(from); return i < 0 ? '' : html.slice(i, html.indexOf(to, i)) }
+  for (const [from, to] of [['id="rel-h"', '</section>'], ['id="photo-credits"', '</ul>']] as const) {
+    const [a, b] = [small, large].map(f => part(f('vi/huong-dan/bai-thu-001'), from, to))
+    expect(a, from).not.toBe('')
+    expect(otherDifference(a!, b!), from).toBeUndefined()
+  }
+  expect(large('vi/huong-dan/bai-thu-001')).toMatch(/Còn \d+ loài cá và cây khác trong bài\./)
 })
 
 // A numbered page's links, its language menu's too, lead to pages that exist, in Vietnamese and in Indonesian (a group's

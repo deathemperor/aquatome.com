@@ -1,12 +1,12 @@
 ---
 import { i18n } from '../lib/i18n'
-/** A list's numbered page (/trang/<n>/): the way back to the page before, and on to the next when there is one. */
-interface Props { prev: string; next?: string }
+/** A list's pages (/trang/<n>/): the way back to the page before, and on to the next, each when there is one. */
+interface Props { prev?: string; next?: string }
 const { prev, next } = Astro.props
 const { t } = i18n(Astro.url)
 ---
 <nav class="pages" aria-label={t('Các trang')}>
-  <a href={prev} rel="prev">{t('Trang trước')}</a>
+  {prev && <a href={prev} rel="prev">{t('Trang trước')}</a>}
   {next && <a href={next} rel="next">{t('Trang sau')}</a>}
 </nav>
 <style>
