@@ -72,6 +72,23 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
 })
 
+// A fish group's numbered pages are linked from its page in every language: a link to a page the language isn't served
+// would be dropped from the page (the fixture has no Indonesian or Thai species, so only this catches it).
+test('numbered pages: the page word in each language, for the guide list and the fish groups', async () => {
+  const { served, toVi } = await import('../src/lib/i18n')
+  expect(routeIn('id', 'nhom/[group]/trang/[n].astro')).toBe('/id/kelompok/[group]/halaman/[n]')
+  expect(routeIn('th', 'huong-dan/trang/[n].astro')).toBe('/th/guides/page/[n]')
+  expect(localizePath('id', '/vi/nhom/catfish/trang/2/')).toBe('/id/kelompok/catfish/halaman/2/')
+  expect(localizePath('th', '/vi/nhom/catfish/trang/12/')).toBe('/th/groups/catfish/page/12/')
+  expect(localizePath('id', '/vi/huong-dan/trang/3/')).toBe('/id/panduan/halaman/3/')
+  expect(toVi('/th/groups/catfish/page/2/')).toBe('/vi/nhom/catfish/trang/2/')
+  expect(toVi('/id/panduan/halaman/3/')).toBe('/vi/huong-dan/trang/3/')
+  for (const lang of ['id', 'th'] as const) expect(served(lang, '/vi/nhom/catfish/trang/2/')).toBe(true)
+  // A slug that is the page word stays a slug: only the word before a page number at the end is.
+  expect(localizePath('id', '/vi/huong-dan/trang/')).toBe('/id/panduan/trang/')
+  expect(localizePath('id', '/vi/ca/trang/anh/')).toBe('/id/ikan/trang/foto/')
+})
+
 test('licence: the stored permission note is translated, licence names are not', async () => {
   const { licenceLabel, translator } = await import('../src/lib/i18n')
   expect(licenceLabel(translator('id'), 'dùng với sự cho phép')).toBe('digunakan dengan izin')

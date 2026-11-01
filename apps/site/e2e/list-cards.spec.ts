@@ -100,11 +100,17 @@ test('the cards the fish list builds past its first page are the ones its groups
   const later = new Set(items.slice(PAGE).map(i => i.slug))
   const built = (await cardsBySlug(page)).filter(([slug]) => later.has(slug))
   expect(built.length).toBeGreaterThan(0)
-  const groupOf = Object.fromEntries(items.map(i => [i.slug, i.group!]))
-  for (const group of new Set(built.map(([slug]) => groupOf[slug]!))) {
-    await page.goto(`/vi/nhom/${group}/`)
+  // A group's page and its numbered pages list its species a page at a time, in the fish list's order: each species is on
+  // the group's page its place in the group says.
+  const where = (slug: string) => {
+    const group = items.find(i => i.slug === slug)!.group!
+    const n = Math.floor(items.filter(i => i.group === group).findIndex(i => i.slug === slug) / PAGE) + 1
+    return n === 1 ? `/vi/nhom/${group}/` : `/vi/nhom/${group}/trang/${n}/`
+  }
+  for (const path of new Set(built.map(([slug]) => where(slug)))) {
+    await page.goto(path)
     const server = Object.fromEntries(await cardsBySlug(page))
-    for (const [slug, card] of built.filter(([s]) => groupOf[s] === group)) expect(card, slug).toBe(server[slug])
+    for (const [slug, card] of built.filter(([s]) => where(s) === path)) expect(card, slug).toBe(server[slug])
   }
 })
 
