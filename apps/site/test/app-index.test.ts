@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { breedGroup, type AppIndex } from '../src/lib/app-index'
+import { appIndex, breedGroup, type AppIndex } from '../src/lib/app-index'
+import { getContent } from '../src/lib/content'
 import { LANGS } from '../src/lib/i18n'
 import { DIST, page } from './dist'
 
@@ -102,13 +103,31 @@ test('a video series is an item (Vietnamese only, as its page is), and a video g
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'video' in i)).toBe(false)
 })
 
-test('a tool carries its page\'s own title, the line under its heading and its description, so a search finds it by them', () => {
+test('a series none of whose guides is in the index isn\'t listed (its page is out of search engines); the biggest series first', async () => {
+  // The repository's content (the built site above is the fixture's): a series the index lists, its guides then left out.
+  const c = await getContent('vi')
+  const listed = appIndex('vi', c).items.filter(i => i.kind === 'video')
+  const s = c.series.find(x => listed.some(i => i.path === `/vi/video/${x.vi.slug}/`))
+  expect(s, 'a series in the index').toBeDefined()
+  const thin = { ...c, guides: c.guides.map(g => (g.video?.series?.id === s!.id ? { ...g, t: { ...g.t, quality: { ...g.t.quality, indexable: false } } } : g)) }
+  const after = appIndex('vi', thin).items.filter(i => i.kind === 'video')
+  expect(after.map(i => i.path)).toEqual(listed.map(i => i.path).filter(p => p !== `/vi/video/${s!.vi.slug}/`))
+  // As /vi/video/ lists them.
+  const parts = listed.map(i => i.parts!)
+  expect(parts).toEqual([...parts].sort((a, b) => b - a))
+}, 60_000) // reading the content and two indexes of it: seconds, more beside the other tests
+
+test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
   for (const lang of LANGS) {
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = page(tool.path)
-      const said = `${dom.text}\n${dom.querySelector('meta[name="description"]')?.getAttribute('content') ?? ''}`
-      expect(tool.words?.length, tool.path).toBeGreaterThan(0)
-      for (const w of tool.words!) expect(said, `${tool.path}: ${w}`).toContain(w)
+      const said = [
+        dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''),
+        dom.querySelector('p.intro')?.text,
+        dom.querySelector('meta[name="description"]')?.getAttribute('content'),
+      ]
+      // Each once, and not the name it's listed by.
+      expect(tool.words, tool.path).toEqual([...new Set(said.filter((s): s is string => !!s && s !== tool.name))])
     }
   }
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')

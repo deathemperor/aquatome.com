@@ -121,16 +121,16 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     }
   }
   if (served(lang, '/vi/video/x/')) {
-    // A series as its page lists it, when one of its guides is in the index (the page is out of search engines otherwise).
-    for (const s of c.series) {
-      const guides = seriesGuides(c, s)
-      if (!guides.some(g => g.t.quality.indexable)) continue
+    // A series as its page lists it, when one of its guides is in the index (the page is out of search engines otherwise),
+    // the biggest first, as /vi/video/ lists them.
+    const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.some(g => g.t.quality.indexable))
+    for (const { s, guides } of series.sort((a, b) => b.guides.length - a.guides.length)) {
       const ph = guideImage(c, guides[0]!)
       items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
     }
   }
-  for (const [vi, name, words] of TOOLS) {
-    if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: words.map(w => t(w)) })
+  for (const [vi, name, own] of TOOLS) {
+    if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })
   }
   // Only what the index lists (a well-known fish whose page is below the bar leads the site's home, not the app's): a
   // row's worth of each.
