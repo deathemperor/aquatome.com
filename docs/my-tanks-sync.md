@@ -23,7 +23,7 @@ levels on the phone can't overwrite the tank's notes edited on the web at the sa
 | Record | Holds |
 | --- | --- |
 | Tank | name, `dims` (inside L × W × H, cm) and/or `litres`, substrate, species `{id, count?}` and plants `{id}` by page id, notes |
-| Device | `tankId`, kind (`light`), brand, model, Bluetooth name, nickname, saved schedules, last manual levels, last clock sync |
+| Device | `tankId`, kind (`light`, `plug`), brand, model, nickname. Lights: Bluetooth name, saved schedules, last manual levels, last clock sync. Plugs: the maker's device id (`remoteId`) and the outlets named on the tank (`outlets`: code, role, label; docs/smart-plugs.md) |
 | Tombstone | `{ id, updatedAt, deletedAt }` and nothing else: what is left of a deleted tank or device |
 
 Tanks and devices have `id`, `createdAt` and `updatedAt`; a tombstone has `id`, `updatedAt` and `deletedAt` only.
@@ -38,7 +38,7 @@ What we wrote is the only record of them: `schedules`, `activeScheduleId` and `m
   compares the times on every platform.
 - **Species and plants** are page ids (`paracheirodon-axelrodi`), the same in every language, never slugs or names.
 - **Litres**: `litres` when set (round and corner tanks, from the volume tool), else `l × w × h / 1000` of `dims`.
-- **Open values**: `kind`, `brand` and `substrate` are strings with known values (`KNOWN` in the schema). A client shows
+- **Open values**: `kind`, `brand`, `substrate` and an outlet's `role` are strings with known values (`KNOWN` in the schema). A client shows
   a value it doesn't know as it is and keeps it.
 - **Unknown keys are kept**, at every level (a tank's `dims`, a species entry, a schedule, `manual`, a tombstone). A
   client saves a record with every key it read, including ones a newer client wrote. Only then can an older app edit a

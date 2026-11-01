@@ -12,8 +12,10 @@ public let maxDevices = 100
 /// Values the site writes today. The fields are open strings: a value added later is shown as it is and kept.
 public enum Known {
   public static let substrate = ["soil", "sand", "gravel", "lava", "bare", "other"]
-  public static let deviceKind = ["light"]
-  public static let brand = ["chihiros"]
+  public static let deviceKind = ["light", "plug"]
+  public static let brand = ["chihiros", "tuya", "ewelink"]
+  /// What a plug's outlet powers (docs/smart-plugs.md).
+  public static let outletRole = ["light", "co2", "filter", "heater", "air", "fan", "other"]
 }
 
 /// A new record id: a lowercase UUID.
