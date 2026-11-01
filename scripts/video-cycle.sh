@@ -35,6 +35,8 @@ pnpm engine discover-videos || log "discover-videos: failed"
 pnpm engine check-photos --limit 20 || log "check-photos: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
+# The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
+pnpm engine sweep || log "sweep: failed"
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 if ! pnpm test >/tmp/thuysinh-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/thuysinh-videos-test.log)"; exit 1; fi
 git add content engine-state docs/review

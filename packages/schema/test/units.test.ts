@@ -141,6 +141,11 @@ test('guides: a change of temperature, and the middle of a decade of °F', () =>
   // Two sources' figures, not one figure twice: the second is converted, not dropped.
   expect(th('บางแหล่งแนะนำ 32–33 °C หรือ 86–88 °F')).toBe('บางแหล่งแนะนำ 32–33 °C หรือ 30–31 °C')
   expect(vi('Chúng thích nước mát hơn (khoảng 21°C, tức 70°F), nhưng')).toBe('Chúng thích nước mát hơn (khoảng 21°C), nhưng')
+  // A translator unsure of the unit, in brackets after the figure (the Vietnamese page says 30–31°C): still °F, converted.
+  const hedged = 'Sumber lain menaikkan suhu ke 86–88 (kemungkinan °F) untuk ikan yang tidak mau makan.'
+  expect(imperialLeft(hedged)).toEqual(['86–88 (kemungkinan °F)'])
+  expect(id(hedged)).toBe('Sumber lain menaikkan suhu ke 30–31 °C untuk ikan yang tidak mau makan.')
+  expect(vi('nâng lên 86–88 (có lẽ là °F) khi cá bỏ ăn')).toBe('nâng lên 30–31 °C khi cá bỏ ăn')
 })
 
 test('guides: doses per gallon, rules of thumb, flow, rounding', () => {

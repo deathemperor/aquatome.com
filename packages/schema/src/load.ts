@@ -151,7 +151,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
-  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang)).map(b => ({ ...b, photos: cleanPhotos(b.photos) }))
+  // A care figure the engine hid (out of bounds, a tank too short for the fish: `hidden`) stays off the page.
+  const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang)).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
   for (const b of breeds) {

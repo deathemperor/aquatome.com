@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, states, tankIsVolume } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, shownCard, states, tankIsVolume } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -98,4 +98,11 @@ test('a tank length that the page gives only as a volume is that volume, not a l
   expect(tankIsVolume('<p>A 100 litre tank, 80 × 35 cm.</p>', 90)).toBe(false)
   expect(tankIsVolume('<p>Use a 4-foot tank or about 200 litres.</p>', 120)).toBe(false)
   expect(tankIsVolume('<p>An aquarium of at least 48 inches, about 200 litres.</p>', 120)).toBe(false)
+})
+
+test('a card figure the engine hid (out of bounds, a tank too short for the fish) is not shown, and stays in the card', () => {
+  const card = { sizeCm: [{ source: 'seriouslyfish', value: 90 }], tankCm: [{ source: 'seriouslyfish', value: 150, hidden: 'shorter than twice the fish (90 cm)' }, { source: 'glaser', value: 200 }] }
+  expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'seriouslyfish', value: 90 }], tankCm: [{ source: 'glaser', value: 200 }] })
+  expect(shownCard({ tankCm: [card.tankCm[0]!] }, [], () => true)).toEqual({})
+  expect(card.tankCm).toHaveLength(2)
 })

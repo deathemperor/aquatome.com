@@ -1,16 +1,19 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import type { Lang } from '@aq/schema'
+import { imperialLeft, type DataCardField, type Lang } from '@aq/schema'
+import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, OWN_NUMBER, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
-import type { Page } from './pages'
+import type { Page, PageKind } from './pages'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
- * function from a page to what it found there. A rule never holds a page back: what it can fix safely is fixed whenever
- * the engine writes a page (sanitize.ts tidyHtml, unescapePlain), the rest is listed in docs/review/content-rules.md. A
- * mistake found by hand once becomes a rule here, so it is caught on every page from then on.
+ * function from a page to what it found there. A rule never holds a page back. What it can fix safely is fixed whenever
+ * the engine writes a page (sanitize.ts tidyHtml, unescapePlain), and on every page each cycle before the build
+ * (`pnpm engine sweep`, sweep.ts: the rules in RATCHETED, which the real-content test holds at zero); the rest is listed
+ * in docs/review/content-rules.md. A mistake found by hand once becomes a rule here, so it is caught on every page from
+ * then on.
  */
 export type Rule = {
   id: string
@@ -78,37 +81,119 @@ export function numberSlips(hs: string[]): string[] {
   return out
 }
 
+const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
+const COUNT = new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?=(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
+const TOP = /\btop\s?(\d{1,2})\b/i
 /** "10 loại cây…", "Top 7…", "7 Jenis…", "ไม้น้ำ 10 ชนิด": the number of things a title promises, if it promises one. */
 export function titleCount(title: string): number | undefined {
-  const noun = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
-  const m = title.match(new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?:${noun})(?![\\p{L}])`, 'iu')) ?? title.match(/\btop\s?(\d{1,2})\b/i)
+  const m = title.match(COUNT) ?? title.match(TOP)
   const n = m ? Number(m[1]) : undefined
   return n && n > 1 ? n : undefined
 }
 
-/** A title promises N things; does the text have N, as a run of numbered headings, a list, or enough headings? */
+/**
+ * A title without the count it promises, when the text doesn't have that many items ("10 cách xử lý rêu hại…" →
+ * "Cách xử lý rêu hại…"): what the sweep does when a rewrite of the title isn't kept. Only the title: the page keeps its
+ * address.
+ */
+export function stripCount(title: string): string {
+  let t = title
+  for (let i = 0; i < 3 && titleCount(t); i++) {
+    const atStart = /^\s*(?:top\s?)?\d/i.test(t)
+    t = t.replace(/\s*\d{1,2}\s*(?:ชนิด|สายพันธุ์|ข้อ)(?=\s|$)/u, '').replace(TOP, '').replace(COUNT, '').replace(/\s*:\s*:/, ':').replace(/^\s*:\s*/, '').replace(/\s{2,}/g, ' ').trim()
+    if (atStart) t = t.charAt(0).toLocaleUpperCase() + t.slice(1)
+  }
+  return t
+}
+
+/**
+ * "<strong>Mẹo 3:</strong> …", "Sai lầm 9: …", "เคล็ดลับที่ 2:": a block's numbered label (its word, lower case, and
+ * number). Not a range or a decimal: "Cách 1–2 ngày: cho ăn" is every one to two days.
+ */
+const LABEL = /^(sai lầm|lỗi|mẹo|cách|bước|lý do|nguyên nhân|dấu hiệu|ý tưởng|lưu ý|kesalahan|tips?|cara|langkah|alasan|penyebab|tanda|ข้อผิดพลาด(?:ที่)?|เคล็ดลับ(?:ที่)?|วิธี(?:ที่)?|ขั้นตอน(?:ที่)?|สาเหตุ(?:ที่)?|mistake|step|tip|reason|sign|way)\s*(\d{1,2})\s*(?:[:)]|[.–-](?!\s*\d))/iu
+type Label = { el: HTMLElement; word: string; n: number }
+const labelsOf = (root: HTMLElement): Label[] => root.querySelectorAll('h3, p, li').filter(el => !el.querySelector('p, li')).flatMap(el => {
+  const m = el.text.trim().match(LABEL)
+  return m ? [{ el, word: m[1]!.toLowerCase(), n: Number(m[2]) }] : []
+})
+/** Each label word's numbers in order, split into runs where they start again from 1. */
+function labelRuns(labels: Label[]): Label[][] {
+  const runs: Label[][] = []
+  for (const word of new Set(labels.map(l => l.word))) {
+    let cur: Label[] = []
+    for (const l of labels.filter(x => x.word === word)) {
+      if (l.n === 1 && cur.length) { runs.push(cur); cur = [] }
+      cur.push(l)
+    }
+    if (cur.length) runs.push(cur)
+  }
+  return runs
+}
+/** A run out of order: its numbers all different, neither counting up nor counting down ("Sai lầm 1, 9, 2, 3…"). */
+const outOfOrder = (run: Label[]) => {
+  const ns = run.map(l => l.n)
+  return ns.length > 1 && new Set(ns).size === ns.length && ns.some((n, i) => i > 0 && n < ns[i - 1]!) && ns.some((n, i) => i > 0 && n > ns[i - 1]!)
+}
+/** Numbered labels out of order in a text: `"sai lầm" 1, 9, 2, 3…`. */
+export const labelSlips = (html: string) => labelRuns(labelsOf(parse(html))).filter(outOfOrder).map(r => `"${r[0]!.word}" ${r.map(l => l.n).join(', ')}`)
+/** Labels out of order numbered again in the order they appear, from the run's lowest number ("Sai lầm 1, 9, 2…" → 1, 2, 3…). */
+export function renumberLabels(html: string): string {
+  if (!/\d/.test(html)) return html
+  const root = parse(html)
+  const bad = labelRuns(labelsOf(root)).filter(outOfOrder)
+  if (!bad.length) return html
+  for (const run of bad) {
+    const from = Math.min(...run.map(l => l.n))
+    run.forEach((l, i) => {
+      // The label as the check reads it, in the HTML: a tag or a no-break space may sit between word and number.
+      const re = new RegExp(`(${l.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:\\s|&nbsp;|&#160;|&#xa0;|<[^>]*>)*)${l.n}(?!\\d)`, 'iu')
+      l.el.set_content(l.el.innerHTML.replace(re, (_, pre: string) => `${pre}${from + i}`))
+    })
+  }
+  return root.toString()
+}
+
+/** A title promises N things; does the text have N, as a run of numbered headings or labels, a list, N bold leads, or enough headings? */
 export function countMismatch(title: string, html: string): string | undefined {
   const want = titleCount(title)
   if (!want) return undefined
   const hs = headings(html).map(h => h.text.trim())
   const runs = numberedRuns(hs)
-  const lists = parse(html).querySelectorAll('ul, ol').map(l => l.childNodes.filter(n => n instanceof HTMLElement && n.rawTagName === 'li').length)
+  const root = parse(html)
+  const lists = root.querySelectorAll('ul, ol').map(l => l.childNodes.filter(n => n instanceof HTMLElement && n.rawTagName === 'li').length)
   if (runs.includes(want) || lists.includes(want)) return undefined
+  // "Mẹo 1: …" to "Mẹo 13: …" as bold leads ("13 mẹo…"); or exactly as many bold leads as the title promises.
+  if (labelRuns(labelsOf(root)).some(r => Math.max(...r.map(l => l.n)) === want)) return undefined
+  const leads = root.querySelectorAll('p, li').filter(el => { const f = el.childNodes.find(n => n.text.trim()); return f instanceof HTMLElement && f.rawTagName === 'strong' }).length
+  if (leads === want) return undefined
   if (!runs.length && hs.length >= want) return undefined // unnumbered headings, enough of them to hold the items
   const sizes = [...new Set(lists)].sort((a, b) => a - b)
   return `title promises ${want}; ${runs.length ? `numbered headings run to ${runs.join(' and ')}` : `${hs.length} headings, none numbered`}${sizes.length ? `, lists of ${sizes.join(', ')}` : ''}`
 }
 
-/** Headings with nothing under them: the next block is another heading (or the end), unless it starts a numbered run under it. */
+/**
+ * A heading with nothing under it: the last block of its text. A heading straight over another is a group over its
+ * sub-headings ("Lựa chọn loài" over one heading a species, "Sản phẩm" over two products): every heading is an h3, so
+ * a parent looks the same as an empty one, and stays.
+ */
+const isEmptyAt = (els: HTMLElement[], i: number) => els[i]!.rawTagName === 'h3' && !!els[i]!.text.trim() && i === els.length - 1
+const elements = (root: HTMLElement) => root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement)
+/** Headings with nothing under them. */
 export function emptySections(html: string): string[] {
-  const els = parse(html).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement)
-  return els.flatMap((b, i) => {
-    if (b.rawTagName !== 'h3' || !b.text.trim()) return []
-    const next = els[i + 1]
-    if (next && next.rawTagName !== 'h3') return []
-    if (next && ownNumber(next.text) === 1) return [] // "Ưu điểm" over "1. Nhẹ", "2. Rẻ"
-    return [b.text.trim()]
-  })
+  const els = elements(parse(html))
+  return els.flatMap((b, i) => (isEmptyAt(els, i) ? [b.text.trim()] : []))
+}
+/** The text without its empty headings (at its end). */
+export function dropEmptyHeadings(html: string): string {
+  if (!html.includes('<h3>')) return html
+  const root = parse(html)
+  let changed = false
+  // Again until none is left: two headings at the end both go.
+  for (let els = elements(root), empty = els.filter((_, i) => isEmptyAt(els, i)); empty.length; els = elements(root), empty = els.filter((_, i) => isEmptyAt(els, i))) {
+    for (const e of empty) e.remove()
+    changed = true
+  }
+  return changed ? root.toString() : html
 }
 
 /** Markdown or HTML a writer left in the text: **bold**, a "## heading", [a link](…), `code`, a tag written out. */
@@ -126,11 +211,102 @@ export function leftoverMarkup(t: string): string[] {
 export const plainEntities = (s: string) => [...s.matchAll(/&(?:amp|lt|gt|quot|apos|nbsp|#\d+|#x[0-9a-f]+);/gi)].map(m => m[0])
 
 /**
- * The source site's page furniture left in a text: its readers' comments, its comment form, its related posts. The
- * pages carry readers' names and replies from another site.
+ * The source site's page furniture left in a text: its readers' comments ("4 bình luận về…", "7 ý kiến về…", "12
+ * thoughts on…", "Bình luận của độc giả"), its comment form ("Để lại bình luận", "Leave a Reply"), its related posts
+ * ("Bài viết liên quan:" and the list after it). The pages carried readers' names and replies from another site. As a
+ * heading, or as a paragraph of its own, and only in the shape the comment plugins write: a count of comments on the
+ * quoted post title ("7 ý kiến về “…”"), the readers' comments by name ("Bình luận của độc giả"), the form's or the
+ * list's label and nothing else. A heading of the text's own ("Một suy nghĩ cuối cùng", "Bình luận của Ken Childs" in a
+ * text of letters, "Gửi phản hồi cho nhà sản xuất") stays.
  */
-const FURNITURE = /^(\d+ (bình luận|phản hồi|comments?|responses?|komentar|ความคิดเห็น)|(để lại|gửi) (bình luận|phản hồi)|bình luận của|bài viết liên quan|leave a (reply|comment)|related (posts|articles)|tinggalkan (balasan|komentar)|artikel terkait|แสดงความคิดเห็น|บทความที่เกี่ยวข้อง)/i
-export const furniture = (html: string) => headings(html).map(h => h.text.trim()).filter(h => FURNITURE.test(h))
+const COMMENT = 'bình luận|phản hồi|ý kiến|suy nghĩ|comments?|responses?|thoughts?|repl(y|ies)|komentar|tanggapan|ความคิดเห็น'
+const COMMENTS = new RegExp(`^((\\d+|một|one) (${COMMENT})(\\s(về|on|to|untuk|pada|tentang)|\\s*เกี่ยวกับ)\\s*["“”'‘’«]|((\\d+|một|one) (${COMMENT})|(bình luận|ý kiến) của (độc giả|bạn đọc)|readers?'? comments|reader's comments|komentar pembaca|ความคิดเห็นของผู้อ่าน)(\\s*\\([^)]*\\))?\\s*:?$)`, 'i')
+const FORM = /^((để lại|gửi) (một )?(bình luận|phản hồi|ý kiến)( của bạn)?|leave a (reply|comment)( to [^.]{1,40}?)?|tinggalkan (balasan|komentar)|แสดงความคิดเห็น)(\s*(hủy (trả lời|phản hồi)|cancel reply|batalkan balasan))?\s*:?$/i
+const RELATED = /^(bài (viết )?liên quan|nội dung liên quan|related (posts|articles|content)|artikel terkait|บทความที่เกี่ยวข้อง)\s*:?$/i
+type Furniture = 'comments' | 'form' | 'related'
+function furnitureOf(el: HTMLElement): Furniture | undefined {
+  if (el.rawTagName !== 'h3' && el.rawTagName !== 'p') return undefined
+  const t = el.text.replace(/\s+/g, ' ').trim()
+  if (COMMENTS.test(t)) return 'comments'
+  if (FORM.test(t)) return 'form'
+  // A paragraph may carry the first related post after the label: "Bài viết liên quan: Cách nuôi…".
+  if (RELATED.test(t) || (el.rawTagName === 'p' && RELATED.test(t.split(':')[0]!))) return 'related'
+  return undefined
+}
+/** The blocks cutFurniture cuts (furniture and what goes with it), and whether that is more than half the text. */
+function furnitureCut(html: string) {
+  const root = parse(html)
+  const els = elements(root)
+  const cut: HTMLElement[] = []
+  const found = els.filter(el => furnitureOf(el)).map(el => el.text.replace(/\s+/g, ' ').trim())
+  for (let i = 0; i < els.length; i++) {
+    const kind = furnitureOf(els[i]!)
+    if (!kind) continue
+    cut.push(els[i]!)
+    const listsOnly = kind === 'related' // as a heading too: a paragraph of the text's own may follow its list
+    while (els[i + 1] && els[i + 1]!.rawTagName !== 'h3' && (!listsOnly || ['ul', 'ol'].includes(els[i + 1]!.rawTagName))) cut.push(els[++i]!)
+  }
+  return { root, cut, found, tooMuch: cut.reduce((n, e) => n + e.text.length, 0) > root.text.length / 2 }
+}
+/** The furniture the sweep cuts from a text. */
+export const furniture = (html: string) => { const f = furnitureCut(html); return f.tooMuch ? [] : f.found }
+/** Furniture longer than the rest of its text: left for a person (a short text with a long comment thread under it). */
+export const longFurniture = (html: string) => { const f = furnitureCut(html); return f.tooMuch ? f.found : [] }
+/**
+ * The text without its furniture: related posts with the lists after them, comments and a comment form with everything
+ * up to the next heading. Never more than half a text: such a text is left as it is, and listed (longFurniture).
+ */
+export function cutFurniture(html: string): string {
+  const { root, cut, tooMuch } = furnitureCut(html)
+  if (!cut.length || tooMuch) return html
+  for (const e of cut) e.remove()
+  return root.toString().trim()
+}
+
+/**
+ * The later copies of a page's paragraphs (60 characters or more), in reading order across its texts: field index →
+ * paragraph indexes. Within one text, a short line (under 120 characters) with no other copy beside it is the text's
+ * own: a list that repeats it under each item ("Cây dễ chăm và nhân giống bằng cách cắt ngọn hoặc tách chồi bên." under
+ * two plants of the nitrate guide). A copy in another text (Seriously Fish's distribution again as its habitat) or a
+ * run of copies (a block pasted twice) is a repeat.
+ */
+export function laterCopies(fields: { field: string; html: string }[]): Map<number, Set<number>> {
+  const first = new Map<string, number>()
+  const out = new Map<number, Set<number>>()
+  fields.forEach((f, fi) => {
+    if (f.field.startsWith('sections.references')) return
+    const ps = parse(f.html).querySelectorAll('p').map(x => x.text.replace(/\s+/g, ' ').trim())
+    const from = ps.map(t => { if (t.length < 60) return undefined; const at = first.get(t); if (at === undefined) first.set(t, fi); return at })
+    const copy = (i: number) => from[i] !== undefined
+    const keep = new Set(ps.flatMap((t, i) => (copy(i) && (from[i] !== fi || t.length >= 120 || copy(i - 1) || copy(i + 1)) ? [i] : [])))
+    if (keep.size) out.set(fi, keep)
+  })
+  return out
+}
+/** A page's texts without the later copies of its paragraphs (laterCopies). */
+export function dropRepeats<F extends { field: string; html: string }>(fields: F[]): F[] {
+  const copies = laterCopies(fields)
+  return fields.map((f, fi) => {
+    const drop = copies.get(fi)
+    if (!drop) return f
+    const root = parse(f.html)
+    root.querySelectorAll('p').forEach((p, i) => { if (drop.has(i)) p.remove() })
+    return { ...f, html: dropEmptyBlocks(root.toString()).trim() }
+  })
+}
+
+/**
+ * "Trang lưu ý rằng…", "Trang cũng nêu…": the translator writing what "the page" (the source) says, instead of saying it.
+ * No safe fix (who says it matters): the reader's writer rewrites it, kept only when its reviewer passes it.
+ */
+// Not "ghi": a guide about websites says what a site lists ("trang ghi đủ các mục sau").
+const SOURCE_PAGE = /(?<!\p{L})(?:[Tt]rang (?:này )?(?:cũng )?(?:lưu ý|nêu|cho biết|khuyên|nhấn mạnh)|[Hh]alaman (?:ini )?(?:juga )?(?:menyebutkan|mencatat|menyatakan|menekankan))(?!\p{L})|หน้า(?:นี้|เว็บ(?:นี้)?)(?:ยัง)?(?:ระบุ|กล่าว|แนะนำ)/u
+/** Where a page says "the page notes…": the field and the sentence. */
+export function sourcePagePhrases(p: Page): { field: string; quote: string }[] {
+  return prose(p).flatMap(f => blocks(f.html).filter(b => SOURCE_PAGE.test(b.text)).map(b => ({
+    field: f.field, quote: b.text.split(/(?<=[.!?])\s+/).find(s => SOURCE_PAGE.test(s)) ?? b.text,
+  })))
+}
 
 const VI_LETTER = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹấầẩẫậắằẳẵặếềểễệốồổỗộớờởỡợứừửữự]/i
 const VI_ONLY = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i
@@ -194,7 +370,7 @@ const LATIN = /(?:a|ae|us|um|is|i|ii|ensis|ense|oides|atus|ata|ens|ix|ops|ax|or|
  * the page's species too (a spelling of it, one of its other names, a cultivar's name, "syn. O. vittatus"). In a caption
  * the engine wrote in Vietnamese, only another page's species counts ("Riccardia chia thùy" is Vietnamese).
  */
-export function otherFish(caption: string, sci: string, others: string[], ctx: Ctx): string | undefined {
+export function otherFish(caption: string, sci: string, others: string[], ctx: Ctx, strict = false): string | undefined {
   const clean = caption.replace(/['‘’"]/g, '')
   const genus = sci.split(/\s+/)[0]!
   const ownWords = [sci, ...others].flatMap(n => n.replace(/['‘’"]/g, '').split(/\s+/).slice(1)).filter(w => /^[a-z]{4,}$/i.test(w))
@@ -203,15 +379,67 @@ export function otherFish(caption: string, sci: string, others: string[], ctx: C
   if (all.some(m => ownWords.some(w => sameEpithet(m[2]!, w)))) return undefined
   const vietnamese = VI_LETTER.test(caption)
   const other = all.filter(m => !m[1]!.endsWith('.') && !NOT_EPITHET.has(m[2]!) && !/(?:syn\.?|synonym|formerly|previously|referred to as|known as|traded as|sold as|=)\s*\(?$/i.test(clean.slice(Math.max(0, m.index - 30), m.index)))
-    .find(m => ctx.species.has(`${m[1]} ${m[2]}`.toLowerCase()) || (!vietnamese && (ctx.genera.has(m[1]!) || m[1] === genus) && LATIN.test(m[2]!)))
+    .find(m => ctx.species.has(`${m[1]} ${m[2]}`.toLowerCase()) || (!strict && !vietnamese && (ctx.genera.has(m[1]!) || m[1] === genus) && LATIN.test(m[2]!)))
   return other ? `${other[1]} ${other[2]}` : undefined
 }
+
+/**
+ * A photo the sweep takes off the page: its caption names another species the site has a page for, and nothing in it
+ * says the fish is still the page's: "imported as a contaminant in a batch of wild Garra flavatra" (on Garra
+ * rakhinica), "Here with Garra flavatra", "among a shipment of Rasboroides vaterifloris", "known at the time as…".
+ */
+export function wrongFish(caption: string, sci: string, others: string[], ctx: Ctx): string | undefined {
+  const other = otherFish(caption, sci, others, ctx, true)
+  if (!other) return undefined
+  const before = caption.slice(0, caption.indexOf(other.split(' ')[0]!))
+  if (/(?<!\p{L})(with|among|batch|shipment|contaminant|mixed|cùng|với|bersama|dengan)(?!\p{L})/iu.test(before.slice(-40))) return undefined
+  if (/\b(known\b[^.]{0,20}?\bas|formerly|previously|referred to as|mistaken|confused|misidentified|hybrid)\b/i.test(caption)) return undefined
+  return other
+}
+/** A caption saying the photo is a map. */
+export const isMap = (caption: string) => MAP.test(caption)
 
 /** A caption saying the picture is a map ("Belontia signata map", "bản đồ phân bố"). */
 const MAP = /(?<!\p{L})(map|range map|bản đồ|peta|แผนที่)(?!\p{L})/iu
 
 const range = (v: number | { min: number; max: number }) => (typeof v === 'number' ? `${v}` : `${v.min}–${v.max}`)
+
+type Figure = number | { min: number; max: number }
+/**
+ * The card figures to keep off the page, each with why: outside the bounds the engine keeps when it reads a page, upside
+ * down, or a minimum tank shorter than twice the largest adult fish the card gives (the tank, not the fish: a size is
+ * measured, a tank is advice, and too small a tank is the harmful one).
+ */
+export function cardSlips<V extends { field: DataCardField; value: Figure }>(card: V[]): { v: V; why: string }[] {
+  const out = card.flatMap(v => {
+    const [lo, hi] = BOUNDS[v.field]
+    const x = v.value
+    if (typeof x !== 'number' && x.min > x.max) return [{ v, why: 'upside down' }]
+    const [a, b] = typeof x === 'number' ? [x, x] : [x.min, x.max]
+    return a < lo || b > hi ? [{ v, why: `outside ${lo}–${hi}` }] : []
+  })
+  const sizes = card.filter(v => v.field === 'sizeCm' && typeof v.value === 'number' && !out.some(o => o.v === v)).map(v => v.value as number)
+  const fish = sizes.length ? Math.max(...sizes) : 0
+  for (const v of card) if (v.field === 'tankCm' && typeof v.value === 'number' && v.value < 2 * fish && !out.some(o => o.v === v)) out.push({ v, why: `shorter than twice the fish (${fish} cm)` })
+  return out
+}
 const firstFew = (xs: string[], n = 3) => [...xs.slice(0, n).map(s => `"${s}"`), ...(xs.length > n ? [`and ${xs.length - n} more`] : [])]
+
+/** The kinds of page whose stored text the sweep fixes (sweep.ts): an equipment page is written whole by its own step. */
+export const SWEPT_KINDS: readonly PageKind[] = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']
+/**
+ * The rules whose defects a step fixes on every page each cycle, before the build, and the kinds of page it fixes them
+ * on: the sweep (sweep.ts), and `pnpm engine metric` for units. The real-content test holds these at zero; a check here
+ * must find only what its fix can change, or one page the fix can't mend stops every cycle. Another kind's are listed.
+ */
+export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
+  furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS,
+  // A guide's title is written; a breed's or product's is its name (a person may have fixed it: nameFixed), listed only.
+  'title-count': ['guides'],
+  caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
+}
+/** The findings the real-content test holds at zero. */
+export const ratcheted = (findings: Finding[]) => findings.filter(f => RATCHETED[f.rule]?.includes(f.page.kind))
 
 export const RULES: Rule[] = [
   {
@@ -226,25 +454,44 @@ export const RULES: Rule[] = [
   },
   {
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
-    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings, no list and not enough headings for that many items.',
+    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays.',
     check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
   },
   {
-    id: 'headings', title: 'Repeated or empty headings and sections',
-    about: 'The same heading twice on a page, a heading with nothing under it; an empty block is dropped when the engine writes the page (listed until then).',
+    id: 'headings', title: 'Empty headings and blocks',
+    about: 'A heading at the end of its text, an empty block: the sweep drops them. A heading straight over another is a group over its sub-headings, and stays.',
+    check: p => [
+      ...prose(p).flatMap(f => emptySections(f.html)).map(h => `nothing under "${clip(h, 60)}"`),
+      ...prose(p).filter(f => dropEmptyBlocks(f.html) !== f.html).map(f => `an empty block in ${f.field}`),
+    ],
+  },
+  {
+    id: 'repeated-headings', title: 'A heading twice on a page',
+    about: 'The same heading twice on one page. Listed: which of the two sections to keep is a person\'s call.',
     check: p => {
       const all = prose(p).flatMap(f => headings(f.html).map(h => h.text.trim().toLowerCase())).filter(Boolean)
-      return [
-        ...[...new Set(all.filter((h, i) => all.indexOf(h) !== i))].map(h => `"${clip(h, 60)}" twice`),
-        ...prose(p).flatMap(f => emptySections(f.html)).map(h => `nothing under "${clip(h, 60)}"`),
-        ...prose(p).filter(f => dropEmptyBlocks(f.html) !== f.html).map(f => `an empty block in ${f.field}`),
-      ]
+      return [...new Set(all.filter((h, i) => all.indexOf(h) !== i))].map(h => `"${clip(h, 60)}" twice`)
     },
   },
   {
     id: 'furniture', title: 'The source site\'s comments or related posts',
-    about: 'A heading of the source page\'s furniture ("4 bình luận về…", "Để lại bình luận", "Bài viết liên quan"): other readers\' names and replies, a comment form, links to the source\'s other posts. Cut by hand or in a rewrite.',
+    about: 'The source page\'s furniture, as a heading or a paragraph of its own ("4 bình luận về…", "7 ý kiến về…", "Để lại bình luận", "Leave a Reply", "Bài viết liên quan:"): other readers\' names and replies, a comment form, links to the source\'s other posts. The sweep cuts it, with the list of related posts or everything up to the next heading (more than half a text is listed under the next rule).',
     check: p => [...new Set(prose(p).flatMap(f => furniture(f.html)))].map(h => `"${clip(h, 70)}"`),
+  },
+  {
+    id: 'furniture-long', title: 'Comments longer than the text',
+    about: 'The source page\'s comments or related posts, more than half of a text: the sweep leaves such a text as it is. Cut by hand, or the text written again.',
+    check: p => [...new Set(prose(p).flatMap(f => longFurniture(f.html)))].map(h => `"${clip(h, 70)}"`),
+  },
+  {
+    id: 'labels', title: 'Numbered labels out of order',
+    about: 'Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count up nor down ("Sai lầm 1, 9, 2, 3…"): the sweep numbers them again in the order they appear.',
+    check: p => [...new Set(prose(p).flatMap(f => labelSlips(f.html)))],
+  },
+  {
+    id: 'source-page', title: 'Text that reports what "the page" says',
+    about: '"Trang lưu ý…", "Trang cũng nêu…" (and the Indonesian and Thai): the translator writing what the source page says instead of saying it. The reader\'s writer rewrites it on Vietnamese pages, kept only when its reviewer passes it; listed otherwise.',
+    check: p => sourcePagePhrases(p).map(x => `"${clip(x.quote, 80)}"`),
   },
   {
     id: 'markup', title: 'Markdown, HTML or entities left in the text',
@@ -257,10 +504,11 @@ export const RULES: Rule[] = [
   },
   {
     id: 'repeated', title: 'A paragraph repeated on the page',
-    about: 'The same paragraph (60 characters or more) twice on one page.',
+    about: 'The same paragraph (60 characters or more) twice on one page: in two of its texts, as a run of copies, or 120 characters or more (a short line a list repeats under each item is the text\'s own). The sweep drops the later copy.',
     check: p => {
-      const ps = prose(p).flatMap(f => parse(f.html).querySelectorAll('p').map(x => x.text.replace(/\s+/g, ' ').trim())).filter(s => s.length >= 60)
-      return [...new Set(ps.filter((s, i) => ps.indexOf(s) !== i))].map(s => `"${clip(s, 70)}"`)
+      const fields = prose(p)
+      const copies = [...laterCopies(fields)].flatMap(([fi, is]) => parse(fields[fi]!.html).querySelectorAll('p').filter((_, i) => is.has(i)).map(x => x.text.replace(/\s+/g, ' ').trim()))
+      return [...new Set(copies)].map(s => `"${clip(s, 70)}"`)
     },
   },
   {
@@ -274,50 +522,58 @@ export const RULES: Rule[] = [
     check: p => (p.lang === 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html), ...p.lines.map(l => l.text), ...p.captions.map(c => c.caption)].flatMap(s => vietnameseLeft(s) ?? []))].map(s => `"${s}"`)),
   },
   {
-    id: 'imperial', title: 'Imperial units with no metric figure beside them',
-    about: '°F, inches, gallons, feet or pounds with no °C, cm, litres, metres or kg next to them: listed only (`pnpm engine metric` converts fish, plant, breed and guide pages). Those with a metric figure beside them are counted at the top.',
+    // One detector with the metric test's (@aq/schema imperialLeft): a figure in °F, inches, feet, gallons or pounds.
+    // A unit named with no figure ("tính bằng gallon Mỹ", "Aturan satu galon per inci") is no figure to convert.
+    id: 'imperial', title: 'Imperial figures',
+    about: 'A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts fish, plant, breed and guide pages before each build). Imperial figures beside a metric one are counted at the top.',
     check: p => {
-      const alone = [...new Set([...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].flatMap(t => imperialUnits(t).alone))]
-      return alone.length ? [firstFew(alone).join('; ')] : []
+      const left = [...new Set([...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].flatMap(imperialLeft))]
+      return left.length ? [firstFew(left).join('; ')] : []
     },
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.
     id: 'caption', title: 'A photo caption naming another fish, or a map',
-    about: 'A species or plant photo whose caption names a different species and not the page\'s, or says it is a map: the photo may not show the fish (`pnpm engine check-photos --only <id>` looks again). Checked on the Vietnamese page; the photos are the same in every language.',
+    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map. The sweep takes the photo off the page; a map leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
+    check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
+      const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
+      // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
+      return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(isMap(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : [])]
+    }))]),
+  },
+  {
+    id: 'caption-unsure', title: 'A photo caption that may name another fish',
+    about: 'A caption naming a Latin name in a genus the site has, that no page has, or another page\'s species with words saying the fish may still be the page\'s ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.',
     check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
       const other = otherFish(c.caption, p.sci!, p.latinNames, ctx)
-      // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
-      return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(MAP.test(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : [])]
+      return other && !wrongFish(c.caption, p.sci!, p.latinNames, ctx) ? [`${other}: "${clip(c.caption, 80)}"`] : []
     }))]),
   },
   {
     // The card is the same in every language: checked on the Vietnamese page.
     id: 'card', title: 'Data card values outside sane bounds',
-    about: 'A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8), a range upside down, or a minimum tank shorter than twice the adult fish. Checked on the Vietnamese page; the card is the same in every language.',
+    about: 'A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page\'s file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.',
     check: p => {
       if (p.lang !== 'vi') return []
-      const out = p.card.flatMap(c => {
-        const [lo, hi] = BOUNDS[c.field]
-        const v = c.value
-        if (typeof v !== 'number' && v.min > v.max) return [`${c.field} ${range(v)} (${c.source}): upside down`]
-        const [a, b] = typeof v === 'number' ? [v, v] : [v.min, v.max]
-        return a < lo || b > hi ? [`${c.field} ${range(v)} (${c.source}): outside ${lo}–${hi}`] : []
-      })
-      const num = (f: string) => p.card.filter(c => c.field === f && typeof c.value === 'number').map(c => c.value as number)
-      const [tank, size] = [num('tankCm'), num('sizeCm')]
-      if (tank.length && size.length && Math.min(...tank) < 2 * Math.max(...size)) out.push(`minimum tank ${Math.min(...tank)} cm for a fish of ${Math.max(...size)} cm (less than twice its length)`)
+      const slips = cardSlips(p.card)
+      const out = slips.filter(s => !s.why.startsWith('shorter')).map(({ v, why }) => `${v.field} ${range(v.value)} (${v.source}): ${why}`)
+      const tanks = slips.filter(s => s.why.startsWith('shorter')).map(s => s.v.value as number)
+      const sizes = p.card.filter(c => c.field === 'sizeCm' && typeof c.value === 'number').map(c => c.value as number)
+      if (tanks.length) out.push(`minimum tank ${Math.min(...tanks)} cm for a fish of ${Math.max(...sizes)} cm (less than twice its length)`)
       return out
     },
   },
 ]
 
+/** The genera and species the site has pages for. */
+export const ctxOf = (pages: Page[]): Ctx => ({
+  genera: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!] : []))),
+  species: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(/\s+/).slice(0, 2).join(' ').toLowerCase()] : []))),
+})
+
 /** Every rule on every page; a rule that throws on a page is reported as such and the others still run. */
 export function checkPages(pages: Page[], rules: Rule[] = RULES): { findings: Finding[]; errors: string[] } {
-  const ctx: Ctx = {
-    genera: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!] : []))),
-    species: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(/\s+/).slice(0, 2).join(' ').toLowerCase()] : []))),
-  }
+  const ctx = ctxOf(pages)
   const findings: Finding[] = []
   const errors: string[] = []
   for (const page of pages) for (const rule of rules) {
@@ -350,7 +606,8 @@ export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: str
 
 Generated by \`pnpm engine audit\` every engine cycle: rules every published page is checked against, in Vietnamese,
 Indonesian and Thai (\`packages/engine/src/content-rules.ts\`, docs/governance.md). A rule never holds a page back. What
-a rule can fix safely is fixed whenever the engine writes a page; the rest is listed here, each page once per rule.
+a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
+(\`pnpm engine sweep\`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
 Pages checked: ${pages.length} (Vietnamese ${per('vi')}, Indonesian ${per('id')}, Thai ${per('th')}). Imperial units
 beside a metric figure: ${[...beside].sort().map(([u, n]) => `${u} ${n}`).join(', ') || 'none'}.

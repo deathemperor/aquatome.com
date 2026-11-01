@@ -73,6 +73,17 @@ test('a breed whose address is already a species page stops the build', async ()
   await expect(loadAll({ root: dir, lang: 'vi', publicBuild: false })).rejects.toThrow(/already a breed page/)
 })
 
+test('a breed\'s care figure the engine hid is left off its page', async () => {
+  const { cp, mkdir, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-care-'))
+  await cp(root, dir, { recursive: true })
+  await mkdir(join(dir, 'breeds/huyet-long'), { recursive: true })
+  await writeFile(join(dir, 'breeds/huyet-long/entity.json'), JSON.stringify({ id: 'huyet-long', kind: 'variety', parents: [], care: { sizeCm: [{ source: 0, value: 90 }], tankCm: [{ source: 0, value: 150, hidden: 'shorter than twice the fish (90 cm)' }] }, photos: [], sources: [], updatedAt: '2026-10-30' }))
+  await writeFile(join(dir, 'breeds/huyet-long/vi.json'), JSON.stringify({ slug: 'huyet-long', name: 'Huyết Long', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  const b = (await loadAll({ root: dir, lang: 'vi', publicBuild: true })).breeds.find(x => x.id === 'huyet-long')!
+  expect(b.care).toEqual({ sizeCm: [{ source: 0, value: 90 }] })
+})
+
 test('Vietnamese photo captions are shown translated in another language, or left off until they are', async () => {
   const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-captions-'))

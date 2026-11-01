@@ -7,7 +7,11 @@ export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'hab
 
 const SourceId = z.enum(SOURCE_IDS)
 const Range = z.object({ min: z.number(), max: z.number() })
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]) })
+/**
+ * `hidden`: why the build leaves this figure off the card (`pnpm engine sweep`: outside sane bounds, upside down, or a
+ * minimum tank shorter than twice the fish). The figure stays here, with its source, for a person to look at.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty'])
 
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
@@ -141,7 +145,7 @@ export const BreedSchema = z.object({
   /** Hybrids: the parent fish as the sources give them, with the species page when we have one. */
   parents: z.array(z.object({ name: z.string(), species: z.string().optional(), certain: z.boolean() })),
   /** Care values, each pointing at its source in `sources`. */
-  care: z.partialRecord(DataCardField, z.array(z.object({ source: z.number().int(), value: z.union([Range, z.number()]) }))),
+  care: z.partialRecord(DataCardField, z.array(z.object({ source: z.number().int(), value: z.union([Range, z.number()]), hidden: z.string().optional() }))),
   photos: z.array(Photo),
   /** Wikimedia Commons category for its photos, when there is one. */
   commons: z.string().optional(),

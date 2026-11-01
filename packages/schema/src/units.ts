@@ -335,10 +335,17 @@ function ratios(t: string, lang: UnitLang): string {
 const FILLER = new RegExp(String.raw`^(?:\s|[,;:/~≈±–—−-]|[♂♀]|${QUAL}|SL|TL|Mỹ|US|AS|cho|mỗi|trên|per|ต่อ|น้ำ|cá|nước|ikan|air|ปลา)*$`, 'u')
 const SEP = String.raw`(?:\s*[,/]\s*|,?\s*(?:tức(?: là)?|yaitu|หรือ)\s+)(?:${QUAL}\s*)?`
 
+/**
+ * "86–88 (kemungkinan °F)": a translator unsure of a source's unit put it in brackets after the figure ("probably °F").
+ * The figure is that unit, converted like any other (the Vietnamese page it came from says 30–31 °C).
+ */
+const HEDGE = String.raw`(?:kemungkinan|mungkin|có lẽ(?: là)?|có thể(?: là)?|probably|likely|perhaps|อาจ(?:จะ)?เป็น|น่าจะ(?:เป็น)?)`
+const HEDGED = String.raw`${START}(${RANGE})\s*\(\s*${HEDGE}\s*([°º˚]\s*F|độ\s*F)${END}\s*\)`
+
 /** Text in metric only (see above): page text in `lang`, HTML or plain. */
 export function toMetric(text: string, lang: UnitLang): string {
   const m = mask(text)
-  let t = normalize(m.text)
+  let t = normalize(m.text).replace(re(HEDGED), '$1 $2')
   t = squares(decades(rates(t, lang), lang), lang)
   t = t.split(/(<[^>]+>|[.!?](?=\s|<|$))/).map((seg, i) => (i % 2 ? seg : tanks(seg, lang))).join('')
   t = pipes(t, lang)
@@ -388,7 +395,7 @@ export function toMetric(text: string, lang: UnitLang): string {
 }
 
 /** The imperial figures a text still has (pounds; not ounces, which may size a bottle): none once `toMetric` has run (quoted labels and names aside). */
-const LEFT = re(String.raw`${ANY_IMP}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
+const LEFT = re(String.raw`${ANY_IMP}|${HEDGED}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
 export const imperialLeft = (text: string): string[] => normalize(mask(text).text).match(LEFT) ?? []
 
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }

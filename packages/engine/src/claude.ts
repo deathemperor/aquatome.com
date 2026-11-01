@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process'
+import { appendFileSync } from 'node:fs'
 import { dirname } from 'node:path'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
@@ -12,6 +13,7 @@ function run<T>(system: string, prompt: string, schema: object, opts: { tools: s
   return new Promise<T>((resolve, reject) => {
     const args = ['-p', '--model', opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
       '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
+    const started = Date.now()
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'] })
     let out = ''
     let err = ''
@@ -23,6 +25,16 @@ function run<T>(system: string, prompt: string, schema: object, opts: { tools: s
       clearTimeout(timer)
       try {
         const r = JSON.parse(out)
+        // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time), to
+        // measure a run such as the reader's backfill.
+        if (process.env.ENGINE_COST_LOG) {
+          const u = r.usage ?? {}
+          try {
+            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), model: opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+          } catch (e) {
+            console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
+          }
+        }
         if (r.is_error || code !== 0) return reject(new LlmError(`claude failed (${code}): ${r.result ?? err}`.slice(0, 500)))
         resolve(r.structured_output as T)
       } catch {
