@@ -48,10 +48,10 @@ public final class PlugBoard {
   public var loading: Bool { reading > 0 }
 
   /// Where the list comes from: answers from one with another owner (the keys changed since) are dropped.
-  private var source: (any PlugSource)?
+  @ObservationIgnored private var source: (any PlugSource)?
   /// Counts list reads started and switch answers, to know which is newer.
-  private var tick = 0
-  private var listAt = 0
+  @ObservationIgnored private var tick = 0
+  @ObservationIgnored private var listAt = 0
   /// Outlets as switch answers reported them, and plugs a switch found offline, since the list: until a list read
   /// started after them.
   private var reported: [Outlet: (on: Bool?, at: Int)] = [:]
@@ -97,8 +97,6 @@ public final class PlugBoard {
       tick += 1
       reported[o] = (r.on, tick)
       if r.confirmed { return note(o, .confirmed) }
-    } catch is CancellationError {
-      return
     } catch let e as PlugError where e.nothingSent {
       guard owner == self.source?.owner else { return }
       if e == .plugOffline {

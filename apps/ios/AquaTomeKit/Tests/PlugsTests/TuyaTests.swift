@@ -185,6 +185,36 @@ func switches() async throws {
   #expect(Set(waits) == [.milliseconds(600)] && waits.count == 1 + 1 + 3 + 5 + 5)
 }
 
+@MainActor @Test("The read-back ends 3 s after the command by the clock: slow reads count, each asked to answer within what's left")
+func readBackByTheClock() async throws {
+  let c = Cloud([{ var d = strip(); d.ignores = true; return d }()])
+  let fake = c.fake, clock = c.clock
+  let reads = Recorder()
+  // Each status read takes 2 s.
+  let s = TuyaPlugs(keys: keys, send: { r in
+    if r.url!.path.hasSuffix("/status") { await reads.add(r); clock.advance(2) }
+    return try await fake.send(r)
+  }, now: { clock.now }, wait: { _ in })
+  _ = try await s.list()
+  #expect(try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true) == Switched(on: false, confirmed: false))
+  // Two reads (0–2 s, 2–4 s), not five; the outlet isn't held for the reads' 8 s timeouts.
+  #expect(await reads.all.map(\.timeoutInterval) == [3, 1] && c.posts == 1)
+}
+
+@MainActor @Test("URLSession giving up on a request by itself is a lost answer (the command may have gone), not a cancelled tap")
+func sessionCancelledIsLost() async throws {
+  let c = Cloud()
+  let fake = c.fake
+  let s = TuyaPlugs(keys: keys, send: { r in
+    let answer = try await fake.send(r)
+    if r.httpMethod == "POST" { throw URLError(.cancelled) }
+    return answer
+  }, wait: { _ in })
+  _ = try await s.list()
+  await #expect(throws: PlugError.offline) { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true) }
+  #expect(c.posts == 1)
+}
+
 @MainActor @Test("Refused without a command: a plug the last list didn't have, an outlet it doesn't have, one listed offline")
 func refusedBeforeSending() async throws {
   let c = Cloud([strip(), { var d = strip("fake-offline"); d.online = false; return d }()])
@@ -214,7 +244,7 @@ func problems() async throws {
   let c = Cloud()
   await #expect(throws: PlugError.badKeys) { try await c.source(TuyaKeys(accessId: keys.accessId, accessSecret: "wrong", dataCenter: .westernAmerica)).list() }
   await #expect(throws: PlugError.badKeys) { try await c.source(TuyaKeys(accessId: "wrong", accessSecret: keys.accessSecret, dataCenter: .westernAmerica)).list() }
-  for (code, e) in [(28841002, PlugError.expired), (28841004, .quota), (28841101, .notSubscribed), (1013, .clock), (1111, .busy), (1106, .maker(1106))] {
+  for (code, e) in [(28841002, PlugError.expired), (28841004, .quota), (28841101, .notSubscribed), (1013, .clock), (1111, .busy), (1106, .noAccess)] {
     c.fake.failing = code
     await #expect(throws: e) { try await c.source().list() }
   }
@@ -231,11 +261,11 @@ func errorCodes() {
     1001: .badKeys, 1004: .badKeys, 1005: .badKeys, 1013: .clock,
     28841001: .notSubscribed, 28841002: .expired, 28841003: .expired, 28841004: .quota,
     28841101: .notSubscribed, 28841102: .expired, 28841103: .expired, 28841104: .quota, 28841105: .notSubscribed, 28841106: .notSubscribed,
-    1110: .busy, 1111: .busy, 1112: .busy, 1113: .busy, 2001: .plugOffline, 2010: .noSuchPlug, 2008: .maker(2008), 1010: .maker(1010),
+    1106: .noAccess, 1110: .busy, 1111: .busy, 1112: .busy, 1113: .busy, 2001: .plugOffline, 2010: .noSuchPlug, 2008: .maker(2008), 1010: .maker(1010),
   ]
   for (code, e) in expected { #expect(TuyaPlugs.error(code) == e, "\(code)") }
   // A refusal that came before anything reached a plug is known not to have switched it.
-  let before: [PlugError] = [.badKeys, .expired, .notSubscribed, .quota, .busy, .clock, .plugOffline, .noSuchPlug]
+  let before: [PlugError] = [.badKeys, .expired, .notSubscribed, .quota, .busy, .clock, .noAccess, .plugOffline, .noSuchPlug]
   let maybe: [PlugError] = [.offline, .maker(2008), .badReply]
   #expect(before.filter { !$0.nothingSent } == [] && maybe.filter { $0.nothingSent } == [])
 }

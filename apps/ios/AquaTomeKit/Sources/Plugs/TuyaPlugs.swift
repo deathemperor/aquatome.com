@@ -67,7 +67,7 @@ public actor TuyaPlugs: PlugSource {
 
   /// Token expired, invalid, or in an invalid state: Tuya refuses these before acting, so a new token and once more.
   static let staleToken: Set = [1010, 1011, 1012]
-  /// After a command, the outlet is read back this often, for up to this long.
+  /// After a command, the outlet is read back this often, for up to this long (by the clock: a slow read counts too).
   static let readEvery = 600, readFor = 3000
 
   public init(keys: TuyaKeys, send: @escaping Send = TuyaPlugs.urlSession(), now: @escaping @Sendable () -> Date = Date.init,
@@ -139,25 +139,28 @@ public actor TuyaPlugs: PlugSource {
     _ = try await call("POST", "/v1.0/iot-03/devices/\(Self.segment(device))/commands", body: ["commands": .array([.object(["code": .string(code), "value": .bool(on)])])])
     var reported: Bool?
     var waited = 0
+    let start = now(), limit = Double(Self.readFor) / 1000
     repeat {
       await wait(.milliseconds(Self.readEvery))
       waited += Self.readEvery
-      // One that can't be read is unknown, not refused.
-      let status = try? await call("GET", "/v1.0/iot-03/devices/\(Self.segment(device))/status")
+      // One that can't be read is unknown, not refused; one that hasn't answered by the end of the 3 seconds is given up.
+      let left = limit - now().timeIntervalSince(start)
+      let status = left > 0 ? try? await call("GET", "/v1.0/iot-03/devices/\(Self.segment(device))/status", timeout: left) : nil
       reported = status.flatMap { Self.outlets($0).first { $0.code == code }?.on }
-    } while reported != on && waited < Self.readFor
+    } while reported != on && waited < Self.readFor && now().timeIntervalSince(start) < limit
     return Switched(on: reported, confirmed: reported == on)
   }
 
   // MARK: Requests
 
   /// With the project's token; a stale one is replaced and the request asked once more.
-  private func call(_ method: String, _ path: String, query: [(String, String)] = [], body: [String: JSON]? = nil) async throws -> JSON {
+  private func call(_ method: String, _ path: String, query: [(String, String)] = [], body: [String: JSON]? = nil,
+                    timeout: TimeInterval? = nil) async throws -> JSON {
     do {
-      return try await request(method, path, query: query, body: body, token: accessToken())
+      return try await request(method, path, query: query, body: body, token: accessToken(), timeout: timeout)
     } catch PlugError.maker(let code) where Self.staleToken.contains(code) {
       token = nil
-      return try await request(method, path, query: query, body: body, token: accessToken())
+      return try await request(method, path, query: query, body: body, token: accessToken(), timeout: timeout)
     }
   }
 
@@ -170,7 +173,8 @@ public actor TuyaPlugs: PlugSource {
     return value
   }
 
-  private func request(_ method: String, _ path: String, query: [(String, String)], body: [String: JSON]?, token: String?) async throws -> JSON {
+  private func request(_ method: String, _ path: String, query: [(String, String)], body: [String: JSON]?, token: String?,
+                       timeout: TimeInterval? = nil) async throws -> JSON {
     // Signed with the query as it reads, sent percent-encoded (as Tuya's own SDKs do).
     let sorted = query.sorted { $0.0 < $1.0 }
     let signed = path + (sorted.isEmpty ? "" : "?" + sorted.map { "\($0)=\($1)" }.joined(separator: "&"))
@@ -180,6 +184,7 @@ public actor TuyaPlugs: PlugSource {
     var r = URLRequest(url: URL(string: sent, relativeTo: keys.dataCenter.host)!.absoluteURL)
     r.httpMethod = method
     r.httpShouldHandleCookies = false
+    if let timeout { r.timeoutInterval = max(timeout, 0.5) }
     r.setValue(keys.accessId, forHTTPHeaderField: "client_id")
     r.setValue(t, forHTTPHeaderField: "t")
     r.setValue(n, forHTTPHeaderField: "nonce")
@@ -191,7 +196,8 @@ public actor TuyaPlugs: PlugSource {
       r.httpBody = Data(text.utf8)
     }
     let data: Data
-    do { (data, _) = try await send(r) } catch let e as URLError { throw e.code == .cancelled ? CancellationError() : PlugError.offline }
+    // Cancelled only when this task was; URLSession giving up on its own is a lost answer, and a command may have gone.
+    do { (data, _) = try await send(r) } catch let e as URLError { throw e.code == .cancelled && Task.isCancelled ? CancellationError() : PlugError.offline }
     guard let o = (try? JSON.parse(data))?.object, case .bool(let success)? = o["success"] else { throw PlugError.badReply }
     guard success else { throw Self.error(o["code"]?.int ?? 0) }
     return o["result"] ?? .null
@@ -202,6 +208,7 @@ public actor TuyaPlugs: PlugSource {
     switch code {
     case 1001, 1004, 1005: .badKeys // secret invalid, sign invalid, clientId invalid
     case 1013: .clock // request time is invalid
+    case 1106: .noAccess // permission deny: no app account linked, another account's device, or another data center
     case 28841002, 28841003, 28841102, 28841103: .expired // cloud development plan (or API subscription) expired or overdue
     case 28841001, 28841101, 28841105, 28841106: .notSubscribed // no plan, API not subscribed, project not authorized
     case 28841004, 28841104: .quota // trial edition or API quota exhausted

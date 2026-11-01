@@ -51,13 +51,15 @@ final class PlugsModel {
     return .ok(list)
   }
 
-  /// Forgets the keys on this phone. The plug records on tanks stay; nothing is switched.
-  func removeKeys() async {
-    store.delete()
+  /// Forgets the keys on this phone. The plug records on tanks stay; nothing is switched. False when the Keychain kept
+  /// them: then nothing changes here.
+  func removeKeys() async -> Bool {
+    guard store.delete() else { return false }
     current = nil
     dataCenter = nil
     owner = nil
     await board.refresh(nil)
+    return true
   }
 
   private func use(_ keys: TuyaKeys, _ s: TuyaPlugs? = nil) {

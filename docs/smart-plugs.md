@@ -34,7 +34,9 @@ The free trial lasts about a month and must be renewed in the console (up to 6 m
 says so plainly (Tuya's code 28841002, "cloud development plan expired") and can't switch; the strips' own timers keep
 running. Wrong keys or the wrong data center (1001, 1004, 1005), no IoT Core (28841001, 28841101, 28841105), calls
 used up (28841004, 28841104) and the phone's clock being off (1013) are each said plainly too; a project with no
-Smart Life account linked lists no devices, and the app says to scan the QR code.
+Smart Life account linked lists no devices, and the app says to scan the QR code. Tuya refusing the project its
+devices (1106, "permission deny": no account linked, another account, or another data center) says the same, and to
+check the data center.
 
 What the app asks of Tuya: a token (`/v1.0/token`, kept until a minute before it expires; codes 1010, 1011 and 1012
 get a new one and the request is asked once more, nothing else is retried), the devices of the linked account
@@ -74,7 +76,8 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 - **A switch sets a state; it never toggles.** `{on: true}` twice leaves the outlet on, so a double tap or a repeated
   request does no harm.
 - **What the plug reports, not what was asked.** After a command the outlet is read back every 600 ms until the plug
-  reports the state asked for (up to 3 seconds); the app never shows a switch as changed before the plug says so.
+  reports the state asked for (up to 3 seconds by the clock: a slow read counts, and none is waited on past them); the
+  app never shows a switch as changed before the plug says so.
   Unconfirmed, or the answer lost (Tuya's error, no network), it reads the list again once, and doesn't send the switch
   again. A heater or CO2 outlet asks the reader to confirm first, either way: the wrong state can harm the fish, and
   which way is dangerous depends on the tank and the hour. So does an outlet with no role, or one the app doesn't
@@ -98,6 +101,9 @@ A plug's device record: `kind: "plug"`, `brand` the maker (`tuya`, `ewelink`), `
 the outlet's number from 0), what it powers (`role`: `light`, `co2`, `filter`, `heater`,
 `air`, `fan`, `other`; open, like `kind`) and an optional `label`. A strip is on one tank; its outlets are named there.
 The live state (on, off, online) is never stored: it comes from the maker's cloud each time.
+
+The site's "Bể của tôi" keeps a synced tank's plug records as they are but doesn't show them yet (only lights are
+listed, and counted when a tank is deleted). App builds from before plugs list them among a tank's lights.
 
 ## Later
 

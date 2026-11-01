@@ -57,6 +57,7 @@ enum PlugProblem {
     case .quota: String(localized: "Dự án đã dùng hết lượt gọi Tuya của gói lúc này: thử lại sau.")
     case .busy: String(localized: "Tuya đang bận: thử lại sau một lát.")
     case .clock: String(localized: "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.")
+    case .noAccess: String(localized: "Tuya không cho dự án xem thiết bị: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập) và kiểm tra trung tâm dữ liệu.")
     case .offline: String(localized: "Không có mạng hoặc Tuya không trả lời: thử lại khi có mạng.")
     case .maker(let code): String(localized: "Tuya từ chối (mã \(code)).")
     case .plugOffline: String(localized: "Mất kết nối")

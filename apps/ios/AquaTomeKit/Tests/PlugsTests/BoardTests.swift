@@ -128,6 +128,43 @@ func boardInFlight() async throws {
   #expect(c.posts == 1 && board.on(lamp) == false && board.switching.isEmpty)
 }
 
+/// A source whose switch ends cancelled after the command went.
+struct CancelledAfterSending: PlugSource {
+  let base: any PlugSource
+  var owner: String { base.owner }
+  func list() async throws -> PlugList { try await base.list() }
+  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
+    _ = try await base.set(provider: provider, device: device, outlet: code, on: on)
+    throw CancellationError()
+  }
+}
+
+@MainActor @Test("A switch that ends cancelled after its command may have gone: the list read once more says what the plug did")
+func boardSwitchCancelled() async throws {
+  let c = Cloud()
+  let board = PlugBoard()
+  await board.refresh(CancelledAfterSending(base: c.source()))
+  await board.set(lamp, on: false)
+  #expect(board.on(lamp) == false && board.outcome(lamp) == .confirmed)
+  #expect(c.posts == 1 && c.lists == 2)
+}
+
+@MainActor @Test("Keys removed or changed while a switch is on its way: its answer isn't shown")
+func boardKeysChangedMidSwitch() async throws {
+  let other = Cloud([])
+  for next in [nil, other.source(TuyaKeys(accessId: keys.accessId, accessSecret: keys.accessSecret, dataCenter: .india))] as [TuyaPlugs?] {
+    let c = Cloud()
+    let board = PlugBoard()
+    await board.refresh(c.source(wait: .milliseconds(50)))
+    let first = Task { await board.set(lamp, on: false) }
+    while !board.switching.contains(lamp) { await Task.yield() }
+    await board.refresh(next)
+    await first.value
+    #expect(c.posts == 1)
+    #expect(board.on(lamp) == nil && board.outcome(lamp) == nil, "the old project's answer was shown")
+  }
+}
+
 /// A source whose lists are answered at once, and reach the phone when the gate opens.
 struct Gated: PlugSource {
   let base: any PlugSource

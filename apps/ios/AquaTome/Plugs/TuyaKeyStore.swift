@@ -51,11 +51,13 @@ struct TuyaKeyStore {
     guard status == errSecSuccess else { throw NSError(domain: NSOSStatusErrorDomain, code: Int(status)) }
   }
 
-  @MainActor
-  func delete() {
+  /// Whether the keys are gone (deleted, or there were none).
+  @MainActor @discardableResult
+  func delete() -> Bool {
     #if DEBUG
-    if inMemory { Self.memory = nil; return }
+    if inMemory { Self.memory = nil; return true }
     #endif
-    SecItemDelete(query as CFDictionary)
+    let status = SecItemDelete(query as CFDictionary)
+    return status == errSecSuccess || status == errSecItemNotFound
   }
 }

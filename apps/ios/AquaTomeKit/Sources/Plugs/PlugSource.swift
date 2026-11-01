@@ -86,6 +86,9 @@ public enum PlugError: Error, Equatable, Sendable {
   case busy
   /// The phone's clock is too far off for the maker's cloud to take a request.
   case clock
+  /// The project may not reach this (Tuya's "permission deny"): no Smart Life account linked to it, another account's
+  /// device, or another data center.
+  case noAccess
   /// The plug is offline: nothing sent.
   case plugOffline
   /// Not one of the reader's plugs (or not listed by the last read), or an outlet it doesn't have.
@@ -99,7 +102,7 @@ public enum PlugError: Error, Equatable, Sendable {
   public var nothingSent: Bool {
     switch self {
     case .offline, .maker, .badReply: false
-    case .badKeys, .expired, .notSubscribed, .quota, .busy, .clock, .plugOffline, .noSuchPlug: true
+    case .badKeys, .expired, .notSubscribed, .quota, .busy, .clock, .noAccess, .plugOffline, .noSuchPlug: true
     }
   }
 }

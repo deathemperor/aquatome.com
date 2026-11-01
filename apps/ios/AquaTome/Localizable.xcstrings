@@ -1569,6 +1569,22 @@
         }
       }
     },
+    "Không xóa được khóa khỏi Keychain: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci tidak bisa dihapus dari Keychain: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบคีย์ออกจาก Keychain ไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.": {
       "localizations": {
         "id": {
@@ -2413,6 +2429,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ออนไลน์"
+          }
+        }
+      }
+    },
+    "Tuya không cho dự án xem thiết bị: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập) và kiểm tra trung tâm dữ liệu.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya tidak mengizinkan proyek melihat perangkatnya: tautkan akun Smart Life dengan kode QR (langkah 4 di pengaturan) dan periksa pusat datanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ไม่อนุญาตให้โปรเจกต์เห็นอุปกรณ์ เชื่อมบัญชี Smart Life ด้วยคิวอาร์โค้ด (ขั้นตอนที่ 4 ในการตั้งค่า) และตรวจสอบศูนย์ข้อมูล"
           }
         }
       }
