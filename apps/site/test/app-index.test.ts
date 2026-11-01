@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { breedGroup, type AppIndex } from '../src/lib/app-index'
+import { appIndex, breedGroup, type AppIndex } from '../src/lib/app-index'
+import { getContent } from '../src/lib/content'
 import { LANGS } from '../src/lib/i18n'
 import { DIST, page } from './dist'
 
@@ -87,6 +88,50 @@ test('guides carry their subject and the fish and plants they name, as their pag
   expect(guides.find(g => g.section === 'discovery')?.about).toContain('boraras-brigittae')
   // Fish and plants have neither.
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'section' in i || 'about' in i)).toBe(false)
+})
+
+test('a video series is an item (Vietnamese only, as its page is), and a video guide carries its length', () => {
+  const series = index('vi').items.filter(i => i.kind === 'video')
+  // The empty playlist has no guides, so it isn't listed.
+  expect(series.map(i => i.path)).toEqual(['/vi/video/reu-hai-tu-a-den-z/'])
+  expect(series[0]).toMatchObject({ name: 'Rêu hại từ A đến Z', sub: 'MJ Aquascaping', parts: 1 })
+  expect(series[0]!.img).toMatch(/^https:\/\//)
+  for (const lang of ['id', 'th']) expect(index(lang).items.some(i => i.kind === 'video'), lang).toBe(false)
+  const guides = index('vi').items.filter(i => i.kind === 'guide')
+  expect(guides.find(g => g.path === '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')?.video).toBe(1755)
+  expect(guides.find(g => g.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')).not.toHaveProperty('video')
+  expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'video' in i)).toBe(false)
+})
+
+test('a series none of whose guides is in the index isn\'t listed (its page is out of search engines); the biggest series first', async () => {
+  // The repository's content (the built site above is the fixture's): a series the index lists, its guides then left out.
+  const c = await getContent('vi')
+  const listed = appIndex('vi', c).items.filter(i => i.kind === 'video')
+  const s = c.series.find(x => listed.some(i => i.path === `/vi/video/${x.vi.slug}/`))
+  expect(s, 'a series in the index').toBeDefined()
+  const thin = { ...c, guides: c.guides.map(g => (g.video?.series?.id === s!.id ? { ...g, t: { ...g.t, quality: { ...g.t.quality, indexable: false } } } : g)) }
+  const after = appIndex('vi', thin).items.filter(i => i.kind === 'video')
+  expect(after.map(i => i.path)).toEqual(listed.map(i => i.path).filter(p => p !== `/vi/video/${s!.vi.slug}/`))
+  // As /vi/video/ lists them.
+  const parts = listed.map(i => i.parts!)
+  expect(parts).toEqual([...parts].sort((a, b) => b - a))
+}, 60_000) // reading the content and two indexes of it: seconds, more beside the other tests
+
+test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
+  for (const lang of LANGS) {
+    for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
+      const { dom } = page(tool.path)
+      const said = [
+        dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''),
+        dom.querySelector('p.intro')?.text,
+        dom.querySelector('meta[name="description"]')?.getAttribute('content'),
+      ]
+      // Each once, and not the name it's listed by.
+      expect(tool.words, tool.path).toEqual([...new Set(said.filter((s): s is string => !!s && s !== tool.name))])
+    }
+  }
+  expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
+  expect(index('vi').items.filter(i => i.kind !== 'tool').some(i => 'words' in i)).toBe(false)
 })
 
 test('fish come in the site\'s list order with their group, a breed with its parent\'s; plants with their care', () => {
