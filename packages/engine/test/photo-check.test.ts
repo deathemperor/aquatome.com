@@ -196,3 +196,35 @@ test('a usage limit stops the run with nothing lost', async () => {
   expect(out.stopped).toMatch(/usage limit/)
   expect(await urls(r, 'content/species/danio-rerio/entity.json')).toEqual(['a', 'b'])
 })
+
+test('a download that is not an image is left out, and the rest of its sheet is judged', async () => {
+  const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a', 'html', 'b'] }])
+  const d = model({})
+  const out = await checkPagePhotos(r, { ...d, get: async u => (u.includes('html') ? new TextEncoder().encode('<html>gone</html>') : d.get(u)) }, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([['a', 'b']])
+  expect(out.failed).toHaveLength(1)
+  expect(await urls(r, 'content/species/danio-rerio/entity.json')).toEqual(['a', 'html', 'b'])
+})
+
+test('a guide keeps a page\'s photo that is not of the fish (a map, a tank), but not one of another fish', async () => {
+  const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['map', 'guppy'] }], { biotope: { photos: [photo('map'), photo('guppy')] } })
+  await checkPagePhotos(r, model({ map: { ok: 'none', note: 'a range map' }, guppy: { ok: 'other', note: 'a guppy' } }), { limit: 10 })
+  expect(await urls(r, 'content/species/danio-rerio/entity.json')).toEqual([])
+  expect(await urls(r, 'content/guides/biotope/entity.json')).toEqual(['map'])
+  expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json')).map(name)).toEqual(['guppy'])
+  const doc = await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')
+  expect(doc).toContain('## Removed (2)')
+  expect(doc).toMatch(/## Left with no photo \(1\)\n\n- species\/danio-rerio\n/)
+})
+
+test('a verdict against a guide caption doesn\'t stand for the page: the same photo on the page is looked at again', async () => {
+  const r = await root([{ id: 'paracheirodon-innesi', sci: 'Paracheirodon innesi', vi: { name: 'Cá neon', altNames: ['Neon tetra'] } }], { tetras: { photos: [photo('mixed', 'Neon tetra school with rummynose tetras')] } })
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('mixed')]['paracheirodon-innesi'].guide).toBe(true)
+  const file = join(r, 'content/species/paracheirodon-innesi/entity.json')
+  await writeFile(file, JSON.stringify({ id: 'paracheirodon-innesi', scientificName: 'Paracheirodon innesi', photos: [photo('mixed')] }))
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([['mixed'], ['mixed']])
+  expect(d.seen[1]!.prompt).not.toContain('from a guide')
+})

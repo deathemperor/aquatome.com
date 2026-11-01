@@ -184,9 +184,10 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it, its wild habitat, something else (it says what), not a
     photo of it (a map, chart, hands, a tank, a packshot), or can't tell. "Something else" and "not a photo of it" leave
     the page; a photo no page keeps joins `_photo-rejected.json`. Can't tell stays and is listed in
-    `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; nothing is
-    pulled in to replace it). A guide photo whose caption names one fish is judged against it, and only "something
-    else" leaves a guide. Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
+    `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
+    puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
+    guide photo whose caption names one fish is judged against what the caption says, and only "something else"
+    leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer

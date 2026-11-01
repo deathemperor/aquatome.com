@@ -1,6 +1,7 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan } from './gallery-plan'
 import { contactSheet } from './video-images'
@@ -10,9 +11,10 @@ type Photo = { url: string; caption?: string }
 /**
  * Does the photo show its page's subject: yes; another species, breed or variety (`note` says which); not a photo of the
  * subject at all (a map, chart, hands, a tank, a packshot); its wild habitat; or can't tell. `no` is the first check's
- * verdict (before 2026-11-02), which didn't tell the two apart.
+ * verdict (before 2026-11-02), which didn't tell the two apart. `guide`: judged against a guide photo's caption, which
+ * lets other fish into the shot, so it doesn't stand for the page's own stricter look.
  */
-export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'no'; typical: boolean; note: string }
+export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'no'; typical: boolean; note: string; guide?: boolean }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
@@ -170,8 +172,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // The first check judged a page's own photos one page at a time: its verdict holds where the photo is on one page only.
   const pagesOf = new Map<string, Set<string>>()
   for (const x of shown) if (x.page) pagesOf.set(x.url, (pagesOf.get(x.url) ?? new Set()).add(x.page))
-  const verdict = (url: string, page: string): PhotoVerdict | undefined => cache[url]?.[page]
-    ?? (legacy[url] && legacy[url].ok !== 'unsure' && pagesOf.get(url)?.size === 1 ? legacy[url] : undefined)
+  const verdict = (url: string, page: string, strict = true): PhotoVerdict | undefined => {
+    const v = cache[url]?.[page]
+    return (v && !(strict && v.guide) ? v : undefined) ?? (legacy[url] && legacy[url].ok !== 'unsure' && pagesOf.get(url)?.size === 1 ? legacy[url] : undefined)
+  }
 
   // 1. The model judges photos not judged yet, most-read pages first: what each page shows itself (its photos, its gallery
   // strip, guide photos naming it), then the rest of each gallery.
@@ -180,7 +184,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const later of [false, true]) for (const s of all) {
     if (sheets.length >= o.limit) break
     if (o.only && s.id !== o.only) continue
-    const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && !verdict(x.url, s.id) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
+    const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && !verdict(x.url, s.id, !x.guide) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
     for (const u of todo) queued.add(`${s.id}\n${u}`)
     for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
   }
@@ -190,20 +194,25 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (report.stopped) return
       const ok: { url: string; b: Buffer }[] = []
       for (const url of urls) {
-        try { ok.push({ url, b: Buffer.from(await d.get(url)) }) } catch (err) { report.failed.push(`${s.id}: ${url}: ${(err as Error).message.slice(0, 120)}`) }
+        try {
+          const b = Buffer.from(await d.get(url))
+          await sharp(b).metadata() // not an image (an error page served as 200): left out, so the rest of the sheet is judged
+          ok.push({ url, b })
+        } catch (err) { report.failed.push(`${s.id}: ${url}: ${(err as Error).message.slice(0, 120)}`) }
       }
       if (!ok.length) return
       // A guide's caption goes with a photo judged here only because of it (a photo on the page itself is the page's).
       const caption = (url: string) => (shown.some(x => x.url === url && x.page === s.id && !x.guide) ? undefined : shown.find(x => x.url === url && x.page === s.id)?.caption)
+      const captions = ok.map(x => caption(x.url))
       try {
         const sheet = join(dir, `sheet-${i}.jpg`)
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await d.look(sheet, subjectPrompt(s, ok.map(x => caption(x.url))))
+        const v = await d.look(sheet, subjectPrompt(s, captions))
         report.sheets++
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]
           if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
-          cache[x.url] = { ...cache[x.url], [s.id]: { ok: p.ok, typical: !!p.typical, note: String(p.note ?? '').slice(0, 120) } }
+          cache[x.url] = { ...cache[x.url], [s.id]: { ok: p.ok, typical: !!p.typical, note: String(p.note ?? '').slice(0, 120), ...(captions[p.n - 1] ? { guide: true } : {}) } }
           report.judged++
         }
       } catch (err) {
@@ -215,16 +224,25 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     await rm(dir, { recursive: true, force: true })
   }
 
-  // 2. Rejected photos leave their pages; a photo every page showing it rejects is rejected for good.
-  const off = (x: Shown) => {
-    const v = x.page ? verdict(x.url, x.page) : undefined
+  // 2. Rejected photos leave their pages; a photo everywhere it is shown rejects is rejected for good.
+  const onPages = new Map<string, Shown[]>()
+  const everywhere = new Map<string, Shown[]>()
+  for (const x of shown) {
+    everywhere.set(x.url, [...(everywhere.get(x.url) ?? []), x])
+    if (x.page) onPages.set(x.url, [...(onPages.get(x.url) ?? []), x])
+  }
+  const off = (x: Shown): boolean => {
+    if (!x.page) {
+      // A guide photo that is a page's photo goes with it where it shows another fish (a map or a tank may be the guide's point).
+      const xs = onPages.get(x.url) ?? []
+      return xs.length > 0 && xs.every(off) && xs.some(p => verdict(p.url, p.page!, !p.guide)!.ok !== 'none')
+    }
+    const v = verdict(x.url, x.page, !x.guide)
     return !!v && (x.guide ? v.ok === 'other' : OFF.has(v.ok))
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
-  const onPages = new Map<string, Shown[]>()
-  for (const x of shown) if (x.page) onPages.set(x.url, [...(onPages.get(x.url) ?? []), x])
   const added: Record<string, string> = {}
-  for (const [url, xs] of onPages) if (!(url in rejected) && xs.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!)!.note}`
+  for (const [url, xs] of onPages) if (!(url in rejected) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   const blocked = (file: string) => (url: string) => url in rejected || url in added || offAt.has(`${file}\n${url}`)
   for (const file of [...new Set(shown.map(x => x.file))]) {
@@ -270,11 +288,13 @@ export function reviewDoc(all: Subject[], cache: Record<string, Record<string, P
   const rows = Object.entries(cache).flatMap(([url, by]) => Object.entries(by).filter(([id]) => page.has(id)).map(([id, v]) => ({ url, id, v })))
   const order = new Map(all.map((s, i) => [s.id, i]))
   const sort = <T extends { id: string; url: string }>(xs: T[]) => xs.sort((a, b) => order.get(a.id)! - order.get(b.id)! || a.url.localeCompare(b.url))
-  const shown = new Set(still.map(x => `${x.page}\n${x.url}`))
-  const removed = sort(rows.filter(r => (r.v.ok === 'other' || r.v.ok === 'none') && !shown.has(`${r.id}\n${r.url}`)))
-  const unsure = sort(rows.filter(r => r.v.ok === 'unsure' && shown.has(`${r.id}\n${r.url}`)))
-  const emptied = all.filter(s => left.get(s.id) === 0 && removed.some(r => r.id === s.id))
-  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)} | [photo](${r.url}) | ${cell(r.v.note)} |`).join('\n')
+  // A page verdict is about the page's own photos and gallery; a guide verdict about guide photos naming the page.
+  const shown = new Set(still.filter(x => x.page).map(x => `${x.page}\n${x.url}\n${!!x.guide}`))
+  const on = (r: (typeof rows)[number]) => shown.has(`${r.id}\n${r.url}\n${!!r.v.guide}`)
+  const removed = sort(rows.filter(r => (r.v.ok === 'other' || r.v.ok === 'none') && !on(r)))
+  const unsure = sort(rows.filter(r => r.v.ok === 'unsure' && on(r)))
+  const emptied = all.filter(s => left.get(s.id) === 0 && removed.some(r => r.id === s.id && !r.v.guide))
+  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)}${r.v.guide ? ' (a guide photo)' : ''} | [photo](${r.url}) | ${cell(r.v.note)} |`).join('\n')
   const doc = `# Photos that don't show their page's subject
 
 Written by \`pnpm engine check-photos\` (${today}), most-read pages first. Rules: docs/governance.md, "Photos".
