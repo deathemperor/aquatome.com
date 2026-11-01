@@ -14,6 +14,7 @@ import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { readerReport, readPages } from './reader'
+import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
@@ -79,7 +80,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -293,6 +294,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
   const changed = await metricPages(join(ROOT, 'content'), ROOT)
   console.log(`metric: ${changed.length} pages${changed.length ? `: ${changed.slice(0, 20).join(', ')}${changed.length > 20 ? ', …' : ''}` : ''}`)
+} else if (cmd === 'sweep') {
+  // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
+  // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map
+  // taken off the page, card figures out of bounds hidden, titles promising a count the text lacks rewritten (--titles N
+  // model rewrites a run, reviewer-gated; 0: none) or their number dropped.
+  const titles = Number(values.titles ?? 3)
+  const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`)]) console.log(x)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -313,10 +323,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // A reader's eye on a few pages a cycle (reader.ts): the model reads each as a reader would, against a rubric; Vietnamese
   // wording it flags is rewritten, reviewer-gated, the rest goes to docs/review/reader.md. READER_MODEL: the reading model (default opus).
   // pnpm engine reader [--limit N] [--rewrites N] [--only vi/guides/<id>,id/species/<id>: these, read or not]
+  // [--popular: the backfill, the most-read pages first (Vietnamese, then the species and plants most kept and sold, then
+  // guides), e.g. --popular --limit 300 --rewrites 30]
   const pages = await loadPages(join(ROOT, 'content'))
   // Opus by default: on the same pages Sonnet reported findings it then called fine, and took a local name for a mistake.
   const deps = { llm: claudeCli, now: () => new Date(), model: process.env.READER_MODEL ?? 'opus' }
-  const { report: r, state } = await readPages(ROOT, pages, deps, { limit: Number(values.limit ?? 20), rewrites: Number(values.rewrites ?? 3), ...(values.only ? { only: values.only.split(',') } : {}) })
+  const popular = values.popular ? popularityOrder(await popularFirst(ROOT)) : []
+  const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return i >= 0 && (p.kind === 'species' || p.kind === 'plants') ? i : popular.length + (p.kind === 'guides' ? 0 : 1) }
+  const { report: r, state } = await readPages(ROOT, pages, deps, { limit: Number(values.limit ?? 20), rewrites: Number(values.rewrites ?? 3), ...(values.only ? { only: values.only.split(',') } : {}), ...(values.popular ? { rank } : {}) })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/reader.md'), readerReport(r.rewritten.length ? await loadPages(join(ROOT, 'content')) : pages, state))
   console.log(`reader: ${r.read.length} pages read, ${r.findings} findings, ${r.rewritten.length} parts rewritten, ${r.notKept.length} not kept, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)

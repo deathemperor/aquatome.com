@@ -117,11 +117,6 @@ if part pages sf photos; then
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 fi
-if part photos; then
-  # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
-  # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
-  pnpm engine audit || log "audit: failed"
-fi
 if part rewrite; then
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
   # leads for breed and guide research (forum.ts).
@@ -157,6 +152,16 @@ if part rewrite; then
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
+# The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
+# comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
+# fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
+# rewritten (reviewer-gated) or their number dropped.
+pnpm engine sweep || log "sweep: failed"
+if part photos; then
+  # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
+  # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
+  pnpm engine audit || log "audit: failed"
+fi
 if [ -z "$(git status --porcelain -- content sources)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.

@@ -151,3 +151,44 @@ test('a usage limit stops the sweep with what it has saved', async () => {
   expect(report.stopped).toMatch(/^vi\/guides\/a: usage limit/)
   expect(calls).toEqual(['read'])
 })
+
+test('"Trang lưu ý…" goes to the writer with the reader\'s findings: a page read before is due once for it, then not', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rr-'))
+  await mkdir(join(root, 'content', 'species', 's'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const sections = { 'notes:sprucepets': '<p>Cá hiền. Trang lưu ý rằng chúng không thực sự làm sạch bể.</p>' }
+  await writeFile(join(root, 'content', 'species', 's', 'vi.json'), JSON.stringify({ slug: 's', name: 'Cá', sections }))
+  const p = page({ kind: 'species', id: 's', path: '/vi/ca/s/', fields: [{ field: 'sections.notes:sprucepets', html: sections['notes:sprucepets'] }], en: { 'sections.notes:sprucepets': '<p>Peaceful. They do not really clean the tank.</p>' } })
+  // Read before this rule existed, unchanged since: due once for it.
+  const state: ReaderState = { 'vi/species/s': { at: '2026-10-01', hash: readerText(p).hash, findings: [] } }
+  expect(duePages([p], state).map(pageKey)).toEqual(['vi/species/s'])
+  expect(duePages([p], { 'vi/species/s': { ...state['vi/species/s']!, ruled: readerText(p).hash } })).toEqual([])
+  await writeFile(join(root, 'engine-state', '_reader.json'), JSON.stringify(state))
+  // The reader itself finds nothing; the rule's finding is rewritten and kept.
+  const { llm, calls } = fakeLlm({ findings: [], rewrite: v => v.replace('Trang lưu ý rằng chúng', 'Chúng'), score: 0.9 })
+  const { report, state: after } = await readPages(root, [p], { llm, now: () => new Date('2026-11-01T00:00:00Z') }, { limit: 20, rewrites: 3 })
+  expect(calls).toEqual(['read', 'rewrite', 'review'])
+  expect(report.rewritten).toEqual(['vi/species/s sections.notes:sprucepets (0.90)'])
+  const stored = JSON.parse(await readFile(join(root, 'content', 'species', 's', 'vi.json'), 'utf8')).sections['notes:sprucepets']
+  expect(stored).toBe('<p>Cá hiền. Chúng không thực sự làm sạch bể.</p>')
+  expect(after['vi/species/s']!.ruled).toBe(after['vi/species/s']!.hash)
+  // A rewrite the reviewer fails: the page is not due again for it until its text changes.
+  const failing = fakeLlm({ findings: [], rewrite: v => v, score: 0.3 })
+  const st: ReaderState = { 'vi/species/s': { at: '2026-10-01', hash: readerText(p).hash, findings: [] } }
+  await writeFile(join(root, 'content', 'species', 's', 'vi.json'), JSON.stringify({ slug: 's', name: 'Cá', sections }))
+  await writeFile(join(root, 'engine-state', '_reader.json'), JSON.stringify(st))
+  const r2 = await readPages(root, [p], { llm: failing.llm, now: () => new Date('2026-11-01T00:00:00Z') }, { limit: 20, rewrites: 3 })
+  expect(r2.report.notKept).toHaveLength(1)
+  expect(duePages([p], r2.state)).toEqual([])
+})
+
+test('the backfill: the most-read pages first, Vietnamese first, then the reader\'s usual order', () => {
+  const pages = [
+    page({ id: 'g1', path: '/vi/huong-dan/g1/' }), page({ kind: 'species', id: 'rare', path: '/vi/ca/rare/' }),
+    page({ kind: 'species', id: 'betta', path: '/vi/ca/betta/' }), page({ lang: 'id', kind: 'species', id: 'betta', path: '/id/ikan/betta/' }),
+  ]
+  const order = ['betta', 'rare']
+  const rank = (p: Page) => (p.kind === 'species' && order.includes(p.id) ? order.indexOf(p.id) : order.length)
+  expect(duePages(pages, {}, rank).map(pageKey)).toEqual(['vi/species/betta', 'vi/species/rare', 'vi/guides/g1', 'id/species/betta'])
+  expect(duePages(pages, {}).map(pageKey)).toEqual(['vi/guides/g1', 'vi/species/betta', 'vi/species/rare', 'id/species/betta'])
+})

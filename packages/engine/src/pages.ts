@@ -45,7 +45,7 @@ export const pagePath = (lang: Lang, kind: PageKind, slug: string) => `/${lang}/
 
 const ORDER = new Map<string, number>(SECTION_ORDER.map((k, i) => [k, i]))
 /** A species or plant page's sections in the schema's order (`key:source`); the sources' references last. */
-const sectionFields = (sections: Record<string, string>) => Object.entries(sections)
+export const sectionFields = (sections: Record<string, string>) => Object.entries(sections)
   .sort(([a], [b]) => (ORDER.get(a.split(':')[0]!) ?? 99) - (ORDER.get(b.split(':')[0]!) ?? 99) || a.localeCompare(b))
   .map(([k, html]) => ({ field: `sections.${k}`, html }))
 

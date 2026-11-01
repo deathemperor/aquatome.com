@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest'
 import {
-  blocks, checkPages, countMismatch, emptySections, englishSentences, fixTranslation, furniture, imperialUnits, leftoverMarkup,
-  numberSlips, otherFish, plainEntities, RULES, rulesReport, titleCount, vietnameseLeft, type Ctx,
+  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropRepeats, emptySections, englishSentences, fixTranslation, furniture,
+  imperialUnits, labelSlips, leftoverMarkup, numberSlips, otherFish, plainEntities, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, type Page } from '../src/pages'
 
@@ -136,4 +137,113 @@ test('the fixes made on write, on a stored translation: HTML tidied, plain text 
   expect(out.faq).toEqual([{ q: 'Q & A?', a: 'Có.' }])
   expect(Object.keys(out)).toEqual(Object.keys(t))
   expect(fixTranslation(out)).toEqual(out)
+})
+
+test('a title\'s count held by numbered labels or as many bold leads; else the number dropped from the title', () => {
+  // "13 mẹo…": Mẹo 1 to Mẹo 13 as bold leads under 8 headings; "10 sai lầm…" numbered out of order; "7 nguyên nhân" as 7 bold leads.
+  const tips = `<h3>A</h3>${Array.from({ length: 13 }, (_, i) => `<p><strong>Mẹo ${i + 1}: x.</strong> y</p>`).join('')}`
+  expect(countMismatch('13 mẹo giữ bể mới', tips)).toBeUndefined()
+  expect(countMismatch('10 sai lầm hay gặp', [1, 9, 2, 3, 4, 5, 6, 7, 8, 10].map(n => `<p><strong>Sai lầm ${n}:</strong> x</p>`).join(''))).toBeUndefined()
+  expect(countMismatch('Rêu râu đen BBA: 7 nguyên nhân', `<h3>Ba nguyên nhân</h3>${'<p><strong>X.</strong> y</p>'.repeat(7)}`)).toBeUndefined()
+  expect(countMismatch('Rêu râu đen BBA: 7 nguyên nhân', `<h3>Ba nguyên nhân</h3>${'<p><strong>X.</strong> y</p>'.repeat(5)}`)).toBe('title promises 7; 1 headings, none numbered')
+  expect(stripCount('10 cách xử lý rêu hại nhanh cho bể thủy sinh')).toBe('Cách xử lý rêu hại nhanh cho bể thủy sinh')
+  expect(stripCount('Rêu râu đen BBA: 7 nguyên nhân và cách phòng')).toBe('Rêu râu đen BBA: nguyên nhân và cách phòng')
+  expect(stripCount('Top 5 loài cá tầng đáy')).toBe('Loài cá tầng đáy')
+  expect(stripCount('7 Jenis Ikan Hias untuk Pemula')).toBe('Jenis Ikan Hias untuk Pemula')
+  expect(stripCount('ไม้น้ำ 10 ชนิด สำหรับมือใหม่')).toBe('ไม้น้ำ สำหรับมือใหม่')
+  expect(stripCount('Bể 60 cm cho người mới')).toBe('Bể 60 cm cho người mới')
+})
+
+test('numbered labels out of order are numbered again as they appear; counting up, down, or two runs are fine', () => {
+  const html = '<h3>CO2</h3><p><strong>Sai lầm 1: không dùng drop checker.</strong> a</p><p><strong>Sai lầm 9: không hiệu chuẩn.</strong> b</p><h3>Set bể</h3><p><strong>Sai lầm 2: set giữa hè.</strong> c</p><p><strong>Sai lầm 10: bỏ thay nước.</strong> d</p>'
+  expect(labelSlips(html)).toEqual(['"sai lầm" 1, 9, 2, 10'])
+  expect(renumberLabels(html)).toBe('<h3>CO2</h3><p><strong>Sai lầm 1: không dùng drop checker.</strong> a</p><p><strong>Sai lầm 2: không hiệu chuẩn.</strong> b</p><h3>Set bể</h3><p><strong>Sai lầm 3: set giữa hè.</strong> c</p><p><strong>Sai lầm 4: bỏ thay nước.</strong> d</p>')
+  for (const ok of ['<p>Bước 1: a</p><p>Bước 2: b</p>', '<p>Mẹo 3. a</p><p>Mẹo 2. b</p><p>Mẹo 1. c</p>', '<p>Cách 1: a</p><p>Cách 2: b</p><p>Cách 1: c</p><p>Cách 2: d</p>', '<p>Có 3 cách: một, hai, ba.</p>']) {
+    expect(labelSlips(ok)).toEqual([])
+    expect(renumberLabels(ok)).toBe(ok)
+  }
+  expect(found(page({ fields: [{ field: 'body', html }] }), 'labels')).toEqual(['"sai lầm" 1, 9, 2, 10'])
+})
+
+test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {
+  expect(furniture('<h3>7 ý kiến về “Infusoria”</h3><ul><li>a</li></ul><h3>12 thoughts on “Lava rock”</h3><p>Bài viết liên quan:</p><ul><li>x</li></ul><p>Leave a Reply</p>'))
+    .toEqual(['7 ý kiến về “Infusoria”', '12 thoughts on “Lava rock”', 'Bài viết liên quan:', 'Leave a Reply'])
+  // In a sentence, a phrase is the text's own.
+  expect(furniture('<p>Bài viết liên quan đến chủ đề này cho thấy cá cần bể lớn.</p><p>Hãy để lại bình luận nếu bạn có câu hỏi về bể.</p>')).toEqual([])
+  const long = 'Đá dung nham tự nhiên là vật liệu trơ, không làm đổi thông số nước trong bể của bạn.'
+  // Related posts in the middle of the text: the line and its list, not what follows.
+  expect(cutFurniture(`<h3>A</h3><p>${long}</p><p>Bài viết liên quan:</p><ul><li>15+ thức ăn sống</li></ul><p>${long}</p><h3>B</h3><p>${long}</p>`)).toBe(`<h3>A</h3><p>${long}</p><p>${long}</p><h3>B</h3><p>${long}</p>`)
+  // Comments with their readers' names, up to the next heading; the comment form after them.
+  expect(cutFurniture(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li><p><strong>Marcia:</strong> Hỏi.</p></li></ul><h3>Để lại bình luận</h3>`)).toBe(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p>`)
+  // Never more than half a text: a page that is mostly comments is left as it is (and listed).
+  const most = `<p>Ngắn.</p><h3>Bình luận của độc giả</h3><p>${long}</p><p>${long}</p>`
+  expect(cutFurniture(most)).toBe(most)
+  expect(found(page({ fields: [{ field: 'body', html: most }] }), 'furniture')).toEqual(['"Bình luận của độc giả"'])
+})
+
+test('empty headings dropped, also one left empty when the numbered item under it goes', () => {
+  expect(dropEmptyHeadings('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p><h3>Sản phẩm</h3>')).toBe('<h3>Tép ong</h3><p>a</p>')
+  expect(dropEmptyHeadings('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')).toBe('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')
+  expect(dropEmptyHeadings('<p>a</p><h3>Ưu điểm</h3><h3>1. Nhẹ</h3>')).toBe('<p>a</p>')
+  expect(emptySections(dropEmptyHeadings('<h3>A</h3><h3>B</h3><h3>C</h3><p>x</p><h3>D</h3>'))).toEqual([])
+})
+
+test('a repeated paragraph: the later copy goes, in reading order across a page\'s texts; reference lists stay', () => {
+  const p = 'Nơi thu mẫu chuẩn là sông Mangar, cách cảng Balikpapan khoảng 25 km, thuộc Đông Kalimantan.'
+  expect(dropRepeats([
+    { field: 'sections.distribution:sf', html: `<p>${p}</p>` }, { field: 'sections.habitat:sf', html: `<p>${p}</p><p>Suối rừng.</p>` },
+    { field: 'sections.references:sf', html: `<p>${p}</p>` }, { field: 'body', html: `<ul><li><p>${p}</p></li></ul><p>Ngắn. Ngắn.</p><p>Ngắn. Ngắn.</p>` },
+  ])).toEqual([
+    { field: 'sections.distribution:sf', html: `<p>${p}</p>` }, { field: 'sections.habitat:sf', html: '<p>Suối rừng.</p>' },
+    { field: 'sections.references:sf', html: `<p>${p}</p>` }, { field: 'body', html: '<p>Ngắn. Ngắn.</p><p>Ngắn. Ngắn.</p>' },
+  ])
+  // Within one text: a short line a list repeats under each item is the text's own (the nitrate guide's plants); a block
+  // pasted twice is not (Ốc ao nhỏ's quick facts).
+  const easy = 'Cây dễ chăm và nhân giống bằng cách cắt ngọn hoặc tách chồi bên.'
+  const plants = `<h3>Rong đuôi chó</h3><p>pH 6–8.</p><p>${easy}</p><h3>Elodea</h3><p>pH 6,5–9.</p><p>${easy}</p>`
+  expect(dropRepeats([{ field: 'body', html: plants }])[0]!.html).toBe(plants)
+  expect(found(page({ fields: [{ field: 'body', html: plants }] }), 'repeated')).toEqual([])
+  const facts = ['Ốc trưởng thành cũng chỉ dài được khoảng 2 cm và rộng 1,2 cm, rất nhỏ so với ốc khác.', 'Vỏ. Vỏ hình nón, xoắn phải, chóp thường nhọn, đôi khi có vân tăng trưởng.'].map(t => `<p>${t}</p>`).join('')
+  expect(dropRepeats([{ field: 'sections.quickFacts:ab', html: facts + facts }])[0]!.html).toBe(facts)
+  expect(found(page({ fields: [{ field: 'sections.quickFacts:ab', html: facts + facts }] }), 'repeated')).toHaveLength(2)
+})
+
+test('a photo the sweep takes off: another species the site has, with nothing saying the fish is still the page\'s', () => {
+  const ctx: Ctx = { genera: new Set(['Garra', 'Corydoras', 'Gymnocorymbus', 'Anostomus', 'Aphyosemion', 'Rasboroides']), species: new Set(['garra flavatra', 'corydoras sterbai', 'gymnocorymbus ternetzi', 'aphyosemion elberti', 'aphyosemion bivittatum', 'rasboroides vaterifloris']) }
+  expect(wrongFish('A Black Widow Tetra (Gymnocorymbus ternetzi).', 'Corydoras adolfoi', [], ctx)).toBe('Gymnocorymbus ternetzi')
+  expect(wrongFish('♂ Aphyosemion bivittatum (syn. Chromaphyosemion bivittatum)', 'Aphyosemion bitaeniatum', [], ctx)).toBe('Aphyosemion bivittatum')
+  // Found on the site: each of these shows the page's own fish.
+  expect(wrongFish('Specimen from the Thai aquarium trade, imported as a contaminant in a batch of wild Garra flavatra.', 'Garra rakhinica', [], ctx)).toBeUndefined()
+  expect(wrongFish('...and are peaceful with other species. Here with Garra flavatra.', 'Lepidocephalichthys guntea', [], ctx)).toBeUndefined()
+  expect(wrongFish('Putative wild-collected adult male imported to Singapore among a shipment of Rasboroides vaterifloris.', 'Puntius titteya', [], ctx)).toBeUndefined()
+  expect(wrongFish('Male Aphyosemion elberti "Red T". It was known at the time as Aphyosemion bual', 'Aphyosemion bualanum', [], ctx)).toBeUndefined()
+  // A species no page has is listed for a person, not taken off.
+  expect(wrongFish('Anostomus brevior in French Guiana', 'Anostomus anostomus', [], ctx)).toBeUndefined()
+  expect(otherFish('Anostomus brevior in French Guiana', 'Anostomus anostomus', [], ctx)).toBe('Anostomus brevior')
+  const p = page({ kind: 'species', sci: 'Garra rakhinica', captions: [{ url: 'a', caption: 'imported as a contaminant in a batch of wild Garra flavatra' }, { url: 'b', caption: 'Garra flavatra' }] })
+  // The site's species are its pages': here Garra flavatra has one.
+  const withPage = (rule: string) => checkPages([p, page({ kind: 'species', id: 'gf', sci: 'Garra flavatra' })], RULES.filter(r => r.id === rule)).findings.map(f => f.detail)
+  expect(withPage('caption')).toEqual(['Garra flavatra: "Garra flavatra"'])
+  expect(withPage('caption-unsure')).toEqual(['Garra flavatra: "imported as a contaminant in a batch of wild Garra flavatra"'])
+})
+
+test('card figures to keep off the page: the tank shorter than twice the fish, not the fish; a size out of bounds sets no bar', () => {
+  const card = [{ field: 'sizeCm' as const, value: 90 }, { field: 'tankCm' as const, value: 150 }, { field: 'tankCm' as const, value: 200 }, { field: 'sizeCm' as const, value: 400 }]
+  expect(cardSlips(card).map(s => [s.v.field, s.v.value, s.why])).toEqual([['sizeCm', 400, 'outside 0.3–300'], ['tankCm', 150, 'shorter than twice the fish (90 cm)']])
+})
+
+test('text reporting what "the page" says: found with its sentence, in three languages', () => {
+  const p = page({ kind: 'species', fields: [{ field: 'sections.notes:sprucepets', html: '<p>Cá hiền. Trang lưu ý rằng chúng không thực sự làm sạch bể. Nuôi theo đàn.</p>' }, { field: 'sections.references:x', html: '<p>Trang nêu ở trên.</p>' }] })
+  expect(sourcePagePhrases(p)).toEqual([{ field: 'sections.notes:sprucepets', quote: 'Trang lưu ý rằng chúng không thực sự làm sạch bể.' }])
+  expect(sourcePagePhrases(page({ lang: 'id', fields: [{ field: 'body', html: '<p>Halaman ini juga menyebutkan suhu 26 °C.</p>' }] }))).toHaveLength(1)
+  expect(sourcePagePhrases(page({ lang: 'th', fields: [{ field: 'body', html: '<p>ในหน้านี้ระบุว่าปลาชอบน้ำเย็น</p>' }] }))).toHaveLength(1)
+  expect(sourcePagePhrases(page({ fields: [{ field: 'body', html: '<p>Trang trí bể bằng đá. Trang web của hãng ghi rõ liều. Với bể 100 lít, trang ghi đủ các mục sau:</p>' }] }))).toEqual([])
+})
+
+test('imperial figures, as the metric test finds them: a unit named with no figure is none', () => {
+  const p = (t: string) => page({ fields: [{ field: 'body', html: `<p>${t}</p>` }] })
+  expect(found(p('Aquaclear phân loại máy bơm theo dung tích bể khuyến nghị, tính bằng gallon Mỹ.'), 'imperial')).toEqual([])
+  expect(found(p('Berapa liter atau galon air untuk satu koi?'), 'imperial')).toEqual([])
+  expect(found(p('Sumber lain menaikkan suhu ke 86–88 (kemungkinan °F).'), 'imperial')).toEqual(['"86–88 (kemungkinan °F)"'])
+  expect(found(p('bể 20 gallon cho bộ ba'), 'imperial')).toEqual(['"20 gallon"'])
 })

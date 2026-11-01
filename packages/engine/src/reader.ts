@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { metricPage, QUALITY_THRESHOLD, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { blocks } from './content-rules'
+import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
 import type { Page } from './pages'
 import { reviewRewrite, reviewTranslation } from './quality'
@@ -48,6 +48,8 @@ export type ReaderEntry = {
   findings: (ReaderFinding & { field?: string })[]
   /** Rewrites the reader asked for: kept (the reviewer passed them) or not. */
   rewrites?: { at: string; field: string; score: number; kept: boolean; problems: string[] }[]
+  /** The text (hash) the content rules' findings were last sent to a rewrite with (sourcePagePhrases), kept or not. */
+  ruled?: string
 }
 export type ReaderState = Record<string, ReaderEntry>
 
@@ -93,11 +95,28 @@ export async function sourcesText(root: string, p: Page): Promise<string> {
   return raw.replace(/^---[\s\S]*?---\s*/, '').slice(0, SOURCE_CHARS)
 }
 
-/** Pages to read: not read yet, then changed since they were read, the longest ago first; Vietnamese, then guides, first. */
-export function duePages(pages: Page[], state: ReaderState): Page[] {
+/**
+ * Pages to read: not read yet, then changed since they were read, the longest ago first; Vietnamese, then guides, first.
+ * A page a content rule sends to a rewrite (sourcePagePhrases) is due once for its text too. `rank` (the backfill): the
+ * most-read pages first, by language, then by their place in it (lower first).
+ */
+export function duePages(pages: Page[], state: ReaderState, rank?: (p: Page) => number): Page[] {
   const order = (p: Page) => [state[pageKey(p)]?.at ?? '', LANG_ORDER.indexOf(p.lang), KIND_ORDER.indexOf(p.kind), p.path] as const
-  return pages.filter(p => state[pageKey(p)]?.hash !== readerText(p).hash)
-    .sort((a, b) => { const [x, y] = [order(a), order(b)]; return x[0].localeCompare(y[0]) || x[1] - y[1] || x[2] - y[2] || x[3].localeCompare(y[3]) })
+  const due = (p: Page) => { const e = state[pageKey(p)]; const h = readerText(p).hash; return e?.hash !== h || (e.ruled !== h && sourcePagePhrases(p).length > 0) }
+  return pages.filter(due).sort((a, b) => {
+    if (rank) { const r = LANG_ORDER.indexOf(a.lang) - LANG_ORDER.indexOf(b.lang) || rank(a) - rank(b); if (r) return r }
+    const [x, y] = [order(a), order(b)]
+    return x[0].localeCompare(y[0]) || x[1] - y[1] || x[2] - y[2] || x[3].localeCompare(y[3])
+  })
+}
+
+/** What a content rule found that the reader's writer can fix (sourcePagePhrases), as the reader's own findings. */
+export function ruleFindings(p: Page, parts: Record<string, string>): ReaderEntry['findings'] {
+  const partOf = (field: string) => Object.entries(parts).find(([, f]) => f === field)?.[0] ?? ''
+  return sourcePagePhrases(p).map(x => ({
+    kind: 'language' as const, severity: 'medium' as const, part: partOf(x.field), field: x.field, quote: x.quote,
+    problem: 'Reports what "the page" (the source) says instead of saying it. Write the fact itself; name the source only where who says it matters.',
+  }))
 }
 
 /** A finding that takes itself back ("…, so it is not an error"). */
@@ -152,17 +171,52 @@ export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o
 const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
   field === 'body' ? t.body : field === 'definition' ? t.definition : t.sections?.[field.replace(/^sections\./, '')]
 
+const TITLE = { type: 'object', additionalProperties: false, required: ['title'], properties: { title: { type: 'string' } } }
+const SCORE = { type: 'object', additionalProperties: false, required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
+/** The text's items as a reader skims them: its headings and the bold words that lead its paragraphs and list items. */
+const outline = (html: string) => {
+  const root = parse(html)
+  return root.querySelectorAll('h3, p, li').flatMap(el => {
+    if (el.rawTagName === 'h3') return [`## ${el.text.trim()}`]
+    const lead = el.childNodes.find(n => n.text.trim())
+    return lead instanceof HTMLElement && lead.rawTagName === 'strong' ? [`- ${lead.text.trim()}`] : []
+  }).slice(0, 80).join('\n')
+}
+/**
+ * A title promising a count its text lacks ("10 cách…" over 9 sections), written again by the model: the number
+ * corrected to what the text has, or dropped, the rest kept. Then checked: the new title must no longer promise a count
+ * the text lacks, and a second call scores it (same subject, natural, promises only what the text has). The caller keeps
+ * it at QUALITY_THRESHOLD or more. Never the page's address.
+ */
+export async function rewriteTitle(llm: Llm, title: string, html: string, lang: Lang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
+  const why = countMismatch(title, html) ?? ''
+  const items = outline(html)
+  const m = model ? { model } : {}
+  const r = await llm<{ title: string }>({
+    system: 'You edit titles for an aquarium handbook. Reply only with JSON.', ...m, schema: TITLE,
+    prompt: `A ${LANG_NAME[lang]} page's title promises a number of items its text doesn't have (${why}).\nWrite the title again in ${LANG_NAME[lang]}: change the number to the number of items the text really has, or drop the number. Keep the rest of the title's words as they are.\n\nTITLE: ${title}\n\nTHE TEXT'S HEADINGS AND BOLD LEADS:\n${items}`,
+  })
+  const next = (r.title ?? '').replace(/\s+/g, ' ').trim()
+  if (!next || next === title || countMismatch(next, html)) return { title: next, score: 0, notes: [next ? `still promises a count the text lacks: ${countMismatch(next, html) ?? 'unchanged'}` : 'empty'] }
+  const v = await llm<{ score: number; notes: string[] }>({
+    system: 'You are a strict editor checking a title change. Reply only with JSON.', ...m, schema: SCORE,
+    prompt: `An aquarium handbook page in ${LANG_NAME[lang]}. Its OLD title promised more items than the text has; NEW is the replacement.\nScore 0–1: 1.0 = NEW keeps OLD's subject and wording apart from the count, reads naturally in ${LANG_NAME[lang]}, and promises only what the text has; below 0.75 = the subject changed, something was added, it reads badly, or the count still doesn't fit the text.\nnotes: up to 5 short problems in English. Empty if none.\n\nOLD: ${title}\nNEW: ${next}\n\nTHE TEXT'S HEADINGS AND BOLD LEADS:\n${items}`,
+  })
+  return { title: next, score: Math.min(1, Math.max(0, Number(v.score) || 0)), notes: (v.notes ?? []).slice(0, 5) }
+}
+
 export type ReaderDeps = { llm: Llm; now: () => Date; model?: string }
 /**
  * Reads up to `limit` pages (or the `only` ones, whatever their state), keeps their findings, and rewrites up to
- * `rewrites` parts of Vietnamese pages. Stops on a model failure (usage limit) with what it has saved.
+ * `rewrites` parts of Vietnamese pages. Stops on a model failure (usage limit) with what it has saved. `rank`: the
+ * backfill's order (duePages).
  */
-export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: { limit: number; rewrites: number; only?: string[] }) {
+export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: { limit: number; rewrites: number; only?: string[]; rank?: (p: Page) => number }) {
   const stateFile = join(root, 'engine-state', '_reader.json')
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as ReaderState
   const save = () => writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
   const names = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name: string }>
-  const due = o.only ? pages.filter(p => o.only!.includes(pageKey(p))) : duePages(pages, state)
+  const due = o.only ? pages.filter(p => o.only!.includes(pageKey(p))) : duePages(pages, state, o.rank)
   const report = { read: [] as string[], findings: 0, rewritten: [] as string[], notKept: [] as string[], failed: [] as string[], stopped: '' }
   let rewrites = o.rewrites
   for (const p of due.slice(0, o.limit)) {
@@ -183,7 +237,10 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
       report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
       continue
     }
-    const entry: ReaderEntry = { at: d.now().toISOString().slice(0, 10), hash, findings: keepFindings(found, text, parts), ...(state[key]?.rewrites ? { rewrites: state[key]!.rewrites } : {}) }
+    // A content rule's findings the writer can fix go with the reader's own (a quote the model also gave counts once).
+    const own = keepFindings(found, text, parts)
+    const findings = [...own, ...ruleFindings(p, parts).filter(r => !own.some(f => f.field === r.field && norm(f.quote).includes(norm(r.quote))))]
+    const entry: ReaderEntry = { at: d.now().toISOString().slice(0, 10), hash, findings, ...(state[key]?.rewrites ? { rewrites: state[key]!.rewrites } : {}) }
     state[key] = entry
     report.read.push(`${key} (${entry.findings.length})`)
     report.findings += entry.findings.length
@@ -191,8 +248,9 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
     const byField = new Map<string, ReaderEntry['findings']>()
     for (const f of entry.findings.filter(f => canRewrite(p, f))) byField.set(f.field!, [...(byField.get(f.field!) ?? []), f])
     let now = p // the page as it is after this cycle's rewrites
+    let tried = true // every part with findings sent to the writer (else a rule's findings wait for the next read)
     for (const [field, fs] of byField) {
-      if (rewrites <= 0) break
+      if (rewrites <= 0) { tried = false; break }
       rewrites--
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
       try {
@@ -217,10 +275,11 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
         entry.hash = readerText(now).hash
         report.rewritten.push(`${key} ${field} (${r.score.toFixed(2)})`)
       } catch (e) {
-        if (e instanceof LlmError) { report.stopped = `${key} ${field}: ${e.message}`; break }
+        if (e instanceof LlmError) { report.stopped = `${key} ${field}: ${e.message}`; tried = false; break }
         report.failed.push(`${key} ${field}: ${(e as Error).message.slice(0, 200)}`)
       }
     }
+    if (tried) entry.ruled = entry.hash
     await save()
     if (report.stopped) break
   }

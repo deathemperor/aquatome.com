@@ -10,7 +10,7 @@ import type { DataCardField, Range } from './types'
  * - a block that states a figure the card resolved differently says so: `figuresOffCard`
  */
 
-type Card = Partial<Record<DataCardField, { source: string; value: Range | number }[]>>
+type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string }[]>>
 type Figure = Range | number
 
 /**
@@ -137,14 +137,14 @@ export function tankIsVolume(html: string, value: number): boolean {
 }
 
 /**
- * A data card as a page shows it: the values of the sources it may show (`allowed`), without a tank length that is that
- * source's tank volume (read in that source's sections). The build reads every card this way, and so does the engine's
- * card-fill step when it looks for the figures a card lacks.
+ * A data card as a page shows it: the values of the sources it may show (`allowed`), without a value the engine hid
+ * (`hidden`) or a tank length that is that source's tank volume (read in that source's sections). The build reads every
+ * card this way, and so does the engine's card-fill step when it looks for the figures a card lacks.
  */
 export function shownCard<C extends Card>(card: C, sections: { source: string; html: string }[], allowed: (source: string) => boolean): C {
   return Object.fromEntries(
     Object.entries(card)
-      .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source)
+      .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source) && !v.hidden
         && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(sections.filter(s => s.source === v.source).map(s => s.html).join('\n'), v.value)))] as const)
       .filter(([, values]) => values.length > 0),
   ) as C
