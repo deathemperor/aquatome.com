@@ -40,7 +40,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   const llm: Llm = async ({ prompt }) => {
     prompts.push(prompt)
     if (prompt.startsWith('Below are FACTS')) return (++checks === 1 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.92, notes: [] }) as never
-    return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi, cả ở Blue Diamond.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
+    return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi, cả ở Blue Diamond.</p><p>Muối Epsom 1 thìa cho mỗi 5 gallon.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
   }
   const r = await makeTopic(root, { research, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { now: () => new Date('2026-10-31T00:00:00Z') })
   expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.92, refs: 2 })
@@ -55,6 +55,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   const vi = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/vi.json'), 'utf8'))
   expect(vi.slug).toBe('ca-bi-loi-mat-huong-dan')
   expect(vi.body).not.toContain('<script')
+  expect(vi.body).toContain('<p>Muối Epsom 1 thìa cho mỗi 19 lít.</p>') // the facts' gallons, written in litres
   expect(vi.faq).toHaveLength(1)
   expect(vi.quality).toEqual({ score: 0.92, indexable: true })
   expect(e.sourceUrl).toBe('https://aquatome.com/vi/huong-dan/ca-bi-loi-mat-huong-dan/')
@@ -86,7 +87,7 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   const llm: Llm = async ({ prompt }) => {
     prompts.push(prompt)
     if (prompt.startsWith('Below are FACTS')) return { score: 0.88, notes: [] } as never
-    return { name: 'ตาโปนในปลา: สาเหตุและการรักษา', slug: 'fish-popeye-causes-treatment', summary: ['ตาปลาโปน'], body: '<h3>อาการ</h3><p>ตาโปน</p>', faq: [] } as never
+    return { name: 'ตาโปนในปลา: สาเหตุและการรักษา', slug: 'fish-popeye-causes-treatment', summary: ['ตาปลาโปน'], body: '<h3>อาการ</h3><p>ตาโปน</p><p>อุณหภูมิ 78–80 °F</p>', faq: [] } as never
   }
   const r = await localizeTopic(root, llm, r0.id, 'th')
   expect(r).toMatchObject({ slug: 'fish-popeye-causes-treatment', score: 0.88 })
@@ -95,5 +96,6 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   const th = JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8'))
   expect(th.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }])
   expect(th.quality).toEqual({ score: 0.88, indexable: true })
+  expect(th.body).toContain('<p>อุณหภูมิ 26–27 °C</p>')
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })

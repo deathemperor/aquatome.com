@@ -274,8 +274,8 @@ if (cmd === 'run') {
   const added = await ownPhotos(ROOT, resolve(process.env.INIT_CWD ?? process.cwd(), list), media())
   console.log(`own-photos: ${added.length} added\n${added.join('\n')}`)
 } else if (cmd === 'metric') {
-  // Fish, plant and breed pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
-  const changed = await metricPages(join(ROOT, 'content'))
+  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
+  const changed = await metricPages(join(ROOT, 'content'), ROOT)
   console.log(`metric: ${changed.length} pages${changed.length ? `: ${changed.slice(0, 20).join(', ')}${changed.length > 20 ? ', …' : ''}` : ''}`)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →

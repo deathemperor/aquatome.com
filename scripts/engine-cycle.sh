@@ -151,7 +151,7 @@ if part rewrite; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
 fi
-# Fish, plant and breed pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
+# Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
 if [ -z "$(git status --porcelain -- content sources)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next

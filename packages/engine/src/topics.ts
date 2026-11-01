@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity } from '@aq/schema'
+import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity } from '@aq/schema'
 import type { Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
@@ -146,10 +146,11 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     mentions: [...new Set([...researched.species.map(s => ids.get(s.replace(/\s*\(.*$/, '').trim().toLowerCase())).filter((x): x is string => !!x), ...await breedsNamed(content, `${w.summary.join(' ')} ${w.body}`)])],
     updatedAt: today, refs,
   })
-  const vi = TranslationSchema.parse({
+  // Metric only: the writer keeps the facts' own units (doses are never changed by a model); the conversion is ours.
+  const vi = TranslationSchema.parse(metricPage({
     slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
-  })
+  }, 'vi'))
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
@@ -198,10 +199,10 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
   const name = unescapePlain(w.name).trim()
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), lang === 'id' ? 'panduan' : 'guide', taken)
-  const t = TranslationSchema.parse({
+  const t = TranslationSchema.parse(metricPage({
     slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
-  })
+  }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
   return { id, slug, score: review.score, notes: review.notes }
 }
