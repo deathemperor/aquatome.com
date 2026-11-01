@@ -84,6 +84,8 @@ for (const path of PAGES) {
     await realistic(page, new URL(baseURL!).origin)
     await page.goto(path, { waitUntil: 'load' })
     await page.waitForTimeout(800) // the page's scripts (filters, counts) run after load
+    // A list opened with filters keeps its cards unseen until its data file is in (components/FilterResults.astro).
+    await page.waitForFunction(() => !document.querySelector('[aria-busy="true"]'))
     const { width, height } = page.viewportSize()!
     const full = await page.evaluate(() => document.documentElement.scrollHeight)
     await page.screenshot({ path: join(dir, 'phone.png'), fullPage: true, clip: { x: 0, y: 0, width, height: Math.min(full, height * 3) } })
@@ -99,6 +101,7 @@ for (const path of PAGES) {
     await realistic(dp, own)
     await dp.goto(new URL(path, baseURL).href, { waitUntil: 'load' })
     await dp.waitForTimeout(800)
+    await dp.waitForFunction(() => !document.querySelector('[aria-busy="true"]'))
     await dp.screenshot({ path: join(dir, 'desktop.png') })
     await desk.close()
     writeFileSync(join(dir, 'outline.json'), JSON.stringify(outline, null, 2))

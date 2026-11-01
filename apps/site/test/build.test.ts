@@ -178,9 +178,13 @@ describe('browse pages', () => {
   test('every group has a page', () => {
     for (const g of ['tetras', 'cichlids', 'danios', 'shrimp', 'rasboras']) expect(species(`/vi/nhom/${g}/`).size, g).toBeGreaterThan(0)
   })
-  test('species list embeds a filter index and unit-tagged values', () => {
+  test('species list: every species in its data file (the page has none inline), unit-tagged values', () => {
     const { dom, html } = page('/vi/ca/')
-    expect(JSON.parse(dom.querySelector('#species-index')!.text)).toHaveLength(9)
+    const result = dom.querySelector('#species-result')!
+    expect(result.getAttribute('data-src')).toBe('/data/vi/species.json')
+    expect(result.getAttribute('data-total')).toBe('9')
+    expect(JSON.parse(readFileSync(`${DIST}/data/vi/species.json`, 'utf8'))).toHaveLength(9)
+    expect(dom.querySelector('#species-index')).toBeNull()
     expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })

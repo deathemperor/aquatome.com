@@ -6,17 +6,17 @@ import FilterResults from '../../../components/FilterResults.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { PLANT_LABELS } from '../../../lib/format'
-import { jsonForScript } from '../../../lib/json'
-import type { PlantIndexItem } from '../../../scripts/filter'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-// A plant with no position in the content has no `placement`: the filter counts it unsure, never a match.
-const index: PlantIndexItem[] = c.plants.map(p => ({ slug: p.t.slug, light: p.light, co2: p.co2, difficulty: p.difficulty, ...(p.placement.length ? { placement: p.placement } : {}) }))
+// The first page as cards. Every plant, with its filter figures and photo, is in the list's data file (lib/list-data.ts),
+// which the script fetches to filter or show more: nothing here grows with the catalogue.
+const first = c.plants.slice(0, PAGE)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
-<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(c.plants.map(p => p.photos[0]))}>
+<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(first.map(p => p.photos[0]))} creditsLater={c.plants.length > 0}>
   {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <>
     {/* The reader's tank: its light grows plants needing as much or less; no CO₂ keeps the plants that grow without it. */}
     <FilterBox id="plant-box" prefix="plant" summary={t('Lọc theo bể của bạn')}>
@@ -33,23 +33,26 @@ const EAGER = 4
         <select name="difficultyMax"><option value="">{t('Bất kỳ')}</option><option value="1">{t('Dễ')}</option><option value="2">{t('Dễ và vừa')}</option></select>
       </label>
     </FilterBox>
-    <FilterResults prefix="plant" why={t('Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
+    <FilterResults prefix="plant" total={c.plants.length} src={`/data/${lang}/plants.json`} why={t('Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
       <h2 class="visually-hidden">{t('Danh sách loài')}</h2>
-      <div class="grid">{c.plants.map((p, i) => <PlantCard p={p} eager={i < EAGER} />)}</div>
+      <div class="grid">{first.map((p, i) => <PlantCard p={p} eager={i < EAGER} />)}<template id="plant-card"><PlantCard p={c.plants[0]!} template /></template></div>
     </FilterResults>
-    <script type="application/json" id="plant-index" set:html={jsonForScript(index)} />
   </>}
 </Browse>
 <script>
-  import { filterPlants, plantQueryFromParams, unsurePlants, type PlantIndexItem } from '../../../scripts/filter'
+  import type { PlantListItem } from '../../../lib/list-data'
+  import { filterPlants, plantQueryFromParams, unsurePlants } from '../../../scripts/filter'
   import { filterList } from '../../../scripts/filter-list'
-  const json = document.getElementById('plant-index')
+  import { buildPlantCard } from '../../../scripts/plant-card'
   // No plants published in this language: no filter on the page.
-  if (json) {
-    const items: PlantIndexItem[] = JSON.parse(json.textContent!)
-    filterList('plant', p => {
-      const q = plantQueryFromParams(p)
-      return { sure: filterPlants(items, q).map(i => i.slug), unsure: unsurePlants(items, q).map(i => i.slug) }
+  if (document.getElementById('plant-card')) {
+    filterList<PlantListItem>('plant', {
+      match: (items, p) => {
+        const q = plantQueryFromParams(p)
+        return { sure: filterPlants(items, q).map(i => i.slug), unsure: unsurePlants(items, q).map(i => i.slug) }
+      },
+      // A plant past the first page becomes a card the first time it shows.
+      build: buildPlantCard,
     })
   }
 </script>

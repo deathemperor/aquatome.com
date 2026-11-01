@@ -41,7 +41,7 @@ test('home tank form: sure matches first, species without the figures in a close
   await expect(count).toHaveText('')
   await expect(page.locator('#species-active')).toBeHidden()
   await expect(group).toBeHidden()
-  const all = await page.locator('#species-index').evaluate(s => (JSON.parse(s.textContent!) as unknown[]).length)
+  const all = Number(await page.locator('#species-result').getAttribute('data-total'))
   await expect(page.locator('main [data-slug]:visible')).toHaveCount(Math.min(all, PAGE))
 })
 

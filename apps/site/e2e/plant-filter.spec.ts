@@ -5,7 +5,7 @@ import { expect, test, VIETNAMESE } from './fixtures'
 // and position). Counts and names come from the page, so the checks hold on aquatome.com too: 24 cards at a time.
 const PAGE = 24
 const visible = (page: Page) => page.locator('main [data-slug]:visible')
-const total = (page: Page) => page.locator('#plant-index').evaluate(s => (JSON.parse(s.textContent!) as unknown[]).length)
+const total = async (page: Page) => Number(await page.locator('#plant-result').getAttribute('data-total'))
 /** On a phone the filter box starts closed. */
 async function openBox(page: Page) {
   const box = page.locator('#plant-box')

@@ -1,23 +1,28 @@
 ---
 import type { Localized, PlantEntity } from '@aq/schema'
-import { PLANT_LABELS } from '../lib/format'
+import { plantMeta } from '../lib/list-data'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
-/** `eager`: the image loads at once (the list's first row). */
-interface Props { p: Localized<PlantEntity>; eager?: boolean }
-const { p, eager = false } = Astro.props
+/**
+ * `eager`: the image loads at once (the list's first row). `template`: a picture and the no-photo leaf both, for the
+ * plant list's script to keep one of and fill in (scripts/plant-card.ts).
+ */
+interface Props { p: Localized<PlantEntity>; eager?: boolean; template?: boolean }
+const { p, eager = false, template = false } = Astro.props
 const ph = p.photos[0]
 const { t } = i18n(Astro.url)
 ---
-<article class="pc" data-slug={p.t.slug}>
+<article class="pc" data-slug={template ? "" : p.t.slug}>
   <a href={`/vi/cay/${p.t.slug}/`}>
-    <div class="plate">{ph
+    <div class="plate">{template
+      ? <><img src="" width="0" height="0" alt="" loading="lazy" /><span class="ph" aria-hidden="true">{t('Chưa có ảnh')}</span></>
+      : ph
       ? <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading={eager ? 'eager' : 'lazy'} />
       : <span class="ph" aria-hidden="true">{t('Chưa có ảnh')}</span>}</div>
     <h3>{p.t.name}</h3>
     <p class="sci">{p.scientificName}</p>
   </a>
-  <p class="meta">{t('Ánh sáng {light}, CO₂ {co2}', { light: t(PLANT_LABELS.light[p.light]!).toLowerCase(), co2: t(PLANT_LABELS.co2[p.co2]!).toLowerCase() })}</p>
+  <p class="meta">{plantMeta(t, p)}</p>
 </article>
 <style>
   .pc a { text-decoration: none; color: inherit; display: block; }

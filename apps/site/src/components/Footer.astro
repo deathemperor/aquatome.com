@@ -1,9 +1,13 @@
 ---
 import { groupCredits, type Credit } from '../lib/credits'
 import { i18n, LANG_NAME, licenceLabel, served, type Lang } from '../lib/i18n'
-/** langs: this page in each language that has it (absolute URLs), for the language links. */
-interface Props { credits?: Credit[]; langs?: (readonly [Lang, string])[] }
-const { credits = [], langs = [] } = Astro.props
+/**
+ * langs: this page in each language that has it (absolute URLs), for the language links. later: the page's script adds
+ * credits for photos it shows after it loads (scripts/photo-credits.ts), so the list is there even when it starts empty.
+ * Then each row names its author and licence (data-author, data-licence), so the script groups its credits with them.
+ */
+interface Props { credits?: Credit[]; later?: boolean; langs?: (readonly [Lang, string])[] }
+const { credits = [], later = false, langs = [] } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const links = ([['/vi/gioi-thieu/', t('Giới thiệu')], ['/vi/chinh-sach-bao-mat/', t('Chính sách bảo mật')], ['/vi/lien-he/', t('Liên hệ')], ['/vi/thiet-bi/', t('Thiết bị')], ['/vi/moi-cap-nhat/', t('Mới cập nhật')]] as const).filter(([href]) => served(lang, href))
 const groups = groupCredits(credits)
@@ -14,6 +18,7 @@ const groups = groupCredits(credits)
     <nav class="links" aria-label={t('Thông tin')}>
       {links.map(([href, label], i) => <>{i > 0 && ' · '}<a href={href}>{label}</a></>)}
       {credits.length > 0 && <> · <button type="button" class="credits-btn" popovertarget="photo-credits">{t('Nguồn ảnh ({n})', { n: credits.length })}</button></>}
+      {credits.length === 0 && later && <span hidden> · <button type="button" class="credits-btn" popovertarget="photo-credits">{t('Nguồn ảnh ({n})', { n: 0 })}</button></span>}
     </nav>
     {langs.length > 1 && (
       <nav class="langs" aria-label={t('Ngôn ngữ')}>
@@ -21,7 +26,7 @@ const groups = groupCredits(credits)
       </nav>
     )}
   </div>
-  {credits.length > 0 && (
+  {(credits.length > 0 || later) && (
     <div id="photo-credits" class="credits" popover aria-labelledby="photo-credits-h">
       <div class="head">
         <h2 id="photo-credits-h">{t('Nguồn ảnh trên trang này')}</h2>
@@ -29,7 +34,7 @@ const groups = groupCredits(credits)
       </div>
       <ul>
         {groups.map(g => (
-          <li>
+          <li data-author={later ? g.author : undefined} data-licence={later ? g.licence : undefined}>
             {g.urls.length === 1 ? <a href={g.urls[0]} rel="noopener">{g.author}</a> : <strong>{g.author}</strong>}
             <span class="lic"> · {licenceLabel(t, g.licence)}{g.urls.length > 1 && ` · ${t('{n} ảnh', { n: g.urls.length })}`}</span>
             {g.urls.length > 1 && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={t('{author}, ảnh {n}', { author: g.author, n: i + 1 })}>{i + 1}</a>)}</span>}
@@ -55,9 +60,10 @@ const groups = groupCredits(credits)
   .credits h2 { font-size: var(--step-1); }
   .credits .head button { font-size: 1.5rem; line-height: 1; background: none; border: 0; color: var(--c-ink-soft); cursor: pointer; padding: 0 var(--space-1); }
   .credits ul { list-style: none; margin: 0; padding: 0; }
-  .credits li { padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
-  .credits a { color: var(--c-ink); }
-  .lic { color: var(--c-ink-soft); }
-  .nums { display: flex; flex-wrap: wrap; gap: 0.15rem 0.6rem; margin-top: var(--space-1); }
-  .nums a { color: var(--c-ink-soft); }
+  /* Global inside the list: scripts/photo-credits.ts writes rows too, without this component's scoping attribute. */
+  .credits :global(li) { padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
+  .credits :global(a) { color: var(--c-ink); }
+  .credits :global(.lic) { color: var(--c-ink-soft); }
+  .credits :global(.nums) { display: flex; flex-wrap: wrap; gap: 0.15rem 0.6rem; margin-top: var(--space-1); }
+  .credits :global(.nums a) { color: var(--c-ink-soft); }
 </style>

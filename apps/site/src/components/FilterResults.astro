@@ -2,14 +2,15 @@
 import { i18n } from '../lib/i18n'
 /**
  * A filtered list (scripts/filter-list.ts fills it): the result line, a chip per filter set and "Xóa lọc", the cards
- * (the slot: a grid of `[data-slug]` cards) a page at a time, then the cards missing a figure the filter asks about, in a
- * closed group that `why` explains.
+ * (the slot: a grid of the first page's `[data-slug]` cards and a template card `<prefix>-card`) a page at a time, then
+ * the cards missing a figure the filter asks about, in a closed group that `why` explains. `total`: how many items the
+ * list has; `src`: its data file, every item (lib/list-data.ts).
  */
-interface Props { prefix: string; why: string }
-const { prefix, why } = Astro.props
+interface Props { prefix: string; why: string; total: number; src: string }
+const { prefix, why, total, src } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<div class="result">
+<div class="result" id={`${prefix}-result`} data-total={total} data-src={src}>
   <p class="count" id={`${prefix}-count`} aria-live="polite"></p>
   <div class="active" id={`${prefix}-active`} hidden>
     <ul class="chips" id={`${prefix}-chips`} aria-label={t('Đang lọc')}></ul>
@@ -23,8 +24,15 @@ const { t } = i18n(Astro.url)
   <p class="why">{why}</p>
   <p class="more"><button type="button" id={`${prefix}-unsure-more`} hidden></button></p>
 </details>
+{/* An address with filters (the home page's tank form): the first page's cards keep their place but stay unseen until
+    the script has the data file and has filtered, rather than show the unfiltered list first. Run as the page is read. */}
+<script is:inline define:vars={{ prefix }}>
+  var form = document.getElementById(prefix + '-filter'), card = document.getElementById(prefix + '-card')
+  if (form && card && Array.from(new URLSearchParams(location.search)).some(function (e) { return e[1] && form.elements.namedItem(e[0]) })) card.parentElement.setAttribute('aria-busy', 'true')
+</script>
 <style>
   .result { margin-block: var(--space-3) var(--space-4); }
+  :global([aria-busy='true'] > [data-slug]) { visibility: hidden; }
   .count { min-height: 1.5em; margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
   .active:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); margin-top: var(--space-1); }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-2); }
