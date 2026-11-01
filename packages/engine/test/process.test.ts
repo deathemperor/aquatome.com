@@ -54,5 +54,8 @@ test('a tank length that is the page\'s tank volume is dropped from the card', a
     sections: [{ key: 'aquariumSize', en: '<p>Minimum tank size: 75 litres (20 gallons).</p>', vi: '<p>Bể tối thiểu: 75 lít.</p>' }] }
   expect((await processPage(fake(volume), input)).dataCard.tankCm).toBeUndefined()
   const length = { ...volume, sections: [{ key: 'aquariumSize', en: '<p>A tank 75 cm long (75 litres).</p>', vi: '<p>Bể dài 75 cm.</p>' }] }
-  expect((await processPage(fake(length), input)).dataCard.tankCm).toBe(75)
+  expect((await processPage(fake(length), input)).dataCard.tankCm).toBe(75)  // A page that gives the tank only as a volume has no tank length (The Spruce Pets' "10 gallons" read as 40 cm).
+  const only = { ...volume, dataCard: { ...species.dataCard, tankCm: 40 },
+    sections: [{ key: 'quickFacts', en: '<ul><li>Minimum tank size: 10 gallons (about 38 litres)</li><li>Diet: omnivore</li></ul>', vi: '<ul><li>Bể tối thiểu: 38 lít</li><li>Thức ăn: ăn tạp</li></ul>' }] }
+  expect((await processPage(fake(only), input)).dataCard.tankCm).toBeUndefined()
 })

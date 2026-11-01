@@ -1,6 +1,8 @@
+import { readdir, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { isAllowedLicence, loadAll, resolveDataCard, slugify } from '../src/index'
+import { imperialLeft, isAllowedLicence, loadAll, resolveDataCard, slugify } from '../src/index'
 
 const root = fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url))
 const load = () => loadAll({ root, lang: 'vi', publicBuild: false })
@@ -37,3 +39,21 @@ test('every species place id exists', async () => {
   const ids = new Set(c.places.map(p => p.id))
   for (const s of c.species) for (const p of s.places) expect(ids.has(p), `${s.id}→${p}`).toBe(true)
 })
+
+// The real content/, not the test store: readers in Vietnam, Indonesia and Thailand use °C, cm and litres. The engine
+// writes fish, plant and breed pages in metric (`pnpm engine metric` runs before each engine build); a figure in °F,
+// inches, feet or gallons here is one a writer left. Reference lists and quoted labels ("elevation 650 feet'") stay as
+// published. 263 pages had them on 2026-11-01 ("20–30°C (68–86°F)", "bể 10 gallon").
+test('fish, plant and breed pages give figures in metric only', async () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const left: string[] = []
+  for (const kind of ['species', 'plants', 'breeds']) for (const id of await readdir(join(content, kind))) for (const lang of ['vi', 'id', 'th']) {
+    const page = await readFile(join(content, kind, id, `${lang}.json`), 'utf8').then(s => JSON.parse(s), () => null) as
+      { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] } | null
+    if (!page) continue
+    const texts = [...Object.entries(page.sections ?? {}).filter(([k]) => !k.startsWith('references:')).map(([, v]) => v),
+      page.body ?? '', ...(page.summary ?? []), ...(page.faq ?? []).flatMap(f => [f.q, f.a])]
+    for (const t of texts) for (const x of imperialLeft(t)) left.push(`${kind}/${id}/${lang}: ${x}`)
+  }
+  expect(left, 'run pnpm engine metric').toEqual([])
+}, 60_000) // every page of the real content
