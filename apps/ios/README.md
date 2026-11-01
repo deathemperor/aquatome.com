@@ -5,7 +5,7 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
 light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides itself from the site's pages as blocks (`/app/pages/`,
-kept on the phone with their pictures, so a guide read once reads offline; a part it can't draw opens the web page),
+kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a part it can't draw opens the web page),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; fish,
 plants, the glossary and videos become native the same way, tools stay web pages until rebuilt), a fish's facts above its page (size, temperature, pH, the shortest tank,
 temperament, difficulty, from the index on the phone, so offline too), and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,

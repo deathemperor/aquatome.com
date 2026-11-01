@@ -32,6 +32,9 @@ final class HandbookModel {
   /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
   /// language: the pages are this language's).
   private(set) var reading: ReadingList
+  /// The pages kept for reading offline, each whole on the phone (KeepPages), newest first: on this phone, one list per
+  /// language.
+  private(set) var kept: [String]
   private let source: Source
   /// The pages the app draws itself, kept on the phone.
   private let drawn: PageCache
@@ -52,6 +55,7 @@ final class HandbookModel {
     self.source = source
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
     reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
+    kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
     drawn = Self.pageCache(source, site: site)
   }
 
@@ -66,6 +70,42 @@ final class HandbookModel {
 
   /// The page at a path the index lists ("/vi/ca/ca-neon/").
   func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
+
+  /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
+  /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
+  /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
+  func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
+    await KeepPages.run(items.map(\.path), docs: { _ in
+      var docs: [PageDoc] = []
+      for (kind, list) in Dictionary(grouping: items, by: \.kind) {
+        guard let count = shardCounts[kind.rawValue] else { continue }
+        docs += await drawn.keep(list.map(\.path), kind: kind.rawValue, lang: lang, count: count)
+      }
+      return docs
+    }, picture: { await PageImages.keep($0) }, kept: { path in
+      kept.removeAll { $0 == path }
+      kept.insert(path, at: 0)
+      UserDefaults.standard.set(kept, forKey: "handbook.kept.\(lang)")
+    }, progress: progress)
+  }
+
+  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(item.path) }
+
+  /// The pages kept for offline that the index has now.
+  var keptItems: [HandbookIndex.Item] { ReadingList.items(kept, in: byPath, kind: nil) }
+
+  /// Pages no longer kept for offline: off the list, then their pictures and the shards no kept page is in deleted from
+  /// the phone (not what a page still kept needs).
+  func unkeep(_ items: [HandbookIndex.Item]) async {
+    let gone = Set(items.map(\.path))
+    kept.removeAll { gone.contains($0) }
+    UserDefaults.standard.set(kept, forKey: "handbook.kept.\(lang)")
+    for (kind, list) in Dictionary(grouping: items, by: \.kind) {
+      guard let count = shardCounts[kind.rawValue] else { continue }
+      let keeping = kept.filter { byPath[$0]?.kind == kind }
+      for src in await drawn.forget(list.map(\.path), keeping: keeping, kind: kind.rawValue, lang: lang, count: count) { PageImages.forget(src) }
+    }
+  }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
 
@@ -169,7 +209,12 @@ final class HandbookModel {
     #if DEBUG
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
-      return PageCache(dir: dir, site: site, fetch: { _ in HandbookIndex.fixturePages })
+      // `-slow-keep`: a shard takes 3 s to come, so a test can stop a keep on its way.
+      let slow = ProcessInfo.processInfo.arguments.contains("-slow-keep")
+      return PageCache(dir: dir, site: site, fetch: { _ in
+        if slow { try await Task.sleep(for: .seconds(3)) }
+        return HandbookIndex.fixturePages
+      })
     }
     #endif
     var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")

@@ -105,3 +105,74 @@ private func settle(_ s: Site, _ n: Int) async throws {
   #expect(text(x) == "Một lần." && text(y) == "Một lần.")
   #expect(await s.count == 1)
 }
+
+@Test func aShelfKeptForOfflineIsReadFromTheSiteNowThenReadsOffline() async throws {
+  let dir = tmp(), s = Site(shard("Cũ."))
+  _ = await cache(dir, s).doc(path: neon, kind: "guide", lang: "vi", count: 32)
+  await s.set(shard("Mới."))
+  let c = cache(dir, s)
+  // On the phone already, but kept now from the site, not in the background.
+  #expect(await c.keep([neon, "/vi/huong-dan/khong-co/"], kind: "guide", lang: "vi", count: 32).map(\.path) == [neon], "only the pages the site has")
+  #expect(text(await c.doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Mới.")
+  let reads = await s.count
+  _ = await c.keep([neon], kind: "guide", lang: "vi", count: 32)
+  #expect(await s.count == reads, "read once a run")
+  #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Mới.", "offline")
+}
+
+@Test func keepingOfflineWithNoNetworkKeepsWhatThePhoneHas() async {
+  let dir = tmp()
+  _ = await cache(dir, Site(shard("Đã có."))).doc(path: neon, kind: "guide", lang: "vi", count: 32)
+  #expect(await cache(dir, Site(nil)).keep([neon], kind: "guide", lang: "vi", count: 32).count == 1)
+  #expect(await cache(tmp(), Site(nil)).keep([neon], kind: "guide", lang: "vi", count: 32).isEmpty)
+}
+
+/// A shard of these pages, each showing these pictures.
+private func shardOf(_ pages: [(path: String, pictures: [String])]) -> Data {
+  let page = { (p: (path: String, pictures: [String])) -> [String: Any] in
+    ["v": 1, "kind": "guide", "path": p.path, "title": p.path, "blocks": p.pictures.map { ["t": "figure", "img": ["src": $0, "w": 4, "h": 3]] }]
+  }
+  return try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": Dictionary(uniqueKeysWithValues: pages.map { ($0.path, page($0)) })] as [String: Any])
+}
+private func docOf(_ path: String, _ pictures: [String]) -> PageDoc { PageShard(data: shardOf([(path, pictures)]))!.pages[path]! }
+
+@Test func aPageIsKeptOnlyWholeOnThePhone() async {
+  let a = docOf("/a/", ["p1", "p2"]), b = docOf("/b/", ["p2", "p3"]), c = docOf("/c/", ["p4"])
+  var kept: [String] = [], read: [String] = [], steps: [String] = []
+  let n = await KeepPages.run(["/a/", "/b/", "/c/"], docs: { _ in [a, b, c] }, picture: { read.append($0); return true },
+                              kept: { kept.append($0) }, progress: { steps.append("\($0)/\($1)") })
+  #expect(n == 3 && kept == ["/a/", "/b/", "/c/"])
+  #expect(read == ["p1", "p2", "p3", "p4"], "a picture two pages show is read once")
+  #expect(steps == ["0/4", "1/4", "2/4", "3/4", "4/4"])
+  // A picture that doesn't come: neither page that shows it is kept, the rest are.
+  kept = []
+  _ = await KeepPages.run(["/a/", "/b/", "/c/"], docs: { _ in [a, b, c] }, picture: { $0 != "p2" }, kept: { kept.append($0) }, progress: { _, _ in })
+  #expect(kept == ["/c/"])
+}
+
+@Test func aStoppedKeepLeavesOutThePageItWasOn() async {
+  let a = docOf("/a/", ["p1"]), b = docOf("/b/", ["p2", "p3"]), c = docOf("/c/", ["p4"])
+  // Stopped while reading b's last picture (which still comes): a is kept, b and c aren't.
+  let kept = await Task { () -> [String] in
+    var kept: [String] = []
+    _ = await KeepPages.run(["/a/", "/b/", "/c/"], docs: { _ in [a, b, c] }, picture: { src in
+      if src == "p3" { withUnsafeCurrentTask { $0?.cancel() } }
+      return true
+    }, kept: { kept.append($0) }, progress: { _, _ in })
+    return kept
+  }.value
+  #expect(kept == ["/a/"])
+}
+
+@Test func lettingPagesGoDeletesTheirShardAndPicturesButNotWhatAKeptPageNeeds() async {
+  let a = "/vi/huong-dan/a/", b = "/vi/huong-dan/b/"
+  let dir = tmp(), c = cache(dir, Site(shardOf([(a, ["x", "shared"]), (b, ["shared", "y"])])))
+  // One shard for both (count 1).
+  #expect(await c.keep([a, b], kind: "guide", lang: "vi", count: 1).count == 2)
+  let file = dir.appending(path: "vi/guide-1-0.json").path(percentEncoded: false)
+  #expect(await c.forget([a], keeping: [b], kind: "guide", lang: "vi", count: 1) == ["x"], "not the picture b shows too")
+  #expect(FileManager.default.fileExists(atPath: file), "b is in that shard")
+  #expect(await c.forget([b], keeping: [], kind: "guide", lang: "vi", count: 1) == ["shared", "y"])
+  #expect(!FileManager.default.fileExists(atPath: file))
+  #expect(await cache(dir, Site(nil)).doc(path: b, kind: "guide", lang: "vi", count: 1) == nil, "gone from the phone")
+}

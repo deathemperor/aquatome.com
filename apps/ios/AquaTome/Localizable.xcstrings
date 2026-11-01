@@ -1617,6 +1617,22 @@
         }
       }
     },
+    "Dừng tải": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hentikan unduhan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุดดาวน์โหลด"
+          }
+        }
+      }
+    },
     "Dự án Tuya chưa có thiết bị nào: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập).": {
       "localizations": {
         "id": {
@@ -2205,6 +2221,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่มีอินเทอร์เน็ตหรือ Tuya ไม่ตอบกลับ โปรดลองอีกครั้งเมื่อเชื่อมต่อได้"
+          }
+        }
+      }
+    },
+    "Không có mạng. Kết nối rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada koneksi. Sambungkan lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่มีอินเทอร์เน็ต เชื่อมต่อแล้วลองอีกครั้ง"
           }
         }
       }
@@ -2861,6 +2893,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "สีและความสว่าง"
+          }
+        }
+      }
+    },
+    "Máy còn ít chỗ trống. Hãy giải phóng bớt dung lượng rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruang penyimpanan hampir penuh. Kosongkan sebagian lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พื้นที่เก็บข้อมูลเหลือน้อย ลบข้อมูลบางส่วนแล้วลองอีกครั้ง"
           }
         }
       }
@@ -4049,6 +4097,38 @@
         }
       }
     },
+    "Tải": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลด"
+          }
+        }
+      }
+    },
+    "Tải %lld bài bằng dữ liệu di động?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh %lld artikel dengan data seluler?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลด %lld บทความด้วยเน็ตมือถือไหม"
+          }
+        }
+      }
+    },
     "Tải bản sao (JSON)": {
       "localizations": {
         "id": {
@@ -4061,6 +4141,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดาวน์โหลดสำเนา (JSON)"
+          }
+        }
+      }
+    },
+    "Tải về đọc offline": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh untuk dibaca offline"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดไว้อ่านออฟไลน์"
+          }
+        }
+      }
+    },
+    "Tải được %lld/%lld bài. Kiểm tra kết nối mạng rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terunduh %lld/%lld artikel. Periksa koneksi lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดได้ %lld/%lld บทความ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง"
           }
         }
       }
@@ -4589,6 +4701,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลบบัญชีถาวร"
+          }
+        }
+      }
+    },
+    "Xóa tất cả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus semua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบทั้งหมด"
           }
         }
       }
@@ -5165,6 +5293,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มตู้ปลา %lld ตู้จากบัญชีแล้ว"
+          }
+        }
+      }
+    },
+    "Đã tải về đọc offline": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah diunduh untuk dibaca offline"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดไว้อ่านออฟไลน์แล้ว"
+          }
+        }
+      }
+    },
+    "Đã tải để đọc offline": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diunduh untuk dibaca offline"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ที่ดาวน์โหลดไว้อ่านออฟไลน์"
           }
         }
       }
@@ -5901,6 +6061,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟปิด"
+          }
+        }
+      }
+    },
+    "Ảnh trong bài cũng được tải, có thể tới vài chục MB.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dalam artikel ikut diunduh, bisa sampai puluhan MB."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปในบทความจะถูกดาวน์โหลดด้วย อาจใช้หลายสิบ MB"
           }
         }
       }

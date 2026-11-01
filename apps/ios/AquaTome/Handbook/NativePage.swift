@@ -118,7 +118,7 @@ struct NativePage: View {
         line.link = youtube(v.youtubeId, at: ch.at)
         cap += line
       }
-      out.append(.photo(src: "https://i.ytimg.com/vi/\(v.youtubeId)/hqdefault.jpg", ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
+      out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
                         href: youtube(v.youtubeId, at: 0), play: true))
     } else if let lead = doc.lead {
       out.append(photo(lead, caption: [], href: nil))
@@ -326,6 +326,20 @@ enum PageImages {
     #endif
     guard let u = URL(string: src), let (data, _) = try? await session.data(from: u) else { return nil }
     return UIImage(data: data)
+  }
+
+  /// Read into the cache now, for a page kept for offline: true when it's there.
+  static func keep(_ src: String) async -> Bool {
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return true }
+    #endif
+    guard let u = URL(string: src), let (_, r) = try? await session.data(from: u) else { return false }
+    return (r as? HTTPURLResponse)?.statusCode == 200
+  }
+
+  /// Out of the cache: a page no longer kept for offline.
+  static func forget(_ src: String) {
+    if let u = URL(string: src) { session.configuration.urlCache?.removeCachedResponse(for: URLRequest(url: u)) }
   }
 }
 
