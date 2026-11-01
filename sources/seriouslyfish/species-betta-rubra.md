@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/betta-rubra
 title: Betta rubra · Seriously Fish
-fetchedAt: 2026-11-01T02:40:10.396Z
+fetchedAt: 2026-11-01T05:35:43.240Z
 hash: 458c4bc83d404c9dfe8f28c3a9eacf14e5a6de4ee7d3cbfd2fe74eddfb3fab3b
 ---
 
