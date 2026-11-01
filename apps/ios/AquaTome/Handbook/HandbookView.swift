@@ -97,7 +97,7 @@ struct ItemRow: View {
       // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
       .overlay(alignment: .bottomTrailing) {
         if let s = item.video {
-          Text(verbatim: length(s))
+          Text(verbatim: clock(s))
             .font(.caption2.weight(.semibold)).monospacedDigit()
             .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
             .padding(2)
@@ -112,12 +112,10 @@ struct ItemRow: View {
       }
     }
     .accessibilityElement(children: .combine)
-    .accessibilityValue(Text(verbatim: item.video.map(length) ?? ""))
+    .accessibilityValue(Text(verbatim: item.video.map(clock) ?? ""))
     .accessibilityIdentifier("item")
   }
 
-  /// 1755 → "29:15", as the site writes a video's length.
-  private func length(_ s: Int) -> String { Duration.seconds(s).formatted(.time(pattern: s >= 3600 ? .hourMinuteSecond : .minuteSecond)) }
 }
 
 extension HandbookIndex.Kind {

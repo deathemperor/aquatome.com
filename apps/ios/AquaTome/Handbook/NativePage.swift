@@ -331,7 +331,8 @@ enum PageImages {
 
 private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
 
-/// 75 → "1:15", 3725 → "1:02:05", as the site writes a video's times (lib/video.ts).
-private func clock(_ s: Int) -> String {
+/// 75 → "1:15", 3725 → "1:02:05", as the site writes a video's times (lib/video.ts), in every language: not the
+/// phone's own time style, which writes "1.15" in Indonesian.
+func clock(_ s: Int) -> String {
   s >= 3600 ? String(format: "%d:%02d:%02d", s / 3600, s / 60 % 60, s % 60) : String(format: "%d:%02d", s / 60, s % 60)
 }

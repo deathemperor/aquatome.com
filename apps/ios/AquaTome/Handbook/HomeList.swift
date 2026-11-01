@@ -3,7 +3,8 @@ import SwiftUI
 
 /// The handbook before a search, as the site's home and lists arrange it: what the reader saved and read last; fish by
 /// group, then the well-known ones; plants by where they go, then easy ones; the first guides, then guides by subject;
-/// the video series and every video guide; the tools; the glossary. Each way in leads to one shelf of pages (BrowseView), never to everything at once.
+/// the video series and every video guide; the tools; the glossary. Each way in leads to one shelf of pages
+/// (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
 

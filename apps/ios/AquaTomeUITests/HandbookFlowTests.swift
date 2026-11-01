@@ -99,6 +99,20 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Bể của tôi").waitForExistence(timeout: 5), "the tool not found by its page's words")
   }
 
+  /// A video's length as the site writes it in every language: "29:15", not the phone's time style ("29.15" in
+  /// Indonesian).
+  func testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(id)", "-AppleLocale", "id_ID", "-reset-defaults", "-fixed-handbook"]
+    app.launch()
+    let all = app.descendants(matching: .any)["all-videos"]
+    for _ in 0..<8 where !(all.exists && all.isHittable) { app.swipeUp() }
+    all.tap()
+    let video = item(app, "Cách hạn chế rêu hại")
+    XCTAssertTrue(video.waitForExistence(timeout: 5))
+    XCTAssertEqual(video.value as? String, "29:15")
+  }
+
   func testVideosHaveAShelfOfTheirOwn() {
     let app = launch()
     let all = app.descendants(matching: .any)["all-videos"]
