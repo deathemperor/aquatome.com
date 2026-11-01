@@ -3,7 +3,8 @@
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
 Three tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
-the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
+the phone for reading offline, without ads), a fish's facts above its page (size, temperature, pH, the shortest tank,
+temperament, difficulty, from the index on the phone, so offline too); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
