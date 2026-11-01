@@ -16,7 +16,8 @@ export const cmToIn = (cm: number): number => round1(cm / 2.54)
  * - an imperial figure alone is converted: °C to whole degrees; cm to the half under 10 cm, whole above; feet to cm
  *   under a metre (and a tank's sides always in cm), else m to one decimal; litres to one decimal under 5 L, whole
  *   under 100 L, tens under 1,000 L, hundreds above (a range in the steps of its smallest end: "380–1.890 lít");
- *   gallons an hour (GPH) to litres an hour; pounds and ounces (a weight) to grams, kg from 1,000 g
+ *   gallons an hour (GPH) to litres an hour; pounds and ounces to grams, kg from 1,000 g (an ounce is read as a
+ *   weight: no page has a fluid ounce outside a bottle's size)
  * - a change of temperature is no temperature: "±2 °F", "lên 9 °F", anything under 25 °F → ×5/9 ("1 °C" at least)
  * - "mid-60s °F" ("giữa 60 độ F", "ราวกลาง 50 °F") is the decade's middle: "khoảng 18 độ C"
  * - a US tank model is its volume and size, standard dimensions (L × W × H): "bể 20 gallon long" → "bể khoảng 75 lít
