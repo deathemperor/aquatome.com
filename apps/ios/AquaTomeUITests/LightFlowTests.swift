@@ -627,11 +627,16 @@ final class LightFlowTests: XCTestCase {
     return value
   }
 
-  /// A slider dragged to 100%. A drag is only "best effort" (XCUIElement): one aimed at the end stopped at 87% on CI, so
-  /// it is dragged again, at most three times, until the slider reads 100%.
+  /// A slider dragged to 100%: its thumb taken well past the end, where the slider stops at its maximum however the
+  /// drag's last steps land. `adjust(toNormalizedSliderPosition: 1)` is only "best effort" (XCUIElement) and stopped at
+  /// 87%, 95% and 97% on CI's iPhone, even dragged again. The thumb is found where UIKit draws it: its centre half its
+  /// width (28 pt) in from either end of the track at 0 and 1.
   private func slideToEnd(_ app: XCUIApplication, _ id: String) {
     for _ in 0..<3 {
-      scrolledTo(app, id).adjust(toNormalizedSliderPosition: 1)
+      let s = scrolledTo(app, id)
+      let x = 14 + s.normalizedSliderPosition * (s.frame.width - 28)
+      s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5)).withOffset(CGVector(dx: x, dy: 0))
+        .press(forDuration: 0.1, thenDragTo: s.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0.5)).withOffset(CGVector(dx: 80, dy: 0)))
       if element(app, id).value as? String == "100%" { return }
     }
   }
