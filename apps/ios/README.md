@@ -70,6 +70,10 @@ costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instruct
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
+Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
+the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
+Debug builds, so they don't see it.
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:
