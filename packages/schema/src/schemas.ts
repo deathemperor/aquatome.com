@@ -23,7 +23,13 @@ export const SpeciesSchema = z.object({
 })
 
 export const PlantSchema = z.object({
-  id: z.string(), scientificName: z.string(), difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+  id: z.string(), scientificName: z.string(),
+  /**
+   * Other scientific names the plant has gone by: an older genus, GBIF's newer one, a name the hobby long sold it under
+   * (engine plant-synonyms.ts). The site links, checks and searches them as the plant's own.
+   */
+  synonyms: z.array(z.string()).optional(),
+  difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']),
   placement: z.array(z.enum(['foreground', 'midground', 'background', 'epiphyte', 'floating'])),
   sections: z.array(Section), photos: z.array(Photo), productSlots: z.array(ProductSlot), updatedAt: z.string(),

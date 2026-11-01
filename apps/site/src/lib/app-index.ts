@@ -101,7 +101,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   if (served(lang, '/vi/cay/x/')) {
     for (const p of c.plants) {
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
-      if (p.t.quality.indexable) items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka(p.t.altNames), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
+      if (p.t.quality.indexable) items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
     }
     home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
   }

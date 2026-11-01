@@ -11,6 +11,17 @@ test('no built page shows a picture twice, a wrong fish, a wrong link, a fish wi
   expect(checkDist(DIST, facts)).toEqual([])
 })
 
+// 2026-11-02, the check on aquatome.com: "rêu Java (Vesicularia dubyana)", "Amazon sword (Echinodorus amazonicus)" linked
+// the right plants under old names their pages didn't list. A plant's former scientific names (`synonyms`) are its own:
+// the fixture's "ráy nana (Anubias nana)" in the setup guide fails the test above without them.
+test("a plant's former scientific names are its names, for the checks and for the links", () => {
+  expect(facts.living.get('plant:anubias-barteri-nana')!.names).toContain('anubias nana')
+  expect(facts.targets.vi.find(t => t.key === 'plant:anubias-barteri-nana')!.names).toContain('Anubias nana')
+  const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  const a = dom.querySelector('.prose a[href="/vi/cay/ray-nana/"]')!
+  expect([a.text, a.nextSibling?.rawText.slice(0, 15)]).toEqual(['ráy nana', ' (Anubias nana)'])
+})
+
 // A list's cards show one picture wherever they are built: the HTML's first page, and the cards the browser builds from
 // the list's data file for "Xem thêm" or a filter. None shows a picture the page shows already (above the list, or an
 // earlier card), so the page the browser adds to keeps the rule too (lib/pictures.ts listPictures).

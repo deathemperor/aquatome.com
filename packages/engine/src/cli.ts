@@ -50,6 +50,7 @@ import { breedPhotos, localizeBreed, makeBreed } from './breeds'
 import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
+import { addPlantSynonyms } from './plant-synonyms'
 import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { backfillVideoItems } from './video-items'
@@ -569,6 +570,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!(lang in TARGETS)) throw new Error('usage: pnpm engine wikidata-names --lang id|th')
   const added = await addWikidataNames(ROOT, http, lang)
   console.log(`wikidata-names ${lang}: ${added.length} pages\n${added.join('\n')}`)
+} else if (cmd === 'plant-synonyms') {
+  // Each plant's other scientific names (old genus, GBIF's, a hobby name), which the site links, checks and searches as its own.
+  const r = await addPlantSynonyms(ROOT, http)
+  console.log(`plant-synonyms: ${r.changed.length} pages${r.failed.length ? `, GBIF failed on ${r.failed.length} (tried again next run)` : ''}\n${r.changed.join('\n')}`)
 } else if (cmd === 'shop-list') {
   // What fish (or plant) shops in the language's country sell, from their own lists (web research, never marketplaces):
   // pnpm engine shop-list --lang vi|id|th [--kind plants] [--seed file.json (an array of trade names from one shop's list)]

@@ -36,7 +36,9 @@ that would have caught it).
     - no picture twice on a page, cards and tiles too, compared as pictures (the image hash in
       `content/picture-hashes.json`, `pnpm engine picture-hashes`; a YouTube thumbnail by its video), not by address
     - no figure of another fish under a heading about one fish (it names the fish, or its scientific name in brackets)
-    - no "Name (Scientific name)" linked to a page with another scientific name
+    - no "Name (Scientific name)" linked to a page with another scientific name; a plant's former names are its own
+      ("Rêu java (Vesicularia dubyana)"): `synonyms` on its page, from its sources, GBIF and a few hobby names
+      (`pnpm engine plant-synonyms`, each cycle)
     - in a list of fish, no fish's section without a photo while the fish has one the page doesn't show yet
     - the contents match the headings, in order, each numbered heading under its own number; numbered headings count up
     - no heading with nothing under it
