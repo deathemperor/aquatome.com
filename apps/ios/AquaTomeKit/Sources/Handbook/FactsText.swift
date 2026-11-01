@@ -9,7 +9,7 @@ extension HandbookIndex.Facts {
 
   public static func number(_ n: Double, _ locale: Locale) -> String {
     // Halves away from zero, as the browser rounds (7.25 → 7,3), not to even.
-    n.formatted(.number.locale(locale).precision(.fractionLength(0...1)).rounded(rule: .toNearestOrAwayFromZero).grouping(.never))
+    n.formatted(.number.locale(locale).precision(.fractionLength(0...1)).rounded(rule: .toNearestOrAwayFromZero))
   }
 
   public static func range(_ r: Range, _ locale: Locale) -> String {

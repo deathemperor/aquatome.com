@@ -5,9 +5,11 @@ import SwiftUI
 /// pages write them. They come from the handbook's index kept on the phone, so they show offline too, page or no page.
 struct FactsCard: View {
   let facts: HandbookIndex.Facts
-  @Environment(\.locale) private var locale
+  @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
+    // Numbers as the page's language writes them, as the site does (format.ts), not as the phone's region would.
+    let locale = Locale(identifier: handbook.lang)
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(alignment: .top, spacing: 16) {
         if let v = facts.sizeCm { Fact(label: "Kích thước", value: "\(HandbookIndex.Facts.number(v, locale)) cm") }

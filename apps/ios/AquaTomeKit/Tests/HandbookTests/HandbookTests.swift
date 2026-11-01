@@ -176,7 +176,7 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(F.range(.init(min: 6.5, max: 7.25), vi) == "6,5–7,3") // a half rounded up, as the browser does
   #expect(F.range(.init(min: 4.5, max: 6.5), th) == "4.5–6.5")
   #expect(F.range(.init(min: 7, max: 7), vi) == "7")
-  #expect(F.number(1200, vi) == "1200")
+  #expect(F.number(1200, vi) == "1.200" && F.number(1200, th) == "1,200") // thousands grouped, as the site groups them
   // The site's three steps of its 1–8 scale.
   #expect([1, 3, 4, 5, 6, 8].map { F.level($0) } == [.easy, .easy, .mid, .mid, .hard, .hard])
   #expect(!F().any && !F(temperament: "shy").any)

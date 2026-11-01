@@ -23,18 +23,29 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertEqual(facts, ["Kích thước, 15 cm", "Nhiệt độ, 28–31°C", "pH, 4,5–6,5", "Bể tối thiểu, 120 cm", "Độ khó, Khó"])
   }
 
+  /// On a phone in English with a US region the handbook is the Vietnamese one, and its numbers are written the
+  /// Vietnamese way, as on the page below, not the region's way ("4.5").
+  func testNumbersFollowThePagesLanguageNotThePhonesRegion() {
+    let app = launch(language: "en", locale: "en_US")
+    open(app, "Ca dia")
+    let card = app.descendants(matching: .any)["facts-card"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5))
+    let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
+    XCTAssertTrue(facts.contains("pH, 4,5–6,5"), "\(facts)")
+  }
+
   func testOtherPagesHaveNoCard() {
     let app = launch()
-    open(app, "Rotala")
+    open(app, "Rotala") // it has a temperature in the fixed index: no card all the same
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5))
     XCTAssertFalse(app.descendants(matching: .any)["facts-card"].exists, "a card on a plant")
   }
 
   // MARK: Helpers
 
-  private func launch() -> XCUIApplication {
+  private func launch(language: String = "vi", locale: String = "vi_VN") -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-reset-defaults", "-fixed-handbook"]
     app.launch()
     return app
   }
