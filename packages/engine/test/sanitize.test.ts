@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { sanitizeHtml, tidyHeadings } from '../src/sanitize'
+import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain } from '../src/sanitize'
 
 test('keeps allowed tags and strips every attribute', () => {
   expect(sanitizeHtml('<p class="x" onclick="y">ok <strong style="c">b</strong></p>')).toBe('<p>ok <strong>b</strong></p>')
@@ -29,4 +29,17 @@ test("a heading with no number between two numbered ones that follow each other 
   // Two lists in one text (1–8 then 1–7) and a heading that merely starts with a number ("10 loại cây") are left alone.
   const two = '<h3>1. A</h3><h3>2. B</h3><h3>7 dấu hiệu</h3><h3>1. C</h3><h3>10 loại cây</h3>'
   expect(tidyHeadings(two)).toBe(two)
+})
+
+test('an entity escaped twice is escaped once; empty headings, paragraphs, items and lists are dropped', () => {
+  expect(sanitizeHtml('<p>Tom &amp;amp; Jerry &amp;lt;3</p>')).toBe('<p>Tom &amp; Jerry &lt;3</p>')
+  expect(sanitizeHtml('<h3></h3><p>a</p><p> </p><ul><li></li></ul><p>b</p>')).toBe('<p>a</p><p>b</p>')
+  // A single escape is right, and an empty table cell is a cell.
+  expect(sanitizeHtml('<p>R&amp;D</p><table><tr><td></td><td>x</td></tr></table>')).toBe('<p>R&amp;D</p><table><tr><td></td><td>x</td></tr></table>')
+})
+
+test('plain text (a title, a summary point, an FAQ) holds no entities', () => {
+  expect(unescapePlain('Cacing Jangkar &amp; Kutu Ikan')).toBe('Cacing Jangkar & Kutu Ikan')
+  expect(unescapePlain('A &amp;amp; B &#8211; C &lt; D')).toBe('A & B – C < D')
+  expect(plainParts([' a &amp; b ', ''], [{ q: 'Q &amp;?', a: ' ' }, { q: 'Hỏi', a: 'Đáp &gt; 1' }])).toEqual({ summary: ['a & b'], faq: [{ q: 'Hỏi', a: 'Đáp > 1' }] })
 })

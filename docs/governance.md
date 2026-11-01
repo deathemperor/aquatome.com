@@ -217,6 +217,22 @@ The layers above still check the result.
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
   said 5 cm and pH 3,5–7,5 where its card said 3,5 cm and pH 4,6–6,2.
+- **Content rules.** Every published page, in each language, is checked against rules every cycle (`pnpm engine audit`,
+  `packages/engine/src/content-rules.ts`, one small tested function each). A mistake found by hand once becomes a rule,
+  so it is caught on every page from then on.
+  - The rules: a numbered run of headings broken by one without a number; a title promising a count ("10 loại…") the
+    text doesn't have; a heading twice or with nothing under it; the source site's comments or related posts; markdown,
+    HTML or entities left in the text; a paragraph repeated; sentences left in English; Vietnamese on Indonesian and
+    Thai pages outside the names the site marks; imperial units with no metric figure beside them; a photo caption
+    naming another fish; data card figures out of bounds, or a minimum tank shorter than twice the adult fish.
+  - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
+    `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
+    becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its
+    entities. The rest is listed in `docs/review/content-rules.md`, each page once per rule with its link.
+  - Found by the owner: the betta foods guide's contents read "3. #3 Cám viên…, 4. Xtreme Betta Pellets, 5. #4…". The
+    first run fixed an Indonesian guide whose title read `Cacing Jangkar &amp; Kutu Ikan` on the page, and listed 6
+    guides carrying another site's reader comments (with the readers' names), 36 species and plant pages with a photo
+    whose caption names another fish, and 7 guides whose titles promise more items than they have.
 
 ## Rules for every change (people and agents)
 
