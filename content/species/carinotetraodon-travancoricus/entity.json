@@ -20,16 +20,16 @@
         }
       },
       {
-        "source": "sprucepets",
+        "source": "aquariumcoop",
         "value": {
-          "min": 22,
+          "min": 23,
           "max": 28
         }
       },
       {
-        "source": "aquariumcoop",
+        "source": "sprucepets",
         "value": {
-          "min": 23,
+          "min": 22,
           "max": 28
         }
       }
@@ -43,17 +43,17 @@
         }
       },
       {
-        "source": "sprucepets",
-        "value": {
-          "min": 7,
-          "max": 8
-        }
-      },
-      {
         "source": "aquariumcoop",
         "value": {
           "min": 6.5,
           "max": 8.4
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 7,
+          "max": 8
         }
       }
     ],
@@ -79,22 +79,18 @@
         "value": 3
       },
       {
-        "source": "sprucepets",
-        "value": 3.5
-      },
-      {
         "source": "aquariumcoop",
         "value": 2.5
+      },
+      {
+        "source": "sprucepets",
+        "value": 3.8
       }
     ],
     "tankCm": [
       {
         "source": "aquariumbreeder",
         "value": 30
-      },
-      {
-        "source": "sprucepets",
-        "value": 75
       },
       {
         "source": "aquariumcoop",
@@ -107,11 +103,11 @@
         "value": 4
       },
       {
-        "source": "sprucepets",
+        "source": "aquariumcoop",
         "value": 4
       },
       {
-        "source": "aquariumcoop",
+        "source": "sprucepets",
         "value": 4
       }
     ]
@@ -125,15 +121,15 @@
     },
     {
       "key": "quickFacts",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<ul><li>Common names: Pea Puffer, Dwarf Puffer, Bumblebee Puffer, Malabar Puffer, Pygmy Puffer</li><li>Family: Tetraodontidae</li><li>Adult size: 1 to 1.5 inches (2.5 to 4 cm)</li><li>Life expectancy: 4 years</li><li>Origin: India</li><li>Social: aggressive</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Care: intermediate</li></ul>"
-    },
-    {
-      "key": "quickFacts",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>Carinotetraodon travancoricus, also known as the pea puffer, Indian dwarf puffer, Malabar puffer and pygmy puffer, is the smallest pufferfish in the world. It comes from fully freshwater environments in the southwestern tip of India. It grows to only about 1 inch (2.5 cm) long.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<ul><li>Life expectancy: 4 years</li><li>Origin: India</li><li>Social: aggressive</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Hardness: 5 to 15 dKH</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -148,6 +144,12 @@
       "html": "<p>Pea puffers are usually sold at local fish stores (usually not available at pet store chains). Choose a healthy fish with a nicely rounded belly. It also helps to ask the store what they feed the puffers, since they can be picky eaters.</p><p>Most pea puffers are now captive bred, but if they are wild caught, they may need additional deworming medication. A quarantine medication trio has been used as a preventative treatment on thousands of pea puffers with no harmful effects. Even though puffers are considered \"scaleless\" fish, these three medications are proven to be safe for them. Use the full recommended dosages, or else pathogens may survive the treatment.</p><p>This oddball species is more of an intermediate level fish and is generally not recommended to first-time fish keepers. They have special dietary requirements and do not get along with other community fish. However, pea puffers are very inquisitive, have unique looks and behaviors, and can even learn to recognize their owner.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<p>A novel addition to the freshwater aquarium hobby, the Pea Pufferfish, known by many other names, is a very small member of the pufferfish family (Tetraodontidae). However, don't let their small size and cute appearance trick you! Some of these tiny fish can be very aggressive, even against their own kind. Feed them a proper diet and provide lots of room to ensure a healthy and thriving population.</p><p>They are listed as \"vulnerable\" on the International Union for Conservation, right above endangered. Please consider this carefully before deciding to bring these fish home.</p>"
+    },
+    {
       "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -157,7 +159,7 @@
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>Native to the Western Ghats of India, these small fish have been in decline since their introduction to the aquarium hobby. The Pea Puffer is found in many of the lakes and rivers of this region of India. It is listed as \"vulnerable\" by the International Union for Conservation of Nature, right above endangered. Please consider this carefully before deciding to bring these fish home.</p>"
+      "html": "<p>Native to the Western Ghats of India, these cute little fish have been in decline since their introduction to the aquarium hobby. The Pea Puffer is found in many of the lakes and rivers of this region of India.</p>"
     },
     {
       "key": "habitat",
@@ -187,7 +189,7 @@
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>Pea Puffers like a well-maintained aquarium with lots of plants to hide in. Given their small size, they are used to being snacks for larger fish, so providing cover with plants or other décor is critical to reducing stress. Keep in mind that aquarium plants may affect pH and oxygen levels, so make sure the tank can handle the bioload.</p><p>Pea Puffers tend to be more sensitive to poor water conditions than other freshwater species. It is critical to check water chemistry and keep up with regular maintenance.</p>"
+      "html": "<p>Pea Puffers like a well-maintained aquarium with lots of plants to hide in. Given their small nature, they are used to being snacks for larger fish, so providing cover, with either plants or other décor items, is critical to reducing their stress level. However, keep in mind that aquarium plants may affect your pH and oxygen levels, so make sure your tank can handle the bioload.</p><p>Pea Puffers tend to be more sensitive to poor water conditions than other freshwater species. It is critical for you to check your water chemistry and keep up with your regular maintenance.</p>"
     },
     {
       "key": "waterConditions",
@@ -221,15 +223,15 @@
     },
     {
       "key": "diet",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>Pea Puffers are carnivorous and require animal-based proteins in their diet. This will likely mean a wide variety of frozen foods in addition to a carnivore pellet. Vitamin content may diminish in frozen diets, so a pelleted diet must be included to keep the fish healthy. If the fish is reluctant to eat pellets, feed a varied diet to round out its nutritional intake.</p>"
-    },
-    {
-      "key": "diet",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>These hardcore carnivores are best fed frozen foods (like frozen bloodworms and brine shrimp) and live foods (like little pest snails or blackworms). They typically will not take dry foods, though Hikari Vibra Bites have worked well because they look and move like bloodworms as they sink.</p><p>Most larger pufferfish must be fed hard, crunchy foods to grind down their ever-growing teeth, but pea puffers do not have this problem, so live snails are not essential. Feed a wide variety of frozen foods so they get all the essential nutrients. Frozen bloodworms are a favorite food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<p>Pea Puffers are carnivorous and require animal-based proteins in their diet. This will likely mean a wide variety of frozen foods in addition to a carnivore pellet. Keep in mind that vitamin content may become diminished in frozen diets, so a pelleted diet must be included to keep your Pea Puffer healthy. If your Pea Puffer is reluctant to eat a pelleted diet, be sure to feed a varied diet to round out their nutritional intake.</p>"
     },
     {
       "key": "behaviour",
@@ -239,15 +241,15 @@
     },
     {
       "key": "behaviour",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>Due to their aggressive nature, few species can be kept in the same aquarium. Most aquariums containing Pea Puffers will have only Pea Puffers. If kept with other fish, slow swimming fish will be nibbled on, so only fast swimmers should be housed with pufferfish. If adding these fish to an established aquarium, be sure they are the last to be added. It is best to add the most aggressive species to a mixed-species tank last to give others room to claim places to hide.</p><p>Since they are carnivorous, it is not recommended to keep any invertebrates in their tank, including shrimp and snails.</p>"
-    },
-    {
-      "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>Pea puffers are known for their helicopter-like maneuverability and independently moving eyes. They are very curious fish with excellent eyesight and often examine everything in their aquarium.</p><p>Some puffers can be timid, but most are pretty aggressive and territorial. Like a dog prone to fighting, any other tank mate will probably get attacked, so keep them in a species-only aquarium. This means no algae eaters or clean-up crew, so more tank maintenance is needed. Pea puffers can be messy, so live aquarium plants help consume toxic waste compounds. A densely planted tank has little algae and provides a jungle to navigate.</p><p>Pea puffers can puff up as a defensive mechanism or for practice, by sucking in water to increase their size. It is rare. Left alone, the fish shrinks back to its normal shape. Do not deliberately stress the fish to make it inflate. When moving a pea puffer, use a cup or small container instead of a net, so the fish stays submerged and does not suck in air.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<p>Due to their aggressive nature, there are few species that can be kept in the same aquarium. Most aquariums containing Pea Puffers will ONLY have Pea Puffers and no other fish. If putting them with other fish species, slow swimming fish will be nibbled on, so only fast swimmers should be housed with pufferfish. If you are adding these fish to an established aquarium, be sure they are the last to be added. It is best to always add the most aggressive species to a mixed-species tank last to give others room to call their own and claim places to hide.</p><p>Since they are carnivorous, it is not recommended to keep any invertebrates in their tank. They will become lunch for a ravenous Pea Puffer. This includes shrimp and snails.</p>"
     },
     {
       "key": "dimorphism",
@@ -257,15 +259,15 @@
     },
     {
       "key": "dimorphism",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>If all puffers are roughly the same age and fed the same diet, females tend to be larger than males. Males may also have a black line on the belly.</p><p>Male Pea Puffers can be very territorial, so it is recommended to keep only one male per aquarium, or to have an extra large tank with lots of space so there are no territory overlaps.</p>"
-    },
-    {
-      "key": "dimorphism",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>Sexing can be tricky. Males tend to have deeper coloration with a stripe or dot on the belly, slenderer bodies and more aggressive behavior. Females have a yellow belly and tend to be plumper. Most pea puffers are sold as juveniles, which are hard to sex.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<p>As with many fish species, if all your puffers are roughly the same age and being fed the same diet, the female Pea Puffers will tend to be larger than males. Males also may have a black line on their belly.</p><p>Male Pea Puffers can be very territorial, so it is recommended to keep only one male per aquarium, or have an extra large tank with lots of space so there are no territory overlaps.</p>"
     },
     {
       "key": "reproduction",
@@ -277,7 +279,7 @@
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>Many hobbyists have had great difficulty breeding the Pea Puffer. Some have found certain aquarium plants and mosses more conducive to successful breeding, but this is not guaranteed.</p><p>With a healthy group of one male and several females, the fish will usually spawn, provided the correct environmental parameters are met. Exact requirements for this species are unknown; most spawning occurs through trial and error. It is highly recommended to move the eggs to a breeding tank to prevent predation after hatching.</p>"
+      "html": "<p>Many hobbyists have had extreme difficulty breeding the Pea Puffer. Some have found certain aquarium plants and mosses to be more conducive to successful breeding, but this is not guaranteed.</p><p>With a healthy population of one male and his female harem, usually, the fish will spawn all at once, provided the correct environmental parameters have been met. Exact specifications for this species is unknown; most spawning occurs through much trial and error. It is highly recommended to move the eggs to a breeding tank to prevent predation post-hatch.</p>"
     },
     {
       "key": "notes",
@@ -287,15 +289,15 @@
     },
     {
       "key": "notes",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "html": "<p>The Pea Puffer has a small, rounded body with a golden back that blends into a white or tan belly. The back is covered in dark brown to black spots. Like many other puffers, the body is fairly round with eyes that slightly protrude from the pointed head. The tail tapers to a point with a minimized dorsal fin and absent pelvic fins.</p>"
-    },
-    {
-      "key": "notes",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>A ratio of one male to two or three females tends to decrease aggression. If you end up with one female and two males, you may need to rehome at least one male to minimize fighting.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "html": "<p>The Pea Puffer has a small, rounded body with a golden back that blends into a white or tan belly. Their back is covered in dark brown to black spots. Like many other puffers, their body is fairly round with eyes that slightly protrude from their pointed head. Their tail tapers to a point with a minimized dorsal fin and absent pelvic fins.</p>"
     },
     {
       "key": "references",
@@ -339,17 +341,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "caption": "Carinotetraodon travancoricus (Pea Puffer fish)",
-      "source": "sprucepets"
-    },
-    {
       "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab-480.webp",
       "width": 1000,
@@ -359,6 +350,17 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "caption": "pea puffer looking at a bloodworm",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "caption": "Carinotetraodon travancoricus (Pea Puffer fish)",
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/commons/b78cb97609998398.webp",
@@ -423,5 +425,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

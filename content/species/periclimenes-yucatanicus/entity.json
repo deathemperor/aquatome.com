@@ -15,7 +15,8 @@
     "puerto-rico",
     "panama",
     "asia",
-    "japan"
+    "japan",
+    "netherlands-antilles"
   ],
   "dataCard": {
     "tempC": [
@@ -42,12 +43,6 @@
         "value": 2.5
       }
     ],
-    "tankCm": [
-      {
-        "source": "aquariumbreeder",
-        "value": 40
-      }
-    ],
     "difficulty": [
       {
         "source": "aquariumbreeder",
@@ -60,67 +55,73 @@
       "key": "quickFacts",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Name: Spotted anemone shrimp (also Spotted cleaner shrimp, Anemone shrimp)</li><li>Scientific name: Periclimenes yucatanicus</li><li>Optimal tank size: 10 gallons (~40 litres)</li><li>Keeping: easy</li><li>Breeding: very difficult</li><li>Size: up to 2.5 cm (~1 inch)</li><li>Optimal temperature: 24–26°C (75–79°F)</li><li>Water type: SG 1.021–1.025</li><li>Optimal pH: 8.1–8.4</li><li>Optimal KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / carnivore</li><li>Temperament: peaceful</li><li>Life span: up to 1 year</li><li>Colour: translucent with blue-purple spots</li></ul>"
+      "html": "<ul><li>Name: Spotted anemone shrimp (also Spotted cleaner shrimp, Anemone shrimp)</li><li>Optimal tank size: 10 gallons (~40 litres)</li><li>Keeping: easy; breeding: very difficult</li><li>Water type: SG 1.021–1.025</li><li>Optimal KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / carnivore</li><li>Temperament: peaceful</li><li>Life span: up to 1 year</li><li>Colour: translucent with blue-purple spots</li></ul>"
     },
     {
       "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.</p><p>Nowadays, there are also reports of this species in southwestern Japan and the west Indies.</p>"
+      "html": "<p>Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.</p><p>There are also reports of this species in southwestern Japan and the West Indies.</p>"
     },
     {
       "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>They can usually be found in coral reef systems at depths of 3–22 m (9–70 ft), where they also establish a cleaning symbiotic relationship with anemones and fish cleaners, removing parasites and damaged tissues.</p>"
+      "html": "<p>They are usually found in coral reef systems at depths of 3–22 m (9–70 ft), where they form cleaning symbiotic relationships with anemones and fish, removing parasites and damaged tissue.</p><p>In the wild they are found free-living and on a wide array of substrates (rocky shorelines, hard-bottom reefs, tube sponges, etc.), suggesting that their transparent body is not particularly related to any habitat type. They inhabit shallow waters where the current is very slow-moving.</p><p>This species is a symbiotic cleaner shrimp. According to the study, these shrimp are known to associate with 4 species of anemones: Bartholomea annulata, Lebrunia danae, Cassiopea xamachana and Condylactis gigantea (preferred host).</p><p>Periclimenes yucatanicus uses them as the centres of cleaning stations that attract client fishes for ectoparasite removal. In addition, these shrimp clean the anemone by removing organisms caught in its mucus.</p><p>Because of their ability to host cleaners and act as visual signals that draw in client fishes, the anemones can also receive nutrients in the form of waste products (excreted ammonia and faeces) from their crustacean symbionts and visiting clients, thus contributing to efficient nutrient cycling on coral reefs.</p><p>Unlike Pederson shrimp, this species usually exhibits fidelity to a single species of host sea anemone and does not migrate from one to another.</p><p>For some time, the role of Periclimenes yucatanicus as a cleaner was uncertain, as only one cleaning interaction had been reported in its natural habitat, which led to the assumption that it was a cleaner mimic. Further research showed this was not true: it regularly signals its availability to clean, client fishes visit regularly and the shrimp does engage in true symbiotic cleaning interactions, but these are brief and rare.</p><p>Although it is a true cleaner shrimp, P. yucatanicus is less efficient than Pederson shrimp. Less than 15% of all client visits resulted in an actual cleaning interaction.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Because of their small size, there are no minimum requirements. Even nano reef tanks are good enough for a few Periclimenes yucatanicus.</p><p>The only problems with small tanks:</p><ul><li>It can be difficult to keep water parameters stable.</li><li>It can be hard for the shrimp to find enough food, causing feeding problems.</li></ul><p>Ideally, use a tank with a capacity of at least 10 gallons (about 40 litres).</p><p>These shrimp can crawl out of the aquarium. To prevent this: get a lid for the tank, lower the water level, and do not stress them.</p>"
+      "html": "<p>Because of their small size, there are no minimum requirements. Even a nano reef tank is good enough for a few Periclimenes yucatanicus.</p><p>The only problems with small tanks:</p><ul><li>It can be difficult to keep water parameters stable.</li><li>It can be hard for the shrimp to find enough food, leading to feeding problems.</li></ul><p>Ideally, use a tank with a capacity of at least 10 gallons (about 40 litres).</p><p>These shrimp can crawl out of the aquarium. To prevent this:</p><ul><li>get a lid for the tank,</li><li>lower the water level,</li><li>do not stress them.</li></ul>"
     },
     {
       "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Keeping the Spotted cleaner shrimp in an aquarium is not complicated because they do not have special water quality requirements. These shrimp should be maintained under conditions suitable for any other typical reef-aquarium inhabitants.</p><p><strong>Acclimation:</strong> The Spotted anemone shrimp are mostly wild-caught, so they are often delivered to pet stores in poor condition. Before putting them into the tank, at least temperature acclimate them. Give them time to acclimatize and do not rush the process. Sudden changes in habitat can harm them.</p>"
+      "html": "<p>Keeping the Spotted cleaner shrimp in an aquarium is not complicated because they do not have special water quality requirements.</p><p>Spotted anemone shrimp are mostly wild-caught, so they are often delivered to pet stores in poor condition. Before putting them into the tank, at least temperature-acclimate them. Give them time to acclimatise and do not rush the process; sudden changes in habitat can harm them.</p>"
     },
     {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Temperature: 24–26°C (75–79°F).</li><li>pH: 8.1–8.4.</li><li>SG: salinity of 1.021–1.025 specific gravity.</li><li>Hardness: 8–12 dKH.</li><li>Calcium: 400–450 ppm is optimal, but it can be a bit lower or higher.</li></ul>"
+      "html": "<ul><li>Temperature: the ideal range is 24–26°C (75–79°F).</li><li>pH: 8.1–8.4.</li><li>SG: salinity in the range of 1.021–1.025 specific gravity.</li><li>Hardness: keep KH between 8–12 dKH.</li><li>Calcium: keeping calcium at 400–450 ppm is optimal, but it can be a bit lower or higher.</li><li>Nitrate: less than 20 ppm.</li></ul><p>These shrimp have no special water quality requirements and should be kept under conditions suitable for any other typical reef-aquarium inhabitants.</p><p>In their natural habitat they live in shallow waters with very slow-moving current, so any surface agitation makes them uncomfortable and causes stress. Avoid fast water flow if possible.</p>"
     },
     {
       "key": "equipment",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p><strong>Lighting:</strong> Periclimenes yucatanicus is nocturnal. It does not really need light, so lighting should be adapted to the needs of the corals and fish in the tank.</p><p><strong>Substrate:</strong> These shrimp are not diggers and have no preference for substrate. In nature they are found free-living and on a wide array of substrates (rocky shorelines, hard-bottom reefs, tube sponges, etc.).</p><p><strong>Water flow:</strong> In nature, they inhabit shallow waters with very slow-moving current. Surface agitation makes them uncomfortable and causes stress. Avoid fast-moving water flow if possible.</p><p><strong>Decorations:</strong> Decorations provide hiding places (shelter and protection) and minimise stress. This is also crucial for molting. In a community tank, there should be plenty of dark areas to hide in, made from rocks, PVC pipe, plastic tunnels, etc.</p>"
+      "html": "<p>Lighting: Periclimenes yucatanicus is nocturnal. It does not really need light, so lighting should be adapted to the needs of the corals and fish in the tank.</p><p>Substrate: these shrimp are not diggers and have no preference for substrate.</p><p>Decorations: decorations play an important role for the Spotted anemone shrimp – they provide hiding places (shelter and protection) and minimise stress. This is also crucial for the moulting process. In a community tank there should be plenty of dark areas to hide in, created from rocks, PVC pipe, plastic tunnels, etc.</p>"
     },
     {
       "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Feeding is easy. These shrimp are omnivorous and will accept a wide range of fish, shrimp, or sea anemone foods. No direct feeding of the anemone is necessary.</p><p>While they may also consume parasites and dead skin from client fish even in aquariums, do not count only on that. Relying solely on their cleaning ability is insufficient for their nutritional needs. Provide food at least 2–3 times a week.</p><p>They will eat any pellet, flake, and gel foods that provide animal-based nutrition. The diet should consist of meaty seafood or marine flake food such as:</p><ul><li>Formula One</li><li>Formula Two Pellets</li><li>Ocean Nutrition</li></ul><p>This will make them grow faster and stay healthy.</p>"
+      "html": "<p>Feeding is easy. These shrimp are omnivorous and accept a wide range of fish, shrimp or sea anemone foods. No direct feeding is necessary.</p><p>While Periclimenes yucatanicus may also consume parasites and dead skin from client fish in aquariums, do not count only on that. Relying solely on their cleaning ability is insufficient for their nutritional needs, so provide food at least 2–3 times a week.</p><p>They will eat any pellet, flake and gel foods that provide animal-based nutrition. The diet should basically consist of meaty seafood or marine flake food such as Formula One, Formula Two Pellets and Ocean Nutrition. This will make them grow faster and stay healthy.</p>"
     },
     {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>These shrimp are completely peaceful and usually do not bother anybody in the tank.</p><p>They are also very social and tend to aggregate in large groups, potentially reflecting their small size and limited defensive capability. At the same time, they lack social structure. They are not territorial and males will not fight.</p><p>Periclimenes yucatanicus is usually associated with anemones. However, in aquariums, they can also live free without any anemones.</p><p>They are also considered cleaner shrimp. In their natural environment, they can clean parasites from fish skin, and even the mouth of a large fish like a grouper. That is why they are sometimes called Spotted cleaner shrimp.</p><ul><li>Social: Yes</li><li>Activity level: Low</li><li>Peaceful: Yes</li><li>Burrowers: No</li></ul><h3>Anemone partnership</h3><p>This species is a symbiotic cleaner shrimp. According to the study, these shrimp are known to associate with 4 species of anemones:</p><ul><li>Bartholomea annulata</li><li>Lebrunia danae</li><li>Cassiopea xamachana</li><li>Condylactis gigantea (preferred host)</li></ul><p>Periclimenes yucatanicus use them as the centres of cleaning stations that attract client fishes for ectoparasite removal. In addition, these shrimp clean the anemone by removing organisms caught in the anemone's mucus.</p><p>Because of their ability to host cleaners and act as visual signals that draw in client fishes, the anemones can also receive nutrients in the form of waste products (excreted ammonia and feces) from their crustacean symbionts and visiting clients, thus contributing to efficient nutrient cycling on coral reefs.</p><p>Unlike Pederson shrimp, this species usually exhibits fidelity to a single species of host sea anemone and does not migrate from one to another.</p><h3>As fish cleaners</h3><p>For some time, the role of Periclimenes yucatanicus as a cleaner was uncertain, as only one cleaning interaction had been reported in its natural habitat. This led to the assumption that this species is a cleaner mimic.</p><p>However, further research revealed this was not true. Periclimenes yucatanicus regularly signals its availability to clean, client fishes visit regularly and the shrimp does engage in true symbiotic cleaning interactions, but these are brief and rare.</p><p>Although this is still a true cleaner shrimp, compared to Pederson shrimp, P. yucatanicus is less efficient. Less than 15% of all client visits resulted in an actual cleaning interaction.</p><h3>Tank mates</h3><p>In the natural environment, these shrimp are known for their cleaning role, and they are often avoided by reef fishes due to their recognised status.</p><p>Although predatory fish may suppress their hunting instinct for the benefit of being cleaned in nature, this behaviour is absolutely not reliable in aquariums. If a fish is unaware of the cleaning behaviour of a specific shrimp species, especially if it originated from an area where such shrimp are absent, aggression can significantly escalate. For instance, lionfish often consume many cleaner shrimp due to their lack of familiarity with them, as these fish are not native to the area but were introduced accidentally.</p><p>Therefore, in aquariums, it is not recommended to keep them with large, predatory fish.</p><p>Spotted anemone shrimp are peaceful and small. They get along well with others of their kind, so maintaining a group is not problematic but it will require more space.</p><p>Good tank mates:</p><ul><li>crabs (for example, Boxer crabs, Porcelain anemone crab)</li><li>small hermit crabs (Halloween hermit crabs, Blue Leg Hermit Crabs, etc.)</li><li>snails (Cerith Snails, Bumble Bee Snails, Conch snails, Nassarius snails, etc.)</li><li>shrimp ('Sexy' Shrimp, Pederson shrimp, Peppermint shrimp, Camel shrimp, Skunk Cleaner Shrimp)</li></ul><p>If you have Emerald crabs and Red Fire shrimp, be careful and watch them closely (especially with big crabs and territorial shrimp).</p><p>Do not keep them with Arrow crabs and Coral banded shrimp, as these will likely eventually prey on them.</p><p>Do not keep them with Clownfish. These fish will not tolerate Periclimenes yucatanicus in their anemone and will bully them to get the anemone for themselves.</p>"
+      "html": "<p>These shrimp are completely peaceful and usually do not bother anybody in the tank.</p><p>They are also very social and tend to aggregate in large groups, potentially reflecting their small size and limited defensive capability, although they lack social structure. They are not territorial and males will not fight.</p><p>Periclimenes yucatanicus is usually associated with anemones, but in aquariums it can also live free without any anemones.</p><p>They are also considered cleaner shrimp. In their natural environment they clean parasites from fish skin, and even from the mouth of large fish such as groupers. That is why they are sometimes called Spotted cleaner shrimp.</p><ul><li>Social: yes</li><li>Activity level: low</li><li>Peaceful: yes</li><li>Burrowers: no</li></ul><p>Life span: there is no data on the average or maximum lifespan in the wild. Laboratory experiments have shown that these shrimp typically live about 260 days, with a maximum recorded lifespan of 728 days.</p><p>Tank mates: in the wild, reef fishes often avoid eating these shrimp because of their recognised cleaner status. Although predatory fish may suppress their hunting instinct for the benefit of being cleaned in nature, this is absolutely not reliable in aquariums. If a fish is unaware of the cleaning behaviour of a shrimp species, especially if it comes from an area where such shrimp are absent, aggression can escalate significantly. For instance, lionfish often eat many cleaner shrimp because they are unfamiliar with them, as these fish are not native to the area but were introduced accidentally. Therefore, do not keep them with large predatory fish.</p><p>Spotted anemone shrimp are peaceful and small. They get along well with others of their kind, so keeping a group is not a problem but requires more space.</p><p>Good tank mates:</p><ul><li>crabs (for example Boxer crabs, Porcelain anemone crab),</li><li>small hermit crabs (Halloween hermit crabs, Blue Leg Hermit Crabs, etc.),</li><li>snails (Cerith snails, Bumble Bee snails, Conch snails, Nassarius snails, etc.),</li><li>shrimp ('Sexy' shrimp, Pederson shrimp, Peppermint shrimp, Camel shrimp, Skunk cleaner shrimp).</li></ul><p>With Emerald crabs and Red Fire shrimp, be careful and watch them closely (especially with big crabs and territorial shrimp).</p><p>Do not keep them with Arrow crabs and Coral banded shrimp, as these will likely eventually prey on them.</p><p>Do not keep them with clownfish. These fish will not tolerate Periclimenes yucatanicus in their anemone and will bully them to get the anemone for themselves.</p><p>Coral safety: you should not have problems with the Spotted anemone shrimp in reef tanks. There are no reports that they eat SPS frags, destroy polyps, or the like.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species requires males and females to breed; they are not hermaphrodites.</p>"
     },
     {
       "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Breeding this species is very difficult. In scientific literature, there is not even a description of the larval development. At the moment, all that is known is:</p><ul><li>This species requires males and females to breed. They are not hermaphrodites.</li><li>They reach maturity when their carapace length at egg-bearing is estimated to be at least 3.5 mm.</li><li>According to the study, they can produce several hundred eggs (100–200) during each spawn. Clutch size increases approximately exponentially with increasing female size from that point.</li><li>This species has direct development without free-swimming larvae in the sea.</li><li>The number of stages a larva undergoes prior to settling is not known.</li><li>The larval duration period is not known.</li></ul>"
+      "html": "<p>Breeding this species is very difficult. In the scientific literature there is not even a description of the larval development. At the moment, all that is known is:</p><ul><li>This species requires males and females to breed. They are not hermaphrodites.</li><li>They reach maturity at an estimated carapace length of at least 3.5 mm when egg-bearing.</li><li>According to the study, they can produce several hundred eggs (100–200) per spawn. Clutch size increases approximately exponentially with increasing female size from that point.</li><li>This species has direct development without free-swimming larvae in the sea.</li><li>The number of stages a larva undergoes prior to settling is not known.</li><li>The larval duration period is not known.</li></ul>"
     },
     {
       "key": "notes",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Spotted cleaner shrimp are relatively small crustaceans with a slender, elongated body. The body is typically translucent or semi-transparent, with numerous small, dark spots or speckles scattered across the body and appendages, creating a speckled or mottled appearance. The spots may vary in size and density. The antennae and appendages may display contrasting colours such as orange or red. The combination of a translucent body and white, tan, green, blue, or purple blotches gives the species a striking appearance in aquariums.</p><p>Scientists noticed that these shrimp may vary in the number of rostral teeth, length/width ratio of the carpus of the major cheliped, colour pattern, and cnidarian host.</p><p><strong>Lifespan:</strong> There is no data on the average or maximum lifespan in the wild. Laboratory experiments have shown that these shrimp typically live about 260 days, with a maximum recorded lifespan of 728 days.</p><p><strong>Coral safe:</strong> Yes, there should be no problems with the Spotted anemone shrimp in reef tanks. There are no reports that they eat SPS frags, destroy polyps, or the like.</p><p>Given their unique appearance and small size, Periclimenes yucatanicus can be a great addition to small reef aquariums. The main problems are their rarity in the aquarium trade and the lack of scientific information about them.</p>"
+      "html": "<p>Even though Periclimenes yucatanicus is quite common in the Caribbean basin, it is still considered a relatively rare find in the aquarium trade. Its ecology is poorly researched and much is still unknown about these shrimp.</p><p>Description: they are relatively small crustaceans, growing up to 2.5 cm (1 inch), with a slender, elongated body. The body is typically translucent or semi-transparent with numerous small, dark spots or speckles scattered across the body and appendages, creating a speckled or mottled appearance. The spots may vary in size and density, with some individuals having more prominent markings than others. The antennae and appendages may display contrasting colours such as orange or red. The combination of a translucent body and white, tan, green, blue or purple blotches gives the species a striking appearance in aquariums.</p><p>Scientists have noticed that these shrimp may vary in the number of rostral teeth, the length/width ratio of the carpus of the major cheliped, colour pattern and cnidarian host.</p><p>Given their unique appearance and small size, they can be a great addition to small reef aquariums. The main problems are their rarity in the aquarium trade and the lack of scientific information about them.</p>"
     },
     {
       "key": "references",
@@ -129,7 +130,18 @@
       "html": "<ul><li>Titus, Benjamin M., Clayton Vondriska, and Marymegan Daly. “Comparative behavioural observations demonstrate the ‘cleaner’ shrimp Periclimenes yucatanicus engages in true symbiotic cleaning interactions.” Royal Society Open Science 4, no. 4 (2017): 170078.</li><li>Wicksten, Mary K. “Within-species variation in Periclimenes yucatanicus (Ives), with taxonomic remarks on P. pedersoni Chace (Crustacea: Decapoda: Caridea: Palaemonidae).” Proceedings of the Biological Society of Washington 108 (1995): 458-458.</li><li>Williams Jr, Ernest H., and Lucy B. Williams. “First Report of Periclimenes yucatanicus (Ives) (Decapoda, Palaemonidae) in Association with a Corallimorpharian Anemone.” Crustaceana 42, no. 3 (1982): 318-319.</li><li>Spotte, Stephen, and Patricia M. Bubucis. “Captive survivorship of the spotted anemone shrimp, Periclimenes yucatanicus.” Aquarium Sciences and Conservation 1 (1997): 65-69.</li><li>McKeon, C. Seabird, and James L. O’Donnell. “Variation in partner benefits in a shrimp—sea anemone symbiosis.” PeerJ 3 (2015): e1409.</li><li>Mihalik, Mary Beth. Investigations on symbioses between shrimp and sea anemones. Florida Atlantic University, 1989.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/6832d14d3b47680f.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/6832d14d3b47680f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -160,5 +172,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

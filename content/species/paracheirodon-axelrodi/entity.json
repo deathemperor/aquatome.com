@@ -76,10 +76,6 @@
       {
         "source": "seriouslyfish",
         "value": 60
-      },
-      {
-        "source": "sprucepets",
-        "value": 75
       }
     ],
     "difficulty": [
@@ -104,7 +100,13 @@
       "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<ul><li><strong>Family:</strong> Characidae</li><li><strong>Origin:</strong> Brazil, Colombia and Venezuela</li><li><strong>Social:</strong> Peaceful, suitable for a community tank</li><li><strong>Tank level:</strong> Top to mid-dweller</li><li><strong>Minimum tank size:</strong> 20 gallons</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Egg layer</li><li><strong>Care:</strong> Intermediate</li><li><strong>pH:</strong> 4.6 to 6.2</li><li><strong>Hardness:</strong> Up to 4 dGH</li><li><strong>Temperature:</strong> 23 to 27 °C (73 to 81 °F)</li><li><strong>Adult size:</strong> 2 inches</li><li><strong>Life expectancy:</strong> 4 years</li></ul>"
+      "html": "<ul><li><strong>Life expectancy:</strong> 4 years</li><li><strong>Social:</strong> peaceful, suitable for a community tank</li><li><strong>Tank level:</strong> top to mid-dweller</li><li><strong>Diet:</strong> omnivore</li><li><strong>Breeding:</strong> egg layer</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
+      "html": "<p>The cardinal tetra is similar in appearance to the neon tetra, and the two can be told apart by the red stripe. In the cardinal tetra the red band extends the entire length of the body, while in the neon tetra it runs only from mid-body to tail. Cardinal tetras are also larger than neon tetras.</p><p>They need an established tank, so they are not the right choice for a new aquarium or for someone new to checking and maintaining water chemistry. Varieties include:</p><ul><li>Gold cardinal tetra: a more golden or opal body color that isn't as vibrant.</li><li>Albino cardinal tetra: transparent, with pink or purple eyes, and less vibrant red and blue stripes.</li></ul>"
     },
     {
       "key": "distribution",
@@ -116,7 +118,7 @@
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River. It is found as far west as western Colombia. Other locations have also reported schools of cardinals, likely comprised of fish that have escaped from collectors. Manaus, in northern Brazil, is one such location where clusters of cardinals have made themselves at home. Since overfishing this quick-replenishing species would be nearly impossible, Project Piaba's \"Buy a Fish, Save a Tree\" project has become a UN global model for sustainable wild fisheries designed to preserve rainforest habitats.</p>"
+      "html": "<p>Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia. Other locations have also reported schools of cardinals, likely comprised of fish that have escaped from collectors. Manaus, in northern Brazil, is one such location. Since overfishing this quick-replenishing species would be nearly impossible, Project Piaba's \"Buy a Fish, Save a Tree\" project has become a UN global model for sustainable wild fisheries designed to preserve rainforest habitats.</p>"
     },
     {
       "key": "habitat",
@@ -128,7 +130,7 @@
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>The rainforests that cover their waterways are usually very dense and let very little light through. Cardinal tetras favor these shaded areas with slow-moving or standing waters that are very clear. They live in large schools, and it is not unusual to find them in groups numbering into the hundreds. Their native habitat generally has extremely soft, acidic water, often with a pH of 5. They live in shoals, mainly in the middle water layers, where they feed on worms and small crustaceans.</p>"
+      "html": "<p>The rainforests that cover their waterways are usually very dense and let very little light through. Cardinal tetras favor these shaded areas with slow-moving or standing waters that are very clear. They live in large schools, often in groups numbering into the hundreds. Their native habitat generally has extremely soft, acidic water, often with a pH of 5. They live in shoals, mainly in the middle water layers, where they feed on worms and small crustaceans.</p>"
     },
     {
       "key": "aquariumSize",
@@ -140,19 +142,13 @@
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Minimum tank size: 20 gallons. A well-planted tank with an open center space is an ideal habitat for this species.</p>"
+      "html": "<p>Minimum tank size: 20 gallons (about 75 litres). Keep a school of at least six; if you have a large aquarium, you can keep a bigger school.</p>"
     },
     {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
       "html": "<p>Maintenance generally presents few problems although a degree of care is necessary with wild specimens which are more intolerant of deteriorating water conditions than commercially-produced fish.</p><p>It perhaps looks best in a heavily-planted set-up or natural-style arrangement comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial, with alder cones also useful in this respect.</p><p>There's no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, such as Ceratopteris spp., is also appreciated.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "sprucepets",
-      "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Much like the neon tetra, this species requires a mature tank that has soft, acidic water. More importantly, water chemistry should be stable. This is not a species that does well in a newly started aquarium.</p><p>Lighting should be subdued, as should the décor. Floating plants are a good means for moderating the lighting. Although they require some hiding spaces, it is important to provide cardinal tetras with open-water swimming area as well.</p>"
     },
     {
       "key": "waterConditions",
@@ -164,7 +160,13 @@
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>The ideal pH is below 6, and the hardness should not be above 4 dGH. Subjecting this species to water that has a high mineral content is a recipe for poor health and shortened lifespans. The water temperature can encompass a broader range, from 73 to 81 F (23 to 27 C).</p>"
+      "html": "<p>Like the neon tetra, this species requires a mature tank with soft, acidic water, and stable water chemistry is even more important. It does not do well in a newly started aquarium.</p><ul><li>pH: ideally below 6 (4.6 to 6.2)</li><li>Hardness: not above 4 dGH</li><li>Temperature: 23 to 27 °C (73 to 81 °F)</li></ul><p>Water with a high mineral content leads to poor health and shortened lifespans.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
+      "html": "<p>Lighting should be subdued, as should the décor. Floating plants are a good means for moderating the lighting. Although they require some hiding spaces, provide open-water swimming area as well. A well-planted tank with an open center space is an ideal habitat.</p>"
     },
     {
       "key": "diet",
@@ -176,7 +178,7 @@
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>The cardinal tetra is an omnivorous species and will accept most commercial fish foods. These fish have high vitamin requirements, so at least 75% of their food should be quality flake food. Cardinal tetras especially appreciate live and frozen foods, but if fed them exclusively they may reject prepared food later on.</p><p>If only doing one to two feedings a day, offer what they can eat in about five minutes. However, it is better to feed these fish several times a day, offering only what they can eat in about three minutes. All foods should be in small pieces, as cardinals have a small mouth. When conditioning breeders, live foods are important.</p>"
+      "html": "<p>The cardinal tetra is an omnivorous species and will accept most commercial fish foods. These fish have high vitamin requirements, so at least 75% of their food should be quality flake food. They especially appreciate live and frozen foods, but if fed them exclusively they may reject prepared food later on.</p><p>If only doing one to two feedings a day, offer what they can eat in about five minutes. It is better to feed several times a day, offering only what they can eat in about three minutes. All foods should be in small pieces, as cardinals have a small mouth. When conditioning breeders, live foods are important.</p>"
     },
     {
       "key": "behaviour",
@@ -188,7 +190,7 @@
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Cardinal tetras, like other tetra species, are peaceful, social fish that should be kept in schools. Schools should be large, with a minimum size of a half-dozen fish. They are suitable for community tanks as long as water conditions are favorable and other species are peaceful.</p><p>Potential tank mates that may be suitable include:</p><ul><li>Other tetra species, such as the flame tetra and glowlight tetra</li><li>Danios</li><li>Rasboras, such as the harlequin rasbora and scissortail rasbora</li><li>Dwarf gouramis</li><li>Small members of the catfish family, especially Corydoras catfish</li></ul><p>Do not keep them with any fish that are known to eat smaller, slim-bodied fish. If the companion fish has a big enough mouth to swallow the cardinal tetra, it is not a suitable tank mate.</p>"
+      "html": "<p>Cardinal tetras, like other tetra species, are peaceful, social fish that should be kept in schools of at least half a dozen. They are suitable for community tanks as long as water conditions are favorable and other species are peaceful.</p><p>Potential tank mates include:</p><ul><li>Other tetra species, such as the flame tetra and glowlight tetra</li><li>Danios</li><li>Rasboras, such as the harlequin rasbora and scissortail rasbora</li><li>Dwarf gouramis</li><li>Small catfish, especially Corydoras catfish</li></ul><p>Do not keep them with any fish known to eat smaller, slim-bodied fish. If the companion fish has a mouth big enough to swallow the cardinal tetra, it is not a suitable tank mate.</p>"
     },
     {
       "key": "dimorphism",
@@ -200,7 +202,7 @@
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Males and females show few clear differences between the genders. Females will have a somewhat deeper body with a rounder belly, while males are more slender. Males also have a hook protruding from the anal fin.</p>"
+      "html": "<p>Males and females show few clear differences. Females have a somewhat deeper body with a rounder belly, while males are more slender. Males also have a hook protruding from the anal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -212,7 +214,7 @@
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>Breeding cardinal tetras is challenging at best. A separate breeding tank is important, and it must have stable water chemistry: a pH of 5.0 to 6.0 and very soft water of 3 to 5 dGH or below are essential. They will spawn in the evening, generally laying between 130 and 500 eggs. Spawning will continue even late into the night hours.</p><p>In approximately 24 hours, the eggs hatch, and the fry live off of their yolk sac for another four to five days. Once the fry are free swimming, feed them infusoria, rotifers, hardboiled egg yolk, or commercially prepared fry food. Follow this with freshly hatched brine shrimp as the fry grow. Lighting must be kept very low; use floating plants to ensure the tank remains dark. The young tetra fry are highly photosensitive.</p>"
+      "html": "<p>Breeding cardinal tetras is challenging at best. A separate breeding tank with stable water chemistry is important: a pH of 5.0 to 6.0 and very soft water of 3 to 5 dGH or below are essential. They spawn in the evening, generally laying between 130 and 500 eggs, and spawning can continue late into the night.</p><p>In approximately 24 hours the eggs hatch, and the fry live off their yolk sac for another four to five days. Once the fry are free swimming, feed them infusoria, rotifers, hardboiled egg yolk or commercially prepared fry food, followed by freshly hatched brine shrimp as they grow. Lighting must be kept very low; use floating plants to keep the tank dark, as the fry are highly photosensitive.</p>"
     },
     {
       "key": "notes",
@@ -224,7 +226,7 @@
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "html": "<p>There are also cardinal tetra varieties: the gold cardinal tetra has a more golden or opal body color that isn't as vibrant but is just as beautiful; the albino cardinal tetra is transparent, with pink or purple eyes, and its red and blue stripes are not as vibrant.</p><p>The cardinal tetra has a brilliant neon blue stripe running from the nose to the tail, with a brilliant red stripe below it. The red coloration bleeds into the tail, which is otherwise transparent, as are the other fins. The underbelly is a soft white. It can be distinguished from the neon tetra by the red band that extends the entire length of the body; in the neon tetra it runs from only mid-body to tail. Cardinal tetras are also larger than neon tetras. Adults display the best colors in very soft, acidic water.</p>"
+      "html": "<p>The cardinal tetra is a tiny beauty, but it is also a strong ambassador for preservation of the rainforest ecosystem. Breeding them can be tricky, but the wild-caught fish are robust and plentiful. Adults display the best colors in very soft, acidic water. The cardinal tetra has a brilliant neon blue stripe from nose to tail, with a brilliant red stripe below it; the red bleeds into the otherwise transparent tail, the other fins are transparent, and the underbelly is soft white.</p>"
     },
     {
       "key": "references",
@@ -319,5 +321,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

@@ -74,20 +74,7 @@
       "species/biotodoma-wavrini",
       "species/geophagus-abalios"
     ],
-    "mentions": 8,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
-  },
-  "hyphessobrycon-sweglesi": {
-    "name": "Hyphessobrycon sweglesi",
-    "mentionedIn": [
-      "species/acestrorhynchus-falcirostris",
-      "species/apistogramma-viejita",
-      "species/biotodoma-wavrini",
-      "species/geophagus-abalios",
-      "species/geophagus-dicrozoster"
-    ],
-    "mentions": 8,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_sweglesi_albino_en/"
+    "mentions": 8
   },
   "pangio-kuhlii": {
     "name": "Pangio kuhlii",
@@ -144,6 +131,17 @@
     ],
     "mentions": 7
   },
+  "corydoras-julii": {
+    "name": "Corydoras julii",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide",
+      "guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish",
+      "guides/aquariumcoop-blogs-aquarium-top-5-bottom-dwellers",
+      "guides/sprucepets-aquarium-catfish-breeds-5115234",
+      "guides/sprucepets-cory-species-1381075"
+    ],
+    "mentions": 6
+  },
   "mystus-armatus": {
     "name": "Mystus armatus",
     "mentionedIn": [
@@ -186,20 +184,7 @@
       "guides/sprucepets-cory-species-1381075",
       "species/lepidocephalichthys-guntea"
     ],
-    "mentions": 5,
-    "onSource": "https://www.scotcat.com/callichthyidae/hoplisoma_paleatum_albino.htm"
-  },
-  "corydoras-julii": {
-    "name": "Corydoras julii",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide",
-      "guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish",
-      "guides/aquariumcoop-blogs-aquarium-top-5-bottom-dwellers",
-      "guides/sprucepets-aquarium-catfish-breeds-5115234",
-      "guides/sprucepets-cory-species-1381075"
-    ],
-    "mentions": 5,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-trilineatum-albino-corydoras-julii-albino-2/"
+    "mentions": 5
   },
   "cryptocoryne-walkeri": {
     "name": "Cryptocoryne walkeri",
@@ -210,8 +195,7 @@
       "guides/youtube-J_PR999bgtw",
       "guides/youtube-vl1Lx9iWDYU"
     ],
-    "mentions": 7,
-    "onSource": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria"
+    "mentions": 7
   },
   "barbonymus-schwanenfeldii": {
     "name": "Barbonymus schwanenfeldii",
@@ -359,8 +343,17 @@
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 4,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_alburnus_en/"
+    "mentions": 4
+  },
+  "rasbora-sumatrana": {
+    "name": "Rasbora sumatrana",
+    "mentionedIn": [
+      "species/acrochordonichthys-gyrinus",
+      "species/acrochordonichthys-rugosus",
+      "species/acrochordonichthys-septentrionalis",
+      "species/betta-ocellata"
+    ],
+    "mentions": 4
   },
   "paracrossochilus-vittatus": {
     "name": "Paracrossochilus vittatus",
@@ -412,6 +405,26 @@
     ],
     "mentions": 4
   },
+  "osteochilus-spilurus": {
+    "name": "Osteochilus spilurus",
+    "mentionedIn": [
+      "species/belontia-hasselti",
+      "species/betta-raja",
+      "species/brevibora-cheeya",
+      "species/desmopuntius-johorensis"
+    ],
+    "mentions": 4
+  },
+  "pseudomystus-leiacanthus": {
+    "name": "Pseudomystus leiacanthus",
+    "mentionedIn": [
+      "species/belontia-hasselti",
+      "species/betta-raja",
+      "species/brevibora-cheeya",
+      "species/desmopuntius-johorensis"
+    ],
+    "mentions": 4
+  },
   "travancoria-jonesi": {
     "name": "Travancoria jonesi",
     "mentionedIn": [
@@ -452,6 +465,15 @@
     ],
     "mentions": 4
   },
+  "micranthemum-micranthemoides": {
+    "name": "Micranthemum micranthemoides",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-background-plants",
+      "guides/youtube-5ajPkl9rhKQ",
+      "guides/youtube-pY7e33xGcyQ"
+    ],
+    "mentions": 3
+  },
   "epipremnum-aureum": {
     "name": "Epipremnum aureum",
     "mentionedIn": [
@@ -460,16 +482,6 @@
       "guides/youtube-PVRlXXhdD7U"
     ],
     "mentions": 3
-  },
-  "corydoras-trilineatus": {
-    "name": "Corydoras trilineatus",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish",
-      "guides/sprucepets-aquarium-catfish-breeds-5115234",
-      "guides/sprucepets-cory-species-1381075"
-    ],
-    "mentions": 3,
-    "onSource": "https://www.seriouslyfish.com/species/hoplisoma-trilineatum"
   },
   "aeromonas-hydrophila": {
     "name": "Aeromonas hydrophila",
@@ -496,8 +508,7 @@
       "guides/sprucepets-cory-species-1381075",
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 3,
-    "onSource": "https://www.seriouslyfish.com/species/hoplisoma-metae"
+    "mentions": 3
   },
   "hyphessobrycon-eques": {
     "name": "Hyphessobrycon eques",
@@ -526,25 +537,6 @@
     ],
     "mentions": 3
   },
-  "rhodeus-amarus": {
-    "name": "Rhodeus amarus",
-    "mentionedIn": [
-      "species/acheilognathus-macropterus",
-      "species/rhodeus-ocellatus",
-      "species/tanakia-signifer"
-    ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/european_bitterling_rhodeus_amarus_en/"
-  },
-  "rasbora-sumatrana": {
-    "name": "Rasbora sumatrana",
-    "mentionedIn": [
-      "species/acrochordonichthys-gyrinus",
-      "species/acrochordonichthys-rugosus",
-      "species/acrochordonichthys-septentrionalis"
-    ],
-    "mentions": 3
-  },
   "ageneiosus-uranophthalmus": {
     "name": "Ageneiosus uranophthalmus",
     "mentionedIn": [
@@ -569,15 +561,6 @@
       "species/badis-ferrarisi",
       "species/lepidocephalichthys-guntea",
       "species/pethia-didi"
-    ],
-    "mentions": 3
-  },
-  "osteochilus-spilurus": {
-    "name": "Osteochilus spilurus",
-    "mentionedIn": [
-      "species/belontia-hasselti",
-      "species/brevibora-cheeya",
-      "species/desmopuntius-johorensis"
     ],
     "mentions": 3
   },
@@ -617,24 +600,6 @@
     ],
     "mentions": 3
   },
-  "pseudomystus-leiacanthus": {
-    "name": "Pseudomystus leiacanthus",
-    "mentionedIn": [
-      "species/belontia-hasselti",
-      "species/brevibora-cheeya",
-      "species/desmopuntius-johorensis"
-    ],
-    "mentions": 3
-  },
-  "mystus-bleekeri": {
-    "name": "Mystus bleekeri",
-    "mentionedIn": [
-      "species/botia-dario",
-      "species/ctenops-nobilis",
-      "species/danio-rerio"
-    ],
-    "mentions": 3
-  },
   "dawkinsia-rubrotinctus": {
     "name": "Dawkinsia rubrotinctus",
     "mentionedIn": [
@@ -642,8 +607,7 @@
       "species/dawkinsia-assimilis",
       "species/dawkinsia-filamentosa"
     ],
-    "mentions": 3,
-    "onSource": "https://www.seriouslyfish.com/species/dawkinsia-rubrotincta"
+    "mentions": 3
   },
   "sicyopterus-fasciatus": {
     "name": "Sicyopterus fasciatus",
@@ -661,8 +625,7 @@
       "species/syncrossus-hymenophysa",
       "species/trigonopoma-pauciperforatum"
     ],
-    "mentions": 3,
-    "onSource": "https://www.seriouslyfish.com/species/epalzeorhynchos-kalopterum"
+    "mentions": 3
   },
   "dawkinsia-singhala": {
     "name": "Dawkinsia singhala",
@@ -691,6 +654,24 @@
     ],
     "mentions": 3
   },
+  "mesonoemacheilus-remadevii": {
+    "name": "Mesonoemacheilus remadevii",
+    "mentionedIn": [
+      "species/mesonoemacheilus-herrei",
+      "species/nemacheilus-guentheri",
+      "species/nemacheilus-triangularis"
+    ],
+    "mentions": 3
+  },
+  "nemacheilus-menoni": {
+    "name": "Nemacheilus menoni",
+    "mentionedIn": [
+      "species/mesonoemacheilus-herrei",
+      "species/nemacheilus-guentheri",
+      "species/nemacheilus-triangularis"
+    ],
+    "mentions": 3
+  },
   "tuberoschistura-baenzigeri": {
     "name": "Tuberoschistura baenzigeri",
     "mentionedIn": [
@@ -708,15 +689,6 @@
     ],
     "mentions": 2
   },
-  "caridina-mariae": {
-    "name": "Caridina mariae",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp",
-      "guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/caridina-mariae-deep-blue-tiger-yellow-eyes-neocaridina-sp-tiger-2/"
-  },
   "caridina-serrata": {
     "name": "Caridina serrata",
     "mentionedIn": [
@@ -724,24 +696,6 @@
       "guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china"
     ],
     "mentions": 2
-  },
-  "hypancistrus-debilittera": {
-    "name": "Hypancistrus debilittera",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
-      "species/baryancistrus-beggini"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/extraordinary-attractive-hypancistrus-debilittera-l129-arrived/"
-  },
-  "hemigrammus-bleheri": {
-    "name": "Hemigrammus bleheri",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
-      "species/nannostomus-eques"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/petitella-bleheri-platin-2/"
   },
   "schistura-scaturigina": {
     "name": "Schistura scaturigina",
@@ -783,15 +737,6 @@
     ],
     "mentions": 2
   },
-  "vieja-maculicauda": {
-    "name": "Vieja maculicauda",
-    "mentionedIn": [
-      "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy",
-      "species/cincelichthys-bocourti"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/vieja_maculicauda_en/"
-  },
   "aphanius-mento": {
     "name": "Aphanius mento",
     "mentionedIn": [
@@ -807,15 +752,6 @@
       "species/alestopetersius-caudalis"
     ],
     "mentions": 2
-  },
-  "ladigesia-roloffi": {
-    "name": "Ladigesia roloffi",
-    "mentionedIn": [
-      "guides/sprucepets-common-fish-names-beginning-with-s-1378555",
-      "species/epiplatys-annulatus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ladigesia_roloffi_en-2/"
   },
   "channa-punctata": {
     "name": "Channa punctata",
@@ -838,14 +774,6 @@
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300",
       "species/glossolepis-wanamensis"
-    ],
-    "mentions": 2
-  },
-  "micranthemum-micranthemoides": {
-    "name": "Micranthemum micranthemoides",
-    "mentionedIn": [
-      "guides/youtube-5ajPkl9rhKQ",
-      "guides/youtube-pY7e33xGcyQ"
     ],
     "mentions": 2
   },
@@ -887,8 +815,7 @@
       "species/abbottina-rivularis",
       "species/garra-mirofrontis"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pseudorasbora_parva_gold_en/"
+    "mentions": 2
   },
   "pangio-pangia": {
     "name": "Pangio pangia",
@@ -914,15 +841,6 @@
     ],
     "mentions": 2
   },
-  "eigenmannia-virescens": {
-    "name": "Eigenmannia virescens",
-    "mentionedIn": [
-      "species/acanthodoras-cataphractus",
-      "species/acanthodoras-spinosissimus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/eigenmannia-virescens-e-sp-aff-trilineata-orinoco/"
-  },
   "puntius-brevis": {
     "name": "Puntius brevis",
     "mentionedIn": [
@@ -937,17 +855,7 @@
       "species/acestrorhynchus-falcatus",
       "species/geophagus-altifrons"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/"
-  },
-  "lamontichthys-filamentosus": {
-    "name": "Lamontichthys filamentosus",
-    "mentionedIn": [
-      "species/acestrorhynchus-falcatus",
-      "species/geophagus-altifrons"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/lamontichthys-filamentosus-2/"
+    "mentions": 2
   },
   "acheilognathus-rhombeus": {
     "name": "Acheilognathus rhombeus",
@@ -971,8 +879,7 @@
       "species/agamyxis-pectinifrons",
       "species/amblydoras-nauticus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/"
+    "mentions": 2
   },
   "leiocassis-micropogon": {
     "name": "Leiocassis micropogon",
@@ -1046,6 +953,54 @@
     ],
     "mentions": 2
   },
+  "microphis-deocata": {
+    "name": "Microphis deocata",
+    "mentionedIn": [
+      "species/badis-blosyrus",
+      "species/ctenops-nobilis"
+    ],
+    "mentions": 2
+  },
+  "pseudomystus-rugosus": {
+    "name": "Pseudomystus rugosus",
+    "mentionedIn": [
+      "species/barbodes-banksi",
+      "species/barbodes-binotatus"
+    ],
+    "mentions": 2
+  },
+  "hemirhamphodon-kuekenthali": {
+    "name": "Hemirhamphodon kuekenthali",
+    "mentionedIn": [
+      "species/barbodes-banksi",
+      "species/barbodes-binotatus"
+    ],
+    "mentions": 2
+  },
+  "ambassis-miops": {
+    "name": "Ambassis miops",
+    "mentionedIn": [
+      "species/barbodes-banksi",
+      "species/barbodes-binotatus"
+    ],
+    "mentions": 2
+  },
+  "stenogobius-ingeri": {
+    "name": "Stenogobius ingeri",
+    "mentionedIn": [
+      "species/barbodes-banksi",
+      "species/barbodes-binotatus"
+    ],
+    "mentions": 2
+  },
+  "macrognathus-maculatus": {
+    "name": "Macrognathus maculatus",
+    "mentionedIn": [
+      "species/barbodes-banksi",
+      "species/barbodes-binotatus"
+    ],
+    "mentions": 2
+  },
   "batasio-convexirostrum": {
     "name": "Batasio convexirostrum",
     "mentionedIn": [
@@ -1069,15 +1024,6 @@
       "species/crossocheilus-latius"
     ],
     "mentions": 2
-  },
-  "erethistes-pusillus": {
-    "name": "Erethistes pusillus",
-    "mentionedIn": [
-      "species/botia-dario",
-      "species/devario-acuticephala"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/"
   },
   "cribroheros-robertsoni": {
     "name": "Cribroheros robertsoni",
@@ -1103,6 +1049,14 @@
     ],
     "mentions": 2
   },
+  "parasphaerichthys-lineatus": {
+    "name": "Parasphaerichthys lineatus",
+    "mentionedIn": [
+      "species/ctenops-nobilis",
+      "species/parasphaerichthys-ocellatus"
+    ],
+    "mentions": 2
+  },
   "cyclocheilichthys-schoppeae": {
     "name": "Cyclocheilichthys schoppeae",
     "mentionedIn": [
@@ -1111,28 +1065,11 @@
     ],
     "mentions": 2
   },
-  "parambassis-lala": {
-    "name": "Parambassis lala",
-    "mentionedIn": [
-      "species/danio-erythromicron",
-      "species/parambassis-ranga"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-lala-bred/"
-  },
   "puntius-amphibius": {
     "name": "Puntius amphibius",
     "mentionedIn": [
       "species/dawkinsia-assimilis",
       "species/etroplus-maculatus"
-    ],
-    "mentions": 2
-  },
-  "betadevario-ramachandrani": {
-    "name": "Betadevario ramachandrani",
-    "mentionedIn": [
-      "species/devario-assamensis",
-      "species/devario-xyrops"
     ],
     "mentions": 2
   },
@@ -1152,32 +1089,13 @@
     ],
     "mentions": 2
   },
-  "hyphessobrycon-agulha": {
-    "name": "Hyphessobrycon agulha",
-    "mentionedIn": [
-      "species/geophagus-megasema",
-      "species/mikrogeophagus-altispinosus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_agulha_en/"
-  },
   "tyttocharax-tambopatensis": {
     "name": "Tyttocharax tambopatensis",
     "mentionedIn": [
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tyttocharax_tambopatensis_en/"
-  },
-  "nannostomus-trifasciatus": {
-    "name": "Nannostomus trifasciatus",
-    "mentionedIn": [
-      "species/geophagus-megasema",
-      "species/mikrogeophagus-altispinosus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-trifasciatus-gold-2/"
+    "mentions": 2
   },
   "apistogramma-linkei": {
     "name": "Apistogramma linkei",
@@ -1186,15 +1104,6 @@
       "species/mikrogeophagus-altispinosus"
     ],
     "mentions": 2
-  },
-  "puntius-sahyadriensis": {
-    "name": "Puntius sahyadriensis",
-    "mentionedIn": [
-      "species/haludaria-fasciata",
-      "species/schistura-denisoni"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/puntius-sahyadriensis-2/"
   },
   "devario-strigillifer": {
     "name": "Devario strigillifer",
@@ -1217,30 +1126,6 @@
     "mentionedIn": [
       "species/nemacheilus-binotatus",
       "species/schistura-geisleri"
-    ],
-    "mentions": 2
-  },
-  "mesonoemacheilus-herrei": {
-    "name": "Mesonoemacheilus herrei",
-    "mentionedIn": [
-      "species/nemacheilus-guentheri",
-      "species/nemacheilus-triangularis"
-    ],
-    "mentions": 2
-  },
-  "nemacheilus-menoni": {
-    "name": "Nemacheilus menoni",
-    "mentionedIn": [
-      "species/nemacheilus-guentheri",
-      "species/nemacheilus-triangularis"
-    ],
-    "mentions": 2
-  },
-  "mesonoemacheilus-remadevii": {
-    "name": "Mesonoemacheilus remadevii",
-    "mentionedIn": [
-      "species/nemacheilus-guentheri",
-      "species/nemacheilus-triangularis"
     ],
     "mentions": 2
   },
@@ -1268,6 +1153,22 @@
     ],
     "mentions": 2
   },
+  "psilorhynchus-tenura": {
+    "name": "Psilorhynchus tenura",
+    "mentionedIn": [
+      "species/puntius-sahyadriensis",
+      "species/schistura-denisoni"
+    ],
+    "mentions": 2
+  },
+  "schistura-nilgiriensis": {
+    "name": "Schistura nilgiriensis",
+    "mentionedIn": [
+      "species/puntius-sahyadriensis",
+      "species/schistura-denisoni"
+    ],
+    "mentions": 2
+  },
   "acanthocobitis-rubidipinnis": {
     "name": "Acanthocobitis rubidipinnis",
     "mentionedIn": [
@@ -1292,15 +1193,6 @@
     ],
     "mentions": 2
   },
-  "xiphophorus-continens": {
-    "name": "Xiphophorus continens",
-    "mentionedIn": [
-      "species/xiphophorus-hellerii",
-      "species/xiphophorus-pygmaeus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/"
-  },
   "brachionus-plicatilis": {
     "name": "Brachionus plicatilis",
     "mentionedIn": [
@@ -1312,13 +1204,6 @@
     "name": "Brachionus rotundiformis",
     "mentionedIn": [
       "guides/aquariumbreeder-rotifers-profile-and-culture-guide"
-    ],
-    "mentions": 1
-  },
-  "hygrophila-angustifolia": {
-    "name": "Hygrophila angustifolia",
-    "mentionedIn": [
-      "guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors"
     ],
     "mentions": 1
   },
@@ -1355,16 +1240,21 @@
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-top-10-cory-catfish"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/"
+    "mentions": 1
   },
   "corydoras-axelrodi": {
     "name": "Corydoras axelrodi",
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-top-5-bottom-dwellers"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-axelrodi-deckeri-2/"
+    "mentions": 1
+  },
+  "laubuka-dadiburjori": {
+    "name": "Laubuka dadiburjori",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-top-dwelling-fish"
+    ],
+    "mentions": 1
   },
   "flavobacterium-columnare": {
     "name": "Flavobacterium columnare",
@@ -1399,8 +1289,7 @@
     "mentionedIn": [
       "guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_pygmaea_en/"
+    "mentions": 1
   },
   "edwardsiella-ictaluri": {
     "name": "Edwardsiella ictaluri",
@@ -1421,24 +1310,28 @@
     "mentionedIn": [
       "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_parvus_and_l_barbatus_en/"
+    "mentions": 1
   },
   "labeo-barbatus": {
     "name": "Labeo barbatus",
     "mentionedIn": [
       "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/"
+    "mentions": 1
+  },
+  "baryancistrus-xanthellus": {
+    "name": "Baryancistrus xanthellus",
+    "mentionedIn": [
+      "guides/glaser-en-fisharchive-l200-hemiancistrus-subviridis-and-baryancistrus-demantoides"
+    ],
+    "mentions": 1
   },
   "botia-lohachata": {
     "name": "Botia lohachata",
     "mentionedIn": [
       "guides/loachesonline-articles-an-introduction-to-keeping-botia"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/botia-lohachata-2/"
+    "mentions": 1
   },
   "schistura-balteata": {
     "name": "Schistura balteata",
@@ -1459,8 +1352,7 @@
     "mentionedIn": [
       "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/"
+    "mentions": 1
   },
   "garra-gotyla": {
     "name": "Garra gotyla",
@@ -1474,8 +1366,7 @@
     "mentionedIn": [
       "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/"
+    "mentions": 1
   },
   "gastromyzon-borneensis": {
     "name": "Gastromyzon borneensis",
@@ -1545,8 +1436,7 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-ffsg-has-global-mission"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_somphongsi_en/"
+    "mentions": 1
   },
   "badis-andrewraoi": {
     "name": "Badis andrewraoi",
@@ -1567,8 +1457,7 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-in-memoriam-u-tin-win-1944-2014"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/"
+    "mentions": 1
   },
   "dawkinsia-tambraparniei": {
     "name": "Dawkinsia tambraparniei",
@@ -1582,8 +1471,7 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntigrus-anchisporus-moss-green/"
+    "mentions": 1
   },
   "paraneetroplus-gibbiceps": {
     "name": "Paraneetroplus gibbiceps",
@@ -1646,16 +1534,14 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/mesoheros-festae-formerly-cichlasoma-festae/"
+    "mentions": 1
   },
   "herotilapia-multispinosa": {
     "name": "Herotilapia multispinosa",
     "mentionedIn": [
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/herotilapia-multispinosa-2/"
+    "mentions": 1
   },
   "characidium-kamakan": {
     "name": "Characidium kamakan",
@@ -1669,16 +1555,14 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-new-darter-characins-from-brazil"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/"
+    "mentions": 1
   },
   "characidium-fasciatum": {
     "name": "Characidium fasciatum",
     "mentionedIn": [
       "guides/seriouslyfish-articles-new-darter-characins-from-brazil"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/characidium_fasciatum_colombia__en/"
+    "mentions": 1
   },
   "characidium-mirim": {
     "name": "Characidium mirim",
@@ -1825,16 +1709,14 @@
     "mentionedIn": [
       "guides/sprucepets-angelfish-gallery-4121742"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_german_bred_en/"
+    "mentions": 1
   },
   "corydoras-leopardus": {
     "name": "Corydoras leopardus",
     "mentionedIn": [
       "guides/sprucepets-aquarium-catfish-breeds-5115234"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/brochis-leopardus"
+    "mentions": 1
   },
   "chaetostoma-milesi": {
     "name": "Chaetostoma milesi",
@@ -1855,8 +1737,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/"
+    "mentions": 1
   },
   "synbranchus-madeirae": {
     "name": "Synbranchus madeirae",
@@ -1891,32 +1772,28 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/paratilapia_polleni_en/"
+    "mentions": 1
   },
   "lepidiolamprologus-attenuatus": {
     "name": "Lepidiolamprologus attenuatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/lepidiolamprologus-attenuatus-2/"
+    "mentions": 1
   },
   "oxyeleotris-marmorata": {
     "name": "Oxyeleotris marmorata",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/oxyeleotris-marmorata-2/"
+    "mentions": 1
   },
   "julidochromis-marlieri": {
     "name": "Julidochromis marlieri",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/julidochromis-marlieri-2/"
+    "mentions": 1
   },
   "variabilichromis-moorii": {
     "name": "Variabilichromis moorii",
@@ -1951,8 +1828,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/"
+    "mentions": 1
   },
   "pseudotropheus-saulosi": {
     "name": "Pseudotropheus saulosi",
@@ -1980,24 +1856,21 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/hemiodus-immaculatus-2/"
+    "mentions": 1
   },
   "mylossoma-duriventre": {
     "name": "Mylossoma duriventre",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mylossoma_duriventre_en/"
+    "mentions": 1
   },
   "selenotoca-multifasciata": {
     "name": "Selenotoca multifasciata",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/selenotoca-multifasciata-s-papuensis-2/"
+    "mentions": 1
   },
   "neolamprologus-sexfasciatus": {
     "name": "Neolamprologus sexfasciatus",
@@ -2011,8 +1884,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/"
+    "mentions": 1
   },
   "ictiobus-bubalus": {
     "name": "Ictiobus bubalus",
@@ -2033,16 +1905,14 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/chindongo-socolofi-albino-pseudotropheus-socolofi-2/"
+    "mentions": 1
   },
   "rhadinocentrus-ornatus": {
     "name": "Rhadinocentrus ornatus",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/"
+    "mentions": 1
   },
   "satanoperca-acuticeps": {
     "name": "Satanoperca acuticeps",
@@ -2063,16 +1933,14 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/tanganicodus_irsacae_ikola__en/"
+    "mentions": 1
   },
   "hypsophrys-nicaraguensis": {
     "name": "Hypsophrys nicaraguensis",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/"
+    "mentions": 1
   },
   "pseudacanthicus-spinosus": {
     "name": "Pseudacanthicus spinosus",
@@ -2086,14 +1954,6 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-erythrostigma-2/"
-  },
-  "barbodes-binotatus": {
-    "name": "Barbodes binotatus",
-    "mentionedIn": [
-      "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
-    ],
     "mentions": 1
   },
   "lepthoplosternum-pectorale": {
@@ -2101,8 +1961,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/"
+    "mentions": 1
   },
   "pimelodus-maculatus": {
     "name": "Pimelodus maculatus",
@@ -2123,8 +1982,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-lippincottianus-2/"
+    "mentions": 1
   },
   "pseudoxiphophorus-bimaculatus": {
     "name": "Pseudoxiphophorus bimaculatus",
@@ -2187,8 +2045,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pristobrycon_striolatus_en/"
+    "mentions": 1
   },
   "nannocharax-fasciatus": {
     "name": "Nannocharax fasciatus",
@@ -2216,8 +2073,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/"
+    "mentions": 1
   },
   "pyrrhulina-vittata": {
     "name": "Pyrrhulina vittata",
@@ -2245,8 +2101,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/"
+    "mentions": 1
   },
   "alburnoides-taeniatus": {
     "name": "Alburnoides taeniatus",
@@ -2260,8 +2115,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/platystomatichthys_sturio_en/"
+    "mentions": 1
   },
   "barbichthys-laevis": {
     "name": "Barbichthys laevis",
@@ -2296,24 +2150,21 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_chrysophekadion_en/"
+    "mentions": 1
   },
   "corydoras-leucomelas": {
     "name": "Corydoras leucomelas",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-leucomelas-2/"
+    "mentions": 1
   },
   "hyphessobrycon-columbianus": {
     "name": "Hyphessobrycon columbianus",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-columbianus-2/"
+    "mentions": 1
   },
   "neolamprologus-leleupi": {
     "name": "Neolamprologus leleupi",
@@ -2327,24 +2178,21 @@
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-piraya/"
+    "mentions": 1
   },
   "hyphessobrycon-bifasciatus": {
     "name": "Hyphessobrycon bifasciatus",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_bifasciatus_en/"
+    "mentions": 1
   },
   "maylandia-callainos": {
     "name": "Maylandia callainos",
     "mentionedIn": [
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/maylandia-callainos-blue-blue-2/"
+    "mentions": 1
   },
   "rhinecanthus-aculeatus": {
     "name": "Rhinecanthus aculeatus",
@@ -2365,8 +2213,7 @@
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-splendida-2/"
+    "mentions": 1
   },
   "melanotaenia-duboulayi": {
     "name": "Melanotaenia duboulayi",
@@ -2401,24 +2248,21 @@
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/"
+    "mentions": 1
   },
   "melanotaenia-nigrans": {
     "name": "Melanotaenia nigrans",
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/"
+    "mentions": 1
   },
   "telmatherina-bonti": {
     "name": "Telmatherina bonti",
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/"
+    "mentions": 1
   },
   "aphyocharax-dentatus": {
     "name": "Aphyocharax dentatus",
@@ -2461,14 +2305,6 @@
       "guides/youtube-GDaWgKk-hDo"
     ],
     "mentions": 1
-  },
-  "ludwigia-arcuata": {
-    "name": "Ludwigia arcuata",
-    "mentionedIn": [
-      "guides/youtube-I_KBOUM1RXM"
-    ],
-    "mentions": 1,
-    "onSource": "https://aquariumbreeder.com/ludwigia-arcuate-care-guide-planting-growing-and-propagation/"
   },
   "hydrocleys-nymphoides": {
     "name": "Hydrocleys nymphoides",
@@ -2615,8 +2451,7 @@
     "mentionedIn": [
       "species/acanthopsoides-molobrion"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/"
+    "mentions": 1
   },
   "rasbora-myersi": {
     "name": "Rasbora myersi",
@@ -2646,20 +2481,12 @@
     ],
     "mentions": 1
   },
-  "hemiodus-ternetzi": {
-    "name": "Hemiodus ternetzi",
-    "mentionedIn": [
-      "species/acnodon-normani"
-    ],
-    "mentions": 1
-  },
   "retroculus-lapidifer": {
     "name": "Retroculus lapidifer",
     "mentionedIn": [
       "species/acnodon-normani"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/"
+    "mentions": 1
   },
   "acnodon-senai": {
     "name": "Acnodon senai",
@@ -2694,8 +2521,7 @@
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/leiarius-marmoratus-l-longibarbis-2/"
+    "mentions": 1
   },
   "sorubim-elongatus": {
     "name": "Sorubim elongatus",
@@ -2716,8 +2542,7 @@
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogrammoides_pucallpaensis_en/"
+    "mentions": 1
   },
   "cichlasoma-amazonarum": {
     "name": "Cichlasoma amazonarum",
@@ -2731,16 +2556,14 @@
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/hypselecara_temporalis_oyapoc_en/"
+    "mentions": 1
   },
   "mesonauta-mirificus": {
     "name": "Mesonauta mirificus",
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_mirificus_en/"
+    "mentions": 1
   },
   "prochilodus-nigricans": {
     "name": "Prochilodus nigricans",
@@ -2754,8 +2577,7 @@
     "mentionedIn": [
       "species/agamyxis-pectinifrons"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/"
+    "mentions": 1
   },
   "cryptocoryne-affinis": {
     "name": "Cryptocoryne affinis",
@@ -2769,8 +2591,7 @@
     "mentionedIn": [
       "species/akysis-hendricksoni"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/pangio-cuneovirgata-2/"
+    "mentions": 1
   },
   "akysis-microps": {
     "name": "Akysis microps",
@@ -2826,8 +2647,7 @@
     "mentionedIn": [
       "species/akysis-pulvinatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/erethistes-filamentosus"
+    "mentions": 1
   },
   "bathyaethiops-caudomaculatus": {
     "name": "Bathyaethiops caudomaculatus",
@@ -2869,8 +2689,7 @@
     "mentionedIn": [
       "species/allenbatrachus-grunniens"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/16-toadfishes/thalassophryne-amazonica-4/"
+    "mentions": 1
   },
   "allenbatrachus-meridionalis": {
     "name": "Allenbatrachus meridionalis",
@@ -2940,8 +2759,7 @@
     "mentionedIn": [
       "species/anableps-anableps"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stigmatogobius_sadanundio_en/"
+    "mentions": 1
   },
   "oxyura-leucocephala": {
     "name": "Oxyura leucocephala",
@@ -2983,8 +2801,7 @@
     "mentionedIn": [
       "species/apistogramma-barlowi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_sport_of_nannostomus_marginatus__en/"
+    "mentions": 1
   },
   "copella-vilmae": {
     "name": "Copella vilmae",
@@ -2998,8 +2815,7 @@
     "mentionedIn": [
       "species/apistogramma-cinilabra"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-atahualpa-2/"
+    "mentions": 1
   },
   "otothyropsis-piribebuy": {
     "name": "Otothyropsis piribebuy",
@@ -3020,8 +2836,7 @@
     "mentionedIn": [
       "species/apistogramma-pantalone"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/"
+    "mentions": 1
   },
   "pungitius-pungitius": {
     "name": "Pungitius pungitius",
@@ -3100,6 +2915,13 @@
     ],
     "mentions": 1
   },
+  "batasio-tengana": {
+    "name": "Batasio tengana",
+    "mentionedIn": [
+      "species/badis-pyema"
+    ],
+    "mentions": 1
+  },
   "balantiocheilos-ambusticauda": {
     "name": "Balantiocheilos ambusticauda",
     "mentionedIn": [
@@ -3111,58 +2933,6 @@
     "name": "Labeo pierrei",
     "mentionedIn": [
       "species/bangana-behri"
-    ],
-    "mentions": 1
-  },
-  "pseudomystus-rugosus": {
-    "name": "Pseudomystus rugosus",
-    "mentionedIn": [
-      "species/barbodes-banksi"
-    ],
-    "mentions": 1
-  },
-  "hemirhamphodon-kuekenthali": {
-    "name": "Hemirhamphodon kuekenthali",
-    "mentionedIn": [
-      "species/barbodes-banksi"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/19-halfbeaks/hemirhamphodon_kuekenthali_en/"
-  },
-  "ambassis-miops": {
-    "name": "Ambassis miops",
-    "mentionedIn": [
-      "species/barbodes-banksi"
-    ],
-    "mentions": 1
-  },
-  "stenogobius-ingeri": {
-    "name": "Stenogobius ingeri",
-    "mentionedIn": [
-      "species/barbodes-banksi"
-    ],
-    "mentions": 1
-  },
-  "macrognathus-maculatus": {
-    "name": "Macrognathus maculatus",
-    "mentionedIn": [
-      "species/barbodes-banksi"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus-maculatus-2/"
-  },
-  "barbodes-dunckeri": {
-    "name": "Barbodes dunckeri",
-    "mentionedIn": [
-      "species/barbodes-everetti"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_dunckeri_aquarium_barbus_everetti__en/"
-  },
-  "barbodes-kuchingensis": {
-    "name": "Barbodes kuchingensis",
-    "mentionedIn": [
-      "species/barbodes-lateristriga"
     ],
     "mentions": 1
   },
@@ -3178,32 +2948,21 @@
     "mentionedIn": [
       "species/barbucca-diabolica"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/pangio-myersi-2/"
+    "mentions": 1
   },
   "ancistrus-macrophthalmus": {
     "name": "Ancistrus macrophthalmus",
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-macrophthalmus-lda74-2/"
-  },
-  "hemiancistrus-subviridis": {
-    "name": "Hemiancistrus subviridis",
-    "mentionedIn": [
-      "species/baryancistrus-beggini"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/l200-hemiancistrus-subviridis-and-baryancistrus-demantoides/"
+    "mentions": 1
   },
   "hypancistrus-contradens": {
     "name": "Hypancistrus contradens",
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/hypancistrus-contradens-l201a-big-spots-2/"
+    "mentions": 1
   },
   "hypancistrus-furunculus": {
     "name": "Hypancistrus furunculus",
@@ -3231,8 +2990,7 @@
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/leporacanthicus-triactis-l91-variety/"
+    "mentions": 1
   },
   "peckoltia-vittata": {
     "name": "Peckoltia vittata",
@@ -3260,13 +3018,117 @@
     "mentionedIn": [
       "species/baryancistrus-beggini"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/pseudancistrus-sidereus-2/"
+    "mentions": 1
   },
   "pseudolithoxus-dumus": {
     "name": "Pseudolithoxus dumus",
     "mentionedIn": [
       "species/baryancistrus-beggini"
+    ],
+    "mentions": 1
+  },
+  "barilius-canarensis": {
+    "name": "Barilius canarensis",
+    "mentionedIn": [
+      "species/betadevario-ramachandrani"
+    ],
+    "mentions": 1
+  },
+  "garra-bicornuta": {
+    "name": "Garra bicornuta",
+    "mentionedIn": [
+      "species/betadevario-ramachandrani"
+    ],
+    "mentions": 1
+  },
+  "cryptocoryne-pallidinervia": {
+    "name": "Cryptocoryne pallidinervia",
+    "mentionedIn": [
+      "species/betta-brownorum"
+    ],
+    "mentions": 1
+  },
+  "rasbora-kalochroma": {
+    "name": "Rasbora kalochroma",
+    "mentionedIn": [
+      "species/betta-brownorum"
+    ],
+    "mentions": 1
+  },
+  "clarias-teijsmanni": {
+    "name": "Clarias teijsmanni",
+    "mentionedIn": [
+      "species/betta-brownorum"
+    ],
+    "mentions": 1
+  },
+  "parosphromenus-harveyi": {
+    "name": "Parosphromenus harveyi",
+    "mentionedIn": [
+      "species/betta-livida"
+    ],
+    "mentions": 1
+  },
+  "rasbora-tubbi": {
+    "name": "Rasbora tubbi",
+    "mentionedIn": [
+      "species/betta-macrostoma"
+    ],
+    "mentions": 1
+  },
+  "pangio-mariarum": {
+    "name": "Pangio mariarum",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "theriodes-sandakanensis": {
+    "name": "Theriodes sandakanensis",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "nemacheilus-olivaceus": {
+    "name": "Nemacheilus olivaceus",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "kryptopterus-sabanus": {
+    "name": "Kryptopterus sabanus",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "gastromyzon-danumensis": {
+    "name": "Gastromyzon danumensis",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "protomyzon-griswoldi": {
+    "name": "Protomyzon griswoldi",
+    "mentionedIn": [
+      "species/betta-ocellata"
+    ],
+    "mentions": 1
+  },
+  "parachela-oxygastroides": {
+    "name": "Parachela oxygastroides",
+    "mentionedIn": [
+      "species/betta-raja"
+    ],
+    "mentions": 1
+  },
+  "mystus-bimaculatus": {
+    "name": "Mystus bimaculatus",
+    "mentionedIn": [
+      "species/betta-raja"
     ],
     "mentions": 1
   },
@@ -3282,13 +3144,19 @@
     "mentionedIn": [
       "species/biotodoma-cupido"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/"
+    "mentions": 1
   },
   "hypophthalmus-marginatus": {
     "name": "Hypophthalmus marginatus",
     "mentionedIn": [
       "species/biotodoma-cupido"
+    ],
+    "mentions": 1
+  },
+  "boraras-naevus": {
+    "name": "Boraras naevus",
+    "mentionedIn": [
+      "species/boraras-urophthalmoides"
     ],
     "mentions": 1
   },
@@ -3339,8 +3207,7 @@
     "mentionedIn": [
       "species/canthophrys-gongota"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_aral_en/"
+    "mentions": 1
   },
   "zophobas-atratus": {
     "name": "Zophobas atratus",
@@ -3368,8 +3235,14 @@
     "mentionedIn": [
       "species/channa-gachua"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-harcourtbutleri-2/"
+    "mentions": 1
+  },
+  "channa-marulius": {
+    "name": "Channa marulius",
+    "mentionedIn": [
+      "species/channa-marulioides"
+    ],
+    "mentions": 1
   },
   "cherax-cainii": {
     "name": "Cherax cainii",
@@ -3488,16 +3361,14 @@
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/03-bony-tongues/xenomystus-nigri-2/"
+    "mentions": 1
   },
   "phractolaemus-ansorgii": {
     "name": "Phractolaemus ansorgii",
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/02-living-fossils/phractolaemus-ansorgii-2/"
+    "mentions": 1
   },
   "hepsetus-odoe": {
     "name": "Hepsetus odoe",
@@ -3532,8 +3403,7 @@
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/"
+    "mentions": 1
   },
   "poropanchax-brichardi": {
     "name": "Poropanchax brichardi",
@@ -3554,16 +3424,14 @@
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/"
+    "mentions": 1
   },
   "microctenopoma-ansorgii": {
     "name": "Microctenopoma ansorgii",
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/"
+    "mentions": 1
   },
   "congochromis-dimidiatus": {
     "name": "Congochromis dimidiatus",
@@ -3591,8 +3459,7 @@
     "mentionedIn": [
       "species/ctenops-nobilis"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudolaguvia_muricata_en/"
+    "mentions": 1
   },
   "devario-devario": {
     "name": "Devario devario",
@@ -3632,10 +3499,10 @@
   "hara-jerdoni": {
     "name": "Hara jerdoni",
     "mentionedIn": [
-      "species/ctenops-nobilis"
+      "species/ctenops-nobilis",
+      "species/erethistes-pusillus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/hara_jerdoni_en/"
+    "mentions": 2
   },
   "pseudolaguvia-ribeiroi": {
     "name": "Pseudolaguvia ribeiroi",
@@ -3643,14 +3510,6 @@
       "species/ctenops-nobilis"
     ],
     "mentions": 1
-  },
-  "microphis-deocata": {
-    "name": "Microphis deocata",
-    "mentionedIn": [
-      "species/ctenops-nobilis"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/microphis-deocata-bred/"
   },
   "macrognathus-pancalus": {
     "name": "Macrognathus pancalus",
@@ -3660,20 +3519,12 @@
     ],
     "mentions": 2
   },
-  "parasphaerichthys-lineatus": {
-    "name": "Parasphaerichthys lineatus",
-    "mentionedIn": [
-      "species/ctenops-nobilis"
-    ],
-    "mentions": 1
-  },
   "pethia-phutunio": {
     "name": "Pethia phutunio",
     "mentionedIn": [
       "species/cyclocheilichthys-heteronema"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-phutunio-barbus-p-2/"
+    "mentions": 1
   },
   "megupsilon-aporus": {
     "name": "Megupsilon aporus",
@@ -3701,24 +3552,21 @@
     "mentionedIn": [
       "species/danio-erythromicron"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/"
+    "mentions": 1
   },
   "microrasbora-rubescens": {
     "name": "Microrasbora rubescens",
     "mentionedIn": [
       "species/danio-erythromicron"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/"
+    "mentions": 1
   },
   "yunnanilus-brevis": {
     "name": "Yunnanilus brevis",
     "mentionedIn": [
       "species/danio-erythromicron"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/petruichthys-brevis-formerly-yunnanilus-brevis/"
+    "mentions": 1
   },
   "pethia-erythromycter": {
     "name": "Pethia erythromycter",
@@ -3726,14 +3574,6 @@
       "species/danio-kyathit"
     ],
     "mentions": 1
-  },
-  "badis-blosyrus": {
-    "name": "Badis blosyrus",
-    "mentionedIn": [
-      "species/danio-rerio"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-assamensis-and-badis-blosyrus/"
   },
   "pleistophora-hyphessobryconis": {
     "name": "Pleistophora hyphessobryconis",
@@ -3747,8 +3587,7 @@
     "mentionedIn": [
       "species/danionella-dracula"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/"
+    "mentions": 1
   },
   "heteropneustes-fossilis": {
     "name": "Heteropneustes fossilis",
@@ -3832,16 +3671,14 @@
     "mentionedIn": [
       "species/epalzeorhynchos-bicolor"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cirrhinus_molitorella_en/"
+    "mentions": 1
   },
   "dermogenys-siamensis": {
     "name": "Dermogenys siamensis",
     "mentionedIn": [
       "species/epalzeorhynchos-bicolor"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/19-halfbeaks/dermogenys-siamensis-d-pusilla-2/"
+    "mentions": 1
   },
   "scriptaphyosemion-chaytori": {
     "name": "Scriptaphyosemion chaytori",
@@ -3855,8 +3692,7 @@
     "mentionedIn": [
       "species/epiplatys-annulatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_humilis_and_close_relatives_from_guinea_1_pelvicachromis_humilis_liberia_red_en/"
+    "mentions": 1
   },
   "mochokiella-paynei": {
     "name": "Mochokiella paynei",
@@ -3877,13 +3713,19 @@
     "mentionedIn": [
       "species/epiplatys-annulatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/neolebias_ansorgii_en/"
+    "mentions": 1
   },
   "epiplatys-sexfasciatus": {
     "name": "Epiplatys sexfasciatus",
     "mentionedIn": [
       "species/epiplatys-annulatus"
+    ],
+    "mentions": 1
+  },
+  "hara-hara": {
+    "name": "Hara hara",
+    "mentionedIn": [
+      "species/erethistes-pusillus"
     ],
     "mentions": 1
   },
@@ -3913,8 +3755,7 @@
     "mentionedIn": [
       "species/etroplus-canarensis"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/hypselobarbus-jerdoni-2/"
+    "mentions": 1
   },
   "hyporhamphus-limbatus": {
     "name": "Hyporhamphus limbatus",
@@ -3935,16 +3776,14 @@
     "mentionedIn": [
       "species/etroplus-maculatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudeutropius_atherinoides_en/"
+    "mentions": 1
   },
   "oryzias-dancena": {
     "name": "Oryzias dancena",
     "mentionedIn": [
       "species/etroplus-maculatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_dancena_en/"
+    "mentions": 1
   },
   "garra-kempi": {
     "name": "Garra kempi",
@@ -4042,8 +3881,7 @@
     "mentionedIn": [
       "species/geophagus-neambi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/"
+    "mentions": 1
   },
   "triportheus-trifurcatus": {
     "name": "Triportheus trifurcatus",
@@ -4134,8 +3972,7 @@
     "mentionedIn": [
       "species/geophagus-proximus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-luelingi-2/"
+    "mentions": 1
   },
   "copella-nigrofasciata": {
     "name": "Copella nigrofasciata",
@@ -4149,24 +3986,21 @@
     "mentionedIn": [
       "species/geophagus-proximus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/"
+    "mentions": 1
   },
   "planiloricaria-cryptodon": {
     "name": "Planiloricaria cryptodon",
     "mentionedIn": [
       "species/geophagus-proximus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/planiloricaria-cryptodon-2/"
+    "mentions": 1
   },
   "sturisoma-nigrirostrum": {
     "name": "Sturisoma nigrirostrum",
     "mentionedIn": [
       "species/geophagus-proximus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/sturisoma-nigrirostrum-2/"
+    "mentions": 1
   },
   "liosomadoras-morrowi": {
     "name": "Liosomadoras morrowi",
@@ -4187,8 +4021,7 @@
     "mentionedIn": [
       "species/gymnocorymbus-bondi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cleithracara-maronii-kourou-2/"
+    "mentions": 1
   },
   "lagenandra-ovata": {
     "name": "Lagenandra ovata",
@@ -4196,14 +4029,6 @@
       "species/haludaria-fasciata"
     ],
     "mentions": 1
-  },
-  "blyxa-aubertii": {
-    "name": "Blyxa aubertii",
-    "mentionedIn": [
-      "species/haludaria-fasciata"
-    ],
-    "mentions": 1,
-    "onSource": "https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/"
   },
   "rasbora-caverii": {
     "name": "Rasbora caverii",
@@ -4217,8 +4042,7 @@
     "mentionedIn": [
       "species/haludaria-fasciata"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/"
+    "mentions": 1
   },
   "hemibagrus-caveatus": {
     "name": "Hemibagrus caveatus",
@@ -4248,14 +4072,6 @@
     ],
     "mentions": 1
   },
-  "corydoras-hastatus": {
-    "name": "Corydoras hastatus",
-    "mentionedIn": [
-      "species/hyphessobrycon-elachys"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/gastrodermus-hastatus-formerly-corydoras-hastatus/"
-  },
   "creagrutus-meridionalis": {
     "name": "Creagrutus meridionalis",
     "mentionedIn": [
@@ -4275,8 +4091,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_dichroura_en/"
+    "mentions": 1
   },
   "serrapinnus-calliurus": {
     "name": "Serrapinnus calliurus",
@@ -4318,8 +4133,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-heterorhabdus-2/"
+    "mentions": 1
   },
   "hyphessobrycon-nigricinctus": {
     "name": "Hyphessobrycon nigricinctus",
@@ -4333,16 +4147,14 @@
     "mentionedIn": [
       "species/hyphessobrycon-rosaceus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-epicharis-2/"
+    "mentions": 1
   },
   "nematobrycon-palmeri": {
     "name": "Nematobrycon palmeri",
     "mentionedIn": [
       "species/inpaichthys-kerri"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/the-latest-golden-nugget-nematobrycon-palmeri/"
+    "mentions": 1
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -4363,8 +4175,7 @@
     "mentionedIn": [
       "species/kryptopterus-vitreolus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parailia-pellucida-en/"
+    "mentions": 1
   },
   "perrunichthys-perruno": {
     "name": "Perrunichthys perruno",
@@ -4478,14 +4289,6 @@
     ],
     "mentions": 1
   },
-  "hemigrammus-stictus": {
-    "name": "Hemigrammus stictus",
-    "mentionedIn": [
-      "species/nannostomus-eques"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus_stictus_en/"
-  },
   "rhinogobius-chiengmaiensis": {
     "name": "Rhinogobius chiengmaiensis",
     "mentionedIn": [
@@ -4512,8 +4315,7 @@
     "mentionedIn": [
       "species/nemacheilus-masyae"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_bernatziki_en/"
+    "mentions": 1
   },
   "mystacoleucus-chilopterus": {
     "name": "Mystacoleucus chilopterus",
@@ -4548,16 +4350,14 @@
     "mentionedIn": [
       "species/nothobranchius-rachovii"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/"
+    "mentions": 1
   },
   "nothobranchius-foerschi": {
     "name": "Nothobranchius foerschi",
     "mentionedIn": [
       "species/nothobranchius-rachovii"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/"
+    "mentions": 1
   },
   "enteromius-camptacanthus": {
     "name": "Enteromius camptacanthus",
@@ -4620,16 +4420,14 @@
     "mentionedIn": [
       "species/oryzias-latipes"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_mekongensis_en/"
+    "mentions": 1
   },
   "osphronemus-laticlavius": {
     "name": "Osphronemus laticlavius",
     "mentionedIn": [
       "species/osphronemus-goramy"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/osphronemus-laticlavius/"
+    "mentions": 1
   },
   "kottelatlimia-pristes": {
     "name": "Kottelatlimia pristes",
@@ -4671,8 +4469,7 @@
     "mentionedIn": [
       "species/paracheirodon-simulans"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-amapaensis/"
+    "mentions": 1
   },
   "turbatrix-aceti": {
     "name": "Turbatrix aceti",
@@ -4735,8 +4532,7 @@
     "mentionedIn": [
       "species/pimelodus-pictus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_angelicus_en/"
+    "mentions": 1
   },
   "platydoras-brachylecis": {
     "name": "Platydoras brachylecis",
@@ -4750,16 +4546,14 @@
     "mentionedIn": [
       "species/procambarus-clarkii"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/procambarus-alleni-2/"
+    "mentions": 1
   },
   "zungaro-zungaro": {
     "name": "Zungaro zungaro",
     "mentionedIn": [
       "species/pseudopimelodus-schultzi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/zungaro-zungaro-2/"
+    "mentions": 1
   },
   "puntius-kelumi": {
     "name": "Puntius kelumi",
@@ -4808,25 +4602,10 @@
     "mentionedIn": [
       "species/rhinogobius-duospilus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/"
+    "mentions": 1
   },
   "systomus-sarana": {
     "name": "Systomus sarana",
-    "mentionedIn": [
-      "species/schistura-denisoni"
-    ],
-    "mentions": 1
-  },
-  "psilorhynchus-tenura": {
-    "name": "Psilorhynchus tenura",
-    "mentionedIn": [
-      "species/schistura-denisoni"
-    ],
-    "mentions": 1
-  },
-  "schistura-nilgiriensis": {
-    "name": "Schistura nilgiriensis",
     "mentionedIn": [
       "species/schistura-denisoni"
     ],
@@ -4900,8 +4679,7 @@
     "mentionedIn": [
       "species/tanichthys-albonubes"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/"
+    "mentions": 1
   },
   "tanichthys-thacbaensis": {
     "name": "Tanichthys thacbaensis",
@@ -4943,8 +4721,7 @@
     "mentionedIn": [
       "species/thorichthys-meeki"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/"
+    "mentions": 1
   },
   "carlhubbsia-kidderi": {
     "name": "Carlhubbsia kidderi",
@@ -5000,16 +4777,14 @@
     "mentionedIn": [
       "species/trichogaster-lalius"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neocaridina-denticulata-hulk-orange-2/"
+    "mentions": 1
   },
   "vittina-turrita": {
     "name": "Vittina turrita",
     "mentionedIn": [
       "species/vittina-waigiensis"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/vittina-turrita-and-v-semiconica/"
+    "mentions": 1
   },
   "xiphophorus-monticolus": {
     "name": "Xiphophorus monticolus",
@@ -5065,12 +4840,6 @@
     "mentionedIn": [],
     "mentions": 0
   },
-  "peckoltia-compta": {
-    "name": "Peckoltia compta",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/l134-peckoltia-compta-2/"
-  },
   "caridina-gracilirostris": {
     "name": "Caridina gracilirostris",
     "mentionedIn": [],
@@ -5080,12 +4849,6 @@
     "name": "Pseudacanthicus pirarara",
     "mentionedIn": [],
     "mentions": 0
-  },
-  "channa-marulioides": {
-    "name": "Channa marulioides",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulioides-4/"
   },
   "arapaima-gigas": {
     "name": "Arapaima gigas",
@@ -5102,18 +4865,6 @@
     "mentionedIn": [],
     "mentions": 0
   },
-  "pterygoplichthys-joselimaianus": {
-    "name": "Pterygoplichthys joselimaianus",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/glyptoperichthys_joselimaianus_l_1_l_22_en/"
-  },
-  "gobiopterus-chuno": {
-    "name": "Gobiopterus chuno",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/gobiopterus_chuno_en/"
-  },
   "poropanchax-normani": {
     "name": "Poropanchax normani",
     "mentionedIn": [],
@@ -5128,11 +4879,5 @@
     "name": "Pseudoplatystoma fasciatum",
     "mentionedIn": [],
     "mentions": 0
-  },
-  "pterygoplichthys-pardalis": {
-    "name": "Pterygoplichthys pardalis",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/liposarcus_pardalis_en/"
   }
 }

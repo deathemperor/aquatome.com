@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (41)
+# Tóm tắt chờ duyệt (40)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -213,18 +213,6 @@ Hợp với người có bể lớn, đáy 180 × 60 cm (khoảng 648 lít), mu�
 
 Kiểm tra:
 - "chưa ai cho sinh sản trong bể": the page hedges this ("có lẽ chưa ai cho loài này sinh sản trong bể", "theo những gì được biết đến nay"). The summary turns the hedge into a certainty.
-
-## Cá badis đỏ (Dario dario)
-id: `dario-dario`
-
-Cá badis đỏ (Dario dario) hợp người thích nuôi riêng một loài, độ khó 4/8. Cá chỉ dài 2,5 cm, cần nước 23–26 °C, pH 6,5–7,5, độ cứng 10–15 dGH và bể trồng nhiều cây để có chỗ ẩn. Khó nhất là chọn bạn cùng bể và cho ăn, vì cá nhút nhát, miệng nhỏ, hay kén ăn.
-
-- Thả chung với cá lớn hơn thì cá badis bị uy hiếp; nên nuôi riêng một loài, hoặc chỉ ghép với cá cỡ tương tự như Corydoras, rasbora, neon.
-- Để bể thưa cây, ít chỗ ẩn khiến cá không thấy an toàn; hãy trồng nhiều cây và bố trí nhiều chỗ che chắn.
-- Cho ăn nhiều hoặc để cá khác giành hết thức ăn; nên cho ăn hai lần mỗi ngày với lượng nhỏ và quan sát cá khi ăn.
-
-Kiểm tra:
-- "hay kén ăn" (often picky) turns the page's hedge "cá badis đỏ có thể kén ăn" (can be picky) into a general tendency.
 
 ## Cá bay sọc (Esomus metallicus)
 id: `esomus-metallicus`

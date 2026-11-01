@@ -19,67 +19,63 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "aquariumbreeder",
-        "value": {
-          "min": 20,
-          "max": 24
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 26
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "aquariumbreeder",
         "value": {
-          "min": 7,
-          "max": 8
+          "min": 20,
+          "max": 24
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 7,
           "max": 8.2
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "aquariumbreeder",
         "value": {
-          "min": 5,
-          "max": 20
+          "min": 7,
+          "max": 8
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 10,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "aquariumbreeder",
-        "value": 7
-      },
-      {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 7
       }
     ],
     "tankCm": [
-      {
-        "source": "aquariumbreeder",
-        "value": 60
-      },
       {
         "source": "seriouslyfish",
         "value": 60
@@ -87,12 +83,12 @@
     ],
     "difficulty": [
       {
-        "source": "aquariumbreeder",
-        "value": 1
-      },
-      {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 1
       }
     ]
   },
@@ -105,21 +101,21 @@
     },
     {
       "key": "quickFacts",
-      "source": "aquariumbreeder",
-      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Common name: Southern platyfish</li><li>Other names: Platypoecilus maculatus, Mexican platyfish, Moon fish, Platy</li><li>Minimum tank size: 15 gallons (~60 litres)</li><li>Keeping: easy; breeding: easy</li><li>Size: up to 3–7 cm</li><li>Temperature: 20–24°C</li><li>pH: 7.0–8.0</li><li>GH: 5–20</li><li>Dwellers: top to mid-dwelling</li><li>Nitrate: less than 60</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 3 years</li><li>Colour forms: over 130 colour variations created through selection. Wild populations are generally pale olive-grey with or without melanic/speckled patches.</li></ul>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
       "html": "<p>The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua. Wild fish are almost never seen in the hobby, where dozens of selectively bred varieties are available, some produced by crossing with other Xiphophorus species. Many commercially bred platies are not very hardy because of inbreeding and over-production. Very peaceful, it suits the beginner as long as the water is moderately hard or harder.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common name: Southern platyfish</li><li>Other names: Platypoecilus maculatus, Mexican platyfish, Moon fish, Platy</li><li>Minimum tank: 15 gallons (about 60 litres)</li><li>Care: easy; breeding: easy</li><li>Nitrate: less than 60</li><li>Dwells in the top to middle of the tank</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Lifespan: up to 3 years</li><li>Colour forms: over 130 colour variations created through selection. Wild populations are generally a pale olive-grey with or without melanic/speckled patches.</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Finding a pure strain of Xiphophorus maculatus is almost impossible nowadays. The species is highly susceptible to hybridization, and in 99% of cases what is sold under this name is the result of hybridization and selection with other Xiphophorus species (such as Xiphophorus variatus and Xiphophorus hellerii).</p><p>Xiphophorus maculatus and Xiphophorus variatus are so similar that ordinary hobbyists often find it hard to tell them apart, and genetic studies may be required because of hybridization. According to the scientific literature, the distinguishing features are:</p><table><tr><th></th><th>Xiphophorus maculatus</th><th>Xiphophorus variatus</th></tr><tr><td>Anal fin ray</td><td>small claw at the tip of the fifth anal fin ray</td><td>no claw at the tip of the fifth anal fin ray</td></tr><tr><td>Lateral scales</td><td>22–25</td><td>20–24</td></tr><tr><td>Dorsal rays</td><td>8–10</td><td>10–12</td></tr><tr><td>Male size</td><td>smaller</td><td>slightly larger</td></tr></table>"
+      "html": "<p>Finding a pure strain of Xiphophorus maculatus is almost impossible nowadays. The species is highly susceptible to hybridization, so in about 99% of cases the fish sold under this name are the result of hybridization and selection with other Xiphophorus species (such as Xiphophorus variatus and Xiphophorus hellerii, the swordtails).</p><p>Xiphophorus maculatus and Xiphophorus variatus are so similar that ordinary hobbyists can rarely tell them apart, and given possible hybridization, genetic studies may be required. According to the scientific literature, the distinctive features are:</p><table><tr><th></th><th>Xiphophorus maculatus</th><th>Xiphophorus variatus</th></tr><tr><th>Anal fin rays</th><td>small claw at the tip of the fifth anal fin ray</td><td>no claw at the tip of the fifth anal fin ray</td></tr><tr><th>Lateral scales</th><td>22–25</td><td>20–24</td></tr><tr><th>Dorsal rays</th><td>8–10</td><td>10–12</td></tr><tr><th>Male size</th><td>smaller</td><td>slightly larger</td></tr></table>"
     },
     {
       "key": "distribution",
@@ -129,21 +125,15 @@
     },
     {
       "key": "distribution",
-      "source": "aquariumbreeder",
-      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Xiphophorus maculatus is native to Mexico (from southern Tamaulipas to northern Veracruz), Belize, and Guatemala (Peten district, Alta Verapaz).</p><p>The species has proven highly invasive because of its wide environmental tolerances. As a result of human-mediated release, it is now present in at least 18 countries where it was not originally found.</p><p>Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraiba, Colombia, and Peru.</p><p>At least one country reports adverse ecological impact after introduction. In Hawaii, Xiphophorus maculatus and other poeciliids are considered responsible for the decline of indigenous aquatic invertebrates.</p>"
-    },
-    {
-      "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
       "html": "<p>Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.</p>"
     },
     {
-      "key": "habitat",
+      "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>In their natural habitat, Xiphophorus maculatus often occur in tranquil stream banks, stagnant pools, ditches, and sun-drenched flooded areas. They typically inhabit areas with muddy substrate and dense vegetation.</p><p>In the wild, no data is available on maximum lifespan.</p>"
+      "html": "<p>Xiphophorus maculatus is native to Mexico (from southern Tamaulipas to northern Veracruz), Belize, and Guatemala (Petén district, Alta Verapaz).</p><p>However, the species has proven highly invasive because of its wide environmental tolerances. As a result of human-mediated release, it is now present in at least 18 countries where it was not originally found.</p><p>Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.</p><p>At least one country reports adverse ecological impact after introduction. In Hawaii, Xiphophorus maculatus and other poeciliids are considered responsible for the decline of indigenous aquatic invertebrates.</p>"
     },
     {
       "key": "habitat",
@@ -152,10 +142,10 @@
       "html": "<p>It can be found in streams and rivers.</p>"
     },
     {
-      "key": "aquariumSize",
+      "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>The minimum recommended tank size is 15 gallons (60 litres) for 1 male and 4–5 females. This gives them adequate swimming space. A larger tank is always preferable for the stability of water chemistry.</p><p>Southern platyfish are jumpers. To prevent this: use a lid, lower the water level, keep floating plants, and do not stress the fish.</p>"
+      "html": "<p>In their natural habitat, Xiphophorus maculatus often occur in tranquil stream banks, stagnant pools, ditches, and sun-drenched flooded areas. They typically inhabit areas with muddy substrate and dense vegetation.</p>"
     },
     {
       "key": "aquariumSize",
@@ -164,10 +154,10 @@
       "html": "<p>Standard length: 50 mm SL (2.0 in). Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
     },
     {
-      "key": "maintenance",
+      "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Make sure the tank is cycled before bringing these fish home. Once cycled, check water quality with a test kit.</p><p>Water changes: change 20–25% of the water every week, though the percentage may vary depending on the filter and other tank factors. Any water added should at least be dechlorinated.</p><p>Substrate: no special requirements. They do not disturb the substrate much, and bare-bottom tanks are also suitable. A dark substrate makes the fish look more contrasting.</p><p>Plants and decorations: the natural habitat is abundant in vegetation, and plants provide good hiding spots. Floating plants, fake plants, driftwood, leaves and small rocks can be used for additional hiding spots.</p>"
+      "html": "<p>The minimum recommended tank size is 15 gallons (60 litres) for 1 male and 4–5 females. This gives them adequate swimming space. A larger tank is always preferable for the stability of water chemistry.</p><p>Southern platyfish are jumpers. To prevent this: get a lid for the tank, lower the water level, keep floating plants, and do not stress your fish.</p>"
     },
     {
       "key": "maintenance",
@@ -176,10 +166,10 @@
       "html": "<p>Not critical but this species does appreciate a planted aquarium, and will be seen at its best if kept in this type of setup.</p><p>X. maculatus must be maintained in moderately hard or harder water; it will not thrive in soft, acidic water.</p>"
     },
     {
-      "key": "waterConditions",
+      "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Temperature: they can survive a wide range of 15–28°C, but at low temperatures they become slow, lethargic and barely eat. In the aquarium they thrive at 20–24°C. This does not mean the temperature can fluctuate that much in a short time; tolerance is strongly influenced by acclimation temperature.</p><p>pH: slightly alkaline conditions preferred, ideally 7.0–8.0.</p><p>Hardness: they can live in any water but appreciate GH 5–20. They prefer hard water; in very soft water they are more prone to disease.</p><p>Salinity: they tolerate moderate amounts of salt, up to about 3 parts per thousand (ppt). Salt can be added periodically as a preventative treatment against some parasites and infections. If using salt, only replace water with salted water during water changes, since evaporation leaves salts behind.</p>"
+      "html": "<p>Make sure the tank is cycled before bringing these fish home. Once the tank is cycled, check the water quality with a test kit.</p><p>Change 20–25% of the water every week, though the right percentage may differ depending on the filter and other tank factors. Any water added to the tank should at least be dechlorinated; dechlorinators (such as Seachem Prime) can be bought at any pet store.</p><p>Salt can be added periodically as a preventative treatment against some parasites and infections. If salt is used, only replace water with salted water during water changes, because evaporating water leaves the salt behind, so adding more salt to top off evaporated water is unnecessary.</p>"
     },
     {
       "key": "waterConditions",
@@ -188,16 +178,16 @@
       "html": "<ul><li>Temperature: 20–26 °C (68–79 °F)</li><li>pH: 7.0–8.2</li><li>Hardness: 10–30 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Temperature:</strong> Southern platyfish can survive a wide range of temperatures, 15–28°C. At low temperatures, however, they become slow, lethargic, and barely eat. In the aquarium they thrive at 20–24°C. This does not mean the temperature can fluctuate that much in short periods: the range of tolerance is strongly influenced by acclimation temperature. Fish acclimated at lower temperatures can extend their lower temperature tolerance further than fish acclimated to higher temperatures.</p><p><strong>pH:</strong> They generally prefer slightly alkaline conditions; the ideal pH range is 7.0–8.0.</p><p><strong>Hardness:</strong> These fish can live in any water but appreciate GH 5–20. They prefer hard water; when kept in very soft water they are more prone to disease.</p><p><strong>Salinity:</strong> They tolerate moderate amounts of salt, up to about 3 parts per thousand (ppt), although their natural habitat usually does not have salinity fluctuations.</p>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Lighting: subdued lighting is preferred. In planted tanks, lighting should be adapted to the needs of the plants.</p><p>Water flow: in nature they inhabit shallow waters with no or very slow current. Still or very slow currents are recommended.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "aquariumbreeder",
-      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>This species is omnivorous. In nature they feed on microscopic organisms, including insect larvae in densely vegetated areas. They are surface feeders, as the mouth is upwardly directed.</p><p>They are not finicky and eat almost anything, accepting frozen and commercial food as long as it is small enough. They still strongly prefer high-protein live food. In the aquarium they can be fed:</p><ul><li>brine shrimp (Artemia salina)</li><li>artemia nauplii</li><li>cyclops</li><li>daphnia</li><li>fruit flies, etc.</li></ul><p>Large worms (grindal worms, bloodworms, blackworms, etc.) should be chopped into small pieces and flake food crumbled.</p><ul><li>They are diurnal, so feed during the day.</li><li>They rarely pick food from the substrate; ideally use food that stays in the water column for a while.</li><li>Cut or grind up flakes.</li><li>Keep the diet mostly protein-based.</li><li>They are prone to overeating (follow a 5-minute rule).</li></ul><p>Feed at least twice per day (morning and evening).</p><p>Plant safe: they do not eat live plants. Planted tanks are highly recommended, especially for breeding.</p>"
+      "html": "<p><strong>Lighting:</strong> Southern platyfish prefer subdued lighting. If kept in planted tanks, lighting should be adapted to the needs of the plants.</p><p><strong>Water flow:</strong> In nature these fish inhabit shallow waters where the current is absent or very slow. Still or very slow currents are recommended.</p><p><strong>Substrate:</strong> No special requirements. They do not disturb the substrate much, and bare-bottom tanks are also suitable. A dark substrate makes the fish look more contrasting against the background.</p><p><strong>Plants and decorations:</strong> The natural habitat is abundant in vegetation, and plants provide good hiding spots, which makes the fish happy and playful. Replicate this in the tank with floating plants, fake plants, driftwood, leaves, and small rocks.</p>"
     },
     {
       "key": "diet",
@@ -206,10 +196,10 @@
       "html": "<p>Unfussy and will accept most foods, whether frozen, live or dried.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Temper: Southern platyfish are quite peaceful and do not show aggression to other fish in a community tank. Males are not territorial but compete for dominance with each other, with chases and lateral displays with a raised dorsal fin; rarely they can bite. When two individuals are reared together, the socially dominant one delays the maturation of the subordinate. Territoriality has been reported for only one poeciliid, Poeciliopsis lucida.</p><p>Sociality: they are social but do not stay in close proximity all the time; they are a shoaling rather than schooling fish. Keep at least 6–8 to start; larger groups make them happier and less stressed. Ideally 1 male per 3–5 females.</p><p>Activity: moderately active; they do not swim wildly but are very quick when they do. They are good jumpers when stressed or scared.</p><p>Placement: they spend most of their time in the top and middle parts of the tank.</p><p>Tank mates: only keep with fish not big enough to eat or harass them, gentle in temperament and enjoying the same water parameters, such as Endlers, swordtails, mollies, neons, ghost glass catfish, pygmy cory, Boraras, panda garra, clown killifish, guppies, harlequin rasboras, otocinclus and medaka ricefish.</p><p>Dwarf shrimp: not recommended. They prey on shrimplets and harass molting shrimp, and even heavily planted tanks do not give baby shrimp enough hiding places.</p><p>Freshwater snails: can share the tank with any type of freshwater snail.</p><p>Bad tank mates: larger or aggressive fish; dwarf shrimp; most crayfish and freshwater crabs (they may prey on or nip fins, especially at night); even dwarf frogs may try to eat small males.</p>"
+      "html": "<p>This species is an omnivore. In nature, these fish feed on microscopic organisms, including insect larvae in densely vegetated areas. They are surface feeders, as the mouth is upwardly directed because of the jaw structure.</p><p>They are not finicky and can eat basically everything. They gladly accept frozen and commercial food, as long as it is small enough to fit into the mouth. Nonetheless, they have a strong preference for high-protein live food. In the aquarium they can be fed:</p><ul><li>brine shrimp (Artemia salina)</li><li>artemia nauplii</li><li>cyclops</li><li>daphnia</li><li>fruit flies, etc.</li></ul><p>Large worms (grindal worms, bloodworms, blackworms, etc.) should be chopped into small pieces and flake food should be crumbled.</p><ul><li>They are diurnal, so feed them during the day.</li><li>Their mouths are developed to catch prey above them and they rarely pick anything off the substrate. Ideally use food that stays in the water column for some time.</li><li>Cut up or grind some flakes.</li><li>Make sure the diet is mostly protein-based.</li><li>They are prone to overeating if given too much (follow the 5-minute rule).</li></ul><p>Feed at least twice per day (morning and evening).</p><p>Southern platyfish are plant safe: they do not eat live plants. Planted tanks are highly recommended for them, especially for breeding.</p>"
     },
     {
       "key": "behaviour",
@@ -218,16 +208,22 @@
       "html": "<p>Very peaceful and can be kept with most community species. They exhibit none of the aggression of some swordtails and mollies, and even males tolerate one another.</p><p>When males and females are to be housed in the same tank, there should be more females to spread out the attention of the males which can be relentless. Batches of fry will be continual.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Mature males are easily distinguished from females by size and the presence of the gonopodium.</p><ul><li>Size: males are smaller (almost half the size of females). Adult males are about 3–4 cm long; females are larger, 5–6 cm, and rarely exceed 7 cm.</li><li>Males have a modified anal fin called a gonopodium, used to inseminate the female. Females have a normal fan-shaped anal fin.</li></ul>"
+      "html": "<p><strong>Temperament:</strong> Southern platyfish are quite peaceful and do not show aggression toward other fish species in a community tank. Males are not territorial but compete with each other for dominance; encounters usually include chases and lateral displays with a raised dorsal fin, and in rare cases biting. When two individuals are reared together, the socially dominant individual delays the maturation of the subordinate. Territoriality has been reported for only one poeciliid, Poeciliopsis lucida.</p><p><strong>Sociality:</strong> Although a social species, they do not stay in close proximity all the time, so they are shoaling rather than schooling fish. Keep at least 6–8 to start; larger groups make them happier and less stressed. Ideally keep 1 male per 3–5 females; in the wild there are also more females than males.</p><p><strong>Activity:</strong> Moderately active. They generally do not swim frantically, but when they do, they are very quick. They are also good jumpers when stressed or scared.</p><p><strong>Placement:</strong> They spend most of their time in the top and middle parts of the tank.</p><p><strong>Tank mates:</strong> These small fish can be kept only with fish that are not big enough to eat or harass them. Tank mates should have a gentle temperament and the same water parameters, for example:</p><ul><li>Endlers</li><li>Swordtails</li><li>Mollies</li><li>Neons</li><li>Ghost glass catfish</li><li>Pygmy corydoras</li><li>Boraras</li><li>Panda garra</li><li>Clown killifish</li><li>Guppies</li><li>Harlequin rasboras</li><li>Otocinclus</li><li>Medaka ricefish, etc.</li></ul><p><strong>Dwarf shrimp:</strong> Not recommended. They prey on shrimplets and harass molting shrimp. Even heavily planted tanks do not provide sufficient hiding places for baby shrimp, so the safest course is to keep shrimp separate from platyfish.</p><p><strong>Freshwater snails:</strong> They can share a tank with any type of freshwater snail.</p><p><strong>Bad tank mates:</strong></p><ul><li>Larger or aggressive fish.</li><li>Dwarf shrimp.</li><li>Most crayfish and freshwater crabs, which may prey on them or nip the fins, especially at night.</li><li>Even dwarf frogs may try to eat small males.</li></ul>"
     },
     {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
       "html": "<p>Males are the smaller sex and possess a gonopodium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Mature males are easily distinguished from females by size and the presence of the gonopodium.</p><ul><li>Size: males are smaller (almost half the size of females).</li><li>Males possess a modified anal fin called a gonopodium, used to inseminate the female. Females have a normal fan-shaped anal fin.</li></ul><p>Adult males are only about 3–4 cm long. Females are significantly larger and can grow to 5–6 cm, in rare cases exceeding 7 cm.</p>"
     },
     {
       "key": "reproduction",
@@ -237,21 +233,15 @@
     },
     {
       "key": "reproduction",
-      "source": "aquariumbreeder",
-      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Breeding is simple and easy. Keep them in acceptable water parameters and feed daily, and reproduction is almost continuous. They are livebearers, not egg scatterers.</p><p>Maturity: depending on temperature, they mature at 2.5–5 months, when about 21 mm long. Growth of immature males and females is almost the same, but declines sharply in males (not females) at sexual maturity.</p><p>Mating: males may mate with more than one female and females with more than one male. Courtship begins almost immediately once the male notices the females; if the female is ready, copulation usually occurs after twenty minutes or less. When a female has mated with several males, usually more than one fathers part of the brood. Females mated with 3–4 males had nearly twice as many offspring as those mated with only 1 male. Males increase the intensity of sexual displays when other males are present and when predators are absent.</p><p>Fertilization: internal. Females can store sperm; in the laboratory, females produced offspring for up to 7 months after insemination.</p><p>Brood size: mean 15–25; large females up to about 90. Brood intervals range from 17 to 65 days. Females generally produce up to 7 broods in a lifetime, and in the laboratory as many as 13 broods in 14–15 months. Early broods tend to be smaller and increase over time.</p><p>Incubation: embryonic development takes 27–37 days depending on temperature; at 24°C gestation is about 32 days. Virgin females usually did not give birth to their first brood until about 40 days after fertilization.</p><p>Fry: parents do not care for fry. Separate the fry from the parents and other fish to avoid predation, ideally in a special rearing tank. Live food is best: feed a high-quality diet (such as artemia, rotifers, vinegar eels, microworms or infusoria) at least 3–4 times a day and change water frequently.</p>"
-    },
-    {
-      "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-maculatus",
       "html": "<p>Very easy. Will breed in the community tank. Breeding this species is more a case of 'when' rather than 'how'. If you're not interested in breeding them, buy only male fish. Otherwise breeding is much the same as for many other livebearers. Several females should be kept to every male in order to dissipate vigorous harassment by males. Areas of dense planting will also help. Gestation takes around 4-6 weeks and large broods of up to 80 fry are not uncommon. The adult fish will not eat their young but the best method of raising them is still to remove the gravid female to a separate tank and allow her to give birth there before returning her to the main aquarium. The use of breeding nets or traps is not recommended as their small size is not suitable for raising fry. The fry are quite large and will accept brine shrimp nauplii or powdered flake from birth. They grow very quickly if fed 2-3 times per day.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Etymology: the genus name Xiphophorus comes from the Greek xiphos (sword) and phoros (bearer), referring to the sword-like extension of the lower tail fin in the genus. The species name maculatus is Latin for spotted or marked.</p><p>Taxonomy: the species was first named Platypoecilus maculatus, a name referring to its flattened body and numerous colours. It is now placed in the genus Xiphophorus with the swordtails (family Poeciliidae, order Cyprinodontiformes).</p><p>Description: body small, oval and laterally compressed, with maximum depth about half of standard length. Dorsal fin has 7–11 (usually 8–10) soft rays. The gonopodium does not extend to the caudal fin base and its third ray has a strong hook. Lateral scales 22–25 (usually 23–24); vertebrae 26–28. Colours vary widely due to selective breeding (red, black, white, blue, orange, yellow and combinations); both sexes are conspicuously patterned. Wild fish are less colourful. Eyes are relatively large; the mouth is small, upturned, with two rows of jaw teeth.</p><p>Lifespan: in aquariums, up to 2–3 years under optimal conditions, depending on conditions, feeding and stress; they live longest with low food competition and no larger or aggressive animals.</p><p>No solid records exist of established platy populations in Canada; the only known case of tropical livebearers surviving there is in the hot springs of Banff, Alberta.</p>"
+      "html": "<p>Breeding is quite simple; it is less a question of how than when. Keep them in acceptable water parameters and feed them daily, and reproduction is almost continuous. They are livebearers, not egg scatterers.</p><p><strong>Maturity:</strong> Depending on temperature, they mature at 2.5–5 months old, when about 21 mm long. Growth rate of immature males and females is almost the same, but it declines sharply in males (not females) at sexual maturity, leading to significant differences in adult size.</p><p><strong>Mating:</strong> Laboratory observations indicate that males may mate with more than one female and females with more than one male. Courtship usually begins almost immediately once the male is aware of the females. If the female is ready, copulation usually takes place after twenty minutes or less of courtship. When a female has mated with more than one male, usually both have fathered some young of a given brood. There is a positive relationship between the number of inseminating males and the number of young: females that mated with only 1 male had nearly half as many offspring as those that mated with 3–4 males. Males increase the intensity of sexual displays both when other males are present and when predators are absent.</p><p><strong>Fertilization:</strong> Internal. Females can store spermatozoa for later fertilization; in the laboratory, females produced offspring for up to 7 months after being inseminated.</p><p><strong>Brood size:</strong> Mean brood size is 15–25; large females have a maximum fecundity of about 90 offspring. Females are not receptive all the time. Brood intervals range from 17 to 65 days. Females generally produce up to 7 broods in their lifetime, but under optimal conditions more: in the laboratory, females had as many as 13 broods in 14–15 months. Broods tend to be smaller initially and increase in number over time.</p><p><strong>Incubation:</strong> Embryonic development takes 27–37 days depending on temperature; at 24°C gestation is usually about 32 days. Virgin females usually did not give birth to their first brood until about 40 days after fertilization, for which scientists have no explanation.</p><p><strong>Fry:</strong> Parents do not care for the fry. Once born, the fry should be separated from the parents and other fish to avoid predation, so a separate rearing tank is better. Live food is the best choice. The fry should be fed a high-quality diet (such as artemia, rotifers, vinegar eels, microworms, or infusoria) at least 3–4 times a day, and the water should be changed frequently.</p>"
     },
     {
       "key": "notes",
@@ -260,52 +250,68 @@
       "html": "<p>Another massively popular aquarium fish, with dozens of selectively bred varieties available, including mickey mouse, wagtail, tuxedo, moon, blue, red, comet and hi-fin. Some of these are produced by crossbreeding with X. helleri or X. variatus. Unfortunately many commercially bred platies are not very hardy due to inbreeding and over-production and are prone to disease and premature death.</p><p>Wild fish are almost never seen in the hobby.</p><p>As long as the pH remains above neutral this fish is one of the best species available to the beginner.</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Etymology:</strong> The genus name Xiphophorus derives from the Greek xiphos (sword) and phoros (bearer), referring to the sword-like extension of the lower part of the tail fin typical of the genus. The species name maculatus comes from the Latin for spotted or marked.</p><p><strong>Taxonomy:</strong> The species has been studied for over 130 years. It was first named Platypoecilus maculatus, a genus name referring to the flattened body and numerous colours. It is now placed in the genus Xiphophorus with the swordtails. Family: Poeciliidae; order: Cyprinodontiformes.</p><p><strong>Description:</strong> Small, oval, laterally compressed body, with maximum body depth about half of the standard length. Dorsal fin has 7–11 (usually 8–10) soft rays. Males have a gonopodium that does not extend to the caudal fin base, and its third ray has a strong hook. Lateral scales number 22–25 (usually 23–24); vertebrae 26–28. Colours vary widely owing to selective breeding (red, black, white, blue, orange, yellow and combinations); both sexes show conspicuous colour patterns. Wild fish are less colourful. The eyes are relatively large, adapted to both daytime and low light. The mouth is small, upturned, suited to surface feeding, with two rows of jaw teeth.</p><p><strong>Lifespan:</strong> No data is available on maximum lifespan in the wild. In aquariums, under optimal conditions, they live 2–3 years, depending on conditions, feeding and stress; they live longest with low food competition and no larger or aggressive animals.</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Orzack, Steven Hecht, Joel J. Sohn, Klaus D. Kallman, Simon A. Levin, and Ross Johnston. “Maintenance of the three sex chromosome polymorphism in the platyfish, Xiphophorus maculatus.” Evolution (1980): 663-672.</li><li>BOROWSKY, R., AND K. D. KALLMAN. 1976. Patterns of mating in natural populations of Xiphophorus (Pisces: Poeciliidae). I: X. maculatus from Belize and Mexico. Evolution 30:693-706.</li><li>Sohn, Joel J. “Socially induced inhibition of genetically determined maturation in the platyfish, Xiphophorus maculatus.” Science 195, no. 4274 (1977): 199-201.</li><li>Kallman, Klaus D., Martin P. Schreibman, and Valerie Borkoski. “Genetic control of gonadotrop differentiation in the platyfish, Xiphophorus maculatus (Poeciliidae).” Science 181, no. 4100 (1973): 678-680.</li><li>Vallowe, Henry H. “Some physiological aspects of reproduction in Xiphophorus maculatus.” The Biological Bulletin 104, no. 2 (1953): 240-249.</li><li>Basolo, Alexandra L. “Genetic linkage and color polymorphism in the southern platyfish (Xiphophorus maculatus): a model system for studies of color pattern evolution.” Zebrafish 3, no. 1 (2006): 65-83.</li><li>Rosen D, Bailey DR. The poeciliid fishes (Cyprinodontiformes), their structure, zoogeography, and systematics. Bull Am Mus Nat Hist 1963;126:1–176.</li><li>Allen GR, Midgley SH, Allen M, 2002. Field guide to the freshwater fishes of Australia. Field guide to the freshwater fishes of Australia, xiv + 394 pp.</li><li>Borowsky, Richard L. “Social control of adult size in males of Xiphophorus variatus.” Nature 245, no. 5424 (1973): 332-335.</li></ul>"
+      "html": "<ul><li>Orzack, Steven Hecht, Joel J. Sohn, Klaus D. Kallman, Simon A. Levin, and Ross Johnston. “Maintenance of the three sex chromosome polymorphism in the platyfish, Xiphophorus maculatus.” Evolution(1980): 663-672.</li><li>BOROWSKY, R., AND K. D. KALLMAN. 1976. Patterns of mating in natural populations of Xiphophorus (Pisces: Poeciliidae). I: X. maculatus from Belize and Mexico. Evolution 30:693-706.</li><li>Sohn, Joel J. “Socially induced inhibition of genetically determined maturation in the platyfish, Xiphophorus maculatus.” Science195, no. 4274 (1977): 199-201.</li><li>Kallman, Klaus D., Martin P. Schreibman, and Valerie Borkoski. “Genetic control of gonadotrop differentiation in the platyfish, Xiphophorus maculatus (Poeciliidae).” Science181, no. 4100 (1973): 678-680.</li><li>Vallowe, Henry H. “Some physiological aspects of reproduction in Xiphophorus maculatus.” The Biological Bulletin104, no. 2 (1953): 240-249.</li><li>Basolo, Alexandra L. “Genetic linkage and color polymorphism in the southern platyfish (Xiphophorus maculatus): a model system for studies of color pattern evolution.” Zebrafish3, no. 1 (2006): 65-83.</li><li>Rosen D, Bailey DR. The poeciliid fishes (Cyprinodontiformes), their structure, zoogeography, and systematics. Bull Am Mus Nat Hist 1963;126:1–176.</li><li>Allen GR, Midgley SH, Allen M, 2002. Field guide to the freshwater fishes of Australia. Field guide to the freshwater fishes of Australia, xiv + 394 pp.</li><li>Borowsky, Richard L. “Social control of adult size in males of Xiphophorus variatus.” Nature245, no. 5424 (1973): 332-335.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/eedc33e89f9bfb63.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/eedc33e89f9bfb63-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d549e6b588815198.webp",
+      "thumb": "https://media.aquatome.com/commons/d549e6b588815198-480.webp",
       "width": 960,
       "height": 627,
       "licence": "CC BY-SA 3.0",
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow_wag_platy.jpg",
-      "caption": "Xiphophorus maculatus, female, rainbow wag variety",
-      "thumb": "https://media.aquatome.com/commons/d549e6b588815198-480.webp"
+      "caption": "Xiphophorus maculatus, female, rainbow wag variety"
     },
     {
       "url": "https://media.aquatome.com/commons/bee1857a1659f116.webp",
+      "thumb": "https://media.aquatome.com/commons/bee1857a1659f116-480.webp",
       "width": 921,
       "height": 327,
       "licence": "CC BY-SA 3.0",
       "author": "Photograph by Jere Kyyrö. Uploaded by Rasvis.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_maculatus_in_aqarium.JPG",
-      "caption": "Southern Platyfish (Xiphophorus maculatus, Günther 1866) in aqarium. The colour variation with red body and black fin rays is called wagtail, or sometimes red wagtail. (There is also a yellow wagtail,",
-      "thumb": "https://media.aquatome.com/commons/bee1857a1659f116-480.webp"
+      "caption": "Southern Platyfish (Xiphophorus maculatus, Günther 1866) in aqarium. The colour variation with red body and black fin rays is called wagtail, or sometimes red wagtail. (There is also a yellow wagtail,"
     },
     {
       "url": "https://media.aquatome.com/commons/11563ae715b66eab.webp",
+      "thumb": "https://media.aquatome.com/commons/11563ae715b66eab-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Graf zu Pappenheim",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platy_%2B_Panzerwels.jpg",
-      "caption": "Platy",
-      "thumb": "https://media.aquatome.com/commons/11563ae715b66eab-480.webp"
+      "caption": "Platy"
     },
     {
       "url": "https://media.aquatome.com/commons/1ced08b4a1a6d500.webp",
+      "thumb": "https://media.aquatome.com/commons/1ced08b4a1a6d500-480.webp",
       "width": 960,
       "height": 837,
       "licence": "Public domain",
       "author": "Cucumberkvp at en.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Gourami_and_Platies.jpg",
-      "caption": "A flame morph dwarf gourami (Colisa laila) with platyfish in an aquarium.",
-      "thumb": "https://media.aquatome.com/commons/1ced08b4a1a6d500-480.webp"
+      "caption": "A flame morph dwarf gourami (Colisa laila) with platyfish in an aquarium."
     }
   ],
   "videos": [
@@ -350,5 +356,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }
