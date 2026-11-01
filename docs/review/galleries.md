@@ -5,10 +5,10 @@ Written by `pnpm engine gallery` (2026-11-01). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 4 | 8 |
-| shop | 60 | 120 | 77 | 27 | 170 |
+| shop | 60 | 123 | 77 | 27 | 173 |
 | popular | 40 | 21 | 0 | 1 | 20 |
-| covered | 30 | 68 | 3 | 1 | 70 |
-| rest | 20 | 705 | 92 | 0 | 797 |
+| covered | 30 | 83 | 3 | 1 | 85 |
+| rest | 20 | 777 | 92 | 0 | 869 |
 
 ## Short of target: every source read (16)
 
