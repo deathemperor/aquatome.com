@@ -108,6 +108,12 @@ test('leads: a breed gets the names keepers use; a topic gets threads, a transla
   expect(topicLeads(notes, 'Ép cá dĩa đẻ')).toContain("keeper's own experience")
 })
 
+test('topic leads match words with their accents: a thread on fungus (nấm) is no lead for a topic about Việt Nam', () => {
+  const fungus: ForumState = { ...notes, threads: { [`${B}threads/c.3/`]: { title: 'Bệnh viện dành cho cá đĩa', author: 'k', posts: 1, provenance: 'original', evidence: '', topic: 'chữa nấm', terms: [{ vi: 'nấm', en: 'fungus' }], taxa: [], breeds: [], images: [], readAt: '2026-11-01' } } }
+  expect(topicLeads(fungus, 'Phân loại cá dĩa và tên gọi Việt Nam')).toBe('')
+  expect(topicLeads(fungus, 'Chữa nấm cho cá dĩa')).toContain('threads/c.3/')
+})
+
 test('breed and guide research get the forum leads; research kept from before is not asked again', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-forum-leads-'))
   await mkdir(join(root, 'engine-state/forum'), { recursive: true })

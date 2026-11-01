@@ -222,9 +222,10 @@ export async function readForum(root: string, d: ForumDeps, o: { limit: number; 
   return report
 }
 
-// Vietnamese words are short (ép, đẻ, rêu): two letters count, minus the commonest small words.
-const words = (s: string) => new Set(slugify(s).split('-').filter(w => w.length >= 2 && !STOP.has(w)))
-const STOP = new Set(['ca', 'va', 'la', 'co', 'cu', 'do', 'di', 've', 'vi', 'ra', 'gi', 'ai', 'se', 'da', 'bi', 'nhu', 'khi', 'thi', 'len', 'cac', 'cho', 'cua', 'nhung', 'trong', 'voi', 'mot', 'nao', 'and', 'the', 'for', 'of', 'to', 'in', 'fish', 'cach', 'nuoi', 'bai', 'viet', 'phan', 'huong', 'dan', 'kinh', 'nghiem', 'tong', 'hop', 'gioi', 'thieu', 'tim', 'hieu', 'nguyen', 'nhan', 'xu', 'ly', 'dau'])
+// Words with their accents (nấm, fungus, is not Nam): đ read as d, as keepers write cá dĩa and cá đĩa alike. Vietnamese
+// words are short (ép, đẻ, rêu), so two letters count, minus the commonest small words.
+const words = (s: string) => new Set(s.normalize('NFC').toLowerCase().replace(/đ/g, 'd').split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 2 && !STOP.has(w)))
+const STOP = new Set(['cá', 'và', 'là', 'có', 'của', 'cho', 'các', 'những', 'trong', 'với', 'một', 'nào', 'về', 'vì', 'ra', 'gì', 'ai', 'sẽ', 'dã', 'bị', 'như', 'khi', 'thì', 'lên', 'dể', 'cũng', 'không', 'dược', 'cách', 'nuôi', 'bài', 'viết', 'phần', 'hướng', 'dẫn', 'kinh', 'nghiệm', 'tổng', 'hợp', 'giới', 'thiệu', 'tìm', 'hiểu', 'and', 'the', 'for', 'of', 'to', 'in', 'with', 'fish'])
 
 /** Threads the notes tie to a breed: it names the breed, or uses a term for it. */
 export function forumForBreed(state: ForumState, names: string[]): { url: string; t: ForumThread; terms: ForumTerm[] }[] {
@@ -236,11 +237,11 @@ export function forumForBreed(state: ForumState, names: string[]): { url: string
   }).slice(0, 5)
 }
 
-/** Threads the notes tie to a topic: most title and topic words in common (2 at least), best first. */
+/** Threads the notes tie to a topic: most words in common with its title and topic line (2 at least), best first. */
 export function forumForTopic(state: ForumState, topic: string, max = 3): { url: string; t: ForumThread }[] {
   const want = words(topic)
   return Object.entries(state.threads)
-    .map(([url, t]) => ({ url, t, n: [...words(`${t.title} ${t.topic} ${t.terms.map(x => x.vi).join(' ')}`)].filter(w => want.has(w)).length }))
+    .map(([url, t]) => ({ url, t, n: [...words(`${t.title} ${t.topic}`)].filter(w => want.has(w)).length }))
     .filter(x => x.n >= 2).sort((a, b) => b.n - a.n).slice(0, max).map(({ url, t }) => ({ url, t }))
 }
 
