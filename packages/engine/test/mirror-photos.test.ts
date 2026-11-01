@@ -90,3 +90,13 @@ test('dry run counts what would move; limit caps the uploads in one run', async 
   expect(await mirrorPhotos(r, one.d, { limit: 1 })).toMatchObject({ mirrored: 1 })
   expect(one.put).toHaveLength(1)
 })
+
+test("a guide's Commons photo moves too, keeping the section it illustrates", async () => {
+  const r = await root()
+  const G = 'https://upload.wikimedia.org/wikipedia/commons/8/86/Discus.jpg'
+  await mkdir(join(r, 'content/guides/aquatome-a'), { recursive: true })
+  await writeFile(join(r, 'content/guides/aquatome-a/entity.json'), JSON.stringify({ id: 'aquatome-a', photos: [photo(G, { section: { vi: 'Màu' } })] }, null, 2) + '\n')
+  await mirrorPhotos(r, deps().d)
+  const g = JSON.parse(await read(r, 'guides/aquatome-a/entity.json'))
+  expect(g.photos[0]).toMatchObject({ url: `https://media.aquatome.com/${mirrorPlan(G)!.key}`, section: { vi: 'Màu' } })
+})

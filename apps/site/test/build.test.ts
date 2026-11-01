@@ -275,6 +275,27 @@ describe('plants, guides, glossary, equipment, discovery', () => {
   })
 })
 
+test("a guide's photos go under the section they name, at their own size and credited; one whose section is missing is still shown", () => {
+  const { dom, html } = page('/vi/huong-dan/phan-loai-ca-dia/')
+  const prose = dom.querySelector('.prose')!
+  const kids = prose.childNodes.filter(n => n.nodeType === 1) as (typeof prose)[]
+  const at = kids.findIndex(k => k.tagName === 'H3' && k.text === 'Can, chỉ và hoa văn')
+  expect(kids[at + 1]!.tagName).toBe('P') // after the heading's first paragraph
+  expect(kids[at + 2]!.classNames).toContain('figs')
+  expect(kids[at + 2]!.querySelector('img')?.getAttribute('src')).toBe('https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-ca-dia-giai-phau.webp')
+  expect(kids[at + 2]!.querySelector('img')?.getAttribute('alt')).toBe('Các bộ phận của cá dĩa')
+  expect(kids.at(-1)!.querySelector('img')?.getAttribute('src')).toBe('https://media.aquatome.com/commons/00000000000000a2.webp')
+  // The guide's first photo names no section: it leads the page; a section's picture never does.
+  expect(dom.querySelector('img.lead')?.getAttribute('src')).toBe('https://media.aquatome.com/commons/00000000000000a1.webp')
+  expect(html).toContain('Ảnh: AquaTome')
+  expect(html).toContain('Ảnh: David J')
+})
+
+test('a breed the guide names (engine mentions) lists the guide on its page', () => {
+  expect(page('/vi/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/vi/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+  expect(page('/vi/ca/ca-dia/').dom.querySelector('a[href="/vi/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+})
+
 describe('review fixes', () => {
   test('pages with photo cards credit every photo', () => {
     for (const p of ['/vi/', '/vi/ca/', '/vi/nhom/tetras/']) {

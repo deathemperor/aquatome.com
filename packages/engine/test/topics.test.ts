@@ -23,6 +23,10 @@ async function site() {
     await mkdir(join(r, 'content/species', id), { recursive: true })
     await writeFile(join(r, 'content/species', id, 'entity.json'), JSON.stringify({ scientificName: sci }))
   }
+  await mkdir(join(r, 'content/breeds/blue-diamond-discus'), { recursive: true })
+  await writeFile(join(r, 'content/breeds/blue-diamond-discus/vi.json'), JSON.stringify({ name: 'Cá dĩa lam phấn (Blue Diamond discus)', altNames: [] }))
+  await mkdir(join(r, 'content/breeds/oranda'), { recursive: true })
+  await writeFile(join(r, 'content/breeds/oranda/vi.json'), JSON.stringify({ name: 'Cá vàng Oranda (Oranda)', altNames: [] }))
   await mkdir(join(r, 'content/guides/other'), { recursive: true })
   await writeFile(join(r, 'content/guides/other/vi.json'), JSON.stringify({ slug: 'ca-bi-loi-mat' })) // the address is taken
   return r
@@ -36,7 +40,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   const llm: Llm = async ({ prompt }) => {
     prompts.push(prompt)
     if (prompt.startsWith('Below are FACTS')) return (++checks === 1 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.92, notes: [] }) as never
-    return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
+    return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi, cả ở Blue Diamond.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
   }
   const r = await makeTopic(root, { research, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { now: () => new Date('2026-10-31T00:00:00Z') })
   expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.92, refs: 2 })
@@ -46,7 +50,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(prompts[0]).toMatch(/"Popeye is a symptom, not a disease",\s*"source": 0/)
   expect(prompts[2]).toContain('"3 ngày" is not in the facts')
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
-  expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens'], updatedAt: '2026-10-31' })
+  expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens', 'blue-diamond-discus'], updatedAt: '2026-10-31' })
   expect(e.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }, { url: 'https://example.org/epsom', title: 'Epsom' }])
   const vi = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/vi.json'), 'utf8'))
   expect(vi.slug).toBe('ca-bi-loi-mat-huong-dan')
@@ -54,6 +58,13 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(vi.faq).toHaveLength(1)
   expect(vi.quality).toEqual({ score: 0.92, indexable: true })
   expect(e.sourceUrl).toBe('https://aquatome.com/vi/huong-dan/ca-bi-loi-mat-huong-dan/')
+
+  // A rewrite from the kept research keeps the photos a later step put on the guide.
+  const file = join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json')
+  const drawing = { url: 'https://media.aquatome.com/aquatome/guides-a.webp', width: 1540, height: 940, licence: 'dùng với sự cho phép', author: 'AquaTome', sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', source: 'aquatome', section: { vi: 'Dấu hiệu' } }
+  await writeFile(file, JSON.stringify({ ...e, photos: [drawing] }))
+  await makeTopic(root, { research: async () => { throw new Error('not asked') }, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { reuse: true })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([drawing])
 })
 
 test('nothing reliable found: nothing written', async () => {

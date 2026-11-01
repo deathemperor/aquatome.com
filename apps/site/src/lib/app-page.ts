@@ -52,7 +52,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     const paths = viPaths.map(at).filter(x => listed.has(x))
     return paths.length ? [{ t: 'pages' as const, title, paths }] : []
   }
-  const lead = v ? undefined : image(lang, p.ph)
+  const lead = v ? undefined : image(lang, p.lead)
   return {
     v: PAGE_VERSION,
     kind: 'guide',

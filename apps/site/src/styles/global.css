@@ -21,6 +21,13 @@ html { scrollbar-color: var(--c-ink-soft) var(--c-paper); }
 figure.inl { margin: var(--space-6) 0; max-width: var(--measure, 70ch); }
 figure.inl img { display: block; width: 100%; height: auto; border-radius: var(--radius-media); background: var(--c-plate); }
 figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-2); }
+/* A section's drawings, stacked, each at most its own size (a small labelled drawing is not blown up). */
+.figs { display: grid; gap: var(--space-5); margin: var(--space-6) 0; max-width: var(--measure, 70ch); }
+.figs figure.inl { margin: 0; }
+.figs figure.inl img { width: auto; max-width: 100%; }
+/* Three or more for one section (a photo per class): small pictures in a grid, cropped alike. */
+.figs.grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr)); gap: var(--space-4); }
+.figs.grid figure.inl img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 /* A box that scrolls sideways (wide tables on a phone, tables in article text): a shadow at each edge that has more to
    see. The paper-coloured covers scroll with the content and hide the shadows at the ends (background-attachment: local
    vs scroll). */

@@ -80,15 +80,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
   const captionsFile = join(root, 'captions', `${lang}.json`)
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
-  const caption = (p: Photo): Photo => {
+  const caption = <P extends Photo>(p: P): P => {
     if (lang === 'vi' || !p.caption || !isVietnamese(p.caption)) return p
     const { caption: vi, ...rest } = p
-    return captions[vi] ? { ...rest, caption: captions[vi] } : rest
+    return (captions[vi] ? { ...rest, caption: captions[vi] } : rest) as P
   }
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
+  const cleanPhotos = <P extends Photo>(xs: P[]): P[] => xs.filter(p => (p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] =>
     Object.fromEntries(

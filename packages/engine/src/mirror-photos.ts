@@ -44,10 +44,10 @@ function photosIn(x: unknown, out: Photo[] = []): Photo[] {
   return out
 }
 
-/** Content files that hold photos: species, plant and breed pages, galleries, equipment guides. */
+/** Content files that hold photos: species, plant and breed pages, guides, galleries, equipment guides. */
 async function files(content: string) {
   const out: string[] = []
-  for (const kind of ['species', 'plants', 'breeds']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
+  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
   for (const kind of ['gallery', 'equipment']) for (const f of await readdir(join(content, kind)).catch(() => [] as string[])) if (f.endsWith('.json')) out.push(join(content, kind, f))
   return out
 }

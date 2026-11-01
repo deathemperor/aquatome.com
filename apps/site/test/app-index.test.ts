@@ -85,7 +85,7 @@ test('guides carry their subject and the fish and plants they name, as their pag
   expect(video, 'the shrimp a plant video shows').toBeDefined()
   // Content ids, as a saved tank lists its fish: one whose page isn't in the app (too thin) still matches a tank that has it.
   for (const g of guides) for (const id of g.about ?? []) expect(id, g.path).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
-  expect(guides.find(g => g.section === 'discovery')?.about).toContain('boraras-brigittae')
+  expect(guides.some(g => g.section === 'discovery' && g.about?.includes('boraras-brigittae'))).toBe(true)
   // Fish and plants have neither.
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'section' in i || 'about' in i)).toBe(false)
 })

@@ -69,6 +69,24 @@ async function idsByName(content: string): Promise<Map<string, string>> {
 }
 
 /**
+ * Breed pages a text names, by their Vietnamese or English names of two words or more (a trailing "discus", "cichlid"
+ * or "fish" dropped: "Blue Diamond" names Blue Diamond discus). A guide lists them in its mentions, so their pages link to it.
+ */
+export async function breedsNamed(content: string, text: string): Promise<string[]> {
+  const plain = ` ${text.replace(/<[^>]+>/g, ' ').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ')} `
+  const out: string[] = []
+  for (const id of (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()) {
+    const t = JSON.parse(await readFile(join(content, 'breeds', id, 'vi.json'), 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null
+    if (!t) continue
+    const names = [t.name.replace(/\s*\(.*\)\s*$/, ''), t.name.match(/\(([^)]+)\)/)?.[1] ?? '', ...t.altNames]
+      .flatMap(n => [n, n.replace(/\s+(discus|cichlid|fish)$/i, '')])
+      .map(n => n.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()).filter(n => n.includes(' '))
+    if (names.some(n => plain.includes(` ${n} `))) out.push(id)
+  }
+  return out
+}
+
+/**
  * A guide AquaTome writes itself: web research (cited facts, kept in engine-state/topics for --redo), a Vietnamese
  * guide written from the facts only and checked against them (one rewrite with the checker's notes), linked to the
  * species and plants it is about. Files: content/guides/<id>/{entity,vi}.json, source 'aquatome', with its references.
@@ -121,9 +139,11 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   const slug = prev?.slug ?? pickSlug(name.replace(/:.*$/, ''), 'huong-dan', taken)
   const ids = await idsByName(content)
   const today = (o.now?.() ?? new Date()).toISOString().slice(0, 10)
+  // A rewrite keeps the photos put on the guide since (our drawings, photos picked for its sections).
+  const prevEntity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as GuideEntity | null
   const entity: GuideEntity = GuideSchema.parse({
-    id, kind: a.kind, source: 'aquatome', sourceUrl: `https://aquatome.com/vi/huong-dan/${slug}/`, html: '', photos: [],
-    mentions: [...new Set(researched.species.map(s => ids.get(s.replace(/\s*\(.*$/, '').trim().toLowerCase())).filter((x): x is string => !!x))],
+    id, kind: a.kind, source: 'aquatome', sourceUrl: `https://aquatome.com/vi/huong-dan/${slug}/`, html: '', photos: prevEntity?.photos ?? [],
+    mentions: [...new Set([...researched.species.map(s => ids.get(s.replace(/\s*\(.*$/, '').trim().toLowerCase())).filter((x): x is string => !!x), ...await breedsNamed(content, `${w.summary.join(' ')} ${w.body}`)])],
     updatedAt: today, refs,
   })
   const vi = TranslationSchema.parse({

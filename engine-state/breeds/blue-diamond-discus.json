@@ -26,6 +26,10 @@
     {
       "name": "Cá dĩa xanh lam",
       "source": 8
+    },
+    {
+      "name": "Cá dĩa lam phấn",
+      "source": 12
     }
   ],
   "basedOn": "Symphysodon aequifasciatus",
@@ -242,6 +246,18 @@
     {
       "fact": "Unusually vivid colour on very small discus can be a sign of colour-enhancing hormones. Treated fish fade later and may stay stunted.",
       "source": 11
+    },
+    {
+      "fact": "On Diễn Đàn Cá Cảnh, a Vietnamese forum, Blue Diamond is 'lam phấn', and 'lam Đức' (also 'lam A') is Cobalt, another solid blue line.",
+      "source": 12
+    },
+    {
+      "fact": "Asked how to tell the blue discus names apart, the forum's admin answered: Cobalt = lam A = lam Đức, and lam phấn = Blue Diamond.",
+      "source": 13
+    },
+    {
+      "fact": "Several Vietnamese shops sell Blue Diamond as 'cá dĩa Lam Đức'.",
+      "source": 4
     }
   ],
   "controversy": [
@@ -314,6 +330,16 @@
       "url": "https://reliableaquaticsproducts.blogspot.com/2010/04/facts-about-color-enhancing-hormones.html",
       "title": "Facts about color enhancing hormones usage on discus fish – Reliable Aquatics",
       "kind": "breeder"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phan-2-phan-loai-ca-dia-thuan-duong.31268/",
+      "title": "Phần 2 - Phân loại cá dĩa thuần dưỡng",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phan-biet-ca-dia-lam.292075/",
+      "title": "Phân biệt cá Dĩa lam",
+      "kind": "forum"
     }
   ]
 }
