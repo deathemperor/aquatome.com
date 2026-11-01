@@ -8,16 +8,22 @@ import Tanks
 struct LightsView: View {
   @Environment(LightsModel.self) private var lights
   @Environment(\.scenePhase) private var phase
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
+    // At the largest text sizes a bar pinned to the bottom would leave little of the screen: the write bar goes after the
+    // colour instead, where the site's sits on a wide screen.
+    let pinned = !size.isAccessibilitySize
     NavigationStack {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
           LightCard()
           ScheduleSection()
           ColourSection().modifier(Panel())
-          WriteSection()
+          if !pinned { WriteBar(pinned: false) }
+          SavedSchedules()
           VStack(alignment: .leading, spacing: 8) {
+            Text("Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.")
             Text("Hỗ trợ các đèn Bluetooth có tên bắt đầu bằng DY: \(Model.supported.joined(separator: ", ")).")
             AboutText()
           }
@@ -27,8 +33,9 @@ struct LightsView: View {
       }
       .background(Color(.systemGroupedBackground))
       .navigationTitle("Đèn Chihiros")
-      // What just happened stays in view wherever the screen is scrolled.
-      .safeAreaInset(edge: .bottom) { NoticeBar() }
+      // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
+      // is fixed to the bottom on a phone too).
+      .safeAreaInset(edge: .bottom) { VStack(spacing: 0) { NoticeBar(); if pinned { WriteBar(pinned: true) } } }
       .overlay { if lights.isBusy { ProgressView().controlSize(.large) } }
       .onChange(of: phase) { if phase == .active { lights.checkBluetooth() } }
       // What happened is said aloud too, as the site's status line is (aria-live).
@@ -397,35 +404,108 @@ private struct ScheduleSection: View {
   }
 }
 
-/// Writing the schedule and colour to the light, after both are set (the site's write bar).
-private struct WriteSection: View {
+/// Writing the schedule and colour to the light (the site's write bar): what will be written, the button, and why it
+/// can't be yet. Pinned to the bottom of the screen, or in line with the rest at the largest text sizes.
+private struct WriteBar: View {
   @Environment(LightsModel.self) private var lights
+  let pinned: Bool
   @State private var confirming = false
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 12) {
-      Button {
-        if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
-      } label: {
-        Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn").frame(maxWidth: .infinity)
+    let f = lights.form
+    let row = pinned ? AnyLayout(HStackLayout(spacing: 12)) : AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+    let content = VStack(alignment: .leading, spacing: 4) {
+      row {
+        Text(verbatim: f.problem == nil ? summary(f) : "")
+          .font(.subheadline.weight(.semibold)).monospacedDigit()
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .accessibilityIdentifier("summary")
+        Button {
+          if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
+        } label: {
+          Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .layoutPriority(1) // its words on one line where they fit; the summary wraps first
+        .disabled(!lights.canWrite)
+        .accessibilityIdentifier("write")
       }
-      .buttonStyle(.borderedProminent)
-      .controlSize(.large)
-      .disabled(!lights.canWrite)
-      .accessibilityIdentifier("write")
       if !lights.isConnected {
         Text("Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").font(.footnote).foregroundStyle(.secondary)
       } else if let fw = lights.firmware, fw < 20 {
         Text("Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.").font(.footnote).foregroundStyle(Color.warning)
       }
-      Text("Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.")
-        .font(.footnote).foregroundStyle(.secondary)
     }
-    .modifier(Panel())
+    Group {
+      if pinned {
+        content
+          .padding(.horizontal)
+          .padding(.vertical, 10)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .background(.bar)
+          .overlay(alignment: .top) { Divider() }
+      } else {
+        content.modifier(Panel())
+      }
+    }
     .alert("Lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, sẽ bị thay bằng lịch này. Ghi lịch?", isPresented: $confirming) {
       Button("Ghi lịch") { Task { await lights.writeSchedule() } }
       Button("Hủy", role: .cancel) {}
     }
+  }
+
+  /// "12:00–20:00 · 70% · 8 tiếng", as the site's.
+  private func summary(_ s: Schedule) -> String {
+    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.precision(.fractionLength(0...1)))) tiếng")
+  }
+}
+
+/// The schedules written to this light from AquaTome, here or on the site (the site's "Lịch đã ghi cho đèn này"): the
+/// last one written is in use, and any other opens in the form again to be written.
+private struct SavedSchedules: View {
+  @Environment(LightsModel.self) private var lights
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let list = lights.savedSchedules
+    // The button beside each schedule; under it at the largest text sizes.
+    let row = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
+    if !list.isEmpty {
+      VStack(alignment: .leading, spacing: 0) {
+        Text("Lịch đã ghi cho đèn này").font(.title3.weight(.semibold)).accessibilityAddTraits(.isHeader).padding(.bottom, 4)
+        ForEach(list) { s in
+          row {
+            VStack(alignment: .leading, spacing: 2) {
+              Text(verbatim: label(s)).font(.subheadline.weight(.semibold)).monospacedDigit()
+              Text(verbatim: meta(s)).font(.caption).foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("saved-schedule")
+            if s.id == lights.device?.activeScheduleId {
+              Text("Đang dùng").font(.footnote.weight(.semibold)).foregroundStyle(Color.accentColor)
+                .accessibilityIdentifier("in-use")
+            } else {
+              Button("Dùng lại") { lights.useSaved(s) }
+                .buttonStyle(.bordered)
+                .controlSize(.large)
+                .tint(.primary)
+                .accessibilityLabel(Text("Dùng lại") + Text(verbatim: ": \(label(s))"))
+                .accessibilityIdentifier("reuse")
+            }
+          }
+          .padding(.vertical, 8)
+          if s.id != list.last?.id { Divider() }
+        }
+      }
+      .modifier(Panel())
+    }
+  }
+
+  /// "Bể mới trồng · sáng dần 30 phút · 1/11/2026".
+  private func meta(_ s: SavedSchedule) -> String {
+    [s.name.flatMap { $0.isEmpty ? nil : $0 }, String(localized: "sáng dần \(s.ramp) phút"), day(s.savedAt)].compactMap { $0 }.joined(separator: " · ")
   }
 }
 
@@ -482,6 +562,9 @@ extension Channel {
 
 /// A saved schedule as the site labels it: "13:00–19:00 · 40%" (its brightest channel).
 func label(_ s: SavedSchedule) -> String { "\(s.on)–\(s.off) · \(s.levels.max() ?? 0)%" }
+
+/// The schedule being edited, labelled the same way.
+func label(_ s: Schedule) -> String { "\(s.on)–\(s.off) · \(s.top)%" }
 
 /// A day as the reader's language writes it (1/11/2026).
 private func day(_ timestamp: String) -> String {

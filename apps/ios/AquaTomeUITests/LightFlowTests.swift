@@ -479,6 +479,110 @@ final class LightFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "hand").waitForExistence(timeout: 1), "still kept as set by hand after “Theo lịch”")
   }
 
+  func testTheWriteBarStaysInViewAndSaysWhatWillBeWritten() {
+    let app = launch()
+    // Without a light: what would be written, and why it can't be yet, in view at the top of the screen.
+    expect(app, "summary", contains: "12:00–20:00 · 70% · 8 tiếng")
+    XCTAssertTrue(element(app, "write").isHittable, "the write bar isn't in view at the top of the screen")
+    XCTAssertFalse(element(app, "write").isEnabled)
+    XCTAssertTrue(text(app, "Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").exists, "no note without a light")
+    tap(app, "preset-new")
+    expect(app, "summary", contains: "13:00–19:00 · 40% · 6 tiếng")
+    drag(app, "handle-off", from: 19 * 60, to: 19 * 60 + 30)
+    expect(app, "summary", contains: "13:00–19:30 · 40% · 6,5 tiếng")
+    connect(app)
+    XCTAssertFalse(text(app, "Kết nối đèn để ghi lịch.").exists, "the note for no light, with a light")
+    // At the end of the screen too: written from wherever the reader is.
+    _ = scrolledTo(app, text(app, "AquaTome không liên quan tới hãng Chihiros"))
+    XCTAssertTrue(element(app, "write").isHittable, "the write bar isn't in view at the end of the screen")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:30.")
+    expect(app, "write", contains: "Đèn đang dùng lịch này")
+    // What writing does is said once, in the notes at the end.
+    XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn")).count, 1)
+  }
+
+  func testASavedScheduleIsUsedAgainAndTheLastSixAreListed() {
+    let app = launch()
+    connect(app)
+    XCTAssertFalse(text(app, "Lịch đã ghi cho đèn này").exists, "a list with nothing written")
+    tap(app, "preset-new")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    tap(app, "preset-settled")
+    tap(app, "write")
+    expect(app, "notice", contains: "Đã ghi: bật 12:00, tắt 20:00.")
+    // The last one written first, in use; the one before it can be used again, with its preset's name and ramp.
+    var rows = savedRows(app)
+    XCTAssertEqual(rows.count, 2, "\(rows)")
+    XCTAssertTrue(rows[0].contains("12:00–20:00 · 70%") && rows[0].contains("Bể đã ổn định · sáng dần 30 phút"), rows[0])
+    XCTAssertTrue(rows[1].contains("13:00–19:00 · 40%") && rows[1].contains("Bể mới trồng · sáng dần 30 phút"), rows[1])
+    XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "in-use").count, 1)
+    let first = element(app, "saved-schedule").frame
+    XCTAssertTrue(first.minY...first.maxY ~= element(app, "in-use").frame.midY, "“Đang dùng” isn't on the last one written")
+
+    // Used again while a colour is tried on the light: the form takes it, and the light shows its colour.
+    tap(app, "try")
+    expect(app, "notice", contains: "Đèn đang hiện màu thử.")
+    let again = app.buttons.matching(identifier: "reuse").firstMatch
+    XCTAssertEqual(again.label, "Dùng lại: 13:00–19:00 · 40%")
+    scrolledTo(app, again).tap()
+    expect(app, "notice", contains: "Đã mở lịch 13:00–19:00 · 40%. Bấm “Ghi lịch vào đèn” để dùng.")
+    expect(app, "summary", contains: "13:00–19:00 · 40% · 6 tiếng")
+    expectFrames(app, ".* 07 00 28 .. \\| 5a 01 07 .. .. 07 01 28 .. \\| 5a 01 07 .. .. 07 02 28 ..")
+    tap(app, "write")
+    XCTAssertFalse(app.alerts.firstMatch.waitForExistence(timeout: 1), "asked again with a known schedule on the light")
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    expectFrames(app, ".*a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 28 28 ff .*")
+    // Written again, it is the one in use, first, with its name; nothing is listed twice.
+    rows = savedRows(app)
+    XCTAssertEqual(rows.count, 2, "\(rows)")
+    XCTAssertTrue(rows[0].contains("13:00–19:00 · 40%") && rows[0].contains("Bể mới trồng"), rows[0])
+    XCTAssertEqual(app.buttons.matching(identifier: "reuse").firstMatch.label, "Dùng lại: 12:00–20:00 · 70%")
+    // Its colour changed and written: a new schedule, still with the name of the one used again.
+    tap(app, "look-warm")
+    tap(app, "write")
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    expectFrames(app, ".*a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 20 14 ff .*")
+    rows = savedRows(app)
+    XCTAssertEqual(rows.count, 3, "\(rows)")
+    XCTAssertTrue(rows[0].contains("13:00–19:00 · 40%") && rows[0].contains("Bể mới trồng"), rows[0])
+
+    // Seven different schedules written: the last six are listed, and the one written longest ago (“Bể đã ổn định”)
+    // drops off.
+    for (preset, time) in [("preset-algae", "bật 14:00, tắt 20:00"), ("preset-fish", "bật 12:00, tắt 20:00")] {
+      tap(app, preset)
+      tap(app, "write")
+      expect(app, "notice", contains: "Đã ghi: \(time).")
+    }
+    for off in [21, 22] {
+      drag(app, "handle-off", from: Double(off - 1) * 60, to: Double(off) * 60)
+      tap(app, "write")
+      expect(app, "notice", contains: "Đã ghi: bật 12:00, tắt \(off):00.")
+    }
+    rows = savedRows(app)
+    XCTAssertEqual(rows.count, 6, "\(rows)")
+    XCTAssertTrue(rows[0].contains("12:00–22:00 · 40%"), rows[0])
+    XCTAssertFalse(rows.contains { $0.contains("12:00–20:00 · 70%") }, "the one written longest ago is still listed: \(rows)")
+  }
+
+  func testSchedulesWrittenAreListedOnlyWhileTheLightIsConnected() {
+    // Dropping at the first level set by hand.
+    let app = launch("-fake-drop")
+    connect(app)
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 12:00, tắt 20:00.")
+    XCTAssertEqual(savedRows(app).count, 1)
+    // Dropped: not listed, as on the site, which lists them only for a light that is ready.
+    tap(app, "try")
+    expect(app, "card-title", contains: "Mất kết nối với WRGB II Slim")
+    XCTAssertFalse(element(app, "saved-schedule").exists, "schedules listed for a light that dropped")
+    // Connected again: listed once the light is read.
+    tap(app, "saved-light")
+    expect(app, "notice", contains: "Đã kết nối WRGB II Slim.", timeout: 20)
+    XCTAssertEqual(savedRows(app).count, 1)
+  }
+
   // MARK: Helpers
 
   private func launch(_ args: String..., reset: Bool = true) -> XCUIApplication {
@@ -513,8 +617,6 @@ final class LightFlowTests: XCTestCase {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
   }
 
-  /// Scrolled until `e` is clear of the navigation bar above and the status bar pinned below (the content scrolls under
-  /// both), however tall the notice in it is.
   /// A slider dragged to 100%. A drag is only "best effort" (XCUIElement): one aimed at the end stopped at 87% on CI, so
   /// it is dragged again, at most three times, until the slider reads 100%.
   private func slideToEnd(_ app: XCUIApplication, _ id: String) {
@@ -524,18 +626,25 @@ final class LightFlowTests: XCTestCase {
     }
   }
 
+  /// Scrolled until the element is clear of the navigation bar above and the status and write bars pinned below (the
+  /// content scrolls under them), however tall the notice in them is.
   private func scrolledTo(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
+    // The bars pinned to the bottom: always in view.
+    if id.hasPrefix("notice") || id == "write" || id == "summary" { _ = e.waitForExistence(timeout: 2); return e }
+    return scrolledTo(app, e)
+  }
+
+  private func scrolledTo(_ app: XCUIApplication, _ e: XCUIElement) -> XCUIElement {
     _ = e.waitForExistence(timeout: 2) // it may still be appearing
-    if id.hasPrefix("notice") { return e } // the status bar pinned to the bottom: always in view
     var downs = 0
     // Read once (each query costs the test a moment): the bars don't move while the content scrolls. The navigation
     // bar is at its tallest here or taller than it will be, so the margin only grows.
     let window = app.windows.firstMatch.frame
-    let notice = element(app, "notice")
+    let pinned = ["notice", "summary", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
-    let bottom = min(window.maxY - window.height / 5, notice.exists ? notice.frame.minY - 16 : .infinity)
+    let bottom = min(window.maxY - window.height / 5, pinned - 16)
     for _ in 0..<20 {
       let f = e.exists ? e.frame : nil
       if let f, f.minY > top, f.maxY < bottom { break }
@@ -560,6 +669,11 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing")
     XCTAssertTrue(e.isHittable, "\(id) not reached by scrolling")
     e.tap()
+  }
+
+  /// The schedules listed as written to this light, the last one first.
+  private func savedRows(_ app: XCUIApplication) -> [String] {
+    app.descendants(matching: .any).matching(identifier: "saved-schedule").allElementsBoundByIndex.map { $0.label }
   }
 
   private func expect(_ app: XCUIApplication, _ id: String, contains text: String, timeout: TimeInterval = 10, file: StaticString = #filePath, line: UInt = #line) {

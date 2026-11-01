@@ -1345,6 +1345,22 @@
         }
       }
     },
+    "Dùng lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakai lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้ซ้ำ"
+          }
+        }
+      }
+    },
     "Dưới 5 tiếng, cây trồng lớn chậm.": {
       "localizations": {
         "id": {
@@ -2365,6 +2381,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตารางเวลาที่เก็บอยู่ในโคมไฟ รวมถึงตารางเวลาที่ตั้งด้วยแอป My Chihiros จะถูกแทนที่ด้วยตารางเวลานี้ บันทึกตารางเวลาหรือไม่"
+          }
+        }
+      }
+    },
+    "Lịch đã ghi cho đèn này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jadwal yang sudah disimpan untuk lampu ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตารางเวลาที่บันทึกให้โคมไฟนี้"
           }
         }
       }
@@ -4097,6 +4129,22 @@
         }
       }
     },
+    "Đang dùng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang dipakai"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังใช้งาน"
+          }
+        }
+      }
+    },
     "Đang dùng bản đã lưu trên máy (%lld trang).": {
       "localizations": {
         "id": {
@@ -4413,6 +4461,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "บันทึกไว้ใน “%@” แล้ว"
+          }
+        }
+      }
+    },
+    "Đã mở lịch %@. Bấm “Ghi lịch vào đèn” để dùng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jadwal %@ dibuka. Ketuk “Simpan jadwal ke lampu” untuk memakainya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดตารางเวลา %@ แล้ว กด “บันทึกตารางลงโคมไฟ” เพื่อใช้งาน"
           }
         }
       }
