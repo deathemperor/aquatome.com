@@ -31,6 +31,8 @@ test('typing a name and pressing Lọc filters the list and keeps the search in 
   await page.locator('input[name=q]').fill('neon vua')
   await page.locator('#species-filter button[type=submit]').click()
   await expect(page).toHaveURL(/\?q=neon\+vua/)
+  // The list filters once the whole fish list has loaded ("Đang lọc…" until then; about a second on the live site).
+  await expect(page.locator('#species-count')).toHaveText(/\d+ loài phù hợp/)
   const cards = await visibleCards(page)
   expect(cards.length).toBeGreaterThan(0)
   expect(cards.map(c => fold(c.text).includes('neon vua'))).toEqual(cards.map(() => true))
