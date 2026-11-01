@@ -15,7 +15,8 @@ struct LightsView: View {
         VStack(alignment: .leading, spacing: 24) {
           LightCard()
           ScheduleSection()
-          if lights.isConnected { ManualSection() }
+          ColourSection().modifier(Panel())
+          WriteSection()
           VStack(alignment: .leading, spacing: 8) {
             Text("Hỗ trợ các đèn Bluetooth có tên bắt đầu bằng DY: \(Model.supported.joined(separator: ", ")).")
             AboutText()
@@ -240,7 +241,8 @@ private struct ReadyCard: View {
 
       VStack(alignment: .leading, spacing: 10) {
         ClockFact()
-        if let m = d?.manual {
+        // Not during a test or the preview: the screen says what the light shows (the record is for a link that drops).
+        if let m = d?.manual, !lights.trying, !lights.isPlaying {
           Fact(icon: "hand.raised", warn: true) {
             Text(m.levels.allSatisfy { $0 == 0 } ? "Đèn đang tắt bằng tay, không chạy theo lịch." : "Đèn đang chỉnh tay (\(m.levels.max() ?? 0)%), không chạy theo lịch.")
           }
@@ -346,7 +348,7 @@ private struct ClockFact: View {
           .accessibilityIdentifier("clock")
           Button("Chỉnh giờ đèn theo máy này") { Task { await lights.syncClock() } }
             .buttonStyle(.bordered).controlSize(.large).tint(.primary).font(.subheadline)
-            .disabled(lights.isBusy)
+            .disabled(lights.isBusy || lights.trying || lights.isPlaying)
             .accessibilityIdentifier("sync-clock")
         }
       }
@@ -378,24 +380,30 @@ private struct ScheduleFact: View {
 
 private struct ScheduleSection: View {
   @Environment(LightsModel.self) private var lights
-  @State private var confirming = false
 
   var body: some View {
-    @Bindable var lights = lights
     VStack(alignment: .leading, spacing: 12) {
       Text("Lịch mỗi ngày").font(.title3.weight(.semibold))
       Text("Chọn kiểu bể để có lịch gợi ý, rồi kéo giờ bật, giờ tắt trên thanh ngày. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.")
         .font(.footnote).foregroundStyle(.secondary)
       PresetGrid()
+      TankScene()
       Timeline().padding(.top, 8)
       Readout(schedule: lights.form)
+      PreviewButton()
       ScheduleFields()
-      ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
-        Stepper(value: $lights.levels[i], in: 0...100, step: 5) {
-          LabeledContent(c.title) { Text(verbatim: "\(lights.levels[i])%") }
-        }
-        .accessibilityIdentifier("level-\(i)")
-      }
+    }
+    .modifier(Panel())
+  }
+}
+
+/// Writing the schedule and colour to the light, after both are set (the site's write bar).
+private struct WriteSection: View {
+  @Environment(LightsModel.self) private var lights
+  @State private var confirming = false
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
       Button {
         if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
       } label: {
@@ -417,45 +425,6 @@ private struct ScheduleSection: View {
     .alert("Lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, sẽ bị thay bằng lịch này. Ghi lịch?", isPresented: $confirming) {
       Button("Ghi lịch") { Task { await lights.writeSchedule() } }
       Button("Hủy", role: .cancel) {}
-    }
-  }
-}
-
-private struct ManualSection: View {
-  @Environment(LightsModel.self) private var lights
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 8) {
-      Text("Chỉnh tay").font(.title3.weight(.semibold))
-      ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
-        LevelSlider(id: "manual-\(i)", title: c.title, value: lights.manual[i]) { lights.setLevel(channel: i, level: $0) }
-      }
-      // Not while a write or another command runs: a level queued behind it would land after it.
-      .disabled(lights.isBusy)
-      Text("Kéo để đổi độ sáng ngay. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch” hoặc ghi lịch mới.")
-        .font(.footnote).foregroundStyle(.secondary)
-    }
-    .modifier(Panel())
-  }
-}
-
-/// Only a drag sends a level: the slider shows the model's value, so a row built again (scrolled back into view)
-/// sends nothing.
-private struct LevelSlider: View {
-  let id: String
-  let title: String
-  let value: Int?
-  let onChange: (Int) -> Void
-
-  var body: some View {
-    HStack {
-      Text(title).frame(width: 90, alignment: .leading)
-      Slider(value: Binding { Double(value ?? 70) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
-        .accessibilityLabel(title)
-        .accessibilityValue(Text(verbatim: value.map { "\($0)%" } ?? "–"))
-        .accessibilityIdentifier(id)
-      Text(verbatim: value.map { "\($0)%" } ?? "–").monospacedDigit().frame(width: 48, alignment: .trailing)
-        .accessibilityIdentifier("\(id)-level")
     }
   }
 }

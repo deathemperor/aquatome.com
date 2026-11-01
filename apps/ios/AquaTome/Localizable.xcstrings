@@ -337,6 +337,54 @@
         }
       }
     },
+    "Bây giờ %@: đèn sáng %lld%%.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekarang %@: lampu menyala %lld%%."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ %@: ไฟสว่าง %lld%%"
+          }
+        }
+      }
+    },
+    "Bây giờ %@: đèn tắt, bật lại lúc %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekarang %@: lampu mati, menyala lagi pukul %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ %@: ไฟปิดอยู่ จะเปิดอีกครั้งเวลา %@"
+          }
+        }
+      }
+    },
+    "Bây giờ %@: đèn đang %@, %lld%%.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekarang %@: lampu sedang %@, %lld%%."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ %@: ไฟกำลัง%@ %lld%%"
+          }
+        }
+      }
+    },
     "Bấm vào tên để đổi": {
       "localizations": {
         "id": {
@@ -929,18 +977,18 @@
         }
       }
     },
-    "Chỉnh tay": {
+    "Chỉnh từng màu": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atur manual"
+            "value": "Atur tiap warna"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ปรับเอง"
+            "value": "ปรับทีละสี"
           }
         }
       }
@@ -1169,6 +1217,22 @@
         }
       }
     },
+    "Cây đỏ rực": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman merah menyala"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำสีแดงสด"
+          }
+        }
+      }
+    },
     "Có lỗi, chưa làm được: thử lại.": {
       "localizations": {
         "id": {
@@ -1261,6 +1325,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ต่ำกว่า 5 ชั่วโมง ไม้น้ำจะโตช้า"
+          }
+        }
+      }
+    },
+    "Dừng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berhenti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุด"
           }
         }
       }
@@ -1937,18 +2017,18 @@
         }
       }
     },
-    "Kéo để đổi độ sáng ngay. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch” hoặc ghi lịch mới.": {
+    "Kiểu màu": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geser untuk mengubah kecerahan sekarang. Lampu mengabaikan jadwal sampai Anda mengetuk “Sesuai jadwal” atau menyimpan jadwal baru."
+            "value": "Gaya warna"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ลากเพื่อเปลี่ยนความสว่างทันที โคมไฟจะไม่ทำงานตามตารางเวลาจนกว่าจะกด “ตามตารางเวลา” หรือบันทึกตารางเวลาใหม่"
+            "value": "รูปแบบสี"
           }
         }
       }
@@ -2257,6 +2337,38 @@
         }
       }
     },
+    "Màu trên màn hình chỉ gần đúng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna di layar hanya perkiraan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีบนหน้าจอเป็นเพียงค่าโดยประมาณ"
+          }
+        }
+      }
+    },
+    "Màu và độ sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna dan kecerahan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีและความสว่าง"
+          }
+        }
+      }
+    },
     "Máy này không có Bluetooth.": {
       "localizations": {
         "id": {
@@ -2429,6 +2541,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "การเลี้ยงรวม"
+          }
+        }
+      }
+    },
+    "Nước trong, mát": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air jernih, sejuk"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำใส แสงเย็นตา"
           }
         }
       }
@@ -2833,6 +2961,22 @@
         }
       }
     },
+    "Thôi thử, chạy theo lịch": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hentikan uji, ikuti jadwal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลิกทดสอบ กลับไปทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
     "Thông tin bể": {
       "localizations": {
         "id": {
@@ -2845,6 +2989,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ข้อมูลตู้"
+          }
+        }
+      }
+    },
+    "Thử màu trên đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uji warna di lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทดสอบสีบนโคมไฟ"
           }
         }
       }
@@ -3345,6 +3505,22 @@
         }
       }
     },
+    "Tự nhiên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alami"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ธรรมชาติ"
+          }
+        }
+      }
+    },
     "Ví dụ: Bể 60 phòng khách": {
       "localizations": {
         "id": {
@@ -3409,6 +3585,38 @@
         }
       }
     },
+    "Xem thử cả ngày": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratinjau sehari penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูตัวอย่างทั้งวัน"
+          }
+        }
+      }
+    },
+    "Xem thử cả ngày trên đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratinjau sehari penuh di lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูตัวอย่างทั้งวันบนโคมไฟ"
+          }
+        }
+      }
+    },
     "Xem trong Bể của tôi →": {
       "localizations": {
         "id": {
@@ -3437,6 +3645,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เสร็จ"
+          }
+        }
+      }
+    },
+    "Xong. Đèn chạy lại theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai. Lampu kembali mengikuti jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสร็จแล้ว โคมไฟกลับมาทำงานตามตารางเวลา"
           }
         }
       }
@@ -3681,6 +3905,38 @@
         }
       }
     },
+    "sáng %lld%%": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "terang %lld%%"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สว่าง %lld%%"
+          }
+        }
+      }
+    },
+    "sáng dần": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "terang bertahap"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่อยๆ สว่างขึ้น"
+          }
+        }
+      }
+    },
     "sáng dần %lld phút": {
       "localizations": {
         "id": {
@@ -3693,6 +3949,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ สว่างขึ้น %lld นาที"
+          }
+        }
+      }
+    },
+    "tối dần": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "redup bertahap"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่อยๆ หรี่ลง"
           }
         }
       }
@@ -4225,6 +4497,22 @@
         }
       }
     },
+    "Đèn hiện đúng màu đang chỉnh. Tắt thử thì đèn chạy lại theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menampilkan warna yang sedang diatur. Hentikan uji, lampu kembali mengikuti jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟแสดงสีตามที่กำลังปรับ เมื่อปิดการทดสอบ โคมไฟจะกลับไปทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
     "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.": {
       "localizations": {
         "id": {
@@ -4305,6 +4593,22 @@
         }
       }
     },
+    "Đèn tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟปิดอยู่"
+          }
+        }
+      }
+    },
     "Đèn đang chỉnh tay (%lld%%), không chạy theo lịch.": {
       "localizations": {
         "id": {
@@ -4333,6 +4637,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โคมไฟกำลังใช้ตารางเวลานี้"
+          }
+        }
+      }
+    },
+    "Đèn đang hiện màu thử.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu sedang menampilkan warna uji."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟกำลังแสดงสีทดสอบ"
           }
         }
       }
@@ -4513,6 +4833,22 @@
         }
       }
     },
+    "Độ sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kecerahan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความสว่าง"
+          }
+        }
+      }
+    },
     "Đủ để ngắm cá, ít rêu.": {
       "localizations": {
         "id": {
@@ -4525,6 +4861,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "สว่างพอสำหรับชมปลา ตะไคร่ขึ้นน้อย"
+          }
+        }
+      }
+    },
+    "đèn tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lampu mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟปิด"
+          }
+        }
+      }
+    },
+    "Ấm, dịu mắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hangat, nyaman di mata"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โทนอุ่น สบายตา"
           }
         }
       }

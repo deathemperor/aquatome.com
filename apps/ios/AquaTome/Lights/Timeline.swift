@@ -34,6 +34,11 @@ struct Timeline: View {
             let c = Calendar.current.dateComponents([.hour, .minute], from: ctx.date)
             NowMark().offset(x: x(Double((c.hour ?? 0) * 60 + (c.minute ?? 0))))
           }
+          // Where "Xem thử cả ngày" has reached.
+          if let m = lights.playMinute {
+            Rectangle().fill(Color.primary).frame(width: 2, height: h).offset(x: x(m) - 1)
+              .allowsHitTesting(false).accessibilityHidden(true)
+          }
           // Each handle is touched on its own side of the other, and only inside the day: close together, both can
           // still be taken, and the day's edges stay free for scrolling. VoiceOver reads on, ramp, off; the ramp knob
           // is on top where they meet.

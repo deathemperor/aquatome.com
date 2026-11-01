@@ -74,3 +74,19 @@ public func scaled(_ levels: [Int], to level: Int) -> [Int] {
   let top = levels.max() ?? 0
   return top == 0 ? levels.map { _ in level } : levels.map { Int((Double($0) / Double(top) * Double(level)).rounded()) }
 }
+
+/// "Xem thử cả ngày": the day in ten seconds, as the site plays it, on screen and on the light.
+public enum DayPreview {
+  public static let seconds = 10.0
+  /// The minute of the day shown `t` seconds into a preview `length` seconds long.
+  public static func minute(at t: Double, lasting length: Double = seconds) -> Double {
+    min(Double(Day.minutes), t / length * Double(Day.minutes))
+  }
+  /// Whether the light gets new levels at `percent` of the schedule's (last sent: `last`, -1 for none): when they moved
+  /// 4% or more, or the light goes on or off (the site's rule), or reaches full or leaves it, so that it shows the
+  /// schedule's own levels however small the last step was; not with every frame, which the light couldn't take.
+  public static func sends(_ percent: Int, after last: Int) -> Bool {
+    abs(percent - last) >= 4 || (percent == 0) != (last == 0) || (percent == 100) != (last == 100)
+  }
+}
+
