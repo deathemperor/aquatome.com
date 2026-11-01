@@ -673,6 +673,22 @@
         }
       }
     },
+    "Bỏ lưu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal simpan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลิกบันทึก"
+          }
+        }
+      }
+    },
     "CO2": {
       "localizations": {
         "id": {
@@ -2413,6 +2429,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "บันทึกตู้"
+          }
+        }
+      }
+    },
+    "Lưu để đọc sau": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan untuk dibaca nanti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกไว้อ่านทีหลัง"
           }
         }
       }
@@ -4657,6 +4689,22 @@
         }
       }
     },
+    "Đã lưu để đọc sau": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disimpan untuk dibaca nanti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ที่บันทึกไว้อ่านทีหลัง"
+          }
+        }
+      }
+    },
     "Đã mở lịch %@. Bấm “Ghi lịch vào đèn” để dùng.": {
       "localizations": {
         "id": {
@@ -5245,6 +5293,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อีเมลไม่ถูกต้อง"
+          }
+        }
+      }
+    },
+    "Đọc gần đây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baru dibaca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านล่าสุด"
           }
         }
       }

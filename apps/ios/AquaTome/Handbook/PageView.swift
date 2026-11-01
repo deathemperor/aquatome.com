@@ -9,6 +9,7 @@ struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
   @Environment(TanksModel.self) private var tanks
+  @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var offline = false
   @State private var failed = false
@@ -29,6 +30,12 @@ struct PageView: View {
           Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
             .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
         }
+        // Saved to read later, on this phone (the Tìm tab lists them).
+        let saved = handbook.reading.isSaved(item.path)
+        Button { handbook.toggleSaved(item) } label: {
+          Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+        }
+        .accessibilityIdentifier("save-for-later")
         ShareLink(item: url)
         Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
       }
@@ -46,6 +53,7 @@ struct PageView: View {
         }
         .background(.bar)
       }
+      .onAppear { handbook.read(item) }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
   }
 }
