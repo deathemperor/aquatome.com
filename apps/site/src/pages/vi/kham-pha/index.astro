@@ -2,17 +2,25 @@
 import { guideImage } from '../../../lib/mentions'
 import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
+import MoreList from '../../../components/MoreList.astro'
 import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { cleanPhoto } from '../../../lib/home'
+import { guideLists } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const discovery = c.guides.filter(g => g.kind === 'discovery')
+// The discovery notes a page at a time: the rest from their data file, and on numbered pages (/vi/kham-pha/trang/2/…).
+const discovery = guideLists(c).get('kham-pha')!
+const first = discovery.slice(0, PAGE)
 const recent = [...c.species].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).slice(0, 8)
 ---
-<Browse title={t('Khám phá')} heading={t('Khám phá')} intro={t('Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước.')} credits={creditsFor([...discovery.map(g => guideImage(c, g)), ...recent.map(s => s.photos[0])])}>
-  {discovery.length > 0 && <div class="grid">{discovery.map(g => <GuideCard g={g} />)}</div>}
+<Browse title={t('Khám phá')} heading={t('Khám phá')} intro={t('Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước.')} credits={creditsFor([...first.map(g => guideImage(c, g)), ...recent.map(s => cleanPhoto(s.photos))])} creditsLater={discovery.length > PAGE}>
+  {discovery.length > PAGE
+    ? <MoreList kind="guides" src={`/data/${lang}/guides/kham-pha.json`} total={discovery.length} next="/vi/kham-pha/trang/2/"><div class="grid">{first.map(g => <GuideCard g={g} />)}<template id="guide-card"><GuideCard g={discovery[0]!} template /></template></div></MoreList>
+    : discovery.length > 0 && <div class="grid">{discovery.map(g => <GuideCard g={g} />)}</div>}
   <h2 class="h">{t('Mới cập nhật')}</h2>
   <SpeciesGrid species={recent} />
 </Browse>

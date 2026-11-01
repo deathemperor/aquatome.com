@@ -65,6 +65,18 @@ function buildWith(extra: number) {
   const log = read(join(FIXTURE, 'changelog.json'))
   for (let i = 0; i < 100 + extra; i++) log.push({ date: '2026-01-01', kind: 'species', id: `testus-thu-${nn((i % 50) + 1)}`, source: 'seriouslyfish', action: 'updated' })
   writeFileSync(join(content, 'changelog.json'), JSON.stringify(log))
+  // Discovery notes, and single videos of one channel, older than the test content's: their pages listed every one
+  // (/vi/kham-pha/, /vi/video/kenh/<channel>/, and the video index credited every video's picture).
+  for (const [from, name] of [['glaser-hang-moi', 'kham-pha-thu'], ['youtube-r53ZQW0m8VM', 'video-thu']] as const) {
+    const e = read(join(FIXTURE, 'guides', from, 'entity.json')), v = read(join(FIXTURE, 'guides', from, 'vi.json'))
+    for (let i = 1; i <= extra + 10; i++) {
+      const id = `zz-${name}-${nnn(i)}`
+      const video = e.video && { ...e.video, youtubeId: `zzthu${nnn(i)}abc`, publishedAt: '2020-01-01' }
+      mkdirSync(join(content, 'guides', id), { recursive: true })
+      writeFileSync(join(content, 'guides', id, 'entity.json'), JSON.stringify({ ...e, id, ...(video ? { video } : {}), sourceUrl: `https://example.invalid/${id}`, photos: e.photos.map((p: object, k: number) => ({ ...p, url: `https://media.aquatome.com/test/${id}-${k}.webp`, author: `Tác giả ${id}`, sourceUrl: `https://example.org/${id}/${k}` })) }))
+      writeFileSync(join(content, 'guides', id, 'vi.json'), JSON.stringify({ ...v, name: `${name} ${nnn(i)}`, slug: `${name}-${nnn(i)}` }))
+    }
+  }
   const out = join(root, 'dist')
   execFileSync('pnpm', ['exec', 'astro', 'build'], { cwd: SITE, env: { ...process.env, CONTENT_ROOT: content, OUT_DIR: out }, stdio: 'pipe' })
   return { dist: out, page: (path: string) => readFileSync(join(out, path, 'index.html'), 'utf8') }
@@ -91,6 +103,32 @@ function otherDifference(x: string, y: string): string | undefined {
 for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants'], ['vi/huong-dan', 'guides']] as const) {
   test(`the ${kind} list's HTML is the same with 40 or 80 more ${kind} past its first page (/${path}/)`, () => {
     expect(otherDifference(small(path), large(path))).toBeUndefined()
+  })
+}
+
+// The discovery notes, the video channel the made-up videos are on, and the video index.
+const CHANNEL = read(join(FIXTURE, 'guides/youtube-r53ZQW0m8VM/entity.json')).video.channel.toLowerCase().replace(/\s+/g, '-')
+for (const path of ['vi/kham-pha', `vi/video/kenh/${CHANNEL}`, 'vi/video']) {
+  test(`a list of guides has the same HTML with 50 or 90 more of them past its first page (/${path}/)`, () => {
+    expect(otherDifference(small(path), large(path))).toBeUndefined()
+  })
+}
+
+// Past their first page, discovery notes and a channel's videos are linked from numbered pages.
+for (const [path, slug] of [['vi/kham-pha', 'kham-pha-thu'], [`vi/video/kenh/${CHANNEL}`, 'video-thu']] as const) {
+  test(`/${path}/ and its numbered pages link every guide, a page at a time`, () => {
+    const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/vi\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
+    const seen: string[] = []
+    let at: string | undefined = path, pages = 0
+    while (at) {
+      const html = large(at), own = html.slice(html.indexOf('<main'))
+      seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
+      at = (pages === 0 ? /<a data-more href="\/([^"]+\/trang\/\d+)\/"/ : /<a href="\/([^"]+\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+      if (++pages > 10) break
+    }
+    const made = Array.from({ length: 80 + 10 }, (_, i) => `${slug}-${nnn(i + 1)}`)
+    expect(made.filter(s => !seen.includes(s)), 'guides no page links').toEqual([])
+    expect(new Set(seen).size, 'no guide on two pages').toBe(seen.length)
   })
 }
 
