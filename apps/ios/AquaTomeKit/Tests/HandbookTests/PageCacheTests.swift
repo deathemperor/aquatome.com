@@ -62,6 +62,18 @@ private func settle(_ s: Site, _ n: Int) async throws {
   #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Mới.")
 }
 
+@Test func aPageNewerThanTheKeptShardIsReadNowNotOnTheNextOpen() async {
+  let dir = tmp(), s = Site(try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": [:]] as [String: Any]))
+  let first = cache(dir, s)
+  #expect(await first.doc(path: neon, kind: "guide", lang: "vi", count: 32) == nil)
+  // Not on the site either this run: one read, not one per open.
+  #expect(await first.doc(path: neon, kind: "guide", lang: "vi", count: 32) == nil)
+  #expect(await s.count == 1)
+  // Next run the site has published it: the kept shard lacks it, so it's read now, not left for next time.
+  await s.set(shard("Bài mới."))
+  #expect(text(await cache(dir, s).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Bài mới.")
+}
+
 @Test func offlineWithNothingKeptThereIsNoPageAndTheNextOpenTriesAgain() async {
   let s = Site(nil)
   let c = cache(tmp(), s)

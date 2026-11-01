@@ -11,11 +11,14 @@ struct NativePage: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
+  /// VoiceOver's place: moved with a `#id` link, as the scroll is.
+  @AccessibilityFocusState private var focus: String?
 
   /// What the page shows, in order.
   enum Piece {
-    /// Text: a heading, paragraphs, a list, a table, questions, sources. `anchor` is the id a `#id` link scrolls to.
-    case text(AttributedString, anchor: String? = nil, boxed: Bool = false)
+    /// Text: a heading, paragraphs, a list, a table, questions, sources. `anchor` is the id a `#id` link scrolls to;
+    /// `header`, a title or heading (VoiceOver's headings rotor).
+    case text(AttributedString, anchor: String? = nil, boxed: Bool = false, header: Bool = false)
     /// A photo with its caption and credit; tapped, `href` (the page it shows, or the video at a moment).
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, href: URL?, play: Bool = false)
     /// Other pages the index lists, each opening in the app.
@@ -47,20 +50,26 @@ struct NativePage: View {
 
   @ViewBuilder private func piece(_ i: Int) -> some View {
     switch pieces[i] {
-    case let .text(s, anchor, boxed):
+    case let .text(s, anchor, boxed, header):
       Text(s)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(boxed ? 12 : 0)
         .background(boxed ? AnyShapeStyle(.fill.tertiary) : AnyShapeStyle(Color.clear), in: .rect(cornerRadius: 10))
+        .accessibilityAddTraits(header ? .isHeader : [])
+        .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
         .id(anchor ?? "piece-\(i)")
     case let .photo(src, ratio, alt, caption, href, play):
       VStack(alignment: .leading, spacing: 4) {
-        Button { if let href { _ = open(href, nil) } } label: {
-          PageImage(src: src, ratio: ratio, alt: alt)
-            .overlay { if play { Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5)) } }
+        let image = PageImage(src: src, ratio: ratio, alt: alt)
+          .overlay { if play { Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5)) } }
+        if let href {
+          // Tapped, the page it shows or the video at that moment; read as its words, or else its caption.
+          Button { _ = open(href, nil) } label: { image }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text(verbatim: alt ?? String(caption.characters)))
+        } else {
+          image
         }
-        .buttonStyle(.plain)
-        .disabled(href == nil)
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
       }
     case let .pages(title, paths):
@@ -77,6 +86,7 @@ struct NativePage: View {
     case "page-anchor":
       let id = String(url.absoluteString.dropFirst("page-anchor:".count)).removingPercentEncoding ?? ""
       withAnimation { proxy?.scrollTo(id, anchor: .top) }
+      focus = id
       return .handled
     case "page-tip":
       tip = Tip(url)
@@ -97,7 +107,7 @@ struct NativePage: View {
   static func pieces(_ doc: PageDoc) -> [Piece] {
     var out: [Piece] = []
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true))) }
-    out.append(.text(styled(doc.title, .title.bold())))
+    out.append(.text(styled(doc.title, .title.bold()), header: true))
     if let sub = doc.sub { out.append(.text(styled(sub, .body.italic(), secondary: true))) }
     if !doc.credit.isEmpty { out.append(.text(styled(doc.credit, font: .footnote))) }
     if let v = doc.video {
@@ -126,7 +136,7 @@ struct NativePage: View {
   private static func add(_ b: PageDoc.Block, to out: inout [Piece]) {
     switch b {
     case let .heading(text, id):
-      out.append(.text(styled(text, .title3.bold()), anchor: id))
+      out.append(.text(styled(text, .title3.bold()), anchor: id, header: true))
     case let .paragraph(c):
       out.append(.text(styled(c)))
     case let .list(ordered, items):
@@ -138,19 +148,19 @@ struct NativePage: View {
     case let .figure(img, caption, href):
       out.append(photo(img, caption: caption, href: href.flatMap(URL.init(string:))))
     case let .moments(title, id, items):
-      out.append(.text(styled(title, .headline)))
+      out.append(.text(styled(title, .headline), header: true))
       for s in items {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
                           href: youtube(id, at: s.at), play: true))
       }
     case let .summary(title, items):
-      out.append(.text(styled(title, .headline)))
+      out.append(.text(styled(title, .headline), header: true))
       out.append(.text(styled(items.map { "• " + $0 }.joined(separator: "\n")), boxed: true))
     case let .faq(title, items):
-      out.append(.text(styled(title, .title3.bold())))
+      out.append(.text(styled(title, .title3.bold()), header: true))
       for qa in items { out.append(.text(styled(qa.q, .body.bold()) + styled("\n" + qa.a))) }
     case let .refs(title, id, items):
-      out.append(.text(styled(title, .title3.bold()), anchor: id))
+      out.append(.text(styled(title, .title3.bold()), anchor: id, header: true))
       var text = AttributedString()
       for (i, r) in items.enumerated() {
         var line = AttributedString((i > 0 ? "\n" : "") + r.title)
@@ -270,17 +280,9 @@ private struct PagesBlock: View {
     let items = paths.compactMap(handbook.item(at:))
     if !items.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
-        Text(title).font(.title3.bold())
-        ForEach(items) { item in
-          NavigationLink(value: item) {
-            HStack {
-              ItemRow(item: item)
-              Spacer()
-              Image(systemName: "chevron.right").foregroundStyle(.tertiary)
-            }
-          }
-          .buttonStyle(.plain)
-        }
+        Text(title).font(.title3.bold()).accessibilityAddTraits(.isHeader)
+        // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one.
+        ForEach(items) { item in Row(item: item, chevron: true).buttonStyle(.plain) }
       }
     }
   }
@@ -300,6 +302,8 @@ struct PageImage: View {
       .clipShape(.rect(cornerRadius: 8))
       .accessibilityElement()
       .accessibilityLabel(Text(verbatim: alt ?? ""))
+      // No words for it: VoiceOver reads the caption under it instead (a linked one, its button, as the caption).
+      .accessibilityHidden(alt == nil)
       .task(id: src) { image = await PageImages.load(src) }
   }
 }

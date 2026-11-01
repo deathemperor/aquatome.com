@@ -28,12 +28,12 @@ public actor PageCache {
     let key = "\(lang)/\(kind)-\(count)-\(n)"
     let url = site.appending(path: "app/pages/\(lang)/\(kind)-\(n).json")
     if shards[key] == nil, let data = try? Data(contentsOf: file(key)), let s = PageShard(data: data) { shards[key] = s }
-    if shards[key] == nil {
-      // Not on the phone: read now (offline, the next open tries again).
+    if shards[key] == nil || (shards[key]?.pages[path] == nil && !fetched.contains(key)) {
+      // Not on the phone, or a page newer than the kept shard: read now (offline, the next open tries again).
       let t = loading[key] ?? Task { await self.refresh(key, url) }
       loading[key] = t
       await t.value
-      loading[key] = nil
+      if loading[key] == t { loading[key] = nil }
     } else if !fetched.contains(key) {
       // Shown from the phone; a newer copy is read in the background, for next time.
       fetched.insert(key)

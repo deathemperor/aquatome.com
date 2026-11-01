@@ -37,7 +37,8 @@ struct PageView: View {
       }
     }
       .task(id: item.path) {
-        guard handbook.drawsItself(item), !tried else { return }
+        // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
+        guard handbook.drawsItself(item), !tried else { tried = true; return }
         pieces = await handbook.doc(item).map(NativePage.pieces)
         tried = true
       }
