@@ -17,7 +17,7 @@ const meta = (id: string, over: Partial<VideoMeta> = {}): VideoMeta => ({
   chapters: [{ start: 0, title: 'Intro' }, { start: 31, title: 'Water changes' }], embeddable: true, captions: true, description: 'Use code MJAQUA', thumb: { url: `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`, width: 1280, height: 720 }, ...over,
 })
 const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
-const draft = (title: string) => ({ relevant: true, kind: 'plantCare', viTitle: title, summary: ['Thay nước đều.'], body: `<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p onclick="x">Ánh sáng.</p><script>x</script><p>${LONG}</p>`, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }], chapters: ['Mở đầu', 'Thay nước'] })
+const draft = (title: string) => ({ relevant: true, kind: 'plantCare', viTitle: title, summary: ['Thay nước đều.'], body: `<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p onclick="x">Ánh sáng.</p><script>x</script><p>${LONG}</p>`, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 5 gallon.' }], chapters: ['Mở đầu', 'Thay nước'] })
 
 function deps(root: string, opts: { items?: object; scores?: number[]; videos?: Record<string, Partial<VideoMeta>>; relevant?: boolean; llmFails?: boolean; transcript?: string | null; drafts?: object[] } = {}) {
   const calls = { prompts: [] as string[], transcripts: 0 }
@@ -53,6 +53,7 @@ test('videoGuides writes a sanitised guide with video, series and quality; done 
   expect(vi.slug).toBe('cach-han-che-reu-hai-trong-be-thuy-sinh')
   expect(vi.body).toBe(`<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p>Ánh sáng.</p><p>${LONG}</p>`)
   expect(vi.chapters).toEqual(['Mở đầu', 'Thay nước'])
+  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 19 lít.' }])
   expect(vi.quality).toEqual({ score: 0.9, indexable: true, bySource: { youtube: 0.9 } })
   expect(await read(root, 'content/series/PL1.json')).toMatchObject({ playlistId: 'PL1', videoIds: ['a1'], vi: { slug: 'reu-hai-biet-de-tri', name: 'Rêu hại: biết để trị' } })
   expect((await read(root, 'content/changelog.json'))[0]).toMatchObject({ kind: 'guide', id: 'youtube-a1', source: 'youtube', action: 'new' })

@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { existsSync, readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { fileURLToPath } from 'node:url'
-import { GuideSchema, QUALITY_THRESHOLD, SeriesSchema, TranslationSchema, type GuideEntity, type Series, type Translation } from '@aq/schema'
+import { GuideSchema, metricPage, QUALITY_THRESHOLD, SeriesSchema, TranslationSchema, type GuideEntity, type Series, type Translation } from '@aq/schema'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
@@ -418,13 +418,13 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
       const name = unescapePlain(d.viTitle).trim()
-      const vi = TranslationSchema.parse({
+      const vi = TranslationSchema.parse(metricPage({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
         body: sanitizeHtml(d.body), ...plainParts(d.summary, d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
         quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
-      })
+      }, 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)

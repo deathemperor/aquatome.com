@@ -26,7 +26,8 @@ type Guide = { name: string; body: string; summary?: string[]; faq?: { q: string
 
 const LANGS = ['vi', 'id', 'th'] as const
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
-const hash = (g: Guide) => createHash('sha1').update(g.body).digest('hex').slice(0, 16)
+const bodyHash = (body: string) => createHash('sha1').update(body).digest('hex').slice(0, 16)
+const hash = (g: Guide) => bodyHash(g.body)
 
 /** A guide body → the part before the first <h3>, then one part per <h3> section. */
 export function splitSections(body: string): { intro: string; sections: { heading: string; html: string }[] } {
@@ -86,4 +87,19 @@ export async function topicCheck(root: string, llm: Llm, opts: { limit: number; 
   }
   await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   return report
+}
+
+/**
+ * Guides whose body changed without a change of subject (`pnpm engine metric` converting units): a guide already read
+ * stays read, so the change costs no model call. `key` as in the state: the id, or `<id>:<lang>`.
+ */
+export async function carryTopicChecks(root: string, moved: { key: string; before: string; after: string }[]) {
+  const stateFile = join(root, 'engine-state', '_topic-check.json')
+  const state: Record<string, string> = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}'))
+  let changed = false
+  for (const { key, before, after } of moved) {
+    const was = state[key]
+    if (was === bodyHash(before) || was === `held:${bodyHash(before)}`) { state[key] = was.replace(bodyHash(before), bodyHash(after)); changed = true }
+  }
+  if (changed) await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
 }

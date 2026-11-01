@@ -100,6 +100,15 @@ test('a new page is written in metric only, whatever the writer kept of the sour
   const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
   expect(Object.values(vi.sections)).toContain('<p>Nhiệt độ 23–29°C, cá dài 5 cm, bể 38 lít.</p>')
 })
+test('a guide translated from a source is written in metric only too', async () => {
+  const root = await fresh()
+  const guide = { kind: 'guide', scientificName: 'none', enCommonNames: [], viName: '', viAltNames: [], places: [], dataCard: {}, sections: [], productSlots: [], guide: { kind: 'care', viTitle: 'Bể 20 gallon', viBody: '<p>x</p>' } }
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'], page: guide, rewritten: '<p>Bể 20 gallon long, nước 75 °F, ống PVC ¾ inch.</p>' })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const dir = (await readdir(join(root, 'content/guides')))[0]!
+  const vi = JSON.parse(await readFile(join(root, 'content/guides', dir, 'vi.json'), 'utf8'))
+  expect(vi.body).toBe('<p>Bể khoảng 75 lít (76 × 30 × 30 cm), nước 24 °C, ống PVC phi 27.</p>')
+})
 test('second identical run makes no llm calls and changes no file', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })

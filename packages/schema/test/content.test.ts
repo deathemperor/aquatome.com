@@ -41,13 +41,14 @@ test('every species place id exists', async () => {
 })
 
 // The real content/, not the test store: readers in Vietnam, Indonesia and Thailand use °C, cm and litres. The engine
-// writes fish, plant and breed pages in metric (`pnpm engine metric` runs before each engine build); a figure in °F,
-// inches, feet or gallons here is one a writer left. Reference lists and quoted labels ("elevation 650 feet'") stay as
-// published. 263 pages had them on 2026-11-01 ("20–30°C (68–86°F)", "bể 10 gallon").
-test('fish, plant and breed pages give figures in metric only', async () => {
+// writes fish, plant, breed and guide pages in metric (`pnpm engine metric` runs before each engine build); a figure in
+// °F, inches, feet or gallons here is one a writer left. Reference lists, quoted labels with their metric after
+// ("elevation 650 feet' (độ cao khoảng 200 m)") and product names stay as published. 263 pages had them on 2026-11-01
+// ("20–30°C (68–86°F)", "bể 10 gallon"), and 135 guides ("bể 20 gallon long", "ống PVC ¾ inch", "giữa 60 độ F").
+test('fish, plant, breed and guide pages give figures in metric only', async () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   const left: string[] = []
-  for (const kind of ['species', 'plants', 'breeds']) for (const id of await readdir(join(content, kind))) for (const lang of ['vi', 'id', 'th']) {
+  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind))) for (const lang of ['vi', 'id', 'th']) {
     const page = await readFile(join(content, kind, id, `${lang}.json`), 'utf8').then(s => JSON.parse(s), () => null) as
       { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] } | null
     if (!page) continue
