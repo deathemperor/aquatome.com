@@ -89,11 +89,14 @@ test('the first check\'s verdicts count where a photo is on one page; its "can\'
   expect(d.seen.map(s => s.photos)).toEqual([['unsure', 'new']])
 })
 
-test('most-read pages first: a staple before a page earlier in the alphabet', async () => {
-  const r = await root([{ id: 'abramites-hypselonotus', sci: 'Abramites hypselonotus', photos: ['abr'] }, { id: 'paracheirodon-innesi', sci: 'Paracheirodon innesi', photos: ['neon'] }])
+test('most-read pages first, each page\'s own photos and gallery strip before the rest of the galleries', async () => {
+  const gallery = Array.from({ length: 10 }, (_, i) => `n${i}`)
+  const r = await root([{ id: 'abramites-hypselonotus', sci: 'Abramites hypselonotus', photos: ['abr'] }, { id: 'paracheirodon-innesi', sci: 'Paracheirodon innesi', photos: ['neon'], gallery }])
   const d = model({})
   await checkPagePhotos(r, d, { limit: 1 })
-  expect(d.seen.map(s => s.photos)).toEqual([['neon']])
+  expect(d.seen.map(s => s.photos)).toEqual([['neon', 'n0', 'n1', 'n2', 'n3', 'n4']])
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos).slice(1)).toEqual([['n5', 'n6', 'n7'], ['abr'], ['n8', 'n9']])
 })
 
 test('a breed is judged against its base species and what sets it apart; the plain species is another fish there', async () => {

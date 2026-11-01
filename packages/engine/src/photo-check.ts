@@ -29,6 +29,8 @@ const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'no'])
 export type Subject = { id: string; kind: 'species' | 'plants' | 'breeds'; sci: string; names: string[]; breed?: string }
 
 const PER_SHEET = 6
+/** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
+const STRIP = 8
 
 export const subjectPrompt = (s: Subject) => {
   const names = s.names.length ? ` (${s.names.slice(0, 4).join(', ')})` : ''
@@ -116,7 +118,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
-type Shown = { file: string; url: string; page?: string; guide?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; galleryOnly?: boolean }
 
 /**
  * Every photo on a species, plant or breed page (its own photos and its gallery) must show that page's subject, judged
@@ -132,7 +134,7 @@ type Shown = { file: string; url: string; page?: string; guide?: boolean }
  *   photo shows none.
  * - A typical photo leads a species or plant page, its habitat goes last.
  *
- * Most-read pages first (`rank`). `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait.
+ * Most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait.
  */
 export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; parallel?: number; only?: string; today?: string }) {
   const content = join(root, 'content')
@@ -148,7 +150,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const shown: Shown[] = []
   for (const s of all) {
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      for (const p of (await readJson<{ photos?: Photo[] }>(file))?.photos ?? []) shown.push({ file, url: p.url, page: s.id })
+      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
     }
   }
   const index = nameIndex(all)
@@ -166,13 +168,16 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const verdict = (url: string, page: string): PhotoVerdict | undefined => cache[url]?.[page]
     ?? (legacy[url] && legacy[url].ok !== 'unsure' && pagesOf.get(url)?.size === 1 ? legacy[url] : undefined)
 
-  // 1. The model judges each page's photos not judged yet, most-read pages first.
+  // 1. The model judges photos not judged yet, most-read pages first: what each page shows itself (its photos, its gallery
+  // strip, guide photos naming it), then the rest of each gallery.
   const sheets: { s: Subject; urls: string[] }[] = []
-  for (const s of all) {
-    if (o.only && s.id !== o.only) continue
-    const todo = [...new Set(shown.filter(x => x.page === s.id && !(x.url in rejected) && !verdict(x.url, s.id)).map(x => x.url))]
-    for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+  const queued = new Set<string>()
+  for (const later of [false, true]) for (const s of all) {
     if (sheets.length >= o.limit) break
+    if (o.only && s.id !== o.only) continue
+    const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && !verdict(x.url, s.id) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
+    for (const u of todo) queued.add(`${s.id}\n${u}`)
+    for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
   }
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
   try {
