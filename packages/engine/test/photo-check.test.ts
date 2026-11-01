@@ -111,6 +111,17 @@ test('a breed is judged against its base species and what sets it apart; the pla
   expect(await urls(r, 'content/breeds/koi-betta/entity.json')).toEqual(['koi'])
 })
 
+test('a transgenic line is judged by its own names, not as the species it was first made from', async () => {
+  const r = await root([
+    { id: 'danio-rerio', sci: 'Danio rerio' },
+    { kind: 'breeds', id: 'glofish', vi: { name: 'Cá GloFish', altNames: ['GloFish Tetra'] }, photos: ['tetra'], extra: { kind: 'transgenic', parents: [{ name: 'Cá ngựa vằn (Danio rerio)', certain: true }] } },
+  ])
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen[0]!.prompt).toContain('the breed or line Cá GloFish. What sets it apart')
+  expect(d.seen[0]!.prompt).not.toContain('Danio rerio')
+})
+
 test('gallery photos are judged with their page, and a page left with no photo shows none and is listed', async () => {
   const r = await root([{ id: 'paracheirodon-simulans', sci: 'Paracheirodon simulans', photos: ['p1'], gallery: ['g1'] }, { id: 'paracheirodon-innesi', sci: 'Paracheirodon innesi', photos: ['ok'] }])
   await checkPagePhotos(r, model({ p1: { ok: 'other', note: 'neon tetra' }, g1: { ok: 'other', note: 'neon tetra' } }), { limit: 10 })

@@ -57,18 +57,21 @@ const readJson = async <T>(path: string): Promise<T | undefined> => readFile(pat
 const text = (html: string) => html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
 const ascii = (n: string) => /^[\x20-\x7e]+$/.test(n)
 
-/** Species, plant and breed pages; a breed is judged against its base species (or its parents) and what sets it apart. */
+/**
+ * Species, plant and breed pages. A breed is judged against what sets it apart and its base species, or a hybrid's
+ * parents; a transgenic line (GloFish: danios, tetras, barbs, bettas) against its own names only.
+ */
 async function subjects(content: string): Promise<Subject[]> {
   const out: Subject[] = []
   const sci = new Map<string, string>()
   for (const kind of ['species', 'plants', 'breeds'] as const) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-      const e = await readJson<{ scientificName?: string; basedOn?: string; parents?: { name: string; species?: string }[] }>(join(content, kind, id, 'entity.json'))
+      const e = await readJson<{ scientificName?: string; kind?: string; basedOn?: string; parents?: { name: string; species?: string }[] }>(join(content, kind, id, 'entity.json'))
       if (!e) continue
       const t = (await readJson<{ name?: string; altNames?: string[]; body?: string }>(join(content, kind, id, 'vi.json'))) ?? {}
       const names = [t.name, ...(t.altNames ?? []).filter(ascii)].filter((n): n is string => !!n)
       if (kind !== 'breeds') { sci.set(id, e.scientificName ?? id); out.push({ id, kind, sci: e.scientificName ?? id, names }); continue }
-      const base = e.basedOn ? sci.get(e.basedOn) : (e.parents ?? []).map(p => (p.species && sci.get(p.species)) || p.name.match(/\(([A-Z][a-z]+ [a-z]+)\)/)?.[1]).filter(Boolean).join(' × ')
+      const base = e.basedOn ? sci.get(e.basedOn) : e.kind === 'hybrid' ? (e.parents ?? []).map(p => (p.species && sci.get(p.species)) || p.name.match(/\(([A-Z][a-z]+ [a-z]+)\)/)?.[1]).filter(Boolean).join(' × ') : undefined
       const marks = t.body?.match(/<h3>Nhận biết[^<]*<\/h3>\s*<p>([\s\S]*?)<\/p>/)?.[1]
       out.push({ id, kind, sci: base ?? '', names, ...(marks ? { breed: text(marks).slice(0, 300) } : {}) })
     }
