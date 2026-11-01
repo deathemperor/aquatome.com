@@ -1,0 +1,213 @@
+{
+  "id": "youtube-RJE1PUdhy6I",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=RJE1PUdhy6I",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "vallisneria"
+  ],
+  "updatedAt": "2026-10-31",
+  "video": {
+    "youtubeId": "RJE1PUdhy6I",
+    "title": "7 vấn đề cơ bản chăm sóc bể thủy sinh phong cách \"Nhàn\" #Greenhappiness",
+    "channel": "Green Happiness",
+    "channelUrl": "https://www.youtube.com/channel/UCcflJ8SFVLkydjyfhlkUAgg",
+    "durationSec": 536,
+    "publishedAt": "2019-11-07",
+    "chapters": [],
+    "series": {
+      "id": "PLu6cCwkKf4ErMO7tJTxPSQKSlAIsTT6Tj",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/RJE1PUdhy6I/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "lang": "vi",
+    "taxa": [
+      "Microsorum pteropus",
+      "Cryptocoryne sp.",
+      "Hemianthus callitrichoides",
+      "Eleocharis sp.",
+      "Vesicularia sp.",
+      "Vallisneria sp."
+    ],
+    "gear": [
+      {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 65
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 95
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chirot",
+        "t": 220
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 252
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 280
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Oliver Knot",
+        "model": "Anubias",
+        "t": 32
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Gax",
+        "t": 32
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 330
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "ADA",
+        "t": 340
+      },
+      {
+        "category": "suoi",
+        "type": "lam-lanh",
+        "t": 190
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 28
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Dựng bể nhàn bắt đầu thế nào",
+        "moments": [
+          {
+            "t": 69,
+            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t69.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cubic đã xếp lũa trên lớp nền, tạo cảm giác xa gần."
+          },
+          {
+            "t": 137,
+            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t137.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cắt nhỏ rêu mini Taiwan để chuẩn bị gắn lên lũa."
+          }
+        ]
+      },
+      {
+        "heading": "Đèn cần mạnh không, bật bao lâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p2-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p2-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh cây xanh tốt chỉ với một bộ đèn LED trắng đơn giản."
+        }
+      },
+      {
+        "heading": "Có cần CO2 và lọc thế nào",
+        "moments": [
+          {
+            "t": 255,
+            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t255.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Đầu sủi CO2 đặt trong bể, bọt khí li ti bay lên."
+          },
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t270.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bình CO2 và lọc thùng tự chế đặt cạnh bể."
+          }
+        ]
+      },
+      {
+        "heading": "Nền và dinh dưỡng: vì sao không cần cốt nền",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p4-X2FuZF93ZXQuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p4-X2FuZF93ZXQuSlBH-480.webp",
+          "width": 800,
+          "height": 600,
+          "licence": "CC BY-SA 3.0",
+          "author": "Abrahami",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akadama_dry_and_wet.JPG",
+          "caption": "Đất akadama dạng hạt nâu đỏ, loại nền ít dinh dưỡng, giá bình dân."
+        }
+      },
+      {
+        "heading": "Thả bao nhiêu cá và cho ăn thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-lfc2Nob29sLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-lfc2Nob29sLmpwZw-480.webp",
+          "width": 801,
+          "height": 686,
+          "licence": "Public domain",
+          "author": "Tkinias at English Wikipedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_axelrodi_school.jpg",
+          "caption": "Đàn cá neon thả thưa trong bể trồng cây, bơi thoải mái."
+        }
+      },
+      {
+        "heading": "Thay nước và chăm hằng ngày",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p6-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p6-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Bể cá cảnh nền sỏi có cá vàng bơi, cần thay nước đều đặn."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p7-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p7-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Ráy xanh gắn trên lũa nhiều hốc trong bể thủy sinh nền cát trắng."
+        }
+      }
+    ]
+  }
+}

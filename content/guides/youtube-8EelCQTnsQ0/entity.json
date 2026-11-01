@@ -1,0 +1,147 @@
+{
+  "id": "youtube-8EelCQTnsQ0",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=8EelCQTnsQ0",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-sp"
+  ],
+  "updatedAt": "2026-10-31",
+  "video": {
+    "youtubeId": "8EelCQTnsQ0",
+    "title": "Hướng dẫn làm bể thủy sinh với ngân sách 15 triệu (Phần 2)",
+    "channel": "Green Happiness",
+    "channelUrl": "https://www.youtube.com/channel/UCcflJ8SFVLkydjyfhlkUAgg",
+    "durationSec": 810,
+    "publishedAt": "2020-08-28",
+    "chapters": [],
+    "series": {
+      "id": "PLu6cCwkKf4ErMO7tJTxPSQKSlAIsTT6Tj",
+      "position": 19
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/8EelCQTnsQ0/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "lang": "vi",
+    "taxa": [
+      "Crossocheilus oblongus",
+      "Caridina gracilirostris",
+      "Salvinia sp.",
+      "Pangio sp.",
+      "Otocinclus sp.",
+      "Cryptocoryne sp.",
+      "Microsorum sp.",
+      "Taxiphyllum sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "WRGB 2",
+        "t": 69
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "brand": "Mufan",
+        "model": "MT3",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Vũ Aqua",
+        "model": "Cốt nền thủy sinh",
+        "t": 0
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 440
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Odyssea",
+        "model": "T5HO",
+        "t": 664
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Hẹn giờ đèn thế nào trong ngày",
+        "moments": [
+          {
+            "t": 114,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t114.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Mở hộp lấy đèn LED Chihiros mới ra khỏi thùng."
+          },
+          {
+            "t": 169,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t169.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh được chiếu sáng bằng đèn LED Chihiros treo phía trên."
+          }
+        ]
+      },
+      {
+        "heading": "Thay nước bao nhiêu và giãn ra khi nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p2-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/8EelCQTnsQ0/p2-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Bể cá cảnh có sỏi nền và cây thủy sinh, cá vàng bơi trong nước trong."
+        }
+      },
+      {
+        "heading": "Cá, tép và bèo hỗ trợ dọn rêu",
+        "moments": [
+          {
+            "t": 576,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t576.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá rêu bút chì và tép mũi đỏ bò giữa đá và cây thủy sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Chia ngân sách 15 triệu cho bể 90x45x45",
+        "moments": [
+          {
+            "t": 721,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t721.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh với lũa và cây mọc dày hai bên."
+          },
+          {
+            "t": 735,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t735.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bố cục lũa, đá phủ rêu và cây thủy sinh xanh mướt trong bể."
+          }
+        ]
+      }
+    ]
+  }
+}

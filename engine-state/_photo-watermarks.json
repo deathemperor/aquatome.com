@@ -10714,6 +10714,18 @@
   "https://media.aquatome.com/aquariumcoop/ffab5d0b420957d7.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam-ca-dia-giai-phau.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "AquaTome's own drawing; its numbers are the diagram's labels"
+  },
+  "https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam-ca-dia-hoa-van.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "AquaTome's own drawing; its numbers are the diagram's labels"
+  },
   "https://media.aquatome.com/aquatome/plants-aponogeton-madagascariensis-plant_56.webp": {
     "ocr": []
   },
@@ -12485,7 +12497,10 @@
     "what": "no added text"
   },
   "https://media.aquatome.com/bwaquatics/e63b67b66cadc611.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text or logo"
   },
   "https://media.aquatome.com/bwaquatics/e72c6c8f93dd07b6.webp": {
     "ocr": [
@@ -12781,7 +12796,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Blackwater Aquatics round logo, bottom centre"
   },
   "https://media.aquatome.com/commons/002f6889c8ba4634.webp": {
     "ocr": []
@@ -15252,7 +15270,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Trustees of the Natural History Museum, London credit, bottom left"
   },
   "https://media.aquatome.com/commons/27bbdd191cec9d5c.webp": {
     "ocr": []
@@ -16190,7 +16211,10 @@
         "c": 1,
         "at": "middle centre"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Red Data Book souvenir sheet's own printed text, stamp values, and QR code"
   },
   "https://media.aquatome.com/commons/380932ac35ad9cb6.webp": {
     "ocr": []
@@ -18313,7 +18337,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Kyrgyzstan postage stamp's own printed text: Kyrgyz Express Post, value 100, species name, 2021"
   },
   "https://media.aquatome.com/commons/643145c43d453de9.webp": {
     "ocr": []
@@ -18671,7 +18698,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "The old book plate's own printed caption and credits (Day's Fishes of India, Plate CIV)"
   },
   "https://media.aquatome.com/commons/6a21aac459630df6.webp": {
     "ocr": []
@@ -22491,7 +22521,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Specimen number tag and ruler in the scene"
   },
   "https://media.aquatome.com/commons/afa32ad26fc88273.webp": {
     "ocr": []
@@ -22580,7 +22613,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Specimen number tag and ruler in the scene"
   },
   "https://media.aquatome.com/commons/b118c534dd5f3272.webp": {
     "ocr": []
@@ -23361,7 +23397,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Maximum card with stamp and Bishkek postmark cancellation, both part of the item"
   },
   "https://media.aquatome.com/commons/bb281c345bf3453b.webp": {
     "ocr": []
@@ -25729,6 +25768,9 @@
   "https://media.aquatome.com/commons/e14c4dff68d20bd1.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/e15dbfab9fbaa170.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/e1b2263441dee11d.webp": {
     "ocr": []
   },
@@ -26358,7 +26400,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Museum specimen label 'Synodontis angelicus, Pool Malebo' on the display"
   },
   "https://media.aquatome.com/commons/f0553a93f9444fa7.webp": {
     "ocr": []
@@ -26804,7 +26849,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "Diagram's own labels and scale bars (A, B, 3mm, 1mm)"
   },
   "https://media.aquatome.com/commons/f81ac9bca4356df4.webp": {
     "ocr": []
@@ -27344,6 +27392,28 @@
     "kind": "credit",
     "what": "Channa stewarti © Frank Schäfer, top right"
   },
+  "https://media.aquatome.com/glaser/0204c3ad96177425.webp": {
+    "ocr": [
+      {
+        "t": "AQUARIUM GLASER стьн",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "Ornamental Fish Import/Export Wholesale Rare Fish Specialist",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "female?",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner, top; plus 'female?' label, bottom left"
+  },
   "https://media.aquatome.com/glaser/0214fa068e7dee40.webp": {
     "ocr": [
       {
@@ -27617,7 +27687,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner across the top"
   },
   "https://media.aquatome.com/glaser/070360e55c9325db.webp": {
     "ocr": [
@@ -27631,7 +27704,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/0723f2f82fe9e2d8.webp": {
     "ocr": [
@@ -27731,7 +27807,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/095373ab94f5a514.webp": {
     "ocr": [
@@ -27750,7 +27829,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/096a18aae4ecef85.webp": {
     "ocr": [
@@ -28205,7 +28287,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top"
   },
   "https://media.aquatome.com/glaser/10958ed748c644a8.webp": {
     "ocr": [
@@ -28285,7 +28370,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner at top, plus 'Hara jerdoni' name bottom right"
   },
   "https://media.aquatome.com/glaser/117a5dffb3d0dc49.webp": {
     "ocr": [
@@ -28326,7 +28414,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/12eb4950d3a05b2a.webp": {
     "ocr": [
@@ -28626,7 +28717,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner across the top, plus a 'male' label at bottom right"
   },
   "https://media.aquatome.com/glaser/1763f485c28d9615.webp": {
     "ocr": [
@@ -28872,7 +28966,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, bottom"
   },
   "https://media.aquatome.com/glaser/1b7d00b34e3d7e60.webp": {
     "ocr": [
@@ -28925,7 +29022,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'female' label bottom right"
   },
   "https://media.aquatome.com/glaser/1cc11c8f37e18996.webp": {
     "ocr": [
@@ -29220,7 +29320,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner with discus logo, top"
   },
   "https://media.aquatome.com/glaser/22121263868452ff.webp": {
     "ocr": [
@@ -29383,7 +29486,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banners, top left and bottom right"
   },
   "https://media.aquatome.com/glaser/23cea4184077a354.webp": {
     "ocr": [
@@ -29402,7 +29508,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'current stock, young male, bred' bottom right"
   },
   "https://media.aquatome.com/glaser/2474aeab8aab2e28.webp": {
     "ocr": [
@@ -29745,7 +29854,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'female' label bottom right"
   },
   "https://media.aquatome.com/glaser/29aca11f8d4c2c09.webp": {
     "ocr": [
@@ -29970,7 +30082,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top"
   },
   "https://media.aquatome.com/glaser/2d6d4d55536f7439.webp": {
     "ocr": [
@@ -30001,7 +30116,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/2e0f79cc8a73b7bd.webp": {
     "ocr": [
@@ -30416,7 +30534,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/36a33c52fa2c939f.webp": {
     "ocr": [
@@ -30484,7 +30605,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'female'/'male' labels, right"
   },
   "https://media.aquatome.com/glaser/371cec42a46bfa73.webp": {
     "ocr": [
@@ -30520,7 +30644,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/37b51cca02316bf5.webp": {
     "ocr": [
@@ -30717,7 +30844,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner across the top, plus 'Hara jerdoni' name typed bottom right"
   },
   "https://media.aquatome.com/glaser/3c3f709ff419a929.webp": {
     "ocr": [
@@ -30731,7 +30861,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner with discus logo, top"
   },
   "https://media.aquatome.com/glaser/3c5178750856e153.webp": {
     "ocr": [
@@ -30760,7 +30893,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner across the top, plus a 'male' label added bottom left"
   },
   "https://media.aquatome.com/glaser/3c5ab433abfb3f25.webp": {
     "ocr": [
@@ -30866,7 +31002,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH logo banner with discus, top"
   },
   "https://media.aquatome.com/glaser/3efc5465bcf776de.webp": {
     "ocr": [
@@ -30929,7 +31068,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, bottom"
   },
   "https://media.aquatome.com/glaser/3fb556947f24d3e7.webp": {
     "ocr": [
@@ -31009,7 +31151,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/40361ec3ba90af1d.webp": {
     "ocr": [
@@ -31470,7 +31615,10 @@
         "c": 1,
         "at": "bottom centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, bottom"
   },
   "https://media.aquatome.com/glaser/4b706c7029f9cb6a.webp": {
     "ocr": [
@@ -31484,7 +31632,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/4bbd5974ce0eb2e4.webp": {
     "ocr": [],
@@ -32075,7 +32226,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'old male' label bottom right"
   },
   "https://media.aquatome.com/glaser/55bf8a641a0c2a09.webp": {
     "ocr": [
@@ -32125,7 +32279,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/57692a5cca7fc4ba.webp": {
     "ocr": [
@@ -32149,7 +32306,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'young male' label bottom right"
   },
   "https://media.aquatome.com/glaser/57f9580168b0a4f2.webp": {
     "ocr": [
@@ -32375,7 +32535,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner with discus logo, top"
   },
   "https://media.aquatome.com/glaser/5e494a5ee108d024.webp": {
     "ocr": [
@@ -32496,7 +32659,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/624e176ea8eedd1d.webp": {
     "ocr": [
@@ -32769,7 +32935,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'young male' label bottom left"
   },
   "https://media.aquatome.com/glaser/6793864f74eb2f5a.webp": {
     "ocr": [
@@ -32805,7 +32974,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top"
   },
   "https://media.aquatome.com/glaser/6877ede50c0e275c.webp": {
     "ocr": [
@@ -32863,7 +33035,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner, top"
   },
   "https://media.aquatome.com/glaser/6b8b1c15a2db5778.webp": {
     "ocr": [
@@ -32911,7 +33086,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/6bfa8c4d579a6632.webp": {
     "ocr": [
@@ -32964,7 +33142,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top, plus 'male' label bottom left"
   },
   "https://media.aquatome.com/glaser/6c893b95fa5ce845.webp": {
     "ocr": [
@@ -33010,7 +33191,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/6d841bc92d5a48d9.webp": {
     "ocr": [
@@ -33063,7 +33247,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male' label bottom right"
   },
   "https://media.aquatome.com/glaser/6df90ef9fbed8f69.webp": {
     "ocr": [
@@ -33272,7 +33459,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'current stock, female, bred' bottom right"
   },
   "https://media.aquatome.com/glaser/7233c42eb2e5ef25.webp": {
     "ocr": [
@@ -33313,7 +33503,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male' label bottom left"
   },
   "https://media.aquatome.com/glaser/72eda9fea632fc7f.webp": {
     "ocr": [],
@@ -33411,7 +33604,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/75753283e8d2b27d.webp": {
     "ocr": [
@@ -33430,7 +33626,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/75777d34a4f7a10d.webp": {
     "ocr": [
@@ -33500,7 +33699,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner with discus logo, top"
   },
   "https://media.aquatome.com/glaser/75fddb6f276af280.webp": {
     "ocr": [
@@ -33624,7 +33826,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner across the top"
   },
   "https://media.aquatome.com/glaser/78ccd63562d53f32.webp": {
     "ocr": [
@@ -33960,7 +34165,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner with discus logo, top"
   },
   "https://media.aquatome.com/glaser/7ffa3316de2693ce.webp": {
     "ocr": [
@@ -34106,7 +34314,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male' label bottom left"
   },
   "https://media.aquatome.com/glaser/84424adbf48c2ef7.webp": {
     "ocr": [
@@ -34359,7 +34570,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/89664b066c6fd64a.webp": {
     "ocr": [
@@ -35134,7 +35348,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'current stock, female, bred' bottom right"
   },
   "https://media.aquatome.com/glaser/9bd623f5adc870b4.webp": {
     "ocr": [
@@ -35229,7 +35446,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male' label bottom left"
   },
   "https://media.aquatome.com/glaser/9e50fc8f610b9ced.webp": {
     "ocr": [
@@ -35439,7 +35659,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'female' label, bottom left"
   },
   "https://media.aquatome.com/glaser/a38c7b1ef8b54783.webp": {
     "ocr": [
@@ -35458,7 +35681,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/a38fef3d79573d9d.webp": {
     "ocr": [
@@ -35545,7 +35771,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/a5516a92d95d6330.webp": {
     "ocr": [
@@ -35773,7 +36002,10 @@
         "c": 1,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male' label bottom left"
   },
   "https://media.aquatome.com/glaser/aa2397db6895b69f.webp": {
     "ocr": [
@@ -35855,7 +36087,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/ad430ec65fa7c6c3.webp": {
     "ocr": [
@@ -35891,7 +36126,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/ae4aaa30e7323722.webp": {
     "ocr": [
@@ -35905,7 +36143,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/aeb2bf84ded10815.webp": {
     "ocr": [
@@ -35919,7 +36160,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/aeea13ece954e7f9.webp": {
     "ocr": [
@@ -36471,7 +36715,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/b85d9fe4b4ba386a.webp": {
     "ocr": [
@@ -36568,7 +36815,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, bottom"
   },
   "https://media.aquatome.com/glaser/bb8cd2717c571f5c.webp": {
     "ocr": [
@@ -37337,7 +37587,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/c8bc9c78ba39241e.webp": {
     "ocr": [
@@ -37483,7 +37736,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/cb9309740b8b0b42.webp": {
     "ocr": [
@@ -37705,7 +37961,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo and banner, top"
   },
   "https://media.aquatome.com/glaser/d0c8092a096dbc89.webp": {
     "ocr": [
@@ -38177,7 +38436,10 @@
         "c": 0.3,
         "at": "bottom left"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, bottom; 'females' label middle left"
   },
   "https://media.aquatome.com/glaser/d91eed5ab32dded6.webp": {
     "ocr": [
@@ -38529,7 +38791,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/dec774d2d6418510.webp": {
     "ocr": [
@@ -38619,7 +38884,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'female' label bottom right"
   },
   "https://media.aquatome.com/glaser/e0b123620f04f18f.webp": {
     "ocr": [
@@ -38699,7 +38967,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, bottom"
   },
   "https://media.aquatome.com/glaser/e32aeb567a5ad83b.webp": {
     "ocr": [
@@ -38750,7 +39021,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banners top left and bottom right, plus 'female'/'male' labels"
   },
   "https://media.aquatome.com/glaser/e3e36d70e22fe8d6.webp": {
     "ocr": [
@@ -39014,7 +39288,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner at bottom, plus typed labels 'Hara jerdoni', 'female', 'male'"
   },
   "https://media.aquatome.com/glaser/e7e6183281cdb658.webp": {
     "ocr": [
@@ -39128,7 +39405,10 @@
         "c": 1,
         "at": "top right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner, top"
   },
   "https://media.aquatome.com/glaser/ea25f028b87c9d33.webp": {
     "ocr": [
@@ -39198,7 +39478,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top"
   },
   "https://media.aquatome.com/glaser/ec3449bc5e2d095d.webp": {
     "ocr": [
@@ -39678,7 +39961,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser logo banner, top"
   },
   "https://media.aquatome.com/glaser/f47889ba0a86304a.webp": {
     "ocr": [
@@ -39698,7 +39984,10 @@
     "what": "Aquarium Glaser banner, bottom"
   },
   "https://media.aquatome.com/glaser/f4914bc51f9efaf3.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/glaser/f4c03736d23969a8.webp": {
     "ocr": [
@@ -39717,7 +40006,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser discus logo banner, top; 'current stock, female, bred' bottom right"
   },
   "https://media.aquatome.com/glaser/f6b917abe396e028.webp": {
     "ocr": [
@@ -39775,7 +40067,10 @@
         "c": 1,
         "at": "top centre"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser GmbH banner, top"
   },
   "https://media.aquatome.com/glaser/f7b49f78f4e196bb.webp": {
     "ocr": [
@@ -40123,7 +40418,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; plus caption 'juvenile, 3-4 cm long', bottom right"
   },
   "https://media.aquatome.com/glaser/fdf3e6fa8dcf3d51.webp": {
     "ocr": [
@@ -40291,7 +40589,10 @@
         "c": 1,
         "at": "bottom right"
       }
-    ]
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Aquarium Glaser banner, top; 'male'/'female' labels bottom"
   },
   "https://media.aquatome.com/inaturalist/1004055.webp": {
     "ocr": []
@@ -51782,7 +52083,10 @@
     "what": "no added text"
   },
   "https://media.aquatome.com/panitvong/Trsom_u0.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text or logo"
   },
   "https://media.aquatome.com/panitvong/inat-179355488.webp": {
     "ocr": [],
@@ -51855,7 +52159,10 @@
     "what": "Stefan van der Voort copyright credit bottom left, plus species name and locality caption bottom right"
   },
   "https://media.aquatome.com/scotcat/043d16518376bc9f.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/04eafdede8315440.webp": {
     "ocr": [],
@@ -52070,6 +52377,18 @@
     "kind": "none",
     "what": "no added text"
   },
+  "https://media.aquatome.com/scotcat/0e51dc0e15d5e07c.webp": {
+    "ocr": [
+      {
+        "t": "Erlend D Bertelsen",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Erlend D Bertelsen credit, bottom left"
+  },
   "https://media.aquatome.com/scotcat/0ead6636e6962f65.webp": {
     "ocr": [
       {
@@ -52240,6 +52559,18 @@
     "watermark": false,
     "kind": "none",
     "what": "ruler in scene, bottom right"
+  },
+  "https://media.aquatome.com/scotcat/1caf4b64842a1603.webp": {
+    "ocr": [
+      {
+        "t": "© Gert Blank",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Gert Blank credit, bottom left"
   },
   "https://media.aquatome.com/scotcat/1d6d9a695ca6af08.webp": {
     "ocr": [],
@@ -52461,6 +52792,12 @@
   "https://media.aquatome.com/scotcat/2970d6522607c990.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/scotcat/2984bdf4fd76c7c7.webp": {
+    "ocr": [],
+    "watermark": true,
+    "kind": "logo",
+    "what": "Zierfisch Zentrum Austria logo, top left"
+  },
   "https://media.aquatome.com/scotcat/29f757c021f23b69.webp": {
     "ocr": []
   },
@@ -52483,7 +52820,10 @@
     "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/2ce94b0ba3bf0e94.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco under plants"
   },
   "https://media.aquatome.com/scotcat/2d532ef42d889082.webp": {
     "ocr": [],
@@ -52775,6 +53115,12 @@
   "https://media.aquatome.com/scotcat/42ea459b223a256f.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/scotcat/42fd77e7b0295f53.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no text or logo"
+  },
   "https://media.aquatome.com/scotcat/430bd2a4d6d81eb8.webp": {
     "ocr": [],
     "watermark": false,
@@ -52909,7 +53255,10 @@
     "what": "No added text or logo"
   },
   "https://media.aquatome.com/scotcat/4c67cbff8aa34645.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/4d5fd4ae2691ba09.webp": {
     "ocr": [],
@@ -53203,7 +53552,10 @@
     "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/612f2cb10781347c.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text or logo"
   },
   "https://media.aquatome.com/scotcat/61cbdbfb544b1450.webp": {
     "ocr": [],
@@ -53449,6 +53801,12 @@
     "kind": "none",
     "what": "no added text; catfish on net"
   },
+  "https://media.aquatome.com/scotcat/70a17d47febc0d43.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text; catfish on a palm"
+  },
   "https://media.aquatome.com/scotcat/70e08d122a774688.webp": {
     "ocr": [
       {
@@ -53466,6 +53824,12 @@
     "watermark": false,
     "kind": "none",
     "what": "no added text visible"
+  },
+  "https://media.aquatome.com/scotcat/7116b03d05d3746e.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/713b180fa4217106.webp": {
     "ocr": [],
@@ -53655,6 +54019,12 @@
     "kind": "none",
     "what": "No added text; pleco under plants"
   },
+  "https://media.aquatome.com/scotcat/7f6910bfd6bba4b8.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text; striped catfish in a tank"
+  },
   "https://media.aquatome.com/scotcat/7fcf8d63f7a22191.webp": {
     "ocr": [],
     "watermark": false,
@@ -53739,6 +54109,12 @@
     "kind": "none",
     "what": "no added text"
   },
+  "https://media.aquatome.com/scotcat/858ab9554b8c260e.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
+  },
   "https://media.aquatome.com/scotcat/8667aacee09e257e.webp": {
     "ocr": [],
     "watermark": false,
@@ -53746,7 +54122,10 @@
     "what": "No added text or logo"
   },
   "https://media.aquatome.com/scotcat/878be5dab8f513df.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on sand"
   },
   "https://media.aquatome.com/scotcat/878d42e9d4dcca06.webp": {
     "ocr": [],
@@ -53776,7 +54155,10 @@
     "ocr": []
   },
   "https://media.aquatome.com/scotcat/8b2ed91f678e54e9.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on gravel"
   },
   "https://media.aquatome.com/scotcat/8b94cb681ce7756c.webp": {
     "ocr": [],
@@ -53797,7 +54179,10 @@
     "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/8e6c9873e53cd1d7.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on pebbles"
   },
   "https://media.aquatome.com/scotcat/8eed16aaf0f936ef.webp": {
     "ocr": [],
@@ -53863,6 +54248,12 @@
     "kind": "credit",
     "what": "Image Copyright: Steve Grant with species caption, bottom left; annotation top"
   },
+  "https://media.aquatome.com/scotcat/90d37c7654ef9381.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text; catfish held in a hand"
+  },
   "https://media.aquatome.com/scotcat/90d4e71a352fdb31.webp": {
     "ocr": [],
     "watermark": false,
@@ -53879,7 +54270,10 @@
     ]
   },
   "https://media.aquatome.com/scotcat/915b685b447acaa5.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; plecos on aquarium glass"
   },
   "https://media.aquatome.com/scotcat/916d6ac8add48994.webp": {
     "ocr": [],
@@ -54030,7 +54424,10 @@
     "what": "\"medaka\" credit text, bottom centre"
   },
   "https://media.aquatome.com/scotcat/9a7490f69612d611.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on gravel"
   },
   "https://media.aquatome.com/scotcat/9aaffd4f32aee589.webp": {
     "ocr": [],
@@ -54376,6 +54773,12 @@
     "kind": "credit",
     "what": "\"© Abhisek Mishra 2023\" top left; species name \"Clupisoma bastari\" bottom left"
   },
+  "https://media.aquatome.com/scotcat/af3cbbc8debd533f.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no text or logo"
+  },
   "https://media.aquatome.com/scotcat/af57a74eebb616d0.webp": {
     "ocr": [],
     "watermark": false,
@@ -54518,7 +54921,10 @@
     "what": "no added text; pleco mouth close-up"
   },
   "https://media.aquatome.com/scotcat/b893b0e1fd294de6.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; spotted pleco on rock"
   },
   "https://media.aquatome.com/scotcat/b8b18647049edadf.webp": {
     "ocr": [],
@@ -54543,6 +54949,12 @@
     "watermark": false,
     "kind": "none",
     "what": "no added text"
+  },
+  "https://media.aquatome.com/scotcat/b9267761420d5a01.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "No added text; catfish in a red-edged container"
   },
   "https://media.aquatome.com/scotcat/b952fd101038480b.webp": {
     "ocr": [],
@@ -54638,7 +55050,10 @@
     "what": "no text"
   },
   "https://media.aquatome.com/scotcat/bea6d54e74672337.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on gravel"
   },
   "https://media.aquatome.com/scotcat/beb05fecac60a285.webp": {
     "ocr": [],
@@ -54757,7 +55172,10 @@
     "what": "no added text visible"
   },
   "https://media.aquatome.com/scotcat/c60d6f5810dceaf9.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/c6e58f7fc35f3810.webp": {
     "ocr": [],
@@ -54783,6 +55201,12 @@
     "kind": "none",
     "what": "no added text or logo seen"
   },
+  "https://media.aquatome.com/scotcat/c82270e595907838.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no text or logo"
+  },
   "https://media.aquatome.com/scotcat/c86cd14278b7ab7e.webp": {
     "ocr": [],
     "watermark": false,
@@ -54794,6 +55218,18 @@
     "watermark": false,
     "kind": "none",
     "what": "no added text"
+  },
+  "https://media.aquatome.com/scotcat/c93ce70250cb046b.webp": {
+    "ocr": [
+      {
+        "t": "100",
+        "c": 1,
+        "at": "middle centre"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "what": "no visible added text; '100' likely a misread or a mark on the tank"
   },
   "https://media.aquatome.com/scotcat/c94533b75781b2f7.webp": {
     "ocr": [
@@ -54972,7 +55408,10 @@
     "what": "ruler markings on the tank in the scene"
   },
   "https://media.aquatome.com/scotcat/d2e3e8cad12a0c97.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text"
   },
   "https://media.aquatome.com/scotcat/d3433e34ad54b13a.webp": {
     "ocr": [],
@@ -55190,6 +55629,12 @@
     "watermark": false,
     "kind": "none",
     "what": "no added text"
+  },
+  "https://media.aquatome.com/scotcat/e3ae38ee88e1fdbd.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no text or logo"
   },
   "https://media.aquatome.com/scotcat/e3dd61489176688f.webp": {
     "ocr": [],
@@ -55447,7 +55892,10 @@
     "what": "No added text or logo"
   },
   "https://media.aquatome.com/scotcat/f9e074275336b83d.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no added text; pleco on stone"
   },
   "https://media.aquatome.com/scotcat/fb490eab8625606c.webp": {
     "ocr": [],
@@ -55511,6 +55959,18 @@
     "watermark": false,
     "kind": "none",
     "what": "no added text"
+  },
+  "https://media.aquatome.com/scotcat/ffbb957408717091.webp": {
+    "ocr": [
+      {
+        "t": "Erlend D BertelSen",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Erlend D Bertelsen credit, bottom left"
   },
   "https://media.aquatome.com/seriouslyfish/004eac6213eb00e0.webp": {
     "ocr": [
@@ -59699,7 +60159,10 @@
     "what": "no added text visible"
   },
   "https://media.aquatome.com/seriouslyfish/45a8b1daa357653d.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none",
+    "what": "no visible text or logo"
   },
   "https://media.aquatome.com/seriouslyfish/45b60c127b237349.webp": {
     "ocr": [],
@@ -70856,6 +71319,51 @@
   "https://media.aquatome.com/video/-MG8jX9LOvI/t99.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/-bQ0WmRct84/p0-mdHdvb2RfMy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/p1-MDY5ODI0OSkuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/p2-0YV9TdGVpbi5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/p4-YXF1YXJpdW0ucG5n.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/p6-uYV9ydWJyYS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t147.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t162.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t191.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t201.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t221.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t225.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t309.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t319.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t59.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/-bQ0WmRct84/t69.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/0ozJmYMk914/p0-aW5fVG9reW8uanBn.webp": {
     "ocr": []
   },
@@ -70986,6 +71494,27 @@
   "https://media.aquatome.com/video/18soyZFZ70A/t79.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p0-saXNuZXJpYS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p1-NSVCQV9ab28uanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p2-YXF1YXJpdW0uanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p4-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p5-JvcGhpc2llLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/p6-yMy0wMi0wNS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/1TkcARfJKCQ/t20.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/2cQKwuP8G8I/t0.webp": {
     "ocr": []
   },
@@ -71035,6 +71564,86 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/43bSNzlX9Fo/t99.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p0-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p1-IwMjAxMTAxLmpwZw.webp": {
+    "ocr": [
+      {
+        "t": "OOO",
+        "c": 0.5,
+        "at": "top left"
+      },
+      {
+        "t": "ЗIE 11 BОS",
+        "c": 0.3,
+        "at": "top left"
+      },
+      {
+        "t": "TENSUN",
+        "c": 1,
+        "at": "middle left"
+      },
+      {
+        "t": "3+",
+        "c": 1,
+        "at": "middle left"
+      },
+      {
+        "t": "PAVILION",
+        "c": 1,
+        "at": "middle right"
+      },
+      {
+        "t": "NANGANG",
+        "c": 0.3,
+        "at": "middle right"
+      },
+      {
+        "t": "TAIWAN",
+        "c": 1,
+        "at": "middle right"
+      },
+      {
+        "t": "ДалELTа",
+        "c": 0.3,
+        "at": "bottom right"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p4-JkX2FsZ2FlLnBuZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p5-J1LUluZGlhLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p6-1bV9MaWdodC5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "AEUGH",
+        "c": 0.3,
+        "at": "top centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/p7-mdHdvb2RfMy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/t119.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/t425.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/t445.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/t583.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/4GFdgPkH4WI/t79.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/5GfRTHTv5ZM/p0-BcXVhcml1bS5KUEc.webp": {
@@ -71166,6 +71775,96 @@
   "https://media.aquatome.com/video/7UaAsA16woY/t20.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/7X823MgJlHo/p0-TmV3X1N1bXAuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/p1-sXzA2MDIyNy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/p3-RvbV9zYW5kLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/p4-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/p6-X0E3NDI1NzguanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t134.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t263.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t292.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t342.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t372.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t421.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t441.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t456.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t461.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t530.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t550.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t654.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7X823MgJlHo/t659.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p1-sZW5lbnNpcy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p3-RvbV9zYW5kLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p5-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p6-bV9maXNoZXMuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p8-FyYW50aW5lLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/t0.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/p2-bV9maXNoZXMuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/t114.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/t169.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/t576.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/t721.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8EelCQTnsQ0/t735.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/8ZjRvJ_5pTE/p0-lyX0FsZ2FlLmpwZw.webp": {
     "ocr": []
   },
@@ -71197,6 +71896,42 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/8ZjRvJ_5pTE/t550.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/p0-lyX0FsZ2FlLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/p2-0ZXJfRmlzaC5wbmc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t123.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t252.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t360.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t365.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t380.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t395.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t454.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t474.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t489.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/8afh_cil1IM/t494.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/8ov1q3r56Kw/p1-ha3Zhcml1bS5qcGc.webp": {
@@ -71544,6 +72279,54 @@
   "https://media.aquatome.com/video/AsK_yxCXVrY/t69.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p0-0ZXJfRmlzaC5wbmc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p1-YV9QZXRpdGUuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p2-NoX2JldHRhLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p3-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p4-hcXVhcml1bS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/p5-ZWRfZm9vZDIuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t133.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t148.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t212.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t232.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t311.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t321.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t400.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t410.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t484.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/B1T0GU56ETo/t504.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/BiNf-SlKfLI/p0-bV9GaXNoZXMuanBn.webp": {
     "ocr": []
   },
@@ -71695,6 +72478,24 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/D8ZPJeMEXiY/t74.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/p0-oaXJpYXNpcy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/p3-0dGFfRmlzaC5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/p5-YW50aW5lXzIuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/p7-ha3dhcml1bS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/t681.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/t686.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/EIjUVVFcNmo/p0-BcXVhcml1bS5KUEc.webp": {
@@ -72189,6 +72990,68 @@
   "https://media.aquatome.com/video/HuWHarbSQUk/t49.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/p5-tSFMxMTAuNC5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "Ptptink",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "3680W - MAX 16A",
+        "c": 1,
+        "at": "bottom centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t1169.webp": {
+    "ocr": [
+      {
+        "t": "@:Kin",
+        "c": 0.3,
+        "at": "bottom left"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t1198.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t1208.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t1228.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t139.webp": {
+    "ocr": [
+      {
+        "t": "STкOM",
+        "c": 0.3,
+        "at": "bottom left"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t188.webp": {
+    "ocr": [
+      {
+        "t": "* KaskSngiae COM",
+        "c": 0.3,
+        "at": "bottom left"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t456.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/HwD_FoRC2Ig/t495.webp": {
+    "ocr": [
+      {
+        "t": "19 Nacle",
+        "c": 0.3,
+        "at": "bottom left"
+      }
+    ]
+  },
   "https://media.aquatome.com/video/IAGN8lN997s/p2-NfUGxhbnRzLmpwZw.webp": {
     "ocr": []
   },
@@ -72551,6 +73414,99 @@
   "https://media.aquatome.com/video/KGII9S9qwDI/t99.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/KjUE_aid3BI/p0-VtLUluZGlhLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/p2-Z2VuQ3ljbGUucG5n.webp": {
+    "ocr": [
+      {
+        "t": "NH?",
+        "c": 1,
+        "at": "top left"
+      },
+      {
+        "t": "3",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "NOZ",
+        "c": 0.3,
+        "at": "top centre"
+      },
+      {
+        "t": "GOz",
+        "c": 0.5,
+        "at": "middle centre"
+      },
+      {
+        "t": "9",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "8",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "4",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "NO3",
+        "c": 1,
+        "at": "top right"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/p3-NvbG9uaWVzLnBuZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/p5-vZ3JhZHNreS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/p7-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t114.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t119.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t208.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t213.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t466.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t575.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/KjUE_aid3BI/t579.webp": {
+    "ocr": [
+      {
+        "t": "EXTRA",
+        "c": 1,
+        "at": "bottom centre"
+      },
+      {
+        "t": "pns BID",
+        "c": 0.3,
+        "at": "bottom centre"
+      },
+      {
+        "t": "PсHк OHиNG CHU VỆTWAN",
+        "c": 0.3,
+        "at": "bottom centre"
+      }
+    ]
+  },
   "https://media.aquatome.com/video/LFIB7o9BnFA/p0-JfRmlsdGVyLmpwZw.webp": {
     "ocr": []
   },
@@ -72896,6 +73852,36 @@
   "https://media.aquatome.com/video/O5kuU_-xMzo/t766.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/p1-yMy0wMi0wNS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/p2-1bV9MaWdodC5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "AEUGH",
+        "c": 0.3,
+        "at": "top centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/p6-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/t104.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/t124.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/t35.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/t426.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/OJ0X5fuRvAA/t431.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/OSR9EPaO78Q/p1-lyX0FsZ2FlLmpwZw.webp": {
     "ocr": []
   },
@@ -73180,6 +74166,104 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/QoLZvjObqYM/p3-FzY2FwaW5nLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/p0-YXJkc2NhcGUuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/p2-X2V4X3NpdHUuanBn.webp": {
+    "ocr": [
+      {
+        "t": "PSA",
+        "c": 0.3,
+        "at": "bottom right"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/p3-BfbGl0cmVzLnBuZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/p4-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/p6-uZF9zdG9uZS5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "AIR COMPACT",
+        "c": 1,
+        "at": "bottom centre"
+      },
+      {
+        "t": "тo1000",
+        "c": 0.3,
+        "at": "bottom centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t203.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t287.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t292.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t312.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t322.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t396.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t475.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t485.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t505.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t89.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RBtMtrL4tAQ/t94.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p2-1bV9MaWdodC5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "AEUGH",
+        "c": 0.3,
+        "at": "top centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p4-X2FuZF93ZXQuSlBH.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p5-lfc2Nob29sLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p6-bV9maXNoZXMuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p7-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/t137.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/t255.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/t270.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/t69.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/S-FR9u--jVs/p0-bV9GaXNoZXMuanBn.webp": {
@@ -74072,6 +75156,67 @@
   "https://media.aquatome.com/video/c86hMeJfPms/p5-9zdXJmYWNlLmpwZw.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/p1-YXJkc2NhcGUuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/p2-fUGFjaWZpYy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/p4-RTQzA0MjI0LkpQRw.webp": {
+    "ocr": [
+      {
+        "t": "Tlllandsia harrisl",
+        "c": 1,
+        "at": "top left"
+      },
+      {
+        "t": "BROMELIACEAÉ",
+        "c": 1,
+        "at": "top left"
+      },
+      {
+        "t": "3711*A",
+        "c": 1,
+        "at": "top left"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t103.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t172.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t182.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t211.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t231.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t241.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t246.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t309.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t324.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t437.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t442.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/dEiOXBOzlgU/t98.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/dTkvCEn1xHA/p0-JkX2FsZ2FlLnBuZw.webp": {
     "ocr": []
   },
@@ -74392,6 +75537,82 @@
   "https://media.aquatome.com/video/hN27R9bp18M/t92.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p1-fUGFjaWZpYy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p2-kcy1tZXRlci5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "PPM",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "TELE0 1°",
+        "c": 1,
+        "at": "top right"
+      },
+      {
+        "t": "HOLD",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "TEMP",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "ON/OFF",
+        "c": 1,
+        "at": "middle centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p3-bV93aW5kb3cuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p4-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p6-FzY2FwaW5nLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/p7-kcy1tZXRlci5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "PPM",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "TELE0 1°",
+        "c": 1,
+        "at": "top right"
+      },
+      {
+        "t": "HOLD",
+        "c": 1,
+        "at": "top centre"
+      },
+      {
+        "t": "TEMP",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "ON/OFF",
+        "c": 1,
+        "at": "middle centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/t10.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/h_UXlf0XPTM/t5.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/iFDXqeBOxQk/p6-J1LUluZGlhLmpwZw.webp": {
     "ocr": []
   },
@@ -74642,6 +75863,51 @@
   "https://media.aquatome.com/video/lVFJKBML5Ws/t71.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/p4-bV9maXNoZXMuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/p5-lyX0FsZ2FlLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t104.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t138.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t148.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t306.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t311.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t360.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t370.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t434.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t44.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t474.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t523.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t64.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/mY_9yWKaAFc/t84.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/nSfYE7PXUmY/p0-ydS1JbmRpYS5qcGc.webp": {
     "ocr": []
   },
@@ -74792,6 +76058,36 @@
     ]
   },
   "https://media.aquatome.com/video/ohxFuNlRd2c/t10.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p0-cm93YW5hXzEuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p1-ha3dhcml1bS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p2-pcnJob3N1bS5KUEc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p4-OkFyb3dhbmEuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p5-JfRmlsdGVyLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/p6-NfUGxhbnRzLmpwZw.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/t0.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/t242.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/t276.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/oqjlfn3wxgA/t5.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/pY7e33xGcyQ/p4-J1LUluZGlhLmpwZw.webp": {
@@ -74974,6 +76270,30 @@
   "https://media.aquatome.com/video/qqHJr-5enM8/t65.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/p5-saWFfa3owMi5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t218.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t253.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t317.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t352.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t40.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t575.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/qzPVpr89Ugo/t605.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/rifv8Rz3dqM/p0-cXVhc2NhcGUucG5n.webp": {
     "ocr": []
   },
@@ -75124,6 +76444,42 @@
   "https://media.aquatome.com/video/t-QbuMlXLIg/t94.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/t0uqYP60WJA/p0-oaXJpYXNpcy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/p2-ha3dhcml1bS5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/p3-bV9maXNoZXMuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/p4-lb25UZXRyYS5KUEc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/p5-sXzA2MDIyNy5qcGc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t273.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t333.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t372.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t377.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t615.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t620.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/t0uqYP60WJA/t69.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/tPkJ5PEBVYA/p0-AxOF9hXzAyLmpwZw.webp": {
     "ocr": []
   },
@@ -75179,6 +76535,111 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/tPkJ5PEBVYA/t98.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/p0-0ZXJfRmlzaC5wbmc.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/p2-MDJfKGZjbSkuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/p3-fc3lyaW5nZS5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "ШЕННЕИНЫИ",
+        "c": 0.3,
+        "at": "middle centre"
+      },
+      {
+        "t": "(E 0086",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "Baxa",
+        "c": 1,
+        "at": "middle centre"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/p4-Blcm94aWRlLmpwZw.webp": {
+    "ocr": [
+      {
+        "t": "ОАО «САМАРАМЕДПРОП»",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "446100, Самарская обл., г. Чапаевск,",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "ул.Ленина,99\"6\". Тел./факс (846) 270-80-62",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "120607",
+        "c": 1,
+        "at": "middle left"
+      },
+      {
+        "t": "Годеі до Vil 09",
+        "c": 1,
+        "at": "middle right"
+      },
+      {
+        "t": "ПЕРЕКИСЬ ВОДОРОДА",
+        "c": 1,
+        "at": "middle centre"
+      },
+      {
+        "t": "раствор для наружного применения 3%",
+        "c": 1,
+        "at": "bottom centre"
+      },
+      {
+        "t": "Р.ЛС-001240",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ]
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/p5-d25fQmVsb3cuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t216.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t226.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t25.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t30.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t305.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t423.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t438.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t462.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t492.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t531.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/tau-i3HxVFQ/t556.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/video/uHt88QgoeZY/t25.webp": {
@@ -75667,6 +77128,18 @@
   "https://media.aquatome.com/video/xaMPVEEhQzU/t54.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/video/xdP5ITWcw3s/t29.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/xdP5ITWcw3s/t322.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/xdP5ITWcw3s/t327.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/xdP5ITWcw3s/t59.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/video/xf_ylcdUQsQ/p0-BcXVhcml1bS5KUEc.webp": {
     "ocr": []
   },
@@ -75719,6 +77192,15 @@
       }
     ]
   },
+  "https://media.aquatome.com/video/xuc03DuJ9o4/p4-1bV9MaWdodC5qcGc.webp": {
+    "ocr": [
+      {
+        "t": "AEUGH",
+        "c": 0.3,
+        "at": "top centre"
+      }
+    ]
+  },
   "https://media.aquatome.com/video/yDXX3b4sJ2g/p6-0ZXJfRmlzaC5wbmc.webp": {
     "ocr": []
   },
@@ -75756,6 +77238,54 @@
     "ocr": []
   },
   "https://media.aquatome.com/video/ysH2T_HOG0E/t93.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/p2-cmVfRnJhbWUuanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/p5-bHlfZ3Jvd24uanBn.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t109.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t1315.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t1335.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t1365.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t1375.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t356.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t49.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t59.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t682.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t702.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t732.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t761.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t841.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/video/zYfpvGHYlxQ/t89.webp": {
     "ocr": []
   },
   "https://static.inaturalist.org/photos/1143645/large.jpg": {
@@ -80237,105 +81767,5 @@
   },
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Midorifugu1.JPG": {
     "ocr": []
-  },
-  "https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam-ca-dia-giai-phau.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none",
-    "what": "AquaTome's own drawing; its numbers are the diagram's labels"
-  },
-  "https://media.aquatome.com/aquatome/guides-aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam-ca-dia-hoa-van.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none",
-    "what": "AquaTome's own drawing; its numbers are the diagram's labels"
-  },
-  "https://media.aquatome.com/glaser/0204c3ad96177425.webp": {
-    "ocr": [
-      {
-        "t": "AQUARIUM GLASER стьн",
-        "c": 1,
-        "at": "top centre"
-      },
-      {
-        "t": "Ornamental Fish Import/Export Wholesale Rare Fish Specialist",
-        "c": 1,
-        "at": "top centre"
-      },
-      {
-        "t": "female?",
-        "c": 1,
-        "at": "bottom left"
-      }
-    ]
-  },
-  "https://media.aquatome.com/scotcat/0e51dc0e15d5e07c.webp": {
-    "ocr": [
-      {
-        "t": "Erlend D Bertelsen",
-        "c": 1,
-        "at": "bottom left"
-      }
-    ]
-  },
-  "https://media.aquatome.com/scotcat/1caf4b64842a1603.webp": {
-    "ocr": [
-      {
-        "t": "© Gert Blank",
-        "c": 1,
-        "at": "bottom left"
-      }
-    ]
-  },
-  "https://media.aquatome.com/scotcat/2984bdf4fd76c7c7.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/42fd77e7b0295f53.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/70a17d47febc0d43.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/7116b03d05d3746e.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/7f6910bfd6bba4b8.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/858ab9554b8c260e.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/90d37c7654ef9381.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/af3cbbc8debd533f.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/b9267761420d5a01.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/c82270e595907838.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/c93ce70250cb046b.webp": {
-    "ocr": [
-      {
-        "t": "100",
-        "c": 1,
-        "at": "middle centre"
-      }
-    ]
-  },
-  "https://media.aquatome.com/scotcat/e3ae38ee88e1fdbd.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/scotcat/ffbb957408717091.webp": {
-    "ocr": [
-      {
-        "t": "Erlend D BertelSen",
-        "c": 1,
-        "at": "bottom left"
-      }
-    ]
   }
 }
