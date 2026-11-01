@@ -6,6 +6,7 @@ import type { Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
+import { readForumState, topicLeads } from './forum'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -77,7 +78,9 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   const id = `aquatome-${slugify(a.topic)}`.slice(0, 90).replace(/-+$/, '')
   const factsFile = join(root, 'engine-state/topics', `${id}.json`)
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as TopicFacts | null : null
-  const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // Forum threads on the topic (engine forum notes): a translated post leads to its original, the source to cite.
+  const leads = kept ? '' : topicLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), a.topic)
+  const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 

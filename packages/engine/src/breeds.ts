@@ -7,6 +7,7 @@ import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { sanitizeHtml } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
+import { breedLeads, readForumState } from './forum'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -123,7 +124,9 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const id = slugify(a.name)
   const factsFile = join(root, 'engine-state/breeds', `${id}.json`)
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as BreedFacts | null : null
-  const researched = kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // The Vietnamese names keepers on Diễn Đàn Cá Cảnh use for it (engine forum notes), as leads to check and cite.
+  const leads = kept ? '' : breedLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), [a.name])
+  const researched = kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   if (!kept) { await mkdir(join(root, 'engine-state/breeds'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
 

@@ -45,6 +45,7 @@ import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { localizeTopic, makeTopic } from './topics'
+import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
 import { isMarketplace } from './marketplaces'
@@ -73,7 +74,7 @@ const media = () => r2Media({
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -400,6 +401,13 @@ if (cmd === 'run') {
   if (!name || (kind && !['hybrid', 'variety', 'transgenic'].includes(kind))) throw new Error('usage: pnpm engine breed "<English name>" [--kind hybrid|variety|transgenic] [--based-on <species id>] [--redo]')
   const r = await makeBreed(ROOT, { research: claudeResearch, llm: claudeCli, gallery: galleryDeps() }, { name, ...(kind ? { kind } : {}), ...(values['based-on'] ? { basedOn: values['based-on'] } : {}) }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
+} else if (cmd === 'forum') {
+  // Diễn Đàn Cá Cảnh's guide sections, read for orientation: notes on each thread (translated or original, the original it
+  // names, Vietnamese terms), never its text. pnpm engine forum [--limit threads] [--pages list pages] [--match section regex]
+  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
+  const sections = values.match ? FORUM_SECTIONS.filter(s => new RegExp(values.match!, 'i').test(s)) : undefined
+  const r = await readForum(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { limit: Number(values.limit ?? 10), pages: Number(values.pages ?? 5), sections, extra: [CLASSIFICATION_THREAD] })
+  console.log(`forum: ${r.listed} list pages read, ${r.found} threads found, ${r.read.length} read, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.read, ...r.failed].join('\n')}`)
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.

@@ -118,6 +118,9 @@ if part photos; then
   pnpm engine audit || log "audit: failed"
 fi
 if part rewrite; then
+  # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
+  # leads for breed and guide research (forum.ts).
+  pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
