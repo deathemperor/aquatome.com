@@ -167,7 +167,6 @@ test('Apple added to an account signed in with Google: Apple then opens the same
   await expect(page.locator('#acc-status')).toContainText('Google')
   await page.locator('#acc-add').click()
   await expect(page.locator('#acc-ways-add')).toBeVisible()
-  await expect(page.locator('#acc-passkey')).toBeHidden()
   await page.locator('#acc-apple').click()
   await expect(page.locator('#acc-msg')).toContainText('Đã thêm Apple')
   await expect(page.locator('#acc-status')).toContainText('Google, Apple')
@@ -230,6 +229,9 @@ test('an email address added to the account: the mail\'s link, opened in a new t
   await page.locator('#acc-email button[type=submit]').click()
   await expect(page.locator('#acc-code')).toBeVisible()
   expect(b.mails).toHaveLength(1)
+  // The page opens again meanwhile (a phone's browser reloads a tab left behind): the address stays on its way.
+  await page.reload()
+  await expect(page.locator('#acc-status')).toContainText('Google')
   const link = /https?:\/\/\S+#ma=\d{6}/.exec(b.mails[0]!.text)![0]
   const tab = await page.context().newPage()
   await connect(tab, b)
@@ -310,6 +312,23 @@ test('a session ended elsewhere: the next sync says so and offers sign-in again'
   await page.locator('#acc-google button').click()
   await expect(page.locator('#acc-in')).toBeVisible()
   await expect(page.locator('#acc-status')).toContainText('Google')
+  expect(errors).toEqual([])
+})
+
+test('a session ended elsewhere, then adding a way: it says so and offers sign-in again', async ({ page, errors }) => {
+  const b = backend()
+  await connect(page, b)
+  await page.goto(PAGE)
+  await page.locator('#acc-open').click()
+  await page.locator('#acc-google button').click()
+  await expect(page.locator('#acc-status')).toContainText('Đồng bộ lúc')
+  await b.env.DB!.prepare('DELETE FROM sessions').run()
+  await page.locator('#acc-add').click()
+  await page.locator('#acc-apple').click()
+  await expect(page.locator('#acc-msg')).toContainText('Phiên đăng nhập đã hết')
+  await expect(page.locator('#acc-open')).toBeVisible()
+  await expect(page.locator('#acc-ways')).toBeHidden()
+  expect(await b.count('users')).toBe(1)
   expect(errors).toEqual([])
 })
 
@@ -418,6 +437,10 @@ test('a passkey added to an account signs in to it on its own; a passkey the ser
   await page.locator('#acc-passkey-add').click()
   await expect(page.locator('#acc-msg')).toContainText('Máy này đã có passkey của tài khoản này')
   expect(await b.count("credentials WHERE kind = 'passkey'")).toBe(1)
+  // Adding another way: a passkey has its own button, so the options don't offer the passkey sign-in.
+  await page.locator('#acc-add').click()
+  await expect(page.locator('#acc-ways-add')).toBeVisible()
+  await expect(page.locator('#acc-passkey')).toBeHidden()
 
   // Signed out, the passkey alone signs back in to the same account, with its tanks.
   await page.locator('#acc-signout').click()

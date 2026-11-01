@@ -141,9 +141,10 @@ export function initAccount(o: { onStore: () => void }) {
     closeWays()
   }
 
-  async function signedIn(u: User) {
+  /** `pressed`: signed in from this page (not found signed in as it opens, an address still on its way perhaps). */
+  async function signedIn(u: User, pressed = true) {
     user = u
-    finished()
+    if (pressed) finished()
     show()
     say('')
     await sync(true)
@@ -162,6 +163,9 @@ export function initAccount(o: { onStore: () => void }) {
     say(way ? ct('Đã thêm {way}: lần sau đăng nhập bằng {way} cũng vào tài khoản này.', { way }) : ct('Tài khoản này đã có cách đăng nhập đó.'))
     $('acc-add').focus()
   }
+
+  /** A sign-in, or adding a way, refused. Adding one with the session ended elsewhere: signed out here too. */
+  const refused = (f: Fail) => (f.error === 'signed_out' ? signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true) : say(problem(f), true))
 
   /** Signed out here, elsewhere, or the account deleted: the sign-in button again, closed. */
   function signedOut(message: string, bad = false) {
@@ -188,7 +192,7 @@ export function initAccount(o: { onStore: () => void }) {
           client_id: clientId, nonce, ux_mode: 'popup', itp_support: true,
           callback: async ({ credential }) => {
             const r = await signInWith('google', credential, nonce, linking)
-            if (isFail(r)) { say(problem(r), true); void arm(); return }
+            if (isFail(r)) { refused(r); void arm(); return }
             await got(r.user)
           },
         })
@@ -228,7 +232,7 @@ export function initAccount(o: { onStore: () => void }) {
       try {
         const r = await ready.signIn()
         const out = await signInWith('apple', r.authorization.id_token, ready.nonce, linking)
-        if (isFail(out)) say(problem(out), true)
+        if (isFail(out)) refused(out)
         else await got(out.user)
       } catch { /* the popup was closed */ }
       // A nonce is used once: a new one for the next try.
@@ -271,7 +275,7 @@ export function initAccount(o: { onStore: () => void }) {
       btn.disabled = false
       token = ''
       turnstile?.ts.reset(turnstile.widget)
-      if (isFail(r)) { say(problem(r), true); return }
+      if (isFail(r)) { refused(r); return }
       flow = r.flow
       localStorage.setItem(PENDING, JSON.stringify({ flow, until: new Date(Date.now() + 15 * 60_000).toISOString() }))
       $('acc-code').hidden = false
@@ -440,7 +444,7 @@ export function initAccount(o: { onStore: () => void }) {
     const code = codeInHash(location.hash)
     const f = pendingFlow(localStorage, new Date())
     if (code) history.replaceState(null, '', location.pathname + location.search)
-    if (s.user) await signedIn(s.user)
+    if (s.user) await signedIn(s.user, false)
     else show()
     if (!code) return
     if (!f) { section.scrollIntoView(); say(ct('Link này cần mở trên đúng trình duyệt đã gửi mã. Hoặc nhập mã 6 số ở đó.'), true); return }
