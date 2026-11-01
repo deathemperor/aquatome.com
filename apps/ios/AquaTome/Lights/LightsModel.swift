@@ -153,6 +153,9 @@ final class LightsModel {
     return a.on == f.on.description && a.off == f.off.description && a.ramp == f.ramp && a.levels == f.levels
   }
   var canWrite: Bool { isConnected && !isBusy && playTask == nil && form.problem == nil && (firmware ?? 0) >= 20 && !formIsActive }
+  /// The schedules written to the light from AquaTome, the last one first, as many as the site lists: once it is
+  /// connected and read (the site's ready state), not while it connects or after it dropped.
+  var savedSchedules: [SavedSchedule] { card == .ready ? Array(device?.schedules.prefix(6) ?? []) : [] }
   /// The first write from AquaTome replaces whatever the light holds, maybe a schedule from the My Chihiros app: ask.
   var writeNeedsConfirming: Bool { active == nil }
   var canGoBackToSchedule: Bool { isConnected && !isBusy && (isManual || trying || device?.manual != nil) }
@@ -380,6 +383,20 @@ final class LightsModel {
     planName = String(localized: p.name)
     edited = true // even a preset the form already matched: chosen
     keepDraft()
+  }
+
+  /// "Dùng lại": a schedule written to this light before, back in the form to be written again (as the site's list of
+  /// saved schedules). Tried on the light, its colour shows there.
+  func useSaved(_ s: SavedSchedule) {
+    guard let on = TimeOfDay(s.on), let off = TimeOfDay(s.off) else { return }
+    self.on = on
+    self.off = off
+    ramp = s.ramp
+    levels = fit(fit(s.levels, to: channels.count), to: levels.count)
+    planName = s.name
+    edited = true
+    keepDraft()
+    notice = Notice(text: String(localized: "Đã mở lịch \(label(s)). Bấm “Ghi lịch vào đèn” để dùng."))
   }
 
   /// The preset the form is: its hours and its brightness (as the site marks the pressed one).
