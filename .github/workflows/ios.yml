@@ -20,6 +20,18 @@ env:
   HANDBOOK_FLOWS: >-
     HandbookFlowTests FactsCardFlowTests ReadingFlowTests NativePageFlowTests OfflineFlowTests TankCheckFlowTests
     TankLifeFlowTests
+  # The light flows' first half, run by `lights (1)`; `lights (2)` runs the rest of LightFlowTests, so a flow added later
+  # or misspelled here runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s).
+  LIGHT_FLOWS_FIRST: >-
+    testADroppedLightConnectsAgainWithoutAScan testALightThatDropsMidTestIsKeptAsSetByHandUntilTheoLich
+    testALightThatDropsWhileBeingReadCanBeConnectedAgain
+    testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten testDisconnectGoesBackToFindingLights
+    testDisconnectWhileReadingTheLightReportsNothing testLeavingTheAppPutsATestColourBackOnTheScheduleWithOneFrame
+    testOldFirmwareCannotWriteSchedules testRenamesAndForgetsTheLight
+    testSchedulesWrittenAreListedOnlyWhileTheLightIsConnected testTheDayPreviewStopsAtOnceOnTheScreenAndOnTheLight
+    testTheLightsOwnScheduleIsNeverShownAsWhatItRuns testThePlanIsKeptWithoutALight
+    testTheWriteBarStaysInViewAndSaysWhatWillBeWritten testWritesAPresetThenAnotherThenUndoesBackToTheFirst
+    testWritingAScheduleEndsTheManualLevels
 jobs:
   kit:
     runs-on: macos-26
@@ -44,6 +56,7 @@ jobs:
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
+          -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 -skip-testing:AquaTomeUITests/PerformanceTests
           -skip-testing:AquaTomeUITests/LightFlowTests $(printf -- '-skip-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
@@ -103,6 +116,7 @@ jobs:
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
+          -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 $(printf -- '-only-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
       - name: Tests that passed only on a retry
         if: always()
@@ -114,26 +128,38 @@ jobs:
           path: build/handbook.xcresult
           if-no-files-found: ignore
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
-  # a minute or more): on their own runner, beside jobs `app` and `handbook`. Together the flows outgrew one job's hour
-  # on 2026-11-01 (#312: 58 minutes of flows, 37 of them the lights').
+  # a minute or more): on two runners, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
+  # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315).
   lights:
     runs-on: macos-26
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        half: [1, 2]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
-      # Retried once, as in job `app`, and for the same reason.
-      - run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
-          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
-          -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO
-          -retry-tests-on-failure -test-iterations 2 -only-testing:AquaTomeUITests/LightFlowTests
+      # Retried once, as in job `app`, and for the same reason. A test that hangs (an app launch that never finished
+      # held a runner for 53 minutes on #314) is stopped after ten minutes, as in the other flow jobs: the longest flow
+      # takes under three on CI.
+      - run: |
+          if [ "${{ matrix.half }}" = 1 ]; then
+            only=$(printf -- '-only-testing:AquaTomeUITests/LightFlowTests/%s ' $LIGHT_FLOWS_FIRST)
+          else
+            only="-only-testing:AquaTomeUITests/LightFlowTests $(printf -- '-skip-testing:AquaTomeUITests/LightFlowTests/%s ' $LIGHT_FLOWS_FIRST)"
+          fi
+          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO \
+            -test-timeouts-enabled YES -default-test-execution-time-allowance 600 \
+            -retry-tests-on-failure -test-iterations 2 $only
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/lights.xcresult
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: ios-light-flows
+          name: ios-light-flows-${{ matrix.half }}
           path: build/lights.xcresult
           if-no-files-found: ignore
