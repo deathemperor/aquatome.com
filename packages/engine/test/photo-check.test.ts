@@ -171,7 +171,7 @@ test('guides: a photo captioned with a fish is judged against it; one that is a 
   expect(g.video.figures[0].photo.url).toBe(url('fig'))
 })
 
-test('names a guide caption resolves to: the longest name wins, a one-word or shared name means nothing, two fish mean neither', () => {
+test('names a guide caption resolves to: the longest name wins, plurals count, a one-word or shared name means nothing, two fish mean neither', () => {
   const index = new Map([['cá neon', 'innesi'], ['neon tetra', 'innesi'], ['cá neon xanh lục', 'simulans'], ['puntius titteya', 'titteya'], ['cherry barb', 'titteya']])
   expect(captionSubject('Đàn cá neon xanh lục', index)).toBe('simulans')
   expect(captionSubject('Một đàn Cá Neon', index)).toBe('innesi')
@@ -179,6 +179,7 @@ test('names a guide caption resolves to: the longest name wins, a one-word or sh
   expect(captionSubject('Neon tetras and cherry barbs', index)).toBeUndefined()
   expect(captionSubject('Neon tetra and a cherry barb', index)).toBeUndefined()
   expect(captionSubject('A neonate', index)).toBeUndefined()
+  expect(captionSubject('Male and female cherry barbs', index)).toBe('titteya')
   const genera = new Map([['microsorum', new Set(['pteropus'])], ['anubias', new Set(['barteri'])], ['paracheirodon', new Set(['innesi', 'simulans'])]])
   const plants = new Map([['java fern', 'pteropus']])
   expect(captionSubject('Java fern on lava rock', plants, genera)).toBe('pteropus')

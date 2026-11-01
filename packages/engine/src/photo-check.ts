@@ -92,7 +92,7 @@ const norm = (s: string) => s.normalize('NFC').toLowerCase().replace(/['‘’"]
 
 /**
  * The species or plant a guide photo's caption names: a scientific name or another name of exactly one page, two words or
- * more (a one-word name, "Molly", names a group). A name inside a longer one gives way ("Cá neon" in "Cá neon xanh lục");
+ * more (a one-word name, "Molly", names a group), plural or not. A name inside a longer one gives way ("Cá neon" in "Cá neon xanh lục");
  * a caption naming two pages, or another genus ("How to plant Anubias or Java Fern"), names neither. `genera`: each
  * genus (lower case) and the pages in it.
  */
@@ -103,7 +103,8 @@ export function captionSubject(caption: string, index: Map<string, string>, gene
     let i = c.indexOf(name)
     while (i >= 0) {
       const edge = (j: number) => j < 0 || j >= c.length || !/[\p{L}\p{N}]/u.test(c[j]!)
-      if (edge(i - 1) && edge(i + name.length)) hits.push({ id, from: i, to: i + name.length })
+      const end = i + name.length + (c.startsWith('es', i + name.length) && edge(i + name.length + 2) ? 2 : c[i + name.length] === 's' ? 1 : 0) // "cherry barbs"
+      if (edge(i - 1) && edge(end)) hits.push({ id, from: i, to: end })
       i = c.indexOf(name, i + 1)
     }
   }
