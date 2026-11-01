@@ -48,7 +48,7 @@ func phone(_ tanks: String...) throws -> TankStore {
   return s
 }
 func names(_ s: TankStore) -> [String] { s.liveTanks.map(\.name) }
-let noUser = AccountSession.on(providers: Providers(google: false, apple: true, email: true, passkey: false), turnstileSitekey: "sk", user: nil)
+let noUser = AccountSession.on(providers: Providers(google: false, apple: true, email: true, passkey: true), turnstileSitekey: "sk", user: nil)
 
 @Test("A nonce's SHA-256 in lowercase hex, as the server compares it")
 func nonceHash() {
@@ -69,6 +69,9 @@ func requests() async throws {
   try await api.signOut(token: s2.token)
   let flow = try await api.emailStart("reader@example.com", turnstile: "t-1", lang: "vi")
   _ = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode)
+  let key = Data("cred-1".utf8)
+  let handle = fake.addPasskey(key, to: "apple-3")
+  _ = try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: key, userHandle: handle))
 
   for r in fake.requests {
     let what = "\(r.httpMethod!) \(r.url!.path)"
@@ -79,7 +82,7 @@ func requests() async throws {
     if r.httpMethod == "POST" { #expect(r.httpBody != nil, "\(what) has no body") }
     if r.httpBody != nil { #expect(r.value(forHTTPHeaderField: "Content-Type") == "application/json", "\(what)") }
     let body = r.httpBody.flatMap { try? JSON.parse($0).object }
-    if ["/api/v1/auth/apple", "/api/v1/auth/email/start", "/api/v1/auth/email/verify"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
+    if ["/api/v1/auth/apple", "/api/v1/auth/email/start", "/api/v1/auth/email/verify", "/api/v1/auth/passkey"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
     if r.url!.path == "/api/v1/account" { #expect(body?["apple"]?.object?["clientId"]?.string == "com.aquatome.app") }
     if ["/api/v1/tanks/sync", "/api/v1/account", "/api/v1/auth/logout"].contains(r.url!.path) {
       #expect(r.value(forHTTPHeaderField: "Authorization")?.hasPrefix("Bearer token-") == true, "\(what)")
@@ -88,6 +91,7 @@ func requests() async throws {
   #expect(Set(fake.requests.map { "\($0.httpMethod!) \($0.url!.path)" }) == [
     "GET /api/v1/session", "POST /api/v1/auth/nonce", "POST /api/v1/auth/apple", "POST /api/v1/tanks/sync",
     "DELETE /api/v1/account", "POST /api/v1/auth/logout", "POST /api/v1/auth/email/start", "POST /api/v1/auth/email/verify",
+    "POST /api/v1/auth/passkey/options", "POST /api/v1/auth/passkey",
   ])
   // The Turnstile page the web view opens is the contract's too.
   let page = api.turnstilePage(lang: "th")
@@ -126,6 +130,55 @@ func email() async throws {
   // An email account is deleted without Apple's step.
   try await api.deleteAccount(token: second.token, appleCode: nil)
   #expect(fake.accountCount == 0)
+}
+
+@MainActor @Test("Passkey: a challenge for aquatome.com, answered once by a passkey an account has; an unknown passkey, another origin, another account's handle or a used challenge is refused")
+func passkey() async throws {
+  let fake = FakeAccounts()
+  let api = client(fake)
+  let key = Data("cred-1".utf8)
+  let handle = fake.addPasskey(key, to: "apple-1")
+  let c = try await api.passkeyChallenge()
+  #expect(c.rpId == "aquatome.com")
+  let answer = FakeAccounts.assertion(for: c, credentialId: key, userHandle: handle)
+  // As a browser sends it: SimpleWebAuthn refuses an answer whose id and rawId differ, and compares the user handle
+  // with the base64url of the account id's bytes.
+  let sent = answer.json.object!
+  let inner = sent["response"]!.object!
+  #expect(sent["id"]?.string == Base64URL.encode(key) && sent["rawId"] == sent["id"] && sent["type"]?.string == "public-key")
+  #expect(inner["userHandle"]?.string == Base64URL.encode(handle))
+  #expect(Base64URL.decode(inner["clientDataJSON"]!.string!).flatMap { try? JSON.parse($0).object?["origin"]?.string } == "https://aquatome.com")
+  let s = try await api.signInWithPasskey(answer)
+  #expect(Set(s.user.methods.map(\.kind)) == ["apple", "passkey"])
+  // The same answer again: its challenge is used.
+  await #expect(throws: AccountError.refused("bad_passkey")) { _ = try await api.signInWithPasskey(answer) }
+  // A passkey no account has, an answer for another origin, a passkey made for another account.
+  for bad in [
+    { (c: PasskeyChallenge) in FakeAccounts.assertion(for: c, credentialId: Data("unknown".utf8), userHandle: nil) },
+    { FakeAccounts.assertion(for: $0, credentialId: key, userHandle: handle, origin: "https://aquatome.com.example") },
+    { FakeAccounts.assertion(for: $0, credentialId: key, userHandle: Data("someone-else".utf8)) },
+  ] {
+    let a = bad(try await api.passkeyChallenge())
+    await #expect(throws: AccountError.refused("bad_passkey")) { _ = try await api.signInWithPasskey(a) }
+  }
+  // Signing in again from this phone: the same account, and the old session ends.
+  let again = try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: key, userHandle: handle), replacing: s.token)
+  #expect(again.user.id == s.user.id)
+  await #expect(throws: AccountError.signedOut) { _ = try await api.sync(try phone(), token: s.token) }
+  // Passkeys off on the server.
+  fake.passkeysOn = false
+  await #expect(throws: AccountError.refused("provider_off")) { _ = try await api.passkeyChallenge() }
+}
+
+@Test("The server's passkey options as SimpleWebAuthn writes them; base64url as WebAuthn writes it: - and _, no padding")
+func passkeyOptions() async throws {
+  let options = #"{"challenge":"-__-AQ","timeout":300000,"rpId":"aquatome.com","allowCredentials":[],"userVerification":"required"}"#
+  #expect(try await client(Stub([(200, options)])).passkeyChallenge() == PasskeyChallenge(rpId: "aquatome.com", challenge: Data([0xfb, 0xff, 0xfe, 0x01])))
+  await #expect(throws: AccountError.badReply) { try await client(Stub([(200, #"{"rpId":"aquatome.com"}"#)])).passkeyChallenge() }
+  await #expect(throws: AccountError.refused("provider_off")) { try await client(Stub([(503, #"{"error":"provider_off"}"#)])).passkeyChallenge() }
+  #expect(Base64URL.encode(Data([0xfb, 0xff, 0xfe, 0x01])) == "-__-AQ")
+  #expect(Base64URL.decode("+//+AQ==") == nil)
+  #expect(Base64URL.decode(Base64URL.encode(Data("challenge-1".utf8))) == Data("challenge-1".utf8))
 }
 
 @MainActor @Test("Two phones on one account: the first's tanks reach the second, a change on either comes back, and what changed during a sync stays")
@@ -287,6 +340,11 @@ func snapshot() async throws {
   #expect(again.store(of: "apple-1").map(names) == ["Bể phòng khách"])
   #expect(again.sessionCount == 1)
   #expect(try await client(again).sync(TankStore(), token: token).store.liveTanks.count == 1)
+  // A passkey added before the relaunch still signs in.
+  fake.addPasskey(Data("cred-1".utf8), to: "apple-1")
+  let kept = FakeAccounts(snapshot: try JSON.parse(try fake.snapshot.data()))
+  let api = client(kept)
+  #expect(try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: Data("cred-1".utf8), userHandle: nil)).user.methods.map(\.kind) == ["apple", "passkey"])
   // New tokens don't repeat old ones.
   #expect(try await signIn(client(again), "apple-2").token != token)
 }

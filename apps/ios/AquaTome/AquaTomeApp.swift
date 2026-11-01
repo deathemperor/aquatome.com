@@ -83,7 +83,7 @@ struct AquaTomeApp: App {
     let args = ProcessInfo.processInfo.arguments
     if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
-      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true)
+      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true)
     }
     #endif
     return AccountModel(tanks: tanks)

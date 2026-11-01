@@ -2,7 +2,8 @@ import CryptoKit
 import Foundation
 import Tanks
 
-// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple or with an emailed code,
+// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple, with an emailed code or
+// with a passkey,
 // syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
@@ -64,6 +65,55 @@ public struct Synced: Sendable, Equatable {
     o["tanks"] = .array(pick(store.tanks, sent.tanks, phone.tanks))
     o["devices"] = .array(pick(store.devices, sent.devices, phone.devices))
     return (try? TankStore(.object(o))) ?? phone
+  }
+}
+
+/// A passkey sign-in's challenge: the relying party (aquatome.com) and the bytes to sign, valid 5 minutes, once.
+public struct PasskeyChallenge: Sendable, Equatable {
+  public let rpId: String
+  public let challenge: Data
+}
+
+/// What the phone's passkey answers a challenge with (AuthenticationServices' platform assertion).
+public struct PasskeyAssertion: Sendable, Equatable {
+  public let credentialId: Data
+  public let clientDataJSON: Data
+  public let authenticatorData: Data
+  public let signature: Data
+  /// The account's id, as the passkey was made with it.
+  public let userHandle: Data?
+
+  public init(credentialId: Data, clientDataJSON: Data, authenticatorData: Data, signature: Data, userHandle: Data?) {
+    self.credentialId = credentialId
+    self.clientDataJSON = clientDataJSON
+    self.authenticatorData = authenticatorData
+    self.signature = signature
+    self.userHandle = userHandle
+  }
+
+  /// As a browser sends it (WebAuthn's AuthenticationResponseJSON), which the server checks.
+  var json: JSON {
+    let id = Base64URL.encode(credentialId)
+    var response: [String: JSON] = [
+      "clientDataJSON": .string(Base64URL.encode(clientDataJSON)),
+      "authenticatorData": .string(Base64URL.encode(authenticatorData)),
+      "signature": .string(Base64URL.encode(signature)),
+    ]
+    if let userHandle { response["userHandle"] = .string(Base64URL.encode(userHandle)) }
+    return .object(["id": .string(id), "rawId": .string(id), "type": .string("public-key"), "response": .object(response), "clientExtensionResults": .object([:]), "authenticatorAttachment": .string("platform")])
+  }
+}
+
+/// WebAuthn's base64url: `-` and `_`, no padding.
+public enum Base64URL {
+  public static func encode(_ d: Data) -> String {
+    d.base64EncodedString().replacingOccurrences(of: "+", with: "-").replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "=", with: "")
+  }
+  public static func decode(_ s: String) -> Data? {
+    guard !s.contains(where: { "+/=".contains($0) }) else { return nil }
+    var b = s.replacingOccurrences(of: "-", with: "+").replacingOccurrences(of: "_", with: "/")
+    b += String(repeating: "=", count: (4 - b.count % 4) % 4)
+    return Data(base64Encoded: b)
   }
 }
 
@@ -161,6 +211,21 @@ public struct AccountsClient: Sendable {
   /// had, if any, goes along: the server ends that session.
   public func emailVerify(flow: String, code: String, replacing token: String? = nil) async throws -> SignedIn {
     let o = try await call("POST", "/api/v1/auth/email/verify", token: token, body: ["flow": .string(flow), "code": .string(Self.codeDigits(code)), "client": .string("app")])
+    guard let token = o["token"]?.string else { throw AccountError.badReply }
+    return SignedIn(user: try AccountUser(o["user"]), token: token)
+  }
+
+  /// A challenge to sign in with any passkey of aquatome.com the phone has (503 `provider_off`: passkeys are off).
+  public func passkeyChallenge() async throws -> PasskeyChallenge {
+    let o = try await call("POST", "/api/v1/auth/passkey/options", body: [:])
+    guard let rp = o["rpId"]?.string, let c = o["challenge"]?.string.flatMap(Base64URL.decode), !c.isEmpty else { throw AccountError.badReply }
+    return PasskeyChallenge(rpId: rp, challenge: c)
+  }
+
+  /// Signs in with the passkey's answer to that challenge (401 `bad_passkey`: a passkey no account has, or an answer the
+  /// server can't check). The token this phone had, if any, goes along: the server ends that session.
+  public func signInWithPasskey(_ a: PasskeyAssertion, replacing token: String? = nil) async throws -> SignedIn {
+    let o = try await call("POST", "/api/v1/auth/passkey", token: token, body: ["response": a.json, "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
   }
