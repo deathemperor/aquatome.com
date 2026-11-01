@@ -17,10 +17,40 @@ function render(node: Node): string {
   return ALLOWED.has(tag) ? `<${tag}>${inner}</${tag}>` : inner
 }
 
-/** Allow-list sanitiser for translated HTML: no attributes, no active content. */
+/** Allow-list sanitiser for translated HTML: no attributes, no active content; a numbered list's headings tidied. */
 export function sanitizeHtml(html: string): string {
   const root = parse(html, { comment: false })
   const out = root.childNodes.map(render).join('').trim()
   const hasBlock = root.childNodes.some(n => n instanceof HTMLElement && BLOCK.has(n.rawTagName?.toLowerCase() ?? ''))
-  return out && !hasBlock ? `<p>${out}</p>` : out
+  return out && !hasBlock ? `<p>${out}</p>` : tidyHeadings(out)
+}
+
+/** A heading's own number: "#3 …", "3. …", "3) …", "Bước 3", "Top 3" (a heading that merely starts with a count, "10 loại cây", has none). */
+const OWN_NUMBER = /^(?:#\s?(\d+)|(\d+)[.):]\s|(?:top|bước|step|langkah|อันดับ|ขั้นที่)\s?(\d+)\b)/iu
+
+/**
+ * A heading with no number of its own between two numbered ones that follow each other (#3, "Xtreme Betta Pellets",
+ * #4) belongs to the item above it: it becomes that item's bold lead line, so neither the text nor the page's contents
+ * read it as one more item (2026-11-01, the betta foods guide's contents listed a pellet brand between #3 and #4).
+ * Countdowns (5, 4, 3) count the same way; an introduction or conclusion outside the run stays a heading.
+ */
+export function tidyHeadings(html: string): string {
+  if (!html.includes('<h3>')) return html
+  const root = parse(html)
+  const hs = root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement && n.rawTagName === 'h3')
+  const num = hs.map(h => { const m = h.text.trim().match(OWN_NUMBER); return m ? Number(m[1] ?? m[2] ?? m[3]) : undefined })
+  const known = num.filter((n): n is number => n !== undefined)
+  if (known.length < 2) return html
+  const steps = known.slice(1).map((n, i) => Math.sign(n - known[i]!))
+  const dir = steps.filter(s => s < 0).length > steps.filter(s => s > 0).length ? -1 : 1
+  let changed = false
+  hs.forEach((h, i) => {
+    if (num[i] !== undefined) return
+    const before = num.slice(0, i).filter(n => n !== undefined).at(-1)
+    const after = num.slice(i + 1).find(n => n !== undefined)
+    if (before === undefined || after === undefined || after - before !== dir) return
+    h.replaceWith(`<p><strong>${h.innerHTML}</strong></p>`)
+    changed = true
+  })
+  return changed ? root.toString() : html
 }

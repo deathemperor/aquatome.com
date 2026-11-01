@@ -16,7 +16,7 @@ export function withToc(html: string): { html: string; toc: TocEntry[] } {
     for (let i = 2; used.has(id); i++) id = `${base}-${i}`
     used.add(id)
     h.setAttribute('id', id)
-    toc.push({ id, text: text.replace(/^\d+[.)]\s+/, '') }) // the list numbers entries itself
+    toc.push({ id, text: text.replace(/^(?:\d+[.)]|#\s?\d+[.):]?)\s+/, '') }) // the list numbers entries itself ("1.", "#1")
   }
   return { html: toc.length ? root.toString() : html, toc }
 }

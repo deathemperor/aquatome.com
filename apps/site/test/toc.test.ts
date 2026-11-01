@@ -24,3 +24,8 @@ test('reading time: Thai counted by letters, not by spaces', () => {
   expect(readingMinutes(thai)).toBe(5)
   expect(readingMinutes(`<p>${'một '.repeat(690)}</p>`)).toBe(3)
 })
+
+test('a heading\'s own "#3" goes too, so the contents never read "3. #3"', () => {
+  const { toc } = withToc('<h3>#1 Trùn chỉ đỏ</h3><h3>#2. Giun đen</h3><h3>#10 loại</h3><h3>10 loài cá</h3>')
+  expect(toc.map(t => t.text)).toEqual(['Trùn chỉ đỏ', 'Giun đen', 'loại', '10 loài cá'])
+})
