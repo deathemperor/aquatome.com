@@ -110,6 +110,14 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   }
 }
 
+@Test func aShardCountPast32BitsIsNoCrash() {
+  // The index's `pages` is any whole number: one past the hash's 32 bits leaves every path in the shard it hashes to.
+  let path = "/vi/huong-dan/nuoi-ca-neon/"
+  let n = PageDoc.shard(of: path, count: 1 << 40)
+  #expect(n == PageDoc.shard(of: path, count: 1 << 33))
+  #expect(n >= 0 && n < 1 << 32)
+}
+
 @Test func aPageOfAnotherVersionIsNotReadAsThisOne() {
   var p = page([["t": "p", "c": ["Cá neon sống theo đàn."]]])
   p["v"] = 2

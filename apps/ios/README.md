@@ -114,8 +114,8 @@ A read-only check of the Tuya route against a real project (the owner's): `AQUAT
 and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the list once, switches nothing, and prints
 counts only.
 
-The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json` and `protocols/tankmates-vectors.json`,
-the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
+The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
+`protocols/filter-vectors.json` and `protocols/page-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 

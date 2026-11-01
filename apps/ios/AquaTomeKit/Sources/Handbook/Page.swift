@@ -224,7 +224,7 @@ public struct PageDoc: Sendable {
   public static func shard(of path: String, count: Int) -> Int {
     var h: UInt32 = 0x811c_9dc5
     for b in path.utf8 { h = (h ^ UInt32(b)) &* 0x0100_0193 }
-    return Int(h % UInt32(max(count, 1)))
+    return Int(h) % max(count, 1)
   }
 }
 
