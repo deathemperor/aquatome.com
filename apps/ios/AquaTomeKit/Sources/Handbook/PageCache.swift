@@ -39,10 +39,12 @@ public actor PageCache {
   }
 
   /// The pages at `paths` kept for reading offline: each one's shard read from the site now, unless it was this run,
-  /// and kept on the phone. Returns those the site (or, offline, the phone) has, in order.
+  /// and kept on the phone. Returns those the site (or, offline, the phone) has, in order. A stop (the task cancelled)
+  /// reads no further shard.
   public func keep(_ paths: [String], kind: String, lang: String, count: Int) async -> [PageDoc] {
     var out: [PageDoc] = []
     for p in paths {
+      if Task.isCancelled { break }
       let (key, url) = place(p, kind: kind, lang: lang, count: count)
       fromPhone(key)
       if !fresh.contains(key) { await fetchNow(key, url) }

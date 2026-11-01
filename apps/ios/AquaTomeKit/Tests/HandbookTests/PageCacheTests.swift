@@ -176,3 +176,29 @@ private func docOf(_ path: String, _ pictures: [String]) -> PageDoc { PageShard(
   #expect(!FileManager.default.fileExists(atPath: file))
   #expect(await cache(dir, Site(nil)).doc(path: b, kind: "guide", lang: "vi", count: 1) == nil, "gone from the phone")
 }
+
+@Test func aStoppedKeepReadsNoFurtherShard() async {
+  let s = Site(shard("Một."))
+  let c = cache(tmp(), s)
+  // Three pages in three shards; stopped before it starts, none is read.
+  let paths = (0..<64).map { "/vi/huong-dan/bai-\($0)/" }
+  let three = Array(Dictionary(grouping: paths) { PageDoc.shard(of: $0, count: 32) }.values.prefix(3).map { $0[0] })
+  let docs = await Task {
+    withUnsafeCurrentTask { $0?.cancel() }
+    return await c.keep(three, kind: "guide", lang: "vi", count: 32)
+  }.value
+  #expect(docs.isEmpty)
+  #expect(await s.count == 0)
+}
+
+@Test func keptPicturesAreFilesThatOutlastTheRun() {
+  let dir = tmp(), src = "https://media.aquatome.com/a/neon-lead.webp"
+  let kept = KeptPictures(dir: dir)
+  #expect(kept.data(src) == nil)
+  #expect(kept.save(Data("ảnh".utf8), for: src))
+  // Another launch: the same file.
+  #expect(KeptPictures(dir: dir).data(src) == Data("ảnh".utf8))
+  #expect(KeptPictures(dir: dir).data(src + "?2") == nil)
+  kept.remove(src)
+  #expect(KeptPictures(dir: dir).data(src) == nil)
+}
