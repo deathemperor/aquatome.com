@@ -179,6 +179,16 @@ The layers above still check the result.
     reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
+  - **The right subject.** `pnpm engine check-photos` (each photos cycle, and the Mac's video job) shows the model every
+    photo on a species, plant or breed page and its gallery, 6 to a sheet, with the scientific name, the page's names
+    and, for a breed, what sets it apart. Verdicts: shows it, its wild habitat, something else (it says what), not a
+    photo of it (a map, chart, hands, a tank, a packshot), or can't tell. "Something else" and "not a photo of it" leave
+    the page; a photo no page keeps joins `_photo-rejected.json`. Can't tell stays and is listed in
+    `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; nothing is
+    pulled in to replace it). A guide photo whose caption names one fish is judged against it, and only "something
+    else" leaves a guide. Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
+    the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
+    page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
     GBIF photos are copied to our media bucket with the credit kept.

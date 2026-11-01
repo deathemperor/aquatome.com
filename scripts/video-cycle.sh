@@ -30,6 +30,9 @@ log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 pnpm engine video-items --limit 20 || log "video-items: failed"
 pnpm engine discover-videos || log "discover-videos: failed"
+# Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
+# 20 calls a run, most-read pages first, verdicts cached.
+pnpm engine check-photos --limit 20 || log "check-photos: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
 if [ -z "$(git status --porcelain -- content engine-state)" ]; then log "no changes"; exit 0; fi
