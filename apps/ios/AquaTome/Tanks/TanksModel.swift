@@ -27,7 +27,9 @@ final class TanksModel {
   var tanks: [Tank] { store.liveTanks }
   func devices(in tank: Tank) -> [Device] { store.devices(in: tank.id) }
   /// Nothing to add to while the store on the phone isn't this app's to write; after a failed save, try again.
-  var canAdd: Bool { (problem == nil || problem == .saveFailed) && tanks.count < maxTanks }
+  var canAdd: Bool { canEdit && tanks.count < maxTanks }
+  /// Whether this phone's store is this app's to write (none newer or unreadable is there); after a failed save, try again.
+  var canEdit: Bool { problem == nil || problem == .saveFailed }
 
   /// The store as JSON, for "Tải bản sao" (the same file the site downloads).
   func exportData() -> Data? { try? store.data() }
@@ -35,17 +37,24 @@ final class TanksModel {
   // MARK: Edits: each one saved at once. A store this app can't keep whole is never written over.
 
   @discardableResult
-  func add(_ f: TankFields) throws -> Tank {
+  func add(_ f: TankFields) throws -> Tank { try add(named: f.name) { f.apply(to: &$0) } }
+
+  func update(_ id: String, _ f: TankFields) throws { try change(id) { f.apply(to: &$0) } }
+
+  /// A new tank, with what `change` gives it (its fields, a fish), saved as one edit.
+  @discardableResult
+  func add(named name: String, _ change: (inout Tank) -> Void) throws -> Tank {
     var s = store
-    let t = try s.addTank(name: f.name)
-    try s.updateTank(t.id) { f.apply(to: &$0) }
+    let t = try s.addTank(name: name)
+    try s.updateTank(t.id) { change(&$0) }
     try commit(s)
     return s.tank(t.id) ?? t
   }
 
-  func update(_ id: String, _ f: TankFields) throws {
+  /// A change to a tank (its fields, its fish and plants).
+  func change(_ id: String, _ change: (inout Tank) -> Void) throws {
     var s = store
-    try s.updateTank(id) { f.apply(to: &$0) }
+    try s.updateTank(id) { change(&$0) }
     try commit(s)
   }
 

@@ -193,6 +193,22 @@
         }
       }
     },
+    "Bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลา"
+          }
+        }
+      }
+    },
     "Bể của tôi": {
       "localizations": {
         "id": {
@@ -205,6 +221,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Bể mới": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium baru"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ใหม่"
           }
         }
       }
@@ -1057,6 +1089,22 @@
         }
       }
     },
+    "Lưu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึก"
+          }
+        }
+      }
+    },
     "Lưu bể": {
       "localizations": {
         "id": {
@@ -1361,6 +1409,22 @@
         }
       }
     },
+    "Số con": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jumlah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จำนวน"
+          }
+        }
+      }
+    },
     "Sửa": {
       "localizations": {
         "id": {
@@ -1437,6 +1501,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มตู้แรกเพื่อบันทึกขนาด วัสดุปูพื้น และบันทึก"
+          }
+        }
+      }
+    },
+    "Thêm cá hoặc cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah ikan atau tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลาหรือไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Thêm vào bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan ke akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มลงตู้"
           }
         }
       }
@@ -1569,6 +1665,22 @@
         }
       }
     },
+    "Tìm loài cá, cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari ikan, tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค้นหาชนิดปลา ไม้น้ำ"
+          }
+        }
+      }
+    },
     "Tìm loài cá, cây, hướng dẫn": {
       "localizations": {
         "id": {
@@ -1693,6 +1805,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เขียว"
+          }
+        }
+      }
+    },
+    "Xem trong Bể của tôi →": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat di Akuarium Saya →"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xong": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสร็จ"
           }
         }
       }
@@ -2045,6 +2189,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เคยบันทึกตู้ปลาไว้บน aquatome.com หรืออุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อดึงข้อมูลกลับมา"
+          }
+        }
+      }
+    },
+    "Đã lưu vào “%@”.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tersimpan di “%@”."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกไว้ใน “%@” แล้ว"
           }
         }
       }
